@@ -79,7 +79,7 @@ O JSON seguinte mostra o esquema para a extensão de agente de dependência de V
 | Name | Valor/exemplo |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| publicador | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 

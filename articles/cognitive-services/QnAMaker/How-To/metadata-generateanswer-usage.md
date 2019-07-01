@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: 99c076d7f26638833b568935e766cf319d21945e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b691d447f51165ea3cb56410da9cd2d4d00ce913
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443476"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490192"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta com a API de GenerateAnswer e metadados
 
@@ -73,7 +73,7 @@ O URL de GenerateAnswer tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Não se esqueça de definir a propriedade de cabeçalho HTTP do `Authorization` com um valor da cadeia de caracteres `EndpointKey ` com à direita do espaço, em seguida, a chave de ponto de extremidade encontrada no **definições** página.
+Não se esqueça de definir a propriedade de cabeçalho HTTP do `Authorization` com um valor da cadeia de caracteres `EndpointKey` com à direita do espaço, em seguida, a chave de ponto de extremidade encontrada no **definições** página.
 
 Um exemplo de corpo JSON é semelhante a:
 

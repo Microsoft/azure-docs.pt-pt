@@ -52,7 +52,7 @@ sections:
           - image:
               src: media/index/storm_r.svg
             text: Apache Storm
-            href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
+            href: /azure/hdinsight/storm/apache-storm-quickstart
           - image:
               src: media/index/ml-server_r.svg
             text: Serviços ML
@@ -79,7 +79,7 @@ sections:
           - title: Ferramentas
             html: '<p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin">Ferramenta do HDInsight para IntelliJ</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-eclipse-tool-plugin">Ferramenta do HDInsight para Eclipse</a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode">Ferramenta do HDInsight para VSCode </a></p><p><a href="https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started">Ferramenta do HDInsight para Visual Studio</a></p>'
           - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.hdinsight">O Azure PowerShell</a></p>
+            html: <p><a href="/powershell/module/az.hdinsight">Azure PowerShell</a></p>
           - title: Linguagens
             html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight">.NET (Hadoop)</a></p><p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>'
           - title: REST

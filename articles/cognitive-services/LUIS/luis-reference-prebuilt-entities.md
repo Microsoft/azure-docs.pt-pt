@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 729d5d1c9ad21654fbd5923b9f3ffacc3b709ef0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 082ebaef9a2497899cf91c24435dea6e626f0041
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388795"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485142"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo do LUIS
 
@@ -51,6 +51,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -72,6 +73,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -93,6 +95,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    ✔   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -113,7 +116,8 @@ As entidades a seguir são suportadas:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -135,6 +139,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -155,7 +160,8 @@ As entidades a seguir são suportadas:
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -177,6 +183,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -198,6 +205,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -219,6 +227,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    -   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -240,6 +249,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -261,6 +271,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
@@ -282,6 +293,7 @@ As entidades a seguir são suportadas:
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Número](luis-reference-prebuilt-number.md)   |    ✔   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentagem](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [PhoneNumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 

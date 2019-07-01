@@ -9,20 +9,24 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2efc48df906117a8d01ea8c309f001d2f623444f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431138"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485081"
 ---
 # <a name="whats-new-in-language-understanding"></a>O que há de novo na compreensão de idiomas
 
 Saiba o que há de novo no serviço. Estes itens podem notas de versão, vídeos, postagens em blogs e outros tipos de informações. Marque esta página para manter atualizado com o serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
+
+### <a name="june-24-2019"></a>24 de Junho de 2019
+
+* [OrdinalV2 entidade pré-criados](luis-reference-prebuilt-ordinal-v2.md) para suportar a ordenação, por exemplo, em seguida, anterior e o último. Apenas cultura em inglês.
 
 ### <a name="may-6-2019---build-conference"></a>6 de Maio de 2019 - conferência //Build
 

@@ -11,16 +11,17 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 09296585ab0ab61f39c18cae6c533c0bbd91926a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 609443a4926fabd991846faee4a0a7dffe3a696b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449251"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490183"
 ---
 # <a name="release-notes"></a>Notas de versão
 
 ## <a name="speech-sdk-160-2019-june-release"></a>Voz SDK 1.6.0: Versão de Junho de 2019
+
 **Amostras**
 *   Exemplos de início rápido para texto em voz em UWP e o Unity
 *   Exemplo de início rápido para Swift no iOS
@@ -35,6 +36,9 @@ ms.locfileid: "67449251"
     * Todos os clientes de voz de linha direta existentes continuam a ser suportada após a mudança de nome
 * Atualizar placa de REST de TTS para suportar o proxy, ligação persistente
 * Melhorar a mensagem de erro quando é passada uma região inválida
+* SWIFT/Objective-c:
+    * Relatórios de erros aprimorados: Métodos que podem resultar num erro agora estão presentes em duas versões: Um que expõe um `NSError` objeto para manipulação de erros e que gerará uma exceção. O primeiro está exposto a Swift. Esta alteração requer adaptações de código Swift existente.
+    * Manipulação de eventos aprimorado
 
 **Correções de erros**
 *   Correção para TTS: onde SpeakTextAsync futuro devolvido sem ter de esperar até que o áudio tem composição foi concluída
@@ -43,6 +47,8 @@ ms.locfileid: "67449251"
 *   Correção para problemas ocasionais implementar as bibliotecas nativas para a pasta de saída nos exemplos
 *   Correção de socket web fechar de forma fiável
 *   Correção para possíveis falhas ao abrir uma ligação sob uma carga muito pesada no Linux
+*   Correção para metadados em falta no pacote de estrutura para macOS
+*   Corrigir problemas com `pip install --user` no Windows
 
 
 ## <a name="speech-sdk-151"></a>1\.5.1 do SDK de voz
