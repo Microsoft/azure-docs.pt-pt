@@ -447,6 +447,18 @@
                   href: app/proactive-arm-config.md
                 - name: Notificação por e-mail
                   href: app/proactive-email-notification.md
+            - name: Disponibilidade
+              items:
+                - name: Testes de URL
+                  href: app/monitor-web-app-availability.md
+                - name: Testes de vários passos
+                  href: app/availability-multistep.md
+                - name: Alertas de disponibilidade
+                  href: app/availability-alerts.md
+                - name: Resolução de problemas
+                  href: app/troubleshoot-availability.md
+            - name: Teste de desempenho
+              href: app/performance-testing.md
             - name: Criar um recurso
               href: app/create-new-resource.md
             - name: Dados de aplicação do Log Analytics
@@ -554,6 +566,8 @@
                       href: insights/container-insights-enable-existing-clusters.md
                 - name: Analisar
                   href: insights/container-insights-analyze.md
+                - name: Configurar definições da coleção de agente
+                  href: insights/container-insights-agent-config.md
                 - name: Desativar a monitorização
                   href: insights/container-insights-optout.md
                 - name: Ver registos em direto
@@ -795,8 +809,6 @@
           items:
             - name: Regras de alerta de aplicação
               items:
-                - name: Disponibilidade
-                  href: app/monitor-web-app-availability.md
                 - name: Alertas de métricas
                   href: app/alerts.md
             - name: Regras de alerta de métricas de plataforma

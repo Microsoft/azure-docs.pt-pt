@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 06/13/2019
+ms.date: 06/24/2019
 ms.author: dacoulte
-ms.openlocfilehash: 0345ba564ea244011a83f69e6c152d236b95a920
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: be192e077485b8c7b060ad6627123157a302b039
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272184"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341059"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -25,6 +25,7 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 | [Serviços Partilhados ISO 27001](./iso27001-shared/index.md) | Fornece um conjunto de grades de proteção de políticas e padrões de infraestrutura conformes que contribuem para o atestado da norma ISO 27001. |
 | [Carga de trabalho da Base de Dados SQL/Ambiente do Serviço de Aplicações ISO 27001](./iso27001-ase-sql-workload/index.md) | Fornece uma infraestrutura adicional para o exemplo de esquema [Serviços Partilhados ISO 27001](./iso27001-shared/index.md). |
 | [Governação UK OFFICIAL](./ukofficial/control-mapping.md) | Fornece um conjunto de princípios de proteção de políticas e padrões de infraestrutura conformes que contribuem para o atestado UK OFFICIAL. |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/control-mapping.md) | Fornece proteções para conformidade com NIST SP 800-53 R4. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
