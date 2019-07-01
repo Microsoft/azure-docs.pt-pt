@@ -73,6 +73,7 @@
       "searchScope": [
         "Azure"
       ],
+      "disable_contribution_on_translation_quality": ["MT"],
       "contributors_to_exclude": [
         "PRMerger9",
         "PRMerger17",
