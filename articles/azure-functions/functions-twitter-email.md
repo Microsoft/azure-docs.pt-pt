@@ -4,19 +4,19 @@ description: Crie uma função que se integra no Azure Logic Apps e nos Serviço
 services: functions, logic-apps, cognitive-services
 keywords: fluxo de trabalho, aplicações na cloud, serviços cloud, processos empresariais, integração de sistemas, integração de aplicações empresariais, EAI
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61037136"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480021"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra no Azure Logic Apps
 
@@ -58,7 +58,7 @@ As APIs dos Serviços Cognitivos estão disponíveis no Azure como recursos indi
     | Definição      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
-    | **Localização** | EUA Oeste | Utilize a localização mais próxima de si. |
+    | **Location** | EUA Oeste | Utilize a localização mais próxima de si. |
     | **Escalão de preço** | F0 | Comece com o escalão mais baixo. Se ficar sem chamadas, aumente para um escalão superior.|
     | **Grupo de recursos** | myResourceGroup | Utilize o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
@@ -80,7 +80,7 @@ As Funções proporcionam uma excelente forma de descarregar tarefas de processa
 
 ## <a name="create-an-http-triggered-function"></a>Criar uma função acionada por HTTP  
 
-1. Expanda a aplicação de funções e clique no botão **+**, junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
+1. Expanda a aplicação de funções e clique no botão **+** , junto a **Funções**. Se esta for a primeira função na sua aplicação de funções, selecione **No portal**.
 
     ![Página de início rápido das funções no portal do Azure](media/functions-twitter-email/05-function-app-create-portal.png)
 
@@ -145,7 +145,7 @@ Agora, tem uma função que categoriza classificações de sentimentos. Em segui
     | ----------------- | ------------ | ------------- |
     | **Nome** | TweetSentiment | Escolha um nome adequado para a sua aplicação. |
     | **Grupo de recursos** | myResourceGroup | Escolha o mesmo grupo de recursos que utilizou anteriormente. |
-    | **Localização** | EUA Leste | Escolha uma localização perto de si. |    
+    | **Location** | EUA Leste | Escolha uma localização perto de si. |    
 
 4. Depois de introduzir os valores de definições apropriadas, clique em **Criar** para criar a sua aplicação lógica. 
 

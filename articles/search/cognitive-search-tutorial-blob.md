@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: fb45d2e36939a53d6242cf7cd5a0b9f1990780c3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299041"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485782"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial REST: Chamar APIs serviços cognitivos num pipeline de indexação do Azure Search
 
@@ -61,7 +61,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
-![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter uma chave de acesso e de ponto final HTTP](media/search-get-started-postman/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
 
 Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -89,7 +89,7 @@ Existem outras formas de especificar a cadeia de ligação, por exemplo, fornece
 
 ## <a name="set-up-postman"></a>Configurar o Postman
 
-Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explore pesquisa APIs REST do Azure com o Postman](search-fiddler.md).
+Inicie o Postman e configure um pedido de HTTP. Se não estiver familiarizado com essa ferramenta, consulte [Explore pesquisa APIs REST do Azure com o Postman](search-get-started-postman.md).
 
 Os métodos de pedido utilizados neste tutorial são **POST**, **colocar**, e **obter**. As chaves de cabeçalho são "Content-type" definido como "application/json" e um "api-key" definido como uma chave de administração do seu serviço de Azure Search. O corpo é onde vai colocar o conteúdo efetivo da chamada. 
 

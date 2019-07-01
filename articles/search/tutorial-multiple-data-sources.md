@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: v-rodixo
 ms.custom: seodec2018
-ms.openlocfilehash: 4186c422836771de4f8a283616d77214b91bfc02
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 8ce3c66432f3d2d0cb973886498aa46e7820698c
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462703"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485273"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Tutorial: Combinar dados de várias origens de dados num índice da Azure Search
 
@@ -28,7 +28,7 @@ Este tutorial utiliza o C#, o SDK de .NET para Azure Search e o portal do Azure 
 > * Carregar dados de exemplo e criar origens de dados
 > * Identificar a chave do documento
 > * Definir e criar o índice
-> * Índice hotel dados do cosmos DB
+> * Dados de hotel de índice do Azure Cosmos DB
 > * Intercalar dados de sala de hotel de armazenamento de BLOBs
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -61,7 +61,7 @@ Para interagir com o serviço Azure Search, terá do URL do serviço e uma chave
 
 1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
-![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter uma chave de acesso e de ponto final HTTP](media/search-get-started-postman/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
 
 Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -134,7 +134,7 @@ Durante a indexação dos dados de várias origens de dados, cada valor de chave
 
 Indexadores do Azure Search podem utilizar os mapeamentos de campo para mudar o nome e até mesmo reformatar os campos de dados durante o processo de indexação, para que os dados de origem podem ser direcionados para o campo de índice correto.
 
-Por exemplo, nos nossos dados do cosmos DB de exemplo, o identificador de hotel é designado **HotelId**. Mas o identificador de hotel com o nome dos ficheiros de blob JSON para os ambientes de hotel, **Id**. O programa lida com isso, mapeando os **Id** campo de blobs para o **HotelId** campo de chave no índice.
+Por exemplo, nos nossos dados do Azure Cosmos DB de exemplo, o identificador de hotel é designado **HotelId**. Mas o identificador de hotel com o nome dos ficheiros de blob JSON para os ambientes de hotel, **Id**. O programa lida com isso, mapeando os **Id** campo de blobs para o **HotelId** campo de chave no índice.
 
 > [!NOTE]
 > Na maioria dos casos chaves de documento gerado automaticamente, como aqueles criados por predefinição, algumas indexadores, não faça chaves de documento boa para índices combinadas. Em geral irá querer utilizar um valor de chave com significado, exclusivo que já existe no, ou pode ser adicionados facilmente para as origens de dados.
@@ -146,8 +146,8 @@ Assim que são as definições de configuração e dados no local, o exemplo de 
 Esta simples C#/aplicação de consola .NET realiza as seguintes tarefas:
 * Cria um novo índice da Azure Search com base na estrutura de dados do C# classe de Hotel (que também faz referência as classes de endereço e espaço).
 * Cria uma origem de dados do Azure Cosmos DB e um indexador que mapeia os dados do Azure Cosmos DB para campos de índice.
-* É executado o indexador de cosmos DB para carregar dados de Hotel.
-* Cria uma origem de dados do armazenamento de Blobs do Azure e um indexador que mapeia os dados de JSOn Blob para campos de índice.
+* É executado o indexador do Azure Cosmos DB para carregar dados de Hotel.
+* Cria uma origem de dados do armazenamento de Blobs do Azure e um indexador que mapeia os dados de blob JSON para campos de índice.
 * É executado o indexador do armazenamento de Blobs do Azure para carregar dados de salas.
 
  Antes de executar o programa, reserve um tempo para estudar o código e as definições de índice e indexador para este exemplo. O código relevante está em dois ficheiros:

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
-ms.openlocfilehash: 3eb65b5d41317a4cfc31917a4b08d931ba9c7aa6
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 49e39a40093f2efdf0fabbbf9f383576b2cebe22
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466618"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484999"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no macOS com o SDK de voz
 
@@ -34,7 +34,7 @@ Antes de começar, eis uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.5.1`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
 O SDK de voz dos serviços cognitivos para Mac é distribuído como um pacote do framework.
 Ele pode ser usado em projetos do Xcode como um [CocoaPod](https://cocoapods.org/), ou transferidas a partir https://aka.ms/csspeech/macosbinary e ligada manualmente. Este guia utiliza um CocoaPod.

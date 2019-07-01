@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 52725950be24e5c84bd16f17bb2d079b58612a37
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3573e136c1a830cd75aba0725b4bf087bcd63869
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058312"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485968"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo de C IoT Edge para dispositivos Windows
 
@@ -62,7 +62,7 @@ Antes de iniciar este tutorial, deve já leu o tutorial anterior para configurar
    ```
    
 > [!TIP]
-> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), transfira e instale [ferramentas do Azure IoT Edge (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do Visual Studio marketplace
+> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), transfira e instale [ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do Visual Studio marketplace
 
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 

@@ -2,18 +2,18 @@
 title: 'Tutorial: Implementar o Azure Digital Twins | Microsoft Docs'
 description: Saiba como implementar a sua instância do duplos Digital do Azure e configurar os seus recursos espaciais, utilizando os passos neste tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.author: dkshir
-ms.openlocfilehash: f826c6652937caab8b140b489626eef97612baea
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462212"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484695"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implementar a pré-visualização de duplos Digital do Azure e configurar um gráfico espacial
 

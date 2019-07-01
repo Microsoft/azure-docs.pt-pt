@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: aca7a114fb6e00ab1bbf6ab24492056fca3059f4
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 023bb95eb55c88c7da548af003132bb391fdb7ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466631"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484983"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 
@@ -35,7 +35,7 @@ Antes de começar, eis uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Voz dos Serviços Cognitivos é `1.5.1`.
+A versão atual do SDK de Voz dos Serviços Cognitivos é `1.6.0`.
 
 O SDK de voz dos serviços cognitivos para iOS atualmente é distribuído como uma estrutura de Cocoa.
 Pode ser transferido a partir [aqui](https://aka.ms/csspeech/iosbinary). Transfira o ficheiro para o diretório raiz.

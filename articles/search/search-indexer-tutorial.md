@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025073"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485391"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Tutorial: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
 
@@ -58,7 +58,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
-![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter uma chave de acesso e de ponto final HTTP](media/search-get-started-postman/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
 
 Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -99,7 +99,7 @@ O exercício seguinte pressupõe que não existe nenhum servidor o base de dados
 
    ![Página Base de dados SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. No painel de navegação, clique em **editor de consultas (pré-visualização)**.
+4. No painel de navegação, clique em **editor de consultas (pré-visualização)** .
 
 5. Clique em **Iniciar sessão** e introduza o nome de utilizador e a palavra-passe de administrador do servidor.
 
