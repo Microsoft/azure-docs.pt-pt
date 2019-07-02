@@ -267,13 +267,13 @@
           items:
             - name: Descrição geral
               href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: Utilizar a CLI
+            - name: Utilizar a CLI do Azure
               href: image-builder.md
-            - name: Utilizar com galerias
+            - name: Criar para galerias de imagens
               href: image-builder-gallery.md
-            - name: Atualizar uma versão de imagem
+            - name: Atualizar uma imagem existente
               href: image-builder-gallery-update-image-version.md
-            - name: Utilizar scripts no Armazenamento do Azure
+            - name: Armazenar scripts
               href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Referência de modelo
               href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json

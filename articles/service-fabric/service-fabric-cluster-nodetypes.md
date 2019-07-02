@@ -74,7 +74,7 @@ Este é um trecho de código de extensão da máquina de Virtual de recursos de 
 
 Seguem-se as descrições de propriedade:
 
-| **Nome** | **Valores permitidos** | ** --- ** | **Documentação de orientação ou descrição breve** |
+| **Name** | **Valores permitidos** | ** --- ** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
 | name | string | --- | nome exclusivo para a extensão |
 | type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifica recursos de infraestrutura de serviço de sistema operacional é de inicialização para |

@@ -481,6 +481,9 @@
     - name: Cofre de Chaves
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Azure Kinect DK
+      tocHref: /azure/kinect-dk/
+      topicHref: /azure/kinect-dk/
     - name: Serviços de Laboratório
       tocHref: /azure/lab-services/
       topicHref: /azure/lab-services/

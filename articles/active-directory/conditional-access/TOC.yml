@@ -19,6 +19,8 @@
 - name: Conceitos
   expanded: false
   items:
+    - name: Adotar o Acesso Condicional
+      href: howto-conditional-access-adoption-kit.md
     - name: Políticas de proteção de linha de base
       href: concept-baseline-protection.md
     - name: Condições

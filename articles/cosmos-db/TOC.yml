@@ -121,6 +121,69 @@
         - name: Aprovisionar débito em contentores e bases de dados
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+    - name: Referência de consulta SQL
+      items:
+        - name: Introdução
+          displayName: 'sql query, query basics'
+          href: sql-query-getting-started.md
+        - name: Cláusulas
+          items:
+            - name: SELECIONAR
+              displayName: 'select, select clause'
+              href: sql-query-select.md
+            - name: FROM
+              displayName: 'from, from clause'
+              href: sql-query-from.md
+            - name: WHERE
+              displayName: 'where, where clause'
+              href: sql-query-where.md
+            - name: ORDENAR POR
+              displayName: 'order by, order by clause'
+              href: sql-query-order-by.md
+            - name: LIMITE DE DESLOCAMENTO
+              displayName: offset limit
+              href: sql-query-offset-limit.md
+        - name: Subconsulta
+          displayName: 'subquery, exists'
+          href: sql-query-subquery.md
+        - name: Associações
+          displayName: join
+          href: sql-query-join.md
+        - name: Aliasing
+          displayName: 'alias, aliasing'
+          href: sql-query-aliasing.md
+        - name: Matrizes e objetos
+          displayName: 'object and array creation, object and array'
+          href: sql-query-object-array.md
+        - name: Palavras-chave
+          displayName: 'keywords, distinct, between, in, top'
+          href: sql-query-keywords.md
+        - name: Operadores
+          displayName: 'operators, operator, logical operators, equality, comparison'
+          href: sql-query-operators.md
+        - name: Expressões escalares
+          displayName: 'scalar expressions, scalar'
+          href: sql-query-scalar-expressions.md
+        - name: Funções
+          items:
+            - name: Funções definidas pelo utilizador
+              displayName: 'functions, udf'
+              href: sql-query-udfs.md
+            - name: Agregados
+              displayName: 'functions, aggregate'
+              href: sql-query-aggregates.md
+            - name: Funções de sistema
+              displayName: 'functions, system functions, built-in functions'
+              href: sql-query-system-functions.md
+        - name: Consulta parametrizada
+          displayName: 'parameterized query, parameterized, parameter, parameters'
+          href: sql-query-parameterized-queries.md
+        - name: LINQ para SQL
+          displayName: 'linq, .NET'
+          href: sql-query-linq-to-sql.md
+        - name: Execução de consulta SQL
+          displayName: 'query performance, query execution'
+          href: sql-query-execution.md
     - name: Trabalhar com uma conta do Azure Cosmos
       href: account-overview.md
     - name: Contentores e itens
@@ -128,12 +191,6 @@
         - name: 'Trabalhar com bases de dados, contentores e itens'
           displayName: 'collection, document'
           href: databases-containers-items.md
-        - name: Referência da linguagem SQL
-          displayName: 'collection, document'
-          href: sql-api-query-reference.md
-        - name: Exemplos de consultas SQL
-          displayName: 'collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains'
-          href: how-to-sql-query.md
         - name: Dados de documento do modelo
           displayName: document
           href: modeling-data.md
@@ -351,6 +408,8 @@
               href: connect-mongodb-account.md
             - name: Ligar com o Studio 3T
               href: mongodb-mongochef.md
+            - name: Ligar com o Compass
+              href: mongodb-compass.md
             - name: Ligar com o Robomongo
               href: mongodb-robomongo.md
             - name: Ligar com o Mongoose
@@ -548,9 +607,6 @@
           href: how-to-manage-indexing-policy.md
         - name: Definir chaves exclusivas
           href: how-to-define-unique-keys.md
-        - name: Exemplos de subconsultas SQL
-          displayName: 'subquery, exists'
-          href: how-to-sql-subquery.md
     - name: Melhores práticas
       items:
         - name: Sugestões de desempenho
@@ -712,7 +768,9 @@
     - name: Fornecedor de Recursos REST
       href: /rest/api/cosmos-db-resource-provider/
     - name: Modelo do Resource Manager
-      href: /templates/microsoft.documentdb/allversions
+      href: /azure/templates/microsoft.documentdb/allversions
+    - name: Notas de versão do emulador
+      href: local-emulator-release-notes.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

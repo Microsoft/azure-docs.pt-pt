@@ -363,6 +363,8 @@
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Fórum de redes
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Comentários sobre a rede
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/virtual-network'
     - name: Calculadora de preços

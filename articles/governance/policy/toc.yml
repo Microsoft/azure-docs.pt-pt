@@ -260,6 +260,9 @@
     - name: Compreender os efeitos do Policy
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy para o Kubernetes
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Auditar VMs com a Configuração de Convidado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

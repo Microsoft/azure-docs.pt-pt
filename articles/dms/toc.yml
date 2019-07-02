@@ -54,8 +54,10 @@
       href: pre-reqs.md
     - name: Topologias de rede para as migrações da Instância Gerida da BD SQL do Azure
       href: resource-network-topologies.md
-    - name: Problemas conhecidos
+    - name: Resolução de problemas e problemas conhecidos
       items:
+        - name: Resolver problemas de conectividade da base de dados de origem
+          href: known-issues-troubleshooting-dms-source-connectivity.md
         - name: Resolver problemas e erros comuns
           href: known-issues-troubleshooting-dms.md
         - name: Problemas Conhecidos - Migração online para a BD SQL do Azure

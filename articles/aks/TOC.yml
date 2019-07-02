@@ -19,6 +19,8 @@
     - name: Programar aplicações
       expanded: true
       items:
+        - name: Utilizar Rascunho
+          href: kubernetes-draft.md
         - name: Utilizar Java (VS Code e CLI)
           href: ../dev-spaces/quickstart-java.md
           maintainContext: true
@@ -153,6 +155,8 @@
               href: configure-azure-cni.md
         - name: Criar um balanceador de carga interno
           href: internal-lb.md
+        - name: Utilizar um Balanceador de Carga Standard (pré-visualização)
+          href: load-balancer-standard.md
         - name: Utilizar um endereço IP estático
           href: static-ip.md
         - name: Entrada
@@ -187,6 +191,8 @@
           href: use-pod-security-policies.md
         - name: Definir os intervalos de IP autorizados por servidor de API (pré-visualização)
           href: api-server-authorized-ip-ranges.md
+        - name: Controlar implementações com o Azure Policy (pré-visualização)
+          href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
         - name: Atualizar as credenciais do principal de serviço do cluster
           href: update-credentials.md
         - name: Restringir e controlar o tráfego de saída do cluster (pré-visualização)
@@ -280,8 +286,6 @@
                   maintainContext: true
         - name: Executar aplicações com Helm
           href: kubernetes-helm.md
-        - name: Programar aplicações com Draft
-          href: kubernetes-draft.md
         - name: Utilizar o Open Service Broker para o Azure
           href: integrate-azure.md
         - name: Utilize a API do Cosmos DB para MongoDB com o OSBA

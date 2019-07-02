@@ -66,6 +66,8 @@
           href: how-to-navigate-apis.md
         - name: Padrões de consulta comuns
           href: how-to-query-common-apis.md
+    - name: Registar a sua aplicação com o AAD legado
+      href: how-to-use-legacy-aad.md
 - name: Referência
   items:
     - name: Biblioteca de cliente de funções definidas pelo utilizador

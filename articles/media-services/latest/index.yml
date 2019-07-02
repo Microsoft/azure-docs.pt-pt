@@ -55,34 +55,22 @@ sections:
         className: cardsM
         columns: 1
         items:
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>O tutorial carrega um ficheiro de vídeo local, codifica o ficheiro e transmite o conteúdo codificado.<p/>'
+          - html: '<p>O tutorial carrega um ficheiro de vídeo local, codifica o ficheiro e transmite o conteúdo codificado.<p/>'
             href: /azure/media-services/latest/stream-files-tutorial-with-api
             title: Codificar o ficheiro carregado e transmitir o vídeo
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>O tutorial explica como configurar um evento em direto. Em seguida, mostra como utilizar o .NET para criar um evento em direto do tipo pass-through.</p>'
+          - html: '<p>O tutorial explica como configurar um evento em direto. Em seguida, mostra como criar um evento em direto do tipo pass-through.</p>'
             href: /azure/media-services/latest/stream-live-tutorial-with-api
             title: Transmitir em direto
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Este tutorial mostra-lhe como analisar vídeos com a API dos Serviços de Multimédia do Azure.</p>
+          - html: <p>Este tutorial mostra-lhe como analisar vídeos com a API dos Serviços de Multimédia do Azure.</p>
             href: /azure/media-services/latest/analyze-videos-tutorial-with-api
             title: Analisar o seu vídeo
-          - image:
-              src: media/index/dotnet.svg
-            html: <p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com AES-128.</p>
+          - html: <p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com AES-128.</p>
             href: /azure/media-services/latest/protect-with-aes128
             title: Encriptar de forma dinâmica com AES-128
-          - image:
-              src: media/index/dotnet.svg
-            html: '<p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com multi-DRM (PlayReady, Widevine e FairPlay).</p>'
+          - html: '<p>Saiba como configurar e utilizar as APIs dos Serviços de Multimédia para encriptar o seu conteúdo de forma dinâmica com multi-DRM (PlayReady, Widevine e FairPlay).</p>'
             href: /azure/media-services/latest/protect-with-drm
             title: Encriptar de forma dinâmica com multi-DRM
-          - image:
-              src: media/index/rest.svg
-            html: <p>Este tutorial mostra-lhe como codificar um ficheiro remoto com base no URL e transmitir o vídeo.</p>
+          - html: <p>Este tutorial mostra-lhe como codificar um ficheiro remoto com base no URL e transmitir o vídeo.</p>
             href: /azure/media-services/latest/stream-files-tutorial-with-rest
             title: Codificar um ficheiro remoto e transmitir o vídeo
   - title: Amostras

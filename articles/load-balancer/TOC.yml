@@ -188,6 +188,8 @@
       href: /learn/browse/?products=azure-virtual-machines
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Comentários do Balanceador de Carga do Azure
+      href: 'https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
     - name: Calculadora de preços

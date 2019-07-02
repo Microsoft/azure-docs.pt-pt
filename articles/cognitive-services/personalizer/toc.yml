@@ -62,12 +62,20 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDKs
       items:
-        - name: Referência do SDK .NET
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: Pacote NuGet
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: Referência do SDK .NET
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: Pacote NuGet
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Python
+          items:
+            - name: Pacote Pypi
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos
   items:
+    - name: Resolução de problemas
+      href: troubleshooting.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade

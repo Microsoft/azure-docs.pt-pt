@@ -6,10 +6,15 @@
       href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Executar consultas do Apache Hive - Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: Introdução
+- name: Tutoriais
+  items:
+    - name: Analisar dados com a Consulta Interativa
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Conceitos
   items:
     - name: Instalar aplicações do HDInsight
       href: ../hdinsight-apps-install-applications.md
@@ -104,9 +109,6 @@
           maintainContext: true
         - name: Analisar tweets armazenados
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Analisar dados de atraso de voos
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Expandir clusters
       items:
@@ -246,9 +248,6 @@
         - name: Aplicação de patches de SO para o cluster do HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Resolução de problemas
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -334,6 +333,11 @@
         - name: Monitorizar o desempenho do cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
+- name: Procedimento
+  items:
+    - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
 - name: Referência
   items:
     - name: Exemplos de código

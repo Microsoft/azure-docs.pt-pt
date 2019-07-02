@@ -53,7 +53,7 @@
           href: create-gmsa.md
         - name: Gerir a Política de Grupo para o Azure AD Domain Services
           href: manage-group-policy.md
-        - name: Configurar políticas de palavra-passe num domínio gerido
+        - name: Configurar políticas de palavras-passe num domínio gerido
           href: password-policy.md
         - name: Eliminar um domínio gerido
           href: delete-aadds.md
