@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/01/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 836b6bb76ff608fed0f34e40fe450d593fec540a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398267"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514166"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Ativação pós-falha e voltar a proteger as VMs do Azure entre regiões
 
@@ -38,7 +38,7 @@ Este tutorial descreve como fazer a ativação pós-falha de uma máquina virtua
 
 1. Nos **Itens replicados**, selecione a VM em que pretende realizar a ativação pós-falha > **Ativação pós-falha**
 
-   ![Ativação pós-falha](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Ativação Pós-Falha](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual irá realizar a ativação pós-falha. Pode utilizar uma das opções seguintes:
 
@@ -46,7 +46,7 @@ Este tutorial descreve como fazer a ativação pós-falha de uma máquina virtua
    * **Processado mais recentemente**: Reverte a máquina virtual para o ponto de recuperação mais recente que foram processado pelo serviço Site Recovery.
    * **Custom**: Efetua a ativação pós-falha para um ponto de recuperação específico. Esta opção é útil para realizar uma ativação pós-falha de teste.
 
-3. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que o Site Recovery para tentar fazer um encerramento de VMs de origem antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Recuperação de sites não apaga a origem após a ativação pós-falha.
+3. Selecione **encerrar a máquina antes de iniciar a ativação pós-falha** se pretender que o Site Recovery para tentar fazer um encerramento de VMs de origem antes de acionar a ativação pós-falha. Encerramento ajuda a garantir que nenhuma perda de dados. A ativação pós-falha continua, mesmo que o encerramento falhe. Recuperação de sites não apaga a origem após a ativação pós-falha.
 
 4. Siga o progresso da ativação pós-falha na página **Tarefas**.
 

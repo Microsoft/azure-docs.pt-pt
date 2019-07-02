@@ -2475,7 +2475,7 @@ E retorna uma matriz com *apenas* estes itens: `[1, 2]`
 
 <a name="join"></a>
 
-### <a name="join"></a>aderir
+### <a name="join"></a>join
 
 Devolver uma cadeia de caracteres que tem todos os itens de uma matriz tem cada caractere separada por um *delimitador*.
 
@@ -3177,7 +3177,7 @@ E retornará essa matriz com os itens restantes: `[1,2,3]`
 
 <a name="split"></a>
 
-### <a name="split"></a>dividir
+### <a name="split"></a>split
 
 Devolva uma matriz que contém subcadeias de caracteres, separadas por vírgulas, com base no caráter delimitador especificado na cadeia de caracteres original.
 

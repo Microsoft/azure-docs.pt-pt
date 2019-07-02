@@ -9,7 +9,7 @@ metadata:
   ms.author: jasonh
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 04/05/2019
+  ms.date: 07/01/2019
 abstract:
   description: 'Saiba como configurar um Catálogo de Dados em que a organização e a equipa deteta, compreende e consume as origens de dados. Tutoriais, referência da API REST e outra documentação mostram-lhe como planear e configurar o repositório de dados onde os consumidores de dados podem detetar origens de dados disponíveis e obter conhecimento através de peritos na matéria.'
 sections:
@@ -40,5 +40,3 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/datacatalog/">Referência da API REST</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Pesquisar referência de sintaxe</a></p>
-          - title: Resource Manager
-            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Modelos do Resource Manager</a></p>

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 5f919a04b47aa6fdef9500f3d7e6bef4ddaa239e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fef6122eceda213fb6353ada53033d0d1e27fd7e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184511"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509153"
 ---
 1. Inicie sessão na [consola Firebase](https://firebase.google.com/console/). Crie um novo projeto Firebase se ainda não tiver um.
 2. Depois de criar o projeto, selecione **Adicionar Firebase à aplicação Android**. 
 
     ![Adicionar Firebase à aplicação Android](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
-3. Sobre o **adicionar Firebase à sua aplicação Android** página, efetue os seguintes passos: 
-    1. Para **nome do pacote Android**, copie o valor da sua **applicationId** em seu aplicativo **gradle** ficheiro. Neste exemplo, ele tem `com.fabrikam.fcmtutorial1app`. 
+3. Sobre o **adicionar Firebase à sua aplicação Android** página, siga os passos seguintes: 
+    1. Para **nome do pacote Android**, copie o valor da sua **applicationId** no ficheiro de gradle da sua aplicação. Neste exemplo, ele tem `com.fabrikam.fcmtutorial1app`. 
 
         ![Especifique o nome do pacote](./media/notification-hubs-enable-firebase-cloud-messaging/specify-package-name-fcm-settings.png)
     2. Selecione **registar aplicação**. 
@@ -28,32 +28,32 @@ ms.locfileid: "67184511"
 
     ![Baixe o google-Services. JSON](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
 5. Faça o seguinte procedimento **alterações de configuração** ao seu projeto no Android Studio. 
-    1.  No seu **nível de projeto gradle** ficheiro (&lt;projeto&gt;/build.gradle), adicione a seguinte instrução para o **dependências** secção. 
+    1.  Em seu arquivo de nível de projeto gradle (&lt;project&gt;/build.gradle), adicione a seguinte instrução para o **dependências** secção. 
 
         ```
         classpath 'com.google.gms:google-services:4.0.1'
         ```
-    2. No seu **ao nível da aplicação gradle** ficheiro (&lt;projeto&gt;/&lt;app-module&gt;/build.gradle), adicione a seguinte instrução para o  **dependências** secção. 
+    2. No seu ficheiro de gradle ao nível da aplicação (&lt;project&gt;/&lt;app-module&gt;/build.gradle), adicione a seguinte instrução para o **dependências** secção. 
 
         ```
         implementation 'com.google.firebase:firebase-core:16.0.1'
         ```
 
-    3. Adicione a seguinte linha ao final dos **ao nível da aplicação gradle** ficheiro depois da secção de dependências. 
+    3. Adicione a seguinte linha ao final do ficheiro gradle ao nível da aplicação depois da secção de dependências. 
 
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
-    4. Selecione **sincronizar agora*** na barra de ferramentas. 
+    4. Selecione **sincronizar agora** na barra de ferramentas. 
  
         ![alterações de configuração de gradle](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
-6. Selecione **seguinte** na página. 
-7. Selecione **ignore este passo** na página. 
+6. Selecione **Seguinte**. 
+7. Selecione **ignore este passo**. 
 
-    ![Ignore o último](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)1. 
+    ![Ignore o último](./media/notification-hubs-enable-firebase-cloud-messaging/skip-this-step.png)
 8. Na consola da Firebase, selecione o cog do seu projeto. Em seguida, selecione **Definições do projeto**.
 
     ![Selecione Definições do projeto](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-firebase-console-project-settings.png)
-4. Se ainda não transferiu os **google-Services. JSON** de ficheiros para o **aplicação** pasta do seu projeto do Android Studio, pode fazer assim por diante nesta página. 
+4. Se ainda não transferiu o ficheiro do google-Services. JSON para o **aplicação** pasta do seu projeto do Android Studio, pode fazer assim por diante nesta página. 
 5. Mude para o **Cloud Messaging** separador na parte superior. 
-6. Copie e guarde o **chave de servidor** para utilização posterior. Utilize este valor para configurar o notification hub.
+6. Copie e guarde o **chave de servidor** para utilização posterior. Utilize este valor para configurar o seu hub.

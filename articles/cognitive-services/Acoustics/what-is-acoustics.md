@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432454"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502950"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 Projeto Acoustics são um motor de acoustics de onda para experiências interativas 3D. Modela a efeitos de onda, como de efeitos diffraction, portaling e reverberação em bastidores complexos sem a necessidade de marcação de zona manual. Ele também inclui o motor de jogos e integração de áudio de middleware. Filosofia dos Acoustics do projeto é semelhante à iluminação estática: Inserir detalhadas física offline para fornecer uma linha de base física e utilize um runtime leve com controles de design expressiva para atingir os seus objetivos artísticos.
@@ -45,13 +45,13 @@ Os plug-ins de tempo de execução do projeto Acoustics atualmente podem ser imp
 * Android
 * Xbox One
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Transferir
 * [Plug-in do projeto Acoustics Unity e exemplos](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Projeto Acoustics Unreal & Wwise plug-ins e exemplos](https://www.microsoft.com/download/details.aspx?id=58090)
   * Para os binários do Xbox e suporte, contacte-nos através do formulário inscrever-se abaixo
 
 ## <a name="contact-us"></a>Contacte-nos
-* [Fóruns do Project Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Discussão de Acoustics do projeto e emitir relatórios](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Inscreva-se para receber atualizações no projeto Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Passos Seguintes

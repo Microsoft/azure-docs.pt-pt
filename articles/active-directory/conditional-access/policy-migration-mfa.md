@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2804a50cc1ef7bb257e1549afabdef466ce3c2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4819c283a136057ad7c3ffd755fd9e157d99a1bf
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112201"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509448"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrar de uma política clássica que exija a autenticação multifator no portal do Azure
 
@@ -28,7 +28,7 @@ O cenário neste artigo mostra como migrar uma política clássica, que requer *
 
 ![Azure Active Directory](./media/policy-migration/33.png)
 
-O processo de migração incluir os seguintes passos:
+O processo de migração inclui os seguintes passos:
 
 1. [Abra a política clássica](#open-a-classic-policy) para obter as definições de configuração.
 1. Crie uma nova política de acesso condicional do Azure AD para substituir a sua política clássica. 
@@ -76,42 +76,32 @@ O processo de migração incluir os seguintes passos:
 
    1. Se tiver selecionado na sua política clássica todos os utilizadores, clique em **todos os utilizadores**. 
 
-   ![Acesso Condicional](./media/policy-migration/35.png)
+      ![Acesso Condicional](./media/policy-migration/35.png)
 
    1. Se tiver grupos selecionados na sua política clássica, clique em **selecionar utilizadores e grupos**e, em seguida, selecione os utilizadores necessários e grupos.
 
-   ![Acesso Condicional](./media/policy-migration/36.png)
+      ![Acesso Condicional](./media/policy-migration/36.png)
 
    1. Se tiver os grupos excluídos, clique nas **excluir** separador e, em seguida, selecione os utilizadores necessários e grupos. 
 
-   ![Acesso Condicional](./media/policy-migration/37.png)
+      ![Acesso Condicional](./media/policy-migration/37.png)
 
 1. Na **New** página, para abrir o **aplicações na Cloud** página o **atribuição** secção, clique em **aplicações na Cloud**.
-
 1. Sobre o **aplicações na Cloud** página, execute os seguintes passos:
-
-   ![Acesso Condicional](./media/policy-migration/08.png)
-
    1. Clique em **selecionar aplicações**.
-
    1. Clique em **Selecionar**.
-
    1. Sobre o **selecionar** página, selecione a sua aplicação na cloud e, em seguida, clique em **selecione**.
-
    1. Sobre o **aplicações na Cloud** página, clique em **feito**.
-
 1. Se tiver **exigir autenticação multifator** selecionado:
 
    ![Acesso Condicional](./media/policy-migration/26.png)
 
    1. Na **controlos de acesso** secção, clique em **concessão**.
 
-   ![Acesso Condicional](./media/policy-migration/27.png)
+      ![Acesso Condicional](./media/policy-migration/27.png)
 
    1. Sobre o **concessão** página, clique em **conceder acesso**e, em seguida, clique em **exigir autenticação multifator**.
-
    1. Clique em **Selecionar**.
-
 1. Clique em **no** para ativar a sua política.
 
    ![Acesso Condicional](./media/policy-migration/30.png)

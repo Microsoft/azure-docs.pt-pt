@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 6b9c9500423392ec07482f049697d9b49dc060bf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: dcd1ef5c54885b758ac9a301616d79a163999bc9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603182"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509629"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Tutorial: Criar uma aplicação de web de Java EE e Postgres no Azure
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="clone-and-edit-the-sample-app"></a>Clonar e editar a aplicação de exemplo
 
-Neste passo, irá clonar a aplicação de exemplo e configurar o modelo de objeto de projeto Maven (POM ou pom. xml) para a implementação.
+Neste passo, irá clonar a aplicação de exemplo e configurar o modelo de objeto de projeto Maven (POM ou *pom*) para a implementação.
 
 ### <a name="clone-the-sample"></a>Clonar o exemplo
 
@@ -50,9 +50,9 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### <a name="update-the-maven-pom"></a>Atualizar o Maven POM
 
-Atualize o plug-in do Maven do Azure com o desejado nome e grupo de recursos do seu serviço de aplicações. Não é necessário criar o plano do serviço de aplicações ou a instância previamente. O plug-in do Maven irá criar o grupo de recursos e o serviço de aplicações, caso ainda não exista. 
+Atualize o plug-in do Maven do Azure com o desejado nome e grupo de recursos do seu serviço de aplicações. Não é necessário criar o plano do serviço de aplicações ou a instância previamente. O plug-in do Maven irá criar o grupo de recursos e o serviço de aplicações, caso ainda não exista.
 
-Pode rolar para baixo para o `<plugins>` secção do _pom_, 200, para fazer as alterações de linha. 
+Pode rolar para baixo para o `<plugins>` secção do *pom*, 200, para fazer as alterações de linha.
 
 ```xml
 <!-- Azure App Service Maven plugin for deployment -->
@@ -67,6 +67,7 @@ Pode rolar para baixo para o `<plugins>` secção do _pom_, 200, para fazer as a
   ...
 </plugin>  
 ```
+
 Substitua `YOUR_APP_NAME` e `YOUR_RESOURCE_GROUP` com os nomes do seu grupo de serviço de aplicações e recursos.
 
 ## <a name="build-and-deploy-the-application"></a>Criar e implementar a aplicação
@@ -103,13 +104,19 @@ Neste momento, a aplicação está a utilizar uma base de dados de H2 dentro da 
 
 ## <a name="provision-a-postgres-database"></a>Aprovisionar uma base de dados Postgres
 
-Para aprovisionar um servidor de base de dados Postgres, abra um terminal e execute o seguinte comando com os seus valores pretendidos para o nome do servidor, o nome de utilizador, a palavra-passe e a localização. Utilize o mesmo grupo de recursos que pertença a seu serviço de aplicações. Mantenha uma nota da palavra-passe para utilizar mais tarde!
+Para aprovisionar um servidor de base de dados Postgres, abra um terminal e utilizar o [az postgres server criar](https://docs.microsoft.com/cli/azure/postgres/server) de comando, conforme mostrado no exemplo a seguir. Substitua os marcadores de posição (incluindo os parênteses angulares) com valores à sua escolha, usando o mesmo recurso de grupo que fornecido anteriormente para a sua instância do serviço de aplicações. As credenciais de administrador é fornecer irá ativar o acesso futuro; portanto, certifique-se de que conserve-los para utilização posterior.
 
 ```bash
-az postgres server create -n <desired-name> -g <same-resource-group> --sku-name GP_Gen4_2 -u <desired-username> -p <desired-password> -l <location>
+az postgres server create \
+    --name <server name> \
+    --resource-group <resource group> \
+    --location <location>
+    --sku-name GP_Gen5_2 \
+    --admin-user <administrator username> \
+    --admin-password <administrator password> \
 ```
 
-Navegue para o Portal e pesquisa da base de dados Postgres. Quando o painel está a funcionar, copie os valores de "Nome de início de sessão de administrador do servidor" e "Nome do servidor", que irá precisar delas mais tarde.
+Depois de executar este comando, navegue para o portal do Azure e navegue para a base de dados Postgres. Quando o painel está a funcionar, copie os valores de "Nome de início de sessão de administrador do servidor" e "Nome do servidor", que irá precisar delas mais tarde.
 
 ### <a name="allow-access-to-azure-services"></a>Permitir acesso aos serviços do Azure
 
@@ -123,7 +130,7 @@ Agora, faremos algumas alterações para a aplicação de Java para ativá-la ut
 
 ### <a name="add-postgres-credentials-to-the-pom"></a>Adicionar credenciais de Postgres para o POM
 
-Na _pom_, substitua os valores de marcador de posição com iniciais maiúsculas com o nome do servidor Postgres, o nome de início de sessão de administrador e a palavra-passe. Estes campos são dentro do plug-in do Azure Maven. (Não se esqueça de substituir `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, e `YOUR_PG_PASSWORD` no `<value>` etiquetas... não está dentro do `<name>` etiquetas!)
+Na *pom*, substitua os valores de marcador de posição com iniciais maiúsculas com o nome do servidor Postgres, o nome de início de sessão de administrador e a palavra-passe. Estes campos são dentro do plug-in do Azure Maven. (Não se esqueça de substituir `YOUR_SERVER_NAME`, `YOUR_PG_USERNAME`, e `YOUR_PG_PASSWORD` no `<value>` etiquetas... não está dentro do `<name>` etiquetas!)
 
 ```xml
 <plugin>
@@ -148,36 +155,34 @@ Na _pom_, substitua os valores de marcador de posição com iniciais maiúsculas
 
 ### <a name="update-the-java-transaction-api"></a>Atualizar a transação de Java API
 
-Em seguida, é necessário editar nossa configuração de transação de Java API (JPA) para que nosso aplicativo Java irá comunicar com Postgres em vez da base de dados na memória H2 que estivéssemos a utilizar anteriormente. Abra um editor _src/main/resources/META-INF/persistence.xml_. Substitua o valor de `<jta-data-source>` por `java:jboss/datasources/postgresDS`. O XML de JTA agora deve ter esta definição:
+Em seguida, é necessário editar nossa configuração de transação de Java API (JPA) para que nosso aplicativo Java irá comunicar com Postgres em vez da base de dados na memória H2 que estivéssemos a utilizar anteriormente. Abra um editor *src/main/resources/META-INF/persistence.xml*. Substitua o valor de `<jta-data-source>` por `java:jboss/datasources/postgresDS`. O XML de JTA agora deve ter esta definição:
 
 ```xml
-...
 <jta-data-source>java:jboss/datasources/postgresDS</jta-data-source>
-...
 ```
 
 ## <a name="configure-the-wildfly-application-server"></a>Configurar o servidor de aplicações WildFly
 
 Antes de implantar nosso aplicativo reconfigurado, podemos tem de atualizar o servidor de aplicações WildFly com o módulo de Postgres e as respetivas dependências. Obter mais informações de configuração podem ser encontradas em [WildFly configurar servidor](configure-language-java.md#configure-java-ee-wildfly).
 
-Para configurar o servidor, precisamos quatro arquivos no `wildfly_config/` diretório:
+Para configurar o servidor, precisamos quatro arquivos no *wildfly_config /* diretório:
 
 - **postgresql-42.2.5.jar**: Este ficheiro. JAR é o controlador JDBC para Postgres. Para obter mais informações, consulte a [site oficial](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: Esse arquivo XML declara um nome para o módulo de Postgres (org.postgres). Também especifica os recursos e as dependências necessários para o módulo a ser utilizado.
 - **jboss_cli_commands.cl**: Este ficheiro contém comandos de configuração que serão executados para a CLI JBoss. Os comandos adicionar o módulo de Postgres para o servidor de aplicações WildFly, fornecem as credenciais, declare um nome JNDI, defina o limiar de tempo limite, etc. Se não estiver familiarizado com a CLI JBoss, consulte a [documentação oficial](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-- **startup_script.sh**: Por fim, este script de shell será executado sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos `jboss_cli_commands.cli` para a CLI JBoss.
+- **startup_script.sh**: Por fim, este script de shell será executado sempre que for iniciada a sua instância do serviço de aplicações. O script só executa uma função: encaminhando os comandos *jboss_cli_commands.cli* para a CLI JBoss.
 
-Sugerimos altamente ler o conteúdo desses arquivos, especialmente _jboss_cli_commands.cli_.
+Sugerimos altamente ler o conteúdo desses arquivos, especialmente *jboss_cli_commands.cli*.
 
 ### <a name="ftp-the-configuration-files"></a>Os ficheiros de configuração do FTP
 
-Temos do conteúdo de FTP `wildfly_config/` para nossa instância de serviço de aplicações. Para obter as suas credenciais FTP, clique a **obter perfil de publicação** botão no painel do serviço de aplicações no portal do Azure. O nome de utilizador FTP e a palavra-passe será no documento XML transferido. Para obter mais informações sobre o perfil de publicação, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+Temos do conteúdo de FTP *wildfly_config /* para nossa instância de serviço de aplicações. Para obter as suas credenciais FTP, clique a **obter perfil de publicação** botão no painel do serviço de aplicações no portal do Azure. O nome de utilizador FTP e a palavra-passe será no documento XML transferido. Para obter mais informações sobre o perfil de publicação, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
-Utilizar uma ferramenta FTP à sua escolha, transferir os ficheiros de quatro no `wildfly_config/` para `/home/site/deployments/tools/`. (Observe que não deve transferir o diretório, apenas os próprios arquivos.)
+Utilizar uma ferramenta FTP à sua escolha, transferir os ficheiros de quatro no *wildfly_config /* ao */home/site/implementações/tools/* . (Observe que não deve transferir o diretório, apenas os próprios arquivos.)
 
 ### <a name="finalize-app-service"></a>Finalizar o serviço de aplicações
 
-No painel do serviço de aplicações, navegue para o painel "Definições da aplicação". Em "Runtime", defina o campo de "Arquivo de inicialização" `/home/site/deployments/tools/startup_script.sh`. Isto irá garantir que o script de shell é executado depois da instância de serviço de aplicações é criada, mas antes do WildFly servidor é iniciado.
+No painel do serviço de aplicações, navegue para o painel "Definições da aplicação". Em "Runtime", defina o campo de "Arquivo de inicialização" */home/site/deployments/tools/startup_script.sh*. Isto irá garantir que o script de shell é executado depois da instância de serviço de aplicações é criada, mas antes do WildFly servidor é iniciado.
 
 Por fim, reinicie o serviço de aplicações. O botão é no painel de "Descrição geral".
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 31185900ede0fae74a04f98eaecee7379fb1c4fe
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427803"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508669"
 ---
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Tutorial: Devolver pesadas de caixa de dados do Azure e verifique se o carregamento de dados para o Azure (pré-visualização)
 
@@ -43,11 +43,11 @@ Antes de começar, certifique-se:
 ## <a name="ship-data-box-heavy-back"></a>Enviar dados caixa pesada novamente
 
 1. Certifique-se de que o dispositivo está desligado e todos os cabos são removidos. Spool e coloque em segurança os cabos de 4 power na Bandeja do que pode aceder a partir da parte de trás do dispositivo.
-2. Se o dispositivo está a ser enviado nos EUA ou na Europa, a operadora de envio é FedEx.
+2. O dispositivo é fornecido prestadores LTL via FedEx nos EUA e DHL diz respeito à UE
 
-    1. Chame o número de local para a sua operadora de envio agendar a recolha.
-    2. Entrar em contacto com [operações de caixa de dados](mailto:DataBoxOps@microsoft.com) para informar sobre a recolha e obter a etiqueta de envio de devolução.
-    3. Certifique-se de que a etiqueta é apresentada no ecrã claro à frente do dispositivo.
+    1. Entrar em contacto com [operações de caixa de dados](mailto:DataBoxOps@microsoft.com) para informar sobre a recolha e obter a etiqueta de envio de devolução.
+    2. Chame o número de local para a sua operadora de envio agendar a recolha.
+    3. Certifique-se de que a etiqueta é apresentada de forma destacada no exterior da entrega.
     4. Certifique-se de que as etiquetas de envio antigo da remessa anterior são removidas do dispositivo.
 3. Depois dos dados de caixa pesada é selecionada e analisada pela operadora, o estado da encomenda no portal do que as atualizações **pegou**. É também mostrado um ID de controlo.
 
