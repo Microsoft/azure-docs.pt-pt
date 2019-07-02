@@ -156,7 +156,7 @@ A tabela seguinte descreve os parâmetros e valores utilizados para criar um ale
 | Localização desta regra de alerta |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
+| MetricName do alerta que é criado |\Disk \PhysicalDisk ( total) / seg. Consulte o `Get-MetricDefinitions` cmdlet sobre como obter os nomes de métricos exatos |
 | Operador |GreaterThan |
 | Valor de limiar (contagem por segundo para esta métrica) |1 |
 | WindowSize (formato hh: mm:) |00:05:00 |
