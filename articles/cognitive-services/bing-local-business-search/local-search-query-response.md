@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 06/26/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2911ebe9157507534717a4177d4380813dd2ff6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796784"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541561"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Enviar e utilizar consultas de API de pesquisa do Bing Local comerciais e respostas
 
@@ -37,6 +37,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## <a name="using-responses"></a>Usando as respostas
 
 Respostas JSON da API de pesquisa de negócios locais do Bing contêm um `SearchResponse` objeto. A API irá devolver resultados de pesquisa relevantes no `places` campo. não se for encontrado nenhum resultado, o `places` campo não será incluído na resposta.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {

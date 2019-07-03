@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 4/03/2019
+ms.date: 7/01/2019
 ms.author: aahi
-ms.openlocfilehash: 62d34b859a0cf71320c478b7cab4a2914e5ee308
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd5118b42f32a521df8e3acfffb68391d4021791
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579869"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541537"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de pesquisa Visual do Bing
 
-Este artigo descreve os parâmetros e atributos de pedidos enviados para a API de pesquisa Visual do Bing, bem como o objeto de resposta.
+Este artigo descreve os parâmetros e atributos de pedidos enviados para a API de pesquisa Visual do Bing, bem como o objeto de resposta. 
 
 Pode obter informações sobre uma imagem de três formas:
 
@@ -192,6 +192,9 @@ Content-Disposition: form-data; name="knowledgeRequest"
 ```
 
 ## <a name="bing-visual-search-responses"></a>Respostas da pesquisa Visual do Bing
+
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 Se houver informações disponíveis para a imagem, a resposta incluirá uma ou mais `tags` que contêm as informações. O `image` campo contém o token de informações para a imagem de entrada:
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 537a03710d28be607630cf252d2f187843991048
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67438726"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542821"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 
@@ -39,6 +39,8 @@ Quando envia um pedido de pesquisa a pesquisa Web Bing, ele retorna um [ `Search
 ```
 
 Normalmente, a pesquisa Web Bing devolve um subconjunto de respostas. Por exemplo, se o termo de consulta foi *velejar dinghies*, a resposta pode incluir `webPages`, `images`, e `rankingResponse`. A menos que já usou [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar páginas da Web, a resposta inclui sempre a `webpages` e `rankingResponse` respostas.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## <a name="webpages-answer"></a>Resposta de páginas da Web
 

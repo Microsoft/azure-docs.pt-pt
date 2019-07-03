@@ -98,7 +98,7 @@ Os clientes *tem* suportam os mecanismos de redirecionamento padrão especificad
 
 Os clientes *tem* utilizar um ponto final adequado do serviço de voz. O ponto final baseia-se sobre o modo de reconhecimento e idioma. A tabela mostra alguns exemplos.
 
-| Modo | Caminho | URI de serviço |
+| Modo | Path | URI de serviço |
 | -----|-----|-----|
 | Interativo | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -153,7 +153,7 @@ Os seguintes cabeçalhos são necessários para todas as mensagens originadas de
 | Cabeçalho | Value |
 |----|----|
 | Path | O caminho de mensagem conforme especificado neste documento |
-| X-RequestId | UUID no formato de "no-dash" |
+| X-RequestId | UUID no formato de "não-dash" |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
@@ -308,7 +308,7 @@ Os clientes tem de confirmar o fim de uma vez através do envio de um `telemetry
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | `application/json` |
 | Corpo | Uma estrutura JSON que contém informações de cliente sobre a mão |
@@ -330,7 +330,7 @@ O `speech.startDetected` mensagem indica que o serviço de voz detetado fala no 
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `speech.startDetected` |
+| Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
 
@@ -355,7 +355,7 @@ Durante o reconhecimento de fala, o serviço de voz periodicamente gera hipótes
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `speech.hypothesis` |
+| Path | `speech.hypothesis` |
 | X-RequestId | UUID no formato de "não-dash" |
 | Content-Type | application/json |
 | Corpo | A estrutura JSON de hipótese de voz |
@@ -387,7 +387,7 @@ Quando o serviço de voz determina a que tem informações suficientes para prod
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `speech.phrase` |
+| Path | `speech.phrase` |
 | Content-Type | application/json |
 | Corpo | A frase de voz estrutura JSON |
 
@@ -415,7 +415,7 @@ O `speech.endDetected` mensagem Especifica que a aplicação cliente deverá ser
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | Corpo | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ O `turn.start` sinaliza o início de uma mão da perspectiva do serviço. O `tur
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `turn.start` |
+| Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | Estrutura JSON |
 
@@ -467,7 +467,7 @@ O `turn.end` sinaliza o término de uma mão da perspectiva do serviço. O `turn
 | Campo | Descrição |
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
-| Caminho | `turn.end` |
+| Path | `turn.end` |
 | Corpo | Nenhuma |
 
 #### <a name="sample-message"></a>Mensagem de exemplo

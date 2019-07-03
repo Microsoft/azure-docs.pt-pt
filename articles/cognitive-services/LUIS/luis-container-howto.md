@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/02/2019
 ms.author: dapine
-ms.openlocfilehash: fff876de41e0069573b73779a16ebf06a3dd58c8
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 86b23c5f69fd96fe5c5614d99483e1936895ad9e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295261"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537090"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -175,16 +175,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | A chave de criação da conta do LUIS para a aplicação LUIS publicada.<br/>Pode obter a chave de criação a partir da **definições de utilizador** página no portal do LUIS. |
 |{AZURE_REGION} | A região do Azure adequada:<br/><br/>```westus``` -E.U.A. oeste<br/>```westeurope``` -Europa Oeste<br/>```australiaeast``` -Leste da Austrália |
 
-Utilize o comando CURL seguinte para transferir o pacote publicado, substituindo seus próprios valores:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
-```
-
-Se tiver êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro na localização de armazenamento especificada para a montagem de entrada do contentor. 
+Para transferir o pacote publicado, veja a [documentação da API aqui][download-published-package]. Se foi transferido com êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro na localização de armazenamento especificada para a montagem de entrada do contentor. 
 
 ### <a name="export-trained-apps-package-from-api"></a>Exportar pacote de preparação da aplicação a partir da API
 
@@ -203,16 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | A chave de criação da conta do LUIS para a aplicação LUIS publicada.<br/>Pode obter a chave de criação a partir da **definições de utilizador** página no portal do LUIS.  |
 |{AZURE_REGION} | A região do Azure adequada:<br/><br/>```westus``` -E.U.A. oeste<br/>```westeurope``` -Europa Oeste<br/>```australiaeast``` -Leste da Austrália |
 
-Utilize o comando CURL seguinte para transferir o pacote de preparação:
-
-```bash
-curl -X GET \
-https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
- -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
- -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
-```
-
-Se tiver êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro na localização de armazenamento especificada para a montagem de entrada do contentor. 
+Para transferir o pacote de preparação, veja a [documentação da API aqui][download-trained-package]. Se foi transferido com êxito, a resposta é um ficheiro de pacote do LUIS. Guarde o ficheiro na localização de armazenamento especificada para a montagem de entrada do contentor. 
 
 ## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
 
@@ -237,11 +219,9 @@ Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-* Este exemplo utiliza o diretório de desativar o `c:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
+* Este exemplo utiliza o diretório de desativar o `C:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
 * Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
 * Se estiver a utilizar um sistema operacional diferente, utilize a consola/terminal correto, a sintaxe de pasta para monta e caracteres de continuação de linha para o seu sistema. Estes exemplos partem do princípio de uma consola do Windows com um caráter de continuação de linha `^`. Como o contêiner é um sistema operativo Linux, a montagem de destino usa uma sintaxe de pasta de estilo do Linux.
-
-
 
 Este comando:
 
@@ -324,7 +304,6 @@ No portal do LUIS, selecione a sua aplicação, em seguida, selecione **importar
 
 Após o carregamento, o registo [reveja o ponto final](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) expressões com no portal do LUIS.
 
-
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
@@ -362,14 +341,13 @@ Pode utilizar uma aplicação do LUIS se ele **não inclui** qualquer uma das se
 
 Configurações de aplicações não suportado|Detalhes|
 |--|--|
-|Culturas do contentor não suportado| Holandês (nl-NL)<br>Japonês (ja-JP)<br>Alemão só é suportado com o [1.0.1 atomizador ou posterior](luis-language-support.md#custom-tokenizer-versions).|
+|Culturas do contentor não suportado| Holandês (nl-NL)<br>Japonês (ja-JP)<br>Alemão só é suportado com o [1.0.2 atomizador](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades não suportadas para todas as culturas|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) entidade criados previamente para todas as culturas|
 |Entidades não suportadas para a cultura inglês (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) entidades pré-concebidas|
 |Priming de voz|Dependências externas não são suportadas no contentor.|
 |Análise de sentimentos|Dependências externas não são suportadas no contentor.|
 
-<!--blogs/samples/video coures -->
-
+<!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
@@ -390,3 +368,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 * Revisão [configurar contentores](luis-container-configuration.md) para definições de configuração
 * Consulte a [resolução de problemas](troubleshooting.md) para resolver problemas relacionados com a funcionalidade de LUIS.
 * Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)
+
+<!-- Links - external -->
+[download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip
+[download-trained-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip
