@@ -152,8 +152,8 @@ Os seguintes cabeçalhos são necessários para todas as mensagens originadas de
 
 | Cabeçalho | Value |
 |----|----|
-| Caminho | O caminho de mensagem conforme especificado neste documento |
-| X-RequestId | UUID no formato de "não-dash" |
+| Path | O caminho de mensagem conforme especificado neste documento |
+| X-RequestId | UUID no formato de "no-dash" |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
@@ -181,7 +181,7 @@ Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de est
 
 | Nome do cabeçalho | Value |
 |----|----|
-| Caminho | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -252,7 +252,7 @@ Os seguintes cabeçalhos são necessários para todos os `audio` mensagens.
 
 | Cabeçalho         |  Value     |
 | ------------- | ---------------- |
-| Caminho | `audio` |
+| Path | `audio` |
 | X-RequestId | UUID no formato de "não-dash" |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | O tipo de conteúdo de áudio. O tipo tem de ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
