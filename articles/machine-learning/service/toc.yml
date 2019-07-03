@@ -197,6 +197,9 @@
         - name: Controlar experiências com o MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: Visualizar experimentações com TensorBoard
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: Automatizar a aprendizagem automática
       displayName: 'automl, auto ml'
       items:
@@ -304,6 +307,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: Remover Linhas Duplicadas
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Associar dados
+              href: ../algorithm-module-reference/join-data.md
             - name: Dividir Dados
               href: ../algorithm-module-reference/split-data.md
             - name: Normalizar Dados
@@ -352,12 +357,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: Clustering K-Means
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Módulos de linguagem Python
+        - name: Módulos de linguagem Python e R
           items:
             - name: Executar Script do Python
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Criar Modelo Python
               href: ../algorithm-module-reference/create-python-model.md
+            - name: Executar Script R
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: Mensagens e códigos de erro
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Recursos

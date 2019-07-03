@@ -36,6 +36,8 @@
   items:
     - name: Escolher uma tecnologia de análise de transmissão em fluxo
       href: streaming-technologies.md
+    - name: Escolher uma ferramenta de desenvolvimento de tarefa
+      href: feature-comparison.md
     - name: Tipos de entrada para uma tarefa
       items:
         - name: Descrição geral de entradas

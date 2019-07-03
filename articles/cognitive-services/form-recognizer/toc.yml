@@ -7,7 +7,7 @@
 - name: Inícios rápidos
   expaned: true
   items:
-    - name: Preparar o modelo e extrair dados
+    - name: Preparar o modelo personalizado e extrair dados
       items:
         - name: Utilizar a API REST
           items:
@@ -15,6 +15,14 @@
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+    - name: Utilizar o modelo de recibos pré-criados
+      items:
+        - name: Utilizar a API REST
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
 - name: Guias de procedimentos
   items:
     - name: Criar um conjunto de dados de preparação
