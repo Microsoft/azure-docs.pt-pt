@@ -4,18 +4,21 @@ description: Saiba como configurar múltiplos principais nas suas aplicações n
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e33aa10673f4c4b061f8961959f20b7b3416ec84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 73b4ada713e264aaa2504fe4d4f504e07ae45181
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204789"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538083"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar com vários mestres em seus aplicativos que utilizam o Azure Cosmos DB
 
-Para utilizar a funcionalidade de vários mestre na sua aplicação, tem de ativar o gravações de várias regiões e configurar a multi homing capacidade no Azure Cosmos DB. Para configurar o multi-homing, passe o nome da região em que a aplicação for implementada para a propriedade SetCurrentLocation. Fazendo isso automaticamente preenche a propriedade PreferredLocations com base na proximidade geo localização passado. Se uma nova região mais tarde é adicionada à conta, o aplicativo não tem de ser atualizado ou reimplementada, irá detetar automaticamente a região mais próxima e será automaticamente-home para ele deve ocorrer um evento regional.
+Quando tiver sido criada uma conta com várias regiões de escrita ativados, tem de fazer duas mudanças na sua aplicação para o ConnectionPolicy para o DocumentClient permitir as capacidades de vários mestres e multi homing no Azure Cosmos DB. Dentro do ConnectionPolicy, defina UseMultipleWriteLocations como true e passar o nome da região em que a aplicação for implementada para SetCurrentLocation. Isto irá preencher a propriedade PreferredLocations com base na proximidade geo localização passado. Se uma nova região mais tarde é adicionada à conta, o aplicativo não tem de ser atualizado ou reimplementada, irá detetar automaticamente a região mais próxima e será automaticamente-home para ele deve ocorrer um evento regional.
+
+> [!TIP]
+> Contas cosmos não criadas inicialmente configuradas para múltiplos principais podem ser migradas com zero período de indisponibilidade. Para saber mais, veja [configurar escrita de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 

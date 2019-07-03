@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0a16e654ff92c450438ac91c590b42d22201d015
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450458"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543258"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o espaço de nomes virtual 
 
@@ -77,7 +77,7 @@ Subtarefas incluem:
 
 * Para armazenamento na cloud, tem de especificar as cloud service credenciais de acesso e, entre outros parâmetros. Para obter detalhes, leia [Cloud service e o protocolo](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) no guia de configuração de Cluster.
 
-  ![Informações de filtro de núcleo de nuvem no Assistente de novo filtro de núcleo](media/fxt-cluster-config/new-core-filer-cloud3.png) <!-- xxx get an Azure version of this screenshot xxx -->
+  ![Informações de filtro de núcleo de nuvem no Assistente de novo filtro de núcleo](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
   Se já tiver adicionado na cloud de credenciais de acesso para este cluster, eles aparecem na lista. Atualizar e adicionar as credenciais no **Cluster** > **credênciais de Cloud** página de definições. 
 

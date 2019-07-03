@@ -4,14 +4,14 @@ description: Como criar um cluster de cache de armazenamento híbrido com o filt
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1bfe8f0efce0a844263fc65df0ad927114886769
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450542"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543577"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Criar o cluster de ficheiros do Azure FXT Edge
 
@@ -34,7 +34,10 @@ Este procedimento demora entre 15 e 45 minutos, dependendo da quantidade pesquis
 
 Conclua estes pré-requisitos antes de começar este tutorial:
 
-* Instale, pelo menos, três sistemas de hardware de ficheiros do Azure FXT Edge no seu centro de dados 
+* Instalar os sistemas de hardware de ficheiros do Azure FXT Edge no seu centro de dados 
+
+  Terá apenas de um nó para criar o cluster, mas precisa [adicione, pelo menos, dois nós mais](fxt-add-nodes.md) antes de poder configurar o cluster e prepará-lo a utilizar. 
+
 * Ligar cabos de energia e rede apropriados para o sistema  
 * Power em, pelo menos, um nó de filtro de borda do Azure FXT e [defina a respetiva palavra-passe de raiz](fxt-node-password.md)
 
@@ -114,7 +117,7 @@ Utilize o comando `ifconfig` para ver os endereços atribuídos a este sistema.
 
 Por exemplo, o comando `ifconfig | grep -B5 inet` procura as portas com endereços de internet e fornece cinco linhas de contexto para mostrar o identificador de porta.
 
-Anote qualquer endereço IP mostrado no relatório ifconfig. Endereços listados com nomes de porta como e0a ou e0b são boas opções. Não utilizar quaisquer endereços IP listados com e7 * nomes, uma vez que esses nomes são apenas utilizados para portas IPMI, portas de rede não regular.  
+Anote qualquer endereço IP mostrado no relatório ifconfig. Endereços listados com nomes de porta como e0a ou e0b são boas opções. Não utilize quaisquer endereços IP listados com e7 * nomes, uma vez que esses nomes só são utilizados para portas de serviço do iDRAC/IPMI.  
 
 ## <a name="load-the-cluster-configuration-wizard"></a>Carregar o Assistente de configuração de cluster
 
@@ -213,7 +216,7 @@ As definições no **gestão** secção destinam-se na rede que fornece acesso d
 
 * **O MTU** - se necessário, ajuste a unidade de transmissão máxima (MTU) para a rede de gestão do seu cluster.
 
-* **Rede de gestão de 1Gb de utilização** -Selecione esta caixa se de que pretende atribuir a rede de 1 duas gbe portas nos seus nós FXT à apenas a rede de gestão. Se não selecionar esta caixa, a rede de gestão utiliza a porta de velocidade mais elevada disponível. 
+* **Rede de gestão de 1Gb de utilização** -Selecione esta caixa se de que pretende atribuir a rede de 1 duas gbe portas nos seus nós FXT à apenas a rede de gestão. (Tem de ter 25GbE/10 gbe portas disponíveis para todos os outros tráfegos.) Se não selecionar esta caixa, a rede de gestão utiliza a porta de velocidade mais elevada disponível. 
 
 ### <a name="configure-the-cluster-network"></a>Configurar a rede de cluster 
 
@@ -281,7 +284,7 @@ Utilize a interface de web do painel de controlo para configurar o novo cluster.
 
 Entrar para a interface da web com o nome de utilizador `admin` e a palavra-passe que definiu quando criou o cluster.
 
-![Mostrar campos de início de sessão do painel de controle de navegador da Web](media/fxt-cluster-config/admin-login.png)
+![Mostrar campos de início de sessão do painel de controle de navegador da Web](media/fxt-cluster-create/admin-login.png)
 
 O painel de controle é aberto e mostra os **Dashboard** página. Medida que conclui a criação do cluster, devem limpar quaisquer mensagens de aviso do monitor.
 
@@ -289,7 +292,7 @@ Clique nas **definições** separador para configurar o cluster.
 
 Sobre o **definições** separador, a barra lateral esquerda mostra um menu de páginas de configuração. As páginas são organizadas por categoria. Clique a + ou - na parte superior do nome de categoria para expandir ou ocultar as páginas individuais.
 
-![Separador Definições do painel de controlo (no browser) com o Cluster > página de configuração geral carregada](media/fxt-cluster-config/settings-tab-populated.png)
+![Separador Definições do painel de controlo (no browser) com o Cluster > página de configuração geral carregada](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## <a name="cluster-setup-steps"></a>Passos de configuração de cluster
 
@@ -315,7 +318,7 @@ Estes passos são necessários para a maioria ou todos os clusters.
 
   Leia [configurar o espaço de nomes](fxt-add-storage.md#configure-the-namespace) para obter detalhes. Este passo inclui:
   * Criar vservers
-  * Configuração de junções entre o armazenamento de modo de exibição e o back-end da rede de cliente 
+  * Configuração de junções entre a vista de rede do cliente e o armazenamento de back-end 
   * Definir o IP de cliente endereços são servidos por cada vserver
 
   > [!Note] 
@@ -370,7 +373,7 @@ Siga estes passos para configurar os carregamentos de suporte.
 
 1. Navegue para o **Cluster** > **suporte** página de definições. Aceite a política de privacidade. 
 
-   ![Captura de ecrã que mostra o painel de controlo e a janela de pop-up com o botão confirmar para aceitar a política de privacidade](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Captura de ecrã que mostra o painel de controlo e a janela de pop-up com o botão confirmar para aceitar a política de privacidade](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Clique no triângulo à esquerda da vírgula **Customer Info** para expandir a secção.
 1. Clique nas **Revalide informações de carregamento** botão.
@@ -378,13 +381,13 @@ Siga estes passos para configurar os carregamentos de suporte.
 1. As caixas de verificação **estatísticas de monitorização**, **carregar de informações gerais**, e **carregar de informações de falhas**.
 1. Clique em **Submit** (Submeter).  
 
-   ![Captura de ecrã que contém concluído a secção de informações de cliente da página de definições de suporte](media/fxt-cluster-config/fxt-support-info.png)
+   ![Captura de ecrã que contém concluído a secção de informações de cliente da página de definições de suporte](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Clique no triângulo à esquerda da vírgula **Secure Proativa suporte (SPS)** para expandir a secção.
 1. Marque a caixa **ativar a ligação do SPS**.
 1. Clique em **Submit** (Submeter).
 
-   ![Captura de ecrã que contém concluído a secção de proteger o suporte Proativo de mensagens em fila na página de definições de suporte](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Captura de ecrã que contém concluído a secção de proteger o suporte Proativo de mensagens em fila na página de definições de suporte](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

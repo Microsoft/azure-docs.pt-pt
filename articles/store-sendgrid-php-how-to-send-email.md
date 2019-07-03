@@ -36,7 +36,7 @@ O SendGrid é um [serviço de e-mail com base na cloud] que fornece fiável [ent
 * Consultas de cliente de reencaminhamento
 * Notificações de e-mail da sua aplicação
 
-Para obter mais informações, consulte [ https://sendgrid.com ] [ https://sendgrid.com].
+Para obter mais informações, consulte [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Criar uma conta de SendGrid
 

@@ -8,8 +8,6 @@
       href: azure-portal-supported-browsers-devices.md
 - name: Conceitos
   items:
-    - name: Criar e partilhar dashboards do Azure
-      href: azure-portal-dashboards.md
     - name: Partilhar dashboards com o controlo de acesso baseado em funções
       href: azure-portal-dashboard-share-access.md
     - name: Criar programaticamente dashboards do Azure
@@ -20,6 +18,8 @@
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Adicionar, remover e ordenar favoritos'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Criar e partilhar dashboards do Azure
+      href: azure-portal-dashboards.md
     - name: Utilizar um mosaico de markdown personalizado
       href: azure-portal-markdown-tile.md
     - name: Exportar ou eliminar as definições de utilizador

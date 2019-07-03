@@ -5,14 +5,14 @@ services: ''
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 45f4e12a06e012a06e0b2659d729fce3a191cd32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450423"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543481"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: Instalar o filtro de borda FXT do Azure 
 
@@ -34,9 +34,7 @@ Este tutorial inclui estes passos de configuração:
 Antes de começar, certifique-se de que o Centro de dados e rack utilizará tem estas funcionalidades:
 
 * Um slot de 1U disponíveis no rack onde pretende montar o dispositivo.
-* Fonte de alimentação AC e refrigeração sistemas que atendem às necessidades de filtro de borda de FXT do Azure. 
-
-  Para ajudar a planear e a instalação de dimensionamento, leia [potência e especificações térmicos](fxt-specs.md#power-and-thermal-specifications) para saber mais sobre as classificações de nameplate e de saída térmicos sob condições comuns.  
+* Fonte de alimentação AC e refrigeração sistemas que atendem às necessidades de filtro de borda de FXT do Azure. (Leia [potência e especificações térmicos](fxt-specs.md#power-and-thermal-specifications) para ajudar a planear e a instalação de tamanho.)  
 
   > [!NOTE] 
   > Para aproveitar ao máximo de duas unidades de fonte de alimentação redundantes (PSUs), utilize unidades de distribuição de energia em dois circuitos do ramo diferente ao anexar a energia CA. Leia [ligue os cabos de power](fxt-network-power.md#connect-power-cables) para obter detalhes.  
@@ -156,8 +154,6 @@ Opcionais screws de disco rígido montagem são fornecidas para proteger o siste
 
 Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda FXT. São fornecidas instruções impressas para instalá-lo no pacote. 
 
-<!-- need current images in electronic form from Dell - these are scans -->
-
 1. Descompactar e identificar os componentes do kit de arm de gestão de cabo:
    * Bandeja de CMA (1)
    * CMA (2)
@@ -168,7 +164,7 @@ Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda F
    > [!TIP] 
    > Para proteger o CMA para envio no rack, inclui o empate em torno baskets e Bandeja de loop e cinch-los firmemente. Proteger o CMA desta forma também irá proteger o seu sistema em ambientes instáveis.
 
-   ![Ilustração de partes CMA](media/fxt-install/cma-parts-scan-400.png)
+   ![Ilustração de partes CMA](media/fxt-install/cma-kit-400.png)
 
 2. Instale a Bandeja do CMA.
 
@@ -178,7 +174,7 @@ Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda F
    1. Enviar por push o tabuleiro para a frente até que ele clica no lugar certo. (1)
    1. Para remover o tabuleiro, compactar os botões de versão do bloqueio temporário em direção ao centro e extrair a Bandeja fora os colchetes de destinatário (2).
 
-   ![Ilustração da instalação de tabuleiro de CMA](media/fxt-install/cma-tray-scan-400.png)
+   ![Ilustração da instalação de tabuleiro de CMA](media/fxt-install/cma-tray-install-400.png)
 
 3. Instale os colchetes de anexo de CMA. 
 
@@ -188,7 +184,7 @@ Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda F
    > * Para sua comodidade, Monte o CMA no lado do oposta as fontes de alimentação (A-lado). Se este está montado no lado B, o CMA deve ser desligada para remover a fonte de alimentação externo. 
    > * Sempre remova a Bandeja antes de remover o poder fornece. 
 
-   ![Ilustração da instalação de colchete CMA](media/fxt-install/cma-brackets-scan-400.png)
+   ![Ilustração da instalação de colchete CMA](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Selecione o colchete de anexo de CMA apropriado para o lado onde pretende montar o CMA (lado B ou lado A).
    1. Instale o colchete de anexo de CMA com o correspondente A de lado ou de marcação de lado B remissivo rail o slide.
@@ -200,11 +196,11 @@ Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda F
    1. Ajustar o bloqueio temporário no final do Reto de abertura mais externo até que o bloqueio temporário é ativado (2). 
    1. Para remover o CMA, se desligue ambas as travas pressionando os botões de versão CMA na parte superior do housings bloqueio temporário interna e externa (3).
 
-   ![Ilustração da instalação de CMA principal](media/fxt-install/cma-install-scan-400.png)
+   ![Ilustração da instalação de CMA principal](media/fxt-install/cma-install-400.png)
 
    O CMA pode ser girado para fora do sistema para o acesso e o serviço. No final hinged, migrar o CMA na direção oposta a Bandeja para unseat-lo (1). Quando estiver unseated da bandeja do, girar o CMA longe do sistema (2).
 
-   ![Ilustração da CMA girado aberta para o serviço](media/fxt-install/cma-open-scan-400.png)
+   ![Ilustração da CMA girado aberta para o serviço](media/fxt-install/cma-swing-over-tray-400.png)
 
 ## <a name="install-the-front-bezel-optional"></a>Instalar o bezel front-(opcional)
 
@@ -222,7 +218,7 @@ Para remover o front-bezel:
 1. Prima o botão de versão no lado esquerdo e extrair a extremidade esquerda da bezel na direção oposta chassi.
 1. Unhook extremidade direita e remova o bezel.
    
-   ![Imagem que mostra o botão de versão à esquerda do bezel e como removê-lo ao extrair exterior do lado esquerdo](media/fxt-install/remove-bezel-updated-600.png)
+   ![Imagem que mostra o botão de versão à esquerda do bezel e como removê-lo ao extrair exterior do lado esquerdo](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

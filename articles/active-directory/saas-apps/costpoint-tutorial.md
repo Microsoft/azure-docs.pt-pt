@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ebc5d1d7cac78066fa4e6028b1921211cb05bf5
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: f21c7896f0ed2afba3a302b4686289cf331ba510
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144642"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536841"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Tutorial: Integrar Costpoint com o Azure Active Directory
 
@@ -78,14 +78,18 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, a aplicação está pré-configurada e os URLs necessários já estão previamente preenchidos com o Azure. O utilizador tem de guardar a configuração ao clicar o **guardar** botão e executar o passo seguinte:
+4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
 
-    a. Clique em **definir URLs adicionais**.
+    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<CostpointURI>`
 
-    b. Na **estado de reencaminhamento** caixa de texto, escreva um valor utilizando o seguinte padrão:`<SYSTEM VALUE>`
+    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<CostpointURI>/LoginServlet.cps`
+
+    c. Clique em **definir URLs adicionais**.
+
+    d. Na **estado de reencaminhamento** caixa de texto, escreva um valor utilizando o seguinte padrão:`<SYSTEM VALUE>`
 
     > [!NOTE]
-    > O valor de estado de reencaminhamento não é real. Atualize este valor com o estado real do reencaminhamento. Contacte [equipa de suporte de cliente Costpoint](https://www.deltek.com/about/contact-us) para obter este valor.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e estado de reencaminhamento. Contacte [equipa de suporte de cliente Costpoint](https://www.deltek.com/about/contact-us) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. Se desejar configurar a aplicação no **SP** iniciado do modo de executar o passo seguinte:
 

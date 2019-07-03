@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 86d6653aceeb7a44e3758b629d74db516235fcf8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102344"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550395"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Active Directory do Azure com o Suite de CX previr
 
@@ -119,7 +119,7 @@ Para configurar o Azure AD início de sessão único com o Suite de CX previr, e
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://cxsuite.foresee.com/`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: https:\//www.okta.com/saml2/service-provider/<UniqueID>
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: https:\//www.okta.com/saml2/service-provider/\<UniqueID >
 
     > [!Note]
     > Se o **identificador** valor não obtém polulated automática, em seguida, preencha o valor manualmente em conformidade com a acima padrão. O valor do identificador não é real. Atualize este valor com o identificador real. Contacte [equipa de suporte de cliente de Suite CX previr](mailto:support@foresee.com) para obter este valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.

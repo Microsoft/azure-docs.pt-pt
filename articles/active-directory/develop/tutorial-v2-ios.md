@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780da9359aaf645abc9b685fa9d90bbea9199759
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: b7d68f6f7079872b81b750ba71997117aaa27d33
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962158"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550563"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação iOS
 
@@ -65,7 +65,7 @@ Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo
 
 Pode registar a sua aplicação em qualquer uma das duas formas, conforme descrito nas próximas duas secções.
 
-### <a name="register-your-app"></a>Registar a aplicação
+### <a name="register-your-app"></a>Registar a sua aplicação
 
 1. Vá para o [portal do Azure](https://aka.ms/MobileAppReg) > selecione `New registration`. 
 2. Introduza um **Name** para a sua aplicação > `Register`. **Não defina um URI de redirecionamento nesta fase**. 
@@ -382,7 +382,7 @@ Depois de ter um token através do `self.accessToken`, a aplicação pode utiliz
 
 | Chave do cabeçalho    | value                 |
 | ------------- | --------------------- |
-| Autorização | Portador < token de acesso > |
+| Autorização | Bearer \<access-token> |
 
 Adicione o seguinte ao `ViewController.swift`:
 
@@ -500,7 +500,7 @@ Se tiver quaisquer problemas, pode abrir um problema neste documento ou na bibli
 
 Na primeira vez que qualquer utilizador inicia sessão na sua aplicação, serão solicitados pela identidade da Microsoft para dar consentimento às permissões solicitadas.  Embora a maioria dos usuários são capazes de consentir, alguns inquilinos do Azure AD tem desativado o consentimento do utilizador - exigindo que os administradores consentir em nome de todos os utilizadores.  Para suportar este cenário, certifique-se de que registe os âmbitos da sua aplicação no portal do Azure.
 
-## <a name="help-and-support"></a>Ajuda e Suporte
+## <a name="help-and-support"></a>Ajuda e suporte
 
 Teve problemas com este tutorial, ou com a plataforma de identidade da Microsoft? Consulte [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
 

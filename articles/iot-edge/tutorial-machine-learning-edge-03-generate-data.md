@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a93b1128fe1ea0e03efc9060f2c3c4a93145f838
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 666172e3685b923ca0d0e5fa02878341fcd0a216
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432856"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543862"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Tutorial: Gerar dados de dispositivo simulado
 
@@ -121,9 +121,9 @@ Agora que temos o projeto a criar, ligar-se ao seu hub IoT para acessar a cadeia
 
 1. Tenha em atenção que os utilizadores são adicionados ao IoT Hub e que os dispositivos apresentados a verde para indicar que os dados estão a ser enviados por meio desse dispositivo.
 
-1. Pode ver as mensagens a ser enviadas para o hub, clicando com o botão direito em qualquer dispositivo e selecionando **iniciar mensagens D2C monitorização**. Mostram as mensagens no painel de saída no Visual Studio Code.
+1. Pode ver as mensagens a ser enviadas para o hub, clicando com o botão direito em qualquer dispositivo e selecionando **iniciar a monitorização de evento ponto final incorporado**. Mostram as mensagens no painel de saída no Visual Studio Code.
 
-1. Parar a monitorização, clicando na **Kit de ferramentas do Azure IoT Hub** painel de saída e escolha **parar mensagens D2C monitorização**.
+1. Parar a monitorização, clicando na **Kit de ferramentas do Azure IoT Hub** painel de saída e escolha **parar a monitorização de evento ponto final incorporado**.
 
 1. Permitir que o aplicativo seja executado para conclusão, o que demora alguns minutos.
 

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 6119bacee7be65588f2d9cb5becb86296fcf1559
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: b9985bfa15cf300f82a0d24400ed1167a2d3f135
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502852"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537582"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -34,13 +34,14 @@ Para concluir este início rápido, tem de ter:
 
 ## <a name="train-a-form-recognizer-model"></a>Preparar um modelo de formulário reconhecedor
 
-Em primeiro lugar, terá um conjunto de dados de treinamento num contentor de BLOBs de armazenamento do Azure. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio com dois formulários preenchidos. Nome de ficheiro do formulário vazio tem de incluir a palavra "vazia".
+Em primeiro lugar, terá um conjunto de dados de treinamento num contentor de BLOBs de armazenamento do Azure. Deve ter um mínimo de cinco preenchidos formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio com dois formulários preenchidos. Nome de ficheiro do formulário vazio tem de incluir a palavra "vazia". Ver [criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para reunir os dados de treinamento.
 
-Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o python de código a seguir. Antes de executar o código, efetue estas alterações:
+Para preparar um modelo de formulário reconhecedor com os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o python seguinte código. Antes de executar o código, efetue estas alterações:
 
 1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
-1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Clique a caixa de diálogo seguinte e copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Substitua `<Subscription key>` com a chave de subscrição que copiou no passo anterior.
+1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Certifique-se de que o **leitura** e **lista** permissões são verificadas e clique em **criar**. Em seguida, copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post

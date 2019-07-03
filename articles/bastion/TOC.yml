@@ -22,10 +22,6 @@
           href: bastion-vm-full-screen.md
     - name: Trabalhar com NSGs
       href: bastion-nsg.md
-- name: Referência
-  items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/network-gateway'
 - name: Recursos
   items:
     - name: FAQ do Bastion

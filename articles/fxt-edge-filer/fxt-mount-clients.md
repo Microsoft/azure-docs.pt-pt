@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: dd74b82d4edad2b0176a3724176d924c2387f6fe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b48d8d74843947c3e40dc80234560b0147be6eea
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450325"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542973"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Tutorial: Montar o cluster
 
@@ -61,11 +61,9 @@ Existem três elementos para o comando de montagem:
 
 O caminho de cluster é uma combinação da vserver *endereço IP* além do caminho para um *junção de espaço de nomes*. A junção de espaço de nomes é um caminho virtual que definiu quando [adicionado o sistema de armazenamento](fxt-add-storage.md#create-a-junction).
 
-Por exemplo, se utilizou ``/avere/files`` como o caminho de espaço de nomes, os clientes se montaria *IP_address*: / avere/ficheiros para o ponto de montagem local. 
+Por exemplo, se utilizou ``/fxt/files`` como o caminho de espaço de nomes, os clientes se montaria *IP_address*: / fxt/ficheiros para o ponto de montagem local. 
 
-<!-- to do: update screenshot to use fxt/files instead of avere/files -->
-
-![Caixa de diálogo "Adicionar novo junção" com os ficheiros/avere/no campo do caminho de espaço de nomes](media/fxt-mount/fxt-create-junction-example.png)
+![Caixa de diálogo "Adicionar novo junção" com os ficheiros/avere/no campo do caminho de espaço de nomes](media/fxt-mount/fxt-junction-example.png)
 
 O endereço IP é um dos endereços IP com clientes definidos para o vserver. Pode encontrar o intervalo de IPs em dois locais do painel de controlo do cluster de com de clientes:
 

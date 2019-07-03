@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 06/25/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: be3262daf7ea2a637133ad658efe07ba9426415b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449080"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542631"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>A enviar pedidos para a API de sugestão automática do Bing.
 
-Se a sua aplicação enviar consultas para qualquer uma das APIs de pesquisa do Bing, pode usar a API de sugestão automática do Bing para melhorar a experiência de pesquisa dos seus utilizadores. A API de sugestão automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial na caixa de pesquisa. Que carateres são inseridos numa caixa de pesquisa em seu aplicativo, pode exibir sugestões numa lista pendente. Utilize este artigo para saber mais sobre como enviar pedidos para esta API.
+Se a sua aplicação enviar consultas para qualquer uma das APIs de pesquisa do Bing, pode usar a API de sugestão automática do Bing para melhorar a experiência de pesquisa dos seus utilizadores. A API de sugestão automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial na caixa de pesquisa. Que carateres são inseridos numa caixa de pesquisa em seu aplicativo, pode exibir sugestões numa lista pendente. Utilize este artigo para saber mais sobre como enviar pedidos para esta API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Ponto final da API de sugestão automática do Bing
 
@@ -44,7 +44,7 @@ Para obter exemplos de solicitações básicas com a API de sugestão automátic
 ## <a name="bing-autosuggest-api-requests"></a>Pedidos de API de sugestão automática do Bing
 
 > [!NOTE]
-> Pedidos à API de sugestão automática do Bing têm de utilizar o protocolo HTTPS.
+> * Pedidos à API de sugestão automática do Bing têm de utilizar o protocolo HTTPS.
 
 Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais acesso de terceiros mal-intencionados oportunidade. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras atualizações.
 
@@ -100,6 +100,8 @@ O grupo de sugestão de web seguinte é uma resposta ao pedido acima. O grupo co
 O campo `displayText` contém a consulta sugerida que utilizaria para preencher a lista pendente da sua caixa de pesquisa. Tem de apresentar todas as sugestões incluídas na resposta e pela ordem fornecida.  
 
 Se o usuário seleciona uma consulta da lista pendente, pode usá-lo para chamar um da [APIs de pesquisa Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o utilizador para a página de resultados do Bing com retornado `url` campo.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

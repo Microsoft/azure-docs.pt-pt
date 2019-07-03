@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 6b7c3099415aed9529727a1de30cd832189db58d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36ed354304cb1c88e48088f4b36c1ad0350af0dc
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450381"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542996"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Tutorial: Configurar as definições de rede do cluster 
 
@@ -23,7 +23,7 @@ Aprenderá:
 
 > [!div class="checklist"]
 > * As definições de rede poderão ter de ser atualizados depois de criar um cluster
-> * Os casos de utilização FXT Edge filtro necessitam de um servidor do AD ou um servidor DNS 
+> * Os casos de utilização de ficheiros do Azure FXT Edge exigem um servidor do AD ou um servidor DNS 
 > * Como configurar o round robin DNS (RRDNS) para automaticamente carregar pedidos de cliente de saldo e o cluster FXT
 
 A quantidade de tempo que demora a concluir estes passos depende de quantas alterações de configuração são necessárias no seu sistema:
@@ -105,7 +105,7 @@ Para um desempenho ideal, configure o servidor DNS para lidar com endereços de 
 
 Um vserver de cluster é apresentado no lado esquerdo, e endereços IP apresentados no centro e à direita. Configurar cada ponto de acesso de cliente com A registros e ponteiros, conforme ilustrado.
 
-![Diagrama do cluster round robin DNS - ligação de texto alternativo detalhadas segue imagem](media/fxt-rrdns-diagram.png) 
+![Diagrama do cluster round robin DNS - ligação de texto alternativo detalhadas segue imagem](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [detalhadas descrição de texto](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Cada endereço IP voltado para o cliente tem de ter um nome exclusivo para utilização interna pelo cluster. (Neste diagrama, os IPs de cliente são nomeados vs1-client - IP-* para maior clareza, mas na produção provavelmente usará algo mais concisa, como o cliente *.)

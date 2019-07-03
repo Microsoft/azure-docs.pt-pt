@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 0f6707c780931eac58e2a870c321385e63bd948a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825017"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550472"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação com o Azure Active Directory
 
@@ -138,24 +138,24 @@ Para atribuir um utilizador ou grupo à aplicação:
 
 Está quase concluído.  Como passo final, terá de configurar a aplicação para utilizar o Azure AD como um fornecedor de identidade. 
 
-1. Desloque para baixo para o **configure <applicationName>**  secção. Para este tutorial, esta secção é chamada **configurar o GitHub e teste**. 
+1. Desloque para baixo para o **configure \<applicationName >** secção. Para este tutorial, esta secção é chamada **configurar o GitHub e teste**. 
 2. Copie o valor de cada linha nesta secção. Em seguida, cole cada valor na linha apropriada no **configuração básica de SAML** secção. Por exemplo, copie o **URL de início de sessão** partir dos **configurar teste de GitHub** secção e cole-o no **URL de início de sessão** campo no **configuração básica de SAML**  secção e assim por diante.
 3. Quando tiver colado todos os valores nos campos apropriados, selecione **guardar**.
 
-## <a name="test-single-sign-on"></a>Testar início de sessão único
+## <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Está pronto para testar suas configurações.  
 
 1. Abra as definições do início de sessão único para a sua aplicação. 
-2. Desloque-se para o **validar o início de sessão único com <applicationName>**  secção. Para este tutorial, esta secção é chamada **configurar o GitHub e teste**.
+2. Desloque-se para o **validar o início de sessão único com \<applicationName >** secção. Para este tutorial, esta secção é chamada **configurar o GitHub e teste**.
 3. Selecione **teste**. As opções do teste aparecem.
 4. Selecione **iniciar sessão como utilizador atual**. Este teste permite que primeiro veja se o início de sessão único funcione para si, o administrador.
 
 Se existir um erro, é apresentada uma mensagem de erro. Conclua os seguintes passos:
 
-1. Copie e cole os detalhes na caixa **Qual é o aspeto do erro?**.
+1. Copie e cole os detalhes na caixa **Qual é o aspeto do erro?** .
 
-    ![Obter instruções de resolução](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Obter orientações de resolução](media/configure-single-sign-on-portal/error-guidance.png)
 
 2. Selecione **obtenha documentação de orientação de resolução**. São apresentadas as orientações de resolução e causa raiz.  Neste exemplo, o utilizador não foi atribuída à aplicação.
 

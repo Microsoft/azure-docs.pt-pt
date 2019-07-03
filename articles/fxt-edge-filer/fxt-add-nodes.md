@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 970639eec8c16540d8d7653f1d8bb01e4a397080
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d84b98b4ab936bbb6978144eb2e89b5e19df7069
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450500"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543225"
 ---
 # <a name="tutorial-add-cluster-nodes"></a>Tutorial: Adicionar nós de cluster 
 
@@ -51,7 +51,7 @@ O **nós FXT - desassociar** lista mostra todos os não atribuídas FXT nós (a 
 > Se não é possível localizar o nó pretende ter na **Unjoined** lista, verifique se ele cumpre estes requisitos:
 > 
 > * Ele é ativado e tenha tido uma [conjunto de palavra-passe de raiz](fxt-node-password.md).
-> * Está ligado a uma rede que pode aceder. Se utilizar VLANs, tem de ser estão na mesma VLAN que o cluster.
+> * Está ligado a uma rede que pode aceder. Se utilizar VLANs, tem de ser na mesma VLAN que o cluster.
 > * Ele pode ser detetado com o protocolo de Bonjour. 
 >
 >   Algumas definições de firewall bloqueiam as portas TCP/UDP usadas pelo Bonjour, o que impede que o sistema de operativo FXT detetar automaticamente os nós.

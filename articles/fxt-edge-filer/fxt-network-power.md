@@ -4,14 +4,14 @@ description: Como ligar as portas de rede e ligar a energia para o hardware de f
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell
-ms.openlocfilehash: 444835a94559a352bfd749cfa1cb2cd8c3a39373
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae179e8ce2a2ba772a7fb14825660e0fff9e7410
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450311"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542921"
 ---
 # <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Fazer conexões de rede e fornecer energia para o nó de filtro de borda de FXT do Azure
 
@@ -43,7 +43,7 @@ Identifica as várias portas na parte de trás de seu filtro de borda de FXT do 
 
 Este artigo também descreve como [ligar alternada](#connect-power-cables) para o nó. 
 
-Este artigo também explica como se pode ligar para o nó [porta serial](#serial-port-only-when-necessary), mas a porta serial só é utilizada para a resolução de problemas avançada. 
+Este artigo também explica como se pode ligar para o nó [porta serial](#serial-port-only-when-necessary), se necessário para a resolução de problemas especializada. 
 
 ### <a name="network-ports"></a>Portas de rede 
 
@@ -75,7 +75,7 @@ O tipo de conexões para utilizar para o seu sistema depende de seu ambiente de 
   * Direct 25GbE capaz de tipo SFP28 anexar twinaxial cabo
   * Direct com capacidade 10 gbe do tipo SFP28 anexar twinaxial cabo
 
-* As portas de rede de 1 gbe são utilizadas para tráfego de gestão do cluster. Verifique os **utilize a rede de gestão de 1Gb** opção ao criar o cluster (descrito na [configurar a rede de gestão](fxt-cluster-create.md#configure-the-management-network)). Ligar as portas com Cat5 padrão ou cabo melhor, conforme descrito na lista de cabos suportados.
+* As portas de rede de 1 gbe são utilizadas para tráfego de gestão do cluster. Verifique os **utilize a rede de gestão de 1Gb** opção ao criar o cluster, se quiser criar uma rede fisicamente separada para a configuração de cluster (descrito na [configurar a rede de gestão](fxt-cluster-create.md#configure-the-management-network)). Ligar as portas com Cat5 padrão ou cabo melhor, conforme descrito na lista de cabos suportados.
 
   Pode deixar as portas de 1 gbe uncabled se planeja usar as portas de alta velocidade para todo o tráfego. Por predefinição, as portas de rede de 1 gbe não são utilizadas se uma porta de dados de velocidade superior está disponível.  
 
@@ -115,12 +115,12 @@ Siga estas instruções para encaminhar os cabos por meio do CMA:
 1. Com o CMA na posição de serviço, encaminhe o pacote de cabo através de baskets internas e externas (2).
 1. Utilize os pré-instalados straps hook e loop em cada extremidade os baskets para proteger os cabos (3).
 1. Girar o CMA novamente no local na Bandeja do (4).
-1. Utilize o cabo de indicador de estado pré-instalados parte traseira desse sistema e proteger, o cabo ao encaminhamento-lo através do CMA. Anexe outro extremo do cabo para o canto do cesto CMA externo (5). 
+1. Instale o cabo de indicador de Estado parte traseira desse sistema e proteger, o cabo ao encaminhamento-lo através do CMA. Anexe outro extremo do cabo para o canto do cesto CMA externo (5). 
 
    > [!CAUTION]
    > Para evitar potenciais danos de protruding cabos, proteger qualquer slack, o cabo de indicador de estado após o encaminhamento neste cabo por meio do CMA. 
 
-![Ilustração da CMA com cabos instalado](media/cma-cabling-scan-400.png)
+![Ilustração da CMA com cabos instalado](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
 >  Se não tiver instalado o CMA, usar o gancho de duas e fazer um loop straps fornecidos no kit do rail para encaminhar os cabos remissivo seu sistema.
@@ -129,7 +129,7 @@ Siga estas instruções para encaminhar os cabos por meio do CMA:
 >  2. Agrupar os cabos moderadamente, colocá-los limpar dos conectores do sistema para as laterais esquerda e direita.
 >  3. Os straps hook e o loop por meio de ranhuras tooled nos colchetes CMA externas de cada lado do sistema para proteger os pacotes de cabo de thread.
 > 
->     ![Cabos encaminhados sem um CMA](media/fxt-route-cables-no-cma-400.png)
+>     ![Cabos encaminhados sem um CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## <a name="about-ip-address-requirements"></a>Sobre os requisitos de endereço IP
 
