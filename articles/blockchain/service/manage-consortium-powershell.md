@@ -146,7 +146,7 @@ Utilize este cmdlet para obter detalhes de membro ou membros do consortium de li
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | Name | O nome do membro Blockchain serviço que pretende obter os detalhes sobre. Quando é introduzido um nome, devolve detalhes do membro. Quando um nome for omitido, ele retorna uma lista de todos os membros de consortium. | Não |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
 #### <a name="example"></a>Exemplo
@@ -175,7 +175,7 @@ Utilize este cmdlet para remover um membro de blockchain.
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | Name | Nome do membro a remover | Sim |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Account | Objeto de Web3Account obtido a partir do Web3Account de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
@@ -199,7 +199,7 @@ Os administradores de consórcio podem definir **DisplayName** e **função** pa
 | Name | Nome do membro de blockchain | Sim |
 | displayName | Novo nome a apresentar | Não |
 | AccountAddress | Endereço da conta | Não |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Account | Objeto de Web3Account obtido a partir do Web3Account de importação | Sim |
 | Web3Client |  Objeto de Web3Client obtido a partir do New-Web3Connection| Sim |
 
@@ -223,8 +223,8 @@ Utilize este cmdlet para convidar novos membros para o consortium.
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID de subscrição do Azure do membro a convidar | Sim |
-| Função | A função de consortium. Valores podem ser administrador ou utilizador. ADMINISTRAÇÃO é a função de administrador do consórcio. UTILIZADOR é a função de membro de consortium. | Sim |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Role | A função de consortium. Valores podem ser administrador ou utilizador. ADMINISTRAÇÃO é a função de administrador do consórcio. UTILIZADOR é a função de membro de consortium. | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Account | Objeto de Web3Account obtido a partir do Web3Account de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
@@ -243,7 +243,7 @@ Utilize este cmdlet para recuperar ou lista de estado de convite de um membro de
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | SubscriptionId | O ID de subscrição do Azure do membro a convidar. Se a subscrição do ID é fornecida, ele retorna a subscrição IDs de detalhes de convite. Se o ID de subscrição for omitido, ele retorna uma lista de todos os convites de membro. | Não |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
 #### <a name="example"></a>Exemplo
@@ -270,7 +270,7 @@ Utilize este cmdlet para revogar o convite de um membro de consortium.
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID de subscrição do Azure do membro a revogar | Sim |
-| Membros | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Members | Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Account | Objeto de Web3Account obtido a partir do Web3Account de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
@@ -290,8 +290,8 @@ Utilize este cmdlet para definir o **função** para um convite existente. Apena
 | Parâmetro | Descrição | Necessário |
 |-----------|-------------|:--------:|
 | SubscriptionId | ID de subscrição do Azure do membro a convidar | Sim |
-| Função | Nova função de consórcio para o convite. Os valores podem ser **USUÁRIO** ou **administrador**. | Sim |
-| Membros |  Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
+| Role | Nova função de consórcio para o convite. Os valores podem ser **USUÁRIO** ou **administrador**. | Sim |
+| Members |  Objeto de membros obtido a partir do ConsortiumManagementContracts de importação | Sim |
 | Web3Account | Objeto de Web3Account obtido a partir do Web3Account de importação | Sim |
 | Web3Client | Objeto de Web3Client obtido a partir do New-Web3Connection | Sim |
 
