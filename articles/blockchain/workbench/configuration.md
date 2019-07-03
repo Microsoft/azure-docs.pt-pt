@@ -42,10 +42,10 @@ Uma aplicação de blockchain contém funções de metadados, fluxos de trabalho
 | Campo | Descrição | Necessário |
 |-------|-------------|:--------:|
 | ApplicationName | Nome de aplicação único. O contrato inteligente correspondente tem de utilizar o mesmo **ApplicationName** para a classe de contrato aplicável.  | Sim |
-| displayName | Nome a apresentar amigável do aplicativo. | Sim |
-| Descrição | Descrição da aplicação. | Não |
+| DisplayName | Nome a apresentar amigável do aplicativo. | Sim |
+| Description | Descrição da aplicação. | Não |
 | ApplicationRoles | Coleção de [ApplicationRoles](#application-roles). Funções de utilizador que podem agir ou tem participação na aplicação.  | Sim |
-| Fluxos de trabalho | Coleção de [fluxos de trabalho](#workflows). Cada fluxo de trabalho funciona como uma máquina de estado para controlar o fluxo de lógica de negócios. | Sim |
+| Workflows | Coleção de [fluxos de trabalho](#workflows). Cada fluxo de trabalho funciona como uma máquina de estado para controlar o fluxo de lógica de negócios. | Sim |
 
 Por exemplo, veja [exemplo de ficheiro de configuração](#configuration-file-example).
 
