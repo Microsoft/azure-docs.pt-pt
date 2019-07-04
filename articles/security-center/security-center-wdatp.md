@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2018
 ms.author: monhaber
-ms.openlocfilehash: d42b929807bf67b73d0587232608efc0cea6d717
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1737856067b2490db4a993b4383b320cb13a7774
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752569"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551770"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 
@@ -71,7 +71,7 @@ A carregar servidores ao centro de segurança, clique em **aceda ao centro de se
 
 ## <a name="enable-windows-defender-atp-integration"></a>Ativar a integração do Windows Defender ATP
 
-Para ver se a integração do Windows Defender ATP estiver ativada, selecione **Centro de segurança** > **política de segurança** > **subscrição**  >  **Editar definições**.
+Para ver se a integração do Windows Defender ATP estiver ativada, selecione **Centro de segurança** > **preços & definições** > clique na sua subscrição.
 
   ![Gestão de políticas do Centro de segurança do Azure](media/security-center-wdatp/policy-management.png)
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 446b49cbf3fdf3d4cde37b2a7c4ac2d9f0a811b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: daf9199104047f714d568bd2796490b836243952
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061329"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443237"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 
@@ -57,7 +57,6 @@ A tabela seguinte lista todas as outras funcionalidades e ferramentas que ainda 
 | **AZCopy** | Suporte específico da versão <br><br>Utilizar a versão mais recente do AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Versões anteriores do AzCopy como AzCopy v8.1, não são suportadas.|
 | **Azure políticas de gestão do ciclo de vida de armazenamento de BLOBs** | Ainda não é suportado |
 | **Rede de entrega de conteúdos do Azure (CDN)** | Ainda não é suportado|
-| **Azure Event Grid** | Ainda não é suportado |
 | **O Azure search** |Ainda não é suportado|
 | **Explorador do Armazenamento do Azure** | Suporte específico da versão <br><br>Utilize apenas a versão `1.6.0` ou superior. <br>Versão `1.6.0` está disponível como uma [gratuitamente para download](https://azure.microsoft.com/features/storage-explorer/).|
 | **ACLs do contentor de BLOBs** |Ainda não é suportado|

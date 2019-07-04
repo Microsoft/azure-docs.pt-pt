@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153844"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443730"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Conceder acesso a dados de BLOBs e filas do Azure com o RBAC com o PowerShell
 
@@ -30,7 +30,7 @@ Este artigo descreve como utilizar o Azure PowerShell para listar as funções i
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar o escopo do recurso 
+## <a name="determine-resource-scope"></a>Determinar o escopo do recurso
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Atribuir uma função RBAC a um utilizador
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir uma função RBAC a uma entidade de segurança
 
-Para atribuir uma função RBAC a um utilizador, utilize o [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. O formato do comando pode divergir com base no âmbito da atribuição. Os exemplos seguintes mostram como atribuir uma função a um utilizador em vários âmbitos.
+Para atribuir uma função RBAC a uma entidade de segurança, utilize o [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. O formato do comando pode divergir com base no âmbito da atribuição. Os exemplos seguintes mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode utilizar o mesmo comando para atribuir uma função para qualquer entidade de segurança.
 
 ### <a name="container-scope"></a>Âmbito do contentor
 

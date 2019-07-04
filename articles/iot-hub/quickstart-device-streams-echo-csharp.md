@@ -1,21 +1,20 @@
 ---
 title: Comunicar com uma aplicação de dispositivo no C# através de fluxos de dispositivo do IoT Hub do Azure (pré-visualização) | Documentos da Microsoft
 description: Neste início rápido, executa duas de exemplo C# aplicações que se comunicam através de um fluxo de dispositivo estabelecido através do IoT Hub.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 74a8fc40cff12070f7cea99981eb4e8321d7c1ef
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: de581362371e28523c99f961dfdb5c2009901343
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735143"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446113"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo no C# através de fluxos de dispositivo do IoT Hub (pré-visualização)
 

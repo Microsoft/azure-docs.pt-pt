@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254672"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446780"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade da sua aplicação com o Assistente do Azure
 
@@ -93,6 +93,9 @@ O Assistente do Azure identificará as contas do Azure Cosmos DB que estiver a u
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o Conector Spark do Azure Cosmos DB para a versão mais recente a partir do Maven
 
 O Assistente do Azure identificará as contas do Azure Cosmos DB que estejam usando versões antigas do conector do Spark do Cosmos DB e recomendável fazer a atualização para a versão mais recente do Maven para as mais recentes correções, melhorias de desempenho e novas capacidades de funcionalidade. [Saiba mais sobre o conector do Spark do Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Ativar a replicação da máquina virtual
+Máquinas virtuais que não têm os replicação ativado para outra região não são resilientes a falhas regionais. Replicar máquinas virtuais reduz qualquer impacto sobre o negócio adversos durante o tempo de uma indisponibilidade de região do Azure. O assistente irá detetar VMs que não têm a replicação ativada e recomendar a ativação da replicação, de forma que em caso de interrupção, pode rapidamente colocar as suas máquinas virtuais numa região do Azure remota. [Saiba mais sobre a replicação da máquina virtual](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de elevada disponibilidade no Advisor
 

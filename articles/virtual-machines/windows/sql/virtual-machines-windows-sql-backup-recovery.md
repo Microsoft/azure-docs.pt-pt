@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c02daef31b29e9a95ddfdedea497604ad0777aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563431"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442642"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
 
@@ -35,7 +35,7 @@ A tabela seguinte fornece informações sobre várias opções de cópia de segu
 | Estratégia | Versões do SQL | Descrição |
 |---|---|---|
 | [Cópia de Segurança Automatizada](#automated) | 2014<br/> 2016<br/> 2017 | Cópia de segurança automatizada permite-lhe agendar cópias de segurança regulares para todas as bases de dados numa VM do SQL Server. As cópias de segurança são armazenadas no armazenamento do Azure durante 30 dias. A partir do SQL Server 2016, a cópia de segurança automatizada v2 oferece opções adicionais, como a configuração manual de agendamento e a frequência de completo e backups de log. |
-| [Azure Backup for SQL VMs](#azbackup) (Azure Backup para VMs do SQL) | 2012<br/> 2014<br/> 2016<br/> 2017 | O Azure Backup fornece uma capacidade de cópia de segurança de classe empresarial para o SQL Server em execução em VMs do Azure. Com este serviço, pode gerenciar centralmente as cópias de segurança para vários servidores e de milhares de bases de dados. Bases de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter cópias de segurança durante anos. Esta funcionalidade está atualmente em pré-visualização pública. |
+| [Azure Backup for SQL VMs](#azbackup) (Azure Backup para VMs do SQL) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | O Azure Backup fornece uma capacidade de cópia de segurança de classe empresarial para o SQL Server em execução em VMs do Azure. Com este serviço, pode gerenciar centralmente as cópias de segurança para vários servidores e de milhares de bases de dados. Bases de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter cópias de segurança durante anos. |
 | [Cópia de segurança manual](#manual) | Todos | Dependendo da versão do SQL Server, existem várias técnicas para criar cópias de segurança e restaurar o SQL Server em execução numa VM do Azure manualmente. Neste cenário, é responsável por como seus bancos de dados são uma cópia de segurança e a localização de armazenamento e gestão destas cópias de segurança. |
 
 As secções seguintes descrevem cada opção em mais detalhes. A seção final deste artigo fornece um resumo na forma de uma matriz de funcionalidade.

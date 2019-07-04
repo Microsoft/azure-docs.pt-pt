@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1987bd348bf37c147eeb0697c88653c48f8c9136
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 66a7caddc499d32a4d836dcb60bc940c1ebc8a9e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144204"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444562"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Criar a primeira função com o Java e Maven
 
@@ -108,7 +108,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>Enlaces de referência
+## <a name="enable-extension-bundles"></a>Ativar os pacotes de extensão
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

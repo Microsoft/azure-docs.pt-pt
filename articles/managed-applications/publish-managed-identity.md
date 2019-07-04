@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: be141e208016784b689262394798012c2212ba5b
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312239"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434868"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicação gerida do Azure com a identidade gerida
 
@@ -323,7 +323,22 @@ O token da aplicação gerida pode agora ser acedido através do `listTokens` ap
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Parâmetros de corpo do pedido:
+
+Parâmetro | Necessário | Descrição
+---|---|---
+authorizationAudience | *no* | O URI de ID de aplicação do recurso de destino. Também é o `aud` afirmação (público) do token emitido. O valor predefinido é "https://management.azure.com/"
+userAssignedIdentities | *no* | A lista de identidades geridas atribuído ao utilizador para obter um token para. Se não for especificado, `listTokens` retornará o token para a identidade gerida atribuído de sistema.
+
 
 Como pode ser uma resposta de exemplo:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+A resposta irá conter uma matriz de tokens sob o `value` propriedade:
+
+Parâmetro | Descrição
+---|---
+access_token | O token de acesso solicitado.
+expires_in | O número de segundos que o token de acesso será válido.
+expires_on | O período de tempo quando o token de acesso expira. Isso é representado como o número de segundos do "Epoch".
+not_before | O período de tempo quando o token de acesso entra em vigor. Isso é representado como o número de segundos do "Epoch".
+authorizationAudience | O `aud` (público), o token de acesso foi pedido para. Este é o mesmo que o que foi fornecido no `listTokens` pedido.
+resourceId | O ID de recurso do Azure para o token emitido. Este é o ID de aplicação gerida ou o ID de identidade atribuído ao utilizador.
+token_type | O tipo de token.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

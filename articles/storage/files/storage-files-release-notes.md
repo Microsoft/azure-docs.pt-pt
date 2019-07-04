@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 6/27/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d9bbc76fe60a5d363cd05b75df33f6fce00d7e9a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 2399fcaa683e5807d2a5cd69d3dd3357d804fd28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303409"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449961"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -26,7 +26,8 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
 | V7 Versão - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 de Junho de 2019 | [Distribuição de pacotes piloto](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Rollup de - de atualização de Junho de 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de Junho de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Junho de 2019 [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 de Junho de 2019 | Suportado (versão recomendada) |
+| Rollup de - de atualização de Junho de 2019 [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 de Junho de 2019 | Suportadas |
 | Rollup de - de atualização de Maio de 2019 [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 de Maio de 2019 | Suportadas |
 | V6 Versão - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 de Abril de 2019 | Suportadas |
 | Rollup de - de atualização de Abril de 2019 [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 de Abril de 2019 | Suportadas |
@@ -113,6 +114,14 @@ Os itens seguintes não são sincronizados, mas o restante sistema continua a fu
 ### <a name="cloud-tiering"></a>Disposição em camadas na cloud
 - Se um ficheiro disposto em camadas for copiado para outra localização com o Robocopy, o ficheiro resultante não é disposto em camadas. O atributo offline pode estar definido porque o Robocopy inclui incorretamente esse atributo nas operações de cópia.
 - Ao copiar ficheiros através do robocopy, utilize a opção de /MIR para preservar os carimbos de ficheiro. Isto irá garantir que arquivos antigos são dispostos em camadas mais cedo do que os ficheiros acedidos recentemente.
+
+## <a name="agent-version-6300"></a>Versão do agente 6.3.0.0
+As notas de versão seguintes destinam-se a versão 6.3.0.0 do agente do Azure File Sync disponibilizada 27 de Junho de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 6.0.0.0.
+
+Lista dos problemas corrigidos nesta versão:  
+- Aceder a ou a procura de uma localização de ponto final de servidor através de SMB é lento no Windows Server 2012 R2 
+- Uma maior utilização da CPU depois de instalar o agente do Azure File Sync v6
+- Melhorias de telemetria camadas da cloud
 
 ## <a name="agent-version-6200"></a>Versão do agente 6.2.0.0
 As notas de versão seguintes destinam-se a versão 6.2.0.0 do agente do Azure File Sync disponibilizada 13 de Junho de 2019. Estas notas são adicionais as notas de versão enumeradas para a versão 6.0.0.0.

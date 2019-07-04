@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399978"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491803"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Efetuar a ativação pós-falha de VMs e servidores físicos 
 
@@ -70,9 +70,9 @@ Máquinas virtuais/servidores físicos protegidos com o Site Recovery também su
 
 > [!NOTE]
 > Durante a ativação pós-falha de máquinas de virtuais de Hyper-v de um site no local para outro site no local, para voltar para o site no local primário tem de primeiro **replicar inverso** a máquina virtual de volta para o site primário e, em seguida, acione uma ativação pós-falha. Se a máquina virtual primária não está disponível, em seguida, antes de começar a **replicar inverso** possui para restaurar a máquina virtual a partir de uma cópia de segurança.   
-> 
-> 
-> ## <a name="failover-job"></a>Tarefa de ativação pós-falha
+ 
+ 
+## <a name="failover-job"></a>Tarefa de ativação pós-falha
 
 ![Ativação pós-falha](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Convém automatizar determinadas ações ao efetuar uma ativação pós-falha. P
 ## <a name="post-failover-considerations"></a>Considerações de ativação pós-falha de postagem
 Após a ativação pós-falha que pode querer considerar as seguintes recomendações:
 ### <a name="retaining-drive-letter-after-failover"></a>Mantendo a letra de unidade após a ativação pós-falha
-Para manter a letra de unidade em máquinas virtuais após ativação pós-falha, pode definir o **política de SAN** para a máquina virtual **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+O Azure Site Recovery processa a retenção de letras de unidade. [Leia mais](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) em como isso é feito quando optar por excluir alguns discos.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 

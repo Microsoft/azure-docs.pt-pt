@@ -3,7 +3,7 @@ title: Como utilizar SDK do iOS do Mobile Apps do Azure
 description: Como utilizar SDK do iOS do Mobile Apps do Azure
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -11,19 +11,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 38d992e55a8e1f0a057a96f3e13c93c9dbd0c4a9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122460"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440393"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como uso iOS biblioteca de cliente para aplicações móveis do Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) hoje mesmo.
+>
+
+## <a name="overview"></a>Descrição geral
 Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK iOS do Mobile Apps do Azure][1]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end, criar uma tabela e transfira um projeto do Xcode iOS criados previamente. Neste guia, vamos nos concentrar no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o HOWTOs de SDK do servidor.
 
 ## <a name="reference-documentation"></a>Documentação de referência
@@ -435,7 +440,7 @@ No mínimo, o `id` atributo tem de ser definido quando elimina tomada.
 
 Uma API personalizada, pode expor qualquer funcionalidade de back-end. Não tem de mapear para uma operação de tabela. Não só obterá mais controle sobre mensagens, pode mesmo leitura/conjunto de cabeçalhos e alterar o formato do corpo de resposta. Para saber como criar uma API personalizada num back-end, leia [APIs personalizadas](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
-Para chamar uma API personalizada, chamar `MSClient.invokeAPI`. O pedido e resposta de conteúdo são tratadas como JSON. Para utilizar outros tipos de mídia [utilize a outra sobrecarga do `invokeAPI` ] [ 5].  Para tornar uma `GET` pedir, em vez de um `POST` pedir, parâmetro de conjunto `HTTPMethod` para `"GET"` e o parâmetro `body` para `nil` (uma vez que solicitações GET não têm corpos de mensagem.) Se a API personalizada oferece suporte a outros verbos HTTP, altere `HTTPMethod` adequadamente.
+Para chamar uma API personalizada, chamar `MSClient.invokeAPI`. O pedido e resposta de conteúdo são tratadas como JSON. Para utilizar outros tipos de mídia [utilize a outra sobrecarga do `invokeAPI` ][5].  Para tornar uma `GET` pedir, em vez de um `POST` pedir, parâmetro de conjunto `HTTPMethod` para `"GET"` e o parâmetro `body` para `nil` (uma vez que solicitações GET não têm corpos de mensagem.) Se a API personalizada oferece suporte a outros verbos HTTP, altere `HTTPMethod` adequadamente.
 
 **Objective-C**:
 
@@ -516,7 +521,7 @@ Todas as etiquetas são removidas do pedido de segurança.  Para adicionar etiqu
 
 Quando chama um back-end móvel do App Service do Azure, o bloco de conclusão contém um `NSError` parâmetro. Quando ocorre um erro, este parâmetro é não nil. Em seu código, deve verificar este parâmetro e lidar com o erro, conforme necessário, como demonstrado em fragmentos de código anteriores.
 
-O ficheiro [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey`, e `MSErrorServerItemKey`. Para obter mais dados relacionados com o erro:
+O ficheiro [ `<WindowsAzureMobileServices/MSError.h>` ][6] define as constantes `MSErrorResponseKey`, `MSErrorRequestKey`, e `MSErrorServerItemKey`. Para obter mais dados relacionados com o erro:
 
 **Objective-C**:
 
@@ -548,7 +553,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sessão de utilizadores na sua aplicação utilizando o Azure Active Directory. Autenticação de fluxo de cliente através de um fornecedor de identidade SDK é preferível a utilizar o `loginWithProvider:completion:` método.  Autenticação de fluxo de cliente fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
-1. Configurar o seu back-end de aplicação móvel para o início de sessão do AAD ao seguir a [como configurar o serviço de aplicações para início de sessão do Active Directory] [ 7] tutorial. Certifique-se concluir o passo opcional de registar uma aplicação cliente nativa. Para iOS, recomendamos que o URI é o formato de redirecionamento `<app-scheme>://<bundle-id>`. Para obter mais informações, consulte a [guia de introdução do iOS da ADAL][8].
+1. Configurar o seu back-end de aplicação móvel para o início de sessão do AAD ao seguir a [como configurar o serviço de aplicações para início de sessão do Active Directory][7] tutorial. Certifique-se concluir o passo opcional de registar uma aplicação cliente nativa. Para iOS, recomendamos que o URI é o formato de redirecionamento `<app-scheme>://<bundle-id>`. Para obter mais informações, consulte a [guia de introdução do iOS da ADAL][8].
 2. Instale a ADAL com o Cocoapods. Editar Podfile para incluir a definição seguinte, substituindo **seu PROJETO** com o nome do seu projeto Xcode:
 
         source 'https://github.com/CocoaPods/Specs.git'
@@ -562,7 +567,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
 3. O terminal, execute `pod install` do diretório que contém seu projeto e, em seguida, abra a área de trabalho do Xcode gerada (não o projeto).
 4. Adicione o seguinte código ao seu aplicativo, de acordo com o idioma que está a utilizar. Em cada uma, fazer estas substituições:
 
-   * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado da guia no Azure Active Directory no domínio a [portal do Azure].
+   * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado da guia no Azure Active Directory no domínio a [Azure portal].
    * Substitua **INSERT-RESOURCE-ID-HERE** com o ID de cliente para o back-end de aplicação móvel. Pode obter o ID de cliente do **avançadas** separador sob **definições de diretório do Azure Active Directory** no portal.
    * Substitua **INSERT-CLIENT-ID-HERE** com o ID de cliente que copiou da aplicação cliente nativa.
    * Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -635,8 +640,8 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 
 Pode utilizar o SDK do Facebook para iOS para inscrever-se os utilizadores na sua aplicação utilizando o Facebook.  Usar uma autenticação de fluxo de cliente é preferível a utilizar o `loginWithProvider:completion:` método.  A autenticação de fluxo de cliente fornece uma noção da experiência do Usuário mais nativa e permite a personalização adicional.
 
-1. Configurar o seu back-end de aplicação móvel para o início de sessão do Facebook ao seguir a [como configurar o serviço de aplicações para início de sessão do Facebook] [ 9] tutorial.
-2. Instalar o SDK do Facebook para iOS ao seguir a [SDK do Facebook para iOS - introdução] [ 10] documentação. Em vez de criar uma aplicação, pode adicionar a plataforma iOS para o registo existente.
+1. Configurar o seu back-end de aplicação móvel para o início de sessão do Facebook ao seguir a [como configurar o serviço de aplicações para início de sessão do Facebook][9] tutorial.
+2. Instalar o SDK do Facebook para iOS ao seguir a [SDK do Facebook para iOS - introdução ao][10] documentação. Em vez de criar uma aplicação, pode adicionar a plataforma iOS para o registo existente.
 3. Documentação do Facebook inclui algum código Objective-C no representante do aplicativo. Se estiver a utilizar **Swift**, pode utilizar as seguintes traduções para Appdelegate:
 
     ```swift
@@ -898,7 +903,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx

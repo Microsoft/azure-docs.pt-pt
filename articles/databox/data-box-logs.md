@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 108d17d3e0ca5f32648f9d4f6cf4b5f9a2984d0c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495807"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446774"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Controlo e o log de eventos para o Azure Data Box e pesadas de caixa de dados do Azure
 
@@ -29,7 +29,7 @@ A tabela seguinte mostra um resumo dos passos de ordem Data Box ou pesadas de ca
 | Cópia de dados para o dispositivo        | [Modo de exibição *error.xml* arquivos](#view-error-log-during-data-copy) para cópia de dados                                                             |
 | Preparar para enviar            | [Inspecionar os ficheiros BOM](#inspect-bom-during-prepare-to-ship) ou os arquivos de manifesto no dispositivo                                      |
 | Carregamento de dados para o Azure       | [Revisão *copylogs* ](#review-copy-log-during-upload-to-azure) erros durante a dados carregar no datacenter do Azure                         |
-| Eliminação de dados do dispositivo   | [Ver cadeia de custódia registos](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de pedidos                                                   |
+| Eliminação de dados do dispositivo   | [Ver cadeia de custódia registos](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de pedidos                |
 
 Este artigo descreve detalhadamente a vários mecanismos ou ferramentas disponíveis para controlar e auditar a ordem de caixa de dados ou dados de caixa pesada. As informações neste artigo aplica-se para tanto, Data Box e dados de caixa pesada. Nas secções seguintes, quaisquer referências a caixa de dados também se aplicam a dados de caixa pesada.
 
@@ -203,7 +203,7 @@ Para cada ordem processada, o serviço do Data Box cria *copylog* na conta de ar
 
 Uma computação de verificação de redundância cíclica (CRC) é feita durante o carregamento para o Azure. CRCs partir da cópia de dados e depois em comparação com o carregamento de dados. Um erro de correspondência CRC indica que os ficheiros correspondentes Falha ao carregar.
 
-Por predefinição, os registos são escritos para um contentor com o nome copylog. Os registos são armazenados com a seguinte convenção de nomenclatura:
+Por predefinição, os registos são escritos para um contentor com o nome `copylog`. Os registos são armazenados com a seguinte convenção de nomenclatura:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -245,7 +245,41 @@ Eis um exemplo de um copylog em que o carregamento foi concluído com erros:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+Eis um exemplo de um `copylog` onde os contentores que não cumpria as convenções de nomenclatura do Azure foram renomeados durante o carregamento de dados para o Azure.
 
+Os novos nomes exclusivos para contentores estão no formato `DataBox-GUID` e os dados para o contentor são colocados num novo contentor de nome mudado. O `copylog` Especifica o antigo e o novo nome de contentor para contentor.
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+Eis um exemplo de um `copylog` em que os blobs ou ficheiros que não cumpria as convenções de nomenclatura do Azure, foram renomeados durante o carregamento de dados para o Azure. O blob novo ou nomes de ficheiro são convertidos para resumo de SHA256 do caminho relativo para o contentor e são carregados para o caminho com base no tipo de destino. O destino pode ser blobs de blocos, blobs de páginas ou ficheiros do Azure.
+
+O `copylog` Especifica o antigo e o novo nome de ficheiro ou blob e o caminho no Azure.
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Obter cadeia de registos de custódia após a eliminação de dados
 

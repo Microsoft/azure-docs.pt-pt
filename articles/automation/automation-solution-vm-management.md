@@ -4,17 +4,17 @@ description: Esta solução de gestão de VMS inicia e para as suas máquinas de
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39ba577580424bf8283d64198bb3068b82869c51
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389115"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476880"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -140,7 +140,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    Aqui, lhe for pedido para:
    - Especifique a **nomes de ResourceGroup de destino**. Estes valores são os nomes de grupo de recursos que contêm as VMs a ser geridas por esta solução. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). Se quiser segmentar todas as VMs em todos os grupos de recursos da subscrição, a utilização de um caráter universal é suportada. Este valor é armazenado no **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** variáveis.
    - Especifique a **lista de exclusões de VM (cadeia)** . Este valor é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
-   - Selecione um **agenda**. Este valor é uma data e hora recorrente para iniciar e parar as VMs em grupos de recursos de destino. Por predefinição, a agenda está configurada para 30 minutos a partir de agora. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedules).
+   - Selecione um **agenda**. Selecione uma data e hora para a sua agenda. Será criada uma agenda diária recorrente a partir do momento em que selecionou. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedules).
    - Para receber **notificações por E-Mail** de um grupo de ação, aceite o valor predefinido **Sim** e fornecer um endereço de e-mail válido. Se selecionou **não** mas decidir posteriormente que pretende receber notificações por e-mail, pode atualizar o [grupo de ação](../azure-monitor/platform/action-groups.md) que é criada com endereços de e-mail válidos separados por vírgulas. Também tem de ativar as seguintes regras de alerta:
 
      - AutoStop_VM_Child

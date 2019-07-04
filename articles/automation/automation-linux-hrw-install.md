@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como instalar uma função 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94d34c8a9a3480032a79d100af883a85868d327e
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738864"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478476"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -51,7 +51,7 @@ Os requisitos mínimos para uma função de trabalho de Runbook do Linux híbrid
 |Glibc |Biblioteca de C do GNU| 2.5-12 |
 |OpenSSL| Bibliotecas de OpenSSL | 1.0 (TLS 1.1 e TLS 1.2 são suportados|
 |Curl | cliente de web de cURL | 7.15.5|
-|Ctypes de Python | |
+|Python-ctypes | |
 |PAM | Módulos de autenticação conectável|
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar runbooks do PowerShell, PowerShell tem de ser instalado, veja [instalar o PowerShell Core no Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) para saber como instalá-lo.  | 6.0.0 |

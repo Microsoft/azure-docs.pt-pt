@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48792a90a42d0cfe5c0b34c872b3d474d6a784f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684834"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433495"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar ScaleR e SparkR no HDInsight
 
@@ -536,9 +536,7 @@ Neste artigo, mostramos como é possível combinar o uso de SparkR para manipula
 
 - Para obter mais informações sobre a utilização do servidor de ML no Apache Spark, consulte a [guia de introdução](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Para obter informações gerais sobre o ML Server, consulte a [introdução ao R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) artigo.
-
-- Para obter informações sobre os serviços de ML no HDInsight, consulte [descrição geral dos serviços de ML no HDInsight](r-server/r-server-overview.md) e [introdução aos serviços de ML no Azure HDInsight](r-server/r-server-get-started.md).
+- Para obter informações sobre os serviços de ML no HDInsight, consulte [descrição geral dos serviços de ML no HDInsight](r-server/r-server-overview.md).
 
 Para obter mais informações sobre a utilização de SparkR, consulte:
 

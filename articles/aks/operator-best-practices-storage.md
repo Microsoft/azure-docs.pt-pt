@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: iainfou
-ms.openlocfilehash: e7f45a3a0e62b2b559002b71bd8816e050f062ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9231b3629c10043e72efad4231111e56fd54c626
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072651"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447152"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Melhores práticas para armazenamento e cópias de segurança no Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,6 @@ A tabela seguinte descreve os tipos de armazenamento disponível e as respetivas
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configuração partilhada       | Ficheiros do Azure   | Sim | Sim | Sim | Sim |
 | Dados estruturados de aplicação        | Discos do Azure   | Sim | Não  | Não  | Sim |
-| Dados da aplicação, partilhas só de leitura | [Dysk (pré-visualização)][dysk] | Sim | Sim | Não  | Não |
 | Dados não estruturados, operações de sistema de ficheiros | [BlobFuse (pré-visualização)][blobfuse] | Sim | Sim | Sim | Não |
 
 Os dois principais tipos de armazenamento fornecida para os volumes de AKS são apoiados por discos do Azure ou de ficheiros do Azure. Para melhorar a segurança, ambos os tipos de armazenamento utilizam o Azure Storage Service Encryption (SSE) por padrão, que criptografa dados em repouso. Atualmente não não possível encriptar discos com o Azure Disk Encryption ao nível do nó do AKS.
@@ -83,7 +82,7 @@ Uma afirmação de volume persistente (PVC) permite-lhe criar dinamicamente o ar
 
 Para os conceitos sobre como criar e utilizar volumes dinamicamente, consulte [persistente de Volumes de afirmações][aks-concepts-storage-pvcs].
 
-Para ver estes volumes em ação, veja como criar e utilizar um volume persistente com dinamicamente [discos do Azure] [ dynamic-disks] ou [ficheiros do Azure][dynamic-files].
+Para ver estes volumes em ação, veja como criar e utilizar um volume persistente com dinamicamente [discos do Azure][dynamic-disks] or [Azure Files][dynamic-files].
 
 Como parte das suas definições de classe de armazenamento, defina o adequado *reclaimPolicy*. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacentes, quando o pod é eliminado e o volume persistente já não poderá ser necessário. O recurso de armazenamento subjacente pode ser eliminado ou retido para utilização com um pod futura. O reclaimPolicy pode definido como *reter* ou *eliminar*. Compreender as necessidades da sua aplicação e implementar verificações regulares para o armazenamento que é mantido, para minimizar a quantidade de armazenamento não utilizado, que é utilizado e cobrada.
 
@@ -93,7 +92,7 @@ Para obter mais informações sobre as opções de classe de armazenamento, cons
 
 **Melhores diretrizes de práticas** - cópia de segurança os dados através de uma ferramenta adequada para seu tipo de armazenamento, como Velero ou Azure Site Recovery. Certifique-se de que a integridade e segurança, essas cópias de segurança.
 
-Quando os aplicativos armazenem e utilizem os dados mantidos nos discos ou em arquivos, que precisa de efetuar cópias de segurança regulares ou instantâneos de dados. Discos do Azure podem utilizar tecnologias de instantâneo incorporado. Se pretender um gancho para as suas aplicações descarregar escreve no disco antes de efetuar a operação de instantâneo. [Velero] [ velero] pode fazer backup de volumes persistentes, juntamente com os recursos do cluster adicional e configurações. Se não for possível [remover o estado de seus aplicativos][remove-state], fazer backup dos dados dos volumes persistentes e testar regularmente as operações de restauro para verificar a integridade dos dados e os processos necessários.
+Quando os aplicativos armazenem e utilizem os dados mantidos nos discos ou em arquivos, que precisa de efetuar cópias de segurança regulares ou instantâneos de dados. Discos do Azure podem utilizar tecnologias de instantâneo incorporado. Se pretender um gancho para as suas aplicações descarregar escreve no disco antes de efetuar a operação de instantâneo. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], fazer backup dos dados dos volumes persistentes e testar regularmente as operações de restauro para verificar a integridade dos dados e os processos necessários.
 
 Compreenda as limitações das abordagens diferentes para cópias de segurança de dados e se precisa silenciar dos dados antes de instantâneo. Cópias de segurança de dados não necessariamente lhe permite restaurar o ambiente de aplicação de implementação de cluster. Para obter mais informações sobre esses cenários, consulte [melhores práticas para a recuperação de desastre e continuidade de negócio no AKS][best-practices-multi-region].
 
@@ -103,7 +102,6 @@ Este artigo concentra-se no armazenamento de melhores práticas no AKS. Para obt
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e75c6290474d876ca22b5888d06b1fc0e4c8cd05
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24b27c16573a35b1d8749d7ff381fbef970f4bd0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077330"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471665"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Utilize a atividade de fluxo de dados de execução para executar o fluxo de dados do ADF nas execuções do pipeline debug (área de segurança) e nas execuções de pipeline acionada.
@@ -80,11 +80,17 @@ Se estiver a utilizar conjuntos de dados parametrizados, certifique-se de que de
 
 ![Executar os parâmetros de fluxo de dados](media/data-flow/params.png "parâmetros")
 
-### <a name="debugging-parameterized-data-flows"></a>Depuração parametrizado fluxos de dados
+## <a name="parameterized-data-flows"></a>Fluxos de dados parametrizado
 
-Só é possível depurar fluxos de dados com conjuntos de dados parametrizados do Pipeline Debug executado com a atividade de fluxo de dados de execução. Atualmente, sessões de depuração interativa no fluxo de dados do ADF não funcionam com conjuntos de dados parametrizados. Execuções de pipeline e execuções de depuração funcionará com parâmetros.
+Se tiver parâmetros dentro do seu fluxo de dados, defina os valores dinâmicos dos seus parâmetros de fluxo de dados aqui na secção parâmetros da atividade de executar o fluxo de dados. Pode utilizar a linguagem de expressão de Pipeline do ADF (apenas para tipos de parâmetro de cadeia de caracteres) ou a linguagem de expressão de fluxo de dados para definir os valores de parâmetros com expressões dinâmicos ou literais valores estáticos.
 
-É uma boa prática criar o seu fluxo de dados com um conjunto de dados estático para que tenha a propagação de coluna de metadados completo disponível no momento da conceção. Em seguida, substitua o conjunto de dados estático com um conjunto de dados parametrizado dinâmico quando operacionalizar o seu pipeline de fluxo de dados.
+![Executar o exemplo de parâmetro de fluxo de dados](media/data-flow/parameter-example.png "exemplo de parâmetro")
+
+### <a name="debugging-data-flows-with-parameters"></a>Fluxos de dados de depuração com parâmetros
+
+Neste momento, pode depurar apenas fluxos de dados com parâmetros do Pipeline Debug executado com a atividade de fluxo de dados de execução. Sessões de depuração interativa no fluxo de dados do ADF estará disponível brevemente. Execuções de pipeline e execuções de depuração, no entanto, irão funcionar com parâmetros.
+
+É uma boa prática criar o seu fluxo de dados com conteúdo estático para que tenha a propagação de coluna de metadados completo disponível no momento da conceção para trouble-shooting. Em seguida, substitua o conjunto de dados estático com um conjunto de dados parametrizado dinâmico quando operacionalizar o seu pipeline de fluxo de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte outras atividades de fluxo de controle suportadas pelo Data Factory: 

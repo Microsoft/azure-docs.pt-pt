@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c402b82b91b02f8d9619c851d09c689fd103c9fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116441"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502705"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência Swagger de duplos Digital do Azure
 
@@ -92,14 +92,12 @@ Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melho
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorização de OAuth 2.0 de swagger
 
-Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
-
 > [!NOTE]
-> O principal de utilizador que criou o recurso de duplos Digital do Azure terão uma atribuição de função de administrador de espaço e será capaz de criar atribuições de função adicionais para outros utilizadores.
+> * O principal de utilizador que criou o recurso de duplos Digital do Azure terão uma atribuição de função de administrador de espaço e será capaz de criar atribuições de função adicionais para outros utilizadores. Tais usuários e as respetivas funções podem ser autorizadas a chamar as APIs.
 
-1. Siga os passos em [neste início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD do tipo ***aplicação Web / API***. Ou pode reutilizar um registo de aplicação existente.
+1. Siga os passos em [neste início rápido](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) ou [registar a aplicação de duplos Digital do Azure no legado do Azure Active Directory](./how-to-use-legacy-aad.md) para criar e configurar uma aplicação do Azure AD. Em alternativa, pode reutilizar um registo de aplicação existente.
 
-2. Adicione o seguinte url de resposta para o registo de aplicações:
+1. Adicione o seguinte url de resposta para o registo de aplicações:
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
@@ -108,29 +106,23 @@ Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | O URL de documentação da API REST da gestão encontrado no portal do  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-3. Conceder permissões para a sua aplicação aceder aos duplos Digital do Azure. Sob **permissões obrigatórias**, introduza `Azure Digital Twins` e selecione **permissões delegadas**. Em seguida, selecione **conceder permissões**.
-
-    ![Api de adicionar registos de aplicações do Azure AD](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
-
-4. Configure o manifesto do aplicativo para permitir o fluxo implícito de OAuth 2.0. Selecione **manifesto** para abrir o manifesto do aplicativo para a sua aplicação. Definir *oauth2AllowImplicitFlow* para `true`.
-
-    ![Fluxo implícito de AD do Azure](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
-
-5. Copie o ID da sua aplicação do Azure AD.
+1. Copie o ID da sua aplicação do Azure AD.
 
 Depois de concluir o registo do Azure Active Directory:
 
-6. Selecione o **autorizar** botão na página do swagger.
+1. Selecione o **autorizar** botão na página do swagger.
 
     [![Selecione o Swagger autorizar botão](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
-7. Cole o ID da aplicação para o **client_id** campo.
+1. Cole o ID da aplicação para o **client_id** campo.
 
     [![Campo de client_id do swagger](media/how-to-use-swagger/swagger-auth-form.png)](media/how-to-use-swagger/swagger-auth-form.png#lightbox)
 
-8. Em seguida, será redirecionado para o sucesso seguinte modal.
+1. Em seguida, será redirecionado para o sucesso seguinte modal.
 
-    [![Modal de redirecionamento do swagger](media/how-to-use-swagger/swagger_auth_redirect.PNG)](media/how-to-use-swagger/swagger_auth_redirect.PNG#lightbox)
+    [![Modal de redirecionamento do swagger](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+
+Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

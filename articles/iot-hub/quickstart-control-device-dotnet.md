@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 599bc440bed4781d081f41cbc64bfb944f423e94
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 751db0effb57f19db47be1eed166d7053d617e3d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330721"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491969"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (.NET)
 
@@ -83,7 +83,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
       --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --device-id MyDotnetDevice \
       --output table
     ```
 

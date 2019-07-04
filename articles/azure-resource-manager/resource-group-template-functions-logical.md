@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: cf6874512557bc44efe978708c78e3d98db4110b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205464"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447977"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos Azure Resource Manager
 
@@ -71,9 +71,9 @@ O resultado do exemplo anterior é:
 
 | Name | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="bool"></a>bool
 
@@ -124,10 +124,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| trueString | Booleano | Verdadeiro |
-| falseString | Booleano | Falso |
-| trueInt | Booleano | Verdadeiro |
-| falseInt | Booleano | Falso |
+| trueString | Bool | True |
+| falseString | Bool | Falso |
+| trueInt | Bool | True |
+| falseInt | Bool | Falso |
 
 ## <a name="if"></a>IF
 
@@ -139,7 +139,7 @@ Devolve um valor com base em se uma condição for true ou false.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| condição |Sim |boolean |O valor a verificar se ela é true ou false. |
+| condition |Sim |boolean |O valor a verificar se ela é true ou false. |
 | trueValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for verdadeira. |
 | falseValue |Sim | cadeia de caracteres, int, objeto ou matriz |O valor a devolver quando a condição for falsa. |
 
@@ -190,7 +190,7 @@ O seguinte procedimento [modelo de exemplo](https://github.com/krnese/AzureDeplo
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -280,9 +280,9 @@ O resultado do exemplo anterior é:
 
 | Name | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) utiliza **não** com [é igual a](resource-group-template-functions-comparison.md#equals).
 
@@ -304,7 +304,7 @@ O resultado do exemplo anterior é:
 
 | Name | Tipo | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Booleano | Verdadeiro |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>ou
 
@@ -354,9 +354,9 @@ O resultado do exemplo anterior é:
 
 | Name | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | Verdadeiro |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

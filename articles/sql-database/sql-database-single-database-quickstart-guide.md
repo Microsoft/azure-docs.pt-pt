@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b52453bab661531461a2bec2f15f7659ec15a1c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331694"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441707"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Guia de introdução bases de dados individuais na base de dados do Azure SQL
 
@@ -51,3 +51,4 @@ Estes inícios rápidos permitem-lhe rapidamente criar ou importar a base de dad
 - Encontre mais avançadas como-para [como utilizar uma base de dados na base de dados do Azure SQL](sql-database-howto-single-database.md).
 - Encontre mais de exemplos de scripts escritos em [PowerShell](sql-database-powershell-samples.md) e [CLI do Azure](sql-database-cli-samples.md).
 - Saiba mais sobre o [gestão de API](sql-database-single-databases-manage.md) que pode utilizar para configurar seus bancos de dados.
+- [Identificar o SKU de instância de base de dados/gerida de SQL o certo do Azure da base de dados no local](/sql/dma/dma-sku-recommend-sql-db/).

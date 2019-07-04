@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978300"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448149"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -29,10 +29,10 @@ Uma aplicação que utiliza o RBAC do Azure AD não precisa lidar com regras SAS
 ## <a name="event-hubs-roles-and-permissions"></a>Permissões e funções de Hubs de eventos
 O Azure oferece as seguintes funções incorporadas do RBAC para autorizar o acesso a um espaço de nomes de Hubs de eventos:
 
-O [proprietário dos dados dos Hubs de eventos (pré-visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) função permite o acesso a dados para um espaço de nomes de Hubs de eventos e respetivas entidades (filas, tópicos, subscrições e filtros)
+O [proprietário dos dados do Azure Event Hubs (pré-visualização)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) função permite o acesso a dados para um espaço de nomes de Hubs de eventos e respetivas entidades (filas, tópicos, subscrições e filtros)
 
 >[!IMPORTANT]
-> Suportámos anteriormente a adição de uma identidade gerida para o **proprietário** ou **contribuinte** função. No entanto, de acesso a dados privilégios para **proprietário** e **contribuinte** função já não são honradas. Se estiver a utilizar o **proprietário** ou **contribuinte** função, o comutador para utilizar o **proprietário dos dados dos Hubs de eventos** função.
+> Suportámos anteriormente a adição de uma identidade gerida para o **proprietário** ou **contribuinte** função. No entanto, de acesso a dados privilégios para **proprietário** e **contribuinte** função já não são honradas. Se estiver a utilizar o **proprietário** ou **contribuinte** função, o comutador para utilizar o **proprietário dos dados do Azure Event Hubs (pré-visualização)** função.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Utilizar os Hubs de eventos com uma conta de utilizador de domínio do Azure AD

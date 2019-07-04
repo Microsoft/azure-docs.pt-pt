@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 711b662c35b5f8fec96f1edee765696bc1028bf8
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a794852e68fdb2bf52717aaa6441880bd1d51139
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184611"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436244"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -71,9 +71,9 @@ Não é necessário especificar NSGs ao nível da sub-rede porque o Batch config
 
 **Regras de segurança de saída**
 
-| source | Portas de origem | Destino | Etiqueta do serviço de destino | Protocol | Ação |
-| --- | --- | --- | --- | --- | --- |
-| Qualquer | 443 | [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (na mesma região que a sua conta do Batch e a VNet)  | Qualquer | Permitir |
+| source | Portas de origem | Destino | Etiqueta do serviço de destino | Portas de destino | Protocol | Ação |
+| --- | --- | --- | --- | --- | --- | --- |
+| Qualquer | * | [Etiqueta de serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (na mesma região que a sua conta do Batch e a VNet) | 443 | TCP | Permitir |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Conjuntos na configuração dos Serviços Cloud
 

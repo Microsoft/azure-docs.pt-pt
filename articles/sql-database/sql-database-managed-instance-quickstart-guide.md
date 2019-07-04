@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec0007e2d53a3fd3cae158375b696379d923b4b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61314743"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447772"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução ao Azure SQL Database instância gerida
 
@@ -79,3 +79,4 @@ Artigos nestes inícios rápidos permitem-lhe configurar uma instância gerida e
 - Encontrar um [lista de alto nível das funcionalidades suportadas na instância gerida aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
 - Saiba mais sobre [características técnicas de instância gerida](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - Encontre mais avançadas como-para [como utilizar uma instância gerida na base de dados do Azure SQL](sql-database-howto-managed-instance.md).
+- [Identificar o SKU de instância de base de dados/gerida de SQL o certo do Azure da base de dados no local](/sql/dma/dma-sku-recommend-sql-db/).

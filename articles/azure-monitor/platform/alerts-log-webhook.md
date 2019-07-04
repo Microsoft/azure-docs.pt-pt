@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/25/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cad1b0ab484d172000bd62146a88a27bfab1e9f2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681807"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448774"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alerts-log.md), tem a opção de [configurar a utilização de grupos de ação](action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -41,7 +41,7 @@ Webhooks incluem um URL e uma carga formatado em JSON que é os dados enviados p
 | Parâmetro | Variável | Descrição |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nome da regra de alerta. |
-| Gravidade |#severity |Gravidade definida para o alerta de registo de acionamento. |
+| Severity |#severity |Gravidade definida para o alerta de registo de acionamento. |
 | AlertThresholdOperator |#thresholdoperator |Operador de limiar para a regra de alerta.  *Maior* ou *inferior a*. |
 | AlertThresholdValue |#thresholdvalue |Valor de limiar para a regra de alerta. |
 | LinkToSearchResults |#linktosearchresults |Ligar ao portal de análise que devolve os registos da consulta que criou o alerta. |
@@ -51,9 +51,10 @@ Webhooks incluem um URL e uma carga formatado em JSON que é os dados enviados p
 | StartTime de intervalo de pesquisa |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, format - mm/dd/aaaa hh: mm: ss AM/PM... 
 | SearchQuery |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | SearchResults |"IncludeSearchResults": true|Registos devolvidos pela consulta como uma tabela de JSON, limitada para os primeiros 1000 registos; Se "IncludeSearchResults": true é adicionado na definição de webhook JSON personalizada como uma propriedade de nível superior. |
+| Tipo de alerta| #alerttype | O tipo de regra de alerta de registo configurada - [medida da métrica](alerts-unified-log.md#metric-measurement-alert-rules) ou [número de resultados](alerts-unified-log.md#number-of-results-alert-rules).|
 | WorkspaceID |#workspaceid |ID da sua área de trabalho do Log Analytics. |
 | ID da aplicação |#applicationid |ID do seu Application Insight aplicação. |
-| ID da subscrição |#subscriptionid |ID da sua subscrição do Azure utilizado com o Application Insights. 
+| ID da subscrição |#subscriptionid |ID da sua subscrição do Azure utilizada. 
 
 > [!NOTE]
 > LinkToSearchResults passa parâmetros como o tempo de SearchQuery, StartTime de intervalo de pesquisa e final do intervalo de pesquisa no URL do portal do Azure para visualização na secção de análise. Portal do Azure tem URI limite de cerca de 2000 caracteres do tamanho e serão *não* abrir a ligação fornecida nos alertas, se os valores de parâmetros excederem o limite de disse. Os utilizadores podem introduzir manualmente detalhes para ver os resultados no portal de análise ou utilizar o [API do REST de análise do Application Insights](https://dev.applicationinsights.io/documentation/Using-the-API) ou [API de REST do Log Analytics](/rest/api/loganalytics/) para obter os resultados por meio de programação 
@@ -88,8 +89,18 @@ Segue-se um payload de exemplo para uma ação padrão de webhook *sem opção d
 
 ```json
 {
-    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"Perf | where ObjectName == \"Processor\" and CounterName == \"% Processor Time\" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/#Analyticsblade/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": "log alert rule",
+    "Severity": "Warning",
     "SearchResult":
         {
         "tables":[
@@ -107,15 +118,8 @@ Segue-se um payload de exemplo para uma ação padrão de webhook *sem opção d
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "Warning"
+    "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
+    "AlertType": "Metric measurement"
  }
  ```
 
@@ -131,7 +135,17 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
-    "AlertRuleName":"AcmeRule","SearchQuery":"search *",
+    "AlertRuleName":"AcmeRule",
+    "SearchQuery":"requests | where resultCode == \"500\"",
+    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
+    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
+    "AlertThresholdOperator": "Greater Than",
+    "AlertThresholdValue": 0,
+    "ResultCount": 2,
+    "SearchIntervalInSeconds": 3600,
+    "LinkToSearchResults": "https://portal.azure.com/AnalyticsBlade/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
+    "Description": null,
+    "Severity": "3",
     "SearchResult":
         {
         "tables":[
@@ -149,16 +163,8 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
                     }
                 ]
         },
-    "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 2,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
-    "Description": null,
-    "Severity": "3",
-    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
+    "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1",
+    "AlertType": "Number of results"
     }
 }
 ```

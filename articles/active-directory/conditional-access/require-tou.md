@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a3523a050a021f3a98c144efe14d692704fba63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112221"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67506908"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início rápido: Exigir a termos de utilização para ser aceite antes de aceder a aplicações na cloud
 
@@ -54,11 +54,8 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
 **Para criar os termos de utilização:**
 
 1. No Microsoft Word, crie um novo documento.
-
 1. Tipo **meu termos de utilização**e, em seguida, guarde o documento no seu computador como **mytou.pdf**.
-
 1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
-
 1. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
@@ -80,17 +77,11 @@ Esta secção fornece os passos para criar um exemplo de termos de utilização.
    ![Termos de utilização](./media/require-tou/112.png)
 
    1. Na **nome** caixa de texto, tipo **My TOU**.
-
    1. Na **nome a apresentar** caixa de texto, tipo **My TOU**.
-
    1. Carregue os seus termos de utilize um ficheiro PDF.
-
    1. Como **linguagem**, selecione **inglês**.
-
    1. Como **exigir que os utilizadores expandam os termos de utilização**, selecione **no**.
-
    1. Como **impor com modelos de política de acesso condicional**, selecione **política personalizada do**.
-
    1. Clique em **Criar**.
 
 ## <a name="create-your-conditional-access-policy"></a>Criar a sua política de acesso condicional
@@ -125,13 +116,9 @@ Na sua política, defina:
    ![Utilizadores e grupos](./media/require-tou/24.png)
 
    1. Clique em **selecionar utilizadores e grupos**e, em seguida, selecione **utilizadores e grupos**.
-
    1. Clique em **Selecionar**.
-
    1. Sobre o **selecionar** , selecione **Isabella Simonsen**e, em seguida, clique em **selecionar**.
-
    1. Sobre o **utilizadores e grupos** página, clique em **feito**.
-
 1. Clique em **aplicações na Cloud**.
 
    ![Aplicações na cloud](./media/require-tou/08.png)
@@ -141,13 +128,9 @@ Na sua política, defina:
    ![Selecione aplicações na cloud](./media/require-tou/26.png)
 
    1. Clique em **selecionar aplicações**.
-
    1. Clique em **Selecionar**.
-
    1. Sobre o **selecionar** , selecione **Microsoft Azure Management**e, em seguida, clique em **selecionar**.
-
    1. Sobre o **aplicações na Cloud** página, clique em **feito**.
-
 1. Na **controlos de acesso** secção, clique em **concessão**.
 
    ![Controlos de acesso](./media/require-tou/10.png)
@@ -157,11 +140,8 @@ Na sua política, defina:
    ![Concessão](./media/require-tou/111.png)
 
    1. Selecione **conceder acesso**.
-
    1. Selecione **meu TOU**.
-
    1. Clique em **Selecionar**.
-
 1. Na **ativar política** secção, clique em **no**.
 
    ![Ativar política](./media/require-tou/18.png)
@@ -172,7 +152,7 @@ Na sua política, defina:
 
 Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional e se a política de ferramenta para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
-Para inicializar o que se o conjunto de ferramentas de avaliação da política,:
+Para inicializar o **e se** conjunto de ferramentas de avaliação da política,:
 
 - **Isabella Simonsen** como utilizador
 - **Microsoft Azure Management** como aplicação de cloud
@@ -199,15 +179,10 @@ Clicar **e se** cria um relatório de simulação, que mostra:
    ![Aplicações na cloud](./media/require-tou/16.png)
 
    1. Clique em **aplicações na Cloud**.
-
    1. Sobre o **página de aplicações na Cloud**, clique em **selecionar aplicações**.
-
    1. Clique em **Selecionar**.
-
    1. Sobre o **selecionar** , selecione **Microsoft Azure Management**e, em seguida, clique em **selecionar**.
-
    1. Na página de aplicações na cloud, clique em **feito**.
-
 1. Clique em **e se**.
 
 ## <a name="test-your-conditional-access-policy"></a>Testar a sua política de acesso condicional
@@ -223,7 +198,6 @@ Para testar a sua política, tente iniciar sessão no seu [portal do Azure](http
 Quando já não for necessário, elimine o utilizador de teste e a política de acesso condicional:
 
 - Se não souber como eliminar um utilizador do Azure AD, veja [eliminar utilizadores do Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - Para eliminar a política, selecione a política e, em seguida, clique em **eliminar** na barra de ferramentas de acesso rápido.
 
     ![Multi-Factor Authentication](./media/require-tou/33.png)

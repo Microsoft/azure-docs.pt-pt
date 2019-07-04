@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 06e3178e344ee46f67cfd8a6feaf08d56d3c86e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724126"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508100"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o .NET SDK
 
@@ -257,10 +257,6 @@ Ver [exemplos de executar o MapReduce no HDInsight](hadoop/apache-hadoop-run-sam
 
 Ver [executar Apache consultas do Hive com o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Para submeter tarefas do Apache Pig**
-
-Ver [tarefas de executar o Apache Pig com o .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Submeter tarefas do Apache Sqoop**
 
 Ver [utilizar o Apache Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -271,7 +267,7 @@ Ver [utilização Apache Oozie com o Hadoop para definir e executar um fluxo de 
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados para o armazenamento de Blobs do Azure
 
-Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data].
+Ver [carregar dados para o HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Consultar Também
 
@@ -279,8 +275,8 @@ Consulte [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-
 * [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md)
 * [Administrar o HDInsight, através de uma interface de linha de comandos][hdinsight-admin-cli]
 * [Criar clusters do HDInsight][hdinsight-provision]
-* [Upload data to HDInsight (Carregar dados para o HDInsight)][hdinsight-upload-data]
-* [Get started with Azure HDInsight (Introdução ao Azure HDInsight)][hdinsight-get-started]
+* [Carregar dados para o HDInsight][hdinsight-upload-data]
+* [Introdução ao Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

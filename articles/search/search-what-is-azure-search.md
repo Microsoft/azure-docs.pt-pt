@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539326"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485241"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. A execução da consulta é feita através de um índice definido pelo utilizador.
@@ -57,7 +57,7 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 |-------------------|----------|
 | Ferramentas para criação de protótipos e inspeção | No portal, pode utilizar o [**Assistente de importação de dados**](search-import-data-portal.md) para configurar os indexados, o estruturador de índice para funcionar como índice e o [**Explorador de pesquisa**](search-explorer.md) para testar as consultas e refine os perfis de classificação. Também pode abrir qualquer índice para ver o seu esquema. |
 | Monitorização e diagnóstico | [**Ativar funcionalidades de monitorização** ](search-monitor-usage.md) ultrapassem a métricas em-rápidas que são sempre visível no portal. As métricas sobre as consultas por segundo, latência e limitação são recolhidas e comunicadas em páginas de portal sem ser necessária configuração adicional. <br/><br/>[**Análise de tráfego de pesquisa** ](search-traffic-analytics.md) é outra alternativa de monitorização, no qual o servidor e dados do lado do cliente são recolhidos e analisados para desbloquear informações sobre o que os utilizadores estão a escrever na caixa de pesquisa. |
-| Encriptação do lado do servidor | [**Gerida pela Microsoft encriptação em repouso** ](search-security-overview.md#encrypted-transmission-and-storage) baseia-se a camada de armazenamento interno e é irrevogável. Opcionalmente, pode complementar a encriptação de padrão com [ **chaves de encriptação gerida pelo cliente (pré-visualização)**](search-security-manage-encryption-keys.md). As chaves que criar e gerir no Azure Key Vault são utilizadas para encriptar os índices e mapas de sinónimos no Azure Search. |
+| Encriptação do lado do servidor | [**Gerida pela Microsoft encriptação em repouso** ](search-security-overview.md#encrypted-transmission-and-storage) baseia-se a camada de armazenamento interno e é irrevogável. Opcionalmente, pode complementar a encriptação de padrão com [ **chaves de encriptação gerida pelo cliente (pré-visualização)** ](search-security-manage-encryption-keys.md). As chaves que criar e gerir no Azure Key Vault são utilizadas para encriptar os índices e mapas de sinónimos no Azure Search. |
 | Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente fiável. Quando dimensionado corretamente, o [Azure Search oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gerido e dimensionável** como uma solução de ponto-a-ponto, o Azure Search não necessita absolutamente de nenhuma gestão de infraestrutura. O seu serviço pode ser ajustado às suas necessidades ao dimensionar em duas dimensões para processar mais armazenamento de documentos, maiores cargas de consulta ou ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Como utilizar o Azure Search
@@ -134,7 +134,7 @@ Em alternativa, pode [ativar os benefícios de subscritor do MSDN](https://azure
 3. Avance com código com o .NET ou a API REST:
 
    + [Como utilizar o SDK .NET](search-howto-dotnet-sdk.md) demonstra o fluxo de trabalho principal no código gerido.  
-   + [Introdução à REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra os mesmos passos com a API REST. Também pode utilizar este guia de introdução para chamar as APIs REST do Postman ou Fiddler: [Explorar o Azure Search REST APIs](search-fiddler.md).
+   + [Introdução à REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra os mesmos passos com a API REST. Também pode utilizar este guia de introdução para chamar as APIs REST do Postman ou Fiddler: [Explorar o Azure Search REST APIs](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Assistir a este vídeo
 

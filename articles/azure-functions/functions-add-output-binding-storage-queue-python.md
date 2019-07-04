@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 4ae22a5cd6ad044a86db88986daf9cc7c05c00a2
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342317"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443206"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Adicione um enlace de fila de armazenamento do Azure à sua função
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicione um enlace de fila de armazenamento do Azure à sua função de Python
 
 As funções do Azure permite-lhe ligar os serviços do Azure e outros recursos para as funções sem ter de escrever seu próprio código de integração. Estes *enlaces*, que representam a entrada e saída, são declarados dentro da definição de função. Dados a partir de ligações são fornecidos para a função como parâmetros. Um acionador é um tipo especial de enlace de entrada. Enquanto uma função tem apenas um acionador, ele pode ter várias entradas e ligações de saída. Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Antes de começar este artigo, conclua os passos na [parte 1 do início rápido 
 
 ## <a name="download-the-function-app-settings"></a>Transferir as definições de aplicação de função
 
-O artigo de início rápido anterior, criou uma aplicação de funções no Azure, juntamente com uma conta de armazenamento. A cadeia de ligação para esta conta é armazenada em segurança nas definições da aplicação no Azure. Neste artigo, escrever mensagens numa fila de armazenamento na mesma conta. Para ligar à sua conta de armazenamento ao executar localmente a função, tem de transferir as definições da aplicação para o ficheiro Settings. Execute o seguinte comando a ferramentas de núcleo de funções do Azure para transferir as definições para Settings, substituindo `<APP_NAME>` com o nome da sua aplicação de função do artigo anterior:
+O artigo de início rápido anterior, criou uma aplicação de funções no Azure, juntamente com a conta de armazenamento necessária. A cadeia de ligação para esta conta é armazenada em segurança nas definições da aplicação no Azure. Neste artigo, escrever mensagens numa fila de armazenamento na mesma conta. Para ligar à sua conta de armazenamento ao executar localmente a função, tem de transferir as definições da aplicação para o ficheiro Settings. Execute o seguinte comando a ferramentas de núcleo de funções do Azure para transferir as definições para Settings, substituindo `<APP_NAME>` com o nome da sua aplicação de função do artigo anterior:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Poderá ter de iniciar sessão na sua conta do Azure.
 > Porque contém segredos, o arquivo Settings nunca seja publicado, e devem ser excluído no controle da fonte.
 
 Terá do valor `AzureWebJobsStorage`, que é a cadeia de ligação de conta de armazenamento. Utilize esta ligação para verificar se o enlace de saída funciona conforme esperado.
+
+## <a name="enable-extension-bundles"></a>Ativar os pacotes de extensão
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Agora, pode adicionar um enlace ao seu projeto de saída de armazenamento.
 
 ## <a name="add-an-output-binding"></a>Adicionar um enlace de saída
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Uma vez que o artigo anterior tinha-o a ativar os pacotes de extensão no Host. JSON, o [extensão de ligação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi transferido e instalado para durante o arranque.
+> Uma vez que o artigo anterior tinha-o a ativar os pacotes de extensão no Host. JSON, o [extensão de ligação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi transferido e instalado para durante o arranque, juntamente com as outras extensões de vinculação de Microsoft.
 
 Copie o URL da função `HttpTrigger` do resultado do runtime e cole-o na barra de endereço do browser. Anexe a cadeia de consulta `?name=<yourname>` a este URL e execute o pedido. Deverá ver a mesma resposta no browser, tal como fez no artigo anterior.
 

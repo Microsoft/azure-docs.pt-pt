@@ -4,22 +4,31 @@ description: Utilize o portal do Azure e Azure Resource Manager para implementar
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7ceaf6e41c08f47da9c6b2d22001ab9f5a48c8e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a171d9b4f054c942eebb08e7e11dd1164545f408
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205572"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460344"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
-Este artigo mostra como utilizar o [portal do Azure](https://portal.azure.com) com [do Azure Resource Manager](resource-group-overview.md) para implementar os recursos do Azure. Para saber mais sobre a gestão dos seus recursos, veja [recursos de gerir o Azure com o portal do Azure](manage-resources-portal.md).
+Saiba como utilizar o [portal do Azure](https://portal.azure.com) com [do Azure Resource Manager](resource-group-overview.md) para implementar os recursos do Azure. Para saber mais sobre a gestão dos seus recursos, veja [recursos de gerir o Azure com o portal do Azure](manage-resources-portal.md).
 
-## <a name="create-resource-group"></a>Criar grupo de recursos
+Implementar recursos do Azure ao utilizar o portal do Azure geralmente envolve duas etapas:
 
-1. Para criar um grupo de recursos vazio, selecione **grupos de recursos**.
+- Crie um grupo de recursos.
+- Implemente recursos no grupo de recursos.
+
+Além disso, também pode implementar um modelo do Azure Resource Manager para criar recursos do Azure.
+
+Este artigo mostra os dois métodos.
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+
+1. Para criar um novo grupo de recursos, selecione **grupos de recursos** partir do [portal do Azure](https://portal.azure.com).
 
    ![Selecione os grupos de recursos](./media/resource-group-template-deploy-portal/select-resource-groups.png)
 
@@ -27,41 +36,37 @@ Este artigo mostra como utilizar o [portal do Azure](https://portal.azure.com) c
 
    ![Adicionar grupo de recursos](./media/resource-group-template-deploy-portal/add-resource-group.png)
 
-1. Dê a ele um nome e localização e, se necessário, selecione uma subscrição. Tem de fornecer uma localização para o grupo de recursos porque o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez queira especificar onde esses metadados estão armazenados. Em geral, recomendamos que especificar uma localização onde a maioria dos seus recursos irão residir. Use o mesmo local pode simplificar o seu modelo.
+1. Selecione ou introduza os seguintes valores de propriedade:
+
+    - **Subscrição**: Selecione uma subscrição do Azure.
+    - **Grupo de recursos**: Dê um nome ao grupo de recursos.
+    - **Região**: Especifique uma localização do Azure. Isso é onde o grupo de recursos armazena metadados sobre os recursos. Por motivos de conformidade, talvez queira especificar onde esses metadados estão armazenados. Em geral, recomendamos que especificar uma localização onde a maioria dos seus recursos irão residir. Use o mesmo local pode simplificar o seu modelo.
 
    ![Definir valores de grupo](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
-   Quando tiver concluído a definir as propriedades, selecione **criar**.
+1. Selecione **Rever + criar**.
+1. Reveja os valores e, em seguida, selecione **criar**.
+1. Selecione **atualizar** antes de pode ver o novo grupo de recursos na lista.
 
-1. Para ver o seu novo grupo de recursos, selecione **atualizar**.
+## <a name="deploy-resources-to-a-resource-group"></a>Implementar recursos para um grupo de recursos
 
-   ![Grupos de recursos de atualização](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
+Depois de criar um grupo de recursos, pode implementar recursos para o grupo do Marketplace. O Marketplace proporciona soluções predefinidas para cenários comuns.
 
-## <a name="deploy-resources-from-marketplace"></a>Implementar recursos do Marketplace
-
-Depois de criar um grupo de recursos, pode implementar recursos para o mesmo do Marketplace. O Marketplace proporciona soluções predefinidas para cenários comuns.
-
-1. Para iniciar uma implementação, selecione **criar um recurso**.
+1. Para iniciar uma implementação, selecione **criar um recurso** partir do [portal do Azure](https://portal.azure.com).
 
    ![Novo recurso](./media/resource-group-template-deploy-portal/new-resources.png)
 
-1. Encontre o tipo de recurso que pretende implementar.
+1. Encontre o tipo de recurso que pretende implementar. Os recursos estão organizados em categorias. Se não vir a solução específica que pretende implementar, pode procurar no Marketplace para o mesmo. Captura de ecrã seguinte mostra que o servidor Ubuntu está selecionado.
 
    ![Selecione o tipo de recurso](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. Se não vir a solução específica que pretende implementar, pode procurar no Marketplace para o mesmo. Por exemplo, para encontrar uma solução de Wordpress, comece a escrever **Wordpress** e selecione a opção que pretende.
-
-   ![Procurar marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
-
-1. Dependendo do tipo de recursos selecionado, tem uma coleção de propriedades relevantes para definir antes da implantação. Para todos os tipos, tem de selecionar um grupo de recursos de destino. A imagem seguinte mostra como criar uma aplicação web e implementá-la para o grupo de recursos que criou.
+1. Dependendo do tipo de recursos selecionado, tem uma coleção de propriedades relevantes para definir antes da implantação. Para todos os tipos, tem de selecionar um grupo de recursos de destino. A imagem seguinte mostra como criar uma máquina virtual Linux e implementá-la para o grupo de recursos que criou.
 
    ![Criar grupo de recursos](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
    Em alternativa, pode optar por criar um grupo de recursos durante a implantação de seus recursos. Selecione **criar novo** e dê um nome ao grupo de recursos.
 
-   ![Criar novo grupo de recursos](./media/resource-group-template-deploy-portal/select-new-group.png)
-
-1. Início da sua implantação. A implementação pode demorar alguns minutos. Quando a implementação estiver concluída, verá uma notificação.
+1. Início da sua implantação. A implementação pode demorar vários minutos. Alguns recursos demoram mais tempo do que outros recursos. Quando a implementação estiver concluída, verá uma notificação. Selecione **Ir para recurso** para abrir
 
    ![Notificação de vista](./media/resource-group-template-deploy-portal/view-notification.png)
 
@@ -76,61 +81,53 @@ Se quiser executar uma implementação, mas não utilizar qualquer um dos modelo
 > [!NOTE]
 > Interface do portal não suporta a referenciar um [segredo a partir de um cofre de chave](resource-manager-keyvault-parameter.md). Em alternativa, utilize [PowerShell](resource-group-template-deploy.md) ou [CLI do Azure](resource-group-template-deploy-cli.md) para implementar o modelo localmente ou a partir de um URI externo.
 
-1. Para implementar um modelo personalizado através do portal, selecione **criar um recurso**e procure **implementação do modelo** até que pode selecioná-lo entre as opções.
+1. Para implementar um modelo personalizado através do portal, selecione **criar um recurso**, procure **modelo**. e, em seguida, selecione **implementação do modelo**.
 
    ![Implementação do modelo de pesquisa](./media/resource-group-template-deploy-portal/search-template.png)
 
 1. Selecione **Criar**.
+1. Verá várias opções para criar um modelo:
 
-   ![Selecione criar](./media/resource-group-template-deploy-portal/show-template-option.png)
-
-1. Verá várias opções para criar um modelo. Selecione **Crie o seu próprio modelo no editor**.
+    - **Criar seu próprio modelo no editor**: criar um modelo através do modelo do portal de editor.  O editor é capaz de adicionar um esquema de modelo de recurso.
+    - **Modelos comuns**: Existem quatro templatess comuns para a criação de uma máquina virtual do Linux, máquinas de virtuais do Windows, um aplicativo web e uma base de dados SQL do Azure.
+    - **Carregar um modelo de início rápido do GitHub**: Utilize um existente [modelos de início rápido](https://azure.microsoft.com/resources/templates/).
 
    ![Opções de visualização](./media/resource-group-template-deploy-portal/see-options.png)
 
-1. Tem um modelo em branco que está disponível para a personalização.
+    Este tutorial fornece instruções para carregar um modelo de início rápido.
 
-   ![Criar o modelo](./media/resource-group-template-deploy-portal/blank-template.png)
+1. Sob **carregar um modelo de início rápido do GitHub**, escreva ou selecione **101-storage-account-create**.
 
-1. Pode editar a sintaxe JSON manualmente ou selecione um modelo previamente criado a partir da [Galeria de modelos de início rápido](https://azure.microsoft.com/resources/templates/). No entanto, neste artigo, utilize o **adicionar recurso** opção.
+    Tem duas opções:
 
-   ![Editar modelo](./media/resource-group-template-deploy-portal/select-add-resource.png)
+    - **Selecionar modelo**: implementar o modelo.
+    - **Editar modelo**: editar o modelo de início rápido, antes de o implementar.
 
-1. Selecione **conta de armazenamento** e forneça um nome. Quando terminar de fornecer valores, selecione **OK**.
+1. Selecione **Editar modelo** para explorar o editor de modelo do portal. O modelo é carregado no editor. Observe que há dois parâmetros: **storageAccountType** e **localização**.
 
-   ![Selecionar a conta de armazenamento](./media/resource-group-template-deploy-portal/add-storage-account.png)
+   ![Criar o modelo](./media/resource-group-template-deploy-portal/show-json.png)
 
-1. O editor adiciona automaticamente o JSON para o tipo de recurso. Tenha em atenção que inclua um parâmetro para definir o tipo de conta de armazenamento. Selecione **Guardar**.
+1. Fazer uma alteração menor ao modelo. Por exemplo, atualizar o **storageAccountName** variável à:
 
-   ![Mostrar modelo](./media/resource-group-template-deploy-portal/show-json.png)
+    ```json
+    "storageAccountName": "[concat('azstore', uniquestring(resourceGroup().id))]"
+    ```
 
-1. Agora, tem a opção de implementar os recursos definidos no modelo. Para implementar, aceite os termos e condições e selecione **Compra**.
+1. Selecione **Guardar**. Agora verá a interface de implementação do modelo do portal. Observe os dois parâmetros definidos no modelo.
+1. Introduza ou selecione os valores de propriedade:
 
-   ![Implementar o modelo](./media/resource-group-template-deploy-portal/provide-custom-template-values.png)
+    - **Subscrição**: Selecione uma subscrição do Azure.
+    - **Grupo de recursos**: Selecione **criar novo** e dê um nome.
+    - **Localização**: Selecione uma localização do Azure.
+    - **Tipo de conta de armazenamento**: Utilize o valor predefinido.
+    - **Localização**: Utilize o valor predefinido.
+    - **Aceito os termos e condições acima apresentados** (selecione)
 
-## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Implementar recursos a partir de um modelo guardadas na sua conta
-
-O portal permite-lhe guardar um modelo para sua conta do Azure e reimplementá-la mais tarde. Para obter mais informações sobre modelos, consulte [criar e implementar o modelo Azure Resource Manager primeira](resource-manager-create-first-template.md).
-
-1. Para localizar seus modelos de guardado, selecione **mais serviços**.
-
-   ![Mais serviços](./media/resource-group-template-deploy-portal/more-services.png)
-
-1. Procure **modelos** e selecione essa opção.
-
-   ![Procurar modelos](./media/resource-group-template-deploy-portal/find-templates.png)
-
-1. Na lista de modelos guardadas na sua conta, selecione aquela que pretende utilizar.
-
-   ![Modelos guardados](./media/resource-group-template-deploy-portal/saved-templates.png)
-
-1. Selecione **Deploy** para voltar a implementar este modelo guardado.
-
-   ![Implementar o modelo guardado](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
+1. Selecione **Comprar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](./resource-group-audit.md).
 - Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](./resource-manager-deployment-operations.md).
 - Para exportar um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelos Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-- Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](./deployment-manager-overview.md).
+- De forma segura distribuir o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](./deployment-manager-overview.md).

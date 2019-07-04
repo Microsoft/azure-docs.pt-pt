@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 315aba8ac8617f8bf2db71784ec0f9a8dec66cf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2cac7e3ba458caad9c373160be1b66e2a665088a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108370"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440459"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de aplicações e mensagens de erro
 Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:
@@ -31,7 +31,7 @@ Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de ap
 * Abra o Visualizador de eventos e procure eventos de conector de Proxy de aplicações no **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy**  >  **Conector** > **administrador**.
 * Se for necessário, os registos mais detalhados são disponíveis por [ativar os registos de sessão do conector de Proxy de aplicações](application-proxy-connectors.md#under-the-hood).
 
-Para obter mais informações sobre a ferramenta de resolução de problemas de AD do Azure, consulte [ferramenta de resolução de problemas para validar a pré-requisitos de sistema de rede do conector](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites).
+Quando a resolução de problemas de Proxy de aplicações, recomendamos que comece por ler o fluxo de resolução de problemas [conector de Proxy de aplicações de depurar problemas](application-proxy-debug-connectors.md), para determinar se os conectores de Proxy de aplicações estão configuradas corretamente. Se ainda estiver a ter problemas em ligar à aplicação, siga o fluxo de resolução de problemas na [Proxy de aplicações de depurar problemas de aplicativos](application-proxy-debug-apps.md).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>A página não é processada corretamente
 Pode ter problemas com a sua aplicação de processamento ou está a funcionar incorretamente sem receber mensagens de erro específicas. Isto pode ocorrer se publicou o caminho do artigo, mas a aplicação requer o conteúdo existente fora desse caminho.
@@ -50,12 +50,13 @@ Depois de localizar o erro do conector de registo de eventos, utilize esta tabel
 
 | Erro | Passos recomendados |
 | ----- | ----------------- |
-| Falha no registo do conector: Certifique-se de que ativou o Proxy de aplicações no Portal de gestão do Azure e que introduziu corretamente o nome de utilizador do Active Directory e a palavra-passe. Erro: "Ocorreram um ou mais erros." | Se fechou a janela de registo sem iniciar sessão no Azure AD, execute novamente o Assistente do conector e registar o conector. <br><br> Se a janela de registo abre-se e, em seguida, fecha imediatamente sem que permite iniciar sessão, provavelmente irá obter este erro. Este erro ocorre quando existe um erro de sistema de rede no seu sistema. Certifique-se de que é possível ligar a partir de um browser para um site público e que as portas estão abertas conforme especificado nas [pré-requisitos do Proxy de aplicações](application-proxy-add-on-premises-application.md). |
+| Falha no registo do conector: Certifique-se de que ativou o Proxy de aplicações no Portal de gestão do Azure e que introduziu corretamente o nome de utilizador do Active Directory e a palavra-passe. Erro: "Ocorreram um ou mais erros." | Se fechou a janela de registo sem iniciar sessão no Azure AD, execute novamente o Assistente do conector e registar o conector. <br><br> Se a janela de registo abre-se e, em seguida, fecha imediatamente sem que permite iniciar sessão, provavelmente irá obter este erro. Este erro ocorre quando existe um erro de sistema de rede no seu sistema. Certifique-se de que é possível ligar a partir de um browser para um site público e que as portas estão abertas conforme especificado nas [pré-requisitos do Proxy de aplicações](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | Limpar erro é apresentado na janela de registo. Não é possível continuar | Se vir este erro e, em seguida, fecha a janela, que introduziu o nome de utilizador errado ou a palavra-passe. Tente novamente. |
 | Falha no registo do conector: Certifique-se de que ativou o Proxy de aplicações no Portal de gestão do Azure e que introduziu corretamente o nome de utilizador do Active Directory e a palavra-passe. Erro: 'AADSTS50059: Não existem informações de identificação de inquilino encontrado na solicitação explícita ou implícita por qualquer, desde que as credenciais e procurar por serviço de principal URI falhou. | Está a tentar iniciar sessão com uma Account Microsoft e não um domínio que faz parte do ID de organização do diretório que está a tentar aceder. Certifique-se de que o administrador faz parte do mesmo nome de domínio como o domínio de inquilino, por exemplo, se o domínio do Azure AD for contoso.com, o administrador deve ser admin@contoso.com. |
 | Falha ao obter a política de execução atual para executar scripts do PowerShell. | Se a instalação do conector falhar, verifique para se certificar de que a política de execução do PowerShell não está desativada. <br><br>1. Abra o Editor de diretiva de grupo.<br>2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Windows PowerShell** e faça duplo clique **ativar a execução do Script**.<br>3. A política de execução pode ser definida para o **não configurado** ou **ativado**. Se definido como **Enabled**, certifique-se de que em Opções, a diretiva de execução está definida como **permitir que scripts locais e remotos scripts assinados** ou a **permitir que todos os scripts**. |
 | Não foi possível transferir a configuração do conector. | Certificado de cliente do conector, o que é utilizado para autenticação, expirou. Também pode ocorrer se tiver o conector instalado atrás de um proxy. Neste caso, o conector não é possível aceder à Internet e não será capaz de fornecer aplicativos a usuários remotos. Renovar a confiança manualmente usando o `Register-AppProxyConnector` cmdlet no Windows PowerShell. Se o seu conector for atrás de um proxy, é necessário conceder acesso à Internet para as contas de conector "serviços de rede" e "local system". Isso pode ser feito por conceder-lhes acesso ao Proxy ou configurando-os para ignorar o proxy. |
 | Falha no registo do conector: Certifique-se de que um administrador da aplicação do Active Directory para registar o conector. Erro: "O pedido de registo foi negado." | O alias que está a tentar iniciar a sessão com não é um administrador deste domínio. O conector é sempre instalado para o diretório que detém o domínio do utilizador. Certifique-se de que está a tentar iniciar sessão com a conta de administrador tem, pelo menos, permissões de administrador de aplicativo para o inquilino do Azure AD. |
+| O conector não conseguiu ligar ao serviço devido a problemas de rede. O conector tentou aceder ao URL seguinte. | O conector não conseguiu ligar ao serviço Proxy de aplicações na cloud. Isto pode acontecer se tiver uma regra de firewall a bloquear a ligação. Certifique-se de que tem permissão para aceder às portas corretas e URLS listados na [pré-requisitos do Proxy de aplicações](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
 ## <a name="kerberos-errors"></a>Erros de Kerberos
 

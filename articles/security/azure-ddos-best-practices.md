@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8d5d1b3c3f505b66e07f7aa226cfa001af94af8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60588165"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449333"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Proteção contra DDoS do Azure: Melhores práticas e arquiteturas de referência
 
@@ -224,6 +224,8 @@ Padrão de proteção de DDoS do Azure identifica e atenua os ataques de DDoS se
 - Estiver a planear um evento viral, que irá aumentar significativamente seu tráfego de rede.
 
 - Um ator tem ameaçado lançar um ataque de DDoS em relação aos recursos.
+
+- Se precisar de lista de permissões de um IP ou intervalo de IP da proteção contra DDoS do Azure Standard. Um cenário comum é a lista branca IP se o tráfego é encaminhado da WAF tem uma cloud externa para o Azure. 
 
 Para ataques que tem um impacto comercial crítico, crie uma gravidade-A [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

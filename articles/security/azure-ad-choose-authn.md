@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 35fb529be28fc985460421c185872c7e35603341
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274273"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449259"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -81,7 +81,7 @@ Detalhes sobre perguntas de decisão:
    * Solução de autenticação de múltiplos sites no local.
 5. O Azure AD Identity Protection requer a sincronização de Hash de palavra-passe, independentemente de qual método de início de sessão escolher, para fornecer a *os utilizadores com fuga de credenciais* relatório. As organizações podem ativação pós-falha para sincronização de Hash de palavra-passe, se o método de início de sessão principal falha e configurado antes do evento de falha.
 
->[!NOTE]
+> [!NOTE]
 > O Azure AD Identity Protection exigir [do Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) licenças.
 
 ## <a name="detailed-considerations"></a>Considerações detalhadas
@@ -94,7 +94,10 @@ Detalhes sobre perguntas de decisão:
 
 * **Cenários avançados**. Se a organizações optam por, é possível utilizar as informações de identidades com relatórios do Azure AD Identity Protection com o Azure AD Premium P2. Um exemplo é o relatório fugas de credenciais. Windows Hello para empresas tem [requisitos específicos, ao utilizar a sincronização de hash de palavra-passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [O Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) requerem a sincronização de hash de palavra-passe para utilizadores de aprovisionamento com as credenciais da empresa no domínio gerido.
 
-    As organizações que requerem a autenticação multifator com sincronização de hash de palavra-passe tem de utilizar a autenticação multifator do Azure AD. Essas organizações não é possível utilizar os métodos de autenticação multifator de terceiros ou no local.
+    As organizações que requerem a autenticação multifator com sincronização de hash de palavra-passe tem de utilizar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Essas organizações não é possível utilizar métodos de autenticação multifator de terceiros ou no local que depende de Federação.
+
+> [!NOTE]
+> Necessitam de acesso condicional do Azure AD [do Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenças.
 
 * **Continuidade do negócio**. Utilizar a sincronização de hash de palavra-passe com autenticação em nuvem é de elevada disponibilidade como um serviço cloud que pode ser dimensionada para todos os datacenters da Microsoft. Para garantir que a sincronização de hash de palavra-passe não descer por períodos prolongados, implemente um segundo servidor do Azure AD Connect no modo numa configuração em modo de espera de teste.
 
@@ -115,7 +118,7 @@ Consulte a [implementar a sincronização de hash de palavra-passe](https://docs
 
 * **Cenários avançados**. Autenticação pass-through impõe a política de conta no local ao tempo de início de sessão. Por exemplo, o acesso é negado quando a conta de um utilizador no local, estado estiver desativado, bloqueada, ou [palavra-passe expirada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou está fora das horas quando o utilizador tem permissão para iniciar sessão. 
 
-    As organizações que requerem a autenticação multifator com a autenticação pass-through tem de utilizar Azure multi-factor Authentication (MFA). Essas organizações não é possível utilizar um método de autenticação multifator de terceiros ou no local. Funcionalidades avançadas exigem que a sincronização de hash de palavra-passe é implementada independentemente de escolher a autenticação pass-through. Um exemplo é o relatório fugas de credenciais de proteção de identidade.
+    As organizações que requerem a autenticação multifator com a autenticação pass-through tem de utilizar o Azure multi-factor Authentication (MFA) ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Essas organizações não é possível utilizar um método de autenticação multifator de terceiros ou no local que depende de Federação. Funcionalidades avançadas exigem que a sincronização de hash de palavra-passe é implementada independentemente de escolher a autenticação pass-through. Um exemplo é o relatório fugas de credenciais de proteção de identidade.
 
 * **Continuidade do negócio**. Recomendamos que implemente dois agentes de autenticação extra pass-through. São esses extras além do primeiro agente no servidor do Azure AD Connect. Esta implementação adicional garante elevada disponibilidade dos pedidos de autenticação. Quando tem três agentes implementados, um agente ainda pode falhar quando outro agente está inativo para manutenção. 
 
@@ -136,7 +139,7 @@ Consulte a [implementando a autenticação pass-through](https://docs.microsoft.
 * **Cenários avançados**. Uma solução de autenticação federada é geralmente necessária quando os clientes têm um requisito de autenticação do Azure AD não suporta nativamente. Ver informações detalhadas para ajudá-lo [escolha a opção neste início de sessão](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considere os seguintes requisitos comuns:
 
   * Autenticação que necessita de smart cards ou certificados.
-  * Servidores MFA no local ou fornecedores de terceiros multifator.
+  * Servidores MFA no local ou fornecedores de terceiros multifator que requerem um fornecedor de identidade federada.
   * Autenticação através de soluções de autenticação de terceiros. Consulte a [lista de compatibilidades de Federação do Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
   * Início de sessão que requer uma sAMAccountName, por exemplo, domínio \ nomedeutilizador, em vez de um utilizador nome Principal (UPN), por exemplo, user@domain.com.
 

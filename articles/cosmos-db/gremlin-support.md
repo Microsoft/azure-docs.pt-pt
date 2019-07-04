@@ -5,68 +5,34 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: b36c041c24a07f89701e78aea4d08270342b8d22
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: db263c1c7f0a8b87b315c5aa6da31336229c9643
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978940"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502724"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte de gráficos do Gremlin do Azure Cosmos DB
 Azure Cosmos DB suporta [Apache Tinkerpop](https://tinkerpop.apache.org) criar um gráfico de linguagem de passagem, conhecida como [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades. 
 
-O Azure Cosmos DB oferece funcionalidades prontas para empresas para bases de dados de gráficos. Estas funcionalidades incluem a distribuição global, independente de dimensionamento de armazenamento e débito, latências de milissegundo de dígito previsível, a indexação automática, SLAs, leia a disponibilidade para as contas de base de dados em duas ou mais regiões do Azure. Como o Azure Cosmos DB suporta TinkerPop/Gremlin, pode migrar facilmente aplicativos escritos com a outra base de dados do gráfico compatível. Além disso, graças ao suporte do Gremlin, o Azure Cosmos DB está totalmente integrado com arquiteturas de análise ativadas para TinkerPop, como o [Apache Spark GraphX](https://spark.apache.org/graphx/). 
-
 Neste artigo, iremos fornecer uma passo a passo rápido do Gremlin e enumerar os recursos de Gremlin que são suportados pela API do Gremlin.
 
-## <a name="gremlin-by-example"></a>Exemplo do Gremlin
-Vamos utilizar um gráfico de exemplo para compreender como as consultas podem ser expressadas no Gremlin. A imagem seguinte apresenta uma aplicação empresarial que gere dados sobre os utilizadores, interesses e dispositivos sob a forma de um gráfico.  
+## <a name="compatible-client-libraries"></a>Bibliotecas de cliente compatível
 
-![Base de dados de exemplo a mostrar pessoas, dispositivos e interesses](./media/gremlin-support/sample-graph.png) 
+A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o Azure Cosmos DB:
 
-Este gráfico tem os seguintes tipos de vértices (denominados "label" [etiqueta] no Gremlin):
+| Transferência | source | Introdução | Versão do conector suportado |
+| --- | --- | --- | --- |
+| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Gráficos com .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
+| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Documentação JavaDoc do Gremlin](https://tinkerpop.apache.org/javadocs/current/full/) | [Criar Gráficos com Java](create-graph-java.md) | 3.2.0+ |
+| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/jbmusso/gremlin-javascript) | [Criar Gráficos com Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Gráficos com Python](create-graph-python.md) | 3.2.7 |
+| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP no GitHub](https://github.com/PommeVerte/gremlin-php) | [Criar Gráficos com PHP](create-graph-php.md) | 3.1.0 |
+| [Consola do Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documentação do TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar Gráficos na Consola do Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
 
-- Pessoas: O gráfico tem três pessoas, Round Robin, Thomas e Ben
-- Interesses: Seus interesses, neste exemplo, o jogo de futebol americano
-- Dispositivos: Os dispositivos que as pessoas a utilização
-- Sistemas operativos: Os sistemas operativos que os dispositivos a executar em
-
-Representamos as relações entre estas entidades através das seguintes etiquetas/tipos de limites:
-
-- Sabe: Por exemplo, "Thomas sabe Round Robin"
-- Está interessado: Para representar os interesses das pessoas em nosso gráfico, por exemplo, "Ben está interessado em Football"
-- RunsOS: Computador portátil executa o SO Windows
-- Utiliza: Para representar que tipo de dispositivo utiliza uma pessoa. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
-
-Vamos executar algumas operações em relação a este gráfico com a [Consola do Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET).  Antes de vermos o que é suportado no Azure Cosmos DB, vamos ver alguns exemplos para se familiarizar com a sintaxe.
-
-Em primeiro lugar, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no gráfico:
-
-```java
-:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
-```
-
-Em seguida, a seguinte instrução do Gremlin insere um limite "knows" (conhece) entre o Thomas e a Robin.
-
-```java
-:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
-```
-
-A consulta seguinte devolve os vértices "person" (pessoa) por ordem descendente dos nomes próprios:
-```java
-:> g.V().hasLabel('person').order().by('firstName', decr)
-```
-
-Os gráficos são bastante úteis quando tem de responder a perguntas como "What operating systems do friends of Thomas use?" (Que sistemas operativos utilizam os amigos do Thomas?). Pode executar esta passagem de Gremlin para obter essa informação do gráfico:
-
-```java
-:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
-```
-Agora vamos ver o que o Azure Cosmos DB disponibiliza aos programadores do Gremlin.
-
-## <a name="gremlin-features"></a>Funcionalidades do Gremlin
+## <a name="supported-graph-objects"></a>Suporte a objetos de gráfico
 O TinkerPop é um padrão que abrange uma grande variedade de tecnologias de gráficos. Portanto, tem terminologia padrão para descrever as funcionalidades disponibilizadas pelo fornecedor de gráficos. O Azure Cosmos DB fornece uma base de dados de gráficos gravável, de alta simultaneidade e persistente que pode ser dividida em múltiplos servidores ou clusters. 
 
 A tabela seguinte indica as funcionalidades do TinkerPop implementadas pelo Azure Cosmos DB: 
@@ -128,7 +94,7 @@ As propriedades utilizadas por GraphSON para vértices são descritas abaixo:
 | Propriedade | Descrição | 
 | --- | --- | --- |
 | `id` | O ID do vértice. Tem de ser exclusivo (em combinação com o valor de `_partition` se aplicável). Se não for fornecido nenhum valor, ele serão automaticamente fornecido com um GUID | 
-| `label` | A etiqueta do vértice. Isso é usado para descrever o tipo de entidade. |
+| `label` | A etiqueta do vértice. Esta propriedade é utilizada para descrever o tipo de entidade. |
 | `type` | É utilizado para distinguir vértices de documentos que não são gráficos |
 | `properties` | Conjunto de propriedades definidas pelo utilizador associadas ao vértice. Cada propriedade tem múltiplos valores. |
 | `_partition` | A chave de partição do vértice. Utilizado para [criação de partições de gráfico](graph-partitioning.md). |
@@ -184,12 +150,12 @@ Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter 
 | `sample` | Utilizado para exemplificar resultados da transversal | [passo sample](https://tinkerpop.apache.org/docs/3.3.2/reference/#sample-step) |
 | `select` | Utilizado para projetar resultados da transversal |  [passo select](https://tinkerpop.apache.org/docs/3.3.2/reference/#select-step) |
 | `store` | Utilizado para agregações que não sejam de bloqueio da transversal | [passo store](https://tinkerpop.apache.org/docs/3.3.2/reference/#store-step) |
-| `TextP.startingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o início de uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.endingWith(string)` |  Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o fim de uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.containing(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o conteúdo de uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notStartingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não começa com uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notEndingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não termina com uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
-| `TextP.notContaining(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não contém uma determinada seqüência de caracteres | [Predicados de TextP](http://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.startingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o início de uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.endingWith(string)` |  Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o fim de uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.containing(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade com o conteúdo de uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notStartingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não começa com uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notEndingWith(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não termina com uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
+| `TextP.notContaining(string)` | Função de filtragem de cadeia. Essa função é usada como um predicado para o `has()` passo para corresponder a uma propriedade que não contém uma determinada seqüência de caracteres | [Predicados de TextP](https://tinkerpop.apache.org/docs/3.4.0/reference/#a-note-on-predicates) |
 | `tree` | Agrega caminhos de um vértice numa árvore | [passo tree](https://tinkerpop.apache.org/docs/3.3.2/reference/#tree-step) |
 | `unfold` | Mostra um iterador como um passo| [passo unfold](https://tinkerpop.apache.org/docs/3.3.2/reference/#unfold-step) |
 | `union` | Intercala resultados de múltiplas transversais| [passo union](https://tinkerpop.apache.org/docs/3.3.2/reference/#union-step) |

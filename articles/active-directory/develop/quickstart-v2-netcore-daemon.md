@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d64c13a43d1e74e4372e57cf6d5c3054f5effea4
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784961"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540713"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -96,6 +96,10 @@ Este início rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downlo
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Gerar um novo segredo do cliente]()
     
+    > [!div renderon="portal"]
+    > > [!NOTE]
+    > > Este início rápido suporta Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Em que:
     >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
@@ -104,9 +108,9 @@ Este início rápido requer [.NET Core 2.2](https://www.microsoft.com/net/downlo
 
     > [!div renderon="docs"]
     > > [!TIP]
-    > > Para localizar os valores da **ID da aplicação (cliente)**, **ID de diretório (inquilino)**, aceda à aplicação **descrição geral** página no portal do Azure. Para gerar uma nova chave, aceda a **certificados e segredos** página.
+    > > Para localizar os valores da **ID da aplicação (cliente)** , **ID de diretório (inquilino)** , aceda à aplicação **descrição geral** página no portal do Azure. Para gerar uma nova chave, aceda a **certificados e segredos** página.
     
-#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de admin
+#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de administrador
 
 Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Proibido* erro: `Insufficient privileges to complete the operation`. Isto acontece porque qualquer *permissão só de aplicação* necessita de consentimento de administrador, o que significa que um administrador global do seu diretório tem de dar consentimento à sua aplicação. Selecione uma das opções abaixo, consoante o seu cargo:
 
@@ -157,7 +161,7 @@ Deverá ver uma lista de utilizadores no diretório do Azure AD, como resultado.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-A MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. Conforme descrito, este início rápido pedidos tokens utilizando a identidade da própria aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como  *[credenciais de cliente que o fluxo de oauth](v2-oauth2-client-creds-grant-flow.md)*. Para obter mais informações sobre como utilizar MSAL.NET com fluxo de credenciais de cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
+A MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca utilizada para iniciar sessão dos utilizadores e solicitar tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. Conforme descrito, este início rápido pedidos tokens utilizando a identidade da própria aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como  *[credenciais de cliente que o fluxo de oauth](v2-oauth2-client-creds-grant-flow.md)* . Para obter mais informações sobre como utilizar MSAL.NET com fluxo de credenciais de cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
 
  Pode instalar MSAL.NET executando o seguinte comando no Visual Studio **Package Manager Console**:
 

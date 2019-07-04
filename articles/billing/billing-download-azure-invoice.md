@@ -1,26 +1,23 @@
 ---
-title: Ver e transferir a fatura do Microsoft Azure | Documentos da Microsoft
-description: Descreve como ver e transferir a fatura do Microsoft Azure
+title: Ver e transferir a fatura do Microsoft Azure
+description: Descreve como ver e transferir a fatura do Microsoft Azure.
 keywords: cobrança de nota fiscal, a transferência de faturas, a fatura do azure, utilização do azure
-services: billing
-documentationcenter: ''
-author: genlin
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 052232f922abf16a2690dcbe64c1b59999aedeab
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617955"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491372"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Ver e transferir a fatura do Microsoft Azure
 
@@ -32,7 +29,7 @@ Se tiver um [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft
 
 ## <a name="download-your-azure-invoices-pdf"></a>Transferir as faturas do Azure (. pdf)
 
-Para a maioria das subscrições, pode transferir a fatura do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte o Download notas fiscais para um perfil de faturação.
+Para a maioria das subscrições, pode transferir a fatura do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte [transferência de faturas para um contrato de cliente da Microsoft](#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Transferência de faturas para uma subscrição individual
 
@@ -52,10 +49,10 @@ Para obter mais informações sobre a sua fatura, consulte [compreender a sua fa
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Transferência de faturas para um contrato de cliente da Microsoft
 
-Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#understand-billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
+Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure *custo Management + faturação*.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Selecione **Faturas**.
 1. Na grelha de nota fiscal, localize a linha da nota fiscal que pretende transferir.
@@ -69,36 +66,36 @@ Se não vir uma nota fiscal para o último período de faturação, consulte [po
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Obter a fatura por correio eletrónico (. pdf)
 
-Pode optar ativamente e configurar os destinatários principais para receber sua fatura do Azure por email. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open. Se tiver um contrato do Microsoft Customer, veja Get notas fiscais de seu perfil de faturação no e-mail.
+Pode optar ativamente e configurar os destinatários principais para receber sua fatura do Azure por email. Esta funcionalidade não pode estar disponível para determinadas subscrições como ofertas de suporte, contratos de empresa ou do Azure no Open. Se tiver um contrato do Microsoft Customer, veja a secção seguinte, [receber as faturas de perfil de faturação no e-mail](#get-your-subscriptions-invoices-in-email).
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Obter notas fiscais de sua assinatura no e-mail
 
-1. Selecione a sua subscrição a partir da [página subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Escolher para cada subscrição que for o proprietário. Clique em **Faturas** , em seguida, **Enviar minha fatura por email**.
+1. Selecione a sua subscrição do [página subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Escolher para cada subscrição que for o proprietário. Clique em **Faturas** , em seguida, **Enviar minha fatura por email**.
 
-    ![Captura de ecrã que mostra o fluxo de participação ativa](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![Captura de ecrã que mostra a participação ativa no flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
 
 2. Clique em **optar ativamente por participar no** e aceite os termos.
 
-    ![Captura de ecrã que mostra a etapa de aceitação fluxo 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
-3. Depois de ter aceite o contrato, pode configurar os destinatários adicionais. Quando um destinatário for removido, o endereço de e-mail já não é armazenado. Se mudar de ideias, terá de voltar a adicioná-los.
+    ![Captura de ecrã que mostra a participação ativa na etapa de fluxo 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
 
-    ![Captura de ecrã que mostra a etapa de aceitação do fluxo 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+3. Se tiver de aceitar o contrato, pode configurar os destinatários adicionais. Quando um destinatário for removido, o endereço de e-mail já não é armazenado. Se mudar de ideias, terá de voltar a adicioná-los.
+
+    ![Captura de ecrã que mostra a participação ativa no passo 3 de flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
 
 Se não receber uma mensagem de e-mail depois de seguir os passos, certifique-se de que o seu endereço de e-mail está correto no [preferências de comunicação no seu perfil](https://account.windowsazure.com/profile).
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Opção de desativar a obter notas fiscais de sua assinatura no e-mail
 
-Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em **recusar faturas por e-mail**. Esta opção remove todos os endereços de e-mail que foram configurados para receber faturas por e-mail. Pode reconfigurar os destinatários se optar ativamente por participar de volta.
+Opção de desativar a obter a fatura por e-mail, siga os passos anteriores e clique em **recusar faturas por e-mail**. Esta opção remove todos os endereços de e-mail que foram configurados para receber faturas por e-mail. Pode reconfigurar os destinatários se optar ativamente por participar de volta.
 
- ![Captura de ecrã que mostra o fluxo de recusa](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Captura de ecrã que mostra a participação ativa o fluxo](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obter as faturas de contrato de cliente da Microsoft no e-mail
 
 Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa mensagem de e-mail. Todos os faturação perfil proprietários, contribuidores, os leitores e notas fiscais gerentes obterá a nota fiscal por e-mail. Os leitores não é possível atualizar a preferência de nota fiscal de e-mail.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Sob **configurações**, selecione **propriedades**.
 1. Sob **fatura por E-Mail**, selecione **preferência de nota fiscal de e-mail de atualização**.
@@ -110,7 +107,7 @@ Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa
 
 ### <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Opção de desativar a obter as faturas de contrato de cliente da Microsoft no e-mail
 
-Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em **para anular**. Todos os proprietários, contribuidores, os leitores e notas fiscais gerentes serão excluídos introdução a nota fiscal por e-mail, também. Se for um leitor, é possível alterar a preferência de nota fiscal de e-mail.
+Opção de desativar a obter a fatura por e-mail, siga os passos anteriores e clique em **para anular**. Todos os proprietários, contribuidores, os leitores e notas fiscais gerentes são excluídos do introdução a nota fiscal por e-mail, também. Se for um leitor, é possível alterar a preferência de nota fiscal de e-mail.
 
 ### <a name="noinvoice"></a> Por que motivo não vejo uma fatura para o último período de faturação?
 
@@ -127,7 +124,7 @@ Pode haver vários motivos para não ver uma fatura:
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 

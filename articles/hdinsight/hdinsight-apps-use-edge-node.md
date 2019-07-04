@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: hrasheed
-ms.openlocfilehash: ee9b5b651f440bc7d179b1a06c7ddbd3f9137a0d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 41313c7d484df5568fbf729b683a0e9df5325abc
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165903"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433740"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight
 
@@ -108,7 +108,7 @@ Nesta seção, usar um modelo do Resource Manager para criar o cluster do HDInsi
    * **Palavra-passe de início de sessão do cluster**: Introduza a palavra-passe de utilizador do Hadoop HTTP.
    * **Nome de utilizador SSH**: Introduza o nome de utilizador SSH. O nome predefinido é **sshuser**.
    * **SSH palavra-passe**: Introduza a palavra-passe de utilizador do SSH.
-   * **Instalar a ação de Script**: Mantenha o valor predefinido para percorrer neste tutorial.
+   * **Instalar a ação de Script**: Mantenha o valor predefinido para passar por este artigo.
      
      Algumas propriedades foram codificadas no modelo: Tipo de cluster, contagem de nós de trabalho de Cluster, o tamanho de nó de extremidade e o nome de nó de extremidade.
 4. Verifique **concordo com os termos e condições indicados acima**e, em seguida, clique em **Compra** para criar o cluster com o nó de extremidade.

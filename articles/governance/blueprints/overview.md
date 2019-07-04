@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 8b340eeaaae41815482f4dfed4168dfd8367aba9
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143897"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428781"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
 
@@ -109,7 +109,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 Todas as permissões acima estão incluídas no **proprietário** função. O **contribuinte** função tem permissões de esquema de esquema e eliminação de criação, mas não tem permissões de atribuição do esquema. Se estas funções incorporadas não se adaptarem às suas necessidades de segurança, considere criar uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Se utilizar um sistema-atribuídas a identidade gerida, o principal de serviço para o esquema do Azure requer o **proprietário** função na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se utilizar um atribuído ao utilizador a identidade gerida, apenas o utilizador a criar a atribuição do esquema precisa **proprietário** permissões.
+> Se utilizar um sistema-atribuídas a identidade gerida, o principal de serviço para planos gráficos do Azure requer o **proprietário** função na subscrição atribuída para ativar a implementação. Se utilizar o portal, esta função é automaticamente concedida e revogada para a implementação. Se utilizar a API REST, esta função tem de ser concedida manualmente, mas continua a ser revogada automaticamente depois de concluída a implementação. Se utilizar um atribuído ao utilizador a identidade gerida, apenas o utilizador a criar a atribuição do esquema precisa **proprietário** permissões.
 
 ## <a name="video-overview"></a>Descrição geral do vídeo
 

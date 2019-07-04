@@ -9,20 +9,42 @@ ms.topic: quickstart
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65bf4e973ce33b2898abf585fe306a8bc85c64a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306211"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477787"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início rápido: Implementar o disco do Azure Data Box através do portal do Azure
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="get-started-with-azure-data-box-disk-using-azure-portal"></a>Introdução ao disco do Azure Data Box através do portal do Azure
+
+::: zone-end
+
+::: zone target="docs"
 
 Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. Os passos incluem como criar uma encomenda, receber discos, desembalar, ligar e copiar dados para discos para serem carregados para o Azure.
 
 Para implementação passo a passo detalhada e instruções de controlo, aceda a [Tutorial: Solicite o disco do Azure Data Box](data-box-disk-deploy-ordered.md). 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+Este início rápido descreve como implementar o Azure Data Box Disk através do portal do Azure. Os passos incluem a rever pré-requisitos, desbloquear os discos, ligarem e copiar dados para discos, de modo que carrega para o Azure.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,6 +55,23 @@ Antes de começar:
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Tiver efetuado a sua encomenda do disco de caixa de dados com o [Tutorial: Solicite o disco do Azure Data Box](data-box-disk-deploy-ordered.md).
+- Recebeu os seus discos e o estado da tarefa no portal foi atualizado para **Entregue**.
+- Possui um computador de cliente disponível do qual pode copiar os dados. O computador cliente tem de:
+
+    - Executar uma [sistema operativo suportado](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Ter [outro software necessário](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado se for um cliente do Windows.
+
+::: zone-end
+
+::: zone target="docs"
 
 ## <a name="order"></a>Encomenda
 
@@ -123,3 +162,5 @@ Neste início rápido, implementou o Azure Data Box Disk para ajudar a importar 
 
 > [!div class="nextstepaction"]
 > [Utilizar o portal do Azure para administrar o Data Box Disk](data-box-portal-ui-admin.md)
+
+::: zone-end

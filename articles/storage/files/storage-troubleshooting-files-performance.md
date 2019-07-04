@@ -1,6 +1,6 @@
 ---
 title: Desempenho de ficheiros do Azure, guia de resolução de problemas
-description: Problemas de desempenho com partilhas de ficheiros do Azure premium (pré-visualização) e soluções associadas conhecidos.
+description: Problemas de desempenho com partilhas de ficheiros do Azure e soluções associadas conhecidos.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190041"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445662"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Resolução de problemas de desempenho de ficheiros do Azure
 
-Este artigo lista alguns problemas comuns relacionados com partilhas de ficheiros do Azure premium (pré-visualização). Fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
+Este artigo lista alguns problemas comuns relacionados com partilhas de ficheiros do Azure. Fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, débito de baixo e problemas gerais de desempenho
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Fazer com que 1: Partilhar com limitação
 
-A quota padrão num compartilhamento é 100 GiB, que fornece a linha de base de 100 IOPS (com um potencial de expandir até 300 durante uma hora). Para obter mais informações sobre o aprovisionamento e sua relação com IOPS, consulte a [aprovisionado partilhas](storage-files-planning.md#provisioned-shares) secção do guia de planejamento.
+A quota padrão num compartilhamento de premium é 100 GiB, que fornece a linha de base de 100 IOPS (com um potencial de expandir até 300 durante uma hora). Para obter mais informações sobre o aprovisionamento e sua relação com IOPS, consulte a [aprovisionado partilhas](storage-files-planning.md#provisioned-shares) secção do guia de planejamento.
 
 Para confirmar se a partilha está a ser limitada, pode aproveitar as métricas do Azure no portal.
 
@@ -39,7 +39,7 @@ Para confirmar se a partilha está a ser limitada, pode aproveitar as métricas 
 
 1. Selecione **transações** como a métrica.
 
-1. Adicione um filtro para **ResponseType** e verifique se todos os pedidos têm um código de resposta do **SuccessWithThrottling**.
+1. Adicione um filtro para **ResponseType** e verifique se todos os pedidos têm um código de resposta do **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
 ![Opções de métricas para existem fileshares de premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Se a aplicação que está a ser utilizada pelo cliente é thread único, isso p
 
 ### <a name="cause"></a>Causa
 
-Foi possível localizar o cliente VM numa região diferente do que a partilha de ficheiros de premium.
+VM cliente poderia estar localizado numa região diferente do que a partilha de ficheiros.
 
 ### <a name="solution"></a>Solução
 
-- Execute a aplicação a partir de uma VM que está localizada na mesma região que a partilha de ficheiros de premium.
+- Execute a aplicação a partir de uma VM que está localizada na mesma região que a partilha de ficheiros.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Não é possível alcançar um débito máximo suportado pela rede de cliente
 
@@ -121,6 +121,10 @@ Profundidade de e/s maior que um não é suportada no CentOS/RHEL.
 
 - Atualizar para o 8 de CentOS / RHEL 8.
 - Altere para o Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Tornar mais lenta de copiar o arquivo de e para ficheiros do Azure no Linux
+
+Se estiver tendo a copiar o arquivo lento de e para ficheiros do Azure, veja a [lento de copiar o arquivo de e para ficheiros do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) guia secção da resolução de problemas de Linux.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Padrão de Trêmulo/saw-tooth para IOPS
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/07/2017
+ms.date: 06/25/2019
 ms.author: ayshak
-ms.openlocfilehash: 7cbab5c6b3a724c2219648873fd45ca6bde90339
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9bed859191c77069b2610e828a3d523cff5c43
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466771"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquinas de virtuais burstable de série B
 

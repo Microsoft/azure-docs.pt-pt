@@ -5,118 +5,62 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: lbosq
-ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 126c825106b7844a5fc8a5a3cdbcc7aa6c273b5b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954254"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502806"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
-[O Azure Cosmos DB](introduction.md) é o serviço de base de dados de vários modelos distribuída globalmente da Microsoft para aplicativos de missão crítica. É uma base de dados com múltiplos modelo e oferece suporte a documentos, chave-valor, gráfico e modelos de dados em colunas. A API do Gremlin do Azure Cosmos DB é utilizada para armazenar e operar em dados de gráficos. A API do Gremlin suporta a modelação de dados de gráficos e fornece APIs para percorrê-los.
-
-Este artigo fornece uma descrição geral da API do Gremlin do Azure Cosmos DB e explica como pode utilizá-la para armazenar gráficos enormes com milhares de milhões de vértices e margens. Pode consultar os gráficos com latência de milissegundos e desenvolver facilmente o esquema e estrutura do gráfico. Para consultar o Azure Cosmos DB, pode utilizar a linguagem de percurso em gráfico do [Apache TinkerPop](https://tinkerpop.apache.org) ou do [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
-
-## <a name="what-is-a-graph-database"></a>O que é uma base de dados de gráficos
-Os dados, tal como são apresentados no mundo real, estão ligados naturalmente. A modelação de dados tradicional foca-se nas entidades. Para muitas aplicações, também existe a necessidade de modelar as entidades e relações naturalmente.
-
-Um [gráfico](http://mathworld.wolfram.com/Graph.html) é uma estrutura composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [margens](http://mathworld.wolfram.com/GraphEdge.html). Os vértices e as margens podem ter um número arbitrário de propriedades. 
-
-* **Vértices** - Os vértices denotam objetos discretos, como uma pessoa, local ou evento. 
-
-* **Margens** - As margens denotam as relações entre vértices. Por exemplo, uma pessoa pode conhecer outra pessoa, participar num evento e ter estado numa localização recentemente. 
-
-* **Propriedades** - As propriedades expressam informações sobre os vértices e margens. As propriedades de exemplo incluem um vértice com nome e idade. Uma margem, com carimbo de data/hora e/ou ponderação. Mais formalmente, este modelo é conhecido como um [gráfico de propriedades](https://tinkerpop.apache.org/docs/current/reference/#intro). O Azure Cosmos DB suporta o modelo de gráfico de propriedades.
-
-Por exemplo, o seguinte gráfico de exemplo mostra relações entre pessoas, dispositivos móveis, interesses e sistemas operativos:
-
-![Base de dados de exemplo a mostrar pessoas, dispositivos e interesses](./media/graph-introduction/sample-graph.png)
-
-As bases de dados de gráficos permitem-lhe modelar e armazenar gráficos de forma natural e eficiente, o que os torna úteis para muitos cenários. Normalmente, as bases de dados de gráficos são bases de dados NoSQL, pois estes casos de utilização geralmente precisam de iteração rápida e flexibilidade de esquema.
-
-Pode combinar as transversais rápidas que as bases de dados de gráficos fornecem com algoritmos de gráficos, como Depth-First Search (Pesquisa em Profundidade Primeiro), Breadth-First Search (Pesquisa em Largura Primeiro) e algoritmo de Dijkstra, para resolver problemas em vários domínios, como redes sociais, gestão de conteúdos, geoespaciais e recomendações.
-
-## <a name="features-of-azure-cosmos-db-graph-database"></a>Funcionalidades da base de dados de gráficos do Azure Cosmos DB
- 
-O Azure Cosmos DB é uma base de dados de gráficos completamente gerida que oferece distribuição global, dimensionamento elástico do débito e armazenamento, consulta e indexação automática, níveis de consistência ajustáveis e suporte para o padrão TinkerPop.
+[O Azure Cosmos DB](introduction.md) é o serviço de base de dados de vários modelos distribuída globalmente da Microsoft para aplicativos de missão crítica. É uma base de dados com múltiplos modelo e oferece suporte a documentos, chave-valor, gráfico e modelos de dados em colunas. A API do Azure Cosmos DB Gremlin é utilizada para armazenar e trabalhar com dados de gráficos num ambiente de base de dados totalmente gerido em qualquer escala.  
 
 ![Arquitetura de gráficos do Azure Cosmos DB](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-O Azure Cosmos DB oferece as seguintes funcionalidades diferenciadas em comparação com outras bases de dados de gráficos no mercado:
+Este artigo fornece uma descrição geral da API do Gremlin do Azure Cosmos DB e explica como pode utilizá-la para armazenar gráficos enormes com milhares de milhões de vértices e margens. Pode consultar os gráficos com latência de milissegundos e evoluir facilmente a estrutura de gráfico. API do Gremlin do Azure Cosmos DB baseia-se sobre o [Apache TinkerPop](https://tinkerpop.apache.org) linguagem de consulta padrão da base de dados do gráfico e utiliza o Gremlin. 
 
-* Débito e armazenamento dimensionável de forma elástica
+API do Gremlin do DB Cosmos Azure combina a potência dos algoritmos de base de dados de gráfico com uma infraestrutura altamente dimensionável e gerida para fornecer uma solução de identificador exclusiva e flexível para problemas mais comuns de dados associadas com a falta de flexibilidade e abordagens relacionais. 
 
-  Os gráficos no mundo real precisam de ser dimensionados para além da capacidade de um único servidor. Com o Azure Cosmos DB, pode dimensionar de forma totalmente integrada os seus gráficos em múltiplos servidores. Também pode dimensionar o débito do seu gráfico de forma independente com base nos seus padrões de acesso. O Azure Cosmos DB suporta bases de dados de gráficos que podem ser dimensionadas para débito aprovisionado e tamanhos de armazenamento virtualmente ilimitados.
+## <a name="features-of-azure-cosmos-db-graph-database"></a>Funcionalidades da base de dados de gráficos do Azure Cosmos DB
+ 
+O Azure Cosmos DB é uma base de dados de gráficos completamente gerida que oferece distribuição global, dimensionamento elástico do débito e armazenamento, consulta e indexação automática, níveis de consistência ajustáveis e suporte para o padrão TinkerPop. 
 
-* Replicação de várias regiões
+Seguem-se a recursos diferenciados que oferece a API de Gremlin do Azure Cosmos DB:
 
-  O Azure Cosmos DB replica os dados do seu gráfico de forma transparente para todas as regiões associadas à sua conta. A replicação permite-lhe desenvolver aplicações que precisam de acesso global aos dados. É necessário atingir um equilíbrio nas áreas da consistência, disponibilidade, desempenho e garantias correspondentes. O Azure Cosmos DB fornece ativação pós-falha regional transparente com APIs multi-homing. Pode dimensionar o débito e armazenamento de forma elástica em todo o mundo.
+* **Débito dimensionável de forma elástica e armazenamento**
 
-* Transversais e consultas rápidas com sintaxe Gremlin que já conhece
+  Os gráficos no mundo real precisam de ser dimensionados para além da capacidade de um único servidor. Azure Cosmos DB suporta bases de dados de gráficos horizontalmente dimensionável que podem ter um tamanho praticamente ilimitado em termos de e o débito aprovisionado. À medida que aumenta a escala de base de dados do gráfico, os dados serão distribuídos automaticamente usando [criação de partições de gráfico](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-  Armazene margens e vértices heterogéneos e consulte esses documentos através de uma sintaxe Gremlin que já conhece. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada em registos, sem bloqueio e de elevada simultaneidade, para indexar automaticamente todos os conteúdos. Esta funcionalidade permite transversais e consultas avançadas em tempo real sem a necessidade de especificar sugestões de esquema, índices secundários ou vistas. Saiba mais em [Query graphs by using Gremlin](gremlin-support.md) (Consultar gráficos com o Gremlin).
+* **Replicação de várias regiões**
 
-* Totalmente gerido
+  O Azure Cosmos DB pode replicar automaticamente os dados do gráfico para qualquer região do Azure. Replicação simplifica o desenvolvimento de aplicativos que necessitam de acesso global aos dados. Além de minimizar a latência de leitura, o Azure Cosmos DB fornece um mecanismo de ativação pós-falha regional que pode garantir a continuidade do seu aplicativo no caso raro de uma interrupção do serviço numa região. 
 
-  O Azure Cosmos DB elimina a necessidade de gerir recursos de máquinas e bases de dados. Uma vez que o serviço Microsoft Azure é completamente gerido, não precisa de gerir máquinas virtuais, implementar e configurar o software, gerir o dimensionamento ou lidar com atualizações de camada de dados complexas. São criadas cópias de segurança automáticas de todos os gráficos e estes são protegidos contra falhas regionais. Pode adicionar facilmente uma conta do Azure Cosmos DB e aprovisionar a capacidade conforme necessário, para que possa focar-se na sua aplicação em vez de operar e gerir a sua base de dados.
+* **Consultas rápidas e transversais com o padrão de consulta de gráfico mais adotados**
 
-* Indexação automática
+  Armazene margens e vértices heterogéneos e consulte esses documentos através de uma sintaxe Gremlin que já conhece. Gremlin é uma linguagem de consulta imperativo e funcional que fornece uma interface avançada para implementar algoritmos comuns de gráfico. 
+  
+  O Azure Cosmos DB permite consultas em tempo real e transversais sem a necessidade de especificar sugestões de esquema, índices secundários ou vistas. Saiba mais em [Query graphs by using Gremlin](gremlin-support.md) (Consultar gráficos com o Gremlin).
 
-  Por predefinição, o Azure Cosmos DB indexa automaticamente todas as propriedades dos nós e margens do gráfico e não precisa de nenhum esquema ou criação de índices secundários.
+* **Base de dados totalmente gerido**
 
-* Compatibilidade com o Apache TinkerPop
+  O Azure Cosmos DB elimina a necessidade de gerir recursos de máquinas e bases de dados. A maioria das plataformas de base de dados do gráfico existentes estão vinculados às limitações de sua infra-estrutura e muitas vezes exigem um alto grau de manutenção para garantir que sua operação. 
+  
+  Como um serviço totalmente gerido do Microsoft Azure, não é necessário para gerir máquinas virtuais, atualização de software de tempo de execução, gerir a replicação ou fragmentação ou lidar com atualizações de camada de dados complexas. São criadas cópias de segurança automáticas de todos os gráficos e estes são protegidos contra falhas regionais. Essas garantias permitem que os desenvolvedores se concentram em oferecer valor de aplicação em vez de operando e gerenciando seus bancos de dados. 
 
-  O Azure Cosmos DB suporta de forma nativa o padrão Apache TinkerPop e pode ser integrado com outros sistemas de gráficos compatíveis com o TinkerPop. Assim, pode migrar facilmente de outra base de dados de gráficos, como o Titan ou Neo4j, ou utilizar o Azure Cosmos DB com arquiteturas de análise de gráficos, como o Apache Spark GraphX.
+* **Indexação automática**
 
-* Níveis de consistência ajustáveis
+  Por predefinição, o Azure Cosmos DB indexa automaticamente todas as propriedades dos nós e margens do gráfico e não precisa de nenhum esquema ou criação de índices secundários. Saiba mais sobre [indexação no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview). 
+
+* **Compatibilidade com o Apache TinkerPop**
+
+  Azure Cosmos DB suporta a [padrão do código-fonte aberto Apache TinkerPop](http://tinkerpop.apache.org/). O padrão de Tinkerpop tem um amplo ecossistema de aplicativos e bibliotecas que podem ser facilmente integradas com a API do Gremlin do Azure Cosmos DB. 
+
+* **Níveis de consistência sincronizáveis**
 
   Selecione um dos cinco níveis de consistência bem definidos para alcançar um excelente equilíbrio entre a consistência e o desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granulares e bem definidos permitem-lhe atingir um equilíbrio eficaz entre a consistência, a disponibilidade e a latência. Saiba mais em [Tunable data consistency levels in Azure Cosmos DB](consistency-levels.md) (Níveis de consistência de dados ajustáveis no Azure Cosmos DB).
-
-O Azure Cosmos DB também pode utilizar múltiplos modelos, como documentos e gráficos, nos mesmos contentores/bases de dados. Pode utilizar um contentor de documentos para armazenar dados de gráficos lado a lado com documentos. Pode utilizar as consultas SQL sobre as consultas Gremlin e JSON para consultar os mesmos dados como um gráfico.
-
-## <a name="get-started"></a>Introdução
-
-Pode utilizar a interface de linha de comandos (CLI) do Azure, o Azure PowerShell ou o portal do Azure para criar e aceder a contas da API do Gremlin do Azure Cosmos DB. Depois de criar uma conta, pode aceder às bases de dados de gráficos nessa conta através do ponto final de serviço da API do Gremlin `https://<youraccount>.gremlin.cosmosdb.azure.com`, que fornece um front-end de WebSocket para Gremlin. Pode configurar as suas ferramentas compatíveis com o TinkerPop, como a [Consola do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), para ligar a este ponto final e criar aplicações em Java, Node.js ou qualquer controlador do cliente Gremlin.
-
-A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o Azure Cosmos DB:
-
-| Transferência | Documentação | Introdução | Versão do conector suportado |
-| --- | --- | --- | --- |
-| [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Criar Gráficos com .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
-| [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Documentação JavaDoc do Gremlin](https://tinkerpop.apache.org/javadocs/current/full/) | [Criar Gráficos com Java](create-graph-java.md) | 3.2.0+ |
-| [Node.js](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript no GitHub](https://github.com/jbmusso/gremlin-javascript) | [Criar Gráficos com Node.js](create-graph-nodejs.md) | 2.6.0|
-| [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python no GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Criar Gráficos com Python](create-graph-python.md) | 3.2.7 |
-| [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP no GitHub](https://github.com/PommeVerte/gremlin-php) | [Criar Gráficos com PHP](create-graph-php.md) | 3.1.0 |
-| [Consola do Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documentação do TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Criar Gráficos na Consola do Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |
-
-## <a name="graph-database-design-considerations"></a>Considerações de design de bases de dados de gráficos
-
-Durante o design de gráfico, a decisão de modelar uma entidade como um vértice do seu próprio, em oposição a como uma propriedade de outras entidades de vértice tem implicações de desempenho e custo. O fator que mais contribui para esta decisão depende da forma como os dados vão ser consultados, bem como da escalabilidade do próprio modelo.
-
-Considere as seguintes perguntas antes de planear sobre como modelar a entidade:
-
-* Quais são as entidades que têm de ser obtidas como vértices para a maioria das consultas?
-
-* Que informações incluídas no gráfico são adicionadas para filtragem de dados?
-
-* Que entidades são meras ligações a outras entidades, que são obtidas para os respetivos valores?
-
-* Que partes de informações da consulta têm de ser obtidas e qual o custo de RU que vão gerar?
-
-Por exemplo, suponha o seguinte design de gráfico:
-
-![Exemplo de considerações de design de gráficos](./media/graph-introduction/graph-design-considerations-example.png)
-
-* Consoante as consultas, é possível que a relação Distrito->Loja seja utilizada exclusivamente para filtrar os vértices Loja. Por exemplo, se as consultas estiverem no formato "obter todas as lojas que pertencem a um distrito específico". Se for este o caso, vale a pena considerar fechar a entidade Distrito num vértice para uma propriedade do vértice Loja. 
-
-* Esta abordagem tem a vantagem de reduzir o custo de cada vértice Loja de obter três objetos de gráfico em simultâneo (Distrito, Distrito->Loja, Loja) para um único vértice Loja. Isto pode fornecer melhorias de desempenho, bem como um custo reduzido por consulta.
-
-* Uma vez que o vértice Loja contém ligações a duas entidades diferentes: Colaborador e Produto. Faz de Loja um vértice necessário porque pode fornecer possibilidades adicionais de percorrer.  
-
-
 
 ## <a name="scenarios-that-can-use-gremlin-api"></a>Cenários que podem utilizar a API do Gremlin
 Eis alguns cenários em que o suporte de gráficos do Azure Cosmos DB pode ser utilizado:
@@ -136,6 +80,68 @@ Eis alguns cenários em que o suporte de gráficos do Azure Cosmos DB pode ser u
 * Internet das Coisas
 
   Com a rede e ligações entre dispositivos da IoT modeladas como um gráfico, pode compreender melhor o estado dos seus dispositivos e recursos. Também pode saber como as alterações numa parte da rede podem potencialmente afetar outra parte.
+
+## <a name="introduction-to-graph-databases"></a>Introdução às bases de dados do gráfico
+Os dados, tal como são apresentados no mundo real, estão ligados naturalmente. Modelação de dados tradicionais se concentra na definição de entidades em separado e suas relações em tempo de execução de computação. Embora esse modelo tem suas vantagens, os dados altamente ligados podem ser difíceis de gerir em suas restrições.  
+
+Uma abordagem de base de dados do gráfico se baseia em relações persistentes na camada de armazenamento em vez disso, que leva a operações de obtenção de gráfico altamente eficiente. API de Gremlin do Azure Cosmos DB suporta a [modelo de gráfico de propriedade](https://tinkerpop.apache.org/docs/current/reference/#intro).
+
+### <a name="property-graph-objects"></a>Objetos de gráfico de propriedade
+
+Uma propriedade [graph](http://mathworld.wolfram.com/Graph.html) é uma estrutura que é composta por [vértices](http://mathworld.wolfram.com/GraphVertex.html) e [margens](http://mathworld.wolfram.com/GraphEdge.html). Ambos os objetos podem ter um número arbitrário de pares chave-valor, como propriedades. 
+
+* **Vértices** -vértices denotam entidades distintas, como uma pessoa, local ou um evento.
+
+* **Margens** - As margens denotam as relações entre vértices. Por exemplo, uma pessoa pode conhecer outra pessoa, participar num evento e ter estado numa localização recentemente. 
+
+* **Propriedades** - As propriedades expressam informações sobre os vértices e margens. É possível que qualquer número de propriedades nos vértices ou margens e eles podem ser usados para descrever e filtrar os objetos numa consulta. Propriedades de exemplo incluem um vértice que tem o nome e idade, ou um limite, o que pode ter um carimbo de data / hora e/ou um peso. 
+
+Bases de dados do gráfico, muitas vezes, estão incluídos o NoSQL ou não-relacionais, categoria de base de dados, uma vez que não existe nenhuma dependência de um esquema ou o modelo de dados restrita. Essa falta de esquema permite a modelação e armazenar estruturas ligadas naturalmente e eficiente. 
+
+### <a name="gremlin-by-example"></a>Exemplo do Gremlin
+Vamos utilizar um gráfico de exemplo para compreender como as consultas podem ser expressadas no Gremlin. A imagem seguinte apresenta uma aplicação empresarial que gere dados sobre os utilizadores, interesses e dispositivos sob a forma de um gráfico.  
+
+![Base de dados de exemplo a mostrar pessoas, dispositivos e interesses](./media/gremlin-support/sample-graph.png) 
+
+Este gráfico tem os seguintes tipos de vértices (denominados "label" [etiqueta] no Gremlin):
+
+- Pessoas: O gráfico tem três pessoas, Round Robin, Thomas e Ben
+- Interesses: Seus interesses, neste exemplo, o jogo de futebol americano
+- Dispositivos: Os dispositivos que as pessoas a utilização
+- Sistemas operativos: Os sistemas operativos que os dispositivos a executar em
+
+Representamos as relações entre estas entidades através das seguintes etiquetas/tipos de limites:
+
+- Sabe: Por exemplo, "Thomas sabe Round Robin"
+- Está interessado: Para representar os interesses das pessoas em nosso gráfico, por exemplo, "Ben está interessado em Football"
+- RunsOS: Computador portátil executa o SO Windows
+- Utiliza: Para representar que tipo de dispositivo utiliza uma pessoa. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
+
+Vamos executar algumas operações em relação a este gráfico com a [Consola do Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#gremlin-console). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET).  Antes de vermos o que é suportado no Azure Cosmos DB, vamos ver alguns exemplos para se familiarizar com a sintaxe.
+
+Em primeiro lugar, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no gráfico:
+
+```java
+:> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
+```
+
+Em seguida, a seguinte instrução do Gremlin insere um limite "knows" (conhece) entre o Thomas e a Robin.
+
+```java
+:> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
+```
+
+A consulta seguinte devolve os vértices "person" (pessoa) por ordem descendente dos nomes próprios:
+```java
+:> g.V().hasLabel('person').order().by('firstName', decr)
+```
+
+Os gráficos são bastante úteis quando tem de responder a perguntas como "What operating systems do friends of Thomas use?" (Que sistemas operativos utilizam os amigos do Thomas?). Pode executar esta passagem de Gremlin para obter essa informação do gráfico:
+
+```java
+:> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
+```
+Agora vamos ver o que o Azure Cosmos DB disponibiliza aos programadores do Gremlin.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o suporte de gráficos no Azure Cosmos DB, veja:

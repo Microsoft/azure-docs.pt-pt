@@ -1,18 +1,18 @@
 ---
 title: Compreender a linguagem de consulta do IoT Hub do Azure | Documentos da Microsoft
 description: Guia do desenvolvedor – descrição do IoT Hub semelhante a SQL utilizada para obter informações sobre o dispositivo/módulo duplos e tarefas do seu hub IoT de linguagem de consulta.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: 4fbb731d9908e791a6fce2b087d9b734b98a25cb
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137719"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450066"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
 
@@ -328,8 +328,8 @@ SELECT <select_list>
 
 O **partir < from_specification >** cláusula pode assumir apenas três valores: **A partir de dispositivos** para dispositivos duplos da consulta, **de devices.modules** para duplos de módulo de consulta, ou **de devices.jobs** para detalhes da consulta tarefa por dispositivo.
 
-
 ## <a name="where-clause"></a>Cláusula WHERE
+
 O **em que < filter_condition >** cláusula é opcional. Especifica uma ou mais condições que o JSON documentos na coleção FROM tem de cumprir para ser incluído como parte do resultado. Qualquer documento JSON tem de avaliar as condições especificadas como "true" a serem incluídos no resultado.
 
 As condições permitidas são descritas na seção [expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Atualmente, seleção cláusulas diferentes **SELECIONE*** só são suportadas nas consultas de agregação em dispositivos duplos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
+
 O **GROUP BY < group_specification >** cláusula é uma etapa opcional que é executado depois do filtro especificado na cláusula WHERE e antes da projecção especificada em SELECT. Grupos de documentos com base no valor de um atributo. Estes grupos são utilizados para gerar valores agregados conforme especificado na cláusula SELECT.
 
 Um exemplo de uma consulta usando GROUP BY é:
@@ -393,9 +394,9 @@ Atualmente, a cláusula GROUP BY só é suportada quando as consultas a gémeos 
 > [!IMPORTANT]
 > O termo `group` atualmente é tratado como uma palavra-chave especial nas consultas. No caso, utilize `group` como o nome de propriedade, considere envolvente, Retos duplo para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
+
 Num alto nível, uma *expressão*:
 
 * Avalia a uma instância de um tipo JSON (por exemplo, booleano, número, cadeia de caracteres, matriz ou objeto).
@@ -443,6 +444,7 @@ Para compreender o que quer dizer cada símbolo a sintaxe de expressões, consul
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma seqüência de zero ou mais carateres Unicode ou seqüências de escape. Literais de cadeia de caracteres encontram-se entre aspas simples ou aspas duplas. Permitido escapa: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por 4 dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
+
 São suportados os seguintes operadores:
 
 | Família | Operadores |
@@ -452,6 +454,7 @@ São suportados os seguintes operadores:
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funções
+
 Ao consultar twins e tarefas, que o único suportado é a função:
 
 | Função | Descrição |

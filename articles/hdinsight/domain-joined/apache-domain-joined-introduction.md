@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: ef32fb9615d36d68da613c4cb1b443dfd928e807
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 266d6160562d5a97bde75597216338214f3d988d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137385"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441430"
 ---
 # <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>O que é o Enterprise Security Package no Azure HDInsight
 
@@ -49,7 +49,7 @@ A auditoria de acesso de todos os recursos de cluster e os dados, é necessário
 
 O administrador pode ver e comunicar todo o acesso aos dados e recursos de cluster do HDInsight. O administrador também pode ver e comunicar todas as alterações para as políticas de controlo de acesso criadas nos pontos finais suportados do Ranger Apache. 
 
-Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](http://lucene.apache.org/solr/) para armazenar e procurar os registos.
+Um cluster do HDInsight com ESP usa a IU familiar do Ranger Apache para procurar registos de auditoria. No back-end, o Ranger utiliza [Apache Solr](https://lucene.apache.org/solr/) para armazenar e procurar os registos.
 
 ## <a name="encryption"></a>Encriptação
 Proteção de dados é importante para os requisitos de segurança e conformidade organizacionais no reunião. Além de restringir o acesso aos dados de empregados não autorizados, deve criptografá-lo. 

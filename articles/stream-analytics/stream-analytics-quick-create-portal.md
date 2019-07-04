@@ -4,20 +4,20 @@ description: Este início rápido mostra como começar ao criar uma tarefa do St
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493359"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449238"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início rápido: Criar uma tarefa de Stream Analytics com o portal do Azure
 
-Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics. Neste início rápido, vai definir uma tarefa de Stream Analytics que lê dados de transmissão em fluxo em tempo real e filtros de mensagens com uma temperatura superior a 27. A tarefa de Stream Analytics irá ler dados a partir de um dispositivo do IoT Hub, transformá-los e escrever os dados de volta para um contentor no armazenamento de Blobs. Os dados de entrada utilizados neste início rápido são gerados por um simulador online Raspberry Pi. 
+Este início rápido mostra como começar ao criar uma tarefa do Stream Analytics. Neste início rápido, vai definir uma tarefa de Stream Analytics que lê dados de transmissão em fluxo em tempo real e filtros de mensagens com uma temperatura superior a 27. A tarefa de Stream Analytics irá ler dados a partir do IoT Hub, transformá-los e escrever os dados de volta para um contentor no armazenamento de Blobs. Os dados de entrada utilizados neste início rápido são gerados por um simulador online Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -27,7 +27,7 @@ Este início rápido mostra como começar ao criar uma tarefa do Stream Analytic
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
-Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mais tarde são configurados como a tarefa de entrada. Para preparar os dados de entrada necessários para a tarefa, conclua os seguintes passos:
+Antes de definir a tarefa do Stream Analytics, deve preparar os dados de entrada. Os dados de sensores em tempo real são ingeridos para o IoT Hub, que posteriormente configurado como a tarefa de entrada. Para preparar os dados de entrada necessários para a tarefa, conclua os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -179,7 +179,7 @@ Nesta secção, irá configurar uma entrada de dispositivo do IoT Hub para a tar
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
+Quando já não for necessário, elimine o grupo de recursos, a tarefa do Stream Analytics e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 
 1. No menu do lado esquerdo no portal do Azure, selecione **Grupos de recursos** e, em seguida, selecione o nome do recurso que criou.  
 

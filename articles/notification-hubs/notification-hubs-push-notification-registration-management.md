@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fffa6784702f239e0af0e9e88a4b9937d20b86ed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685399"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488635"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -90,6 +90,9 @@ Uma instalação pode conter as seguintes propriedades. Para obter uma lista com
 > Por predefinição, registos e as instalações não expiram.
 
 Instalações de registos e tem de conter um identificador PNS válido para cada canal/dispositivo. Como identificadores PNS só podem ser adquiridas num aplicativo de cliente no dispositivo, um padrão é Registre-se diretamente no que o dispositivo com a aplicação de cliente. Por outro lado, considerações de segurança e a lógica de negócios relacionados com as etiquetas podem implicar a Gerir registo de dispositivos no back-end de aplicação.
+
+> [!NOTE]
+> A API de instalações não suporta o serviço do Baidu (embora a API de registos faz). 
 
 ### <a name="templates"></a>Modelos
 

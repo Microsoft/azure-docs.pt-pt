@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a1154e6484ebc86743202239dcd94f0772c8011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 660793cdba61b5438283ea54a9f7349bdfbc98e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67204506"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440499"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é o Azure Active Directory Identity Protection?
 
-O Azure Active Directory Identity Protection permite às organizações configurar respostas automáticas para detetado ações suspeitas relacionadas com identidades de utilizador.
+O Azure Active Directory [identidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection permite que as organizações configurar respostas automáticas para detetado ações suspeitas relacionadas com identidades de utilizador.
 
 ## <a name="get-started"></a>Introdução
 
@@ -69,7 +69,7 @@ O Azure Active Directory Identity Protection é mais do que uma monitorização 
 
 O balanceamento de carga as atividades de gestão em torno de sua implementação do Identity Protection, pode atribuir várias funções. O Azure AD Identity Protection suporta 3 funções de diretório:
 
-| Função | Pode fazer | Não é possível fazer |
+| Role | Pode fazer | Não é possível fazer |
 | :-- | --- | --- |
 | Administrador global | Acesso total ao Identity Protection, carregar Identity Protection| |
 | Administrador de segurança | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |

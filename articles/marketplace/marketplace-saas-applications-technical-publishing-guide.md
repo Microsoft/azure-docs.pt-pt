@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b44b89443b5e7e82d303e1447533546d27ec9a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752738"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445735"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicações de SaaS
 
@@ -94,7 +94,7 @@ Além disso, o Azure Active Directory fornece um site para verificar a existênc
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Utilizar o Azure Active Directory para ativar as versões de avaliação  
 
-A Microsoft autentica todos os utilizadores do Marketplace com o Azure AD, portanto, quando um utilizador autenticado clica na sua listagem de avaliação gratuita no Marketplace e é redirecionado para o seu ambiente de avaliação, pode aprovisionar o utilizador diretamente para uma versão de avaliação sem a necessidade de um início de sessão passo adicional. O token que a aplicação recebe do Azure AD durante a autenticação inclui informações de utilizador valioso que pode utilizar para criar uma conta de utilizador na sua aplicação, permitindo-lhe automatizar a experiência de aprovisionamento e aumentar a probabilidade de conversão. Para obter mais informações sobre o token, consulte [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+A Microsoft autentica todos os utilizadores do Marketplace com o Azure AD, para que quando um utilizador autenticado clica na sua listagem de avaliação gratuita no Marketplace e é redirecionado para o seu ambiente de avaliação, pode aprovisionar o utilizador diretamente para uma versão de avaliação sem a necessidade de um início de sessão passo adicional. O token que a aplicação recebe do Azure AD durante a autenticação inclui informações de utilizador valioso que pode utilizar para criar uma conta de utilizador na sua aplicação, permitindo-lhe automatizar a experiência de aprovisionamento e aumentar a probabilidade de conversão. Para obter mais informações sobre o token, consulte [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Utilizar o Azure AD para ativar a autenticação de 1 Clique à sua aplicação ou a versão de avaliação faz o seguinte:  
 * Simplifica a experiência do cliente do Marketplace à versão de avaliação.  
@@ -104,7 +104,7 @@ Utilizar o Azure AD para ativar a autenticação de 1 Clique à sua aplicação 
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificação da sua integração do Azure AD para o Marketplace  
 
-Pode certificar a sua integração do AD do Azure de diversas formas diferentes, dependendo de seu aplicativo é inquilino único ou vários inquilinos e se estiver familiarizado para único federado do Azure AD início de sessão (SSO), ou já suportá-la.  
+Certificar a sua integração do AD do Azure de diversas formas diferentes, dependendo de seu aplicativo é inquilino único ou vários inquilinos e se for novo para único federado do Azure AD início de sessão (SSO), ou já suportá-la.  
 
 **Para aplicações multi-inquilino:**  
 

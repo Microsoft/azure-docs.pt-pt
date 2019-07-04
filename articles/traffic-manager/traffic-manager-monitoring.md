@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: allensu
-ms.openlocfilehash: 7aee68ef41b696549aa1db4386d467b55cd2d981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8df1c29bc5230e925d05be9fd356de050a9b0f06
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071059"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550364"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -102,7 +102,7 @@ Um ponto de extremidade é mau estado de funcionamento quando qualquer um dos se
 - Se o protocolo de monitorização é HTTP ou HTTPS:
     - Uma resposta que não 200 ou uma resposta que não inclua o intervalo de estado especificado no **esperado intervalos de código de estado** definir, é recebida (incluindo um código de 2xx diferente ou um redirecionamento 301/302).
 - Se o protocolo de monitorização é TCP: 
-    - É recebida uma resposta que não seja ACK ou SYN-ACK em resposta ao pedido de SINCRONIZAÇÃO enviado pelo Gestor de tráfego para tentar um estabelecimento da conexão.
+    - É recebida uma resposta que não seja ACK ou SYN-ACK em resposta ao pedido de SYN enviado pelo Gestor de tráfego para tentar um estabelecimento da conexão.
 - Tempo limite. 
 - Qualquer outro problema de ligação resultante o ponto final a não ser acessível.
 

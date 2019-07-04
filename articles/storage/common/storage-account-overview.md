@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754998"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443767"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -68,7 +68,7 @@ Contas de armazenamento de BLOBs de bloco em comparação com para fins gerais v
 
 Contas de armazenamento de BLOBs de bloco não suportam atualmente a disposição em camadas para frequente, esporádico ou arquivo de acesso.
 
-### <a name="filestorage-preview-storage-accounts"></a>Contas de armazenamento FileStorage (pré-visualização)
+### <a name="filestorage-storage-accounts"></a>Contas de armazenamento FileStorage
 
 Uma conta de armazenamento FileStorage é uma conta de armazenamento especializada utilizada para armazenar e criar partilhas de ficheiros de premium. Contas de armazenamento FileStorage oferecem características de desempenho exclusivo dedicado, como a segurança de IOPS. Para obter mais informações sobre essas características, consulte a [escalões de desempenho de partilha de ficheiros](../files/storage-files-planning.md#file-share-performance-tiers) seção dos arquivos de guia de planejamento.
 
@@ -88,7 +88,7 @@ Contas de armazenamento para fins gerais podem ser configuradas para qualquer um
 
 Contas de armazenamento de BLOBs de bloco fornecem um escalão de desempenho premium para o armazenamento de blobs de blocos e blobs de acréscimo.
 
-As contas de armazenamento de FileStorage (pré-visualização) fornecem uma camada de desempenho premium para partilhas de ficheiros do Azure.
+As contas de armazenamento de FileStorage fornecem um escalão de desempenho premium para partilhas de ficheiros do Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Escalões de acesso para os dados de BLOBs de bloco
 

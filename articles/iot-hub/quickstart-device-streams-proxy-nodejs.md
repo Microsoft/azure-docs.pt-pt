@@ -1,21 +1,20 @@
 ---
 title: Guia de introdução do node. js de fluxos de dispositivos no IoT Hub do Azure para SSH e RDP (pré-visualização) | Documentos da Microsoft
 description: Neste início rápido, irá executar uma aplicação de node. js de exemplo que age como um proxy para ativar cenários RDP e SSH ao longo do IoT Hub fluxos de dispositivo.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 1d77f3a10e286246e23ae522e95aa23c487cca2f
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 83339273d9161c3947df191d10e788980db39b28
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735117"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445978"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Início rápido: Ativar o RDP e SSH ao longo de um fluxo de dispositivo do IoT Hub utilizando uma aplicação de proxy do node. js (pré-visualização)
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea048c6adbb4e00ae8543810f1dc571376038c62
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550207"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436263"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um conjunto do Batch do Azure numa rede virtual
 
@@ -56,7 +56,7 @@ Poderá ter requisitos na sua organização para tráfego de redirecionamento (f
 
 Para garantir que os nós de computação do Azure Batch pool funcionam numa VNet que tem o ativada de túnel forçado, tem de adicionar o seguinte procedimento [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço Batch precisa se comunicar connosco de computação do conjunto para o agendamento de tarefas. Para permitir esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço Batch na região onde existe a sua conta do Batch. Para obter a lista de endereços IP do serviço do Batch, contacte o suporte do Azure.
+* O serviço Batch precisa se comunicar connosco de computação do conjunto para o agendamento de tarefas. Para permitir esta comunicação, adicione uma rota definida pelo utilizador para cada endereço IP utilizado pelo serviço Batch na região onde existe a sua conta do Batch. Para saber como obter a lista de endereços IP do serviço Batch, veja [etiquetas em locais de serviço](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Certifique-se de que o tráfego de saída para o armazenamento do Azure (especificamente, os URLs do formulário `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, e `<account>.blob.core.windows.net`) não está bloqueado através de seu dispositivo de rede no local.
 

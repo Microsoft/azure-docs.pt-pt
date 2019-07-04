@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433423"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -127,7 +127,7 @@ Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta 
 
    * `${hiveDataFolder}`: Contém a localização para armazenar os ficheiros de dados para a tabela.
 
-     O ficheiro de definição de fluxo de trabalho, workflow.xml neste tutorial, passa esses valores para este script de HiveQL no tempo de execução.
+     O ficheiro de definição de fluxo de trabalho, workflow.xml neste artigo, passa esses valores para este script de HiveQL no tempo de execução.
 
 4. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.  
 
@@ -708,7 +708,7 @@ Por exemplo, para a tarefa neste documento, usaria os seguintes passos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie. Para saber mais sobre como trabalhar com o HDInsight, veja os artigos seguintes:
+Neste artigo, aprendeu como definir um fluxo de trabalho do Oozie e executar uma tarefa de Oozie. Para saber mais sobre como trabalhar com o HDInsight, veja os artigos seguintes:
 
 * [Carregar dados para as tarefas do Apache Hadoop no HDInsight][hdinsight-upload-data]
 * [Utilizar o Apache Sqoop com o Apache Hadoop no HDInsight][hdinsight-use-sqoop]

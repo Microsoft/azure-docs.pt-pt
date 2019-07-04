@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Azure Search no node. js - Azure Search
-description: Instruções sobre a compilação de uma aplicação de pesquisa num serviço de pesquisa na cloud alojado no Azure utilizando Node.js como linguagem de programação.
+title: 'Guia de introdução do node. js: Criar, carregar e consultar índices com APIs de REST de pesquisa do Azure - Azure Search'
+description: Explica como criar um índice, carregar dados e executar consultas com o node. js e as APIs de REST de pesquisa do Azure.
 author: jj09
 manager: jlembicz
 services: search
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: 1b37b3c52abd3750c3452a46bdf5b0c5954de4dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44b7f1f49d6764418dcc0e72cb667e17a2b920c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289208"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450031"
 ---
-# <a name="get-started-with-azure-search-in-nodejs"></a>Introdução à Azure Search no Node.js
+# <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Início rápido: Criar um índice da Azure Search no node. js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -32,7 +32,7 @@ Para executar este exemplo, precisa de um serviço da Azure Search e, para isso,
 ## <a name="about-the-data"></a>Sobre os dados
 Esta aplicação de exemplo utiliza dados dos [Serviços Geológicos dos Estados Unidos (USGS)](https://geonames.usgs.gov/domestic/download_data.htm) filtrados no estado de Rhode Island de forma a reduzir o tamanho do conjunto de dados. Utilizaremos estes dados para compilar uma aplicação de pesquisa que devolve edifícios históricos, tais como hospitais e escolas, assim como características geológicas, como rios, lagos e cumes.
 
-Nesta aplicação, o programa **DataIndexer** compila e carrega o índice utilizando uma construção do [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx), obtendo o conjunto de dados USGS filtrado a partir de uma Base de Dados SQL pública do Azure. As informações da ligação e das credenciais da fonte de dados online são fornecidas no código do programa. Não é necessária qualquer configuração adicional.
+Neste aplicativo, o **DataIndexer** programa compila e carrega o índice utilizando uma [indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx) construção, o conjunto de dados USGS filtrado a obter uma base de dados do SQL do Azure. As informações da ligação e das credenciais da fonte de dados online são fornecidas no código do programa. Não é necessária qualquer configuração adicional.
 
 > [!NOTE]
 > Aplicamos um filtro neste conjunto de dados para se manter no limite de 10 000 documentos do escalão de preço gratuito. Se utilizar o escalão standard, este limite não é aplicável. Para obter detalhes sobre a capacidade para cada escalão de preço, consulte [limites do Serviço de Pesquisa](search-limits-quotas-capacity.md).

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/21/2019
-ms.openlocfilehash: b4c22caae86e20b8379db2b7feffb1ca82001239
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879fa17244977277dab3e2e66c5888a44759764
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753153"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444037"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Criar e aceder a conjuntos de dados (pré-visualização) no Azure Machine Learning
 
@@ -150,5 +150,4 @@ dataset = workspace.datasets['dataset_crime']
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Explore e preparar conjuntos de dados](how-to-explore-prepare-data.md).
-* [Gerir o ciclo de vida de definições do conjunto de dados de](how-to-manage-dataset-definitions.md).
 * Para obter um exemplo da utilização de conjuntos de dados, consulte a [blocos de notas de exemplo](https://aka.ms/dataset-tutorial).

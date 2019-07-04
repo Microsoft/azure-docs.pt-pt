@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6af25b95aa3a38c4a2e9f3bd8147604dccae0abb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02b5b7a3673b3df3ba27e7814851e3519e473633
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64715145"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448714"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilizar pacotes externos com blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Tem de ter o seguinte:
 
 1. O fragmento acima espera que as coordenadas do maven para o pacote externo no repositório Central Maven. Neste trecho `com.databricks:spark-csv_2.10:1.4.0` é a coordenada do maven para **spark-csv** pacote. Eis como o construir as coordenadas de um pacote.
    
-    a. Localize o pacote no repositório Maven. Para este tutorial, utilizamos [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Localize o pacote no repositório Maven. Neste artigo, vamos utilizar [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. A partir do repositório, reúna os valores para **GroupId**, **ArtifactId**, e **versão**. Certifique-se de que os valores que reúne corresponde ao seu cluster. Neste caso, estamos a utilizar um Scala 2.10 e um pacote de Spark 1.4.0, mas poderá ter de selecionar diferentes versões para o Scala apropriado ou a versão do Spark no seu cluster. Pode encontrar a versão de Scala no seu cluster através da execução `scala.util.Properties.versionString` no kernel do Jupyter do Spark ou no envio de Spark. Pode encontrar a versão do Spark no seu cluster através da execução `sc.version` nos blocos de notas do Jupyter.
    

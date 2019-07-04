@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 2f3d9eeca1404fcae121ae5fead222cbde4037b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059258"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442360"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>O que é uma área de trabalho do serviço do Azure Machine Learning?
 
@@ -83,7 +83,7 @@ Introdução ao serviço pela [criar uma área de trabalho](setup-create-workspa
 Quando cria uma nova área de trabalho, este cria automaticamente vários recursos do Azure que são utilizados pela área de trabalho:
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Regista os contentores do docker que utilizar durante o treinamento e ao implementar um modelo. Para minimizar os custos, é ACR **carregamento lento** até que sejam criadas imagens de implantação.
-+ [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): É utilizado como o arquivo de dados predefinido para a área de trabalho.
++ [Conta de armazenamento do Azure](https://azure.microsoft.com/services/storage/): É utilizado como o arquivo de dados predefinido para a área de trabalho.  Blocos de notas do Jupyter que são utilizados com as suas VMs do bloco de anotações são armazenados aqui também.
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Arquivos de informações sobre os modelos de monitorização.
 + [Cofre de chaves do Azure](https://azure.microsoft.com/services/key-vault/): Os segredos de arquivos que são utilizados por computação destinos e outras informações confidenciais que é necessário pela área de trabalho.
 

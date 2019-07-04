@@ -1,28 +1,22 @@
 ---
 title: Definições de MDM e de política de grupo | Documentos da Microsoft
-description: Fornece informações sobre a política de grupo e dispositivos móveis definições de gestão (MDM), que devem ser utilizadas em dispositivos pertencentes à empresa. Estas políticas são aplicadas para o dispositivo do utilizador inteiro.
+description: Fornece informações sobre a política de grupo e dispositivos móveis definições de gestão (MDM), que devem ser utilizadas em dispositivos pertencentes à empresa.
 services: active-directory
-keywords: o que são o grupo de política e definições de MDM para o Roaming de estado empresarial, Roaming de estado empresarial, cloud do windows
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a3f2b1afa67ec36da4d4da57b296e696fd6c6910
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353164"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481947"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Definições de política de grupo e MDM
 Use esses diretiva de grupo e definições de gestão (MDM) de dispositivos móveis apenas em dispositivos pertencentes à empresa uma vez que estas políticas são aplicadas para o dispositivo do utilizador inteiro. Aplicar uma política MDM para desativar a sincronização de definições para um pessoal, dispositivos pertencentes ao utilizador irão afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela política.

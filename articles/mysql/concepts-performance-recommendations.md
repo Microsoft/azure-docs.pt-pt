@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 569ef6e9f91fdd728c5d230e2a6c46a7b01e5a62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: af3c4482b1ce9e521d14a0e0c63de40625c25c73
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078823"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461782"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Recomendações de desempenho na base de dados do Azure para MySQL
 
 **Aplica-se a:** Base de dados do Azure para MySQL 5.7
 
 > [!NOTE]
-> Recomendações de desempenho está em pré-visualização. Suporte para recomendações de desempenho no portal do Azure está a ser lançado e talvez ainda não estar disponível na sua região.
+> Recomendações de desempenho está em pré-visualização.
 
 A funcionalidade de recomendações de desempenho analisa as bases de dados para criar sugestões personalizadas para um melhor desempenho. Para produzir as recomendações, a análise aborda várias características de base de dados, incluindo o esquema. Ativar [Query Store](concepts-query-store.md) no seu servidor para utilizar totalmente a funcionalidade de recomendações de desempenho. Se o esquema de desempenho estiver desligado, Ativando a consulta Store permite performance_schema e um subconjunto de instrumentos de esquema de desempenho necessário para a funcionalidade. Depois de implementar quaisquer recomendações de desempenho, deve testar o desempenho para avaliar o impacto dessas alterações.
 

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595732"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442215"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -63,13 +63,13 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
 1. Expanda a **serviços ligados** pasta (ícone de nuvem e plug) no Solution Explorer, em seguida, clique com botão direito no **Application Insights** pasta e clique em **abrir Portal do Application Insights** .  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
 
-    ![Mapa da Aplicação](media/quick-monitor-portal/4overview.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/04-overview.png)
 
 2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação.  Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-    ![Mapa da Aplicação](media/quick-monitor-portal/5appmap.png)
+    ![Mapeamento de Aplicações](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique nas **análise da aplicação** ícone ![mapa da aplicação](media/quick-monitor-portal/app-analytics-icon.png) **ver na análise** em um dos componentes da aplicação. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights.  Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique nas **análise da aplicação** ícone ![mapa da aplicação](media/quick-monitor-portal/app-viewinlogs-icon.png) **vista nos registos (análise)** em um dos componentes da aplicação. Esta ação abre **registos (análise)** , que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 

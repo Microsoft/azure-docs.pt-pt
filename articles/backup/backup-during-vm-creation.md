@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 54449d9ea14fef6b2373aa8e0ea3341417c2d3fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a19653f7ae3900fd7999f347ef4d3ef710be1430
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057982"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436340"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Ativar a cópia de segurança quando cria uma VM do Azure
 
@@ -54,7 +54,8 @@ Se não tiver entrado à sua conta, inicie sessão para o [portal do Azure](http
 
 
 > [!NOTE]
-> O serviço de cópia de segurança do Azure cria um grupo de recursos separado (que não seja o grupo de recursos VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados neste grupo de recursos serão retidos durante o período em dias, conforme especificado nas *instantâneo de recuperação instantânea de manter* secção da política de cópia de segurança do Azure Máquina Virtual.  Aplicar um bloqueio para este grupo de recursos pode provocar falhas de cópia de segurança.
+> O serviço de cópia de segurança do Azure cria um grupo de recursos separado (que não seja o grupo de recursos VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados neste grupo de recursos serão retidos durante o período em dias, conforme especificado nas *instantâneo de recuperação instantânea de manter* secção da política de cópia de segurança do Azure Máquina Virtual.  Aplicar um bloqueio para este grupo de recursos pode provocar falhas de cópia de segurança.<br>
+Este grupo de recursos também deve ser excluído da quaisquer restrições de nome/etiqueta como uma política de restrição bloquearia a criação de coleções do ponto de recursos na mesma novamente a causar falhas de cópia de segurança.
 
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Iniciar uma cópia de segurança depois de criar a VM

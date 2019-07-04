@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735078"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488690"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporar widgets do indexador de vídeos nas suas aplicações
 
@@ -32,6 +32,8 @@ Um widget **Cognitive Insights** inclui todas as informações visuais que foram
 |Name|Definição|Descrição|
 |---|---|---|
 |widgets|Cadeias separadas por vírgulas|Permite-lhe controlar as informações que pretende compor. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` irá compor apenas as informações de IU de marcas e pessoas<br/>Opções disponíveis: people (pessoas), keywords (palavras-chave), annotations (anotações), brands (marcas), sentiments (sentimentos), transcript (transcrição), search (pesquisa).<br/>Não suportado se o URL tiver o parâmetro version=2.<br/><br/>**Nota:** O parâmetro de URL de widgets não é suportado na versão 2. |
+|Localidade|Um código de idioma curto|Controla o idioma de informações. A predefinição é `en`. Por exemplo: `language=de`.|
+|tabulação|O separador selecionado predefinição|Controla o separador de informações que é processado por predefinição. `tab=timeline` processa as informações com o separador de linha de tempo selecionado.|
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -39,12 +41,12 @@ Um widget **Player** permite-lhe transmitir o vídeo com uma velocidade de trans
 
 |Name|Definição|Descrição|
 |---|---|---|
-|t|Segundos a partir do início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: t=60|
-|captions|Código do idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: captions=pt-PT|
-|showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: showCaptions=true|
-|type||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: type=audio|
-|autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: autoplay=false|
-|language|Código do idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: language=pt-PT|
+|t|Segundos desde o início|Faz com que o leitor inicie a reprodução a partir de um determinado momento.<br/>Exemplo: `t=60`.|
+|captions|Um código de idioma|Obtém a legenda no idioma especificado durante o carregamento do widget para ficar disponível no menu das legendas.<br/>Exemplo: `captions=en-US`.|
+|showCaptions|Um valor booleano|Faz com que o leitor carregue já com as legendas ativadas.<br/>Exemplo: `showCaptions=true`.|
+|type||Ativa uma máscara de leitor de áudio (a peça de vídeo é removida).<br/>Exemplo: `type=audio`.|
+|autoplay|Um valor booleano|Indica se o leitor deve iniciar a reprodução do vídeo ao ser carregado (predefinição: true)<br/>Exemplo: `autoplay=false`.|
+|language|Um código de idioma|Controla o idioma do leitor (predefinição: en-US)<br/>Exemplo: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Incorporar conteúdos públicos
 

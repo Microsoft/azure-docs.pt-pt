@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 43ba7593336372bbbd7a3a4bb9821665a42bbf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752192"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441926"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
 
@@ -28,21 +28,24 @@ Este artigo detalha quais portas de rede e os nomes de domínio completamente qu
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão 2.0.66 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa da versão 2.0.66 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][install-azure-cli].
 
-Para criar um cluster do AKS que pode limitar o tráfego de saída, ative primeiro um sinalizador de funcionalidade na sua subscrição. Esse registro de recurso configura quaisquer clusters do AKS que criar para utilizar imagens de contentor do sistema de base de MCR ou ACR. Para registar o *AKSLockingDownEgressPreview* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
+Para criar um cluster do AKS que pode limitar o tráfego de saída, ative primeiro um sinalizador de funcionalidade na sua subscrição. Esse registro de recurso configura quaisquer clusters do AKS que criar para utilizar imagens de contentor do sistema de base de MCR ou ACR. Para registar o *AKSLockingDownEgressPreview* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az][az-feature-register] comando conforme mostrado no exemplo a seguir:
+
+> [!CAUTION]
+> Quando registra um recurso numa assinatura, não pode atualmente anular o registo essa funcionalidade. Depois de ativar a algumas funcionalidades de pré-visualização, as predefinições podem ser utilizadas para todos os clusters do AKS, em seguida, criados na subscrição. Não a ativar funcionalidades de pré-visualização em subscrições de produção. Utilize uma subscrição separada para testar as funcionalidades de pré-visualização e colher comentários baseados em.
 
 ```azurecli-interactive
 az feature register --name AKSLockingDownEgressPreview --namespace Microsoft.ContainerService
 ```
 
-Demora alguns minutos para que o estado a mostrar *registado*. Pode verificar o estado de registo utilizando o [lista de funcionalidades de az] [ az-feature-list] comando:
+Demora alguns minutos para que o estado a mostrar *registado*. Pode verificar o estado de registo utilizando o [lista de funcionalidades de az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSLockingDownEgressPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, atualize o registo do *containerservice* fornecedor de recursos, utilizando o [Registre-se fornecedor de az] [ az-provider-register] comando:
+Quando estiver pronto, atualize o registo do *containerservice* fornecedor de recursos, utilizando o [Registre-se fornecedor de az][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -54,7 +57,7 @@ Para fins operacionais e de gestão, nós num cluster do AKS têm de aceder a de
 
 Para aumentar a segurança do cluster do AKS, pode pretender restringir o tráfego de saída. O cluster está configurado para solicitar imagens de contentor do MCR ou ACR de base do sistema. Se bloquear o tráfego de saída dessa maneira, deve definir portas específicas e FQDNs para permitir que os nós do AKS comunicar corretamente com serviços externos necessários. Sem essas portas autorizadas e FQDNs, os nós do AKS não é possível comunicar com o servidor de API ou instalar os componentes principais.
 
-Pode usar [Firewall do Azure] [ azure-firewall] ou uma aplicação de firewall de terceiros 3rd para proteger o tráfego de saída e defini-los necessárias portas e endereços. AKS não cria automaticamente estas regras. As seguintes portas e endereços são para referência à medida que cria as regras adequadas na sua firewall de rede.
+Pode usar [Firewall do Azure][azure-firewall] ou uma aplicação de firewall de terceiros 3rd para proteger o tráfego de saída e defini-los necessárias portas e endereços. AKS não cria automaticamente estas regras. As seguintes portas e endereços são para referência à medida que cria as regras adequadas na sua firewall de rede.
 
 No AKS, existem dois conjuntos de endereços e portas:
 
@@ -62,7 +65,7 @@ No AKS, existem dois conjuntos de endereços e portas:
 * O [recomendado opcional endereços e portas para os clusters do AKS](#optional-recommended-addresses-and-ports-for-aks-clusters) não são necessários para todos os cenários, mas a integração com outros serviços, como o Azure Monitor não funcionará corretamente. Reveja esta lista de portas opcionais e FQDNs e autorizar qualquer um dos serviços e componentes utilizados no seu cluster do AKS.
 
 > [!NOTE]
-> Limitar o tráfego de saída só funciona em clusters do AKS nova criados depois de ativar o registo do sinalizador de funcionalidade. Para clusters existentes, [efetuar uma operação de atualização do cluster] [ aks-upgrade] usando o `az aks upgrade` antes de limitar o tráfego de saída de comando.
+> Limitar o tráfego de saída só funciona em clusters do AKS nova criados depois de ativar o registo do sinalizador de funcionalidade. Para clusters existentes, [efetuar uma operação de atualização do cluster][aks-upgrade] usando o `az aks upgrade` antes de limitar o tráfego de saída de comando.
 
 ## <a name="required-ports-and-addresses-for-aks-clusters"></a>As portas necessárias e os endereços para os clusters do AKS
 

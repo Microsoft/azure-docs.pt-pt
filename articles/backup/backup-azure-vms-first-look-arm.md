@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: raynew
-ms.openlocfilehash: 906024ecb3e95c75c45efddafbbf76944c6aea29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 80739fac8317014c74c6a86cef9aa23696cfb42e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442988"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Criar cópias de segurança uma VM do Azure a partir das definições de VM
 
@@ -72,7 +72,8 @@ Para fazer uma cópia de segurança de VMs do Azure, o Azure Backup instala uma 
 
 
 > [!NOTE]
-> O serviço de cópia de segurança do Azure cria um grupo de recursos separado (que não seja o grupo de recursos VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados neste grupo de recursos serão retidos durante o período em dias, conforme especificado na secção "Manter instantâneo de recuperação instantânea" da política de cópia de segurança do Azure Máquina Virtual. Aplicar um bloqueio para este grupo de recursos pode provocar falhas de cópia de segurança.
+> O serviço de cópia de segurança do Azure cria um grupo de recursos separado (que não seja o grupo de recursos VM) para armazenar o instantâneo, com o formato de nomenclatura **AzureBackupRG_geography_number** (exemplo: AzureBackupRG_northeurope_1). Os dados neste grupo de recursos serão retidos durante o período em dias, conforme especificado na secção "Manter instantâneo de recuperação instantânea" da política de cópia de segurança do Azure Máquina Virtual. Aplicar um bloqueio para este grupo de recursos pode provocar falhas de cópia de segurança.<br>
+Este grupo de recursos também deve ser excluído da quaisquer restrições de nome/etiqueta como uma política de restrição bloquearia a criação de coleções do ponto de recursos na mesma novamente a causar falhas de cópia de segurança.
 
 
 ## <a name="run-a-backup-immediately"></a>Executar imediatamente uma cópia de segurança

@@ -3,7 +3,7 @@ title: Como utilizar o SDK de JavaScript para aplicações móveis do Azure
 description: Como uso v para aplicações móveis do Azure
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 53b78965-caa3-4b22-bb67-5bd5c19d03c4
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 16871bdc59d141334bc2c95f26929f270d7971cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: d5aa2e326739a97ff3d518ec383f4cf14311ca74
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62106749"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446340"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de cliente JavaScript para aplicações móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-html-how-to-use-client-library) hoje mesmo.
+>
+
+## <a name="overview"></a>Descrição geral
 Este guia ensina-lhe executar tarefas comuns com a versão mais recente [SDK de JavaScript para aplicações móveis do Azure]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end e criar uma tabela. Neste guia, vamos nos concentrar sobre como utilizar o back-end móvel em aplicativos Web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
@@ -73,7 +78,7 @@ Vários tipos de aplicativos JavaScript utilizam um recurso de loopback para pro
 
 A executar localmente pode causar problemas, porque, por predefinição, a autenticação do serviço de aplicações só está configurada para permitir o acesso de back-end da aplicação móvel. Utilize os seguintes passos para alterar as definições de serviço de aplicações para ativar a autenticação ao executar o servidor localmente:
 
-1. Inicie sessão no [Portal do Azure]
+1. Inicie sessão no [Azure portal]
 2. Navegue para o back-end de aplicação móvel.
 3. Selecione **Explorador de recursos** no **ferramentas de desenvolvimento** menu.
 4. Clique em **ir** para abrir o Explorador de recursos para o back-end de aplicação móvel num novo separador ou janela.
@@ -91,7 +96,7 @@ A executar localmente pode causar problemas, porque, por predefinição, a auten
 
 Também terá de adicionar os mesmos URLs de loopback para as definições de lista de permissões CORS:
 
-1. Navegue de volta para o [portal do Azure].
+1. Navegue de volta para o [Azure portal].
 2. Navegue para o back-end de aplicação móvel.
 3. Clique em **CORS** no **API** menu.
 4. Introduza cada URL na vazio **origens permitidas** caixa de texto.  É criada uma nova caixa de texto.
@@ -104,6 +109,6 @@ Após o back-end de atualizações, será capaz de usar os novos URLs de loopbac
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [SDK de JavaScript para aplicações móveis do Azure]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

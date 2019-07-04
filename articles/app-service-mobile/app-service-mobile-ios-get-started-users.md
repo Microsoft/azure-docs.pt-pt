@@ -3,7 +3,7 @@ title: Adicionar a autenticação no iOS com aplicações móveis do Azure
 description: Saiba como utilizar aplicações móveis do Azure para autenticar os utilizadores da sua aplicação iOS através de uma variedade de fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 88e278ced5cbddb132cdc2f760864df119762088
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128154"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449122"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicionar autenticação à sua aplicação iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-users) hoje mesmo.
+>
 
 Neste tutorial, adicionar autenticação para o [início rápido do iOS] através de um fornecedor de identidade com suporte do projeto. Este tutorial baseia-se no [início rápido do iOS] tutorial, o que tem de concluir primeiro.
 
@@ -33,7 +37,7 @@ Neste tutorial, adicionar autenticação para o [início rápido do iOS] atravé
 
 Autenticação segura requer que defina um novo esquema de URL para a sua aplicação.  Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação.  Neste tutorial, utilizamos o esquema de URL _appname_ em todo.  No entanto, pode utilizar qualquer esquema de URL que escolher.  Deve ser exclusivo para a sua aplicação móvel.  Para ativar o redirecionamento no lado do servidor de th:
 
-1. Na [portal do Azure], selecione o serviço de aplicações.
+1. Na [Azure portal], selecione o serviço de aplicações.
 
 2. Clique nas **autenticação / autorização** opção de menu.
 
@@ -77,7 +81,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca][1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
@@ -163,7 +167,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca][1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
@@ -217,7 +221,7 @@ Autenticação do serviço de aplicações utiliza a comunicação de Inter-apli
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
 [início rápido do iOS]: app-service-mobile-ios-get-started.md
 

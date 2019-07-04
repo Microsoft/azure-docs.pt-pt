@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: atsenthi
-ms.openlocfilehash: a95baeb60ddff38e2aa1e36e7728c012d9d44930
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540708"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537804"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
@@ -27,16 +27,18 @@ O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita 
 ## <a name="core-concepts"></a>Conceitos-chave
 [Terminologia do Service Fabric](service-fabric-technical-overview.md), [modelo de aplicativo](service-fabric-application-model.md), e [modelos de programação suportados](service-fabric-choose-framework.md) fornecer mais conceitos e as descrições, mas aqui estão os fundamentos básicos.
 
-### <a name="design-time-application-type-service-type-application-package-and-manifest-service-package-and-manifest"></a>Tempo de design: tipo de aplicação, o tipo de serviço, o pacote de aplicação e manifesto, o pacote de serviço e manifesto
-Um tipo de aplicação é o nome/versão atribuído a uma coleção de tipos de serviço. Isso é definido numa *Applicationmanifest* arquivo, que é incorporado num diretório do pacote de aplicação. O pacote de aplicação, em seguida, é copiado para armazenamento de imagens do cluster do Service Fabric. Em seguida, pode criar uma aplicação com o nome deste tipo de aplicação, que, em seguida, é executado dentro do cluster. 
+### <a name="design-time-service-type-service-package-and-manifest-application-type-application-package-and-manifest"></a>Tempo de design: tipo de serviço, o pacote de serviço e manifesto, tipo de aplicação, pacote de aplicação e manifesto
+Um tipo de serviço é o nome/versão atribuído a um serviço código pacotes, pacotes de dados e pacotes de configuração. Isso é definido num ficheiro servicemanifest. XML. O tipo de serviço é composto por código executável e definições de configuração de serviço, que são carregadas em tempo de execução, bem como dados estáticos, que são utilizados pelo serviço.
 
-Um tipo de serviço é o nome/versão atribuído a um serviço código pacotes, pacotes de dados e pacotes de configuração. Isso é definido num ficheiro servicemanifest. XML, que é incorporado num diretório do pacote de serviço. Diretório do pacote de serviço, em seguida, é referenciado por um pacote de aplicação *Applicationmanifest* ficheiro. Dentro do cluster, depois de criar um aplicativo nomeado, pode criar um serviço com nome de um dos tipos de serviço do tipo de aplicação. Um tipo de serviço é descrito pelo respetivo *servicemanifest. XML* ficheiro. O tipo de serviço é composto por código executável e definições de configuração de serviço, que são carregadas em tempo de execução, bem como dados estáticos, que são utilizados pelo serviço.
+Um pacote de serviço é um diretório de disco que contém o ficheiro servicemanifest. xml o tipo de serviço, que faz referência a código, dados estáticos e pacotes de configuração para o tipo de serviço. Por exemplo, um pacote de serviço pode fazer referência a código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
+
+Um tipo de aplicação é o nome/versão atribuído a uma coleção de tipos de serviço. Isso é definido num ficheiro applicationmanifest. XML.
 
 ![Tipos de recursos de infraestrutura do serviço de aplicações e tipos de serviço][cluster-imagestore-apptypes]
 
-O pacote de aplicação é um diretório de disco que contém o tipo de aplicativo *Applicationmanifest* arquivo, que faz referência os pacotes de serviço para cada tipo de serviço que compõe o tipo de aplicação. Por exemplo, um pacote de aplicação de um tipo de aplicação de e-mail pode conter referências a um pacote de serviço de fila, um pacote de serviço de front-end e um pacote de serviço de base de dados. Os ficheiros no diretório do pacote de aplicação são copiados para o arquivo de imagens do cluster do Service Fabric. 
+O pacote de aplicação é um diretório de disco que contém ficheiro Applicationmanifest o tipo de aplicação XML, que referencia os pacotes de serviço para cada tipo de serviço que compõe o tipo de aplicação. Por exemplo, um pacote de aplicação de um tipo de aplicação de e-mail pode conter referências a um pacote de serviço de fila, um pacote de serviço de front-end e um pacote de serviço de base de dados.  
 
-Um pacote de serviço é um diretório de disco que contém o tipo de serviço *servicemanifest. XML* arquivo, que faz referência a código, dados estáticos e pacotes de configuração para o tipo de serviço. Os ficheiros no diretório do pacote de serviço são referenciados pelo tipo de aplicação *Applicationmanifest* ficheiro. Por exemplo, um pacote de serviço pode fazer referência a código, dados estáticos e pacotes de configuração que compõem um serviço de base de dados.
+Os ficheiros no diretório do pacote de aplicação são copiados para o arquivo de imagens do cluster do Service Fabric. Em seguida, pode criar uma aplicação com o nome deste tipo de aplicação, que, em seguida, é executado dentro do cluster. Depois de criar uma aplicação com nome, pode criar um serviço com nome de um dos tipos de serviço do tipo de aplicação. 
 
 ### <a name="run-time-clusters-and-nodes-named-applications-named-services-partitions-and-replicas"></a>Tempo de execução: clusters e nós, chamados de aplicativos, serviços, partições e réplicas
 Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Os clusters podem ser dimensionados para milhares de máquinas.

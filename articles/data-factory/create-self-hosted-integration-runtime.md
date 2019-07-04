@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ec6177bb353602f20040f05215678e3a8a161ebc
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 2c90dcf1672a3d3505aaa19aec953ad97f5289bb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190841"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446224"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -74,7 +74,7 @@ Este é um fluxo de dados de alto nível para o resumo de passos para copiar com
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As versões de sistema operativo suportado são o Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Não é suportada a instalação do runtime de integração autoalojado num controlador de domínio.
+- As versões de sistema operativo suportado são o Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 e Windows Server 2019. Não é suportada a instalação do runtime de integração autoalojado num controlador de domínio.
 - .NET framework 4.6.1 ou posterior é necessária. Se estiver a instalar o runtime de integração autoalojado num computador Windows 7, instalar o .NET Framework 4.6.1 ou posterior. Ver [requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
 - A configuração recomendada para a máquina de runtime de integração autoalojado é, pelo menos, 2 GHz, quatro núcleos, 8 GB de RAM e um disco de 80GB.
 - Se a máquina de anfitrião hiberna, o runtime de integração autoalojado não responde a pedidos de dados. Configure uma esquema de energia adequado no computador antes de instalar o runtime de integração autoalojado. Se a máquina está configurada em hibernação, a instalação do runtime de integração autoalojado pede-lhe uma mensagem.

@@ -18,18 +18,18 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce6e7a491250c285fb0304d8da213450af2bdb2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c3edfd9ef346407529eea1d887efd795e647808
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055945"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440819"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticação do Microsoft identity platform
 
 O [ponto final de plataforma do Microsoft identity](active-directory-v2-compare.md) suporta os protocolos padrão da indústria de OAuth 2.0 e OpenID Connect 1.0. A Microsoft Authentication Library (MSAL) foi concebida para funcionar com o ponto de final de plataforma de identidade Microsoft. Também pode utilizar bibliotecas de código-fonte aberto que suportem o OAuth 2.0 e OpenID Connect 1.0.
 
-Recomendamos que utilize bibliotecas escritas por especialistas de domínio de protocolo que siga uma metodologia de ciclo de vida de desenvolvimento da segurança (SDL). Essas bibliotecas incluem [seguinte do Microsoft][Microsoft-SDL]. Se a entregar o código para os protocolos, deve seguir uma metodologia de como o Microsoft SDL. Preste muita atenção para as considerações de segurança nas especificações de padrões para cada protocolo.
+Recomendamos que utilize bibliotecas escritas por especialistas de domínio de protocolo que siga uma metodologia de ciclo de vida de desenvolvimento da segurança (SDL). Essas bibliotecas incluem [Microsoft seguinte][Microsoft-SDL]. Se a entregar o código para os protocolos, deve seguir uma metodologia de como o Microsoft SDL. Preste muita atenção para as considerações de segurança nas especificações de padrões para cada protocolo.
 
 > [!NOTE]
 > Está à procura para o Azure Active Directory Authentication Library (ADAL)? Veja a [guia de biblioteca ADAL](active-directory-authentication-libraries.md).
@@ -56,7 +56,7 @@ Utilize bibliotecas de autenticação de cliente para adquirir um token para cha
 
 | Plataforma | Biblioteca | Transferência | Código de origem | Exemplo | Referência | Doc conceitual | Mapa |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://htmlpreview.github.io/? https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Docs conceituais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
+| ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [Aplicação de página única](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Referência](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-core/docs/classes/_useragentapplication_.useragentapplication.html) | [Docs conceituais](msal-overview.md)| [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 |![Angular JS](media/sample-v2-code/logo_angular.png) | Angular JS de MSAL | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular (pré-visualização) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET Framework](media/sample-v2-code/logo_NET.png) ![UWP](media/sample-v2-code/logo_windows.png) ![Xamarin](media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [Aplicativo de Desktop](guidedsetups/active-directory-mobileanddesktopapp-windowsdesktop-intro.md) | [MSAL.NET](https://docs.microsoft.com/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#conceptual-documentation) | [Mapa](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)

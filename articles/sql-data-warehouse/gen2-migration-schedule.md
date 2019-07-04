@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596108"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444698"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -43,7 +43,7 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | China Norte |\* |\* |
 | Norte da China 2 |Disponível |Geração 2 apenas |
 | Ásia Oriental |Disponível |1 de Junho de 2019 |
-| EUA Leste |Disponível |1 de Junho de 2019 |
+| East US |Disponível |1 de Junho de 2019 |
 | EUA Leste 2 |Disponível |1 de Junho de 2019 |
 | França Central |\* |1 de Junho de 2019 |
 | Alemanha Central |\* |\* |
@@ -67,7 +67,7 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
-Com base no gráfico de disponibilidade acima, vai ser agendamento de atualizações automáticas para as suas instâncias de geração 1. Para evitar qualquer interrupção inesperada na disponibilidade do armazém de dados, as atualizações automáticas serão agendadas durante a sua agenda de manutenção. A capacidade de criar uma nova instância de geração 1 será desativada em regiões passando por atualização automática para a geração 2. Para obter mais informações sobre agendas, consulte [ver um agendamento de manutenção](viewing-maintenance-schedule.md)
+Com base no gráfico de disponibilidade acima, vai ser agendamento de atualizações automáticas para as suas instâncias de geração 1. Para evitar qualquer interrupção inesperada na disponibilidade do armazém de dados, as atualizações automáticas serão agendadas durante a sua agenda de manutenção. A capacidade de criar uma nova instância de geração 1 será desativada em regiões passando por atualização automática para a geração 2. Geração 1 vão ser preteridos assim que as atualizações automáticas foram concluídas. Para obter mais informações sobre agendas, consulte [ver um agendamento de manutenção](viewing-maintenance-schedule.md)
 
 O processo de atualização envolverá uma breve queda da conectividade (aproximadamente 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. No entanto, pode ocorrer uma degradação do desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho irá variar depende do tamanho dos ficheiros de dados.
 
