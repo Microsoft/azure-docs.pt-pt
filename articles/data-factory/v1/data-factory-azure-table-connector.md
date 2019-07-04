@@ -478,7 +478,7 @@ Ao mover dados para e a partir de tabelas do Azure, o seguinte procedimento [map
 | Tipo de dados do OData | Tipo de .NET | Detalhes |
 | --- | --- | --- |
 | Edm.Binary |byte[] |Uma matriz de bytes até 64 KB. |
-| Edm.Boolean |booleano |Um valor booleano. |
+| Edm.Boolean |bool |Um valor booleano. |
 | Edm.DateTime |DateTime |Um valor de 64 bits, expressado como Hora Universal Coordenada (UTC). O intervalo suportado de DateTime começa de 12:00 1 de Janeiro, de 1601 a.d. (E.C.), UTC. O intervalo de termina a 31 de Dezembro, 9999. |
 | Edm.Double |double |Um valor de ponto flutuante de 64 bits. |
 | Edm.Guid |Guid |Um identificador exclusivo global de 128 bits. |
@@ -537,7 +537,7 @@ Tendo em conta o mapeamento do tipo de tipo de OData de tabela do Azure para o t
 
 | Nome da coluna | Type |
 | --- | --- |
-| userid de utilizador |Edm.Int64 |
+| userid |Edm.Int64 |
 | name |Edm.String |
 | lastlogindate |Edm.DateTime |
 
