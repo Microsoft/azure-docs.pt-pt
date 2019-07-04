@@ -62,7 +62,7 @@ Ao utilizar o modelo de REST API ou do Resource Manager, inclua o elemento de no
 
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
-| Operação |sim |o valor tem de ser "Dimensionamento" |
+| operation |sim |o valor tem de ser "Dimensionamento" |
 | sendToSubscriptionAdministrator |sim |valor tem de ser "verdadeiro" ou "false" |
 | sendToSubscriptionCoAdministrators |sim |valor tem de ser "verdadeiro" ou "false" |
 | customEmails |sim |valor pode ser [null] ou matriz de cadeia de caracteres de mensagens de e-mail |
@@ -106,7 +106,7 @@ Quando a notificação de dimensionamento automático é gerada, os seguintes me
 | Campo | Obrigatório? | Descrição |
 | --- | --- | --- |
 | status |sim |O estado que indica que uma ação de dimensionamento automático foi gerada |
-| Operação |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
+| operation |sim |Para um aumento do número de instâncias, é "Aumentar horizontalmente" e para uma diminuição nas instâncias, será "Escala em" |
 | context |sim |O contexto de ação de dimensionamento automático |
 | timestamp |sim |Carimbo de hora quando a ação de dimensionamento automático foi acionada |
 | id |Sim |Gestor de recursos do ID de definição de dimensionamento automático |

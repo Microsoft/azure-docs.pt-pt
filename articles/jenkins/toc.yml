@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Implementar para o AKS com o padrão azul/verde
               href: jenkins-aks-blue-green-deployment.md
+            - name: CI/CD com o Azure Dev Spaces
+              href: tutorial-jenkins-dev-spaces.md
         - name: Serviço de Aplicações
           items:
             - name: Criar recursos do Azure numa tarefa de pipeline

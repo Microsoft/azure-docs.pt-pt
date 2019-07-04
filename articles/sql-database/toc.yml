@@ -8,6 +8,8 @@
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Notas de versão
       href: sql-database-release-notes.md
+    - name: Atualizações de migração de IP do gateway
+      href: sql-database-gateway-migration.md
 - name: Inícios rápidos
   expanded: true
   items:

@@ -179,7 +179,7 @@ As propriedades de recursos de ação do alerta são descritas nas tabelas segui
 | type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
 | name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
 | description | Não | Descrição opcional do alerta. |
-| Gravidade | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Limiar

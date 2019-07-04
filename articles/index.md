@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 4d1d8756bcc5cea1e392560233b4e91aa9b8e22f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f7a0afd8058d2de277da8f7ab3d1eb37abae4add
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67429866"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544194"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1795,6 +1795,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <a href="/azure/avere-vfxt/">
                                                 <img src="media/index/avere.svg" alt="" />
                                                 <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/fxt-edge-filer/">
+                                                <img src="media/index/azure-fxt-edge-filer.svg" alt="" />
+                                                <p>Azure FXT Edge Filer</p>
                                             </a>
                                         </li>
                                         <li>
@@ -5955,6 +5961,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Avere vFXT</h3>
                                                     <p>Execute cargas de trabalho baseadas em ficheiros e de elevado desempenho no Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/fxt-edge-filer/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/azure-fxt-edge-filer.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure FXT Edge Filer</h3>
+                                                    <p>Solução de otimização do armazenamento híbrido para ambientes de HPC</p>
                                                 </div>
                                             </div>
                                         </div>

@@ -11,10 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Ingerir dados de exemplo
       href: ingest-sample-data.md
-    - name: Consultar dados
-      items:
-        - name: IU da Web
-          href: web-query-data.md
+    - name: Consultar dados com a IU da Web
+      href: web-query-data.md
 - name: Tutoriais
   items:
     - name: Ingerir dados sem utilizar código
@@ -88,14 +86,14 @@
               href: power-bi-imported-query.md
             - name: Consulta SQL
               href: power-bi-sql-query.md
-        - name: Conector ODBC
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Conector ODBC
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Gerir
       items:
         - name: Gerir permissões da base de dados
