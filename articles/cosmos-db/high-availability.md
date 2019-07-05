@@ -4,15 +4,15 @@ description: Este artigo descreve como o Azure Cosmos DB fornece elevada disponi
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 23273084826775b47170753dff3e5cf5ed8ae45f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063561"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508570"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -70,6 +70,9 @@ Esta funcionalidade está disponível nas seguintes regiões do Azure:
 
 * Reino Unido Sul
 * Sudeste Asiático 
+* East US
+* EUA Leste 2 
+* EUA Central
 
 > [!NOTE] 
 > Ativar zonas de disponibilidade para uma conta do Cosmos do Azure de região única resulta em custos que são equivalentes à adição de uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o [custo de várias regiões do Azure Cosmos DB](optimize-cost-regions.md) artigos. 
@@ -89,7 +92,10 @@ A tabela seguinte resume a capacidade de elevada disponibilidade de várias conf
 |Falha regional – disponibilidade  |  Perda de disponibilidade       |  Perda de disponibilidade       |  Sem perda de disponibilidade  |
 |Débito    |  X RU/s aprovisionada débito      |  X RU/s aprovisionada débito       |  2 x débito aprovisionado de RU/s <br/><br/> Esse modo de configuração exige duas vezes a quantidade de débito em comparação com uma única região com zonas de disponibilidade devido a existirem duas regiões.   |
 
-Pode ativar a redundância de zona ao adicionar uma região para contas do Cosmos do Azure novas ou existentes. Atualmente, apenas pode ativar a redundância de zona com os modelos do PowerShell ou do Azure Resource Manager. Para ativar a redundância de zona na sua conta do Cosmos do Azure, deve definir os `isZoneRedundant` sinalizador para `true` para uma localização específica. Pode definir este sinalizador dentro da propriedade de localizações. Por exemplo, o seguinte fragmento de powershell permite que a redundância de zona para a região "Sudeste Asiático":
+> [!NOTE] 
+> Para ativar o suporte de zona de disponibilidade, a conta do Azure Cosmos DB tem de ter gravações de várias-master/várias-region ativadas. 
+
+Pode ativar a redundância de zona ao adicionar uma região para contas do Cosmos do Azure novas ou existentes. Atualmente, apenas pode ativar a redundância de zona ao utilizar o Azure portal, modelos de PowerShell e Azure Resource Manager. Para ativar a redundância de zona na sua conta do Cosmos do Azure, deve definir os `isZoneRedundant` sinalizador para `true` para uma localização específica. Pode definir este sinalizador dentro da propriedade de localizações. Por exemplo, o seguinte fragmento de powershell permite que a redundância de zona para a região "Sudeste Asiático":
 
 ```powershell
 $locations = @( 
@@ -97,6 +103,10 @@ $locations = @(
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
 ```
+
+Pode ativar as zonas de disponibilidade com o portal do Azure quando criar uma conta do Cosmos do Azure. Quando criar uma conta, certifique-se ativar a **georredundância**, **escreve de várias regiões**e escolha uma região onde as zonas de disponibilidade são suportadas: 
+
+![Ativar zonas de disponibilidade com o portal do Azure](./media/high-availability/enable-availability-zones-using-portal.png) 
 
 ## <a name="building-highly-available-applications"></a>Criar aplicações de elevada disponibilidade
 
@@ -106,7 +116,7 @@ $locations = @(
 
 - Mesmo que a sua conta do Cosmos está altamente disponível, seu aplicativo pode não ser criado corretamente para continuar altamente disponível. Para testar a disponibilidade elevada de ponto a ponto da sua aplicação, invocar periodicamente o [ativação pós-falha manual ao utilizar a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover), como parte do seu teste de aplicativos ou a recuperação após desastre (DR) explorações.
 
-- Dentro de um ambiente de base de dados globalmente distribuída, existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RTO e RPO para o Azure Cosmos DB, consulte [durabilidade de dados e níveis de consistência](consistency-levels-tradeoffs.md#rto)
+- Dentro de um ambiente de base de dados globalmente distribuída, existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá perder é conhecido como o objetivo de ponto de recuperação (RPO). Para ver o RTO e RPO para o Azure Cosmos DB, consulte [durabilidade de dados e níveis de consistência](consistency-levels-tradeoffs.md#rto)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

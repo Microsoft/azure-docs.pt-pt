@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa400d678fb1e0793ea1a0cfd53bdfb715a5bc77
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 067e2b73ce914860126b66668ca8cbeb28a4d7d1
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785030"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540728"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -52,7 +52,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 > 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://aka.ms/MobileAppReg) página.
 > 1. Selecione **novo registo**.
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `Win-App-calling-MsGraph`.
->      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
+>      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)** .
 >      - Selecione **Registar** para criar a aplicação.
 > 1. Na lista de páginas da aplicação, selecione **Autenticação**.
 > 1. Expanda a **ambiente de trabalho e dispositivos** secção.  (Se **ambiente de trabalho e dispositivos** não estiver visível, primeiro clique na faixa superior para ver a experiência de autenticação de pré-visualização)
@@ -82,6 +82,9 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
     private static string ClientId = "Enter_the_Application_Id_here";
     private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Este início rápido suporta Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Em que:
@@ -92,7 +95,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 >   - Se a sua aplicação suportar **Contas em quaisquer contas da Microsoft de diretório organizacional e pessoais**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 

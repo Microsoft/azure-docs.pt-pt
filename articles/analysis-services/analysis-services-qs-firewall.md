@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e78dd093c4bbf0cf1bdbd5280ffaa63286e585d4
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60533901"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537131"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Início rápido: Configurar a firewall do servidor - Portal
 
@@ -33,7 +33,7 @@ Este início rápido ajuda-o a configurar uma firewall para o servidor do Analys
 1. Clique no servidor para abrir a página Descrição geral. 
 2. Em **DEFINIÇÕES** > **Firewall** > **Ativar firewall**, clique em **Ativar**.
 3. Para permitir o acesso do DirectQuery a partir do serviço Power BI, em **Permitir acesso a partir do Power BI**, clique em **Ativar**.  
-4. (Opcional) Especifique um ou mais intervalos de endereços IP. Introduza um nome, um endereço IP de início e de fim para cada intervalo. 
+4. (Opcional) Especifique um ou mais intervalos de endereços IP. Introduza um nome, um endereço IP de início e de fim para cada intervalo. Nome da regra de firewall deve ser limitado a 128 carateres e apenas pode conter carateres maiúsculos, carateres minúsculos, números, caráter de sublinhado e hífen. Não são permitidos espaços em branco e outros caracteres especiais.
 5. Clique em **Guardar**.
 
      ![Definições de firewall](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

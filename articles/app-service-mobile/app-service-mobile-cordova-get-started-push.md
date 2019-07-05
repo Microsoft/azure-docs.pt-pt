@@ -5,31 +5,35 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: e6755c3fb1fca342d94fdaa96c0dce614d762172
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62114360"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443562"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Adicionar notificações push à aplicação Apache Cordova
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) hoje mesmo.
+>
+
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, adicionar notificações push para o [guia de introdução do Apache Cordova] [ 5] do projeto para que uma notificação push é enviada para o dispositivo sempre que um registro é inserido.
+Neste tutorial, adicionar notificações push para o [guia de introdução do Apache Cordova][5] do projeto para que uma notificação push é enviada para o dispositivo sempre que um registro é inserido.
 
-Se não utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Para obter mais informações, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis][1].
+Se não utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Para obter mais informações, consulte [trabalhar com o servidor de back-end de .NET SDK para Mobile Apps][1].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,13 +41,13 @@ Este tutorial parte do princípio de que tem uma aplicação Apache Cordova, que
 
 Para concluir este tutorial, precisa de:
 
-* Um PC com [Visual Studio Community 2015] [ 2] ou posterior
+* Um PC com [Visual Studio Community 2015][2] ou posterior
 * [Visual Studio Tools para Apache Cordova][4]
-* Um [conta ativa do Azure][3]
-* Um concluídos [guia de introdução do Apache Cordova] [ 5] projeto
-* (Android) R [conta do Google] [ 6] com um endereço de correio eletrónico verificado
-* (iOS) Uma [associação ao programa de programador da Apple] [ 7] e um dispositivo iOS (iOS simulador não suporta notificações push)
-* (Windows) R [conta de programador do Microsoft Store] [ 8] e um dispositivo Windows 10
+* Uma [conta ativa do Azure][3]
+* Um concluídos [guia de introdução do Apache Cordova][5] projeto
+* (Android) R [conta Google][6] com um endereço de correio eletrónico verificado
+* (iOS) Uma [associação ao programa de programador da Apple][7] e um dispositivo iOS (iOS simulador não suporta notificações push)
+* (Windows) R [conta de programador do Microsoft Store][8] e um dispositivo Windows 10
 
 ## <a name="configure-hub"></a>Configurar um hub de notificação
 
@@ -70,7 +74,7 @@ Se o seu projeto usar uma versão do Apache Cordova, que é anterior à versão 
 
 #### <a name="install-the-push-plugin"></a>Instalar o plug-in de push
 
-Aplicações do Cordova no Apache manipula nativamente capacidades de rede ou dispositivo.  Estas capacidades são fornecidas por plug-ins que são publicados qualquer um na [npm] [ 10] ou no GitHub. O `phonegap-plugin-push` Plug-in processa as notificações de push de rede.
+Aplicações do Cordova no Apache manipula nativamente capacidades de rede ou dispositivo.  Estas capacidades são fornecidas por plug-ins que são publicados qualquer um na [npm][10] ou no GitHub. O `phonegap-plugin-push` Plug-in processa as notificações de push de rede.
 
 Pode instalar o plug-in de push em uma das seguintes formas:
 
@@ -242,7 +246,7 @@ Notificações de push de teste agora pode executá-la e inserir itens na tabela
 
 * *Num dispositivo físico:* Anexe o seu dispositivo Android para o seu computador de desenvolvimento com um cabo USB.  Em vez de **emulador do Google Android**, selecione **dispositivo**. Visual Studio implementa a aplicação no dispositivo e executa o aplicativo. Em seguida, pode interagir com a aplicação no dispositivo.
 
-  Aplicativos de compartilhamento de tela, como [Mobizen] [ 20] pode ajudá-lo a desenvolver aplicações Android. Mobizen projeta sua tela Android para um navegador da web no seu PC.
+  Aplicativos de compartilhamento de tela, como [Mobizen][20] pode ajudá-lo a desenvolver aplicações Android. Mobizen projeta sua tela Android para um navegador da web no seu PC.
 
 * *No emulador do Android:* Existem passos de configuração adicionais que são necessários quando estiver a utilizar um emulador.
 
@@ -266,7 +270,7 @@ Esta secção destina-se à execução do projeto de Cordova em dispositivos iOS
 
 #### <a name="install-and-run-the-ios-remote-build-agent-on-a-mac-or-cloud-service"></a>Instalar e executar o agente de compilação remoto do iOS num Mac ou serviço cloud
 
-Antes de poder executar uma aplicação Cordova em dispositivos iOS com o Visual Studio, percorrer os passos a [guia de instalação do iOS] [ 12] para instalar e executar o agente de compilação remoto.
+Antes de poder executar uma aplicação Cordova em dispositivos iOS com o Visual Studio, percorrer os passos a [guia de instalação do iOS][12] para instalar e executar o agente de compilação remoto.
 
 Certifique-se de que pode criar a aplicação para iOS. Os passos no guia de configuração são necessários para compilar a aplicação para iOS a partir do Visual Studio. Se não tiver um Mac, pode criar para iOS, utilizando o agente de compilação remoto num serviço como MacInCloud. Para obter mais informações, consulte [executar a sua aplicação iOS na cloud][21].
 
@@ -329,7 +333,7 @@ Para utilizar as opções de Store no Visual Studio, selecione um destino do Win
 
 [!INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-[Ver um vídeo que mostra os passos semelhantes][13]
+[Veja um vídeo que mostra os passos semelhantes][13]
 
 #### <a name="configure-the-notification-hub-for-wns"></a>Configurar o hub de notificação para o WNS
 
@@ -379,14 +383,14 @@ Certifique-se de que uma notificação é recebida quando o item é adicionado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Leia sobre [os Hubs de notificação] [ 17] para saber mais sobre as notificações push.
-* Se ainda não o fez, continue o tutorial ao [adicionar autenticação] [ 14] à sua aplicação Apache Cordova.
+* Leia sobre [os Hubs de notificação][17] para saber mais sobre as notificações push.
+* Se ainda não o fez, continue o tutorial ao [adicionar autenticação][14] à sua aplicação Apache Cordova.
 
 Saiba como utilizar os SDKs seguintes:
 
 * [SDK do Apache Cordova][15]
-* [SDK do servidor ASP.NET][1]
-* [Servidor de node. js SDK][16]
+* [SDK do Servidor ASP.NET][1]
+* [SDK do Servidor Node.js][16]
 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png

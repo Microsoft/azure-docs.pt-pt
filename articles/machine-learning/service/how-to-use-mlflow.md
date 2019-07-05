@@ -1,5 +1,5 @@
 ---
-title: Como utilizar MLflow com o serviço Azure Machine Learning
+title: Utilizar MLflow com o serviço Azure Machine Learning
 titleSuffix: Azure Machine Learning service
 description: Saiba como iniciar sessão métricas e artefactos usando a biblioteca de MLflow ao serviço Azure Machine Learning
 services: machine-learning
@@ -11,21 +11,21 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: b64051a4ef7b6a816b03562fef0452cbe9ce949a
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144031"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461657"
 ---
-# <a name="how-to-use-mlflow-with-azure-machine-learning-service-preview"></a>Como utilizar MLflow com o serviço Azure Machine Learning (pré-visualização)
+# <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Utilizar MLflow com o serviço Azure Machine Learning (pré-visualização)
 
 Este artigo demonstra como utilizar MLflow URI de controlo e a API, o registo, coletivamente, também conhecido como MLflow de controlo, com o serviço Azure Machine Learning para controlar e inicie sessão métricas de experimentação e artefactos no seu [do Azure Machine Learning área de trabalho do serviço](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Se já utilizar MLflow de controlo para suas experimentações, a área de trabalho fornece uma localização centralizada, segura e dimensionável para armazenar os seus modelos e métricas de treinamento.
 
 [MLflow](https://www.mlflow.org) é uma biblioteca de código-fonte aberto para gerir o ciclo de vida das suas experimentações de machine learning. [Controlo de MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) é um componente do MLflow que registra e controla seu treinamento executar a métrica e artefatos do modelo, se suas experimentações são executadas localmente, numa máquina virtual ou no remoto o cluster de cálculo.
 ![mlflow com o diagrama do azure machine learning](media/how-to-use-mlflow/mlflow-diagram.png)
 
-## <a name="compare-mlflow-and-azure-machine-learning-service-clients"></a>Compare os clientes de serviço MLflow e o Azure Machine Learning
+## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>Comparar clientes MLflow e Azure Machine Learning
 
  A tabela abaixo resume os clientes de diferentes que podem utilizar o serviço Azure Machine Learning e as respetivas funcionalidades da respetiva função.
 

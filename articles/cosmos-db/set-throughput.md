@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: rimman
-ms.openlocfilehash: 61f8e93fd82f7da632e0ab7e16ad6fbf4ca25646
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165009"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561383"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
@@ -98,7 +98,6 @@ Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em
 |---------|---------|---------|
 |RUs mínimo |400 (após os primeiros quatro contentores, cada contentor adicional requer um mínimo de 100 RU por segundo.) |400|
 |RUs mínimas por contentor|100|400|
-|RUs mínimas necessária para consumir a 1 GB de armazenamento|40|40|
 |RUs máximos|Ilimitado, na base de dados.|Ilimitado, no contentor.|
 |RUs atribuídos ou disponíveis para um contentor específico|Não existem garantias. RUs atribuídos a um determinado contêiner dependem as propriedades. As propriedades podem ser a escolha de chaves de partição de contentores que partilhem o débito, a distribuição de carga de trabalho e o número de contentores. |Todos os RUs configurados no contentor exclusivamente estão reservados para o contentor.|
 |Armazenamento máximo para um contentor|Ilimitado.|Ilimitado.|

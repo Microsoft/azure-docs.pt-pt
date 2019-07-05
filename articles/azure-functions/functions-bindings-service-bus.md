@@ -4,7 +4,7 @@ description: Compreenda como utilizar o Azure Service Bus acionadores e enlaces 
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241154"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480239"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -354,7 +354,7 @@ O [Host. JSON](functions-host-json.md#servicebus) ficheiro contém as definiçõ
 |prefetchCount|n/d|A predefinição PrefetchCount que será utilizada pelo MessageReceiver subjacente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima em que o bloqueio da mensagem será renovado automaticamente.|
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Utilize o enlace de saída de Azure Service Bus para enviar mensagens de fila ou tópico.
 

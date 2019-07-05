@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583870"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537709"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implementar vários executáveis convidados
 Este artigo mostra como empacotar e implementar vários executáveis convidados para o Azure Service Fabric. Para criar e implementar um único pacote de recursos de infraestrutura do serviço Leia como a [implementar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Pode utilizar o Visual Studio para produzir o pacote de aplicação que contém 
 * [Exemplo de dois convidado executáveis (c# e nodejs) comunicar através do serviço de nomenclatura com REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>O pacote manualmente vários aplicação executável convidada
-Em alternativa pode empacotar manualmente o convidado executável. Para o empacotamento manual, este artigo utiliza a ferramenta de empacotamento do Service Fabric, que está disponível em [ https://aka.ms/servicefabricpacktool ](https://aka.ms/servicefabricpacktool).
+Em alternativa pode empacotar manualmente o convidado executável. Para obter detalhes, consulte [manualmente agrupar e implementar um executável existente](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### <a name="packaging-the-nodejs-application"></a>Empacotar a aplicação node. js
 Este artigo pressupõe que o node. js não está instalado em nós no cluster do Service Fabric. Como conseqüência, terá de adicionar Node.exe para o diretório de raiz da sua aplicação de nó antes de empacotamento. A estrutura do diretório da aplicação node. js (com a arquitetura de web Express e o mecanismo de modelo Jade) deve ter um aspeto semelhante à abaixo:
@@ -207,7 +207,6 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 Assim que a aplicação é publicada com êxito para o cluster local, pode aceder a aplicação node. js na porta que entramos no manifesto do serviço da aplicação node. js, por exemplo, http:\//localhost:3000.
 
 Neste tutorial, viu como empacotar facilmente dois aplicativos existentes como uma aplicação do Service Fabric. Também aprendeu como implementá-la para o Service Fabric, para que ele pode beneficiar de alguns dos recursos do Service Fabric, como elevada disponibilidade e a integração do sistema de estado de funcionamento.
-
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Adicionar mais executáveis de convidado para uma aplicação existente com o Yeoman no Linux
 

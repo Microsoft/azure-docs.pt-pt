@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472116"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491837"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas para recuperação após desastre com o Azure Site Recovery
 
@@ -65,7 +65,7 @@ Para a criação deste artigo, máquinas virtuais VMware com o Windows Server 20
 **Hyper-V** | Sim | Sim
 **VMware** | Sim | Sim
 **Servidor físico** | Sim | Sim
-**Azure** | N/D | Sim
+**Azure** | ND | Sim
 
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
 São suportadas as seguintes versões de servidor do SharePoint.
@@ -196,7 +196,7 @@ Siga [esta orientação](site-recovery-test-failover-to-azure.md) para fazer uma
 
 Para obter orientações sobre a fazer a ativação pós-falha de teste para o AD e DNS, consulte [considerações de ativação pós-falha do AD de teste e DNS](site-recovery-active-directory.md#test-failover-considerations) documento.
 
-Para obter orientações sobre como fazer a ativação pós-falha de teste para o SQL Always em grupos de disponibilidade, consulte [fazendo testar a ativação pós-falha para o SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover) documento.
+Para obter orientações sobre como fazer a ativação pós-falha de teste para o SQL Always em grupos de disponibilidade, consulte [efetuar DR de aplicação com o Azure Site Recovery e fazer a ativação pós-falha de teste](site-recovery-sql.md#disaster-recovery-of-application) documento.
 
 ## <a name="doing-a-failover"></a>Efetuar uma ativação pós-falha
 Siga [esta orientação](site-recovery-failover.md) para efetuar uma ativação pós-falha.

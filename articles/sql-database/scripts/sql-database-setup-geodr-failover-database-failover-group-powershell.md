@@ -1,6 +1,6 @@
 ---
-title: Grupo único de ativação pós-falha de georreplicação de exemplo do PowerShell - Base de Dados SQL do Azure | Microsoft Docs
-description: Script de exemplo do Azure PowerShell para configurar a ativação pós-falha de georreplicação ativa de grupo para uma base de dados na base de dados do Azure SQL e realizar a ativação pós-falha.
+title: PowerShell exemplo ativo georreplicação - base de dados SQL Database do Azure | Documentos da Microsoft
+description: Script de exemplo do PowerShell do Azure para configurar a georreplicação ativa para uma base de dados na base de dados do Azure SQL e realizar a ativação pós-falha.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a90753d075f7f4db9dbae95fde979d471db3247c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1733e117c2a5b0d58e37c3f5af451f949bd253f9
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729198"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561494"
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-database-in-azure-sql-database"></a>Utilize o PowerShell para configurar um grupo de ativação pós-falha de georreplicação ativa para uma base de dados na base de dados do Azure SQL
+# <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Utilize o PowerShell para configurar a georreplicação ativa para uma base de dados na base de dados do Azure SQL
 
 Este exemplo de script do PowerShell configura um grupo de ativação pós-falha de georreplicação ativa para uma base de dados e realiza a ativação pós-falha para uma réplica secundária da base de dados.
 

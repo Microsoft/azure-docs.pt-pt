@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 535ae91abc04b2fdcebb6a2083db95ec50f61798
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 49d1e171d4d4b2210a98c59332f4842e23a2f2b9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275584"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537848"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -38,7 +38,7 @@ A camada de serviços de Hiperescala só está disponível para bases de dados i
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>A camada de serviços de Hiperescala difere dos escalões de serviço para fins gerais e crítico para a empresa
 
-O serviço de acesso baseado em vCore escalões principalmente são diferenciados com base na disponibilidade, de tipo de armazenamento e de IOPs.
+O serviço de acesso baseado em vCore escalões principalmente são diferenciados com base na disponibilidade, o tipo de armazenamento e o IOPs.
 
 - A camada de serviços de fins gerais é adequada para a maioria das cargas de trabalho empresariais, oferece um conjunto com balanceamento de opções de computação e armazenamento em que a horas de latência ou de ativação pós-falha de e/s não são a prioridade.
 - A camada de serviços de Hiperescala está otimizada para cargas de trabalho de base de dados muito grandes.
@@ -53,7 +53,7 @@ O serviço de acesso baseado em vCore escalões principalmente são diferenciado
 | **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento anular conjugado com a cache SSD local (por instância) | Extremamente rápido (por instância) o armazenamento SSD local |
 | **Tamanho de armazenamento** | Base de dados / elastic pool | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância gerida  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **Débito de e/s** | Base de dados única * * | 500 IOPS por vCore com IOPS máximos de 7000 | Ainda desconhecido | 5000 IOPS com 200 000 IOPS máximos|
+| **Débito de e/s** | Base de dados única * * | 500 IOPS por vCore com IOPS máximos de 7000 | Hiperescala é uma arquitetura de várias camadas com colocação em cache em vários níveis. IOPs eficaz irão depender da carga de trabalho. | 5000 IOPS com 200 000 IOPS máximos|
 | | Instância gerida | Depende do tamanho do ficheiro | N/A | Instância gerida: Depende do tamanho do ficheiro|
 |**Disponibilidade**|Todos|1 réplica, sem cache de escala de leitura, não local | Várias réplicas, até 15 cache local de escala de leitura, parcial | total de 3 réplicas, 1 HA uma escala de leitura, com redundância de zona, local cache |
 |**Cópias de segurança**|Todos|RA-GRS, 7-35 dias (7 dias por predefinição)| RA-GRS, 7-35 dias (7 dias por predefinição), o restauro de ponto no tempo de tempo constante (PITR) | RA-GRS, 7-35 dias (7 dias por predefinição) |
@@ -92,7 +92,7 @@ Hiperescala de base de dados SQL fornece uma rápida escalabilidade com base na 
   Com a Hiperescala, pode aumentar verticalmente o tamanho de computação principal em termos de recursos, como CPU, memória e, em seguida, reduzir verticalmente, no tempo constante. Como o armazenamento é partilhado, a aumentar e reduzir verticalmente não é um tamanho de operação de dados.  
 - **Dimensionamento de entrada/saída**
 
-  Com a Hiperescala, também obtém a capacidade de aprovisionar um ou mais nós de computação adicional que pode utilizar para atender as solicitações de leitura. Isso significa que pode utilizar estes nós de computação adicionais como nós só de leitura para a descarga de sua carga de trabalho de leitura do primária para a computação. Para além só de leitura, que estes nós também servem como acesso frequente-em espera 's em caso de uma ativação pós-falha dos principais.
+  Com a Hiperescala, também obtém a capacidade de aprovisionar um ou mais nós de computação adicional que pode utilizar para atender as solicitações de leitura. Isso significa que pode utilizar estes nós de computação adicionais como nós só de leitura para a descarga de sua carga de trabalho de leitura do primária para a computação. Para além 's só de leitura, que estes nós também servem como acesso frequente-em espera em caso de uma ativação pós-falha dos principais.
 
   Aprovisionamento de cada um desses computação adicional nós podem ser feitas de tempo constante e é uma operação online. Pode ligar a esses nós de computação adicionais de só de leitura, definindo a `ApplicationIntent` argumento na sua cadeia de ligação para `readonly`. Todas as ligações marcado com `readonly` são automaticamente encaminhadas para um de nós de computação adicionais de só de leitura.
 
@@ -120,7 +120,7 @@ Todas as cargas de trabalho do SQL Server oferece suporte a Hiperescala de base 
 
 ### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-sql-database-hyperscale"></a>Como escolher entre o Azure SQL Data Warehouse e de Hiperescala de base de dados SQL
 
-Se estiver atualmente a execução de consultas de análises interativas com o SQL Server como um armazém de dados, Hiperescala de base de dados SQL é uma ótima opção porque pode alojar os armazéns de dados relativamente pequeno (por exemplo, alguns TB até 10's de TB) a um custo menor e pode migrar os dados  Armazém carga de trabalho de grande dimensão de base de dados SQL sem alterações de código do T-SQL.
+Se estiver atualmente a executar consultas de análises interativas com o SQL Server como um armazém de dados, Hiperescala de base de dados SQL é uma ótima opção porque pode alojar os armazéns de dados relativamente pequeno (por exemplo, alguns TB até a cada 10 TB) a um custo menor e é possível migrar a sua w de dados arehouse carga de trabalho de grande dimensão de base de dados SQL sem alterações de código do T-SQL.
 
 Se estiver a executar análises de dados em grande escala com consultas complexas e com o armazém de dados paralela (PDW), Teradata ou outros em massa processador paralela (MPP)) armazéns de dados, o SQL Data Warehouse podem ser a melhor opção.
   
@@ -349,7 +349,7 @@ Utilizador final. Não é automática.
 
 Sim. Temp db irá aumentar verticalmente automaticamente à medida que aumenta a computação.  
 
-### <a name="can-i-provision-multiple-primary-computes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Pode aprovisionar várias computações primárias como um sistema de vários mestre onde vários cabeças de computação principal podem promover a um nível mais elevado de simultaneidade
+### <a name="can-i-provision-multiple-primary-compute-nodes-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Pode aprovisionar vários nós de computação principal, como um sistema de vários mestre onde vários cabeças de computação principal podem promover a um nível mais elevado de simultaneidade
 
 Não. Apenas o nó de computação principal aceita pedidos de leitura/escrita. Nós de computação secundário só aceitam pedidos só de leitura.
 
@@ -369,11 +369,11 @@ Não. Apenas pode estabelecer ligação à réplica de uma escala de leitura ao 
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>O sistema faz o balanceamento de carga inteligente da carga de trabalho de leitura
 
-Não. A carga de trabalho só de leitura é novamente direcionada para uma réplica de uma escala de leitura aleatória.
+Não. A carga de trabalho só de leitura é redirecionada para uma réplica de uma escala de leitura aleatória.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-nodes-independently-of-the-primary-compute"></a>Posso Dimensionar para cima ou para baixo de nós de computação secundário, independentemente da computação primário
 
-Não. Os nós de computação secundário também são utilizados para HA, pelo que precisam de ser a mesma configuração principal, em caso de uma ativação pós-falha.
+Não. Os nós de computação secundário também são utilizados para HA, pelo que precisam de ser a mesma configuração principal, no caso de uma ativação pós-falha.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Posso obter tamanho de db temp diferentes para meu computação primária e meus nós de computação secundário adicionais
 

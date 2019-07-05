@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 07/02/2019
 ms.author: jonbeck
-ms.openlocfilehash: c9e64352e29c08378a227991ec34a24472204a09
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd083a00887c5de41a488866fc5244126f6b17be
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055158"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544061"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos de máquinas de virtuais do Windows no Azure
 
 Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtuais do Azure, que pode utilizar para executar as aplicações do Windows e cargas de trabalho. Ele também fornece considerações de implementação estar ciente de quando estiver planejando usar esses recursos.  Este artigo também está disponível para [máquinas virtuais do Linux](../linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-| Tipo                     | Tamanhos           |    Descrição       |
+| Type                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
-| [Com otimização de computação](sizes-compute.md)        | Fsv2          | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
-| [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, DSv2, Dv2  | Rácio de memória de CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
-| [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)        | Lsv2                | O débito de disco elevados e e/s ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  |
-| [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND, NDv2 (pré-visualização)            | Máquinas virtuais especializadas destinadas a composição gráfica e edição de vídeo, bem como inferência (ND) com aprendizagem profunda e formação de modelos. Disponíveis com GPUs únicas ou múltiplas.       |
-| [Computação de elevado desempenho](sizes-hpc.md) | H       | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. |
+| [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC  | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
+| [Com otimização de computação](sizes-compute.md)        | Fsv2           | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
+| [Com otimização de memória](sizes-memory.md)         | Esv3, Ev3, Mv2, M, DSv2, Dv2  | Rácio de memória de CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
+| [Com otimização de armazenamento](sizes-storage.md)        | Lsv2                | O débito de disco elevados e e/s ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  |
+| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3 (Preview) | Máquinas virtuais especializadas destinadas a composição gráfica e edição de vídeo, bem como inferência (ND) com aprendizagem profunda e formação de modelos. Disponíveis com GPUs únicas ou múltiplas.       |
+| [Computação de elevado desempenho](sizes-hpc.md) | HB, HC,  H | As nossas máquinas virtuais com CPU mais rápidas e poderosas com interfaces de rede de alto débito (RDMA) opcionais. |
 
 
 <br> 

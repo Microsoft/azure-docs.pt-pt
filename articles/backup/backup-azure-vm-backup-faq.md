@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 06/28/2019
 ms.author: sogup
-ms.openlocfilehash: 5fdf8e6c19711f6ce38d430a9dffab185cad961b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 0248e169f5d502cce8723f594f438b87ab088f3a
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296176"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551602"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
 
@@ -46,10 +46,6 @@ Se for um contribuinte VM, pode ativar a cópia de segurança na VM. Se estiver 
 Se o Cofre de serviços de recuperação e a VM tiverem grupos de recursos diferente, certifique-se de que tem permissões de escrita no grupo de recursos para o Cofre dos serviços de recuperação.  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quais as VMs do Azure pode lhe fazer cópias de segurança utilizando o Azure Backup?
-
-Reveja os [matriz de suporte](backup-support-matrix-iaas.md) para detalhes de suporte e limitações.
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Uma tarefa de cópia de segurança a pedido utiliza a mesma agenda de retenção como cópias de segurança agendadas?
 Não. Especifique o intervalo de retenção para uma tarefa de cópia de segurança a pedido. Por predefinição, são retido durante 30 dias quando acionado a partir do portal.
 
@@ -73,17 +69,12 @@ Se bloquear o grupo de recursos criado pelo serviço de cópia de segurança do 
 
 O utilizador tem de remover o bloqueio e desmarque a coleção de ponto de restauro do grupo de recursos para fazer cópias de segurança futuras com êxito, [siga estes passos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para remover a coleção de ponto de restauro.
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>A política de cópia de segurança considerar o horário de Verão (horário de Verão)?
-Não. A data e hora no seu computador local é local com o atual Verão aplicada. O tempo definido para cópias de segurança agendadas pode diferir da hora local devido ao horário de Verão.
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quantos discos de dados pode anexar a uma VM de uma cópia de segurança do Azure Backup?
-Cópia de segurança do Azure pode fazer uma cópia de segurança de VMs com até 16 discos. Suporte para 16 discos é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Faz o suporte de cópia de segurança do Azure SSD discos geridos standard?
 O Azure Backup suporta [discos geridos de standard SSD](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Os discos geridos de SSD fornecem um novo tipo de armazenamento durável para VMs do Azure. Suporte para discos gerido de SSD é fornecido no [restaurar instantâneas](backup-instant-restore-capability.md).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Vamos criar uma VM com um disco WA do acelerador de escrita ativado?
-Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança. Exclusão de disco para VMs com discos habilitados para WA só é suportada para subscrições atualizadas para restaurar instantânea.
+Não não possível efetuar instantâneos no disco habilitados para WA. No entanto, o serviço de cópia de segurança do Azure pode excluir o disco habilitados para WA da cópia de segurança.
 
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tenho uma VM com discos de acelerador de escrita (WA) e SAP HANA instalado. Como posso fazer cópia de segurança?
 O Azure Backup não é possível criar cópias de segurança do disco habilitados para WA, mas pode excluir da cópia de segurança. No entanto, a cópia de segurança não fornece consistência da base de dados porque as informações no disco WA-ativada não não uma cópia de segurança. Pode fazer backup de discos com esta configuração se pretender que o disco do sistema de operativo cópia de segurança e a cópia de segurança de discos que não são habilitados para WA.
@@ -93,6 +84,8 @@ Estamos executando pré-visualização privada para uma cópia de segurança do 
 ### <a name="what-is-the-maximum-delay-i-can-expect-in-backup-start-time-from-the-scheduled-backup-time-i-have-set-in-my-vm-backup-policy"></a>O que é o atraso máximo que pode esperar na hora de início de cópia de segurança desde o momento de cópia de segurança agendada que tiver definido na política de cópia de segurança minha VM?
 A cópia de segurança agendada será acionada dentro de 2 horas do tempo de cópia de segurança agendada. Para ex. Se 100 VMs tem tempo de cópia de segurança de início agendado às 2:00, em seguida, por máximo 4:00 todos o 100VMs terão tarefa de cópia de segurança em curso. Se as cópias de segurança agendadas têm foram colocadas em pausa devido a falha e retomado/repetida pode começar a cópia de segurança fora desta janela agendadas 2 horas.
 
+### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>O que é o período de retenção de permitido mínimo para o ponto de cópia de segurança diário?
+Política de cópia de segurança de Máquina Virtual do Azure suporta um período de retenção mínimo de 7 dias até 9999 dias. Qualquer modificação para uma política de cópia de segurança de VM existente com menos de 7 dias exigirá uma atualização para satisfazer o período de retenção mínimo de 7 dias.
 
 ## <a name="restore"></a>Restauro
 

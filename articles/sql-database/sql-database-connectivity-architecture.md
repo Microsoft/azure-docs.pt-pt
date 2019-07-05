@@ -1,23 +1,23 @@
 ---
-title: Direcionar o tráfego do Azure para a base de dados do Azure SQL e SQL Data Warehouse | Documentos da Microsoft
-description: Este documento explica a arquitetura de onnectivity Azcure SQL para ligações da base de dados a partir de dentro do Azure ou a partir de fora do Azure.
+title: Arquitetura de conectividade do armazém de dados SQL e de base de dados SQL do Azure | Documentos da Microsoft
+description: Este documento explica a arquitetura de conectividade de SQL do Azure para ligações da base de dados a partir de dentro do Azure ou a partir de fora do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: carlrab
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 04/03/2019
-ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/02/2019
+ms.openlocfilehash: 8441e64981b7157e91a56124a08c0aa02a9b1db0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66164485"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537938"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -57,48 +57,47 @@ Se estiver a ligar de fora do Azure, as suas ligações têm uma política de li
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços de IP do gateway da base de dados SQL do Azure
 
-Para ligar a uma base de dados SQL do Azure a partir de recursos no local, terá de permitir tráfego de rede de saída para o gateway de base de dados do Azure SQL para a sua região do Azure. As suas ligações multiplicar apenas através do gateway ao ligar-se no `Proxy` modo, o que é o padrão quando ligar a partir de recursos no local.
+A tabela abaixo lista os endereços IP dos Gateways por região. Para ligar a uma base de dados do SQL do Azure, tem de permitir tráfego de rede a & partir **todos os** Gateways para a região.
 
-A tabela seguinte lista os IPs primário e secundário do gateway para todas as regiões de dados SQL Database do Azure. Para algumas regiões, existem dois endereços IP. Nestas regiões, o endereço IP principal é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de ativação pós-falha. O endereço de ativação pós-falha é o endereço para o qual estamos pode ser movida seu servidor para manter a alta disponibilidade do serviço. Para estas regiões, recomendamos que permite que saída para os endereços IP. O segundo endereço IP pertence à Microsoft e não escutar em quaisquer serviços até que seja ativado pela base de dados do Azure SQL para aceitar ligações.
+Daqui em diante, vamos adicionar mais Gateways em cada região e extinguir os Gateways na coluna de endereço IP do Gateway de fora de utilização da tabela abaixo. Obter mais detalhes sobre como desativar o processo tendo em conta no seguinte artigo: [Migração de tráfego de base de dados SQL do Azure para Gateways mais recente](sql-database-gateway-migration.md)
 
-| Nome da Região | Endereço IP primário | Endereço IP secundário |
-| --- | --- |--- |
-| Leste da Austrália | 13.75.149.87 | 40.79.161.1 |
-| Sudeste da Austrália | 191.239.192.109 | 13.73.109.251 |
-| Sul do Brasil | 104.41.11.5 | |
-| Canadá Central | 40.85.224.249 | |
-| Leste do Canadá | 40.86.226.166 | |
-| EUA Central | 23.99.160.139 | 13.67.215.62 |
-| Leste da China 1 | 139.219.130.35 | |
-| Leste da China 2 | 40.73.82.1 | |
-| Norte da China 1 | 139.219.15.17 | |
-| Norte da China 2 | 40.73.50.0 | |
-| Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
-| E.U.A. Leste 1 | 191.238.6.43 | 40.121.158.30 |
-| EUA Leste 2 | 191.239.224.107 | 40.79.84.180 * |
-| França Central | 40.79.137.0 | 40.79.129.1 |
-| Alemanha Central | 51.4.144.100 | |
-| Centro-Norte leste da Alemanha | 51.5.144.179 | |
-| Índia Central | 104.211.96.159 | |
-| Índia do Sul | 104.211.224.146 | |
-| Oeste da Índia | 104.211.160.80 | |
-| Leste do Japão | 191.237.240.43 | 13.78.61.196 |
-| Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
-| Coreia do Sul Central | 52.231.32.42 | |
-| Coreia do Sul | 52.231.200.86 |  |
-| EUA Centro-Norte | 23.98.55.75 | 23.96.178.199 |
-| Europa do Norte | 191.235.193.75 | 40.113.93.91 |
-| EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
-| Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
-| Reino Unido Sul | 51.140.184.11 | |
-| Reino Unido Oeste | 51.141.8.11| |
-| EUA Centro-Oeste | 13.78.145.25 | |
-| Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
-| E.U.A. oeste 1 | 23.99.34.75 | 104.42.238.205 |
-| EUA Oeste 2 | 13.66.226.202 | |
-||||
 
-\* **NOTA:** *E.U.A. Leste 2* também tem um endereço IP terciário de `52.167.104.0`.
+| Nome da Região          | Endereço IP do gateway | Gateway desativado </br> Endereço IP| Notas sobre desativar | 
+| --- | --- | --- | --- |
+| Leste da Austrália       | 13.75.149.87, 40.79.161.1 | | |
+| Sudeste da Austrália | 191.239.192.109, 13.73.109.251 | | |
+| Sul do Brasil         | 104.41.11.5        |                 | |
+| Canadá Central       | 40.85.224.249      |                 | |
+| Leste do Canadá          | 40.86.226.166      |                 | |
+| EUA Central           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Sem ligações após 1 de Setembro de 2019 |
+| Leste da China 1         | 139.219.130.35     |                 | |
+| Leste da China 2         | 40.73.82.1         |                 | |
+| Norte da China 1        | 139.219.15.17      |                 | |
+| Norte da China 2        | 40.73.50.0         |                 | |
+| Ásia Oriental            | 191.234.2.139, 52.175.33.150 |       | |
+| E.U.A. Leste 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Sem ligações após 1 de Setembro de 2019 |
+| EUA Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Sem ligações após 1 de Setembro de 2019 |
+| França Central       | 40.79.137.0, 40.79.129.1 |           | |
+| Alemanha Central      | 51.4.144.100       |                 | |
+| Centro-Norte leste da Alemanha   | 51.5.144.179       |                 | |
+| Índia Central        | 104.211.96.159     |                 | |
+| Índia do Sul          | 104.211.224.146    |                 | |
+| Oeste da Índia           | 104.211.160.80     |                 | |
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224 | 191.237.240.43 | Sem ligações após 1 de Setembro de 2019 |
+| Oeste do Japão           | 104.214.148.156, 40.74.100.192 | 191.238.68.11 | Sem ligações após 1 de Setembro de 2019 |
+| Coreia do Sul Central        | 52.231.32.42       |                 | |
+| Coreia do Sul          | 52.231.200.86      |                 | |
+| EUA Centro-Norte     | 23.96.178.199      | 23.98.55.75     | Sem ligações após 1 de Setembro de 2019 |
+| Europa do Norte         | 40.113.93.91       | 191.235.193.75  | Sem ligações após 1 de Setembro de 2019 |
+| EUA Centro-Sul     | 13.66.62.124       | 23.98.162.75    | Sem ligações após 1 de Setembro de 2019 |
+| Sudeste Asiático      | 104.43.15.0        | 23.100.117.95   | Sem ligações após 1 de Setembro de 2019 |
+| Reino Unido Sul             | 51.140.184.11      |                 | |
+| Reino Unido Oeste              | 51.141.8.11        |                 | |
+| EUA Centro-Oeste      | 13.78.145.25       |                 | |
+| Europa Ocidental          | 191.237.232.75, 40.68.37.158 |       | |
+| E.U.A. oeste 1            | 23.99.34.75, 104.42.238.205 |        | |
+| EUA Oeste 2            | 13.66.226.202      |                 | |
+|                      |                    |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar a política de ligação de base de dados do Azure SQL
 
@@ -111,10 +110,7 @@ Para alterar a política de ligação de base de dados do Azure SQL para um serv
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
-
-> [!IMPORTANT]
-> Este script requer os [módulo do Azure PowerShell](/powershell/azure/install-az-ps).
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos. O seguinte script requer os [módulo do Azure PowerShell](/powershell/azure/install-az-ps).
 
 O script do PowerShell seguinte mostra como alterar a diretiva de conexão.
 
@@ -137,20 +133,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-O script CLI seguinte mostra como alterar a diretiva de conexão.
+### <a name="azure-cli-in-a-bash-shell"></a>CLI do Azure numa bash shell
+
+> [!IMPORTANT]
+> Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+O script CLI seguinte mostra como alterar a diretiva de conexão num shell de bash.
 
 ```azurecli-interactive
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>CLI do Azure num prompt de comando do Windows
+
+> [!IMPORTANT]
+> Este script requer os [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+O script CLI seguinte mostra como alterar a diretiva de conexão num prompt de comando do Windows (com a CLI do Azure instalada).
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

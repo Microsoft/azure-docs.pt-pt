@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 55b18246861e452a4ac170094ee902bd6954fe89
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 39edbc77215d3a4f6477beae3be9d7d47cbba4f0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190412"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540923"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos do IoT Edge em escala com a CLI do Azure
 
-Criar uma **implementação automática do IoT Edge** usando a interface de linha de comandos do Azure para gerir implementações em curso para o número de dispositivos ao mesmo tempo. As implementações automáticas para o IoT Edge são parte do [gestão de dispositivos automática](/iot-hub/iot-hub-automatic-device-management.md) recurso do IoT Hub. As implementações são processos dinâmicos que permitem-lhe implementar vários módulos para vários dispositivos, controlar o estado de funcionamento dos módulos e fazer alterações quando for necessário. 
+Criar uma **implementação automática do IoT Edge** usando a interface de linha de comandos do Azure para gerir implementações em curso para o número de dispositivos ao mesmo tempo. As implementações automáticas para o IoT Edge são parte do [gestão de dispositivos automática](/azure/iot-hub/iot-hub-automatic-device-management) recurso do IoT Hub. As implementações são processos dinâmicos que permitem-lhe implementar vários módulos para vários dispositivos, controlar o estado de funcionamento dos módulos e fazer alterações quando for necessário. 
 
 Para obter mais informações, consulte [implementações automáticas de compreender o IoT Edge para dispositivos individuais ou em escala](module-deployment-monitoring.md).
 

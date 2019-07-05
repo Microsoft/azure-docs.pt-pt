@@ -7,12 +7,12 @@ ms.service: cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 3dcce64d86574a3e898531b2e2587b81d04f098d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080775"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443482"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>CDN do Azure de funcionalidades do motor de regras de Premium da Verizon
 
@@ -320,7 +320,7 @@ Informações da chave:
 - Especifique um ou mais nomes de parâmetro de cadeia de caracteres de consulta e separe cada nome de parâmetro com um único espaço.
 - Esta funcionalidade determina se os parâmetros de cadeia de caracteres de consulta estão incluídos ou excluídos da chave de cache. São fornecidas informações adicionais para cada opção na tabela seguinte.
 
-Tipo|Descrição
+Type|Descrição
 --|--
  Incluir|  Indica que cada parâmetro especificado deve ser incluído na chave do cache. Uma chave exclusiva de cache é gerada para cada pedido que contém um valor exclusivo para um parâmetro de cadeia de caracteres de consulta definido neste recurso.
  Incluir todos  |Indica que é criada uma chave de cache exclusiva para cada solicitação para um elemento que inclui uma cadeia de consulta exclusivo. Este tipo de configuração não é normalmente recomendado porque ele pode levar a uma pequena porcentagem de acertos na cache. Um número baixo de acertos na cache aumenta a carga no servidor de origem, uma vez que ele deve atender a solicitações de mais. Esta configuração duplica o comportamento de colocação em cache, conhecido como "-cache exclusivo" na página de colocação em cache de cadeia de consulta.
@@ -456,7 +456,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 - Endereço IP do cliente
 - Parâmetro de cookie
 - Cookie parâmetro Regex
-- País
+- Country
 - Dispositivo
 - Cname do Microsoft Edge
 - Domínio de referência
@@ -588,7 +588,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 - Endereço IP do cliente
 - Parâmetro de cookie
 - Cookie parâmetro Regex
-- País
+- Country
 - Dispositivo
 - Edge Cname
 - Domínio de referência
@@ -715,7 +715,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 - Endereço IP do cliente
 - Parâmetro de cookie
 - Cookie parâmetro Regex
-- País
+- Country
 - Dispositivo
 - Edge Cname
 - Domínio de referência
@@ -799,7 +799,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 - Endereço IP do cliente
 - Parâmetro de cookie
 - Cookie parâmetro Regex
-- País
+- Country
 - Dispositivo
 - Edge Cname
 - Domínio de referência
@@ -867,7 +867,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 - Endereço IP do cliente
 - Parâmetro de cookie
 - Cookie parâmetro Regex
-- País
+- Country
 - Dispositivo
 - Edge Cname
 - Domínio de referência
@@ -1128,7 +1128,7 @@ Esta funcionalidade permite que um cliente endereços de servidor de origem para
 
 Certifique-se de que o nome de cabeçalho especificado não corresponde a nenhum dos seguintes nomes:
 
-- Nomes de cabeçalho de solicitação padrão. Uma lista de nomes de cabeçalho padrão pode ser encontrada na [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+- Nomes de cabeçalho de solicitação padrão. Uma lista de nomes de cabeçalho padrão pode ser encontrada na [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Nomes de cabeçalho reservado:
     - reencaminhados para
     - host

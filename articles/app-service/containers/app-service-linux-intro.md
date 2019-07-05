@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu;
 ms.custom: seodec18
-ms.openlocfilehash: 90ced740c2554b2364535125241a3ec91f6d899e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8180ddeceb0dcace61b5c3de7e5a45ab75042419
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063825"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448392"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -33,9 +33,9 @@ O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas p
 
 | Idioma | Versões Suportadas |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, 14 de WildFly (tudo em execução JRE 8) |
-| PHP | 5.6, 7.0, 7.2 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
 | Ruby | 2.3, 2.4, 2.5, 2.6 |
@@ -77,12 +77,7 @@ Com base numa limitação atual, para o mesmo grupo de recursos não é possíve
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP.
-Para registar o `stdout` e `stderr` a partir do seu contentor, tem de ativar o **Registo do Contentor do Docker** em **Registos de Diagnóstico**.
-
-![Ativar o Registo][2]
-
-A definição entra em vigor imediatamente. Serviço de aplicações Deteta a alteração de definições e reinicia automaticamente o contentor para.
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Registo a `stdout` e `stderr` do seu contentor, tem de ativar **registo de contentor do Docker** sob **registos do serviço de aplicações**. A definição entra em vigor imediatamente. Serviço de aplicações Deteta a alteração e reinicia automaticamente o contentor.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 

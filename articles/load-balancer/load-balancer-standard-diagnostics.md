@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/03/2019
 ms.author: Kumud
-ms.openlocfilehash: ec68038a5b0fe7edca095e0d9b190d5da09c8e82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08670c8aa6d5c9830ab84bc848bac38063bd41c0
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754691"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550927"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Diagnóstico de estado de funcionamento e de métricas para o Balanceador de carga Standard
 
@@ -37,12 +37,12 @@ As várias configurações de Balanceador de carga Standard fornecem as métrica
 
 | Métrica | Tipo de recurso | Descrição | Agregação recomendada |
 | --- | --- | --- | --- |
-| Disponibilidade de caminho de dados (disponibilidade de VIP)| Balanceador de carga público | Balanceador de carga Standard exercita continuamente o caminho de dados de dentro de uma região para a carga balanceador front-end, todo o caminho para a pilha SDN, que oferece suporte a sua VM. Enquanto permanecerem instâncias de bom estado de funcionamento, a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que utilizam os seus clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Média |
-| Estado de sonda de estado de funcionamento (disponibilidade DIP) |  Balanceador de carga internos e públicos | Balanceador de carga Standard utiliza um serviço de pesquisa de estado de funcionamento distribuído que monitoriza o estado de funcionamento do seu aplicativo do ponto de extremidade, de acordo com as definições de configuração. Esta métrica fornece um agregado ou por ponto de extremidade vista filtrada de cada ponto de extremidade de instância no conjunto de Balanceador de carga. Pode ver como o Balanceador de carga visualiza o estado de funcionamento do seu aplicativo, conforme indicado pela sua configuração de sonda de estado de funcionamento. |  Média |
-| SYN (sincronizar) pacotes |  Balanceador de carga público | Balanceador de carga Standard não terminar ligações de protocolo de controlo de transmissão (TCP) ou interagir com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes são sempre entre a origem e a instância VM. Para resolver melhor seus cenários de protocolo TCP, pode fazer uso de SYN contadores de pacotes para compreender quantos ligação de TCP são feitas tentativas. A métrica relata o número de pacotes de TCP SYN que foram recebidos.| Média |
-| Ligações SNAT |  Balanceador de Carga Público |Balanceador de carga Standard relata o número de fluxos de saída que são masqueraded para o IP público endereço front-end. Portas de tradução (SNAT) de endereço de rede de origem são um recurso exhaustible. Esta métrica pode dar uma indicação de quanto seu aplicativo depende SNAT para os fluxos de originados de saída. Contadores para fluxos de SNAT de saída com êxito e falhados são reportadas e podem ser usados para solucionar problemas e compreender o estado de funcionamento dos seus fluxos de saída.| Média |
-| Contadores de byte |  Balanceador de carga internos e públicos | Balanceador de carga Standard reporta os dados processados por front-end.| Média |
-| Contadores de pacotes |  Balanceador de carga internos e públicos | Os relatórios do Balanceador de carga Standard pacotes processados por front-end.| Média |
+| Disponibilidade de caminho de dados (disponibilidade de VIP)| Balanceador de carga público | Balanceador de carga Standard exercita continuamente o caminho de dados de dentro de uma região para a carga balanceador front-end, todo o caminho para a pilha SDN, que oferece suporte a sua VM. Enquanto permanecerem instâncias de bom estado de funcionamento, a medição segue o mesmo caminho que o tráfego com balanceamento de carga da sua aplicação. O caminho de dados que utilizam os seus clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Average |
+| Estado de sonda de estado de funcionamento (disponibilidade DIP) |  Balanceador de carga internos e públicos | Balanceador de carga Standard utiliza um serviço de pesquisa de estado de funcionamento distribuído que monitoriza o estado de funcionamento do seu aplicativo do ponto de extremidade, de acordo com as definições de configuração. Esta métrica fornece um agregado ou por ponto de extremidade vista filtrada de cada ponto de extremidade de instância no conjunto de Balanceador de carga. Pode ver como o Balanceador de carga visualiza o estado de funcionamento do seu aplicativo, conforme indicado pela sua configuração de sonda de estado de funcionamento. |  Average |
+| SYN (sincronizar) pacotes |  Balanceador de carga público | Balanceador de carga Standard não terminar ligações de protocolo de controlo de transmissão (TCP) ou interagir com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes são sempre entre a origem e a instância VM. Para resolver melhor seus cenários de protocolo TCP, pode fazer uso de SYN contadores de pacotes para compreender quantos ligação de TCP são feitas tentativas. A métrica relata o número de pacotes de TCP SYN que foram recebidos.| Average |
+| Ligações SNAT |  Balanceador de Carga Público |Balanceador de carga Standard relata o número de fluxos de saída que são masqueraded para o IP público endereço front-end. Portas de tradução (SNAT) de endereço de rede de origem são um recurso exhaustible. Esta métrica pode dar uma indicação de quanto seu aplicativo depende SNAT para os fluxos de originados de saída. Contadores para fluxos de SNAT de saída com êxito e falhados são reportadas e podem ser usados para solucionar problemas e compreender o estado de funcionamento dos seus fluxos de saída.| Average |
+| Contadores de byte |  Balanceador de carga internos e públicos | Balanceador de carga Standard reporta os dados processados por front-end.| Average |
+| Contadores de pacotes |  Balanceador de carga internos e públicos | Os relatórios do Balanceador de carga Standard pacotes processados por front-end.| Average |
 
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Ver as métricas de Balanceador de carga no portal do Azure
 
@@ -85,7 +85,7 @@ Para obter a disponibilidade de caminho de dados para os seus recursos do Balanc
 A métrica é gerada por uma medida de Active Directory, em banda. Um serviço de pesquisa dentro da região se origina o tráfego para a medição. O serviço é ativado quando cria uma implementação com um front-end público, e ele continua até remover o front-end. 
 
 >[!NOTE]
->Internos front-ends não são suportadas neste momento. 
+>Disponibilidade de caminho de dados (disponibilidade de VIP) não está disponível para interno front-ends de Balanceador de carga. 
 
 Um pacote de front-end da sua implementação e a regra de correspondência é gerado periodicamente. Ele percorre a região da origem para o anfitrião onde está localizada a uma VM no conjunto de back-end. A infraestrutura de Balanceador de carga executa as mesmas operações de tradução e balanceamento de carga para de todos os outros tráfegos. Esta pesquisa é em banda no seu ponto final com balanceamento de carga. Depois da sonda é recebido no anfitrião de computação, onde uma bom estado de funcionamento VM no conjunto de back-end está localizada, o anfitrião de computação gera uma resposta para o serviço de pesquisa. A VM não vê este tráfego.
 
@@ -208,6 +208,10 @@ Os vários Estados de estado de funcionamento do recurso e suas descrições est
 | Disponível | O recurso de Balanceador de carga standard público é bom estado de funcionamento e está disponível. |
 | Não disponível | O recurso de Balanceador de carga standard público não está em bom estado. Diagnosticar o estado de funcionamento, selecionando **do Azure Monitor** > **métricas**.<br>(*Indisponível* estado também poderá significar que o recurso não está ligado com o Balanceador de carga standard público.) |
 | Desconhecido | Estado de funcionamento do recurso para o seu recurso do Balanceador de carga standard público ainda não foi atualizado.<br>(*Desconhecido* estado também poderá significar que o recurso não está ligado com o Balanceador de carga standard público.)  |
+
+## <a name="limitations"></a>Limitações 
+
+- Disponibilidade de caminho de dados (disponibilidade de VIP) não está disponível para interno front-ends de Balanceador de carga.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

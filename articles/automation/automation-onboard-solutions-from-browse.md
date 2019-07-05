@@ -3,18 +3,18 @@ title: Saiba como carregar soluções de gestão de atualizações, controlo de 
 description: Saiba como para carregar uma Azure Virtual máquina com soluções de gestão de atualizações, controlo de alterações e inventário que fazem parte da automatização do Azure
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11dda62a7d8a92b17eb1d431e61086680f356195
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133130"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476628"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 

@@ -1,55 +1,51 @@
 ---
-title: Compreender os termos na sua utilização do Azure e os encargos de CSV para um contrato de cliente da Microsoft | Documentos da Microsoft
-description: Saiba como ler e entender as secções da utilização do Azure e os encargos CSV para o seu perfil de faturação
-services: ''
-documentationcenter: ''
+title: Termos no ficheiro de utilização e os encargos do Azure para um contrato de cliente da Microsoft
+description: Saiba como ler e entender as secções da utilização do Azure e os encargos CSV para o seu perfil de faturação.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371313"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490631"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua utilização do Azure e os encargos de CSV para um contrato de cliente da Microsoft
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no ficheiro de utilização e os encargos do Azure para um contrato de cliente da Microsoft
 
 Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-O ficheiro CSV de utilização e os encargos do Azure contém os custos de utilização de nível de diária e dos medidores para o período de faturação atual.
+O ficheiro CSV de utilização e os encargos do Azure contém os custos de utilização diária e ao nível do medidor para o período de faturação atual.
 
-Para obter o seu ficheiro de utilização e os encargos do Azure, veja [ver e transferir utilização do Azure e custos para o contrato do cliente Microsoft](billing-download-azure-daily-usage.md).
-Está disponível num formato de ficheiro de valores separados por vírgulas (. csv) que pode abrir num aplicativo de folha de cálculo.
+Para obter o seu ficheiro de utilização e os encargos do Azure, veja [ver e transferir utilização do Azure e custos para o contrato do cliente Microsoft](billing-download-azure-daily-usage.md). Está disponível num formato de ficheiro de valores separados por vírgulas (. csv) que pode abrir num aplicativo de folha de cálculo.
 
 Custos de utilização são o total **mensal** das cobranças uma subscrição. Os custos de utilização não levam em conta quaisquer créditos ou descontos.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Alterações na utilização do Azure do contrato Enterprise e custos de CSV
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Alterações de utilização do Azure EA e a cobrança
 
-Se fosse num cliente EA, observará que os termos no perfil de faturação ficheiro CSV de utilização do Azure são diferentes do que os termos no ficheiro CSV de utilização do EA Azure. Este é um mapeamento dos termos de utilização do mesmo para os termos de utilização de perfil de faturação:
+Se fosse num cliente EA, observará que os termos no Azure faturação perfil utilização ficheiro CSV diferem dos termos de no ficheiro CSV de utilização do Azure EA. Este é um mapeamento dos termos de utilização do mesmo para os termos de utilização de perfil de faturação:
 
-| Utilização do EA Azure CSV | Utilização do Microsoft Azure do contrato de cliente e os encargos de CSV |
+| Utilização EA do Azure CSV | Utilização do Microsoft Azure do contrato de cliente e os encargos de CSV |
 | --- | --- |
 | Date | date |
 | Mês| date |
 | Dia | date |
 | Ano | date |
-| Product | Produto |
+| Product | product |
 | MeterId | meterID |
 | MeterCategory | MeterCategory |
 | MeterSubCategory | MeterSubCategory |
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | Quantidade |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | custo |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Se fosse num cliente EA, observará que os termos no perfil de faturação fiche
 | AdditionalInfo | additionalInfo |
 | Tags | tags |
 | StoreServiceIdentifier | N/A |
-| Nome do Departamento | invoiceSection | <!-- this was highlighted -->
+| Nome do Departamento | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Termos detalhados e descrições
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Termos detalhados e as descrições no seu ficheiro de utilização e os encargos do Azure
-
-A secção seguinte descreve os termos importantes mostrados no ficheiro de utilização e os encargos do Azure.
+Os termos seguintes são apresentados no ficheiro de utilização e os encargos do Azure.
 
 Termo | Descrição
 --- | ---
@@ -98,7 +92,7 @@ MeterSubCategory | Nome da categoria de classificação frações de medidor
 meterRegion | Nome da região em que o medidor para o serviço está disponível. Identifica a localização do Datacenter para determinados serviços cujo preço é definido com base na localização do Datacenter.
 oferta | Nome da oferta comprada
 productId | Identificador exclusivo para o produto acumulação de encargos
-Produto | Nome do produto acumulação de encargos
+product | Nome do produto acumulação de encargos
 ID de subscrição | Identificador exclusivo para a subscrição a acumular os custos
 subscriptionName | Nome da subscrição acumulação de encargos
 reservationId | Identificador exclusivo para a instância de reserva comprada
@@ -110,7 +104,7 @@ resourceGroupName | Nome do grupo de recursos associado com o recurso
 resourceId | Identificador exclusivo para a instância de recurso
 resourceType | Tipo de instância de recurso
 resourceLocation | Identifica a localização do Datacenter onde o recurso está em execução.
-localização | Normalizado localização do recurso se localizações de recurso diferentes estão configuradas para as regiões da mesmas
+location | Normalizado localização do recurso se localizações de recurso diferentes estão configuradas para as regiões da mesmas
 Quantidade | O número de unidades compradas ou consumidos
 unitOfMeasure | A unidade de medida para uma faturação para o serviço. Por exemplo, os serviços de computação são faturados por hora.
 chargeType | O tipo de custo. Valores: <ul><li>AsCharged-Usage: Custos que são acumulados com base na utilização de um serviço do Azure. Isto inclui a utilização nas VMs que não são cobradas por causa de instâncias reservadas.</li><li>AsCharged-PurchaseMarketplace: De cobrança recorrente única ou fixa de compras do Marketplace</li><li>AsCharged-UsageMarketplace: Custos de serviços do Marketplace são cobrados com base em unidades de consumo</li></ul>
@@ -120,9 +114,9 @@ serviceInfo2 | Campo legado que captura metadados opcionais do específico do se
 additionalInfo | Metadados de serviço específicas adicionais.
 tags | Etiquetas que atribuir ao recurso
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Como posso Certifique-se de que os encargos no meu arquivo de utilização e os encargos do Azure estão corretos?
+### <a name="make-sure-that-charges-are-correct"></a>Certifique-se de que os custos estão corretos
 
-Se existe uma cobrança no seu ficheiro de utilização detalhada que deseja obter mais detalhes, consulte o artigo [compreender os encargos na fatura de seu perfil de faturação](billing-mca-understand-your-bill.md)
+Se pretender certificar-se de que os encargos no seu ficheiro de utilização detalhada estão corretos, pode verificá-los. Consulte [compreender os encargos na fatura de seu perfil de faturação](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

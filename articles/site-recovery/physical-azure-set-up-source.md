@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/0/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44588fedd53b363c43a369eeb1917ccaec58d948
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123919"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508776"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação após desastre de servidores físicos no Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar o seu ambiente no local para começar a rep
 O artigo pressupõe que já tem:
 - O Cofre dos serviços de recuperação no [portal do Azure](https://portal.azure.com "portal do Azure").
 - Um computador físico em que pretende instalar o servidor de configuração.
-- Se tiver desativado o TLS 1.0 no computador no qual está a instalar o servidor de configuração, certifique-se de que o TLs 1.2 está ativado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia segura desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Se tiver desativado o TLS 1.0 no computador no qual está a instalar o servidor de configuração, certifique-se de que o TLs 1.2 está ativado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia segura ativada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
 A tabela seguinte lista os mínimos de hardware, software e requisitos de rede para um servidor de configuração.

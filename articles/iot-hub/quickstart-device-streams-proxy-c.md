@@ -1,21 +1,20 @@
 ---
 title: IoT Hub dispositivo fluxos C início rápido do Azure para SSH e RDP (pré-visualização) | Documentos da Microsoft
 description: Neste início rápido, irá executar um aplicativo de exemplo C que age como um proxy para ativar cenários RDP e SSH ao longo do IoT Hub fluxos de dispositivo.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: e21d7381831553f8d82b00d9ed3be0b03f13bca9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: b958711c498f0826f2a48d92d4892eb43ec8d18a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735131"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446083"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: Ativar o RDP e SSH ao longo de um fluxo de dispositivo do IoT Hub através de uma aplicação de proxy do C (pré-visualização)
 

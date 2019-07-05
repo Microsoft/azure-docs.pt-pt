@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c6da92ccd50707e676a1f5d583fe22ae8b3d8b73
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288415"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476308"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurar as definições de função de recursos do Azure no PIM
 
@@ -38,19 +38,19 @@ Siga estes passos para abrir as definições para uma função de recursos do Az
 
 1. Clique em recursos que pretende gerir, tal como um grupo de gestão ou de subscrição.
 
-    ![Lista de recursos do Azure para gerir](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Página de recursos do Azure, listagem de recursos que podem ser geridos](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Clique em **definições de função**.
 
-    ![Definições de função](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Página de definições de função listagem funções de recursos do Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Clique na função cujas definições pretende configurar.
 
-    ![Detalhes da definição de função](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Página de detalhes de definição de função listagem várias configurações de atribuição e ativação](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Clique em **editar** para abrir o painel de definições de função.
 
-    ![Editar definições de função](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Editar página de definições de função com opções para atualizar as definições de atribuição e ativação](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     No painel de definição de função para cada função, existem várias definições que pode configurar.
 
@@ -109,7 +109,7 @@ Se quiser exigir aprovação para ativar uma função, siga estes passos.
 
 1. Clique em **selecionar aprovadores** para abrir um painel de membro ou grupo de Select.
 
-    ![Selecione um membro ou um grupo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Selecione um painel de membro ou de grupo para selecionar os aprovadores](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Selecione pelo menos um membro ou grupo e, em seguida, clique em **selecione**. Pode adicionar qualquer combinação de membros e grupos. Tem de selecionar pelo menos um aprovador. Não há nenhum aprovadores de predefinição.
 

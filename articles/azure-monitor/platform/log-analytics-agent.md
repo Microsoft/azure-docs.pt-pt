@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/01/2019
 ms.author: magoedte
-ms.openlocfilehash: 081d65f60eab4e2412a5dd14c3a63a18598e3b8a
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 583845b2ea63efd42f382c9c150de650f34bafed
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67146322"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514103"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics
 
@@ -68,7 +68,7 @@ A partir do versões lançadas em Agosto de 2018, estamos a efetuar as seguintes
 * Red Hat Enterprise Linux Server 6 (x86/x64) e 7 (x64)
 * Debian GNU/Linux 8 e 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64) e 18.04 LTS (x64) 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) e 15 (x64)
 
 >[!NOTE]
 >OpenSSL 1.1.0 só é suportado em plataformas com x86_x64 (64-bit) e OpenSSL anteriormente 1.x não é suportada em qualquer plataforma.

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ebb67ff295a934b4e125e298018c27a095adc590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153873"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67563919"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure
 
@@ -42,6 +42,11 @@ Depois de determinar o âmbito adequado para uma atribuição de função, aceda
 
 As secções seguintes descrevem cada uma dessas etapas mais detalhadamente.
 
+> [!NOTE]
+> Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.
+> 
+> Não é possível atribuir uma função no âmbito de um contentor ou uma fila se a sua conta de armazenamento tem um espaço de nomes hierárquico ativado.
+
 ### <a name="assign-a-built-in-rbac-role"></a>Atribuir uma função RBAC incorporada
 
 Antes de atribuir uma função a uma entidade de segurança, certifique-se de que considere o âmbito das permissões do que se está a conceder a. Reveja os [determinar o escopo do recurso](#determine-resource-scope) secção para decidir o âmbito adequado.
@@ -65,11 +70,6 @@ O procedimento apresentado aqui atribui uma função no âmbito de um contentor,
     ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
 Pode seguir passos semelhantes para atribuir uma função de âmbito para a conta de armazenamento, grupo de recursos ou subscrição.
-
-> [!NOTE]
-> Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.
-> 
-> Não é possível atribuir uma função no âmbito de um contentor ou uma fila se a sua conta de armazenamento tem um espaço de nomes hierárquico ativado.
 
 ### <a name="assign-the-reader-role-for-portal-access"></a>Atribuir a função de leitor para acesso ao portal
 

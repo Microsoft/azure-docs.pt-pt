@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 5cd88eeb2016a90a95f0e54a334eb3c88cb75744
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461726"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorizar a base de dados do Azure para desempenho do MySQL com Store de consulta
 
 **Aplica-se a:**  base de dados do Azure para MySQL 5.7
 
 > [!NOTE]
-> Consulta Store está em pré-visualização. Suporte para consulta Store no portal do Azure está a ser lançado e talvez ainda não estar disponível na sua região.
+> Consulta Store está em pré-visualização.
 
 A funcionalidade de Store de consulta no banco de dados do Azure para MySQL fornece uma maneira de controlar o desempenho das consultas ao longo do tempo. Consulta Store simplifica o desempenho de resolução de problemas, ajudando-o rapidamente encontrar as consultas de maior duração e muitos mais recursos. Consulta Store automaticamente captura um histórico das consultas e estatísticas de tempo de execução e mantém-los para revisão. Ela separa dados por intervalos de tempo para que possa ver padrões de utilização de bases de dados. Dados para todos os utilizadores, as bases de dados e consultas são armazenados no **mysql** base de dados de esquema na base de dados do Azure para a instância do MySQL.
 
@@ -29,10 +29,6 @@ Arquivo de consultas pode ser usado em vários cenários, incluindo o seguinte:
 - Detetar consultas regredidas
 - Determinar o número de vezes que uma consulta foi executada numa janela de tempo especificado
 - Comparar o tempo médio de execução de uma consulta em intervalos de tempo para ver os deltas grandes
-- Identificar as consultas de execução mais longa no passado X horas
-- Identificação de consultas de N principais que estão a aguardar nos recursos
-- Natureza de espera de compreensão de consulta
-- Compreender as tendências de esperas de recursos e onde existe contenção de recursos
 
 ## <a name="enabling-query-store"></a>Ativar consulta Store
 
@@ -120,7 +116,7 @@ Consultas são normalizadas examinando sua estrutura após a remoção de litera
 
 Esta vista devolve todos os dados na consulta Store. Há uma linha para cada base de dados distinto ID, o ID de utilizador e o ID de consulta.
 
-| **Nome** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NO | Nome do esquema |
 | `query_id`| bigint(20) | NO| ID exclusivo gerado para a consulta específica, se a mesma consulta é executada no esquema diferente, um novo ID será gerado |
@@ -153,7 +149,7 @@ Esta vista devolve todos os dados na consulta Store. Há uma linha para cada bas
 
 Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linha para cada ID de base de dados distintos, ID de utilizador, ID de consulta e eventos.
 
-| **Nome**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `interval_start` | timestamp | NO| Início do intervalo (incremento de 15 minutos)|
 | `interval_end` | timestamp | NO| Fim do intervalo (incremento de 15 minutos)|
@@ -167,7 +163,7 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 
 ### <a name="functions"></a>Funções
 
-| **Nome**| **Descrição** |
+| **Name**| **Descrição** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Remove todos os dados de arquivo de consulta antes do carimbo de hora especificado |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Esperar de limpezas de todos os dados de eventos antes do carimbo de hora especificado |

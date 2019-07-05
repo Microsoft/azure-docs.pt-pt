@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b1c68d9254b0da2e5296c83d8dd4c95091fde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd9ff2360fce26b77ba0f5be4d5f70103504ec05
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111811"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564434"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização)
 
 Pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de token para todas as aplicações na sua organização, para uma aplicação de (com várias organizações) de multi-inquilino ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir dos clientes durante a pré-visualização, isso já foi substituído o recurso de durações de token configurável com [capacidades de gestão de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Esta funcionalidade vai ser preterida no dia 1 de Novembro de 2019. Se estiver a utilizar a política de duração do token configuráveis, mude para a nova funcionalidade de acesso condicional. 
+> Depois de ouvir dos clientes durante a pré-visualização, Implementámos [capacidades de gestão de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Pode utilizar esta nova funcionalidade para configurar durações de token de atualização ao definir o início de sessão na frequência. Após 1 de Novembro de 2019 não será capaz de usar a diretiva de duração do Token configuráveis para configurar os tokens de atualização, mas ainda pode usá-lo para configurar os tokens de acesso.
 
 No Azure AD, um objeto de política representa um conjunto de regras são impostas em aplicativos individuais ou em todos os aplicativos numa organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos para o qual são atribuídos.
 

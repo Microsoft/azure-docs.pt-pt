@@ -8,16 +8,16 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6284174089419cd201d094bcb1a8c7e865d2892
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956022"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484424"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Ofereça conteúdo a partir do armazenamento do Azure no serviço de aplicações no Linux
 
-Este guia mostra como servir conteúdo estático no serviço de aplicações no Linux utilizando [armazenamento do Azure](/azure/storage/common/storage-introduction). Os benefícios incluem segura conteúda, o conteúdo portabilidade, acesso a várias aplicações e vários métodos de transferência. 
+Este guia mostra como servir conteúdo estático no serviço de aplicações no Linux utilizando [armazenamento do Azure](/azure/storage/common/storage-introduction). Os benefícios incluem segura conteúda, o conteúdo portabilidade, acesso a várias aplicações e vários métodos de transferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,6 +28,8 @@ Este guia mostra como servir conteúdo estático no serviço de aplicações no 
 
 > [!NOTE]
 > O armazenamento do Azure é o armazenamento de não-padrão e faturados em separado, não incluídas com a aplicação web.
+>
+> Traga seu próprio armazenamento não suporta a utilização da configuração da Firewall de armazenamento devido a limitações de infraestrutura.
 >
 
 Criar do Azure [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).

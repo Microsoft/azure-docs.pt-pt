@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/21/2019
+ms.date: 6/26/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2567c47e41306a7940b6d065feb49ae80bb16198
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
-ms.translationtype: HT
+ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312692"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442915"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -24,15 +24,13 @@ O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud
 
 Pode criar, impor e registar centralmente políticas de conectividade de rede e aplicações entre subscrições e redes virtuais. O Azure Firewall utiliza um endereço IP público estático para os recursos de rede virtual que permite às firewalls externas identificar o tráfego com origem na sua rede virtual.  O serviço está totalmente integrado no Azure Monitor para fins de registo e análise.
 
-## <a name="features"></a>Funcionalidades
-
 O Azure Firewall oferece as seguintes funcionalidades:
 
-### <a name="built-in-high-availability"></a>Elevada disponibilidade incorporada
+## <a name="built-in-high-availability"></a>Elevada disponibilidade incorporada
 
 Elevada disponibilidade é incorporada, pelo que não foram encontrados balanceadores de carga adicionais são necessários e não há nada que tem de configurar.
 
-### <a name="availability-zones-public-preview"></a>As zonas de disponibilidade (pré-visualização pública)
+## <a name="availability-zones-public-preview"></a>As zonas de disponibilidade (pré-visualização pública)
 
 Firewall do Azure pode ser configurado durante a implementação para abranger várias zonas de disponibilidade para maior disponibilidade. Com zonas de disponibilidade, a sua disponibilidade aumenta para o tempo de atividade de 99,99%. Para obter mais informações, consulte o Firewall do Azure [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O tempo de atividade de 99,99% são oferecidos SLAS quando duas ou mais zonas de disponibilidade estão selecionadas.
 
@@ -47,41 +45,41 @@ As zonas de disponibilidade de Firewall do Azure estão disponíveis nas regiõe
 
 Para obter mais informações sobre as zonas de disponibilidade, consulte [quais são as zonas de disponibilidade no Azure?](../availability-zones/az-overview.md)
 
-### <a name="unrestricted-cloud-scalability"></a>Escalabilidade da cloud sem restrições
+## <a name="unrestricted-cloud-scalability"></a>Escalabilidade da cloud sem restrições
 
 O Azure Firewall pode aumentar verticalmente conforme as suas necessidades para acomodar fluxos de tráfego de rede em alteração, pelo que não precisa de orçamentar o tráfego de pico.
 
-### <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
+## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
 
 Pode limitar o tráfego HTTP/S de saída a uma lista especificada de nomes de domínio completamente qualificados (FQDN), incluindo carateres universais. Esta funcionalidade não precisa de terminação de SSL.
 
-### <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
+## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
 Pode criar centralmente regras de filtragem de rede de *permissão* ou *negação* por endereço IP de origem e destino, porta e protocolo. O Azure Firewall tem total monitoração de estado, para conseguir distinguir pacotes legítimos para diferentes tipos de ligações. As regras são impostas e registadas em várias subscrições e redes virtuais.
 
-### <a name="fqdn-tags"></a>Etiquetas FQDN
+## <a name="fqdn-tags"></a>Etiquetas FQDN
 
 As etiquetas FQDN facilitam a permissão do tráfego de rede bem conhecido do serviço do Azure através da firewall. Por exemplo, digamos que deseja permitir tráfego de rede do Windows Update através da firewall. Crie uma regra de aplicação e inclua a etiqueta do Windows Update. Agora o tráfego de rede do Windows Update pode fluir através da firewall.
 
-### <a name="service-tags"></a>Etiquetas de serviço
+## <a name="service-tags"></a>Etiquetas de serviço
 
 As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Não pode criar suas próprias etiquetas de serviço nem especificar que endereços IP estão incluídos nas mesmas. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados.
 
-### <a name="threat-intelligence"></a>Informações sobre ameaças
+## <a name="threat-intelligence"></a>Informações sobre ameaças
 
 A filtragem com base em informações sobre ameaças pode ser ativada para que a sua firewall alerte e negue tráfego de/para endereços e domínios de IP maliciosos. Os endereços e domínios de IP são obtidos no feed de Informações sobre Ameaças da Microsoft.
 
-### <a name="outbound-snat-support"></a>Suporte SNAT de saída
+## <a name="outbound-snat-support"></a>Suporte SNAT de saída
 
 Todos os endereços IP de tráfego de rede virtual de saída são convertidos no IP público do Azure Firewall (Tradução de Endereços de Rede de Origem). Pode identificar e permitir tráfego com origem na sua rede virtual para destinos de Internet remotos. Firewall do Azure não SNAT quando o IP de destino é um intervalo IP privados por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se a sua organização utilizar um intervalo de endereços IP público para redes privadas, o Firewall do Azure será SNAT o tráfego para um dos endereços IP privados de firewall no AzureFirewallSubnet.
 
-### <a name="inbound-dnat-support"></a>Suporte DNAT de entrada
+## <a name="inbound-dnat-support"></a>Suporte DNAT de entrada
 
 O tráfego de rede de entrada para o seu endereço IP público do firewall é traduzido (Tradução de Endereços de Rede de Destino) e filtrado para os endereços IP privados nas suas redes virtuais.
 
-### <a name="multiple-public-ips-public-preview"></a>Público vários IPs (pré-visualização pública)
+## <a name="multiple-public-ips-public-preview"></a>Público vários IPs (pré-visualização pública)
 
-Pode associar vários endereços IP públicos (até 600) a sua firewall.
+Pode associar vários endereços IP públicos (até 100) com a firewall.
 
 Isto permite que os seguintes cenários:
 
@@ -91,7 +89,7 @@ Isto permite que os seguintes cenários:
 > [!NOTE]
 > Durante a pré-visualização pública, se adicionar ou remover um endereço IP público para um firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos. Não é possível remover o primeiro endereço IP público atribuído para o firewall, a menos que a firewall está desalocada ou eliminada.
 
-### <a name="azure-monitor-logging"></a>Registo do Azure Monitor
+## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
 Todos os eventos são integrados com o Azure Monitor, permitindo que arquivar registos para uma conta de armazenamento, transmitir eventos ao seu Hub de eventos, ou enviá-los para registos do Azure Monitor.
 
@@ -113,6 +111,7 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Não é possível remover o primeiro endereço IP público|Não é possível remover o primeiro endereço IP público atribuído para o firewall, a menos que a firewall está desalocada ou eliminada.|Esta ação é propositada.|
 |Se adicionar ou remover um endereço IP público, as regras DNAT podem não funcionar temporariamente.| Se adicionar ou remover um endereço IP público a uma firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos.|Esta é uma limitação da pré-visualização pública para esta funcionalidade.|
 |As zonas de disponibilidade só podem ser configuradas durante a implementação.|As zonas de disponibilidade só podem ser configuradas durante a implementação. Não é possível configurar zonas de disponibilidade depois de implementar uma firewall.|Esta ação é propositada.|
+|SNAT em ligações de entrada|Além de DNAT, ligações via o endereço IP público do firewall (entrada) são um SNAT para um firewall de IPs privados. Este requisito hoje (também para as NVAs ativo/ativo) para garantir que o encaminhamento simétrico.|Para preservar a origem original para HTTP/S, considere usar [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) cabeçalhos. Por exemplo, utilize um serviço como [porta da frente do Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) à frente da firewall. Também pode adicionar WAF como parte da porta de entrada do Azure e a cadeia para o firewall.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

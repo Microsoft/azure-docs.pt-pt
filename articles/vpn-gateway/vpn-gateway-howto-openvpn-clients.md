@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a3806a7f64f30e5073182f96f552b8584cf1ce0c
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: b8f1626da730178d2cd9c2f31c4f9876102b3d46
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147245"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477852"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure
 
@@ -67,9 +67,9 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 4. Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Ver [exportar a chave pública](vpn-gateway-certificates-point-to-site.md#cer) para obter informações sobre como exportar um certificado para obter a chave pública codificada.
 5. Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Ver [exportar a chave privada](https://openvpn.net/community-resources/how-to/#pki) para obter informações sobre como extrair uma chave privada.
 6. Não altere os outros campos. Utilize a configuração preenchida na entrada de cliente para ligar à VPN.
-7. Clique duas vezes o ficheiro de perfil para criar o perfil no tunnelblik.
-8. Inicie Tunnelblik a partir da pasta de aplicativos.
-9. Clique no ícone na Bandeja do sistema Tunnelblik e escolher ligar.
+7. Clique duas vezes o ficheiro de perfil para criar o perfil no Tunnelblick.
+8. Inicie Tunnelblick a partir da pasta de aplicativos.
+9. Clique no ícone na Bandeja do sistema Tunnelblick e escolher ligar.
 
 > [!IMPORTANT]
 >Apenas iOS 11.0 e posterior e o MacOS 10.13 e superior, são suportados com o protocolo de OpenVPN.

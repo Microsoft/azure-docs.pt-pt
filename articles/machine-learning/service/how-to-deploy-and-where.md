@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/31/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b5a08b9b998f8d0b30091af016af564e836d4651
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: dcb90eb8ee25b8b0c780006f3555a5a9b815ffdd
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331657"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514269"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -100,6 +100,8 @@ Pode registrar um modelo criado externamente, fornecendo uma **caminho local** a
 **Estimativa de tempo**: Aproximadamente 10 segundos.
 
 Para obter mais informações, consulte a documentação de referência para o [classe de modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
+
+Para obter mais informações sobre como trabalhar com modelos treinados de serviço fora do Azure Machine Learning, consulte [como implementar um modelo existente](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -259,16 +261,22 @@ Para obter mais scripts de exemplo, veja os exemplos seguintes:
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definir sua InferenceConfig
 
-A configuração de inferência de tipos descreve como configurar o modelo para fazer previsões. O exemplo seguinte demonstra como criar uma configuração de inferência de tipos:
+A configuração de inferência de tipos descreve como configurar o modelo para fazer previsões. O exemplo seguinte demonstra como criar uma configuração de inferência de tipos. Esta configuração especifica o tempo de execução, o script de entrada e (opcionalmente) o ficheiro de ambiente de conda:
 
 ```python
-inference_config = InferenceConfig(source_directory="C:/abc",
-                                   runtime= "python",
+inference_config = InferenceConfig(runtime= "python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
 ```
 
+Para obter mais informações, consulte a [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) referência de classe.
+
+Para obter informações sobre como utilizar uma imagem personalizada do Docker com a configuração de inferência de tipos, consulte [como implementar um modelo com uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
+
 ### <a name="cli-example-of-inferenceconfig"></a>Exemplo da CLI de InferenceConfig
+
+O documento JSON seguinte é um exemplo de configuração de inferência de tipos para utilização com o machine learning CLI:
+
 ```JSON
 {
    "entryScript": "x/y/score.py",
@@ -277,6 +285,23 @@ inference_config = InferenceConfig(source_directory="C:/abc",
    "sourceDirectory":"C:/abc",
 }
 ```
+
+As entidades a seguir são válidas neste ficheiro:
+
+* __entryScript__: Caminho do ficheiro local que contém o código para execução para a imagem.
+* __runtime__: O tempo de execução a utilizar para a imagem. Tempos de execução atuais suportados são "spark-py" e "python".
+* __condaFile__ (optional): Caminho do ficheiro local com uma definição de ambiente de conda a utilizar para a imagem.
+* __extraDockerFileSteps__ (optional): Caminho do ficheiro local com os passos adicionais de Docker para ser executada quando a configuração de imagem.
+* __sourceDirectory__ (opcional): Caminho para pastas que contém todos os ficheiros para criar a imagem.
+* __enableGpu__ (optional): Se deve ou não ativar a GPU suportam na imagem. A imagem GPU tem de ser utilizada em serviços do Microsoft Azure, como o Azure Container Instances, a computação do Azure Machine Learning, máquinas virtuais do Azure e serviço Kubernetes do Azure. Predefinição é False.
+* __baseImage__ (opcional): Uma imagem personalizada a ser utilizado como imagem base. Não se for fornecida nenhuma imagem base, em seguida, a imagem base será utilizada com a base do fornecidos parâmetro de tempo de execução.
+* __baseImageRegistry__ (optional): Registo de imagem que contém a imagem base.
+* __cudaVersion__ (opcional): Versão do CUDA instalar para imagens que têm suporte GPU. A imagem GPU tem de ser utilizada em serviços do Microsoft Azure, como o Azure Container Instances, a computação do Azure Machine Learning, máquinas virtuais do Azure e serviço Kubernetes do Azure. Versões suportadas são 9.0, 9.1 e 10.0. Se "enable_gpu" estiver definido, por predefinição '9.1'.
+
+Estas entidades mapeiam para os parâmetros para o [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) classe.
+
+Thee o comando a seguir demonstra como implementar um modelo com a CLI:
+
 ```azurecli-interactive
 az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```
@@ -287,8 +312,6 @@ Neste exemplo, a configuração contém os seguintes itens:
 * Este modelo necessita de Python
 * O [script de entrada](#script), que é utilizada para processar pedidos web enviados para o serviço implementado
 * O ficheiro de conda que descreve os pacotes Python necessários para inferência de tipos
-
-Para obter informações sobre a funcionalidade de InferenceConfig, consulte a [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) referência de classe.
 
 Para obter informações sobre como utilizar uma imagem personalizada do Docker com a configuração de inferência de tipos, consulte [como implementar um modelo com uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md).
 
@@ -309,9 +332,7 @@ A tabela seguinte fornece um exemplo de criação de uma configuração de imple
 As secções seguintes demonstram como criar a configuração de implementação e, em seguida, utilizá-lo para implementar o serviço web.
 
 ### <a name="optional-profile-your-model"></a>Opcional: Seu modelo de perfil
-Antes de implementar o seu modelo como um serviço, pode querer criar perfis para determinar os requisitos de memória e CPU otimizada.
-
-Pode fazer perfil seu modelo com o SDK ou a CLI.
+Antes de implementar o seu modelo como um serviço, pode querer criar perfis para determinar os requisitos de memória e CPU otimizada. Pode fazer perfil seu modelo com o SDK ou a CLI.
 
 Para obter mais informações, pode verificar a nossa documentação SDK aqui: https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-
 
@@ -544,6 +565,34 @@ service.update(models = [new_model])
 print(service.state)
 print(service.get_logs())
 ```
+
+## <a name="continuous-model-deployment"></a>Implementação contínua do modelo 
+
+Pode implementar modelos com a extensão de Machine Learning para continuamente [do Azure DevOps](https://azure.microsoft.com/services/devops/). Ao utilizar a extensão de Machine Learning para DevOps do Azure, pode acionar um pipeline de implementação quando um novo modelo de aprendizagem automática é registado no Azure Machine Learning a área de trabalho de serviço. 
+
+1. Inscreva-se [Pipelines do Azure](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), que possibilita a integração contínua e entrega da sua aplicação de qualquer plataforma de/para qualquer cloud. Pipelines do Azure [difere pipelines de ML](concept-ml-pipelines.md#compare). 
+
+1. [Crie um projeto de DevOps do Azure.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
+
+1. Instalar o [extensão de Machine Learning para Pipelines do Azure](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList) 
+
+1. Uso __ligações de serviço__ para configurar uma ligação de principal de serviço para a área de trabalho do serviço do Azure Machine Learning para aceder a todos os seus artefactos. Aceda às definições do projeto e clicar em conexões de serviço para selecionar o Azure Resource Manager.
+
+    ![view-service-connection](media/how-to-deploy-and-where/view-service-connection.png) 
+
+1. Definir AzureMLWorkspace como o __âmbito de nível__ e preencha os parâmetros subsequentes.
+
+    ![view-azure-resource-manager](media/how-to-deploy-and-where/resource-manager-connection.png)
+
+1. Em seguida, para implementar continuamente o seu modelo de aprendizagem automática com os Pipelines do Azure, em pipelines, selecione __versão__. Adicionar um artefato de novo, selecione o artefacto de modelo do AzureML e a ligação de serviço que foi criada no passo anterior. Selecione o modelo e versão para acionar uma implementação. 
+
+    ![select-AzureMLmodel-artifact](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)
+
+1. Ative o acionador de modelo no artefacto seu modelo. Ao ativar o acionador, sempre que a versão especificada (ou seja a versão mais recente) desse modelo é Registre-se na sua área de trabalho, um pipeline de lançamento de DevOps do Azure é acionado. 
+
+    ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
+
+Para projetos de exemplo e exemplos, confira [o repositório de MLOps](https://github.com/Microsoft/MLOps)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para eliminar um serviço web implementado, utilize `service.delete()`.

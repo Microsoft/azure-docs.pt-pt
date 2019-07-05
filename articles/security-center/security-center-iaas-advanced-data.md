@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: monhaber
-ms.openlocfilehash: 76e691df0a026802682b57ff78496f6b66d7ff79
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154817"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551846"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Segurança de dados avançados para servidores do SQL Server em máquinas virtuais do Azure (pré-visualização pública)
 Segurança de dados avançados para servidores do SQL Server em máquinas de virtuais do Azure é um pacote unificado para funções de segurança avançadas do SQL. Ele atualmente (em pré-visualização pública) inclui uma funcionalidade para analisar e mitigar potenciais vulnerabilidades de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à sua base de dados. 
@@ -95,7 +95,7 @@ Pode ver e gerir os alertas de segurança atual.
 
 Pode definir uma lista de destinatários para receber uma notificação por e-mail quando são gerados alertas ASC. O e-mail contém uma ligação direta para o alerta no Centro de segurança do Azure com todos os detalhes relevantes. 
 
-1. Aceda a **Centro de segurança** > **política de segurança** e, na linha a subscrição relevante, clique em **editar definições >** .
+1. Aceda a **Centro de segurança** > **preços & definições** e clique na subscrição relevante
 
     ![Definições de subscrição](./media/security-center-advanced-iaas-data/subscription-settings.png)
 

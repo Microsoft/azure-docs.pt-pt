@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4de308f57d59720610eb9ee30ab67b569a5656d5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724972"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442246"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (. csx)
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 Existe um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem seu próprio arquivo de código (. csx) e o ficheiro de configuração de vinculação (Function).
 
-As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
+As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 ## <a name="binding-to-arguments"></a>Vinculando a argumentos
 

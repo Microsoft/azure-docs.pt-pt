@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992103"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540999"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Como tópicos do barramento de serviço de utilização e de subscrições com node. js e o pacote do azure-sb
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de node. js"]
@@ -48,7 +48,7 @@ Para obter mais informações sobre tópicos e subscrições, veja [próximos pa
     > Irá criar um **tópico** e uma **subscrição** para o tópico utilizando **node. js** neste início rápido. 
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação node. js em branco. Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web Site do Azure], [serviço Cloud de node. js] [ Node.js Cloud Service] usando o Windows PowerShell, ou Web Site com o WebMatrix.
+Crie uma aplicação node. js em branco. Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web Site do Azure], [serviço Cloud de node. js][Node.js Cloud Service] usando o Windows PowerShell ou o Web Site com o WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
 Para utilizar o Service Bus, transfira o pacote do Azure node. js. Este pacote inclui um conjunto de bibliotecas que comunicam com os serviços REST do Service Bus.
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 Subscrições de tópicos também são criadas com o **ServiceBusService** objeto. As subscrições são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da subscrição.
 
 > [!NOTE]
-> As assinaturas são persistentes até a eles ou o tópico estão associados com, são eliminados. Se a sua aplicação contém lógica para criar uma subscrição, primeiro deve dar se existe a subscrição, utilizando o `getSubscription` método.
+> Por predefinição, as subscrições são persistentes até a eles ou o tópico estão associados com, são eliminados. Se a sua aplicação contém lógica para criar uma subscrição, primeiro deve dar se existe a subscrição, utilizando o `getSubscription` método.
 >
->
+> Pode ter as subscrições são eliminadas automaticamente ao definir o [AutoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
 O **MatchAll** filtro é o filtro predefinido utilizado quando é criada uma subscrição. Quando utiliza o filtro **MatchAll**, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome AllMessages e utiliza a predefinição **MatchAll** filtro.
@@ -166,7 +166,7 @@ serviceBusService.createSubscription('MyTopic','AllMessages',function(error){
 ### <a name="create-subscriptions-with-filters"></a>Criar subscrições com filtros
 Também pode criar filtros que permitem a para o âmbito em que as mensagens enviadas para um tópico deve aparecer no espaço de uma subscrição de tópico específico.
 
-O tipo mais flexível de filtro suportado pelas subscrições é a **SqlFilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais detalhes sobre as expressões que podem ser utilizadas com um filtro SQL, reveja os [Sqlexpression] [ SqlFilter.SqlExpression] sintaxe.
+O tipo mais flexível de filtro suportado pelas subscrições é a **SqlFilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais detalhes sobre as expressões que podem ser utilizadas com um filtro SQL, reveja os [Sqlexpression][SqlFilter.SqlExpression] sintaxe.
 
 Filtros podem ser adicionados a uma subscrição, utilizando o `createRule` método da **ServiceBusService** objeto. Este método permite-lhe adicionar novos filtros a uma subscrição existente.
 
@@ -314,7 +314,7 @@ Há também um tempo limite associado à mensagem bloqueada na subscrição. Se 
 No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` método é chamado, a mensagem é reenviada para a aplicação quando esta reiniciar. Este comportamento é frequentemente designado *processamento, pelo menos, uma vez*. Ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não pode tolerar o processamento duplicado, em seguida, deve adicionar lógica à sua aplicação para processar a entrega de mensagens duplicadas. Pode utilizar o **MessageId** propriedade da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
-Tópicos e subscrições são persistentes e tem de ser explicitamente eliminada através da [portal do Azure] [ Azure portal] ou programaticamente.
+Tópicos e subscrições são persistentes, a menos que o [autoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) está definido e tem de ser explicitamente eliminada através do [portal do Azure][Azure portal] ou programaticamente.
 O exemplo seguinte mostra como eliminar o tópico com o nome `MyTopic`:
 
 ```javascript
@@ -343,7 +343,7 @@ Agora que aprendeu as noções básicas de tópicos do Service Bus, siga estas l
 
 * Ver [filas, tópicos e subscrições][Queues, topics, and subscriptions].
 * Referência da API para [SqlFilter][SqlFilter].
-* Visite o [SDK do Azure para o nó] [ Azure SDK for Node] repositório no GitHub.
+* Visite o [SDK do Azure para o nó][Azure SDK for Node] repositório no GitHub.
 
 [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.com

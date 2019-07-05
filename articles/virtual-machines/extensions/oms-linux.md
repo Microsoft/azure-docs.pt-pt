@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: roiyz
-ms.openlocfilehash: 8b24af016349db0fcfb4106a1e69da395e3d0150
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c16e4c105a69d0d48d0b161db2caa390837bf26
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755150"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514549"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor para Linux
 
@@ -47,7 +47,7 @@ A extensão de agente do Log Analytics pode ser executada nessas distribuições
 | Red Hat Enterprise Linux Server | 6 (x86/x64) e 7 (x64) |
 | Debian GNU/Linux | 8 e 9 (x86/x64) |
 | Ubuntu | 14.04 LTS (x86/x64) e 18.04 LTS (x64) 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 12 (x64) |
+| SUSE Linux Enterprise Server | 12 (x64) e 15 (x64) |
 
 >[!NOTE]
 >OpenSSL inferior à versão 1.x não é suportado em qualquer plataforma e versão 1.10 só é suportado em plataformas de x86_64 (64 bits).  
@@ -73,7 +73,8 @@ A tabela seguinte fornece um mapeamento da versão da extensão de VM do Azure M
 
 | Versão de extensão de VM do Linux de Monitor do Azure | Versão do pacote de agente de análise de registo | 
 |--------------------------------|--------------------------|
-|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
+| 1.11.9 | [1.11.0-7](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-7) |
+| 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: 5ed9dc595c537d8a923d3eb056dcb002cf225f7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427111"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514473"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure
 
@@ -42,7 +42,7 @@ Figura 1 – pares regionais do Azure
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia |Coreia do Sul Central |Coreia do Sul |
-| América do Norte |EUA Leste |EUA Oeste |
+| América do Norte |East US |EUA Oeste |
 | América do Norte |EUA Leste 2 |EUA Central |
 | América do Norte |EUA Centro-Norte |EUA Centro-Sul |
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
@@ -77,7 +77,7 @@ Como referido na figura 2.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **computação do Azure (IaaS)** – terá de aprovisionar recursos de computação adicionais com antecedência para garantir que recursos estão disponíveis noutra região durante um desastre. Para obter mais informações, consulte [orientações técnicas sobre resiliência do Azure](resiliency/resiliency-technical-guidance.md).
 
-![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** -armazenamento Georredundante (GRS) está configurado por predefinição, quando é criada uma conta de armazenamento do Azure. Com a GRS, os dados automaticamente são replicados três vezes numa região principal e três vezes na região associada. Para obter mais informações, consulte [opções de redundância de armazenamento do Azure](storage/common/storage-redundancy.md).
+![Armazenamento](./media/best-practices-availability-paired-regions/2Green.png) **armazenamento do Azure** - se de que está a utilizar discos geridos, saiba mais sobre [cópias de segurança entre regiões](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) com o Azure Backup, e [replicar VMs de](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) de uma região para outro com o Azure Site Recovery. Se estiver a utilizar contas de armazenamento, armazenamento georredundante (GRS) é configurado por predefinição quando é criada uma conta de armazenamento do Azure. Com a GRS, os dados automaticamente são replicados três vezes numa região principal e três vezes na região associada. Para obter mais informações, consulte [opções de redundância de armazenamento do Azure](storage/common/storage-redundancy.md).
 
 ![SQL do Azure](./media/best-practices-availability-paired-regions/3Green.png) **base de dados do Azure SQL** – com o Azure SQL da base de dados-Georreplicação, pode configurar a replicação assíncrona de transações em qualquer região do mundo; no entanto, é recomendável implementar estes recursos num região emparelhada na maioria dos cenários de recuperação após desastre. Para obter mais informações, consulte [Georreplicação no Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 

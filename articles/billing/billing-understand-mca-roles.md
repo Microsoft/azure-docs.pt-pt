@@ -1,24 +1,21 @@
 ---
 title: Compreender a faturas funções administrativas para contratos de cliente da Microsoft - Azure
 description: Saiba mais sobre as funções de faturas para faturação contas no Azure para contratos de cliente da Microsoft.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberbhargava
-editor: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 780870cc71e95507a52ba6a9338026f895a96ac1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12e492fee95192d0af49ff7b6a5be3144398fef8
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370972"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490429"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do contrato de cliente da Microsoft no Azure
 
@@ -30,7 +27,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 A tabela seguinte descreve as funções de faturas que utiliza para gerir a sua conta de cobrança, perfis de faturação e seções de nota fiscal.
 
-|Função|Descrição|
+|Role|Descrição|
 |---|---|
 |Proprietário da conta de faturação|Gerir tudo para a conta de faturação|
 |Contribuinte de conta de faturação|Gerir tudo, exceto as permissões na conta de faturação|
@@ -46,7 +43,7 @@ A tabela seguinte descreve as funções de faturas que utiliza para gerir a sua 
 
 ## <a name="billing-account-roles-and-tasks"></a>Funções de conta de faturação e tarefas
 
-Uma conta de cobrança permite-lhe gerir a faturação para a sua organização. Utilizar conta de cobrança para organizar os custos, custos de monitor e notas fiscais e controlar o acesso de faturação para a sua organização. Para obter mais informações, consulte [entender a conta de cobrança](billing-mca-overview.md#understand-billing-account).
+Uma conta de cobrança permite-lhe gerir a faturação para a sua organização. Utilizar conta de cobrança para organizar os custos, custos de monitor e notas fiscais e controlar o acesso de faturação para a sua organização. Para obter mais informações, consulte [entender a conta de cobrança](billing-mca-overview.md#your-billing-account).
 
 As tabelas seguintes mostram que função tem de concluir as tarefas no contexto da conta de cobrança.
 
@@ -92,7 +89,7 @@ As tabelas seguintes mostram que função tem de concluir as tarefas no contexto
 
 ## <a name="billing-profile-roles-and-tasks"></a>Tarefas e funções de perfis de faturação
 
-Um perfil de faturação permite-lhe gerir as suas notas fiscais e métodos de pagamento. Uma nota fiscal mensal é gerada para as subscrições do Azure e outros produtos comprados com o perfil de faturação. Utilize os métodos de pagamentos para pagar a nota fiscal. Para obter mais informações, consulte [compreender os perfis de faturas](billing-mca-overview.md#understand-billing-profiles).
+Um perfil de faturação permite-lhe gerir as suas notas fiscais e métodos de pagamento. Uma nota fiscal mensal é gerada para as subscrições do Azure e outros produtos comprados com o perfil de faturação. Utilize os métodos de pagamentos para pagar a nota fiscal. Para obter mais informações, consulte [compreender os perfis de faturas](billing-mca-overview.md#billing-profiles).
 
 As tabelas seguintes mostram que função tem de concluir as tarefas no contexto do perfil de faturação.
 
@@ -142,7 +139,7 @@ As tabelas seguintes mostram que função tem de concluir as tarefas no contexto
 
 ## <a name="invoice-section-roles-and-tasks"></a>Funções da secção de nota fiscal e tarefas
 
-Uma seção de nota fiscal permite-lhe organizar os custos na sua fatura. Pode criar uma seção para organizar os seus custos por departamento, ambiente de desenvolvimento, ou com base nas necessidades da sua organização. Atribua a outras pessoas permissão para criar subscrições do Azure para a seção. Quaisquer custos de utilização e compras para as subscrições, em seguida, mostrar na seção da nota fiscal. Para obter mais informações, consulte [secção de nota fiscal de compreender](billing-mca-overview.md#understand-invoice-sections).
+Uma seção de nota fiscal permite-lhe organizar os custos na sua fatura. Pode criar uma seção para organizar os seus custos por departamento, ambiente de desenvolvimento, ou com base nas necessidades da sua organização. Atribua a outras pessoas permissão para criar subscrições do Azure para a seção. Quaisquer custos de utilização e compras para as subscrições, em seguida, mostrar na seção da nota fiscal. Para obter mais informações, consulte [secção de nota fiscal de compreender](billing-mca-overview.md#invoice-sections).
 
 As tabelas seguintes mostram que função tem de concluir as tarefas no contexto das seções de nota fiscal.
 
@@ -185,7 +182,7 @@ A tabela seguinte mostra que função tem de concluir as tarefas no contexto de 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Procure **custo Management + faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-understand-mca-roles/billing-search-cost-management-billing.png)
 

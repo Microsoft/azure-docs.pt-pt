@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 10976c9cf16dfab4c31d0d77c519dc3277204a51
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 118daf02ab59646f2926071763aa4d7e97846e04
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293052"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508231"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação nas funções do Azure
 
@@ -50,16 +50,18 @@ Antes de continuar, é importante obter alguns dos principais conceitos que irã
 Quando altera qualquer uma das suas acionadores, a infraestrutura de funções tem de estar atento estas alterações. Esta sincronização ocorre automaticamente para muitas tecnologias de implantação. No entanto, em alguns casos tem sincronizar manualmente sua acionadores. Ao implementar as atualizações através de um URL do pacote externo, local Git, da sincronização da cloud ou FTP, tem de ser-se sincronizar manualmente sua acionadores. Pode sincronizar os acionadores de uma das três formas:
 
 * Reinicie a aplicação de função no portal do Azure
-* Enviar um pedido de HTTP POST para `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` utilizando o [chave mestra](functions-bindings-http-webhook.md#authorization-keys).
+* Enviar um pedido de HTTP POST para `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` utilizando o [chave mestra](functions-bindings-http-webhook.md#authorization-keys).
 * Enviar um pedido de HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Substitua os marcadores de posição pelo seu ID de subscrição, nome do grupo de recursos e o nome da sua aplicação de função.
 
 ## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implementação  
+
+Esses métodos de implementação seguintes são compatíveis com as funções do Azure.
 
 ### <a name="external-package-url"></a>URL do pacote externo
 
 Pode fazer referência a um ficheiro de pacote remoto (. zip) que contém a aplicação de funções. O ficheiro é transferido do URL fornecido e a aplicação é executada [execução do pacote](run-functions-from-deployment-package.md) modo.
 
->__Como usá-lo:__ Adicionar `WEBSITE_RUN_FROM_PACKAGE` para as definições da aplicação. O valor desta definição deve ser um URL - a localização do ficheiro de pacote específico que pretende executar. Pode adicionar as definições de qualquer um dos [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou [ao utilizar a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Se utilizar o armazenamento de Blobs do Azure, deve usar um contêiner privado com um [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) para conceder acesso de funções para o pacote. Em qualquer altura do reinício da aplicação, irá obter uma cópia do conteúdo, o que significa que sua referência tem de ser válida para o tempo de vida do aplicativo.
+>__Como usá-lo:__ Adicionar `WEBSITE_RUN_FROM_PACKAGE` para as definições da aplicação. O valor desta definição deve ser um URL - a localização do ficheiro de pacote específico que pretende executar. Pode adicionar as definições de qualquer um dos [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou [ao utilizar a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Se utilizar o armazenamento de Blobs do Azure, deve usar um contêiner privado com um [assinatura de acesso partilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para conceder acesso de funções para o pacote. Em qualquer altura do reinício da aplicação, irá obter uma cópia do conteúdo, o que significa que sua referência tem de ser válida para o tempo de vida do aplicativo.
 
 >__Quando utilizá-lo:__ Este é o método de implementação apenas suportado para as funções do Azure em execução no Linux no plano de consumo (pré-visualização). Ao atualizar o ficheiro de pacote que está a referenciar a uma aplicação de funções, deve [sincronizar manualmente o acionadores](#trigger-syncing) para indicar ao Auzre que seu aplicativo foi alterado.
 
@@ -88,11 +90,11 @@ Implemente uma imagem de contentor do Linux que contém a aplicação de funçõ
 
 ### <a name="web-deploy-msdeploy"></a>Web implementar (MSDeploy)
 
-Pacotes e implementa seus aplicativos do Windows a qualquer servidor IIS, incluindo as suas aplicações de função do Azure em execução no Windows.
+Pacotes e implementa seus aplicativos do Windows a qualquer servidor IIS, incluindo as suas aplicações de funções em execução no Windows no Azure.
 
->__Como usá-lo:__ Utilize o [ferramentas do Visual Studio das funções do Azure](functions-create-your-first-function-visual-studio.md), e não escala a `Run from package file (recommended)` caixa de verificação.
+>__Como usá-lo:__ Utilize o [ferramentas do Visual Studio das funções do Azure](functions-create-your-first-function-visual-studio.md)e desmarque o `Run from package file (recommended)` caixa.
 >
->Em alternativa, chamar `MSDeploy.exe` diretamente depois de baixar [3.6 de implementar Web](https://www.iis.net/downloads/microsoft/web-deploy).
+> Também pode baixar [3.6 de implementar Web](https://www.iis.net/downloads/microsoft/web-deploy) e chamar `MSDeploy.exe` diretamente.
 
 >__Quando utilizá-lo:__ Esta tecnologia de implantação é suportada e não tem problemas, mas agora é o mecanismo preferencial [Zip implementar com a execução do pacote habilitado](#zip-deploy). Para saber mais, visite o [guia de desenvolvimento do Visual Studio](functions-develop-vs.md#publish-to-azure).
 

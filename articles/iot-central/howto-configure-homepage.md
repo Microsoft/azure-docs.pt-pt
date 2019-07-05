@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b1edd4777839c947cf8f60bb6857f939553e2603
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65467636"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503222"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o dashboard de aplicações
 
@@ -41,6 +41,8 @@ Agora, quando um operador visualiza o dashboard de aplicações predefinido, ver
 ![Separador "Dashboard" com as definições apresentadas e propriedades para o mosaico](media/howto-configure-homepage/image4a.png)
 
 Pode explorar outros tipos de mosaico na biblioteca para saber como personalizar ainda mais o dashboard de aplicações predefinido.
+
+Para saber mais sobre como utilizar mosaicos no Azure IoT Central, consulte [utilizar mosaicos de dashboard](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

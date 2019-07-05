@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695068"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448687"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Utilizar o Microsoft Cognitive Toolkit modelo com o cluster do Azure HDInsight Spark de aprendizagem profunda
 
@@ -25,13 +25,13 @@ Neste artigo, siga os passos abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma subscrição do Azure**. Antes de começar este tutorial, tem de ter uma subscrição do Azure. Veja o artigo [Crie hoje a sua conta do Azure gratuita](https://azure.microsoft.com/free).
+* **Uma subscrição do Azure**. Antes de começar este artigo, tem de ter uma subscrição do Azure. Veja o artigo [Crie hoje a sua conta do Azure gratuita](https://azure.microsoft.com/free).
 
 * **Cluster do Spark do HDInsight do Azure**. Neste artigo, crie um cluster do Spark 2.0. Para obter instruções, consulte [cluster de criar o Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-does-this-solution-flow"></a>Como fluxo esta solução?
 
-Esta solução está dividida entre este artigo e um bloco de notas do Jupyter que carrega como parte deste tutorial. Neste artigo, conclua os seguintes passos:
+Esta solução está dividida entre este artigo e um bloco de notas do Jupyter que carrega como parte deste artigo. Neste artigo, conclua os seguintes passos:
 
 * Execute uma ação de script num cluster do Spark do HDInsight para instalar o Microsoft Cognitive Toolkit e pacotes de Python.
 * Carregar o bloco de notas do Jupyter que executa a solução para o cluster do HDInsight Spark.
@@ -83,7 +83,7 @@ Para utilizar o Microsoft Cognitive Toolkit com o cluster do Azure HDInsight Spa
 
 4. Clique em **carregar** novamente.
 
-5. Após o carregamento do bloco de notas, clique no nome do bloco de notas e, em seguida, siga as instruções no bloco de notas em si sobre como carregar o conjunto de dados e executar o tutorial.
+5. Após o carregamento do bloco de notas, clique no nome do bloco de notas e, em seguida, siga as instruções no bloco de notas em si sobre como carregar o conjunto de dados e executar o artigo.
 
 ## <a name="see-also"></a>Consulte também
 * [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)

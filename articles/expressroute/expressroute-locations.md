@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2019
+ms.date: 07/03/2019
 ms.author: jaredr80
-ms.openlocfilehash: 017c11e98077d867d2fca68aaa036b2a2655582e
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: cf336adecf871743a62933d8a5e14caa4f32489a
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203190"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565938"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute
 
@@ -85,14 +85,14 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Suportado |Suportadas |Amesterdão, RAE de Hong Kong, Joanesburgo, Londres, Newport(Wales), são Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C. |
 | **C3ntro** |Brevemente |Brevemente |Miami |
 | **CDC** | Suportadas | Suportadas | Camberra, Camberra2 |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportadas |Tóquio no Chicago, RAE de Hong Kong, Las Vegas, Nova Iorque, San Antonio, Silicon Valley, Toronto, Washington D.C. |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportadas |Amsterdam2, Chicago, RAE de Hong Kong, Las Vegas, Nova Iorque, Paris, San Antonio, Silicon Valley, Tóquio, Toronto, Washington D.C. |
 | **Diretor de telecomunicações** |Suportadas |Suportadas |Hong Kong, Taipei |
 | **China Telecom Global** |Suportado |Não suportado |RAE de Hong Kong |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Suportado |Suportadas |Chicago, Dallas, Montreal, Toronto, Washington D.C. |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Suportado |Suportadas |Amesterdão, Dublin, Londres, Newport, Paris, singapura2, Tóquio |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportadas |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
-| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Suportadas |Suportadas |Amsterdam2, Frankfurt|
+| **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Suportadas |Suportadas |Marselha Amsterdam2, Frankfurt,|
 | **[Devoli](https://devoli.com/expressroute)** | Suportadas |Suportadas | Auckland, Melbourne, Sydney |
 | **du datamena** |Suportadas |Suportadas | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
@@ -117,9 +117,9 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportadas |Amesterdão, Chicago, Dallas, Londres, Newport (Gales), são Paulo, Seattle, Silicon Valley, Singapura, Washington D.C. |
 | **LG CNS** |Suportado |Suportado |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Suportadas |Suportadas |Cidade do Cabo, Joanesburgo |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportadas |Amesterdão, Atlanta, Chicago, Dallas, Denver, Dublin, RAE de Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, Perth, cidade do Quebeque, San Antonio, Seattle, Silicon Valley, Singapura, singapura2, Sydney, Toronto, Washington D.C. |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado |Suportadas |Amesterdão, Atlanta, Auckland, Chicago, Dallas, Denver, Dublin, RAE de Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova Iorque, Perth, cidade do Quebeque, San Antonio, Seattle, Silicon Valley, Singapura, singapura2, Sydney, Toronto, Washington D.C. |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Suportadas |Suportado |Londres |
-| **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportadas |Dallas, Los Angeles, Miami, são Paulo, Washington D.C. |
+| **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Suportado |Suportadas |Dallas, Los Angeles, Miami, são Paulo, Washington D.C. |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Suportado |Suportado |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Suportadas |Suportadas |Melbourne, Perth, Sydney |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Suportado |Suportadas |Amesterdão, RAE de Hong Kong, Londres, Los Angeles, Osaka, Singapura, Sydney, Tóquio, Washington D.C. |

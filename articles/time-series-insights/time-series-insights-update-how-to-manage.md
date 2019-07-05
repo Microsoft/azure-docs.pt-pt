@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 06/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6251df2317ceff9dded92f2d829bfab0503fdf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f626ce2e009a18afcb4d04b7caa6850ea58c7483
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446817"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Aprovisionar e gerir a pré-visualização do Azure Time Series Insights
 
@@ -45,7 +45,7 @@ Os passos seguintes descrevem como criar um ambiente de pré-visualização do A
 
 1. Selecione o **PAYG** botão sob os **SKU** menu. Fornecer um nome de ambiente e escolha o grupo de subscrição e o grupo de recursos para utilizar. Em seguida, selecione uma localização suportada para o ambiente para serem alojadas na.
 
-   [![Crie uma instância do Azure Time Series Insights.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+   [![Crie uma instância do Azure Time Series Insights.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Introduza uma série de tempo ID.
 
@@ -56,7 +56,7 @@ Os passos seguintes descrevem como criar um ambiente de pré-visualização do A
 
 1. Crie uma conta de armazenamento do Azure ao selecionar um nome de conta de armazenamento e designar uma opção de replicação. Fazer automaticamente cria uma conta do armazenamento do Azure para fins gerais v1. Será criada na mesma região que o ambiente de pré-visualização do Azure Time Series Insights que selecionou anteriormente.
 
-    [![Criar uma conta de armazenamento do Azure para a sua instância](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
+    [![Criar uma conta de armazenamento do Azure para a sua instância](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Opcionalmente, pode adicionar uma origem de evento.
 
@@ -67,11 +67,11 @@ Os passos seguintes descrevem como criar um ambiente de pré-visualização do A
      > [!TIP]
      > O tempo de colocados em fila de mensagens pode não ser a melhor definição configurada para utilizar no evento de batch ou cenários de carregamento de dados históricos. Certifique-se verificar a sua decisão de usar ou não usar uma propriedade Timestamp nestes casos.
 
-     [![Separador de origem do evento](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
+     [![Separador de origem do evento](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Confirme que o seu ambiente tiver sido aprovisionado com as definições pretendidas.
 
-    [![Rever + criar separador](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
+    [![Rever + criar separador](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Gerir o ambiente
 
@@ -88,7 +88,7 @@ Pode gerenciar seu ambiente de pré-visualização do Azure Time Series Insights
 
 * O portal do Azure **dados de referência** painel foi removido na pré-visualização do Azure Time Series Insights porque os dados de referência não são um componente de ambientes de PAYG.
 
-[![Ambiente de pré-visualização de informações de série de tempo no portal do Azure](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
+[![Ambiente de pré-visualização de informações de série de tempo no portal do Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

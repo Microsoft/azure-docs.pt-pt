@@ -4,17 +4,17 @@ description: Este artigo contém vários tópicos para gerir um ambiente de auto
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738487"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476590"
 ---
 # <a name="managing-azure-automation-data"></a>Gerir os dados da Automatização do Azure
 Este artigo contém vários tópicos para gerir um ambiente de automatização do Azure.
@@ -26,7 +26,7 @@ A automatização do Azure elimina automaticamente e remove permanentemente a tr
 
 A tabela seguinte resume a política de retenção para os recursos diferentes.
 
-| Dados | Política |
+| Data | Política |
 |:--- |:--- |
 | Contas |Remover permanentemente os 90 dias após a conta for eliminada por um utilizador. |
 | Elementos |Removido de forma permanente 90 dias após o elemento é eliminado por um utilizador ou 90 dias após a conta que contém que o elemento é eliminado por um utilizador. |

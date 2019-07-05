@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357553"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536934"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -175,6 +175,7 @@ A lista a seguir explica esta atividade detalhadamente:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* [A utilização SSPR e o MFA e informações de relatórios](howto-authentication-methods-usage-insights.md)
 * [Como posso concluir uma implementação com êxito da SSPR?](howto-sspr-deployment.md)
 * [Reponha ou altere a palavra-passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registe-se na reposição personalizada de palavras-passe](../user-help/active-directory-passwords-reset-register.md).

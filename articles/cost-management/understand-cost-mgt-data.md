@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: f4c296aeefacc9516303ad75dd8b7d67325e38ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4c1c987befe928d316b11c6ecd379be76f8f80d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969066"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490155"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
-Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management. E explica a frequência com que dados são processados, recolhidos, mostrado e fechados. A faturação para utilização do Azure mensal. No entanto, o seu tipo de subscrição do Azure determina quando o seu mês de faturação termina. A frequência com que o Cost Management recebe a utilização de dados variam com base em diferentes fatores. Esses fatores incluem o tempo que demora a processar os dados e a frequência com que os serviços do Azure emitem utilização ao sistema de faturação.
+Este artigo ajuda-o a compreender melhor os dados de custo e a utilização do Azure que estão incluídos no Azure Cost Management. Ele explica a frequência com que dados são processados, recolhidos, mostrado e fechados. A faturação para utilização do Azure mensal. Embora são de ciclos de faturação mensal períodos, ciclo de início e datas de término variam consoante o tipo de subscrição. A frequência com que o Cost Management recebe a utilização de dados variam com base em diferentes fatores. Esses fatores incluem o tempo que demora a processar os dados e a frequência com que os serviços do Azure emitem utilização ao sistema de faturação.
 
-Gestão de custos inclui toda a utilização e compras, incluindo as reservas e ofertas de terceiros para contas do Enterprise Agreement (EA). Contas de contrato de cliente da Microsoft (MCA) e as subscrições pay as you go incluem apenas a utilização dos serviços do Azure e do Marketplace. Suporte e de outros custos não estão incluídos. Os custos são estimativas, até que uma nota fiscal é gerada e não fatorar em créditos.
+Gestão de custos inclui toda a utilização e compras, incluindo as reservas e ofertas de terceiros para contas do Enterprise Agreement (EA). Contas de contrato de cliente da Microsoft (MCA) e assinaturas individuais com as tarifas pay as you go incluem apenas a utilização dos serviços do Azure e do Marketplace. Suporte e de outros custos não estão incluídos. Os custos são estimativas, até que uma nota fiscal é gerada e não fatorar em créditos.
 
-## <a name="supported-microsoft-offers"></a>Suporte oferecidos pela Microsoft
+## <a name="supported-microsoft-azure-offers"></a>Oferece suporte Microsoft Azure
 
-As seguintes informações são apresentadas suportado atualmente [o Microsoft Azure oferece](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management.  Uma oferta do Azure é o tipo de subscrição do Azure que tem.
+As seguintes informações são apresentadas suportado atualmente [o Microsoft Azure oferece](https://azure.microsoft.com/support/legal/offer-details/) ao Azure Cost Management. O contrato assinado para uma oferta do Azure determina o tipo de subscrição do Azure que tem.
 
 | Category  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 | **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
 | **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
-A tabela seguinte mostra as ofertas não suportadas.
+A tabela seguinte mostra as ofertas do Azure que não são suportadas pelo Cost Management.
 
 | Category  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
 | --- | --- | --- | --- |
@@ -66,7 +66,7 @@ A tabela seguinte mostra as ofertas não suportadas.
 | **Planos de suporte** | Suporte direto profissional para o Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Planos de suporte** | Suporte para programadores do Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-Para os clientes com as categorias da oferta pay as you go, o MSDN e o Visual Studio, os dados estão disponíveis no Cost Management a partir de 10/02/2018. Para aceder aos dados para a sua subscrição antes de 10/02/2018, pode utilizar o [Centro de contas do Azure](https://account.azure.com/subscriptions) para transferir a sua utilização detalhes num arquivo CSV ou pode utilizar os [API de detalhes de utilização](/rest/api/consumption/usagedetails).
+Para clientes com pay as you go, categorias da oferta do MSDN e Visual Studio, os dados estão disponíveis no Cost Management a partir de 10/02/2018. Para aceder aos dados para a sua subscrição antes de 10/02/2018, pode utilizar o [Centro de contas do Azure](https://account.azure.com/subscriptions) para transferir a sua utilização detalhes num arquivo CSV ou pode utilizar os [API de detalhes de utilização](/rest/api/consumption/usagedetails).
 
 ## <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
 Se não vir dados para uma subscrição e pretende determinar se a sua subscrição está sob as ofertas de suporte, pode validar que a sua subscrição é suportada. Para validar que uma subscrição do Azure é suportada, início de sessão para o [portal do Azure](https://portal.azure.com). Em seguida, selecione **todos os serviços** no painel de menu à esquerda. Na lista de serviços, selecione **subscrições**. No menu de lista de subscrição, clique na subscrição que pretende verificar. A sua subscrição é apresentada no separador de descrição geral e pode ver o **oferecem** e **ID da oferta**. A imagem seguinte mostra um exemplo.
@@ -116,7 +116,7 @@ Subscrições pay as you go – se o mês de faturação termina a 15 de Maio, e
 
 ### <a name="rerated-data"></a>Dados rerated
 
-Se utilizar o [APIs de gestão de custos](https://aka.ms/costmgmt/docs), Power BI ou o portal do Azure para obter dados, esperar que as taxas do período de faturação atual para obter novamente classificados e, consequentemente, alterar, até que a nota fiscal seja fechada.
+Se utilizar o [APIs de gestão de custos](index.yml), Power BI ou o portal do Azure para obter dados, esperar que as taxas do período de faturação atual para obter novamente classificados e, consequentemente, alterar, até que a nota fiscal seja fechada.
 
 ## <a name="usage-data-update-frequency-varies"></a>Varia de frequência de atualização de dados de utilização
 
@@ -129,7 +129,7 @@ Alguns serviços emitem utilização com mais frequência do que outras. Por iss
 
 ## <a name="historical-data-might-not-match-invoice"></a>Podem não corresponder aos dados históricos da nota fiscal
 
-Dados históricos das ofertas de crédito e no pagamento adiantado podem não corresponder aos sua fatura. Algumas ofertas pay as you go do Azure, MSDN e Visual Studio podem ter créditos do Azure e de pagamentos avançados aplicados para a nota fiscal. No entanto, os dados históricos, mostrados na gestão de custos se baseia em apenas os encargos de consumo estimado. Dados históricos de gestão de custos não incluem pagamentos e créditos. Como resultado, os dados históricos mostrados para as seguintes ofertas podem corresponde exatamente à sua fatura.
+Dados históricos das ofertas de crédito e no pagamento adiantado podem não corresponder aos sua fatura. Alguns pay do Azure, MSDN e Visual Studio oferece podem ter créditos do Azure e de pagamentos avançados aplicadas para a nota fiscal. No entanto, os dados históricos, mostrados na gestão de custos se baseia em apenas os encargos de consumo estimado. Dados históricos de gestão de custos não incluem pagamentos e créditos. Como resultado, os dados históricos mostrados para as seguintes ofertas podem corresponde exatamente à sua fatura.
 
 -   MS-AZR-0029P
 -   MS-AZR-0064P

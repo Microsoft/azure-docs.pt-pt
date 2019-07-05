@@ -1,5 +1,5 @@
 ---
-title: REST API de afirmações trocas - Azure Active Directory B2C | Documentos da Microsoft
+title: REST API de afirmações trocas - Azure Active Directory B2C
 description: Adicione trocas de afirmações de REST API para as políticas personalizadas no Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508758"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439002"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar trocas de afirmações de REST API para as políticas personalizadas no Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ A interação inclui uma troca de afirmações de informações entre as declara
 - Pode ser desenvolvido como um passo de orquestração.
 - Pode acionar uma ação externa. Por exemplo, ele pode registar um evento num banco de dados externo.
 - Pode ser utilizado para obter um valor e, em seguida, armazene-o numa base de dados do utilizador.
-- Pode alterar o fluxo de execução. 
+- Pode alterar o fluxo de execução.
 
 O cenário que é representado neste artigo inclui as seguintes ações:
 
@@ -45,9 +45,16 @@ O cenário que é representado neste artigo inclui as seguintes ações:
 
 Nesta secção, deve preparar-se a função do Azure para receber um valor para `email`e, em seguida, retornar o valor para `city` que podem ser utilizados pelo Azure AD B2C como uma afirmação.
 
-Altere ficheiro Run. csx para a função do Azure que criou para utilizar o seguinte código: 
+Altere ficheiro Run. csx para a função do Azure que criou para utilizar o seguinte código:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>Configurar a troca de afirmações
 
-Um perfil técnico fornece a configuração para a troca de afirmações. 
+Um perfil técnico fornece a configuração para a troca de afirmações.
 
-Abra o *TrustFrameworkExtensions.xml* de ficheiros e adicionar os seguintes elementos XML dentro do **ClaimsProvider** elemento.
+Abra o *TrustFrameworkExtensions.xml* de ficheiros e adicione as seguintes **ClaimsProvider** elemento XML dentro o **ClaimsProviders** elemento.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Adicione um passo para o percurso de utilizador de edição de perfil. Depois do
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ O XML final para o percurso do utilizador deve ter um aspeto semelhante a este e
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Editar a *ProfileEdit.xml* do ficheiro e adicione `<OutputClaim ClaimTypeReferen
 Depois de adicionar a nova afirmação, o perfil técnico terá um aspeto semelhante a este exemplo:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

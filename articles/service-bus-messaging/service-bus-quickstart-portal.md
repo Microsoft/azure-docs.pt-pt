@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992018"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513632"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
-Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, com o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização nesse espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
+Este início rápido descreve como enviar e receber mensagens de e para uma fila do Service Bus, utilizando o [portal do Azure][Azure portal] para criar um espaço de nomes de mensagens e uma fila dentro desse espaço de nomes e obter as credenciais de autorização em que espaço de nomes. O procedimento, em seguida, mostra como enviar e receber mensagens desta fila com a [biblioteca .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -35,7 +35,7 @@ Para concluir este tutorial, confirme que tem instalada:
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+Depois de aprovisionar a fila e o espaço de nomes e se tiver as credenciais necessárias, está pronto para enviar e receber mensagens. Pode examinar o código nesta [pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Para executar o código, faça o seguinte:
 

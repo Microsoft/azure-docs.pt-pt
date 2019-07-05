@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: bcd121127721a6f76d76f11edf6574165c8e8ddb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8ff4147130dfeff14be41ed292b51ed34966df0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809816"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537674"
 ---
 # <a name="optimization-for-linux"></a>Otimização para Linux
 
@@ -59,7 +59,7 @@ systemctl mask firewalld
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 iptables -nL
-sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g'/etc/selinux/config
+sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 
 ## <a name="disable-cpupower"></a>Desativar cpupower

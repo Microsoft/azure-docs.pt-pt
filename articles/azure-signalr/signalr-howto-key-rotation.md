@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60688900"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565735"
 ---
 # <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Como rodar a chave de acesso para o serviço Azure SignalR
 
@@ -35,7 +35,7 @@ Para questões de segurança e os requisitos de conformidade, rotineiramente rod
 
    ![Voltar a gerar chaves](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Também pode voltar a gerar chaves utilizando o [CLI do Azure](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
+Também pode voltar a gerar chaves utilizando o [CLI do Azure](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Configurações de atualização com novas cadeias de ligação
 

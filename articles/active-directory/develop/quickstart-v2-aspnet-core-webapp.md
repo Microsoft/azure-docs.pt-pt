@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 04d13786dc731627ba2000ab6069ea06ed3183ba
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190858"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565465"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -86,6 +86,10 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
 
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Este início rápido suporta Enter_the_Supported_Account_Info_Here.
+
 > [!div renderon="docs"]
 > Em que:
 > - `Enter_the_Application_Id_here` -é o **ID da aplicação (cliente)** para a aplicação que registou no portal do Azure. Pode encontrar **ID da aplicação (cliente)** da aplicação **descrição geral** página.
@@ -95,7 +99,7 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -143,7 +147,7 @@ A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de ide
 > |Onde  |  |
 > |---------|---------|
 > | ClientId  | ID da aplicação (cliente) da aplicação registada no portal do Azure. |
-> | Autoridade | O ponto de extremidade STS para autenticar o usuário. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o ID de inquilino, ou *comuns* para obter uma referência para o ponto de extremidade comum (utilizado para aplicações multi-inquilino) |
+> | autoridade | O ponto de extremidade STS para autenticar o usuário. Normalmente, isto é <https://login.microsoftonline.com/{tenant}/v2.0> para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o ID de inquilino, ou *comuns* para obter uma referência para o ponto de extremidade comum (utilizado para aplicações multi-inquilino) |
 > | TokenValidationParameters | Uma lista de parâmetros para a validação do token. Neste caso, `ValidateIssuer` está definido como `false` para indicar que ele pode aceitar inícios de sessão de qualquer pessoais, ou contas escolares ou profissionais. |
 
 

@@ -8,17 +8,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/28/2019
+ms.openlocfilehash: 52041ba3c057e871b60f283f293dd79a18f3b21e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61409086"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508752"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Início rápido: Utilize o editor de consultas SQL do portal do Azure para ligar e consultar dados
 
@@ -32,14 +32,14 @@ Para concluir este tutorial, precisa de:
 
   || Base de dados individual |
   |:--- |:--- |
-  | Criar| [Portal](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)| 
+  | Criar| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Certifique-se de que o **permitir acesso aos serviços do Azure** opção estiver definida como **ON** nas definições de firewall do SQL server. Esta opção dá ao acesso de editor de consulta SQL às suas bases de dados e armazéns de dados.
+> O editor de consultas utiliza as portas 443 e 1443 para comunicar.  Certifique-se de que ativou o tráfego HTTPS de saída nessas portas. Também terá de adicionar o seu endereço IP de saída para regras de firewall permitidos do servidor para aceder às suas bases de dados e armazéns de dados.
 
 ## <a name="sign-in-the-azure-portal"></a>Inicie sessão no portal do Azure
 
@@ -49,13 +49,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **bases de dados SQL** no menu do lado esquerdo e, em seguida, selecione **mySampleDatabase**.
 
-2. No menu da esquerda, localize e selecione **editor de consultas (pré-visualização)**. O **início de sessão** é apresentada a página.
+2. No menu da esquerda, localize e selecione **editor de consultas (pré-visualização)** . O **início de sessão** é apresentada a página.
 
     ![encontrar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 3. Partir do **tipo de autorização** menu pendente, selecione **autenticação do SQL Server** e introduza o ID de utilizador e palavra-passe da conta de administrador de servidor utilizada para criar a base de dados.
 
-    ![iniciar sessão](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![iniciar sessão](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Selecione **OK**.
 
@@ -78,8 +78,8 @@ Configurar um administrador do Active Directory (AD) permite-lhe utilizar uma id
 
 4. A partir do AD admin página barra de ferramentas, selecione **guardar**.
 
-5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)**. O **início de sessão** é apresentada a página. Se for um administrador do AD, em seguida, no lado direito, em **do Active Directory início de sessão único**, é apresentada uma mensagem dizendo que tiver sido iniciado sessão. 
-   
+5. Navegue para o **mySampleDatabase** da base de dados e, no menu esquerdo, selecione **editor de consultas (pré-visualização)** . O **início de sessão** é apresentada a página. Se for um administrador do AD, em seguida, no lado direito, em **do Active Directory início de sessão único**, é apresentada uma mensagem dizendo que tiver sido iniciado sessão.
+
 6. Selecione **OK**.
 
 
@@ -160,7 +160,7 @@ Execute o seguinte [eliminar](https://msdn.microsoft.com/library/ms189835.aspx) 
 
 Existem alguns aspetos a saber ao trabalhar com o editor de consultas.
 
-* Não é possível utilizar o editor de consultas para consultar bancos de dados do SQL server numa rede Virtual.
+* O editor de consultas utiliza as portas 443 e 1443 para comunicar.  Certifique-se de que ativou o tráfego HTTPS de saída nessas portas. Também terá de adicionar o seu endereço IP de saída para regras de firewall permitidos do servidor para aceder às suas bases de dados e armazéns de dados.
 
 * Prima F5 atualiza a página do editor de consultas e qualquer consulta a ser executada é perdida.
 

@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 07/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cc03cbcffc5253e8b357b6702cd21c45740ff81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514494"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560454"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
@@ -25,29 +25,31 @@ Para obter uma lista completa de regiões disponíveis, consulte [AKS regiões e
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS suporta o dimensionamento automático de nó?
 
-Sim, está disponível através do dimensionamento automático a [dimensionamento automático do Kubernetes] [ auto-scaler] no momento da elaboração 1.10 de Kubernetes. Para obter informações sobre como configurar e utilizar o dimensionamento automático do cluster manualmente, consulte [dimensionamento automático de Cluster no AKS][aks-cluster-autoscale].
-
-Também pode utilizar o dimensionamento automático de cluster incorporados (atualmente em pré-visualização no AKS) para gerir o dimensionamento de nós. Para obter mais informações, consulte [Dimensionar automaticamente um cluster para atender às necessidades de aplicações no AKS][aks-cluster-autoscaler].
-
-## <a name="does-aks-support-kubernetes-rbac"></a>O AKS suporta RBAC do Kubernetes?
-
-Sim, Kubernetes controlo de acesso baseado em funções (RBAC) está ativado por predefinição, quando os clusters são criados com a CLI do Azure. Pode habilitar o RBAC para os clusters que foram criadas com o portal do Azure ou modelos.
+Sim, a capacidade de dimensionar automaticamente nós de agente horizontalmente no AKS está atualmente disponível em pré-visualização. Ver [Dimensionar automaticamente um cluster para atender às necessidades de aplicações no AKS][aks-cluster-autoscaler] for instructions. AKS autoscaling is based on the [Kubernetes autoscaler][auto-scaler].
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Pode implementar AKS em minha rede virtual existente?
 
 Sim, pode implementar um cluster do AKS numa rede virtual existente ao utilizar o [funcionalidade de rede avançada][aks-advanced-networking].
 
+## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Posso limitar quem tem acesso ao servidor de API do Kubernetes?
+
+Sim, pode limitar o acesso para o servidor de API do Kubernetes utilizando [API servidor autorizado intervalos de IP][api-server-authorized-ip-ranges], que está atualmente em pré-visualização.
+
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Posso fazer o servidor de API do Kubernetes acessível apenas dentro da minha rede virtual?
 
-Neste momento, não. O servidor de API do Kubernetes é exposto como um público (FQDN) do nome de domínio completamente qualificado. Pode controlar o acesso ao seu cluster, utilizando [RBAC de Kubernetes e o Azure Active Directory (Azure AD)][aks-rbac-aad].
+Não neste momento, mas isso está previsto. Pode controlar o progresso no [repositório do GitHub do AKS][private-clusters-github-issue].
+
+## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Pode ter diferentes tamanhos de VM num único cluster?
+
+Sim, pode utilizar tamanhos de máquinas virtuais no cluster do AKS, criando [vários conjuntos de nós][multi-node-pools], que está atualmente em pré-visualização.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Atualizações de segurança são aplicadas a nós de agente do AKS?
 
 Azure aplica automaticamente patches de segurança para os nós do Linux no seu cluster com base numa agenda noturna. No entanto, é responsável por assegurar que esses nós são reiniciados como de Linux necessários. Tem várias opções para reiniciar nós:
 
 - Manualmente, por meio do portal do Azure ou a CLI do Azure.
-- Ao atualizar o seu cluster do AKS. As atualizações de cluster [cordão e drenagem de nós] [ cordon-drain] automaticamente e, em seguida, colocar um novo nó online com a imagem mais recente do Ubuntu e uma nova versão de patch ou uma versão secundária do Kubernetes. Para obter mais informações, consulte [atualizar um cluster do AKS][aks-upgrade].
-- Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza cada nó para a presença de um ficheiro que indica que é necessário um reinício. No cluster, os reinícios de sistema operacional são geridos pelo mesmo [cordão e drenagem processo] [ cordon-drain] como uma atualização do cluster.
+- Ao atualizar o seu cluster do AKS. As atualizações de cluster [cordão e drenagem de nós][cordon-drain] automatically and then bring a new node online with the latest Ubuntu image and a new patch version or a minor Kubernetes version. For more information, see [Upgrade an AKS cluster][aks-upgrade].
+- Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitoriza cada nó para a presença de um ficheiro que indica que é necessário um reinício. No cluster, os reinícios de sistema operacional são geridos pelo mesmo [cordão e drenagem processo][cordon-drain] como uma atualização do cluster.
 
 Para obter mais informações sobre como utilizar kured, consulte [aplicar atualizações de segurança e de kernel para nós no AKS][node-updates-kured].
 
@@ -68,7 +70,7 @@ Se criar recursos para utilizar com o seu cluster do AKS, como contas de armazen
 
 Sim. Por predefinição, o fornecedor de recursos do AKS cria automaticamente um grupo de recursos secundários (como *MC_myResourceGroup_myAKSCluster_eastus*) durante a implementação. Para estar em conformidade com a política empresarial, pode fornecer seu próprio nome para este cluster gerido (*MC_* ) grupo de recursos.
 
-Para especificar o seu próprio nome de grupo de recursos, instalar o [pré-visualização do aks] [ aks-preview-cli] versão da extensão da CLI do Azure *0.3.2* ou posterior. Quando cria um cluster do AKS com o [criar az aks] [ az-aks-create] comando, utilize o *– grupo de recursos de nó* parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo Azure Resource Manager] [ aks-rm-template] para implementar um cluster do AKS, pode definir o nome do grupo de recursos, utilizando o *nodeResourceGroup* propriedade.
+Para especificar o seu próprio nome de grupo de recursos, instalar o [pré-visualização do aks][aks-preview-cli] versão de extensão da CLI do Azure *0.3.2* ou posterior. Quando cria um cluster do AKS com o [criar az aks][az-aks-create] comando, utilize o *– grupo de recursos de nó* parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo Azure Resource Manager][aks-rm-template] para implementar um cluster do AKS, pode definir o nome do grupo de recursos, utilizando o *nodeResourceGroup* propriedade.
 
 * O grupo de recursos secundário é criado automaticamente pelo fornecedor de recursos do Azure na sua própria subscrição.
 * Pode especificar um nome de grupo de recursos personalizado apenas quando estiver a criar o cluster.
@@ -104,7 +106,7 @@ Atualmente, não é possível modificar a lista de controladores de admissão no
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault está integrado com o AKS?
 
-AKS nativamente atualmente não é integrado com o Azure Key Vault. No entanto, o [FlexVolume de Cofre de chave do Azure para o projeto de Kubernetes] [ keyvault-flexvolume] permite direcionar a integração de pods do Kubernetes para segredos do Key Vault.
+AKS nativamente atualmente não é integrado com o Azure Key Vault. No entanto, o [FlexVolume de Cofre de chave do Azure para o projeto de Kubernetes][keyvault-flexvolume] permite direcionar a integração de pods do Kubernetes para segredos do Key Vault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Pode executar contentores do Windows Server no AKS?
 
@@ -131,7 +133,7 @@ Os utilizadores não é possível substituir o mínimo `maxPods` validação.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar o desconto de reserva do Azure para meus nós de agente do AKS?
 
-Nós de agente do AKS são faturados como máquinas virtuais do Azure standard, por isso, se tiver comprado [reservas do Azure] [ reservation-discounts] para o tamanho da VM que está a utilizar no AKS, são automaticamente aplicados esses descontos.
+Nós de agente do AKS são faturados como máquinas virtuais do Azure standard, por isso, se tiver comprado [reservas Azure][reservation-discounts] para o tamanho da VM que está a utilizar no AKS, são automaticamente aplicados esses descontos.
 
 <!-- LINKS - internal -->
 
@@ -144,12 +146,14 @@ Nós de agente do AKS são faturados como máquinas virtuais do Azure standard, 
 [node-updates-kured]: node-updates-kured.md
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
-[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
+[aks-rm-template]: /azure/templates/microsoft.containerservice/2019-06-01/managedclusters
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
 [aks-windows-limitations]: windows-node-limitations.md
 [reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
+[multi-node-pools]: ./use-multiple-node-pools.md
 
 <!-- LINKS - external -->
 
@@ -158,3 +162,4 @@ Nós de agente do AKS são faturados como máquinas virtuais do Azure standard, 
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948

@@ -3,7 +3,7 @@ title: Adicionar notificações push à aplicação xamarin. Android | Documento
 description: Saiba como utilizar o serviço de aplicações do Azure e os Hubs de notificação do Azure para enviar notificações push à sua aplicação xamarin. Android
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: f2c58d64a662a6e2be355c1f672c01e5a679b3f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: cff0845b555f25fce438f3389e1f97cda0450bc3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127947"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447129"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Adicionar notificações push à aplicação Xamarin.Android
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-push) hoje mesmo.
+>
 
 ## <a name="overview"></a>Descrição geral
 

@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753054"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443958"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explore e preparar dados com a classe de conjunto de dados (pré-visualização)
 
 Saiba como a exploração e preparar dados com o pacote de conjuntos de dados azureml na [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). O [conjunto de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (pré-visualização) permite-lhe explorar e prepare os seus dados, fornecendo funções, tais como: amostragem, estatísticas de resumo e transformações inteligentes. Passos de transformação são guardados num [definições do conjunto de dados](how-to-manage-dataset-definitions.md) com a capacidade de lidar com vários arquivos grandes com esquemas diferentes de uma maneira altamente escalonável.
 
 > [!Important]
-> Algumas classes de conjunto de dados (pré-visualização) tem dependências do [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pacote (GA). Embora as funções de transformação podem ser feitas diretamente com o GA'ed [funções de preparação de dados](how-to-transform-data.md), recomendamos que os invólucros de pacote do conjunto de dados descritos neste artigo, se estiver a criar uma nova solução. O Azure Machine Learning conjuntos de dados (pré-visualização) permitem que não só transformar os seus dados, mas também [dados de instantâneos](how-to-create-dataset-snapshots.md) e armazenar [definições do conjunto de dados com a versão](how-to-manage-dataset-definitions.md). Conjuntos de dados é a próxima versão do SDK do preparação de dados, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados.
+> Algumas classes de conjunto de dados (pré-visualização) tem dependências do [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pacote (GA). Embora as funções de transformação podem ser feitas diretamente com o GA'ed [funções de preparação de dados](how-to-transform-data.md), recomendamos que os invólucros de pacote do conjunto de dados descritos neste artigo, se estiver a criar uma nova solução. O Azure Machine Learning conjuntos de dados (pré-visualização) permitem que não só transformar os seus dados, mas também [dados de instantâneos](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) e armazenar [definições do conjunto de dados com a versão](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Conjuntos de dados é a próxima versão do SDK do preparação de dados, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
+||id|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|ENGANOSA PRÁTICA|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
+||id|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|ENGANOSA PRÁTICA|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
+||id|Número de caso|Date|Bloquear|IUCR|Tipo de principal|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|ROUBO|...
@@ -117,9 +117,9 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Tipo|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
+||Type|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Número de caso|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Bloquear|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -162,7 +162,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||ID|Prisão| Latitude|Longitude|
+||id|Prisão| Latitude|Longitude|
 -|---------|-----|---------|----------|
 |0|10498554|Falso|41.692834|-87.604319|
 |1|10516598|Falso| 41.744107 |-87.664494|
@@ -215,7 +215,7 @@ ds_def.head(3)
 
 Conforme mostrado na seguinte tabela de saída, a latitude em falta foi imputed com o `MEAN` valor de `Arrest==False` grupo e a longitude em falta foi imputed com-87.
 
-||ID|Prisão|Latitude|Longitude
+||id|Prisão|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|Falso|41.692834|-87.604319
 1|10516598|Falso|41.744107|-87.664494
@@ -228,7 +228,7 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||ID|Prisão|Latitude|Longitude
+||id|Prisão|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|Falso|41.692834|-87.604319
 1|10516598|Falso|41.744107|-87.664494
@@ -256,9 +256,9 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Tipo|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
+||Type|Mín.|Máx.|Contagem|Contagem de em falta|Não tem em falta contagem|Percentagem em falta|Contagem de erros|Contagem de vazia|0,1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99,9% Quantile|média|Desvio padrão|Variância|Assimetrias|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Prisão|FieldType.BOOLEAN|Falso|Falso|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|0.0|10.0|0.0|0.0|0.0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1,05
 Longitude|FieldType.INTEGER|-87|-87|10.0|0.0|10.0|0.0|3.0|0.0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Número de caso|Date|Bloquear|...|
+||id|Número de caso|Date|Bloquear|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Na tabela a seguir, tenha em atenção que uma nova coluna, Date_Time_Range contém registos no formato especificado.
 
-||ID|Date|Date_Time_Range
+||id|Date|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10 PM-12 AM
 1|10516598|2016-04-15 17:00:00|2016 A 04-15 PM DE 4-6 PM
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-* [Gerir o ciclo de vida de definições do conjunto de dados de](how-to-manage-dataset-definitions.md).
 
 * Consulte o automatizada de machine learning [tutorial](tutorial-auto-train-models.md) para obter um exemplo de modelo de regressão.
 

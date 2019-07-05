@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd75ba9d407399703a382596019d5f370808b20a
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992002"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543670"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Como utilizar tópicos do Service Bus e as subscrições com Python
 
@@ -79,9 +79,9 @@ bus_service.create_topic('mytopic', topic_options)
 Subscrições de tópicos também são criadas com o **ServiceBusService** objeto. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da subscrição.
 
 > [!NOTE]
-> As assinaturas são persistentes e continuarão a existir até a eles ou tópico em que está inscrito, são eliminados.
+> Por predefinição, as subscrições são persistentes e continuarão a existir até a eles ou tópico em que está inscrito, são eliminados.
 > 
-> 
+> Pode ter as subscrições são eliminadas automaticamente ao definir o [auto_delete_on_idle propriedade](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
 
@@ -95,7 +95,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 Também pode definir filtros que permitem-lhe especificar que as mensagens enviadas para um tópico devem aparecer no espaço de uma subscrição de tópico específico.
 
-O tipo mais flexível de filtro suportado pelas subscrições é um **SqlFilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais informações sobre as expressões que podem ser utilizadas com um filtro de SQL, veja a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+O tipo mais flexível de filtro suportado pelas subscrições é um **SqlFilter**, que implementa um subconjunto de SQL92. Os filtros do SQL operam nas propriedades das mensagens publicadas para o tópico. Para obter mais informações sobre as expressões que podem ser utilizadas com um filtro do SQL, veja a sintaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Pode adicionar filtros a uma subscrição, utilizando o **crie\_regra** método da **ServiceBusService** objeto. Este método permite-lhe adicionar novos filtros a uma subscrição existente.
 
@@ -178,7 +178,7 @@ No caso de falha da aplicação após o processamento da mensagem, mas antes a `
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
 
-Tópicos e subscrições são persistentes e tem de ser explicitamente eliminada através da [portal do Azure] [ Azure portal] ou programaticamente. O exemplo seguinte mostra como eliminar o tópico com o nome `mytopic`:
+Tópicos e subscrições são persistentes, a menos que o [auto_delete_on_idle propriedade](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) está definido. Eles podem ser eliminada através da [portal do Azure][Azure portal] ou programaticamente. O exemplo seguinte mostra como eliminar o tópico com o nome `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

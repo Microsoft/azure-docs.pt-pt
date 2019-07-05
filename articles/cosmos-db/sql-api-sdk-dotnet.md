@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d34da8928e06f04756e24f5cc3e4c430c2892f79
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4f502984a09f81b5aaf0568c84b75832f8164151
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341591"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541056"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK para a API de SQL: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -48,13 +48,18 @@ ms.locfileid: "67341591"
 * Suporte para fluxos. 
 * Atualizado CosmosResponseMessage de servidor para devolver o código de estado e apenas lançar a exceção quando nenhuma resposta é devolvida. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* Versão do SDK de System.Net.Http corresponde agora o que é definido no pacote NuGet.
+* Permitir pedidos de escrita de reversão para uma região diferente se original um falhar.
+* Adicione política de repetição de sessão para solicitação de gravação.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Correções de rastreio a condição de corrida para consultas que causou a páginas em branco
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* Versão do SDK de System.Net.Http corresponde ao que é definido no pacote NuGet
 * Aumentar o tamanho de precisão decimal de consultas LINQ.
 * Foi adicionados novas classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType e PartitionKeyDefinitionVersion
 * Foi adicionado TimeToLivePropertyPath para DocumentCollection
@@ -379,6 +384,7 @@ Todos os pedidos para o Azure Cosmos DB com um SDK extinto são rejeitados pelo 
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |02 de Julho de 2019 |--- |
 | [2.4.1](#2.4.1) |20 de Junho de 2019 |--- |
 | [2.4.0](#2.4.0) |05 de Maio de 2019 |--- |
 | [2.3.0](#2.3.0) |04 de Abril de 2019 |--- |

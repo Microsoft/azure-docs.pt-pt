@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 16041d2b7a971c9ba479c133261930b38d130792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77e7aec1797a4b33068430371ba0969d1737746e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252788"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508790"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas utilizadas pelos serviços do Apache Hadoop no HDInsight
 
@@ -41,7 +41,7 @@ Todos os nós num cluster do HDInsight estão localizados numa rede Virtual do A
 | sshd |23 |SSH |Liga-se os clientes para sshd no nó principal secundário. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |IU web do Ambari. Consulte [gerir o HDInsight com a IU do Apache Ambari Web](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API de REST do Ambari. Consulte [gerir o HDInsight com a API de REST do Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |API de REST do HCatalog. Ver [utilizar o Apache Hive com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o Apache Pig com o Curl](hadoop/apache-hadoop-use-pig-curl.md), [utilizar o MapReduce com Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat |443 |HTTPS |API de REST do HCatalog. Consulte [utilizar o MapReduce com Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Liga-se usar o ODBC do Hive. Ver [ligar o Excel ao HDInsight com o controlador Microsoft ODBC](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Liga ao ApacheHive usando o JDBC. Consulte [ligar ao Apache Hive no HDInsight com o controlador JDBC do Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 

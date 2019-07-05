@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2019
-ms.openlocfilehash: 0086327661df637dc0ae60208ed9424b4610ef0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28eb7c6a11f71fa87835bcfe78e635753965bac3
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969496"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561239"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Limites no Azure Cosmos DB
 
@@ -37,7 +37,6 @@ Depois de criar uma conta do Cosmos do Azure com a sua subscrição, pode gerir 
 
 Um contentor do Cosmos (ou a base de dados da taxa de transferência partilhada) tem de ter um débito mínimo de 400 RUs. À medida que aumenta o contentor, o débito suportado mínimo depende também os seguintes fatores:
 
-* O armazenamento máximo consumido no contêiner é medido em incrementos de 40 RU por GB de armazenamento consumido. Por exemplo, se um contêiner contém 100 GB de dados, em seguida, a taxa de transferência tem de ser, pelo menos, 4000 RUs
 * O débito máximo que alguma vez aprovisionado no contentor. O serviço suporta a reduzir o débito de um contentor para 10% do máximo aprovisionado. Por exemplo, se o débito foi aumentado para 10000 RU, em seguida, o débito mais baixo possível seria 1000 RUs
 * O número total de contentores que já tenha criado numa base de dados partilhado débito, medido em 100 RUs por contentor. Por exemplo, se tiver criado cinco contentores dentro de uma base de dados da taxa de transferência partilhada, em seguida, a taxa de transferência tem de ser, pelo menos, 500 RUs
 
@@ -48,7 +47,6 @@ O débito atual e mínimo de um contentor ou uma base de dados pode ser obtido a
 | RUs mínimas por contentor ([modo de aprovisionamento do débito dedicado](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | RUs mínimas por base de dados ([modo de aprovisionamento de taxa de transferência partilhada](databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | RUs mínimas por contentor dentro de uma base de dados da taxa de transferência partilhada | 100 |
-| RUs mínimas por GB de armazenamento consumido | 40 |
 
 O cosmos DB suporta o dimensionamento elástico de débito (RUs) por contentor ou a base de dados através de SDKs ou o portal. Cada contentor pode dimensionar de forma síncrona e imediatamente dentro de um intervalo de dimensionamento de 10 a 100 vezes, entre os valores mínimos e máximo. Se o valor de débito pedido está fora do intervalo, dimensionamento é executado de forma assíncrona. Dimensionamento assíncrono pode demorar horas a concluir consoante o pedido de débito e o tamanho de armazenamento de dados no contentor de minutos.  
 

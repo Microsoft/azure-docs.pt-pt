@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728914"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448749"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analisar registos de sites com uma biblioteca de Python personalizada com o cluster do Apache Spark no HDInsight
 
 Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com Apache Spark no HDInsight. A biblioteca personalizada, podemos usar é uma biblioteca de Python chamada **iislogparser.py**.
 
 > [!TIP]  
-> Este tutorial também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para executar o tutorial a partir de um bloco de notas, crie um cluster do Spark, iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o bloco de notas **analisar registos com o Spark com um library.ipynb personalizado** sob o **PySpark**  pasta.
+> Este artigo também está disponível como um bloco de notas do Jupyter num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para efetuar o artigo a partir de um bloco de notas, crie um cluster do Spark, iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o bloco de notas **analisar registos com o Spark com um library.ipynb personalizado** sob o **PySpark** pasta.
 >
 >
 

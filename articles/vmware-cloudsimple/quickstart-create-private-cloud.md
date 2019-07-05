@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8a67cd2f82eb069555bda68e4cb04a6634e3b31d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164361"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476033"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido - configurar um ambiente de nuvem privada
 
@@ -187,7 +187,10 @@ Pode encontrar o nome de domínio completamente qualificado (FQDN) e o endereço
 
     ![Localizar NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
 
-Para alterar a palavra-passe, siga as instruções em [NSX Manager Installation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
+Para alterar a palavra-passe, siga as instruções em [gerir a palavra-passe de um utilizador](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
+
+> [!WARNING]
+> Por predefinição, a palavra-passe de administrador do NSX expira após 90 dias.
 
 ## <a name="create-a-port-group"></a>Criar um grupo de portas
 

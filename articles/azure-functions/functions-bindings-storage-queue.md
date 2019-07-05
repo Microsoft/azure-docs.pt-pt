@@ -4,7 +4,7 @@ description: Compreenda como utilizar o acionador do armazenamento de filas do A
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472290"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480145"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -307,7 +307,7 @@ O acionador de fila automaticamente impede que uma função de processamento de 
 
 O [Host. JSON](functions-host-json.md#queues) ficheiro contém as definições que controlam o comportamento de Acionador de fila. Consulte a [definições de Host. JSON](#hostjson-settings) secção para obter detalhes sobre as definições disponíveis.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Utilize a saída de armazenamento de filas do Azure ao escrever as mensagens numa fila de enlace.
 

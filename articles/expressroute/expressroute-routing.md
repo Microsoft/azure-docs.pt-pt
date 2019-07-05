@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dd5f01c915c658903e87a91992753065c59dfa63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6c475ab0a2e47cf654d1299a4c5638b34fb5e4b6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054263"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508530"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -210,6 +210,7 @@ Todas as rotas anunciadas a partir da Microsoft serão etiquetadas com o valor d
 > 
 > 
 
+### <a name="service-to-bgp-community-value"></a>Serviço para o valor da Comunidade BGP
 Para além do que foi dito acima, a Microsoft também marcará prefixos baseados no serviço a que pertencem. Este caso aplica-se apenas ao peering da Microsoft. A tabela abaixo fornece um mapeamento de serviço para o valor das comunidades de BGP.
 
 | **Serviço** | **Valor da comunidade BGP** |

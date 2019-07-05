@@ -3,7 +3,7 @@ title: Como utilizar o plug-in do Apache Cordova para aplicações móveis do Az
 description: Como utilizar o plug-in do Apache Cordova para aplicações móveis do Azure
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 327cb3a3667c63454549ec694790769c9ea1fd58
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109581"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446425"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Como utilizar a biblioteca de clientes do Apache Cordova para aplicações móveis do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library) hoje mesmo.
+>
+
+## <a name="overview"></a>Descrição geral
 Este guia ensina-lhe executar tarefas comuns com a versão mais recente [Plug-in do Apache Cordova para aplicações móveis do Azure]. Se estiver familiarizado com aplicações móveis do Azure, primeiro conclua [Início rápido de aplicações móveis do Azure] para criar um back-end, criar uma tabela e transfira um projeto do Apache Cordova criado previamente. Neste guia, vamos nos concentrar no plug-in do lado do cliente Apache Cordova.
 
 ## <a name="supported-platforms"></a>Plataformas suportadas
@@ -93,7 +98,7 @@ Vários tipos de aplicativos do Apache Cordova utilizam uma capacidade de loopba
 
 Siga estas instruções para adicionar as suas definições locais para a configuração:
 
-1. Inicie sessão no [Portal do Azure]
+1. Inicie sessão no [Azure portal]
 2. Selecione **todos os recursos** ou **dos serviços de aplicações** , em seguida, clique no nome da aplicação móvel.
 3. Clique em **ferramentas**
 4. Clique em **Explorador de recursos** no OBSERVE menu, em seguida, clique em **vá**.  É aberta uma nova janela ou separador.
@@ -113,7 +118,7 @@ Siga estas instruções para adicionar as suas definições locais para a config
 As definições são guardadas neste momento.  Não feche a janela do browser até que as definições sejam concluídas ao guardar.
 Adicione também estes URLs de loopback para as definições de CORS para o serviço de aplicações:
 
-1. Inicie sessão no [Portal do Azure]
+1. Inicie sessão no [Azure portal]
 2. Selecione **todos os recursos** ou **dos serviços de aplicações** , em seguida, clique no nome da aplicação móvel.
 3. O painel de definições abre-se automaticamente.  Se não, clicar **todas as definições**.
 4. Clique em **CORS** no menu de API.
@@ -170,7 +175,7 @@ Utilize o SDK dos Notification Hubs para enviar notificações push a partir do 
 Pode encontrar detalhes de API detalhadas em nossa [documentação da API](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Portal do Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Início rápido de aplicações móveis do Azure]: app-service-mobile-cordova-get-started.md
 [Introdução à autenticação]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

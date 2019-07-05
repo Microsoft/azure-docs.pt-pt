@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603454"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551514"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -107,7 +107,7 @@ Um fluxo típico inclui os seguintes passos:
 
 Ao longo deste processo, será notificado por e-mail sobre todas as alterações de estado. Para obter mais informações sobre o fluxo detalhado, aceda a [Implementar o Data Box no portal do Azure](data-box-deploy-ordered.md).
 
-## <a name="region-availability"></a>Disponibilidade regional
+## <a name="region-availability"></a>Disponibilidade de região
 
 Caixa de dados pode transferir dados com base na região em que o serviço é implementado, país/região ao qual o dispositivo é enviado e a conta de armazenamento do Azure onde transferir os dados de destino. 
 
@@ -116,6 +116,9 @@ Caixa de dados pode transferir dados com base na região em que o serviço é im
     - União Europeia - Europa Ocidental e Europa do Norte.
     - Reino Unido - Sul do Reino Unido e Oeste do Reino Unido.
     - França – França Central e Sul de França.
+    - Japão - leste do Japão e oeste do Japão.
+    - Austrália - leste da Austrália e Sudeste da Austrália.
+    - Canadá - leste do Canadá e Canadá Central.
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure onde o serviço estiver disponível.  
 

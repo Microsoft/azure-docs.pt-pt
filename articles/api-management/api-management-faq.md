@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: edc3c2ddcddaa8a51ae634a7abcd3a61aab530e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7e93dc12b9932fed90c7f9fa3145e56a3488b32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357255"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448029"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes de gestão de API do Azure
 Obtenha respostas para perguntas comuns, padrões e práticas recomendadas para a gestão de API do Azure.
@@ -65,7 +65,7 @@ Tem várias opções para proteger a ligação entre o gateway de gestão de API
 
 * Utilize a autenticação básica HTTP. Para obter mais informações, consulte [importar e publicar a sua primeira API](import-and-publish.md).
 * Utilizar a autenticação mútua de SSL, conforme descrito em [como proteger serviços de back-end com o cliente de autenticação de certificado na gestão de API do Azure](api-management-howto-mutual-certificates.md).
-* Utilize listas de permissões de IP do seu serviço de back-end. Em todos os escalões da gestão de API, o endereço IP do gateway permaneça constante, com algumas [advertências](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Pode definir a sua lista de permissões para permitir que este endereço IP. Pode obter o endereço IP da sua instância de gestão de API no Dashboard do portal do Azure.
+* Utilize listas de permissões de IP do seu serviço de back-end. Em todas as camadas de gestão de API com a exceção de camada de consumo, o endereço IP do gateway permaneça constante, com algumas [advertências](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Pode definir a sua lista de permissões para permitir que este endereço IP. Pode obter o endereço IP da sua instância de gestão de API no Dashboard do portal do Azure.
 * Ligue-se a sua instância de gestão de API a uma rede Virtual do Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Como eu copio minha instância de serviço de gestão de API para uma nova instância?

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 636086ce0d055ab8de1d1b95dbbf7e5d96c7d7ef
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950996"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483054"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -35,7 +35,7 @@ Por predefinição, o Azure AD emite um token SAML para a sua aplicação que co
 
 Para ver ou editar as declarações emitidas no SAML token para a aplicação, abra a aplicação no portal do Azure. Em seguida, abra a **atributos de utilizador e afirmações** secção.
 
-![Secção atributos de utilizador e afirmações](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
+![Abra a secção atributos de utilizador e afirmações no portal do Azure](./media/active-directory-saml-claims-customization/sso-saml-user-attributes-claims.png)
 
 Existem duas razões possíveis porque poderá ter de editar as declarações emitidas no SAML token:
 

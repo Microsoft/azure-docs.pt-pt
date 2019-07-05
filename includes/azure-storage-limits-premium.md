@@ -5,31 +5,23 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 03/23/2019
+ms.date: 07/01/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e878ca23b9187fe3175ad0af1b4f27e59e1deef6
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184467"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509899"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Armazenamento de BLOBs de blocos de desempenho Premium
 
 Uma conta de armazenamento de BLOBs de bloco de desempenho de premium é otimizada para aplicações que utilizam o menor, intervalo de kilobytes, objetos. É ideal para aplicativos que exigem as taxas de altas transações ou armazenamento de baixa latência consistente. Armazenamento de BLOBs de blocos de desempenho Premium foi concebido para escalar com as suas aplicações. Se planeia implementar aplicações que necessitam de centenas de milhares de pedidos por segundo ou petabytes de capacidade de armazenamento, contacte-ao submeter um pedido de suporte no [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="premium-performance-filestorage-preview"></a>Desempenho Premium FileStorage (pré-visualização)
+### <a name="premium-performance-filestorage"></a>FileStorage de desempenho Premium
 
-Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **FileStorage (pré-visualização)** . Este tipo de conta foi concebido para cargas de trabalho com elevada IOPS, débito elevado com baixa latência consistente. Armazenamento de ficheiros de Premium dimensiona-se com o tamanho da partilha aprovisionado.
-
-|Área  |Destino  |
-|---------|---------|
-|Max tamanho de aprovisionado     |100 TiB     |
-|Partilhas   |Ilimitado  |
-|IOPS     |100,000    |
-|Entrada|4,136 MiB/s     |
-|Saída|6,204 MiB/s |
+[!INCLUDE [azure-storage-limits-filestorage](azure-storage-limits-filestorage.md)]
 
  Para o ficheiro de premium, partilhar alvos de dimensionamento, consulte a [ficheiros Premium Dimensionar destinos](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) secção.
 

@@ -5,17 +5,17 @@ keywords: rbac de automatização, controlo de acesso baseado em funções , rba
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738838"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477720"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -232,6 +232,7 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Verificação de estado de inclusão - VM de leitura      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
 |Verifique o estado de carregamento - conta de leitura      | Microsoft.Automation/automationAccounts/read  |  Conta de automatização   |
 | Verificação de área de trabalho de integração para a VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscrição         |
+| Registar o fornecedor do Log Analytics |Microsoft.Insights/register/action | Subscrição|
 
 <sup>1</sup> esta permissão é necessária para carregar através da experiência de portal da VM.
 
@@ -251,6 +252,7 @@ As tabelas seguintes mostram as permissões necessárias mínimo necessárias pa
 |Criar/editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Criar/Editar configuração de âmbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabalho        |
 |Solução de ligação à configuração de âmbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
+| Registar o fornecedor do Log Analytics |Microsoft.Insights/register/action | Subscrição|
 |**Passo 2 - carregar várias VMs**     |         |         |
 |Painel VMOnboarding - extensão MMA criar     | Microsoft.Compute/virtualMachines/write           | Máquina virtual        |
 |Criar / editar pesquisa guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabalho        |

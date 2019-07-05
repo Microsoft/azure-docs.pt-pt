@@ -5,16 +5,16 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 5884bb5dc389e6abfd4fa23d28dd71ecd16ff423
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67347118"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509897"
 ---
 Imagens de padronizada de máquinas virtuais (VM) permitem às organizações migrar para a cloud e garantir a consistência nas Implantações. Imagens incluem, geralmente, as definições predefinidas de segurança e a configuração e de software necessárias. Definir o seu pipeline de processamento de imagens exige tempo, a infraestrutura e a configuração, mas com o construtor de imagens de VM do Azure, basta indicar uma configuração simples que descrevem a sua imagem, submetê-lo para o serviço e a imagem é criada e distribuída.
  
-O construtor de imagens de VM do Azure (construtor de imagens do Azure) permite-lhe começar com um Windows ou imagem da baseado em Linux do Azure Marketplace, as imagens personalizadas existentes ou ISO do Red Hat Enterprise Linux (RHEL) e começar a adicionar suas próprias personalizações. Porque o construtor de imagens baseia [HashiCorp Packer](https://packer.io/), também pode importar seus scripts de provisioner de shell Packer existentes. Também pode especificar onde pretende que suas imagens alojadas no Azure partilhado Galeria de imagens (virtual-machines-common-shared-image-galleries.md), como uma imagem gerida ou um VHD.
+O construtor de imagens de VM do Azure (construtor de imagens do Azure) permite-lhe começar com um Windows ou imagem da baseado em Linux do Azure Marketplace, as imagens personalizadas existentes ou ISO do Red Hat Enterprise Linux (RHEL) e começar a adicionar suas próprias personalizações. Porque o construtor de imagens baseia [HashiCorp Packer](https://packer.io/), também pode importar seus scripts de provisioner de shell Packer existentes. Também pode especificar onde pretende que suas imagens hospedadas, além da [Galeria de imagens do Azure partilhado](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), como uma imagem gerida ou um VHD.
 
 > [!IMPORTANT]
 > Construtor de imagens do Azure está atualmente em pré-visualização pública.
@@ -35,7 +35,7 @@ Para a pré-visualização, estas funcionalidades são suportadas:
 
 ## <a name="regions"></a>Regions
 O serviço de construtor de imagem do Azure vai estar disponível para pré-visualização nestas regiões. Imagens podem ser distribuídas fora nestas regiões.
-- EUA Leste
+- East US
 - EUA Leste 2
 - EUA Centro-Oeste
 - EUA Oeste
@@ -50,6 +50,12 @@ AIB oferecerá suporte a imagens de sistema operacional de bases do Azure Market
 - Windows 2016
 - Windows 2019
 
+AIB suportará RHEL ISO, como uma origem para:
+- RHEL 7.3
+- RHEL 7.4
+- RHEL 7.5
+
+A 7,6 RHEL não é suportado, mas que está sendo testado.
 
 ## <a name="how-it-works"></a>Como funciona
 

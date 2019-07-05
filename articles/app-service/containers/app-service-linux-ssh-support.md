@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 18d10afc9132c81c2dcfbb1aa17ded81a21336ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b54d5003f67a1bd79e1e52eef87df858bc68ade1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780033"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551915"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -51,7 +51,7 @@ Através de TCP de túnel, podem criar uma ligação de rede entre o computador 
 
 Para começar, tem de instalar [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como ele funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Abrir uma ligação remota à sua aplicação com o [az webapp remoto-ligação criar](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) comando. Especifique  _\<id da subscrição >_ ,  _\<grupo-name >_ e \__ < nome da aplicação > para a sua aplicação.
+Abrir uma ligação remota à sua aplicação com o [az webapp remoto-ligação criar](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) comando. Especificar  _\<id da subscrição >_ ,  _\<grupo-name >_ e \_ \<nome da aplicação > _ para a sua aplicação.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

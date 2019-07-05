@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991425"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566070"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar espaços de nomes standard do Azure Service Bus existentes para o escalão premium
 Anteriormente, o Azure Service Bus oferecido espaços de nomes apenas no escalão standard. Espaços de nomes são instalações de multi-inquilinos, que são otimizadas para baixo débito e de ambientes de programador. O escalão premium oferece recursos dedicados por espaço de nomes para latência previsível e maior débito por um preço fixo. O escalão premium está otimizado para débito elevado e ambientes de produção que necessitam de funcionalidades empresariais adicionais.
@@ -117,6 +117,28 @@ Migração com o portal do Azure tem o mesmo fluxo lógico como migrar com os co
 1. Reveja as alterações na página de resumo. Selecione **concluir a migração** para mudar de espaços de nomes e para concluir a migração.
     ![Alternar menu de comutador - espaço de nomes][] será exibida a página de confirmação quando a migração estiver concluída.
     ![Espaço de nomes do comutador - êxito][]
+
+## <a name="caveats"></a>Limitações
+
+Algumas das funcionalidades fornecidas pelo escalão Standard do Azure Service Bus não são suportadas pelo escalão Premium do Azure Service Bus. Estes são por design, uma vez que o escalão premium oferece recursos dedicados para débito previsível e a latência.
+
+Aqui está uma lista de funcionalidades não suportadas pelas suas redução - e Premium 
+
+### <a name="express-entities"></a>Entidades expressas
+
+   Entidades expressas que não Consolide a quaisquer dados de mensagem para o armazenamento não são suportadas na versão Premium. Recursos dedicados fornecido melhoramento do débito significativa, garantindo que os dados são mantidos, como é esperado a partir de qualquer sistema de mensagens empresariais.
+   
+   Durante a migração, qualquer uma das suas entidades expressas no seu espaço de nomes padrão será criado no espaço de nomes Premium como uma entidade não express.
+   
+   Se utilizar modelos do Azure Resource Manager (ARM), certifique-se que remova o sinalizador "enableExpress" da configuração de implementação para que os seus fluxos de trabalho automatizados executados sem erros.
+
+### <a name="partitioned-entities"></a>Entidades particionadas
+
+   Entidades particionadas eram suportadas no escalão Standard para fornecer a melhor disponibilidade numa configuração de multi-inquilino. Com o aprovisionamento de recursos dedicados disponíveis por espaço de nomes no escalão Premium, isso não é mais necessária.
+   
+   Durante a migração, qualquer entidade com partições no espaço de nomes padrão é criada no espaço de nomes Premium como uma entidade não particionada.
+   
+   Se o seu modelo ARM define enablePartitioning como 'true' para uma fila ou tópico específico, em seguida, ela será ignorada pelo broker.
 
 ## <a name="faqs"></a>FAQs
 

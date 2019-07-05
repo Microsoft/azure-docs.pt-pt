@@ -2,19 +2,19 @@
 title: 'Resolver problemas de falhas de cópia de segurança do Azure: Estado do agente convidado não disponível'
 description: Os sintomas, causas e resoluções de falhas de cópia de segurança do Azure relacionados com o agente de extensão e discos.
 services: backup
-author: genlin
-manager: cshepard
+author: saurabhsensharma
+manager: saurabhsensharma
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
-ms.author: genli
-ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: saurabhsensharma
+ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64914936"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565673"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791918"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447814"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
-Neste tópico, aprenderá como configurar o registo de telemetria de diagnóstico para a base de dados do Azure SQL através do portal do Azure, PowerShell, CLI do Azure, API de REST do Azure Monitor e modelo Azure Resource Manager. Estes diagnostics pode ser usado para medir a utilização de recursos e as estatísticas de execução de consulta. 
+Neste tópico, aprenderá como configurar o registo de telemetria de diagnóstico para a base de dados do Azure SQL através do portal do Azure, PowerShell, CLI do Azure, API de REST do Azure Monitor e modelo Azure Resource Manager. Estes diagnostics pode ser usado para medir a utilização de recursos e as estatísticas de execução de consulta.
 
 Instância bases de dados numa instância gerida podem transmitir em fluxo registos de diagnóstico e métricas para monitorização de desempenho mais fácil, bases de dados agrupadas em conjuntos elásticos e bases de dados individuais. Pode configurar uma base de dados para transmitir a utilização de recursos, funções de trabalho e sessões e conectividade a um dos seguintes recursos do Azure:
 
@@ -119,7 +119,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados dentro do conjunto elástico que pretende monitorizar ao seguir os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico de um conjunto elástico, terá também de configurar a telemetria de diagnóstico para cada base de dados no conjunto elástico, como documentado a seguir. 
+> Além de configurar a telemetria de diagnóstico de um conjunto elástico, terá também de configurar a telemetria de diagnóstico para cada base de dados no conjunto elástico, como documentado a seguir.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurar a transmissão em fluxo de telemetria de diagnóstico para a base de dados ou base de dados num conjunto elástico
 
@@ -181,7 +181,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados de instância dentro da instância gerida que pretende monitorizar, seguindo os passos descritos na secção seguinte.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico para uma instância gerida, terá também de configurar a telemetria de diagnóstico para cada instância da base de dados, como documentado a seguir. 
+> Além de configurar a telemetria de diagnóstico para uma instância gerida, terá também de configurar a telemetria de diagnóstico para cada instância da base de dados, como documentado a seguir.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurar a transmissão de telemetria de diagnóstico, por exemplo, bancos de dados
 
@@ -261,6 +261,7 @@ Forneça o ID de recurso da área de trabalho \<$WSID\> como um parâmetro ao ex
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Substitua \<subID\> com o ID de subscrição \<RG_NAME\> com o nome do grupo de recursos, e \<WS_NAME\> com o nome de área de trabalho.
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -397,10 +398,6 @@ Um nome de blob para o armazenamento de dados a partir de um conjunto elástico 
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>Transferir os registos e métricas do armazenamento
-
-Saiba como [transferir registos de diagnóstico e métricas do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
-
 ## <a name="data-retention-policy-and-pricing"></a>Política de retenção de dados e preços
 
 Se selecionar os Hubs de eventos ou uma conta de armazenamento, pode especificar uma política de retenção. Esta política elimina os dados que é mais antigos que um período de tempo selecionado. Se especificar o Log Analytics, a política de retenção depende do escalão de preço selecionado. Neste caso, as unidades gratuitas fornecidas de ingestão de dados, podem ativar gratuita monitorização de vários bancos de dados por mês. O consumo de telemetria de diagnóstico em excesso relativamente às unidades gratuitas pode implicar custos. Lembre-se de que as bases de dados ativas com cargas de trabalho mais pesadas ingerir mais dados do que as bases de dados inativos. Para obter mais informações, consulte [preços do Log analytics](https://azure.microsoft.com/pricing/details/monitor/).
@@ -441,7 +438,7 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: ResourceUsageStats |
 |Resource|O nome do recurso |
@@ -466,7 +463,7 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
@@ -517,7 +514,7 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
@@ -555,7 +552,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQ |
 |Category|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
@@ -570,7 +567,7 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |Message|Mensagem de erro em texto simples |
 |user_defined_b|É o bit de definidas pelo utilizador do erro |
 |error_number_d|Código de erro |
-|Gravidade|Gravidade do erro |
+|Severity|Gravidade do erro |
 |state_d|Estado do erro |
 |query_hash_s|Hash de consulta da consulta com falhas, se disponível |
 |query_plan_hash_s|Hash de plano de consulta da consulta com falhas, se disponível |
@@ -584,7 +581,7 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
@@ -613,7 +610,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
@@ -636,7 +633,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
@@ -660,7 +657,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: Deadlocks |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
@@ -681,7 +678,7 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TenantId|O ID de inquilino |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
 |Category|Nome da categoria. Sempre: AutomaticTuning |
 |Resource|O nome do recurso |
@@ -719,5 +716,3 @@ Para saber mais sobre os Hubs de eventos, leia:
 
 - [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Para saber mais sobre o armazenamento do Azure, veja [como transferir os registos de diagnóstico e métricas do armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

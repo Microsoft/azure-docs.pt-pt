@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/30/2019
-ms.openlocfilehash: 542813e0f82a1a52142a2b82bea3fdb101fdec28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077165"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433437"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar o tráfego de rede de saída para clusters do HDInsight do Azure através do Firewall (pré-visualização)
 
@@ -54,13 +54,13 @@ Sobre o **adicionar a coleção de regras de aplicação** ecrã, conclua os seg
 
 1. Introduza um **Name**, **prioridade**e clique em **permitir** do **ação** menu suspenso e introduza as seguintes regras no **Secção de etiquetas de FQDN** :
 
-   | **Nome** | **Endereço de origem** | **Etiqueta do FQDN** | **Notas** |
+   | **Name** | **Endereço de origem** | **Etiqueta do FQDN** | **Notas** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight e WindowsUpdate | Necessária para os serviços HDI |
 
 1. Adicione as seguintes regras para o **destino FQDNs secção** :
 
-   | **Nome** | **Endereço de origem** | **Porta de protocolo:** | **Destino FQDN** | **Notas** |
+   | **Name** | **Endereço de origem** | **Porta de protocolo:** | **Destino FQDN** | **Notas** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https:443 | login.windows.net | Permite que a atividade de início de sessão do Windows |
    | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.windows.net> | Se o cluster é apoiado pela WASB, em seguida, adicione uma regra para WASB. Para utilizar https apenas Certifique-se de ligações ["transferência segura necessária"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) está ativada na conta de armazenamento. |
@@ -78,7 +78,7 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
 1. Na **adicionar a coleção de regras de rede** ecrã, introduza um **nome**, **prioridade**e clique em **permitir** do **ação** menu pendente.
 1. Criar as regras seguintes no **endereços IP** secção:
 
-   | **Nome** | **Protocolo** | **Endereço de origem** | **Endereço de destino** | **Porta de destino** | **Notas** |
+   | **Name** | **Protocolo** | **Endereço de origem** | **Endereço de destino** | **Porta de destino** | **Notas** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Serviço de hora |
    | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se estiver a utilizar o pacote de segurança da empresa (ESP), em seguida, adicione uma regra de rede na secção de endereços IP que permite a comunicação com o AAD-DS para clusters do ESP. Pode encontrar os endereços IP dos controladores de domínio na secção de AAD-DS no portal | 
@@ -87,9 +87,9 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
 
 1. Criar as regras seguintes no **etiquetas de serviço** secção:
 
-   | **Nome** | **Protocolo** | **Endereço de origem** | **Etiquetas de serviço** | **Porta de destino** | **Notas** |
+   | **Name** | **Protocolo** | **Endereço de origem** | **Etiquetas de serviço** | **Porta de destino** | **Notas** |
    | --- | --- | --- | --- | --- | --- |
-   | Rule_7 | TCP | * | * | `1433,11000-11999,14000-14999` | Configure uma regra de rede na secção de etiquetas de serviço para o SQL que lhe permite iniciar sessão e auditar o tráfego SQL, a menos que os pontos finais de serviço que configurou para o SQL Server na sub-rede do HDInsight que irá ignorar a firewall. |
+   | Rule_7 | TCP | * | SQL | `1433` | Configure uma regra de rede na secção de etiquetas de serviço para o SQL que lhe permite iniciar sessão e auditar o tráfego SQL, a menos que os pontos finais de serviço que configurou para o SQL Server na sub-rede do HDInsight que irá ignorar a firewall. |
 
 1. Clique em **adicionar** para concluir a criação da sua coleção de regra de rede.
 
@@ -114,12 +114,12 @@ Por exemplo, para configurar a tabela de rotas para um cluster criado na região
 
 | Nome da rota | Prefixo de endereço | Tipo de salto seguinte | Endereço do próximo salto |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | N/D |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | N/D |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | N/D |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | N/D |
-| 13.67.223.215 | 13.67.223.215/32 | Internet | N/D |
-| 40.86.83.253 | 40.86.83.253/32 | Internet | N/D |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | ND |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | ND |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | ND |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | ND |
+| 13.67.223.215 | 13.67.223.215/32 | Internet | ND |
+| 40.86.83.253 | 40.86.83.253/32 | Internet | ND |
 | 0.0.0.0 | 0.0.0.0/0 | Aplicação virtual | 10.1.1.4 |
 
 Conclua a configuração da tabela de rota:

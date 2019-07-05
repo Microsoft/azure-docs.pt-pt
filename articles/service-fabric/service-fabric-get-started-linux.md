@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470234"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514193"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -87,8 +87,7 @@ Para instalar o SDK e o pacote de runtime associado através da ferramenta de li
 4. Adicione a chave nova do Gnu Privacy Guard (GnuPG ou GPG) ao porta-chaves do APT.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Adicione a chave de GPG oficial do Docker ao porta-chaves do APT.
@@ -107,8 +106,8 @@ Para instalar o SDK e o pacote de runtime associado através da ferramenta de li
 7. Adicionar chave de JDK Azul ao porta-chaves do APT e configurar o repositório.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Atualize as listas de pacotes com base nos repositórios adicionados recentemente.
@@ -179,8 +178,8 @@ O runtime do Service Fabric, que vem incluído com a instalação do SDK, inclui
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | mais recente |
-RHEL | - | OpenJDK 1.8 | Implícito de npm | mais recente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
+RHEL | - | OpenJDK 1.8 | Implícito de npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
 Inicie um cluster local após a conclusão da instalação.
@@ -216,7 +215,7 @@ O Service Fabric fornece ferramentas estruturais que o ajudam a criar aplicaçõ
 1. Instale Node.js e npm no seu computador.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```

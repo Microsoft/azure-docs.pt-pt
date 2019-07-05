@@ -9,18 +9,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 6/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0a76ecd12143e0bbaa9997bfc6d7295df9c4ec7
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1a9caf83c6f4cd4ed15290afc872043c11234552
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340865"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508713"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testar uma consulta do Stream Analytics com dados de exemplo
 
 Ao utilizar o Azure Stream Analytics, pode dados a partir de entradas de exemplo ou carregar dados de exemplo para testar consultas no portal do Azure sem iniciar ou parar uma tarefa.
 
-## <a name="upload-sample-data-and-test-the-query"></a>Carregar dados de exemplo e testar a consulta
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>Carregamento ou dados de exemplo de uma origem em direto para testar a consulta
 
 1. Inicie sessão no Portal do Azure. 
 
@@ -30,7 +30,7 @@ Ao utilizar o Azure Stream Analytics, pode dados a partir de entradas de exemplo
 
 4. Para testar a sua consulta pode, em seguida, optar por apresentar exemplos dos dados a partir de uma entrada em direto ou ao carregar a partir de um ficheiro. Os dados devem ser serializados no JSON, CSV ou AVRO. Entrada de exemplo tem de ser codificada em UTF-8 e não comprimida. Delimitador de vírgula (,) só é suportada para a testar entrada CSV no portal.
 
-    1. Com entrada em direto: com o botão direito em qualquer uma das suas entradas. Em seguida, selecione **dados de exemplo da entrada**. No ecrã seguinte, é possível definir a duração do exemplo.
+    1. Com entrada em direto: com o botão direito em qualquer uma das suas entradas. Em seguida, selecione **dados de exemplo da entrada**. No ecrã seguinte, é possível definir a duração do exemplo. Amostragem de eventos a partir de uma origem em direto irá obter até 1000 eventos ou 1 MB (o que acontecer primeiro), para que o objeto de amostragem de dados não podem representar o intervalo de tempo integral especificado.
 
     1. Utilizar o ficheiro: com o botão direito em qualquer uma das suas entradas. Em seguida, selecione **carregar dados de exemplo do ficheiro**. 
 

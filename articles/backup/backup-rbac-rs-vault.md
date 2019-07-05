@@ -2,18 +2,18 @@
 title: Gerir cópias de segurança com controlo de acesso baseado em funções do Azure "
 description: Utilize o controlo de acesso baseado em funções para gerir o acesso às operações de gestão de cópia de segurança no cofre dos serviços de recuperação.
 services: backup
-author: trinadhk
+author: utraghuv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.author: utraghuv
+ms.openlocfilehash: 3b4585422a36992241fb4839238b1f6aa46c659f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253734"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565646"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
@@ -23,7 +23,7 @@ O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão po
 
 Cópia de segurança do Azure fornece três funções incorporadas para controlar as operações de gestão de cópia de segurança. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
-* [Contribuidor de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-contributor) -esta função tem todas as permissões para criar e gerir a cópia de segurança, exceto criar cofre dos serviços de recuperação e fornecer acesso a outras pessoas. Imagine esta função como administrador da gestão de cópia de segurança que pode fazer todas as operações de gestão de cópia de segurança.
+* [Contribuidor de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-contributor) -esta função tem todas as permissões para criar e gerir a cópia de segurança, exceto a eliminar o Cofre dos serviços de recuperação e fornecer acesso a outras pessoas. Imagine esta função como administrador da gestão de cópia de segurança que pode fazer todas as operações de gestão de cópia de segurança.
 * [Operador de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-operator) -esta função tem permissões para tudo o que um contribuinte exceto de remoção de cópia de segurança e a gerir políticas de cópia de segurança. Esta função é equivalente ao Contribuidor, exceto que ele não é possível efetuar operações destrutivas como parar cópia de segurança com dados de eliminar ou remover registo de recursos no local.
 * [Leitor de cópia de segurança](../role-based-access-control/built-in-roles.md#backup-reader) -esta função tem permissões para ver todas as operações de gestão de cópia de segurança. Imagine esta função para ser uma pessoa de monitorização.
 
@@ -36,7 +36,7 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e corresp
 
 | Operação de gestão | Função RBAC mínima necessária | Âmbito necessário |
 | --- | --- | --- |
-| Criar cofre dos Serviços de Recuperação | Contribuinte | Grupo de recursos com o Cofre |
+| Criar cofre dos Serviços de Recuperação | Contribuidor de cópia de segurança | Grupo de recursos com o Cofre |
 | Ativar cópia de segurança de VMs do Azure | Operador de cópia de segurança | Grupo de recursos com o Cofre |
 | | Contribuinte de máquina virtual | Recurso de VM |
 | Cópia de segurança a pedido da VM | Operador de cópia de segurança | Recurso do Cofre de recuperação |
@@ -84,5 +84,5 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e a funç
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API REST](../role-based-access-control/role-assignments-rest.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Resolução de problemas de controlo de acesso baseado em funções](../role-based-access-control/troubleshooting.md): Obtenha sugestões para corrigir problemas comuns.

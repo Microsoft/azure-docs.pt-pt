@@ -2,27 +2,21 @@
 title: Como planear a implementação de associação híbrida do Azure Active Directory no Azure Active Directory (Azure AD) | Documentos da Microsoft
 description: Saiba como configurar dispositivos associados ao Azure Active Directory híbrido.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110600"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509605"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -83,7 +77,7 @@ Associação do Azure AD híbrido atualmente não é suportada se o seu ambiente
 
 Associação do Azure AD híbrido atualmente não é suportada quando utiliza a infraestrutura de ambiente de trabalho virtual (VDI).
 
-Azure AD híbrido não é suportado para TPMs compatíveis com FIPS. Se os seus dispositivos têm TPMs compatíveis com FIPS, deve desativá-las antes de continuar com a associação do Azure AD híbrido. A Microsoft não fornece quaisquer ferramentas para desabilitar o modo de FIPS para TPMs, pois é dependente de fabricante TPM. Entre em contato com seu hardware OEM para obter suporte.
+Associação do Azure AD híbrido não é suportada para TPMs compatíveis com FIPS. Se os seus dispositivos têm TPMs compatíveis com FIPS, deve desativá-las antes de continuar com a associação do Azure AD híbrido. A Microsoft não fornece quaisquer ferramentas para desabilitar o modo de FIPS para TPMs, pois é dependente de fabricante TPM. Entre em contato com seu hardware OEM para obter suporte.
 
 Associação do Azure AD híbrido não é suportada para o Windows Server a executar a função de controlador de domínio (DC).
 
@@ -99,13 +93,11 @@ Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azur
 - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001.
 - Esta alteração já está disponível para a versão do Windows 10 1803 com KB4489894 aplicada. No entanto, se tiver o Windows Hello para empresas configurada, o utilizador é necessário a re-configuração do Windows Hello para empresas após o estado de duplo de limpeza do wsu.
 
-
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Reveja a validação controlada de associação do Azure AD híbrido
 
 Quando todos os pré-requisitos estão em vigor, serão registado automaticamente dispositivos Windows como dispositivos no seu inquilino do Azure AD. O estado destas identidades de dispositivo no Azure AD é referido como a associação do Azure AD híbrido. Mais informações sobre os conceitos abordados neste artigo podem ser encontradas nos artigos [introdução à gestão de identidade de dispositivo no Azure Active Directory](overview.md) e [planear a sua associação do Azure Active Directory híbrida implementação](hybrid-azuread-join-plan.md).
 
 As organizações, poderão querer fazer uma validação controlada de associação do híbrida do Azure AD antes de a ativar toda a organização inteira ao mesmo tempo. Consulte o artigo [controlado a validação de associação do Azure AD híbrido](hybrid-azuread-join-control.md) para compreender como fazer isso.
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecione o seu cenário com base na sua infraestrutura de identidade
 
@@ -135,8 +127,6 @@ Com base no cenário que corresponde à sua infraestrutura de identidade, consul
 
 - [Configurar a associação ao Azure Active Directory de híbrido para o ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configurar a associação ao Azure Active Directory de híbrido para o ambiente gerido](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisão de suporte no local UPN do AD para associação ao Azure AD híbrido
 

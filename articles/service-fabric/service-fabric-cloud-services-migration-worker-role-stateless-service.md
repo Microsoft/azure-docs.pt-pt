@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110014"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550375"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric
 Este artigo descreve como migrar a sua Cloud dos serviços Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric. Este é o mais simples caminho de migração dos serviços Cloud para o Service Fabric para aplicativos cuja arquitetura geral vai manter-se mais ou menos o mesmo.
@@ -32,7 +32,7 @@ A diferença é que o projeto de serviço em nuvem vincula a implementação da 
 ![Comparação de projeto do Service Fabric e serviços em nuvem][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Função de trabalho para o serviço sem estado
-Conceitualmente, uma função de trabalho representa uma carga de trabalho sem monitorização de estado, que significa que todas as instâncias da carga de trabalho é idêntica e pedidos podem ser roteados para qualquer instância em qualquer altura. Cada instância não é esperada que lembre-se o pedido anterior. Estado de que a carga de trabalho opera em é gerido por um armazenamento de estado externo, como armazenamento de tabelas do Azure ou Azure Document DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para o Service Fabric pode ser feita ao converter o código de função de trabalho para um serviço sem estado.
+Conceitualmente, uma função de trabalho representa uma carga de trabalho sem monitorização de estado, que significa que todas as instâncias da carga de trabalho é idêntica e pedidos podem ser roteados para qualquer instância em qualquer altura. Cada instância não é esperada que lembre-se o pedido anterior. Estado de que a carga de trabalho opera em é gerido por um armazenamento de estado externo, como o armazenamento de tabelas do Azure ou do Azure Cosmos DB. No Service Fabric, esse tipo de carga de trabalho é representado por um serviço sem estado. A abordagem mais simples para migrar uma função de trabalho para o Service Fabric pode ser feita ao converter o código de função de trabalho para um serviço sem estado.
 
 ![Função de trabalho para o serviço sem estado][4]
 

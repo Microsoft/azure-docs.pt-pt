@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 3f502b84145b81153d5e39a03cca104d4285c581
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: bab7b4daf8b03115c73b6fbaefe352cecc761b6f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393432"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502996"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Início rápido: Programar com .NET Core no Kubernetes com espaços de desenvolvimento do Azure (Visual Studio Code)
 
@@ -191,7 +191,7 @@ ViewData["Message"] = "Your application description page in Azure while debuggin
 
 Guarde o ficheiro. Clique em *depurar* , em seguida, *reiniciar depuração* ou no *barra de ferramentas de depuração*, clique no *reiniciar depuração* botão.
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Abra o serviço num navegador e que a sua mensagem atualizada é exibida.
 

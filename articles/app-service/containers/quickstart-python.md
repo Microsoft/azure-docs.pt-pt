@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: cephalin
-ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e74c32226815fe799529084da75dbc196771dc53
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919616"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514530"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux
 
@@ -170,7 +170,7 @@ return "Hello Azure!"
 
 Guardar as alterações e sair do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
 
-Voltar a implementar a aplicação com o [ `az webapp up` ](/cli/azure/ext/webapp/webapp?view=azure-cli-latest.md#ext-webapp-az-webapp-up) comando. Substitua o nome da sua aplicação para `<app-name>`e especificar uma localização para `<location-name>` (através de um dos valores mostrados a partir do [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) comando).
+Voltar a implementar a aplicação com o [ `az webapp up` ](/cli/azure/webapp#az-webapp-up) comando. Substitua o nome da sua aplicação para `<app-name>`e especificar uma localização para `<location-name>` (através de um dos valores mostrados a partir do [ `az account list-locations` ](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) comando).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>

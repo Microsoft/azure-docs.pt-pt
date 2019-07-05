@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 5022d765b5dfa4f1f973b7fb4370d5314bb887b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 461df93400380ac74fa87eebc81fa06f77d7bf76
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60542877"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551658"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Como criar uma imagem de uma máquina virtual ou VHD
 
@@ -30,7 +30,9 @@ Para criar várias cópias de uma máquina virtual (VM) para utilização no Azu
 
 Para criar uma cópia da sua VM do Linux existente para a cópia de segurança ou de depuração ou para carregar um VHD especializado do Linux a partir de uma VM no local, consulte [carregar e criar uma VM do Linux a partir de imagem de disco personalizada](upload-vhd.md).  
 
-Também pode utilizar **Packer** para criar a configuração personalizada. Para obter mais informações, consulte [como utilizar o Packer para criar imagens de máquinas virtuais do Linux no Azure](build-image-with-packer.md).
+Pode utilizar o **construtor de imagens de VM do Azure (pré-visualização pública)** para criar a imagem personalizada, sem a necessidade de aprender quaisquer ferramentas de serviço ou programa de configuração criar pipelines, simplesmente fornecendo uma configuração de imagem, e o construtor de imagens irá criar a imagem. Para obter mais informações, consulte [introdução ao construtor de imagens de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+
+Além disso, utilize **Packer** para criar a configuração personalizada. Para obter mais informações, consulte [como utilizar o Packer para criar imagens de máquinas virtuais do Linux no Azure](build-image-with-packer.md).
 
 Terá dos seguintes itens antes de criar uma imagem:
 

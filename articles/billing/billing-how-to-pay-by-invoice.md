@@ -1,7 +1,6 @@
 ---
-title: Comprar subscrições do Azure por fatura | Documentos da Microsoft
-description: Descreve como comprar subscrições do Azure por fatura
-documentationcenter: ''
+title: Comprar subscrições do Azure por fatura
+description: Descreve como comprar subscrições do Azure por fatura.
 author: bandersmsft
 manager: jureid
 tags: billing
@@ -10,27 +9,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 7af8789d61069f37d34d07653177e839caf35304
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ca726ef737ce4750018d2461bc4bcd6c7ebb5f5
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076501"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491245"
 ---
-# <a name="pay-azure-subscription-by-invoice"></a>Pagar a subscrição do Azure por fatura
+# <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagar para a sua subscrição do Azure por fatura
 
-Se alternar para pagar por fatura, significa que paga a fatura dentro de 30 dias após a data da nota fiscal. Para se tornar elegível para pagar para a sua subscrição do Azure por fatura, submeta um pedido de suporte do Azure. Depois do pedido for aprovado, poderá optar por uma subscrição para o pagamento de nota fiscal no [portal do Azure](https://portal.azure.com).
+Se alternar para pagar por fatura, significa que paga a fatura dentro de 30 dias após a data da nota fiscal por transferência de verificação/durante a transmissão. Para se tornar elegível para pagar para a sua subscrição do Azure por fatura, submeta um pedido de suporte do Azure. Depois do pedido for aprovado, pode mudar para (transferência de verificação/durante a transmissão) de pagamento de nota fiscal no [portal do Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * O pagamento de nota fiscal só está disponível para contas de empresas.
+> * O pagamento de nota fiscal (transferência de verificação/durante a transmissão) só está disponível para contas de empresas.
 > * Tem de pagar todos os encargos pendentes antes de mudar para o pagamento de nota fiscal.
-> * Depois de mudar para o pagamento de nota fiscal, não é possível voltar a mudar para pagamento de cartão de crédito ou débito.
 
 ## <a name="request-to-pay-by-invoice"></a>Pedido para pagar por fatura
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Selecione **ajuda + suporte** > **novo pedido de suporte**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Selecione **ajuda + suporte** > **novo pedido de suporte**.
 
     ![Ajuda e suporte de ligação](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
@@ -70,12 +68,18 @@ Se alternar para pagar por fatura, significa que paga a fatura dentro de 30 dias
 
 Se necessário, execute uma verificação de crédito devido à quantidade de crédito que precisa, vai ser enviado, um crédito de verificar que o aplicativo.
 
-## <a name="switch-to-invoice-pay"></a>Mude para o pagamento de nota fiscal
+## <a name="switch-to-invoice-pay-checkwire-transfer"></a>Mudar para a nota fiscal paga (transferência de verificação/durante a transmissão)
 
-Assim que são aprovadas para pagar por fatura, pode mudar a sua subscrição do Azure para o método de pagamento da nota fiscal no [portal do Azure](https://portal.azure.com).
+Assim que são aprovadas para pagar por fatura, pode mudar (transferência de verificação/durante a transmissão) de pagamento de nota fiscal no portal do Azure.
 
-1. Início de sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
-1. Pesquisar nos **custo Management + faturação**.
+Se tiver uma conta do programa Microsoft Online Services, pode mudar a sua subscrição do Azure para verificação/durante a transferência. Se tiver um contrato de cliente da Microsoft, pode mudar seu perfil de faturação para verificação/durante a transferência. [Saiba como verificar o seu tipo de conta](#check-access-to-a-microsoft-customer-agreement).
+
+### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Mudar de subscrição do Azure para verificação/durante a transferência
+
+Siga os passos abaixo para mudar a sua subscrição do Azure para criar uma fatura pay (transferência de verificação/durante a transmissão). **Depois de mudar para (transferência de verificação/durante a transmissão) de pagamento de nota fiscal não é possível voltar a mudar para o cartão de crédito**.
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
+1. Procure **custo Management + faturação**.
 
     ![Captura de ecrã que mostra a pesquisa](./media/billing-how-to-pay-by-invoice/search.png)
 
@@ -85,9 +89,32 @@ Assim que são aprovadas para pagar por fatura, pode mudar a sua subscrição do
 
     ![Captura de ecrã que mostra pagar por botão de nota fiscal](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
+### <a name="switch-billing-profile-to-checkwire-transfer"></a>Mudar o perfil de faturação para verificação/durante a transferência
+
+Siga os passos abaixo para mudar de um perfil de faturação para verificação/durante a transferência. Tenha em atenção que apenas a pessoa que se inscreveu para o Azure pode alterar o método de pagamento padrão de um perfil de faturação.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Pesquisar nos **custo Management + faturação**.
+1. No menu à esquerda, clique em **perfis de faturação**.
+
+    ![captura de ecrã que mostra o perfil de faturação no menu](./media/billing-how-to-pay-by-invoice/billing-profile.png)
+
+1. Selecione um perfil de faturação.
+1. No menu à esquerda, selecione **métodos de pagamento**.
+
+   ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/billing-how-to-pay-by-invoice/billing-profile-payment-methods.png)
+
+1. Clique na faixa azul que diz a que está qualificado para pagar através de transferência de verificação/durante a transmissão.
+
+    ![Captura de ecrã que mostra uma faixa azul para mudar para verificação/durante a transmissão](./media/billing-how-to-pay-by-invoice/customer-led-switch-to-invoice.png)
+
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
+[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Se for necessário, Atualize as informações de contacto de faturas no [Centro de contas do Azure](https://account.azure.com/Profile).

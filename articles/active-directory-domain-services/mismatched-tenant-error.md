@@ -3,7 +3,7 @@ title: Resolver erros de diretório sem correspondência para domínios geridos 
 description: Compreender e resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
-ms.openlocfilehash: cc5b7286536901a516cb694013f1ad6eb594dcb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 1ab6a535c9ffebcb423e7a5cb7f158224c004bd1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245823"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472902"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolver erros de diretório sem correspondência para domínios geridos existentes do Azure AD Domain Services
 Tem um domínio gerido do Azure AD Domain Services existente. Quando navegar para o portal do Azure e ver o domínio gerido, verá a seguinte mensagem de erro:

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f6420d073b4fe348b8533eaaaa5209323f35a25f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: cb1cdbbd525d60342a6b0f1f7dfbfc9f81bc33ce
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754252"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514595"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>o Azure Cosmos DB: Criar uma aplicação Python utilizando a conta do Azure Cosmos DB SQL API
 
@@ -184,13 +184,13 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 
 4. Na janela do terminal integrado, certifique-se de que está na pasta azure-cosmos-db-python-getting-started. Caso contrário, execute o seguinte comando para mudar para a pasta de exemplo. 
 
-    ```
+    ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Execute o seguinte comando para instalar o pacote azure-cosmos. 
 
-    ```
+    ```python
     pip3 install azure-cosmos
     ```
 
@@ -198,7 +198,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 
 6. Execute o seguinte comando para executar o exemplo e criar e armazenar novos documentos na base de dados do Azure Cosmos.
 
-    ```
+    ```python
     python CosmosGetStarted.py
     ```
 

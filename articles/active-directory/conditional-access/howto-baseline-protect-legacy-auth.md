@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e55bf4a66dcd8c1c7cfbc881d6f93c3a12f5dc00
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112308"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560927"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Política de linha de base: Bloco antigos de autenticação (pré-visualização)
 
@@ -28,8 +28,6 @@ Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud,
 Hoje em dia, a maioria de todos os comprometer início de sessão tentativas provenientes da autenticação. Autenticação de legado não suporta a autenticação multifator (MFA). Mesmo que tenha uma política MFA ativada no seu diretório, um ator indevido pode autenticar com um protocolo de legado e ignorar o MFA.
 
 É a melhor forma de proteger a sua conta de pedidos de autenticação malicioso efetuados por protocolos legados bloquear estas tentativas tudo junto. Para facilitar para impedir todos os pedidos de início de sessão feitos por protocolos legados, criamos uma política de linha de base que faz exatamente isso.
-
-![Bloco autenticação com o acesso condicional](./media/howto-baseline-protect-legacy-auth/baseline-policy-block-legacy-authentication.png)
 
 **Autenticação de legado do bloco** é [política de linha de base](concept-baseline-protection.md) que bloqueia todos os pedidos de autenticação feitos a partir de protocolos legados. Autenticação moderna deve ser utilizada para se inscrever com êxito todos os utilizadores. Utilizado em conjunto com as políticas de linha de base, todos os pedidos provenientes de protocolos legados serão bloqueados e todos os utilizadores serão obrigados a MFA sempre que for necessário. Esta política não bloqueia o Exchange ActiveSync.
 
@@ -111,7 +109,6 @@ Para ativar esta política e proteger a sua organização:
 1. Navegue até **do Azure Active Directory** > **acesso condicional**.
 1. Na lista de políticas, selecione **política de linha de base: Bloco antigos de autenticação (pré-visualização)** .
 1. Definir **ativar política** ao **utilizar a política imediatamente**.
-1. Adicionar exclusões utilizador ao clicar em **usuários** > **selecionar utilizadores excluídos** e escolher os utilizadores que têm de ser excluídos. Clique em **selecionar** , em seguida, **feito**.
 1. Clique em **guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes

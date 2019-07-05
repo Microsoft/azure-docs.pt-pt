@@ -4,19 +4,19 @@ description: Neste guia de introdução, saiba como criar um dispositivo IoT Edg
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/19/2019
+ms.date: 07/02/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 58dc2f5d8862c0b51b36e028d52275b2c8e732be
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573966"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537549"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux
 
 O Azure IoT Edge move o poder da cloud para os seus dispositivos de Internet das Coisas. Neste guia de início rápido, irá aprender a utilizar a interface da cloud para implementar código pré-construído remotamente num dispositivo IoT Edge.
 
@@ -55,15 +55,14 @@ Recursos da cloud:
 
 Dispositivo IoT Edge
 
-* Um dispositivo ou máquina virtual do Linux que funcione como o seu dispositivo IoT Edge. Deve usar o disponibilizadas pela Microsoft [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) máquina virtual, que preinstalls tudo o que precisa para executar o IoT Edge num dispositivo. Crie esta máquina virtual com o seguinte comando:
+* Um dispositivo ou máquina virtual do Linux que funcione como o seu dispositivo IoT Edge. Deve usar o disponibilizadas pela Microsoft [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) máquina virtual, que preinstalls tudo o que precisa para executar o IoT Edge num dispositivo. Crie esta máquina virtual com os comandos seguintes:
 
    ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
    Pode demorar alguns minutos para criar e iniciar a nova máquina virtual.
-
-   Poderá receber um `MarketplacePurchaseEligibilityFailed` erro neste momento. Se isto acontecer, tem de aceitar os termos, acedendo a [do Azure IoT Edge no Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) e clicando em `Get It Now`. Inicie sessão e aceitar os termos antes de tentar novamente o comando.
 
    Quando cria uma nova máquina virtual, anote o **publicIpAddress**, que é fornecido como parte da saída do comando de criar. Utilizará este endereço IP público para ligar à máquina virtual mais tarde no início rápido.
 

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 737da27fd8da292b6c1f8997d4bd300bbec8740e
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120743"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565520"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia para programadores do funções do Azure
 Nas funções do Azure, funções específicas partilham alguns conceitos técnicos de núcleos e componentes, independentemente do idioma ou associação usada. Antes de conhecer em detalhes específicos para um determinado idioma ou enlace de aprendizagem, certifique-se de que leia esta visão geral que se aplica a todos eles.
@@ -107,5 +107,5 @@ Para obter mais informações, consulte os seguintes recursos:
 * [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
 * [Criar código e testar as Funções do Azure localmente](./functions-develop-local.md)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
-* [Referência do Azure funções c# para programadores](functions-reference-csharp.md)
+* [Referência do Azure funções c# para programadores](functions-dotnet-class-library.md)
 * [Referência do desenvolvedor do NodeJS de funções do Azure](functions-reference-node.md)

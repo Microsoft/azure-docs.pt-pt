@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c389f2ab9e67cbb1fd1a6a0c9ee274bca7d4c99d
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347489"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560429"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -33,7 +33,7 @@ O diagrama abaixo representa o fluxo de alertas.
 
 ![Fluxo de alertas](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Regras de alerta são separadas dos alertas e a ação que são criados quando um alerta é acionado. 
+Regras de alerta são separadas dos alertas e as ações que são executadas quando um alerta é acionado. 
 
 **Regra de alerta** -a regra de alerta captura o destino e os critérios para alertas. A regra de alerta pode estar no estado desativado ou um ativada. Alertas acionam apenas quando ativado. 
 
@@ -94,6 +94,8 @@ Os grupos de inteligentes são as agregações de alertas com base em algoritmos
 ## <a name="alerts-experience"></a>Experiência de alertas 
 A página de alertas padrão fornece um resumo dos alertas que são criados dentro de uma janela de tempo específico. Apresenta o total de alertas para cada gravidade com as colunas que identificam o número total de alertas em cada Estado para cada gravidade. Selecione qualquer uma das gravidades para abrir o [todos os alertas](#all-alerts-page) página filtrada por esse gravidade.
 
+Em alternativa, pode [enumerar, programaticamente, as instâncias de alertas geradas na sua subscrição (ões) com REST APIs](#manage-your-alert-instances-programmatically).
+
 Não mostrar ou controlar mais antiga [alertas clássicos](#classic-alerts). Pode alterar as subscrições ou filtrar parâmetros para atualizar a página. 
 
 ![Página de alertas](media/alerts-overview/alerts-page.png)
@@ -102,7 +104,7 @@ Pode filtrar esta vista ao selecionar os valores nos menus de lista pendente na 
 
 | Coluna | Descrição |
 |:---|:---|
-| Subscrição | Selecione até cinco subscrições do Azure. Apenas os alertas nas subscrições selecionadas estão incluídos na vista. |
+| Subscrição | Selecione as subscrições do Azure para o qual pretende ver os alertas. Opcionalmente, pode optar por selecionar todas as suas subscrições. Apenas os alertas que têm acesso nas subscrições selecionadas estão incluídos na vista. |
 | Grupo de recursos | Selecione um grupo de recursos. Apenas os alertas com destinos no grupo de recursos selecionado estão incluídos na vista. |
 | Intervalo de tempo | Apenas os alertas acionados dentro da janela de tempo selecionado estão incluídos na vista. Os valores suportados são a última hora, últimas 24 horas, últimos 7 dias e os últimos 30 dias. |
 
@@ -145,11 +147,11 @@ Pode filtrar a vista ao selecionar os seguintes valores nos menus de lista pende
 
 | Coluna | Descrição |
 |:---|:---|
-| Subscrição | Selecione até cinco subscrições do Azure. Apenas os alertas nas subscrições selecionadas estão incluídos na vista. |
+| Subscrição | Selecione as subscrições do Azure para o qual pretende ver os alertas. Opcionalmente, pode optar por selecionar todas as suas subscrições. Apenas os alertas que têm acesso nas subscrições selecionadas estão incluídos na vista. |
 | Grupo de recursos | Selecione um grupo de recursos. Apenas os alertas com destinos no grupo de recursos selecionado estão incluídos na vista. |
 | Tipo de recurso | Selecione um ou mais tipos de recursos. Apenas os alertas com destinos do tipo selecionado estão incluídos na vista. Esta coluna só está disponível depois de um grupo de recursos foi especificado. |
 | Resource | Selecione um recurso. Apenas alertas com esse recurso como um destino estão incluídas na vista. Esta coluna apenas está disponível após foi especificado um tipo de recurso. |
-| Gravidade | Selecione uma gravidade de alerta ou selecione *todos os* para incluir alertas de todas as gravidades. |
+| Severity | Selecione uma gravidade de alerta ou selecione *todos os* para incluir alertas de todas as gravidades. |
 | Condição do monitor | Selecione uma condição do monitor ou selecione *todos os* para incluir alertas de condições. |
 | Estado de alerta | Selecione um Estado de alerta ou selecione *todos os* para incluir a alertas dos Estados. |
 | Monitorizar serviço | Selecione um serviço ou selecione *todos os* para incluir todos os serviços. Apenas os alertas criados por regras que utilizam o serviço como um destino estão incluídos. |
@@ -157,20 +159,47 @@ Pode filtrar a vista ao selecionar os seguintes valores nos menus de lista pende
 
 Selecione **colunas** na parte superior da página para selecionar as colunas a apresentar. 
 
-## <a name="alert-detail-page"></a>Página de detalhes de alerta
+## <a name="alert-details-page"></a>Página de detalhes do alerta
 A página de detalhes de alerta é apresentada quando seleciona um alerta. Ele fornece detalhes do alerta e permite-lhe alterar o seu estado.
 
 ![Detalhes de alerta](media/alerts-overview/alert-detail2.png)
 
-A página de detalhes de alerta inclui as secções seguintes.
+A página de detalhes do alerta inclui as secções seguintes.
 
 | Section | Descrição |
 |:---|:---|
-| Essentials | Apresenta as propriedades e outras informações significativas sobre o alerta. |
+| Resumo | Apresenta as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Apresenta uma lista de cada ação tomada pelo alerta e todas as alterações efetuadas ao alerta. Atualmente limitado a alterações de estado. |
-| Grupo inteligente | Informações sobre o grupo inteligente o alerta estão incluídas no. O *contagem de alertas* refere-se ao número de alertas que estão incluídos no grupo de inteligente. Inclui outros alertas no mesmo grupo de inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para ver os seus detalhes. |
-| Mais detalhes | Mostra informações contextuais para o alerta, o que é normalmente específico para o tipo de origem que criou o alerta de adicionais. |
+| Diagnóstico | Informações sobre o grupo inteligente o alerta estão incluídas no. O *contagem de alertas* refere-se ao número de alertas que estão incluídos no grupo de inteligente. Inclui outros alertas no mesmo grupo de inteligente que foram criados nos últimos 30 dias, independentemente do filtro de tempo na página de lista de alertas. Selecione um alerta para ver os seus detalhes. |
 
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Controlo de acesso baseado em funções (RBAC) para as suas instâncias de alerta
+
+O consumo e a gestão de instâncias de alertas requer que o utilizador ter das funções incorporadas do RBAC do [Contribuidor de monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) ou [leitor de monitorização](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). Estas funções são suportadas em qualquer âmbito do Azure Resource Manager, do nível de subscrição para atribuições granulares num nível de recursos. Por exemplo, se um utilizador só tem acesso de Contribuidor de monitorização para a máquina virtual "ContosoVM1", em seguida, ele pode consumir e gerenciar apenas os alertas gerados no 'ContosoVM1'.
+
+## <a name="manage-your-alert-instances-programmatically"></a>Gerir as suas instâncias de alerta através de programação
+
+Existem muitos cenários em que gostaria de consultar através de programação para alertas gerados em relação a sua subscrição. Isto pode ser para criar vistas personalizadas fora do portal do Azure ou para analisar os alertas para identificar padrões e tendências.
+
+Pode consultar os alertas gerados contra as suas subscrições através da utilização a [API do REST de gestão de alertas](https://aka.ms/alert-management-api) ou utilizando o [API REST de gráfico de recursos do Azure para os alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+O [API do REST de gráfico de recursos do Azure para alertas](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) permite consultar para as instâncias de alerta em escala. Isto é recomendado para cenários onde é necessário para gerir os alertas gerados por número de subscrições. 
+
+O pedido de exemplo seguinte para a API devolve a contagem de alertas dentro de uma subscrição:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+Os alertas podem ser consultados para seus ["essenciais"](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) campos.
+
+O [API do REST de gestão de alerta](https://aka.ms/alert-management-api) pode ser utilizado para obter mais informações sobre alertas específicos, incluindo seus ["contexto do alerta"](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) campos.
 
 ## <a name="classic-alerts"></a>Alertas clássicos 
 

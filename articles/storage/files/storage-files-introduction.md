@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 075a3cea426fd5f54ef142648754fa9a9e2810b4
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706947"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508330"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?
 Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na cloud que são acessíveis através do [protocolo SMB (Server Message Block) norma da indústria](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). As partilhas de ficheiros do Azure podem ser montadas em simultâneo por implementações na cloud ou no local do Windows, Linux e macOS. Além disso, as partilhas de ficheiros do Azure podem ser colocadas em cache em Servidores Windows com o Azure File Sync para acesso rápido perto do local onde os dados estão a ser utilizados.
@@ -21,7 +21,7 @@ Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na c
 ## <a name="videos"></a>Vídeos
 | Apresentação da Sincronização de Ficheiros do Azure (2 m) | Ficheiros do Azure com Sincronização (Ignite 2017) (85 m)  |
 |-|-|
-| [![Screencast do vídeo Apresentação da Sincronização dos Ficheiros do Azure - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast da apresentação dos Ficheiros do Azure com Sincronização - clique para reproduzir!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
+| [![Screencast do vídeo Apresentação da Sincronização dos Ficheiros do Azure - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast da apresentação dos Ficheiros do Azure com Sincronização - clique para reproduzir!](./media/storage-files-introduction/ignite-2018-video.png)](https://www.youtube.com/watch?v=GMzh2M66E9o) |
 
 ## <a name="why-azure-files-is-useful"></a>Por que é que os Ficheiros do Azure são úteis
 As partilhas de ficheiros do Azure podem ser utilizadas para:

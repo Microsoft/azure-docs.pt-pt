@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 6324da55c8af4934185fa39a106939844788adba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653721"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561328"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de voz do Bing para o serviço de voz
 
@@ -69,7 +69,7 @@ Os protocolos de WebSockets de serviços de voz também são compatíveis com os
 
 Se estiver a utilizar uma biblioteca de cliente de voz do Bing para uma linguagem de programação específica, migrar para o [SDK de voz](speech-sdk.md) requer alterações ao seu aplicativo, porque a API é diferente. O SDK de voz pode tornar o código mais simples, ao mesmo tempo dando acesso aos novos recursos.
 
-Atualmente, o SDK de voz suporta c# (Windows 10, UWP, .NET Standard), o Java (dispositivos Android e personalizados), Objective C (iOS), C++ (Windows e Linux) e JavaScript. APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento de Multiplataforma.
+Atualmente, o SDK de voz suporta C# ([detalha aqui](https://aka.ms/csspeech)), o Java (dispositivos Android e personalizados), Objective C (iOS), C++ (Windows e Linux) e JavaScript. APIs em todas as plataformas são semelhantes, facilitando o desenvolvimento de Multiplataforma.
 
 Os serviços de voz não oferecem um ponto final global. Determine se a aplicação funciona com eficiência quando utiliza um único ponto de final de regional para todo o tráfego. Caso contrário, utilize a localização geográfica para determinar o ponto de extremidade mais eficiente. Precisa de uma subscrição de serviços de voz separada em cada região a que utilizar.
 

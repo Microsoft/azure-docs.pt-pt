@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d813cea28d968ae7f14d55d47855b361141d6089
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190905"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565431"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -82,6 +82,9 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Este início rápido suporta Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
 > Em que:
@@ -92,7 +95,7 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 >   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
 >
 > > [!TIP]
-> > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
+> > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados*, vá para a página **Descrição geral**
 
 ## <a name="more-information"></a>Mais informações
 

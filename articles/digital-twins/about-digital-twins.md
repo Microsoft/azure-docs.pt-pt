@@ -3,31 +3,30 @@ title: Descrição geral do Azure Digital Twins | Microsoft Docs
 description: Saiba mais sobre o Azure Digital Twins, uma solução do Azure IoT para inteligência espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 41a6b040c04c3a212a7ee89897b29f5ec96048d7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072182"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459027"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Descrição geral do Azure Digital Twins
 
-O Azure Digital Twins é um serviço do Azure IoT que cria modelos abrangentes do ambiente físico. Ele pode criar gráficos de inteligência geográficos para modelar as relações e interações entre pessoas, espaços e dispositivos.
+A pré-visualização do Azure da duplos Digital é um serviço de IoT do Azure que cria modelos abrangentes do ambiente físico. Ele pode criar gráficos de inteligência geográficos para modelar as relações e interações entre pessoas, espaços e dispositivos.
 
-Duplos Digital do Azure, pode consultar dados a partir de um espaço físico, em vez de vários sensores diferentes. Este serviço ajuda-o a criar experiências de reutilizáveis, altamente dimensionáveis e com reconhecimento de spatially vinculados a dados de transmissão em fluxo em todo o mundo digital e físico. As suas aplicações, são aprimoradas por estas funcionalidades contextuais exclusivamente relevantes. Os gémeos Digital do Azure podem ser utilizados para as seguintes tarefas de exemplo para:
+Duplos Digital do Azure, pode consultar dados a partir de um espaço físico, em vez de vários sensores diferentes. Este serviço ajuda-o a criar experiências de reutilizáveis, altamente dimensionáveis e com reconhecimento de spatially vinculados a dados de transmissão em fluxo em todo o mundo digital e físico. As suas aplicações, são aprimoradas por estas funcionalidades contextuais exclusivamente relevantes. 
+
+Duplos Digital do Azure aplica-se a todos os tipos de ambientes, como, armazéns, escritórios, instituições de ensino, hospitais e bancos. Ele ainda pode ser usado para stadiums, fábricas, muitos de estacionamento, parques, grades inteligentes e cidades. Seguem-se alguns cenários nos quais os Twins Digital do Azure pode ser útil:
 
 - Prever as necessidades de manutenção de uma fábrica.
 - Analise os requisitos de energia em tempo real para uma rede elétrica.
 - Otimize a utilização de espaço disponível para um office.
-
-Os gémeos Digital do Azure aplica-se a todos os tipos de ambientes. Apenas alguns exemplos são armazéns, escritórios, instituições de ensino, hospitais e bancos. Ele ainda pode ser usado para stadiums, fábricas, muitos de estacionamento, parques, grades inteligentes e cidades. Os gémeos Digital do Azure podem ser utilizados nos seguintes cenários de exemplo para:
-
 - Monitorizar a temperatura diária em vários Estados.
 - Monitorizar os caminhos de drones ocupado.
 - Identifica veículos autónomos.
@@ -46,15 +45,15 @@ Os gémeos Digital do Azure tem as principais capacidades seguintes.
 
 ### <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espacial
 
-O [ *gráfico intelligence geográficos*](./concepts-objectmodel-spatialgraph.md), ou *gráfico geográfico*, é uma representação virtual do ambiente físico. Pode usá-lo para modelar as relações entre as pessoas, lugares e dispositivos.
+O [ *gráfico intelligence geográficos*](./concepts-objectmodel-spatialgraph.md#graph), ou *gráfico geográfico*, é uma representação virtual do ambiente físico. Pode usá-lo para modelar as relações entre as pessoas, lugares e dispositivos.
 
 Considere um aplicativo de utilitário inteligente que envolve vários medidores de utilização de eletricidade ligados num ambiente. A empresa prestadora inteligente com precisão tem de monitorizar e prever a utilização de eletricidade e de faturação. Cada dispositivo e o sensor devem ser modelado com contexto sobre a localização e o cliente que está a ser faturados. Pode usar o gráfico de inteligência geográficos para modelar esses tipos de relações complexas.
 
 ### <a name="digital-twin-object-models"></a>Modelos de objetos gémeos digitais
 
-[Modelos de objeto do gémeo digital](./concepts-objectmodel-spatialgraph.md) são protocolos de predefinições do dispositivo e o esquema de dados. Eles se alinham necessidades específicas de domínio de sua solução para acelerar e simplificar o desenvolvimento.
+[Modelos de objeto do gémeo digital](./concepts-objectmodel-spatialgraph.md#model) são protocolos de predefinições do dispositivo e o esquema de dados. Eles se alinham necessidades específicas de domínio de sua solução para acelerar e simplificar o desenvolvimento.
 
-Um exemplo é que um aplicativo de ocupação de sala pode usar tipos de espaço predefinidas, como o campus, edifício, piso e sala.
+Por exemplo, um aplicativo de ocupação da sala poderá utilizar tipos de espaço predefinidas, como o campus, edifício, piso e sala.
 
 ### <a name="multiple-and-nested-tenants"></a>Vários inquilinos aninhados
 

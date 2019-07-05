@@ -1,5 +1,5 @@
 ---
-title: Como configurar uma nova aplicação multi-inquilino | Documentos da Microsoft
+title: Como configurar o início de sessão único | Documentos da Microsoft
 description: Como configurar o início de sessão único para um aplicativo personalizado estiver a desenvolver e registar com o Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d151d4d7f32c479f2cfb4d71a8ed667f42e03b49
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545460"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465679"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação de multi-inquilino
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Como configurar o início de sessão único para uma aplicação
 
 Ativar único início de sessão Federado (SSO) na sua aplicação é ativado automaticamente quando o Federação através do Azure AD para o OpenID Connect, SAML 2.0 ou WS-Fed. Se os utilizadores finais são ter de iniciar sessão, apesar de já terem uma sessão existente com o Azure AD, é provável que a aplicação pode estar configurado incorretamente.
 

@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0fc4eb90d9bed3877b4618fd839d9e8bf1608718
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.custom: fasttrack-edit
+ms.openlocfilehash: c328f0dc510c1b7d36b547e6560a292f98d72f6f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063729"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448044"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versões suportadas do banco de dados PostgreSQL
 Tem como objetivo da Microsoft para suportar n-2 versões do mecanismo do PostgreSQL na base de dados do Azure para PostgreSQL – único servidor. As versões seria a versão principal atual no Azure (n) e as dois principais as versões anteriores (-2).
@@ -35,6 +36,9 @@ Consulte a [documentação do PostgreSQL](https://www.postgresql.org/docs/9.5/st
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e atualizações
 Base de dados do Azure para PostgreSQL gere automaticamente os patches de versão secundária. Atualmente, a atualização de versão principal não é suportada. Por exemplo, a atualização do PostgreSQL 9,5 para o PostgreSQL 9.6 não é suportada. Se gostaria de atualizar para a próxima versão principal, crie uma base de dados [capturar e restaurar](./howto-migrate-using-dump-and-restore.md) -lo para um servidor que foi criado com a nova versão do motor.
+
+> Observe que, antes de PostgreSQL versão 10, o [política de controlo de versões do PostgreSQL](https://www.postgresql.org/support/versioning/) considerado um _versão principal_ atualização para ser um aumento na primeira _ou_ segundo número (para exemplo, 9.5 para 9.6 foi considerada uma _principais_ atualização da versão).
+> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal (por exemplo, 10.0 para 10.1 é um _pequenas_ atualização da versão e 10 a 11 é uma _principais_ atualização da versão).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações sobre o suporte de extensões do PostgreSQL diferentes, consulte [extensões do PostgreSQL](concepts-extensions.md).

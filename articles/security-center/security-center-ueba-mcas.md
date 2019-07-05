@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332402"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551790"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA para utilizadores e recursos do Azure 
 
@@ -55,8 +55,8 @@ Centro de segurança suporta alertas de deteção de anomalias do Cloud App Secu
 
 Estes alertas são ativados por predefinição, mas pode desativá-las:
 
-1. No painel do Centro de segurança, selecione **política de segurança**. Para a subscrição que pretende alterar, clique em **editar as definições de**.
-2.  Clique em **deteção de ameaças**.
+1. No painel do Centro de segurança, selecione **preços & definições** e selecione a subscrição aplicável.
+2. Clique em **deteção de ameaças**.
 3. Sob **permitir integrações**, desmarque a opção **permitir que o Microsoft Cloud App Security a aceder aos meus dados**e clique em **guardar**.
 
    ![Alerta de deteção de ameaças](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078273"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483923"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>Transfira o projeto concluído
 
-Pode baixar uma versão completa do projeto que criou neste tutorial de [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, ainda precisa fornecer definições de configuração ao seguir os passos neste tutorial.
+Pode baixar uma versão completa do projeto criado neste artigo [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, ainda precisa fornecer definições de configuração ao seguir os passos neste artigo.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Uma [Apache Storm no HDInsight clusters versão 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
+* Um cluster do Apache Storm no HDInsight. Ver [Apache Hadoop criar clusters no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para **tipo de Cluster**.
 
     > [!WARNING]  
     > No exemplo utilizado neste documento requer o Storm no HDInsight versão 3.5 ou 3.6. Isso não funciona com versões anteriores do HDInsight, devido a alterações de nome de classe recentes. Para obter uma versão deste exemplo que funciona com clusters mais antigos, consulte [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).

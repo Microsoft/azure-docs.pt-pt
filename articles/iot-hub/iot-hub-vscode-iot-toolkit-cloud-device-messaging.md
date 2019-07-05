@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8799fcb06235474bb33cdaf0406300065208024
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440088"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543827"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilizar ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
 
@@ -62,11 +62,11 @@ Saiba como utilizar ferramentas de IoT do Azure para Visual Studio Code para mon
 
 Para monitorizar mensagens que são enviadas a partir do seu dispositivo ao seu hub IoT, siga estes passos:
 
-1. O dispositivo com o botão direito e selecione **iniciar mensagens D2C monitorização**.
+1. O dispositivo com o botão direito e selecione **iniciar a monitorização de evento ponto final incorporado**.
 
 2. As mensagens monitorizadas serão mostradas na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
 
-3. Para parar a monitorização, clique com botão direito a **saída** ver e selecionar **parar mensagens D2C monitorização**.
+3. Para parar a monitorização, clique com botão direito a **saída** ver e selecionar **parar a monitorização de evento ponto final incorporado**.
 
 ## <a name="send-cloud-to-device-messages"></a>Enviar mensagens da cloud para o dispositivo
 

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0273a0d35d2b4d69f74b1acd8bc2b1d7174810cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4331acf639af90448b5508e3487f4979e9b82c45
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111474"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482716"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory
 
@@ -37,7 +37,6 @@ Para transferir e instalar a proteger os meus aplicativos início de sessão ext
 - [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
-
 ## <a name="test-saml-based-single-sign-on"></a>Teste baseado em SAML início de sessão único
 
 Para testar baseado em SAML início de sessão único entre o Azure AD e um aplicativo de destino:
@@ -48,26 +47,24 @@ Para testar baseado em SAML início de sessão único entre o Azure AD e um apli
 1. Para abrir a baseado em SAML única início de sessão na experiência de teste, aceda a **testar início de sessão único** (etapa 5). Se o **teste** botão está esbatido, terá de preencher e economizar os atributos necessários primeiro a **configuração básica de SAML** secção.
 1. Na **testar início de sessão único** painel, utilize as suas credenciais de empresa para iniciar sessão para o aplicativo de destino. Pode iniciar sessão como o utilizador atual, ou como um utilizador diferente. Se iniciar sessão como um utilizador diferente, uma linha de comandos irá pedir-lhe para autenticar.
 
-    ![Página de SAML do teste](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
-
+    ![Captura de ecrã que mostra o página de SAML SSO de teste](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
 
 Se tiver entrado com êxito nos, o teste foi aprovada. Neste caso, o Azure AD emitido um token de resposta SAML para a aplicação. O aplicativo usado o token SAML para com êxito o início de sessão.
 
 Se tiver um erro na página de início de sessão de empresa ou página da aplicação, utilize uma das secções seguintes para resolver o erro.
 
-
 ## <a name="resolve-a-sign-in-error-on-your-company-sign-in-page"></a>Resolver um erro de início de sessão na sua página de início de sessão da empresa
 
 Quando tentar iniciar sessão, poderá ver um erro na sua empresa início de sessão-página que é semelhante ao seguinte exemplo.
 
-![Erro de início de sessão](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Exemplo que mostra um erro na página de início de sessão de empresa](./media/howto-v1-debug-saml-sso-issues/error.png)
 
-Para depurar este erro, terá da mensagem de erro e o pedido SAML. Início de sessão extensão My segura de aplicações em automaticamente reúne estas informações e apresenta orientações de resolução no Azure AD. 
+Para depurar este erro, terá da mensagem de erro e o pedido SAML. Início de sessão extensão My segura de aplicações em automaticamente reúne estas informações e apresenta orientações de resolução no Azure AD.
 
 ### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Para resolver o erro de início de sessão com a proteger os meus aplicativos início de sessão extensão instalada
 
-1. Quando ocorre um erro, a extensão redireciona-o novamente para o Azure AD **testar início de sessão único** painel. 
-1. Sobre o **testar início de sessão único** painel, selecione **transferir o pedido SAML**. 
+1. Quando ocorre um erro, a extensão redireciona-o novamente para o Azure AD **testar início de sessão único** painel.
+1. Sobre o **testar início de sessão único** painel, selecione **transferir o pedido SAML**.
 1. Deverá ver diretrizes com base no erro e os valores no pedido de SAML de resolução específico.
 1. Verá uma **corrigi-lo** botão para atualizar automaticamente a configuração no Azure AD para resolver o problema. Se não vir este botão, em seguida, o problema de início de sessão não é devido a uma configuração incorreta no Azure AD.
 
@@ -88,25 +85,24 @@ Se nenhuma resolução é fornecida para o erro de início de sessão, sugerimos
 
 ## <a name="resolve-a-sign-in-error-on-the-application-page"></a>Resolver um erro de início de sessão na página de aplicativo
 
-Pode iniciar sessão com êxito e, em seguida, ver um erro na página do aplicativo. Isto ocorre quando o Azure AD emitido um token para a aplicação, mas o aplicativo não aceita a resposta.   
+Pode iniciar sessão com êxito e, em seguida, ver um erro na página do aplicativo. Isto ocorre quando o Azure AD emitido um token para a aplicação, mas o aplicativo não aceita a resposta.
 
 Para resolver o problema, siga estes passos:
 
 1. Se a aplicação na galeria do Azure AD, certifique-se de que seguiu todos os passos para integrar a aplicação com o Azure AD. Para obter as instruções de integração para a sua aplicação, consulte a [lista de tutoriais de integração de aplicações de SaaS](../saas-apps/tutorial-list.md).
 1. Recuperar a resposta SAML.
     - Se a extensão My segura de aplicações início de sessão estiver instalada, do **testar início de sessão único** painel, clique em **transferir a resposta SAML**.
-    - Se a extensão não estiver instalada, utilize uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML. 
+    - Se a extensão não estiver instalada, utilize uma ferramenta como [Fiddler](https://www.telerik.com/fiddler) para recuperar a resposta SAML.
 1. Observe que esses elementos no token SAML resposta:
    - Identificador exclusivo do utilizador do valor de NameID e de formato
    - Afirmações emitidas no token
-   - Certificado utilizado para assinar o token. 
+   - Certificado utilizado para assinar o token.
 
      Para obter mais informações sobre a resposta SAML, consulte [protocolo SAML de início de sessão único](single-sign-on-saml-protocol.md).
 
 1. Agora que viu a resposta SAML, veja [erro na página de uma aplicação depois de iniciar sessão](../manage-apps/application-sign-in-problem-application-error.md) para obter orientações sobre como resolver o problema. 
 1. Se ainda não conseguir iniciar sessão com êxito, pode pedir o fornecedor do aplicativo o que está em falta na resposta SAML.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que o início de sessão único está trabalhando para seu aplicativo, poderia [automatizar o aprovisionamento de utilizador e a aplicações SaaS de desaprovisionamento](../manage-apps/user-provisioning.md) ou [começar com o acesso condicional](../conditional-access/app-based-conditional-access.md).
+Agora que o início de sessão único está trabalhando para seu aplicativo, poderia [automatizar o aprovisionamento de utilizador e cancelamento de aprovisionamento a aplicações SaaS](../manage-apps/user-provisioning.md) ou [começar com o acesso condicional](../conditional-access/app-based-conditional-access.md).

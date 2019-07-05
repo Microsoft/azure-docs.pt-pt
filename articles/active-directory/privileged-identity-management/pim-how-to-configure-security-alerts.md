@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288544"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476425"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de segurança para funções do Azure AD no PIM
 
 O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece no dashboard do PIM. Selecione o alerta para ver um relatório que lista os utilizadores ou funções que acionou o alerta.
 
-![Alertas de segurança do PIM - captura de ecrã](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Funções do AD do Azure – painel alerta listagem alertas e a gravidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -122,11 +122,11 @@ Pode personalizar algumas dos alertas de segurança no PIM para trabalhar com o 
 
 1. Clique em **configurações** e, em seguida **alertas**.
 
-    ![Navegar para as definições de alertas de segurança](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Funções do Azure do AD - definições com os alertas selecionados](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Clique num nome de alerta para configurar a definição para esse alerta.
 
-    ![Definições de alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Para o painel de definições de alerta de segurança alerta, selecionada](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

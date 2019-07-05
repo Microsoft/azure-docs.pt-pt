@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a05a4695ee80873a2d7464c0a1cf4d46ed30f5
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991852"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543654"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Como utilizar tópicos do Service Bus e as subscrições com Ruby
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>Criar subscrições
 Subscrições de tópicos também são criadas com o **Azure::ServiceBusService** objeto. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da subscrição.
 
-As assinaturas são persistentes. Continuam a existir até a eles ou o tópico estão associados com, são eliminados. Se a sua aplicação contém lógica para criar uma subscrição, deve primeiro verificar se a subscrição já existe ao utilizar o método de getSubscription.
+Por predefinição, as subscrições são persistentes. Continuam a existir até a eles ou o tópico estão associados com, são eliminados. Se a sua aplicação contém lógica para criar uma subscrição, deve primeiro verificar se a subscrição já existe ao utilizar o método de getSubscription.
+
+Pode ter as subscrições são eliminadas automaticamente ao definir o [AutoDeleteOnIdle propriedade](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma subscrição com o filtro (MatchAll) predefinido
 Se for especificado nenhum filtro quando é criada uma nova subscrição, o **MatchAll** filtro (predefinição) é usado. Quando o **MatchAll** filtro é utilizado, todas as mensagens publicadas para o tópico são colocadas na fila virtual da subscrição. O exemplo seguinte cria uma subscrição com o nome "mensagens de todos os" e utiliza a predefinição **MatchAll** filtro.
@@ -156,7 +158,7 @@ Existe também um tempo limite associado à mensagem bloqueada na subscrição e
 No caso de falha da aplicação após o processamento da mensagem, mas antes a `delete_subscription_message()` método é chamado, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. É frequentemente designado *processamento, pelo menos, uma vez*; ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Essa lógica é, frequentemente, conseguida utilizando o `message_id` propriedade da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminar tópicos e subscrições
-Tópicos e subscrições são persistentes e tem de ser explicitamente eliminada através da [portal do Azure] [ Azure portal] ou programaticamente. O exemplo seguinte mostra como eliminar o tópico com o nome `test-topic`.
+Tópicos e subscrições são persistentes, a menos que o [AutoDeleteOnIdle propriedade](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) está definido. Eles podem ser eliminada através da [portal do Azure][Azure portal] ou programaticamente. O exemplo seguinte mostra como eliminar o tópico com o nome `test-topic`.
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

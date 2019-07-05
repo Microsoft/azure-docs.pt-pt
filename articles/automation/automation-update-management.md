@@ -4,17 +4,17 @@ description: Este artigo destina-se para o ajudar a compreender como utilizar a 
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4fd47ae4f1ebc50de916b537b165eba1c5efb11
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3bfec413430de588be6c4423702d41779a8426d0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205031"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477979"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -223,7 +223,7 @@ Máquinas virtuais que foram criadas a partir de imagens de Red Hat Enterprise L
 
 Para criar uma nova implementação de atualização, selecione **agendar a implementação da atualização**. O **nova implementação de atualização** é aberta a página. Introduza valores para as propriedades descritas na tabela seguinte e, em seguida, clique em **criar**:
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 | --- | --- |
 | Name |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema operativo| Linux ou Windows|

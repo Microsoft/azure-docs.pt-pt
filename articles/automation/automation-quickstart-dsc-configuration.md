@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738302"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477607"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com a Configuração do Estado Pretendido
 
@@ -38,7 +38,7 @@ Existem vários métodos diferentes para carregar uma máquina e ativar a Config
 
 1. No painel esquerdo do portal do Azure, selecione **Contas de Automatização**. Se não estiver visível no painel esquerdo, clique em **Todos os serviços** e procure-o na vista apresentada.
 1. Na lista, selecione uma conta de Automatização.
-1. No painel esquerdo da conta de Automatização, selecione **Configuração de estado (DSC)**.
+1. No painel esquerdo da conta de Automatização, selecione **Configuração de estado (DSC)** .
 2. Clique em **Adicionar** para abrir a página de seleção de VM.
 3. Encontre a máquina virtual em que pretende ativar o DSC. Pode utilizar as opções de campo de pesquisa e de filtro para encontrar uma máquina virtual específica.
 4. Clique na máquina virtual e, em seguida, selecione **Ligar**

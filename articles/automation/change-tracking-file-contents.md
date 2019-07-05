@@ -4,17 +4,17 @@ description: Utilize a funcionalidade de alteração de conteúdo do ficheiro de
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aef9a24e3337d1f5a5a6c9ac6b510cc7f9a66a5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304345"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478638"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 2b6adcf4231aa44a4f28d277e963efa16de8af81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399335"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440423"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Compreender e resolver problemas de CORS de Proxy de aplicações do Azure Active Directory
 
-[Recursos de várias origens (CORS) de partilha](http://www.w3.org/TR/cors/) , às vezes, pode apresentar desafios para as aplicações e APIs publicar através do Proxy de aplicações de diretório Active Directory do Azure. Este artigo aborda problemas de CORS de Proxy de aplicações do Azure AD e soluções.
+[Recursos de várias origens (CORS) de partilha](https://www.w3.org/TR/cors/) , às vezes, pode apresentar desafios para as aplicações e APIs publicar através do Proxy de aplicações de diretório Active Directory do Azure. Este artigo aborda problemas de CORS de Proxy de aplicações do Azure AD e soluções.
 
 Segurança do navegador geralmente impede que uma página da web realize pedidos de AJAX para outro domínio. Esta restrição é chamada de *política de mesma origem*e impede que um site malicioso leia dados confidenciais de outro site. No entanto, às vezes, pode querer permitir que outros sites chamar a API web. CORS é uma norma W3C que permite que um servidor reduzir a política de mesma origem e permitir que alguns pedidos de várias origens, ao mesmo tempo que rejeita outros.
 

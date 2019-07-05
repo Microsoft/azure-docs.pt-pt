@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 692e0ec575904ff0a70b8c73268d2df62e776bb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b32665b09eb02c337a12ac3cfc2b474fa82711a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447250"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Tempo de duração (TTL) no Azure Cosmos DB 
 
@@ -45,6 +45,42 @@ O tempo para o valor de TTL é definido em segundos, e ela é interpretada como 
 * Se o valor de TTL num contêiner é definido como -1, um item neste contentor que tem tempo para o conjunto em direto para n, irá expirar após n segundos e itens restantes não irão expirar. 
 
 A eliminar itens com base no valor de TTL é gratuita. Não existe nenhum custo adicional (ou seja, sem RUs adicionais são consumidos) quando o item é eliminado como resultado de expiração do TTL.
+
+## <a name="examples"></a>Exemplos
+
+Esta secção mostra alguns exemplos com diferentes TTL valores atribuídos a contentor e itens:
+
+### <a name="example-1"></a>Exemplo 1
+
+TTL no contentor está definido como nulo (DefaultTimeToLive = null)
+
+|TTL no item| Resultado|
+|---|---|
+|ttl = null|    TTL está desativada. O item nunca irá expirar (predefinição).|
+|ttl = -1   |TTL está desativada. O item nunca irá expirar.|
+|ttl = 2000 |TTL está desativada. O item nunca irá expirar.|
+
+
+### <a name="example-2"></a>Exemplo 2
+
+TTL no contentor está definido como -1 (DefaultTimeToLive = -1)
+
+|TTL no item| Resultado|
+|---|---|
+|ttl = null |TTL está ativada. O item nunca irá expirar (predefinição).|
+|ttl = -1   |TTL está ativada. O item nunca irá expirar.|
+|ttl = 2000 |TTL está ativada. O item irá expirar após 2000 segundos.|
+
+
+### <a name="example-3"></a>Exemplo 3
+
+TTL no contêiner é definido como 1000 (DefaultTimeToLive = 1000)
+
+|TTL no item| Resultado|
+|---|---|
+|ttl = null|    TTL está ativada. O item irá expirar após 1 000 segundos (predefinição).|
+|ttl = -1   |TTL está ativada. O item nunca irá expirar.|
+|ttl = 2000 |TTL está ativada. O item irá expirar após 2000 segundos.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

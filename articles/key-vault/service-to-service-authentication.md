@@ -6,27 +6,23 @@ author: msmbaldwin
 manager: barbkess
 services: key-vault
 ms.author: mbaldwin
-ms.date: 03/05/2019
+ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: defb67c7e100a50a81d55afee03aa84be8e1e8e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79d4254de40ef787b30eb4f483c86383a928ee1f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722467"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566227"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço para o Azure Key Vault com o .NET
 
-Para autenticar para o Azure Key Vault, precisa de uma credencial do Azure Active Directory (AD), um segredo partilhado ou um certificado. Gerir essas credenciais pode ser difícil e é tentador para reunir as credenciais para uma aplicação ao incluí-los nos arquivos de origem ou de configuração.
+Para autenticar para o Azure Key Vault tem uma credencial do Azure Active Directory (AD), um segredo partilhado ou um certificado. 
 
-O `Microsoft.Azure.Services.AppAuthentication` para a biblioteca .NET simplifica este problema. Utiliza credenciais do programador para autenticar durante o desenvolvimento local. Quando a solução for implementada posteriormente para o Azure, a biblioteca muda automaticamente para as credenciais do aplicativo.  
+Gerir essas credenciais pode ser difícil e é tentador para reunir as credenciais para uma aplicação ao incluí-los nos arquivos de origem ou de configuração.  O `Microsoft.Azure.Services.AppAuthentication` para a biblioteca .NET simplifica este problema. Utiliza credenciais do programador para autenticar durante o desenvolvimento local. Quando a solução for implementada posteriormente para o Azure, a biblioteca muda automaticamente para as credenciais do aplicativo.    Com as credenciais de desenvolvedor durante o desenvolvimento local é mais seguro porque não é necessário criar as credenciais do Azure AD ou partilhar as credenciais entre os desenvolvedores.
 
-Com as credenciais de desenvolvedor durante o desenvolvimento local é mais seguro porque não é necessário criar as credenciais do Azure AD ou partilhar as credenciais entre os desenvolvedores.
-
-O `Microsoft.Azure.Services.AppAuthentication` biblioteca gere a autenticação automaticamente, que por sua vez, pode se concentrar em sua solução, em vez das suas credenciais.
-
-O `Microsoft.Azure.Services.AppAuthentication` biblioteca oferece suporte a desenvolvimento local com o Microsoft Visual Studio, a CLI do Azure ou a autenticação integrada do Azure AD. Quando implantado num recurso do Azure que suporta uma identidade gerida, a biblioteca utiliza automaticamente [geridos identidades para recursos do Azure](../active-directory/msi-overview.md). Sem alterações de configuração ou de código são necessárias. A biblioteca também suporta a utilização direta do Azure AD [credenciais de cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) quando uma identidade gerida não está disponível, ou quando não é possível determinar o contexto de segurança do desenvolvedor durante o desenvolvimento local.
+O `Microsoft.Azure.Services.AppAuthentication` biblioteca gere a autenticação automaticamente, que por sua vez, pode se concentrar em sua solução, em vez das suas credenciais.  Ele oferece suporte a desenvolvimento local com o Microsoft Visual Studio, a CLI do Azure ou a autenticação integrada do Azure AD. Quando implantado num recurso do Azure que suporta uma identidade gerida, a biblioteca utiliza automaticamente [geridos identidades para recursos do Azure](../active-directory/msi-overview.md). Sem alterações de configuração ou de código são necessárias. A biblioteca também suporta a utilização direta do Azure AD [credenciais de cliente](../azure-resource-manager/resource-group-authenticate-service-principal.md) quando uma identidade gerida não está disponível, ou quando não é possível determinar o contexto de segurança do desenvolvedor durante o desenvolvimento local.
 
 ## <a name="using-the-library"></a>Usando a biblioteca
 
@@ -53,22 +49,9 @@ O `AzureServiceTokenProvider` classe armazena em cache o token na memória e obt
 
 O `GetAccessTokenAsync` método requer um identificador de recurso. Para obter mais informações, consulte [que serviços do Azure suportam identidades geridas para recursos do Azure](../active-directory/msi-overview.md).
 
-## <a name="samples"></a>Exemplos
-
-Os seguintes exemplos mostram a `Microsoft.Azure.Services.AppAuthentication` biblioteca em ação:
-
-1. [Utilizar uma identidade gerida para obter um segredo a partir do Azure Key Vault em tempo de execução](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
-
-2. [Por meio de programação implementar um modelo Azure Resource Manager a partir de uma VM do Azure com uma identidade gerida](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
-
-3. [Utilize o exemplo de .NET Core e uma identidade gerida para chamar serviços do Azure a partir de uma VM do Linux do Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
-
 ## <a name="local-development-authentication"></a>Autenticação de desenvolvimento local
 
-Para o desenvolvimento local, existem dois cenários de autenticação primária:
-
-- [Autenticar-se aos serviços do Azure](#authenticating-to-azure-services)
-- [Autenticar para serviços personalizados](#authenticating-to-custom-services)
+Para o desenvolvimento local, existem dois cenários de autenticação principal: [autenticar-se aos serviços do Azure](#authenticating-to-azure-services), e [autenticar para serviços personalizados](#authenticating-to-custom-services).
 
 ### <a name="authenticating-to-azure-services"></a>Autenticar-se aos serviços do Azure
 
@@ -114,7 +97,7 @@ Este comando gera saída só em caso de falha.  Para verificar as definições d
 az account list
 ```
 
-### <a name="authenticating-with-azure-ad-integrate-authentication"></a>Autenticação com a autenticação do Azure AD integrar
+### <a name="authenticating-with-azure-ad-authentication"></a>Autenticação com a autenticação do Azure AD
 
 Para utilizar autenticação do Azure AD, certifique-se de que:
 
@@ -135,9 +118,8 @@ Ao criar um serviço que chama um serviço personalizado, utilize credenciais de
 
     2.  Utilize a CLI do Azure para iniciar sessão:
 
-        ```
-        az login --service-principal -u <principal-id> --password <password>
-           --tenant <tenant-id> --allow-no-subscriptions
+        ```azurecli
+        az login --service-principal -u <principal-id> --password <password> --tenant <tenant-id> --allow-no-subscriptions
         ```
 
         Uma vez que o principal de serviço pode não ter acesso a uma subscrição, utilize o `--allow-no-subscriptions` argumento.
@@ -150,27 +132,36 @@ Isto aplica-se apenas a desenvolvimento local. Quando a solução é implementad
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Executar o aplicativo usando a identidade gerida ou a identidade de utilizador atribuído 
 
-Quando executa seu código num serviço de aplicações do Azure ou uma VM do Azure com uma identidade gerida ativada, a biblioteca utiliza automaticamente a identidade gerida. Sem alterações de código são necessárias. 
+Quando executa seu código num serviço de aplicações do Azure ou uma VM do Azure com uma identidade gerida ativada, a biblioteca utiliza automaticamente a identidade gerida. 
 
-Em alternativa, pode autenticar com uma identidade de utilizador atribuído. Para obter mais informações sobre identidiades atribuídas, consulte [sobre identidades geridas por um dos recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). A cadeia de ligação é especificada na [suporte de cadeia de ligação](#connection-string-support) secção abaixo.
+Em alternativa, pode autenticar com uma identidade de utilizador atribuído. Para obter mais informações sobre identidiades atribuídas, consulte [sobre identidades geridas por um dos recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Para autenticar com uma identidade de utilizador atribuído, tem de especificar o ID de cliente da identidade atribuído ao utilizador na cadeia de ligação. A cadeia de ligação é especificada na [suporte de cadeia de ligação](#connection-string-support) secção abaixo.
 
 ## <a name="running-the-application-using-a-service-principal"></a>Executar a aplicação com um Principal de serviço 
 
 Poderá ser necessário criar uma credencial de cliente do Azure AD para autenticar. Exemplos comuns incluem:
 
-1. O código é executado num ambiente de desenvolvimento local, mas não sob a identidade do desenvolvedor.  Recursos de infraestrutura do serviço, por exemplo, utiliza a [conta NetworkService](../service-fabric/service-fabric-application-secret-management.md) para desenvolvimento local.
+- O código é executado num ambiente de desenvolvimento local, mas não sob a identidade do desenvolvedor.  Recursos de infraestrutura do serviço, por exemplo, utiliza a [conta NetworkService](../service-fabric/service-fabric-application-secret-management.md) para desenvolvimento local.
  
-2. O código é executado num ambiente de desenvolvimento local e autenticar para um serviço personalizado, para que não é possível utilizar a sua identidade de desenvolvedor. 
+- O código é executado num ambiente de desenvolvimento local e autenticar para um serviço personalizado, para que não é possível utilizar a sua identidade de desenvolvedor. 
  
-3. O código é executado num recurso de computação do Azure que ainda não suporta identidades geridas para recursos do Azure, como o Azure Batch.
+- O código é executado num recurso de computação do Azure que ainda não suporta identidades geridas para recursos do Azure, como o Azure Batch.
 
-Para utilizar um certificado para iniciar sessão no Azure AD:
+Existem três métodos principais da utilização de um Principal de serviço para executar a sua aplicação. Para utilizar qualquer um deles, primeiro tem [criar um principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli).
 
-1. Criar uma [certificado de serviço principal](../azure-resource-manager/resource-group-authenticate-service-principal.md). 
+### <a name="use-a-certificate-in-local-keystore-to-sign-into-azure-ad"></a>Utilize um certificado de local keystore para iniciar sessão no Azure AD
 
-2. Implementar o certificado ou o *LocalMachine* ou *CurrentUser* armazenar. 
+1. Criar um certificado de principal de serviço com a CLI do Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) comando. 
 
-3. Definir uma variável de ambiente com o nome **AzureServicesAuthConnectionString** para:
+    ```azurecli
+    az ad sp create-for-rbac --create-cert
+    ```
+
+    Isto irá criar um ficheiro. pem (chave privada) que será armazenado no diretório raiz. Implementar este certificado como o *LocalMachine* ou *CurrentUser* armazenar. 
+
+    > [!Important]
+    > O comando da CLI gera um ficheiro. pem, mas o Windows fornece apenas suporte nativo para os certificados PFX. Para gerar um certificado PFX em vez disso, utilize os comandos do PowerShell mostrados aqui: [Criar principal de serviço com certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Estes comandos implementar automaticamente o certificado também.
+
+1. Definir uma variável de ambiente com o nome **AzureServicesAuthConnectionString** para:
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
@@ -179,11 +170,11 @@ Para utilizar um certificado para iniciar sessão no Azure AD:
  
     Substitua *{AppId}* , *{TenantId}* , e *{Thumbprint}* com valores geradas no passo 1. Substitua *{CertificateStore}* com ambos `LocalMachine` ou `CurrentUser`, com base no seu plano de implementação.
 
-4. Execute a aplicação. 
+1. Execute a aplicação. 
 
-Para iniciar sessão com um Azure AD partilhado credencial secreta:
+### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Utilizar uma credencial de segredo partilhada para iniciar sessão no Azure AD
 
-1. Criar uma [principal de serviço com uma palavra-passe](../azure-resource-manager/resource-group-authenticate-service-principal.md) e conceder acesso ao Key Vault. 
+1. Criar um certificado de principal de serviço com uma palavra-passe através de [ad de az sp create-for-rbac – palavra-passe](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac). 
 
 2. Definir uma variável de ambiente com o nome **AzureServicesAuthConnectionString** para:
 
@@ -197,6 +188,33 @@ Para iniciar sessão com um Azure AD partilhado credencial secreta:
 
 Uma vez que tudo está configurado corretamente, sem alterações de código adicionais são necessários.  `AzureServiceTokenProvider` utiliza a variável de ambiente e o certificado para autenticar para o Azure AD. 
 
+### <a name="use-a-certificate-in-key-vault-to-sign-into-azure-ad"></a>Utilizar um certificado no Cofre de chaves para iniciar sessão no Azure AD
+
+Esta opção permite-lhe armazenar o certificado de cliente de um principal de serviço no Key Vault e utilizá-lo para a autenticação principal de serviço. Pode utilizá-la para os seguintes cenários:
+
+* Autenticação local, onde pretende efetuar a autenticação com um principal de serviço explícito e pretende manter as credenciais de principal de serviço com segurança num cofre de chaves. Conta de programador tem de ter acesso ao Cofre de chaves. 
+* Autenticação do Azure em que pretende utilizar credencial explícito (por exemplo, para cenários entre inquilinos) e pretende manter as credenciais de principal de serviço com segurança num cofre de chaves. Identidade gerida tem de ter acesso ao Cofre de chaves. 
+
+A identidade gerida ou a sua identidade de programador tem de ter permissão para obter o certificado de cliente a partir do Key Vault. A biblioteca de AppAuthentication utiliza o certificado obtido como credenciais de cliente do principal de serviço.
+
+Para utilizar um certificado de cliente para autenticação do principal de serviço
+
+1. Criar um certificado de principal de serviço e armazená-los automaticamente no seu Cofre de chaves com a CLI do Azure [az ad sp create-for-rbac – keyvault <keyvaultname> -cert <certificatename> -criar-cert – atribuição de ignorar](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) comando:
+
+    ```azurecli
+    az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
+    ```
+    
+    O certificado será um URL no formato `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+
+1. Substitua `{KeyVaultCertificateSecretIdentifier}` nessa cadeia de ligação com o identificador do certificado:
+
+```
+RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
+```
+
+Se, por exemplo o seu Cofre de chaves foi chamado "myKeyVault" e criou um certificado chamado 'myCert', seria o identificador de certificado `https://myKeyVault.vault.azure.net/secrets/myCert`, e a cadeia de ligação seria `RunAs=App;AppId={TestAppId};TenantId={TenantId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert`.
+
 ## <a name="connection-string-support"></a>Suporte de cadeia de ligação
 
 Por predefinição, `AzureServiceTokenProvider` usa vários métodos para obter um token. 
@@ -205,18 +223,27 @@ Para controlar o processo, use uma cadeia de ligação passada para o `AzureServ
 
 São suportadas as seguintes opções:
 
-| Ligação&nbsp;cadeia de caracteres&nbsp;opção | Cenário | Comentários|
+| Opção de cadeia de ligação | Cenário | Comentários|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Desenvolvimento local | AzureServiceTokenProvider utiliza AzureCli ao obter o token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Desenvolvimento local | AzureServiceTokenProvider usa o Visual Studio para obter o token. |
 | `RunAs=CurrentUser` | Desenvolvimento local | AzureServiceTokenProvider utiliza autenticação integrada do Azure AD ao obter o token. |
 | `RunAs=App` | [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider usa uma identidade gerida para obter o token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [Identidade de utilizador atribuída para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider usa uma identidade de utilizador atribuído ao obter o token. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Autenticação de serviços personalizados | KeyVaultCertificateSecretIdentifier = identificador de segredo do certificado. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Principal de serviço | `AzureServiceTokenProvider` utiliza o certificado ao obter o token do Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Principal de serviço |`AzureServiceTokenProvider` utiliza o segredo para obter o token do Azure AD. |
 
+## <a name="samples"></a>Exemplos
 
+Para ver o `Microsoft.Azure.Services.AppAuthentication` biblioteca em ação, consulte os seguintes exemplos de código.
+
+1. [Utilizar uma identidade gerida para obter um segredo a partir do Azure Key Vault em tempo de execução](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+
+2. [Por meio de programação implementar um modelo Azure Resource Manager a partir de uma VM do Azure com uma identidade gerida](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+
+3. [Utilize o exemplo de .NET Core e uma identidade gerida para chamar serviços do Azure a partir de uma VM do Linux do Azure](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

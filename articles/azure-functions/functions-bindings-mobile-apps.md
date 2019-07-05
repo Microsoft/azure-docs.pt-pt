@@ -4,19 +4,19 @@ description: Aprenda a usar associações de aplicações móveis do Azure nas f
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 5fd220f15f363c1987f1576009519e4b2feae6b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 965ec88b39336e71d2779da4b7cd31b9c26e28be
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61438130"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480371"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Enlaces de aplicações móveis para as funções do Azure 
 
@@ -163,7 +163,7 @@ Nas funções de JavaScript, o registo é passado para o `context.bindings.<name
 
 No C# e F# as funções, quaisquer alterações efetuadas para a entrada de registo (parâmetro de entrada) são automaticamente enviados para a tabela quando a função é encerrado com êxito. Não é possível modificar um registo nas funções de JavaScript.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Utilize a saída de aplicações móveis ligar a um novo registo de escrita para uma tabela de aplicações móveis.  
 

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: a92017c462ef62cbfb1aa6c2613a502d1cc5ffc6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5f60a2786a87f4bd9be1f4a9e2a7a222e097b2e1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340730"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448082"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na base de dados do Azure para PostgreSQL - servidor único
 
@@ -64,16 +64,16 @@ Iremos aumentar os limites de armazenamento em nossos escalões fins gerais e me
 | Tipo de armazenamento | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Tamanho de armazenamento | 32 GB e 16 TB| 32 a 16 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB |
-| IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS| 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS |
+| IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS |
 
 > [!IMPORTANT]
-> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, Sudeste asiático, leste do Japão, Coreia Central, leste da Austrália.
+> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, sul do Reino Unido, oeste do Reino Unido, Sudeste asiático, Ásia Oriental, Japão, leste, este do Japão Ocidental, Sul da Coreia Central, Coreia, leste da Austrália, Sul da Austrália Leste.
 >
->A pré-visualização do amplo armazenamento não suporta atualmente:
+> A pré-visualização do amplo armazenamento não suporta atualmente:
 >
 > * Ligações de entrada através de pontos finais de serviço de rede virtual
 > * Cópias de segurança georredundante
-> * Entre os replicação de região
+> * Réplicas de leitura
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 

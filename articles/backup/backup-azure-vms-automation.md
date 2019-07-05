@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 4df65819256e6a81a07927d463d130fbfdf9317a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85e7b40778305395bb0f4a9403b4aeafc4607654
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255016"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565691"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Criar cópias de segurança e restaurar VMs do Azure com o PowerShell
 
@@ -447,7 +447,7 @@ $restorejob
 >
 >
 
-Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG ao qual vão ser restaurados discos geridos. 
+Forneça um parâmetro adicional **TargetResourceGroupName** para especificar o RG ao qual vão ser restaurados discos geridos.
 
 > [!NOTE]
 > Recomenda-se vivamente a usar o **TargetResourceGroupName** parâmetro para restaurar discos geridos, uma vez que isso resulta em melhorias de desempenho significativas. Além disso, do Azure Powershell Az módulo 1.0 e superior, em que este parâmetro é obrigatório em caso de um restauro com discos geridos
@@ -483,6 +483,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Depois de restaurar os discos, vá para a secção seguinte para criar a VM.
+
+## <a name="replace-disks-in-azure-vm"></a>Substituir discos na VM do Azure
+
+Para substituir os discos e as informações de configuração, execute os passos abaixo:
+
+- Passo 1: [Restaurar os discos](backup-azure-vms-automation.md#restore-the-disks)
+- Passo 2: [Desanexar disco de dados com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Passo 3: [Anexar disco de dados à VM do Windows com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## <a name="create-a-vm-from-restored-disks"></a>Criar uma VM a partir de discos restaurados
 
@@ -718,6 +727,7 @@ A secção seguinte apresenta uma lista de etapas necessárias para criar uma VM
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Restaurar ficheiros a partir de uma cópia de segurança de VM do Azure
 

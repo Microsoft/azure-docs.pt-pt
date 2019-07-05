@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305479c8872883e434731b5062b408f97f68cc43
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2182708ea459b578a2a9a94213ab41e76821aefc
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055936"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514349"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação de página única de JavaScript
 
@@ -105,6 +105,11 @@ var msalConfig = {
 };
 
 ```
+> [!div renderon="portal"]
+> > [!NOTE]
+> > Este início rápido suporta Enter_the_Supported_Account_Info_Here.
+
+
 > [!div renderon="docs"]
 >
 > Em que:
