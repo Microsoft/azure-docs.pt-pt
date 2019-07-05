@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/01/2019
-ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
-ms.translationtype: HT
+ms.date: 07/03/2019
+ms.openlocfilehash: 31c6521ca77d9d85fc8388d7ebc5d25defc69bd0
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67489914"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568364"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias VM reservada do Azure (RIS)
 
@@ -66,20 +66,19 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 ## <a name="buy-a-reserved-vm-instance"></a>Comprar uma instância VM reservadas
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços** > **reservas**.
-3. Selecione **adicionar** para comprar uma reserva nova.
-4. Introduza os campos obrigatórios. Instâncias de VM em execução que correspondam aos atributos que selecionar se qualificar para obter o desconto de reserva. O número real de suas instâncias de VM que obter o desconto depende do escopo e quantidade selecionado.
+1. Selecione **todos os serviços** > **reservas**.
+1. Selecione **Add** para adquirir uma nova reserva e, em seguida, clique em **Máquina Virtual**.
+1. Introduza os campos obrigatórios. Instâncias de VM em execução que correspondam aos atributos que selecionar se qualificar para obter o desconto de reserva. O número real de suas instâncias de VM que obter o desconto depende do escopo e quantidade selecionado.
 
-    | Campo      | Descrição|
-    |------------|--------------|
-    |Name        |O nome desta reserva.|
-    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou uma subscrição individual com as tarifas pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para obter uma subscrição com taxas pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.|    
-    |Scope       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva é aplicada a VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado a VMs em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes com subscrições com as tarifas pay as you go, o âmbito partilhado é todas as subscrições com taxas pay as you go, criadas pelo administrador de conta.</li></ul>|
-    |Região    |A região do Azure que é abrangida pela reserva.|    
-    |Tamanho da VM     |O tamanho das instâncias de VM.|
-    |Otimizar para     |Flexibilidade de tamanho de instância VM aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade dá prioridade à capacidade do Centro de dados para as suas implementações. Isso oferece a confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas. Prioridade de capacidade apenas está disponível quando o âmbito da reserva é subscrição única. |
-    |Termo        |Um ano ou três anos.|
-    |Quantidade    |O número de instâncias que está a ser comprado dentro a reserva. A quantidade é o número de instâncias VM que podem obter o desconto de faturação em execução. Por exemplo, se estiver a executar 10 Standard_D2 VMs nos EUA leste, em seguida, tem de especificar quantidade como 10 para maximizar o benefício de todas as máquinas em execução. |
+| Campo      | Descrição|
+|------------|--------------|
+|Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou uma subscrição individual com as tarifas pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para obter uma subscrição com taxas pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.|    
+|Scope       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>**Único âmbito do grupo de recursos** – aplica o desconto de reserva para os recursos correspondentes na apenas o grupo de recursos selecionado.</li><li>**Único âmbito da subscrição** – aplica o desconto de reserva para os recursos correspondentes na subscrição selecionada.</li><li>**Partilhado âmbito** — se aplica o desconto de reserva a correspondência de recursos em subscrições elegíveis que estão no contexto de faturação. Para clientes com Enterprise Agreement, o contexto de faturação é a inscrição. Para obter subscrições individuais com as tarifas pay as you go, o âmbito de faturação é todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>|
+|Região    |A região do Azure que é abrangida pela reserva.|    
+|Tamanho da VM     |O tamanho das instâncias de VM.|
+|Otimizar para     |Flexibilidade de tamanho de instância VM está selecionada por predefinição. Clique em definições avançadas para alterar o valor de flexibilidade de tamanho de instância para aplicar o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Prioridade de capacidade dá prioridade à capacidade do Centro de dados para as suas implementações. Isso oferece a confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas. Prioridade de capacidade apenas está disponível quando o âmbito da reserva é subscrição única. |
+|Termo        |Um ano ou três anos.|
+|Quantidade    |O número de instâncias que está a ser comprado dentro a reserva. A quantidade é o número de instâncias VM que podem obter o desconto de faturação em execução. Por exemplo, se estiver a executar 10 Standard_D2 VMs nos EUA leste, em seguida, tem de especificar quantidade como 10 para maximizar o benefício de todas as máquinas em execução. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
