@@ -75,8 +75,8 @@ A resposta original deve ter o seguinte aspeto:
 1. Selecione **API da Conferência de Demonstração**.
 2. Na parte superior do ecrã, selecione o separador **Design**.
 3. Selecione **Todas as operações**.
-4. Na secção **Processamento de saída**, clique no ícone**</>**.
-5. Posicione o cursor no interior do elemento **&lt;saída&gt;**.
+4. Na secção **Processamento de saída**, clique no ícone **</>** .
+5. Posicione o cursor no interior do elemento **&lt;saída&gt;** .
 6. Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
 
    ![Políticas](./media/transform-api/transform-api.png)
@@ -112,10 +112,10 @@ Para ver a resposta original:
 1.  Selecione **API da Conferência de Demonstração**.
 2.  Selecione **Todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
-4.  Na secção **Processamento de saída**, clique no ícone**</>**.
-5.  Posicione o cursor no interior do elemento **&lt;saída&gt;**.
+4.  Na secção **Processamento de saída**, clique no ícone **</>** .
+5.  Posicione o cursor no interior do elemento **&lt;saída&gt;** .
 6.  Na janela direita, em **Políticas de transformação**, clique em **+ Localizar e substituir a cadeia no corpo**.
-7.  Modifique o código **find-and-replace** (no elemento de **\<saída\>**) para substituir o URL para que corresponda ao seu gateway de APIM. Por exemplo:
+7.  Modifique o código **find-and-replace** (no elemento de **\<saída\>** ) para substituir o URL para que corresponda ao seu gateway de APIM. Por exemplo:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -129,9 +129,9 @@ Esta secção mostra como adicionar proteção à API de back-end através da co
 2.  Selecione **Todas as operações**.
 3.  Na parte superior do ecrã, selecione o separador **Design**.
 4.  Na **processamento de entrada** secção, clique nas **</>** ícone.
-5.  Posicione o cursor no interior do elemento **&lt;entrada&gt;**.
+5.  Posicione o cursor no interior do elemento **&lt;entrada&gt;** .
 6.  Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
-7.  Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
+7.  Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>** ) para o seguinte código:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
