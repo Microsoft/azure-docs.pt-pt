@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2120466652db363206ec20c2303ad56670228c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 60fc168a6c15e7cb8d6e4271154d99fb4136226e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164790"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509030"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
@@ -36,7 +36,6 @@ Este artigo pressupõe que está familiarizado com:
 O Azure AD suporta vários protocolos de autenticação e autorização mais amplamente utilizados incluindo antigos de autenticação. Autenticação refere-se aos protocolos que utilizam a autenticação básica. Normalmente, esses protocolos não é possível impor qualquer tipo de autenticação de segundo fator. Exemplos de aplicações que se baseiam em antigos de autenticação são:
 
 - Aplicações do Microsoft Office mais antigas
-
 - Aplicações através de protocolos de email, como POP, IMAP e SMTP
 
 Autenticação de fator único (por exemplo, nome de utilizador e palavra-passe) não é suficiente nos dias de hoje. As palavras-passe que são ruins à medida que são fáceis de adivinhar e nós (humanos) que são ruins da escolha de palavras-passe boa. As palavras-passe também são vulneráveis a uma variedade de ataques, como spray de phishing e a palavra-passe. Uma das coisas mais fácil, que pode fazer para proteger contra ameaças de palavra-passe é implementar o MFA. Com a MFA, mesmo que um atacante obtém na posse de palavra-passe de um utilizador, a palavra-passe sozinha não é suficiente para autenticar e acessar os dados com êxito.
@@ -71,46 +70,34 @@ Para bloquear o acesso para estas aplicações, tem de selecionar **bloquear o a
 
 ![Bloquear o acesso](./media/block-legacy-authentication/02.png)
 
-
 ### <a name="select-users-and-cloud-apps"></a>Selecione utilizadores e aplicações na cloud
 
 Se deseja bloquear antigos de autenticação para a sua organização, provavelmente pensa que é possível fazer isso selecionando:
 
 - Todos os utilizadores
-
 - Todas as aplicações de cloud
-
 - Bloquear o acesso
- 
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
-
-
 
 O Azure tem uma funcionalidade de segurança que o impede de criar uma política como esta, porque esta configuração viola os [melhores práticas](best-practices.md) para políticas de acesso condicional.
  
 ![Configuração de política não é suportada](./media/block-legacy-authentication/04.png)
 
-
 A funcionalidade de segurança é necessária porque *bloquear todos os utilizadores e todas as aplicações na cloud* tem o potencial para bloquear toda a organização de iniciar sessão seu inquilino. Tem de excluir pelo menos um utilizador para satisfazer o requisito mínimo de práticas recomendado. Também pode excluir uma função de diretório.
 
 ![Configuração de política não é suportada](./media/block-legacy-authentication/05.png)
 
-
 Pode atender esse recurso de segurança excluindo um utilizador da sua política. Idealmente, deve definir algumas [contas administrativas de acesso de emergência no Azure AD](../users-groups-roles/directory-emergency-access.md) e excluí-los da sua política.
- 
 
 ## <a name="policy-deployment"></a>Implementação da política
 
 Antes de colocar sua diretiva em produção, cuide de:
  
 - **Contas de serviço** -identificar contas de utilizador que são utilizadas como contas de serviço ou por dispositivos, como telemóveis de sala de conferência. Certifique-se de que estas contas têm as palavras-passe fortes e adicioná-los a um grupo excluído.
- 
 - **Relatórios de início de sessão** - rever o relatório de início de sessão e procure **outro cliente** tráfego. Identifique a utilização superior e investigar por que motivo está a ser utilizado. Normalmente, o tráfego é gerado por clientes mais antigos do Office que não utilizam autenticação moderna, ou algumas aplicações de e-mail de terceiros. Criar um plano para mover a utilização na direção oposta estas aplicações, ou se o impacto é baixo, notifique os utilizadores que não podem utilizar estas aplicações mais.
  
 Para obter mais informações, consulte [como deve implementar uma nova política?](best-practices.md#how-should-you-deploy-a-new-policy).
-
-
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
@@ -120,23 +107,17 @@ Configurar uma política para **outros clientes** bloqueia toda a organização 
 
 Pode demorar até 24 horas para a política para entrar em vigor.
 
-Pode selecionar todos os controlos de concessão disponíveis para a outra condição de clientes; No entanto, a experiência de utilizador final é sempre o mesmo - bloqueou o acesso.
+Pode selecionar todos os controlos de concessão disponíveis para o **outros clientes** condição; no entanto, a experiência de utilizador final é sempre o mesmo - bloqueou o acesso.
 
-Se bloquear antigos de autenticação com a outra condição de clientes, também pode definir a condição de plataforma e a localização do dispositivo. Por exemplo, se apenas pretender bloquear antigos de autenticação para dispositivos móveis, defina o **plataformas de dispositivos** condição ao selecionar:
+Se bloquear a autenticação de legado com o **outros clientes** condição, também pode definir a condição de plataforma e a localização do dispositivo. Por exemplo, se apenas pretender bloquear antigos de autenticação para dispositivos móveis, defina o **plataformas de dispositivos** condição ao selecionar:
 
 - Android
-
 - iOS
-
 - Windows Phone
 
 ![Configuração de política não é suportada](./media/block-legacy-authentication/06.png)
 
-
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Se não estiver familiarizado com a configuração de políticas de acesso condicional ainda, veja [exigir a MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md) para obter um exemplo.
-
 - Para obter mais informações sobre o suporte de autenticação moderna, consulte [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

@@ -1,34 +1,30 @@
 ---
-title: Compreender os termos na sua folha de preços para um contrato de cliente da Microsoft - Azure | Documentos da Microsoft
-description: Saiba como ler e compreender a utilização e faturação para a sua subscrição do Azure
-services: ''
-documentationcenter: ''
-author: jureid
+title: Compreender os termos na sua folha de preços para um contrato de cliente da Microsoft - Azure
+description: Saiba como ler e compreender a utilização e faturação para um contrato de cliente da Microsoft.
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371364"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490650"
 ---
-# <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua folha de preços para um contrato de cliente da Microsoft
+# <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termos na sua folha de preços do contrato de cliente da Microsoft
 
-Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se a uma conta de faturação do Azure para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 Se for um perfil de faturação proprietário, Contribuidor, leitor ou Gerenciador de faturas pode transferir a folha de preços da sua organização no portal do Azure. Ver [modo de exibição e a transferência de preços de sua organização](billing-ea-pricing.md).
 
-## <a name="detailed-terms-and-descriptions-in-your-microsoft-customer-agreement-price-sheet"></a>Termos detalhados e descrições na sua folha de preços do contrato de cliente da Microsoft
+## <a name="terms-and-descriptions-in-your-price-sheet"></a>Termos e descrições na sua folha de preços
 
 A secção seguinte descreve os termos de importantes exibidos na sua folha de preços do contrato de cliente da Microsoft.
 

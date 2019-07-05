@@ -4,17 +4,17 @@ description: Descreve os diferentes métodos para iniciar um runbook na automati
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84f17b76f03c01d0b1441a50b9bcbddc1dfe2ef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64d9246284be58c8378ab102db25ab7e5220c9eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61081583"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477971"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks subordinados na automatização do Azure
 
@@ -116,7 +116,7 @@ A tabela seguinte resume as diferenças entre os dois métodos para chamar um ru
 |:--- |:--- |:--- |
 | Tarefa |Runbook subordinado é executado na mesma tarefa como pai. |Uma tarefa separada é criada para o runbook subordinado. |
 | Execução |O runbook principal aguarda que o runbook subordinado seja concluído antes de continuar. |O runbook principal continua imediatamente após o início do runbook subordinado *ou* runbook principal aguarda o conclusão do trabalho filho. |
-| Saída |O runbook principal pode obter resultados diretamente do runbook subordinado. |O runbook principal tem de obter o resultado da tarefa do runbook subordinado *ou* runbook principal pode obter resultados diretamente do runbook subordinado. |
+| Output |O runbook principal pode obter resultados diretamente do runbook subordinado. |O runbook principal tem de obter o resultado da tarefa do runbook subordinado *ou* runbook principal pode obter resultados diretamente do runbook subordinado. |
 | Parâmetros |Valores para parâmetros do runbook subordinado são especificados em separado e podem utilizar qualquer tipo de dados. |Valores dos parâmetros do runbook subordinado tem de ser combinados numa única tabela hash. Esta tabela de hash só pode incluir simple, matriz e os tipos de dados que usar a serialização do JSON de objeto. |
 | Conta de Automatização |O runbook principal só pode utilizar o runbook subordinado na mesma conta de automatização. |Runbooks principais pode utilizar um runbook subordinado a partir de qualquer conta de automatização da mesma subscrição do Azure e até mesmo uma subscrição diferente que têm uma ligação. |
 | Publicação |Runbook subordinado tem de ser publicado antes de o runbook principal. |Runbook subordinado tem de ser publicado em qualquer altura antes de principal runbook é iniciado. |

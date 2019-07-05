@@ -1,19 +1,17 @@
 ---
 title: Perguntas mais frequentes sobre o catálogo de dados do Azure
 description: Perguntas mais frequentes sobre o catálogo de dados do Azure, incluindo capacidades de deteção de origens de dados, anotação e gestão.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 7c5241b9df23bb0334a39f2c684fd1bdff40b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/01/2019
+ms.openlocfilehash: 6ab5c67129b16cde5ca74e72effdf56ec0a22711
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61004046"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508901"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas mais frequentes sobre o catálogo de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes relacionadas com o serviço de catálogo de dados do Azure.
@@ -36,7 +34,7 @@ Catálogo de dados foi concebido para utilizadores técnicos e, incluindo:
 Serviços de catálogo de dados estão atualmente disponíveis nos seguintes centros de dados:
 
 * EUA Oeste
-* EUA Leste
+* East US
 * Europa Ocidental
 * Europa do Norte
 * Leste da Austrália
@@ -103,9 +101,6 @@ Para reportar problemas, compartilhar informações e fazer perguntas, vá para 
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>O catálogo funciona com outra origem de dados que estou interessado em?
 Estamos a trabalhar ativamente sobre como adicionar mais origens de dados no catálogo de dados. Se quiser ver uma origem de dados específicos suportada, sugeri-lo (ou o suporte de voz, se já tiver sido sugerido) ao aceder a [catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
-
-## <a name="how-is-azure-data-catalog-related-to-the-data-catalog-in-power-bi-for-office-365"></a>Como é o catálogo de dados do Azure relacionada com o catálogo de dados no Power BI para Office 365?
-Pode pensar o catálogo de dados do Azure como uma evolução do catálogo de dados no Power BI. A partir da Primavera de 2017, o catálogo de dados do Azure é utilizado para ativar a partilha e a deteção de consultas no Excel 2016 e o Power Query para Excel. Capacidades do catálogo de dados no Excel estão disponíveis para os utilizadores com licenças do Power BI Pro.
 
 ## <a name="what-permissions-do-i-need-to-register-assets-with-data-catalog"></a>Que permissões preciso registar recursos de catálogo de dados?
 Para executar a ferramenta de registo do catálogo de dados, precisa de permissões na origem de dados que permite-lhe ler os metadados da origem. Para incluir também uma pré-visualização, tem de ter as permissões que permitem-lhe ler os dados de objetos a ser registados.

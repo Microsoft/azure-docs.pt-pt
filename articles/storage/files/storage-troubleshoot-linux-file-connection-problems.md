@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16d1739e01061a90d673e4bd79bba7bfe7ec3a90
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 97f737c8d1228bd03baf59f2ebe830f715241299
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295077"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449847"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Resolução de problemas de ficheiros do Azure no Linux
 
@@ -103,7 +103,7 @@ Reduzir o número de identificadores abertos em simultâneo por fechar alguns id
     - Uso [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para qualquer transferência entre duas partilhas de ficheiros.
     - Usar cp com paralelo pode aumentar a velocidade de cópia, o número de threads depende da sua carga de trabalho e caso de utilização. Este exemplo usa seis: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
     - Ferramentas de terceiros de código aberto, tais como:
-        - [GNU paralelo](http://www.gnu.org/software/parallel/).
+        - [GNU paralelo](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - ordena os arquivos e pacotes-los em partições.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -utiliza Fpart e uma ferramenta de cópia para gerar várias instâncias para migrar dados de src_dir para dst_url.
         - [Várias](https://github.com/pkolano/mutil) -cp com múltiplos threads e md5sum com base no GNU coreutils.

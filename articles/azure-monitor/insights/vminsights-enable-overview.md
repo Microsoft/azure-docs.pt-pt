@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 2d4e49b4f7c1aa244b59ef17716c90369a0d3339
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 6fb7e6b9611b28dab856209aaf03aa93c25d3968
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273372"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478054"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Ativar o Azure Monitor para descrição geral de VMs (pré-visualização)
 
@@ -41,7 +41,7 @@ Monitor do Azure para VMs oferece suporte a uma área de trabalho do Log Analyti
 
 - EUA Centro-Oeste
 - E.U.A. oeste 2<sup>1</sup>
-- EUA Leste
+- East US
 - Canadá Central
 - Reino Unido Sul
 - Europa Ocidental
@@ -86,7 +86,7 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que suporta o Azu
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|SUSE Linux Enterprise Server (SLES) 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> funcionalidade do desempenho do Azure Monitor para VMs está disponível apenas a partir do Azure Monitor. Não está disponível diretamente a partir do painel do lado esquerdo da VM do Azure.
@@ -127,16 +127,10 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que suporta o Azu
 
 | Versão do SO | Versão de kernel |
 |:--|:--|
-| Ubuntu 18.04 | o kernel 4.15. * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | o kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
-
-#### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
-
-| Versão do SO | Versão de kernel
-|:--|:--|
-|11 SP4 | 3.0.* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -144,6 +138,8 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que suporta o Azu
 |:--|:--|
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
+|12 SP4 | 4.4. * |
+|12 SP4 | Kernel otimizados no Azure |
 
 ### <a name="the-microsoft-dependency-agent"></a>O agente do Microsoft Dependency
 

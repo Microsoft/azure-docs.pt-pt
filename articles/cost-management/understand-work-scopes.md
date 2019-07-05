@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 699707953ae06afa9cbf3cc7286f94917ba0efca
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991386"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490118"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -100,19 +100,19 @@ As subscrições do Azure estão aninhadas em contas de inscrição. Utilizadore
 
 Os utilizadores de faturação não tem acesso a grupos de gestão porque eles não se enquadram explicitamente sob uma conta de cobrança específica. Acesso deve ser concedido a grupos de gestão explicitamente. Os custos de rollup de aninhada todas as subscrições de grupos de gestão. No entanto, eles incluem apenas compras baseada na utilização. Eles não incluem as compras, como as reservas e ofertas do Marketplace de terceiros. Para ver esses custos, utilize a conta de cobrança do EA.
 
-## <a name="individual-agreement-pay-as-you-go-scopes"></a>Âmbitos de contratos individuais (pay as you go)
+## <a name="individual-agreement-scopes"></a>Âmbitos de contratos individuais
 
-Subscrições pay as you go (PAYG), incluindo tipos relacionados, como gratuitos/avaliação e ofertas de dev/test, não tem um âmbito de conta de faturação explícito. Em vez disso, cada subscrição tem um proprietário da conta ou administrador de conta, como o proprietário da conta EA.
+Subscrições do Azure criadas a partir de ofertas individuais, como tipos de pay as you go e relacionados, como a versão de avaliação e ofertas de dev/test, não tem um âmbito de conta de faturação explícito. Em vez disso, cada subscrição tem um proprietário da conta ou administrador de conta, como o proprietário da conta EA.
 
 - [**Conta de faturação** ](../billing/billing-view-all-accounts.md) -representa um proprietário da conta única para um ou mais subscrições do Azure. Atualmente não suporta a conceder acesso a várias pessoas ou acesso a vistas de custo agregado.
 
     Tipo de recurso: Não aplicável
 
-Administradores de contas de subscrição PAYG podem ver e gerir dados de faturação, por exemplo, as notas fiscais e pagamentos, a partir da [Centro de contas do Azure](https://account.azure.com/subscriptions). No entanto, não é possível ver os dados de custo ou gerir os recursos no portal do Azure. Para conceder acesso para o administrador de conta, utilize as funções de gestão de custos mencionadas anteriormente.
+Os administradores de contas de subscrição individual do Azure podem ver e gerir dados de faturação, por exemplo, as notas fiscais e pagamentos, a partir da [Centro de contas do Azure](https://account.azure.com/subscriptions). No entanto, não é possível ver os dados de custo ou gerir os recursos no portal do Azure. Para conceder acesso para o administrador de conta, utilize as funções de gestão de custos mencionadas anteriormente.
 
-Ao contrário dos EA, os administradores de contas de subscrição PAYG podem ver suas notas fiscais no portal do Azure. Tenha em atenção que as funções de leitor de gestão de custos e contribuinte de gestão de custos não fornecem acesso às notas fiscais. Para obter mais informações, consulte [como pode conceder acesso às notas fiscais em PAYG](../billing/billing-manage-access.md#give-access-to-billing).
+Ao contrário dos EA, os administradores de contas de subscrição individual do Azure podem ver suas notas fiscais no portal do Azure. Tenha em atenção que as funções de leitor de gestão de custos e contribuinte de gestão de custos não fornecem acesso às notas fiscais. Para obter mais informações, consulte [como pode conceder acesso às notas fiscais](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## <a name="customer-agreement-scopes"></a>Âmbitos de contrato de cliente
+## <a name="microsoft-customer-agreement-scopes"></a>Âmbitos de contrato de cliente da Microsoft
 
 Contas de faturas do contrato de cliente da Microsoft têm os seguintes âmbitos:
 
@@ -148,7 +148,7 @@ Parceiros da cloud Solution Provider (CSP) não são atualmente suportados no Co
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Alternar entre âmbitos no Cost Management
 
-Todas as vistas de gestão de custos no portal do Azure incluem uma **âmbito** envenenadas no canto superior esquerdo da vista. Usá-lo para alterar rapidamente o âmbito. Clique nas **âmbito** envenenadas para abrir o Seletor de âmbito. Mostra contas de faturas, o grupo de gestão de raiz e quaisquer subscrições que não são aninhadas sob o grupo de gestão de raiz. Para selecionar um âmbito, clique em segundo plano para destacá-la e, em seguida, clique em **selecione** na parte inferior. Para desagregação em âmbitos aninhados, como grupos de recursos numa subscrição, clique na ligação de nome de âmbito. Para selecionar o âmbito principal em qualquer nível aninhada, clique em **Selecione esta opção &lt;âmbito&gt;**  na parte superior do Seletor de âmbito.
+Todas as vistas de gestão de custos no portal do Azure incluem uma **âmbito** envenenadas de seleção no canto superior esquerdo da vista. Usá-lo para alterar rapidamente o âmbito. Clique nas **âmbito** envenenadas para abrir o Seletor de âmbito. Mostra contas de faturas, o grupo de gestão de raiz e quaisquer subscrições que não são aninhadas sob o grupo de gestão de raiz. Para selecionar um âmbito, clique em segundo plano para destacá-la e, em seguida, clique em **selecione** na parte inferior. Para desagregação em âmbitos aninhados, como grupos de recursos numa subscrição, clique na ligação de nome de âmbito. Para selecionar o âmbito principal em qualquer nível aninhada, clique em **Selecione esta opção &lt;âmbito&gt;**  na parte superior do Seletor de âmbito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificar o ID de recurso para um âmbito
 

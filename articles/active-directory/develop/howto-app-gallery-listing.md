@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41b407b4343db4f594049c4b1027fe4279dab840
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540539"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482957"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -117,21 +117,21 @@ Para atualizar ou remover uma aplicação existente na Galeria de aplicações d
 
 Os clientes podem enviar o pedido de listagem de uma aplicação ao clicar em **pedidos de aplicação por parte dos clientes** -> **submeter novo pedido**.
 
-![Mosaico de pedido de aplicações de cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Mostra o cliente pedido mosaico de aplicações](./media/howto-app-gallery-listing/customer-submit-request.png)
 
 Segue-se que o fluxo de cliente pedida aplicativos-
 
-![Fluxo de aplicações solicitadas pelos clientes](./media/howto-app-gallery-listing/customer-request.png)
+![Mostra o cliente solicitou o fluxo de aplicações](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Linhas do tempo
 
 A linha cronológica para o processo de listagem, uma aplicação de WS-Fed na galeria ou SAML 2.0 é 7-10 dias úteis.
 
-   ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/timeline.png)
+   ![Linha cronológica de listagem aplicação de SAML numa galeria de](./media/howto-app-gallery-listing/timeline.png)
 
 A linha cronológica para o processo de uma aplicação de ligação OpenID na Galeria de listagem é 2 a 5 dias úteis.
 
-   ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/timeline2.png)
+   ![Linha cronológica de listagem aplicação de SAML numa galeria de](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalonamento
 

@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre como resolver problemas de 
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514454"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477529"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Resolver problemas de Desired State Configuration (DSC)
 
@@ -164,6 +164,24 @@ Este erro ocorre normalmente quando o nó é atribuído um nome de configuraçã
 
 * Certifique-se de que está a atribuir o nó com um nome de configuração do nó que corresponde exatamente ao nome no serviço.
 * Pode optar por não incluir o nome de configuração do nó, o que resulta na inclusão de nó, mas não atribuir uma configuração do nó
+
+### <a name="failure-linux-temp-noexec"></a>Cenário: Aplicar uma configuração no Linux, ocorre uma falha com um erro geral
+
+#### <a name="issue"></a>Problema
+
+Ao aplicar uma configuração no Linux, ocorre uma falha que contém o erro:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Causa
+
+Identificar os clientes que se a localização de /tmp estiver definida como noexec, a versão atual do DSC não aplicar as configurações.
+
+#### <a name="resolution"></a>Resolução
+
+* Remova a opção de noexec a partir da localização de /tmp.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

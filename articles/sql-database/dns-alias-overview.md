@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 06/19/2019
-ms.openlocfilehash: d15e629343e015af5f83e1d185c6a46fc48fa3c4
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461817"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias de DNS para a base de dados do Azure SQL
 
@@ -30,6 +30,7 @@ As utilizações comuns para um alias de DNS incluem os seguintes casos:
 - Crie uma fácil de memorizar o nome para um servidor de SQL do Azure.
 - Durante o desenvolvimento inicial, o seu alias pode se referir a um servidor de base de dados SQL do teste. Quando o aplicativo for executado, pode modificar o alias para fazer referência ao servidor de produção. A transição do teste para produção não requer qualquer modificação para as configurações de vários clientes que se ligam ao servidor de base de dados.
 - Suponha que a base de dados única em seu aplicativo é movido para outro servidor de base de dados SQL. Aqui pode modificar o alias sem ter de modificar as configurações de vários clientes.
+- Durante uma falha regional utilize o restauro geográfico para recuperar a base de dados num servidor diferente e a região. Pode modificar o seu alias existente para apontar para o novo servidor, para que a aplicação de cliente existente pode conectar-se novamente ao mesmo. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>Sistema de nomes de domínio (DNS) da Internet
 

@@ -1,27 +1,27 @@
 ---
-title: Implementar um registo de contentor do Azure numa rede virtual
+title: Restringir o acesso a um registo de contentor do Azure a partir de uma rede virtual
 description: Permita o acesso a um Azure container registry apenas a partir de recursos numa rede virtual do Azure ou a partir de intervalos de endereços IP públicos.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: dc08fd5cc4abbf5d16f9d49874ec2c70cace165b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067972"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514393"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um Azure container registry através de uma rede virtual do Azure ou as regras de firewall
 
-[Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece um sistema de rede seguro e privado para o Azure e de recursos no local. Ao implementar o seu registo privado de contentor do Azure numa rede virtual do Azure, pode certificar-se de que apenas os recursos na rede virtual aceder ao registo. Para cenários em vários locais, também pode configurar regras de firewall para permitir o registo de acesso apenas a partir de endereços IP específicos.
+[Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) fornece um sistema de rede seguro e privado para o Azure e de recursos no local. Ao limitar o acesso para o seu registo de contentores do Azure privado de uma rede virtual do Azure, é garantir que apenas os recursos na rede virtual aceder ao registo. Para cenários em vários locais, também pode configurar regras de firewall para permitir o registo de acesso apenas a partir de endereços IP específicos.
 
-Este artigo mostra dois cenários para criar as regras de acesso de rede para limitar o acesso a um Azure container registry: a partir de uma máquina virtual implementada na mesma rede ou de endereço IP público de uma VM.
+Este artigo mostra dois cenários para criar as regras de acesso de rede para limitar o acesso a um Azure container registry: de uma máquina virtual implementado numa rede virtual ou do endereço IP público de uma VM.
 
 > [!IMPORTANT]
-> Esta funcionalidade está atualmente em pré-visualização e algumas [limitações aplicam-se](#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade está atualmente em pré-visualização e algumas [limitações aplicam-se](#preview-limitations). As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 >
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
@@ -30,15 +30,15 @@ Este artigo mostra dois cenários para criar as regras de acesso de rede para li
 
 * Apenas um [do Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster ou do Azure [máquina virtual](../virtual-machines/linux/overview.md) pode ser utilizado como um anfitrião para aceder a um registo de contentor numa rede virtual. *Outros serviços do Azure, incluindo o Azure Container Instances não são atualmente suportados.*
 
-* [Tarefas de ACR](container-registry-tasks-overview.md) operações não são atualmente suportadas num registo de contentor implementado a uma rede virtual.
+* [Tarefas de ACR](container-registry-tasks-overview.md) operações não são atualmente suportadas num registo de contentor acessado a uma rede virtual.
 
 * Cada registro suporta um máximo de 100 regras de rede virtual.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para utilizar o Azure CLI os passos neste artigo, a CLI do Azure versão 2.0.58 ou posterior é necessária. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
+* Para utilizar o Azure CLI os passos neste artigo, a CLI do Azure versão 2.0.58 ou posterior é necessária. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
-* Se ainda não tiver um registo de contentor, criar uma (é necessário um SKU Premium) e enviar uma imagem de exemplo como `hello-world` do Hub do Docker. Por exemplo, utilizar o [portal do Azure] [ quickstart-portal] ou o [da CLI do Azure] [ quickstart-cli] para criar um registo. 
+* Se ainda não tiver um registo de contentor, criar uma (é necessário um SKU Premium) e enviar uma imagem de exemplo como `hello-world` do Hub do Docker. Por exemplo, utilizar o [portal do Azure][quickstart-portal] or the [Azure CLI][quickstart-cli] para criar um registo. 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Sobre regras de rede para um registo de contentor
 
@@ -58,7 +58,7 @@ Para regras de rede IP, fornecer internet permitidos intervalos de endereços, p
 
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Criar uma máquina de virtual habilitados para Docker
 
-Neste artigo, utilize uma VM do Ubuntu habilitados no Docker para aceder um Azure container registry. Para utilizar a autenticação do Azure Active Directory para o registo, também instalar o [CLI do Azure] [ azure-cli] na VM. Se já tiver uma máquina virtual do Azure, ignore este passo de criação.
+Neste artigo, utilize uma VM do Ubuntu habilitados no Docker para aceder um Azure container registry. Para utilizar a autenticação do Azure Active Directory para o registo, também instalar o [CLI do Azure][azure-cli] na VM. Se já tiver uma máquina virtual do Azure, ignore este passo de criação.
 
 Pode usar o mesmo grupo de recursos para sua máquina virtual e o seu registo de contentor. Esta configuração simplifica a limpeza no final, mas não é necessária. Se optar por criar um grupo de recursos separado para a máquina virtual e a rede virtual, execute [criar grupo az][az-group-create]. O exemplo seguinte cria um grupo de recursos chamado *myResourceGroup* no *westcentralus* localização:
 
@@ -121,7 +121,7 @@ Nesta secção, configure o seu registo de contentor para permitir o acesso a pa
 
 #### <a name="add-a-service-endpoint-to-a-subnet"></a>Adicionar um ponto de extremidade de serviço a uma sub-rede
 
-Quando cria uma VM, o Azure, por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se nomear sua máquina virtual *myDockerVM*, o nome de rede virtual predefinido é *myDockerVMVNET*, com uma sub-rede denominada *myDockerVMSubnet*. Verificar isto no portal do Azure ou utilizando o [lista de vnet de rede de az] [ az-network-vnet-list] comando:
+Quando cria uma VM, o Azure, por padrão cria uma rede virtual no mesmo grupo de recursos. O nome da rede virtual é baseado no nome da máquina virtual. Por exemplo, se nomear sua máquina virtual *myDockerVM*, o nome de rede virtual predefinido é *myDockerVMVNET*, com uma sub-rede denominada *myDockerVMSubnet*. Verificar isto no portal do Azure ou utilizando o [lista de vnet de rede de az][az-network-vnet-list] comando:
 
 ```azurecli
 az network vnet list --resource-group myResourceGroup --query "[].{Name: name, Subnet: subnets[0].name}"
@@ -138,7 +138,7 @@ Saída:
 ]
 ```
 
-Utilize o [atualização de sub-rede de vnet de rede de az] [ az-network-vnet-subnet-update] comando para adicionar um **Microsoft. containerregistry** ponto final de serviço à sua sub-rede. Substitua os nomes da sua rede virtual e a sub-rede no comando seguinte:
+Utilize o [atualização de sub-rede de vnet de rede de az][az-network-vnet-subnet-update] comando para adicionar um **Microsoft. containerregistry** ponto final de serviço à sua sub-rede. Substitua os nomes da sua rede virtual e a sub-rede no comando seguinte:
 
 ```azurecli
 az network vnet subnet update \
@@ -148,7 +148,7 @@ az network vnet subnet update \
   --service-endpoints Microsoft.ContainerRegistry
 ```
 
-Utilize o [show de sub-rede de vnet de rede de az] [ az-network-vnet-subnet-show] comando para obter o ID de recurso da sub-rede. Precisará num passo posterior para configurar uma regra de acesso de rede.
+Utilize o [show de sub-rede de vnet de rede de az][az-network-vnet-subnet-show] comando para obter o ID de recurso da sub-rede. Precisará num passo posterior para configurar uma regra de acesso de rede.
 
 ```azurecli
 az network vnet subnet show \
@@ -167,7 +167,7 @@ Saída:
 
 #### <a name="change-default-network-access-to-registry"></a>Alterar o acesso de rede predefinido para o registo
 
-Por predefinição, um Azure container registry permite ligações a partir de anfitriões em qualquer rede. Para limitar o acesso a uma rede selecionada, altere a ação predefinida para negar o acesso. Substitua o nome do seu registo a seguir [atualização do az acr] [ az-acr-update] comando:
+Por predefinição, um Azure container registry permite ligações a partir de anfitriões em qualquer rede. Para limitar o acesso a uma rede selecionada, altere a ação predefinida para negar o acesso. Substitua o nome do seu registo a seguir [atualização do az acr][az-acr-update] comando:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -175,7 +175,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="add-network-rule-to-registry"></a>Adicionar regra de rede para o registo
 
-Utilize o [Adicionar regra de rede do acr az] [ az-acr-network-rule-add] comando para adicionar uma regra de rede para o seu registo, que permite o acesso de sub-rede da VM. Substitua o nome do registo de contentor e o ID de recurso de sub-rede no comando seguinte: 
+Utilize o [Adicionar regra de rede do acr az][az-acr-network-rule-add] comando para adicionar uma regra de rede para o seu registo, que permite o acesso de sub-rede da VM. Substitua o nome do registo de contentor e o ID de recurso de sub-rede no comando seguinte: 
 
  ```azurecli
 az acr network-rule add --name mycontainerregistry --subnet <subnet-resource-id>
@@ -222,7 +222,7 @@ Nesta secção, configure o seu registo de contentor para permitir o acesso a pa
 
 #### <a name="change-default-network-access-to-registry"></a>Alterar o acesso de rede predefinido para o registo
 
-Se ainda não o fez, atualize a configuração de registo para negar o acesso por predefinição. Substitua o nome do seu registo a seguir [atualização do az acr] [ az-acr-update] comando:
+Se ainda não o fez, atualize a configuração de registo para negar o acesso por predefinição. Substitua o nome do seu registo a seguir [atualização do az acr][az-acr-update] comando:
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny
@@ -230,7 +230,7 @@ az acr update --name myContainerRegistry --default-action Deny
 
 #### <a name="remove-network-rule-from-registry"></a>Remover regra de rede a partir do registo
 
-Se tiver adicionado anteriormente uma regra de rede para permitir o acesso a partir sub-rede da VM, remova o ponto final de serviço da sub-rede e a regra de rede. Substitua o nome do registo de contentor e o ID de recurso da sub-rede que obteve no passo anterior na [remover a regra de rede do acr az] [ az-acr-network-rule-remove] comando: 
+Se tiver adicionado anteriormente uma regra de rede para permitir o acesso a partir sub-rede da VM, remova o ponto final de serviço da sub-rede e a regra de rede. Substitua o nome do registo de contentor e o ID de recurso da sub-rede que obteve no passo anterior na [remover a regra de rede do acr az][az-acr-network-rule-remove] comando: 
 
 ```azurecli
 # Remove service endpoint
@@ -248,7 +248,7 @@ az acr network-rule remove --name mycontainerregistry --subnet <subnet-resource-
 
 #### <a name="add-network-rule-to-registry"></a>Adicionar regra de rede para o registo
 
-Utilize o [Adicionar regra de rede do acr az] [ az-acr-network-rule-add] comando para adicionar uma regra de rede para o seu registo, que permite o acesso de endereço IP da VM. Substitua o nome do registo de contentor e o endereço IP público da VM no comando seguinte.
+Utilize o [Adicionar regra de rede do acr az][az-acr-network-rule-add] comando para adicionar uma regra de rede para o seu registo, que permite o acesso de endereço IP da VM. Substitua o nome do registo de contentor e o endereço IP público da VM no comando seguinte.
 
 ```azurecli
 az acr network-rule add --name mycontainerregistry --ip-address <public-IP-address>
@@ -292,7 +292,7 @@ Continuar a [verificar o acesso ao registo](#verify-access-to-the-registry).
 
 ## <a name="verify-access-to-the-registry"></a>Verificar o acesso ao registo
 
-Depois de aguardar alguns minutos para que a configuração atualizar, certifique-se de que a VM pode aceder ao registo de contentor. Efetue uma ligação SSH à VM e execute o [início de sessão az acr] [ az-acr-login] comando para iniciar sessão para o seu registo. 
+Depois de aguardar alguns minutos para que a configuração atualizar, certifique-se de que a VM pode aceder ao registo de contentor. Efetue uma ligação SSH à VM e execute o [início de sessão az acr][az-acr-login] comando para iniciar sessão para o seu registo. 
 
 ```bash
 az acr login --name mycontainerregistry
@@ -320,13 +320,13 @@ Para restaurar o registo para permitir o acesso por padrão, remova quaisquer re
 
 #### <a name="remove-network-rules"></a>Remover regras de rede
 
-Para ver uma lista de regras de rede configuradas para o seu registo, execute o seguinte procedimento [lista de regra de rede do az acr] [ az-acr-network-rule-list] comando:
+Para ver uma lista de regras de rede configuradas para o seu registo, execute o seguinte procedimento [lista de regra de rede do az acr][az-acr-network-rule-list] comando:
 
 ```azurecli
 az acr network-rule list--name mycontainerregistry 
 ```
 
-Para cada regra que está configurada, execute o [remover a regra de rede do acr az] [ az-acr-network-rule-remove] comando para removê-lo. Por exemplo:
+Para cada regra que está configurada, execute o [remover a regra de rede do acr az][az-acr-network-rule-remove] comando para removê-lo. Por exemplo:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -345,7 +345,7 @@ az acr network-rule remove \
 
 #### <a name="allow-access"></a>Permitir o acesso
 
-Substitua o nome do seu registo a seguir [atualização do az acr] [ az-acr-update] comando:
+Substitua o nome do seu registo a seguir [atualização do az acr][az-acr-update] comando:
 ```azurecli
 az acr update --name myContainerRegistry --default-action Allow
 ```

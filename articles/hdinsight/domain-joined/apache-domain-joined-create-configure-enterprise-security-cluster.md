@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/09/2019
-ms.openlocfilehash: 7457c06f9f151cb310704a985c79572c7b770859
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166218"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484591"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar o Enterprise Security Package clusters no Azure HDInsight
 
 O Enterprise Security Package para Azure HDInsight fornece acesso a autenticação baseada no Active Directory, o suporte de vários utilizador e o controlo de acesso baseado em funções para os seus clusters do Apache Hadoop no Azure. Clusters do HDInsight ESP permitem que as organizações, o qual aderem às políticas de segurança corporativa strict, para processar dados confidenciais de forma segura.
 
-O objetivo deste guia está configurado corretamente os recursos necessários, de modo que no local os utilizadores podem iniciar sessão para um ESP ativado o cluster do HDInsight. Este artigo explica os passos necessários para criar um Cluster de HDInsight do Azure Enterprise Security Package ativada. Os passos aborda a criação de uma VM de IaaS do Windows com o Active Directory e serviços de nome de domínio (DNS) ativado. Este servidor irá atuar como um substituto para sua **real** ambiente no local e permitirá que percorra os passos de instalação e configuração para que pode repeti-los mais tarde em seu próprio ambiente. Este guia também ajudará a criar um ambiente de identidade híbrida com sincronização de hash de palavra-passe no Azure Active Directory.
+O objetivo deste guia é configurar corretamente os recursos necessários para que os usuários locais podem iniciar sessão num ESP ativada no cluster do HDInsight. Este artigo explica os passos necessários para criar um Cluster de HDInsight do Azure Enterprise Security Package ativada. Os passos aborda a criação de uma VM de IaaS do Windows com o Active Directory e serviços de nome de domínio (DNS) ativado. Este servidor irá atuar como um substituto para sua **real** ambiente no local e permitirá que percorra os passos de instalação e configuração para que pode repeti-los mais tarde em seu próprio ambiente. Este guia também ajudará a criar um ambiente de identidade híbrida com sincronização de hash de palavra-passe no Azure Active Directory.
 
 Este guia destina-se a complementar [utilização Enterprise Security Package no HDInsight](apache-domain-joined-architecture.md)
 
@@ -208,7 +208,7 @@ Para obter mais informações, consulte [ativar o Azure Active Directory Domain 
 1. Inicie sessão no Portal do Azure.
 1. Clique em **criar recurso**, introduza **dos serviços de domínio** e selecione **Azure AD Domain Services**.
 1. Sobre o **Noções básicas** ecrã conclua os seguintes passos:
-    1. Sob **nome do diretório** selecione o Azure Active Directory criada para este tutorial **HDIFabrikam**.
+    1. Sob **nome do diretório** selecione o Azure Active Directory criado para este artigo **HDIFabrikam**.
     1. Introduza um **nome de domínio DNS** dos **HDIFabrikam.com**.
     1. Selecione a sua subscrição.
     1. Especifique o grupo de recursos **HDIFabrikam CentralUS** e o **localização** de **centro dos E.U.A.** .
@@ -219,7 +219,7 @@ Para obter mais informações, consulte [ativar o Azure Active Directory Domain 
 
     ![Selecione a rede](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image086.png)
 
-1. Sobre o **grupo Administrador** ecrã, verá uma notificação a indicar que um grupo chamado **administradores do AAD DC** já foi criado para administrar este grupo. Opcionalmente, pode modificar a associação deste grupo, mas não é necessário para obter os passos deste tutorial. Clique em **OK**.
+1. Sobre o **grupo Administrador** ecrã, verá uma notificação a indicar que um grupo chamado **administradores do AAD DC** já foi criado para administrar este grupo. Opcionalmente, pode modificar a associação deste grupo, mas não é necessário para obter os passos deste artigo. Clique em **OK**.
 
     ![grupo de administrador do modo de exibição](./media/apache-domain-joined-create-configure-enterprise-security-cluster/image088.png)
 

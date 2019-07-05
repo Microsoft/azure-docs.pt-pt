@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616456"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491412"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 
@@ -56,9 +56,9 @@ Para obter mais informações sobre a sua fatura, consulte [compreender a sua fa
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Transferência de faturas para um contrato de cliente da Microsoft
 
-Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#understand-billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
+Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.md#billing-profiles) no contrato de cliente do Microsoft. Tem de ser um perfil de faturação proprietário, a Contribuidor, leitor, ou Gestor de transferência de faturas do portal do Azure de nota fiscal.
 
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 2. Selecione um perfil de faturação.
 3. Selecione **Faturas**.
 4. Na grelha de nota fiscal, localize a linha da nota fiscal que pretende transferir.
@@ -108,7 +108,7 @@ Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em
 
 Se tiver um contrato de cliente da Microsoft, pode optar por obter a fatura numa mensagem de e-mail. Todos os faturação perfil proprietários, contribuidores, os leitores e notas fiscais gerentes obterá a nota fiscal por e-mail. Os leitores não é possível atualizar a preferência de nota fiscal de e-mail.
 
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 1. Selecione um perfil de faturação.
 1. Sob **configurações**, selecione **propriedades**.
 1. Sob **fatura por E-Mail**, selecione **preferência de nota fiscal de e-mail de atualização**.
@@ -169,7 +169,7 @@ Para ver e transferir dados de utilização para um perfil de faturação, tem d
 
 #### <a name="download-usage-for-billed-charges"></a>Transferir utilização para os custos de faturação
 
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 2. Selecione um perfil de faturação.
 3. Selecione **Faturas**.
 4. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à utilização de que pretende transferir.
@@ -180,7 +180,7 @@ Para ver e transferir dados de utilização para um perfil de faturação, tem d
 
 Também pode transferir utilização mês até à data para o período de faturação atual, que significa que os custos de não tem sido faturados ainda.
 
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 2. Selecione um perfil de faturação.
 3. Na **descrição geral** painel, clique em **Azure transferir utilização e a cobrança**.
 

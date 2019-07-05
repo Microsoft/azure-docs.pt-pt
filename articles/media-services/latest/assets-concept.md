@@ -1,5 +1,5 @@
 ---
-title: Ativos nos serviços de multimédia - Azure | Documentos da Microsoft
+title: Ativos nos serviços de multimédia do Azure | Documentos da Microsoft
 description: Este artigo fornece uma explicação sobre o que estão ativos, e como elas são usadas pelos serviços de multimédia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bd9774cf045d9ed7f16a637fcb2eb1378b48686
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551766"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565819"
 ---
 # <a name="assets"></a>Elementos
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Para obter um exemplo completo, veja [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md). Em serviços de multimédia v3, entrada de um trabalho também pode ser criada a partir de URLs de HTTPS (veja [criar uma entrada da tarefa a partir de um URL HTTPS](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
+## <a name="map-v3-asset-properties-to-v2"></a>Mapear as propriedades dos recursos v3 para v2
 
-Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
+A tabela seguinte mostra como o [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)do propriedades na v3 mapeiam para propriedades de recurso no v2.
+
+|Propriedades de v3|Propriedades de v2|
+|---|---|
+|ID - (exclusivo) o caminho completo do Azure Resource Manager, consulte exemplos [Asset](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nome – (exclusivos) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|ID - valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
+|Criado|Criado|
+|description|Name|
+|lastModified|lastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Opções, opções de criação|
+|type||
 
 ## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 
@@ -104,6 +117,10 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 <sup>1</sup> enquanto os serviços de multimédia oferece suporte à manipulação de conteúdo de forma/sem qualquer outra forma de encriptação, ao fazê-lo por isso, não é recomendado.
 
 <sup>2</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
+
+## <a name="filtering-ordering-paging"></a>Paginação de filtragem, ordenação,
+
+Ver [filtragem, ordenação, a paginação de entidades de serviços de multimédia](entities-overview.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

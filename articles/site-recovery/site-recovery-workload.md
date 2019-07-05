@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 6/27/2019
 ms.author: raynew
-ms.openlocfilehash: 8f4e78f7e16f775a852b4c8172d1fa9fd70ec341
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a0e07f338da039be1660e59510b24bcd44eed0c
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417846"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491745"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery?
 
@@ -35,7 +35,7 @@ A Recuperação de Sites contribui para a proteção e recuperação a nível de
 * Aplicação desconhecidas, fornecendo a replicação de quaisquer cargas de trabalho em execução num computador suportado.
 * A replicação quase síncrona com os RPOs em apenas 30 segundos para satisfazer as necessidades das aplicações empresariais mais críticas.
 * Instantâneos consistentes com aplicações para aplicações com uma ou múltiplas camadas.
-* Integração com o AlwaysOn do SQL Server e parceria com outras tecnologias de replicação ao nível da aplicação, incluindo replicação AD, o AlwaysOn da SQL, Grupos de Disponibilidade de Base de Dados do Exchange (DAGs) e Oracle Data Guard.
+* Integração com o AlwaysOn do SQL Server e parceria com outras tecnologias de replicação ao nível da aplicação, incluindo grupos de disponibilidade de base de dados de Exchange de replicação, o AlwaysOn de SQL, do AD (DAGs).
 * Planos de recuperação flexíveis que lhe permitem recuperar toda uma pilha de aplicações com um único clique e incluem scripts externos e ações manuais no plano.
 * A gestão de rede avançada na Recuperação de Sites e no Azure para simplificar os requisitos de rede de aplicação, incluindo a capacidade de reserva de endereços IP, configurar o balanceamento de carga e integração com o Gestor de Tráfego do Azure o que reduz as mudanças de rede de RTO.
 * Uma biblioteca de Automatização do Azure completa que fornece scripts específicos de aplicação, prontos para produção, que podem ser transferidos e integrados com os planos de recuperação.

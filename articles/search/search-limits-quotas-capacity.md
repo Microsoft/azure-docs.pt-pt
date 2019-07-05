@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6940be7f64aa9ae16258fa936d197e2715235ab
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024645"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485402"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço do Azure Search
 Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índices, documentos, e outros objetos dependem se [aprovisionar o Azure Search](search-create-service-portal.md) na **gratuito**, **básica**,  **Standard**, ou **otimizadas para armazenamento** escalões de preço.
@@ -29,7 +29,7 @@ Máximo limita-se no armazenamento, cargas de trabalho e as quantidades de índi
 + **Armazenamento otimizado** é executado em máquinas dedicadas com mais armazenamento total, largura de banda de armazenamento e memória do que **padrão**. Armazenamento otimizado possui dois níveis: L1 e L2
 
 > [!NOTE]
-> Os escalões de serviço com otimização de armazenamento estão atualmente disponíveis como pré-visualização a um preço com desconto para fins de teste e experimentação com o objetivo de recolha de comentários. Os preços finais serão anunciado mais tarde quando estas camadas estão disponíveis em geral. Aconselhamos contra a utilização destes escalões para aplicações de produção.
+> A partir de 1 de Julho, todos os escalões estão disponíveis em geral, incluindo a camada de armazenamento otimizado. Todos os preços podem ser encontradas no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) página.
 
   S3 alta densidade (S3 HD) foi desenvolvida para cargas de trabalho específicas: [multi-inquilinos](search-modeling-multitenant-saas-applications.md) e grandes quantidades de índices pequeno (um milhão de documentos por índice, três mil índices por serviço). Este escalão não fornece o [funcionalidade de indexador](search-indexer-overview.md). No S3 HD, ingestão de dados tem de aproveitar a abordagem de push, através de chamadas à API para enviar dados de origem para o índice. 
 
@@ -110,7 +110,7 @@ Tempos de execução máximos existem para fornecer o saldo e mais estabilidade 
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
 | Conjuntos de competências máximos <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
-| Carga máxima de indexação por invocação |10\.000 documentos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |N/A |Sem limite |Sem limite |
+| Carga máxima de indexação por invocação |10.000 documentos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |Limitado apenas pelo documentos máximos |N/A |Sem limite |Sem limite |
 | Agenda mínimo | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
 | Máximo de tempo de execução <sup>5</sup> | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |24 horas |24 horas |
 | Máximo de tempo de blob de indexação com a análise de imagem ou de conjuntos de habilidades de pesquisa cognitiva execução <sup>5</sup> | 3 a 10 minutos |2 horas |2 horas |2 horas |2 horas |N/A  |2 horas |2 horas |

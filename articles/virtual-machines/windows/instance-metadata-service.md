@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96c1223cf15f1022e9e0a27180bd9cdeebcf8505
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792101"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449801"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -37,11 +37,11 @@ O ponto final está disponível num endereço IP bem conhecido não encaminháve
 
 O serviço está disponível em regiões do Azure em disponibilidade geral. Versão de API nem todos os poderão estar disponíveis em todas as regiões do Azure.
 
-Regiões                                        | Disponibilidade?                                 | Versões Suportadas
+Regions                                        | Disponibilidade?                                 | Versões Suportadas
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://azure.microsoft.com/global-infrastructure/china)                                                     | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 [EUA Centro-Oeste pública](https://azure.microsoft.com/regions/)                           | Disponível em Geral | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
 
@@ -205,7 +205,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -283,7 +283,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -340,10 +340,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>As seguintes APIs estão disponíveis através do ponto final de metadados:
 
-Dados | Descrição | Versão introduzida
+Data | Descrição | Versão introduzida
 -----|-------------|-----------------------
 atestado | Consulte [atestado dados](#attested-data) | 2018-10-01
-identidade | Identidades geridas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identity | Identidades geridas para recursos do Azure. Consulte [adquirir um token de acesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 instance | Consulte [API de instância](#instance-api) | 2017-04-02
 scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
 
@@ -353,11 +353,11 @@ scheduledevents | Consulte [eventos agendados](scheduled-events.md) | 2017-08-01
 > [!NOTE]
 > Através do ponto final de metadados, as seguintes categorias são acedidas através de/instância de computação
 
-Dados | Descrição | Versão introduzida
+Data | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure onde a VM está em execução no | 2018-10-01
 customData | Consulte [dados personalizados](#custom-data) | 2019-02-01
-localização | Região do Azure a VM está em execução | 2017-04-02
+location | Região do Azure a VM está em execução | 2017-04-02
 name | Nome da VM | 2017-04-02
 oferta | Oferecem informações para a imagem VM e está presente apenas para imagens implementada a partir de Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
@@ -367,7 +367,7 @@ platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM
 platformFaultDomain | [Domínio de falha](manage-availability.md) a VM está em execução | 2017-04-02
 Fornecedor | Fornecedor da VM | 2018-10-01
 publicKeys | [Coleção de chaves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuído à VM e caminhos | 2018-04-02
-publicador | Publicador da imagem VM | 2017-04-02
+publisher | Publicador da imagem VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 SKU | SKU específica para a imagem VM | 2017-04-02
 subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
@@ -383,7 +383,7 @@ zona | [Zona de disponibilidade](../../availability-zones/az-overview.md) da sua
 > [!NOTE]
 > Através do ponto final de metadados, as seguintes categorias são acedidas através de instância/rede/interface
 
-Dados | Descrição | Versão introduzida
+Data | Descrição | Versão introduzida
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Endereço IPv4 local da VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público da VM | 2017-04-02
@@ -537,8 +537,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Resposta**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+As regiões e os valores do ambiente do Azure estão listados abaixo.
+
+ Regions | Azure Environment
+---------|-----------------
+[Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Obter as etiquetas para a VM
 
@@ -604,7 +613,7 @@ Verification successful
 }
 ```
 
-Dados | Descrição
+Data | Descrição
 -----|------------
 nonce | Cadeia de caracteres opcional com o pedido fornecido pelo utilizador. Se nenhum valor de uso único foi fornecido no pedido, o carimbo de hora UTC atual é devolvido
 plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM na mesma é uma imagem do Azure Marketplace, contém o nome, produto e fabricante
@@ -619,11 +628,11 @@ Depois de obter a assinatura acima, pode verificar que a assinatura é da Micros
 > [!NOTE]
 > O certificado para a cloud pública e cloud soberana será diferente.
 
- Regiões | Certificado
+ Nuvem | Certificado
 ---------|-----------------
 [Todas as regiões do Azure Global disponíveis em geral](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [O Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -654,7 +663,7 @@ Para determinados cenários, ao consultar o serviço de metadados de instância 
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > A seguinte saída de exemplo de uma VM do Windows Server com o Cluster de ativação pós-falha ativados contém apenas a tabela de rotas IPv4 para manter a simplicidade.
 
 ```bat

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: b2407200b995ad956f233248f6cdd58488b583d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a535510ce56147f708f1cd8219cf898e6e0df36b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688792"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483797"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Topologias do Apache Storm de exemplo e componentes para o Apache Storm no HDInsight
 
@@ -41,10 +41,10 @@ Segue-se uma lista de exemplos criados e mantidos pela Microsoft para utilizaç�
 
 ### <a name="next-steps"></a>Próximos Passos
 
-* [Introdução ao Apache Storm no HDInsight][2b8c3488]
+* [Criar e monitorizar uma topologia do Apache Storm no HDInsight do Azure](./apache-storm-quickstart.md)
 * [Saiba como implementar e gerir topologias Apache Storm, Apache Storm no HDInsight][6eb0d3b8]
 
-[2b8c3488]:apache-storm-tutorial-get-started-linux.md "Saiba como criar um Apache Storm no cluster do HDInsight e utilizar o Storm Dashboard para implementar topologias de exemplo."
+
 [6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Saiba como implementar e gerir topologias com o Dashboard do Storm baseado na web Apache e a IU do Storm ou as ferramentas do HDInsight para Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Saiba como criar topologias Storm c#, utilizando as ferramentas do HDInsight para Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Saiba como criar topologias Storm no Java, com o Maven, através da criação de uma topologia do wordcount básica."

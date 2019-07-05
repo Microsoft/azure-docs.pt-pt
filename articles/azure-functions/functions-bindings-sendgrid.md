@@ -4,18 +4,18 @@ description: Referência de enlaces do SendGrid de funções do Azure.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511931"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480241"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces do SendGrid de funções do Azure
 

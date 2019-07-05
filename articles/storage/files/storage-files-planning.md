@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0672f25b30bfb34a6ee99b0f4710d01cf0871300
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150330"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67564407"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -83,29 +83,24 @@ Partilhas de ficheiros padrão são apoiadas por unidades de disco rígido (HDDs
 Partilhas de ficheiros padrão até 5 TiB de tamanho estão disponíveis como uma oferta de disponibilidade geral. Embora a maior partilhas de ficheiros, que são quaisquer partilhas de maiores do que 5 TiB, até um máximo de 100 TiB, estão atualmente disponíveis como uma oferta de pré-visualização.
 
 > [!IMPORTANT]
-> - Exige que crie uma nova conta de armazenamento de fins gerais (não é possível expandir as contas de armazenamento existentes).
-> - Só estão disponíveis com o LRS.
-> - Disponível em três regiões: E.U.A. oeste 2, Europa Ocidental e regiões do Sudeste asiático.
-> - LRS para conversão de conta GRS não será possível em qualquer conta de armazenamento nova criada depois da subscrição é aceite para a pré-visualização de partilhas de ficheiros maior.
+> Consulte a [integração com as partilhas de ficheiros maiores (escalão standard)](#onboard-to-larger-file-shares-standard-tier) secção para obter passos para carregar, bem como o âmbito e as restrições de pré-visualização.
 
-Se gostaria de carregar para a pré-visualização destes tamanhos de compartilhamento de arquivos maiores, submeter isso [formulário](https://aka.ms/azurefilesatscalesurvey). 
+### <a name="premium-file-shares"></a>Partilhas de ficheiros de Premium
 
-### <a name="premium-file-shares-preview"></a>Partilhas de ficheiros de Premium (pré-visualização)
-
-As partilhas de ficheiros (pré-visualização) Premium são apoiadas por discos de estado sólidos (SSDs). Partilhas de ficheiros de Premium fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, alojamento de web sites, ambientes de desenvolvimento, etc. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
+Partilhas de ficheiros de Premium são apoiadas por unidades de estado sólido (SSDs). Partilhas de ficheiros de Premium fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, o alojamento de web sites e ambientes de desenvolvimento. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
 
 Cópia de segurança do Azure está disponível para partilhas de ficheiros de premium e o serviço Kubernetes do Azure suporta partilhas de ficheiros de premium na versão 1.13 e acima.
 
 Se gostaria de saber como criar uma partilha de ficheiros de premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de ficheiros do Azure premium](storage-how-to-create-premium-fileshare.md).
 
-Atualmente, não é possível converter diretamente entre uma partilha de ficheiros e uma partilha de ficheiros de premium. Se gostaria de mudar para o escalão, tem de criar uma nova partilha de ficheiros nesse escalão e copiar os dados manualmente a partilha original de para a nova partilha que criou. Pode fazê-lo a utilizar as ferramentas de cópia de ficheiros do Azure suportados, por exemplo, o AzCopy.
+Atualmente, não é possível converter diretamente entre uma partilha de ficheiros e uma partilha de ficheiros de premium. Se gostaria de mudar para o escalão, tem de criar uma nova partilha de ficheiros nesse escalão e copiar os dados manualmente a partilha original de para a nova partilha que criou. Pode fazê-lo a utilizar as ferramentas de cópia de ficheiros do Azure suportada, tal como Robocopy ou AzCopy.
 
 > [!IMPORTANT]
-> Partilhas de ficheiros de Premium ainda estão em pré-visualização, só estão disponíveis com o LRS e estão disponíveis na maioria das regiões que oferecem as contas de armazenamento. Para saber se as partilhas de ficheiros do premium estão atualmente disponíveis na sua região, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página para o Azure.
+> Partilhas de ficheiros de Premium só estão disponíveis com o LRS e estão disponíveis na maioria das regiões que oferecem as contas de armazenamento. Para saber se as partilhas de ficheiros do premium estão atualmente disponíveis na sua região, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página para o Azure.
 
 ### <a name="provisioned-shares"></a>Partilhas aprovisionadas
 
-Partilhas de ficheiros de Premium (pré-visualização) são aprovisionadas com base numa proporção de GiB/IOPS/débito fixa. Para cada GiB aprovisionado, a partilha será emitida um IOPS e o débito de MiB/s de 0,1 até aos limites máximos por partilha. O mínimo de aprovisionamento são 100 GiB com o mínimo de IOPS/débito.
+Partilhas de ficheiros Premium são aprovisionadas com base numa proporção de GiB/IOPS/débito fixa. Para cada GiB aprovisionado, a partilha será emitida um IOPS e o débito de MiB/s de 0,1 até aos limites máximos por partilha. O mínimo de aprovisionamento são 100 GiB com o mínimo de IOPS/débito.
 
 Na base de melhor esforço, todas as partilhas podem ultrapassar os limites até três IOPS por GiB de armazenamento aprovisionado durante 60 minutos ou mais consoante o tamanho da partilha. Novas partilhas de começam com o crédito de rajada completo com base na capacidade aprovisionada.
 
@@ -137,6 +132,9 @@ A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de par
 |51,200      | 51,200  | Até 100 000 | 3,132 | 2,088   |
 |102,400     | 100,000 | Até 100 000 | 6,204 | 4,136   |
 
+> [!NOTE]
+> Desempenho de partilhas de ficheiros é sujeitas a limites de rede de máquina, largura de banda disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Para alcançar um dimensionamento máximo de desempenho, distribuir a carga por várias VMs. Veja [guia de resolução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas de desempenho comuns e soluções alternativas.
+
 ### <a name="bursting"></a>Extrapolação
 
 Partilhas de ficheiros de Premium podem ultrapassar os limites seu IOPS até um fator de três. Extrapolação é automatizado e funciona com base num sistema de crédito. Funciona numa base de melhor esforço e o limite de rajada de segurança não é uma garantia, podem períodos de rajada de partilhas de ficheiros *até* o limite.
@@ -158,9 +156,9 @@ Novo início de partilhas de ficheiros com o número total de créditos no respe
 
 ## <a name="file-share-redundancy"></a>Redundância de partilha de ficheiros
 
-Partilhas de padrão de ficheiros do Azure suporta três opções de redundância de dados: armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS).
+Partilhas de padrão de ficheiros do Azure suportam três opções de redundância de dados: armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS).
 
-Premium de ficheiros do Azure partilha só suporta o armazenamento localmente redundante (LRS).
+As partilhas de premium de ficheiros do Azure só suportam o armazenamento localmente redundante (LRS).
 
 As secções seguintes descrevem as diferenças entre as opções de redundância diferentes:
 
@@ -192,6 +190,48 @@ Tenha em consideração esses pontos ao decidir que opção de replicação a ut
 * Armazenamento com redundância de zona (ZRS) fornece elevada disponibilidade com a replicação síncrona e pode ser uma opção melhor para alguns cenários que o GRS. Para obter mais informações sobre ZRS, veja [ZRS](../common/storage-redundancy-zrs.md).
 * Replicação assíncrona envolve um atraso a partir do momento em que dados são escritos para a região primária, quando ele é replicado para a região secundária. Em caso de desastre regional, as alterações que ainda não tiverem sido replicadas para a região secundária podem ser perdidas se esses dados não podem ser recuperados da região primária.
 * Com a GRS, a réplica não está disponível para leitura ou acesso de escrita, a menos que a Microsoft inicie uma ativação pós-falha para a região secundária. No caso de uma ativação pós-falha, vai ter de leitura e escrita acesso a esses dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações sobre a recuperação após desastre](../common/storage-disaster-recovery-guidance.md).
+
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Partilhas de ficheiros de inclusão para maior (escalão standard)
+
+Esta secção aplica-se apenas às partilhas de ficheiros padrão. Todas as partilhas de ficheiros de premium estão disponíveis com 100 TiB como uma oferta de disponibilidade geral.
+
+### <a name="restrictions"></a>Restrições
+
+- Exige que crie uma nova conta de armazenamento de fins gerais (não é possível expandir as contas de armazenamento existentes).
+- LRS para conversão de conta GRS não será possível em qualquer conta de armazenamento nova criada depois da subscrição é aceite para a pré-visualização de partilhas de ficheiros maior.
+
+### <a name="regional-availability"></a>Disponibilidade regional
+
+Partilhas de ficheiros Standard estão disponíveis em todas as regiões até 5 TiB. Em determinadas regiões, está disponível com um limite de TiB 100, essas regiões estão listados na tabela a seguir:
+
+|Região  |Redundância suportada  |Suporta contas de armazenamento existentes  |
+|---------|---------|---------|
+|Região do Sudeste asiático     |LRS|Não         |
+|Europa Ocidental     |LRS|Não         |
+|EUA Oeste 2     |LRS, ZRS|Não         |
+
+
+### <a name="steps-to-onboard"></a>Passos para carregar
+
+Para inscrever a sua subscrição para a pré-visualização de partilhas de ficheiros maior, execute os seguintes comandos do PowerShell:
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+A sua subscrição seja aprovada automaticamente assim que os dois comandos são executados.
+
+Para verificar o seu estado de registo, pode executar o seguinte comando:
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+Poderá demorar até 15 minutos para seu estado seja atualizado para **registado**. Depois de seu status é **registado**, deverá conseguir utilizar a funcionalidade.
+
+### <a name="use-larger-file-shares"></a>Utilizar partilhas de ficheiros grandes
+
+Para começar a utilizar partilhas de ficheiros maiores, crie uma nova conta de armazenamento v2 de fins gerais e uma nova partilha de ficheiros.
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 

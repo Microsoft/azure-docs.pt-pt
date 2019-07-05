@@ -1,23 +1,21 @@
 ---
-title: Efetue o pré-pagamento do planos de software - as reservas do Azure | Documentos da Microsoft
+title: Efetue o pré-pagamento do planos de software - as reservas do Azure
 description: Saiba como pode efetuar o pré-pagamento do planos de software poupar dinheiro sobre os custos de pay as you go.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771248"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489889"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
 
@@ -25,22 +23,22 @@ Quando efetuar o pré-pagamento do seu uso de software SUSE e Red Hat no Azure, 
 
 Pode comprar planos de software SUSE e Red Hat no portal do Azure. Comprar um plano:
 
-- Tem de ter a função de proprietário para, pelo menos, uma empresa ou uma subscrição pay as you go.
+- Tem de ter a função de proprietário para, pelo menos, uma empresa ou uma subscrição individual com preços pay as you go.
 - Para subscrições Enterprise, o **adicionar as instâncias reservadas** opção tem de estar ativada no [portal EA](https://ea.azure.com/). Se a definição estiver desativada, tem de ser um administrador de EA para a subscrição.
 - Para o programa de fornecedor de soluções Cloud (CSP), os agentes de administrador ou agentes de vendas podem comprar planos de software.
 
 ## <a name="buy-a-software-plan"></a>Comprar um plano de software
 
-1. Início de sessão no portal do Azure e aceda a [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Inicie sessão no portal do Azure e aceda a [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 2. Clique em **adicionar** e, em seguida, selecione o plano de software que pretende comprar.
 Preencha os campos obrigatórios. Qualquer VM do Linux SUSE ou a VM de RedHat que corresponda os atributos de compra obtém o desconto. O número real de implementações que obter o desconto depende do escopo e quantidade selecionado.
 3. Selecione uma subscrição. É utilizado para pagar o plano.
-O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
+O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou contratos individuais com preços pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
     - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
-    - Para obter uma subscrição pay as you go, os custos são faturados ao método de pagamento do cartão de crédito ou por fatura da subscrição.
+    - Para uma subscrição individual com pay as you go, preços, os custos são faturados ao método de pagamento do cartão de crédito ou por fatura da subscrição.
 4. Selecione um âmbito. O âmbito pode abranger uma subscrição ou várias subscrições (âmbito partilhado).
     - Subscrição individual - o desconto de plano é aplicada a correspondência de utilização na subscrição.
-    - O desconto de plano partilhado - é aplicado a correspondência de instâncias em qualquer subscrição no seu contexto de faturação. Para os clientes empresariais, o contexto de faturação é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o contexto de faturação é todas as subscrições pay as you go a criada pelo administrador de conta.
+    - O desconto de plano partilhado - é aplicado a correspondência de instâncias em qualquer subscrição no seu contexto de faturação. Para os clientes empresariais, o contexto de faturação é a inscrição e inclui todas as subscrições na inscrição. Para obter plano individual com os clientes a preços pay as you go, o contexto de faturação é todos os planos individuais com as subscrições de preços pay as you go criadas pelo administrador de conta.
 5. Selecione um produto para escolher o tamanho da VM e o tipo de imagem. O desconto aplica-se apenas ao tamanho de VM selecionada.
 6. Selecione um termo de um ano ou três anos.
 7. Escolha uma quantidade, o que é o número de instâncias VM pré-paga que pode obter o desconto de faturação.

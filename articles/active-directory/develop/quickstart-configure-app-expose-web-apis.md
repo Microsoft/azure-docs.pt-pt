@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04838c1dbc9a524d04998f4d6c851037e43c9d90
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545778"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482677"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: Configurar uma aplicação para expor as APIs web
 
@@ -52,7 +52,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Expor um novo âmbito através da IU
 
-[![Expor uma API com a IU](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Mostra como expor uma API com a IU](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Para expor um novo âmbito através da IU:
 

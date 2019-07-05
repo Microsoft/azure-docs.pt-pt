@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111621"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483074"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
@@ -79,8 +79,10 @@ Como objetos de aplicativo, os principais de serviço também podem ser criados 
 * Através de programação com o Azure AD Graph API ou o PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como são objetos de aplicação e os principais de serviço relacionados entre si?
+
 Um aplicativo tem um objeto de aplicativo no respetivo diretório raiz que é referenciado por um ou mais principais de serviço em cada um dos diretórios de onde ele opera (incluindo o diretório de raiz do aplicativo).
-![Um diagrama que ilustra como os objetos de aplicação e os principais de serviço interagem entre si e instâncias do Azure AD.][apps_service_principals_directory]
+
+![Mostra a relação entre objetos de aplicação e os principais de serviço][apps_service_principals_directory]
 
 No diagrama anterior, a Microsoft tem dois diretórios internamente (mostrado no lado esquerdo) que utiliza para publicar aplicações:
 
@@ -96,6 +98,7 @@ Aplicativos que adiciona a próprio (representados como **aplicação (sua)** no
 * Aplicações publicadas com o proxy de aplicações do Azure AD
 
 ### <a name="notes-and-exceptions"></a>Notas e exceções
+
 * Nem todos os principais de serviço do ponto de volta para um objeto de aplicativo. Quando o Azure AD foi originalmente criado os serviços fornecidos aos aplicativos eram mais limitados e o principal de serviço foi suficiente para estabelecer uma identidade de aplicação. O principal de serviço original era mais próximo na forma da conta de serviço do Windows Server Active Directory. Por esse motivo, é possível criar principais de serviço por meio de caminhos diferentes, tais como utilizar o Azure AD PowerShell, sem criar primeiramente um objeto de aplicativo. O Azure AD Graph API requer um objeto de aplicativo antes de criar um serviço principal.
 * Nem todas as informações descritas acima atualmente é exposta por meio de programação. O seguinte só está disponível na interface do Usuário:
   * Regras de transformação de afirmações
@@ -105,6 +108,7 @@ Aplicativos que adiciona a próprio (representados como **aplicação (sua)** no
   * [Principal de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos integram com o Azure AD?
+
 São adicionadas aplicações ao Azure AD para tirar partido de um ou mais dos serviços que oferece, incluindo:
 
 * Aplicação de autenticação e autorização
@@ -116,6 +120,7 @@ São adicionadas aplicações ao Azure AD para tirar partido de um ou mais dos s
 * Publicação de aplicações e o proxy - publicar uma aplicação de uma rede privada à internet
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicações para a minha instância do Azure AD?
+
 Embora haja algumas tarefas que apenas os administradores globais podem efetuar (como adicionar aplicativos a partir da Galeria de aplicações e configurar uma aplicação para utilizar o Proxy de aplicações) por predefinição todos os utilizadores no seu diretório de ter direitos para registar a aplicação objetos que eles estão o desenvolvimento e a decisão sobre quais aplicativos que partilham/dar acesso aos dados organizacionais através de consentimento. Se uma pessoa é o primeiro utilizador no seu diretório para iniciar sessão a uma aplicação e conceder autorização, o que irá criar um principal de serviço no seu inquilino; caso contrário, serão armazenadas as informações de concessão de consentimento no principal de serviço existente.
 
 Permitir que os utilizadores registar e dar consentimento a aplicações pode inicialmente som relacionadas, mas tenha em atenção o seguinte:
@@ -132,10 +137,11 @@ Se pretender continuar a impedir que os utilizadores no seu diretório de regist
 
 * Impedir os utilizadores de consentir a aplicações no seu próprio benefício:
   1. No portal do Azure, vá para o [definições de utilizador](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) secção em aplicações empresariais.
-  2. Alteração **os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles** ao **não**. 
+  2. Alteração **os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles** ao **não**.
      
      > [!NOTE]
-     > Se optar por desativar o consentimento do utilizador, um administrador será necessário para dar consentimento para qualquer novo aplicativo que o utilizador precisa de utilizar.    
+     > Se optar por desativar o consentimento do utilizador, um administrador será necessário para dar consentimento para qualquer novo aplicativo que o utilizador precisa de utilizar.
+
 * Para impedir que os utilizadores registar as suas aplicações:
   1. No portal do Azure, vá para o [definições de utilizador](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) secção em Azure Active Directory
   2. Alteração **os utilizadores podem registar aplicações** ao **não**.
@@ -145,4 +151,3 @@ Se pretender continuar a impedir que os utilizadores no seu diretório de regist
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

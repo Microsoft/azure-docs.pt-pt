@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62e10f382882e70d488f9814cb00c2b86b8b9691
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65906501"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460222"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure
 
@@ -185,7 +185,7 @@ Há uma série de coisas a salientar depois de restaurar uma VM:
 
 - As extensões estão presentes durante a configuração de cópia de segurança são instaladas, mas não ativadas. Se vir um problema, reinstale as extensões.
 - Se a VM de cópia de segurança tinha um endereço IP estático, a VM restaurada terão um endereço IP dinâmico para evitar conflitos. Pode [adicionar um endereço IP estático para a VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
-- Uma VM restaurada não tem um disponibilidade definida. Se a UO utilize a opção de disco de restauro para que pode [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar uma VM a partir do disco com o modelo fornecido ou o PowerShell.
+- Uma VM restaurada não tem um disponibilidade definida. Se usar a opção de disco de restauro, em seguida, pode [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) quando criar uma VM a partir do disco com o modelo fornecido ou o PowerShell.
 - Se usar uma distribuição do Linux com base na cloud-init, como o Ubuntu, por motivos de segurança, a palavra-passe é bloqueada após o restauro. Utilizar a extensão VMAccess à VM restaurada para [repor a palavra-passe](../virtual-machines/linux/reset-password.md). Recomendamos que utilize chaves SSH nessas distribuições, por isso não terá de repor a palavra-passe após o restauro.
 
 

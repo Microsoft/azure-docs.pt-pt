@@ -5,23 +5,23 @@ services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 06/25/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: ecf70bbbeae8fd68309f3343615f021038fb10b6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6a3e2034792fdc0a4a8fed7885c7d5ad78ea24d9
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184255"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67501267"
 ---
 A família VM de série B permite-lhe escolher o tamanho VM fornece-lhe o desempenho de nível de base necessárias para a sua carga de trabalho, a capacidade de desempenho de CPU de rajada de até 100% de um v4 Intel® Broadwell E5-2673 2.3 GHz ou um processador de v3 Intel® Haswell 2.4 GHz E5-2673 vCPU.
 
 As VMs de série B são ideais para cargas de trabalho que não é necessário um desempenho total da CPU continuamente, como servidores web, prova de conceitos, pequenas bases de dados e ambientes de compilação de desenvolvimento. Estas cargas de trabalho normalmente têm requisitos de desempenho burstable. A série B fornece-lhe a possibilidade de comprar um tamanho de VM com o desempenho de linha de base e a instância VM cria créditos quando está a utilizar menos do que sua linha de base. Quando a VM acumular crédito, a VM pode ultrapassar os limites acima a linha de base com até 100% da vCPU quando a sua aplicação necessitar de desempenho de CPU superior.
 
-A série B possui os seguintes seis tamanhos VM:
+A série B possui os seguintes tamanhos VM:
 
-| Tamanho             | vCPU  | Memória: GiB | Armazenamento (SSD) temporário GiB | Base de desempenho de CPU da VM | Desempenho de CPU máxima da VM | Créditos iniciais | Créditos banked / hora | Máx. Banked créditos | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |          
+| Size             | vCPU  | Memória: GiB | Armazenamento (SSD) temporário GiB | Desempenho Base da CPU da VM | Desempenho Máximo da CPU da VM | Créditos Iniciais | Créditos obtidos/hora | Máximo de Créditos Obtidos | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0,5              | 4                          | 5%                   | 100%                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
 | Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100%                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
@@ -30,10 +30,59 @@ A série B possui os seguintes seis tamanhos VM:
 | Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
+| Standard_B12ms | 12           | 48             | 96                         | 202%                  | 1200%                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                  | 6  |
+| Standard_B16ms | 16           | 64             | 128                         | 270%                  | 1600%                   | 480                   | 162                 | 3888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
+| Standard_B20ms | 20           | 80             | 160                         | 337%                  | 2000%                   | 600                   | 203                 | 4860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
 <sup>1</sup> B1ls só é suportado no Linux
 
-## <a name="q--a"></a>P&R 
+## <a name="workload-example"></a>Exemplo de carga de trabalho
+
+Considere um aplicativo de check-in/out do office. O aplicativo precisa picos de CPU durante o horário comercial, mas não há muita potência de computação durante as horas de inatividade. Neste exemplo, a carga de trabalho necessita de uma máquina de virtual de 16vCPU com 64GiB de RAM para trabalhar de maneira eficiente.
+
+A tabela mostra os dados de tráfego por hora e o gráfico é uma representação visual de que o tráfego.
+
+B16 características:
+
+Desempenho de CPU máxima: 16vCPU * 100% = 1600%
+
+Linha de base: 270%
+
+![Gráfico de hora a hora de tráfego de dados](./media/virtual-machines-common-b-series-burstable/office-workload.png)
+
+| Cenário | Hora | Utilização da CPU (%) | Créditos acumulados<sup>1</sup> | Créditos disponíveis |
+| --- | --- | --- | --- | --- |
+| Implementação de B16ms | Implementação | Implementação  | 480 (créditos iniciais) | 480 |
+| Não existe tráfego | 0:00 | 0 | 162 | 642 |
+| Não existe tráfego | 1:00 | 0 | 162 | 804 |
+| Não existe tráfego | 2:00 | 0 | 162 | 966 |
+| Não existe tráfego | 3:00 | 0 | 162 | 1128 |
+| Não existe tráfego | 4:00 | 0 | 162 | 1290 |
+| Não existe tráfego | 5:00 | 0 | 162 | 1452 |
+| Tráfego reduzido | 6:00 | 270 | 0 | 1452 |
+| Os funcionários são fornecidos para office (aplicação tem de vCPU de 80%) | 7:00 | 1280 | -606 | 846 |
+| Os funcionários continuarem a chegar ao office (aplicação tem de vCPU de 80%) | 8:00 | 1280 | -606 | 240 |
+| Tráfego reduzido | 9:00 | 270 | 0 | 240 |
+| Tráfego reduzido | 10:00 | 100 | 102 | 342 |
+| Tráfego reduzido | 11:00 | 50 | 132 | 474 |
+| Tráfego reduzido | 12:00 | 100 | 102 | 576 |
+| Tráfego reduzido | 13:00 | 100 | 102 | 678 |
+| Tráfego reduzido | 14:00 | 50 | 132 | 810 |
+| Tráfego reduzido | 15:00 | 100 | 102 | 912 |
+| Tráfego reduzido | 16:00 | 100 | 102 | 1014 |
+| Funcionários dar uma olhada em (vCPU de 100% de necessidades de aplicação) | 17:00 | 1600 | -798 | 216 |
+| Tráfego reduzido | 18:00 | 270 | 0 | 216 |
+| Tráfego reduzido | 19:00 | 270 | 0 | 216 |
+| Tráfego reduzido | 20:00 | 50 | 132 | 348 |
+| Tráfego reduzido | 21:00 | 50 | 132 | 480 |
+| Não existe tráfego | 22:00 | 0 | 162 | 642 |
+| Não existe tráfego | 23:00 | 0 | 162 | 804 |
+
+<sup>1</sup> créditos acumulados/créditos utilizados numa hora é equivalente a: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+
+Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, o preço por hora é US $0.936 por hora (mensal us $673.92) e para B16ms com 16 vCPUs e de 64 de GiB de memória, a taxa é de US $0.794 por hora (mensal us $547.86). <b> Isto resulta numa redução de 15%!</b>
+
+## <a name="q--a"></a>P&R
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>P. Como obtém 135% de desempenho de linha de base de uma VM?
 **A**: A % de 135 é partilhada entre os 8 Vcpus que compõem o tamanho da VM. Por exemplo, se a sua aplicação utiliza 4 de 8 núcleos a trabalhar no processamento em lotes e cada um desses 4 vCPU executem a 30% de utilização a quantidade total de desempenho de VM CPU seria igual a % de 120.  O que significa que a VM seria criar tempo de crédito com base no delta de 15% do desempenho da linha de base.  Mas isso também significa que quando tem os créditos disponíveis que a mesma VM pode utilizar 100% da vCPU de 8 todas as estamos a dar essa VM um desempenho de CPU máxima de % de 800.
@@ -55,6 +104,12 @@ Durante o horário de pico meu aplicativo calcula a média 60% de utilização d
 
 Se eu tirar os 120 créditos que obter fora de pico e subtrair os 96 créditos que usei para meu as horas de ponta, eu bancária um créditos adicionais 24 por dia em que posso usar para outros absorver picos de atividade.
 
+### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>P. Como posso calcular créditos acumulados e utilizado?
+**A**: Pode usar a seguinte fórmula: 
+
+(Base de desempenho de CPU da VM - utilização da CPU) / 100 = bancária de créditos ou utilize por minuto
+
+Por exemplo, no acima instância sua linha de base é 20% e se usar 10% da CPU estão a acumular (20% - 10%) / 100 = 0,1 de crédito por minuto.
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P. A série B suporta discos de dados do armazenamento Premium?
 **A**: Sim, todos os tamanhos de série B suportam discos de dados do armazenamento Premium.   
@@ -64,11 +119,3 @@ Se eu tirar os 120 créditos que obter fora de pico e subtrair os 96 créditos q
     
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>P. O que acontece se eu implantar uma imagem do SO não suportada no B1ls?
 **A** : B1ls só suporta imagens do Linux e se implementa qualquer outra imagem de sistema operacional não poderá obter a melhor experiência do cliente.
-    
-### <a name="q-why-is-there-no-pricing-information-for-b1ls-windows"></a>P. Por que motivo existe sem informações de preços para o B1ls windows?
-**A** : B1ls só suporta imagens do Linux e se implementa qualquer outra imagem de SO não pode obter a melhor experiência do cliente, mas será cobrado.
-
-
-    
-
-    

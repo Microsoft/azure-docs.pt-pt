@@ -16,25 +16,24 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc82f69c8dee4cc8c45e9fcf7fbf6fa184ad72b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783059"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481273"
 ---
-# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory 
+# <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory
 
 No Azure Active Directory (Azure AD), configurar um grande número de locais aplicativos podem rapidamente tornar-se impossível de gerenciar e apresenta os riscos desnecessários para erros de configuração se muitos deles exigirem as mesmas definições. Com o [Proxy de aplicações do Azure AD](application-proxy.md), pode solucionar este problema através de publicação de aplicações de caráter universal para publicar e gerir vários aplicativos ao mesmo tempo. Esta é uma solução que lhe permite:
 
--   Simplificar o overhead administrativo
--   Reduzir o número de potenciais erros de configuração
--   Permitir que os utilizadores acedam em segurança às mais recursos
+- Simplificar o overhead administrativo
+- Reduzir o número de potenciais erros de configuração
+- Permitir que os utilizadores acedam em segurança às mais recursos
 
 Este artigo fornece as informações necessárias configurar a publicação de aplicações de caráter universal no seu ambiente.
 
-
-## <a name="create-a-wildcard-application"></a>Criar uma aplicação de caráter universal 
+## <a name="create-a-wildcard-application"></a>Criar uma aplicação de caráter universal
 
 Pode criar uma aplicação de caráter universal (*), se tiver um grupo de aplicações com a mesma configuração. Possíveis candidatos para a aplicação de caráter universal são as seguintes definições de partilha de aplicações:
 
@@ -52,14 +51,15 @@ Se tiver aplicações adicionais com diferentes definições de configuração, 
 
 Criar uma aplicação de caráter universal baseia-se no mesmo [fluxo de publicação de aplicativo](application-proxy-add-on-premises-application.md) que está disponível para todas as outras aplicações. A única diferença é que inclua um caráter universal nos URLs e, potencialmente, a configuração de SSO.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Para começar, certifique-se de que cumprir estes requisitos.
 
 ### <a name="custom-domains"></a>Domínios personalizados
 
 Embora [domínios personalizados](application-proxy-configure-custom-domain.md) são opcionais para todas as outras aplicações, são um pré-requisito para aplicações de caráter universal. Criar domínios personalizados requer que:
 
-1. Criar um domínio verificado no Azure 
+1. Crie um domínio verificado no Azure.
 2. Carregar um certificado SSL no formato PFX para o proxy de aplicações.
 
 Deve considerar a utilização de um certificado de caráter universal para corresponder a aplicação que pretende criar. Em alternativa, também pode utilizar um certificado que apenas apresenta uma lista de determinados aplicativos. Neste caso, apenas as aplicações listadas no certificado estará acessíveis por meio desta aplicação de caráter universal.
@@ -74,41 +74,36 @@ Ao utilizar domínios personalizados, precisa criar uma entrada DNS com um regis
 
 Para confirmar que tiver configurado o CNAME corretamente, pode usar [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) dos pontos finais de destino, por exemplo, `expenses.adventure-works.com`.  A resposta deve incluir o alias já foi mencionado (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
-
 ## <a name="considerations"></a>Considerações
 
+Aqui estão algumas considerações que deve levar em conta para aplicações de caráter universal.
 
 ### <a name="accepted-formats"></a>Formatos aceites
 
-Para aplicações de caráter universal, o **URL interno** têm de ser formatados como `http(s)://*.<domain>`. 
+Para aplicações de caráter universal, o **URL interno** têm de ser formatados como `http(s)://*.<domain>`.
 
-![appId](./media/application-proxy-wildcard/22.png)
+![Para o URL interno, utilize o formato HTTP (s) :/ / *. < domínio >](./media/application-proxy-wildcard/22.png)
 
+Quando configura uma **URL externo**, tem de utilizar o seguinte formato: `https://*.<custom domain>`
 
-Quando configura uma **URL externo**, tem de utilizar o seguinte formato: `https://*.<custom domain>` 
-
-![appId](./media/application-proxy-wildcard/21.png)
+![Para o URL externo, utilize o domínio de https://*.<custom formato >](./media/application-proxy-wildcard/21.png)
 
 Outras posições do caráter universal, vários carateres universais ou outras cadeias de caracteres de regex não são suportadas e estão a causar erros.
-
 
 ### <a name="excluding-applications-from-the-wildcard"></a>Excluir aplicativos do caráter universal
 
 Pode excluir um aplicativo da aplicação de caráter universal por
 
-- Publicação da aplicação de exceção como aplicativo regular 
+- Publicação da aplicação de exceção como aplicativo regular
 - Ativar o caráter universal apenas para aplicações específicas, por meio de suas definições de DNS  
 
-
-Publicar uma aplicação como aplicativo comum é o método preferencial para excluir uma aplicação a partir de um caráter universal. Deve publicar as aplicações excluídas antes das aplicações de caráter universal para garantir que suas exceções são impostas desde o início. O aplicativo mais específico sempre irá ter precedência – uma aplicação publicada como `budgets.finance.adventure-works.com` terão precedência sobre o aplicativo `*.finance.adventure-works.com`, que por sua vez, tem precedência sobre o aplicativo `*.adventure-works.com`. 
+Publicar uma aplicação como aplicativo comum é o método preferencial para excluir uma aplicação a partir de um caráter universal. Deve publicar as aplicações excluídas antes das aplicações de caráter universal para garantir que suas exceções são impostas desde o início. O aplicativo mais específico sempre irá ter precedência – uma aplicação publicada como `budgets.finance.adventure-works.com` terão precedência sobre o aplicativo `*.finance.adventure-works.com`, que por sua vez, tem precedência sobre o aplicativo `*.adventure-works.com`.
 
 Também pode limitar o caráter universal só funcionar para aplicações específicas através da sua gestão de DNS. Como melhor prática, deve criar uma entrada CNAME, que inclui um caráter universal e corresponde ao formato do URL externo que configurou. No entanto, em vez disso, pode apontar URLs de aplicação específica para os carateres universais. Por exemplo, em vez de `*.adventure-works.com`, aponte `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
 
 Se utilizar esta opção, também precisa de outra entrada CNAME para o valor `AppId.domain`, por exemplo, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, também apontando para a mesma localização. Pode encontrar os **AppId** na página de propriedades do aplicativo do aplicativo com carateres universais:
 
-![appId](./media/application-proxy-wildcard/01.png)
-
-
+![Encontrar o ID da aplicação na página de propriedades da aplicação](./media/application-proxy-wildcard/01.png)
 
 ### <a name="setting-the-homepage-url-for-the-myapps-panel"></a>Definir o URL da página para o painel de My Apps
 
@@ -121,8 +116,6 @@ A aplicação de caráter universal é representada com apenas um mosaico no [My
 
 Para aplicações utilizando [restrita de kerberos (KCD) de delegação como o método SSO](application-proxy-configure-single-sign-on-with-kcd.md), o SPN listados para o método SSO também poderá ser necessário um caráter universal. Por exemplo, o SPN pode ser: `HTTP/*.adventure-works.com`. Ainda tem de ter os SPNs individuais configurados nos seus servidores de back-end (por exemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
-
-
 ## <a name="scenario-1-general-wildcard-application"></a>Cenário 1: Aplicação de caráter universal de geral
 
 Neste cenário, tem três diferentes aplicações que pretende publicar:
@@ -134,88 +127,69 @@ Neste cenário, tem três diferentes aplicações que pretende publicar:
 Todos os aplicativos de três:
 
 - São utilizados por todos os seus utilizadores
-- Utilize *autenticação Windows integrada* 
+- Utilize *autenticação Windows integrada*
 - Ter as mesmas propriedades
-
 
 Pode publicar a aplicação de caráter universal com os passos descritos em [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md). Este cenário pressupõe:
 
-- Um inquilino com o seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
-
+- Um inquilino com o seguinte ID: `000aa000-11b1-2ccc-d333-4444eee4444e`
 - Chamada de um domínio verificado `adventure-works.com` foi configurado.
-
 - R **CNAME** entrada que aponta `*.adventure-works.com` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` foi criado.
 
 A seguir a [documentado passos](application-proxy-add-on-premises-application.md), criar uma nova aplicação de proxy de aplicação no seu inquilino. Neste exemplo, o caráter universal é nos campos a seguir:
 
 - URL interno:
 
-    ![URL interno](./media/application-proxy-wildcard/42.png)
-
+    ![Exemplo: Caráter universal no URL interno](./media/application-proxy-wildcard/42.png)
 
 - URL externo:
 
-    ![URL externo](./media/application-proxy-wildcard/43.png)
+    ![Exemplo: Caráter universal no URL externo](./media/application-proxy-wildcard/43.png)
 
- 
-- SPN da aplicação interna: 
+- SPN da aplicação interna:
 
-    ![Configuração do SPN](./media/application-proxy-wildcard/44.png)
-
+    ![Exemplo: Carateres universais na configuração do SPN](./media/application-proxy-wildcard/44.png)
 
 Ao publicar a aplicação de caráter universal, agora pode aceder a seus aplicativos de três ao navegar para os URLs que está habituado (por exemplo, `travel.adventure-works.com`).
 
 A configuração implementa a seguinte estrutura:
 
-![appId](./media/application-proxy-wildcard/05.png)
+![Mostra a estrutura implementada pela configuração de exemplo](./media/application-proxy-wildcard/05.png)
 
 | Cor | Descrição |
 | ---   | ---         |
-| Azul  | Aplicações explicitamente publicadas e visíveis no Portal do Azure. |
+| Azul  | Aplicações explicitamente publicadas e visíveis no portal do Azure. |
 | Cinzento  | Aplicativos que pode acessíveis através da aplicação principal. |
-
-
-
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: Aplicação de caráter universal de geral com exceção
 
 Neste cenário, precisa além do mais três aplicações de gerais outro aplicativo, `finance.adventure-works.com`, que só deve ser acessível a divisão de finanças. Com a estrutura de aplicação atual, o seu aplicativo de finanças estariam acessível através da aplicação de caráter universal e por todos os funcionários. Para alterar isso, excluir a aplicação da sua com carateres universais ao configurar Finanças como um aplicativo separado com permissões mais restritivas.
 
-
-
-Tem de certificar-se de que os registos CNAME existem qual aponta `finance.adventure-works.com` para o aplicativo ponto final específico, especificado na página de Proxy de aplicações para a aplicação. Para este cenário `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`. 
+Tem de certificar-se de que os registos CNAME existem qual aponta `finance.adventure-works.com` para o aplicativo ponto final específico, especificado na página de Proxy de aplicações para a aplicação. Para este cenário `finance.adventure-works.com` aponta para `https://finance-awcycles.msappproxy.net/`.
 
 A seguir a [documentado passos](application-proxy-add-on-premises-application.md), este cenário requer as seguintes definições:
 
+- Na **URL interno**, defina **Finanças** em vez de um caráter universal.
 
-- Na **URL interno**, defina **Finanças** em vez de um caráter universal. 
+    ![Exemplo: Definir financeiro em vez de um caráter universal no URL interno](./media/application-proxy-wildcard/52.png)
 
-    ![URL interno](./media/application-proxy-wildcard/52.png)
+- Na **URL externo**, defina **Finanças** em vez de um caráter universal.
 
-- Na **URL externo**, defina **Finanças** em vez de um caráter universal. 
-
-    ![URL externo](./media/application-proxy-wildcard/53.png)
+    ![Exemplo: Definir financeiro em vez de um caráter universal no URL externo](./media/application-proxy-wildcard/53.png)
 
 - Definir o SPN da aplicação interna **Finanças** em vez de um caráter universal.
 
-    ![Configuração do SPN](./media/application-proxy-wildcard/54.png)
-
+    ![Exemplo: Definir financeiro em vez de um caráter universal na configuração do SPN](./media/application-proxy-wildcard/54.png)
 
 Esta configuração implementa o seguinte cenário:
 
-![Cenário](./media/application-proxy-wildcard/09.png)
+![Mostra a configuração implementada pelo cenário de exemplo](./media/application-proxy-wildcard/09.png)
 
 Uma vez `finance.adventure-works.com` é um URL mais específico que `*.adventure-works.com`, ela terá precedência. Os usuários a navegar para `finance.adventure-works.com` ter a experiência especificada no aplicativo de recursos de finanças. Neste caso, apenas os funcionários do departamento financeiro conseguem aceder `finance.adventure-works.com`.
 
 Se tiver várias aplicações publicadas para finanças e tiver `finance.adventure-works.com` como um domínio verificado, conseguiu publicar outra aplicação de caráter universal `*.finance.adventure-works.com`. Como se trata mais específica que genérica `*.adventure-works.com`, ela terá precedência, se um utilizador acede a uma aplicação no domínio financeiro.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre:
-
-- **Domínios personalizados**, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
-
-- **Publicação de aplicações**, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md)
-
-
+- Para saber mais sobre **domínios personalizados**, consulte [trabalhar com domínios personalizados no Proxy de aplicações do Azure AD](application-proxy-configure-custom-domain.md).
+- Para saber mais sobre **publicação de aplicações**, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-add-on-premises-application.md)

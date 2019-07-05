@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505586"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444651"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Ativar ou desativar uma regra de firewall num SO de convidado de VM do Azure
 
@@ -99,7 +99,7 @@ Se a VM está online e pode ser acessada em outra VM na mesma rede virtual, pode
 
 1.  Na VM de resolução de problemas, inicie o Editor de registo (regedit.exe) e, em seguida, selecione **arquivo** > **registo de rede ligar**.
 
-2.  Abra o *máquina de destino*\SYSTEM ramificação e, em seguida, especifique os seguintes valores:
+2.  Abra o *máquina de destino*\SYSTEM ramificação e, em seguida, especifique os seguintes valores:
 
     * Para ativar uma regra, abra o valor de registo seguinte:
     
@@ -123,26 +123,26 @@ Se a VM está online e pode ser acessada em outra VM na mesma rede virtual, pode
 
 Se não conseguir aceder a VM por qualquer método, usando a extensão de Script personalizado irá falhar e terá de trabalhar no modo OFFLINE, ao trabalhar diretamente com o disco do sistema.
 
-Antes de seguir estes passos, tire um instantâneo do disco de sistema da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estes passos, tire um instantâneo do disco de sistema da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
-3.  Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção que a unidade de letra que é atribuída para o disco do sistema anexado.
+3.  Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção que a unidade de letra que é atribuída para o disco do sistema anexado.
 
 4.  Antes de fazer quaisquer alterações, crie uma cópia da pasta \windows\system32\config no caso de uma reversão das alterações necessária.
 
 5.  Na VM de resolução de problemas, inicie o Editor de registo (regedit.exe).
 
-6.  Realce o **HKEY_LOCAL_MACHINE** da chave e, em seguida, selecione **ficheiro** > **carregar Hive** no menu.
+6.  Realce o **HKEY_LOCAL_MACHINE** da chave e, em seguida, selecione **ficheiro** > **carregar Hive** no menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Localize e, em seguida, abra o ficheiro de \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > São-lhe pedido para um nome. Introduza **BROKENSYSTEM**e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Agora verá uma chave adicional denominada **BROKENSYSTEM**. Para esta solução de problemas, podemos montar esses hives do problema como **BROKENSYSTEM**.
+    > São-lhe pedido para um nome. Introduza **BROKENSYSTEM**e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Agora verá uma chave adicional denominada **BROKENSYSTEM**. Para esta solução de problemas, podemos montar esses hives do problema como **BROKENSYSTEM**.
 
 8.  Efetue as seguintes alterações no ramo BROKENSYSTEM:
 
@@ -164,7 +164,7 @@ Antes de seguir estes passos, tire um instantâneo do disco de sistema da VM afe
         
         **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = domínio | Perfil = privada | Perfil público de = | LPort = 3389 | App=%systemroot%\system32\svchost.exe| SVC = termservice | Nome =\@Firewallapi,-28775 | Desc =\@Firewallapi,-28756 | EmbedCtxt =\@Firewallapi,-28752 |**
 
-9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **ficheiro** > **descarregar seção** no menu.
+9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **ficheiro** > **descarregar seção** no menu.
 
 10. [Desanexar o disco do sistema e voltar a criar a VM](troubleshoot-recovery-disks-portal-windows.md).
 

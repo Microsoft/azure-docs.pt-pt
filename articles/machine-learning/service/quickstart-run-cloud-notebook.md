@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f47735a6e41ae14cb439e10803b82c0dbd3e64d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 68f24d4d019af873a0ca45792a3cbcc3dd3c3c3f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115020"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476047"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
@@ -74,9 +74,12 @@ Depois da VM está em execução, utilize o **VMs de bloco de notas** secção p
 
 1. Na página de Web do bloco de notas Jupyter, o foldername superior é o nome de utilizador.  Selecione esta pasta.
 
+    > [!TIP]
+    > Esta pasta está localizada na [contentor de armazenamento](concept-workspace.md#resources) na sua área de trabalho, em vez do bloco de notas própria VM.  Pode eliminar o bloco de notas VM e ainda manter todo o seu trabalho.  Quando cria um novo bloco de notas VM mais tarde, ele carregará desta pasta.
+
 1. Exemplos foldername inclui um número de versão, por exemplo **1.0.33.1 exemplos**.  Selecione a pasta de exemplos.
 
-1. Selecione o **guia de introdução** bloco de notas.
+1. Selecione o **guia de introdução** pasta.
 
 ## <a name="run-the-notebook"></a>Executar o bloco de notas
 
@@ -115,11 +118,11 @@ Execute um bloco de notas que as estimativas de instalador de plataforma e regis
 
 1. Clique nas **ligação para o portal do Azure** para ver informações sobre a execução na sua área de trabalho.  Esta ligação abre-se a sua área de trabalho no portal do Azure.
 
-1. Os gráficos de valores com sessão iniciada, que verá automaticamente foram criados na área de trabalho. Sempre que registar vários valores com o mesmo parâmetro de nome, é automaticamente gerado um desenho.
+1. Os gráficos de valores com sessão iniciada, que verá automaticamente foram criados na área de trabalho. Sempre que registar vários valores com o mesmo parâmetro de nome, é automaticamente gerado um desenho. Segue-se um exemplo:
 
    ![Ver histórico](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Uma vez que o código para pi aproximado utiliza valores aleatórios, seus gráficos irão mostrar valores diferentes.  
+Uma vez que o código para pi aproximado utiliza valores aleatórios, seus gráficos podem parecer diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -154,7 +157,9 @@ Neste início rápido, concluir estas tarefas:
 * Execute o bloco de notas.
 * Ver os valores de erro com sessão iniciada na sua área de trabalho.  Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script. 
 
-Na página de Web de notas do Jupyter, procure os outros blocos de notas na pasta de exemplos para saber mais sobre o serviço Azure Machine Learning.
+Na página de Web de notas do Jupyter, no **início rápido** pasta, abra e execute o **02.deploy-web-service.ipynb** bloco de notas para saber como implementar um serviço web.
+
+Também na página de Web de notas do Jupyter, procure os outros blocos de notas na pasta de exemplos para saber mais sobre o serviço Azure Machine Learning.
 
 Para obter uma experiência de fluxo de trabalho detalhados, siga os tutoriais de Machine Learning para preparar e implementar um modelo:  
 

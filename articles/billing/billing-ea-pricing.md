@@ -1,37 +1,34 @@
 ---
-title: Veja e transfira os preços do Azure da sua organização | Documentos da Microsoft
+title: Veja e transfira os preços do Azure da sua organização
 description: Saiba como ver e transferir a preços ou estimar os custos com preços da sua organização.
-services: ''
-documentationcenter: ''
-author: adpick
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7f7da197a06dbbb730a7386882e534b8381cf9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127638"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491359"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Veja e transfira os preços do Azure da sua organização
 
-Os clientes do Azure com um contrato Enterprise (EA) ou [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement) podem ver e transferir os respetivos preços do portal do Azure. Se tiver um contrato de cliente da Microsoft, consulte o modo de exibição e preços de transferência para o contrato do cliente Microsoft.
+Os clientes do Azure com um Azure Enterprise Agreement (EA) ou [contrato de cliente da Microsoft](#check-your-access-to-a-microsoft-customer-agreement) podem ver e transferir os respetivos preços no portal do Azure.
 
-## <a name="view-and-download-ea-pricing"></a>Veja e transfira a preços de EA
+## <a name="ea-pricing"></a>Preços de EA
 
 Consoante as políticas definidas para a sua organização, o administrador da empresa, apenas determinadas funções administrativas fornecem acesso a informações de preços de EA da sua organização. Para obter mais informações, consulte [funções administrativas do Azure Enterprise Agreement compreender no Azure](billing-understand-ea-roles.md).
 
-1. Como um administrador empresarial, inicie sessão para o [portal do Azure](https://portal.azure.com/).
-1. Pesquisar nos **custo Management + faturação**.
+1. Como um administrador empresarial, início de sessão para o [portal do Azure](https://portal.azure.com/).
+1. Procure *custo Management + faturação*.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-ea-pricing/portal-cm-billing-search.png)
 
@@ -40,27 +37,28 @@ Consoante as políticas definidas para a sua organização, o administrador da e
    ![Captura de ecrã que mostra a utilização e custos de faturação](./media/billing-ea-pricing/ea-pricing-usage-charges-nav.png)
 
 1. Selecione ![captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-ea-pricing/download-icon.png) **transferir** durante o mês.
+
 1. Sob **folha de preços**, selecione **transferir csv**.
 
    ![Botão de csv de transferir a captura de ecrã que mostra a folha de preços](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="view-and-download-pricing-for-your-microsoft-customer-agreement"></a>Veja e transfira os preços para o seu contrato de cliente da Microsoft
+## <a name="microsoft-customer-agreement-pricing"></a>Preços do contrato de cliente da Microsoft
 
 Tem de ser o proprietário de perfil de faturação, Contribuidor, leitor ou Gerenciador de faturas para ver e transferir a preços. Para saber mais sobre as funções de faturas para contratos de cliente da Microsoft, consulte [funções de perfis e tarefas de faturação](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Transferir as folhas de preços para o período de faturação atual
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Início de sessão para o [portal do Azure](https://portal.azure.com).
+1. Procure *custo Management + faturação*.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
-1. Na **descrição geral** painel, encontra os links de download abaixo os encargos do mês até à data.
+1. Na **descrição geral** área, encontra os links de download abaixo os encargos do mês até à data.
 1. Selecione **folha de preços do Azure**.
 ![Captura de ecrã que mostra o download da descrição geral](./media/billing-ea-pricing/open-pricing.png)
 
 ### <a name="download-price-sheets-for-billed-charges"></a>Transferir as folhas de preços para os custos de faturação
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Início de sessão para o [portal do Azure](https://portal.azure.com).
+1. Procure *custo Management + faturação*.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Selecione **Faturas**.
 1. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à folha de preços que pretende transferir.
@@ -85,7 +83,7 @@ Também pode usar o preço da sua organização para estimar os custos com a Cal
 
 1. Escolha a organização.
 1. Selecione **Aplicar**.
-1. Procurar e adicionar produtos à sua estimativa.
+1. Procurar e, em seguida, adicionar produtos à sua estimativa.
 1. Os preços estimados apresentados baseiam-se sobre os preços para a organização que selecionou.
 
 ## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft

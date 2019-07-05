@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 5594c1f3517bf3d3f74841493df3c683304fa3f5
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65408227"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502083"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do serviço de aplicações do Azure
 
@@ -42,7 +42,7 @@ Existem duas formas de ativar a monitorização de aplicações para aplicaçõe
 ## <a name="enable-agent-based-monitoring-net"></a>Ativar com base em agente de monitorização .NET
 
 > [!NOTE]
-> a combinação de APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression não é suportada. Para mais informações, veja a explicação no [secção de resolução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+> A combinação de APPINSIGHTS_JAVASCRIPT_ENABLED e urlCompression não é suportada. Para mais informações, veja a explicação no [secção de resolução de problemas](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 
 1. **Selecione o Application Insights** no painel de controlo do Azure para o serviço de aplicações.
@@ -274,7 +274,7 @@ Abaixo está um exemplo, substitua todas as instâncias de `AppMonitoredSite` co
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```

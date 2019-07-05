@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: cf39baf34096691144181332566cf567ebc02310
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 088cd5447b1f96dbf172b5918c29e4f3293289a6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184786"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67534707"
 ---
 1. Estabelece uma ligação de ambiente de trabalho remota do computador que executa o servidor de processos. 
 2. Execute cspsconfigtool.exe para iniciar a ferramenta de configuração do servidor de processos de recuperação de Site do Azure.
@@ -19,8 +19,14 @@ ms.locfileid: "67184786"
 3. Na **servidor de configuração IP ou FQDN**, especifique o nome ou endereço IP do servidor de configuração com a qual registar o servidor de processos.
 4. Na **porta do servidor de configuração**, certifique-se de que a 443 é especificado. Esta é a porta em que o servidor de configuração escuta pedidos.
 5. Na **frase de acesso de ligação**, especifique a frase de acesso que especificou quando configurou o servidor de configuração. Para localizar a frase de acesso:
-    -  No servidor de configuração, navegue para a pasta de instalação do Site Recovery * *\home\svssystems\bin\** . 
-    - Execute este comando: **genpassphrase.exe.n**. Isto mostra-lhe a localização da frase de acesso, o que pode, em seguida, observar.
+    -  No servidor de configuração, navegue para a pasta de instalação do Site Recovery * *\home\svssystems\bin\** :
+    ```
+    cd %ProgramData%\ASR\home\svsystems\bin
+    ```
+    - Execute o comando para imprimir a frase de acesso atual abaixo:
+    ```
+    genpassphrase.exe -n
+    ```
 
 6. Na **porta de transferência de dados**, deixe o valor predefinido, a menos que tiver especificado uma porta personalizada.
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 61477767c59dd521e3f46db4445238a5a1ea759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ab24a99b22fae172b5308ba7477953f27ecfd44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071440"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435943"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Alojar um Web site estático no armazenamento do Azure
 
@@ -44,13 +44,7 @@ Pode ativar o alojamento de Web site estático, utilizando o [Interface de linha
 
 1. Primeiro, abra a [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se tiver [instalado](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) a CLI do Azure localmente, abra um aplicativo de console de comando, como o Windows PowerShell.
 
-2. Na janela de comando que já aberto, de instalar a extensão de pré-visualização do armazenamento.
-
-   ```azurecli-interactive
-   az extension add --name storage-preview
-   ```
-
-3. Se a sua identidade estiver associada a mais de uma assinatura, em seguida, defina seu Active Directory subscrição a subscrição da conta de armazenamento que irá alojar o seu Web site estático.
+2. Se a sua identidade estiver associada a mais de uma assinatura, em seguida, defina seu Active Directory subscrição a subscrição da conta de armazenamento que irá alojar o seu Web site estático.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -58,7 +52,7 @@ Pode ativar o alojamento de Web site estático, utilizando o [Interface de linha
 
    Substitua o `<subscription-id>` valor do marcador de posição com o ID da sua subscrição.
 
-4. Permitir o alojamento de Web site estático.
+3. Permitir o alojamento de Web site estático.
 
    ```azurecli-interactive
    az storage blob service-properties update --account-name <storage-account-name> --static-website --404-document <error-document-name> --index-document <index-document-name>
@@ -70,7 +64,7 @@ Pode ativar o alojamento de Web site estático, utilizando o [Interface de linha
 
    * Substitua o `<index-document-name>` marcador de posição pelo nome do documento de índice. Este documento geralmente é "Index".
 
-5. Carregar objetos para o *$web* contentor a partir de um diretório de origem.
+4. Carregar objetos para o *$web* contentor a partir de um diretório de origem.
 
    > [!NOTE]
    > Se estiver a utilizar o Azure Cloud Shell, certifique-se de adicionar uma `\` carácter de escape quando nos Referimos ao `$web` contentor (por exemplo: `\$web`). Se estiver a utilizar uma instalação local da CLI do Azure, não terá de utilizar o caráter de escape.

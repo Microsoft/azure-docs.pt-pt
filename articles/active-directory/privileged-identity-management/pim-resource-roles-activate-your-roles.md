@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e8615cc5534255308c35fa1f675ef3a85aa84e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bdce060006f65f2b0fb08023066ee504578bc552
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60438528"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501657"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar as minhas funções de recursos do Azure no PIM
 
@@ -38,37 +38,37 @@ Quando precisar da desempenhar uma função de recursos do Azure, pode pedir a a
 
 1. Clique em **minhas funções**.
 
-    ![Funções do Azure AD e funções de recursos do Azure - as minhas funções](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Minha página de funções, funções, que pode ativar a mostrar](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Clique em **funções de recursos do Azure** para ver uma lista das suas funções de recursos do Azure elegíveis.
 
-   ![Funções de recursos do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
+   ![As minhas funções - página de funções de recursos do Azure](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. Na **funções de recursos do Azure** lista, localize a função que pretende ativar.
 
-    ![Funções de recursos do Azure - minha lista de funções](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
+    ![Funções de recursos do Azure - minha lista de funções elegíveis](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate.png)
 
 1. Clique em **Activate** para abrir o painel ativar.
 
 1. Se a sua função requer autenticação multifator (MFA), clique em **verificar a sua identidade antes de continuar**. Só precisa que autenticar uma vez por sessão.
 
-    ![Certifique-se com a MFA antes da ativação de função](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
+    ![Verificar a minha identidade com a MFA antes da ativação de função](./media/pim-resource-roles-activate-your-roles/resources-my-roles-mfa.png)
 
 1. Clique em **verificar a minha identidade** e siga as instruções para fornecer verificação adicional de segurança.
 
-    ![Verificação adicional de segurança](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
+    ![Ecrã para verificação de segurança, como um código PIN](./media/pim-resource-roles-activate-your-roles/resources-mfa-enter-code.png)
 
 1. Se pretender especificar um âmbito reduzido, clique em **âmbito** para abrir o painel de filtro de recursos.
 
     É melhor prática para apenas solicitar acesso a recursos de que precisa. No painel de filtro de recursos, pode especificar os grupos de recursos ou recursos que precisam acessar.
 
-    ![Ativar - filtro de recursos](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
+    ![Ativar - o painel de filtro de recurso para especificar o âmbito](./media/pim-resource-roles-activate-your-roles/resources-my-roles-resource-filter.png)
 
 1. Se necessário, especifique uma hora de início de ativação personalizado. O membro seria ativado após o período selecionado.
 
 1. Na **motivo** , digite a razão para o pedido de ativação.
 
-    ![Painel de ativar concluída](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
+    ![Concluído ativar painel com escopo, a hora de início, duração e motivo](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
 1. Clique em **ativar**.
 
@@ -76,7 +76,7 @@ Quando precisar da desempenhar uma função de recursos do Azure, pode pedir a a
 
     Se o [a função requer aprovação](pim-resource-roles-approval-workflow.md) para ativar, uma notificação será exibida no canto superior direito do seu navegador informando o pedido está com aprovação pendente.
 
-    ![Pedido pendente de notificação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+    ![Pedido de ativação é a notificação de aprovação pendente](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
 ## <a name="use-a-role-immediately-after-activation"></a>Utilize uma função imediatamente após a ativação
 
@@ -102,7 +102,7 @@ Pode ver o estado dos seus pedidos pendentes para ativar.
 
 1. Clique em **os meus pedidos** para ver uma lista de sua função do Azure AD e a função de recursos do Azure pedidos.
 
-    ![Funções do Azure AD e funções de recursos do Azure - os meus pedidos](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Os meus pedidos - página de recursos do Azure que mostra os pedidos pendentes](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Desloque-se para a direita para ver os **estado do pedido de** coluna.
 
@@ -118,22 +118,19 @@ Se não necessitar de ativação de uma função que requer aprovação, pode ca
 
     Ao clicar em Cancelar, o pedido será cancelado. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
 
-   ![Cancelar pedido pendente](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+   ![Minha lista de pedidos com a ação de cancelamento realçada](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Permissões concedidas não após a ativação de uma função
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Não são concedidas permissões após a ativação de uma função
 
-Quando ativar uma função no PIM, demora menos de 10 minutos antes de poder aceder ao portal administrativo pretendido ou executar funções dentro de uma carga de trabalho administrativa específica. Assim que a ativação estar concluída, termine a sessão do portal do Azure e inicie sessão novamente para começar a utilizar a função recém-ativada.
+Quando ativar uma função no PIM, a ativação não pode propagar instantaneamente para todos os portais que requerem a função com privilégios. Às vezes, mesmo que a alteração é propagada, cache da web num portal pode resultar na alteração não entrarem em vigor imediatamente. Se a ativação é atrasada, eis o que deve fazer.
 
-Para obter os passos de resolução de problemas adicionais, consulte [resolução de problemas de permissões elevadas](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+1. Terminar sessão do portal do Azure e, em seguida, inicie sessão novamente.
 
-### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>Não é possível ativar uma função devido a um bloqueio de recursos
+    Ao ativar uma função de recursos do Azure, verá as fases de sua ativação. Assim que todas as fases são concluídas, verá uma **terminar sessão** ligação. Pode utilizar esta ligação para terminar sessão. Isto irá resolver a maioria dos casos, para atraso de ativação.
 
-Se receber uma mensagem que um recurso do Azure é bloqueado ao tentar ativar uma função, poderá ser porque um recurso dentro do escopo de uma atribuição de função tem um bloqueio de recursos. Bloqueios de proteger os recursos de eliminação acidental ou alterações inesperadas. Um bloqueio também impede que o PIM remover uma atribuição de função no recurso no fim do período de ativação. Uma vez que o PIM não consegue funcionar corretamente quando um bloqueio é aplicado, o PIM proíbe os utilizadores de ativação de funções no recurso. Existem duas formas que pode resolver este problema:
-
-- O bloqueio de eliminação, conforme descrito em [bloquear recursos pode prevenir alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
-- Se pretender manter o bloqueio, tornar a atribuição de função permanentes ou utilize uma conta de quebra de vidro.
+1. No PIM, certifique-se de que está listado como o membro da função.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,19 +1,19 @@
 ---
 title: Azure padrões de consulta de comuns de outros duplos Digital | Documentos da Microsoft
 description: Saiba os padrões comuns de consultar as APIs de gestão de duplos Digital do Azure.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-adgera
+ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60924741"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462039"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar APIs de duplos Digital do Azure para tarefas comuns
 

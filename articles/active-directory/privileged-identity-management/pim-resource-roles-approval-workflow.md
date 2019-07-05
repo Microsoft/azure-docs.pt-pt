@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f645b7077ef43dc7eb4d70261b6b601b5e4af1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9d2e8b4ae1a01cd299d910c4e88655885c7d00dc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288476"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476390"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Aprovar ou recusar pedidos para funções de recursos do Azure no PIM
 
@@ -38,15 +38,15 @@ Como um aprovador de delegados, receberá uma notificação por e-mail quando um
 
 1. Clique em **aprovar pedidos**.
 
-    ![Recursos do Azure - aprovar pedidos](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Aprovar pedidos - página de recursos do Azure que mostra o pedido para rever](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
 
     Na **pedidos de ativações de função** seção, verá uma lista de pedidos com aprovação pendente.
 
 ## <a name="approve-requests"></a>Aprovar pedidos
 
-1. Encontre e clique em pedido de que pretende aprovar. Um painel de aprovação será exibido.
+1. Encontre e clique em pedido de que pretende aprovar. Um aprovar ou negar é apresentado o painel.
 
-    ![Aprovar o painel de pedidos](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprovar pedidos - aprovar ou negar o painel com detalhes e a caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Na **justificação** , escreva um motivo.
 
@@ -54,13 +54,13 @@ Como um aprovador de delegados, receberá uma notificação por e-mail quando um
 
     É apresentada uma notificação com a sua aprovação.
 
-    ![Aprovar a notificação](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Aprovar a notificação a mostrar que o pedido foi aprovado](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 
 ## <a name="deny-requests"></a>Negar pedidos
 
-1. Encontre e clique em pedido de que pretende negar. Um painel de aprovação será exibido.
+1. Encontre e clique em pedido de que pretende negar. Um aprovar ou negar é apresentado o painel.
 
-    ![Aprovar o painel de pedidos](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+    ![Aprovar pedidos - aprovar ou negar o painel com detalhes e a caixa de justificação](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
 
 1. Na **justificação** , escreva um motivo.
 

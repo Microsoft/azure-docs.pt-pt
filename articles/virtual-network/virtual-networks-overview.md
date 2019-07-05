@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 0d6762c8f3034923ddc0fe7dcf0cc2df34bd3629
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22c1e3050915fc697a62862620ef492ef22f80b8
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332108"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542825"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
@@ -27,7 +27,7 @@ Rede Virtual do Azure (VNet) é o bloco de construção fundamental para a sua r
 ## <a name="vnet-concepts"></a>Conceitos de VNet
 
 - **Espaço de endereços:** Ao criar uma VNet, tem de especificar um espaço de endereços IP privado personalizado através de endereços (RFC 1918) públicos e privados. O Azure atribui aos recursos numa rede virtual um endereço IP privado a partir do espaço de endereços que atribuir. Por exemplo, se implementar uma VM numa VNet com o espaço de endereços, 10.0.0.0/16, a VM será atribuído um IP privado, como 10.0.0.4.
-- **Sub-redes:** Sub-redes permitem-lhe segmentar a rede virtual num ou mais redes secundárias e atribuir uma parte do espaço de endereços da rede virtual para cada sub-rede. Em seguida, pode implementar recursos do Azure numa sub-rede específica. Assim como numa rede tradicional, sub-redes permitem-lhe segmentar o seu espaço de endereços da VNet em segmentos que são adequados para a rede interna da organização. Isso também melhora a eficiência de alocação de endereço. Pode proteger os recursos dentro de sub-redes utilizar grupos de segurança de rede. Para obter mais informações, consulte [grupos de segurança](/security-overview.md).
+- **Sub-redes:** Sub-redes permitem-lhe segmentar a rede virtual num ou mais redes secundárias e atribuir uma parte do espaço de endereços da rede virtual para cada sub-rede. Em seguida, pode implementar recursos do Azure numa sub-rede específica. Assim como numa rede tradicional, sub-redes permitem-lhe segmentar o seu espaço de endereços da VNet em segmentos que são adequados para a rede interna da organização. Isso também melhora a eficiência de alocação de endereço. Pode proteger os recursos dentro de sub-redes utilizar grupos de segurança de rede. Para obter mais informações, consulte [grupos de segurança](security-overview.md).
 - **Regiões**: VNet tem um âmbito para uma região/localização única; No entanto, várias redes virtuais a partir de regiões diferentes podem ser ligadas em conjunto com o Peering de rede Virtual.
 - **Subscrição:** VNet tem um âmbito a uma subscrição. Pode implementar várias redes virtuais dentro de cada [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) do Azure e [região](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) do Azure.
 

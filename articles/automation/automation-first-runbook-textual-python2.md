@@ -4,17 +4,17 @@ description: Tutorial explica-lhe a criação, teste e da publicação de um run
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f5408ce82b16d72dde364238d427a798441dfc8b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: a030005d73df61c31c5aa1c2e1b56e52b03a56e3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340824"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478510"
 ---
 # <a name="my-first-python-runbook"></a>O meu primeiro runbook de Python
 

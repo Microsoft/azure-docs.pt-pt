@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 150ecbdfcc21ee7ec0bf54fd5b824bc93e0c76ce
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358145"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483310"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Active Directory do Azure
 
@@ -41,7 +41,9 @@ Bloqueio inteligente pode ser integrado em implementações híbridas, com a sin
 Ao usar [autenticação pass-through](../hybrid/how-to-connect-pta.md), precisa para se certificar de que:
 
 * O limiar de bloqueio do Azure AD é **menos** que o limiar de bloqueio de conta do Active Directory. Defina os valores para que o limiar de bloqueio de conta do Active Directory é, pelo menos, dois ou três vezes mais do que o limiar de bloqueio do Azure AD. 
-* A duração do bloqueio do Azure AD **em segundos** é **mais** que o Active Directory repor o contador de bloqueio de conta após a duração **minutos**.
+* A duração do bloqueio do Azure AD tem de ser definida mais do que o Active Directory repor o contador de bloqueio de conta após a duração. Lembre-se de que o Azure a duração do AD está definido em segundos, enquanto o AD duração é definida em minutos. 
+
+Por exemplo, se pretender que o contador do Azure AD para ser mais alto do AD, em seguida, do Azure AD seria 120 segundos (2 minutos) ao seu on prem que AD estiver definido como 1 minuto (60 segundos).
 
 > [!IMPORTANT]
 > Atualmente um administrador não pode desbloquear as contas dos utilizadores na cloud, se foi bloqueadas pela capacidade de bloqueio inteligente. O administrador tem de aguardar a duração do bloqueio a expirar.

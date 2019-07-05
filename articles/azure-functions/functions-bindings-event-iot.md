@@ -4,19 +4,19 @@ description: Compreenda como utilizar os enlaces de IoT Hub nas funções do Azu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 87a99651d17e9867130024a5f721c5488cd42a8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e39a7b2c29ee541a9a104d681d25335496e5625b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511367"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480605"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>Enlaces de IoT Hub do Azure para as funções do Azure
 

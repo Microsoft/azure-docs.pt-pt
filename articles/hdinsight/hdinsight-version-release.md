@@ -5,14 +5,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 0868ec62517144cd54760f3d951aa0e55d78b4e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 77260eaa2e19135586e438576397b4647afe7ece
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056707"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483983"
 ---
 # <a name="hdinsight-40-overview"></a>Descrição geral do HDInsight 4.0
 

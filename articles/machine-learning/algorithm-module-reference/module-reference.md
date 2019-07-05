@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8825f1dc3b66a5c4981ba25a90813aec63975b1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e73d4ebd3eb05f7cf217573d8112e3dbbe6d3a37
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65145142"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514074"
 ---
 # <a name="algorithm--module-reference-overview"></a>Descrição geral de referência de algoritmos e módulos
 
@@ -33,8 +33,8 @@ Módulos são organizados por funcionalidade:
 | --- |--- | ---- |
 | Conversões de formato de dados | Converter os dados entre vários formatos de arquivo usados do Machine learning, | [Converter para CSV](convert-to-csv.md) |
 | Dados de entrada e saída | Mova dados de origens na cloud na sua experimentação. Escrever seus resultados ou dados intermediários para armazenamento do Azure, base de dados SQL ou Hive, durante a execução de uma experimentação, ou usar o armazenamento na cloud para trocar dados entre experimentações.  | [Importar dados](import-data.md)<br/>[Exportar dados](export-data.md)<br/>[Introduzir dados manualmente](enter-data-manually.md) |
-| Transformação de dados | Operações nos dados que são exclusivas ao machine learning, como normalizar ou compartimentação de dados, a seleção de funcionalidades e a redução de dimensionalidade.| [Selecionar colunas no conjunto de dados](select-columns-in-dataset.md) <br/> [Editar metadados](edit-metadata.md) <br/> [Limpar dados em falta](clean-missing-data.md) <br/> [Adicionar colunas](add-columns.md) <br/> [Adicionar linhas](add-rows.md) <br/> [Remover linhas duplicadas](remove-duplicate-rows.md) <br/> [Dividir os dados](split-data.md) <br/> [Normalizar dados](normalize-data.md) <br/> [Partição e amostras](partition-and-sample.md) |
-| Módulo de Python | Escrever código e incorporá-lo num módulo para integrar o Python com sua experimentação. | [Executar o Script de Python](execute-python-script.md)   <br/> [Criar modelo de Python](create-python-model.md)
+| Transformação de dados | Operações nos dados que são exclusivas ao machine learning, como normalizar ou compartimentação de dados, a seleção de funcionalidades e a redução de dimensionalidade.| [Selecionar colunas no conjunto de dados](select-columns-in-dataset.md) <br/> [Editar metadados](edit-metadata.md) <br/> [Limpar dados em falta](clean-missing-data.md) <br/> [Adicionar colunas](add-columns.md) <br/> [Adicionar linhas](add-rows.md) <br/> [Remover linhas duplicadas](remove-duplicate-rows.md) <br/> [Junte-se a dados](join-data.md) <br/> [Dividir os dados](split-data.md) <br/> [Normalizar dados](normalize-data.md) <br/> [Partição e amostras](partition-and-sample.md) |
+| Módulos de Python e R | Escrever código e incorporá-lo num módulo para integrar o Python e R com a sua experimentação. | [Executar o Script de Python](execute-python-script.md)   <br/> [Criar modelo de Python](create-python-model.md) <br/> [Executar R Script](execute-r-script.md)
 |  | **Do Machine learning algoritmos**: | |
 | Classificação | Prever uma classe.  Escolha de binário (duas classes) ou algoritmos de várias classes.| [Floresta de decisão de várias classes](multiclass-decision-forest.md) <br/> [Regressão logística várias classes](multiclass-logistic-regression.md)  <br/> [Várias classes rede Neural](multiclass-neural-network.md)  <br/>  [Regressão logística de duas classes](two-class-logistic-regression.md)  <br/>[Perceptron uma média de duas classes](two-class-averaged-perceptron.md) <br/> [Duas classes&nbsp;aumentado&nbsp;decisão&nbsp;árvore](two-class-boosted-decision-tree.md)  <br/> [Floresta de decisão de duas classes](two-class-decision-forest.md)  <br/> [Duas classes rede Neural](two-class-neural-network.md)  <br/> [Dois&#8209;classe&nbsp;suporte&nbsp;Vetor&nbsp;máquina](two-class-support-vector-machine.md) 
 | Clustering | Agrupe dados em conjunto.| [Clustering de K-Means](k-means-clustering.md)

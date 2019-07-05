@@ -2,7 +2,7 @@
 title: Permitir sincronização offline para a sua aplicação de Mobile do Azure (xamarin. Forms) | Documentos da Microsoft
 description: Saiba como utilizar a aplicação serviço de aplicações móveis para a cache e sincronizar dados offline na sua aplicação xamarin. Forms
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: yochayk
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/04/2016
-ms.author: crdun
-ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 53f339d5450965c992f6528ff294e0d37ec2f7f6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127884"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446286"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-offline-data) hoje mesmo.
+>
 
 ## <a name="overview"></a>Descrição geral
 Este tutorial apresenta a funcionalidade de sincronização offline de aplicações móveis do Azure para xamarin. Forms. Sincronização offline permite que os utilizadores finais interagir com uma aplicação móvel, visualizar, adicionar ou modificar dados, mesmo quando não existe nenhuma ligação de rede. As alterações são armazenadas numa base de dados local. Depois do dispositivo estiver online novamente, essas alterações são sincronizadas com o serviço remoto.
@@ -151,7 +155,7 @@ Nesta secção, voltar a ligar a aplicação para o back-end móvel, o que simul
     Repare que os dados foram sincronizado entre a base de dados e o armazenamento local e contém os itens adicionados enquanto a aplicação foi desconectada.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
-* [Sincronização de dados offline em aplicações móveis do Azure][2]
+* [Sincronização de Dados Offline em Aplicações Móveis do Azure][2]
 * [Aplicações móveis do Azure .NET SDK FOQUEI][8]
 
 <!-- URLs. -->

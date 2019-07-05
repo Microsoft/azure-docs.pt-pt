@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66518583"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446741"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Início rápido: Implementar no portal do Azure do Azure dados caixa pesadas
 
@@ -57,7 +57,7 @@ Antes de começar, certifique-se de que:
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Encomenda
 
@@ -95,7 +95,7 @@ Este passo demora cerca de 10 a 15 minutos a concluir.
 
 Este passo demora entre 5 a 7 minutos.
 
-1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](http://portal.azure.com). Mesma palavra-passe é utilizada para ambos os nós do dispositivo.
+1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com). Mesma palavra-passe é utilizada para ambos os nós do dispositivo.
 2. Atribua um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0 ao adaptador Ethernet no computador que está a utilizar para ligar a dados de caixa pesada. Aceda à IU da Web local do dispositivo em `https://192.168.100.10`. A ligação pode demorar até 5 minutos depois de ligar o dispositivo.
 3. Inicie sessão com a palavra-passe do portal do Azure. Verá um erro que indica um problema com o certificado de segurança do site. Siga as instruções específicas do browser para avançar para a página Web.
 4. Por predefinição, as definições de rede para as interfaces (excluindo a MGMT) estão configuradas como DHCP. Se for necessário, pode configurar estas interfaces como estática e forneça um endereço IP.

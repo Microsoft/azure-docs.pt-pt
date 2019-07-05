@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 06/27/2019
 ms.author: mayg
-ms.openlocfilehash: 3221b2bd18b8b0756f280d88fffc6016d0498b8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c005dcee78e2a9338dc7a816e06d9a78a2f355b6
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924814"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491678"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação de VMs de VMware e servidores físicos
 
@@ -77,6 +77,13 @@ Ao longo de um garantir acima que existem sem conectividade, largura de banda ou
         - Serviço VSS
         - Fornecedor VSS do Azure Site Recovery
         - Serviço VDS
+
+- Se estiver a executar cargas de trabalho do SQL ou o Exchange, verifique os registos desses criadores de aplicações para as falhas. Erros frequentes e respectivas resoluções são capturados nos seguintes artigos:
+    -  [Opção de fecho automático da base de dados do SQL Server está definida como TRUE](https://support.microsoft.com/help/4504104)
+    - [Gerar um erro sem repetição do SQL Server 2008 R2](https://support.microsoft.com/help/4504103)
+    - [Problema conhecido no SQL Server 2016 e 2017](https://support.microsoft.com/help/4493364)
+    - [Problema comum com servidores de Exchange 2013 e 2016](https://support.microsoft.com/help/4037535)
+
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Máquinas de origem com grande fluxo de dados [Erro 78188]
 

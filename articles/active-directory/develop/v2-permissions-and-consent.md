@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544873"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482148"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de final de plataforma de identidade do Microsoft
 
@@ -89,7 +89,7 @@ Se uma aplicação realiza início de sessão usando [OpenID Connect](active-dir
 
 O `email` âmbito pode ser utilizado com o `openid` escopo e dos outros. Fornece o acesso da aplicação para o endereço de e-mail primário do utilizador na forma do `email` de afirmação. O `email` afirmação está incluída num token apenas se um endereço de e-mail está associado com a conta de utilizador, que nem sempre é o caso. Se utiliza a `email` âmbito, a sua aplicação deve estar preparada para processar um caso em que o `email` afirmação não existe no token.
 
-### <a name="profile"></a>Perfil
+### <a name="profile"></a>profile
 
 O `profile` âmbito pode ser utilizado com o `openid` escopo e dos outros. Possibilita o acesso de aplicação a uma quantidade substancial de informações sobre o utilizador. As informações que ele pode acessar incluem, mas não está limitadas a, o nome de utilizador nome próprio, apelido, preferencial e ID de objeto. Para obter uma lista completa das afirmações de perfil disponíveis no parâmetro id_tokens para um utilizador específico, consulte a [ `id_tokens` referência](id-tokens.md).
 
@@ -124,7 +124,7 @@ Depois do utilizador introduz as respetivas credenciais, o ponto de extremidade 
 > [!NOTE]
 > Neste momento, o `offline_access` ("manter o acesso aos dados que tenha dado acesso") e `user.read` ("o início de sessão e ler o seu perfil") permissões estão incluídas automaticamente no consentimento inicial para uma aplicação.  Estas permissões normalmente são necessárias para a funcionalidade de aplicação corretas - `offline_access` permite o acesso de aplicação para críticos, tokens de atualização nativos e aplicações web, enquanto `user.read` dá acesso para o `sub` afirmação, permitindo que o cliente ou a aplicação corretamente identifica o utilizador ao longo do tempo e acessem informações de utilizador rudimentar.  
 
-![Consentimento de conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
+![Captura de ecrã de exemplo que mostra o consentimento de conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
 Quando o usuário aprova a solicitação de permissão, consentimento é registrado e o utilizador não tem consentimento novamente em inícios de sessão subsequentes para o aplicativo.
 

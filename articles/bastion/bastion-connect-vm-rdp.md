@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8a4b09a27325f31e548d1b345b2932c6ab6315c
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191892"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478405"
 ---
 # <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Ligar a uma máquina de virtual de Windows através do Azure Bastion (pré-visualização)
 
@@ -34,7 +34,7 @@ Para estabelecer uma ligação, as seguintes funções são necessárias:
 
 ## <a name="rdp"></a>Estabelecer ligação utilizando RDP
 
-1. Na [portal do Azure](https://aka.ms/BastionHost) para a pré-visualização de Bastion, navegue para a máquina virtual que deseja se conectar, em seguida, clique em **Connect**. A VM deve ser uma máquina virtual do Windows ao utilizar uma ligação RDP.
+1. Uso [esta ligação](https://aka.ms/BastionHost) para abrir a página de portal de pré-visualização da Bastion do Azure. Navegue para a máquina virtual que deseja se conectar, em seguida, clique em **Connect**. A VM deve ser uma máquina virtual do Windows ao utilizar uma ligação RDP.
 
     ![Ligação da VM](./media/bastion-connect-vm-rdp/connect.png)
 

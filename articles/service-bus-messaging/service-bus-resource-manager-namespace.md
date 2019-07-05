@@ -12,202 +12,96 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111259"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444761"
 ---
-# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
-Neste início rápido, vai criar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus do tipo **Messaging** com um **padrão** SKU. O artigo também define os parâmetros que são especificados para a execução da implantação. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager). Para o modelo completo, consulte a [modelo de espaço de nomes do Service Bus] [ Service Bus namespace template] no GitHub.
+# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
 
-> [!NOTE]
-> Os seguintes modelos do Azure Resource Manager estão disponíveis para download e implantação. 
-> 
-> * [Criar um espaço de nomes do Service Bus com a fila](service-bus-resource-manager-namespace-queue.md)
-> * [Criar um espaço de nomes do Service Bus com o tópico e uma subscrição](service-bus-resource-manager-namespace-topic.md)
-> * [Criar um espaço de nomes do Service Bus com a regra de autorização e fila](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
-> 
-> Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure] [ Azure Quickstart Templates] Galeria e pesquisa do Service Bus.
+Saiba como implementar um modelo do Azure Resource Manager para criar um espaço de nomes do Service Bus. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [documentação do Azure Resource Manager](/azure/azure-resource-manager/).
 
+Os seguintes modelos também estão disponíveis para a criação de espaços de nomes do Service Bus:
+
+* [Criar um espaço de nomes do Service Bus com a fila](./service-bus-resource-manager-namespace-queue.md)
+* [Criar um espaço de nomes do Service Bus com o tópico e uma subscrição](./service-bus-resource-manager-namespace-topic.md)
+* [Criar um espaço de nomes do Service Bus com a regra de autorização e fila](./service-bus-resource-manager-namespace-auth-rule.md)
+* [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](./service-bus-resource-manager-namespace-topic-with-rule.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="quick-deployment"></a>Implementação rápida
-Para executar o exemplo sem escrever qualquer JSON e executar o comando do PowerShell/CLI, selecione o botão seguinte:
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-[![Implementar no Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do service bus
 
-Para criar e implementar o modelo manualmente, percorra as secções seguintes neste artigo.
+Neste início rápido, vai utilizar um [modelo Resource Manager existente](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json) partir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/):
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para concluir este início rápido, precisa de uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+[!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-Se quiser usar **do Azure PowerShell** para implementar o modelo do Resource Manager [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Para obter mais exemplos de modelos, veja [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
-Se quiser usar **CLI do Azure** para implementar o modelo do Resource Manager [instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Para criar um espaço de nomes do barramento de serviço ao implementar um modelo:
 
-## <a name="create-the-resource-manager-template-json"></a>Criar o modelo do Resource Manager JSON 
-Crie um ficheiro JSON com o nome **MyServiceBusNamespace.json** com o seguinte conteúdo: 
+1. Selecione **experimente** do seguinte bloco de código e, em seguida, siga as instruções para iniciar sessão no Azure Cloud shell.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusSku": {
-            "type": "string",
-            "allowedValues": [
-                "Basic",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Standard",
-            "metadata": {
-                "description": "The messaging tier for service Bus namespace"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-04-01",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/namespaces",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('serviceBusSku')]"
-            }
-        }
-    ]
-}
+    ```azurepowershell-interactive
+    $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${serviceBusNamespaceName}rg"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
+
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    O nome de grupo de recursos é o nome de espaço de nomes do service bus com **rg** anexado.
+
+2. Selecione **cópia** para copiar o script do PowerShell.
+3. O console do shell com o botão direito e, em seguida, selecione **colar**.
+
+Demora alguns minutos para criar um hub de eventos.
+
+## <a name="verify-the-deployment"></a>Verificar a implementação
+
+Para ver o espaço de nomes do barramento de serviço implementado, pode abrir o grupo de recursos a partir do portal do Azure ou utilize o seguinte script do PowerShell do Azure. Se o Cloud shell ainda está aberto, não precisa de cópia/executado as primeira e segunda linhas do seguinte script.
+
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
+
+Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBusNamespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-Este modelo cria um espaço de nomes do Service Bus standard. Para a sintaxe JSON e propriedades, consulte [espaços de nomes](/azure/templates/microsoft.servicebus/namespaces) referência de modelo.
+O Azure PowerShell é utilizado para implementar o modelo neste tutorial. Para outros métodos de implementação do modelo, consulte:
 
-## <a name="create-the-parameters-json"></a>Criar os parâmetros JSON
-O modelo que criou no passo anterior tem uma seção chamada `Parameters`. Definir parâmetros para esses valores que variam com base no projeto estiver a implementar ou com base no ambiente de destino. Esse modelo define os seguintes parâmetros: **serviceBusNamespaceName**, **serviceBusSku**, e **localização**. Para saber mais sobre os SKUs do Service Bus, veja [SKUs de barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/) para criar.
+* [Com o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
+* [Ao utilizar a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).
+* [Ao utilizar a REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
 
-Crie um ficheiro JSON com o nome **Parameters. JSON MyServiceBusNamespace** com o seguinte conteúdo: 
+## <a name="clean-up-resources"></a>Limpar recursos
 
-> [!NOTE] 
-> Especifique um nome para o espaço de nomes do Service Bus. 
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Se o Cloud shell ainda está aberto, não precisa de cópia/executado as primeira e segunda linhas do seguinte script.
 
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "serviceBusNamespaceName": {
-      "value": "<Specify a name for the Service Bus namespace>"
-    },
-    "serviceBusSku": {
-      "value": "Standard"
-    },
-    "location": {
-        "value": "East US"
-    }
-  }
-}
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
-
-
-## <a name="use-azure-powershell-to-deploy-the-template"></a>Utilizar o Azure PowerShell para implementar o modelo
-
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-1. Inicie o Azure PowerShell
-
-2. Execute o seguinte comando para iniciar sessão no Azure:
-
-   ```azurepowershell
-   Login-AzAccount
-   ```
-3. Se tiver emita os seguintes comandos para definir o contexto de subscrição atual:
-
-   ```azurepowershell
-   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
-   ```
-
-### <a name="deploy-resources"></a>Implementar recursos
-Para implementar os recursos com o Azure PowerShell, mude para a pasta onde guardou os ficheiros JSON e execute os seguintes comandos:
-
-> [!IMPORTANT]
-> Especifique um nome para o grupo de recursos do Azure como um valor para $resourceGroupName antes de executar os comandos. 
-
-1. Declarar uma variável para o nome do grupo de recursos e especifique um valor para o mesmo. 
-
-    ```azurepowershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
-    ```
-2. Criar um grupo de recursos do Azure.
-
-    ```azurepowershell
-    New-AzResourceGroup $resourceGroupName -location 'East US'
-    ```
-3. Implemente o modelo do Resource Manager. Especifique os nomes de implantação propriamente dita, o grupo de recursos, o ficheiro JSON para o modelo, o ficheiro JSON para os parâmetros
-
-    ```azurepowershell
-    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
-    ```
-
-## <a name="use-azure-cli-to-deploy-the-template"></a>Utilizar a CLI do Azure para implementar o modelo
-
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
-
-1. Execute o seguinte comando para iniciar sessão no Azure:
-
-    ```azurecli
-    az login
-    ```
-2. Defina o contexto da subscrição atual. Substitua `MyAzureSub` pelo nome da subscrição do Azure que quer utilizar:
-
-    ```azurecli
-    az account set --subscription <Name of your Azure subscription>
-    ``` 
-
-### <a name="deploy-resources"></a>Implementar recursos
-Para implementar os recursos com a CLI do Azure, mude para a pasta com ficheiros JSON e execute os seguintes comandos:
-
-> [!IMPORTANT]
-> Especifique um nome para o grupo de recursos do Azure no grupo az criar comando. .
-
-1. Criar um grupo de recursos do Azure. 
-    ```azurecli
-    az group create --name <YourResourceGroupName> --location eastus
-    ```
-
-2. Implemente o modelo do Resource Manager. Especifique os nomes de grupo de recursos, implementação, ficheiro JSON para o modelo, ficheiro JSON para os parâmetros.
-
-    ```azurecli
-    az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyServiceBusNamespace.json --parameters @MyServiceBusNamespace-Parameters.json
-    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, criou um espaço de nomes do Service Bus. Consulte os outros guias de introdução para saber como criar filas, tópicos/subscrições e utilizá-los: 
 
-- [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
-- [Introdução aos tópicos do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Neste artigo, criou um espaço de nomes do Service Bus. Consulte os outros guias de introdução para saber como criar filas, tópicos/subscrições e utilizá-los:
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Service Bus pricing and billing]: https://azure.microsoft.com/pricing/details/service-bus/
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+* [Introdução aos tópicos do Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add2c72535b5be0edcbc00c077dfe20a6deaa3e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61219295"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434220"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
@@ -103,25 +103,36 @@ Para controlar o progresso da tarefa, no dashboard do cofre, selecione o **taref
 
 Existem duas formas de parar a proteção de uma VM:
 
-- Parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação. Neste caso, não será possível restaurar a VM.
-- Parar todas as tarefas de cópia de segurança futuras e manter os pontos de recuperação. Embora terá de pagar para manter os pontos de recuperação no cofre, poderá restaurar a VM, se necessário. Para obter mais informações, consulte [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/).
+* **Pare a proteção e manter os dados de cópia de segurança**. Esta opção irá parar todas as tarefas de cópia de segurança futuras de proteger a VM; No entanto, o serviço de cópia de segurança do Azure irá reter os pontos de recuperação tem sido submetidos a backup.  Terá de pagar para manter os pontos de recuperação no cofre (consulte [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/) para obter detalhes). Será capaz de restaurar a VM, se necessário. Se optar por ser retomar a proteção de VM, em seguida, pode usar *retomar cópia de segurança* opção.
+* **Pare a proteção e eliminar dados de cópia de segurança**. Esta opção irá parar todas as tarefas de cópia de segurança futuras de proteger a VM e elimine todos os pontos de recuperação. Não vai conseguir restaurar a VM nem utilizar *retomar cópia de segurança* opção.
 
 >[!NOTE]
 >Se eliminar uma origem de dados sem parar as cópias de segurança, novas cópias de segurança irão falhar. Pontos de recuperação antigos irão expirar, de acordo com a política, mas um último ponto de recuperação sempre será mantido até que as cópias de segurança de parar e eliminar os dados.
 >
 
-Para parar a proteção para uma VM:
+### <a name="stop-protection-and-retain-backup-data"></a>Pare a proteção e manter os dados de cópia de segurança
+
+Para parar a proteção e manter os dados de uma VM:
 
 1. Sobre o [dashboard do item do cofre](#view-vms-on-the-dashboard), selecione **parar cópia de segurança**.
-2. Escolha se pretende manter ou eliminar os dados de cópia de segurança e confirme a sua seleção, conforme necessário. Adicione um comentário se desejar. Se não tiver a certeza do nome do item, Paire o rato sobre o ponto de exclamação para ver o nome.
+2. Escolher **reter dados de cópia de segurança**e confirme a seleção, conforme necessário. Adicione um comentário se desejar. Se não tiver a certeza do nome do item, Paire o rato sobre o ponto de exclamação para ver o nome.
 
-    ![Parar proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
+    ![Manter os dados de cópia de segurança](./media/backup-azure-manage-vms/retain-backup-data.png)
 
-     Uma notificação permite-lhe saber que as tarefas de cópia de segurança foram paradas.
+Uma notificação permite-lhe saber que as tarefas de cópia de segurança foram paradas.
+
+### <a name="stop-protection-and-delete-backup-data"></a>Pare a proteção e eliminar dados de cópia de segurança
+
+Para parar a proteção e eliminar dados de uma VM:
+
+1. Sobre o [dashboard do item do cofre](#view-vms-on-the-dashboard), selecione **parar cópia de segurança**.
+2. Escolher **eliminar dados de cópia de segurança**e confirme a seleção, conforme necessário. Introduza o nome do item de cópia de segurança e adicionar um comentário se desejar.
+
+    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 ## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de uma VM
 
-Se mantiver os dados de cópia de segurança quando parar a VM, pode retomar a proteção mais tarde. Se eliminar os dados de cópia de segurança, não é possível retomar a proteção.
+Se tinha escolhido [pare a proteção e manter os dados de cópia de segurança](#stop-protection-and-retain-backup-data) opção durante a parar a proteção de VM, pode utilizar **retomar cópia de segurança**. Esta opção não está disponível se escolher [pare a proteção e eliminar dados de cópia de segurança](#stop-protection-and-delete-backup-data) opção ou [eliminar dados de cópia de segurança](#delete-backup-data).
 
 Para retomar a proteção para uma VM:
 
@@ -134,23 +145,25 @@ Para retomar a proteção para uma VM:
 
 ## <a name="delete-backup-data"></a>Eliminar dados de cópia de segurança
 
-Pode eliminar dados de cópia de segurança de uma VM durante a **parar cópia de segurança** tarefa ou depois de concluída a tarefa de cópia de segurança. Antes de eliminar dados de cópia de segurança, considere estes detalhes:
+Existem duas formas de eliminar dados de cópia de segurança de uma VM:
 
-- Poderá ser aconselhável aguardar dias ou semanas antes de eliminar os pontos de recuperação.
-- Ao contrário do processo para restaurar pontos de recuperação, ao eliminar dados de cópia de segurança, não é possível escolher pontos de recuperação específicos para eliminar. Se eliminar os dados de cópia de segurança, excluir todos os pontos de recuperação associados.
+- A partir do dashboard de item do cofre, selecione parar cópia de segurança e siga as instruções para [pare a proteção e eliminar dados de cópia de segurança](#stop-protection-and-delete-backup-data) opção.
 
-Depois de parar ou desativar a tarefa de cópia de segurança da VM, pode eliminar os dados de cópia de segurança:
+  ![Selecione parar cópia de segurança](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
+- No dashboard de item do cofre, selecione a eliminação de dados de cópia de segurança. Esta opção estará ativada se tinha escolhido [pare a proteção e manter os dados de cópia de segurança](#stop-protection-and-retain-backup-data) opção durante a parar a proteção de VM
 
-1. Sobre o [dashboard de item do cofre](#view-vms-on-the-dashboard), selecione **eliminar dados de cópia de segurança**.
+  ![Selecionar cópia de segurança de eliminação](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-    ![Selecionar cópia de segurança de eliminação](./media/backup-azure-manage-vms/delete-backup-buttom.png)
+  - Sobre o [dashboard de item do cofre](#view-vms-on-the-dashboard), selecione **eliminar dados de cópia de segurança**.
+  - Escreva o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
 
-1. Escreva o nome do item de cópia de segurança para confirmar que pretende eliminar os pontos de recuperação.
+    ![Eliminar dados de cópia de segurança](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-    ![Confirme que pretende eliminar os pontos de recuperação](./media/backup-azure-manage-vms/item-verification-box.png)
+  - Para eliminar os dados de cópia de segurança para o item, selecione **eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 
-1. Para eliminar os dados de cópia de segurança para o item, selecione **eliminar**. Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
+  > [!NOTE]
+  > Ao eliminar dados de cópia de segurança é eliminar todos os pontos de recuperação associados. Não é possível escolher pontos de recuperação específicos para eliminar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba como [cópia de segurança de VMs do Azure, das definições da VM](backup-azure-vms-first-look-arm.md).

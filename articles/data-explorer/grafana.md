@@ -6,17 +6,23 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.openlocfilehash: 135f8f1c9c352f9d2307a8bf9ad1bec892aac179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/30/2019
+ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399918"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537790"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
 O Grafana é uma plataforma de análise que permite-lhe consultar e visualizar dados, em seguida, criar e partilhar dashboards com base nas suas visualizações. O Grafana fornece um Explorador de dados do Azure *Plug-in*, que permite-lhe ligar a e visualize os dados a partir do Explorador de dados do Azure. Neste artigo, saiba como configurar o Explorador de dados do Azure como uma origem de dados para o Grafana e, em seguida, visualize dados a partir de um cluster de exemplo.
+
+Usando o seguinte vídeo, pode aprender a utilizar o plug-in do Explorador de dados do Azure da Grafana, configurar o Explorador de dados do Azure como uma origem de dados para o Grafana e, em seguida, visualize os dados. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Em alternativa, pode [configurar a origem de dados](#configure-the-data-source) e [visualizar dados](#visualize-data) conforme detalhado no artigo abaixo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

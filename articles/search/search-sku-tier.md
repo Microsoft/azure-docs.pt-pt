@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539253"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485294"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um escalão de preço para o Azure Search
 
-Quando cria um serviço de Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço ou SKU é fixa para o tempo de vida do serviço. Os escalões incluem gratuito, básico, Standard e otimizadas para armazenamento. Padrão e otimizadas para armazenamento estão disponíveis com várias configurações e as capacidades.
+Quando cria um serviço de Azure Search, um [recurso é criado](search-create-service-portal.md) num escalão de preço (ou SKU) que é fixa para o tempo de vida do serviço. Os escalões incluem gratuito, básico, Standard e otimizadas para armazenamento. Padrão e otimizadas para armazenamento estão disponíveis com várias configurações e as capacidades.
 
-A maioria dos clientes começam com o escalão gratuito, para que podem avaliar o serviço. Em seguida, atualize para um dos escalões superiores para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais utilizando o escalão gratuito, incluindo aquelas para a pesquisa cognitiva com muitos recursos.
+A maioria dos clientes começam com o escalão gratuito, para que podem avaliar o serviço. Após avaliação, é comum para criar um segundo serviço em um dos escalões superiores para implementações de desenvolvimento e produção. Pode concluir todos os inícios rápidos e tutoriais utilizando o escalão gratuito, incluindo aquelas para a pesquisa cognitiva com muitos recursos.
 
 > [!NOTE]
-> Atualmente a Microsoft está fornecendo os escalões de serviço com otimização de armazenamento numa visualização a um preço com desconto para teste e experimentação, com o objetivo de recolha de comentários. Os preços finais serão anunciado mais tarde quando estas camadas estão disponíveis em geral. Aconselhamos contra a utilização destes escalões para aplicações de produção.
+> A partir de 1 de Julho, todos os escalões estão disponíveis em geral, incluindo a camada de armazenamento otimizado. Todos os preços podem ser encontradas no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) página.
 
 Camadas de refletem as características de hardware que aloja o serviço (em vez de recursos) e são diferenciadas por:
 
 + O número de índices que pode criar.
 + O tamanho e a velocidade de partições (armazenamento físico).
 
-Embora todos os escalões, incluindo o escalão gratuito, geralmente ofereçam paridade de funcionalidades, cargas de trabalho maiores podem ditar a necessidade de escalões superiores. Por exemplo, [IA indexação com os serviços cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução desse tempo limite num serviço gratuito, a menos que o conjunto de dados é pequeno.
+Embora todos os escalões, incluindo o escalão gratuito, geralmente ofereçam paridade de funcionalidades, cargas de trabalho maiores podem ditar a necessidade de escalões superiores. Por exemplo, [enriquecimento de IA com serviços cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução desse tempo limite num serviço gratuito, a menos que o conjunto de dados é pequeno.
 
 > [!NOTE] 
 > A exceção a paridade de funcionalidades são [indexadores](search-indexer-overview.md), que não estão disponível no disco rígido de S3.
@@ -60,7 +60,11 @@ A tabela seguinte lista as camadas disponíveis. Pode encontrar mais informaçõ
 
 ## <a name="how-billing-works"></a>Como funciona a faturação
 
-Existem três formas de incorrer em custos no Azure Search, e existem componentes fixos e variáveis. Esta secção descreve os três componentes de faturas: principais custos de serviço, os custos de saída de dados e IA sofisticados de indexação.
+Existem três formas de incorrer em custos no Azure Search. Esta secção descreve os três componentes de faturas: 
+
++ custo do serviço de núcleo
++ custos de saída (ou largura de banda) de dados
++ Possível de IA
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Custos de serviço do Core (fixos e variável)
 
@@ -98,9 +102,9 @@ Usando [indexadores do Azure Search](search-indexer-overview.md) podem afetar a 
 
 São cobradas tarifas para dados de saída, se os serviços estiverem em diferentes regiões. Estes custos não são, na verdade, parte da sua fatura do Azure Search. Eles são mencionados aqui porque se estiver a utilizar dados ou indexadores sofisticados de ia para extrair os dados de regiões diferentes, verá os custos serão refletidos na sua fatura global.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>IA-indexação enriquecida com os serviços cognitivos
+### <a name="ai-enrichments-with-cognitive-services"></a>Possível de IA com serviços cognitivos
 
-Para [IA indexação com os serviços cognitivos](cognitive-search-concept-intro.md), deve planear a anexar um recurso de serviços cognitivos do Azure faturável, na mesma região que o Azure Search, com o escalão de preço S0 para processamento de pay as you go. Não existe nenhum custo fixo associado anexar serviços cognitivos. Só paga o processamento que é necessário.
+Para [enriquecimento de IA com serviços cognitivos](cognitive-search-concept-intro.md), deve planear a anexar um recurso de serviços cognitivos do Azure faturável, na mesma região que o Azure Search, com o escalão de preço S0 para processamento de pay as you go. Não existe nenhum custo fixo associado anexar serviços cognitivos. Só paga o processamento que é necessário.
 
 Extração de imagem durante a decodificação de documento é um custo de Azure Search. É faturada de acordo com o número de imagens extraídos dos seus documentos. Extração de texto é atualmente gratuita.
 

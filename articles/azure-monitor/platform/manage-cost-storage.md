@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7fa59f4086608a8bacabde21f0c02c108f1f5e8
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061045"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466733"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com os registos do Azure Monitor
 
@@ -105,10 +105,12 @@ Os passos seguintes descrevem como configurar o registo quanto dados são mantid
 3. No painel, mova o controlo de deslize para aumentar ou diminuir o número de dias e, em seguida, clique em **OK**.  Se estiver a utilizar o *gratuita* escalão, não será capaz de modificar o período de retenção de dados e terá de atualizar para o escalão pago para poder controlar esta definição.
 
     ![Alteração da definição de retenção de dados de área de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+Também pode ser o período de retenção [definidas através de ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `dataRetention` parâmetro. Além disso, se definir a retenção de dados para 30 dias, pode acionar uma remoção imediata de dados mais antigos com o `immediatePurgeDataOn30Days` parâmetro, que pode ser útil para cenários relacionados à conformidade. Esta funcionalidade só é exposta por meio de ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Escalões de preços legado
 
-As subscrições que tinham uma área de trabalho do Log Analytics ou o recurso do Application Insights no mesmo antes de 2 de Abril de 2018, ou que estão ligadas a um contrato Enterprise que iniciaram antes de 1 de Fevereiro de 2019 continuará a ter acesso aos escalões de preços legado: **Livre**, **autónomo (por GB)** e **por nó (OMS)** .  Áreas de trabalho no escalão de preço gratuito terá a ingestão de dados diária limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo centro de segurança do Azure) e a retenção de dados está limitada a 7 dias. O escalão de preço gratuito destina-se apenas para fins de avaliação. Áreas de trabalho a autónoma ou por nó escalões de preço tem retenção configurável pelo utilizador de até dois anos. 
+As subscrições que tinham uma área de trabalho do Log Analytics ou o recurso do Application Insights no mesmo antes de 2 de Abril de 2018, ou que estão ligadas a um contrato Enterprise que iniciaram antes de 1 de Fevereiro de 2019 continuará a ter acesso aos escalões de preços legado: **Livre**, **autónomo (por GB)** e **por nó (OMS)** .  Áreas de trabalho no escalão de preço gratuito terá a ingestão de dados diária limitada a 500 MB (exceto para tipos de dados de segurança recolhidos pelo centro de segurança do Azure) e a retenção de dados está limitada a 7 dias. O escalão de preço gratuito destina-se apenas para fins de avaliação. Áreas de trabalho a autónoma ou por nó escalões de preço tem retenção configurável pelo utilizador de até dois anos. Áreas de trabalho criadas antes de Abril de 2016 também têm acesso original **padrão** e **Premium** escalões de preço. Estão disponíveis mais detalhes de limitações do escalão de preço [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Para utilizar a elegibilidade incluída na compra de OMS E1 Suite, OMS E2 Suite ou do suplemento OMS para o System Center, escolha o Log Analytics *por nó* escalão de preço.
@@ -126,11 +128,7 @@ Se a sua área de trabalho do Log Analytics tem acesso aos escalões de preços 
 3. Sob **escalão de preço**, selecione um escalão de preço e, em seguida, clique em **selecione**.  
     ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se pretender mover a sua área de trabalho para o escalão de preço atual, terá de alterar a monitorização da sua subscrição [modelo de preços no Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) que irá alterar o escalão de preço de todas as áreas de trabalho dessa subscrição.
-
-> [!NOTE]
-> Pode saber mais sobre como definir o escalão de preço quando [com um modelo Azure Resource Manager](template-workspace-configuration.md#create-a-log-analytics-workspace) para criar uma área de trabalho e certifique-se de que a sua implementação do modelo do Azure Resource Manager terá êxito independentemente o subscrição está no herdados ou no novo modelo de preços. 
-
+Também pode [definir o escalão de preço por meio de ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `ServiceTier` parâmetro. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Por isso que o Log Analytics já não está a recolher dados de resolução de problemas
 

@@ -8,31 +8,25 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 58f50a1a2b90b4b5f9708bf0f1a7cb51db8e47ae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275957"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509547"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
 Um modelo de dispositivo é um esquema que define as características e comportamentos de um tipo de dispositivo que se liga a uma aplicação do Azure IoT Central.
 
-Por exemplo, um construtor pode criar um modelo de dispositivo para um fã de ligado de IoT com o r:
+Por exemplo, um construtor pode criar um modelo de dispositivo para um fã de ligado tem as seguintes características:
 
 - Medida de telemetria de temperatura
-
+- Medida de localização
 - Medida de eventos de erro motor ventoinha
-
 - Ventoinha medição do Estado de funcionamento
-
 - Definição de velocidade de ventoinha
-
-- Propriedade de localização
-
 - Regras que enviar alertas
-
 - Dashboard que lhe dá uma visão geral do dispositivo
 
 Partir deste modelo de dispositivo, pode criar e ligar os dispositivos de ventoinha real com nomes como um operador **ventoinha-1** e **ventoinha-2**. Todos estes fãs tem medidas, configurações, propriedades, regras e um dashboard que os utilizadores da sua aplicação podem monitorizar e gerir.
@@ -61,6 +55,7 @@ Medidas são os dados provenientes do seu dispositivo. Pode adicionar várias me
 - **Telemetria** medidas são os pontos de dados numéricos que recolhe o seu dispositivo ao longo do tempo. São representadas como um fluxo contínuo. Um exemplo é a temperatura.
 - **Evento** medidas são os dados de ponto no tempo que representa algo de significância no dispositivo. Um nível de gravidade representa a importância de um evento. Um exemplo é um erro de motor de ventoinha.
 - **Estado** medidas representam o estado do dispositivo ou de seus componentes durante um período de tempo. Por exemplo, um modo de ventoinha pode ser definido como tendo **operacional** e **parado** como dois Estados possíveis.
+- **Localização** medidas são as coordenadas de longitude e latitude do dispositivo durante um período de tempo. Por exemplo, pode ser movido um fã de uma localização para outra.
 
 ### <a name="create-a-telemetry-measurement"></a>Criar uma medida de telemetria
 
@@ -78,7 +73,7 @@ Para adicionar uma nova medida de telemetria, selecione **+ nova medida**, escol
 
 Depois de selecionar **salvar**, o **temperatura** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados de temperatura do dispositivo simulado.
 
-Quando se apresenta a telemetria, pode escolher entre as seguintes opções de agregação: Média, mínimo, máximo, Sum e Count. **Média** está selecionado como a agregação predefinida no gráfico. 
+Quando se apresenta a telemetria, pode escolher entre as seguintes opções de agregação: Média, mínimo, máximo, Sum e Count. **Média** está selecionado como a agregação predefinida no gráfico.
 
 > [!NOTE]
 > O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
@@ -127,6 +122,32 @@ Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo,
 > [!NOTE]
 > O tipo de dados da medição de estado é a cadeia de caracteres.
 
+### <a name="create-a-location-measurement"></a>Criar uma medida de localização
+
+Para adicionar uma nova medida de localização, selecione **+ nova medida**, escolha **localização** como a medição escreva e introduza os detalhes o **criar medida** formulário.
+
+Por exemplo, pode adicionar uma nova medida de telemetria de localização:
+
+| Nome a apresentar        | Nome do Campo    |
+| --------------------| ------------- |
+| Localização do recurso      |  assetloc     |
+
+![Formulário de "Criar localização" com detalhes para medição de localização](./media/howto-set-up-template/locationmeasurementsform.png)
+
+Depois de selecionar **salvar**, o **localização** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados de localização do dispositivo simulado.
+
+Quando se apresenta a localização, pode escolher entre as seguintes opções: localização mais recente e o histórico de localizações. **Histórico de localizações** só se aplica ao longo do intervalo de tempo selecionado.
+
+O tipo de dados da medição de localização é um objeto que contém um altitude opcional, latitude e longitude. O fragmento seguinte mostra a estrutura do JavaScript:
+
+```javascript
+assetloc: {
+  lon: floating point number,
+  lat: floating point number,
+  alt?: floating point number
+}
+```
+
 ## <a name="settings"></a>Definições
 
 Definições de controlarem um dispositivo. Eles permitem aos operadores forneça entradas para o dispositivo. Pode adicionar várias definições ao seu modelo de dispositivo que são apresentados como mosaicos no **definições** separador para operadores para utilizar. Pode adicionar vários tipos de definições: número, texto, data, alternar, lista de seleção e rótulo de seção.
@@ -151,12 +172,12 @@ Depois de selecionar **salvar**, o **ventoinha velocidade** definição aparece 
 
 ## <a name="properties"></a>Propriedades
 
-Propriedades são metadados associada ao dispositivo, tal como a localização do dispositivo e o número de série. Adicionar várias propriedades ao seu modelo de dispositivo que são apresentados como mosaicos no **propriedades** separador. Uma propriedade pode ter um tipo como o número, texto, data, alternar, propriedade do dispositivo, etiqueta ou localização. Um operador pode especificar os valores de propriedades quando criam um dispositivo e podem editar estes valores em qualquer altura. Propriedades do dispositivo são só de leitura e são enviadas do dispositivo para a aplicação. Um operador não é possível alterar propriedades do dispositivo. Quando se liga um dispositivo real, o mosaico de propriedade do dispositivo é de atualizações no aplicativo.
+Propriedades são metadados associada ao dispositivo, tal como uma localização do dispositivo fixo e o número de série. Adicionar várias propriedades ao seu modelo de dispositivo que são apresentados como mosaicos no **propriedades** separador. Uma propriedade tem um tipo como o número, texto, data, alternar, propriedade do dispositivo, etiqueta ou uma localização fixa. Um operador especifica os valores de propriedades quando criam um dispositivo e podem editar estes valores em qualquer altura. Propriedades do dispositivo são só de leitura e são enviadas do dispositivo para a aplicação. Um operador não é possível alterar propriedades do dispositivo. Quando se liga um dispositivo real, atualiza o mosaico de propriedade do dispositivo na aplicação.
 
 Existem duas categorias de propriedades:
 
 - _Propriedades do dispositivo_ que o dispositivo comunica-se para a aplicação do Centro de IoT. Propriedades do dispositivo são só de leitura valores comunicados pelo dispositivo e são atualizadas no aplicativo quando estiver ligado um dispositivo real.
-- _Propriedades da aplicação_ que são armazenados na aplicação e pode ser editada pela operadora de rede. O dispositivo não reconhece as propriedades da aplicação.
+- _Propriedades da aplicação_ que são armazenados na aplicação e pode ser editada pela operadora de rede. Propriedades da aplicação só são armazenadas na aplicação e nunca são visualizadas por um dispositivo.
 
 Por exemplo, pode adicionar a última data de serviço para o dispositivo como uma nova **data** propriedade (uma propriedade de aplicação) no **propriedades** separador:
 
@@ -170,14 +191,17 @@ Depois de selecionar **guardar**, a última servidos data para o dispositivo é 
 
 Depois de criar o mosaico, pode alterar o valor da propriedade no aplicativo a **Device Explorer**.
 
-### <a name="create-a-location-property-through-azure-maps"></a>Criar uma propriedade de localização por meio do Azure Maps
+### <a name="create-a-location-property"></a>Criar uma propriedade de localização
 
-Pode dar contexto geográfico aos seus dados de localização no Azure IoT Central e mapear qualquer coordenadas de latitude e longitude de uma morada. Ou pode mapear a latitude e longitude coordenadas. Mapas do Azure permite que esta capacidade no Centro de IoT.
+Pode dar contexto geográfico aos seus dados de localização no Azure IoT Central e mapear qualquer latitude e longitude coordenadas ou uma morada. Mapas do Azure permite que esta capacidade no Centro de IoT.
 
 Pode adicionar dois tipos de propriedades de localização:
 
-- **Localização como uma propriedade de aplicativo**, que é armazenado no aplicativo. O dispositivo não reconhece as propriedades da aplicação.
-- **Localização como uma propriedade de dispositivo**, que o dispositivo de relatórios para a aplicação.
+- **Localização como uma propriedade de aplicativo**, que é armazenado no aplicativo. Propriedades da aplicação só são armazenadas na aplicação e nunca são visualizadas por um dispositivo.
+- **Localização como uma propriedade de dispositivo**, que o dispositivo de relatórios para a aplicação. Este tipo de propriedade melhor é utilizado para uma localização estática.
+
+> [!NOTE]
+> Localização como uma propriedade não grava um histórico. Se o histórico for o pretendido, utilize a medição de localização.
 
 #### <a name="add-location-as-an-application-property"></a>Adicionar localização como uma propriedade de aplicação
 
@@ -190,7 +214,7 @@ Pode criar uma propriedade de localização como uma propriedade de aplicação 
 3. Configurar **nome a apresentar**, **nome do campo**e (opcionalmente) **valor inicial** para a localização.
 
     | Nome a apresentar  | Nome do Campo | Valor Inicial |
-    | --------------| -----------|---------| 
+    | --------------| -----------|---------|
     | Endereço de instalação | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![Formulário de "Configurar a localização" com detalhes para a localização](./media/howto-set-up-template/locationcloudproperty2.png)
@@ -213,14 +237,14 @@ Pode criar uma propriedade de localização como uma propriedade de dispositivo 
 
     | Nome a apresentar  | Nome do Campo | Tipo de Dados |
     | --------------| -----------|-----------|
-    | Localização do dispositivo | deviceLocation | localização  |
+    | Localização do dispositivo | deviceLocation | location  |
 
    > [!NOTE]
    > Os nomes de campo tem de corresponder aos nomes de propriedade no código de dispositivo correspondente
 
    ![Formulário de "Configurar propriedades do dispositivo" com detalhes para a localização](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Depois do dispositivo real é ligado, a localização que adicionou como uma propriedade do dispositivo é atualizada com o valor enviado pelo dispositivo. Agora que configurou a sua propriedade de localização, pode [adicionar um mapa para visualizar a localização no dashboard do dispositivo](#add-an-azure-maps-location-in-the-dashboard).
+Depois do dispositivo real é ligado, a localização é adicionada como uma propriedade do dispositivo é atualizada com o valor enviado pelo dispositivo. Depois de configurar a sua propriedade de localização, poderá [adicionar um mapa para visualizar a localização no dashboard do dispositivo](#add-a-location-in-the-dashboard).
 
 ## <a name="commands"></a>Comandos
 
@@ -240,7 +264,7 @@ Por exemplo, pode adicionar um novo **eco** comando ao selecionar o **comandos**
 
 ![Formulário de "Configurar o comando" com detalhes para eco](./media/howto-set-up-template/commandsecho1.png)
 
-Depois de selecionar **salvar**, o **eco** comando aparece como um mosaico e está pronto para ser utilizada a partir do **Device Explorer** quando se liga o seu dispositivo real. Os nomes de campos do comando de têm de corresponder os nomes de propriedade no código de dispositivo correspondente na ordem de comandos para ser executada com êxito.
+Depois de selecionar **salvar**, o **eco** comando aparece como um mosaico e está pronto para ser utilizada a partir do **Device Explorer** quando se liga o seu dispositivo real. Os nomes de campos do comando de têm de corresponder os nomes de propriedade no código de dispositivo correspondente na ordem de comandos para executar com êxito.
 
 ## <a name="rules"></a>Regras
 
@@ -250,7 +274,7 @@ Regras de permitem aos operadores monitorizar dispositivos em tempo real. Regras
 
 ## <a name="dashboard"></a>Dashboard
 
-O dashboard é onde um operador pode ir para ver informações sobre um dispositivo. Como um construtor, pode adicionar mosaicos nesta página para o ajudar a compreender como o dispositivo está se comportando de operadores. Pode adicionar vários mosaicos do dashboard ao modelo do dispositivo. Pode adicionar vários tipos de mosaicos do dashboard, como a imagem, gráfico de linhas, gráfico de barras, indicador chave de desempenho (KPI), definições e propriedades e da etiqueta.
+O dashboard é onde um operador direciona-o para ver informações sobre um dispositivo. Como um construtor, adicionar mosaicos a esta página para o ajudar a compreender como o dispositivo está se comportando de operadores. Pode adicionar vários tipos de mosaicos do dashboard, como a imagem, gráfico de linhas, gráfico de barras, indicador chave de desempenho (KPI), definições e propriedades e da etiqueta.
 
 Por exemplo, pode adicionar um **definições e propriedades** mosaico para mostrar uma seleção dos valores atuais das definições e propriedades, selecionando o **Dashboard** guia e o mosaico da biblioteca:
 
@@ -258,27 +282,29 @@ Por exemplo, pode adicionar um **definições e propriedades** mosaico para most
 
 Agora quando um operador visualiza o dashboard na **Device Explorer**, eles podem ver o mosaico.
 
-### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Adicionar uma localização do Azure Maps no dashboard
+### <a name="add-a-location-in-the-dashboard"></a>Adicionar uma localização no dashboard
 
-Se tiver configurado uma propriedade de localização, é possível visualizar a localização, utilizando um mapa no dashboard do dispositivo.
+Se tiver configurado uma medida de localização, é possível visualizar a localização com um mapa no dashboard do dispositivo.
 
 1. Navegue para o **Dashboard** separador.
 
 1. No dashboard do dispositivo, selecione **mapa** da biblioteca.
 
-1. Atribua um título de mapa. O exemplo seguinte tem o título **localização de instalação**. Em seguida, selecione a propriedade de localização que configurou anteriormente o **propriedades** separador. No exemplo a seguir **endereço de instalação** está selecionada.
+1. Atribua um título de mapa. O exemplo seguinte tem o título **localização atual do dispositivo**. Em seguida, selecione a medida de localização que configurou anteriormente o **medidas** separador. No exemplo a seguir, o **localização do recurso** medição é selecionada:
 
    ![Formulário de "Configurar o mapeamento de" com detalhes para o título e propriedades](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. Selecione **Guardar**. O mosaico do mapa apresenta agora a localização que selecionou.
+1. Selecione **Guardar**. O mosaico do mapa apresenta agora a localização que selecionou.
 
-Pode redimensionar o mapa para seu tamanho desejado. Agora quando um operador visualiza o dashboard na **Device Explorer**, mosaicos do dashboard do que tiver configurado, incluindo um mapa de localização estão visíveis.
+Pode redimensionar o mosaico do mapa. Quando um operador visualiza o dashboard na **Device Explorer**, mosaicos do dashboard do que tiver configurado, incluindo um mapa de localização estão visíveis.
+
+Para saber mais sobre como utilizar mosaicos no Azure IoT Central, consulte [utilizar mosaicos de dashboard](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora que aprendeu como configurar um modelo de dispositivo na sua aplicação do Azure IoT Central, pode:
 
 > [!div class="nextstepaction"]
-> [Criar uma nova versão de modelo do dispositivo](howto-version-devicetemplate.md)
+> [Criar uma nova versão de modelo do dispositivo](howto-version-device-template.md)
 > [ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central](howto-connect-devkit.md)
 > [ligar uma aplicação cliente genérico do Azure Aplicação do Centro de IoT (node. js)](howto-connect-nodejs.md)

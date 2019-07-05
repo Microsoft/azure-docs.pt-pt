@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 83ca0c11ab0065929d939b7345cbd15869740bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b56a31a58937ddbea08ff22c3d1c0c71942f47f1
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024349"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445398"
 ---
 # <a name="data-import-overview---azure-search"></a>Importação de dados descrição geral - Azure Search
 
@@ -36,7 +36,7 @@ Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para u
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
-Para obter uma introdução a cada metodologia, veja [início rápido: Criar um índice da Azure Search com o PowerShell e a API REST](search-create-index-rest-api.md) ou [início rápido: Criar um índice da Azure Search no C# ](search-import-data-dotnet.md).
+Para obter uma introdução a cada metodologia, veja [início rápido: Criar um índice da Azure Search com o PowerShell](search-create-index-rest-api.md) ou [ C# início rápido: Criar um índice da Azure Search com o .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -44,9 +44,9 @@ Para obter uma introdução a cada metodologia, veja [início rápido: Criar um 
 
 Pode controlar o tipo de ação de indexação numa base por documento, especificando se o documento deve ser carregado no total, intercalado com o conteúdo de documento existente ou excluídos.
 
-Na API do REST, emita pedidos de HTTP POST com corpos de pedido JSON para o URL de ponto final do seu índice da Azure Search. Cada objeto JSON na matriz "valor" contém a chave do documento e especifica uma ação de indexação adições, atualizações, ou elimina o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-create-index-rest-api.md#load-documents).
+Na API do REST, emita pedidos de HTTP POST com corpos de pedido JSON para o URL de ponto final do seu índice da Azure Search. Cada objeto JSON na matriz "valor" contém a chave do documento e Especifica se uma ação de indexação adiciona, atualiza ou elimina o conteúdo do documento. Para obter um exemplo de código, consulte [carregar documentos](search-get-started-dotnet.md#load-documents).
 
-No SDK do .NET, empacotar os dados para um `IndexBatch` objeto. Uma `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um deles contendo um documento e uma propriedade que informa a Azure Search qual a ação a realizar nesse documento. Para obter um exemplo de código, consulte [construir IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+No SDK do .NET, empacotar os dados para um `IndexBatch` objeto. Uma `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um deles contendo um documento e uma propriedade que informa a Azure Search qual a ação a realizar nesse documento. Para obter um exemplo de código, consulte a [ C# início rápido](search-get-started-dotnet.md).
 
 
 | @search.action | Descrição | Campos necessários para cada documento | Notas |

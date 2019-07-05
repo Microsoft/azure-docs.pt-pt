@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 002e2e06201688638df98e16c45282187f593a3a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106835"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444326"
 ---
 # <a name="opc-twin-architecture"></a>Arquitetura de OPC duplo
 
@@ -35,6 +35,6 @@ Os diagramas seguintes mostram a arquitetura de OPC duplo.
 
    ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. A interface REST do serviço de duplo também pode ser utilizada para criar itens monitorizados e subscrições no publicador OPC. O publicador de OPC permite que a telemetria ser enviados a partir de sistemas de servidor OPC UA para o IoT Hub. Para obter mais informações sobre o publicador OPC, consulte a [o publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) repositório no GitHub.
+1. A interface REST do serviço de duplo também pode ser utilizada para criar itens monitorizados e subscrições no publicador OPC. O publicador de OPC permite que a telemetria ser enviados a partir de sistemas de servidor OPC UA para o IoT Hub. Para obter mais informações sobre o publicador OPC, consulte [o que é o publicador OPC](overview-opc-publisher.md).
 
    ![Como funciona o OPC duplo](media/overview-opc-twin-architecture/opc-twin4.png)

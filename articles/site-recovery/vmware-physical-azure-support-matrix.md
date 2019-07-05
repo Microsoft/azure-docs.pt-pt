@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 3ff6a1a52048e805f9236349d4fc8d45a14b78ea
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5dc98048099264942552862498b5137b4954c200
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341444"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491652"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -186,8 +186,8 @@ Convidado/servidor iSCSI | Não
 O SMB 3.0 de servidor/convidado | Não
 Convidado/servidor RDM | Sim<br/><br/> N/d para servidores físicos
 Servidor/convidado disco > 1 TB | Sim<br/><br/>Até 4095 GB<br/><br/> Disco tem de ser superior a 1024 MB.
-Disco de convidado/servidor com o tamanho de setor físico de k lógicos e 4 de 4K | Sim
-Disco de convidado/servidor com lógico de 4K e o tamanho de setor físico de 512 bytes | Sim
+Disco de convidado/servidor com o tamanho de setor físico de k lógicos e 4 de 4K | Não
+Disco de convidado/servidor com lógico de 4K e o tamanho de setor físico de 512 bytes | Não
 Volume de convidado/servidor com o disco repartido > 4 TB <br/><br/>Gestão de volumes lógicos (LVM)| Sim
 Servidor/convidado - espaços de armazenamento | Não
 Disco de acesso frequente Adicionar/Remover/servidor de convidado | Não
@@ -218,7 +218,7 @@ Encriptação em repouso (SSE)| Sim
 Armazenamento Premium | Sim
 Serviço de importação/exportação | Não
 Firewalls de armazenamento do Azure para VNets | Sim.<br/> Configurada na conta de armazenamento de cache/armazenamento de destino (usada para armazenar dados de replicação).
-Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes) | Não
+Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes) | Sim (transação os custos são significativamente mais elevados para V2 em comparação comparada V1)
 
 ## <a name="azure-compute"></a>Computação do Azure
 
@@ -286,7 +286,7 @@ Mover o armazenamento, rede, as VMs do Azure dentro e entre subscrições. | Nã
 
 ## <a name="obtain-latest-components"></a>Obter os componentes mais recentes
 
-**Nome** | **Descrição** | **Detalhes**
+**Name** | **Descrição** | **Detalhes**
 --- | --- | ---
 Servidor de configuração | Instalado no local.<br/> Coordena as comunicações entre servidores de VMware no local ou máquinas físicas e o Azure. | - [Saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de configuração.<br/> - [Saiba mais sobre](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) atualizar para a versão mais recente.<br/> - [Saiba mais sobre](vmware-azure-deploy-configuration-server.md) como configurar o servidor de configuração. 
 Servidor de processos | Instalado por predefinição no servidor de configuração.<br/> Recebe dados de replicação, otimiza-os com colocação em cache, compressão e encriptação e envia-os para o Azure.<br/> À medida que cresça a implementação, pode adicionar servidores de processos adicionais para processar maiores volumes de tráfego de replicação. | - [Saiba mais sobre](vmware-physical-azure-config-process-server-overview.md) o servidor de processos.<br/> - [Saiba mais sobre](vmware-azure-manage-process-server.md#upgrade-a-process-server) atualizar para a versão mais recente.<br/> - [Saiba mais sobre](vmware-physical-large-deployment.md#set-up-a-process-server) configurar servidores de processos de escalamento horizontal.
