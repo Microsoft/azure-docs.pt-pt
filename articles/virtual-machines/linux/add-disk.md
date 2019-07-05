@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 6f4bd125847aa789f6f3ed06e808b40738e12260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c8d4d2b26b356c524523d73d53fd641eef5f3cb
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304114"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465825"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
@@ -73,6 +73,9 @@ O resultado é semelhante ao seguinte exemplo:
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> É recomendado que utilize as versões mais recentes do fdisk ou parted que estão disponíveis para sua distribuição.
 
 Aqui, *sdc* é o disco que Desejamos. Particionar o disco com `parted`, se o tamanho do disco é 2 tebibytes (TiB) ou superior, em seguida, tem de utilizar GPT criação de partições, se está sob 2TiB, em seguida, pode usar o particionamento de MBR ou GPT. Se estiver a utilizar o MBR criação de partições, pode utilizar `fdisk`. Torná-lo um disco primário na partição 1 e aceite as outras predefinições. O exemplo seguinte inicia o `fdisk` processos no */desenvolvimento/sdc*:
 

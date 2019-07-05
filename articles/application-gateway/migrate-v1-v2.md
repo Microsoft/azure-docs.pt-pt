@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f55beca65a19ee9e47708000976dd42a6f252e2e
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154158"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550457"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar o Gateway de aplicação do Azure e de Firewall de aplicações do v1 para v2 Web
 
@@ -76,7 +76,8 @@ Para executar o script:
 
 1. Executar `Get-Help AzureAppGWMigration.ps1` para examinar os parâmetros necessários:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
@@ -84,7 +85,8 @@ Para executar o script:
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
     -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -validateMigration -enableAutoScale
+   ```
 
    Parâmetros do script:
    * **resourceId: [String]: Necessário** -este é o ID de recurso do Azure para o seu v1 padrão existentes ou a WAF do gateway de v1. Para localizar este valor de cadeia de caracteres, navegue para o portal do Azure, selecione o seu gateway de aplicação ou recurso de WAF e clique nas **propriedades** ligação para o gateway. O ID de recurso está localizado nessa página.

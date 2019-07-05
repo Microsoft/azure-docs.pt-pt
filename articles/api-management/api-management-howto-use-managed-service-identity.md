@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 75a02abb6cce332daad12e1feb25fb425f89f7f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393375"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461596"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na gestão de API do Azure
 
@@ -51,28 +51,25 @@ Por exemplo, um modelo Azure Resource Manager completo pode ser semelhante ao se
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0"
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-03-01",
-            "name": "contoso",
-            "type": "Microsoft.ApiManagement/service",
-            "location": "[resourceGroup().location]",
-            "tags": {},
-            "sku": {
-                "name": "Developer",
-                "capacity": "1"
-            },
-            "properties": {
-                "publisherEmail": "admin@contoso.com",
-                "publisherName": "Contoso"
-            },
-            "identity": {
-                "type": "systemAssigned"
-            }
+    "contentVersion": "0.9.0.0",
+    "resources": [{
+        "apiVersion": "2017-03-01",
+        "name": "contoso",
+        "type": "Microsoft.ApiManagement/service",
+        "location": "[resourceGroup().location]",
+        "tags": {},
+        "sku": {
+            "name": "Developer",
+            "capacity": "1"
+        },
+        "properties": {
+            "publisherEmail": "admin@contoso.com",
+            "publisherName": "Contoso"
+        },
+        "identity": {
+            "type": "systemAssigned"
         }
-    ]
+    }]
 }
 ```
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Utilizar a identidade de serviço gerido para aceder a outros recursos

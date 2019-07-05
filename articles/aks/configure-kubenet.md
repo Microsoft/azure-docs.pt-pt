@@ -5,15 +5,15 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/26/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: f57c1af4c497b51f5289559737fad5ce4cf2e85b
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 269dd670ed82234b77e06c389ae1c9a5c294010c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358036"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441961"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Com o *Azure CNI*, um problema comum é o intervalo de endereços IP atribuído 
 
 Como um comprometimento, pode criar um cluster do AKS que utiliza *kubenet* e ligar a uma sub-rede de rede virtual existente. Esta abordagem permite que os nós receber endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP com antecedência para todos os pods potenciais que poderiam ser executada no cluster.
 
-Com o *kubenet*, pode utilizar um muito menor do intervalo de endereços IP e conseguir suportar grandes clusters e pedidos de aplicações. Por exemplo, até mesmo com um */27* intervalo de endereços IP, pode executar um cluster de nó de 20 a 25 com espaço suficiente para dimensionar ou atualizar. Este tamanho de cluster deve suportar até *2.200 2,750* pods (com um máximo de padrão de 110 pods por nó). O número máximo de pods por nó que pode ser configurado com *kubenet* no AKS é 250.
+Com o *kubenet*, pode utilizar um muito menor do intervalo de endereços IP e conseguir suportar grandes clusters e pedidos de aplicações. Por exemplo, até mesmo com um */27* intervalo de endereços IP, pode executar um cluster de nó de 20 a 25 com espaço suficiente para dimensionar ou atualizar. Este tamanho de cluster deve suportar até *2.200 2,750* pods (com um máximo de padrão de 110 pods por nó). O número máximo de pods por nó que pode ser configurado com *kubenet* no AKS é 110.
 
 Os cálculos de básicos seguintes comparam a diferença nos modelos de rede:
 

@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f12255bf14ca424a8a79107e7ca8e403552b62
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66113195"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471748"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever acesso para si próprio para grupos ou as revisões de acesso a aplicações no Azure AD
 
@@ -40,7 +40,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 1. Procure uma mensagem de e-mail da Microsoft que lhe pede para rever o acesso. Eis um e-mail de exemplo para rever o acesso a um grupo.
 
-    ![E-mail de acesso de revisão](./media/review-your-access/access-review-email.png)
+    ![E-mail de exemplo da Microsoft para rever o seu acesso a um grupo](./media/review-your-access/access-review-email.png)
 
 1. Clique nas **rever acesso** link para abrir a revisão de acesso.
 
@@ -48,7 +48,7 @@ Se não tiver o e-mail, pode encontrar o que seu acesso pendente revisões segui
 
 1. Inicie sessão no portal do My Apps em [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
 
-    ![MyApps portal](./media/review-your-access/myapps-access-panel.png)
+    ![Portal MyApps listagem de aplicações que tem permissões para](./media/review-your-access/myapps-access-panel.png)
 
 1. No canto superior direito da página, clique no símbolo de utilizador, que mostra o seu nome e a sua organização predefinida. Se aparecer mais de uma organização, selecione aquela que pediu a revisão de acesso.
 
@@ -56,7 +56,7 @@ Se não tiver o e-mail, pode encontrar o que seu acesso pendente revisões segui
 
     Se o mosaico não estiver visível, não há revisões de acesso a realizar nessa organização e não é necessária nenhuma ação nesse momento.
 
-    ![Lista de revisões de acesso](./media/review-your-access/access-reviews-list.png)
+    ![Lista de revisões de acesso pendente para as aplicações e grupos](./media/review-your-access/access-reviews-list.png)
 
 1. Clique nas **iniciar revisão** ligação para a revisão de acesso que pretende efetuar.
 
@@ -68,13 +68,13 @@ Ao abrir a revisão de acesso, pode ver o acesso do utilizador.
 
     Se o pedido rever o acesso para outras pessoas, a página terá uma aparência diferente. Para obter mais informações, consulte [rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-    ![Executar revisão de acesso](./media/review-your-access/perform-access-review.png)
+    ![Revisão de acesso aberto perguntando se ainda precisam de acesso a um grupo](./media/review-your-access/perform-access-review.png)
 
 1. Clique em **Sim** para manter o seu ou clique em **não** para remover o acesso do utilizador.
 
 1. Se clicar **Sim**, poderá ter de especificar uma justificativa no **motivo** caixa.
 
-    ![Executar revisão de acesso](./media/review-your-access/perform-access-review-submit.png)
+    ![Concluir Revisão de acesso, perguntando se ainda precisam de acesso a um grupo](./media/review-your-access/perform-access-review-submit.png)
 
 1. Clique em **Submit** (Submeter).
 

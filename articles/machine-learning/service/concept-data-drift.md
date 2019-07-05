@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cody-dkdc
 ms.author: copeters
 ms.date: 06/20/2019
-ms.openlocfilehash: 56761c32484d4f5b27800e56143c62d3731da852
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a03e3124647869e7148f271810bb523986a851c6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332745"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442390"
 ---
 # <a name="what-is-data-drift-monitoring-preview"></a>O que são os dados de monitorização (pré-visualização) inconsistências?
 
@@ -37,7 +37,7 @@ Se acha que os dados de entrada para o seu modelo implementado podem ser alterad
 
 ## <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Como os descompassos de dados está sendo monitorado no serviço Azure Machine Learning
 
-Usando **serviço Azure Machine Learning**, descompassos de dados está a ser monitorizado através de conjuntos de dados ou implementações. Para monitorar os descompassos de dados, um conjunto de dados de linha de base - normalmente, o treinamento conjunto de dados para um modelo - é especificado. Normalmente, de recolha de dados de entrada de modelo de uma implementação - é testado um segundo conjunto de dados - conjunto de dados da linha de base. Ambos os conjuntos de dados são [profiled](how-to-create-dataset-snapshots.md) e serviço de monitoramento de inconsistências de entrada para os dados. A preparar um modelo de machine learning é utilizado para detetar as diferenças entre os dois conjuntos de dados. Desempenho do modelo é convertido para o coeficiente de desvios, que mede a magnitude da descompassos entre os dois conjuntos de dados. Usando [modelar interpretability](machine-learning-interpretability-explainability.md) os recursos que contribuíram para o coeficiente de desvios são computados. O perfil de conjunto de dados, são rastreadas informações estatísticas sobre cada funcionalidade. 
+Usando **serviço Azure Machine Learning**, descompassos de dados está a ser monitorizado através de conjuntos de dados ou implementações. Para monitorar os descompassos de dados, um conjunto de dados de linha de base - normalmente, o treinamento conjunto de dados para um modelo - é especificado. Normalmente, de recolha de dados de entrada de modelo de uma implementação - é testado um segundo conjunto de dados - conjunto de dados da linha de base. Ambos os conjuntos de dados são [profiled](how-to-explore-prepare-data.md#explore-with-summary-statistics) e serviço de monitoramento de inconsistências de entrada para os dados. A preparar um modelo de machine learning é utilizado para detetar as diferenças entre os dois conjuntos de dados. Desempenho do modelo é convertido para o coeficiente de desvios, que mede a magnitude da descompassos entre os dois conjuntos de dados. Usando [modelar interpretability](machine-learning-interpretability-explainability.md) os recursos que contribuíram para o coeficiente de desvios são computados. O perfil de conjunto de dados, são rastreadas informações estatísticas sobre cada funcionalidade. 
 
 ## <a name="data-drift-metric-output"></a>Saída de métrica de inconsistências de dados
 

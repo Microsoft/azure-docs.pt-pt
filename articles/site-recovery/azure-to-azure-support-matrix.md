@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/09/2019
+ms.date: 06/27/2019
 ms.author: raynew
-ms.openlocfilehash: 2cf9aee498c649cdbf973652a60fb2d1f3feb371
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 55275144746dbc1a3ead7c7c12a6901ab6f9269e
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312153"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514122"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -70,7 +70,7 @@ A tabela seguinte resume o suporte para a conta de armazenamento de cache utiliz
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Contas de armazenamento para V2 de fins gerais (acesso frequente e escalão acesso esporádico) | Não suportado. | A limitação existe para o armazenamento de cache, porque os custos de transação para o V2 são consideravelmente mais do que as contas de armazenamento V1.
+Contas de armazenamento para V2 de fins gerais (acesso frequente e escalão acesso esporádico) | Suportadas | Não é recomendada a utilização de GPv2 porque os custos de transação para o V2 são consideravelmente mais do que as contas de armazenamento V1.
 Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou conta de armazenamento de destino, certifique-se de que ["Permitir fidedigna serviços da Microsoft"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 
@@ -82,7 +82,7 @@ Recuperação de sites suporta a replicação de VMs do Azure com os sistemas op
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | Server Core, servidor com experiência de área de trabalho
 Windows Server 2016  | Server Core, servidor com experiência de área de trabalho
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -151,7 +151,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default 
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Certifique-se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
+Size | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Certifique-se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidade | Suportadas | Se ativar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade é criado automaticamente, com base nas definições de região de origem. Pode modificar estas definições.
 Zonas de disponibilidade | Suportadas |
 Benefício de utilização híbrida (HUB) | Suportadas | Se a VM de origem tem uma licença HUB ativada, uma ativação pós-falha de teste ou efetuar a ativação pós-falha VM utiliza também a licença HUB.
@@ -208,7 +208,7 @@ RA-GRS | Suportadas |
 ZRS | Não suportado |
 Armazenamento de acesso esporádico e frequente | Não suportado | Discos da máquina virtual não são suportados no armazenamento de acesso esporádico e frequente
 Firewalls de armazenamento do Azure para redes virtuais  | Suportadas | Se restringir o acesso de rede virtual para contas de armazenamento, ative [permitir confiável a serviços da Microsoft](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou esporádico) | Não | Aumento dos custos de transação substancialmente em comparação com fins gerais V1 contas de armazenamento
+Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou esporádico) | Sim | Aumento dos custos de transação substancialmente em comparação com fins gerais V1 contas de armazenamento
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que siga VM disco desempenho metas de escalabilidade e para [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. Se utilizar as predefinições, o Site Recovery cria os discos necessários e contas de armazenamento, com base na configuração da origem. Se personaliza e selecionar suas próprias definições, siga os destinos de escalabilidade e desempenho de disco para as VMs de origem.
@@ -246,7 +246,7 @@ Vários endereços IP | Não suportado | Quando realizar a ativação pós-falha
 Gestor de Tráfego     | Suportadas | Pode pré-configurar o Gestor de tráfego, de modo a que o tráfego é encaminhado para o ponto final na região de origem em intervalos regulares e para o ponto final na região de destino em caso de ativação pós-falha.
 DNS do Azure | Suportadas |
 DNS Personalizado  | Suportadas |
-Proxy não autenticados | Suportadas | [Saiba mais.] (site-recovery-azure-to-azure-networking-guidance.md)   
+Proxy não autenticados | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não podem ser replicada com o Azure Site Recovery.    
 Ligação de site-site VPN no local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego do Site Recovery não é encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Ligação VNET a VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  

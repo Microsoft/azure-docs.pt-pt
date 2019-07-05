@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/14/2019
-ms.openlocfilehash: c7ff7ab0800449c2a3aa9d58bd036981caccaa1c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.date: 07/01/2019
+ms.openlocfilehash: 9e0caa8b98133dad3af083e8910d0603bbd2563b
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184227"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489914"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias VM reservada do Azure (RIS)
 
@@ -17,7 +17,7 @@ Efetue o pré-pagamento de máquinas virtuais e poupe dinheiro com as instância
 
 Pode comprar uma instância de VM reservada [portal do Azure](https://portal.azure.com). Para comprar uma instância:
 
-- Deve estar numa função de proprietário de, pelo menos, uma empresa ou uma subscrição pay as you go.
+- Deve estar numa função de proprietário de pelo menos uma subscrição do Enterprise ou de uma subscrição com uma taxa de pay as you go.
 - Para subscrições Enterprise, **adicionar as instâncias reservadas** tem de estar ativada no [portal EA](https://ea.azure.com). Em alternativa, se essa definição estiver desativada, tem de ser um administrador de EA da subscrição.
 - Para o programa de fornecedor de soluções Cloud (CSP), apenas o admin de agentes ou agentes de vendas podem comprar reservas.
 
@@ -68,13 +68,13 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione **adicionar** para comprar uma reserva nova.
-4. Preencha os campos obrigatórios. Instâncias de VM em execução que correspondam aos atributos que selecionar se qualificar para obter o desconto de reserva. O número real de suas instâncias de VM que obter o desconto depende do escopo e quantidade selecionado.
+4. Introduza os campos obrigatórios. Instâncias de VM em execução que correspondam aos atributos que selecionar se qualificar para obter o desconto de reserva. O número real de suas instâncias de VM que obter o desconto depende do escopo e quantidade selecionado.
 
     | Campo      | Descrição|
     |------------|--------------|
     |Name        |O nome desta reserva.|
-    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.|    
-    |Scope       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva é aplicada a VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado a VMs em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.</li></ul>|
+    |Subscrição|A subscrição utilizada para pagar a reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou uma subscrição individual com as tarifas pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para obter uma subscrição com taxas pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.|    
+    |Scope       |Âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: <ul><li>Subscrição individual - o desconto de reserva é aplicada a VMs nesta subscrição. </li><li>Partilhado - o desconto de reserva é aplicado a VMs em execução no caso de subscrições no seu contexto de faturação. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes com subscrições com as tarifas pay as you go, o âmbito partilhado é todas as subscrições com taxas pay as you go, criadas pelo administrador de conta.</li></ul>|
     |Região    |A região do Azure que é abrangida pela reserva.|    
     |Tamanho da VM     |O tamanho das instâncias de VM.|
     |Otimizar para     |Flexibilidade de tamanho de instância VM aplica o desconto de reserva às outras VMs no mesmo [grupo de tamanho VM](https://aka.ms/RIVMGroups). Prioridade de capacidade dá prioridade à capacidade do Centro de dados para as suas implementações. Isso oferece a confiança adicional na sua habilidade de iniciar as instâncias VM quando precisar delas. Prioridade de capacidade apenas está disponível quando o âmbito da reserva é subscrição única. |
@@ -98,7 +98,7 @@ Não pode efetuar os seguintes tipos de alterações após a compra, diretamente
 - Região de uma reserva existente
 - SKU
 - Quantidade
-- Duração
+- Duration
 
 No entanto, pode *exchange* uma reserva se pretender efetuar alterações.
 
@@ -121,7 +121,7 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
     - [Quais são as reservas do Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
     - [Gerir reservas no Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
     - [Compreender como o desconto de reserva é aplicado](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [Compreender a utilização de reserva para a sua subscrição pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
+    - [Compreender a utilização de reserva para uma subscrição com taxas pay as you go](../articles/billing/billing-understand-reserved-instance-usage.md)
     - [Compreender a utilização de reserva para inscrição da sua empresa](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
     - [Custos de software do Windows não incluídos com reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
     - [Reservas do Azure no programa de fornecedor de soluções (CSP) do parceiro Center na nuvem](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593227"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449802"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRÍTICOS serviço falhou" na tela azul quando se reinicia uma VM do Azure
 Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arranca uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos de resolução de problemas para ajudar a resolver os problemas. 
@@ -30,7 +30,7 @@ Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arra
 
 Uma VM do Windows não iniciar. Quando verifica as capturas de ecrã de arranque [diagnósticos de arranque](./boot-diagnostics.md), verá uma das seguintes mensagens de erro numa tela azul:
 
-- "Seu PC Ocorreu um problema e tem de reiniciar. Pode reiniciar. Para obter mais informações sobre este problema e possíveis correções, visite http://windows.com/stopcode. Se chamar um técnico de suporte, dar-lhes estas informações: Pare o código: FALHA DE SERVIÇO CRÍTICO" 
+- "Seu PC Ocorreu um problema e tem de reiniciar. Pode reiniciar. Para obter mais informações sobre este problema e possíveis correções, visite https://windows.com/stopcode. Se chamar um técnico de suporte, dar-lhes estas informações: Pare o código: FALHA DE SERVIÇO CRÍTICO" 
 - "Seu PC Ocorreu um problema e tem de reiniciar. Está a ser recolhido apenas algumas informações de erro e, em seguida, podemos será reiniciado para. Se quiser saber mais, pode pesquisar online mais tarde para este erro: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa

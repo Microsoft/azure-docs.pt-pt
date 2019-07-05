@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717496"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448636"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerir um dispositivo de limite de caixa de dados do Azure através do Windows PowerShell
 
@@ -52,8 +52,9 @@ Também pode carregar certificados de IoT Edge para permitir uma ligação segur
 O exemplo seguinte mostra a utilização deste cmdlet para instalar os certificados de IoT Edge:
 
 ```
-Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
+Quando executar este cmdlet, será solicitado para fornecer a palavra-passe para a partilha de rede.
 
 Para obter mais informações sobre certificados, aceda a [certificados do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instalar certificados num gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
@@ -75,13 +76,12 @@ Se a função de computação é configurada no seu dispositivo, também pode ob
     O exemplo seguinte mostra a utilização deste cmdlet:
 
     ```powershell
-    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
+    Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username" -FullLogCollection
     ```
 
     Eis uma descrição dos parâmetros utilizados para o cmdlet:
     - `Path`: Forneça um caminho de rede para a partilha de onde pretende criar o pacote de registo de computação.
-    - `Credential`: Forneça o nome de utilizador e palavra-passe para a partilha de rede.
-    - `RoleInstanceName`: Fornecer essa cadeia de caracteres `IotRole` para este parâmetro.
+    - `Credential`: Forneça o nome de utilizador para a partilha de rede. Quando executar este cmdlet, terá de fornecer a palavra-passe de partilha.
     - `FullLogCollection`: Esse parâmetro garante que o pacote de registo irá conter todos os registos de computação. Por predefinição, o pacote de registo contém apenas um subconjunto de registos.
 
 ## <a name="monitor-and-troubleshoot-compute-modules"></a>Monitorizar e resolver problemas de módulos de computação

@@ -12,16 +12,16 @@ ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a4d3fd0f7b670bbb0b01385252b405829a91baa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688065"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442319"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copiar uma cópia transacional consistente de uma base de dados SQL do Azure
 
-Base de dados SQL do Azure fornece vários métodos para criar uma cópia transacional consistente da base de dados SQL do Azure existente no mesmo servidor ou um servidor diferente. Pode copiar uma base de dados SQL utilizando o portal do Azure, o PowerShell ou o T-SQL. 
+Base de dados SQL do Azure fornece vários métodos para criar uma cópia transacional consistente da base de dados SQL do Azure existente ([base de dados individual](sql-database-single-database.md)) no mesmo servidor ou um servidor diferente. Pode copiar uma base de dados SQL utilizando o portal do Azure, o PowerShell ou o T-SQL. 
 
 ## <a name="overview"></a>Descrição geral
 
@@ -94,7 +94,7 @@ Este comando copia Database1 no servidor1 para uma nova base de dados com o nome
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar uma base de dados SQL para uma subscrição diferente
 
-Pode utilizar o descrbed passos na secção anterior para copiar a base de dados para um servidor de base de dados SQL numa subscrição diferente. Certifique-se de utilizar um início de sessão que tenha o mesmo nome e palavra-passe como o proprietário da base de dados da base de dados de origem e é um membro da função dbmanager ou é o início de sessão principal ao nível do servidor. 
+Pode utilizar os passos descritos na secção anterior para copiar a base de dados para um servidor de base de dados SQL numa subscrição diferente. Certifique-se de utilizar um início de sessão que tenha o mesmo nome e palavra-passe como o proprietário da base de dados da base de dados de origem e é um membro da função dbmanager ou é o início de sessão principal ao nível do servidor. 
 
 > [!NOTE]
 > O [portal do Azure](https://portal.azure.com) não suporta copiar para uma subscrição diferente porque Portal chama a API de ARM e utiliza os certificados de assinatura para aceder a ambos os servidores envolvidos na replicação geográfica.  

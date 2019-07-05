@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 547aed05746cb3f6c73c420169c727cc98c4ac4f
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968317"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551742"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para o escalão Standard do Centro de segurança para uma maior segurança
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Fornece visibilidade e controlo sobre a cloud cargas de trabalho híbrida, Active Directory defesas que reduzem sua exposição a ameaças e deteção inteligente para o ajudar a manter o ritmo com ataques cibernéticos a evoluir rapidamente.
@@ -28,7 +28,7 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 Centro de segurança é disponibilizado em dois escalões:
 
 - O **gratuito** camada é ativada automaticamente todas as subscrições do Azure e fornece a política de segurança, avaliação de segurança contínua e recomendações de segurança acionáveis para o ajudar a proteger os seus recursos do Azure.
-- O **padrão** escalão expande as capacidades do escalão gratuito para cargas de trabalho em execução em particular e noutras clouds públicas, fornecendo unificado proteção de gestão e ameaças de segurança em suas cargas de trabalho de cloud híbrida. O escalão Standard adiciona também o advanced threat capacidades de deteção, que utiliza a análise comportamental incorporada e machine learning para identificar ataques e explorações de dia zero, controlos de acesso e aplicação para reduzir a exposição a ataques à rede e software maligno, e mais. Pode experimentar gratuitamente o escalão Standard. Centro de segurança Standard suporta Azure recursos, incluindo VMs, VM de conjuntos de dimensionamento, o serviço de aplicações, servidores SQL e contas de armazenamento. Se tiver Azure Security Center Standard pode optar por recusar suporte com base no tipo de recurso. 
+- O **padrão** escalão expande as capacidades do escalão gratuito para cargas de trabalho em execução em particular e noutras clouds públicas, fornecendo unificado proteção de gestão e ameaças de segurança em suas cargas de trabalho de cloud híbrida. O escalão Standard adiciona também o advanced threat capacidades de deteção, que utiliza a análise comportamental incorporada e machine learning para identificar ataques e explorações de dia zero, controlos de acesso e aplicação para reduzir a exposição a ataques à rede e software maligno, e mais. Pode experimentar gratuitamente o escalão Standard. Centro de segurança Standard suporta Azure recursos, incluindo VMs, Máquina Virtual de conjuntos de dimensionamento, o serviço de aplicações, servidores SQL e contas de armazenamento. Se tiver Azure Security Center Standard pode optar por recusar suporte com base no tipo de recurso. 
 
 
 Para obter mais informações, consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -40,9 +40,9 @@ Pode atualizar uma subscrição do Azure completa para o escalão Standard, que 
 
 Para obter o escalão Standard:
 
-1. Selecione **política de segurança** sobre o **Centro de segurança** menu principal.
+1. Selecione **preços & definições** sobre o **Centro de segurança** menu principal.
 2. Selecione a subscrição que pretende atualizar para Standard.
-3. Sobre o **política de segurança** painel, selecione **escalão de preço**.
+3. Selecione **escalão de preço**.
 4. Selecione **padrão** para atualizar.
 5. Clique em **Guardar**.
 

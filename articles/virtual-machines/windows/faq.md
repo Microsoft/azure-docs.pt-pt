@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24b3c13a53b23538327cd1458a54756b7caa5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7961656e0f295b3e1a9264d839da94de25a224a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466353"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550319"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre o máquinas de virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre as máquinas de virtuais do Windows criadas no Azure com o modelo de implementação do Resource Manager. Para a versão do Linux deste tópico, consulte [pergunta mais frequente sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,7 +31,7 @@ Todos os subscritores podem executar software de servidor numa máquina virtual 
 Determinadas versões do Windows 7, Windows 8.1 e Windows 10 estão disponíveis para subscritores do benefício do MSDN do Azure e os assinantes do MSDN de programação e teste pay as you go, para tarefas de desenvolvimento e teste. Para obter mais detalhes, incluindo instruções e limitações, veja [Imagens do cliente Windows para subscritores MSDN](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/). 
 
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
-Cada disco de dados pode ser até 4 TB (4095 GB). O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Cada disco de dados pode ter até 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferta dois tipos de opções de armazenamento duráveis: Discos geridos Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 

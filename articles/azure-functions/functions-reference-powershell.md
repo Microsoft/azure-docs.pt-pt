@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065487"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442184"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de programadores do PowerShell de funções do Azure
 
@@ -58,7 +58,7 @@ PSFunctionApp
 
 Na raiz do projeto, há um partilhada [ `host.json` ](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. ps1) e o ficheiro de configuração de vinculação (`function.json`). O nome do diretório pai do arquivo Function sempre é o nome da sua função.
 
-Determinados associações exigem a presença de um `extensions.csproj` ficheiro. Enlace de extensões, necessárias na [versão 2.x](functions-versions.md) de runtime das funções, são definidos no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
+Determinados associações exigem a presença de um `extensions.csproj` ficheiro. Enlace de extensões, necessárias na [versão 2.x](functions-versions.md) de runtime das funções, são definidos no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 Em aplicações de funções do PowerShell, pode, opcionalmente, ter uma `profile.ps1` que é executada quando uma aplicação de funções começa a ser executada (caso contrário, sabe como uma  *[arranque a frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
@@ -81,7 +81,7 @@ O `TriggerMetadata` parâmetro é utilizado para fornecer informações adiciona
 $TriggerMetadata.sys
 ```
 
-| Propriedade   | Descrição                                     | Tipo     |
+| Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi acionada        | DateTime |
 | MethodName | O nome da função que foi acionada     | string   |
@@ -133,7 +133,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se parâmetros válidos para chamar `Push-OutputBinding`:
 
-| Name | Tipo | Posição | Descrição |
+| Name | Type | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da ligação de saída que pretende definir. |
 | **`-Value`** | Object | 2 | O valor de enlace de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
@@ -302,9 +302,9 @@ HTTP e acionadores de webhook e HTTP de saída ligações usam os objetos reques
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
 
-| Propriedade  | Descrição                                                    | Tipo                      |
+| Propriedade  | Descrição                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados JSON, ele é passado como uma tabela de hash. Se os dados são uma cadeia de caracteres, ele é passado como uma cadeia de caracteres. | objeto |
+| **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados JSON, ele é passado como uma tabela de hash. Se os dados são uma cadeia de caracteres, ele é passado como uma cadeia de caracteres. | object |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Dictionary < string, string ><sup>*</sup> |
 | **`Method`** | O método HTTP do pedido.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Dictionary < string, string ><sup>*</sup> |
@@ -317,9 +317,9 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
 
-| Propriedade      | Descrição                                                 | Tipo                      |
+| Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
+| **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
 | **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou tabela de hash   |
 | **`StatusCode`**  | O código de estado HTTP da resposta.                       | cadeia de caracteres ou int             |

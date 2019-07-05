@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 42429f0e8e541d0481f991761ead63e4751fcc3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be804ac1aea76daf5f17e62dd97b8b57b8fdf1fb
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719723"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458809"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Grafana de acesso no Azure HDInsight
 
@@ -66,7 +66,7 @@ Nesta secção, vai criar um cluster do Interactive Query no HDInsight com um mo
     
 
 > [!NOTE]  
-> Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). 
+> Para outros métodos de criação de clusters e compreender as propriedades utilizadas neste artigo, consulte [clusters do HDInsight criar](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Aceder ao dashboard da Grafana
 
@@ -108,7 +108,7 @@ Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HD
 Neste artigo, aprendeu como criar um cluster do HDInsight baseado em Linux com um modelo do Resource Manager e como executar consultas do Apache Hive básicas. No artigo seguinte, irá saber como executar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrair, transformar e carregar dados com o Apache Hive no HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extrair, transformar e carregar dados com o Interactive Query no HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 Se estiver pronto para começar a trabalhar com os seus próprios dados e precisar de saber mais sobre a forma como o HDInsight armazena os dados ou como carregar dados para o HDInsight, consulte os seguintes artigos:
 

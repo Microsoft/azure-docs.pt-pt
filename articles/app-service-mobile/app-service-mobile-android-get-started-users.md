@@ -3,7 +3,7 @@ title: Adicionar a autenticação no Android com as aplicações móveis | Docum
 description: Saiba como utilizar a funcionalidade de aplicações móveis do serviço de aplicações do Azure para autenticar os utilizadores da sua aplicação Android através de uma variedade de fornecedores de identidade, incluindo Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 1fc8e7c1-6c3c-40f4-9967-9cf5e21fc4e1
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 11/16/2017
-ms.author: crdun
-ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f138911510db4e6839ff96317fa6004e449e58be
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119774"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443590"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação à sua aplicação Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-users) hoje mesmo.
+>
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, adicionar autenticação para o projeto de início rápido todolist no Android utilizando um fornecedor de identidade com suporte. Este tutorial baseia-se sobre o [introdução às Mobile Apps] tutorial, o que tem de concluir primeiro.
@@ -34,7 +38,7 @@ Neste tutorial, adicionar autenticação para o projeto de início rápido todol
 
 Autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação. Neste tutorial, utilizamos o esquema de URL _appname_ em todo. No entanto, pode utilizar qualquer esquema de URL que escolher. Deve ser exclusivo para a sua aplicação móvel. Para ativar o redirecionamento no lado do servidor:
 
-1. Na [portal do Azure], selecione o serviço de aplicações.
+1. Na [Azure portal], selecione o serviço de aplicações.
 
 2. Clique nas **autenticação / autorização** opção de menu.
 
@@ -80,4 +84,4 @@ Agora que concluiu este tutorial de autenticação básica, considere continuar 
 
 <!-- URLs. -->
 [Introdução às Mobile Apps]: app-service-mobile-android-get-started.md
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

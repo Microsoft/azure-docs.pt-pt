@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e54a69b6c2b48e50c089f8b6b7458cf91133dd85
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074052"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443310"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Copiar dados de tabela de SAP com o Azure Data Factory
 
@@ -206,16 +206,16 @@ Para copiar dados de tabela do SAP, são suportadas as seguintes propriedades.
 
 | Propriedade                         | Descrição                                                  | Necessário |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | A propriedade de tipo deve ser definida como **SapTableSource**.       | Sim      |
+| type                             | A propriedade de tipo deve ser definida como **SapTableSource**.         | Sim      |
 | rowCount                         | Número de linhas a serem obtidas.                              | Não       |
 | rfcTableFields                   | Campos para copiar a partir da tabela SAP. Por exemplo, `column0, column1`. | Não       |
 | rfcTableOptions                  | Opções para filtrar as linhas da tabela de SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Veja uma descrição mais abaixo desta tabela. | Não       |
-| customRfcReadTableFunctionModule | RFC função módulo personalizado que pode ser utilizado para ler dados da tabela de SAP. | Não       |
+| customRfcReadTableFunctionModule | RFC função módulo personalizado que pode ser utilizado para ler dados da tabela de SAP.<br>Pode utilizar o módulo de função RFC personalizado para definir a forma como os dados são recuperados do seu sistema SAP e retornado ao ADF. Embora, tenha em atenção de que o módulo de função personalizada tem de ter semelhante interface implementada (importar, exportar, tabelas), semelhante a como/SAPDS/RFC_READ_TABLE2 que está por predefinição utilizada pelo ADF. | Não       |
 | partitionOption                  | O mecanismo de partição para ler da tabela SAP. As opções suportadas incluem: <br/>- **Nenhum**<br/>- **PartitionOnInt** (inteiro normal ou valores de número inteiro com zero preenchimento à esquerda, como 0000012345)<br/>- **PartitionOnCalendarYear** (4 dígitos no formato "YYYY")<br/>- **PartitionOnCalendarMonth** (6 dígitos no formato "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 dígitos no formato "AAAAMMDD") | Não       |
-| partitionColumnName              | O nome da coluna para particionar os dados. | Não       |
+| partitionColumnName              | O nome da coluna para particionar os dados.                | Não       |
 | partitionUpperBound              | O valor máximo da coluna especificada no `partitionColumnName` que será utilizado para criação de partições de continuar. | Não       |
 | partitionLowerBound              | O valor mínimo da coluna especificada no `partitionColumnName` que será utilizado para criação de partições de continuar. | Não       |
-| maxPartitionsNumber              | O número máximo de partições para dividir os dados. | Não       |
+| maxPartitionsNumber              | O número máximo de partições para dividir os dados.     | Não       |
 
 >[!TIP]
 >- Se a sua tabela SAP tem grande volume de dados, como vários milhares de milhões de linhas, utilize `partitionOption` e `partitionSetting` para dividir os dados em partições pequenas, caso em que os dados são lidos por partições e cada partição de dados é obtido a partir do seu servidor SAP através de um único Chamada RFC.<br/>

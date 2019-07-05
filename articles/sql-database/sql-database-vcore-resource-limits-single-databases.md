@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118077"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536224"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em vCore
 
@@ -34,6 +34,9 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 > Para dimensionar a orientação e considerações, consulte [dimensionar uma base de dados](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Escalão de serviço de fins geral: Tamanhos de armazenamento e tamanhos de computação
+
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 4 (parte 1)
 
@@ -157,6 +160,9 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Camada de serviços críticos de negócio para o escalão de computação aprovisionada
 
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 4 (parte 1)
 
 |Tamanho de computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -268,7 +274,7 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Tamanho máximo do registo (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB tamanho (GB)|64|128|256|384|384|384|384|384|
 |Tipo de armazenamento|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Destino IOPS (64 KB)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
+|Destino IOPS (64 KB)| [Nota 1](#note-1) |[Nota 1](#note-1)|[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) |[Nota 1](#note-1) | [Nota 1](#note-1) |
 |Latência de e/s (aproximada)|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|Ser determinada|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ O [escalão de computação sem servidor](sql-database-serverless.md) está em p
 |Armazenamento de cópia de segurança incluído |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="note-1"></a>Nota 1
+
+Hiperescala é uma arquitetura de várias camadas com colocação em cache em vários níveis. IOPS eficaz irá depender da carga de trabalho.
+
+### <a name="next-steps"></a>Passos Seguintes
 
 - Para limites de recursos DTU para bases de dados individuais, consulte [limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para limites de recursos de vCore para conjuntos elásticos, consulte [limites de recursos para conjuntos elásticos com o modelo de compra baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)

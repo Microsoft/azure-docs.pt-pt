@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f46a35d971c008b61d4899e30101ea562d3cefea
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242694"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483412"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e a tecnologia de processamento no Azure de transmissão em fluxo
 
@@ -44,7 +44,7 @@ O Azure Stream Analytics tem uma Rica experiência de out-of-the-box. Pode imedi
 
 ### <a name="you-need-to-input-from-or-output-to-kafka"></a>Terá de entrada do ou de saída ao Kafka
 
-O Azure Stream Analytics não tem uma entrada do Apache Kafka ou adaptador de saída. Se tiver de eventos de destino numa ou precisar de enviar para o Kafka, e não tiver um requisito para executar seu próprio cluster do Kafka, pode continuar a utilizar o Stream Analytics através do envio de eventos para Hubs de eventos com a API de Kafka de Hubs de eventos sem alterar o remetente do evento. Se tiver de executar seu próprio cluster do Kafka, pode utilizar o Spark Structured Streaming, que é totalmente suportado em [Azure Databricks](../azure-databricks/index.yml), ou do Storm na [Azure HDInsight](../hdinsight/storm/apache-storm-tutorial-get-started-linux.md).
+O Azure Stream Analytics não tem uma entrada do Apache Kafka ou adaptador de saída. Se tiver de eventos de destino numa ou precisar de enviar para o Kafka, e não tiver um requisito para executar seu próprio cluster do Kafka, pode continuar a utilizar o Stream Analytics através do envio de eventos para Hubs de eventos com a API de Kafka de Hubs de eventos sem alterar o remetente do evento. Se tiver de executar seu próprio cluster do Kafka, pode utilizar o Spark Structured Streaming, que é totalmente suportado em [Azure Databricks](../azure-databricks/index.yml), ou do Storm na [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Quer escrever UDFs, UDAs e desserializadores personalizados num idioma diferente do JavaScript ouC#
 

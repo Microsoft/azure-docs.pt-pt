@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020847"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561303"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de voz
 
@@ -24,7 +24,7 @@ Diferentes idiomas são suportados para diferentes funções de serviços de voz
 
 ## <a name="speech-to-text"></a>Conversão de voz em texto
 
-A API de reconhecimento de voz de Microsoft suporta os seguintes idiomas. Estão disponíveis para cada idioma diferentes níveis de personalização.
+O reconhecimento de voz de Microsoft SDK e a API REST suportam as seguintes linguagens (localidades). Estão disponíveis para cada idioma diferentes níveis de personalização.
 
   Código | Idioma | [Adaptação acústica](how-to-customize-acoustic-models.md) | [Adaptação de idioma](how-to-customize-language-model.md) | [Adaptação de pronúncia](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------

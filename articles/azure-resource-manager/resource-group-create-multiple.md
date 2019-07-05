@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99fd4215de4dd118558acc008fcfa6490ea0093d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22317372a7d954286ebcb0b59aea293c746b2a58
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807382"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508168"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Recurso, propriedade ou variável iteração nos modelos do Azure Resource Manager
 
@@ -50,6 +50,8 @@ Se tiver de especificar se um recurso está implementado em todos os, consulte [
 Para especificar o número de iterações, forneça um valor para a propriedade de contagem. A contagem não pode ter mais de 800.
 
 A contagem não pode ser um número negativo. Se implementar um modelo com a versão de REST API **2019-05-10** ou posterior, pode definir a contagem a zero. Versões anteriores da REST API não suportam a zero para contagem. Atualmente, da CLI do Azure ou o PowerShell não é suportada zero para contagem, mas que será adicionado suporte numa versão futura.
+
+Ser cuidadoso usando [concluir a implementação de modo](deployment-modes.md) com cópia. Se voltar a implementar com o modo de completado para um grupo de recursos, são eliminados todos os recursos que não estão especificados no modelo depois de resolver o ciclo de cópia.
 
 Os limites para a contagem são os mesmos se utilizada com um recurso, uma variável ou uma propriedade.
 

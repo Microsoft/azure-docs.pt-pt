@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 68d2f126ee32f61d13d170712bf58581101036e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206074"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449582"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -472,7 +472,10 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
 Quando os dados de origem não cumprem os critérios na secção anterior, ative a dados a copiar através de uma instância de armazenamento de Blobs do Azure teste provisória. Não pode ser armazenamento Premium do Azure. Neste caso, o Azure Data Factory executa automaticamente a transformações nos dados para cumprir os requisitos de formato de dados do PolyBase. Em seguida, ele utiliza o PolyBase para carregar dados para o SQL Data Warehouse. Por fim, ele limpa seus dados temporários do armazenamento de Blobs. Ver [cópia faseada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blobs do Azure teste.
 
-Para utilizar esta funcionalidade, crie uma [serviço ligado do armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs intermediárias. Em seguida, especifique a `enableStaging` e `stagingSettings` propriedades para a atividade de cópia conforme mostrado no seguinte código:
+Para utilizar esta funcionalidade, crie uma [serviço ligado do armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs intermediárias. Em seguida, especifique a `enableStaging` e `stagingSettings` propriedades para a atividade de cópia conforme mostrado no código a seguir.
+
+>[!IMPORTANT]
+>Se o armazenamento do Azure de teste está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida - consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Saiba as configurações necessárias na fábrica de dados a partir [BLOBs do Azure - autenticação de identidade gerida](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[

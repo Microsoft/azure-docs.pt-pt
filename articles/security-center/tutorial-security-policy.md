@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ff05421222ff0f4312d703366cfd443eee06450
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967922"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551705"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -32,7 +32,7 @@ Para obter instruções sobre como definir políticas com o PowerShell, consulte
 > Centro de segurança iniciada sua integração com o Azure Policy. Os clientes existentes serão migrados automaticamente para a nova iniciativa incorporada no Azure Policy, em vez das políticas de segurança anteriores no Centro de segurança. Esta alteração não afetará seu ambiente, exceto a presença da nova iniciativa na política do Azure ou de recursos.
 
 ## <a name="what-are-security-policies"></a>O que são políticas de segurança?
-As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Azure Policy, pode definir políticas para as suas subscrições do Azure e adaptá-los para o tipo de carga de trabalho ou à sensibilidade dos seus dados. Por exemplo, as aplicações que utilizam dados regulados como, por exemplo, informações de identificação pessoal, podem exigir um nível mais elevado de segurança que outras cargas de trabalho. Para definir uma política nas subscrições ou em grupos de gestão, defina-os no [do Azure Policy](../governance/policy/overview.md).
+As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Azure Policy, pode definir políticas para as suas subscrições do Azure e adaptá-los para o tipo de carga de trabalho ou à sensibilidade dos seus dados. Por exemplo, as aplicações que utilizam dados regulados, como os dados pessoais ou dados do cliente, podem exigir um nível mais elevado de segurança que outras cargas de trabalho. Para definir uma política nas subscrições ou em grupos de gestão, defina-os no [do Azure Policy](../governance/policy/overview.md).
 
 As políticas de segurança orientar as recomendações de segurança, que obtém no Centro de segurança do Azure. Pode monitorizar a conformidade com os mesmos para o ajudar a identificar potenciais vulnerabilidades e a mitigar ameaças. Para obter mais informações sobre como determinar a opção adequada para si, consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md).
 
@@ -73,13 +73,6 @@ Para ver as suas políticas de segurança no Centro de Segurança:
    > [!NOTE]
    > - Dashboard do Centro de segurança pode mostrar um número superior de assinaturas sob **abrangência da subscrição** que o número de subscrições apresentadas na **gestão de políticas**. Abrangência da subscrição mostra o número de subscrições Standard, Gratuitas e "não abrangidas". As subscrições "não abrangido" não é necessário o Centro de segurança ativado e não são apresentadas sob **gestão de políticas**.
    >
-
-   As colunas na tabela apresentam:
-
-   - **Atribuição de iniciativa de política** – o Centro de segurança [as políticas incorporadas](security-center-policy-definitions.md) e iniciativas que são atribuídas a um grupo de gestão ou de subscrição.
-   - **Cobertura** – identifica o escalão de preço, gratuito ou Standard, que o grupo de gestão, a subscrição ou a área de trabalho está a ser executada.  Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
-   - **As definições** – as subscrições têm a hiperligação **editar definições**. Selecionando **editar definições** permite que Atualize sua [definições do Centro de segurança](security-center-policies-overview.md) para cada grupo de gestão ou de subscrição.
-   - **Pontuação segura** – a [pontuação segura](security-center-secure-score.md) fornece uma medida de quão segura postura de segurança de sua carga de trabalho e o ajuda a priorizar as recomendações para aprimoramento.
 
 2. Selecione o grupo de subscrição ou gestão cujas políticas que pretende visualizar.
 
@@ -132,11 +125,11 @@ Como parte da integração nativa com o Azure Policy, o Centro de segurança do 
 
 Conceitos importantes na política do Azure: 
 
-- R **definição de política** é uma regra 
+- R **definição de política** é uma regra 
 
-- Uma **iniciativa** é uma coleção de definições de política (regras) 
+- Uma **iniciativa** é uma coleção de definições de política (regras) 
 
-- Uma **atribuição** é uma aplicação de uma iniciativa ou uma política para um âmbito específico (grupo de gestão, subscrição, etc.) 
+- Uma **atribuição** é uma aplicação de uma iniciativa ou uma política para um âmbito específico (grupo de gestão, subscrição, etc.) 
 
 Centro de segurança tem uma iniciativa incorporada que inclui todas as políticas de segurança. Para avaliar as políticas do Centro de segurança nos recursos do Azure, deve criar uma atribuição no grupo de gestão ou assinatura que deseja avaliar.  
 

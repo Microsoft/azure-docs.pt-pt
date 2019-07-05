@@ -5,45 +5,80 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: abf48f3edc090550647b6865e96afeabe3727cf5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 86c4bf328430bbc623d8e493eec5db520d50ef82
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190522"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485985"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 
-Este artigo descreve como monitorizar a implementação do Azure File Sync com o portal do Azure e o Windows Server.
+Este artigo descreve como monitorizar a implementação do Azure File Sync com o Azure Monitor, o serviço de sincronização de armazenamento e o Windows Server.
 
 As seguintes opções de monitorização estão atualmente disponíveis.
 
-## <a name="azure-portal"></a>Portal do Azure
+## <a name="azure-monitor"></a>Azure Monitor
 
-No portal do Azure, pode ver o estado de funcionamento do servidor registado e métricas de estado de funcionamento do ponto final de servidor (estado de funcionamento de sincronização).
+Uso [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para visualizar as métricas e para configurar alertas para sincronização, na cloud em camadas e conetividade do servidor.  
 
-### <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
+### <a name="metrics"></a>Métricas
+
+Métricas para o Azure File Sync estão ativadas por predefinição e são enviadas para o Azure Monitor a cada 15 minutos.
+
+Para ver métricas de sincronização de ficheiros do Azure no Azure Monitor, selecione o **serviços de sincronização de armazenamento** tipo de recurso.
+
+As métricas seguintes para o Azure File Sync estão disponíveis no Azure Monitor:
+
+| Nome da métrica | Descrição |
+|-|-|
+| Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>**Nota**: Esta métrica será removida no futuro. Utilize a métrica de tamanho de recolhimento camada da Cloud para monitorizar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
+| Tamanho de recolhimento camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
+| Tamanho de recolhimento camadas da cloud por aplicação | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome de aplicação nome, servidor nome, grupo de sincronização |
+| Débito de recolhimento de camadas na cloud | Tamanho da taxa de transferência de recolhimento de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
+| Ficheiros não sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+| Estado online do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Count<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do servidor |
+| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
+
+### <a name="alerts"></a>Alertas
+
+Para configurar alertas no Monitor do Azure, selecione o serviço de sincronização de armazenamento e, em seguida, selecione o [métrica do Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) a utilizar para o alerta.  
+
+A tabela seguinte lista alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
+
+| Cenário | Métrica a utilizar para o alerta |
+|-|-|
+| Estado de funcionamento de ponto final de servidor no portal do = erro | Resultado da sessão de sincronização |
+| Ficheiros estão a falhar sincronizar a um servidor ou ponto final da cloud | Ficheiros não sincronizar |
+| Servidor registado está a conseguir comunicar com o serviço de sincronização de armazenamento | Estado online do servidor |
+| Tamanho de recolhimento de camadas na cloud excedeu 500GiB dentro de um dia  | Tamanho de recolhimento camadas da cloud |
+
+Para saber mais sobre como configurar alertas no Monitor do Azure, veja [descrição geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="storage-sync-service"></a>Serviço de sincronização de armazenamento
 
 Para ver o estado de funcionamento do servidor registado e métricas de estado de funcionamento de ponto final de servidor, vá para o serviço de sincronização de armazenamento no portal do Azure. Pode ver o estado de funcionamento do servidor registado no **servidores registados** painel e servidor de ponto final estado de funcionamento no **sincronizar grupos** painel.
 
-Estado de funcionamento do servidor registado:
+### <a name="registered-server-health"></a>Estado de funcionamento do servidor registado
 
 - Se o **servidor registado** estado é **Online**, o servidor que está a comunicar corretamente com o serviço.
 - Se o **servidor registado** estado é **aparece Offline**, certifique-se de que o processo de Monitor de sincronização de armazenamento (AzureStorageSyncMonitor.exe) no servidor está em execução. Se o servidor estiver protegido por uma firewall ou proxy, consulte [este artigo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) para configurar a firewall e proxy.
 
-Estado de funcionamento do servidor ponto final:
+### <a name="server-endpoint-health"></a>Estado de funcionamento de ponto final de servidor
 
 - O estado de funcionamento do ponto final do servidor no portal do baseia-se sobre os eventos de sincronização que são registados no registo de eventos de telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como o erro foi cancelada, sincronização poderá ainda aparecer bom estado de funcionamento no portal, desde que a sessão de sincronização atual está a tornar o progresso. ID de evento 9302 é utilizado para determinar se os ficheiros estão a ser aplicados. Para obter mais informações, consulte [sincronizar o estado de funcionamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [sincronizar progresso](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 - Se o portal mostra um erro de sincronização porque a sincronização não está a tornar o progresso, consulte a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientações.
 
-Métricas:
+### <a name="metric-charts"></a>Gráficos de métricas
 
-- As seguintes métricas estão visíveis no portal do serviço de sincronização de armazenamento:
+- Os gráficos de métricos seguintes são visíveis no portal do serviço de sincronização de armazenamento:
 
   | Nome da métrica | Descrição | Nome do painel |
   |-|-|-|
@@ -57,26 +92,6 @@ Métricas:
 
   > [!Note]  
   > Os gráficos no portal do serviço de sincronização de armazenamento tem um intervalo de tempo de 24 horas. Para ver os intervalos de tempo diferente ou dimensões, utilize o Azure Monitor.
-
-### <a name="azure-monitor"></a>Azure Monitor
-
-Uso [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para monitorizar a sincronização de camada de cloud e conetividade do servidor. Métricas para o Azure File Sync estão ativadas por predefinição e são enviadas para o Azure Monitor a cada 15 minutos.
-
-Para ver métricas de sincronização de ficheiros do Azure no Azure Monitor, selecione o **serviços de sincronização de armazenamento** tipo de recurso.
-
-As métricas seguintes para o Azure File Sync estão disponíveis no Azure Monitor:
-
-| Nome da métrica | Descrição |
-|-|-|
-| Bytes sincronizados | Tamanho dos dados transferidos (carregamento e transferência).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Lembre-se camadas da cloud | Tamanho dos dados recuperados.<br><br>Nota: Esta métrica será removida no futuro. Utilize a métrica de tamanho de recolhimento camada da Cloud para monitorizar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
-| Tamanho de recolhimento camadas da cloud | Tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
-| Tamanho de recolhimento camadas da cloud por aplicação | Tamanho dos dados recuperados pelo aplicativo.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome de aplicação nome, servidor nome, grupo de sincronização |
-| Débito de recolhimento de camadas na cloud | Tamanho da taxa de transferência de recolhimento de dados.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor nome, grupo de sincronização |
-| Ficheiros não sincronizar | Contagem de ficheiros que estão a falhar para sincronizar.<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Ficheiros sincronizados | Contagem de ficheiros transferidos (carregamento e transferência).<br><br>Unidade: Count<br>Tipo de agregação: Soma<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
-| Estado online do servidor | Número de heartbeats recebido do servidor.<br><br>Unidade: Count<br>Tipo de agregação: Máximo<br>Dimensão aplicável: Nome do servidor |
-| Resultado da sessão de sincronização | Resultado da sessão de sincronização (1 = a sincronização com êxito sessão; 0 = a sessão de sincronização com falha)<br><br>Unidade: Contagem<br>Tipos de agregação: Máximo<br>Dimensões aplicável: Nome de servidor Endpoint nome, sincronização direção, grupo de sincronização |
 
 ## <a name="windows-server"></a>Windows Server
 

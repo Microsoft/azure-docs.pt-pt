@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: aedfa381f6520a5295467821097b38dd28dcd60c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: df88c3e2e07165182c917eaf30a5f37451fbd073
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057924"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509577"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory, que está a utilizar:"]
@@ -81,7 +81,7 @@ Para utilizar autenticação do principal de serviço, registe-se uma entidade d
 >A lista de pastas a partir da raiz, tem de definir a permissão do principal de serviço, sendo concedido ao **no nível de raiz com permissão de "Executar"** . Isso é verdade, quando utiliza o:
 >- **Ferramenta de cópia de dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação.
->Se tiver questões sobre a concessão da permissão no nível raiz, ignore o teste de ligação e introduza o caminho manualmente durante a criação. A atividade de cópia funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
+>Se tiver questões sobre a concessão da permissão no nível de raiz, durante a criação, ignore a ligação de teste e entrada em seguida, escolha um caminho de paraent com permissão concedida para procurar a partir de que especificado o caminho. Copie atividade funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 São suportadas as seguintes propriedades:
 
@@ -135,7 +135,7 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure:
 >A lista de pastas a partir da raiz, tem de definir a permissão de a identidade gerida sendo concedido ao **no nível de raiz com permissão de "Executar"** . Isso é verdade, quando utiliza o:
 >- **Ferramenta de cópia de dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação.
->Se tiver questões sobre a concessão da permissão no nível raiz, ignore o teste de ligação e introduza o caminho manualmente durante a criação. A atividade de cópia funciona, desde que a identidade gerida é concedida com a permissão adequada nos arquivos sejam copiados.
+>Se tiver questões sobre a concessão da permissão no nível de raiz, durante a criação, ignore a ligação de teste e entrada em seguida, escolha um caminho de principais com permissão concedida para procurar a partir de que especificado o caminho. Copie atividade funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 No Azure Data Factory, não terá de especificar quaisquer propriedades além das informações gerais do Data Lake Store no serviço ligado.
 

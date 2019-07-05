@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0610f57e264189961a6803bee5bb93c1ec9fb103
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9df42725e41fb514370dbdb828ad5b1305ea78
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753995"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485458"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como o índice do Cosmos DB com um indexador de Azure Search
 
@@ -133,7 +133,7 @@ Na sua conta do Cosmos DB pode escolher se pretende que a coleção para indexar
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - montar entradas para o pedido
 
-Para cada pedido, tem de fornecer o nome do serviço e a chave de administrador para o Azure Search (no cabeçalho da mensagem) e o nome da conta de armazenamento e a chave para o armazenamento de Blobs. Pode usar [Postman](search-fiddler.md) para enviar solicitações HTTP para o Azure Search.
+Para cada pedido, tem de fornecer o nome do serviço e a chave de administrador para o Azure Search (no cabeçalho da mensagem) e o nome da conta de armazenamento e a chave para o armazenamento de Blobs. Pode usar [Postman](search-get-started-postman.md) para enviar solicitações HTTP para o Azure Search.
 
 Copie os seguintes quatro valores no bloco de notas, para que pode colá-los numa solicitação:
 
@@ -255,7 +255,7 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatível |
 | --- | --- |
-| Booleano |Edm.Boolean, Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Números que são semelhantes a números inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, Edm.String |
 | String |Edm.String |

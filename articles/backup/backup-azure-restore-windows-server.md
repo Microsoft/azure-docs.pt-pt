@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9c2f8ce0dfb866826de549946bc3ee1acc2b677f
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238400"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460264"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar ficheiros para Windows, utilizando o modelo de implementação Azure Resource Manager
 
@@ -97,7 +97,7 @@ Estes passos incluem a seguinte terminologia:
 * *Cofre de exemplo* – o Cofre dos serviços recuperação no qual o computador de origem e a máquina de destino são registados. <br/>
 
 > [!NOTE]
-> Não não possível restaurar cópias de segurança para uma máquina de destino que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança obtida a partir de um computador com Windows 7 pode ser restaurada num computador Windows 8 (ou posterior). Não é possível restaurar uma cópia de segurança obtida a partir de um computador com Windows 8 para um computador com Windows 7.
+> Não não possível restaurar cópias de segurança para uma máquina de destino que está a executar uma versão anterior do sistema operativo. Por exemplo, uma cópia de segurança obtida a partir de um computador com Windows 7 pode ser restaurada num computador Windows 7 (ou posterior). Não é possível restaurar uma cópia de segurança obtida a partir de um computador com Windows 8 para um computador com Windows 7.
 >
 >
 

@@ -11,19 +11,19 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: df2f0731aff6c90ef83b26041a9d383ce14974c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f596fb3a066017f0236de5b79586891dd21efb11
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024252"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443987"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 
 Neste artigo, pode aprender a recolher dados de entrada de modelo dos serviços do Azure Machine Learning que implementou no Cluster de Kubernetes do Azure (AKS) para um armazenamento de Blobs do Azure. 
 
 Uma vez ativada, estes dados a que recolher ajudam-o:
-* Monitorizar dados drifts como dados de produção inserem seu modelo
+* [Monitorizar dados drifts](how-to-monitor-data-drift.md) como dados de produção inserem seu modelo
 
 * Tome decisões melhores sobre quando voltar a preparar ou otimizar o seu modelo
 

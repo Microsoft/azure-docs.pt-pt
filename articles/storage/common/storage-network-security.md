@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520247"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449730"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -23,6 +23,8 @@ O armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo
 Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Autorização é suportada com as credenciais do Azure Active Directory (Azure AD) para blobs e filas, com uma chave de acesso de conta válido ou um token de SAS.
 
 > [!IMPORTANT]
+> O Azure File Sync ainda não suporta firewalls e redes virtuais. Se estiver a utilizar o Azure File Sync na sua conta de armazenamento e ativar a eles, o Azure File Sync não serão sincronizados.
+>
 > Ativar as regras de firewall para a sua conta de armazenamento bloqueia pedidos de entrada de dados por predefinição, a menos que os pedidos provenientes de um serviço que está a funcionar dentro de uma rede Virtual do Azure (VNet). Pedidos que estão bloqueados incluem os de outros serviços do Azure, do portal do Azure, do Registro em log e serviços de métricas e assim por diante.
 >
 > Pode conceder acesso aos serviços do Azure que funcionam de dentro de uma VNet, permitindo que a sub-rede da instância do serviço. Ativar um número limitado de cenários por meio da [exceções](#exceptions) mecanismo descrito na secção seguinte. Para aceder ao portal do Azure, terá de estar numa máquina dentro do limite confiável (IP ou VNet) que configurou.

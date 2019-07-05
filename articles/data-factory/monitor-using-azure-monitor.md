@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 722d77bf27e3cd7eb921b09e0a1d4732a5b5f874
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60319330"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514407"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -387,7 +387,7 @@ ADFV2 emite as métricas seguintes
 
 | **Métricas**           | **Nome a apresentar de métrica**         | **Unit** | **Tipo de agregação** | **Descrição**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Foi efetuada com êxito as métricas de execuções de pipeline | Contagem    | Total                | Total pipelines é executado com êxito dentro de uma janela de minutos |
+| PipelineSucceededRuns | Foi efetuada com êxito as métricas de execuções de pipeline | Contagem    | Total                | Total pipelines é executado com êxito dentro de uma janela de minutos |
 | PipelineFailedRuns   | Falha de métricas de execuções de pipeline    | Contagem    | Total                | Total de pipelines execuções falhadas dentro de uma janela de minutos    |
 | ActivitySucceededRuns | Foi efetuada com êxito as métricas de execuções de atividade | Contagem    | Total                | Atividade total é executado com êxito dentro de uma janela de minutos  |
 | ActivityFailedRuns   | Falha de métricas de execuções de atividade    | Contagem    | Total                | Atividade total é executado com falhas dentro de uma janela de minutos     |

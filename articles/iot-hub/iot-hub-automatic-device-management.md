@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333658"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485848"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gestão automática de dispositivos de IoT em escala no portal do Azure
 
@@ -29,7 +29,9 @@ Funciona a gestão de dispositivos automático ao atualizar um conjunto de dispo
 
 * O **conteúdo de destino** define as propriedades pretendidas para ser adicionados ou atualizados nos gémeos de dispositivo de destino. O conteúdo inclui um caminho para a secção de propriedades pretendidas para serem alterados.
 
-* O **métricas** definem as contagens de resumidas de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo de propriedades comunicadas.  As métricas do sistema são as métricas de predefinição que medem o estado de atualização de duplo, como o número de dispositivos duplos, que são visados e o número de duplos foram atualizadas com êxito. 
+* O **métricas** definem as contagens de resumidas de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo de propriedades comunicadas.  As métricas do sistema são as métricas de predefinição que medem o estado de atualização de duplo, como o número de dispositivos duplos, que são visados e o número de duplos foram atualizadas com êxito.
+
+Configurações de dispositivos automática executam pela primeira vez, logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Consultas de métricas executam sempre que a configuração do dispositivo automática é executada.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos duplos para configurar dispositivos
 

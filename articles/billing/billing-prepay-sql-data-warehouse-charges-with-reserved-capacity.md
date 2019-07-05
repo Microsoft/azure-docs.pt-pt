@@ -1,19 +1,19 @@
 ---
-title: Efetue o pré-pagamento do cobranças de armazém de dados SQL com capacidade de reserva do Azure | Documentos da Microsoft
+title: Efetue o pré-pagamento do cobranças de armazém de dados SQL com capacidade de reserva do Azure
 description: Saiba como pode efetuar o pré-pagamento para cobranças de armazém de dados SQL com capacidade de reserva para poupar dinheiro.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 07/03/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cea2c8e6d476c3ea2799337ab2da1f9406731814
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371194"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565363"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Efetue o pré-pagamento do cobranças de armazém de dados SQL com capacidade de reserva
 
@@ -43,14 +43,15 @@ Por exemplo, suponha que o consumo total do SQL Data Warehouse é DW3000c. Desej
 
 ## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Capacidade de reserva de comprar o SQL Data Warehouse
 
-1. Início de sessão para o [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **todos os serviços** > **reservas**.
 3. Selecione uma subscrição. Utilize a lista de subscrições para escolher a subscrição que é utilizada para pagar a capacidade de reserva. O método de pagamento da subscrição é cobrado os custos iniciais para a capacidade de reserva. O tipo de subscrição tem de ser um contrato enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P) ou pay as you go (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
   - Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida.
   - Para a subscrição Pay As You Go, os custos são debitados no cartão de crédito ou cobrados de acordo com o método de pagamento indicado na subscrição.
 4. Selecione um âmbito. Utilize a lista de âmbito para escolher um âmbito de subscrição.
-  - Com o **único** opção, o desconto de reserva é aplicada ao SQL Data Warehouse implementadas na subscrição selecionada.
-  - Com o **partilhado** opção, o desconto de reserva é aplicada às instâncias em execução no caso de subscrições no seu contexto de faturação.
+  - **Único âmbito do grupo de recursos** – aplica o desconto de reserva para os recursos correspondentes na apenas o grupo de recursos selecionado.
+  - **Único âmbito da subscrição** – aplica o desconto de reserva para os recursos correspondentes na subscrição selecionada.
+  - **Partilhado âmbito** — se aplica o desconto de reserva a correspondência de recursos em subscrições elegíveis que estão no contexto de faturação. Para clientes com Enterprise Agreement, o contexto de faturação é a inscrição. Para obter subscrições individuais com as tarifas pay as you go, o âmbito de faturação é todas as subscrições elegíveis criadas pelo administrador de conta.
     - Para os clientes empresariais, o contexto de faturação é a inscrição de EA.
     - Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.
 5. Selecione uma região para escolher uma região do Azure que é abrangida pela capacidade de reserva.

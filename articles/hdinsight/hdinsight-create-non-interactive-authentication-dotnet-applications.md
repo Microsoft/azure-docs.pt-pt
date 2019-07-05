@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8b96c38d5bb24a267ad0203083e485d1780f28c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9eb83c0c42bb1ba3de1aa81ab3d5f339f4d40233
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241471"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433671"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação do HDInsight de .NET de autenticação não interativa
 Pode executar a aplicação do Microsoft .NET do Azure HDInsight sob a identidade da aplicação (não interativa) ou sob a identidade do utilizador com sessão iniciada a aplicação (interativa). Este artigo mostra-lhe como criar uma aplicação .NET para ligar ao Azure e gerir o HDInsight de autenticação não interativa. Para obter um exemplo de uma aplicação interativa, veja [ligue-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -28,13 +28,13 @@ Desde a sua aplicação .NET não interativa, terá de:
 * Um cluster do HDInsight. Consulte a [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função de aplicação do Azure AD
-Atribuir a aplicação do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para conceder permissão para efetuar ações. Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. As permissões são herdadas para níveis inferiores de âmbito. (Por exemplo, adicionar uma aplicação à função do leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos no mesmo.) Neste tutorial, é possível definir o âmbito ao nível do grupo de recursos. Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
+Atribuir a aplicação do Azure AD uma [função](../role-based-access-control/built-in-roles.md), para conceder permissão para efetuar ações. Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao recurso. As permissões são herdadas para níveis inferiores de âmbito. (Por exemplo, adicionar uma aplicação à função do leitor para um grupo de recursos significa que o aplicativo pode ler o grupo de recursos e todos os recursos no mesmo.) Neste artigo, é possível definir o âmbito ao nível do grupo de recursos. Para obter mais informações, consulte [utilize atribuições de funções para gerir o acesso aos recursos da sua subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Para adicionar a função de proprietário para a aplicação do Azure AD**
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, selecione **Grupos de recursos**.
-3. Selecione o grupo de recursos que tem o cluster de HDInsight no qual irá executar sua consulta do Hive mais tarde neste tutorial. Se tiver um grande número de grupos de recursos, pode utilizar o filtro para encontrar aquele que pretende.
+3. Selecione o grupo de recursos que tem o cluster de HDInsight no qual irá executar sua consulta do Hive neste artigo. Se tiver um grande número de grupos de recursos, pode utilizar o filtro para encontrar aquele que pretende.
 4. No menu de grupo de recursos, selecione **controlo de acesso (IAM)** .
 5. Selecione o **atribuições de funções** guia para ver as atribuições de função atual.
 6. Na parte superior da página, selecione **adicionar atribuição de função**.

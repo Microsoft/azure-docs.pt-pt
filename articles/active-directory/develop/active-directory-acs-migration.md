@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc58d1a9bc06345165d4c322ea347c59166b614
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546240"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483249"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
@@ -283,10 +283,10 @@ Em alguns casos, pode achar que o Azure AD e o Azure AD B2C não são suficiente
 
 Nestes casos, poderá querer considerar a migração da sua aplicação web para outro serviço de autenticação em nuvem. Recomendamos a explorar as seguintes opções. Cada uma das seguintes opções oferecem recursos semelhantes ao controlo de acesso:
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Esta imagem mostra o logótipo Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
+| ![Esta imagem mostra o logótipo da Ping Identity](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo no trabalho com a Ping Identity e Auth0 é garantir que todos os clientes de controlo de acesso tem um caminho de migração das respetivas aplicações e serviços que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 
@@ -345,10 +345,10 @@ Em alguns casos, pode achar que as credenciais de cliente do Azure AD e o OAuth 
 
 Nestes casos, pode optar por migrar a sua aplicação web para outro serviço de autenticação em nuvem. Recomendamos a explorar as seguintes opções. Cada uma das seguintes opções oferecem recursos semelhantes ao controlo de acesso:
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Esta imagem mostra o logótipo Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
+| ![Esta imagem mostra o logótipo da Ping Identity](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo no trabalho com a Ping Identity e Auth0 é garantir que todos os clientes de controlo de acesso tem um caminho de migração das respetivas aplicações e serviços que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 

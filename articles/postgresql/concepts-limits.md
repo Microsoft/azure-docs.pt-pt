@@ -1,19 +1,20 @@
 ---
-title: Limitações na base de dados do Azure para PostgreSQL - servidor único
-description: Este artigo descreve as limitações na base de dados do Azure para PostgreSQL - único servidor, como o número de ligação e opções de motor de armazenamento.
+title: Limites na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve os limites na base de dados do Azure para PostgreSQL - único servidor, como o número de ligação e opções de motor de armazenamento.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732869"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448092"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitações na base de dados do Azure para PostgreSQL - servidor único
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites na base de dados do Azure para PostgreSQL - servidor único
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados. Se gostaria de saber mais sobre escalões de recurso (computação, memória, armazenamento), consulte a [escalões de preço](concepts-pricing-tiers.md) artigo.
 
 
@@ -34,7 +35,7 @@ Seguem-se o número máximo de ligações por vCores e escalão de preço:
 |Memória Otimizada| 4| 500|
 |Memória Otimizada| 8| 960|
 |Memória Otimizada| 16| 1900|
-|Memória Otimizada| 32| 1900|
+|Memória Otimizada| 32| 1987|
 
 Quando as ligações excederem o limite, poderá receber o erro seguinte:
 > FATAL: Desculpe, muitos clientes já
@@ -48,6 +49,9 @@ O sistema do Azure requer cinco ligações para monitorizar a base de dados do A
 
 ### <a name="server-version-upgrades"></a>Atualização de versão do servidor
 - Migração automatizada entre as versões do motor de base de dados principal não é atualmente suportada. Se gostaria de atualizar para a próxima versão principal, dê uma [cópia de segurança e restaurar](./howto-migrate-using-dump-and-restore.md) -lo para um servidor que foi criado com a nova versão do motor.
+
+> Observe que, antes de PostgreSQL versão 10, o [política de controlo de versões do PostgreSQL](https://www.postgresql.org/support/versioning/) considerado um _versão principal_ atualização para ser um aumento na primeira _ou_ segundo número (para exemplo, 9.5 para 9.6 foi considerada uma _principais_ atualização da versão).
+> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal (por exemplo, 10.0 para 10.1 é um _pequenas_ atualização da versão e 10 a 11 é uma _principais_ atualização da versão).
 
 ### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.

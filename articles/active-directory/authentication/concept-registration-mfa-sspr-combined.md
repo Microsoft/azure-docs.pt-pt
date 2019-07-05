@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2d1a5a342bfe4527c15a0721a8f852a269bef67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc0e80ec7a378d44000565034ce47d95c78b777e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113506"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537020"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo de informações de segurança combinados (pré-visualização)
 
@@ -136,6 +136,8 @@ Um utilizador que tiver definido previamente pelo menos um método que pode ser 
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Ativar o registo combinado no seu inquilino](howto-registration-mfa-sspr-combined.md)
+
+[A utilização SSPR e o MFA e informações de relatórios](howto-authentication-methods-usage-insights.md)
 
 [Métodos disponíveis para o multi-factor Authentication e SSPR](concept-authentication-methods.md)
 

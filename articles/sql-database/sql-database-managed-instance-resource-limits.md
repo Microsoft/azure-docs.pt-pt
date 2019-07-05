@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 89df33f453217585e8f0b8ff13d06ee223474fae
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 06/26/2019
+ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272239"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447806"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Descrição geral do Azure SQL Database managed limites de recursos de instância
 
@@ -42,6 +42,9 @@ A instância gerida de base de dados SQL do Azure pode ser implementada em duas 
 | Memória de OLTP máximo em memória | Limite da instância: 3 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 8 GB por base de dados<br/> -16 núcleos: 20 GB por base de dados<br/> -24-core: 36 GB por base de dados | Limite da instância: 2,5 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 13 GB por base de dados<br/> -16 núcleos: 32 GB por base de dados |
 | Armazenamento de instância de máximo (fins gerais) |  8 TB | 8 TB |
 | Armazenamento de instância de máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 

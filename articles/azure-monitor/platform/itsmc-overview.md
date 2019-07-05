@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2574cc64e157ff0f8a6cb875a832db88cf13dd6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395870"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479799"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -62,7 +62,9 @@ Antes de poder criar uma ligação, terá de adicionar a solução de conector I
 
 3. Na **área de trabalho OMS** secção, selecione a área de trabalho do Log Analytics do Azure onde pretende instalar a solução.
    >[!NOTE]
-   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+   > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+   > * O conector ITSM só pode ser instalado em áreas de trabalho do Log Analytics nas seguintes regiões: E.U.A. leste, Europa Ocidental, Sudeste asiático, Sudeste da Austrália, oeste Central dos EUA, leste do Japão, sul do Reino Unido, Índia Central, Central no Canadá.
+
 4. Na **definições de área de trabalho do OMS** secção, selecione o ResourceGroup onde pretende criar o recurso de solução.
 
    ![Área de trabalho ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -199,7 +201,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Data de fecho
 - Data de resolução
 - Data da última modificação
-- Computador
+- Computer
 
 
 **Item de trabalho:** **Pedidos de alteração**
@@ -214,7 +216,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - source
 - Atribuído a
 - Cargo
-- Tipo
+- Type
 - Category
 - Estado
 - Escalonamento
@@ -233,7 +235,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de início do trabalho
 - Data de fim de trabalho
 - Descrição
-- Computador
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente de ServiceNow
 
@@ -255,7 +257,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedDate_t|  Aberto |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
-| Computador  | Item de configuração |
+| Computer  | Item de configuração |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Pedido de alteração de dados de saída para um ServiceNow
 
@@ -266,7 +268,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Breve descrição |
-| Type_s|  Tipo |
+| Type_s|  Type |
 | Category_s|  Category |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
@@ -280,7 +282,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
 | Description_s | Descrição |
-| Computador  | Item de configuração |
+| Computer  | Item de configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Resolver problemas de ligações de ITSM

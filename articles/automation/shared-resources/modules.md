@@ -4,17 +4,17 @@ description: Este artigo descreve como gerir módulos na automatização do Azur
 services: automation
 ms.service: automation
 ms.subservice: shared-resources
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69817d1412aa13d0e7983aa3ad27c15e59185432
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063464"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478161"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos na automatização do Azure
 

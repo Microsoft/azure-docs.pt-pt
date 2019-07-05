@@ -4,17 +4,17 @@ description: Resume os diferentes métodos que podem ser utilizados para iniciar
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13af62c52750b1a3684351156b981112b7f7b748
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60880196"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477563"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 
@@ -22,7 +22,7 @@ A tabela seguinte ajuda-o a determinar o método para iniciar um runbook na auto
 
 | **Método** | **Características** |
 | --- | --- |
-| [Portal do Azure](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com a interface de utilizador interativa.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Controle facilmente o estado da tarefa.<br> <li>Acesso autenticado com o início de sessão do Azure no. |
+| [Azure portal](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com a interface de utilizador interativa.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Controle facilmente o estado da tarefa.<br> <li>Acesso autenticado com o início de sessão do Azure no. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Chamar a partir da linha de comandos com cmdlets do Windows PowerShell.<br> <li>Pode ser incluído numa solução automatizada com vários passos.<br> <li>Pedido é autenticado com o certificado ou o utilizador OAuth principal / serviço principal.<br> <li>Forneça os valores de parâmetro simples e complexas.<br> <li>Controlar o estado da tarefa.<br> <li>Cliente necessário para suportar os cmdlets do PowerShell. |
 | [API de automatização do Azure](/rest/api/automation/) |<li>Método mais flexível, mas também mais complexa.<br> <li>Chamar a partir de qualquer código personalizado que possa fazer pedidos HTTP.<br> <li>Solicitação autenticada com o certificado ou o utilizador Oauth principal / serviço principal.<br> <li>Forneça os valores de parâmetro simples e complexas. *Se estiver a chamar um runbook de Python com a API, o payload JSON deve ser serializado.*<br> <li>Controlar o estado da tarefa. |
 | [Webhooks](automation-webhooks.md) |<li>Inicie o runbook a partir de único pedido HTTP.<br> <li>Autenticar com o token de segurança no URL.<br> <li>Cliente não pode substituir os valores de parâmetros especificados durante a criação do webhook. Runbook pode definir o único parâmetro que é preenchido com os detalhes de pedido HTTP.<br> <li>Sem capacidade de controlar o estado da tarefa por meio do URL do webhook. |

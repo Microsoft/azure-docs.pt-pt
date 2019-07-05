@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286970"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476229"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistente de segurança do AD funções do Azure no PIM
 
@@ -43,27 +43,27 @@ A segunda etapa do assistente fornece uma oportunidade para alterar as atribuiç
 
 1. Clique em **funções do Azure AD** e, em seguida, clique em **assistente**.
 
-    ![Funções do Azure AD - Assistente](./media/pim-security-wizard/wizard-start.png)
+    ![Funções do AD do Azure – página do assistente que mostra 3 passos para executar o Assistente](./media/pim-security-wizard/wizard-start.png)
 
 1. Clique em **1 deteção de funções privilegiadas**.
 
 1. Reveja a lista de funções com privilégios para ver a quais usuários são permanentes ou elegíveis.
 
-    ![Detetar utilizadores de funções privilegiadas](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Descobrir funções privilegiadas - o painel de função mostra membros elegíveis e permanentes](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Clique em **seguinte** para selecionar os membros que pretende tornar elegíveis.
 
-    ![Converter os membros para elegíveis](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Converter os membros da página elegível com as opções para selecionar os membros que pretende tornar elegíveis para funções](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Assim que tiver selecionado os membros, clique em **seguinte**.
 
-    ![Rever alterações](./media/pim-security-wizard/review-changes.png)
+    ![Reveja a página de alterações que mostra os membros com atribuições de função permanente que serão convertidos](./media/pim-security-wizard/review-changes.png)
 
 1. Clique em **OK** para converter as atribuições de permanentes para elegíveis.
 
     Quando a conversão for concluída, verá uma notificação.
 
-    ![Notificações](./media/pim-security-wizard/notification-completion.png)
+    ![A mostrar o estado de uma conversão de notificação](./media/pim-security-wizard/notification-completion.png)
 
 Se precisar de converter outras atribuições de funções privilegiadas elegível, pode executar o assistente novamente. Se quiser usar a interface PIM em vez do assistente, consulte [atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md).
 

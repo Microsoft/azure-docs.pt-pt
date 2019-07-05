@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298968"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565586"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migrar o MongoDB para API do Azure Cosmos DB para o MongoDB online com o DMS
 
@@ -150,7 +150,14 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
      * Para informações de JSON, os ficheiros no contentor de BLOBs devem ser colocados em pastas com o nome depois das bases de dados que contêm. Em cada pasta de base de dados, ficheiros de dados tem de ser colocados numa subpasta chamada de "dados" e com o nome usando o formato *coleção*. JSON. Arquivos de metadados (se houver) devem ser colocados numa subpasta denominada "metadados" e com o mesmo formato, o nome *coleção*. JSON. Os arquivos de metadados tem de estar no mesmo formato que produzidos pela ferramenta bsondump MongoDB.
 
-   Pode usar o endereço IP para situações em que DNS resolução de nomes não é possível.
+    > [!IMPORTANT]
+    > Ele não é recomendado utilizar um certificado autoassinado no servidor do mongo. No entanto, se for utilizada, estabeleça a ligação ao servidor com **modo de cadeia de ligação** e certifique-se de que tem a cadeia de ligação ""
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    Pode usar o endereço IP para situações em que DNS resolução de nomes não é possível.
 
    ![Especificar os detalhes da origem](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
@@ -206,7 +213,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
    É apresentada a janela de atividade de migração e o **estado** da atividade é apresentada.
 
-   ![Estado de atividade](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
+   ![Estado da atividade](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 

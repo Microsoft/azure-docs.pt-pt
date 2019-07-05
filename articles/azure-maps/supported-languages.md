@@ -3,17 +3,17 @@ title: Suporte de localização do Azure Maps | Documentos da Microsoft
 description: Saiba mais sobre os idiomas suportados para os serviços do Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/25/2019
+ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
-ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: philmea
+ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686788"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446192"
 ---
 # <a name="localization-support-in-azure-maps"></a>Suporte de localização do Azure Maps
 
@@ -25,7 +25,7 @@ Mapas do Azure suporta vários idiomas e modos de exibição com base no país/r
 Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
   
 
-| ID         | Name                   |  Maps | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapas JS | Fuso horário |
+| id         | Name                   |  Maps | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapas JS | Fuso horário |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -85,7 +85,51 @@ Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabe
 
 ## <a name="azure-maps-supported-views"></a>Vistas de suporte do Azure Maps
 
-Parâmetro de vista de mapas do Azure (também referido como "parâmetro de região do utilizador") é um código de país ISO 3166 de 2 letras que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas bordas e as etiquetas são apresentadas no mapa.  Por predefinição, o parâmetro de modo de exibição é definido como **"Unified"** .  País/regiões que não estejam na lista de vista será predefinido para a vista de "Unificado". É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
+> [!Note]
+> Estamos a lançar mapas do Azure nos países/regiões seguintes 1 de Agosto de 2019:
+>  * Argentina
+>  * Índia
+>  * Marrocos
+>  * Paquistão
+>
+> Após 1 de Agosto de 2019 **vista** definição do parâmetro irá definir o conteúdo do mapa retornado para os países/regiões novas listados acima. Aconselhamo-lo para se certificar de que configurou o parâmetro de modo de exibição, conforme necessário para as REST APIs e SDKs que seus serviços estão a utilizar.
+>  
+>
+>  **REST APIs:**
+>  
+>  Certifique-se de que configurou o parâmetro de modo de exibição, conforme necessário. Parâmetro de modo de exibição Especifica qual conjunto de conteúdo geopolitically questionado é devolvido por meio de serviços do Azure Maps. 
+>
+>  Serviços REST de mapas do Azure afetado:
+>    
+>    * Obter o mosaico do mapa
+>    * Obter a imagem do mapa 
+>    * Obter pesquisa difusa
+>    * Obter pesquisa POI
+>    * Obter pesquisa POI categoria
+>    * Obter pesquisa próximos
+>    * Obter o endereço de pesquisa
+>    * Obter o endereço de pesquisa estruturado
+>    * Obter o endereço de pesquisa inversa
+>    * Obter pesquisa endereço inversa entre Rua
+>    * Pesquisa de postagem dentro de geometria
+>    * Pré-visualização de Batch do endereço de pesquisa de mensagem
+>    * Pré-visualização de Batch inversa do endereço de pesquisa de postagem
+>    * Pesquisa de POST ao longo da rota
+>    * Pré-visualização do POST pesquisa difusa do Batch
+>
+>    
+>  **SDKs:**
+>
+>  Certifique-se de que configurou o parâmetro de modo de exibição, conforme necessário e tem a versão mais recente do Web SDK e o SDK do Android. SDKs afetados:
+>
+>    * SDK de Web do Azure Maps
+>    * SDK Android do Azure Maps
+
+
+O Azure Maps **vista** parâmetro (também referido como "parâmetro de região do utilizador") é uma letra dois é o indicativo de país ISO 3166 que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas conteúdo retornados por serviços de mapas do Azure, incluindo limites e etiquetas apresentadas no mapa. 
+
+Por predefinição, o parâmetro de modo de exibição é definido como **unificado**, mesmo que ainda não definiu no pedido. É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. Em alternativa, tem a opção de definir "View = automática", que irá devolver os dados de mapa com base no endereço IP do pedido.  O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
+
 
 A tabela seguinte fornece vistas suportadas.
 
@@ -107,4 +151,5 @@ A tabela seguinte fornece vistas suportadas.
 | SA           | Arábia Saudita (vista de Árabe)            |   ✓   |        |     ✓          |
 | SY           | Síria (vista de Árabe)                   |   ✓   |        |     ✓          |
 | VOCÊ           | Iémen (vista de Árabe)                   |   ✓   |        |     ✓          |
+| Automática         | Devolve os dados de mapa com base no endereço IP do pedido.|   ✓   |    ✓   |     ✓          |
 | Unificado      | Vista unificada (outros)                  |   ✓   |   ✓     |     ✓          |

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: a82afe6f5299609fd6dd57a54f04f49fad5d2268
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/26/2019
+ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357647"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443849"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Registos de auditoria na base de dados do Azure para MySQL
 
@@ -55,7 +55,7 @@ As secções seguintes descrevem o que é o resultado por registos de auditoria 
 |---|---|
 | `TenantId` | O ID de inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| `TimeGenerated [UTC]` | Carimbo de hora quando o registo foi registado em UTC |
 | `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID da subscrição que o servidor pertence a |
 | `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
@@ -65,13 +65,14 @@ As secções seguintes descrevem o que é o resultado por registos de auditoria 
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `connection_log` |
-| `event_subclass` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (apenas disponível para o MySQL 5.7) |
-| `connection_id` | ID de ligação exclusivo gerado pelo MySQL |
-| `host` | Vazio |
-| `ip` | Endereço IP do cliente a ligar ao MySQL |
-| `user` | Nome de utilizador que executa a consulta |
-| `db` | Nome da base de dados ligado a |
+| `LogicalServerName_s` | Nome do servidor |
+| `event_class_s` | `connection_log` |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (apenas disponível para o MySQL 5.7) |
+| `connection_id_d` | ID de ligação exclusivo gerado pelo MySQL |
+| `host_s` | Vazio |
+| `ip_s` | Endereço IP do cliente a ligar ao MySQL |
+| `user_s` | Nome de utilizador que executa a consulta |
+| `db_s` | Nome da base de dados ligado a |
 | `\_ResourceId` | URI do recurso |
 
 ### <a name="general"></a>Geral
@@ -82,7 +83,7 @@ Esquema abaixo aplica-se aos tipos de evento de geral, DML_SELECT, DML_NONSELECT
 |---|---|
 | `TenantId` | O ID de inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| `TimeGenerated [UTC]` | Carimbo de hora quando o registo foi registado em UTC |
 | `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID da subscrição que o servidor pertence a |
 | `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
@@ -92,15 +93,16 @@ Esquema abaixo aplica-se aos tipos de evento de geral, DML_SELECT, DML_NONSELECT
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `general_log` |
-| `event_subclass` | `LOG`, `ERROR`, `RESULT` (apenas disponível para o MySQL 5.6) |
+| `LogicalServerName_s` | Nome do servidor |
+| `event_class_s` | `general_log` |
+| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (apenas disponível para o MySQL 5.6) |
 | `event_time` | Consulta iniciar segundos no UNIX timestamp |
-| `error_code` | Código de erro se a consulta falha. `0` significa que nenhum erro |
-| `thread_id` | ID do thread que executou a consulta |
-| `host` | Vazio |
-| `ip` | Endereço IP do cliente a ligar ao MySQL |
-| `user` | Nome de utilizador que executa a consulta |
-| `sql_text` | Texto da consulta completa |
+| `error_code_d` | Código de erro se a consulta falha. `0` significa que nenhum erro |
+| `thread_id_d` | ID do thread que executou a consulta |
+| `host_s` | Vazio |
+| `ip_s` | Endereço IP do cliente a ligar ao MySQL |
+| `user_s` | Nome de utilizador que executa a consulta |
+| `sql_text_s` | Texto da consulta completa |
 | `\_ResourceId` | URI do recurso |
 
 ### <a name="table-access"></a>Acesso de tabela
@@ -109,7 +111,7 @@ Esquema abaixo aplica-se aos tipos de evento de geral, DML_SELECT, DML_NONSELECT
 |---|---|
 | `TenantId` | O ID de inquilino |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| `TimeGenerated [UTC]` | Carimbo de hora quando o registo foi registado em UTC |
 | `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID da subscrição que o servidor pertence a |
 | `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
@@ -119,12 +121,13 @@ Esquema abaixo aplica-se aos tipos de evento de geral, DML_SELECT, DML_NONSELECT
 | `Resource` | Nome do servidor |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `event_class` | `table_access_log` |
-| `event_subclass` | `READ`, `INSERT`, `UPDATE`, ou `DELETE` |
-| `connection_id` | ID de ligação exclusivo gerado pelo MySQL |
-| `db` | Nome da base de dados acedido |
-| `table` | Nome da tabela acessada |
-| `sql_text` | Texto da consulta completa |
+| `LogicalServerName_s` | Nome do servidor |
+| `event_class_s` | `table_access_log` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`, ou `DELETE` |
+| `connection_id_d` | ID de ligação exclusivo gerado pelo MySQL |
+| `db_s` | Nome da base de dados acedido |
+| `table_s` | Nome da tabela acessada |
+| `sql_text_s` | Texto da consulta completa |
 | `\_ResourceId` | URI do recurso |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f57b0189708f48d1dc403ce778f5f9693b6dc702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 833a22635c1d53dce9086aa3e11220d5868a302c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110384"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471981"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -36,6 +36,90 @@ O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os
 - Planos para que as alterações
 
 Esta página é atualizada mensalmente, por isso, revisitá-lo regularmente. Se estiver procurando por itens que têm mais de seis meses, pode encontrá-los no [arquivada para o que há de novo no Azure Active Directory](whats-new-archive.md).
+
+---
+
+## <a name="june-2019"></a>Junho de 2019
+
+### <a name="new-riskdetections-api-for-microsoft-graph-public-preview"></a>RiskDetections nova API para o Microsoft Graph (pré-visualização pública)
+
+**Tipo:** Novo recurso  
+**Categoria de serviço:** Identity Protection  
+**Capacidade de produto:** Identidade segurança e proteção
+
+Temos o prazer de anunciar que o riskDetections nova API para o Microsoft Graph está agora em pré-visualização pública. Pode utilizar esta nova API para ver uma lista de utilizador relacionadas com o Identity Protection e deteções de risco de início de sessão da sua organização. Também pode utilizar esta API para consultar com mais eficiência sua deteções de risco, incluindo detalhes sobre o tipo de deteção, status, nível e muito mais.
+
+Para obter mais informações, consulte a [documentação de referência da API de deteção de risco](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta).
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2019"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Junho de 2019
+
+**Tipo:** Novo recurso  
+**Categoria de serviço:** Aplicações empresariais  
+**Capacidade de produto:** Integração de terceiros 3
+
+De 2019 de Junho, adicionámos que suportam a esses 22 novas aplicações com a Federação para a Galeria de aplicações:
+
+[Kit de ferramentas do Azure AD SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/saml-toolkit-tutorial), [Otsuka Shokai (大塚商会)](https://docs.microsoft.com/azure/active-directory/saas-apps/otsuka-shokai-tutorial), [ANAQUA](https://docs.microsoft.com/azure/active-directory/saas-apps/anaqua-tutorial), [cliente VPN do Azure](https://portal.azure.com/), [ExpenseIn](https://docs.microsoft.com/azure/active-directory/saas-apps/expensein-tutorial), [ Programa auxiliar de programa auxiliar](https://docs.microsoft.com/azure/active-directory/saas-apps/helper-helper-tutorial), [Costpoint](https://docs.microsoft.com/azure/active-directory/saas-apps/costpoint-tutorial), [GlobalOne](https://docs.microsoft.com/azure/active-directory/saas-apps/globalone-tutorial), [Mercedes Benz no carro Office](https://me.secure.mercedes-benz.com/), [Skore](https://app.justskore.it/), [ Consola de infraestrutura de nuvem do Oracle](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial), [autenticação CyberArk SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/cyberark-saml-authentication-tutorial), [Scrible Edu](https://www.scrible.com/sign-in/#/create-account), [PandaDoc](https://docs.microsoft.com/azure/active-directory/saas-apps/pandadoc-tutorial), [Perceptyx ](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial), [Proptimise SO](https://proptimise.co.uk/property-software/), [Vtiger CRM (SAML)](https://docs.microsoft.com/azure/active-directory/saas-apps/vtiger-crm-saml-tutorial), Gestor de acesso do Oracle para o varejo Oracle propaganda, Gestor de acesso do Oracle para o Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
+
+Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="automate-user-account-provisioning-for-these-newly-supported-saas-apps"></a>Automatizar o aprovisionamento de contas de utilizador para estas aplicações de SaaS suporte
+
+**Tipo:** Novo recurso  
+**Categoria de serviço:** Aplicações empresariais  
+**Capacidade de produto:** Monitorização e relatórios
+
+Agora já pode automatizar a criar, atualizar e excluir contas de utilizador para estas aplicações recentemente integrado:
+
+- [Zoom](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
+
+- [Envoy](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-provisioning-tutorial)
+
+- [Proxyclick](https://docs.microsoft.com/azure/active-directory/saas-apps/proxyclick-provisioning-tutorial)
+
+- [4me](https://docs.microsoft.com/azure/active-directory/saas-apps/4me-provisioning-tutorial)
+
+Para obter mais informações sobre como proteger melhor a sua organização com o aprovisionamento de conta de utilizador automatizada, consulte [automatizar o aprovisionamento de utilizadores para aplicações SaaS com o Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+
+---
+
+### <a name="view-the-real-time-progress-of-the-azure-ad-provisioning-service"></a>Ver o progresso em tempo real do Azure AD do serviço de aprovisionamento
+
+**Tipo:** Funcionalidade alterada  
+**Categoria de serviço:** Aprovisionamento de aplicações  
+**Capacidade de produto:** Gestão de ciclo de vida de identidades
+
+Atualizámos o aprovisionamento do Azure AD experiência para incluir uma nova barra de progresso mostra-lhe a distância é o processo de aprovisionamento de utilizador. Também esta experiência atualizada fornece informações sobre o número de utilizadores aprovisionado durante o ciclo de atual, bem como a forma como número de utilizadores que tiverem sido aprovisionada até à data.
+
+Para obter mais informações, consulte [verificar o estado de aprovisionamento de utilizadores](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+
+---
+
+### <a name="company-branding-now-appears-on-sign-out-and-error-screens"></a>Agora a marca da empresa é apresentado no termine sessão e telas de erro
+
+**Tipo:** Funcionalidade alterada  
+**Categoria de serviço:** Autenticações (inícios de sessão)  
+**Capacidade de produto:** Autenticação do Utilizador
+
+Atualizámos do Azure AD para que a agora a marca da empresa é apresentado na fim de sessão e telas de erro, bem como a página de início de sessão. Não tem de fazer nada para ativar esta funcionalidade, do Azure AD simplesmente usa os ativos que já tiver configurado a na **imagem corporativa da empresa** área do portal do Azure.
+
+Para obter mais informações sobre como configurar a marca da empresa, consulte [adicionar imagem corporativa às páginas de Azure Active Directory da sua organização](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding).
+
+---
+
+### <a name="azure-multi-factor-authentication-mfa-server-is-no-longer-available-for-new-deployments"></a>O servidor multi-factor Authentication (MFA) do Azure já não está disponível para novas implementações
+
+**Tipo:** Preterido  
+**Categoria de serviço:** MFA  
+**Capacidade de produto:** Identidade segurança e proteção
+
+A partir de 1 de Julho de 2019 Microsoft já não irá oferecer servidor MFA para novas implementações. Novos clientes que pretendam exigir autenticação multifator na sua organização tem de utilizar agora com base na cloud do Azure multi-factor Authentication. Clientes que ativaram o servidor de MFA antes de 1 de Julho, não verão uma alteração. Ainda poderá transferir a versão mais recente, obter atualizações futuras e gerar credenciais de ativação.
+
+Para obter mais informações, consulte [guia de introdução do servidor de multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy). Para obter mais informações sobre com base na cloud do Azure multi-factor Authentication, consulte [planear uma implementação de multi-factor Authentication do Azure com base na cloud](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
 
@@ -329,7 +413,7 @@ O Azure AD Connect está no processo de transição nossos sistemas de alerta de
 
 ### <a name="upn-suffix-changes-are-now-successful-between-federated-domains-in-azure-ad-connect"></a>Alterações de sufixo UPN estão agora com êxito entre domínios federados, no Azure AD Connect
 
-**Tipo:** Foi corrigido  
+**Tipo:** Fixo  
 **Categoria de serviço:** Sincronização do AD  
 **Capacidade de produto:** Plataforma
 
@@ -511,7 +595,7 @@ Para obter mais detalhes sobre esta funcionalidade, consulte [início rápido: T
 
 ---
 
-### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Alteração significativa: Atualizações à avaliação de condição pelo Exchange ActiveSync (EAS)
+### <a name="breaking-change-updates-to-condition-evaluation-by-exchange-activesync-eas"></a>Alteração interruptiva: Atualizações à avaliação de condição pelo Exchange ActiveSync (EAS)
 
 **Tipo:** Plano de alteração  
 **Categoria de serviço:** Acesso Condicional  
@@ -732,211 +816,5 @@ Para obter mais informações, consulte a [aplicação Microsoft Authenticator F
 Administradores do Privileged Identity Management (PIM) agora podem exportar todas as atribuições de função elegível e Active Directory para um recurso específico, que inclui atribuições de funções para todos os recursos subordinados. Anteriormente, era difícil para os administradores obter uma lista completa das atribuições de funções para uma subscrição e teve de exportar as atribuições de função para cada recurso específico.
 
 Para obter mais informações, consulte [ver histórico de atividade e auditoria para funções de recursos do Azure no PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
-
----
-
-## <a name="novemberdecember-2018"></a>Novembro/Dezembro de 2018
-
-### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Utilizadores não removidos do escopo de sincronização nenhum comutador de mais tempo a contas apenas na cloud
-
-**Tipo:** Foi corrigido  
-**Categoria de serviço:** Gestão de Utilizadores  
-**Capacidade de produto:** Diretório
-
->[!Important]
->Nós já ouviu falar e compreender a sua frustração devido a esta correção. Portanto, podemos já reverter esta alteração até que esse tempo que podemos fazer a correção mais fácil de implementar na sua organização.
-
-Corrigimos um bug em que o sinalizador DirSyncEnabled de um utilizador seria erroneamente mudado para **False** quando o objeto de serviços de domínio do Active Directory (AD DS) foi excluído do escopo de sincronização e, em seguida, movido para a Reciclagem no O Azure AD no ciclo de sincronização seguinte. Como resultado desta correção, se o utilizador está excluído do âmbito de sincronização e posteriormente restaurado a partir do Azure AD da Reciclagem, a conta de utilizador continua sendo sincronizadas a partir do AD no local, conforme o esperado e não pode ser gerida na cloud, uma vez que a respetiva origem de autoridade (SoA) permanece como AD no local.
-
-Antes desta correção, Ocorreu um problema quando o sinalizador DirSyncEnabled foi mudado para False. Ele deu a impressão errada de que estas contas foram convertidas em objetos de apenas na cloud e que as contas podem ser geridas na cloud. No entanto, as contas retidos ainda seus SoA como no local e sincronizadas todas as propriedades (atributos de cópias de sombra) provenientes do AD no local. Esta condição causou vários problemas no Azure AD e outras cloud cargas de trabalho (como o Exchange Online) que devem tratar estas contas, como sincronizadas a partir do AD, mas foram agora se comportando como contas apenas na cloud.
-
-Neste momento, a única maneira de verdadeiramente converter uma conta de sincronizadas a partir do AD conta apenas na cloud é através da respetiva desativação DirSync ao nível do inquilino, o que aciona uma operação de back-end para transferir a SoA. Este tipo de alteração da SoA requer (mas não está limitado a) a limpeza de todos os locais de atributos relacionados (como LastDirSyncTime e atributos de cópias de sombra) e enviar um sinal para outras cargas de trabalho da cloud ter seu respectivo objeto convertido para uma conta apenas na cloud também .
-
-Esta correção conseqüentemente impede a atualizações diretas no atributo ImmutableID de um utilizador sincronizado a partir do AD, que, em alguns cenários no passado, eram necessárias. Por predefinição, o ImmutableID de um objeto no Azure AD, como o nome indica, deve ser imutável. Novos recursos implementados no cliente do Azure AD Connect Health e a sincronização de ligação de AD do Azure estão disponíveis para lidar com esses cenários:
-
-- **Atualização de ImmutableID em grande escala para muitos usuários numa abordagem faseada**
-  
-  Por exemplo, terá de efetuar uma migração de entre florestas do AD DS demorada. Solução: Utilizar o Azure AD Connect, para **configurar âncora de origem** e, como o utilizador efetua a migração, copie os valores de ImmutableID existentes do Azure AD para o atributo de ms-DS-consistência-Guid do utilizador de AD DS local da nova floresta. Para obter mais informações, consulte [usando o ms-DS-ConsistencyGuid como sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
-
-- **Atualizações de ImmutableID em grande escala para muitos usuários de uma só vez**
-
-  Por exemplo, durante a implementação do Azure AD Connect, Cometa um erro, e agora precisa alterar o atributo SourceAnchor. Solução: Desative o DirSync ao nível do inquilino e limpar todos os valores de ImmutableID inválidos. Para obter mais informações, consulte [desativar a sincronização de diretórios para o Office 365](/office365/enterprise/turn-off-directory-synchronization).
-
-- **Utilizador de locais de rematch com um utilizador existente no Azure AD** por exemplo, um utilizador que foi recriado no AD DS gera um duplicado na conta do Azure AD em vez de rematching-lo com uma conta do Azure AD existente (objeto órfão). Solução: Utilize o Azure AD Connect Health no portal do Azure para Remapeie o âncora de origem/ImmutableID. Para obter mais informações, consulte [cenário de objeto Orphaned](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
-
-### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Alteração de última hora: Atualizações para a auditoria e o esquema de registos de início de sessão através do Azure Monitor
-
-**Tipo:** Funcionalidade alterada  
-**Categoria de serviço:** Relatórios  
-**Capacidade de produto:** Monitorização e relatórios
-
-Atualmente, está publicando fluxos de log de auditoria tanto o início de sessão através do Azure Monitor, portanto, pode se integrar perfeitamente os ficheiros de registo com as suas ferramentas SIEM ou com o Log Analytics. Com base nos seus comentários e, em preparação para o anúncio de disponibilidade geral desta funcionalidade, estamos a tornar as seguintes alterações para nosso esquema. Estas alterações de esquema e suas atualizações da documentação relacionada acontecerá na primeira semana de Janeiro.
-
-#### <a name="new-fields-in-the-audit-schema"></a>Novos campos no esquema de auditoria
-Estamos a adicionar um novo **tipo de operação** campo, para fornecer o tipo de operação efetuada no recurso. Por exemplo, **Add**, **Update**, ou **eliminar**.
-
-#### <a name="changed-fields-in-the-audit-schema"></a>Campos alterados no esquema de auditoria
-Os seguintes campos estão mudando no esquema de auditoria:
-
-|Nome do campo|O que mudou|Valores antigos|Novos valores|
-|----------|------------|----------|----------|
-|Category|Esse era o **nome do serviço** campo. Agora é o **categorias de auditoria** campo. **Nome do serviço** foi mudado para o **loggedByService** campo.|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição de palavra-passe self-service</li></ul>|<ul><li>Gestão de Utilizadores</li><li>Gestão de Grupos</li><li>Gestão de aplicações</li></ul>|
-|targetResources|Inclui **TargetResourceType** no nível superior.|&nbsp;|<ul><li>Política</li><li>Aplicação</li><li>Utilizador</li><li>Grupo</li></ul>|
-|loggedByService|Fornece o nome do serviço que gerou o registo de auditoria.|Null|<ul><li>Aprovisionamento de Contas</li><li>Diretório do Núcleo</li><li>Reposição personalizada de palavra-passe</li></ul>|
-|Resultado|Fornece o resultado dos registos de auditoria. Anteriormente, isso estava enumerado, mas vamos agora mostrar o valor real.|<ul><li>0</li><li>1</li></ul>|<ul><li>Êxito</li><li>Falha</li></ul>|
-
-#### <a name="changed-fields-in-the-sign-in-schema"></a>Campos alterados no esquema de início de sessão
-Os seguintes campos estão mudando no esquema de início de sessão:
-
-|Nome do campo|O que mudou|Valores antigos|Novos valores|
-|----------|------------|----------|----------|
-|appliedConditionalAccessPolicies|Esse era o **conditionalaccessPolicies** campo. Agora é o **appliedConditionalAccessPolicies** campo.|Sem alteração|Sem alteração|
-|conditionalAccessStatus|Fornece o resultado de estado de política de acesso condicional no início de sessão. Anteriormente, isso estava enumerado, mas vamos agora mostrar o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
-|appliedConditionalAccessPolicies: resultado|Fornece o resultado do individuais estado de política de acesso condicional no início de sessão. Anteriormente, isso estava enumerado, mas vamos agora mostrar o valor real.|<ul><li>0</li><li>1</li><li>2</li><li>3</li></ul>|<ul><li>Êxito</li><li>Falha</li><li>Não aplicado</li><li>Desativado</li></ul>|
-
-Para obter mais informações sobre o esquema, consulte [esquema de registos de auditoria de interpretação do Azure AD no Azure Monitor (pré-visualização)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
-
----
-
-### <a name="identity-protection-improvements-to-the-supervised-machine-learning-model-and-the-risk-score-engine"></a>Melhorias de proteção de identidade para a supervisionadas do machine learning modelo e o mecanismo de pontuação de risco
-
-**Tipo:** Funcionalidade alterada  
-**Categoria de serviço:** Identity Protection  
-**Capacidade de produto:** Pontuações de risco
-
-Melhorias ao relacionados com a proteção de identidade do usuário e início de sessão risco avaliação motor de podem ajudar a melhorar a precisão de risco de utilizador e a cobertura. Os administradores poderão reparar que o nível de risco do utilizador já não é diretamente está ligado ao nível de risco de detecções específicos e que existe um aumento no número e do nível de risco eventos de início de sessão.
-
-Deteções de risco agora são avaliadas de modelo, que calcula o risco de utilizador com funcionalidades adicionais de inícios de sessão do utilizador e um padrão de detecções de aprendizagem supervisionada. Com base nesse modelo, o administrador talvez os usuários com pontuações de risco elevado, mesmo se deteções associadas a esse utilizador são de risco baixo ou médio. 
-
----
-
-### <a name="administrators-can-reset-their-own-password-using-the-microsoft-authenticator-app-public-preview"></a>Os administradores podem repor a sua própria palavra-passe a utilizar a aplicação Microsoft Authenticator (pré-visualização pública)
-
-**Tipo:** Funcionalidade alterada  
-**Categoria de serviço:** Reposição de palavra-passe Self-Service  
-**Capacidade de produto:** Autenticação do Utilizador
-
-Administradores do Azure AD podem agora repor a sua própria palavra-passe a utilizar nas notificações da aplicação Microsoft Authenticator ou um código a partir de qualquer aplicação de autenticador móvel ou do hardware token. Para repor a sua própria palavra-passe, os administradores poderão agora utilizar dois dos seguintes métodos:
-
-- Notificação da aplicação Microsoft Authenticator
-
-- Outra aplicação de autenticador móvel / código de token de Hardware
-
-- Email
-
-- Chamada telefónica
-
-- Mensagem de texto
-
-Para obter mais informações sobre como utilizar a aplicação Microsoft Authenticator para repor palavras-passe, consulte [de reposição de palavra-passe self-service do Azure AD - aplicações móveis e de SSPR (pré-visualização)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
-
----
-
-### <a name="new-azure-ad-cloud-device-administrator-role-public-preview"></a>Nova função de administrador de dispositivo na Cloud do Azure AD (pré-visualização pública)
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Registo de dispositivos e gestão  
-**Capacidade de produto:** Controlo de acesso
-
-Os administradores podem atribuir utilizadores para a nova função de administrador do dispositivo na Cloud para executar tarefas de administrador do dispositivo na cloud. Utilizadores atribuídos a função de administradores de dispositivos de nuvem podem ativar, desativar e eliminar dispositivos no Azure AD, juntamente com a capacidade de ler as chaves do BitLocker do Windows 10 (caso exista) no portal do Azure.
-
-Para obter mais informações sobre as funções e permissões, consulte [atribuir funções de administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
-
----
-
-### <a name="manage-your-devices-using-the-new-activity-timestamp-in-azure-ad-public-preview"></a>Gerir os seus dispositivos com o novo período de tempo de atividade no Azure AD (pré-visualização pública)
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Registo de dispositivos e gestão  
-**Capacidade de produto:** Gestão de ciclo de vida de dispositivos
-
-Sabemos que ao longo do tempo deve atualizar e extinguir dispositivos da sua organização no Azure AD, para evitar que dispositivos obsoletos no seu ambiente. Para ajudar nesse processo, o Azure AD agora atualiza seus dispositivos com um novo carimbo de atividade, ajudando-o a gerir o ciclo de vida do dispositivo.
-
-Para obter mais informações sobre como obter e utilizar esta timestamp, consulte [como: Gerir os dispositivos obsoletos no Azure AD](https://docs.microsoft.com/azure/active-directory/devices/manage-stale-devices)
-
----
-
-### <a name="administrators-can-require-users-to-accept-a-terms-of-use-on-each-device"></a>Os administradores podem exigir que os utilizadores aceitem os termos de utilização em cada dispositivo
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Termos de utilização  
-**Capacidade de produto:** Governação
- 
-Os administradores podem agora ativar a **exigir que os utilizadores dar consentimento em todos os dispositivos** opção para exigir aos utilizadores para aceitarem os termos de utilização em cada dispositivo que estiver a utilizar no seu inquilino.
-
-Para obter mais informações, consulte a [termos de por dispositivo de seção de utilização dos termos do Azure Active Directory da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-a-recurring-schedule"></a>Os administradores podem configurar os termos de utilização para expirar com base numa agenda periódica
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Termos de utilização  
-**Capacidade de produto:** Governação
- 
-
-Os administradores podem agora ativar a **expirar consentimentos** opção que torna os termos de utilização expirar para todos os seus utilizadores com base na agenda recorrente especificada. O agendamento pode ser anualmente, bi anualmente, trimestralmente ou mensalmente. Depois dos termos de utilização expirarem, os utilizadores têm voltem.
-
-Para obter mais informações, consulte a [adicionar termos de seção de utilização dos termos do Azure Active Directory da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
-
----
-
-### <a name="administrators-can-configure-a-terms-of-use-to-expire-based-on-each-users-schedule"></a>Os administradores podem configurar os termos de utilização para expirar com base no agendamento de cada utilizador
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Termos de utilização  
-**Capacidade de produto:** Governação
-
-Os administradores agora podem especificar um período de tempo que o utilizador tem voltem a termos de utilização. Por exemplo, os administradores podem especificar que os utilizadores têm voltem a termos de utilização de todos os 90 dias.
-
-Para obter mais informações, consulte a [adicionar termos de seção de utilização dos termos do Azure Active Directory da funcionalidade de utilização](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
- 
----
-
-### <a name="new-azure-ad-privileged-identity-management-pim-emails-for-azure-active-directory-roles"></a>Novos e-mails do Azure AD Privileged Identity Management (PIM) para funções do Azure Active Directory
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Privileged Identity Management  
-**Capacidade de produto:** Privileged Identity Management
- 
-Clientes que utilizam o Azure AD Privileged Identity Management (PIM) podem agora receber um e-mail de resumo semanal, incluindo as seguintes informações para os últimos sete dias:
-
-- Descrição geral das atribuições principais funções elegíveis e permanentes
-
-- Número de ativação de funções de utilizadores
-
-- Número de utilizadores atribuídos a funções no PIM
-
-- Número de utilizadores atribuídos a funções fora do PIM
-
-- Número de utilizadores "feitas permanente" no PIM
-
-Para obter mais informações sobre o PIM e as notificações de e-mail disponíveis, consulte [notificações no PIM por E-Mail](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications).
-
----
-
-### <a name="group-based-licensing-is-now-generally-available"></a>Licenciamento baseado em grupo está agora em disponibilidade geral
-
-**Tipo:** Funcionalidade alterada  
-**Categoria de serviço:** Outros  
-**Capacidade de produto:** Diretório
-
-Licenciamento baseado em grupo está fora do pré-visualização pública e está agora em disponibilidade geral. Como parte desta versão gerais, fez esse recurso mais escalonável e adicionou a capacidade de Reprocessar atribuições de licenciamento baseado em grupo para um único utilizador e a capacidade de utilizar o licenciamento com o botão com base em grupo com licenças do Office 365 E3/A3.
-
-Para obter mais informações sobre o licenciamento baseado em grupo, consulte [o que é o licenciamento no Azure Active Directory com base em grupo?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal)
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---november-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Novembro de 2018
-
-**Tipo:** Novo recurso  
-**Categoria de serviço:** Aplicações empresariais  
-**Capacidade de produto:** Integração de terceiros 3
- 
-Em Novembro de 2018, adicionámos que estes 26 novas aplicações com a Federação de suporte para a Galeria de aplicações:
-
-[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial), [Gra Pe](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [Campus infinito](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [ HeyBuddy](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [Descompassos](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy para empresas Central 365](https://accounting.zenegy.com/), [Everbridge membro Portal](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [IDEO](https://profile.ideo.com/users/sign_up), [Ivanti do Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [Plexos aplicações - Teste clássico](https://test.plexonline.com/signon), [Plexos aplicações – clássico](https://www.plexonline.com/signon), [Plexos aplicações - teste UX](https://test.cloud.plex.com/sso), [Plexos aplicações – experiência do Usuário](https://cloud.plex.com/sso), [Plexos aplicações – IAM](https://accounts.plex.com/), [ARTESANATO - registos Childcare, participação e sistema de controlo financeiros](https://getcrafts.ca/craftsregistration) 
-
-Para obter mais informações sobre as aplicações, consulte [integração de aplicações SaaS com o Azure Active Directory](https://aka.ms/appstutorial). Para obter mais informações sobre a listagem a sua aplicação na Galeria de aplicações do Azure AD, consulte [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://aka.ms/azureadapprequest).
 
 ---

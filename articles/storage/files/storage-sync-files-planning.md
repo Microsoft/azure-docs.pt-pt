@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9bb33e7d2bb80bcb19087dca6bc21bafc791af2a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449860"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -183,6 +183,12 @@ Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta
 - Para trabalhos de otimização de eliminação de duplicados em curso, irá obter adiada na cloud em camadas com a política de data a eliminação de duplicados de dados [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) definição, se o ficheiro não está já em camadas. 
     - Exemplo: Se a definição MinimumFileAgeDays é de 7 dias e política de data de camadas na cloud é de 30 dias, a política de data será camadas os ficheiros após 37 dias.
     - Nota: Depois de um ficheiro é camado pelo Azure File Sync, a tarefa de otimização de eliminação de duplicados irá ignorar o ficheiro.
+- Se um servidor com o Windows Server 2012 R2 com o agente de sincronização de ficheiros do Azure instalado é atualizado para o Windows Server 2016 ou Windows Server 2019, os seguintes passos tem de ser executados para suportar a eliminação de duplicados de dados e na cloud em camadas no mesmo volume:  
+    - Desinstalar o agente de sincronização de ficheiros do Azure para o Windows Server 2012 R2 e reinicie o servidor.
+    - Transferir o agente de sincronização de ficheiros do Azure para a versão de SO de servidor nova (Windows Server 2016 ou Windows Server 2019).
+    - Instalar o agente de sincronização de ficheiros do Azure e reinicie o servidor.  
+    
+    Nota: As definições de configuração de sincronização de ficheiros do Azure no servidor são mantidas quando o agente é desinstalado e reinstalado.
 
 ### <a name="distributed-file-system-dfs"></a>Sistema de ficheiros distribuído (DFS)
 O Azure File Sync suporta a interoperabilidade com espaços de nomes do DFS (DFS-N) e a replicação de DFS (DFS-R).
@@ -255,7 +261,7 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Índia Central | Pune |
 | EUA Central | Iowa |
 | Ásia Oriental | RAE de Hong Kong |
-| EUA Leste | Virgínia |
+| East US | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
 | Coreia do Sul Central| Seoul |
 | Coreia do Sul| Busan |
@@ -296,7 +302,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Índia Central       | Sul da Índia        |
 | EUA Central          | EUA Leste 2          |
 | Ásia Oriental           | Sudeste Asiático     |
-| EUA Leste             | EUA Oeste            |
+| East US             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
@@ -314,7 +320,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Gov (US) - Virginia      | Gov (US) - Texas       |
 | Europa Ocidental         | Europa do Norte       |
 | EUA Centro-Oeste     | EUA Oeste 2          |
-| EUA Oeste             | EUA Leste            |
+| EUA Oeste             | East US            |
 | EUA Oeste 2           | EUA Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync

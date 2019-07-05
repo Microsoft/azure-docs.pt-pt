@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5ffbee1b4fdfc08b111e199e73baae19341b1022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65775670"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509280"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 
@@ -152,7 +152,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td></td>
     </tr>
     <tr>
-      <td>Vista de SQL Data Warehouse</td>
+      <td>Vista de armazém de dados SQL do Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -165,7 +165,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>KPI do SQL Server Analysis Services</td>
@@ -173,7 +173,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Medida de SQL Server Analysis Services</td>
@@ -181,7 +181,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server Analysis Services</td>
@@ -189,7 +189,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Relatório do SQL Server Reporting Services</td>
@@ -197,7 +197,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Apenas a servidores de modo nativo. Modo do SharePoint não é suportado.</td>
+      <td>Apenas a servidores de modo nativo. Modo do SharePoint não é suportado. SQL Server 2008 e versões posteriores apenas</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
@@ -205,7 +205,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Vista de SQL Server</td>
@@ -213,7 +213,7 @@ Pode publicá-los com uma API pública ou um clique-registo uma vez ferramenta o
       <td>✓</td>
       <td>✓</td>
       <td>Ferramentas de dados do Excel, Power BI Desktop, do SQL Server</td>
-      <td></td>
+      <td>SQL Server 2008 e versões posteriores.</td>
     </tr>
     <tr>
       <td>Tabela de Teradata</td>

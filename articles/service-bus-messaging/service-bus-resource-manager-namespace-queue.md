@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111497"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444775"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus e uma fila usando um modelo Azure Resource Manager
 
@@ -27,7 +27,7 @@ Este artigo mostra como utilizar um modelo do Azure Resource Manager que cria um
 
 Para obter mais informações sobre a criação de modelos, veja [modelos Authoring Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Para o modelo completo, consulte a [modelo de espaço de nomes e a fila do Service Bus] [ Service Bus namespace and queue template] no GitHub.
+Para o modelo completo, consulte a [modelo de espaço de nomes e a fila do Service Bus][Service Bus namespace and queue template] no GitHub.
 
 > [!NOTE]
 > Os seguintes modelos do Azure Resource Manager estão disponíveis para download e implantação.
@@ -37,7 +37,7 @@ Para o modelo completo, consulte a [modelo de espaço de nomes e a fila do Servi
 > * [Criar um espaço de nomes do Service Bus](service-bus-resource-manager-namespace.md)
 > * [Criar um espaço de nomes do Service Bus com o tópico, subscrição e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure] [ Azure Quickstart Templates] Galeria e procure **do Service Bus**.
+> Para verificar os modelos mais recentes, visite o [modelos de início rápido do Azure][Azure Quickstart Templates] Galeria e procure **do Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que criou e implantou recursos com o Azure Resource Manager, saiba como gerir estes recursos ao visualizar estes artigos:
+Consulte o tópico seguinte que mostra como criar uma regra de autorização para a espaço de nomes/fila: [Criar uma regra de autorização do Service Bus para o espaço de nomes e a fila usando um modelo Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
+
+Saiba como gerir estes recursos ao visualizar estes artigos:
 
 * [Gerir o Service Bus com o PowerShell](service-bus-manage-with-ps.md)
 * [Gerir recursos do Service Bus com o Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

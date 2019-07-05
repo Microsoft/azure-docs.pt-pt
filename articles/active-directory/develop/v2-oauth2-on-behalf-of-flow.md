@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bdd91f8ee1228febe71244530a63fe992df56d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7582cd8453b25f071c18566f09d2155a6377a0a6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110851"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482157"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo do OAuth 2.0 On-Behalf-Of
 
@@ -42,7 +42,7 @@ Partem do princípio de que o utilizador foi autenticado numa aplicação com o 
 
 Os passos que se seguem constituem o fluxo OBO e são explicados com a ajuda de que o diagrama seguinte.
 
-![OAuth2.0 em-nome-de fluxo](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Mostra o OAuth2.0 em-nome-de fluxo](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. A aplicação cliente faz um pedido para API A com um token de (com um `aud` de afirmação de API A).
 1. API A se autentica o ponto de final de emissão de token de plataforma de identidade do Microsoft e solicita um token para aceder a b de API.

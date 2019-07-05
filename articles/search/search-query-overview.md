@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 422e9209609eac19b7952557674c99789d9f6088
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595972"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485176"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -29,7 +29,7 @@ A tabela seguinte lista as APIs e as abordagens baseadas em ferramenta para o en
 | Metodologia | Descrição |
 |-------------|-------------|
 | [Explorador de pesquisa (portal)](search-explorer.md) | Fornece uma barra de pesquisa e as opções de seleções de índice e a versão de api. Os resultados são devolvidos como documentos JSON. <br/>[Saiba mais.](search-get-started-portal.md#query-index) | 
-| [Postman ou Fiddler](search-fiddler.md) | Ferramentas de teste da Web são uma excelente opção para formular chamadas REST. A API REST oferece suporte a todas as operações possíveis no Azure Search. Neste artigo, saiba como configurar um cabeçalho de pedido HTTP e corpo para enviar pedidos para o Azure Search.  |
+| [Postman ou Fiddler](search-get-started-postman.md) | Ferramentas de teste da Web são uma excelente opção para formular chamadas REST. A API REST oferece suporte a todas as operações possíveis no Azure Search. Neste artigo, saiba como configurar um cabeçalho de pedido HTTP e corpo para enviar pedidos para o Azure Search.  |
 | [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Cliente que pode ser usado para consultar um índice da Azure Search.  <br/>[Saiba mais.](search-howto-dotnet-sdk.md#core-scenarios)  |
 | [Pesquisa de documentos (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET ou métodos POST num índice, com parâmetros de consulta de entrada adicional.  |
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: e8e11ffd4260c2956c6bb4740973eb77abfdc7b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 26a5baf07ee31bdf155629139e12ef1977ddca1d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055214"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457491"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento.
 
@@ -31,7 +31,7 @@ Cache de armazenamento Premium:  Não suportado
 
 As VMs da série NC têm tecnologia a [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) cartão e a Intel Xeon E5-2690 v3 (Haswell) de processador. Os utilizadores podem processar os dados mais rapidamente ao tirar partido das CUDA para aplicações de exploração de energia, simulações de falhas, ray composição rastreada, aprendizagem aprofundada e muito mais. A configuração NC24r fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
@@ -56,7 +56,7 @@ A configuração de v2 NC24rs fornece uma baixa latência, otimizado para cargas
 > Para esta família de tamanho, a quota de vCPU (núcleo) na sua subscrição inicialmente é definida como 0 em cada região. [Pedir um aumento de quota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para esta família num [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
 | --- | --- | --- | --- | --- | --- | ---  | ---| --- |
 | Standard_NC6s_v2 | 6 |112 | 736 | 1 | 16 | 12 | 20000/ 200 | 4 |
 | Standard_NC12s_v2 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -79,7 +79,7 @@ As VMs da série NCv3 têm a tecnologia [NVIDIA Tesla V100](https://www.nvidia.c
 > Para esta família de tamanho, a quota de vCPU (núcleo) na sua subscrição inicialmente é definida como 0 em cada região. [Pedir um aumento de quota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para esta família num [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC6s_v3 | 6 |112 | 736 | 1 | 16 | 12 | 20000 / 200 | 4 |
 | Standard_NC12s_v3 | 12 |224 | 1474 | 2 | 32 | 24 | 40000 / 400 | 8 |
@@ -103,9 +103,9 @@ Máquinas de virtuais de série NDv2 é uma nova adição à família de GPU con
 [Inscreva-se e obtenha acesso a essas máquinas durante a pré-visualização](https://aka.ms/ndv2signup).
 <br>
 
-| Tamanho | vCPU | GPU | Memória | NICs (Máx) | Um máximo de Tamanho do disco | Um máximo de Discos de dados | Débito máximo de disco não colocado em cache: IOPS / MBps | Largura de banda de rede de máx. | 
+| Size | vCPU | GPU | Memória | NICs (Máx) | (SSD) de armazenamento temporário GiB | Um máximo de Discos de dados | Débito máximo de disco não colocado em cache: IOPS / MBps | Largura de banda de rede de máx. | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | Temporary 1344 / 2948XIO | 32 | 80000 / 800 | 24000 Mbps |
+| Standard_ND40s_v2 | 40 | 8 V100 (NVLink) | 672 GiB | 8 | 2948 | 32 | 80000 / 800 | 24000 Mbps |
 
 ## <a name="nd-series"></a>Série ND
 
@@ -119,7 +119,7 @@ As máquinas de virtuais de série ND são que uma novidade na família de GPU c
 > Para esta família de tamanho, a quota de vCPU (núcleo) por região na sua subscrição é inicialmente definida como 0. [Pedir um aumento de quota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para esta família num [região disponível](https://azure.microsoft.com/regions/services/).
 >
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_ND6s | 6 |112 | 736 | 1 | 24 | 12 | 20000 / 200 | 4 |
 | Standard_ND12s | 12 |224 | 1474 | 2 | 48 | 24 | 40000 / 400 | 8 | 
@@ -140,7 +140,7 @@ As máquinas de virtuais de série NV têm a tecnologia [NVIDIA Tesla M60](http:
 
 Cada GPU em instâncias de NV vem com uma licença de GRADE. Esta licença dá-lhe a flexibilidade para utilizar uma instância de NV como uma estação de trabalho virtual para um único utilizador ou 25 utilizadores em simultâneo podem ligar-se para a VM para um cenário de aplicação virtual.
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | NICs máximos | Estações de trabalho virtual | Aplicações virtuais |
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | NICs máximos | Estações de trabalho virtual | Aplicações virtuais |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
@@ -158,7 +158,7 @@ As máquinas de virtuais de série NVv3 têm a tecnologia [NVIDIA Tesla M60](htt
 
 Cada GPU em instâncias de NVv3 vem com uma licença de GRADE. Esta licença dá-lhe a flexibilidade para utilizar uma instância de NV como uma estação de trabalho virtual para um único utilizador ou 25 utilizadores em simultâneo podem ligar-se para a VM para um cenário de aplicação virtual.
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos | Estações de trabalho virtual | Aplicações virtuais | 
+| Size | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória GPU: GiB | Discos de dados máximos | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs máximos | Estações de trabalho virtual | Aplicações virtuais | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV12s_v3 |12 |112 |320 | 1 | 8 | 12 | 20000 / 200 | 4 | 1 | 25 |
 | Standard_NV24s_v3 |24 |224 |640 | 2 | 16 | 24 | 40000 / 400 | 8 | 2 | 50 |

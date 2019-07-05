@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Python e APIs REST - Azure Search'
-description: Criar, carregar e consultar um índice com o Python, blocos de notas do Jupyter e a API de REST do Azure Search.
+title: 'Guia de introdução do Python: Criar, carregar e consultar índices com APIs de REST de pesquisa do Azure - Azure Search'
+description: Explica como criar um índice, carregar dados e executar consultas com o Python, blocos de notas do Jupyter e a API de REST do Azure Search.
 ms.date: 06/20/2019
 author: heidisteen
 manager: cgronlun
@@ -10,23 +10,23 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 227da2739216961dcd1f2fb8c643703a1b62e51a
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302285"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485463"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Início rápido: Criar um índice da Azure Search utilizando blocos de notas do Jupyter Python
+# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Início rápido: Criar um índice da Azure Search no Python com blocos de notas do Jupyter
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Postman (REST)](search-fiddler.md)
+> * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-create-index-portal.md)
 > 
 
-Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo, começando do zero. Em alternativa, pode executar um bloco de notas terminado. Para transferir uma cópia, vá para o[repositório azure-aearch-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo, começando do zero. Em alternativa, pode executar um bloco de notas terminado. Para transferir uma cópia, vá para o[repositório azure-pesquisa-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -46,7 +46,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
 
-![Obter uma chave de acesso e de ponto final HTTP](media/search-fiddler/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter uma chave de acesso e de ponto final HTTP](media/search-get-started-postman/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
 
 Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -275,7 +275,7 @@ Este passo mostra-lhe como consultar um índice com o [API REST do Search docume
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "pesquisar um índice")
 
-1. Experimente alguns outros exemplos de consulta para ter uma noção do que a sintaxe. Pode substituir o searchstring com os exemplos seguintes e, em seguida, volte a executar o pedido de pesquisa. 
+1. Experimente alguns outros exemplos de consulta para ter uma noção do que a sintaxe. Pode substituir o `searchstring` com os exemplos seguintes e, em seguida, volte a executar o pedido de pesquisa. 
 
    Aplica um filtro: 
 

@@ -3,7 +3,7 @@ title: Proteger o seu domínio gerido do Azure Active Directory Domain Services 
 description: Proteja o seu domínio gerido
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: ab371553a96f3a8d393c8b773c4024d04fd171a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/28/2019
+ms.author: iainfou
+ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246738"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483285"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Proteger o seu domínio gerido do Azure AD Domain Services
 Este artigo ajuda-o a proteger o seu domínio gerido. Pode desativar a utilização de conjuntos de cifras fraco e desativar a sincronização de hashes de credencial NTLM.
@@ -56,6 +56,11 @@ $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPa
 // Apply the settings to the managed domain.
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
+
+> [!IMPORTANT]
+> Os utilizadores (e contas de serviço) não é possível efetuar une simples de LDAP se tiver desativado a sincronização de hash de palavra-passe NTLM na sua instância do Azure AD Domain Services.  Para obter mais informações sobre como desabilitar a sincronização de hash de palavra-passe NTLM, leia [proteger o seu domínio gerido do Azure AD DOmain Services](secure-your-domain.md).
+>
+>
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Compreender a sincronização no Azure AD Domain Services](synchronization.md)

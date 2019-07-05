@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/05/2019
-ms.openlocfilehash: bd0e8099be5422d561541aeb8911c9a1610befcb
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272759"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543859"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar um modelo com uma imagem personalizada do Docker
 
@@ -55,14 +55,14 @@ As informações desta secção parte do princípio de que está a utilizar um r
 
     Quando a utilização de imagens armazenadas na __registo de contentor para a área de trabalho__, não é necessário autenticar para o registo. Autenticação é manipulada pela área de trabalho.
 
-    > [!TIP]
-    > O registo de contentor para a área de trabalho é criado pela primeira vez, preparar ou implementar um modelo a utilizar a área de trabalho. Não se tiver criado uma nova área de trabalho, mas não treinados ou criou um modelo, existem nenhum registo de contentor do Azure para a área de trabalho.
+    > [!WARNING]
+    > É o Rzegistry de contentor do Azure para a área de trabalho __criado na primeira vez, preparar ou implementar um modelo__ usando a área de trabalho. Não se tiver criado uma nova área de trabalho, mas não treinados ou criou um modelo, existem nenhum registo de contentor do Azure para a área de trabalho.
 
     Para obter informações sobre como obter o nome do registo de contentor do Azure para a área de trabalho, consulte a [nome do registo de contentor de Get](#getname) seção deste artigo.
 
     Quando a utilização de imagens armazenados num __registo de contentor autónomo__, terá de configurar um principal de serviço, pelo menos, tem acesso de leitura. , Em seguida, fornecer o ID de principal de serviço (nome de utilizador) e a palavra-passe a qualquer pessoa que utiliza imagens a partir do registo. A exceção é se torne o registo de contentor publicamente acessíveis.
 
-    Para obter informações sobre como criar um Azure Container Registry privado, consulte [criar um registo de contentor privado](/azure/container-registry/container-registery-get-started-azure-cli).
+    Para obter informações sobre como criar um Azure Container Registry privado, consulte [criar um registo de contentor privado](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Para obter informações sobre como utilizar principais de serviço com o Azure Container Registry, veja [autenticação do Azure Container Registry com principais de serviço](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -80,8 +80,8 @@ As informações desta secção parte do princípio de que está a utilizar um r
 
 Nesta secção, saiba como obter o nome do registo de contentor do Azure para a área de trabalho do serviço do Azure Machine Learning.
 
-> [!TIP]
-> O registo de contentor para a área de trabalho é criado pela primeira vez, preparar ou implementar um modelo a utilizar a área de trabalho. Não se tiver criado uma nova área de trabalho, mas não treinados ou criou um modelo, existem nenhum registo de contentor do Azure para a área de trabalho.
+> [!WARNING]
+> O Azure Container Registry para sua área de trabalho é __criado na primeira vez, preparar ou implementar um modelo__ usando a área de trabalho. Não se tiver criado uma nova área de trabalho, mas não treinados ou criou um modelo, existem nenhum registo de contentor do Azure para a área de trabalho.
 
 Se já tiver preparado ou implementar modelos com o serviço Azure Machine Learning, um registo de contentor foi criado para a área de trabalho. Para localizar o nome deste registo de contentor, utilize os seguintes passos:
 
@@ -153,9 +153,9 @@ Os passos nestas instruções da secção criar uma imagem personalizada do Dock
     Run ID: cda was successful after 2m56s
     ```
 
-Para obter mais informações sobre a criação de imagens com um Azure Container Registry, veja [compilar e executar uma imagem de contentor com tarefas de registo de contentor do Azure](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Para obter mais informações sobre a criação de imagens com um Azure Container Registry, veja [compilar e executar uma imagem de contentor com tarefas de registo de contentor do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Para obter mais informações sobre o carregamento de imagens existentes para o Azure Container Registry, veja [enviar a sua primeira imagem para um registo de contentor do Docker privado](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Para obter mais informações sobre o carregamento de imagens existentes para o Azure Container Registry, veja [enviar a sua primeira imagem para um registo de contentor do Docker privado](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Utilizar uma imagem personalizada
 

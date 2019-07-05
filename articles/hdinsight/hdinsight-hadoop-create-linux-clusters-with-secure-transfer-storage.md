@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 10ec4b55bab741f19adaf193295659b7876fe02c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72e8b1331005db59be572e033bfaaaf5ceeea0b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685226"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433611"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar cluster do Apache Hadoop com transferência segura contas de armazenamento no Azure HDInsight
 
 A funcionalidade [Transferência segura necessária](../storage/common/storage-require-secure-transfer.md) melhora a segurança da sua conta da Armazenamento do Azure ao impor todos os pedidos à sua conta através de uma ligação segura. Esta funcionalidade e o esquema wasbs só são suportados pelo clusters do HDInsight versão 3.6 ou mais recente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, tem de ter os seguintes elementos:
+Antes de começar este artigo, tem de ter:
 
 * **Subscrição do Azure**: Para criar uma conta de avaliação gratuita de um mês, navegue até [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Conta de Armazenamento do Azure com transferência segura ativada**. Para obter instruções, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Requer transferência segura](../storage/common/storage-require-secure-transfer.md).
@@ -31,7 +31,7 @@ Antes de começar este tutorial, tem de ter os seguintes elementos:
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-Nesta secção, vai criar um cluster do Hadoop no HDInsight com um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo está localizado em [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Não precisa de ter experiência no modelo do Resource Manager para seguir este tutorial. Para conhecer outros métodos de criação de clusters e compreender as propriedades utilizadas neste tutorial, consulte [Criar clusters do HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Nesta secção, vai criar um cluster do Hadoop no HDInsight com um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). O modelo está localizado em [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Não precisa de ter experiência no modelo do Resource Manager para seguir este artigo. Para outros métodos de criação de clusters e compreender as propriedades utilizadas neste artigo, consulte [clusters do HDInsight criar](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Clique na imagem seguinte para iniciar sessão no Azure e abrir o modelo do Azure Resource Manager no Portal do Azure.
 
@@ -61,7 +61,7 @@ Existem várias opções para adicionar mais contas de armazenamento com transfe
 - Utilize a ação de script para adicionar mais contas de armazenamento com transferência segura ativada a um cluster do HDInsight existente. Para obter mais informações, veja [Adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, aprendeu a criar um cluster do HDInsight e a ativar a transferência segura para as contas de armazenamento.
+Neste artigo, aprendeu como criar um cluster do HDInsight e ativar a transferência segura para as contas de armazenamento.
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 
@@ -73,7 +73,7 @@ Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artig
 Para saber mais sobre como o HDInsight armazena os dados ou como obter dados para o HDInsight, veja os seguintes artigos:
 
 * Para obter informações sobre como o HDInsight utiliza o Armazenamento do Azure, consulte [Utilizar o Armazenamento do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Para obter informações sobre como carregar dados para o HDInsight, consulte [Carregar dados para o HDInsight][hdinsight-upload-data].
+* Para obter informações sobre como carregar dados para o HDInsight, veja [Upload data to HDInsight][hdinsight-upload-data] (Carregar dados para o HDInsight).
 
 Para saber mais sobre como criar ou gerir um cluster do HDInsight, veja os seguintes artigos:
 

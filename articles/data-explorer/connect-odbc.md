@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 02ae9673f1dc402ee1500b466d7e259263ef3262
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494853"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537590"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Ligar ao Explorador de dados do Azure com o ODBC
 
@@ -20,7 +20,13 @@ Abrir a conectividade da base de dados ([ODBC](/sql/odbc/reference/odbc-overview
 
 Em segundo plano, os aplicativos chamar funções na interface do ODBC, que são implementadas nos módulos específicos do banco de dados chamados *drivers*. O Explorador de dados do Azure suporta um subconjunto do protocolo de comunicação do SQL Server ([MS-TDS](/azure/kusto/api/tds/)), por isso, ele pode usar o controlador ODBC para o SQL Server.
 
-Neste artigo, irá aprender a utilizar o controlador ODBC do SQL Server, para que possa ligar ao Azure Data Explorer a partir de qualquer aplicação que suporte o ODBC.
+Utilizar o seguinte vídeo, pode aprender criar uma ligação de ODBC. 
+
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
+
+Em alternativa, pode [configurar a origem de dados ODBC](#configure-the-odbc-data-source) conforme detalhado abaixo. 
+
+Neste artigo, irá aprender a utilizar o controlador ODBC do SQL Server, para que possa ligar ao Azure Data Explorer a partir de qualquer aplicação que suporte o ODBC. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

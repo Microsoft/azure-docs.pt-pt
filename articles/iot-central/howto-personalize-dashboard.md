@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a1641c4f3ae4eaa175657db8ff4064fa2202aea6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c048ae8c0daba0e467a9243f4dd83f8d95921e10
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053008"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502644"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Criar e gerir dashboards pessoais
 
@@ -38,6 +38,8 @@ Agora, quando vir o seu dashboard pessoa, pode ver o novo mosaico com o **fã ve
 ![Separador "Dashboard" com as definições apresentadas e propriedades para o mosaico](media/howto-personalize-dashboard/personaldashboard.png)
 
 Pode explorar outros tipos de mosaico na biblioteca para saber como personalizar ainda mais os seus dashboards pessoais.
+
+Para saber mais sobre como utilizar mosaicos no Azure IoT Central, consulte [utilizar mosaicos de dashboard](howto-use-tiles.md).
 
 ## <a name="manage-dashboards"></a>Gerir dashboards
 

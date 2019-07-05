@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: b9293dc8be4fb50a657093090b0e6d76de5b5d31
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303521"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542554"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -60,6 +60,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * Para os recursos criados com v3, serviços de multimédia só suporta o [encriptação do armazenamento do lado do servidor de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * Pode usar v3 APIs com recursos que criou com APIs de v2 que tinham [encriptação do armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pelos serviços de multimédia.
     * Não é possível criar novos recursos com o AES 256 legado [encriptação do armazenamento](../previous/media-services-rest-storage-encryption.md) através de v3 APIs.
+* Propriedades do recurso da v3 são diferentes da v2, ver [como as propriedades do mapa](assets-concept.md#map-v3-asset-properties-to-v2).
 * Os SDKs de v3 agora estão desassociados do SDK de armazenamento, o que dá-lhe mais controlo sobre a versão do SDK de armazenamento que pretende utilizar e evita problemas de controle de versão. 
 * Nas v3 APIs, todas as taxas de bits de codificação são em bits por segundo. Isto é diferente de v2 que predefine Media Encoder Standard. Por exemplo, a velocidade de transmissão no v2 teria de ser especificada como 128 (kbps), mas na v3 seria 128000 (bits por segundo). 
 * Entidades AssetFiles AccessPolicies e IngestManifests não existem na v3.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 7ff036fbdf3ae9360bed8d728b9bec3a1937b70a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808244"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508369"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
 DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git de DevOps do Azure. 
@@ -303,7 +303,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

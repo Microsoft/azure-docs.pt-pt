@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46944603fdf45a2a7a14641086959bf61b3f773e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61299108"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67465889"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente – anomalias de falha
 [O Application Insights](../../azure-monitor/app/app-insights-overview.md) notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos falhados. Detetar um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência são reportadas como falhado. Para pedidos, pedidos com falhas são geralmente aqueles com códigos de resposta de 400 ou superior. Para ajudar a fazer a triagem e diagnosticar o problema, uma análise das características da falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para diagnósticos adicionais. A funcionalidade não precisa nenhuma configuração nem a configuração, como ele utiliza algoritmos de machine learning para prever a taxa de falhas normal.
 
-Esta funcionalidade funciona para aplicações de web Java e ASP.NET, alojadas na cloud ou nos seus próprios servidores. Também funciona para qualquer aplicação que gera a telemetria de dependência ou a pedido - por exemplo, se tiver uma função de trabalho que chama [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Esta funcionalidade funciona para qualquer aplicação web, alojada na cloud ou nos seus próprios servidores, que gera a telemetria de dependência ou a pedido - por exemplo, se tiver uma função de trabalho que chama [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Depois de configurar [Application Insights para o seu projeto](../../azure-monitor/app/app-insights-overview.md), e desde a sua aplicação gerar uma determinada quantia mínima de telemetria, deteção inteligente de anomalias de falha demora 24 horas para saber o comportamento normal da sua aplicação, antes de ser ativadas e que pode enviar alertas.
 
@@ -43,6 +43,26 @@ Tenha em atenção que ele diz a:
 * Um padrão característico associado com as falhas. Neste exemplo, há um código de resposta específica, o nome do pedido (operação) e a versão da aplicação. Que imediatamente indica onde começar a procurar no seu código. Outras possibilidades poderiam ser um sistema de operativo de cliente ou browser específico.
 * A exceção, rastreios de registos e falha de dependência (bases de dados ou outros componentes externos) que parecem ser associado com as falhas characterized.
 * Ligações diretas relevantes pesquisas sobre a telemetria no Application Insights.
+
+## <a name="failure-anomalies-v2"></a>V2 de anomalias de falha
+Está agora disponível uma nova versão da regra de alerta de anomalias de falha. Esta nova versão está em execução na nova plataforma de alerta do Azure e apresenta uma variedade de aperfeiçoamentos em relação à versão existente.
+
+### <a name="whats-new-in-this-version"></a>Quais são as Novidades nesta versão?
+- Deteção mais rápida de problemas
+- Um conjunto mais avançado de ações - a regra de alerta é criada com uma associados [grupo de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) com o nome "Application Insights deteção inteligente" que contém ações de e-mail e webhook e pode ser estendido para acionar ações adicionais quando o alerta é acionado.
+- Mais concentrado notificações - agora são enviadas notificações de E-Mail enviadas por esta regra de alerta por predefinição para os utilizadores associados a funções de monitorização do leitor e contribuinte de monitorização da subscrição. Estão disponíveis mais informações sobre isso [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+- Configuração mais fácil por meio de modelos ARM - exemplo de ver [aqui](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
+- Siga notificações enviadas por esta regra de alerta de suporte comuns do esquema de alerta - o [esquema comum do alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+- Unificação de modelo de e-mail - notificações a partir desta regra de alerta não tem uma aparência consistente e se sentir com outros tipos de alerta de E-Mail. Com esta alteração, a opção para receber alertas de anomalias de falha com informações detalhadas de diagnóstico já não está disponível.
+
+### <a name="how-do-i-get-the-new-version"></a>Como posso obter a nova versão?
+- Acabou de criar recursos do Application Insights agora são aprovisionados com a nova versão da regra de alerta de anomalias de falha.
+- Application Insights existente regra irá obter a nova versão uma vez a hospedagem de subscrição de alertas de recursos com a versão clássica de anomalias de falha é migrado para a nova plataforma de alerta como parte do [clássico de processo de extinção de alertas ](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
+
+> [!NOTE]
+> A nova versão da regra de alerta de anomalias de falha ficará livre. Além disso, ações de e-mail e webhook acionada por associada "Deteção inteligente da Application Insights" grupo de ação são também gratuitas.
+> 
+> 
 
 ## <a name="benefits-of-smart-detection"></a>Benefícios da deteção inteligente
 Comum [alertas de métricas](../../azure-monitor/app/alerts.md) informá-lo de que haja um problema. Mas a deteção inteligente começa o trabalho de diagnóstico para, executando muito a análise de outra forma, teria que fazer sozinho. Obtenha os resultados empacotados organizadamente, ajudando-o a começar rapidamente para a raiz do problema.

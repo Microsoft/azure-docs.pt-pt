@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 81acb804ed2ebb9e88bc7d8281a7fa52359d4455
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810086"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537662"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Ativar InfiniBand com SR-IOV
 
@@ -30,7 +30,7 @@ Configurar manualmente o InfiniBand SR-iov ativado VMs (atualmente série HB e H
 
 ## <a name="manually-install-ofed"></a>Instalar manualmente o OFED
 
-Instale os controladores MLNX_OFED mais recente para ConnectX-5 partir [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=26).
+Instale os controladores MLNX_OFED mais recente para ConnectX-5 partir [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 Para RHEL/CentOS (o exemplo abaixo 7,6):
 ```bash
@@ -42,7 +42,19 @@ tar zxvf MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-support
 ```
 
-Para Windows, transfira e instale os controladores de WinOF-2 para ConnectX-5 de [Mellanox](http://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+Para Windows, transfira e instale os controladores de WinOF-2 para ConnectX-5 de [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34)
+
+## <a name="enable-ipoib"></a>Ativar IPoIB
+
+```bash
+sudo sed -i 's/LOAD_EIPOIB=no/LOAD_EIPOIB=yes/g' /etc/infiniband/openib.conf
+sudo /etc/init.d/openibd restart
+if [ $? -eq 1 ]
+then
+  sudo modprobe -rv  ib_isert rpcrdma ib_srpt
+  sudo /etc/init.d/openibd restart
+fi
+```
 
 ## <a name="assign-an-ip-address"></a>Atribuir um endereço IP
 

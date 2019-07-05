@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef72f1649c3f3e0af7fba53b2e8dbcee49d4b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83a38b68fcc2e70b4e17bd62e11ac429dd32950
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734570"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67471911"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos ou as revisões de acesso a aplicações no Azure AD
 
@@ -43,7 +43,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 1. Clique em **nova revisão de acesso** para criar uma nova revisão de acesso.
 
-    ![Examine - controlos de acesso](./media/create-access-review/access-reviews.png)
+    ![O painel na governação de identidade de revisões de acesso](./media/create-access-review/access-reviews.png)
 
 1. Nome da revisão de acesso. Opcionalmente, forneça a revisão de uma descrição. O nome e descrição são apresentadas aos revisores.
 
@@ -91,7 +91,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 1. Para especificar o que acontece após a conclusão de uma revisão, expanda o **nas definições de conclusão** secção.
 
-    ![Após as definições de conclusão](./media/create-access-review/upon-completion-settings.png)
+    ![Criar uma revisão de acesso - após as definições de conclusão](./media/create-access-review/upon-completion-settings.png)
 
 1. Se quiser automaticamente remover acesso para utilizadores que foram negados, definida **automaticamente aplicar resultados ao recurso** ao **ativar**. Se deseja aplicar manualmente os resultados quando a revisão terminar, defina o comutador **desativar**.
 
@@ -106,7 +106,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 1. Para especificar definições adicionais, expanda o **definições avançadas** secção.
 
-    ![Definições avançadas](./media/create-access-review/advanced-settings.png)
+    ![Criar uma revisão de acesso - definições avançada](./media/create-access-review/advanced-settings.png)
 
 1. Definir **Mostrar recomendações** ao **ativar** para mostrar os revisores do sistema recomendações com base em informações de acesso do utilizador.
 
@@ -122,7 +122,7 @@ Para obter mais informações, consulte [os utilizadores que têm de ter licenç
 
 Depois de especificar as definições para uma revisão de acesso, clique em **iniciar**. A revisão de acesso será apresentado na sua lista com um indicador do seu estado.
 
-![Lista de revisões de acesso](./media/create-access-review/access-reviews-list.png)
+![Lista de revisões de acesso e o respetivo estado](./media/create-access-review/access-reviews-list.png)
 
 Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever o acesso a grupos ou aplicações](perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever acesso para si próprio para grupos ou aplicações](review-your-access.md).
 

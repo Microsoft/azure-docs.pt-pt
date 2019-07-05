@@ -4,19 +4,19 @@ description: Compreenda como utilizar os enlaces de armazenamento de tabelas do 
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 002ea00364056f0780146b79936a6bc04e289973
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511875"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480086"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -532,7 +532,7 @@ O enlace de entrada de armazenamento de tabela suporta os seguintes cenários:
 
   Definir o `filter` e `take` propriedades. Não defina `partitionKey` ou `rowKey`. Aceder a entrada de tabela entidade (ou entidades) usando `context.bindings.<name>`. Os objetos de serialização anulados têm `RowKey` e `PartitionKey` propriedades.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Utilize uma saída de armazenamento de tabelas do Azure de enlace para escrever entidades a uma tabela de uma conta de armazenamento do Azure.
 

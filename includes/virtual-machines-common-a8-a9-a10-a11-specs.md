@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep;amverma
 ms.custom: include file
-ms.openlocfilehash: 5cbc19d5aade2bbcc8b8dca277352d1b17d1d35a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88d9491bae1fcc6acb7ab631514aa4f6244f593d
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755164"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538033"
 ---
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
 * **Subscrição do Azure** – para implementar mais do que algumas instâncias de computação intensiva, considere uma subscrição pay as you go ou outras opções de compra. Se estiver a utilizar uma [conta gratuita do Azure](https://azure.microsoft.com/free/), pode utilizar apenas um número limitado de núcleos de computação do Azure.
@@ -34,6 +34,6 @@ Um subconjunto das instâncias de computação intensiva (A8, A9, H16r, H16mr, H
 Essa interface permite que as instâncias com capacidade RDMA comunicar através de uma rede InfiniBand (IB), operacional às tarifas EDR para HB, HC, FDR taxas para máquinas virtuais H16r, H16mr e série N com capacidade RDMA e taxas de QDR para máquinas virtuais A8 e A9. Estas capacidades RDMA podem aumentar a escalabilidade e desempenho de determinados aplicativos de Interface de passagem de mensagens (MPI). Para obter mais informações sobre a velocidade, consulte os detalhes das tabelas nesta página.
 
 > [!NOTE]
-> No Azure, o IP sobre IB só é suportada no SR-IOV ativado VMs (atualmente HB e HC). RDMA sobre IB é suportada para todas as instâncias com capacidade RDMA.
+> No Azure, o IP sobre IB só é suportada no SR-IOV ativado VMs (SR-IOV InfiniBand, atualmente HB e HC). RDMA sobre IB é suportada para todas as instâncias com capacidade RDMA.
 >
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 722097f1a61a10cd45c0c330e998021cd1abf0c8
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 94aca33b2f12c1c39297221a856296dcca052b0f
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147970"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565807"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -61,16 +61,21 @@ Utilize esta tabela como guia:
 | Tipo de armazenamento | Método atualmente suportado de autorização |
 |--|--|
 |**Armazenamento de blobs** | Azure AD & SAS |
-|**Armazenamento de BLOBs (espaço de nomes hierárquicas)** | Apenas do Azure AD |
+|**Armazenamento de BLOBs (espaço de nomes hierárquicas)** | Azure AD & SAS |
 |**Armazenamento de ficheiros** | Apenas a SAS |
 
 ### <a name="option-1-use-azure-ad"></a>Opção 1: Utilizar o Azure AD
 
+Ao utilizar o Azure AD, pode fornecer credenciais de uma vez, em vez de precisar acrescentar um token SAS para cada comando.  
+
 O nível de autorização que terá de se baseia em se planeia carregar ficheiros ou apenas transferi-los.
 
-Se apenas pretender transferir os ficheiros, em seguida, certifique-se de que o [leitor de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) foi atribuída a sua identidade.
+Se apenas pretender transferir os ficheiros, em seguida, certifique-se de que o [leitor de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) foi atribuída a sua identidade de utilizador ou principal de serviço. 
 
-Se pretender carregar ficheiros, em seguida, certifique-se de que uma destas funções foi atribuída à sua identidade:
+> [!NOTE]
+> As identidades dos utilizadores e os principais de serviço são cada um tipo de *entidade de segurança*, por isso, usaremos o termo *entidade de segurança* durante o restante deste artigo.
+
+Se pretender carregar ficheiros, em seguida, certifique-se de que uma destas funções foi atribuída a sua entidade de segurança:
 
 - [Contribuinte de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Proprietário de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
@@ -84,13 +89,16 @@ Estas funções podem ser atribuídas a sua identidade em qualquer uma nestes â
 
 Para saber como verificar e atribuir funções, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Não precisa de ter uma destas funções atribuídas a sua identidade, se a sua identidade é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou diretório. Na ACL, sua identidade precisa de permissão de escrita no diretório de destino e permissão de execução no contentor e cada diretório principal.
+> [!NOTE] 
+> Tenha em atenção que as atribuições de funções do RBAC podem demorar até cinco minutos para propagar.
+
+Não precisa de ter uma destas funções atribuídas a sua entidade de segurança, se a sua entidade de segurança é adicionada à lista de controlo de acesso (ACL) do contentor de destino ou diretório. Na ACL, sua entidade de segurança precisa de permissão de escrita no diretório de destino e permissão de execução no contentor e cada diretório principal.
 
 Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-#### <a name="authenticate-your-identity"></a>Autenticar a sua identidade
+#### <a name="authenticate-a-user-identity"></a>Autenticar uma identidade de utilizador
 
-Depois de verificar que foi dada o nível de autorização necessário sua identidade, abra uma linha de comandos, escreva o seguinte comando e, em seguida, prima a tecla ENTER.
+Depois de verificar que foi dada sua identidade de utilizador o nível de autorização necessário, abra uma linha de comandos, escreva o seguinte comando e, em seguida, prima a tecla ENTER.
 
 ```azcopy
 azcopy login
@@ -109,6 +117,72 @@ Este comando devolve um código de autenticação e o URL de um Web site. Abra o
 ![Criar um contentor](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Será apresentada uma janela de início de sessão. Nessa janela, inicie sessão na sua conta do Azure, utilizando as credenciais da conta do Azure. Depois de se com êxito, pode fechar a janela do browser e começar a utilizar o AzCopy.
+
+<a id="service-principal" />
+
+#### <a name="authenticate-a-service-principal"></a>Autenticar um principal de serviço
+
+Esta é uma ótima opção se planear utilizar o AzCopy dentro de um script que é executada sem interação do utilizador. 
+
+Antes de executar esse script, terá de iniciar sessão interativamente, pelo menos, uma vez, para que pode fornecer o AzCopy com as credenciais do principal de serviço.  Essas credenciais são armazenadas num ficheiro encriptado e protegido para que o seu script não tem de fornecer as informações confidenciais.
+
+Pode iniciar sessão na sua conta com um segredo do cliente ou ao utilizar a palavra-passe de um certificado que está associado ao registo da aplicação do principal de serviço. 
+
+Para saber mais sobre criar principal de serviço, consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Para obter mais informações sobre principais de serviço em geral, consulte [aplicação e objetos de principal de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+
+##### <a name="using-a-client-secret"></a>Usando um segredo do cliente
+
+Comece definindo o `AZCOPY_SPA_CLIENT_SECRET` variável de ambiente para o segredo do cliente de seu principal de serviço do registo de aplicações. 
+
+> [!NOTE]
+> Certifique-se definir este valor de linha de comandos e não no ambiente de definições de variáveis do seu sistema operativo. Dessa forma, o valor está disponível apenas para a sessão atual.
+
+Este exemplo mostra como pode fazer isso no PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
+```
+
+> [!NOTE]
+> Considere utilizar uma linha de comandos, como mostrado neste exemplo. Dessa forma, o segredo do cliente não será apresentado no histórico de comando da sua consola. 
+
+Em seguida, escreva o seguinte comando e, em seguida, prima a tecla ENTER.
+
+```azcopy
+azcopy login --service-principal --application-id <application-id>
+```
+
+Substitua o `<application-id>` espaço reservado com o ID da aplicação do seu principal de serviço do registo de aplicações.
+
+##### <a name="using-a-certificate"></a>Utilizar um certificado
+
+Se preferir usar suas próprias credenciais para autorização, pode carregar um certificado para o registo de aplicação e, em seguida, utilizar esse certificado para o início de sessão.
+
+Além de carregar o certificado para o registo de aplicação, terá também de ter uma cópia do certificado guardado para a máquina ou VM onde irá executar o AzCopy. Esta cópia do certificado deve estar no. PFX ou. PEM formate e tem de incluir a chave privada. A chave privada deve ser protegido por palavra-passe. Se estiver a utilizar o Windows e seu certificado só existe num arquivo de certificados, certifique-se exportar o certificado para um ficheiro PFX (incluindo a chave privada). Para obter orientações, veja [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
+
+Em seguida, configure o `AZCOPY_SPA_CERT_PASSWORD` variável de ambiente para a palavra-passe do certificado.
+
+> [!NOTE]
+> Certifique-se definir este valor de linha de comandos e não no ambiente de definições de variáveis do seu sistema operativo. Dessa forma, o valor está disponível apenas para a sessão atual.
+
+Este exemplo mostra como pode fazer isso no PowerShell.
+
+```azcopy
+$env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
+```
+
+Em seguida, escreva o seguinte comando e, em seguida, prima a tecla ENTER.
+
+```azcopy
+azcopy login --service-principal --certificate-path <path-to-certificate-file>
+```
+
+Substitua o `<path-to-certificate-file>` espaço reservado com o caminho relativo ou totalmente qualificado para o ficheiro de certificado. AzCopy salva o caminho para este certificado, mas ele não guarde uma cópia do certificado, certifique-se de manter esse certificado no local.
+
+> [!NOTE]
+> Considere utilizar uma linha de comandos, como mostrado neste exemplo. Dessa forma, a palavra-passe não será apresentado no histórico de comando da sua consola. 
 
 ### <a name="option-2-use-a-sas-token"></a>Opção 2: Utilizar um token SAS
 
@@ -134,7 +208,11 @@ Para encontrar os comandos de exemplo, veja qualquer um destes artigos.
 
 - [Transferir dados com AzCopy e o Amazon S3 registos](storage-use-azcopy-s3.md)
 
+- [Transferir dados com AzCopy e o Azure Stack de armazenamento](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#azcopy)
+
 ## <a name="use-azcopy-in-a-script"></a>Utilizar o AzCopy num script
+
+Antes de executar esse script, terá de iniciar sessão interativamente, pelo menos, uma vez, para que pode fornecer o AzCopy com as credenciais do principal de serviço.  Essas credenciais são armazenadas num ficheiro encriptado e protegido para que o seu script não tem de fornecer as informações confidenciais. Para obter exemplos, consulte a [autenticar seu principal de serviço](#service-principal) seção deste artigo.
 
 Ao longo do tempo, o AzCopy [ligação de transferência](#download-and-install-azcopy) apontará para novas versões do AzCopy. Se o seu script downloads AzCopy, o script poderá parar de funcionar se a recursos que o script depende de modifica uma versão mais recente do AzCopy. 
 

@@ -1,25 +1,22 @@
 ---
-title: Compreender a sua fatura do Azure enterprise | Documentos da Microsoft
-description: Saiba como ler e compreender a utilização e faturação do Azure Enterprise Agreements
-services: ''
-documentationcenter: ''
+title: Compreender a sua fatura do Azure enterprise
+description: Saiba como ler e compreender a utilização e faturação para contratos Enterprise do Azure.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571203"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490291"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreender a sua fatura de contrato Enterprise do Azure
 
@@ -57,7 +54,7 @@ Sua fatura mostra a totalidade da sua utilização do Azure, seguida de quaisque
 
 Comparar a quantidade total combinada apresentada no portal da empresa na **relatórios** > **resumo de utilização** com a sua fatura do Azure. As quantidades na **resumo de utilização** não incluem impostos.
 
-1. Inicie sessão para o [Enterprise portal](https://ea.azure.com).
+1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **relatórios**.
 1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
     ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
@@ -98,7 +95,7 @@ Para rever e confirmar os custos na sua fatura, tem de ser um administrador empr
 
 Comparar a quantidade total de utilização no portal da empresa na **relatórios** > **resumo de utilização** com a sua fatura de utilização excedida do serviço. A fatura de utilização excedida do serviço inclui a utilização que exceda o crédito da sua organização, e/ou serviços que não são abrangidos pelo crédito. As quantidades na **resumo de utilização** não incluem impostos.
 
-1. Inicie sessão para o [Enterprise portal](https://ea.azure.com).
+1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **relatórios**.
 1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
     ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
@@ -122,7 +119,7 @@ Esta secção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
 
 Comparar o Azure Marketplace total no **relatórios** > **resumo de utilização** no portal da empresa com a sua fatura do marketplace. A fatura do Marketplace diz respeito apenas a compras e utilização do Azure Marketplace. As quantidades na **resumo de utilização** não incluem impostos.
 
-1. Inicie sessão para o [Enterprise portal](https://ea.azure.com).
+1. Início de sessão para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **relatórios**.
 1. No canto superior direito da guia, alterne da exibição de **M** ao **C** e corresponder o período da nota fiscal.  
      ![Captura de ecrã que mostra M + a opção de C no resumo de utilização.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  

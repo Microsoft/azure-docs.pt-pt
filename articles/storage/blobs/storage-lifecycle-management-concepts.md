@@ -9,12 +9,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50eb62b20be66337c819372fa3d97eae4d7214b8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001746"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435750"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure
 
@@ -45,7 +45,7 @@ A funcionalidade de gestão do ciclo de vida está disponível em todas as regi�
 
 Pode adicionar, editar ou remover uma política, utilizando qualquer um dos seguintes métodos:
 
-* [Portal do Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
 * [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
@@ -131,7 +131,7 @@ Pode definir o gerenciamento de ciclo de vida utilizando modelos Azure Resource 
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -199,10 +199,10 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| `name`         | String |Um nome de regra pode incluir até 256 carateres de alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas.  Tem de ser exclusivo dentro de uma política. | Verdadeiro |
+| `name`         | String |Um nome de regra pode incluir até 256 carateres de alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas.  Tem de ser exclusivo dentro de uma política. | True |
 | `enabled`      | Boolean | Um booleano opcional para permitir que uma regra para ser temporário desativada. Valor predefinido é verdadeiro se não estiver definido. | Falso | 
-| `type`         | Um valor de enumeração | O tipo de válido atual for `Lifecycle`. | Verdadeiro |
-| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é constituída por um conjunto de filtros e um conjunto de ação. | Verdadeiro |
+| `type`         | Um valor de enumeração | O tipo de válido atual for `Lifecycle`. | True |
+| `definition`   | Um objeto que define a regra de ciclo de vida | Cada definição é constituída por um conjunto de filtros e um conjunto de ação. | True |
 
 ## <a name="rules"></a>Regras
 

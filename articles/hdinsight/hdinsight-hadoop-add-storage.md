@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a844465f7ba2222acd7efaf100c7b682c15adb2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724474"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433523"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 
@@ -196,6 +196,9 @@ Se alterar a chave para uma conta de armazenamento, o HDInsight já não consegu
 Executar novamente a ação de script faz __não__ atualizar a chave, como o script verifica para ver se já existe uma entrada para a conta de armazenamento. Se já existir uma entrada, ele não faz quaisquer alterações.
 
 Para contornar este problema, tem de remover a entrada existente para a conta de armazenamento. Utilize os seguintes passos para remover a entrada existente:
+
+> [!IMPORTANT]  
+> Rodar a chave de armazenamento para a conta de armazenamento primário anexada a um cluster não é suportada.
 
 1. Num browser, abra a interface do Usuário de Web do Ambari para o seu cluster do HDInsight. O URI é `https://CLUSTERNAME.azurehdinsight.net`. Substitua `CLUSTERNAME` pelo nome do cluster.
 

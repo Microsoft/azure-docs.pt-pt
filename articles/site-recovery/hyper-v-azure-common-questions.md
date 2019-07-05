@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 9979cb97ec578a59ba8263f2eb1fe53d41db862f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36c109e083873e9c4ec63ebe34f5c5c0cfb6eeb1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399453"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491814"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Perguntas comuns - Hyper-V para recuperação após desastre do Azure
 
@@ -26,6 +26,10 @@ Revisão [preços do Azure Site Recovery](https://azure.microsoft.com/pricing/de
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Como pago para VMs do Azure?
 Durante a replicação, os dados são replicados para o armazenamento do Azure e não será necessário prestar quaisquer alterações VM. Quando executar uma ativação pós-falha para o Azure, o Site Recovery cria automaticamente máquinas de virtuais de IaaS do Azure. Depois disso é-lhe cobrada para recursos de computação que consumir no Azure.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Existe alguma diferença no custo ao replicar a conta de armazenamento para fins gerais v2?
+
+Normalmente, irá ver um aumento no custo de transações gerado relativamente a contas de armazenamento GPv2, uma vez que o Azure Site Recovery é pesadas de transações. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para calcular a alteração.
 
 ## <a name="azure"></a>Azure
 

@@ -3,7 +3,7 @@ title: Introdução à autenticação para aplicações móveis no Xamarin iOS
 description: Saiba como utilizar aplicações móveis para autenticar os utilizadores da sua aplicação Xamarin iOS através de uma variedade de fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
-ms.author: crdun
-ms.openlocfilehash: 132909931291daf3aefddd5e1a44273050d98e06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: fa1f4bae314025a71568e1e04cbf950ebbe26dbe
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62120914"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446230"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Adicionar autenticação à sua aplicação Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-users) hoje mesmo.
+>
+
+## <a name="overview"></a>Descrição geral
 
 Este tópico mostra-lhe como autenticar os utilizadores de uma aplicação de Mobile do serviço de aplicações da sua aplicação de cliente. Neste tutorial, vai adicionar autenticação ao projeto de início rápido do xamarin. IOS utilizando um fornecedor de identidade que é suportado pelo serviço de aplicações. Depois de com êxito a ser autenticadas e autorizadas pela sua aplicação móvel, o valor de ID de utilizador é apresentado e poderá aceder aos dados de tabela restrito.
 

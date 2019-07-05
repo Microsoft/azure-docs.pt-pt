@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 481b19d0121e93c84d123579e91bcbfb9fb50815
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f7bf3ce8c01e82fa69b3b041b573b4b31a719d2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356964"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514084"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service) ou o Dynamics CRM com o Azure Data Factory
 
@@ -27,7 +27,13 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 Pode copiar dados a partir do Dynamics 365 (Common Data Service) ou o Dynamics CRM para qualquer arquivo de dados de sink suportados. Também pode copiar dados de qualquer arquivo de dados de origem suportada para o Dynamics 365 (Common Data Service) ou o Dynamics CRM. Para obter uma lista dos arquivos de dados suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Este conector Dynamics suporta as seguintes versões do Dynamics e tipos de autenticação. (IFD é a abreviação de implantação de acesso à internet.)
+Este conector Dynamics suporta a versão de Dynamics 7.x 9.x para ambos online ou no local. Mais especificamente,
+
+- Versão 7.x maps para o Dynamics CRM 2015
+- Versão 8.x maps para o Dynamics CRM 2016 e a versão inicial do Dynamics 365
+- Versão 9.x mapas para a versão posterior do Dynamics 365
+
+Consulte a tabela a seguir sobre os tipos de autenticação suportados e configurações para os respetivos Dynamics de versões de produtos. (IFD é a abreviação de implantação de acesso à internet.)
 
 | Versões do Dynamics | Tipos de autenticação | Exemplos de serviço ligado |
 |:--- |:--- |:--- |
@@ -43,6 +49,8 @@ Especificamente, para o Dynamics 365 são suportados os seguintes tipos de aplic
 - Dynamics 365 para Marketing
 
 Outros tipos de aplicação por exemplo, Finanças e operações, talento, etc. não são suportadas por este conector.
+
+Este conector Dynamics está embutido no início da [ferramentas Dynamics XRM](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Para copiar dados a partir **Dynamics 365 Finanças e operações**, pode utilizar os [conector do Dynamics AX](connector-dynamics-ax.md).
@@ -156,7 +164,7 @@ Para copiar dados de e para o Dynamics, defina a propriedade de tipo de conjunto
 > [!IMPORTANT]
 >- Quando copiar dados do Dynamics, a seção de "estrutura" é opcional mas altamente recommanded do conjunto de dados do Dynamics para garantir um resultado de cópia determinística. Define o tipo de dados e de nome de coluna para dados do Dynamics que pretende copiar pela. Para obter mais informações, consulte [estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure-or-schema) e [mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
 >- Ao importar o esquema na criação da interface do Usuário, o ADF inferir o esquema, as primeiras linhas do resultado de consulta do Dynamics para inicializar a construção de estrutura, em que irão ser omitidas casos colunas com nenhum valor de amostragem. O mesmo comportamento aplica-se para copiar as execuções, se não existir nenhuma definição de estrutura explícita. Pode rever e adicionar mais colunas para a Dynamics esquema/estrutura de dataset conforme necessário, que serão cumpridas durante o tempo de execução de cópia.
->- Quando copiar dados para o Dynamics, a seção de "estrutura" é opcional no conjunto de dados do Dynamics. As colunas que pretende copiar para é determinado pelo esquema de dados de origem. Se a origem é um ficheiro CSV sem cabeçalho, o conjunto de dados de entrada, especifique a "estrutura" com o tipo de dados e de nome de coluna. Podem ser mapeados para os campos no ficheiro CSV individualmente por ordem.
+>- Quando copiar dados para o Dynamics, a seção de "estrutura" é opcional no conjunto de dados do Dynamics. As colunas que pretende copiar para são determinadas pelo esquema de dados de origem. Se a origem é um ficheiro CSV sem cabeçalho, o conjunto de dados de entrada, especifique a "estrutura" com o tipo de dados e de nome de coluna. Podem ser mapeados para os campos no ficheiro CSV individualmente por ordem.
 
 **Exemplo:**
 
@@ -341,9 +349,8 @@ Configure o tipo de dados de fábrica de dados correspondente numa estrutura de 
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Os tipos de dados do Dynamics AttributeType.CalendarRules e AttributeType.PartyList não são suportados.
+> Os tipos de dados do Dynamics AttributeType.CalendarRules, AttributeType.MultiSelectPicklist e AttributeType.PartyList não são suportados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 1ef8c8eec3865f2a6e363e7da1dbda9504b81c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546404"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441585"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
@@ -35,7 +35,7 @@ A aplicação lógica agora pode aceder diretamente a sistemas que estão dentro
 Esta descrição geral descreve mais detalhes sobre como a um ISE fornece as logic apps e integração de contas de acesso direto à rede virtual do Azure e compara as diferenças entre uma ISE e o serviço de aplicações lógicas global.
 
 > [!NOTE]
-> Aplicações lógicas, acionadores incorporados, ações incorporadas e conectores que executam no seu uso ISE um plano de preços diferente do plano de preços baseado no consumo. Para obter mais informações, consulte [preços de aplicações lógicas](../logic-apps/logic-apps-pricing.md).
+> Aplicações lógicas, acionadores incorporados, ações incorporadas e conectores que executam no seu uso ISE um plano de preços diferente do plano de preços baseado no consumo. Para obter mais informações, consulte [preços de aplicações lógicas](../logic-apps/logic-apps-pricing.md). O ISE também aumentou limites sobre a duração de execução, retenção de armazenamento, débito, pedido HTTP e tempos limite de resposta, tamanhos de mensagem e pedidos de conector personalizado. Para obter mais informações, consulte [limites e configuração para o Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
@@ -61,14 +61,14 @@ A diferença entre os conectores ISE e não ISE é nos locais onde executar os a
 
   ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
+Um ISE também fornece limites aumentados para a duração de execução, retenção de armazenamento, débito, o pedido HTTP e tempos limite de resposta, tamanhos de mensagem e pedidos de conector personalizado. Para obter mais informações, consulte [limites e configuração para o Azure Logic Apps](logic-apps-limits-and-config.md).
+
 ### <a name="access-to-on-premises-data-sources"></a>Acesso às origens de dados no local
 
 Para sistemas no local que estão ligados a uma rede virtual do Azure, injete um ISE nessa rede, para que as logic apps podem acessar diretamente desses sistemas, utilizando qualquer um destes itens:
 
 * Conector de versão do ISE para esse sistema, por exemplo, o SQL Server
-  
 * Ação de HTTP
-  
 * Conector personalizado
 
   * Se tiver de conectores personalizados que exigem o gateway de dados no local e criou esses conectores fora um ISE, aplicações lógicas num ISE também podem utilizar os conectores.

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570101"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509274"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 | **Mínimo de runtime suportada**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* Modo TCP agora por predefinição
+* Métricas de consulta na partição cruzada devolve agora todas as partições
+* Forte global agora funciona corretamente
+* Ativação pós-falha para consultas não está corretamente repete para múltiplos principais
+* Dependência bumps para correções de segurança
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Bugfix para suporte de Hash V2
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Bugfix para vazamento de recursos no client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).

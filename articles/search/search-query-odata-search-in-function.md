@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f72a59aac448796cf15220e15a3c8a4f12803bb5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a61291e547021077341a5f1b3db7422afa5b9440
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079733"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449973"
 ---
 # <a name="odata-searchin-function-in-azure-search"></a>OData `search.in` função no Azure Search
 
@@ -40,7 +40,7 @@ No entanto, há uma forma mais curta de escrever isso, usando o `search.in` fun�
 > Além de ser menor e mais fácil de ler, usando `search.in` também fornece [benefícios de desempenho](#bkmk_performance) e evita a determinados [limitações de filtros de tamanho](search-query-odata-filter.md#bkmk_limits) quando existem centenas ou mesmo milhares de valores para incluir no filtro. Por esse motivo, recomendamos vivamente utilizar `search.in` em vez de uma disjunção mais complexa das expressões de igualdade.
 
 > [!NOTE]
-> Versão 4.01 do padrão OData recentemente introduziu o [ `in` operador](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem um comportamento semelhante como o `search.in` função no Azure Search. No entanto, Azure Search não suporta este operador, deve usar o `search.in` funcionar em vez disso.
+> Versão 4.01 do padrão OData recentemente introduziu o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem um comportamento semelhante como o `search.in` função no Azure Search. No entanto, Azure Search não suporta este operador, deve usar o `search.in` funcionar em vez disso.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -70,7 +70,7 @@ Existem duas sobrecargas do `search.in` função:
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Type | Descrição |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de alcance ao longo de um campo de coleção de cadeia de caracteres no caso em que `search.in` é utilizada dentro de um `any` ou `all` expressão). |
 | `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores a correspondência com a `variable` parâmetro. Se o `delimiters` parâmetro não for especificado, os delimitadores de padrão são espaço e vírgula. |

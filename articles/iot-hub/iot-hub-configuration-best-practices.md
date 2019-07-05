@@ -3,16 +3,16 @@ title: Práticas recomendadas com uma configuração de dispositivo para o IoT H
 description: Saiba mais sobre as melhores práticas para a configuração de dispositivos IoT à escala
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734835"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485815"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Melhores práticas para configuração do dispositivo dentro de uma solução de IoT
 
@@ -64,9 +64,11 @@ Seguem-se as práticas recomendadas para os desenvolvedores de solução de IoT 
 
 * **Organize dispositivos utilizando etiquetas do dispositivo duplo:** A solução deve permitir que o operador definir os anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como Canárias. Organização de dispositivo pode ser implementada dentro da sua solução utilizando as etiquetas do dispositivo duplo e [consultas](iot-hub-devguide-query-language.md). Organização de dispositivo é necessária para permitir a Vossa configuração com precisão e em segurança.
 
-* **Implemente [configurações de dispositivos automático](iot-hub-auto-device-config.md):** Implantar configurações de dispositivos automática e configuração do monitor é alterado para grandes conjuntos de dispositivos de IoT através de dispositivos duplos. Configurações de automático de dispositivos de destino conjuntos de dispositivos duplos através do **condição, de destino** que é uma consulta no dispositivo etiquetas duplo ou propriedades comunicadas. O **conteúdo de destino** é o conjunto de propriedades pretendidas que serão definidas dentro os twins do dispositivo de destino. O conteúdo de destino, deve alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT.
+* **Implemente [configurações de dispositivos automático](iot-hub-auto-device-config.md):** Implantar configurações de dispositivos automática e configuração do monitor é alterado para grandes conjuntos de dispositivos de IoT através de dispositivos duplos.
 
-   O **métricas** são consultas no dispositivo duplo propriedades comunicadas e também devem alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT. Configurações de dispositivos automática também têm a vantagem de efetuar operações de twin do dispositivo a uma velocidade que nunca vai exceder o IoT Hub a [limites de conjunto](iot-hub-devguide-quotas-throttling.md) para leituras de twin do dispositivo e atualizações.
+   Configurações de automático de dispositivos de destino conjuntos de dispositivos duplos através do **condição, de destino** que é uma consulta no dispositivo etiquetas duplo ou propriedades comunicadas. O **conteúdo de destino** é o conjunto de propriedades pretendidas que serão definidas dentro os twins do dispositivo de destino. O conteúdo de destino, deve alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT. O **métricas** são consultas no dispositivo duplo propriedades comunicadas e também devem alinhar com a estrutura de gémeos de dispositivo definida pelo fabricante/integrador do hardware IoT.
+
+   Configurações de dispositivos automática executam pela primeira vez, logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do IoT Hub realizar operações de gémeos de dispositivo a uma velocidade que nunca vai exceder o [limites de conjunto](iot-hub-devguide-quotas-throttling.md) para leituras de twin do dispositivo e atualizações.
 
 * **Utilize o [serviço aprovisionamento de dispositivos](../iot-dps/how-to-manage-enrollments.md):** Os desenvolvedores de solução devem utilizar o serviço de aprovisionamento de dispositivos para atribuir etiquetas do dispositivo duplo para novos dispositivos, que irá ser configurados automaticamente pelo **configurações de dispositivos automático** que se destinam a ser duplos com a mesma. 
 

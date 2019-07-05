@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
-ms.openlocfilehash: 193a24aebff8f7de60752e53bbc1b18dd5c54f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 779051135a994574cb2bed7bfc4879270ec1d8fa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482203"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443024"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Remover um tipo de nó do Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric através da remoção de um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerido separadamente. Depois de criar um cluster do Service Fabric, pode dimensionar um cluster horizontalmente ao remover um tipo de nó (conjunto de dimensionamento de máquina virtual) e todos nós do mesmo.  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
@@ -50,7 +50,7 @@ Quando remover um tipo de nó é Bronze, todos os nós num tipo de nó descer im
 
 ## <a name="recommended-node-type-removal-process"></a>Recomendado o processo de remoção de tipo de nó
 
-Para remover o tipo de nó, execute o [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  O cmdlet demora algum tempo a concluir.  Em seguida, execute [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em todos os nós que pretende que sejam removidos.
+Para remover o tipo de nó, execute o [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  O cmdlet demora algum tempo a concluir.  Depois de todas as VMs foram removidas (representado como "Down") do fabric: / sistema/InfrastructureService / [nodetype name] mostrará um Estado de erro.
 
 ```powershell
 $groupname = "mynodetype"
@@ -64,7 +64,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -X509Credential -ServerCertThumbprint <thumbprint> `
           -FindType FindByThumbprint -FindValue <thumbprint> `
           -StoreLocation CurrentUser -StoreName My
+```
 
+Em seguida, pode atualizar o recurso de cluster para remover o tipo de nó. Pode utilizar a implementação do modelo ARM, ou editar o recurso de cluster através da [do Azure resource manager](https://resources.azure.com). Isto irá iniciar uma atualização de cluster que removerá o fabric: / / InfrastructureService / [nodetype name] serviço do sistema que está no Estado com erros.
+
+Ainda verá que os nós são "Down" no Service Fabric Explorer. Execute [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) em todos os nós que pretende que sejam removidos.
+
+
+```powershell
 $nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
 
 Foreach($node in $nodes)

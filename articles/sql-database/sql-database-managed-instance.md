@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: c09dd990bb377672cb34ebd73a5aa9e59bbc067f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/26/2019
+ms.openlocfilehash: b03f546b992bd9de6092dc0da8ef72aa69aa1da2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070401"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447794"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a SQL Database, avançada de segurança de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -81,6 +81,9 @@ No modelo de vCore, pode escolher entre gerações de hardware.
 - **Gen5** CPUs lógicas são baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, core com hyper-threading de lógica e tamanhos entre 4 e 80 núcleos de computação.
 
 Encontrar mais informações sobre a diferença entre gerações de hardware no [geridos limites de recursos de instância](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
 
 ## <a name="managed-instance-service-tiers"></a>Gerido escalões de serviço da instância
 

@@ -1,19 +1,18 @@
 ---
 title: Compreender o suporte para MQTT de Hub do IoT do Azure | Documentos da Microsoft
 description: Guia do programador - suporte para os dispositivos ligados a um ponto final voltado para o dispositivo do IoT Hub através do protocolo MQTT. Inclui informações sobre incorporada MQTT suporte no Azure IoT device SDKs.
-author: rezasherafat
-manager: ''
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: rezas
-ms.openlocfilehash: 1a0b6cf8ce272733c259283fdec9c215ac2b0fd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 238627f5cb57a614d5f82f0eeba1ea6b4e32f458
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442567"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445486"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
 

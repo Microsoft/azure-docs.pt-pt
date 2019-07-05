@@ -3,7 +3,7 @@ title: Introdução à autenticação para aplicações móveis no Xamarin Andro
 description: Saiba como utilizar aplicações móveis para autenticar os utilizadores da sua aplicação Xamarin Android através de uma variedade de fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: panarasi
 editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 7a0b2c54c2d2a9daba56ea1d05c18e72a2d7a7a0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127918"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447056"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação à sua aplicação xamarin. Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-users) hoje mesmo.
+>
+
+## <a name="overview"></a>Descrição geral
 Este tópico mostra-lhe como autenticar os utilizadores de uma aplicação móvel da sua aplicação de cliente. Neste tutorial, vai adicionar autenticação ao projeto de início rápido, utilizando um fornecedor de identidade que é suportado pelo Azure Mobile Apps. Depois de com êxito a ser autenticado e autorizado na aplicação móvel, é apresentado o valor de ID de utilizador.
 
 Este tutorial baseia-se o guia de introdução da aplicação móvel. Também primeiro tem de concluir o tutorial [criar uma aplicação xamarin. Android]. Se não utilizar o projeto de servidor de início rápido transferido, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).

@@ -3,7 +3,7 @@ title: Serviços de domínio do Azure AD - Verifique o estado de funcionamento d
 description: Verifique o estado de funcionamento do seu domínio gerido com a página de estado de funcionamento no portal do Azure.
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: c3ff0b7daeaef077ea0d83782aeac6cda56fc659
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246483"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473962"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido do Azure AD Domain Services
 

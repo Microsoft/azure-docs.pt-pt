@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 905901c2a21c59bab9f48bf4229333663bc39131
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0de536f687272283b816e6724e41eb61e3a22cd0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938608"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442337"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparação entre o Azure Marketplace e o AppSource
 Lojas no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Microsoft AppSource](https://appsource.microsoft.com) atender a requisitos de cliente exclusivo. Utilize lojas para os clientes de destino através da função. Pode oferecer a solução ou serviço certo com base no seu cliente.
@@ -29,8 +29,8 @@ A tabela seguinte descreve as vantagens da utilização de uma loja:
 
 | Benefícios | AppSource | Azure Marketplace |
 |:--- |:--- | :--- |
-| **Flexibilidade de faturação** | Aprovisiona uma experiência de avaliação. Atualmente, não oferece uma opção de publicação habilitados no comércio. Pode utilizar a sua infraestrutura de faturação e de ordenação atual sem qualquer investimento adicional ou alterações. | Para as VMs, opções de faturação pay as you go utilizam o Microsoft Enterprise Agreements (EAs) ou modelos de vendas diretas de web. Opções de preços incluem uma subscrição do escalão gratuito, em que uma oferta é perpetuamente gratuita. Opções de preços também incluem uma subscrição experimentar agora. Uma subscrição Experimente agora é promocionalmente gratuita durante um período limitado. Quando terminar o período, a VM é convertida numa subscrição paga. Traga a sua própria licença (BYOL) ativação também é uma opção que pode utilizar para os clientes.<br /><br/>Para opções de faturação e as seguintes ofertas VM, todos os recursos aprovisionados do Azure são faturados diretamente para o cliente:<ul> <li>Aplicações do Azure: Aplicação gerida</li> <li>Aplicações do Azure: Modelo de solução</li> </ul> |
-| **Ligações com outros parceiros** | Fornecedores independentes de software de links, integradores de sistemas e fornecedores de serviços geridos para cenários de implementação específica. Pode vender em colaboração a novos clientes. | Atualmente, não é possível ligar um parceiro de fornecedor ou a entrega do serviço para a sua oferta. | 
+| **Flexibilidade de faturação** | AppSource suporta gratuita, avaliação, BYOL e tipos de oferta transactable. As ofertas transactable são produtos SaaS baseados em assinatura, que podem ser faturação mensal ou anualmente num por posto de trabalho ou a taxa fixa.| O Azure Marketplace suporta gratuito, avaliação, BYOL e tipos de oferta transactable. Ofertas transactable são baseado no consumo ou baseados em assinatura. Ofertas de baseado no consumo são faturadas pela utilização por hora e podem fornecer um período gratuito inicial. Serviços baseados em assinatura são faturados mensalmente ou anualmente numa taxa fixa ou por posto de trabalho.|
+|**Ligações com outros parceiros** | Fornecedores independentes de software de links, integradores de sistemas e fornecedores de serviços geridos para cenários de implementação específica. Pode vender em colaboração a novos clientes. | Atualmente, não é possível ligar um parceiro de fornecedor ou a entrega do serviço para a sua oferta. | 
 | **Automatização** | Fornecedores independentes de software de links, integradores de sistemas e fornecedores de serviços geridos para cenários de implementação específica. Pode vender em colaboração a novos clientes. | Atualmente, não é possível ligar um parceiro de fornecedor ou a entrega do serviço para a sua oferta. Tire partido de automatizadas de software como serviço (SaaS) com o suplemento de aprovisionamento. Utilize as aplicações do Azure: Modelo de solução opção para cenários de coleção e a implantação de dados baseada em SaaS de automatizar a publicação. |
 | **Vários tipos de cloud** | Atualmente, não suporta Azure Stack, Azure Government ou nuvens regionais. | Publique soluções para a cloud pública e no local, utilizando os seguintes tipos:<ul> <li>Azure Stack</li> <li>Azure Government</li> <li>Nuvens regionais, incluindo a China e Alemanha</li></ul> |
 | **No contexto apresentação para clientes** | Alcançar mais clientes através da experiência na aplicação para produtos da Microsoft, como o Dynamics 365, o Power BI e o Office 365. | Tornar sua solução disponível na experiência no portal do Azure para a pesquisa contextual. Utilize as aplicações de Máquina Virtual e o Azure: Opções publicação do modelo de solução. |

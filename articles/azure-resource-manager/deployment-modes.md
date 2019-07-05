@@ -4,14 +4,14 @@ description: Descreve como especificar se pretende utilizar um modo de implanta�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ff098bf329979d0702c41f83d8e5f8ee7cceca1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8a53ed1eea66c976c46a21378a9c48a1ad5ce902
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206552"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508215"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -22,6 +22,8 @@ Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificado
 ## <a name="complete-mode"></a>Modo de conclusão
 
 No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-group-authoring-templates.md#condition) for avaliada como falsa, não são eliminados.
+
+Tenha cuidado ao utilizar o modo completo com [copiar loops](resource-group-create-multiple.md). Todos os recursos que não estão especificados no modelo depois de resolver o ciclo de cópia são eliminados.
 
 Existem algumas diferenças em como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
 

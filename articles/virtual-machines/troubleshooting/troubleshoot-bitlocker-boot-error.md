@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 116748d7887ebf2ad821e3159c7c1bdcc2428121
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e60188496e060eeea14fc7b7f1cc9a662551b286
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64684761"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485164"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque do BitLocker numa VM do Azure
 
@@ -48,7 +48,7 @@ Para resolver este problema, parar e desalocar a VM e, em seguida, reiniciá-lo.
 Se esse método faz não a resolver o problema, siga estes passos para restaurar o ficheiro BEK manualmente:
 
 1. Tire um instantâneo do disco de sistema da VM afetado como uma cópia de segurança. Para obter mais informações, consulte [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md) que está encriptada por BitLocker. Isto é necessário para executar o [bde gerir](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) comando que está disponível apenas para a VM encriptada por BitLocker.
+2. [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md). Para executar o [gerir-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) comando no passo 7, o **BitLocker Drive Encryption** funcionalidade tem de ser ativada na VM de recuperação.
 
     Quando anexa um disco gerido, poderá receber uma mensagem de erro "contém as definições de encriptação e, portanto, não pode ser utilizado como um disco de dados". Nesta situação, execute o script seguinte para tentar novamente para anexar o disco:
 
@@ -106,7 +106,7 @@ Se esse método faz não a resolver o problema, siga estes passos para restaurar
 
     Se o **tipo de conteúdo** valor é **encapsulada BEK**, aceda ao [cenários de chave de encriptação de chaves (KEK)](#key-encryption-key-scenario).
 
-    Agora que tem o nome do ficheiro a BEK para a unidade, tem de criar o nome de ficheiro de segredo. Ficheiro BEK para desbloquear a unidade. 
+    Agora que tem o nome do ficheiro a BEK para a unidade, tem de criar o nome de ficheiro de segredo. Ficheiro BEK para desbloquear a unidade.
 
 6.  Transfira o ficheiro BEK para o disco de recuperação. O exemplo a seguir salva o arquivo BEK para a pasta C:\BEK. Certifique-se de que o `C:\BEK\` caminho existe antes de executar os scripts.
 
@@ -120,14 +120,14 @@ Se esse método faz não a resolver o problema, siga estes passos para restaurar
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7.  Para desbloquear o disco ligado através do ficheiro BEK, execute o seguinte comando:
+7.  Para desbloquear o disco ligado através do ficheiro BEK, execute o seguinte comando.
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     Neste exemplo, o disco do SO anexado é unidade F. Certifique-se de que use a letra de unidade correta. 
 
-    - Se o disco foi desbloqueado com êxito utilizando a chave BEK. Pode consideramos o problema de BItLocker que seja resolvido. 
+    - Se o disco foi desbloqueado com êxito utilizando a chave BEK. Pode consideramos o problema de BitLocker que seja resolvido. 
 
     - Se utilizar a chave BEK não desbloquear o disco, pode utilizar suspender a proteção para desativar temporariamente o BitLocker, executando o seguinte comando
     
@@ -254,7 +254,7 @@ Para um cenário de chave de encriptação de chave, siga estes passos:
     ```
     Neste exemplo, o disco do SO anexado é unidade F. Certifique-se de que use a letra de unidade correta. 
 
-    - Se o disco foi desbloqueado com êxito utilizando a chave BEK. Pode consideramos o problema de BItLocker que seja resolvido. 
+    - Se o disco foi desbloqueado com êxito utilizando a chave BEK. Pode consideramos o problema de BitLocker que seja resolvido. 
 
     - Se utilizar a chave BEK não desbloquear o disco, pode utilizar suspender a proteção para desativar temporariamente o BitLocker, executando o seguinte comando
     

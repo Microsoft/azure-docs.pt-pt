@@ -4,23 +4,23 @@ description: 'Descreve os diferentes tipos de runbooks que podem ser usados na a
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d90f1c03a9ed892a9dc8a4fecbeb9815c2dd376
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60737164"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476892"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da automatização do Azure
 
 A automatização do Azure suporta vários tipos de runbooks que são descritos brevemente na seguinte tabela.  As seções abaixo fornecem informações adicionais sobre cada tipo, inclusive considerações sobre quando usar cada um.
 
-| Tipo | Descrição |
+| Type | Descrição |
 |:--- |:--- |
 | [Gráficos](#graphical-runbooks)|Com base no Windows PowerShell e criado e editado completamente no editor gráfico no portal do Azure. |
 | [Fluxo de trabalho de PowerShell gráfico](#graphical-runbooks)|Com base no fluxo de trabalho do Windows PowerShell e criados e editados completamente no editor gráfico no portal do Azure. |

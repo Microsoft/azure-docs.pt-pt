@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1f808161087dff614ef83aacc606501bce96d3eb
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155127"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446705"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceba e implemente uma base de dados Oracle no Azure
 
@@ -147,7 +147,7 @@ Com base nos seus requisitos de largura de banda de rede, existem vários tipos 
 - Utilize máquinas virtuais com [redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para um melhor desempenho de rede.
 - Para determinados distrubutions do Linux, considere ativar [suporte de cortar/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) numa máquina Virtual separada.
-- Páginas enormes não estão ativadas por predefinição no linux. Considere ativar a páginas enormes e defina `use_large_pages = ONLY ` sobre o banco de dados Oracle. Isso pode ajudar a aumentar o desempenho. Podem encontrar mais informações [aqui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Páginas enormes não estão ativadas por predefinição no linux. Considere ativar a páginas enormes e defina `use_large_pages = ONLY` sobre o banco de dados Oracle. Isso pode ajudar a aumentar o desempenho. Podem encontrar mais informações [aqui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipos de disco e configurações
 

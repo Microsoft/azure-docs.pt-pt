@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153225"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460691"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -119,7 +119,7 @@ As credenciais para os arquivos de dados no local são sempre encriptadas e arma
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Portas utilizadas quando encriptar um serviço ligado no runtime de integração autoalojado
-Por predefinição, o PowerShell utiliza a porta 8050 na máquina com o runtime de integração autoalojado para uma comunicação segura. Se necessário, esta porta pode ser alterada.  
+Por predefinição, o PowerShell utiliza a porta 8060 na máquina com o runtime de integração autoalojado para uma comunicação segura. Se necessário, esta porta pode ser alterada.  
 
 ![Porta HTTPS para o gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted
 
 **Quais são os requisitos de porta para o runtime de integração autoalojado trabalhar?**
 
-O runtime de integração autoalojado torna conexões baseadas em HTTP para aceder à internet. As portas de saída 443 tem de ser abertas para o runtime de integração autoalojado fazer essa conexão. Abra a porta de entrada 8050 apenas ao nível da máquina (e não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como a origem ou destino, terá de abrir a porta 1433 também. Para obter mais informações, consulte a [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of-gateway) secção. 
+O runtime de integração autoalojado torna conexões baseadas em HTTP para aceder à internet. As portas de saída 443 tem de ser abertas para o runtime de integração autoalojado fazer essa conexão. Abra a porta de entrada 8060 apenas ao nível da máquina (e não ao nível do firewall Corporativo) para a aplicação do Gestor de credenciais. Se a base de dados do Azure SQL ou armazém de dados SQL do Azure é utilizado como a origem ou destino, terá de abrir a porta 1433 também. Para obter mais informações, consulte a [endereços IP da lista de permissões e configurações de Firewall](#firewall-configurations-and-whitelisting-ip-address-of-gateway) secção. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

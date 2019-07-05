@@ -4,17 +4,17 @@ description: Runbooks e módulos da Microsoft e da Comunidade estão disponívei
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcf48cfdb43473f99b139f0a0a07a5ace9a91642
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60737409"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476954"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerias de módulos e Runbooks de automatização do Azure
 

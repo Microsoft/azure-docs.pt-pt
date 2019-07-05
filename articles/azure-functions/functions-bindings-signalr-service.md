@@ -4,7 +4,7 @@ description: Compreenda como utilizar os enlaces de serviço SignalR com as fun�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62d9319ae292c9f4ae22f8fcd83bdd8799dc6617
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511144"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480260"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces do Serviço SignalR para as Funções do Azure
 

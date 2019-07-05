@@ -4,17 +4,17 @@ description: Este artigo fornece informações de utilização de módulos de Az
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a45a1fbe0d7a99c970d6f8f5626c1349f9d8b1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c722dc6af2b98adb60045d530bb38de7762027d5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123702"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477897"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte de módulo de AZ na automatização do Azure
 

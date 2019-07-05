@@ -1,18 +1,18 @@
 ---
 title: Otimizar o custo dos recursos do Azure Cosmos DB com a capacidade de reserva
 description: Saiba como comprar capacidade do Azure Cosmos DB reservadas para poupar nos custos de computação.
-author: rimman
+author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7944980ec1806d2c8c4ab908c71efd971ee0d7aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b74fcc2e08f02be7adeeab4cfee5f36d5194392c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968964"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508632"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Capacidade de Cosmos DB reservada do Azure abrange o débito aprovisionado para 
 
 Pode comprar o Azure Cosmos DB reservado capacidade dos [portal do Azure](https://portal.azure.com). Comprar capacidade de reserva:
 
-* Tem de estar na função de proprietário para, pelo menos, uma empresa ou uma subscrição pay as you go.  
+* Tem de estar na função de proprietário para, pelo menos, uma empresa ou uma subscrição individual com taxas pay as you go.  
 * Para subscrições Enterprise, **adicionar as instâncias reservadas** tem de estar ativada no [portal EA](https://ea.azure.com). Em alternativa, se essa definição estiver desativada, tem de ser um administrador de EA da subscrição.
 * Para o programa de fornecedor de soluções Cloud (CSP), apenas os agentes de administrador ou agentes de vendas podem comprar capacidade reservada do Azure Cosmos DB.
 
@@ -44,26 +44,29 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
 
 2. Selecione **todos os serviços** > **reservas** > **adicionar**.  
 
-3. Do **selecionar o tipo de produto** painel, escolha **do Azure Cosmos DB** > **selecionar** comprar uma reserva de novo.  
+3. Do **comprar reservas** painel, escolha **do Azure Cosmos DB** comprar uma reserva de novo.  
 
 4. Preencha os campos obrigatórios, conforme descrito na tabela a seguir:
 
-   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
+   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
 
    |Campo  |Descrição  |
    |---------|---------|
-   |Name   |    Nome da reserva. Este campo é preenchido automaticamente com `CosmosDB_Reservation_<timeStamp>`. Pode fornecer um nome diferente ao criar a reserva. Ou pode alterá-lo Depois da reserva é criada.      |
-   |Subscrição  |   Capacidade de reserva de subscrição que é utilizada para pagar o Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado na cobrar os custos à cabeça. O tipo de subscrição tem de ser um dos seguintes procedimentos: <br/><br/>  Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P): Para uma subscrição Enterprise, os encargos são deduzidos da saldo de alocação monetária a inscrição ou cobrados como utilização excedente. <br/><br/> Pay as you go (números da oferta: MS-AZR-0003P or MS-AZR-0023P): Para obter uma subscrição pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.    |
-   |Scope   |   Opção que controla o número de subscrições, pode utilizar o benefício de faturação associado com a reserva. Este também controla a forma como a reserva se aplica às subscrições específicas.   <br/><br/>  Se selecionou **subscrição individual**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada. <br/><br/>  Se selecionou **partilhado**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB, que são executados em qualquer subscrição com o contexto de faturação. O contexto de faturação é baseado na forma como se inscreveu no Azure. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.  <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade de reserva.  |
-   |Tipo de capacidade de reserva   |  Débito aprovisionado como unidades de pedido. Pode comprar uma reserva para o débito aprovisionado para ambas as configurações - região única escreve, bem como vários de região de escrita.|
-   |Unidades de capacidade de reserva  |      Quantidade de débito que pretende reservar. Pode calcular esse valor por determinar o débito necessário para todos os seus recursos de Cosmos DB (por exemplo, bancos de dados ou contentores) por região. , Em seguida, multiplique isso pelo número de regiões que irá associar-se a sua base de dados do Cosmos DB.  <br/><br/> Por exemplo: Se tiver cinco regiões com 1 milhão RU/seg em cada região, selecione 5 milhões de RU/seg para a compra de capacidade de reserva.    |
+   |Scope   |   Opção que controla o número de subscrições, pode utilizar o benefício de faturação associado com a reserva. Este também controla a forma como a reserva se aplica às subscrições específicas. <br/><br/>  Se selecionou **partilhado**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB, que são executados em qualquer subscrição com o contexto de faturação. O contexto de faturação é baseado na forma como se inscreveu no Azure. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições individuais com as tarifas pay as you go, criadas pelo administrador de conta.  <br/><br/>  Se selecionou **subscrição individual**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada. <br/><br/> Se selecionou **grupo de recursos único**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada e o grupo de recursos selecionado nessa subscrição. <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade de reserva.  |
+   |Subscrição  |   Capacidade de reserva de subscrição que é utilizada para pagar o Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado na cobrar os custos à cabeça. O tipo de subscrição tem de ser um dos seguintes procedimentos: <br/><br/>  Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P): Para uma subscrição Enterprise, os encargos são deduzidos da saldo de alocação monetária a inscrição ou cobrados como utilização excedente. <br/><br/> Subscrição individual com as tarifas pay as you go (números da oferta: MS-AZR-0003P or MS-AZR-0023P): Para uma subscrição individual com as tarifas pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.    |
+   | Grupo de Recursos | Grupo de recursos para o qual o desconto de capacidade de reserva é aplicado. |
    |Termo  |   Um ano ou três anos.   |
+   |Tipo de taxa de transferência   |  Taxa de transferência é aprovisionada como unidades de pedido. Pode comprar uma reserva para o débito aprovisionado para ambas as configurações - região única escreve, bem como vários de região de escrita. O tipo de taxa de transferência tem dois valores à sua escolha: 100 RU/s por hora e de 100 RU/s de vários mestres por hora.|
+   | Unidades reservadas de capacidade| A quantidade de débito que pretende reservar. Pode calcular esse valor por determinar o débito necessário para todos os seus recursos de Cosmos DB (por exemplo, bancos de dados ou contentores) por região. , Em seguida, multiplique isso pelo número de regiões que irá associar-se a sua base de dados do Cosmos DB. Por exemplo: Se tiver cinco regiões com 1 milhão RU/seg em cada região, selecione 5 milhões de RU/seg para a compra de capacidade de reserva. |
+ 
 
-5. Reveja o desconto e o preço da reserva no **custos** secção. Este preço de reserva se aplica aos recursos do Azure Cosmos DB com o débito aprovisionado em todas as regiões.  
+5. Depois de preencher o formulário, é calculado o preço para adquirir a capacidade de reserva. O resultado também mostra a percentagem de desconto que obtém com as opções que escolheu. Em seguida, clique **selecione**
 
-6. Selecione **Comprar**. Quando a compra for concluída com êxito, verá a seguinte página:
+6. Na **comprar reservas** painel, reveja o desconto e o preço da reserva. Este preço de reserva se aplica aos recursos do Azure Cosmos DB com o débito aprovisionado em todas as regiões.  
 
-   ![Preencha o formulário de capacidade de reserva](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
+   ![Resumida de capacidade de reserva](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+
+7. Selecione **revisão + Compra** e, em seguida **comprar agora**. Quando a compra for concluída com êxito, verá a seguinte página:
 
 Depois de comprar uma reserva, ele é aplicado imediatamente a quaisquer recursos existentes do Azure Cosmos DB que corresponda aos termos da reserva. Se não tiver quaisquer recursos existentes do Azure Cosmos DB, a reserva aplicará ao implementar uma nova instância de Cosmos DB, que corresponde aos termos da reserva. Em ambos os casos, o período da reserva começa imediatamente após a compra ser efetuada com êxito.
 

@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a577a2a2a3b21cb027ba699450631a627f4f7a39
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538298"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501888"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens do Azure 
 
@@ -55,7 +55,7 @@ O `type` é o tipo de recurso, que tem de ser `"Microsoft.VirtualMachineImages/i
 
 A localização é a região onde a imagem personalizada será criada. Para a pré-visualização do construtor de imagens, são suportadas as seguintes regiões:
 
-- EUA Leste
+- East US
 - EUA Leste 2
 - EUA Centro-Oeste
 - EUA Oeste
@@ -331,6 +331,8 @@ Isto é suportado pelo diretórios do Windows e Linux caminhos, mas existem algu
  
  
 Se houver um erro a tentar transferir o ficheiro ou colocá-lo num diretório especificado, o passo de personalizar falhará e terá o customization.log.
+
+>> Tenha em atenção! O personalizador de ficheiro só é adequado para as transferências de ficheiro pequeno, < 20MB. Para downloads de arquivos maiores utilizam um script ou inline comando, o código de utilização para transferir ficheiros, tais como, Linux `wget` ou `curl`, Windows, `Invoke-WebRequest`.
 
 Ficheiros no personalizador de ficheiro podem ser baixados do armazenamento do Azure utilizando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 85c37b6d626fc9942f5df956e738431d2727d282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: d1c73d8eb65ed5d67d5250b4a3bca3b80450001e
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481838"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536729"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>Visualização de dados com o Explorador de dados do Azure 
 
@@ -21,22 +21,42 @@ Explorador de dados do Azure é um serviço de exploração de dados rápida e a
 
 Relatórios e visualização de dados é uma etapa crítica no processo de análise de dados. O Explorador de dados do Azure suporta muitos serviços de BI, pelo que pode utilizar aquele que melhor se adequa a seu cenário e o orçamento.
 
-* Visualizações do Explorador de dados do Azure: Usando a linguagem de consulta de Kusto a [ `render operator` ](/azure/kusto/query/renderoperator) oferece vários tipos de visualização para descrever os resultados da consulta. Visualizações de consulta são úteis na deteção de anomalias e previsão, aprendizagem automática e muito mais.
+## <a name="kusto-query-language-visualizations"></a>Visualizações de linguagem de consulta de Kusto
 
-* [Power BI](https://powerbi.microsoft.com): O Explorador de dados do Azure fornece a capacidade de ligar ao Power BI através de vários métodos: 
+A linguagem de consulta de Kusto [ `render operator` ](/azure/kusto/query/renderoperator) oferece várias visualizações, como tabelas, gráficos circulares e gráficos de barras para descrever os resultados da consulta. Visualizações de consulta são úteis na deteção de anomalias e previsão, aprendizagem automática e muito mais.
+
+## <a name="power-bi"></a>Power BI
+
+O Explorador de dados do Azure fornece a capacidade para ligar à [Power BI](https://powerbi.microsoft.com) usando vários métodos: 
 
   * [Conector nativo do Power BI incorporado](/azure/data-explorer/power-bi-connector)
 
   * [Importar de consulta do Explorador de dados do Azure para o Power BI](/azure/data-explorer/power-bi-imported-query)
  
-  * [Consulta SQL](/azure/data-explorer/power-bi-sql-query).
+  * [Consulta SQL](/azure/data-explorer/power-bi-sql-query)
 
-* [Microsoft Excel](https://products.office.com/excel): O Explorador de dados do Azure fornece a capacidade de ligar ao Excel usando o conector do Excel nativo incorporado ou importar uma consulta a partir do Explorador de dados do Azure para o Excel.
+## <a name="microsoft-excel"></a>Microsoft Excel
 
-* [Grafana](https://grafana.com): O Grafana fornece um plug-in do Explorador de dados do Azure que lhe permite visualizar os dados a partir do Explorador de dados do Azure. [Configurar o Explorador de dados do Azure como uma origem de dados para o Grafana e, em seguida, visualize os dados](/azure/data-explorer/grafana)
+O Explorador de dados do Azure fornece a capacidade para ligar à [Microsoft Excel](https://products.office.com/excel) usando nativa incorporada conector do Excel ou importar uma consulta a partir do Explorador de dados do Azure para o Excel.
 
-* [Sisense](https://www.sisense.com): O Explorador de dados do Azure fornece a capacidade de ligar ao Sisense com o conector JDBC. [Configurar o Explorador de dados do Azure como uma origem de dados para Sisense e, em seguida, visualize os dados](/azure/data-explorer/sisense).
+## <a name="grafana"></a>Grafana
 
-* [Tableau](https://www.tableau.com): O Explorador de dados do Azure fornece a capacidade para ligar ao Tableau com o [conector do ODBC e visualize os dados no Tableau](/azure/data-explorer/connect-odbc).
+[O Grafana](https://grafana.com) fornece um plug-in do Explorador de dados do Azure que lhe permite visualizar os dados a partir do Explorador de dados do Azure. [Configurar o Explorador de dados do Azure como uma origem de dados para o Grafana e, em seguida, visualize os dados](/azure/data-explorer/grafana). 
 
-* [Qlik](https://www.qlik.com): O Explorador de dados do Azure fornece a capacidade para ligar ao Qlik com o [conector do ODBC](/azure/data-explorer/connect-odbc).
+## <a name="odbc-connector"></a>Conector ODBC
+
+O Explorador de dados do Azure fornece um [conector de conectividade ODBC (Open Database)](connect-odbc.md) para qualquer aplicação que suporte o ODBC pode ligar-se ao Azure Data Explorer.
+
+## <a name="tableau"></a>Tableau
+
+O Explorador de dados do Azure fornece a capacidade de ligar ao [Tableau](https://www.tableau.com) utilizando o [conector do ODBC](/azure/data-explorer/connect-odbc) e, em seguida [visualize os dados no Tableau](tableau.md).
+
+## <a name="qlik"></a>Qlik
+
+O Explorador de dados do Azure fornece a capacidade para ligar à [Qlik](https://www.qlik.com) utilizando o [conector do ODBC](/azure/data-explorer/connect-odbc) e, em seguida, criar Qlik Sense dashboards e visualizar os dados. Utilizar o seguinte vídeo, pode aprender visualizar dados de Explorador de dados do Azure com o Qlik. 
+
+> [!VIDEO https://www.youtube.com/embed/nhWIiBwxjjU]  
+
+## <a name="sisense"></a>Sisense
+
+O Explorador de dados do Azure fornece a capacidade para ligar à [Sisense](https://www.sisense.com) através do conector JDBC. [Configurar o Explorador de dados do Azure como uma origem de dados para Sisense e, em seguida, visualize os dados](/azure/data-explorer/sisense).

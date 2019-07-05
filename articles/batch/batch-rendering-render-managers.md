@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6878d3b4fc8648db540d016389747eceb45d936a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118591"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67436163"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilizar o Azure Batch com os gestores de farm de composição
 
@@ -23,7 +23,7 @@ O Azure fornece suporte interno ou suplementos para gestores de composição pop
 Os gerentes de composição seguintes são suportados:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Prazo de Thinkbox](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Utilizar o Azure com PipelineFX Qube
@@ -32,7 +32,7 @@ VMs a serem usadas como Qube trabalhadores estão no agrupamento de scripts e in
 
 ## <a name="using-azure-with-royal-render"></a>Utilizar o Azure com composição Royal
 
-Composição Royal tem total integração do Azure e o Azure Batch incorporada, permitindo-lhe expandir um farm de composição com VMs baseadas no Azure. Para obter um resumo, consulte [os arquivos da ajuda](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Composição Royal tem total integração do Azure e o Azure Batch incorporada, permitindo-lhe expandir um farm de composição com VMs baseadas no Azure. Para obter um resumo, consulte [os arquivos da ajuda](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Para obter um exemplo de um cliente de renderizar Royal através da integração do Azure, consulte a [história de cliente da Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 

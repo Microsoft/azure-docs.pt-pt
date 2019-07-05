@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 536d7a572eddc2cf75f6ce135c3cd4f4f2635416
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203303"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509248"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar dados de ou para a geração 2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
@@ -115,7 +115,7 @@ Para utilizar autenticação do principal de serviço, siga estes passos.
 >A lista de pastas a partir do nível da conta ou a ligação de teste, precisa definir a permissão do principal de serviço, sendo concedido ao **conta de armazenamento com a permissão de "Leitor de dados de Blob de armazenamento" no IAM**. Isso é verdade, quando utiliza o:
 >- **Ferramenta de cópia de dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação. 
->Se tiver questões sobre a concessão da permissão ao nível da conta, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
+>Se tiver questões sobre a concessão da permissão ao nível da conta, durante a criação, ignore a ligação de teste e entrada em seguida, escolha um caminho de principais com permissão concedida para procurar a partir de que especificado o caminho. Copie atividade funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 Estas propriedades são suportadas para o serviço ligado:
 
@@ -169,7 +169,7 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure, si
 >A lista de pastas a partir do nível da conta ou a ligação de teste, precisa definir a permissão de a identidade gerida sendo concedido ao **conta de armazenamento com a permissão de "Leitor de dados de Blob de armazenamento" no IAM**. Isso é verdade, quando utiliza o:
 >- **Ferramenta de cópia de dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação. 
->Se tiver questões sobre a concessão da permissão ao nível da conta, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia ainda funciona, desde que a identidade gerida é concedida com a permissão adequada nos arquivos sejam copiados.
+>Se tiver questões sobre a concessão da permissão ao nível da conta, durante a criação, ignore a ligação de teste e entrada em seguida, escolha um caminho de principais com permissão concedida para procurar a partir de que especificado o caminho. Copie atividade funciona, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 >[!IMPORTANT]
 >Se utilizar o PolyBase para carregar dados de geração 2 de armazenamento do Data Lake para o SQL Data Warehouse, ao utilizar a autenticação de identidade gerida de geração 2 de armazenamento do Data Lake, certifique-se de que também siga os passos 1 e 2 no [esta orientação](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) como 1) registe o seu SQL Servidor de base de dados com o Azure Active Directory (Azure AD) e 2) atribuir a função de contribuinte de dados de Blob de armazenamento ao seu servidor de base de dados SQL; o resto são processadas pelo Data Factory. Se sua Gen2 de armazenamento do Data Lake está configurado com um ponto de extremidade de rede Virtual do Azure, para utilizar o PolyBase para carregar dados a partir do mesmo, tem de utilizar a autenticação de identidade gerida conforme exigido pelo PolyBase.

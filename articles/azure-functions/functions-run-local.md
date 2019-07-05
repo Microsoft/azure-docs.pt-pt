@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 6c0732b33608105009eda9bba2e4970e8e12e652
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd6259173792585a83effd42c75ff9a7a7d572e4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050576"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448357"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -68,6 +68,9 @@ Os seguintes passos utilizam npm para instalar as ferramentas de núcleo no Wind
     ```bash
     npm install -g azure-functions-core-tools
     ```
+
+   Pode demorar alguns minutos para o npm transferir e instalar o pacote de ferramentas de núcleo.
+
 1. Se não planeja usar [pacotes de extensão], instale o [.NET Core 2.x SDK para Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS com o Homebrew
@@ -82,6 +85,7 @@ Os passos seguintes utilizam o Homebrew para instalar as ferramentas de núcleo 
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
+
 1. Se não planeja usar [pacotes de extensão], instale [.NET Core SDK 2.x para macOS](https://www.microsoft.com/net/download/macos).
 
 
@@ -115,6 +119,7 @@ Os passos seguintes utilizam [APT](https://wiki.debian.org/Apt) para instalar as
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
+
 1. Se não planeja usar [pacotes de extensão], instale [.NET Core SDK para Linux 2.x](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
@@ -163,53 +168,16 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Por predefinição, versão 2.x das ferramentas de núcleo cria função os projetos de aplicativos para o tempo de execução do .NET como [projetos de classe c#](functions-dotnet-class-library.md) (arquivo. csproj). Esses projetos do c#, que podem ser utilizados com o Visual Studio ou o Visual Studio Code, são compilados durante o teste e ao publicar no Azure. Se pretender em vez disso, criar e trabalhar com o mesmo script c# (. csx) ficheiros criados na versão 1.x e no portal, tem de incluir o `--csx` parâmetro ao criar e implementar as funções.
 
-## <a name="register-extensions"></a>Registe-se as extensões
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-Na versão 2.x do runtime das funções do Azure, precisa registrar explicitamente as extensões de vinculação (tipos de ligação) que utiliza na sua aplicação de função.
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
-
-Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](./functions-bindings-expressions-patterns.md).
-
-## <a name="local-settings-file"></a>Ficheiro de definições locais
-
-O ficheiro Settings armazena as definições da aplicação, as cadeias de ligação e as definições para as ferramentas de núcleo de funções do Azure. Definições no arquivo Settings só são utilizadas pelas ferramentas de funções ao executar localmente. Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Os valores na **ConnectionStrings** nunca são publicados. O ficheiro tem a seguinte estrutura:
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<language worker>",
-    "AzureWebJobsStorage": "<connection-string>",
-    "AzureWebJobsDashboard": "<connection-string>",
-    "MyBindingConnection": "<binding-connection-string>"
-  },
-  "Host": {
-    "LocalHttpPort": 7071,
-    "CORS": "*",
-    "CORSCredentials": false
-  },
-  "ConnectionStrings": {
-    "SQLConnectionString": "<sqlclient-connection-string>"
-  }
-}
-```
-
-| Definição      | Descrição                            |
-| ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando definido como `true`, todos os valores são criptografados usando uma chave de computador local. Utilizado com `func settings` comandos. Valor predefinido é `false`. |
-| **`Values`** | Coleção de definições da aplicação e as cadeias de ligação utilizadas ao executar localmente. Esses valores correspondem às definições de aplicação na sua aplicação de função no Azure, tal como [ `AzureWebJobsStorage` ]. Muitos acionadores e enlaces de ter uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, tal como `Connection` para o [acionador do armazenamento de BLOBs](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, precisa de uma definição da aplicação definida no `Values` matriz. <br/>[`AzureWebJobsStorage`] é uma aplicação necessária a configuração para acionadores que não seja o HTTP. <br/>Versão 2.x do runtime de funções requer o [ `FUNCTIONS_WORKER_RUNTIME` ] definição, que é gerada para o seu projeto por ferramentas de núcleo. <br/> Quando tem o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) instalados localmente, pode definir [ `AzureWebJobsStorage` ] para `UseDevelopmentStorage=true` e ferramentas de núcleo utiliza o emulador. Isto é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes da implantação. |
-| **`Host`** | As definições nesta secção personalizar o processo de host de funções ao executar localmente. |
-| **`LocalHttpPort`** | Define a porta predefinida utilizada ao executar o anfitrião local de funções (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |
-| **`CORS`** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista separada por vírgulas, sem espaços. O valor de caráter universal (\*) é suportado, que permite que os pedidos a partir de qualquer origem. |
-| **`CORSCredentials`** |  Defina como verdadeiro para permitir `withCredentials` pedidos |
-| **`ConnectionStrings`** | Não utilize esta coleção para as cadeias de ligação utilizadas pelo seu enlaces de funções. Esta coleção só é utilizada por estruturas que normalmente obtém cadeias de ligação do `ConnectionStrings` secção de uma configuração de ficheiros, tais como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Cadeias de ligação desse objeto são adicionadas ao ambiente com o tipo de fornecedor de [SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Itens dessa coleção não são publicadas no Azure com outras definições de aplicação. Tem de adicionar explicitamente esses valores para o `Connection strings` coleção das definições de aplicação de função. Se estiver a criar uma [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no código da função, deve armazenar o valor da cadeia de ligação **configurações de aplicativo** no portal com as outras ligações. |
+Por predefinição, estas definições não são migradas automaticamente quando o projeto é publicado para o Azure. Utilize o `--publish-local-settings` mude [ao publicar](#publish) para se certificar de que estas definições são adicionadas à aplicação de funções no Azure. Tenha em atenção que os valores na **ConnectionStrings** nunca são publicados.
 
 Os valores de definições de aplicação de função também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de idioma específico:
 
 * [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
 * [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -221,7 +189,7 @@ Quando nenhuma cadeia de ligação de armazenamento válida é definida para [ `
 
 Mesmo ao usar o emulador de armazenamento para o desenvolvimento, talvez queira testar com uma ligação de armazenamento real. Partindo do princípio de que já tiver [criou uma conta de armazenamento](../storage/common/storage-create-storage-account.md), pode obter uma cadeia de ligação de armazenamento válido de uma das seguintes formas:
 
-+ Partir do [portal do Azure]. Navegue até à sua conta de armazenamento, selecione **chaves de acesso** na **definições**, em seguida, copie uma do **cadeia de ligação** valores.
++ Partir do [Azure portal]. Navegue até à sua conta de armazenamento, selecione **chaves de acesso** na **definições**, em seguida, copie uma do **cadeia de ligação** valores.
 
   ![Copie a cadeia de ligação do portal do Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
@@ -439,7 +407,7 @@ As seguintes opções de publicação aplicam-se para as versões, 1.x e 2.x:
 
 | Opção     | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Definições de publicação no Settings para o Azure, pedir para substituir se a definição já existe. Se estiver a utilizar o emulador de armazenamento, altere a definição de aplicação para um [ligação de armazenamento real](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Definições de publicação no Settings para o Azure, pedir para substituir se a definição já existe. Se estiver a utilizar o emulador de armazenamento, primeiro altere a definição de aplicação para um [ligação de armazenamento real](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Suprimir a linha de comandos para substituir as definições da aplicação quando `--publish-local-settings -i` é utilizado.|
 
 As seguintes opções de publicação só são suportadas na versão 2.x:
@@ -493,8 +461,8 @@ Para um pedido de bug ou a funcionalidade de ficheiros [abra um problema do GitH
 <!-- LINKS -->
 
 [Ferramentas de núcleo das funções do Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
-[pacotes de extensão]: functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles
+[pacotes de extensão]: functions-bindings-register.md#extension-bundles

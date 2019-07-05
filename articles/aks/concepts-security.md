@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 69ec3869f7bfd74b150db537a01e604cae87570f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65074025"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441986"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Por predefinição, o servidor de API do Kubernetes utiliza um endereço IP púb
 
 Nós do AKS são máquinas virtuais do Azure, que a gerenciar e manter. Executar uma distribuição Ubuntu otimizada com o tempo de execução do contentor de Moby nós do Linux. Nós do Windows Server (atualmente em pré-visualização no AKS) executados um otimizada de 2019 de arranque do Windows Server de versão e utilizam também o tempo de execução do contentor de Moby. Quando um cluster do AKS é criado ou verticalmente, os nós são implementados automaticamente com as mais recentes atualizações de segurança do sistema operacional e as configurações.
 
-A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para nós do Linux de forma noturna. Se uma atualização de segurança do SO Linux requer um reinício do anfitrião, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós do Linux ou uma abordagem comum é usar [Kured][kured], um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet] [ aks-daemonsets] e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
+A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para nós do Linux de forma noturna. Se uma atualização de segurança do SO Linux requer um reinício do anfitrião, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós do Linux ou uma abordagem comum é usar [Kured][kured] , an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
 
 Para nós do Windows Server (atualmente em pré-visualização no AKS), o Windows Update automaticamente executar e aplicar as atualizações mais recentes. Com base numa agenda regular em todo o ciclo de lançamento de atualização do Windows e o seu próprio processo de validação, deve efetuar uma atualização em agrupamentos de nó do Windows Server no cluster do AKS. Este processo de atualização cria nós que executam a imagem do Windows Server mais recente e patches, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [atualizar um conjunto de nós no AKS][nodepool-upgrade].
 
@@ -73,7 +73,7 @@ Para filtrar o fluxo de tráfego nas redes virtuais, o Azure utiliza regras do g
 
 Kubernetes *segredo* é usado para inserir dados confidenciais no pods, como credenciais de acesso ou chaves. Primeiro, vai criar um segredo com a API do Kubernetes. Quando define seu pod ou a implementação, pode ser pedido um segredo específico. Segredos são fornecidos apenas para nós que têm um pod agendado que precise dela, e o segredo é armazenado na *tmpfs*, não é escrito no disco. Quando o último pod num nó de que necessita de um segredo é eliminado, o segredo é eliminado do tmpfs do nó. Segredos são armazenados dentro de um determinado espaço de nomes e apenas podem ser acedidos por pods dentro do mesmo espaço de nomes.
 
-A utilização de segredos reduz as informações confidenciais que estão definidas no manifesto YAML de serviço ou de pod. Em vez disso, solicitar o segredo armazenado no servidor de API do Kubernetes como parte do seu manifesto YAML. Esta abordagem fornece apenas o acesso de pod específico para o segredo.
+A utilização de segredos reduz as informações confidenciais que estão definidas no manifesto YAML de serviço ou de pod. Em vez disso, solicitar o segredo armazenado no servidor de API do Kubernetes como parte do seu manifesto YAML. Esta abordagem fornece apenas o acesso de pod específico para o segredo. Tenha em atenção: os ficheiros de manifestos secretos brutos contém os dados secretos em formato base64 (consulte a [documentação oficial][secret-risks] para obter mais detalhes). Por conseguinte, este ficheiro deve ser tratado como informações confidenciais e nunca o compromisso de controlo de origem.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -92,6 +92,7 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets

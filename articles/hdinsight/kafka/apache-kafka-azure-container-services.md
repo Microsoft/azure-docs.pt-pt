@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 35ef708cdcedc2d7bafedb8bf3686e4b468177df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc2c3e557f295bd3125c09d9b839716159dcf50b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723681"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446464"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utilizar o serviço Kubernetes do Azure com o Apache Kafka no HDInsight
 
@@ -35,7 +35,7 @@ Este documento parte do princípio de que está familiarizado com a criação e 
 * Serviço Kubernetes do Azure
 * Redes Virtuais do Azure
 
-Este documento assume também que tiver percorrido o [tutorial do Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Este tutorial cria um serviço de contentor, cria um cluster do Kubernetes, um registo de contentores e configura o `kubectl` utilitário.
+Este documento assume também que tiver percorrido o [tutorial do Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). Este artigo cria um serviço de contentor, cria um cluster do Kubernetes, um registo de contentores e configura o `kubectl` utilitário.
 
 ## <a name="architecture"></a>Arquitetura
 

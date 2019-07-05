@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a02a56df85c5c6aa9fd177ad42a2f9bfb303e44
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64691423"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491943"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e os dados na análise de tráfego
 
@@ -32,13 +32,57 @@ Análise de tráfego é uma solução baseada na cloud que fornece visibilidade 
 
 ### <a name="data-aggregation"></a>Agregação de dados
 
-1. Todos os registos de fluxo num NSG entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t" são capturados em intervalos de um minuto na conta de armazenamento, como blobs, antes de ser processado pela análise de tráfego. 
+1. Todos os registos de fluxo num NSG entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t" são capturados em intervalos de um minuto na conta de armazenamento, como blobs, antes de ser processado pela análise de tráfego.
 2. Intervalo de processamento de padrão de análise de tráfego é de 60 minutos. Isso significa que cada 60 minutos, a análise de tráfego escolhe blobs de armazenamento para agregação.
 3. Protocolo (TCP ou UDP) de camada de fluxos que tenham o mesmo IP de origem, IP de destino, porta de destino, nome do NSG, regra NSG, direção de fluxo e transporte (observação: Porta de origem está excluída para agregação) clubbed num único fluxo pela análise de tráfego
 4. Este registo único está decoradas (detalhes na secção abaixo) e ingerido no Log Analytics por tráfego Analytics.This processo pode demorar até 1 hora máximo.
-5. Campo de FlowStartTime_t indica a primeira ocorrência de tal um fluxo agregado (mesmo quatro cadeias de identificação) no registo de fluxo do processamento de intervalo entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t". 
+5. Campo de FlowStartTime_t indica a primeira ocorrência de tal um fluxo agregado (mesmo quatro cadeias de identificação) no registo de fluxo do processamento de intervalo entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t".
 6. Para qualquer recurso no TA, os fluxos do indicado na interface do Usuário são vistos pelo NSG de total de fluxos, mas no Anlaytics de registo de utilizador irá ver apenas o registo único, reduzido. Para ver todos os fluxos, utilize o campo de blob_id, que pode ser referenciado a partir do armazenamento. O fluxo total contar para que o registo irá corresponder os fluxos individuais vistos no blob.
 
+A consulta abaixo ajuda a procura em todos os registos do local nos últimos 30 dias do fluxo.
+```
+AzureNetworkAnalytics_CL
+| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
+| project Subnet_s  
+```
+Para ver o caminho do blob para os fluxos na consulta acima mencionada, utilize a consulta abaixo:
+
+```
+let TableWithBlobId =
+(AzureNetworkAnalytics_CL
+   | where SubType_s == "Topology" and ResourceType == "NetworkSecurityGroup" and DiscoveryRegion_s == Region_s and IsFlowEnabled_b
+   | extend binTime = bin(TimeProcessed_t, 6h),
+            nsgId = strcat(Subscription_g, "/", Name_s),
+            saNameSplit = split(FlowLogStorageAccount_s, "/")
+   | extend saName = iif(arraylength(saNameSplit) == 3, saNameSplit[2], '')
+   | distinct nsgId, saName, binTime)
+| join kind = rightouter (
+   AzureNetworkAnalytics_CL
+   | where SubType_s == "FlowLog"  
+   | extend binTime = bin(FlowEndTime_t, 6h)
+) on binTime, $left.nsgId == $right.NSGList_s  
+| extend blobTime = format_datetime(todatetime(FlowIntervalStartTime_t), "yyyy MM dd hh")
+| extend nsgComponents = split(toupper(NSGList_s), "/"), dateTimeComponents = split(blobTime, " ")
+| extend BlobPath = strcat("https://", saName,
+                        "@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/", nsgComponents[0],
+                        "/RESOURCEGROUPS/", nsgComponents[1],
+                        "/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/", nsgComponents[2],
+                        "/y=", dateTimeComponents[0], "/m=", dateTimeComponents[1], "/d=", dateTimeComponents[2], "/h=", dateTimeComponents[3],
+                        "/m=00/macAddress=", replace(@"-", "", MACAddress_s),
+                        "/PT1H.json")
+| project-away nsgId, saName, binTime, blobTime, nsgComponents, dateTimeComponents;
+
+TableWithBlobId
+| where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
+| project Subnet_s , BlobPath
+```
+
+A consulta acima constrói um URL para aceder ao blob diretamente. O URL com os marcadores de posição está ilustrado abaixo:
+
+```
+https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+
+```
 
 ### <a name="fields-used-in-traffic-analytics-schema"></a>Campos utilizados no esquema de análise de tráfego
 
@@ -46,10 +90,10 @@ Análise de tráfego baseia-se se no Log Analytics, para que possa executar cons
 
 Abaixo encontram-se os campos no esquema e o que eles significar
 
-| Campo | Formato | Comentários | 
+| Campo | Formato | Comentários |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | Tabela de dados de tráfego Anlaytics
-| SubType_s | FlowLog | Subtipo para os registos de fluxo |
+| SubType_s | FlowLog | Subtipo para os registos de fluxo. Utilizar apenas "FlowLog", outros valores de SubType_s são de trabalhos internos do produto |
 | FASchemaVersion_s |   1   | Versão de Scehma. Não refletem a versão do registo de fluxo de NSG |
 | TimeProcessed_t   | Data e hora em UTC  | Tempo em que a análise de tráfego processados os registos de fluxo não processados da conta de armazenamento |
 | FlowIntervalStartTime_t | Data e hora em UTC |  Hora de início do intervalo de processamento do registo de fluxo. Esta é a partir do qual será medido o intervalo de fluxo de tempo |
@@ -61,10 +105,10 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | DestIP_s | Endereço de IP de destino | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
 | VMIP_s | IP da VM | Utilizado para os fluxos AzurePublic e ExternalPublic |
 | PublicIP_s | Endereços IP públicos | Utilizado para os fluxos AzurePublic e ExternalPublic |
-| DestPort_d | Porta de destino | Porta em que o tráfego é recebido | 
-| L4Protocol_s  | * T <br> * U  | Protocolo de transporte. T = TCP <br> U = UDP | 
+| DestPort_d | Porta de destino | Porta em que o tráfego é recebido |
+| L4Protocol_s  | * T <br> * U  | Protocolo de transporte. T = TCP <br> U = UDP |
 | L7Protocol_s  | Nome de protocolo | Derivado de porta de destino |
-| FlowDirection_s | * Posso = de entrada<br> * S = saída | Direção do fluxo de entrada/fora do NSG de acordo com o registo de fluxo | 
+| FlowDirection_s | * Posso = de entrada<br> * S = saída | Direção do fluxo de entrada/fora do NSG de acordo com o registo de fluxo |
 | FlowStatus_s  | * A = permitido por regra NSG <br> * 1!d = negado por regra NSG  | Estado do fluxo permitido/nblocked por NSG de acordo com o registo de fluxo |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Grupo de segurança de rede (NSG) associados com o fluxo |
 | NSGRules_s | \<O valor 0 de índice) >< NSG_RULENAME >\<direção do fluxo >\<estado do fluxo >\<FlowCount ProcessedByRule > |  Regra do NSG que permitido ou negado este fluxo |
@@ -85,7 +129,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Sub-rede associado a NIC_s |
 | Subnet1_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Sub-rede associada com o IP de origem no fluxo |
 | Subnet2_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName>    | Sub-rede associada com o IP de destino no fluxo |
-| ApplicationGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Gateway de aplicação associado com o IP de origem no fluxo | 
+| ApplicationGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Gateway de aplicação associado com o IP de origem no fluxo |
 | ApplicationGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Gateway de aplicação associado com o IP de destino no fluxo |
 | LoadBalancer1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Balanceador de carga associado com o IP de origem no fluxo |
 | LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Balanceador de carga associado com o IP de destino no fluxo |
@@ -96,7 +140,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | ConnectingVNets_s | Lista de separados de espaço de nomes de rede virtual | Em caso de topologia hub- and -spoke, redes virtuais de hub serão preenchidas aqui |
 | Country_s | Duas letras indicativo de país (ISO 3166-1 alpha-2) | Preenchido para o tipo de fluxo ExternalPublic. Todos os endereços IP no campo de PublicIPs_s irão partilhar o mesmo código de país |
 | AzureRegion_s | Localizações de região do Azure | Preenchido para o tipo de fluxo AzurePublic. Todos os endereços IP no campo de PublicIPs_s irão partilhar a região do Azure |
-| AllowedInFlows_d | | Contagem de fluxos de entrada que foram permissão. Isso representa o número de fluxos que partilhada a mesma quatro cadeias de identificação de entrada para a interface de netweork em que o fluxo foi capturado | 
+| AllowedInFlows_d | | Contagem de fluxos de entrada que foram permissão. Isso representa o número de fluxos que partilhada a mesma quatro cadeias de identificação de entrada para a interface de netweork em que o fluxo foi capturado |
 | DeniedInFlows_d |  | Contagem de fluxos de entrada que foram negados. (De entrada para a interface de rede em que o fluxo foi capturado) |
 | AllowedOutFlows_d | | Contagem de fluxos de saída que foram permitidas (para a interface de rede em que foi capturado o fluxo de saída) |
 | DeniedOutFlows_d  | | Contagem de fluxos de saída que foram negados (para a interface de rede em que foi capturado o fluxo de saída) |
@@ -107,27 +151,21 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | OutboundBytes_d | Bytes enviados como capturados a interface de rede em que foi aplicada a regra NSG | Ela é preenchida, apenas para o esquema de registo do fluxo de versão 2 do NSG |
 | CompletedFlows_d  |  | Ele é populado com valor diferente de zero apenas para o esquema de registo do fluxo de versão 2 do NSG |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entradas separada por barras |
-    
+
 ### <a name="notes"></a>Notas
-    
-1. Em caso de fluxos AzurePublic e ExternalPublic, o cliente propriedade que IP da VM do Azure é preenchida no campo de VMIP_s, enquanto os endereços IP públicos estão a ser preenchidos no campo PublicIPs_s. Para estes tipos de fluxo de dois, devemos usar VMIP_s e PublicIPs_s em vez de campos SrcIP_s e DestIP_s. Para endereços AzurePublic e ExternalPublicIP, podemos agregar ainda mais, para que o número de registos ingeridos a área de trabalho de análise de registo de cliente é mínimo. (Este campo vai ser preterido em breve e deve estar a utilizar SrcIP_ e DestIP_s dependendo se a VM do azure foi a origem ou o destino no fluxo) 
-1. Detalhes para tipos de fluxo: Com base nos endereços IP envolvidos no fluxo, vamos categorizar os fluxos para os seguintes tipos de fluxo: 
-1. IntraVNet – os endereços IP no fluxo residirem na mesma rede Virtual do Azure. 
-1. Inter-Vnet - endereços IP no fluxo de residir na duas diferentes redes virtuais do Azure. 
-1. S2S – (Site a Site) de um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site), ligado à rede Virtual do Azure através do gateway VPN ou Expressroute. 
+
+1. Em caso de fluxos AzurePublic e ExternalPublic, o cliente propriedade que IP da VM do Azure é preenchida no campo de VMIP_s, enquanto os endereços IP públicos estão a ser preenchidos no campo PublicIPs_s. Para estes tipos de fluxo de dois, devemos usar VMIP_s e PublicIPs_s em vez de campos SrcIP_s e DestIP_s. Para endereços AzurePublic e ExternalPublicIP, podemos agregar ainda mais, para que o número de registos ingeridos a área de trabalho de análise de registo de cliente é mínimo. (Este campo vai ser preterido em breve e deve estar a utilizar SrcIP_ e DestIP_s dependendo se a VM do azure foi a origem ou o destino no fluxo)
+1. Detalhes para tipos de fluxo: Com base nos endereços IP envolvidos no fluxo, vamos categorizar os fluxos para os seguintes tipos de fluxo:
+1. IntraVNet – os endereços IP no fluxo residirem na mesma rede Virtual do Azure.
+1. Inter-Vnet - endereços IP no fluxo de residir na duas diferentes redes virtuais do Azure.
+1. S2S – (Site a Site) de um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site), ligado à rede Virtual do Azure através do gateway VPN ou Expressroute.
 1. P2S - (ponto a Site) um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a rede de cliente (Site) ligado à rede Virtual do Azure através do gateway VPN.
-1. AzurePublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a endereços IP públicos interno do Azure pertencentes à Microsoft. Cliente pertence a endereços IP públicos não serão parte deste tipo de fluxo. Por exemplo, todos os clientes de dispositivos VM enviar o tráfego para um serviço do Azure (ponto final de armazenamento) poderia ser categorizada sob este tipo de fluxo. 
-1. ExternalPublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP é um IP público que não se encontra no Azure, não é reportada como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
-1. MaliciousFlow - um dos endereços IP pertencem à rede virtual do azure enquanto o outro endereço IP é um IP público que não se encontra no Azure e é comunicado como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
+1. AzurePublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP pertence a endereços IP públicos interno do Azure pertencentes à Microsoft. Cliente pertence a endereços IP públicos não serão parte deste tipo de fluxo. Por exemplo, todos os clientes de dispositivos VM enviar o tráfego para um serviço do Azure (ponto final de armazenamento) poderia ser categorizada sob este tipo de fluxo.
+1. ExternalPublic - um dos endereços IP pertence a rede Virtual do Azure enquanto o outro endereço IP é um IP público que não se encontra no Azure, não é reportada como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t".
+1. MaliciousFlow - um dos endereços IP pertencem à rede virtual do azure enquanto o outro endereço IP é um IP público que não se encontra no Azure e é comunicado como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t".
 1. UnknownPrivate - um dos endereços IP pertence à rede Virtual do Azure enquanto o outro endereço IP pertence ao intervalo de IP privados, conforme definido na RFC 1918 e não foi possível mapear pela análise de tráfego para um cliente propriedade site ou a rede Virtual do Azure.
 1. Desconhecido – não é possível mapear a qualquer um do IP endereços nos fluxos com a topologia de cliente no Azure, bem como no local (site).
 1. Alguns nomes de campo são acrescentados com _s ou _d. Estes não indicar origem e de destino.
 
 ### <a name="next-steps"></a>Próximos Passos
 Para obter respostas às perguntas mais frequentes, consulte [FAQ da análise de tráfego](traffic-analytics-faq.md) para ver detalhes sobre a funcionalidade, consulte [documentação da análise de tráfego](traffic-analytics.md)
-    
-
-
-    
-
-

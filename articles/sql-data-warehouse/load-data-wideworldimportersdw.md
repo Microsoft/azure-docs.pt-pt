@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Carregar dados para o Azure SQL Data Warehouse | Documentos da Microsoft'
-description: O tutorial utiliza o portal do Azure e o SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de um blob público do Azure para o Azure SQL Data Warehouse.
+description: Tutorial utiliza o Azure portal e o SQL Server Management Studio para carregar o armazém de dados WideWorldImportersDW de um Azure global do blob para o Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8bca6c1e56595e4a7d64f9f388c9daca0b166ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4f52c2bd0040efef9e12a8feec0bfc779105ad4
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242915"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461853"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados para o Azure SQL Data Warehouse
 
@@ -38,9 +38,9 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Criar um armazém de dados SQL vazio
 
@@ -132,7 +132,7 @@ Agora, pode ligar ao servidor SQL e aos respetivos armazéns de dados com este e
 
 Obtenha o nome de servidor completamente qualificado para o servidor SQL no portal do Azure. Utilizará mais tarde o nome completamente qualificado quando ligar ao servidor.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Bases de Dados SQL** a partir do menu do lado esquerdo e clique na sua base de dados na página **Bases de Dados SQL**. 
 3. No painel **Essentials** na página do portal do Azure da sua base de dados, localize e, em seguida, copie o **Nome do servidor**. Neste exemplo, o nome completamente qualificado é mynewserver-20171113.database.windows.net. 
 
@@ -158,7 +158,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 4. Clique em **Ligar**. A janela do Object Explorer é aberta no SSMS. 
 
-5. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **mySampleDatabase** para ver os objetos na nova base de dados.
+5. No Object Explorer, expanda **Databases**. Em seguida, expanda **Bases de dados do sistema** e **mestre** para ver os objetos na base de dados mestra.  Expanda **SampleDW** para ver os objetos na nova base de dados.
 
     ![objetos da base de dados](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -217,7 +217,7 @@ O primeiro passo para o carregamento de dados é iniciar sessão como LoaderRC60
 
 Está pronto para iniciar o processo de carregamento de dados para o novo armazém de dados. Para referência futura e para saber como colocar os seus dados no armazenamento de Blobs do Azure ou carregá-los diretamente da sua origem para o SQL Data Warehouse,veja a [descrição geral do carregamento](sql-data-warehouse-overview-load.md).
 
-Execute os seguintes scripts SQL para especificar informações sobre os dados que quer carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. Os dados estão localizados num Blob do Azure público.
+Execute os seguintes scripts SQL para especificar informações sobre os dados que quer carregar. Estas informações incluem a localização dos dados, o formato do conteúdo dos dados e a definição da tabela dos dados. Os dados estão localizados num Blob do Azure global.
 
 1. Na secção anterior, iniciou sessão no armazém de dados como LoaderRC60. No SSMS, clique com o botão direito do rato em **SampleDW** na ligação LoaderRC60 e selecione **Nova Consulta**.  É apresentada uma nova janela de consulta. 
 
@@ -231,7 +231,7 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     CREATE MASTER KEY;
     ```
 
-4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir a localização do blob do Azure. Esta é a localização dos dados externos de táxis.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
+4. Execute a seguinte instrução [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) para definir a localização do blob do Azure. Esta é a localização dos dados importers em todo o mundo externo.  Para executar um comando que anexou à janela de consulta, realce os comandos que pretende executar e clique em **Executar**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -540,13 +540,13 @@ Execute os seguintes scripts SQL para especificar informações sobre os dados q
     );
     ```
 
-8. No Object Explorer, expanda SampleDW para ver a lista de tabelas externas que acabou de criar.
+8. No Object Explorer, expanda SampleDW para ver a lista de tabelas externas que criou.
 
     ![Ver tabelas externas](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>Carregar os dados para o armazém de dados
 
-Esta secção utiliza as tabelas externas que acabou de definir para carregar os dados de exemplo do Blob do Azure para o SQL Data Warehouse.  
+Esta secção utiliza as tabelas externas que definir para carregar os dados de exemplo do Blob do Azure para o SQL Data Warehouse.  
 
 > [!NOTE]
 > Este tutorial carrega os dados diretamente para a tabela final. Num ambiente de produção, normalmente, utilizará CREATE TABLE AS SELECT para carregar para uma tabela de testes. Enquanto os dados estiverem na tabela de teste, pode efetuar quaisquer transformações necessárias. Para acrescentar os dados na tabela de teste a uma tabela de produção, pode utilizar a instrução INSERT...SELECT. Para obter mais informações, veja [Inserir dados na tabela de produção](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -554,7 +554,7 @@ Esta secção utiliza as tabelas externas que acabou de definir para carregar os
 
 O script utiliza a instrução T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para carregar os dados do Azure Storage Blob para novas tabelas no armazém de dados. CTAS cria uma nova tabela com base nos resultados de uma instrução select. A nova tabela tem as mesmas colunas e tipos de dados dos resultados da instrução select. Quando a instrução select seleciona de uma tabela externa, o SQL Data Warehouse importa os dados para uma tabela relacional no armazém de dados. 
 
-Este script não carrega dados para as tabelas wwi.dimension_Date e wwi.fact_Sales. Estas tabelas foram geradas num passo posterior para as tabelas terem um número significativo de linhas.
+Este script não carrega dados para as tabelas dimension_date e wwi.fact_Sale. Estas tabelas foram geradas num passo posterior para as tabelas terem um número significativo de linhas.
 
 1. Execute o script seguinte para carregar os dados para novas tabelas no armazém de dados.
 
@@ -750,7 +750,7 @@ Este script não carrega dados para as tabelas wwi.dimension_Date e wwi.fact_Sal
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Criar tabelas e procedimentos para gerar as tabelas Data e Vendas
 
-Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sales. Cria também procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sales.
+Esta secção cria as tabelas dimension_date e wwi.fact_Sale. Ele cria também procedimentos armazenados que podem gerar milhões de linhas nas tabelas dimension_date e wwi.fact_Sale.
 
 1. Crie as tabelas dimension_Date e fact_Sale.  
 
@@ -893,7 +893,7 @@ Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sales. Cria também 
     DROP table #days;
     END;
     ```
-4. Crie este procedimento que povoa as tabelas wwi.dimension_Date e wwi.fact_Sales. Chama [wwi].[PopulateDateDimensionForYear] para povoar wwi.dimension_Date.
+4. Crie este procedimento que povoa as tabelas dimension_date e wwi.fact_Sale. Chama [wwi].[PopulateDateDimensionForYear] para povoar wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -949,7 +949,7 @@ Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sales. Cria também 
     ```
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
-Utilize os procedimentos armazenados criados para gerar milhões de linhas na tabela wwi.fact_Sales e os dados correspondentes na tabela wwi.dimension_Date. 
+Utilize os procedimentos armazenados criados para gerar milhões de linhas na tabela de wwi.fact_Sale e dados correspondentes na tabela dimension_date. 
 
 
 1. Execute este procedimento para preencher o [wwi].[seed_Sale] com mais linhas.
@@ -958,7 +958,7 @@ Utilize os procedimentos armazenados criados para gerar milhões de linhas na ta
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Execute este procedimento para povoar wwi.fact_Sales com 100 000 linhas por dia para cada dia do ano 2000.
+2. Execute este procedimento para preencher wwi.fact_Sale com 100 000 linhas por dia para cada dia do ano 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1098,7 +1098,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao colocar a computação em pausa, só lhe será cobrado o armazenamento de dados e pode retomar a computação quando estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
+2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao colocar em pausa a computação, só será cobrado para armazenamento de dados e pode retomar a computação quando estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
 
 3. Se quiser remover futuras cobranças, pode eliminar o armazém de dados. Para remover o armazém de dados para não lhe vir a ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
 

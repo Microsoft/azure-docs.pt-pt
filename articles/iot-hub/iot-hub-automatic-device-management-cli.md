@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57dbbdd7614d09d52fef0f613c43d4ca1d08136
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322601"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485855"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Gestão automática de dispositivos de IoT em escala com a CLI do Azure
 
@@ -29,7 +29,9 @@ Funciona a gestão de dispositivos automático ao atualizar um conjunto de dispo
 
 * O **conteúdo de destino** define as propriedades pretendidas para ser adicionados ou atualizados nos gémeos de dispositivo de destino. O conteúdo inclui um caminho para a secção de propriedades pretendidas para serem alterados.
 
-* O **métricas** definem as contagens de resumidas de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo de propriedades comunicadas.  As métricas do sistema são as métricas de predefinição que medem o estado de atualização de duplo, como o número de dispositivos duplos, que são visados e o número de duplos foram atualizadas com êxito. 
+* O **métricas** definem as contagens de resumidas de vários Estados de configuração, tais como **êxito**, **em curso**, e **erro**. Métricas personalizadas são especificadas como consultas no dispositivo duplo de propriedades comunicadas.  As métricas do sistema são as métricas de predefinição que medem o estado de atualização de duplo, como o número de dispositivos duplos, que são visados e o número de duplos foram atualizadas com êxito.
+
+Configurações de dispositivos automática executam pela primeira vez, logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Consultas de métricas executam sempre que a configuração do dispositivo automática é executada.
 
 ## <a name="cli-prerequisites"></a>Pré-requisitos CLI
 
@@ -56,7 +58,7 @@ Antes de criar uma configuração, tem de especificar quais os dispositivos que 
 
 ## <a name="define-the-target-content-and-metrics"></a>Definir o conteúdo de destino e métricas
 
-O conteúdo de destino e métrica consultas especificadas como documentos JSON que descrevem o dispositivo duplo propriedades desejadas ao conjunto e propriedades comunicadas para medir.  Para criar uma configuração do dispositivo automática com a CLI do Azure, salve o conteúdo de destino e as métricas localmente como arquivos. txt. Utilize os caminhos de ficheiro numa secção posterior ao executar o comando para aplicar a configuração para o seu dispositivo. 
+O conteúdo de destino e métrica consultas especificadas como documentos JSON que descrevem o dispositivo duplo propriedades desejadas ao conjunto e propriedades comunicadas para medir.  Para criar uma configuração do dispositivo automática com a CLI do Azure, salve o conteúdo de destino e as métricas localmente como arquivos. txt. Utilize os caminhos de ficheiro numa secção posterior ao executar o comando para aplicar a configuração para o seu dispositivo.
 
 Eis um exemplo de conteúdo do destino básico:
 

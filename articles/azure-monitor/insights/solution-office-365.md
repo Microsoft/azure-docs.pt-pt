@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34c7ecbf235bed838af9ed2f848ca492916583f6
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357585"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514210"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357585"
 
 
 > [!NOTE]
-> O método recomendado para instalar e configurar a solução do Office 365 é permitir que o [conector do Office 365](../../sentinel/connect-office-365.md) na [Azure sentinela](../../sentinel/overview.md) em vez de utilizar os passos neste artigo. Esta é uma versão atualizada da solução do Office 365 com uma experiência de configuração aprimorados. Para ligar os registos do Microsoft Azure AD, utilize o [conector do Microsoft Azure AD Azure Sentinel](../../sentinel/connect-azure-active-directory.md), que fornece dados de registo mais avançados do que os registos de gestão do Office 365. 
+> O método recomendado para instalar e configurar a solução do Office 365 é permitir que o [conector do Office 365](../../sentinel/connect-office-365.md) na [Azure sentinela](../../sentinel/overview.md) em vez de utilizar os passos neste artigo. Esta é uma versão atualizada da solução do Office 365 com uma experiência de configuração aprimorados. Para ligar os registos do Azure AD, pode utilizar o [Sentinel do Azure do Azure AD connector](../../sentinel/connect-azure-active-directory.md) ou [configurar definições de diagnóstico do Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), que fornece dados de registo mais avançados que os registos de gestão do Office 365. 
 >
 > Quando [sentinela de Azure carregar](../../sentinel/quickstart-onboard.md), especifique a área de trabalho do Log Analytics que pretende que a solução do Office 365 instalada na. Depois de ativar o conector, a solução vai estar disponível na área de trabalho e usada exatamente da mesma como qualquer outras soluções de monitorização que instalou.
 >
@@ -541,7 +541,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado no formato de endereço de um IPv4 ou IPv6. |
 | OfficeWorkload | Serviço do Office 365 que referencia o registo.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operação | O nome da atividade de utilizador ou administrador.  |

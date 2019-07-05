@@ -1,23 +1,21 @@
 ---
-title: Gerir reservas do Azure | Documentos da Microsoft
+title: Gerir reservas do Azure
 description: Saiba como pode alterar o âmbito da subscrição e gerir o acesso para as reservas do Azure.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127117"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491184"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -54,7 +52,7 @@ Para atualizar o âmbito de uma reserva:
 
 Se alterar do partilhadas com âmbito único, só pode selecionar subscrições em que é o proprietário. Apenas as subscrições que fazem parte do mesmo contexto de faturação que a reserva podem ser selecionadas.
 
-O âmbito só se aplica às ofertas Pay As You Go MS-AZR - 0003p ou MS-AZR - 0023P, oferta Enterprise MS-AZR - 0017P ou MS-AZR - 0148P, ou tipos de subscrição CSP.
+O âmbito só se aplica às subscrições individuais com as tarifas pay as you go (ofertas MS-AZR - 0003p ou MS-AZR - 0023P), a oferta Enterprise MS-AZR - 0017P ou MS-AZR - 0148P ou tipos de subscrição do CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os utilizadores que podem gerir uma reserva
 

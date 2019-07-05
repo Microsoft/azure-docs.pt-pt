@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 6dcb6853daf34fede590011d165c0ba9001cbac6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02b4eb6c367510e8994aa7723fe3fdd3e43af0e6
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721628"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462168"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Utilizar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e a base de dados SQL
 
@@ -98,5 +98,5 @@ Do SQL Server para o armazenamento do Azure.
 Agora que aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 
 * [Utilizar o Apache Oozie com o HDInsight](../hdinsight-use-oozie-linux-mac.md): Utilize o Sqoop ação num fluxo de trabalho do Oozie.
-* [Analisar dados de atraso de voo com o HDInsight](../hdinsight-analyze-flight-delay-data-linux.md): Utilizar o Apache Hive para analisar dados de atraso de voo e, em seguida, utilize o Sqoop para exportar dados para uma base de dados SQL do Azure.
+* [Analisar dados de atraso de voo com o HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md): Utilizar o Interactive Query para analisar dados de atraso de voo e, em seguida, utilize o Sqoop para exportar dados para uma base de dados SQL do Azure.
 * [Carregar dados para o HDInsight](../hdinsight-upload-data.md): Encontre outros métodos para carregar dados para o armazenamento de Blobs do HDInsight/do Azure.

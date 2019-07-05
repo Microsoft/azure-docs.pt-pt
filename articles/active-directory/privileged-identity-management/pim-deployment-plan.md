@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7413fcf7992195753cba86a50b7d53a144b36023
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60440650"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476433"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar o Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Participantes: Funções do PIM do Azure AD
 
-| Name | Função | Ação |
+| Name | Role | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Arquiteto de identidade ou de Administrador Global do Azure**<br/>Um representante da equipa de gestão de identidade, responsável por definir como esta alteração é alinhada com a infraestrutura de gestão de identidade de núcleos na sua organização. | SO/R/I |
 | Nome e e-mail | **Proprietário do serviço / Gestor de linha**<br/>Um representante dos proprietários IT de um serviço ou um grupo de serviços. Eles são a chave na tomada de decisões e ajudar a distribuir o PIM para a sua equipa. | SO/R/I |
@@ -109,7 +109,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Participantes: Funções de recursos do PIM do Azure
 
-| Name | Função | Ação |
+| Name | Role | Ação |
 | --- | --- | --- |
 | Nome e e-mail | **Subscrição / proprietário do recurso**<br/>Um representante dos proprietários IT de cada subscrição ou recurso que pretende implementar o PIM para | SO/R/I |
 | Nome e e-mail | **Proprietário de segurança**<br/>Um representante da equipa de segurança que possam assinar se o plano cumpre os requisitos de segurança da sua organização. | SO/R |
@@ -143,7 +143,7 @@ Siga estes passos para impor o princípio de privilégio mínimo para as funçõ
 
 1. Lista que tem privilegiado funções na sua organização. Pode utilizar o [assistente PIM](pim-security-wizard.md#run-the-wizard) para aceder a uma página semelhante ao seguinte.
 
-    ![Descobrir funções privilegiadas](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Detetar o painel de funções privilegiadas que mostra que tem funções privilegiadas](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. Para todos os administradores globais na sua organização, descubra por que precisam da função. Com base na leitura da documentação de anterior, se a tarefa da pessoa pode ser executada por uma ou mais funções de administrador granular, deve removê-los da função de Administrador Global e fazer atribuições em conformidade no Azure Active Directory (como uma referência: Atualmente o Microsoft tem apenas 10 administradores com a função de Administrador Global. Saiba mais em [como a Microsoft usa PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -151,7 +151,7 @@ Siga estes passos para impor o princípio de privilégio mínimo para as funçõ
 
 Para automatizar passos 3 e 4, pode utilizar a função de revisão de acesso no interior do PIM. Os passos a seguir [iniciar uma revisão de acesso para funções do Azure AD no PIM](pim-how-to-start-security-review.md), pode configurar uma revisão de acesso para cada função do Azure AD com um ou mais membros.
 
-![Criar uma revisão de acesso](./media/pim-deployment-plan/create-access-review.png)
+![Criar um painel de revisão de acesso para funções do Azure AD](./media/pim-deployment-plan/create-access-review.png)
 
 Deve definir os revisores **membros (auto)** . Isto irá enviar um e-mail a todos os membros na função para obtê-los para confirmar se precisarem de acesso. Também deve ativar **exigir razão na aprovação** nas definições avançadas para que os utilizadores podem indicar por que precisam da função. Com base nessas informações, será capaz de remover os utilizadores a funções desnecessárias e delegar funções de administrador mais granulares no caso dos administradores globais.
 
@@ -240,7 +240,7 @@ Antes de implementar sua solução PIM, é boa prática para esboçar as defini�
 
 #### <a name="pim-settings-for-azure-ad-roles"></a>Definições do PIM para funções do Azure AD
 
-| Função | Requerer MFA | Notificação | Pedido de incidente | Exigir a aprovação | Aprovador | Duração da ativação | Administrador permanente |
+| Role | Requerer MFA | Notificação | Pedido de incidente | Exigir a aprovação | Aprovador | Duração da ativação | Administrador permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrador Global | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros administradores globais | Uma Hora | Contas de acesso de emergência |
 | Administrador do Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nenhuma | 2 horas | Nenhuma |
@@ -248,7 +248,7 @@ Antes de implementar sua solução PIM, é boa prática para esboçar as defini�
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Definições do PIM para funções de recursos do Azure
 
-| Função | Requerer MFA | Notificação | Exigir a aprovação | Aprovador | Duração da ativação | Administração do Active Directory | Expiração do Active Directory | Expiração elegível |
+| Role | Requerer MFA | Notificação | Exigir a aprovação | Aprovador | Duração da ativação | Administração do Active Directory | Expiração do Active Directory | Expiração elegível |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Proprietário de subscrições críticas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Outros proprietários da subscrição | Uma Hora | Nenhuma | n/d | 3 meses |
 | Administrador de acesso de utilizador de subscrições menos críticas | :heavy_check_mark: | :heavy_check_mark: | :x: | Nenhuma | Uma Hora | Nenhuma | n/d | 3 meses |
@@ -258,7 +258,7 @@ A tabela seguinte descreve cada uma das definições.
 
 | Definição | Descrição |
 | --- | --- |
-| Função | Nome da função que está a definir as definições para. |
+| Role | Nome da função que está a definir as definições para. |
 | Requerer MFA | Se o utilizador elegível tem de executar a MFA antes de ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** impor o MFA para todas as funções de administrador, especialmente se as funções têm utilizadores convidados. |
 | Notificação | Se definido como true, o Administrador Global, administrador com função privilegiada e o administrador de segurança da organização irão receber uma notificação por e-mail quando um utilizador elegível ativa a função.<br/><br/>**Nota:** Algumas organizações não tem um endereço de e-mail associado para suas contas de administrador, para receber estas notificações de e-mail, deve definir um endereço de e-mail alternativo, para que os administradores irão receber estes e-mails. |
 | Pedido de incidente | Se o utilizador elegível precisar gravar um número de pedido de incidente ao ativar a respetiva função. Esta definição ajuda uma organização, identificar cada ativação com um número de incidente interno para atenuar ativações indesejadas.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** tirar partido de números de incidentes do pedido de suporte para associar o PIM com o seu sistema interno. Isso é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
@@ -318,7 +318,7 @@ Agora que identificou os utilizadores de teste, utilize este passo para configur
 
 Deve usar esse estágio para verificar que se toda a configuração definida para obter as funções estão funcionando corretamente. Utilize a seguinte tabela para documentar os seus testes. Também deve usar neste estágio para otimizar a comunicação com os utilizadores afetados.
 
-| Função | Comportamento esperado durante a ativação | Resultados reais |
+| Role | Comportamento esperado durante a ativação | Resultados reais |
 | --- | --- | --- |
 | Administrador Global | (1) exigir a MFA<br/>(2) exigem a aprovação<br/>(3) aprovador recebe a notificação e pode aprovar<br/>(4) função expira após o tempo predefinido |  |
 | Proprietário da subscrição *X* | (1) exigir a MFA<br/>(2) atribuição elegível expira após o período de tempo configurado |  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979633"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444739"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -33,12 +33,12 @@ Uma aplicação que utiliza o RBAC do Azure AD não precisa lidar com regras SAS
 
 O Azure disponibiliza o abaixo funções RBAC incorporadas para autorizar o acesso a um espaço de nomes do Service Bus:
 
-* [Proprietário de dados do Service Bus (pré-visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Permite o acesso a dados para o espaço de nomes do Service Bus e respetivas entidades (filas, tópicos, subscrições e filtros)
+* [Proprietário de dados de barramento de serviço do Azure (pré-visualização)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Permite o acesso a dados para o espaço de nomes do Service Bus e respetivas entidades (filas, tópicos, subscrições e filtros)
 
 >[!IMPORTANT]
 > Suportámos anteriormente a adição de uma identidade gerida para o **"Proprietário"** ou **"Contribuinte"** função.
 >
-> No entanto, de acesso a dados privilégios para **"Proprietário"** e **"Contribuinte"** função já não será cumprida. Se estava a utilizar o **"Proprietário"** ou **"Contribuinte"** função, então eles terão de ser adaptado para utilizar o **"Proprietário de dados do Service Bus"** função.
+> No entanto, de acesso a dados privilégios para **"Proprietário"** e **"Contribuinte"** função já não será cumprida. Se estava a utilizar o **"Proprietário"** ou **"Contribuinte"** função, então eles terão de ser adaptado para utilizar o **"Do Azure Service Bus proprietário dos dados (pré-visualização)"** função.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Utilizar o Service Bus com uma conta de utilizador de domínio do Azure AD
 

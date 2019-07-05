@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 479b810c5a66917bde5754d32991fb489ea26c9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ba5b19ad5d8f03203e9a028fbc5aec84e5ec06
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299283"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565378"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Dependência de controlo no Azure Application Insights 
 
@@ -104,7 +104,7 @@ Para aplicativos ASP.NET, a consulta SQL completa é recolhida com a ajuda de in
 | --- | --- |
 | Aplicação Web do Azure |No seu painel de controlo de aplicação web, [abrir o painel do Application Insights](../../azure-monitor/app/azure-web-apps.md) e ativar comandos de SQL em .NET |
 | Servidor IIS (a VM do Azure, no local e assim por diante.) | [Instale o Monitor de estado no seu servidor onde a aplicação está em execução](../../azure-monitor/app/monitor-performance-live-website-now.md) e reinicie o IIS.
-| Serviço Cloud do Azure |[Tarefa de arranque de utilização](../../azure-monitor/app/cloudservices.md) para [instalar Monitor de estado](monitor-performance-live-website-now.md#download) |
+| Serviço Cloud do Azure | Adicionar [tarefa de arranque para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> A aplicação deve ser incluído no SDK do Application Insights no momento da compilação ao instalar pacotes de NuGet para [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) ou [aplicativos do ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
 | IIS Express | Não suportado
 
 Nos casos acima, a forma correta de validar que o motor instrumentação é instalado corretamente é ao validar que a versão do SDK do recolhidos `DependencyTelemetry` é 'rddp'. 'rdddsd' ou "rddf" indica as dependências são coletadas por meio de retornos de chamada DiagnosticSource ou EventSource e, por conseguinte, não seja possível capturar consulta SQL completa.
@@ -113,47 +113,25 @@ Nos casos acima, a forma correta de validar que o motor instrumentação é inst
 
 * [Mapa da aplicação](app-map.md) visualiza as dependências entre as suas aplicações e componentes vizinhos.
 * [Diagnóstico de transação](transaction-diagnostics.md) mostra unificação, correlacionado dados do servidor.
-* [Painel browsers](javascript.md#ajax-performance) mostra as chamadas AJAX de browsers dos seus utilizadores.
+* [Separador de navegadores](javascript.md#ajax-performance) mostra as chamadas AJAX de browsers dos seus utilizadores.
 * Clique em dos pedidos lentos ou com falhas para verificar as suas chamadas de dependência.
-* [Análise](#analytics) pode ser usado para consultar dados de dependência.
+* [Análise](#logs-analytics) pode ser usado para consultar dados de dependência.
 
 ## <a name="diagnosis"></a> Diagnosticar pedidos lentos
 
 Cada evento do pedido está associado com as chamadas de dependência, exceções e outros eventos que são controlados enquanto a aplicação está a processar o pedido. Portanto, se alguns pedidos estiver fazendo incorretamente, pode descobrir seja devido a respostas lentas do que uma dependência.
 
-Vamos examinar um exemplo disso.
-
 ### <a name="tracing-from-requests-to-dependencies"></a>Rastreio de pedidos para dependências
 
-Abra o painel desempenho e examinar a grade de pedidos:
+Abra o **desempenho** separador e navegue para o **dependências** separador na parte superior ao lado de operações.
 
-![Lista de pedidos com contagens e médias](./media/asp-net-dependencies/02-reqs.png)
+Clique num **nome da dependência** em geral. Depois de selecionar uma dependência de um gráfico de distribuição dessa dependência das durações será exibido à direita.
 
-Principal aquele está a demorar muito. Vejamos se conseguimos perceber em que o tempo é gasto.
+![No desempenho separador, clique no separador na parte superior, em seguida, um nome de dependência no gráfico de dependência](./media/asp-net-dependencies/2-perf-dependencies.png)
 
-Clique nessa linha para ver eventos de pedidos individuais:
+Clique na azul **amostras** botão à direita na parte inferior e, em seguida, de uma amostra para ver os detalhes de transação de ponta a ponta.
 
-![Lista de ocorrências de pedido](./media/asp-net-dependencies/03-instances.png)
-
-Clique em qualquer instância de execução longa inspecioná-la ainda mais e desloque para baixo para as chamadas de dependência remoto relacionados com este pedido:
-
-![Encontre as chamadas para dependências remotas, identifique a duração invulgar](./media/asp-net-dependencies/04-dependencies.png)
-
-Ele se parece com a maioria do tempo de manutenção que este pedido foi gasto numa chamada para um serviço local.
-
-Selecione essa linha para obter mais informações:
-
-![Clique nessa dependência remota para identificar o culpado](./media/asp-net-dependencies/05-detail.png)
-
-Parece que esta dependência é onde está o problema. Vamos ter apontada o problema, então, agora nós apenas precisa descobrir por que essa chamada está demorando tanto.
-
-### <a name="request-timeline"></a>Linha cronológica de pedido
-
-Num outro caso, não existe nenhuma chamada de dependência é bastante longa. Mas, ao mudar para a vista de linha do tempo, podemos ver onde o atraso ocorreu no nosso processamento interno:
-
-![Encontre as chamadas para dependências remotas, identifique a duração invulgar](./media/asp-net-dependencies/04-1.png)
-
-Parece haver uma grande lacuna depois de chamar a primeira dependência, portanto, o que devemos olhar nosso código para ver por que isso é.
+![Clique num exemplo para ver os detalhes de transação de ponta a ponta](./media/asp-net-dependencies/3-end-to-end.png)
 
 ### <a name="profile-your-live-site"></a>Perfil de seu site em direto
 
@@ -161,35 +139,35 @@ Não sabe onde o tempo passa? O [criador de perfil do Application Insights](../.
 
 ## <a name="failed-requests"></a>Pedidos falhados
 
-Também podem ser associados a chamadas falhadas para dependências de pedidos falhados. Novamente, podemos clicar por meio de rastrear o problema.
+Também podem ser associados a chamadas falhadas para dependências de pedidos falhados.
 
-![Clique no gráfico de pedidos falhados](./media/asp-net-dependencies/06-fail.png)
+Podemos Ir para o **falhas** separador no lado esquerdo e, em seguida, clique nas **dependências** separador na parte superior.
 
-Clicar para uma ocorrência de um pedido falhado e examinar seus eventos associados.
+![Clique no gráfico de pedidos falhados](./media/asp-net-dependencies/4-fail.png)
 
-![Clique num tipo de pedido, clique na instância para obter uma exibição diferente da instância do mesmo, clique nele para obter detalhes da exceção.](./media/asp-net-dependencies/07-faildetail.png)
+Aqui, poderá ver a contagem de dependência falhadas. Para obter mais detalhes sobre uma ocorrência de falha ao tentar clicando num nome de dependência na tabela na parte inferior. Pode clicar na azul **dependências** botão à direita na parte inferior para obter os detalhes de transação de ponta a ponta.
 
-## <a name="analytics"></a>Análise
+## <a name="logs-analytics"></a>Registos (análise)
 
 Pode controlar as dependências no [linguagem de consulta de Kusto](/azure/kusto/query/). Eis alguns exemplos.
 
 * Encontre quaisquer chamadas de dependência falhadas:
 
-```
+``` Kusto
 
     dependencies | where success != "True" | take 10
 ```
 
 * Encontre as chamadas AJAX:
 
-```
+``` Kusto
 
     dependencies | where client_Type == "Browser" | take 10
 ```
 
 * Encontre associadas a pedidos de chamadas de dependência:
 
-```
+``` Kusto
 
     dependencies
     | where timestamp > ago(1d) and  client_Type != "Browser"
@@ -200,17 +178,13 @@ Pode controlar as dependências no [linguagem de consulta de Kusto](/azure/kusto
 
 * Encontre as chamadas AJAX associadas a vistas de página:
 
-```
+``` Kusto 
 
     dependencies
     | where timestamp > ago(1d) and  client_Type == "Browser"
     | join (browserTimings | where timestamp > ago(1d))
       on operation_Id
 ```
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -220,7 +194,6 @@ Pode controlar as dependências no [linguagem de consulta de Kusto](/azure/kusto
 
 ## <a name="open-source-sdk"></a>SDK de código-fonte aberto
 Como cada SDK do Application Insights, o módulo de recolha de dependência também é aberto. Ler e contribuir para o código ou reportar problemas na [o repositório do GitHub oficial](https://github.com/Microsoft/ApplicationInsights-dotnet-server).
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

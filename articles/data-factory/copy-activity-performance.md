@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 3ea89e9f6a6bb8a4c377c70bbe1b5540d3b74d44
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341254"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509557"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 > [!div class="op_single_selector" title1="Selecione a versão do Azure Data Factory, que está a utilizar:"]
@@ -86,6 +86,7 @@ Os mínimo DIUs para capacitar uma execução de atividade de cópia é dois. Se
 | Cenário de cópia | DIUs predefinido determinados pelo serviço |
 |:--- |:--- |
 | Copiar dados entre arquivos baseados em ficheiros | Entre 4 e 32 dependendo do número e tamanho dos ficheiros |
+| Copiar dados para a base de dados do Azure SQL ou do Azure Cosmos DB |Entre 4 e 16 consoante o sink de camada do Azure SQL Database ou do Cosmos DB (número de DTUs/RUs) |
 | Todos os outros cenários de cópia | 4 |
 
 Para substituir esta predefinição, especifique um valor para o **dataIntegrationUnits** propriedade da seguinte forma. O *valores permitidos* para o **dataIntegrationUnits** propriedade é até 256. O *número real de DIUs* que a operação de cópia utiliza no tempo de execução é igual ou inferior ao valor configurado, dependendo do padrão de dados. Para obter informações sobre o nível de ganho de desempenho poderá obter ao configurar mais unidades para uma origem de cópia específico e de sink, consulte a [referência de desempenho](#performance-reference).
@@ -131,11 +132,11 @@ Para cada atividade de cópia executar, o Azure Data Factory determina o número
 | Cenário de cópia | Número de cópias paralela de predefinido determinado pelo serviço |
 | --- | --- |
 | Copiar dados entre arquivos baseados em ficheiros |Depende do tamanho dos ficheiros e o número de DIUs usado para copiar dados entre dois arquivos de dados em nuvem, ou a configuração física do computador runtime de integração autoalojado. |
-| Copiar dados de qualquer arquivo de dados de origem para o armazenamento de tabelas do Azure |4 |
+| Copiar dados de qualquer arquivo de origem para o armazenamento de tabelas do Azure |4 |
 | Todos os outros cenários de cópia |1 |
 
 > [!TIP]
-> Quando copiar dados entre arquivos baseados em ficheiros, o comportamento padrão normalmente dá-lhe o melhor débito. O comportamento padrão é determinado por automática.
+> Quando copiar dados entre arquivos baseados em ficheiros, o comportamento padrão normalmente dá-lhe o melhor débito. O comportamento padrão é determinado por automática com base no seu padrão de ficheiros de origem.
 
 Para controlar a carga nos computadores que alojam os dados armazena, ou para otimizar o desempenho de cópia, pode substituir o valor predefinido e especifique um valor para o **parallelCopies** propriedade. O valor tem de ser um número inteiro maior que ou igual a 1. No momento de execução para o melhor desempenho, a atividade de cópia utiliza um valor que é menor ou igual ao valor que definir.
 
@@ -162,9 +163,9 @@ Para controlar a carga nos computadores que alojam os dados armazena, ou para ot
 **Pontos a serem observados:**
 
 * Quando copiar dados entre arquivos baseados em ficheiros, **parallelCopies** determina o paralelismo em nível de arquivo. A segmentação dentro de um único arquivo acontece por baixo automática e transparente. Foi concebido para utilizar melhor segmento adequado tamanho para um tipo de arquivo de dados de origem específica carregar dados em paralelo e ortogonal à **parallelCopies**. O número real de cópias paralelas utiliza o serviço de movimento de dados para a operação de cópia em tempo de execução é não mais do que o número de ficheiros que tiver. Se for o comportamento de cópia **mergeFile**, a atividade de cópia não é possível tirar proveito do paralelismo de nível de arquivo.
-* Se especificar um valor para o **parallelCopies** propriedade, considere o aumento de carga na sua origem e arquivos de dados de sink. Também deve considere o aumento de carga para o runtime de integração autoalojado se a atividade de cópia é capacitada pelo mesmo, por exemplo, para obter uma cópia híbrida. Esse aumento de carga acontece especialmente quando tem várias atividades ou execuções simultâneas de iguais às atividades que são executados em relação ao mesmo armazenamento de dados. Se notar que o arquivo de dados ou o runtime de integração autoalojado é sobrecarregado com a carga, diminuir os **parallelCopies** valor de modo a poupar a carga.
-* Quando copia dados a partir de arquivos que não são baseados em ficheiros para arquivos que são baseados em ficheiros, o serviço de movimento de dados ignora a **parallelCopies** propriedade. Mesmo que o paralelismo é especificado, não é aplicado neste caso.
+* Quando copia dados a partir de arquivos que não são baseados em ficheiros (exceto a base de dados Oracle como origem com o particionamento de dados ativada) para arquivos que são baseados em ficheiros, o serviço de movimento de dados ignora a **parallelCopies** propriedade. Mesmo que o paralelismo é especificado, não é aplicado neste caso.
 * O **parallelCopies** propriedade é ortogonal ao **dataIntegrationUnits**. O primeiro é contado em todas as unidades de integração de dados.
+* Se especificar um valor para o **parallelCopies** propriedade, considere o aumento de carga na sua origem e arquivos de dados de sink. Também deve considere o aumento de carga para o runtime de integração autoalojado se a atividade de cópia é capacitada pelo mesmo, por exemplo, para obter uma cópia híbrida. Esse aumento de carga acontece especialmente quando tem várias atividades ou execuções simultâneas de iguais às atividades que são executados em relação ao mesmo armazenamento de dados. Se notar que o arquivo de dados ou o runtime de integração autoalojado é sobrecarregado com a carga, diminuir os **parallelCopies** valor de modo a poupar a carga.
 
 ## <a name="staged-copy"></a>Cópia faseada
 
@@ -182,7 +183,7 @@ Quando ativar a funcionalidade de teste, primeiro os dados são copiados do arqu
 
 Ao ativar o movimento de dados usando um arquivo de teste, pode especificar se pretende que os dados para ser comprimidos antes de passar dados da origem de dados armazenam para um interim ou arquivo de dados de testes e, em seguida, descompactado antes de mover dados de um intermediário ou teste de dados um arquivo para o arquivo de dados de sink.
 
-Atualmente, não é possível copiar dados entre dois arquivos de dados no local através de um arquivo de transição.
+Atualmente, não é possível copiar dados entre dois arquivos de dados ligados através de diferentes, auto-hospedada IRs, nem com nem sem cópia faseada. Para esse cenário, pode configurar dois atividade de cópia explicitamente em cadeia para copiar a partir da origem para teste, em seguida, de ambiente de teste para o sink.
 
 ### <a name="configuration"></a>Configuração
 

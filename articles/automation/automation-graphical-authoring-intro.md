@@ -4,17 +4,17 @@ description: Criação de gráficos permite-lhe criar runbooks de automatizaçã
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740820"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476692"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 

@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190074"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540361"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -73,10 +73,10 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="tier-options"></a>
   **As camadas de armazenamento são suportadas nos ficheiros do Azure?**  
-    Atualmente, os ficheiros do Azure suporta apenas a camada de armazenamento standard. Não temos linhas cronológicas para partilhar o armazenamento premium e o armazenamento de acesso esporádico de suporte neste momento. 
+    Ficheiros do Azure suportam duas camadas de armazenamento: premium e standard. Partilhas de ficheiros padrão em geral são criadas contas de armazenamento para fins (GPv2 ou de GPv1) e partilhas de ficheiros de premium são criadas nas contas de armazenamento FileStorage. Saiba mais sobre como criar [partilhas de ficheiros padrão](storage-how-to-create-file-share.md) e [partilhas de ficheiros de premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Não é possível criar partilhas de ficheiros do Azure a partir de contas de armazenamento apenas de BLOBs ou de contas de armazenamento premium.
+    > Não é possível criar partilhas de ficheiros do Azure a partir de contas de armazenamento de BLOBs ou *premium* contas de armazenamento de fins gerais (GPv1 ou GPv2). Tem criado de partilhas de ficheiros do Azure Standard *padrão* partilhas de ficheiros do Azure única e premium têm de ser criadas em contas de armazenamento de FileStorage apenas contas para fins gerais. *Premium* contas de armazenamento de fins gerais (GPv1 e GPv2) são blobs de páginas premium apenas. 
 
 * <a id="give-us-feedback"></a>
   **Eu realmente Quero ver uma funcionalidade específica adicionada ao serviço ficheiros do Azure. Pode adicioná-lo?**  
@@ -356,8 +356,8 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
     Para obter informações sobre metas de escalabilidade e desempenho para ficheiros do Azure, consulte [metas de escalabilidade e desempenho de ficheiros do Azure](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Preciso de uma partilha de ficheiros maior do que os ficheiros do Azure oferece atualmente. Pode aumentar o tamanho da minha partilha de ficheiros do Azure?**  
-    Não. O tamanho máximo de uma partilha de ficheiros do Azure é de 5 TiB. Atualmente, este é um limite rígido que nós não é possível ajustar. Estamos a trabalhar numa solução para aumentar o tamanho de partilha para TiB de 100, mas não temos linhas cronológicas para partilhar neste momento.
+**Os tamanhos estão disponíveis para partilhas de ficheiros do Azure?**  
+    Tamanhos de partilha de ficheiros do Azure (premium e standard) podem ser dimensionado até 100 TiB. Tamanhos de partilhas de ficheiros de Premium até 100 TiB estão disponíveis como uma oferta de disponibilidade geral. Tamanhos de compartilhamentos de arquivo padrão até 5 TiB estão disponíveis como uma oferta de disponibilidade geral, embora com tamanhos até 100 TiB estão em pré-visualização. Consulte a [integração com as partilhas de ficheiros maiores (escalão standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) seção o guia de planeamento para obter instruções de integração para o ficheiro maior compartilha pré-visualização para o escalão standard.
 
 * <a id="open-handles-quota"></a>
 **O número de clientes pode aceder ao mesmo ficheiro simultaneamente?**    

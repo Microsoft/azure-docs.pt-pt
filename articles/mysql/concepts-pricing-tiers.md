@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 726da603b5f583c85f4b7c4262c6e97f565a3678
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 06/27/2019
+ms.openlocfilehash: aab3aaafd410c4f85eba7a246d0922128908bf93
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339935"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445439"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -62,12 +62,12 @@ Iremos aumentar os limites de armazenamento em nossos escalões fins gerais e me
 |              | **Fins gerais** | **Com otimização de memória** |
 |:-------------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 32 GB e 16 TB| 32 a 16 TB |
+| Tamanho de armazenamento | 32 GB e 16 TB| 32 GB e 16 TB |
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS| 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Número máximo de 20 000 IOPS |
 
 > [!IMPORTANT]
-> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, Sudeste asiático, leste do Japão, Coreia Central, leste da Austrália.
+> Armazenamento de grandes está atualmente em pré-visualização pública nas seguintes regiões: E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, E.U.A. oeste, Europa do Norte, Europa Ocidental, sul do Reino Unido, oeste do Reino Unido, Sudeste asiático, Ásia Oriental, Japão, leste, este do Japão Ocidental, Sul da Coreia Central, Coreia, leste da Austrália, Sul da Austrália Leste.
 >
 > A pré-visualização do amplo armazenamento não suporta atualmente:
 >

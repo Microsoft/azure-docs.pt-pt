@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 7ff93dffe2dd82bdbba204b4235a297b337438f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784103"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439858"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o depurador de instantâneos para aplicações de .NET no serviço de aplicações do Azure
 
@@ -29,6 +29,8 @@ Para ativar o depurador de instantâneos para uma aplicação, siga as instruç�
 * [Serviços do Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais ou físicos no local](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+
+Se estiver a utilizar uma versão de pré-visualização do .NET Core, siga as instruções para [ativar o Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) O NuGet do pacote com o aplicativo e, em seguida, concluir as instruções abaixo. 
 
 Snapshot Debugger do Application Insights é previamente instalado como parte do tempo de execução dos serviços de aplicações, mas terá de ativá-la para get instantâneos para a sua aplicação de serviço de aplicações. Assim que tiver implementado uma aplicação, mesmo se o ter incluído o Application Insights SDK no código-fonte, siga os passos abaixo para ativar o snapshot debugger.
 
@@ -52,7 +54,9 @@ Recomendamos que tenha Snapshot Debugger ativada em todas as suas aplicações p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Trabalhar com o Application Insights no Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+- Gere tráfego para a aplicação que possa disparar uma exceção. Em seguida, aguarde 10 a 15 minutos para instantâneos sejam enviados para a instância do Application Insights.
+- Ver [instantâneos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) no portal do Azure.
+- Para obter ajuda com a resolução de problemas de depurador de instantâneos, consulte [resolução de problemas do Snapshot Debugger](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png

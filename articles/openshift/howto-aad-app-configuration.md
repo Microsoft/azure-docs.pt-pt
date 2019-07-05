@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: adc5a601a04936a376d7c69b26c2429940ebdf6e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b79efa6ee1f4c052a0037a971fc36d8a9ae0ce58
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306477"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67458709"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Active Directory do Azure para a Azure Red Hat OpenShift
 
@@ -43,7 +43,7 @@ Crie um novo utilizador de administrador global do Azure Active Directory para i
 Para conceder acesso de administrador de cluster, as associações num grupo de segurança do Azure AD são sincronizadas nos OpenShift grupo "osa--administradores de clientes". Se não for especificado, sem acesso de administrador de cluster vai ser concedido.
 
 1. Abra o [grupos do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) painel.
-2. Clique em **+ novo grupo**
+2. Clique em **+ novo grupo**.
 3. Forneça um nome de grupo e a descrição.
 4. Definir **tipo de grupo** ao **segurança**.
 5. Definir **tipo de associação** ao **atribuído**.
@@ -54,7 +54,7 @@ Para conceder acesso de administrador de cluster, as associações num grupo de 
 7. Na lista de membros, selecione o utilizador do Azure AD que criou acima.
 8. Na parte inferior do portal, clique em **selecionar** e, em seguida **criar** para criar o grupo de segurança.
 
-    Anote o valor de ID de grupo
+    Anote o valor de ID de grupo.
 
 9. Quando o grupo é criado, verá-lo na lista de todos os grupos. Clique no novo grupo.
 10. Na página que aparece, copie os **ID de objeto**. Nós nos referiremos a este valor como `GROUPID` no [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
@@ -83,17 +83,34 @@ Gere um segredo do cliente para autenticar a sua aplicação ao Azure Active Dir
 4. Definir **Expires** para a duração de sua preferência, por exemplo **dentro de 2 anos**.
 5. Clique em **Add** e o valor da chave aparecerá na **segredos de cliente** secção da página.
 6. Copie o valor da chave. Nós nos referiremos a este valor como `SECRET` no [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
- 
+
 ![Captura de ecrã do painel de certificados e segredos](./media/howto-create-tenant/create-key.png)
- 
+
 Para obter mais informações sobre objetos de aplicação do Azure, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
 Para obter detalhes sobre como criar uma nova aplicação do Azure AD, consulte [registar uma aplicação com o ponto de final do Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
+## <a name="add-api-permissions"></a>Adicionar permissões de API
+
+1. Na **Manage** secção clique **permissões de API**.
+2. Clique em **adicionar permissão** e selecione **Azure Active Directory Graph** , em seguida, **permissões delegadas**
+3. Expanda **usuário** na lista abaixo e certifique-se **User.Read** está ativada.
+4. Role e selecione **permissões de aplicação**.
+5. Expanda **diretório** na lista abaixo e ativar **Directory.ReadAll**
+6. Clique em **adicionar permissões** para aceitar as alterações.
+7. O painel de permissões de API deve agora mostrar ambos *User.Read* e *Directory.ReadAll*. Tenha em atenção o aviso no **consentimento de administrador necessário** coluna junto a *Directory.ReadAll*.
+8. Se estiver a *administrador da subscrição do Azure*, clique em **conceder autorização de administrador para *nome da subscrição***  abaixo. Se não for o *administrador da subscrição do Azure*, solicitar o consentimento do seu administrador.
+![Captura de ecrã do painel de permissões de API. Permissões User.Read e Directory.ReadAll adicionadas, o consentimento de administrador necessária para Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+
+> [!IMPORTANT]
+> Sincronização do grupo de administradores de cluster irá funcionar apenas depois de consentimento foi concedido. Verá um círculo verde com uma marca de verificação e uma mensagem "para o *nome da subscrição*" no *consentimento de administrador necessário* coluna.
+
+Para obter detalhes sobre a gestão de administradores e outras funções, consulte [adicionar ou alterar os administradores de subscrição do Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+
 ## <a name="resources"></a>Recursos
 
-* [Aplicativos e objetos de principal de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)  
-* [Quickstart: Registar uma aplicação com o ponto de final de versão 1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)  
+* [Aplicativos e objetos de principal de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Quickstart: Registar uma aplicação com o ponto de final de versão 1.0 do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

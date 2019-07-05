@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80cba5e1b5e38e31dea2272cc4e33b4a95940e41
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706323"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565618"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
 
@@ -49,7 +49,7 @@ No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma 
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM
 
-Se estiver a criar uma nova VM para a imagem, utilize uma primeira imagem do Azure Marketplace terceiros suportada pelo Batch, como a imagem base para a sua imagem gerida. Apenas as primeiras imagens de terceiros podem ser utilizadas como uma imagem base. Para obter uma lista completa das referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/rest/api/batchservice/account/listnodeagentskus) operação.
+Se estiver a criar uma nova VM para a imagem, utilize uma primeira imagem do Azure Marketplace terceiros suportada pelo Batch, como a imagem base para a sua imagem gerida. Apenas as primeiras imagens de terceiros podem ser utilizadas como uma imagem base. Para obter uma lista completa das referências de imagens do Azure Marketplace suportado pelo Azure Batch, consulte a [SKUs de agente de nó de lista](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operação.
 
 > [!NOTE]
 > Não é possível utilizar uma imagem de terceiros que tenha licenças adicionais e os termos de compra que sua imagem base. Para obter informações sobre estas imagens do Marketplace, consulte a documentação de orientação para [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

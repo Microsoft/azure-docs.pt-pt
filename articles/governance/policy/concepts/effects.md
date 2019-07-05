@@ -8,25 +8,26 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2bf19a2599d59b9ff2b3d189b26134f1528a878
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116194"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448577"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
 Cada definição de política na política do Azure tem um efeito único. Esse efeito determina o que acontece quando a regra de política é avaliada para corresponder. Os efeitos ter um comportamento diferente se forem para um novo recurso, um recurso atualizado ou um recurso existente.
 
-Atualmente, existem seis efeitos que são suportados numa definição de política:
+Atualmente, esses efeitos são suportados numa definição de política:
 
-- Acrescentar
-- Auditoria
-- AuditIfNotExists
-- Negar
-- DeployIfNotExists
-- Desativado
+- [Acrescentar](#append)
+- [Auditoria](#audit)
+- [AuditIfNotExists](#auditifnotexists)
+- [Negar](#deny)
+- [DeployIfNotExists](#deployifnotexists)
+- [Desativado](#disabled)
+- [EnforceRegoPolicy](#enforceregopolicy) (pré-visualização)
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
@@ -38,6 +39,8 @@ Pedidos para criar ou atualizar um recurso através do Gestor de recursos do Azu
 - **Auditoria** , em seguida, é avaliado antes do pedido vai para o fornecedor de recursos.
 
 Depois do fornecedor de recursos devolve um código de sucesso **AuditIfNotExists** e **DeployIfNotExists** avaliar para determinar se o registo de conformidade adicionais ou ação é necessária.
+
+Existem atualmente não é qualquer ordem de avaliação para o **EnforceRegoPolicy** efeito.
 
 ## <a name="disabled"></a>Desativado
 
@@ -332,6 +335,58 @@ Exemplo: Avalia a bases de dados do SQL Server para determinar se transparentDat
                     }
                 }
             }
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+Esse efeito é utilizado com uma definição de política *modo* de `Microsoft.ContainerService.Data`. É utilizado para transmitir definidas com regras de controle de admissão [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) para [aberto de política de agente](https://www.openpolicyagent.org/) (OPA) no [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [O Azure Policy para Kubernetes](rego-for-aks.md) está em pré-visualização pública e oferece suporte apenas a definições de política incorporada.
+
+### <a name="enforceregopolicy-evaluation"></a>Avaliação de EnforceRegoPolicy
+
+O controlador de admissão de agente de política aberto avalia todas as novas solicitações no cluster em tempo real.
+A cada 5 minutos, uma análise completa do cluster é concluída e os resultados relatados ao Azure Policy.
+
+### <a name="enforceregopolicy-properties"></a>Propriedades de EnforceRegoPolicy
+
+O **detalhes** propriedade do efeito EnforceRegoPolicy tem os subproperties que descrevem a regra de controle de admissão Rego.
+
+- **policyId** [necessário]
+  - Um nome exclusivo passada como um parâmetro para a regra de controle de admissão Rego.
+- **política** [necessário]
+  - Especifica o URI da regra de controle de admissão Rego.
+- **policyParameters** [opcional]
+  - Define todos os parâmetros e valores para passar para a política de rego.
+
+### <a name="enforceregopolicy-example"></a>Exemplo de EnforceRegoPolicy
+
+Exemplo: Rego regra de controle de admissão para permitir que apenas as imagens de contentor especificado no AKS.
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "equals": "Microsoft.ContainerService/managedClusters"
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "EnforceRegoPolicy",
+    "details": {
+        "policyId": "ContainerAllowedImages",
+        "policy": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/KubernetesService/container-allowed-images/limited-preview/gatekeeperpolicy.rego",
+        "policyParameters": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]"
         }
     }
 }

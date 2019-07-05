@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: c87685673052d2cfbc961d3bb717c9cd274872af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 948594a43cec92aa62386b041ce8c96a0558995e
+ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059239"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67466920"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -58,7 +58,7 @@ Crie os recursos necessários para executar um pipeline:
 ### <a name="set-up-a-datastore"></a>Configurar um arquivo de dados
 Um arquivo de dados armazena os dados para o pipeline aceder. Cada área de trabalho tem um arquivo de dados padrão. Pode registrar os arquivos de dados adicionais. 
 
-Quando cria a área de trabalho, [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) estão anexados à área de trabalho, por predefinição. O Azure Files é o arquivo de dados predefinida para uma área de trabalho, mas também pode utilizar o armazenamento de BLOBs como um arquivo de dados. Para obter mais informações, consulte [decidindo quando usar os ficheiros do Azure, Blobs do Azure ou discos do Azure para](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+Quando cria a área de trabalho, [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) estão anexados à área de trabalho, por predefinição. Armazenamento de Blobs do Azure é o arquivo de dados predefinida para uma área de trabalho, mas também pode utilizar o armazenamento de BLOBs como um arquivo de dados. Para obter mais informações, consulte [decidindo quando usar os ficheiros do Azure, Blobs do Azure ou discos do Azure para](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure file storage)

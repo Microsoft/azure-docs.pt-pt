@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: raynew
-ms.openlocfilehash: ef522785d5074187871c25c54deae84b156d69b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e395b10d9a99fdb454f3f02c7027e7acff64b434
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743185"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508193"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -43,7 +43,7 @@ Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de seg
 Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para: <br/><br/> -Windows Server de 2019 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2016 (Core de Datacenter/Datacenter/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM e SP1 Standard)
 Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Fazer uma cópia de segurança de uma VM que está encerramento/offline VM | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
-Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessário realizar qualquer ação.
+Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. nenhuma ação necessária.
 Fazer cópias de segurança de discos geridos depois de ativar o bloqueio do grupo de recursos | Não suportado.<br/><br/> O Azure Backup não é possível eliminar os pontos mais antigos do recurso e as cópias de segurança começarão a falhar quando for atingido o limite máximo de pontos de restauro.
 Modificar a política de cópia de segurança para uma VM | Suportado.<br/><br/> A VM será efetuada utilizando as definições de agendamento e retenção na nova política. Se as definições de retenção estão expandidas, pontos de recuperação existentes são marcados e mantidos. Se eles estão reduzidos, pontos de recuperação existentes serão eliminados na tarefa de limpeza seguinte e, eventualmente, eliminados.
 Cancelar uma tarefa de cópia de segurança | Suportado durante o processo de instantâneo.<br/><br/> Não é suportada quando o instantâneo é que está a ser transferido para o cofre.
@@ -164,7 +164,7 @@ Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se
 Tipo de armazenamento | Premium HDD, standard SSD, Standard SSD. <br/><br/> Standard SSD é suportada se os cofres estão atualizados para a versão mais recente da cópia de segurança de VM do Azure (também conhecida como restaurar instantânea). [Saiba mais](backup-instant-restore-capability.md).
 Managed disks | Suportado.
 Discos encriptados | Suportado.<br/><br/> VMs do Azure ativadas com encriptação de disco do Azure podem ser uma cópia de segurança (com ou sem a aplicação do Azure AD).<br/><br/> VMs encriptadas não não possível recuperar ao nível do ficheiro/pasta. Tem de recuperar toda a VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidas pelo Azure Backup.
-Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecido como [restaurar instantâneas](backup-instant-restore-capability.md)), pode excluir discos com acelerador de escrita ativado a partir de cópia de segurança.
+Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Cópia de segurança do Azure exclui automaticamente os discos com acelerador de escrita ativados durante a cópia de segurança. Uma vez que eles não são uma cópia de segurança, não será capaz de restaurar estes discos a partir de pontos de recuperação da VM.
 Criar cópias de segurança com eliminação de duplicados discos | Não suportado.
 Adicionar disco à VM protegida | Suportado.
 Redimensionar disco numa VM protegida | Suportado.
@@ -233,8 +233,8 @@ Cópia de segurança suporta a compactação do tráfego de cópia de segurança
 
 **Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
 --- | --- | ---
-Máquinas do Windows sem DPM/MABS no local | N/D | ![Sim][green]
-VMs do Azure | N/D | N/D
+Máquinas do Windows sem DPM/MABS no local | ND | ![Sim][green]
+VMs do Azure | ND | ND
 VMs no local/Azure com o DPM | ![Sim][green] | ![Sim][green]
 VMs no local/Azure com o MABS | ![Sim][green] | ![Sim][green]
 

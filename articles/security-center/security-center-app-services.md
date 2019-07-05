@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966807"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551865"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
@@ -47,9 +47,8 @@ Centro de segurança nativamente está integrado com o serviço de aplicações,
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Ativar a monitorização e a proteção do serviço de aplicações
 
 1. No Azure, escolha o Centro de segurança.
-2. Aceda a **política de segurança** e escolha uma subscrição.
-3. No final da linha da subscrição, clique em **editar as definições de**.
-4. Sob **escalão de preço**, na **serviço de aplicações** da linha, alternar o seu plano para **ativado**.
+2. Aceda a **preços & definições** e escolha uma subscrição.
+3. Sob **escalão de preço**, na **serviço de aplicações** da linha, alternar o seu plano para **ativado**.
 
 ![Ativar/desativar de serviço de aplicações](./media/security-center-app-services/app-services-toggle.png)
 

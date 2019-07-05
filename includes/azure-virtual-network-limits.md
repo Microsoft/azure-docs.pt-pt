@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/13/2019
+ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: bb13ecb2d9014dbf56823734ac28703df9755b4b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: HT
+ms.openlocfilehash: 3e66bf61caf786473d89eab9a6567bb05aff0d19
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277405"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457490"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - os seguintes limites só se aplicam para recursos geridos através de rede do Azure Resource Manager **do Azure Resource Manager** por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -75,7 +75,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
-| Redes virtuais |50 |100 |
+| Redes virtuais |100 |100 |
 | Sites de rede local |20 |Contacte o suporte. |
 | Servidores DNS por rede virtual |20 |20 |
 | Endereços IP privados por rede virtual |4,096 |4,096 |
@@ -84,8 +84,8 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Regras do NSG por NSG |1,000 |1,000 |
 | Tabelas de rotas definidas pelo utilizador |200 |200 |
 | Rotas definidas pelo utilizador por tabela de rotas |400 |400 |
-| Endereços IP públicos (dinâmico) |5 |Contacte o suporte |
-| Endereços IP públicos reservados |20 |Contacte o suporte |
+| Endereços IP públicos (dinâmico) |500 |500 |
+| Endereços IP públicos reservados |500 |500 |
 | VIP público por implementação |5 |Contacte o suporte |
 | VIP privado (Balanceamento de carga interno) por implementação |1 |1 |
 | Listas de controlo de acesso de ponto final (ACLs) |50 |50 |

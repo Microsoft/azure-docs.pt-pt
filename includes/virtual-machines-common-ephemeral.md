@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 3e9885466d422a0428311ed3013e2ab34341cd25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24c2bfa4aae94642d3ed66f2cfa6e31ba1e6b19a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391398"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457488"
 ---
 Discos de SO efémeros são criados no armazenamento de Máquina Virtual (VM) local e não persistente para o armazenamento remoto do Azure. Discos de SO efémeros funcionam bem para cargas de trabalho sem monitorização de estado, em que aplicativos são tolerantes a de falhas VM individuais, mas estiver mais preocupado com o tempo necessário para implementações em grande escala ou tempo a recriar imagem das instâncias VM individuais. Também é adequado para aplicativos, implantados usando o modelo de implementação clássica, para mover para o modelo de implementação do Resource Manager. Com o Disco de SO Efémero, observaria uma latência de leitura/escrita inferior para o Disco de SO e uma recriação mais rápida da imagem da VM. Além disso, o disco de SO efémero é gratuito, pode incorrer sem custos de armazenamento do disco do SO. 
  

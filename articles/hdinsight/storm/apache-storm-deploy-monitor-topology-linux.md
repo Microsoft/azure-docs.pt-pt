@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078249"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483840"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir topologias do Apache Storm no HDInsight do Azure 
 
@@ -21,11 +21,12 @@ Neste documento, aprender as noções básicas de gerenciamento e monitoramento 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um Storm baseado em Linux no HDInsight cluster**: veja [introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para obter os passos sobre como criar um cluster
+* Um cluster do Apache Storm no HDInsight. Ver [Apache Hadoop criar clusters no portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para **tipo de Cluster**.
 
-* (Opcional) **Familiaridade com o SSH e SCP**: Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Opcional) **Visual Studio**: SDK do Azure 2.5.1 ou mais recente e ferramentas do Data Lake para Visual Studio. Para obter mais informações, consulte [começar a utilizar o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Opcional) Familiaridade com o SSH e SCP: Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Opcional) Visual Studio: SDK do Azure 2.5.1 ou mais recente e ferramentas do Data Lake para Visual Studio. Para obter mais informações, consulte [começar a utilizar o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Uma das seguintes versões do Visual Studio:
 

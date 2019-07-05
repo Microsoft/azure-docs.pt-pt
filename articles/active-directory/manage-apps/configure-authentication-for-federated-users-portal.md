@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0534037393f4634364b927020595aa21d8e1b7b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781030"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440375"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 
@@ -209,7 +209,13 @@ Para aplicar a política HRD depois que a criou, pode atribuí-la para várias e
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Passo 2: Localizar o principal de serviço ao qual pretende atribuir a política  
 Terá do **ObjectID** os principais de serviço ao qual pretende atribuir a política. Existem várias formas de localizar os **ObjectID** de principais de serviço.    
 
-Pode utilizar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Também pode ir para o [ferramenta do Explorador do gráfico](https://developer.microsoft.com/graph/graph-explorer) e inicie sessão na sua conta do Azure AD para ver os principais de serviço da sua organização. Uma vez que estiver a utilizar o PowerShell, pode utilizar o cmdlet get-AzureADServicePrincipal cmdlet para listar os principais de serviço e os respetivos IDs.
+Pode utilizar o portal ou pode consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Também pode ir para o [ferramenta do Explorador do gráfico](https://developer.microsoft.com/graph/graph-explorer) e inicie sessão na sua conta do Azure AD para ver os principais de serviço da sua organização. 
+
+Uma vez que estiver a utilizar o PowerShell, pode utilizar o cmdlet seguinte para listar os principais de serviço e os respetivos IDs.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Passo 3: Atribuir a política para o seu principal de serviço  
 Depois de ter o **ObjectID** do principal de serviço do aplicativo para o qual pretende configurar automático-acelerado, execute o seguinte comando. Este comando associa a política HRD que criou no passo 1 com o principal de serviço que localizou no passo 2.
@@ -226,7 +232,7 @@ No caso em que uma aplicação já tem uma política de HomeRealmDiscovery atrib
 Para verificar as aplicações que tenham a política HRD configurada, utilize o **Get-AzureADPolicyAppliedObject** cmdlet. Transmita-o **ObjectID** da política que pretende verificar.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Passo 5: Já está!
 Experimente o aplicativo para verificar se a nova política está a funcionar.
@@ -244,7 +250,7 @@ Tenha em atenção a **ObjectID** da política que pretende listar atribuições
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 2: Lista os principais de serviço ao qual a política é atribuída  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover uma política HRD para uma aplicação
@@ -254,13 +260,13 @@ Utilize o exemplo anterior para obter o **ObjectID** da política e que o princi
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Passo 2: Remover a atribuição de política do principal de serviço de aplicações  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Passo 3: Verificar a remoção, listando os principais de serviço ao qual a política é atribuída 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).

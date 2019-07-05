@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111295"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482477"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -215,6 +215,7 @@ ms.locfileid: "67111295"
 | AADSTS90093 | GraphUserUnauthorized - Graph devolveu com um código de erro proibido para o pedido. |
 | AADSTS90094 | AdminConsentRequired - o consentimento de administrador é necessário. |
 | AADSTS90100 | InvalidRequestParameter - o parâmetro está vazio ou não é válido. |
+| AADSTS901002 | AADSTS901002: O parâmetro de pedido "resource" não é suportado. |
 | AADSTS90101 | InvalidEmailAddress - os dados fornecidos não não um endereço de e-mail válido. O endereço de e-mail tem de estar no formato `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - o valor tem de ser um URI absoluto válido. |
 | AADSTS90107 | InvalidXml - o pedido não é válido. Certifique-se de que os dados não tem carateres inválidos.|

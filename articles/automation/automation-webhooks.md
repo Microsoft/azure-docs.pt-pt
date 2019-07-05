@@ -4,17 +4,17 @@ description: Um webhook que permite que um cliente iniciar um runbook na automat
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e0e0cdfd5bdda125ed38173df56e0fb7a84f71a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61305025"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477934"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -30,10 +30,10 @@ Pode comparar webhooks para outros métodos de iniciar um runbook [iniciar um ru
 
 A tabela seguinte descreve as propriedades que devem ser configuradas para um webhook.
 
-| Propriedade | Descrição |
+| Propriedade | Description |
 |:--- |:--- |
 | Name |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não é exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
-| do IdP |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
+| URL |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
 | Data de expiração |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não está expirado. |
 | Enabled |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente pode utilizá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 

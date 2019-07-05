@@ -1,31 +1,28 @@
 ---
-title: Serviço para o mapeamento de medidores para a conta gratuita do Azure | Documentos da Microsoft
+title: Serviço para o mapeamento de medidores para a conta gratuita do Azure
 description: Compreenda o serviço para mapeamento de medidores de serviços incluídos com a conta gratuita.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 2468f61c187d9b10ed9fe55ccf76e5d2561d0505
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8022c065d73aafc53d3dcb77e79c3e6320e0ce39
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370735"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490410"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Compreender o serviço gratuito para o mapeamento de medidor
 
-Cada serviço do Azure emite utilização relativamente indicadores, o que o sistema de faturação do Azure utiliza a cobrar aos utilizadores para serviços. Para compreender melhor a utilização de serviços gratuitos, vamos analisar o serviço de mapeamento de medidores para estes serviços. Para saber como criar serviços gratuitos, veja [criar serviços gratuitos conta gratuita do Azure](billing-create-free-services-included-free-account.md).
+Cada serviço do Azure emite utilização relativamente indicadores, o que o sistema de faturação do Azure utiliza a cobrar aos utilizadores para serviços. Para melhor compreender a utilização do serviço gratuito, vamos examinar o serviço de mapeamento de medidores para os serviços. Para saber como criar serviços gratuitos, veja [criar serviços gratuitos conta gratuita do Azure](billing-create-free-services-included-free-account.md).
 
-## <a name="service-to-meter-mapping-for-free-account-eligible-services"></a>Serviço para o medidor de mapeamento gratuitamente serviços elegíveis de conta 
+## <a name="service-to-meter-mapping-for-eligible-services"></a>Serviço para o mapeamento de medidores de serviços elegíveis
 
 |    Serviço   | Nome do medidor no portal do Azure | Nome do medidor no ficheiro/API de utilização | ID do Medidor |
 | ------------ | -------------------------- | -------------------------| -------- |
@@ -33,7 +30,7 @@ Cada serviço do Azure emite utilização relativamente indicadores, o que o sis
 | B1S Windows VM | Horas de computação – Standard_B1 VM (Windows) | Horas de computação - gratuitas | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | B1s para VM - endereços IP públicos  | Horas de endereço IP - endereços IP públicos | Horas de endereço IP - gratuitas | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | Armazenamento (GB) - Cosmos DB | Armazenamento (GB) - gratuito | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
-| CosmosDB | 100 unidades de pedido (horas) - Cosmos DB | 100 unidades de pedido (horas) - gratuito | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
+| CosmosDB | 100 unidades de pedido (horas) - Cosmos DB | 100 unidades de pedido (horas) - gratuito | 5d638a6f-e221-41cf-ae3f-0f81d368cef6
 | Armazenamento de Ficheiros | E/s padrão - ficheiros (GB) - localmente redundante | E/s padrão - ficheiros (GB) - gratuito | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
 | Armazenamento de Ficheiros | E/S Standard - Unidades de Operação de Leitura de Ficheiros (por 10 mil) | E/s padrão - leitura unidades de operação ficheiros (em 10 000s) - gratuito | 6207404d-3389-4d20-9087-cc078ddc3fd9
 | Armazenamento de Ficheiros | E/S Standard - Unidades de Operação de Escrita de Ficheiros (por 10 mil) | E/s padrão - ficheiro unidades de operação de escrita (em 10 000s) - gratuito | 223d8004-d29a-46cf-b4f4-d2d34b12548b
@@ -43,16 +40,19 @@ Cada serviço do Azure emite utilização relativamente indicadores, o que o sis
 | Armazenamento de BLOBs de blocos de acesso frequente | E/s padrão - Blob de blocos de acesso frequente (GB) - localmente redundante | E/s padrão - Blob de blocos de acesso frequente (GB) - gratuito | 67a3a3fd-826f-42c1-8843-bffa14f0da13
 | Armazenamento de BLOBs de blocos de acesso frequente | E/s padrão - operações de escrita de BLOBs de blocos de acesso frequente (em 10 000s) | E/s padrão - blocos de acesso frequente operações de escrita de BLOBs (em 10 000s) - gratuito | b34bbb76-edce-4c2d-a288-81a2db1fea53
 | Armazenamento de BLOBs de blocos de acesso frequente  | E/s padrão - operações de escrita/lista de BLOBs de blocos de acesso frequente (em 10 000s) | E/s padrão - blocos de acesso frequente operações de escrita/lista de BLOBs (em 10 000s) - gratuito | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
-| Disco gerido *  | Disco gerido Standard/instantâneos (GB) - localmente redundante | Disco gerido Standard/instantâneos (GB) - gratuito | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Disco gerido *  | Operações de disco gerido Standard (em 10 000s) | Operações de disco gerido Standard (em 10 000s) - gratuito | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
-| Disco gerido *  | Armazenamento Premium - Blob de páginas/P6 (unidades) - localmente redundante | Armazenamento Premium - Blob de páginas/P6 (unidades) - gratuito | 2b98c168-27ca-4cc1-b509-e887dec87657
+| Disco gerido <sup>1</sup>  | Disco gerido Standard/instantâneos (GB) - localmente redundante | Disco gerido Standard/instantâneos (GB) - gratuito | ad94c237-52a5-4804-ae65-38c5bf85ef42
+| Disco gerido <sup>1</sup>  | Operações de disco gerido Standard (em 10 000s) | Operações de disco gerido Standard (em 10 000s) - gratuito | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Disco gerido <sup>1</sup>  | Armazenamento Premium - Blob de páginas/P6 (unidades) - localmente redundante | Armazenamento Premium - Blob de páginas/P6 (unidades) - gratuito | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Database | Dias de base de dados Standard S0 - base de dados SQL | Dias de base de dados Standard S0 - gratuitos | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
-| Partilhado - largura de banda * * | Transferências de Dados de Saída (GB) | Transferência de dados de saída (GB) - gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
+| Partilhado - largura de banda <sup>2</sup> | Transferências de Dados de Saída (GB) | Transferência de dados de saída (GB) - gratuito | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\* Se criar uma máquina virtual do Windows e selecione o disco gerido, irá consumir o medidor de disco gerido como parte da máquina virtual.
+<sup>1</sup> se criar uma máquina virtual do Windows e selecione o disco gerido, irá consumir o medidor de disco gerido como parte da máquina virtual.
 
-\** Medidores partilhados podem ser consumidos por meio de vários serviços. Por exemplo, máquinas virtuais e armazenamento emitem utilização contra medidor Out(GB) de transferência de dados.
+<sup>2</sup> medidores partilhado podem ser consumidos por meio de vários serviços. Por exemplo, máquinas virtuais e armazenamento emitem utilização contra medidor Out(GB) de transferência de dados.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Passos Seguintes
+- [Atualizar a sua subscrição](billing-upgrade-azure-subscription.md)

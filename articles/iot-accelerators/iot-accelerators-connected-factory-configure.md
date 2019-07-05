@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080464"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428310"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador de solução de fábrica ligada
 
@@ -29,7 +29,7 @@ Cada fábrica de Contoso tem linhas de produção, que consistem em três estaç
 * Estação de teste
 * Estação de empacotamento
 
-Estes servidores OPC UA tem nós de OPC UA e [o publicador OPC](https://github.com/Azure/iot-edge-opc-publisher) envia os valores de nós para a fábrica ligada. Isto inclui:
+Estes servidores OPC UA tem nós de OPC UA e [o publicador OPC](overview-opc-publisher.md) envia os valores de nós para a fábrica ligada. Isto inclui:
 
 * Estado operacional atual, como o consumo de energia atual.
 * Informações de produção, como o número de produtos produziram.
@@ -307,7 +307,7 @@ Para determinadas operações, como visualizar o último valor ou a criação de
 
   Identifica o valor do nó no servidor OPC UA. O formato da propriedade deve ser conforme especificado na especificação OPC UA. Nas mensagens ingeridas, esta propriedade é enviada como **NodeId**.
 
-Verifique [isso](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos para utilizar o publicador de OPC de fábrica ligada.
+Ver [o que é o publicador OPC](overview-opc-publisher.md) para obter mais informações sobre como os dados de telemetria são ingeridos a fábrica ligada.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como é calculado KPI1
 

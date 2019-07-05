@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: a021ed2be3a94add7500a98d71a962bb580078e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a7c186f7c5fb46078eaa5729e79fdcc256ecc6d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729470"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460202"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -52,7 +52,7 @@ FunctionsProject
 
 Na raiz do projeto, há um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. js) e o ficheiro de configuração de vinculação (Function). O nome do `function.json`do diretório principal é sempre o nome da sua função.
 
-As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
+As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 ## <a name="exporting-a-function"></a>Exportar uma função
 
@@ -136,7 +136,7 @@ Entrada são divididas em duas categorias nas funções do Azure: um é a entrad
    };
    ```
 
-### <a name="outputs"></a>Saídas
+### <a name="outputs"></a>outputs
 Saídas (enlaces de `direction === "out"`) pode ser escrito por uma função de diversas formas. Em todos os casos, o `name` propriedade da ligação, conforme definido na *Function* corresponde ao nome do membro de objeto escrito na sua função. 
 
 Pode atribuir os dados para ligações de saída de uma das seguintes formas (não o combine estes métodos):
@@ -421,7 +421,7 @@ A tabela seguinte mostra a versão do node. js utilizada por cada versão princi
 | Versão de funções | Versão node. js | 
 |---|---|
 | 1.x | 6.11.2 (bloqueados pelo tempo de execução) |
-| 2.x  | _Active Directory LTS_ e até mesmo-numerados _atual_ versões de node. js (8.11.1 e 10.14.1 recomendado). Definir a versão com o WEBSITE_NODE_DEFAULT_VERSION [definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Active Directory LTS_ e _manutenção LTS_ versões de node. js (8.11.1 e 10.14.1 recomendado). Definir a versão com o WEBSITE_NODE_DEFAULT_VERSION [definição de aplicação](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 Pode ver a versão atual que está a utilizar o tempo de execução ao verificar a definição de aplicação acima ou imprimindo `process.version` de qualquer função.
 
@@ -576,7 +576,7 @@ A maneira que desenvolver e implementar a partir de um projeto do TypeScript loc
 
 O [as funções do Azure para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extensão permite desenvolver as suas funções usando TypeScript. As ferramentas de núcleo é um requisito da extensão das funções do Azure.
 
-Para criar uma aplicação de funções do TypeScript no Visual Studio Code, simplesmente escolha `TypeScript` ao criar uma aplicação de funções e são-lhe pedido para escolher o idioma.
+Para criar uma aplicação de funções do TypeScript no Visual Studio Code, escolher `TypeScript` como sua linguagem ao criar uma aplicação de funções.
 
 Quando pressiona **F5** para executar a aplicação localmente, transpilation é feito antes que o anfitrião (func.exe) seja inicializado. 
 
@@ -584,7 +584,7 @@ Ao implementar a aplicação de funções para o Azure com o **implementar a apl
 
 ### <a name="azure-functions-core-tools"></a>Ferramentas de núcleo das funções do Azure
 
-Para criar um projeto de aplicação de função do TypeScript usando as ferramentas de núcleo, tem de especificar a opção de linguagem typescript quando criar a sua aplicação de função. Pode fazê-lo em uma das seguintes formas:
+Para criar um projeto de aplicação de função do TypeScript usando as ferramentas de núcleo, tem de especificar a opção de linguagem TypeScript quando criar a sua aplicação de função. Pode fazê-lo em uma das seguintes formas:
 
 - Executar o `func init` comando, selecione `node` como a pilha de linguagem e, em seguida, selecione `typescript`.
 
@@ -614,6 +614,55 @@ Quando começar a desenvolver funções do Azure no modelo de alojamento sem ser
 ### <a name="connection-limits"></a>Limites de conexão
 
 Quando utiliza um cliente específico do serviço num aplicativo de funções do Azure, não crie um novo cliente com cada invocação de função. Em vez disso, crie um único cliente estático no âmbito global. Para obter mais informações, consulte [gerenciamento de conexões nas funções do Azure](manage-connections.md).
+
+### <a name="use-async-and-await"></a>Utilize `async` e `await`
+
+Ao escrever as funções do Azure em JavaScript, deve escrever código com o `async` e `await` palavras-chave. Escrever código usando `async` e `await` em vez de retornos de chamada ou `.then` e `.catch` com promessas ajuda a evitar problemas comuns de dois:
+ - Gerar exceções não identificadas que [o processo de node. js de falhas](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potencialmente afetar a execução de outras funções.
+ - Comportamento inesperado, tais como registos em falta a partir do context.log, causado por chamadas assíncronas que não estão corretamente aguardadas.
+
+No exemplo abaixo, o método assíncrono `fs.readFile` é invocado com uma função de retorno de chamada de erro em primeiro lugar, como o segundo parâmetro. Esse código faz com que ambos os problemas mencionados acima. Uma exceção que não é detetada explicitamente no âmbito correto que falharam a todo o processo (problema #1). Chamar `context.done()` fora do escopo do retorno de chamada a função significa que a invocação de função pode terminar antes do arquivo é lido (emitir #2). Neste exemplo, chamar `context.done()` a partir de entradas de registo de resultados demasiado antigo na ausência de `Data from file:`.
+
+```javascript
+// NOT RECOMMENDED PATTERN
+const fs = require('fs');
+
+module.exports = function (context) {
+    fs.readFile('./hello.txt', (err, data) => {
+        if (err) {
+            context.log.error('ERROR', err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        context.log(`Data from file: ${data}`);
+        // context.done() should be called here
+    });
+    // BUG #2: Data is not guaranteed to be read before the Azure Function's invocation ends
+    context.done();
+}
+```
+
+Utilizar o `async` e `await` palavras-chave ajuda a evitar ambos estes erros. Deve usar a função de utilitário de node. js [ `util.promisify` ](https://nodejs.org/api/util.html#util_util_promisify_original) para ativar as funções de estilo de chamada de retorno de erro em primeiro lugar em funções awaitable.
+
+No exemplo abaixo, todas as exceções sem tratamento lançadas durante a execução de função não apenas a invocação individual que provocou uma exceção. O `await` palavra-chave significa que seguinte passos `readFileAsync` executado somente após `readFile` estiver concluída. Com o `async` e `await`, também não precisa chamar o `context.done()` retorno de chamada.
+
+```javascript
+// Recommended pattern
+const fs = require('fs');
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+
+module.exports = async function (context) {
+    try {
+        const data = await readFileAsync('./hello.txt');
+    } catch (err) {
+        context.log.error('ERROR', err);
+        // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation
+        throw err;
+    }
+    context.log(`Data from file: ${data}`);
+}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 683297e32c40f73c64dc40b18f279d92e2396e8d
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475818"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568281"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -426,7 +426,7 @@ Os seguintes procedimentos armazenados são no [base de dados de tarefas](sql-da
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Adiciona uma nova tarefa. 
   
@@ -492,7 +492,7 @@ Por predefinição, os membros da função de servidor fixa sysadmin podem execu
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Atualiza uma tarefa existente.
 
@@ -555,7 +555,7 @@ Para obter detalhes sobre as permissões destas funções, consulte a secção d
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Elimina uma tarefa existente.
 
@@ -587,7 +587,7 @@ Para obter detalhes sobre as permissões destas funções, consulte a secção d
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Adiciona um passo a um trabalho.
 
@@ -713,7 +713,7 @@ Para obter detalhes sobre as permissões destas funções, consulte a secção d
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Atualiza um passo de tarefa.
 
@@ -838,7 +838,7 @@ Para obter detalhes sobre as permissões destas funções, consulte a secção d
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Remove um passo de tarefa de uma tarefa.
 
@@ -884,7 +884,7 @@ Para obter detalhes sobre as permissões destas funções, consulte a secção d
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Inicia uma tarefa em execução.
 
@@ -915,7 +915,7 @@ Por predefinição, os membros da função de servidor fixa sysadmin podem execu
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Interrompe uma execução de tarefa.
 
@@ -944,7 +944,7 @@ Por predefinição, os membros da função de servidor fixa sysadmin podem execu
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Adiciona um grupo de destino.
 
@@ -975,7 +975,7 @@ Por predefinição, os membros da função de servidor fixa sysadmin podem execu
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Elimina um grupo de destino.
 
@@ -1003,7 +1003,7 @@ Por predefinição, os membros da função de servidor fixa sysadmin podem execu
 
 Para obter detalhes sobre as permissões destas funções, consulte a secção de permissão neste documento. Apenas os membros do administrador do sistema podem utilizar este procedimento armazenado para editar os atributos de tarefas que são propriedade de outros utilizadores.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.
 
@@ -1092,7 +1092,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Remove um membro do grupo de destino de um grupo de destino.
 
@@ -1143,7 +1143,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Remove os registos do histórico para uma tarefa.
 
@@ -1204,7 +1204,7 @@ As vistas seguintes estão disponíveis no [base de dados de tarefas](sql-databa
 |[target_group_members](#target_groups_members-view)     |   Mostra todos os membros de todos os grupos de destino.      |
 
 
-### <a name="jobsexecutions-view"></a>jobs_executions view
+### <a name="jobs_executions-view"></a>jobs_executions view
 
 [jobs].[jobs_executions]
 
@@ -1251,7 +1251,7 @@ Mostra todas as tarefas.
 |**schedule_end_time**| datetime2(7)|   Data e hora que a tarefa foi a última execução foi concluída.|
 
 
-### <a name="jobversions-view"></a>Ver job_versions
+### <a name="job_versions-view"></a>Ver job_versions
 
 [jobs].[job_versions]
 
@@ -1299,13 +1299,13 @@ Mostra todos os passos na versão atual de cada tarefa.
 |**max_parallelism**|   int|    O número máximo de bases de dados por conjunto elástico que o passo da tarefa será executado cada vez. A predefinição é nulo, significa que nenhum limite. |
 
 
-### <a name="jobstepversions-view"></a>Ver jobstep_versions
+### <a name="jobstep_versions-view"></a>Ver jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Mostra todos os passos em todas as versões de cada tarefa. O esquema é idêntico à [primeiro](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>target_groups view
+### <a name="target_groups-view"></a>target_groups view
 
 [jobs].[target_groups]
 
@@ -1316,7 +1316,7 @@ Apresenta uma lista de todos os grupos de destino.
 |**target_group_name**| nvarchar(128)   |O nome do grupo de destino, uma coleção de bases de dados. 
 |**target_group_id**    |uniqueidentifier   |ID exclusivo do grupo de destino.
 
-### <a name="targetgroupsmembers-view"></a>target_groups_members view
+### <a name="target_groups_members-view"></a>target_groups_members view
 
 [jobs].[target_groups_members]
 

@@ -5,18 +5,18 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 05/27/2019
+ms.date: 07/01/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4014827366afc492d73757a0ac5e1acb64262c51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 953a549a44d224f9d196c6d6842bdcae04cca975
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474775"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485918"
 ---
-# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge-preview"></a>Utilizar o Visual Studio 2019 para desenvolver e depurar os módulos do Azure IoT Edge (pré-visualização)
+# <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio 2019 para desenvolver e depurar os módulos do Azure IoT Edge
 
 Pode transformar sua lógica de negócio em módulos do Azure IoT Edge. Este artigo mostra-lhe como utilizar o Visual Studio 2019 como a principal ferramenta para desenvolver e depurar módulos.
 
@@ -40,10 +40,10 @@ Uma vez que este artigo utiliza o Visual Studio 2019 como a ferramenta de desenv
 
 Depois do Visual Studio de 2019 estiver pronto, também terá das ferramentas e os componentes seguintes:
 
-- Transfira e instale [ferramentas do Azure IoT Edge (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) partir do mercado do Visual Studio para criar um projeto de IoT Edge no Visual Studio 2019.
+- Transfira e instale [ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) partir do mercado do Visual Studio para criar um projeto de IoT Edge no Visual Studio 2019.
 
 > [!TIP]
-> Se estiver a utilizar o Visual Studio 2017, plrease transfira e instale [ferramentas do Azure IoT Edge (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do Visual Studio marketplace
+> Se estiver a utilizar o Visual Studio 2017, plrease transfira e instale [ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do Visual Studio marketplace
 
 - Transfira e instale [Docker Community Edition](https://docs.docker.com/install/) no computador de desenvolvimento para compilar e executar as imagens de módulo. Terá de definir o Docker CE para executar no modo de contentor do Linux ou modo de contentor do Windows.
 

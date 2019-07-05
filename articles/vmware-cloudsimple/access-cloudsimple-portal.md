@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6f44005080bbd8583ae2e2fdad31ef2c823c7ca
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 61c3d37f365034984231c780199e181872c010c6
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154513"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544117"
 ---
 # <a name="accessing-the-vmware-solution-by-cloudsimple-portal-from-azure-portal"></a>A solução de VMware a aceder ao portal CloudSimple a partir do portal do Azure
 
@@ -21,7 +21,16 @@ Início de sessão único é suportado para acesso ao portal do CloudSimple. Dep
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Apenas os utilizadores com builtin **proprietário** e **contribuinte** funções podem acessar o portal de CloudSimple.  Tem de configurar as funções na subscrição.  Para obter mais informações sobre como verificar a sua função, veja [ver atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/check-access) artigo.
+Os utilizadores com builtin **proprietário** e **contribuinte** funções podem acessar o portal de CloudSimple.  As funções devem ser configuradas no grupo de recursos onde CloudSimple serviço está implementado.  As funções também podem ser configuradas no objeto de serviço CloudSimple.  Para obter mais informações sobre como verificar a sua função, veja [ver atribuições de funções](https://docs.microsoft.com/azure/role-based-access-control/check-access) artigo.
+
+Se estiver a utilizar funções personalizadas, deve ter a função de qualquer uma das seguintes operações em ```Actions```.  Para obter mais informações sobre funções personalizadas, consulte [funções personalizadas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  Se qualquer uma das operações é uma parte do ```NotActions```, o utilizador não é possível aceder ao CloudSimple portal. 
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

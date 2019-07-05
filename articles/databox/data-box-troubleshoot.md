@@ -6,22 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 0c454c5f19ebefc7f91df62511448dbedb93dfc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc0681a8ea15f736a7b253d6bd7ba2f7928d2a32
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257292"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439406"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Resolver problemas relacionados com o Azure Data Box e pesadas de caixa de dados do Azure
 
-Este artigo fornece detalhes sobre as informações sobre como resolver problemas, pode ver quando utiliza o Boxn de dados do Azure ou pesadas de caixa de dados do Azure.
+Este artigo fornece detalhes sobre as informações sobre como resolver problemas, pode ver quando utilizar o Azure Data Box ou pesadas de caixa de dados do Azure. O artigo inclui a lista de possíveis erros visto quando os dados são copiados para o Data Box, ou quando se data nahrávají do Data Box.
 
-## <a name="errors-during-data-copy"></a>Erros durante a cópia de dados
+## <a name="error-classes"></a>Classes de erro
 
-Todos os erros que são vistos durante a cópia de dados estão resumidos nas seções a seguir.
+Os erros na caixa de dados e dados de caixa pesada são resumidos da seguinte forma:
+
+| Categoria de erro *        | Descrição        | Ação recomendada    |
+|----------------------------------------------|---------|--------------------------------------|
+| Nomes de contentor ou uma partilha | Os nomes de contentor ou uma partilha não siga as regras de nomenclatura do Azure.  |Baixe as listas de erro. <br> Mudar o nome que os contentores ou compartilhamentos. [Saiba mais](#container-or-share-name-errors).  |
+| Limite de tamanho do contentor ou uma partilha | O total de dados nos contentores ou partilhas excede o limite do Azure.   |Baixe as listas de erro. <br> Reduza os dados gerais do contentor ou uma partilha. [Saiba mais](#container-or-share-size-limit-errors).|
+| Limite de tamanho de ficheiro ou de objeto | O objeto ou ficheiros em contentores ou partilhas excede o limite do Azure.|Baixe as listas de erro. <br> Reduza o tamanho do ficheiro de contentor ou uma partilha. [Saiba mais](#object-or-file-size-limit-errors). |    
+| Tipo de dados ou ficheiro | O formato de dados ou o tipo de ficheiro não é suportado. |Baixe as listas de erro. <br> Para blobs de páginas ou os discos geridos, certifique-se de que os dados são de 512 bytes alinhado e copiados para as pastas previamente criadas. [Saiba mais](#data-or-file-type-errors). |
+| Erros de BLOBs ou ficheiros não críticas  | Os nomes de BLOBs ou ficheiros não seguem as regras de nomenclatura do Azure ou o tipo de ficheiro não é suportado. | Estes ficheiros ou de BLOBs não podem ser copiados ou os nomes podem ser alterados. [Saiba como corrigir estes erros](#non-critical-blob-or-file-errors). |
+
+\* As categorias de quatro erro primeiro são erros críticos e devem ser resolvidas antes, pode avançar para a preparação para envio.
+
+
+## <a name="container-or-share-name-errors"></a>Erros de nomes de contentor ou uma partilha
+
+Esses são erros relacionados com o contentor e de compartilhamento.
 
 ### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
@@ -78,17 +93,9 @@ Todos os erros que são vistos durante a cópia de dados estão resumidos nas se
 
     Para obter mais informações, veja as convenções de nomenclatura do Azure [os nomes dos contentores](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e [partilhar nomes](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
+## <a name="container-or-share-size-limit-errors"></a>Erros de limite de tamanho do contentor ou uma partilha
 
-**Descrição do erro:** Os nomes dos contentores impróprias são especificados para partilhas de disco gerido.
-
-**Resolução sugerida:** Para discos geridos, dentro de cada partilha, as seguintes pastas são criadas que correspondem aos contentores na sua conta de armazenamento: Premium SSD, padrão HDD e Standard SSD. Essas pastas correspondem para o escalão de desempenho para o disco gerido.
-
-- Certifique-se de que copia os dados de blob de página (VHDs) em uma dessas pastas existentes. Apenas os dados destes contentores existentes são carregados para o Azure.
-- Qualquer outra pasta criada no mesmo nível como Premium SSD e Standard HDD e Standard SSD não corresponde a um escalão de desempenho válido e não pode ser utilizada.
-- Remova ficheiros ou pastas criadas fora os escalões de desempenho.
-
-Para obter mais informações, consulte [cópia para os managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+Esses são erros relacionados com dados que excedem o tamanho dos dados permitidos de um contentor ou uma partilha.
 
 ### <a name="errorcontainerorsharecapacityexceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
@@ -97,6 +104,65 @@ Para obter mais informações, consulte [cópia para os managed disks](data-box-
 **Resolução sugerida:** Sobre o **Connect e a cópia** página da web local da interface do Usuário, transfira e reveja os ficheiros de erro.
 
 Identifique as pastas que têm este problema dos registos de erros e certifique-se de que os ficheiros nessa pasta são menos de 5 TB.
+
+
+## <a name="object-or-file-size-limit-errors"></a>Erros de limite de tamanho de ficheiro ou de objeto
+
+Esses são erros relacionados com dados que excedem o tamanho máximo do objeto ou o ficheiro que é permitido no Azure. 
+
+### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
+
+**Descrição do erro:** O tamanho do ficheiro excede o tamanho máximo de ficheiro para carregamento.
+
+**Resolução sugerida:** O blob ou os tamanhos de ficheiro excederem o limite máximo permitido para carregamento.
+
+- Sobre o **Connect e a cópia** página da web local da interface do Usuário, transfira e reveja os ficheiros de erro.
+- Certifique-se de que os tamanhos de ficheiro e blob excede os limites de tamanho do objeto do Azure.
+
+## <a name="data-or-file-type-errors"></a>Erros de tipo de dados ou ficheiro
+
+Esses são erros relacionados com o tipo de ficheiro não suportado ou tipo de dados encontrada no contêiner ou partilha. 
+
+### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
+
+**Descrição do erro:** O blob ou ficheiro está alinhado incorretamente.
+
+**Resolução sugerida:** A partilha de blob de página em caixa de dados ou dados de caixa pesada só suporta ficheiros que são de 512 bytes alinhado (por exemplo, VHD/VHDX). Todos os dados copiados para a partilha de blob de página são carregados para o Azure, como blobs de páginas.
+
+Remova todos os dados não-VHD/VHDX da partilha de blob de página. Pode utilizar partilhas de blob de blocos ou ficheiros do Azure para dados genéricos.
+
+Para obter mais informações, consulte [blobs de página de descrição geral](../storage/blobs/storage-blob-pageblob-overview.md).
+
+### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
+
+**Descrição do erro:** Um tipo de ficheiro não suportado está presente numa partilha de disco gerido. Os VHDs fixos apenas são permitidos.
+
+**Resolução sugerida:**
+
+- Certifique-se de que carrega apenas os VHDs fixos para criar discos geridos.
+- Ficheiros VHDX ou **dinâmica** e **diferenciação** VHDs não são suportados.
+
+### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
+
+**Descrição do erro:** Um diretório não é permitido em qualquer uma das pastas já existentes para os discos geridos. Os VHDs fixos só são permitidos nessas pastas.
+
+**Resolução sugerida:** Para discos geridos, dentro de cada partilha, as seguintes três pastas são criadas que correspondem aos contentores na sua conta de armazenamento: Premium SSD, padrão HDD e Standard SSD. Essas pastas correspondem para o escalão de desempenho para o disco gerido.
+
+- Certifique-se de que copia os dados de blob de página (VHDs) em uma dessas pastas existentes.
+- Uma pasta ou diretório não é permitido nessas pastas existentes. Remova quaisquer pastas que criar dentro das pastas já existentes.
+
+Para obter mais informações, consulte [cópia para os managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+
+### <a name="reparsepointerror"></a>REPARSE_POINT_ERROR
+
+**Descrição do erro:** Links simbólicos não são permitidos no Linux. 
+
+**Resolução sugerida:** As ligações simbólicas são, geralmente, ligações, pipes e outros esses ficheiros. Remover as ligações, ou resolver as ligações e copiar os dados.
+
+
+## <a name="non-critical-blob-or-file-errors"></a>Erros de BLOBs ou ficheiros não críticas
+
+Todos os erros que são vistos durante a cópia de dados estão resumidos nas seções a seguir.
 
 ### <a name="errorbloborfilenamecharactercontrol"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
@@ -163,42 +229,16 @@ Para obter mais informações, veja as convenções de nomenclatura do Azure par
 - Sobre o **Connect e a cópia** página da web local da interface do Usuário, transfira e reveja os ficheiros de erro.
 - Certifique-se de que o [nomes de BLOBs](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) e [nomes de ficheiros](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) está em conformidade com as convenções de nomenclatura do Azure.
 
-### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Descrição do erro:** O tamanho do ficheiro excede o tamanho máximo de ficheiro para carregamento.
+### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
-**Resolução sugerida:** O blob ou os tamanhos de ficheiro excederem o limite máximo permitido para carregamento.
+**Descrição do erro:** Os nomes dos contentores impróprias são especificados para partilhas de disco gerido.
 
-- Sobre o **Connect e a cópia** página da web local da interface do Usuário, transfira e reveja os ficheiros de erro.
-- Certifique-se de que os tamanhos de ficheiro e blob excede os limites de tamanho do objeto do Azure.
+**Resolução sugerida:** Para discos geridos, dentro de cada partilha, as seguintes pastas são criadas que correspondem aos contentores na sua conta de armazenamento: Premium SSD, padrão HDD e Standard SSD. Essas pastas correspondem para o escalão de desempenho para o disco gerido.
 
-### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
-
-**Descrição do erro:** O blob ou ficheiro está alinhado incorretamente.
-
-**Resolução sugerida:** A partilha de blob de página em caixa de dados ou dados de caixa pesada só suporta ficheiros que são de 512 bytes alinhado (por exemplo, VHD/VHDX). Todos os dados copiados para a partilha de blob de página são carregados para o Azure, como blobs de páginas.
-
-Remova todos os dados não-VHD/VHDX da partilha de blob de página. Pode utilizar partilhas de blob de blocos ou ficheiros do Azure para dados genéricos.
-
-Para obter mais informações, consulte [blobs de página de descrição geral](../storage/blobs/storage-blob-pageblob-overview.md).
-
-### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
-
-**Descrição do erro:** Um tipo de ficheiro não suportado está presente numa partilha de disco gerido. Os VHDs fixos apenas são permitidos.
-
-**Resolução sugerida:**
-
-- Certifique-se de que carrega apenas os VHDs fixos para criar discos geridos.
-- Ficheiros VHDX ou **dinâmica** e **diferenciação** VHDs não são suportados.
-
-### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
-
-**Descrição do erro:** Um diretório não é permitido em qualquer uma das pastas já existentes para os discos geridos. Os VHDs fixos só são permitidos nessas pastas.
-
-**Resolução sugerida:** Para discos geridos, dentro de cada partilha, as seguintes três pastas são criadas que correspondem aos contentores na sua conta de armazenamento: Premium SSD, padrão HDD e Standard SSD. Essas pastas correspondem para o escalão de desempenho para o disco gerido.
-
-- Certifique-se de que copia os dados de blob de página (VHDs) em uma dessas pastas existentes.
-- Uma pasta ou diretório não é permitido nessas pastas existentes. Remova quaisquer pastas que criar dentro das pastas já existentes.
+- Certifique-se de que copia os dados de blob de página (VHDs) em uma dessas pastas existentes. Apenas os dados destes contentores existentes são carregados para o Azure.
+- Qualquer outra pasta criada no mesmo nível como Premium SSD e Standard HDD e Standard SSD não corresponde a um escalão de desempenho válido e não pode ser utilizada.
+- Remova ficheiros ou pastas criadas fora os escalões de desempenho.
 
 Para obter mais informações, consulte [cópia para os managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 

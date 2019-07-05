@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 05/30/2019
+ms.date: 06/27/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 59be8e0585f0bedcafc868ee42f5113509c9c4ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79118fb053c7064fa29730680feb0434f45f031a
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417772"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491698"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre o VMware para replicação do Azure
 
@@ -85,6 +85,10 @@ Para obter uma estimativa detalhada de custos, execute a ferramenta deployment p
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Existe alguma diferença no custo entre a replicar para o armazenamento ou diretamente para os managed disks?
 
 Discos geridos são cobrados de forma ligeiramente diferente de contas de armazenamento. [Saiba mais](https://azure.microsoft.com/pricing/details/managed-disks/) sobre os preços dos discos geridos.
+
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Existe alguma diferença no custo ao replicar a conta de armazenamento para fins gerais v2?
+
+Normalmente, irá ver um aumento no custo de transações gerado relativamente a contas de armazenamento GPv2, uma vez que o Azure Site Recovery é pesadas de transações. [Leia mais](../storage/common/storage-account-upgrade.md#pricing-and-billing) para calcular a alteração.
 
 ## <a name="mobility-service"></a>Serviço de Mobilidade
 
@@ -293,7 +297,7 @@ Atualizações em versões 9.24 e exibição de agora posterior a [estado de fun
 
 ### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Como posso atualizar o servidor de processos para a versão 9.24 ou posterior para informações de estado de funcionamento precisa?
 
-A partir [versão 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), foram adicionadas mais alertas para indicar o estado de funcionamento do servidor de processos. [Atualizar seus componentes do Site Recovery para a versão posterior ou 9.24] (service-updates-how-to.md#links-to-currently-supported-update-rollups) para que todos os alertas são gerados.
+A partir [versão 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), foram adicionadas mais alertas para indicar o estado de funcionamento do servidor de processos. [Atualizar os componentes do Site Recovery para a versão posterior ou 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups) para que todos os alertas são gerados.
 
 ## <a name="failover-and-failback"></a>Ativação pós-falha e reativação pós-falha
 

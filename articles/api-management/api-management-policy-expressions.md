@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 6446919c80e7e3fd379e6e39eb51712f9736ea7e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341218"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508969"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
 Este artigo aborda as expressões de diretriz sintaxe é C# 7. Cada expressão tem acesso ao implicitamente fornecido [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitidos [subconjunto](api-management-policy-expressions.md#CLRTypes) de tipos do .NET Framework.
@@ -216,7 +216,7 @@ Uma variável chamada `context` implicitamente disponível em cada política [ex
 |<a id="ref-context-lasterror"></a>context.LastError|Origem: cadeia<br /><br /> Reason: string<br /><br /> Mensagem: cadeia<br /><br /> Âmbito: cadeia<br /><br /> Secção: cadeia<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [tratamento de erros](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Método: cadeia<br /><br /> Name: string<br /><br /> UrlTemplate: string|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: booleano<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> Estado: enumeração ProductState {NotPublished, publicado}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: booleano|
-|<a id="ref-context-request"></a>context.Request|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request"></a>context.Request|Corpo: [IMessageBody](#ref-imessagebody) ou `null` se o pedido não tem um corpo.<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
 |<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de pedido separada por vírgulas ou `defaultValue` se não for encontrado no cabeçalho.|
 |<a id="ref-context-response"></a>context.Response|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
 |<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de resposta separados por vírgulas ou `defaultValue` se não for encontrado no cabeçalho.|

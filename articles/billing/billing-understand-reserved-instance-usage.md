@@ -1,27 +1,24 @@
 ---
-title: Compreender a utilização de reservas do Azure para a subscrição pay as you go | Documentos da Microsoft
-description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a sua subscrição pay as you go.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Utilização de reserva do Azure para uma subscrição individual com as tarifas pay as you go
+description: Saiba como ler sua utilização para compreender a forma como é aplicada a reserva do Azure para a sua subscrição individual com taxas pay as you go.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11f05c3de50f2f82173b6666d304887fbc2038cc
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370361"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490368"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição pay as you go
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Compreender a utilização de reserva do Azure para a sua subscrição individual com a subscrição de taxas pay as you go
 
 Utilizar Reservationid:{0 partir [página de reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o ficheiro de utilização do [portal de contas do Azure](https://account.azure.com) para avaliar a utilização de reserva.
 
@@ -62,7 +59,7 @@ Filtre **informações adicionais** e escreva na sua **ID de reserva**. Captura 
 4. **ID do medidor** é o ID do medidor para a reserva. O custo deste medidor é US $0. Este id de medidor aparece para qualquer VM que é elegível para obter o desconto de reserva.
 5. Standard_DS1_v2 é vCPU de uma VM e a VM está implantado sem o benefício híbrido do Azure. Portanto, este medidor abrange o custo adicional do Windows software. Para obter o medidor correspondente, a série D, 1 núcleo de VM, veja [os custos de software do Windows de instâncias de VM do Azure reserva](billing-reserved-instance-windows-software-costs.md). Se tiver o benefício híbrido do Azure, este custo adicional não é aplicado.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilização da base de dados do SQL & Cosmos DB reservado reservas de capacidade
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Utilização para as reservas de base de dados SQL e do Cosmos DB
 
 As secções seguintes utilizam o Azure SQL Database como exemplo para descrever o relatório de utilização. Pode utilizar os mesmos passos para obter a utilização do Azure Cosmos DB também.
 

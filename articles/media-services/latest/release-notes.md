@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: aa4e37e3b360727feb998ef5e9ca9b776c4b0e53
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b3e772ebb05f79abb70e58e63a93c3336a413e38
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303952"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542539"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -84,7 +84,7 @@ Foi adicionadas atualizações que incluem melhorias de desempenho de serviços 
 
 ## <a name="march-2019"></a>Março de 2019
 
-Empacotamento dinâmico agora suporta Dolby Atmos. Para obter mais informações, consulte [codecs de áudio suportados pelo empacotamento dinâmico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+Empacotamento dinâmico agora suporta Dolby Atmos. Para obter mais informações, consulte [codecs de áudio suportados pelo empacotamento dinâmico](dynamic-packaging-overview.md#audio-codecs).
 
 Agora pode especificar uma lista dos filtros de ativo ou a conta, que seria aplicada para o localizador de transmissão em fluxo. Para obter mais informações, consulte [associar filtros localizador de transmissão em fluxo](filters-concept.md#associating-filters-with-streaming-locator).
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2c5491bab9b45df11c2fe81aa933a1a34c49a41b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4e0af3b395ec640fd037a1e76365408c10613340
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205925"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477005"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Utilizar um modelo Azure Resource Manager para criar uma área de trabalho para o serviço Azure Machine Learning
 
@@ -103,6 +103,19 @@ az group deployment create \
 ```
 
 Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) e [implementar privado modelo do Resource Manager com CLI do Azure e o SAS token](../../azure-resource-manager/resource-manager-cli-sas-token.md).
+
+## <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Política de acesso do Cofre de chaves do Azure e os modelos Azure Resource Manager
+
+Quando utiliza um modelo Azure Resource Manager para criar a área de trabalho e os recursos associados (incluindo o Azure Key Vault), várias vezes. Por exemplo, usando o modelo várias vezes com os mesmos parâmetros como parte de um pipeline de implementação e integração contínua.
+
+A maioria das operações de criação de recursos através de modelos são idempotent, mas o Key Vault limpa as políticas de acesso sempre que o modelo é utilizado. Limpar o acesso políticas quebras o acesso ao Key Vault para qualquer área de trabalho existente que está a utilizar. Por exemplo, poderão falhar parar/criar funcionalidades de VM de blocos de notas do Azure.  
+
+Para evitar este problema, recomendamos uma das abordagens seguintes:
+
+*  Não implemente o modelo mais do que uma vez para os mesmos parâmetros. Ou eliminar os recursos existentes antes de utilizar o modelo de recriá-las.
+  
+* Examine as políticas de acesso do Cofre de chaves e, em seguida, utilizar estas políticas para definir a propriedade accessPolicies do modelo.
+* Verifique se o recurso do Key Vault já existe. Se assim for, não recriá-lo através do modelo. Por exemplo, adicione um parâmetro que permite que desabilite a criação do recurso do Key Vault, se já existir.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

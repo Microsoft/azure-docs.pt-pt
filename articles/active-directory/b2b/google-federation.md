@@ -5,21 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 06/25/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b35f0530dacfadb799f1d44d7a9eb666def6c9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 735c3db14963c1f3cfe700a97dee9fedb70e29f5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65891901"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441116"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um fornecedor de identidade para utilizadores convidados B2B
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Adicionar o Google como um fornecedor de identidade para os utilizadores de convidados B2B (pré-visualização)
+
+|     |
+| --- |
+| Google Federação é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
 
 Ao configurar a Federação com o Google, pode permitir que os utilizadores convidados iniciar sessão sua aplicações partilhadas e recursos com as suas contas do Google, sem precisar criar Accounts da Microsoft (Msa) ou contas do Azure AD.  
 > [!NOTE]

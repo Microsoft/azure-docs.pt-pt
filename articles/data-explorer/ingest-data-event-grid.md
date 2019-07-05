@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7d9c21b46f760055846194f52f1594f25b1ee989
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494749"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490125"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir blobs no Explorador de dados do Azure através da subscrição de notificações do Event Grid
 
@@ -112,10 +112,10 @@ Agora ligar para o event grid partir do Explorador de dados do Azure, para que o
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *JSON* | Formatos suportados são Avro, CSV, JSON, o JSON de MULTILINHA, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato de dados | *JSON* | Formatos suportados são Avro, CSV, JSON, o JSON de MULTILINHA, PSV, SOH, SCSV, TSV e TXT. Opções de compressão suportados: Zip e GZip |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
     | | |
-
+    
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
 Agora que o Explorador de dados do Azure e a conta de armazenamento estiver ligados, pode criar dados de exemplo e carregue-o para o armazenamento de Blobs.

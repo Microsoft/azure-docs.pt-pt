@@ -9,12 +9,12 @@ ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2548ea3cf892ebe1a56cbb0909bfa5d5e805acf
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506439"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503308"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos da aplicação do Service Fabric malha
 Malha do Service Fabric suporta segredos como recursos do Azure. Um segredo de malha do Service Fabric pode ser qualquer informação de texto confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como utilizar o serviço de Store seguro do Service Fabric para implementar e manter segredos.
@@ -208,7 +208,7 @@ Transmitir o **arquivo de modelo** ou **uri de modelo** (mas não ambos).
 
 Por exemplo:
 - az mesh deployment create --c:\MyMeshTemplates\SecretTemplate1.txt
-- az mesh deployment create -- https://www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
+- az mesh deployment create --https:\//www.fabrikam.com/MyMeshTemplates/SecretTemplate1.txt
 
 ### <a name="show-a-secret"></a>Mostrar um segredo
 Devolve a descrição do segredo (mas não o valor).

@@ -16,12 +16,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47e9033b33c70a72a1685696f75a442e88eed033
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f83cb38567feb51ba7959ada7730d66ded677bf9
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289774"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476542"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Aprovar ou recusar pedidos para funções do Azure AD no PIM
 
@@ -41,7 +41,7 @@ Como um aprovador de delegados, receberá uma notificação por e-mail quando um
 
 1. Clique em **aprovar pedidos**.
 
-    ![Funções do Azure de PIM AD - funções](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Funções do Azure AD – aprovar pedidos](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     Verá uma lista de pedidos com aprovação pendente.
 
@@ -49,27 +49,27 @@ Como um aprovador de delegados, receberá uma notificação por e-mail quando um
 
 1. Seleccione os pedidos que pretende aprovar e, em seguida, clique em **aprovar** abrir a aprovar selecionado no painel de pedidos.
 
-    ![Lista de pedidos de aprovação do PIM](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+    ![Aprovar a lista de pedidos com a opção de aprovar realçada](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
 1. Na **aprovar razão** , escreva um motivo.
 
-    ![Pedidos de PIM aprovar selecionados](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+    ![Aprovar o painel de pedidos selecionados com um motivo para aprovar](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
 1. Clique em **aprovar**.
 
     Símbolo de estado será atualizado com sua aprovação.
 
-    ![Pedidos de PIM aprovar selecionados](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+    ![Aprovar o painel de pedidos selecionados depois de aprovar botão clicado](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
 
 ## <a name="deny-requests"></a>Negar pedidos
 
 1. Seleccione os pedidos que pretende negar e, em seguida, clique em **negar** abrir a negar selecionado no painel de pedidos.
 
-    ![Lista de pedidos de aprovação do PIM](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+    ![Aprovar a lista de pedidos com a opção negar realçada](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
 
 1. Na **negar razão** , escreva um motivo.
 
-    ![Pedidos de PIM negar selecionados](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+    ![Negar o painel de pedidos selecionados com um motivo de negação](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
 1. Clique em **negar**.
 

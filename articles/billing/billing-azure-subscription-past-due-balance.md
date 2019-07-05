@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023406"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491458"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver em atraso saldo para a sua subscrição do Azure
 
@@ -34,7 +34,7 @@ Se estiver a [conta de administrador](billing-subscription-transfer.md#whoisaa),
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Resolver em atraso saldo no portal do Azure
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como administrador de conta.
-1. Pesquisar nos **custo Management + faturação**.
+1. Procure **custo Management + faturação**.
 1. Na página Descrição geral, verá uma lista das suas subscrições. Se o estado da subscrição em atraso, clique nas **liquidar Saldo** ligação.
     ![Captura de ecrã que mostra liquidar link de saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. O saldo pendente total reflete-se Cobranças por liquidar em todos os serviços da Microsoft com o método de pagamento com falha.

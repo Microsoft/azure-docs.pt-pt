@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183966"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568361"
 ---
 **Requisitos do servidor de configuração/processos**
 
@@ -49,7 +49,7 @@ https:\//management.azure.com | Utilizado para operações de gestão de replica
 time.nist.gov | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 time.windows.com | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 | <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF configurar precisa de aceder a estes URLs. São utilizados para gestão de identidades e de controlo de acesso ao Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Para concluir o download do MySQL
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser novamente direcionado para o URL de CDN. Certifique-se de que o URL do CDN também está na lista de permissões, se necessário.
 |
 **SOFTWARE PARA INSTALAR** | 
 VMware vSphere PowerCLI | [Versão 6.0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração está em execução numa VM do VMware.

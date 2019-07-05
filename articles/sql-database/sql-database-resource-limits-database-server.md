@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762791"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445635"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -44,6 +44,9 @@ Este artigo fornece uma visão geral dos limites de recursos da base de dados SQ
 > Como o número de bases de dados se aproxima do limite por servidor de base de dados SQL, pode ocorrer o seguinte:
 > - A aumentar a latência em execução de consultas na base de dados mestra.  Isto inclui as vistas de estatísticas de utilização de recursos, tais como resource_stats.
 > - Aumentar a latência nas operações de gestão e composição de pontos de vista portais que envolvem a enumerar as bases de dados no servidor.
+
+### <a name="storage-size"></a>Tamanho de armazenamento
+- Para bases de dados individuais rources Consulte seja [limites dos recursos baseados em DTU](sql-database-dtu-resource-limits-single-databases.md) ou [limites dos recursos baseados em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por escalão de preço.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando atingir os limites de recursos da base de dados
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2edbf5548f5e230986f0a1786d67fb4580e574e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235465"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482944"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
 
@@ -50,7 +50,7 @@ Os passos seguintes mostram como o consentimento refletir funciona para o desenv
 
 1. Depois do utilizador tem sessão iniciada, do Azure AD irá determinar se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação. Se já não tiver sido concedido consentimento, o Azure AD solicita o consentimento do usuário e exibe as permissões necessárias para funcionar. O conjunto de permissões que são apresentadas na caixa de diálogo de consentimento corresponder aos perfis selecionados na **permissões delegadas** no portal do Azure.
 
-    ![Experiência de consentimento do utilizador](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Mostra um exemplo de permissões apresentado na caixa de diálogo de consentimento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Depois do utilizador concede consentimento, é devolvido um código de autorização para seu aplicativo, que é resgatado para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, consulte [tipo de aplicação de Web API](web-api.md).
 

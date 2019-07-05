@@ -3,7 +3,7 @@ title: Introdução à autenticação para aplicações móveis na aplicação d
 description: Saiba como utilizar aplicações móveis para autenticar os utilizadores da sua aplicação Xamarin Forms por meio de diversos fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
-author: panarasi
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
@@ -12,23 +12,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: panarasi
-ms.openlocfilehash: 2945cefc18a378b31700104049f1a14a1f320136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019795"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446308"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Adicionar autenticação à sua aplicação de formulários Xamarin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) hoje mesmo.
+>
 
 ## <a name="overview"></a>Descrição geral
 Este tópico mostra-lhe como autenticar os utilizadores de uma aplicação de Mobile do serviço de aplicações da sua aplicação de cliente. Neste tutorial, vai adicionar autenticação ao projeto de início rápido do Xamarin Forms usando um provedor de identidade que é suportado pelo serviço de aplicações. Após a com êxito a ser autenticadas e autorizadas pela sua aplicação móvel, o valor de ID de utilizador é apresentado e poderá aceder aos dados de tabela restrito.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para o melhor resultado com este tutorial, recomendamos que conclua primeiro o [criar uma aplicação Xamarin Forms] [ 1] tutorial. Depois de concluir este tutorial, terá um projeto de formulários Xamarin é uma aplicação de TodoList de várias plataforma.
+Para o melhor resultado com este tutorial, recomendamos que conclua primeiro o [criar uma aplicação Xamarin Forms][1] tutorial. Depois de concluir este tutorial, terá um projeto de formulários Xamarin é uma aplicação de TodoList de várias plataforma.
 
 Se não utilizar o projeto de servidor de início rápido transferido, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure][2].
 
@@ -53,7 +57,8 @@ Autenticação segura requer que defina um novo esquema de URL para a sua aplica
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-to-the-portable-class-library"></a>Adicionar autenticação à biblioteca de classes portátil
-Aplicações móveis utiliza a [LoginAsync] [ 3] método de extensão no [MobileServiceClient] [ 4] para iniciar sessão de um utilizador com o serviço de aplicações autenticação. Este exemplo utiliza um fluxo de autenticação de servidor gerido que exibe a interface de início de sessão do fornecedor na aplicação. Para obter mais informações, consulte [autenticação de servidor gerido][5]. Para proporcionar uma melhor experiência de utilizador na sua aplicação de produção, deve considerar utilizar em vez disso [autenticação de cliente gerido][6].
+Aplicações móveis utiliza a [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
+uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. Para proporcionar uma melhor experiência de utilizador na sua aplicação de produção, deve considerar utilizar em vez disso [autenticação de cliente gerido][6].
 
 Para autenticar com um projeto de formulários Xamarin, definir uma **IAuthenticate** interface na biblioteca de classes portáteis para a aplicação. Em seguida, adicione uma **início de sessão** botão para a interface de utilizador definidos na biblioteca de classe portáteis, o que clique para começar a autenticação. Dados são carregados a partir do back-end de aplicação móvel, após a autenticação com êxito.
 

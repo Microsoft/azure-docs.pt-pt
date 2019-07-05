@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f98b72d9b5e59155bb7215181fd1ecd336126ee6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60359063"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440976"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas mais frequentes de gestão de palavras-passe
 
@@ -114,7 +114,7 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
   >
 * **P:  Como posso instruir os meus utilizadores sobre onde ir para repor as palavras-passe?**
 
-  > **R:** Experimente algumas das sugestões na nossa [implementação de SSPR](howto-sspr-deployment.md#sample-communication) artigo.
+  > **R:** Experimente algumas das sugestões na nossa [implementação de SSPR](howto-sspr-deployment.md#communications-plan) artigo.
   >
   >
 * **P:  Pode utilizar esta página de um dispositivo móvel?**

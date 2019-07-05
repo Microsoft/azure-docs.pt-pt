@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 84020448019867744d08806acbbd47adbc1a83e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16fa44c5fa0b674fe27e2ec8e2dc8e640742ec63
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66128378"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565784"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Criar uma aplicação Web que utiliza o Serviço SignalR e a autenticação do GitHub
 
@@ -46,8 +46,8 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 | Comando | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Cria um recurso do Serviço Azure SignalR. |
-| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Lista as chaves, que serão utilizadas pela sua aplicação quando efetuar atualizações push de conteúdo em tempo real com o SignalR. |
+| [az signalr create](/cli/azure/signalr#az-signalr-create) | Cria um recurso do Serviço Azure SignalR. |
+| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Lista as chaves, que serão utilizadas pela sua aplicação quando efetuar atualizações push de conteúdo em tempo real com o SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano do Serviço de Aplicações do Azure para alojar aplicações Web. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria uma aplicação Web do Azure com o plano de alojamento do Serviço de Aplicações. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adiciona as novas definições de aplicação para a aplicação Web. Estas definições de aplicação são utilizadas para armazenar a cadeia de ligação do SignalR e os segredos de aplicação de OAuth do GitHub. |

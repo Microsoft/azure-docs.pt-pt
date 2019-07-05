@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07259d90c7119dec4ca9139e10af2fb20a439425
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1760d0e0bd356a05d84c07eda005e0526da5d13
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289467"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476513"
 ---
 # <a name="assign-azure-ad-roles-in-pim"></a>Atribuir funções do Azure AD no PIM
 
@@ -42,17 +42,17 @@ Siga estes passos para tornar um utilizador elegível para uma função de admin
 
 1. Clique em **funções** ou **membros**.
 
-    ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Funções do Azure AD com opções de menu de funções e membros realçado](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Clique em **Add member** abrir Adicionar geridos membros.
 
 1. Clique em **selecionar uma função**, clique numa função que pretende gerir e, em seguida, clique em **selecione**.
 
-    ![Selecione uma função](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
+    ![Selecione um painel de função listagem funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-select-a-role.png)
 
 1. Clique em **selecionar membros**, selecione os utilizadores que pretende atribuir à função e, em seguida, clique em **selecione**.
 
-    ![Selecione uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecione o painel de membros, onde pode selecionar um utilizador](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Em Adicionar membros geridos, clique em **OK** para adicionar o utilizador à função.
 
@@ -60,7 +60,7 @@ Siga estes passos para tornar um utilizador elegível para uma função de admin
 
      Quando a função é atribuída, o utilizador selecionou irá aparecer na lista de membros como **elegíveis** para a função.
 
-    ![Utilizador elegível para uma função](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
+    ![Membros de uma função estão listados, juntamente com o respetivo estado de ativação](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
 1. Agora que o utilizador é elegível para a função, informá-los de que eles podem fazê-lo, de acordo com as instruções em [ativar as minhas funções do Azure AD no PIM](pim-how-to-activate-role.md).
 
@@ -76,17 +76,17 @@ Por predefinição, os novos utilizadores só são elegíveis para uma função 
 
 1. Clique em **membros**.
 
-    ![Lista de membros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Funções do Azure AD – listam de membros que mostra a Estado de função e ativação](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Clique num **elegíveis** função que pretende tornar permanente.
 
 1. Clique em **mais** e, em seguida, clique em **permanente de tornar**.
 
-    ![Tornar permanente a atribuição de função](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
+    ![Abra o painel de listagem de um utilizador que seja elegível para uma função com mais opções de menu](./media/pim-how-to-add-role-to-user/pim-make-perm.png)
 
     A função é agora listada como **permanente**.
 
-    ![Lista de membros com alteração permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
+    ![Lista de membros que apresentam o estado de ativação de função e que agora é permanente](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
 ## <a name="remove-a-user-from-a-role"></a>Remover um utilizador de uma função
 
@@ -100,17 +100,17 @@ Siga estes passos para remover um utilizador específico de uma função de admi
 
 1. Clique em **membros**.
 
-    ![Lista de membros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
+    ![Funções do Azure AD – listam de membros que mostra a estatística de função e ativação](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
 1. Clique numa atribuição de função que pretende remover.
 
 1. Clique em **mais** e, em seguida, clique em **remover**.
 
-    ![Remover uma função](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
+    ![Abra o painel de listagem de um utilizador que tenha uma função permanente com mais opções de menu](./media/pim-how-to-add-role-to-user/pim-remove-role.png)
 
 1. Na mensagem que lhe pede para confirmar, clique em **Sim**.
 
-    ![Remover uma função](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Mensagem a perguntar se pretende remover o membro da função](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     A atribuição de função é removida.
 
@@ -140,13 +140,13 @@ Siga estes passos para atribuir a função de administrador de acesso de utiliza
 
 1. Na **selecionar** lista, localize e selecione o **MS-PIM** principal de serviço.
 
-   ![Adicionar permissões para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+   ![Adicionar o painel de atribuição de função – adicionar permissões para o principal de serviço MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
 
 1. Escolher **guardar** para atribuir a função.
 
    Após alguns instantes, o principal de serviço MS-PIM é atribuída a função de administrador de acesso de utilizador no âmbito da subscrição.
 
-   ![Função de administrador de acesso de utilizador para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Painel de controlo (IAM) de acesso que mostra o administrador de acesso de utilizador a atribuição de função para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

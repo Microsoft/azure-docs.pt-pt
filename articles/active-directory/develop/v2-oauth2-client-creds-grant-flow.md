@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 485f79f79c52067e89fa0a606e76a533c312fb84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85a32244a9aff9319343fd7d3961941973aa9d9a
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545101"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482241"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0
 
@@ -42,7 +42,7 @@ Em mais típica *polvo de três OAuth*, um aplicativo cliente é concedido permi
 
 O fluxo de credenciais de cliente inteira é semelhante para o diagrama seguinte. Nós descrevemos, cada um dos passos neste artigo.
 
-![Fluxo de credenciais de cliente](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagrama que mostra o cliente do fluxo de credenciais](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## <a name="get-direct-authorization"></a>Obter autorização direta
 
@@ -92,7 +92,7 @@ Se o utilizador inicia sessão na sua aplicação, pode identificar a organizaç
 Quando estiver pronto para solicitar permissões de administrador da organização, pode redirecionar o utilizador para a plataforma de identidade da Microsoft *ponto final de consentimento de administração*.
 
 > [!TIP]
-> Experimente executar este pedido no Postman! (Utilizar o seu próprio ID de aplicação para obter melhores resultados - tutorial da aplicação não pedir permissões útil). [![Executar no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Experimente executar este pedido no Postman! (Utilizar o seu próprio ID de aplicação para obter melhores resultados - tutorial da aplicação não pedir permissões útil). [![Tente executar este pedido no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -154,7 +154,7 @@ Depois que recebeu uma resposta com êxito a partir do ponto de extremidade de a
 Depois de adquirir a autorização necessária para a sua aplicação, continue com a aquisição de tokens de acesso para as APIs. Para obter um token com o cliente de concessão de credenciais, envie um pedido POST para o `/token` ponto final de plataforma do Microsoft identity:
 
 > [!TIP]
-> Experimente executar este pedido no Postman! (Utilizar o seu próprio ID de aplicação para obter melhores resultados - tutorial da aplicação não pedir permissões útil). [![Executar no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> Experimente executar este pedido no Postman! (Utilizar o seu próprio ID de aplicação para obter melhores resultados - tutorial da aplicação não pedir permissões útil). [![Tente executar este pedido no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primeiro caso: Pedido de token de acesso com um segredo partilhado
 

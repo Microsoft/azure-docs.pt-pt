@@ -2,7 +2,7 @@
 title: Permitir sincronização offline para a sua aplicação de Mobile do Azure (Xamarin Android)
 description: Saiba como utilizar a aplicação serviço de aplicações móveis para a cache e sincronizar dados offline na sua aplicação Xamarin Android
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 7e951b9f2c2fda3c63f154b5b144addcbf65aacf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 9409260af0fd9739ae68545eca102ee420e9b2e8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127969"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440131"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel xamarin. Android
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-offline-data) hoje mesmo.
+>
 
 ## <a name="overview"></a>Descrição geral
 

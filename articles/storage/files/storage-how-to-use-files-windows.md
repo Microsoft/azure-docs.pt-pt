@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02a8b825a513c75ef7c037348ccaecdf5026ded2
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926265"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560482"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -234,7 +234,7 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 
 | Versão do Windows                           | Estado predefinido de SMB 1 | Método de Desativação/Remoção       | 
 |-------------------------------------------|----------------------|-----------------------------|
-| Windows Server 2019 (pré-visualização)             | Desativado             | Funcionalidade Remover com o Windows |
+| Windows Server 2019                       | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server, versões 1709+            | Desativado             | Funcionalidade Remover com o Windows |
 | Windows 10, versões 1709+                | Desativado             | Funcionalidade Remover com o Windows |
 | Windows Server 2016                       | Enabled              | Funcionalidade Remover com o Windows |
@@ -246,7 +246,7 @@ A tabela abaixo contém informações detalhadas sobre o estado de SMB 1 em cada
 | Windows 7                                 | Enabled              | Desativar com o Registo       | 
 
 ### <a name="auditing-smb-1-usage"></a>Auditorias à utilização de SMB 1
-> Aplica-se a Windows Server 2019 (pré-visualização), canal semianual do Windows Server (versões 1709 e 1803), Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e 1803), Windows Server 2012 R2 e Windows 8.1
+> Aplica-se ao Windows Server 2019, canal semianual (versões 1709 e versão 1803) de Windows Server, Windows Server 2016, Windows 10 (versões 1507, 1607, 1703, 1709 e versão 1803), Windows Server 2012 R2 e Windows 8.1
 
 Antes de remover o SMB 1 do seu ambiente, poderá ser útil auditar a utilização do protocolo para ver se a remoção danificará algum cliente. Se forem feitos pedidos para partilhas SMB com SMB 1, será registado um evento de auditoria em `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
@@ -260,7 +260,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
 ### <a name="removing-smb-1-from-windows-server"></a>Remover o SMB 1 do Windows Server
-> Aplica-se a Windows Server 2019 (pré-visualização), canal semianual do Windows Server (versões 1709 e 1803), Windows Server 2016 e Windows Server 2012 R2
+> Aplica-se ao Windows Server 2019, Windows Server canal semianual (versões 1709 e versão 1803), Windows Server 2016, Windows Server 2012 R2
 
 Para remover o SMB 1 numa instância do Windows Server, execute o seguinte cmdlet numa sessão elevada do PowerShell:
 

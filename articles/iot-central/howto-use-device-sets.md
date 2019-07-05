@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 68599a539b3d79b759142d2178aa753f895ea37f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e7b91e0808b9e23e653acd43b95f24a46c7d27
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052936"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503203"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
 Este artigo descreve como, como um operador, para utilizar o dispositivo conjuntos na sua aplicação do Azure IoT Central.
 
-Um conjunto de dispositivos é uma lista de dispositivos que são agrupados em conjunto, porque todos eles correspondem a critérios especificados. Dispositivo define ajuda que gere, visualizar, analisar e dispositivos à escala através do agrupamento de dispositivos em grupos mais pequenos e lógicos. Por exemplo, crie uma lista de todos os dispositivos de ar-condicionado em Seattle para permitir que o técnico de Seattle localizar todos os dispositivos para os quais o técnico é responsável. Este artigo mostra-lhe como criar e configurar conjuntos de dispositivo.
+Um conjunto de dispositivos é uma lista de dispositivos que são agrupados em conjunto, porque eles correspondem a critérios especificados. Dispositivo define ajuda que gere, visualizar, analisar e dispositivos à escala através do agrupamento de dispositivos em grupos mais pequenos e lógicos. Por exemplo, pode criar um dispositivo definido para listar todos os dispositivos de ar-condicionado em Seattle para ativar um técnico para encontrar os dispositivos para os quais eles são responsáveis. Este artigo mostra-lhe como criar e configurar conjuntos de dispositivo.
 
 ## <a name="create-a-device-set"></a>Criar um conjunto de dispositivos
 
@@ -42,9 +42,9 @@ Para criar um conjunto de dispositivos:
 
 1. Escolha **Guardar**.
 
-## <a name="configure-the-dashboard-for-your-device-set"></a>Configurar o Dashboard para o seu conjunto de dispositivos
+## <a name="configure-the-dashboard-for-your-device-set"></a>Configurar o dashboard para o seu conjunto de dispositivos
 
-Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. O **Dashboard** é a página inicial de onde pode colocar imagens e links. Também pode adicionar grades que listam os dispositivos no conjunto de dispositivos.
+Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. O **Dashboard** é a home page de onde vai colocar imagens e links. Também pode adicionar grades que listam os dispositivos no conjunto de dispositivos.
 
 1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
@@ -85,19 +85,20 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
   
     1. Selecione **Done** (Concluído).
 
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard
+Para saber mais sobre como utilizar mosaicos no Azure IoT Central, consulte [utilizar mosaicos de dashboard](howto-use-tiles.md).
 
-Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa.
+### <a name="configure-a-location-map-in-your-device-sets-dashboard"></a>Configurar um mapa de localização no seu dashboard de conjuntos de dispositivo
 
-Para adicionar um mapa de localização para o dispositivo define dashboard tem de ter a propriedade de localização configurada no seu modelo de dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
+Pode adicionar um mapa para visualizar a localização dos dispositivos no seu conjunto de dispositivos.
 
-1. No seu Dashboard de conjunto de dispositivos, selecione o mapa da biblioteca.
-2. Atribua um título e escolha a propriedade de localização que tenha configurado anteriormente como parte de sua propriedade do dispositivo.
-3. Guardar e verá o mapa de mosaico a apresentar a localização dos seus dispositivos no conjunto de dispositivos.
-4. Agora quando um operador vê o dispositivo define o dashboard, o operador pode ver todos os mosaicos que configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante!
+Para adicionar que um mapa para o seu dispositivo define o dashboard, tem de ter configurado uma medida de localização ou a propriedade de localização no seu modelo de dispositivo. Para obter mais informações, consulte [criar uma medida de localização](howto-set-up-template.md) ou [criar uma propriedade de localização](howto-set-up-template.md).
 
-> [!NOTE]
-> Pode redimensionar o mapa para seu tamanho desejado. A seleção de um pin no mapa apresenta as informações do dispositivo, o nome e a localização. Pode selecionar o pop-up para ir para a página de propriedades do dispositivo.
+1. No seu dispositivo definido **Dashboard**, selecione **mapa** da biblioteca.
+2. Adicionar um título e escolher a medida de localização ou propriedade que configurou anteriormente.
+3. Selecione **guardar** e o mosaico do mapa apresenta os último locais conhecidos dos dispositivos no seu conjunto de dispositivos.
+4. Quando um operador visualiza o dashboard de conjuntos de dispositivo, o operador vê todos os mosaicos que tiver configurado, incluindo o mapa de localização.
+
+Pode redimensionar o mosaico de mapa no dashboard. A seleção de um pin no mapa apresenta as informações do dispositivo, o nome e localização. Selecione o pop-up para ir para a página de propriedades do dispositivo.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos
 

@@ -9,12 +9,12 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: d7debbc760e103046ce9bb1a8bdf25a954d9891c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138561"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443685"
 ---
 # <a name="azure-storage-client-tools"></a>Ferramentas de Cliente do Armazenamento do Azure
 Os utilizadores do armazenamento do Azure querem frequentemente poder ver/interagir com os seus dados com uma ferramenta de cliente de armazenamento do Azure. Nas tabelas abaixo, listamos as diversas ferramentas que permitem que faça isso. Colocamos um "X" em cada bloco se fornece a capacidade para a enumerar e/ou aceder a abstração de dados. A tabela mostra também se as ferramentas é gratuito ou não. "Avaliação" indica que existe uma avaliação gratuita, mas o produto completo não é gratuito. "Y/N" indica que está disponível uma versão gratuita, enquanto uma versão diferente está disponível para compra.
@@ -178,7 +178,7 @@ Não podemos ter verificado a funcionalidade ou qualidade reclamadas pelos segui
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf: AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

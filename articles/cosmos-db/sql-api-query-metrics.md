@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 61bb102e17d9980d991fdf423174d7110cd5433d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237872"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447264"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
 
@@ -272,7 +272,7 @@ Aqui estão alguns exemplos de consultas e como interpretar algumas das métrica
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre os operadores de consulta SQL e palavras-chave suportados, consulte [consulta SQL](how-to-sql-query.md). 
+* Para saber mais sobre os operadores de consulta SQL e palavras-chave suportados, consulte [consulta SQL](sql-query-getting-started.md). 
 * Para saber mais sobre unidades de pedido, consulte [unidades de pedido](request-units.md).
 * Para saber mais sobre a política de indexação, consulte o artigo [política de indexação](index-policy.md) 
 

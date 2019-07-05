@@ -10,12 +10,12 @@ ms.author: minxia
 author: mx-iao
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1f587785b06f10bab42a425b0910d4f25fddf9f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a13afe56e007e2371b3193003ee95266b0750569
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165546"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543778"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Dar formação e registar o TensorFlow modelos à escala com o serviço Azure Machine Learning
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como dar formação e registar um modelo de TensorFlow us
 
 TensorFlow é uma estrutura de computacional de código-fonte aberto frequentemente utilizada para criar redes neurais profundas (DNN). Com o serviço do Azure Machine Learning, pode rapidamente aumentar horizontalmente trabalhos de treinamento de código-fonte aberto com recursos de computação na cloud elástica. Também pode controlar a execuções de preparação, modelos de versão, implementar modelos e muito mais.
 
-Quer esteja a desenvolver um modelo do TensorFlow desde o início ou trazem um modelo existente para a cloud, serviço Azure Machine Learning pode ajudá-lo a criar modelos prontos para produção.
+Se estiver a desenvolver um modelo do TensorFlow desde o início, ou trazem um [modelo existente](how-to-deploy-existing-model.md) para a cloud, serviço Azure Machine Learning pode ajudá-lo a criar modelos prontos para produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -290,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, treinados e registado um modelo do TensorFlow no serviço Azure Machine Learning. Para saber como implementar um modelo, continue para o nosso artigo de implementação do modelo.
+Neste artigo, treinados e registado um modelo do TensorFlow. Para saber como implementar um modelo para um cluster ativadas para GPU, avance para o nosso artigo de implementação do modelo GPU.
 
-> [!div class="nextstepaction"]
-> [Como e onde implementar modelos](how-to-deploy-and-where.md)
+[Como implementar para inferência com GPUs](how-to-deploy-inferencing-gpus.md)
+[como monitorizar com Tensorboard](how-to-monitor-tensorboard.md)

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09a2b616e2bba93be86241c64d37daec7d6dea3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce3d86d37940f66065debce30b348371b7aa6af
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65029764"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568235"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceções e códigos de erro de algoritmo de & referência do módulo
 
@@ -251,15 +251,16 @@ Se foi preparado o modelo usando qualquer um dos módulos de treinamento especia
 |----|----|----|
 |qualquer classificador|[Preparar modelo](train-model.md) |[Modelo de pontuação](score-model.md)|
 |qualquer modelo de regressão|[Preparar modelo](train-model.md) |[Modelo de pontuação](score-model.md)|
-<!--| Clustering de modelos| [Clustering do modelo de formação](train-clustering-model.md) ou [Clustering de abertura](sweep-clustering.md)| [Atribua os dados para Clusters](assign-data-to-clusters.md)|
-| Deteção de anomalias - SVM de uma classe | [Preparar modelo de deteção de anomalias](train-anomaly-detection-model.md) |[Modelo de pontuação](score-model.md)|
-| Deteção de anomalias - PCA |[Preparar modelo](train-model.md) |[Modelo de pontuação](score-model.md) </br> Algumas etapas adicionais são necessários para avaliar o modelo. |
-| Deteção de anomalias - série de tempo|  [Deteção de anomalias de série de tempo](time-series-anomaly-detection.md) |Modelo prepara a partir dos dados e gera as pontuações. O módulo não cria um aprendiz preparado e não de classificação adicional é necessária. |
-| modelo de recomendação| [Treinar Matchbox Recomendador](train-matchbox-recommender.md) | [Pontuação Matchbox Recomendador](score-matchbox-recommender.md) |
-| classificação de imagens | [Classificação de imagens de pré-preparadas com Cascade](pretrained-cascade-image-classification.md) | [Modelo de pontuação](score-model.md) |
-|Modelos de Vowpal Wabbit| [Preparar o Vowpal Wabbit versão modelo de 4 de 7](train-vowpal-wabbit-version-7-4-model.md) | [Modelo de 7-4 de versão do Vowpal Wabbit pontuação](score-vowpal-wabbit-version-7-4-model.md) |   
-|Modelos de Vowpal Wabbit| [Preparar o Vowpal Wabbit versão modelo de 7 a 10](train-vowpal-wabbit-version-7-10-model.md) | [Modelo de 7 a 10 de Vowpal Wabbit versão pontuação](score-vowpal-wabbit-version-7-10-model.md) |
-|Modelos de Vowpal Wabbit| [Preparar o modelo de versão 8 Vowpal Wabbit](score-vowpal-wabbit-version-8-model.md) | [Modelo de versão 8 Vowpal Wabbit de pontuação](score-vowpal-wabbit-version-8-model.md) |-->
+
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Mensagens de exceção|  
 |------------------------|  

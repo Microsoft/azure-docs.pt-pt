@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 05/30/2019
-ms.openlocfilehash: b2e3b22672351b7e34c9ccccb37f0303b53a770f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.date: 06/21/2019
+ms.openlocfilehash: cba46a277dfce93d0080d8f04a26fd135407de15
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67292839"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536746"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modelo interpretability com o serviço Azure Machine Learning
 
@@ -30,7 +30,7 @@ Durante a fase de treinamento do ciclo de desenvolvimento, designers de modelo e
 
 No machine learning, **funcionalidades** são os campos de dados utilizados para prever um ponto de dados de destino. Por exemplo, para prever o risco de crédito, campos de dados para idade, tamanho de conta e a idade de conta podem ser usados. Neste caso, idade, tamanho de conta e a idade de conta são **funcionalidades**. Importância da funcionalidade indica como cada campo de dados afetados previsões do modelo. Por exemplo, idade pode ser muito utilizada na predição enquanto o tamanho de conta e a idade o não afetam a precisão de predição significativamente. Este processo permite que os cientistas de dados explicar previsões resultantes, para que as partes interessadas têm visibilidade sobre quais pontos de dados são mais importantes no modelo.
 
-Com estas ferramentas, pode explicar modelos de machine learning **globalmente em todos os dados**, ou **localmente nos pontos de dados específicos** usando as tecnologias de topo de gama de forma fácil de usar e dimensionável.
+Com estas ferramentas, pode explicar modelos de machine learning **globalmente em todos os dados**, ou **localmente num ponto de dados específico** usando as tecnologias de topo de gama de forma fácil de usar e dimensionável.
 
 As classes de interpretability são disponibilizadas por meio de vários pacotes do SDK. Saiba como [instalar pacotes do SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -60,25 +60,31 @@ Existem dois conjuntos de explainers: Explainers diretos e Explainers de Meta no
 
 __Direcionar explainers__ provenientes de bibliotecas integradas. O SDK encapsula todas as explainers para que eles expor uma API comum e o formato de saída. Se for mais confortável diretamente com estes explainers, pode invocá-los diretamente em vez de utilizar a API comum e o formato de saída. Seguem-se uma lista dos explainers diretos disponíveis no SDK:
 
-* **Explicador da árvore**: Explicador árvore do SHAP, que se concentra nas polynomial rápido SHAP valor estimativa algoritmo de tempo específico para árvores e conjuntos de árvores.
-* **Explicador profunda**: Com base na explicação de SHAP, Explicador profunda "é um algoritmo de aproximação de alta velocidade para valores SHAP nos modelos de aprendizagem profunda que se baseia numa conexão com DeepLIFT descrito no documento SHAP NIPS. Modelos de TensorFlow e modelos de Keras utilizando o back-end do TensorFlow são suportados (há também um suporte preliminar para PyTorch) ".
-* **Explicador kernel**: Explicador de Kernel do SHAP utiliza uma regressão linear de local especialmente ponderado para estimar os valores SHAP para qualquer modelo.
-* **Imitar Explicador**: Explicador mimic baseia-se com o conceito de modelos de substituição global. Um modelo de substituição global é um modelo de intrinsecamente interpretable que está preparado para aproximar as previsões de um modelo de caixa preta de forma mais precisa possível. Cientista de dados pode interpretar o modelo de substitutos para tirar conclusões sobre o modelo de caixa preta.
+* **Explicador de árvore SHAP**: Explicador árvore do SHAP, que se concentra nas polynomial rápido SHAP valor estimativa algoritmo de tempo específico para árvores e conjuntos de árvores.
+* **Explicador profunda de SHAP**: Com base na explicação de SHAP, Explicador profunda "é um algoritmo de aproximação de alta velocidade para valores SHAP nos modelos de aprendizagem profunda que se baseia numa conexão com DeepLIFT descrito no documento SHAP NIPS. Modelos de TensorFlow e modelos de Keras utilizando o back-end do TensorFlow são suportados (há também um suporte preliminar para PyTorch) ".
+* **Explicador de Kernel SHAP**: Explicador de Kernel do SHAP utiliza uma regressão linear de local especialmente ponderado para estimar os valores SHAP para qualquer modelo.
+* **Imitar Explicador**: Explicador mimic baseia-se com o conceito de modelos de substituição global. Um modelo de substituição global é um modelo de intrinsecamente interpretable que está preparado para aproximar as previsões de um modelo de caixa preta de forma mais precisa possível. Cientista de dados pode interpretar o modelo de substitutos para tirar conclusões sobre o modelo de caixa preta. Pode utilizar um dos seguintes modelos interpretable como seu modelo de substituição: LightGBM (LinearExplainableModel), regressão Linear (LinearExplainableModel), modelo de explicadas stochastic Gradient descendente gradação (SGDExplainableModel) e a árvore de decisão (DecisionTreeExplainableModel).
+
+
+* **Explicador de importância de funcionalidade de permuta**: Importância da funcionalidade de permuta é uma técnica usada para explicar os modelos de classificação e regressão é inspirado pelo [papel de florestas de Random do Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consulte a seção 10). Num alto nível, a forma como ele funciona é pelo aleatoriamente descarte um recurso de dados por vez para todo o conjunto de dados e calcular quanto a métrica de desempenho de interesse diminui. Quanto maior for a alteração, o mais importante é essa funcionalidade.
+
 * **Verde-LIMÃO Explicador** (`contrib`): Com base em verde-LIMÃO, verde-LIMÃO Explicador usa o algoritmo de explicações de modelo agnóstico topo de gama Local interpretable (verde-LIMÃO) para criar modelos de local de substituição. Ao contrário dos modelos de substituição global, verde-LIMÃO concentra-se na formação de modelos de local de substituição para explicar previsões individuais.
 * **Explicador de texto HAN** (`contrib`): Explicador de texto HAN utiliza uma rede de atenção hierárquica para obter explicações de modelo de dados de texto para um modelo de texto determinado caixa-preta. Para preparar o modelo de substitutos HAN em saídas previstos de um modelo de professor determinado. Depois de treinamento globalmente entre o corpo de texto, adicionámos um passo de fine-tune para um documento específico para melhorar a exatidão das explicações. HAN utiliza um bidirecional RNN com duas camadas de atenção, pela atenção frase e word. Depois do DNN é preparado o modelo de professor e otimizar num documento específico, vamos pode extrair importances o word das camadas de atenção. Descobrimos HAN para ser mais precisos do que verde-LIMÃO ou SHAP para dados de texto, mas mais dispendiosos em termos de também o tempo de treinamento. No entanto, fizemos melhorias para o tempo de treinamento por dar ao usuário a opção para inicializar a rede com GloVe incorporações, embora seja lento ainda. O tempo de treinamento pode ser melhorado significativamente executando HAN numa VM remota GPU do Azure. A implementação de HAN é descrita em "Hierárquica redes de atenção para a classificação de documento (Yang et al., 2016)" ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
+
 
 __Meta explainers__ automaticamente selecione um explicador direto adequado e gerar as informações de explicação melhor, com base no modelo em questão e conjuntos de dados. Os explainers meta tirar partido de todas as bibliotecas (SHAP, verde-LIMÃO, imitam, etc.) que foi integrado ou desenvolvidos. Seguem-se a explainers meta disponíveis no SDK:
 
 * **Explicador tabular**: Utilizado com conjuntos de dados em tabela.
 * **Explicador texto**: Utilizado com conjuntos de dados de texto.
+* **Imagem Explicador**: Utilizado com conjuntos de dados de imagem.
 
 Além de meta-selecionar dos explainers diretos, meta explainers desenvolver funcionalidades adicionais sobre as bibliotecas subjacentes e melhorar a velocidade e escalabilidade com as explainers diretos.
 
-Atualmente `TabularExplainer` emprega a seguinte lógica para invocar o Explainers direto:
+Atualmente `TabularExplainer` emprega a seguinte lógica para invocar o Explainers SHAP direto:
 
-1. Se for um modelo baseado em árvore, aplicar `TreeExplainer`, outra
-2. Se é um modelo DNN, aplicam-se `DeepExplainer`, outra
-3. Trate-o como um modelo de caixa preta e aplicar `KernelExplainer`
+1. Se for um modelo baseado em árvore, aplicar SHAP `TreeExplainer`, outra
+2. Se é um modelo DNN, aplicam-se SHAP `DeepExplainer`, outra
+3. Trate-o como um modelo de caixa preta e aplicar SHAP `KernelExplainer`
 
 A inteligência incorporada ao `TabularExplainer` irá tornar-se mais sofisticados como bibliotecas adicionais estão integradas no SDK e que conhecemos prós e contras de cada explicador.
 
@@ -87,15 +93,16 @@ A inteligência incorporada ao `TabularExplainer` irá tornar-se mais sofisticad
 * **Resumo do conjunto de dados de inicialização**. Em casos em que a velocidade de explicação é mais importante, vamos resumir o conjunto de dados de inicialização e gerar um pequeno conjunto de exemplos representativos, que acelera a explicação global e local.
 * **O conjunto de dados de avaliação de amostragem**. Se o utilizador passa um grande conjunto de exemplos de avaliação, mas, na verdade, não tem todos eles a ser avaliada, o parâmetro de amostragem pode ser definido como verdadeiro para acelerar a explicação global.
 
-O diagrama seguinte mostra a relação entre os dois conjuntos de direct e meta explainers.
+O diagrama seguinte mostra a estrutura atual de direct e o meta explainers.
 
 [![Arquitetura de Interpretability do Machine Learning](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+
 
 ### <a name="models-supported"></a>Modelos suportados
 
 Quaisquer modelos que estão treinados em conjuntos de dados em Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, ou `scipy.sparse.csr_matrix` formato são suportadas pelo interpretability `explain` pacote do SDK.
 
-As funções de explicação modelos e pipelines de aceitar como entrada. Se for fornecido um modelo, o modelo tem de implementar a função de predição `predict` ou `predict_proba` que está em conformidade com a Convenção de Scikit. Se não for fornecido um pipeline (nome do script de pipeline), a função de explicação parte do princípio de que o script em execução do pipeline retorna uma predição.
+As funções de explicação modelos e pipelines de aceitar como entrada. Se for fornecido um modelo, o modelo tem de implementar a função de predição `predict` ou `predict_proba` que está em conformidade com a Convenção de Scikit. Se não for fornecido um pipeline (nome do script de pipeline), a função de explicação parte do princípio de que o script em execução do pipeline retorna uma predição. Damos suporte a modelos com base através de PyTorch, TensorFlow e estruturas de aprendizagem profundo do Keras.
 
 ### <a name="local-and-remote-compute-target"></a>Destino de computação de locais e remotos
 
@@ -114,43 +121,81 @@ O `explain` pacote foi concebido para funcionar com ambos os destinos de computa
     from sklearn.model_selection import train_test_split
     breast_cancer_data = load_breast_cancer()
     classes = breast_cancer_data.target_names.tolist()
-    # Split data into train and test
+    
+    # split data into train and test
     from sklearn.model_selection import train_test_split
-    x_train, x_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size=0.2, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(breast_cancer_data.data,            
+                                                        breast_cancer_data.target,  
+                                                        test_size=0.2,
+                                                        random_state=0)
     clf = svm.SVC(gamma=0.001, C=100., probability=True)
     model = clf.fit(x_train, y_train)
     ```
 
-2. Chame o explicador: Para inicializar um objeto de explicação, precisa transmitir o seu modelo e alguns dados de treinamento ao construtor a explicação. Opcionalmente, também pode passar os nomes das funcionalidades e de saída nomes de classe (se a fazer a classificação) que serão utilizados para tornar sua explicações e visualizações mais informativo. Eis como criar uma instância de um objeto de explicador utilizando [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py) e [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py) localmente. `TabularExplainer` está chamando um as três explainers por baixo (`TreeExplainer`, `DeepExplainer`, ou `KernelExplainer`) e é automaticamente selecionar o mais adequado para seu caso de utilização. No entanto, pode chamar cada um dos seus três explainers subjacentes diretamente.
+2. Chame o explicador: Para inicializar um objeto de explicação, precisa transmitir o seu modelo e alguns dados de treinamento ao construtor a explicação. Opcionalmente, também pode passar os nomes das funcionalidades e de saída nomes de classe (se a fazer a classificação) que serão utilizados para tornar sua explicações e visualizações mais informativo. Eis como criar uma instância de um objeto de explicador utilizando [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), e [PFIExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) localmente. `TabularExplainer` está chamando um as três explainers SHAP por baixo (`TreeExplainer`, `DeepExplainer`, ou `KernelExplainer`) e é automaticamente selecionar o mais adequado para seu caso de utilização. No entanto, pode chamar cada um dos seus três explainers subjacentes diretamente.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    explainer = TabularExplainer(model, 
+                                 x_train, 
+                                 features=breast_cancer_data.feature_names, 
+                                 classes=classes)
     ```
 
     ou
 
     ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
+    
+    # you can use one of the following four interpretable models as a global surrogate to the black box model
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import LinearExplainableModel
+    from azureml.explain.model.mimic.models.linear_model import SGDExplainableModel
+    from azureml.explain.model.mimic.models.tree_model import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
-    explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
+    # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
+    explainer = MimicExplainer(model, 
+                               x_train, 
+                               LGBMExplainableModel, 
+                               augment_data=True, 
+                               max_num_of_augmentations=10, 
+                               features=breast_cancer_data.feature_names, 
+                               classes=classes)
+    ```
+   ou
+
+    ```python
+    from azureml.explain.model.permutation.permutation_importance import PFIExplainer 
+    
+    # "features" and "classes" fields are optional
+    explainer = PFIExplainer(model, 
+                             features=breast_cancer_data.feature_names, 
+                             classes=classes)
     ```
 
 3. Obter o recurso global valores de importância.
 
     ```python
-    # You can use the training data or the test data here
+    # you can use the training data or the test data here
     global_explanation = explainer.explain_global(x_train)
-    # Sorted feature importance values and feature names
+    
+    # if you used the PFIExplainer in the previous step, use the next line of code instead
+    # global_explanation = explainer.explain_global(x_train, true_labels=y_test)
+
+    # sorted feature importance values and feature names
     sorted_global_importance_values = global_explanation.get_ranked_global_values()
     sorted_global_importance_names = global_explanation.get_ranked_global_names()
     dict(zip(sorted_global_importance_names, sorted_global_importance_values))
+
+    # alternatively, you can print out a dictionary that holds the top K feature names and values
+    global_explanation.get_feature_importance_dict()
     ```
 
-4. Valores de importância de funcionalidade local: Utilize as seguintes chamadas de função para explicar uma instância individual ou um grupo de instâncias.
+4. Obter o recurso local valores de importância: Utilize as seguintes chamadas de função para explicar uma instância individual ou um grupo de instâncias. Tenha em atenção que o PFIExplainer não suporta explicações locais.
 
     ```python
     # explain the first data point in the test set
@@ -179,25 +224,30 @@ Enquanto pode treinar a vários destinos de computação suportados pelo serviç
 1. Crie um script de treinamento num bloco de notas do Jupyter local (por exemplo, run_explainer.py).
 
     ```python
+    from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
+    from azureml.core.run import Run
+
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
 
-    # Train your model here
+    # write code to get and split your data into train and test sets here
+    # write code to train your model here 
 
     # explain predictions on your local machine
     # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    explainer = TabularExplainer(model, 
+                                x_train, 
+                                features=feature_names, 
+                                classes=classes)
+
     # explain overall model predictions (global explanation)
     global_explanation = explainer.explain_global(x_test)
-    # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(x_test[0])
-    # upload global and local explanation objects to Run History
-    client.upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
-    # Uploading global model explanation data for storage or visualization in webUX
-    # The explanation can then be downloaded on any compute
-    # Multiple explanations can be uploaded
+    
+    # uploading global model explanation data for storage or visualization in webUX
+    # the explanation can then be downloaded on any compute
+    # multiple explanations can be uploaded
     client.upload_model_explanation(global_explanation, comment='global explanation: all features')
-    # Or you can only upload the explanation object with the top k feature info
+    # or you can only upload the explanation object with the top k feature info
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
@@ -207,18 +257,14 @@ Enquanto pode treinar a vários destinos de computação suportados pelo serviç
 
     ```python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
-    # Get model explanation data
+    
     client = ExplanationClient.from_run(run)
+    
+    # get model explanation data
     explanation = client.download_model_explanation()
-    local_importance_values = explanation.local_importance_values
-    expected_values = explanation.expected_values
-    # Or you can use the saved run.id to retrive the feature importance values
-    client = ExplanationClient.from_run_id(ws, experiment_name, run.id)
-    explanation = client.download_model_explanation()
-    local_importance_values = explanation.local_importance_values
-    expected_values = explanation.expected_values
-    # Get the top k (e.g., 4) most important features with their importance values
+    # or only get the top k (e.g., 4) most important features with their importance values
     explanation = client.download_model_explanation(top_k=4)
+    
     global_importance_values = explanation.get_ranked_global_values()
     global_importance_names = explanation.get_ranked_global_names()
     print('global importance values: {}'.format(global_importance_values))
@@ -249,8 +295,16 @@ Pode clicar em qualquer ponto de dados individuais em qualquer altura dos gráfi
 |Diagram|Descrição|
 |----|-----------|
 |Importância local|Mostra os principais recursos importantes de K (configurável K) globalmente. Este gráfico é útil para entender o comportamento de local do modelo subjacente num ponto de dados específico.|
+|Exploração de acontece sem afetar muito|Permite-lhe alterar a funcionalidade de valores dos dados selecionados do ponto e observe como essas alterações afetarão o valor de previsão.|
+|Expectativa condicional individual (ICE)| Pode alterar um valor de funcionalidade de um valor mínimo para um valor máximo para ver como a previsão de um ponto de dados é alterada quando um recurso é alterado.|
 
-[![Local de Dashboard de visualização](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
+[![Importância de funcionalidade Local do Dashboard de visualização](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
+
+
+[![Acontece de sem afetar muito da funcionalidade do Dashboard de visualização](./media/machine-learning-interpretability-explainability/perturbation.gif)](./media/machine-learning-interpretability-explainability/perturbation.gif#lightbox)
+
+
+[![Dashboard de visualização ICE desenha](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
 Tenha em atenção que tem de ter extensões de widget do dashboard de visualização ativada antes de iniciar de kernel do Jupyter.
 
@@ -281,8 +335,50 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 Opcionalmente, pode transmitir o seu pipeline de transformação de funcionalidade para explicador para receber explicações em termos de recursos não processados antes da transformação (em vez de engenharia de funcionalidades). Se ignorar isso, a explicação fornece explicações em termos de recursos de engenharia.
 
-O formato de transformações suportadas é mesmo, tal como aquele descrito em [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Em geral, quaisquer transformações são suportadas desde que eles operam numa única coluna e são, portanto, claramente um para muitos.
+O formato de transformações suportadas é mesmo, tal como aquele descrito em [sklearn pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). Em geral, quaisquer transformações são suportadas desde que eles operam numa única coluna e são, portanto, claramente um para muitos. 
 
+Conseguimos explicar os recursos não processados por meio um `sklearn.compose.ColumnTransformer` ou uma lista de cadeias de identificação de transformador ajustada. A célula abaixo utiliza `sklearn.compose.ColumnTransformer`. 
+
+```python
+from sklearn.compose import ColumnTransformer
+
+numeric_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='median')),
+    ('scaler', StandardScaler())])
+
+categorical_transformer = Pipeline(steps=[
+    ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
+    ('onehot', OneHotEncoder(handle_unknown='ignore'))])
+
+preprocessor = ColumnTransformer(
+    transformers=[
+        ('num', numeric_transformer, numeric_features),
+        ('cat', categorical_transformer, categorical_features)])
+
+# append classifier to preprocessing pipeline.
+# now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', preprocessor),
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
+
+
+
+# append classifier to preprocessing pipeline.
+# now we have a full prediction pipeline.
+clf = Pipeline(steps=[('preprocessor', preprocessor),
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
+
+
+# clf.steps[-1][1] returns the trained classification model
+# pass transformation as an input to create the explanation object
+# "features" and "classes" fields are optional
+tabular_explainer = TabularExplainer(clf.steps[-1][1], 
+                                    initialization_examples=x_train, 
+                                    features=dataset_feature_names, 
+                                    classes=dataset_classes, 
+                                    transformations=preprocessor) 
+```
+
+No caso de que pretende executar o exemplo com a lista de cadeias de identificação de transformador ajustada, utilize o seguinte código: 
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -290,7 +386,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.linear_model import LogisticRegression
 from sklearn_pandas import DataFrameMapper
 
-# Assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
+# assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
 numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
@@ -298,60 +394,79 @@ categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', spar
 
 transformations = numeric_transformations + categorical_transformations
 
-# Append model to preprocessing pipeline.
-# Now we have a full prediction pipeline.
+# append model to preprocessing pipeline.
+# now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
                     ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
-# Pass transformation as an input to create the explanation object
+# pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
+tabular_explainer = TabularExplainer(clf.steps[-1][1], 
+                                     initialization_examples=x_train, 
+                                     features=dataset_feature_names, 
+                                     classes=dataset_classes, 
+                                     transformations=transformations)
 ```
 
-## <a name="interpretability-in-inference"></a>Interpretability em inferência de tipos
+## <a name="interpretability-at-inferencing-time"></a>Interpretability em tempo de inferência
 
-A explicação pode ser implementada juntamente com o modelo original e pode ser utilizada em vez de classificação para fornecer as informações do local de explicação. O processo de implantação de uma explicação da classificação é semelhante ao implementar um modelo e inclui os seguintes passos:
+A explicação pode ser implementada juntamente com o modelo original e pode ser utilizada em vez de classificação para fornecer as informações do local de explicação. Também oferecemos leve explainers classificação para tornar interpretability em inferência tem melhor desempenho de tempo. O processo de implantação de uma explicação da classificação de leve é semelhante ao implementar um modelo e inclui os seguintes passos:
 
-1. Crie um objeto de explicação:
+
+
+
+1. Criar um objeto de explicação (por exemplo, usando TabularExplainer):
 
    ```python
    from azureml.contrib.explain.model.tabular_explainer import TabularExplainer
 
-   explainer = TabularExplainer(model, x_test)
+   explainer = TabularExplainer(model, 
+                                initialization_examples=x_train, 
+                                features=dataset_feature_names, 
+                                classes=dataset_classes, 
+                                transformations=transformations)
    ```
 
 1. Crie uma classificação explicador usando o objeto de explicação:
 
    ```python
-   scoring_explainer = explainer.create_scoring_explainer(x_test)
+   from azureml.contrib.explain.model.scoring.scoring_explainer import KernelScoringExplainer, save
 
-   # Pickle scoring explainer
-   scoring_explainer_path = scoring_explainer.save('scoring_explainer_deploy')
+   # create a lightweight explainer at scoring time
+   scoring_explainer = KernelScoringExplainer(explainer)
+
+   # pickle scoring explainer
+   # pickle scoring explainer locally
+   OUTPUT_DIR = 'my_directory'
+   save(scoring_explainer, directory=OUTPUT_DIR, exist_ok=True)
    ```
 
 1. Configurar e registar uma imagem que utiliza o modelo de classificação de explicação.
 
    ```python
-   # Register explainer model using the path from ScoringExplainer.save - could be done on remote compute
-   run.upload_file('breast_cancer_scoring_explainer.pkl', scoring_explainer_path)
-   model = run.register_model(model_name='breast_cancer_scoring_explainer', model_path='breast_cancer_scoring_explainer.pkl')
-   print(model.name, model.id, model.version, sep = '\t')
+   # register explainer model using the path from ScoringExplainer.save - could be done on remote compute
+   # scoring_explainer.pkl is the filename on disk, while my_scoring_explainer.pkl will be the filename in cloud storage
+   run.upload_file('my_scoring_explainer.pkl', os.path.join(OUTPUT_DIR, 'scoring_explainer.pkl'))
+   
+   scoring_explainer_model = run.register_model(model_name='my_scoring_explainer', 
+                                                model_path='my_scoring_explainer.pkl')
+   print(scoring_explainer_model.name, scoring_explainer_model.id, scoring_explainer_model.version, sep = '\t')
    ```
 
 1. [Opcional] Obter a classificação explicador da cloud e testar as explicações
 
    ```python
-   from azureml.contrib.explain.model.scoring.scoring_explainer import ScoringExplainer
+   from azureml.contrib.explain.model.scoring.scoring_explainer import load
 
-   # Retrieve the scoring explainer model from cloud"
-   scoring_explainer_model = Model(ws, 'breast_cancer_scoring_explainer')
+   # retrieve the scoring explainer model from cloud"
+   scoring_explainer_model = Model(ws, 'my_scoring_explainer')
    scoring_explainer_model_path = scoring_explainer_model.download(target_dir=os.getcwd(), exist_ok=True)
 
-   # Load scoring explainer from disk
-   scoring_explainer = ScoringExplainer.load(scoring_explainer_model_path)
+   # load scoring explainer from disk
+   scoring_explainer = load(scoring_explainer_model_path)
 
-   # Test scoring explainer locally
+   # test scoring explainer locally
    preds = scoring_explainer.explain(x_test)
    print(preds)
    ```
@@ -364,6 +479,7 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
         %%writefile score.py
         import json
         import numpy as np
+        import pandas as pd
         import os
         import pickle
         from sklearn.externals import joblib
@@ -375,22 +491,22 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
             global original_model
             global scoring_model
 
-            # Retrieve the path to the model file using the model name
-            # Assume original model is named original_prediction_model
+            # retrieve the path to the model file using the model name
+            # assume original model is named original_prediction_model
             original_model_path = Model.get_model_path('original_prediction_model')
-            scoring_explainer_path = Model.get_model_path('breast_cancer_scoring_explainer')
+            scoring_explainer_path = Model.get_model_path('my_scoring_explainer')
 
             original_model = joblib.load(original_model_path)
             scoring_explainer = joblib.load(scoring_explainer_path)
 
         def run(raw_data):
-            # Get predictions and explanations for each data point
-            data = np.array(json.loads(raw_data)['data'])
-            # Make prediction
+            # get predictions and explanations for each data point
+            data = pd.read_json(raw_data)
+            # make prediction
             predictions = original_model.predict(data)
-            # Retrieve model explanations
+            # retrieve model explanations
             local_importance_values = scoring_explainer.explain(data)
-            # You can return any data type as long as it is JSON-serializable
+            # you can return any data type as long as it is JSON-serializable
             return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
         ```
 
@@ -401,9 +517,9 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
 
         aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                        memory_gb=1,
-                                                       tags={"data": "breastcancer",
+                                                       tags={"data": "NAME_OF_THE_DATASET",
                                                              "method" : "local_explanation"},
-                                                       description='Get local explanations for breast cancer data')
+                                                       description='Get local explanations for NAME_OF_THE_PROBLEM')
         ```
 
    1. Crie um ficheiro com dependências de ambiente
@@ -413,9 +529,14 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
 
         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
+        azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-explain-model', 'azureml-core', 'azureml-telemetry', 'azureml-explain-model']
+ 
 
-        myenv = CondaDependencies.create(pip_packages=["azureml-defaults", "azureml-explain-model", "azureml-contrib-explain-model"],
-                                        conda_packages=["scikit-learn"])
+        # specify CondaDependencies obj
+        myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
+                                         pip_packages=['sklearn-pandas'] + azureml_pip_packages,
+                                         pin_sdk_version=False)
+
 
         with open("myenv.yml","w") as f:
             f.write(myenv.serialize_to_string())
@@ -437,13 +558,13 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
         from azureml.core.webservice import Webservice
         from azureml.core.image import ContainerImage
 
-        # Use the custom scoring, docker, and conda files we created above
+        # use the custom scoring, docker, and conda files we created above
         image_config = ContainerImage.image_configuration(execution_script="score.py",
                                                         docker_file="dockerfile",
                                                         runtime="python",
                                                         conda_file="myenv.yml")
 
-        # Use configs and models generated above
+        # use configs and models generated above
         service = Webservice.deploy_from_model(workspace=ws,
                                             name='model-scoring-service',
                                             deployment_config=aciconfig,
@@ -458,10 +579,9 @@ A explicação pode ser implementada juntamente com o modelo original e pode ser
     ```python
     import requests
 
-    # Create data to test service with
-    x_list = x_test.tolist()
+    # create data to test service with
     examples = x_list[:4]
-    input_data = "{\"data\": " + str(examples) + "}"
+    input_data = examples.to_json()
 
     headers = {'Content-Type':'application/json'}
 

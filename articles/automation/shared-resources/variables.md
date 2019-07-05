@@ -4,17 +4,17 @@ description: Recursos de variável são valores que estão disponíveis para tod
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 622b4ab41162a7858097f717a103878f05917cd3
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 39282e816be875e598d7e0599eeb358a79941be7
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342166"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478070"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variável na automatização do Azure
 

@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 06/28/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 25be0629b2ef877d8757f515cb6ccd5942e58d5f
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 325b69eb7b9b069db0ba49b4578541ee801c3444
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312803"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476183"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ligar dispositivos Modbus TCP através de um gateway de dispositivo do IoT Edge
 
@@ -70,7 +70,7 @@ Esta secção guia-o através da implementação do módulo do Modbus de exemplo
                 "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
-                  "StartAddress":"400001",
+                  "StartAddress":"40001",
                   "Count":"2",
                   "DisplayName":"Voltage"
                 }

@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 05/20/2019
-ms.openlocfilehash: 3e56244f074e31672cf77bc74998096e215a4db7
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.date: 06/27/2019
+ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357334"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460669"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
-Base de dados SQL automaticamente cria as cópias de segurança da base de dados que são mantidas entre 7 e 35 dias e utiliza o Azure [armazenamento georredundante com acesso de leitura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para garantir que eles são preservados, mesmo que o Centro de dados não está disponível. Estas cópias de segurança são criadas automaticamente e sem encargos adicionais. Não precisa de fazer nada para que aconteçam. Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Se as regras de segurança exigem que as cópias de segurança estão disponíveis por um longo período de tempo (até 10 anos), pode configurar uma [retenção a longo prazo](sql-database-long-term-retention.md) em bases de dados Singleton e elástico conjuntos.
+Base de dados SQL automaticamente cria as cópias de segurança da base de dados que são mantidas entre 7 e 35 dias e utiliza o Azure [armazenamento georredundante com acesso de leitura (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para garantir que eles são preservados, mesmo que o Centro de dados não está disponível. Estas cópias de segurança são criadas automaticamente. Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Se as regras de segurança exigem que as cópias de segurança estão disponíveis por um longo período de tempo (até 10 anos), pode configurar uma [retenção a longo prazo](sql-database-long-term-retention.md) em bases de dados Singleton e elástico conjuntos.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

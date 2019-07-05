@@ -5,17 +5,17 @@ keywords: Azure powershell, tutorial de script do powershell, automatização de
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 752aca68d1a95734bcefbd0c92d4cfc1e6fade7c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 10b93e54bc3f13c72889ab7c75b0e4f6e280e7d8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303902"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476748"
 ---
 # <a name="my-first-powershell-runbook"></a>O meu primeiro runbook do PowerShell
 

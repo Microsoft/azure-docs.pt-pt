@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471440"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514562"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
 Este artigo descreve os planos de recuperação no [do Azure Site Recovery](site-recovery-overview.md).
 
-Um plano de recuperação reúne máquinas em grupos de recuperação. Pode personalizar um plano com a adição de ordem, instruções e tarefas. Depois de um plano é definido, pode executar uma ativação pós-falha no mesmo.
-
+Um plano de recuperação reúne máquinas em grupos de recuperação. Pode personalizar um plano com a adição de ordem, instruções e tarefas. Depois de um plano é definido, pode executar uma ativação pós-falha no mesmo.  As máquinas podem ser referenciadas nos vários planos de recuperação, na qual planos subsequentes irão ignorar a implementação de arranque da máquina se ele foi anteriormente implementado por meio de outro plano de recuperação.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?

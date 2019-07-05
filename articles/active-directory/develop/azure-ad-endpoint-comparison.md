@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962873"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483011"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar à plataforma de identidades da Microsoft (v2.0)?
 
@@ -46,7 +46,7 @@ Para o ponto final de plataforma do Microsoft identity, pode utilizar o Microsof
 
 Aplicações com o ponto de extremidade de versão 1.0 do Azure AD são necessárias para especificar as respetivas necessárias permissões de OAuth 2.0 com antecedência, por exemplo:
 
-![Registo de permissões da interface do Usuário](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Exemplo que mostra a interface do Usuário de registo de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 As permissões definidas diretamente no registo de aplicação são **estático**. Enquanto estáticas permissões da aplicação definida no portal do Azure manter o código interessante e simples, ele apresenta alguns possíveis problemas para os desenvolvedores:
 

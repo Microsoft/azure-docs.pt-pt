@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 2319a7620b70547d186a4ef5cb96f5ca6684c62c
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 5ab03b682dd0ed1dc7b198e89c86e7a74c6275cd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67305323"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67457489"
 ---
 | Resource | Destino |
 |----------|---------------|

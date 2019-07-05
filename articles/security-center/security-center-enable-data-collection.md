@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050596"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551894"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados de máquinas virtuais do Azure (VMs), os conjuntos de dimensionamento de máquinas virtuais, contentores de IaaS e computadores não Azure (incluindo no local) para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente do Microsoft Monitoring Agent também copia os ficheiros de informação de falha para a área de trabalho.
@@ -46,12 +46,12 @@ Quando o aprovisionamento automático está ativado, o Centro de segurança Apro
 
 
 Para ativar o aprovisionamento automático do Microsoft Monitoring Agent:
-1. No menu principal do Centro de segurança, selecione **política de segurança**.
-2. Clique em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
+1. No menu principal do Centro de segurança, selecione **preços & definições**.
+2. Clique na subscrição aplicável
 
    ![Selecionar subscrição][7]
 
-3. Em **Política de segurança**, selecione **Recolha de Dados**.
+3. Selecione **recolha de dados**.
 4. Sob **aprovisionamento automático**, selecione **no** para ativar o aprovisionamento automático.
 5. Selecione **Guardar**.
 
@@ -131,11 +131,11 @@ Para selecionar uma área de trabalho do Log Analytics existente:
 
 5. Selecione o escalão de preço para a área de trabalho pretendida que pretende definir o Microsoft Monitoring agent. <br>Para utilizar uma área de trabalho existente, defina o escalão de preço para a área de trabalho. Esta ação irá instalar uma solução de centro de segurança na área de trabalho, se já não estiver presente.
 
-    a.  No menu principal do Centro de segurança, selecione **política de segurança**.
+    a.  No menu principal do Centro de segurança, selecione **preços & definições**.
      
-    b.  Selecione a área de trabalho pretendida na qual pretende ligar o agente ao clicar em **editar as definições de** na coluna Settings da subscrição pretendida na lista.
-        ![Selecione a área de trabalho][8] c. Defina o escalão de preço.
-        ![Selecione o escalão de preço][9] 
+    b.  Selecione a área de trabalho pretendida na qual pretende ligar o agente.
+        ![Selecione a área de trabalho][7] c. Defina o escalão de preço.
+        ![Selecione o escalão de preço][9]
    
    >[!NOTE]
    >Se já tiver uma área de trabalho de um **Security** ou **SecurityCenterFree** solução ativada, os preços serão definidos automaticamente. 
@@ -165,8 +165,8 @@ Estes conjuntos foram projetados para abordar cenários típicos. Certifique-se 
 
 Para determinar os eventos que irão pertencer à **comuns** e **mínima** conjuntos de eventos, trabalhamos com clientes e os padrões da indústria para saber mais sobre a frequência não filtrada cada evento e a utilização das mesmas. Usamos as seguintes diretrizes nesse processo:
 
-- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que podem indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador login bem e mal-sucedidas (evento IDs 4624, 4625), mas ele não contém a fim de sessão que é importante para auditoria, mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e o evento de criação de processo (evento ID 4688).
-- **Comuns** -fornecer uma trilha de auditoria de utilizador completo neste conjunto. Por exemplo, este conjunto contém inícios de sessão do utilizador e de fim de sessão do utilizador (evento ID 4634). Podemos incluir a auditoria de ações como alterações do grupo de segurança, operações de Kerberos do controlador de domínio de chaves e outros eventos que são recomendados por organizações do setor.
+- **Mínimo** -Certifique-se de que este conjunto abrange apenas os eventos que podem indicar uma violação com êxito e eventos importantes que têm um volume muito baixo. Por exemplo, este conjunto contém utilizador login bem e mal-sucedidas (evento IDs 4624, 4625), mas ele não contém o início de sessão fora que é importante para auditoria, mas não significativo para deteção e tem relativamente elevado volume. A maioria do volume de dados deste conjunto é os eventos de início de sessão e o evento de criação de processo (evento ID 4688).
+- **Comuns** -fornecer uma trilha de auditoria de utilizador completo neste conjunto. Por exemplo, este conjunto contém inícios de sessão do utilizador e detalhes de início de sessão do utilizador (evento ID 4634). Podemos incluir a auditoria de ações como alterações do grupo de segurança, operações de Kerberos do controlador de domínio de chaves e outros eventos que são recomendados por organizações do setor.
 
 Eventos com um volume muito baixa foram incluídos em comum definir como a principal motivação para escolher ao longo de todos os eventos é reduzir o volume e não para filtrar os eventos específicos.
 
@@ -191,7 +191,7 @@ Aqui está uma divisão completa a segurança e do App Locker de IDs de evento p
 >
 
 Para escolher a política de filtragem:
-1. Sobre o **recolha de dados de política de segurança** painel, selecione a política de filtragem em **eventos de segurança**.
+1. Sobre o **recolha de dados** página, selecione a política de filtragem em **eventos de segurança**.
 2. Selecione **Guardar**.
 
    ![Escolha a política de filtragem][5]

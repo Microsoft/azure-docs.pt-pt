@@ -3,7 +3,7 @@ title: Trabalhar com a biblioteca de cliente gerenciado de Mobile Apps do App Se
 description: Saiba como utilizar a biblioteca de cliente .NET para aplicações móveis de serviço de aplicações do Azure com aplicações do Windows e Xamarin.
 services: app-service\mobile
 documentationcenter: ''
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
@@ -12,20 +12,25 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: crdun
-ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119308"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446348"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Como utilizar o cliente gerido para Mobile Apps do Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) hoje mesmo.
+>
+
 ## <a name="overview"></a>Descrição geral
-Este guia mostra como executar tarefas comuns com a biblioteca de cliente gerido para aplicações do Azure Mobile de serviço de aplicações para Windows e as aplicações Xamarin. Se estiver familiarizado com aplicações móveis, deve considerar a concluir primeiro os [início rápido de aplicações móveis do Azure] [ 1] tutorial. Neste guia, vamos nos concentrar no SDK de cliente gerido. Para saber mais sobre os SDKs do lado do servidor para aplicações móveis, consulte a documentação para o [.NET Server SDK] [ 2] ou o [node. js SDK de servidor] [ 3].
+Este guia mostra como executar tarefas comuns com a biblioteca de cliente gerido para aplicações do Azure Mobile de serviço de aplicações para Windows e as aplicações Xamarin. Se estiver familiarizado com aplicações móveis, deve considerar a concluir primeiro os [início rápido de aplicações móveis do Azure][1] tutorial. Neste guia, vamos nos concentrar no SDK de cliente gerido. Para saber mais sobre os SDKs do lado do servidor para aplicações móveis, consulte a documentação para o [.NET Server SDK][2] or the
+[Node.js Server SDK][3].
 
 ## <a name="reference-documentation"></a>Documentação de referência
 A documentação de referência para o cliente SDK está localizado aqui: [Referência de cliente .NET de aplicações móveis do Azure][4].
@@ -60,9 +65,10 @@ public class TodoItem
 }
 ```
 
-O [JsonPropertyAttribute] [ 6] é usada para definir o *PropertyName* mapeamento entre o campo de cliente e o campo da tabela.
+O [JsonPropertyAttribute][6] é utilizado para definir o *PropertyName* mapeamento entre o campo de cliente e o campo da tabela.
 
-Para saber como criar tabelas no seu back-end de aplicações móveis, consulte a [tópico de .NET Server SDK] [ 7] ou o [tópico do SDK do servidor node. js][8]. Se tiver criado o seu back-end de aplicação móvel no portal do Azure com o início rápido, também pode utilizar o **tabelas simples** definição [portal do Azure].
+Para saber como criar tabelas no seu back-end de aplicações móveis, consulte a [tópico de .NET Server SDK][7]
+or the [Node.js Server SDK topic][8]. Se tiver criado o seu back-end de aplicação móvel no portal do Azure com o início rápido, também pode utilizar o **tabelas simples** definição [Azure portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Como: Instalar o pacote do SDK de cliente gerenciado
 Utilize um dos seguintes métodos para instalar o pacote SDK de cliente gerido para Mobile Apps a partir [NuGet][9]:
@@ -80,16 +86,17 @@ using Microsoft.WindowsAzure.MobileServices;
 > Note que todos os pacotes de suporte referenciados no projeto Android têm de ter a mesma versão. O SDK tem `Xamarin.Android.Support.CustomTabs` dependência para a plataforma Android, portanto, se seu projeto usar mais recente de suporte de pacotes tem de instalar este pacote com a versão necessária diretamente para evitar conflitos.
 
 ### <a name="symbolsource"></a>Como: Trabalhar com os símbolos de depuração no Visual Studio
-Os símbolos para o espaço de nomes de Microsoft.Azure.Mobile estão disponíveis na [SymbolSource][10].  Consulte a [SymbolSource instruções] [ 11] integrar SymbolSource com o Visual Studio.
+Os símbolos para o espaço de nomes de Microsoft.Azure.Mobile estão disponíveis na [SymbolSource][10] .  Refer to the
+[SymbolSource instructions][11] integrar SymbolSource com o Visual Studio.
 
 ## <a name="create-client"></a>Criar o cliente de Mobile Apps
-O código a seguir cria os [MobileServiceClient] [ 12] objeto que é utilizado para aceder ao seu back-end de aplicação móvel.
+O código a seguir cria os [MobileServiceClient][12] objeto que é utilizado para aceder ao seu back-end de aplicação móvel.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-No código anterior, substitua `MOBILE_APP_URL` com o URL de back-end da aplicação móvel, que se encontra no painel de back-end da aplicação móvel no [portal do Azure]. O objeto de MobileServiceClient deve ser um singleton.
+No código anterior, substitua `MOBILE_APP_URL` com o URL de back-end da aplicação móvel, que se encontra no painel de back-end da aplicação móvel no [Azure portal]. O objeto de MobileServiceClient deve ser um singleton.
 
 ## <a name="work-with-tables"></a>Trabalhar com tabelas
 A secção seguinte fornece detalhes sobre como pesquisar e obter registos e modificar os dados na tabela.  São abordados os seguintes tópicos:
@@ -654,7 +661,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para autenticaç�
 2. No Visual Studio ou no Xamarin Studio, abra o projeto e adicione uma referência para o `Microsoft.IdentityModel.Clients.ActiveDirectory` pacote NuGet. Ao pesquisar, incluem as versões de pré-lançamento.
 3. Adicione o seguinte código ao seu aplicativo, de acordo com a plataforma que está a utilizar. Em cada uma, fazer as substituições seguintes:
 
-   * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado da guia no Azure Active Directory no domínio a [portal do Azure].
+   * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor pode ser copiado da guia no Azure Active Directory no domínio a [Azure portal].
    * Substitua **INSERT-RESOURCE-ID-HERE** com o ID de cliente para o back-end de aplicação móvel. Pode obter o ID de cliente do **avançadas** separador sob **definições de diretório do Azure Active Directory** no portal.
    * Substitua **INSERT-CLIENT-ID-HERE** com o ID de cliente que copiou da aplicação cliente nativa.
    * Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -1068,7 +1075,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Portal do Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966088"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447286"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e de tabelas de alto desempenho
 
@@ -255,7 +255,7 @@ Muitos designs têm de cumprir os requisitos para ativar a pesquisa de entidades
 Resultados retornados pelo serviço de tabela são ordenados por ordem, com base em ascendente **PartitionKey** e, em seguida, por **RowKey**.
 
 > [!NOTE]
-> Resultados devolvidos pela API de tabela do Azure no Azure DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados devolvidos pela API de tabela do Azure no Azure Cosmos DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Chaves na tabela de armazenamento do Azure são valores de cadeia de caracteres e para garantir que os valores numéricos são ordenados corretamente, deverá convertê-los num comprimento fixo e preenche-los com zeros. Por exemplo, se o valor de id de funcionário utilizar como a **RowKey** é um valor de número inteiro, deve converter a identificação do funcionário **123** para **00000123**. 
 
@@ -723,7 +723,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 Obter o *n* entidades mais recentemente adicionadas a uma partição ao utilizar um **RowKey** valor ordena inversa de data e a ordem de tempo.  
 
 > [!NOTE]
-> Resultados devolvidos pela API de tabela do Azure no Azure DB não são ordenados pela chave de partição ou chave de linha. Portanto, esse padrão é adequado para armazenamento de tabelas do Azure e não o Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no Azure Cosmos DB e armazenamento de tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados devolvidos pela API de tabela do Azure no Azure Cosmos DB não são ordenados pela chave de partição ou chave de linha. Portanto, esse padrão é adequado para armazenamento de tabelas do Azure e não o Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no Azure Cosmos DB e armazenamento de tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é conseguir obter as entidades recentemente criadas, por exemplo o mais recente dez afirmações enviadas por um funcionário de despesas. Suporte de consulta de tabela uma **$top** consultar operação para retornar o primeiro *n* entidades a partir de um conjunto: não existe nenhuma operação equivalente de consulta para devolver as último entidades n num conjunto.  

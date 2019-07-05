@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a41155b90257f7eaec85c3adbd975a0a37e24d91
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810041"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560405"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas conhecidos relacionados com a série HB e as VMs da série HC
 
@@ -31,13 +31,13 @@ As VMs da série HB podem expor somente 228 GB de RAM para máquinas virtuais co
 
 Redes aceleradas do Azure não está ativada neste momento, mas será à medida que avançamos o período de pré-visualização. Os clientes será notificado quando esta funcionalidade é suportada.
 
+## <a name="qp0-access-restriction"></a>Restrição de acesso de qp0
+
+Para impedir o acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o par de fila 0 não está acessível para máquinas virtuais convidadas. Isso deve afetam apenas as ações normalmente associadas a administração da NIC ConnectX-5 e execução de algumas diagnósticos de InfiniBand, como ibdiagnet, mas não pelos usuários finais próprios aplicativos.
+
 ## <a name="ud-transport"></a>Transporte UD
 
-No início, HB série não suporta dinamicamente ligados transporte (DCT). Suporte para DCT será implementado ao longo do tempo. Transportes fiáveis de ligação (RC) e pouco fiáveis datagrama (UD) são suportados.
-
-## <a name="azure-batch"></a>Azure Batch
-
-Enquanto as VMs da série HB estão em pré-visualização, utilize uma conta do Batch no modo de subscrição de utilizador não está no modo de serviço.
+No início, a HB e HC-série não suportam dinamicamente ligados transporte (DCT). Suporte para DCT será implementado ao longo do tempo. Transportes fiáveis de ligação (RC) e pouco fiáveis datagrama (UD) são suportados.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 

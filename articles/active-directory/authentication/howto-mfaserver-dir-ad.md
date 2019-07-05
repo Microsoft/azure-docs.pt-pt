@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82aa566c5bcd6347a6f62b2f693a7ad796347438
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eac6cff0f0f12daaf772549f547aafd670600d61
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055992"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536974"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Servidor MFA do Azure e o Active Directory
 
@@ -31,6 +31,9 @@ Utilize a secção Integração de Diretório do Servidor MFA do Azure para inte
 Por predefinição, o Servidor Multi-Factor Authentication (MFA) do Azure está configurado para importar ou sincronizar os utilizadores do Active Directory.  O separador Integração de Diretório permite-lhe substituir o comportamento predefinido e vincular a um diretório LDAP diferente, a um diretório de ADAM ou a um controlador de domínio do Active Directory específico.  Também prevê a utilização de Autenticação LDAP para o LDAP do proxy ou para o Enlace de LDAP como um destino RADIUS, pré-autenticação para Autenticação do IIS ou autenticação primária para o Portal de Utilizador.  A tabela seguinte descreve as definições individuais.
 
 ![Editar configuração de LDAP no servidor MFA](./media/howto-mfaserver-dir-ad/dirint.png)
+
+> [!NOTE]
+> Integração de diretórios não é garantida para trabalhar com diretórios que não seja o Active Directory Domain Services.
 
 | Funcionalidade | Descrição |
 | --- | --- |

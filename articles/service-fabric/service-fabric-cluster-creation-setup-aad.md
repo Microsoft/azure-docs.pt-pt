@@ -3,7 +3,7 @@ title: Configurar o Azure Active Directory para autenticação de cliente do Ser
 description: Saiba como configurar o Azure Active Directory (Azure AD) para autenticar clientes para clusters do Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/15/2019
-ms.author: aljo
-ms.openlocfilehash: c02e38880fdf8e8f1a2229f009b343d6431af853
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 6/28/2019
+ms.author: atsenthi
+ms.openlocfilehash: 6c195357c4a037534307571a53589b2ae861d88b
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125141"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67486007"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configurar o Azure Active Directory para autenticação de cliente
 
 Para clusters em execução no Azure, Azure Active Directory (Azure AD) é recomendado proteger o acesso aos pontos finais de gestão.  Este artigo descreve como a configuração do Azure AD para autenticar clientes para um cluster do Service Fabric, que deve ser feito antes [criar o cluster](service-fabric-cluster-creation-via-arm.md).  O Azure AD permite às organizações (conhecidas como inquilinos) para gerir o acesso de utilizador para aplicações. Aplicativos estão divididos em aquelas com uma conta baseada na web, início de sessão de interface de Usuário e os que têm uma experiência de cliente nativo o limite de tempo. 
 
-Um cluster do Service Fabric oferece vários pontos de entrada para sua funcionalidade de gestão, incluindo baseada na web [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] e [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Como resultado, vai criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo.  Depois dos aplicativos são criados, atribuir utilizadores para só de leitura e funções de administrador.
+Um cluster do Service Fabric oferece vários pontos de entrada para sua funcionalidade de gestão, incluindo baseada na web [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. Como resultado, vai criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo.  Depois dos aplicativos são criados, atribuir utilizadores para só de leitura e funções de administrador.
 
 > [!NOTE]
 > Tem de concluir os seguintes passos antes de criar o cluster. Porque os scripts esperam que os nomes de cluster e pontos de extremidade, os valores devem ser planeadas e não os valores que já tenha criado.
@@ -35,14 +35,14 @@ Neste artigo, partimos do princípio que já criou um inquilino. Se não o tiver
 
 Para simplificar algumas das etapas envolvidas na configuração do Azure AD com um cluster do Service Fabric, criamos um conjunto de scripts do Windows PowerShell.
 
-1. [Transferir os scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) para o seu computador.
-2. O ficheiro zip com o botão direito, selecione **propriedades**, selecione a **desbloqueio** caixa de verificação e, em seguida, clique em **aplicar**.
-3. Extraia o ficheiro zip.
+1. [Clone o repositório](https://github.com/Azure-Samples/service-fabric-aad-helpers) para o seu computador.
+2. [Certifique-se de que tem todos os pré-requisitos](https://github.com/Azure-Samples/service-fabric-aad-helpers#getting-started) para os scripts instalados.
 
 ## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicações do Azure AD e atribuir utilizadores a funções
-Criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo. Depois de criar os aplicativos para representar o cluster, atribuir os seus utilizadores para o [funções com suporte para o Service Fabric](service-fabric-cluster-security-roles.md): só de leitura e administrador.
 
-Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros.  Também pode especifica nomes de utilizador e palavras-passe para os utilizadores.  Por exemplo:
+Vamos utilizar os scripts para criar duas aplicações do Azure AD para controlar o acesso ao cluster: aplicação web de um e um aplicativo nativo. Depois de criar aplicativos para representar o cluster, terá de criar utilizadores para o [funções com suporte para o Service Fabric](service-fabric-cluster-security-roles.md): só de leitura e administrador.
+
+Executar `SetupApplications.ps1`e forneça o inquilino, ID, o nome do cluster e o URL de resposta do aplicativo web, como parâmetros.  Também pode especifica nomes de utilizador e palavras-passe para os utilizadores. Por exemplo:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess

@@ -1,5 +1,5 @@
 ---
-title: Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização) | Documentos da Microsoft
+title: Métricas de barramento de serviço do Azure no Azure Monitor | Documentos da Microsoft
 description: Utilizar o Azure Monitor para monitorizar as entidades do Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
@@ -10,14 +10,14 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: fdb0152ef398dbd53a8a2a99a10d90254252908b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80a4b1e60202b88f6ed3c1574bd4684575a9b153
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65921229"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538063"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
+# <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de barramento de serviço do Azure no Azure Monitor
 
 Métricas de barramento de serviço oferecem-lhe o estado dos recursos na sua subscrição do Azure. Com um vasto conjunto de dados de métricas, pode avaliar o estado de funcionamento geral dos seus recursos do Service Bus, não apenas ao nível do espaço de nomes, mas também no nível de entidade. Essas estatísticas podem ser importantes como eles ajudam-na monitorizar o estado do Service Bus. Métricas também podem ajudar a resolver problemas de causa raiz sem a necessidade de contactar o suporte do Azure.
 
@@ -38,7 +38,7 @@ Pode monitorizar as métricas ao longo do tempo na [portal do Azure](https://por
 
 ![][1]
 
-Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas (pré-visualização)** . Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas (pré-visualização)** .
+Também pode aceder a métricas diretamente através do espaço de nomes. Para tal, selecione o seu espaço de nomes e, em seguida, clique em **métricas**. Para apresentar métricas filtradas para o âmbito da entidade, selecione a entidade e, em seguida, clique em **métricas**.
 
 ![][2]
 
@@ -46,7 +46,9 @@ Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensã
 
 ## <a name="billing"></a>Faturação
 
-Uso de métricas no Azure Monitor é gratuita em pré-visualização. No entanto, se utilizar soluções adicionais que ingerir dados de métricas, pode ser cobrado por estas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelos registos do Azure Monitor se os transmitir dados de métricas para os registos do Azure Monitor para análises avançadas.
+Métricas e alertas no Monitor do Azure são cobradas numa base por alerta. Estes custos devem estar disponíveis no portal do quando o alerta está configurada e antes de ser guardado. 
+
+Soluções adicionais que ingerir dados de métricas são cobradas diretamente dessas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelo Log Analytics se os transmitir dados de métricas para o Log Analytics para análise avançada.
 
 As métricas seguintes dão-lhe uma descrição geral do Estado de funcionamento do seu serviço. 
 
@@ -61,11 +63,11 @@ Conta o número de pedidos de operações de gestão e de dados.
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Pedidos de entrada (pré-visualização) | O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos com êxito (pré-visualização)|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de servidor (pré-visualização)|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de utilizador (pré-visualizar - veja a subsecção seguinte)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização foi excedida.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Pedidos recebidos| O número de pedidos efetuados para o serviço do Service Bus num determinado período. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos com êxito|O número de pedidos com êxito efetuados para o serviço do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de servidor|O número de pedidos não processadas devido a um erro no serviço do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de utilizador (veja a subsecção seguinte)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Pedidos limitados|O número de pedidos que foram limitado porque a utilização foi excedida.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ### <a name="user-errors"></a>Erros de utilizador
 
@@ -79,18 +81,18 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para o Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-| Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
-| ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
-| Mensagens lettered em papel já era (pré-visualização) | Contagem de mensagens não-lettered mensagens em fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
-| Mensagens agendadas (pré-visualização) | Contagem de mensagens agendadas na fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
+|Mensagens de entrada|O número de eventos ou as mensagens enviadas para o Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de saída|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Mensagens| Contagem de mensagens em fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Average <br/> Dimensão: EntityName |
+| ActiveMessages| Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Average <br/> Dimensão: EntityName |
+| Mensagens lettered em papel já era| Contagem de mensagens não-lettered mensagens em fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Average <br/>Dimensão: EntityName |
+| Mensagens agendadas| Contagem de mensagens agendadas na fila/tópico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Average  <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Métricas de utilização de recursos
 
@@ -99,8 +101,8 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Utilização da CPU por espaço de nomes (pré-visualização)|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
-|Utilização de tamanho de memória por espaço de nomes (pré-visualização)|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização da CPU por espaço de nomes|A percentagem de utilização da CPU do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
+|Utilização de tamanho de memória por espaço de nomes|A utilização de memória de percentagem do espaço de nomes.<br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Máximo <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
@@ -124,7 +126,7 @@ O Azure Service Bus suporta as seguintes dimensões de métricas no Azure Monito
         ![Selecionar espaço de nomes](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Selecione **adicionar critérios**, e fazer as seguintes ações no **configurar lógica de sinal** página:
     1. Selecione **métricas** para **sinalizar tipo**. 
-    2. Selecione um sinal. Por exemplo: **Erros (pré-visualização) do serviço**. 
+    2. Selecione um sinal. Por exemplo: **Erros de serviço**. 
 
         ![Selecione erros de servidor](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Selecione **maior** para **condição**.

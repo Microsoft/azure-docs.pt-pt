@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
+ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715661"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67568268"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo
 
@@ -88,7 +88,7 @@ Hub de eventos do Azure é genérico; dados poderão ser lançados para o hub no
 
 Este documento não descreve como ingerir os seus dados, mas pode enviar facilmente eventos ou dados para um Hub de eventos do Azure com as APIs do Hub de eventos.
 
-### <a name="azure-stream-analytics"></a>Azure Stream Analytics
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Utilize o serviço do Azure Stream Analytics para fornecer uma análise em tempo real quase lendo de fluxos de dados e a saída de qualquer número de origens de dados.
 
 A manutenção preditiva para aeronáutica modelo de solução, a consulta do Azure Stream Analytics é composta por quatro subconsultas, cada consulta consumir eventos do serviço do Hub de eventos do Azure, com saídas para quatro localizações distintas. Essas saídas consistem em três conjuntos de dados do Power BI e um local de armazenamento do Azure.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e80fb136220330ddc53d513b22ebcfa19a35117b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2aafa195fa463a405e2132cd41fada8d6903961
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252805"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450087"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -55,7 +55,7 @@ A tabela seguinte lista o conjunto de propriedades do sistema de mensagens do Io
 | sequence-number |Um número de (exclusivo por fila de dispositivo) atribuído pelo IoT Hub para cada mensagem de cloud-para-dispositivo. | Não para mensagens de C2D; Sim, caso contrário. |
 | para |Um destino especificado na [Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md) mensagens. | Não para mensagens de C2D; Sim, caso contrário. |
 | absolute-expiry-time |Data e hora de expiração de mensagem. | Sim |
-| iothub-enqueuedtime |Data e hora a [Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md) mensagem foi recebida pelo IoT Hub. | Não para mensagens de C2D; Sim, caso contrário. |
+| iothub-enqueuedtime |Data e hora a [dispositivo-para-Cloud](iot-hub-devguide-d2c-guidance.md) mensagem foi recebida pelo IoT Hub. | Não para mensagens D2C; Sim, caso contrário. |
 | correlation-id |Uma propriedade de cadeia de caracteres numa mensagem de resposta que contém, normalmente, a MessageId da solicitação, em padrões de solicitação-resposta. | Sim |
 | id de utilizador |Um ID utilizado para especificar a origem de mensagens. Quando as mensagens são geradas pelo IoT Hub, ele é definido como `{iot hub name}`. | Não |
 | iothub-ack |Um gerador de mensagem de comentários. Esta propriedade é utilizada nas mensagens de cloud para o dispositivo ao IoT Hub para gerar mensagens de comentários como resultado o consumo da mensagem do pedido pelo dispositivo. Valores possíveis: **none** (predefinição): nenhuma mensagem de comentários é gerada, **positivo**: receber uma mensagem de comentários, se a mensagem foi concluída, **negativo**: receba uma mensagem de comentários, se a mensagem expirou (ou contagem máxima de entrega foi atingida) sem que está a ser concluída por dispositivo, ou **completo**: positivos e negativos. <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Sim |

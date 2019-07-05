@@ -3,17 +3,17 @@ title: Ligar uma aplicação de cliente genérica do node. js para o Azure IoT C
 description: Como desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 06/14/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90e4a061e38fdd3a13a640363069fae3a18e0b49
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888968"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444219"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -62,12 +62,24 @@ Introduza os nomes de campos exatamente como mostrados na tabela no modelo de di
 
 Adicione o seguinte evento sobre o **medidas** página:
 
-| Nome a apresentar | Nome do Campo  | Gravidade |
+| Nome a apresentar | Nome do Campo  | Severity |
 | ------------ | ----------- | -------- |
 | Sobreaquecimento  | superaquecimento    | Erro    |
 
 > [!NOTE]
 > O tipo de dados da medição de eventos é a cadeia de caracteres.
+
+### <a name="location-measurements"></a>Medições de localização
+
+Adicionar a medida de localização seguinte sobre o **medidas** página:
+
+| Nome a apresentar | Nome do Campo  |
+| ------------ | ----------- |
+| Location     | location    |
+
+A medição de localização, tipo de dados é constituído por dois de vírgula flutuante números de pontos de longitude e latitude e um número de ponto flutuante opcional para altitude.
+
+Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidir com os nomes de propriedade no código de dispositivo correspondente, a localização não é possível apresentar na aplicação.
 
 ### <a name="device-properties"></a>Propriedades do dispositivo
 
@@ -144,12 +156,14 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     ```javascript
     var connectionString = '{your device connection string}';
     var targetTemperature = 0;
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     var client = clientFromConnectionString(connectionString);
     ```
 
     Atualizar o marcador de posição `{your device connection string}` com o [cadeia de ligação do dispositivo](tutorial-add-device.md#generate-connection-string). Neste exemplo, inicializar `targetTemperature` para zero, poderia usar a leitura atual do dispositivo ou um valor do dispositivo duplo.
 
-1. Para enviar telemetria, o estado e medidas de evento para a sua aplicação do Azure IoT Central, adicione a seguinte função para o ficheiro:
+1. Para enviar telemetria, estado, eventos e medidas de localização para a aplicação Azure IoT Central, adicione a seguinte função para o ficheiro:
 
     ```javascript
     // Send device measurements.
@@ -158,12 +172,18 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
       client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
@@ -320,6 +340,10 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 * Ver a telemetria sobre o **medidas** página:
 
     ![Ver telemetria](media/howto-connect-nodejs/viewtelemetry.png)
+
+* Ver a localização sobre o **medidas** página:
+
+    ![Medições de localização de vista](media/howto-connect-nodejs/viewlocation.png)
 
 * Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. A propriedade mosaicos atualização de dispositivo quando o dispositivo estabelece ligação:
 

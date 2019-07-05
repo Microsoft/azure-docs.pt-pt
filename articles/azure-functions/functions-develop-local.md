@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 4721d87ab932f2e61346af3a48193e7075128622
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abb807262d976419a0c7700046bd8ad58322fc90
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492850"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537085"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar as funções do Azure localmente
 
-Enquanto pode desenvolver e testar as funções do Azure no [portal do Azure], muitos desenvolvedores preferem uma experiência de desenvolvimento local. As funções torna mais fácil usar suas ferramentas de desenvolvimento e editor de código preferido para criar e testar as funções no seu computador local. As suas funções locais podem ligar-se ao vivo de serviços do Azure e pode depurá-los no seu computador local com o tempo de execução de funções completo.
+Enquanto pode desenvolver e testar as funções do Azure no [Azure portal], muitos desenvolvedores preferem uma experiência de desenvolvimento local. As funções torna mais fácil usar suas ferramentas de desenvolvimento e editor de código preferido para criar e testar as funções no seu computador local. As suas funções locais podem ligar-se ao vivo de serviços do Azure e pode depurá-los no seu computador local com o tempo de execução de funções completo.
 
 ## <a name="local-development-environments"></a>Ambientes de desenvolvimento local
 
@@ -27,8 +27,8 @@ A forma de desenvolver as funções no seu computador local depende da sua [ling
 
 |Ambiente                              |Languages         |Descrição|
 |-----------------------------------------|------------|---|
-| [Linha de comandos ou terminal](functions-run-local.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | [Ferramentas de núcleo das funções do Azure] fornece o tempo de execução de núcleo e os modelos para a criação de funções, que permitem a programação local. Versão 2.x o desenvolvimento de suporta no Linux, MacOS e Windows. Todos os ambientes contam com ferramentas de núcleo para o runtime das funções local. |
-|[Visual Studio Code](functions-create-first-function-vs-code.md)| [C# (biblioteca de classes)](functions-dotnet-class-library.md), [script c# (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md) | O [extensão de funções do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona as funções de suporte para o VS Code. Requer as ferramentas de núcleo. Oferece suporte ao desenvolvimento no Linux, MacOS e Windows, ao utilizar a versão 2.x das ferramentas de núcleo. Para obter mais informações, consulte [criar a sua primeira função com o Visual Studio Code](functions-create-first-function-vs-code.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| [C#(biblioteca de classes) ](functions-dotnet-class-library.md), [ C# script (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-create-first-function-powershell.md), [Python](functions-reference-python.md) | O [extensão de funções do Azure para VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adiciona as funções de suporte para o VS Code. Requer as ferramentas de núcleo. Oferece suporte ao desenvolvimento no Linux, MacOS e Windows, ao utilizar a versão 2.x das ferramentas de núcleo. Para obter mais informações, consulte [criar a sua primeira função com o Visual Studio Code](functions-create-first-function-vs-code.md). |
+| [Linha de comandos ou terminal](functions-run-local.md) | [C#(biblioteca de classes) ](functions-dotnet-class-library.md), [ C# script (. csx)](functions-reference-csharp.md), [JavaScript](functions-reference-node.md), [PowerShell](functions-reference-powershell.md), [Python](functions-reference-python.md) | [Ferramentas de núcleo das funções do Azure] fornece o tempo de execução de núcleo e os modelos para a criação de funções, que permitem a programação local. Versão 2.x o desenvolvimento de suporta no Linux, MacOS e Windows. Todos os ambientes contam com ferramentas de núcleo para o runtime das funções local. |
 | [Visual Studio 2019](functions-develop-vs.md) | [C# (biblioteca de classes)](functions-dotnet-class-library.md) | As ferramentas de funções do Azure estão incluídas na **desenvolvimento do Azure** carga de trabalho de [Visual Studio 2019](https://www.visualstudio.com/vs/) e versões posteriores. Permite-lhe compilar as funções numa biblioteca de classes e publicar o ficheiro. dll para o Azure. Inclui as ferramentas essenciais para a realização de testes locais. Para obter mais informações, consulte [desenvolver as funções do Azure com o Visual Studio](functions-develop-vs.md). |
 | [Maven](functions-create-first-java-maven.md) (vários) | [Java](functions-reference-java.md) | Integra-se com as ferramentas de núcleo para permitir um desenvolvimento das funções do Java. Versão 2.x o desenvolvimento de suporta no Linux, MacOS e Windows. Para obter mais informações, consulte [criar a primeira função com o Java e Maven](functions-create-first-java-maven.md). Também suporta a utilização de desenvolvimento [Eclipse](functions-create-maven-eclipse.md) e [IntelliJ IDEA](functions-create-maven-intellij.md) |
 
@@ -45,5 +45,5 @@ Cada um desses ambientes de desenvolvimento local permite-lhe criar função os 
 <!-- LINKS -->
 
 [Ferramentas de núcleo das funções do Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portal do Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

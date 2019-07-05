@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14aa45808f44f7ca6fe34b70ef282a99f230bf0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d459f88cd252303384acb4a72d0af0cce6ee226
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687758"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428475"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias c# para Apache Storm, utilizando as ferramentas do Data Lake para Visual Studio
 
@@ -28,7 +28,7 @@ Para utilizar uma topologia c# com um cluster baseado em Linux, tem de atualizar
 
 | Versão do HDInsight | Versão do Apache Storm | Versão SCP.NET | Versão Mono predefinida |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(apenas no HDInsight baseado em Windows) | N/D |
+| 3.3 |0.10.x |0.10.x.x</br>(apenas no HDInsight baseado em Windows) | ND |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3.5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
@@ -559,7 +559,7 @@ Para os clusters do HDInsight baseado em Linux, certifique-se de que o seu proje
 
 ### <a name="test-a-topology-locally"></a>Testar localmente uma topologia
 
-Embora seja fácil de implementar uma topologia para um cluster, em alguns casos, se pretender testar localmente uma topologia. Utilize os seguintes passos para executar e testar a topologia de exemplo neste tutorial localmente no seu ambiente de desenvolvimento.
+Embora seja fácil de implementar uma topologia para um cluster, em alguns casos, se pretender testar localmente uma topologia. Utilize os seguintes passos para executar e testar a topologia de exemplo neste artigo localmente no seu ambiente de desenvolvimento.
 
 > [!WARNING]  
 > Realização de testes locais só funciona para basic, c#-apenas topologias. Não é possível utilizar a realização de testes locais para topologias híbridas ou topologias que utilizam múltiplos fluxos.

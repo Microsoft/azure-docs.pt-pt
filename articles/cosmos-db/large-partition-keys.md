@@ -4,24 +4,24 @@ description: Saiba como criar um contentor no Azure Cosmos DB com a chave de par
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 33f871564b7c8435395db6b97122ba6a75800271
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd1697378e5db0432d181f9f688ccc2468b306e7
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225986"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566026"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contentores com a chave de partição de grandes dimensões
 
-O Azure Cosmos DB utiliza o esquema de particionamento baseada em hash para alcançar dimensionamento horizontal dos dados. Todos os contentores do Azure Cosmos criados antes de 3 de Maio de 2019 utilizarem uma função de hash que calcula o hash com base nos primeiros 100 bytes da chave de partição. Se existirem várias chaves de partição que têm os mesmo primeiros 100 bytes, essas partições lógicas são consideradas como a mesma partição lógica pelo serviço. Isso pode causar problemas, como a quota de tamanho da partição a ser incorreto e índices exclusivos a ser aplicados nas chaves de partição. Chaves de partição de grandes dimensões são introduzidas para resolver este problema. O Azure Cosmos DB agora suporta chaves de partição de grandes dimensões com valores até 2 KB. 
+O Azure Cosmos DB utiliza o esquema de particionamento baseada em hash para alcançar dimensionamento horizontal dos dados. Todos os contentores do Azure Cosmos criados antes de 3 de Maio de 2019 utilizarem uma função de hash que calcula o hash com base nos primeiros 100 bytes da chave de partição. Se existirem várias chaves de partição que têm os mesmo primeiros 100 bytes, essas partições lógicas são consideradas como a mesma partição lógica pelo serviço. Isso pode causar problemas, como a quota de tamanho da partição a ser incorreto e índices exclusivos a ser aplicados nas chaves de partição. Chaves de partição de grandes dimensões são introduzidas para resolver este problema. O Azure Cosmos DB agora suporta chaves de partição de grandes dimensões com valores até 2 KB.
 
 Até 2 KB de chaves de partição de grandes dimensões, as chaves são suportadas com a funcionalidade de uma versão aprimorada da função de hash, que pode gerar um valor hash exclusivo da partição de grandes dimensões. Esta versão de hash também é recomendada para cenários com cardinalidade de chave de partição elevada, independentemente do tamanho da chave de partição. Uma cardinalidade de chave de partição é definida como o número de partições lógicas exclusivos, por exemplo, na ordem de ~ 30000 partições lógicas num contentor. Este artigo descreve como criar um contentor com uma chave de partição de grandes dimensões com o portal do Azure e SDKs diferentes. 
 
 ## <a name="create-a-large-partition-key-net-sdk-v2"></a>Criar uma chave de partição de grandes dimensões (.Net SDK V2)
 
-Ao utilizar o SDK do .net para criar um contentor com a chave de partição de grandes dimensões, deve especificar o `PartitionKeyDefinitionVersion.V2` propriedade. O exemplo seguinte mostra como especificar a propriedade de versão dentro do objeto PartitionKeyDefinition e defini-lo como PartitionKeyDefinitionVersion.V2:
+Para criar um contentor com uma chave de partição de grandes dimensões com o SDK .NET, especifique o `PartitionKeyDefinitionVersion.V2` propriedade. O exemplo seguinte mostra como especificar a propriedade de versão dentro do objeto PartitionKeyDefinition e defini-lo como PartitionKeyDefinitionVersion.V2.
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
@@ -44,6 +44,40 @@ Para criar uma chave de partição de grandes dimensões, enquanto cria um novo 
 
 ![Criar chaves de partição de grandes dimensões com o portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
 
+## <a name="create-a-large-partition-key-powershell"></a>Criar uma chave de partição de grandes dimensões (PowerShell)
+
+Para criar um contentor com uma chave de partição de grandes dimensões com o PowerShell, inclua `"version" = 2` para o `partitionKey` objeto.
+
+```azurepowershell-interactive
+# Create a Cosmos SQL API container with large partition key support (version 2)
+$resourceGroupName = "myResourceGroup"
+$containerName = "mycosmosaccount" + "/sql/" + "myDatabase" + "/" + "myContainer"
+
+# Container with large partition key support (version = 2)
+$containerProperties = @{
+  "resource"=@{
+    "id"=$containerName;
+    "partitionKey"=@{
+        "paths"=@("/myPartitionKey");
+        "kind"="Hash";
+        "version" = 2
+    };
+    "indexingPolicy"=@{
+        "indexingMode"="Consistent";
+        "includedPaths"= @(@{
+            "path"="/*"
+        });
+        "excludedPaths"= @(@{
+            "path"="/myPathToNotIndex/*"
+        })
+    }
+  }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerName -PropertyObject $containerProperties
+```
 
 ## <a name="supported-sdk-versions"></a>Versões suportadas do SDK
 
@@ -56,8 +90,8 @@ As chaves de partição de grandes dimensões são suportadas com as seguintes v
 |Java assíncrono   |  2.5.0        |
 | API REST | versão superior `2017-05-03` utilizando o `x-ms-version` cabeçalho do pedido.|
 
-Atualmente, não é possível utilizar contentores com a chave de partição de grandes dimensões dentro no Power BI e o Azure Logic Apps. Pode utilizar contentores sem uma chave de partição de grandes dimensões destas aplicações. 
- 
+Atualmente, não é possível utilizar contentores com a chave de partição de grandes dimensões dentro no Power BI e o Azure Logic Apps. Pode utilizar contentores sem uma chave de partição de grandes dimensões destas aplicações.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Criação de partições no Azure Cosmos DB](partitioning-overview.md)

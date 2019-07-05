@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/30/2019
+ms.openlocfilehash: 882f44683bbdc7f4eb49ff4912ca7a33187afbf8
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758669"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537899"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gerir o cluster aumentar horizontalmente para acomodar a pedido de alteração
 
@@ -76,10 +76,10 @@ O gráfico seguinte mostra o fluxo de passos seguintes. Obter mais detalhes, sig
 
 Agora que configurou uma operação de escalamento horizontal para o seu cluster do Explorador de dados do Azure. Adicione outra regra de uma operação de dimensionamento. Esta configuração permite que o cluster dimensionar dinamicamente com base nas métricas que especificar.
 
-Também pode [gerir o aumento vertical de cluster](manage-cluster-scale-up.md) para o dimensionamento apropriado de um cluster.
-
 Se precisar de assistência com problemas de dimensionamento de clusters, [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure](using-metrics.md)
+* [Monitorizar o desempenho, a Estado de funcionamento e a utilização com métricas de Explorador de dados do Azure](using-metrics.md)
+
+* [Gerir o aumento vertical de cluster](manage-cluster-scale-up.md) para o dimensionamento apropriado de um cluster.
