@@ -143,6 +143,14 @@
               items:
                 - name: Via SMB
                   href: data-box-heavy-deploy-copy-data.md
+                - name: Via NFS
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: Via REST
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Através do serviço de cópia de dados
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: Para discos geridos
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 - Devolver, carregar, verificar'
               href: data-box-heavy-deploy-picked-up.md
         - name: Conceitos

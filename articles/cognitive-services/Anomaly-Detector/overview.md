@@ -5,16 +5,16 @@ description: Utilize algoritmos avançados da API de detetor de anomalias para i
 services: cognitive-services
 author: aahill
 ms.service: cognitive-services
-ms.subservice: anomaly-detection
+ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38b23ee4bfa8a1dbcc11615425ccd580c23eb3e1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415803"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593094"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 

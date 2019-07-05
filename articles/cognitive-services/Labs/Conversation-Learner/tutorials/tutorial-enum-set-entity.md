@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1393d0bd1c31a2c9c24652e260ef7f3182d91367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476497"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592950"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando utilizar entidades de Enumeração e ações de conjunto de entidades
 

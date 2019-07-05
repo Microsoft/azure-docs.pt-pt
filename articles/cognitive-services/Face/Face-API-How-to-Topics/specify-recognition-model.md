@@ -6,16 +6,16 @@ services: cognitive-services
 author: longl
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: e8d5c416183a7d475a46c5e538577069612baf8e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449011"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592971"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 

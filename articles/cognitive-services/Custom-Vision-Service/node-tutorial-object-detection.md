@@ -6,16 +6,16 @@ services: cognitive-services
 author: areddish
 manager: daauld
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: fdc29d39979bcddc75c3c51d39c9efee9eb5819e
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: dd30d26777ff4f458a4b70f17d77ece527bc523a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144299"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592995"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de node. js de visão personalizada
 

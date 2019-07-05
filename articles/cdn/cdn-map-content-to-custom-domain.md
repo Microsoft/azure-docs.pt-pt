@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6db152659a05b05fbb59edbb17de0a84b00ce6d9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60636919"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593740"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto final da CDN do Azure
 Este tutorial mostra como adicionar um domínio personalizado a um ponto final da Rede de Entrega de Conteúdos (CDN) do Azure. Se utilizar um ponto final da CDN para entregar conteúdos e se quiser que o seu próprio nome de domínio seja visível no URL da CDN, é necessário um domínio personalizado. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa. 
@@ -74,7 +74,7 @@ Para criar um registo CNAME com o subdomínio cdnverify:
 
     - Escreva: Enter *CNAME*.
 
-    - Destino: Introduza o anfitrião do ponto final da CDN, incluindo o subdomínio cdnverify, no seguinte formato: cdnverify.  _&lt;nome do ponto final&gt;_. azureedge.net. Por exemplo, cdnverify.contoso.azureedge.net.
+    - Destino: Introduza o anfitrião do ponto final da CDN, incluindo o subdomínio cdnverify, no seguinte formato: cdnverify.  _&lt;nome do ponto final&gt;_ . azureedge.net. Por exemplo, cdnverify.contoso.azureedge.net.
 
 4. Guarde as alterações.
 
@@ -123,7 +123,7 @@ Depois de registar o domínio personalizado, pode, então, adicioná-lo ao ponto
 
    Abre-se a página **Adicionar um domínio personalizado**.
 
-4. Para o **Nome de anfitrião do ponto final**, o nome de anfitrião do ponto final a utilizar como o domínio de destino do seu registo de CNAME é pré-preenchido e deriva do seu URL de ponto final de CDN: *&lt;nome de anfitrião do ponto final&gt;*.azureedge.net. Não pode ser alterado.
+4. Para o **Nome de anfitrião do ponto final**, o nome de anfitrião do ponto final a utilizar como o domínio de destino do seu registo de CNAME é pré-preenchido e deriva do seu URL de ponto final de CDN: *&lt;nome de anfitrião do ponto final&gt;* .azureedge.net. Não pode ser alterado.
 
 5. Para o **Nome de anfitrião personalizado**, introduza o seu domínio personalizado, incluindo o subdomínio para utilizar como o domínio de origem do seu registo de CNAME. Por exemplo, www\.contoso.com ou cdn.contoso.com. Não utilize o nome de subdomínio cdnverify.
 
@@ -145,7 +145,7 @@ Depois de concluir o registo do seu domínio personalizado, confirme que este re
  
 1. Verifique se tem conteúdo público que seja colocado em cache no ponto final. Por exemplo, se o ponto final da CDN estiver associado a uma conta de armazenamento, a CDN do Azure colocará em cache o conteúdo num contentor público. Para testar o domínio personalizado, verifique se o contentor está definido para permitir o acesso público e se contém pelo menos um ficheiro.
 
-2. No browser, utilize o domínio personalizado para navegar para o endereço do ficheiro. Por exemplo, se o domínio personalizado for cdn.contoso.com, o URL para o ficheiro em cache deve ser semelhante a http:\//cdn.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo que quando acede diretamente ao ponto final da CDN em *&lt;nome de anfitrião do ponto final&gt;*.azureedge.net.
+2. No browser, utilize o domínio personalizado para navegar para o endereço do ficheiro. Por exemplo, se o domínio personalizado for cdn.contoso.com, o URL para o ficheiro em cache deve ser semelhante a http:\//cdn.contoso.com/my-public-container/my-file.jpg. Verifique se o resultado é o mesmo que quando acede diretamente ao ponto final da CDN em *&lt;nome de anfitrião do ponto final&gt;* .azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mapear o domínio personalizado permanente
@@ -168,7 +168,7 @@ Para criar um registo CNAME para o domínio personalizado:
 
    - Escreva: Enter *CNAME*.
 
-   - Destino: Introduza o nome de anfitrião do ponto final CDN. Tem de estar no formato _&lt;nome do ponto final&gt;_.azureedge.net. Por exemplo, contoso.azureedge.net.
+   - Destino: Introduza o nome de anfitrião do ponto final CDN. Tem de estar no formato _&lt;nome do ponto final&gt;_ .azureedge.net. Por exemplo, contoso.azureedge.net.
 
 4. Guarde as alterações.
 

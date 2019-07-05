@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: A API de Pesquisa de Comércio Local do Bing permite que as suas aplicações encontrem informações de contacto e de localização sobre negócios locais com base em consultas de pesquisa.
 sections:

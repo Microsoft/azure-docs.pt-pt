@@ -6,16 +6,16 @@ services: cognitive-services
 author: yluiu
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 037a059c95150314b6f85ea3eacdec0f6bb3d6c0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449021"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592932"
 ---
 # <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial
 

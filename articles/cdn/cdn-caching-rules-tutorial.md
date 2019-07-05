@@ -6,7 +6,7 @@ documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10d06d2e792b476a4c973029241d6cb98c0dd444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684306"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594064"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>Tutorial: Definir as regras de cache de CDN do Azure
 
