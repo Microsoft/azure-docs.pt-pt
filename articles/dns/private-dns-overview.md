@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 7012bbe98e41a3eb273b26e7e4ade705a6eaf8e1
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: aedace031eaedf2709993b5185979e8777821759
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147570"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444827"
 ---
 # <a name="what-is-azure-private-dns"></a>O que é o DNS Privado do Azure?
 
@@ -59,6 +59,13 @@ O DNS do Azure fornece as seguintes capacidades:
 * **Resolução direta de DNS é suportada por várias redes virtuais que estejam ligadas à zona privada**. Para a rede virtual entre a resolução de DNS, não existe nenhuma dependência explícita, de modo a que as redes virtuais em modo de peering entre si. No entanto, pode querer configurar o peering entre redes virtuais para outros cenários (por exemplo, o tráfego HTTP).
 
 * **Pesquisa reversa de DNS é suportada pelo âmbito da rede virtual**. Pesquisa reversa de DNS para um IP privado na rede virtual atribuído a uma zona privada devolve o FQDN que inclui o nome do anfitrião/registo e o nome da zona como o sufixo.
+
+## <a name="known-issues"></a>Problemas conhecidos
+Os itens seguintes são problemas na versão de pré-visualização e de erros conhecidos:
+* Se eliminar uma rede virtual ligada a uma zona DNS privada, não elimina os links para a zona DNS privada. A ligação falha, se recriar a rede virtual com o mesmo nome e grupo de recursos e tentar novamente a ligá-lo para qualquer zona DNS privada. Para contornar este problema, crie a rede virtual no grupo de recursos diferente ou um nome diferente no mesmo grupo de recursos.
+* Se mover uma rede virtual para outro grupo de recursos ou subscrição, ele não atualize os links para a zona DNS privada. A resolução de nome para a rede virtual movida continua a funcionar, no entanto verá os IDs de ARM antigas da rede virtual ao ver as ligações de rede virtual da zona DNS privada.
+* Atualmente, as redes virtuais ligadas alojadas no Norte dos eau, eau Central, África do Sul Ocidental, Norte da África do Sul, leste do Canadá, Sul de França podem falhar e poderá ver intermitentes problemas de resolução DNS. 
+
 
 ## <a name="other-considerations"></a>Outras considerações
 

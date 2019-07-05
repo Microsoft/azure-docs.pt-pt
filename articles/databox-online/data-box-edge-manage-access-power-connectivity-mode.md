@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 8937f4c47f0fa84d4ec371e951cff8a2fdaa8481
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2426ecd9c480b0cc236295384ae04c60051f37ce
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476912"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442960"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerir o acesso, energia e modo de conectividade para sua caixa de dados do Azure Edge
 
@@ -66,7 +66,7 @@ Ao gerar a chave de ativação para o dispositivo de limite de caixa de dados ou
 -  Criar uma partilha com uma conta de armazenamento associado.
 -  Criar um utilizador a quem pode aceder às partilhas no dispositivo.
 
-Deve ter uma `User` acessar no inquilino do Active Directory, conforme necessário conseguir `Read all directory objects`. Não pode ser um utilizador convidado, pois não têm permissões para `Read all directory objects`. Se for um convidado, em seguida, as operações, tais como a geração de uma chave de ativação, criação de uma partilha no seu dispositivo do Edge de caixa de dados, criação de um utilizador todos falhará.
+Deve ter uma `User` acessar no inquilino do Active Directory, conforme necessário conseguir `Read all directory objects`. Não pode ser um utilizador convidado, pois não têm permissões para `Read all directory objects`. Se for um convidado, em seguida, as operações, tais como a geração de uma ativação chave, a criação de uma partilha no seu dispositivo de limite de caixa de dados, a criação de um utilizador, a configuração do Edge de função de computação, repor a palavra-passe do dispositivo irá falhar.
 
 Para obter mais informações sobre como fornecer acesso aos utilizadores para o Azure Active Directory Graph API, consulte [padrão de acesso para os administradores, utilizadores e os utilizadores convidados](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 

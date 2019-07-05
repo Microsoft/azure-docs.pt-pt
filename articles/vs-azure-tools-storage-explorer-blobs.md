@@ -12,27 +12,31 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458562"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442984"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Gerir recursos de armazenamento de Blobs do Azure com o Explorador de armazenamento
+
 ## <a name="overview"></a>Descrição geral
+
 [Armazenamento de Blobs do Azure](storage/blobs/storage-dotnet-how-to-use-blobs.md) é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS.
 Pode utilizar o armazenamento de Blobs para expor publicamente os dados ao mundo ou para armazenar dados da aplicação em privado. Neste artigo, aprenderá a utilizar o Explorador de armazenamento para trabalhar com blobs e contentores de Blobs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para executar os passos descritos neste artigo, é necessário o seguinte:
 
 * [Transferir e instalar o Explorador de Armazenamento](https://www.storageexplorer.com)
 * [Ligar a uma conta de armazenamento do Azure ou serviço](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>Criar um contentor de blobs
+
 Todos os blobs têm de residir num contentor de BLOBs, que é simplesmente um agrupamento lógico de blobs. Uma conta pode conter um número ilimitado de contentores, e cada contentor pode armazenar um número ilimitado de blobs.
 
 Os passos seguintes mostram como criar um contentor de BLOBs no Explorador de armazenamento.
@@ -42,7 +46,7 @@ Os passos seguintes mostram como criar um contentor de BLOBs no Explorador de ar
 3. Com o botão direito **contentores de BLOBs**e, no menu de contexto - selecione **criar contentor de BLOBs**.
 
    ![Criar o menu de contexto de contentores de BLOBs][0]
-4. Será apresentada uma caixa de texto abaixo a **contentores de BLOBs** pasta. Introduza o nome do contentor de blobs. Consulte a [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) para obter informações sobre regras e restrições à nomenclatura dos contentores de Blobs.
+4. Será apresentada uma caixa de texto abaixo a **contentores de BLOBs** pasta. Introduza o nome do contentor de blobs. Ver [criar um contentor](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter informações sobre regras e restrições à nomenclatura dos contentores de Blobs.
 
    ![Criar caixa de texto de contentores de BLOBs][1]
 5. Prima **Enter** quando terminar de criar o contentor de BLOBs, ou **Esc** para cancelar. Quando o contentor de BLOBs tiver sido criado com êxito, será apresentado sob o **contentores de BLOBs** pasta para a conta de armazenamento selecionada.
@@ -50,6 +54,7 @@ Os passos seguintes mostram como criar um contentor de BLOBs no Explorador de ar
    ![Contentor de BLOBs criado][2]
 
 ## <a name="view-a-blob-containers-contents"></a>Ver os conteúdos de um contentor de BLOBs
+
 Contentores de BLOBs contenham blobs e pastas (que também podem conter blobs).
 
 Os passos seguintes mostram como ver o conteúdo de um contentor de BLOBs no Explorador de armazenamento:
@@ -66,6 +71,7 @@ Os passos seguintes mostram como ver o conteúdo de um contentor de BLOBs no Exp
    ![Editor de contentor de BLOBs][3]
 
 ## <a name="delete-a-blob-container"></a>Eliminar um contentor de BLOBs
+
 Contentores de BLOBs podem ser facilmente criados e eliminados conforme necessário. (Para saber como eliminar blobs individuais, consulte a seção [gerir blobs num contentor de BLOBs](#managing-blobs-in-a-blob-container).)
 
 Os passos seguintes mostram como eliminar um contentor de BLOBs no Explorador de armazenamento:
@@ -82,6 +88,7 @@ Os passos seguintes mostram como eliminar um contentor de BLOBs no Explorador de
    ![Eliminar confirmação de contentor do blob][5]
 
 ## <a name="copy-a-blob-container"></a>Copiar um contentor de BLOBs
+
 Explorador de armazenamento permite-lhe copiar um contentor de BLOBs para a área de transferência e, em seguida, cole esse contentor de BLOBs para outra conta de armazenamento. (Para saber como copiar blobs individuais, consulte a seção [gerir blobs num contentor de BLOBs](#managing-blobs-in-a-blob-container).)
 
 Os passos seguintes mostram como copiar um contentor de BLOBs de uma conta de armazenamento para outro.
@@ -97,6 +104,7 @@ Os passos seguintes mostram como copiar um contentor de BLOBs de uma conta de ar
    ![Menu de contexto de contentor de blob de colar][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>Obter a SAS para um contentor de blobs
+
 As [assinaturas de acesso partilhado (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento.
 Isto significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento durante um determinado período de tempo e com um conjunto de permissões especificadas, sem ter de partilhar as chaves de acesso da conta.
 
@@ -119,6 +127,7 @@ Os passos seguintes mostram como criar uma SAS para um contentor de BLOBs:
 8. Quando terminar, selecione **Close (Fechar)** .
 
 ## <a name="manage-access-policies-for-a-blob-container"></a>Gerir políticas de acesso para um contentor de BLOBs
+
 Os passos seguintes mostram como gerir (adicionar e remover) políticas de acesso de um contentor de BLOBs:
 
 1. Abra o Explorador de Armazenamento.
@@ -129,7 +138,7 @@ Os passos seguintes mostram como gerir (adicionar e remover) políticas de acess
    ![Menu de Contexto Gerir políticas de acesso][11]
 5. O **políticas de acesso** caixa de diálogo listará todas as políticas de acesso já criadas para o contentor de BLOBs selecionados.
 
-   ![Opções de política de acesso][12]        
+   ![Opções de política de acesso][12]
 6. Siga estes passos consoante a tarefa de gestão de política de acesso:
 
    * **Adicionar uma política de acesso nova** - selecione **Add (Adicionar)** . Depois de gerada, a caixa de diálogo **Access Policies** mostrará a política de acesso acabada de adicionar (com predefinições).
@@ -137,6 +146,7 @@ Os passos seguintes mostram como gerir (adicionar e remover) políticas de acess
    * **Remover uma política de acesso** - selecione **Remove (Remover)** junto à política de acesso que pretende remover.
 
 ## <a name="set-the-public-access-level-for-a-blob-container"></a>Definir o nível de acesso público para um contentor de BLOBs
+
 Por predefinição, todos os contentores de Blobs está definido para "Nenhum acesso público".
 
 Os passos seguintes mostram como especificar um nível de acesso público para um contentor de Blobs.
@@ -153,6 +163,7 @@ Os passos seguintes mostram como especificar um nível de acesso público para u
 6. Selecione **Aplicar**.
 
 ## <a name="managing-blobs-in-a-blob-container"></a>Gerir blobs num contentor de BLOBs
+
 Depois de criar um contentor de BLOBs, pode carregar um blob para esse contentor de BLOBs, transferir um blob para o computador local, abra um blob no seu computador local e muito mais.
 
 Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contentor de Blobs.
@@ -175,7 +186,7 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
      2. Na caixa de diálogo **Upload files (Carregar ficheiros)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Files (Ficheiros)** , para selecionar o ficheiro ou ficheiros que quer carregar.
 
         ![Opções de ficheiros de carregamento][16]
-     3. Especifique o tipo de **tipo de Blob**. Ver [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
+     3. Especifique o tipo de **tipo de Blob**. Ver [criar um contentor](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Opcionalmente, especifique uma pasta de destino no qual o ficheiro ou ficheiros selecionados serão carregados. Se a pasta de destino não existir, será criada.
      5. Selecione **Upload**.
    * **Carregar uma pasta para um contentor de BLOBs**
@@ -186,7 +197,7 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
      2. Na caixa de diálogo **Upload folder (Carregar pasta)** , selecione o botão de reticências ( **...** ), no lado direito da caixa de texto **Folder (Pasta)** , para selecionar a pasta cujos conteúdos quer carregar.
 
         ![Opções de pasta de carregamento][18]
-     3. Especifique o tipo de **tipo de Blob**. Ver [criar o contentor e definir permissões](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) para obter mais informações.
+     3. Especifique o tipo de **tipo de Blob**. Ver [criar um contentor](storage/blobs/storage-quickstart-blobs-dotnet.md#create-a-container) para obter mais informações.
      4. Opcionalmente, especifique uma pasta de destino no qual os conteúdos da pasta selecionada serão carregados. Se a pasta de destino não existir, será criada.
      5. Selecione **Upload**.
    * **Transferir um blob para o computador local**
@@ -213,6 +224,7 @@ Os passos seguintes mostram como gerir os blobs (e pastas) dentro de um contento
      3. Selecione **Yes (Sim)** , na caixa de diálogo de confirmação.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Vejas os [mais recentes vídeos e notas de versão do Explorador de Armazenamento](https://www.storageexplorer.com).
 * Saiba como [utilizar blobs, tabelas, filas e ficheiros do Azure para criar aplicações](https://azure.microsoft.com/documentation/services/storage/).
 

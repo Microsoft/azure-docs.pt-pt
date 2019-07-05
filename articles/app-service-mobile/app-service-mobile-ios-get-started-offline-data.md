@@ -2,7 +2,7 @@
 title: Ativar a sincronização offline com aplicações móveis iOS | Documentos da Microsoft
 description: Saiba como utilizar aplicações móveis do App Service do Azure para a cache e sincronizar dados offline em aplicações de iOS.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112655"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446377"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Ativar a sincronização offline com aplicações móveis iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) hoje mesmo.
+>
 
 ## <a name="overview"></a>Descrição geral
 Este tutorial abrange a sincronização offline com a funcionalidade de aplicações móveis do serviço de aplicações do Azure para iOS. Os utilizadores finais de sincronização offline, pode interagir com uma aplicação móvel para ver, adicionar ou modificar dados, mesmo quando elas têm nenhuma ligação de rede. As alterações são armazenadas numa base de dados local. Depois do dispositivo estiver online novamente, as alterações são sincronizadas com o back-end remoto.
@@ -159,7 +163,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 ![Atributos da tabela de MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | id | Número inteiro de 64 |
 | itemId | String |
@@ -172,7 +176,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![Atributos da tabela de MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | id |String |
 | operationId |Número inteiro de 64 |
@@ -183,7 +187,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | id |String |
 | key |String |
@@ -195,7 +199,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 **TodoItem**
 
-| Atributo | Tipo | Nota |
+| Atributo | Type | Nota |
 | --- | --- | --- |
 | id | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
 | Concluir | Boolean | Campo de item de tarefas pendentes |

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240344"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447174"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para conjuntos elásticos com os limites de compra modelo baseado em vCore
 
@@ -36,6 +36,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 > Os limites de recursos de bases de dados individuais em conjuntos elásticos são geralmente as mesmas usadas para bases de dados individuais fora agrupamentos que tem o mesmo tamanho de computação. Por exemplo, os máximos de trabalhadores simultâneos para uma base de dados GP_Gen4_1 é de 200 funções de trabalho. Então, os máximos de trabalhadores simultâneos para uma base de dados num conjunto GP_Gen4_1 também é de 200 funções de trabalho. Tenha em atenção de que o número total de trabalhadores simultâneos no agrupamento de GP_Gen4_1 é 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Escalão de serviço de fins geral: Tamanhos de armazenamento e tamanhos de computação
+
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Escalão de serviço de fins geral: Plataforma de computação de geração 4 (parte 1)
 
@@ -149,6 +152,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 \* Para os máximos de trabalhadores simultâneos (pedidos) para qualquer base de dados individual, consulte [único limites de recursos da base de dados](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se estiver a utilizar o conjunto elástico Gen5 e seu vCore máximo por base de dados é 2, em seguida, os máximos de trabalhadores simultâneos é 200.  Se vCore máximo por base de dados for 0,5, em seguida, os máximos de trabalhadores simultâneos é 50, pois no Gen5 há um máximo de 100 trabalhadores simultâneos por vcore.  Para outras configurações de máximo de vCore por base de dados que são menos 1 vCore ou menos, o número de trabalhadores simultâneos máx. é da mesma forma redimensionadas.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de negócio críticos de serviço: Tamanhos de armazenamento e tamanhos de computação
+
+> [!IMPORTANT]
+> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de negócio críticos de serviço: Plataforma de computação de geração 4 (parte 1)
 
