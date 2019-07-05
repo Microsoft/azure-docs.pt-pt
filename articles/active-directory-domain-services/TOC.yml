@@ -37,10 +37,12 @@
       items:
         - name: Cenários
           href: scenarios.md
-        - name: Selecionar uma rede virtual
+        - name: Planear uma rede virtual
           href: network-considerations.md
     - name: Gerir o Azure AD DS
       items:
+        - name: Ativar eventos de auditoria de segurança (pré-visualização)
+          href: security-audit-events.md
         - name: Verificar o estado de funcionamento de um domínio gerido
           href: check-health.md
         - name: Configurar a sincronização de âmbito do Azure AD para um domínio gerido
