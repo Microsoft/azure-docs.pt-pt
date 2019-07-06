@@ -3,15 +3,15 @@ title: O Azure PowerShell script - criar um contentor de indexação desativá-l
 description: Script do Azure PowerShell de exemplo - criar um contentor de indexação desativá-la numa conta do Cosmos do Azure
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4fc75eadd0f3ad87d313d10a9005997d46103666
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 7cec954bc85873d300a4abb96396025600e17201
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566820"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603870"
 ---
 # <a name="create-a-container-indexing-turned-off-in-an-azure-cosmos-account-using-powershell"></a>Criar um contentor de indexação desativá-la numa conta do Cosmos do Azure com o PowerShell
 

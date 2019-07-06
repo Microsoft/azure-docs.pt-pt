@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: a954d1d9466a35925726c36361dc00edfddfbf63
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: fbc5f21bb97eabb234e2b3905796ae01877ed89f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484960"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604941"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Linux com o SDK de voz
 

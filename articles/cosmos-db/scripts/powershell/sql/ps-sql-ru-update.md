@@ -3,15 +3,15 @@ title: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o SQL API (
 description: Script do Azure PowerShell - Azure Cosmos DB Update RU/s para o SQL API (principal)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9558579fbdbd2185f6de650547863361ff2b80a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fae1e7946905a96fbbf00909c96dd3aa99d766d5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247338"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603838"
 ---
 # <a name="update-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>RU/s de atualização para uma base de dados ou o contentor para o Azure Cosmos DB - SQL API (principal)
 

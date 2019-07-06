@@ -9,18 +9,16 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0857d571e3bb029f564299efbe8cc4fdf5fbb3ff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60608806"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604098"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Exemplos de SDK de .NET de moderador de conteúdo
 
 A lista seguinte inclui ligações para exemplos de código criados com o SDK do Azure Content Moderator para .NET.
-
-- **Biblioteca auxiliar**: [Criar um cliente, o Content Moderator para utilização nos outros exemplos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Veja o [guia de início rápido](content-moderator-helper-quickstart-dotnet.md).
 
 ## <a name="moderation"></a>Moderação
 
