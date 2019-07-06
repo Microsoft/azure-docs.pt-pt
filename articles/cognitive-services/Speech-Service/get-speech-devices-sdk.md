@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: b9a0890000cda0b3663ac29bee61fc1c702f6254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31016073a3d1b62a2e22eae164eaccb03f6e0ae7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410694"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603229"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter os dispositivos de voz dos serviços cognitivos SDK
 

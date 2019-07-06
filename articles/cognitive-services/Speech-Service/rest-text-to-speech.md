@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 08bf1363f3c6c9b68243cc10ffb2785f53e02107
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 684ddcd49d3cd3c3d4f0a8d6f4675e1e27bdb7b9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342197"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604895"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de texto para discurso
 
@@ -49,7 +48,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Ásia Oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| EUA Leste | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | EUA Leste 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Índia Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -225,7 +224,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 | 400 | Pedido Inválido | Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto. |
 | 413 | Entidade do pedido demasiado grande | A entrada SSML é superior a 1024 carateres. |
-| 415 | Tipo de suporte não suportado | É possível que o mal `Content-Type` foi fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. | 
+| 415 | Tipo de suporte não suportado | É possível que o mal `Content-Type` foi fornecido. `Content-Type` deve ser definido como `application/ssml+xml`. |
 | 429 | Demasiados Pedidos | Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição. |
 | 502 | Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos. |
 

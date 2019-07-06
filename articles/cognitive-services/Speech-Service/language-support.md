@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: c3596f230ace2d19df28d0b43af45c74aaa87836
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 006b9401a3418e3b2b3803fa0b7897b28887d14a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561303"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606608"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de voz
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4aba26238a0d87c8e708ae27c7b2dbdb73f16ab
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409060"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604836"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Kit de programação de áudio de Roobo inteligente
 

@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 561da47aaf0020c80a64d18c935b4086cfca6623
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409091"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604810"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de voz SDK
 

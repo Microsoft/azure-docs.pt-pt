@@ -7,16 +7,16 @@ author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 05/01/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 24d9a5fa1e9c2f44ef32ac1fc05ad09f8a550f12
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827759"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604269"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilizar os Serviços Ligados no Visual Studio para estabelecer ligação à API de Imagem Digitalizada
 
@@ -256,7 +256,7 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
-3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
+3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

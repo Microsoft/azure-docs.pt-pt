@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 6cc530d2680c0410081ad3ad3e573cd59d5583d6
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341961"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606649"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Conversão de voz em texto perguntas mais frequentes
 

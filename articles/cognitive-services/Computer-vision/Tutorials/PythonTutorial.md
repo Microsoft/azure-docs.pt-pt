@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Efetuar operações de imagem - Python'
+title: Efetuar operações de imagem - Python
 titlesuffix: Azure Cognitive Services
 description: Saiba como utilizar a API de Imagem Digitalizada com Python através dos blocos de notas do Jupyter. Utilize bibliotecas populares para visualizar os seus resultados.
 services: cognitive-services
@@ -7,20 +7,20 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 11/06/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: b5333557355aa816245b5086836eac980d90540a
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: b18f41db772c1c214bdf48c9bb765b1ce7e6d2c2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341492"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604160"
 ---
-# <a name="tutorial-computer-vision-api-python"></a>Tutorial: Python de API de visão do computador
+# <a name="computer-vision-api-jupyter-notebook"></a>Bloco de notas Jupyter da API de visão do computador
 
-Este tutorial mostra-lhe como utilizar a API de Imagem Digitalizada no Python e como utilizar bibliotecas populares para visualizar os resultados. Vai utilizar o Jupyter para executar o tutorial. Para saber como começar com blocos de notas do Jupyter interativos, consulte a [Jupyter documentação](https://jupyter.readthedocs.io/en/latest/index.html).
+Este guia mostra-lhe como utilizar a API de imagem digitalizada em Python e a visualizar os resultados usando bibliotecas populares. Vai utilizar o Jupyter para executar o tutorial. Para saber como começar com blocos de notas do Jupyter interativos, consulte a [Jupyter documentação](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Este tutorial mostra-lhe como utilizar a API de Imagem Digitalizada no Python e 
 - ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
 - [Jupyter Notebook](https://jupyter.org/install) instalado
 
-## <a name="open-the-tutorial-notebook-in-jupyter"></a>Abrir o Bloco de Notas de Tutorial no Jupyter 
+## <a name="open-the-notebook-in-jupyter"></a>Abra o bloco de notas no Jupyter 
 
 1. Vá para o repositório do GitHub[Python da Visão Cognitiva](https://github.com/Microsoft/Cognitive-Vision-Python). 
 2. Clique no botão verde para clonar ou transferir o repositório. 
@@ -37,7 +37,7 @@ Este tutorial mostra-lhe como utilizar a API de Imagem Digitalizada no Python e 
 1. Inicie o Jupyter ao executar o comando `jupyter notebook` na linha de comandos.
 1. Na janela do Jupyter, clique em _API de Imagem Digitalizada Example.ipynb_ para abrir o bloco de notas de tutorial.
 
-## <a name="run-the-tutorial"></a>Executar o Tutorial
+## <a name="run-the-notebook"></a>Executar o bloco de notas
 
 Para utilizar este bloco de notas, precisa de uma chave de subscrição para a API de Imagem Digitalizada. Visite a [página Subscrição](https://azure.microsoft.com/try/cognitive-services/) para se inscrever. Na página **Iniciar sessão**, utilize a sua conta Microsoft para iniciar sessão e poderá subscrever e obter chaves gratuitas. Depois de concluir o processo de inscrição, cole a chave na secção `Variables` do bloco de notas (reproduzida abaixo). Tanto a chave primária como a secundária irão funcionar. Certifique-se de que coloca a chave entre aspas para que seja considerada uma cadeia de carateres.
 

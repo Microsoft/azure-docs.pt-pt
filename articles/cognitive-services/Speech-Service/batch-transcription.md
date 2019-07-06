@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 45ed0167f5a83fa843a224ada35e96672a6752a1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311845"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606733"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
@@ -56,7 +55,7 @@ A API de transcrição do Batch suporta os seguintes formatos:
 | MP3 | PCM | 16-bit | 8 ou 16 estéreo mono, kHz, |
 | OGG | OPUS | 16-bit | 8 ou 16 estéreo mono, kHz, |
 
-Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal do esquerda e direito durante a transcrição. Os dois ficheiros JSON com o resultado são todos criados a partir de um canal único. Os carimbos de data / por expressão permitem aos programadores criar uma transcrição final ordenada. Este pedido de exemplo inclui propriedades para filtragem de linguagem inapropriada, pontuação e carimbos de nível do word. 
+Para fluxos de áudio estéreo, a API de transcrição do Batch divide o canal do esquerda e direito durante a transcrição. Os dois ficheiros JSON com o resultado são todos criados a partir de um canal único. Os carimbos de data / por expressão permitem aos programadores criar uma transcrição final ordenada. Este pedido de exemplo inclui propriedades para filtragem de linguagem inapropriada, pontuação e carimbos de nível do word.
 
 ### <a name="configuration"></a>Configuração
 
@@ -97,7 +96,7 @@ Utilize estas propriedades opcionais para configurar a transcrição:
 
 O batch suporta transcrição [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para a leitura de áudio e transcrições de escrita para armazenamento.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>Webhooks
 
 Sondagem de status de transcrição pode não ser o melhor desempenho ou proporcionar a melhor experiência de utilizador. Para consultar para obter o estado, pode registrar retornos de chamada, o que o cliente serão notificado quando as tarefas de transcrição de longa execução forem concluídas.
 
@@ -123,7 +122,7 @@ Para pedir que o seu pedido de transcrição de áudio é processado para diariz
 }
 ```
 
-Carimbos de nível do Word também teria que ser "ativado" como indicam os parâmetros no pedido acima. 
+Carimbos de nível do Word também teria que ser "ativado" como indicam os parâmetros no pedido acima.
 
 O áudio correspondente irá conter os oradores identificados por um número (atualmente suportamos que apenas dois vozes, para que os oradores serão identificados como "1 orador ' e"Orador 2") seguido pela saída transcrição.
 
@@ -134,7 +133,7 @@ Observe também que Diarization não está disponível no gravações estéreo. 
 
 ## <a name="sentiment"></a>Sentimento
 
-Sentimento é um novo recurso na API de transcrição do Batch e é um recurso importante no domínio do Centro de chamada. Os clientes podem utilizar o `AddSentiment` parâmetros para os pedidos para 
+Sentimento é um novo recurso na API de transcrição do Batch e é um recurso importante no domínio do Centro de chamada. Os clientes podem utilizar o `AddSentiment` parâmetros para os pedidos para
 
 1.  Obtenha informações sobre a satisfação do cliente
 2.  Obtenha informações sobre o desempenho dos agentes (team colocar as chamadas)
@@ -187,7 +186,7 @@ A funcionalidade utiliza um modelo de sentimentos, que está atualmente na vers�
 
 Amostras completas estão disponíveis no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do `samples/batch` subdiretório.
 
-Terá de personalizar o código de exemplo com as suas informações de subscrição, a região do serviço, o URI de SAS que aponta para o arquivo de áudio para transcreva e IDs de modelo, no caso de que pretende utilizar um modelo de idioma ou acústicos personalizado. 
+Terá de personalizar o código de exemplo com as suas informações de subscrição, a região do serviço, o URI de SAS que aponta para o arquivo de áudio para transcreva e IDs de modelo, no caso de que pretende utilizar um modelo de idioma ou acústicos personalizado.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

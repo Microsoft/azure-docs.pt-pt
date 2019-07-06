@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Verificar imagens face às listas personalizadas no C# -Content Moderator'
+title: Verificar imagens face às listas personalizadas no C# -Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Como moderar imagens com uma lista personalizada de imagens através do SDK do Content Moderator para C#.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f87b7cf3d7f46a66c0992edf25968b1dbae073
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699125"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603415"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Início rápido: Moderar com listas de imagem personalizadaC#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Moderar com listas de imagem personalizadaC#
 
 Este artigo apresenta informações e exemplos de código para ajudá-lo a começar a utilizar o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para:
 - Criar uma lista de imagens personalizadas
@@ -32,7 +32,7 @@ Este artigo apresenta informações e exemplos de código para ajudá-lo a come�
 > [!NOTE]
 > Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 
-A aplicação de consola para este início rápido simula algumas das tarefas que pode realizar com a API de lista de imagens.
+A aplicação de consola para este guia simula algumas das tarefas que pode realizar com a API de lista de imagens.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Criar um método para adicionar uma coleção de imagens à lista
 
-Adicione o seguinte método à classe **Programa**. Este início rápido não demonstra como aplicar etiquetas a imagens na lista. 
+Adicione o seguinte método à classe **Programa**. Este guia não demonstram como aplicar etiquetas a imagens na lista. 
 
 ```csharp
 /// <summary>

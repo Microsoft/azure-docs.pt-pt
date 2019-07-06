@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84d212129c5225fd0efebfca5640cfc3d32e8a40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 20e47b6d3243bb0cccbc42ab0ab904b72922e98b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072401"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604784"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 

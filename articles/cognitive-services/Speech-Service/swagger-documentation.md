@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: f6420ea8918816f7356e567ec48cb0f7456065e0
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743210"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604775"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
-Os serviços de voz oferecem uma especificação do Swagger para interagir com um punhado de APIs REST, utilizado para importar dados, criar modelos, testar a precisão do modelo, criar pontos finais personalizados, enfileirar transcrições de batch e gerir as subscrições. A maioria das operações disponíveis através do portal de voz personalizada pode ser concluída por meio de programação com essas APIs. 
+Os serviços de voz oferecem uma especificação do Swagger para interagir com um punhado de APIs REST, utilizado para importar dados, criar modelos, testar a precisão do modelo, criar pontos finais personalizados, enfileirar transcrições de batch e gerir as subscrições. A maioria das operações disponíveis através do portal de voz personalizada pode ser concluída por meio de programação com essas APIs.
 
 > [!NOTE]
 > Operações de conversão de voz em texto e voz são suportadas disponível como APIs REST, que por sua vez estão documentados na especificação do Swagger.

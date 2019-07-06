@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 488cbf1874e023cf3a665bc9f2087900b30b3d3d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8285a76f8cd07863874f9c8e8eebe96f1cb968dd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204915"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604824"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -139,7 +138,7 @@ As alterações são aplicadas ao nível da sentença e estilo variar por meio d
 
 Utilize esta tabela para determinar quais estilos de falantes são suportados para cada neural voz.
 
-| Voz | Tipo | Descrição |
+| Voz | Type | Descrição |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Expresse emoção positivo e Feliz |
 | | type=`empathy` | Expressa uma noção do vençam e compreender |
@@ -181,7 +180,7 @@ Utilize o `break` elemento para inserir coloca em pausa (ou quebras) entre as pa
 | força | Especifica a duração relativa de uma pausa através de um dos seguintes valores:<ul><li>Nenhum</li><li>x weak</li><li>fraca</li><li>média (predefinição)</li><li>Forte</li><li>x-strong</li></ul> | Opcional |
 | time | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são 2s e 500 | Opcional |
 
-| Força | Descrição |
+| força | Descrição |
 |----------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms |
 | x weak | 250 ms |
@@ -290,7 +289,7 @@ Como valores de atributo prosodic podem variar ao longo de uma ampla variedade, 
 | Contour | Não é suportada em Contour vozes neurais. Contour representa as alterações no argumento de venda para conteúdo de voz como uma matriz de destinos em posições de tempo especificado na saída de voz. Cada destino é definido por conjuntos de pares de parâmetro. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros Especifica a localização da alteração pitch como uma percentagem da duração do texto. O segundo valor Especifica a quantidade para aumentar ou diminuir o argumento de venda, com um valor relativo ou um valor de enumeração para o argumento de venda (consulte `pitch`). | Opcional |
 | Intervalo  | Um valor que representa o intervalo de argumento de venda do texto. Pode expressar `range` com os mesmos valores absolutos, valores relativos ou valores de enumeração usada para descrever `pitch`. | Opcional |
 | Taxa de  | Indica a taxa de fala do texto. Pode expressar `rate` como:<ul><li>Um valor relativo, expressado como um número que age como um multiplicador do padrão. Por exemplo, um valor de *1* resulta em nenhuma alteração na taxa. Um valor de *.5* resulta num então da tarifa. Um valor de *3* resulta num tripling da tarifa.</li><li>Um valor constante:<ul><li>x-slow</li><li>lento</li><li>Médio</li><li>Rápido</li><li>x-fast</li><li>predefinição</li></ul></li></ul> | Opcional |
-| Duração  | O período de tempo que deve decorrer durante a conversão de voz o serviço de síntese (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. | Opcional |
+| duration  | O período de tempo que deve decorrer durante a conversão de voz o serviço de síntese (TTS) lê o texto, em segundos ou milissegundos. Por exemplo, *2s* ou *1800ms*. | Opcional |
 | volume  | Indica o nível de volume de voz fala. Pode expressar o volume como:<ul><li>Um valor absoluto, expressado como um número no intervalo de 0,0 a 100,0 partir *quietest* ao *loudest*. Por exemplo, 75. A predefinição é 100,0.</li><li>Um valor relativo, expressado como um número precedido por "+" ou "-" que especifica um valor para alterar o volume. Por exemplo +10 ou-5.5.</li><li>Um valor constante:<ul><li>Silenciosa</li><li>x-soft</li><li>soft</li><li>Médio</li><li>alta</li><li>x-loud</li><li>predefinição</li></ul></li></ul> | Opcional |
 
 ### <a name="change-speaking-rate"></a>Taxa de alteração de fala

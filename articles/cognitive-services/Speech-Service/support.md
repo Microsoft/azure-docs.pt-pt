@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 4099bc7bfce6de620504e03be3afc5392281d8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e975bbdcec2b45d67f910ac1a83a71ed252ebda
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072364"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606267"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -55,7 +55,7 @@ Em que *{Your termos de pesquisa}* é suas palavras-chave de pesquisa.
 
 Os clientes do Azure podem criar e gerir pedidos de suporte no portal do Azure.
 
-* [Portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portal do Azure para o Governo dos Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publique uma pergunta do Stack Overflow
@@ -71,7 +71,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 |Tradução de Voz |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intenção de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |SDK de voz geral |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
-| Assistentes de voz em primeiro lugar Virtual (pré-visualização) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
+| Assistentes de voz em primeiro lugar Virtual (pré-visualização) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > As seguintes mensagens de Stack Overflow contêm dicas sobre como perguntas de formulário e adicione o código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de membros da Comunidade, avaliar e respondem rapidamente a sua pergunta:  

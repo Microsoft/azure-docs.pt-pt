@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.custom: seodec18
-ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8682cd8b91d17b16a56e401661856e141ac5f0c1
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515443"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606238"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Resolver problemas com o SDK de Voz
 

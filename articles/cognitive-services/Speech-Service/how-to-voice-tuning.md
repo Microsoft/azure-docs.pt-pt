@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94b58279b1a9fd4d9acdb4183f59b0a8579c17fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593886"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606452"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de conversão de texto em voz
 

@@ -7,17 +7,17 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: da8ad71ccf8b58ddf3ef7cc6a2f9e9c732913caa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ab11d8ef9fd481d2b3ea7029664a1ec2778cf4b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607656"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604089"
 ---
-# <a name="quickstart-check-text-against-a-custom-term-list-in-c"></a>Início rápido: Texto de verificação em relação a uma lista de termo personalizado noC#
+# <a name="check-text-against-a-custom-term-list-in-c"></a>Texto de verificação em relação a uma lista de termo personalizado noC#
 
 A lista global predefinida de termos no Azure Content Moderator é suficiente para a maioria das necessidades de moderação de conteúdo. No entanto, poderá ter de filtrar termos que são específicos da sua organização. Por exemplo, poderá querer etiquetar nomes de concorrentes para nova revisão. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="putting-it-all-together"></a>Juntar tudo
+## <a name="compose-the-main-method"></a>O método Main de composição
 
 Adicione a definição de método **Main** ao espaço de nomes **TermLists**, classe **Program**. Por fim, feche a classe **Program** e o espaço de nomes **TermLists**.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>Executar a aplicação para ver o resultado
 
-O resultado estará nas linhas seguintes, mas os dados podem variar.
+Sua saída da consola será semelhante ao seguinte:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

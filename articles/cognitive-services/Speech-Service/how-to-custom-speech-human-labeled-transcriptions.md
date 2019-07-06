@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ba6d137a7eb5fc2c56bfc39aa8f831d76411fb46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fca2a21758a060dbfdc4acb2123a59fcae585fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060865"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606554"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar etiqueta humanos transcrições
 
