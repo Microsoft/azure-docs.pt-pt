@@ -3,15 +3,15 @@ title: Operações para uma conta do Cosmos do Azure de cadeias de caracteres do
 description: Exemplo de script do Azure PowerShell - operações de cadeia de ligação e a chave de conta para uma conta do Cosmos do Azure
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: a7f86bfee0ee2472260b622dc709dc437e53414c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 55f28ef6c6ff82f0b82b10ac1dd7931ac46aa2fc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247863"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602514"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>Cadeia de ligação e a conta a chave de operações para uma conta do Cosmos do Azure com o PowerShell
 

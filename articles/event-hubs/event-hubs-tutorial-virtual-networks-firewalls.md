@@ -7,14 +7,14 @@ manager: darosa
 ms.author: aschhab
 ms.date: 11/28/2018
 ms.topic: tutorial
-ms.service: event-hubs-messaging
+ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343673"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605850"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutorial: Ativar a integração de redes virtuais e as Firewalls no espaço de nomes de Hubs de eventos
 
@@ -53,7 +53,7 @@ Iremos tirar partido um espaço de nomes de Hubs de eventos existente, por isso,
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure.
+Primeiro, vá para o [portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure.
 
 ## <a name="select-event-hubs-namespace"></a>Selecionar espaço de nomes de Hubs de eventos
 

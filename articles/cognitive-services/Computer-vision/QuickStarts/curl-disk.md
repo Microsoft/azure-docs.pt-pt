@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f76b61d3cc39f8ae35e1bf03316e7618b7136380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80d3478a684ef2fa686ac33b8492ec91be11ac6f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409044"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605967"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Início rápido: Analisar uma imagem local com a API REST e cURL na visão do computador
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: Analisar uma imagem local usando a API REST de imagem digitalizada e cURL
 
 Neste guia de início rápido, irá analisar uma imagem armazenada localmente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
@@ -42,7 +42,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Abra uma janela da linha de comandos.
 1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
 
-```console
+```bash
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
@@ -105,10 +105,6 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
   }
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, feche a janela da linha de comandos e o editor de texto.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

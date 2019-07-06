@@ -1,25 +1,25 @@
 ---
 title: 'Início rápido: Analisar texto conteúdo no C# -moderador de conteúdo'
 titlesuffix: Azure Cognitive Services
-description: Como analisar os conteúdos de texto quanto a diversos materiais censuráveis com o SDK Content Moderator para .NET
+description: Como analisar o conteúdo de texto para vários materiais objetáveis utilizando o SDK do moderador de conteúdo para .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f848ea0d1c86b9c12d26c59b8f0e92d1e5d70094
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60607098"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604047"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analisar o conteúdo de texto para objetáveis material doC#
 
-Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vai aprender a executar a filtragem baseada em termos e a classificação de conteúdos de texto com o objetivo de moderar materiais potencialmente censuráveis.
+Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Irá aprender a executar com base no termo de filtragem e classificação de conteúdo com o objetivo de moderadores potencialmente objetáveis material de texto.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -57,11 +57,11 @@ Adicione o código seguinte ao ficheiro *Program.cs* para criar um fornecedor de
 
 ### <a name="set-up-input-and-output-targets"></a>Configurar destinos de entrada e de saída
 
-Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos especificam os ficheiros dos conteúdos de texto de entrada e dos conteúdos JSON de saída.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos especificar os ficheiros para conteúdo de texto de entrada e saída JSON conteúdo.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-Tem de criar o ficheiro de entrada *TextFile.txt* e atualizar o respetivo caminho em conformidade (os caminhos relativos são relativos ao diretório de execução). Abra _TextFile.txt_ e adicione o texto a moderar. Este início rápido utiliza o texto de exemplo seguinte:
+Terá de criar o *TextFile.txt* ficheiro de entrada e atualizar o seu caminho (caminhos são relativos ao diretório de execução). Abra _TextFile.txt_ e adicione o texto a moderar. Este início rápido utiliza o texto de exemplo seguinte:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.

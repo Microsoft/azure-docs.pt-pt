@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Moderar as imagens de produto de comércio eletrônico - Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Configurar uma aplicação para analisar e classificar as imagens dos produtos com etiquetas especificadas (através do Azure de imagem digitalizada e de visão personalizada) e imagens objetáveis da etiqueta ser revisto (com o Azure Content Moderator).
+description: Configure uma aplicação para analisar e classificar as imagens dos produtos com etiquetas especificadas (através do Azure de imagem digitalizada e de visão personalizada). Marcar imagens objetáveis ainda mais ser revisto (com o Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec17f9f0206ef639bd47d694880c064a012ea1cf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699434"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604197"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutorial: Imagens de produto de comércio eletrônico moderado Azure Content moderator
 
-Neste tutorial, irá aprender como utilizar os serviços cognitivos do Azure, incluindo o Content Moderator, para classificar com eficiência e imagens dos produtos moderada para um cenário de comércio eletrônico. Vai utilizar visão do computador e de visão personalizada para aplicar as várias etiquetas (etiquetas) para imagens e, em seguida, irá criar uma revisão de equipe, que combina as tecnologias de baseados em machine-learning do Content Moderator com as equipes de revisão humana para fornecer uma moderação inteligente System.
+Neste tutorial, aprenderá a usar os serviços cognitivos do Azure, incluindo o Content Moderator, para classificar e imagens dos produtos moderada para um cenário de comércio eletrônico. Usará visão do computador e de visão personalizada para aplicar etiquetas (etiquetas) para imagens e, em seguida, irá criar uma revisão de equipe, que combina as tecnologias de baseados em machine-learning do Content Moderator com as equipes de revisão humana para fornecer um sistema de moderação inteligente.
 
 Este tutorial mostrar-lhe como:
 
@@ -47,35 +47,35 @@ Consulte a [Experimente o Content Moderator na web](quick-start.md) início ráp
 
 ## <a name="create-custom-moderation-tags"></a>Criar etiquetas personalizadas de moderação
 
-Em seguida, criar etiquetas personalizadas na ferramenta de revisão (consulte a [etiquetas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) artigo se precisar de ajuda com este processo). Neste caso, iremos adicionar as seguintes tags: **celebridade**, **EUA**, **sinalizador**, **brinquedo**, e **caneta**. Tenha em atenção que todas as etiquetas não precisam ser detetável categorias na visão do computador (como **celebridade**); pode adicionar suas próprias etiquetas personalizadas, desde que treinar o classificador de visão personalizada para detetá-los mais tarde.
+Em seguida, criar etiquetas personalizadas na ferramenta de revisão (consulte a [etiquetas](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) artigo se precisar de ajuda com este processo). Neste caso, iremos adicionar as seguintes tags: **celebridade**, **EUA**, **sinalizador**, **brinquedo**, e **caneta**. Todas as etiquetas não precisam ser detetável categorias na visão do computador (como **celebridade**); pode adicionar suas próprias etiquetas personalizadas, desde que treinar o classificador de visão personalizada para detetá-los mais tarde.
 
 ![Configurar etiquetas personalizadas](images/tutorial-ecommerce-tags2.PNG)
 
 ## <a name="create-visual-studio-project"></a>Criar projeto do Visual Studio
 
-1. No Visual Studio, abra a caixa de diálogo novo projeto. Expanda **instalada**, em seguida, **Visual C#** , em seguida, selecione **aplicação de consola (.NET Framework)**.
+1. No Visual Studio, abra a caixa de diálogo novo projeto. Expanda **instalada**, em seguida, **Visual C#** , em seguida, selecione **aplicação de consola (.NET Framework)** .
 1. Dê o nome **EcommerceModeration**, em seguida, clique em **OK**.
 1. Se estiver a adicionar este projeto para uma solução existente, selecione esse projeto como o projeto de arranque único.
 
-Este tutorial irá realçar o código que é fundamental para o projeto, mas não abrange todas as linhas de código necessário. Copiar todo o conteúdo de _Program.cs_ do projeto de exemplo ([exemplos de comércio eletrónico moderação do catálogo de](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) para o _Program.cs_ ficheiro do seu novo projeto. Em seguida, percorra as secções seguintes para saber mais sobre como funciona o projeto e como usá-lo por conta própria.
+Este tutorial destaca o código que é fundamental para o projeto, mas ele não abrange todas as linhas de código. Copiar todo o conteúdo de _Program.cs_ do projeto de exemplo ([exemplos de comércio eletrónico moderação do catálogo de](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) para o _Program.cs_ ficheiro do seu novo projeto. Em seguida, percorra as secções seguintes para saber mais sobre como funciona o projeto e como usá-lo por conta própria.
 
 ## <a name="define-api-keys-and-endpoints"></a>Definir chaves de API e os pontos finais
 
-Conforme mencionado acima, este tutorial utiliza três serviços cognitivos; Por conseguinte, requer três chaves correspondentes e os pontos finais da API. Consulte os seguintes campos no **programa** classe:
+Este tutorial utiliza três serviços cognitivos; Por conseguinte, requer três chaves correspondentes e os pontos finais da API. Consulte os seguintes campos no **programa** classe:
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Terá de atualizar o `___Key` campos com os valores das suas chaves de subscrição (obterá o `CustomVisionKey` mais tarde), e poderá ter de alterar o `___Uri` campos para que eles contêm os identificadores de região correto. Preencha os `YOURTEAMID` faz parte do `ReviewUri` campo com o ID da equipa de revisão que criou anteriormente. Irá preencher a parte final do `CustomVisionUri` campo mais tarde.
+Terá de atualizar o `___Key` campos com os valores das suas chaves de subscrição (obterá o `CustomVisionKey` mais tarde), e poderá ter de alterar o `___Uri` campos, de modo que contêm os identificadores de região correto. Preencha os `YOURTEAMID` faz parte do `ReviewUri` campo com o ID da equipa de revisão que criou anteriormente. Irá preencher a parte final do `CustomVisionUri` campo mais tarde.
 
 ## <a name="primary-method-calls"></a>Chamadas de método principal
 
-Consulte o seguinte código a **Main** método, que faz um loop através de uma lista de URLs de imagens. Ele analisa cada imagem com os três serviços diferentes, que regista as etiquetas aplicadas na **ReviewTags** de matriz e, em seguida, cria uma revisão para moderadores humanos (envia as imagens para a ferramenta de revisão de moderador de conteúdo). Irá explorar esses métodos nas seções a seguir. Tenha em atenção que aqui, se desejar, pode controlar quais imagens são enviadas para rever, utilizando o **ReviewTags** matriz numa instrução condicional para verificar as etiquetas foram aplicadas.
+Consulte o seguinte código a **Main** método, que faz um loop através de uma lista de URLs de imagens. Ele analisa cada imagem com os três serviços diferentes, que regista as etiquetas aplicadas na **ReviewTags** de matriz e, em seguida, cria uma revisão de moderadores humanos enviando as imagens para a ferramenta de revisão de moderador do conteúdo. Irá explorar esses métodos nas seções a seguir. Se desejar, pode controlar quais imagens são enviadas para rever, utilizando o **ReviewTags** matriz numa instrução condicional para verificar as etiquetas foram aplicadas.
 
 [!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
 ## <a name="evaluateadultracy-method"></a>Método EvaluateAdultRacy
 
-Consulte a **EvaluateAdultRacy** método na **programa** classe. Esse método obtém um URL de imagem e uma matriz de pares chave-valor, como parâmetros. Ele chama a API de imagem do Content Moderator (usando REST) para obter as pontuações adulto e Racy da imagem. Se a classificação por qualquer for superior a 0.4 (o intervalo é de 0 a 1), ele define o valor correspondente na **ReviewTags** matriz para **verdadeiro**.
+Consulte a **EvaluateAdultRacy** método na **programa** classe. Esse método obtém um URL de imagem e uma matriz de pares chave-valor, como parâmetros. Ele chama a API de imagem do Content Moderator (usando REST) para obter as pontuações adulto e Racy da imagem. Se a classificação por qualquer for superior a 0.4 (o intervalo é entre 0 e 1), ele define o valor correspondente na **ReviewTags** matriz para **verdadeiro**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
@@ -87,17 +87,17 @@ O próximo método assume um URL de imagem e suas informações de subscrição 
 
 ## <a name="evaluatecustomvisiontags-method"></a>Método EvaluateCustomVisionTags
 
-Em seguida, veja a **EvaluateCustomVisionTags** método, que classifica os produtos reais&mdash;neste caso sinaliza toys e canetas. Siga as instruções no [como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guia para criar o seu classificador de imagem personalizada para detetar a presença de sinalizadores, toys e canetas (ou qualquer coisa que escolheu como as suas etiquetas personalizadas) em imagens. Pode utilizar as imagens no **imagens de exemplo** pasta da [repositório do GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para preparar rapidamente algumas das categorias neste exemplo.
+Em seguida, veja a **EvaluateCustomVisionTags** método, que classifica os produtos reais&mdash;neste caso sinaliza toys e canetas. Siga as instruções no [como criar um classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) guia para criar o seu classificador de imagem personalizada e detetar sinalizadores, toys e canetas (ou qualquer coisa que escolheu como as suas etiquetas personalizadas) em imagens. Pode utilizar as imagens no **imagens de exemplo** pasta da [repositório do GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) para preparar rapidamente algumas das categorias neste exemplo.
 
 ![Página de web de visão personalizada com imagens de formação de canetas, toys e sinalizadores](images/tutorial-ecommerce-custom-vision.PNG)
 
-Depois de ter preparado o seu classificador, obter a chave de predição e o URL de ponto final de previsão (consulte [obter a chave de URL e previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) se precisar de ajuda a obtê-los) e atribuir estes valores para sua `CustomVisionKey` e `CustomVisionUri` campos , respectivamente. O método utiliza estes valores para consultar o classificador. Se o classificador de encontrar um ou mais das etiquetas personalizadas na imagem, este método define o valor ou valores correspondente na **ReviewTags** matriz para **verdadeiro**.
+Assim que Treinou seu classificador, obter a chave de predição e o URL de ponto final de previsão (consulte [obter a chave de URL e previsão](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) se precisar de ajuda com a recuperação-los) e atribuir estes valores para sua `CustomVisionKey` e `CustomVisionUri` campos de, respectivamente. O método utiliza estes valores para consultar o classificador. Se o classificador de encontrar um ou mais das etiquetas personalizadas na imagem, este método define o valor ou valores correspondente na **ReviewTags** matriz para **verdadeiro**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
 ## <a name="create-reviews-for-review-tool"></a>Criar as revisões de ferramenta de revisão
 
-Nas secções anteriores foram-lhe apresentados os métodos que analisam as imagens recebidas de forma a encontrar conteúdos para adultos (Content Moderator), celebridades (Imagem Digitalizada) e vários outros objetos (Visão Personalizada). Em seguida, vamos mostrar o método **CreateReview**, que carrega as imagens, com todas as respetivas etiquetas aplicadas (transmitidas como _Metadata_), para a ferramenta Revisão do Content Moderator para que possam estar disponíveis para revisão humana. 
+Nas seções anteriores, explorou como a aplicação verifica a imagens de entrada para o conteúdo para adultos (Content Moderator), celebridades (visão do computador) e vários outros objetos (visão personalizada). Em seguida, veja a **CreateReview** método, que carrega as imagens com todas as respetivas etiquetas aplicadas (transmitido como _metadados_) para a ferramenta de revisão do moderador do conteúdo.
 
 [!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
@@ -107,17 +107,17 @@ As imagens serão apresentados no separador de revisão do [ferramenta de revis�
 
 ## <a name="submit-a-list-of-test-images"></a>Submeter uma lista de imagens de teste
 
-Como pode ver na **Main** método, este programa procura um diretório de "C:Test" com um _Urls.txt_ ficheiro que contém uma lista de Urls de imagem. Criar o ficheiro e diretório, ou altere o caminho para apontar para o ficheiro de texto e, preencha este ficheiro com os URLs de imagens que pretende testar.
+Como pode ver na **Main** método, este programa procura um diretório de "C:Test" com um _Urls.txt_ ficheiro que contém uma lista de Urls de imagem. Criar este ficheiro e de diretório, ou altere o caminho para apontar para o ficheiro de texto. Em seguida, preencha este ficheiro com os URLs de imagens que pretende testar.
 
 [!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Se seguiu todos os passos acima, o programa deve processar cada imagem (consulta em todos os três serviços para as respetivas etiquetas relevantes) e, em seguida, carregue as imagens com informações da etiqueta para a ferramenta de revisão de moderador de conteúdo.
+Se seguiu todos os passos acima, o programa deve processar cada imagem (consulta em todos os três serviços para as respetivas etiquetas relevantes) e, em seguida, carregue as imagens com informações da etiqueta para a ferramenta de revisão do moderador do conteúdo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, configurou um programa para analisar imagens dos produtos com o objetivo de marcá-los por tipo de produto e permitindo que uma equipa de revisão tomar decisões informadas sobre a moderação de conteúdos. Em seguida, saiba mais sobre os detalhes de moderação de imagens.
+Neste tutorial, configurou um programa para analisar imagens dos produtos, marcá-los por tipo de produto e permitir que uma equipa de revisão para tomar decisões informadas sobre a moderação de conteúdos. Em seguida, saiba mais sobre os detalhes de moderação de imagens.
 
 > [!div class="nextstepaction"]
 > [Imagens de revisão moderado](./review-tool-user-guide/review-moderated-images.md)

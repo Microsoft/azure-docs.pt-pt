@@ -3,15 +3,15 @@ title: Script do Azure PowerShell - Azure Cosmos DB lista e obter operações pa
 description: Script do Azure PowerShell - Azure Cosmos DB lista e obter operações para a API de tabela
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 320d2ff57275648657a15f843a2f32dcb6722bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28394d1a5cb09caca243ad9f3a584aa2e55f8fe9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247053"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603807"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Listar e obter tabelas para o Azure Cosmos DB - API de tabela
 

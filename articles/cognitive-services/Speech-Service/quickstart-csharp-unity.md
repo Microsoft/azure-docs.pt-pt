@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: dd8e760e658715b89bf45718ac571ccaeb5ade96
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: b55c6535184a905790f575b98c1b5a60a83f5daf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465579"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606390"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Unity (Beta)
 
@@ -37,7 +37,7 @@ Para concluir este projeto, precisa de:
 
 * [Unity 2018.3 ou posterior](https://store.unity.com/) com [2019.1 Unity, adicionando suporte a UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obter suporte ARM64, instalar o [ferramentas de compilação opcional para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+     * Para obter suporte ARM64, instalar o [ferramentas de compilação opcional para ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * Uma chave de subscrição para o serviço de voz. [Obter uma gratuitamente](get-started.md).
 * Acesso ao microfone do seu computador.
 

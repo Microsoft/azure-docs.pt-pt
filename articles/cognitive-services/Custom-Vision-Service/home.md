@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a5dd16948724e3a79863450212702aa8aeb2347
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60996647"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605148"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
@@ -31,9 +31,9 @@ A funcionalidade de Visão Personalizada pode ser dividida em duas funcionalidad
 
 ### <a name="optimization"></a>Otimização
 
-O serviço de visão personalizada está otimizado para reconhece rapidamente as principais diferenças entre as imagens. Isto permite-lhe para iniciar a criação de protótipos seu modelo com uma pequena quantidade de dados. 50 imagens por etiqueta geralmente são um bom começo. Isto significa que, no entanto, o serviço não é ideal para a deteção de diferenças subtis nas imagens (por exemplo, detetar falhas pequenas ou dents em cenários de garantia de qualidade).
+O serviço de visão personalizada está otimizado para reconhece rapidamente as principais diferenças entre as imagens, para que possa começar criando um protótipo seu modelo com uma pequena quantidade de dados. 50 imagens por etiqueta geralmente são um bom começo. No entanto, o serviço não é ideal para a detecção de diferenças sutis nas imagens (por exemplo, detetar falhas de pequenas ou dents em cenários de garantia de qualidade).
 
-Além disso, pode escolher entre diversas variedades do algoritmo de visão personalizada que estão otimizadas para imagens com determinados material de assunto&mdash;por exemplo, os pontos de referência ou itens de varejo. Veja o guia [Criar um classificador](getting-started-build-a-classifier.md) para obter mais informações sobre os mesmos.
+Além disso, pode escolher entre diversas variedades do algoritmo de visão personalizada que estão otimizadas para imagens com determinados material de assunto&mdash;por exemplo, os pontos de referência ou itens de varejo. Para obter mais informações, consulte a [criar um classificador](getting-started-build-a-classifier.md) guia.
 
 ## <a name="what-it-includes"></a>O que inclui
 

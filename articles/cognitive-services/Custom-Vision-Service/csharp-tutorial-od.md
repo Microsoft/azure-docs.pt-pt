@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 6f4b13e5fb2dc8ed595999bfc8a2abe4db15dcbb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 63f5853199e3ee266df298b9599c2933b7da0826
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393912"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606928"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de .NET de visão personalizada
 
@@ -27,7 +27,7 @@ Este artigo apresenta informações e código de exemplo para o ajudar a começa
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obter o SDK de Visão Personalizada e o exemplo de código
 
-Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Estes pacotes estão incluídos no projeto de exemplo que transferiu, mas pode aceder individualmente aos mesmos aqui.
+Para escrever uma aplicação .NET que utilize a Visão Personalizada, precisa dos pacotes NuGet da Visão Personalizada. Esses pacotes estão incluídos no projeto de exemplo, irá transferir, mas pode acessá-los individualmente aqui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -44,7 +44,7 @@ Abra o ficheiro _Program.cs_ e inspecione o código. Introduza as chaves da sua 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=18-27)]
 
-O parâmetro de ponto final deve apontar para a região em que o grupo de recursos do Azure que contém os recursos de visão personalizada foi criado no. Para este exemplo partem do princípio de região Centro-Sul e utilize:
+O parâmetro de ponto final deve apontar para a região em que o grupo de recursos do Azure que contém os recursos de visão personalizada foi criado no. Neste exemplo, vamos supor que a região Centro-Sul e utilizar:
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=14-14)]
 
@@ -123,7 +123,7 @@ using (var stream = File.OpenRead(imageFile))
 
 À medida que a aplicação é executada, deverá abrir uma janela e consola e escrever a saída seguinte:
 
-```
+```console
 Creating new project:
         Training
 Done!

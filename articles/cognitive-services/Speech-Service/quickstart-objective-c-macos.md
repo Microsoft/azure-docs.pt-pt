@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 49e39a40093f2efdf0fabbbf9f383576b2cebe22
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 25f341d167cecd765fd89d9286708d0bd8df6dd2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484999"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603041"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no macOS com o SDK de voz
 
@@ -88,4 +88,3 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 
 > [!div class="nextstepaction"]
 > [Explore exemplos de Objective-C no GitHub](https://aka.ms/csspeech/samples)
-

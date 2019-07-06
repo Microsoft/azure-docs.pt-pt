@@ -3,15 +3,15 @@ title: Script do Azure PowerShell - Azure Cosmos DB lista e obter operações pa
 description: Script do Azure PowerShell - Azure Cosmos DB lista e obter operações para a API de Cassandra
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e275f0e1ca90a1d9385784bebcef9c70ffe6cdcf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f426afee2ab5635cf29ee5a48a6e11e1f6d10f4e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247263"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604001"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>Listar e obter keyspaces e tabelas para o Azure Cosmos DB - API de Cassandra
 

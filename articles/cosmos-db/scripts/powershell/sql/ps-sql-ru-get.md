@@ -3,15 +3,15 @@ title: Script do Azure PowerShell - Azure Cosmos DB obter débito aprovisionado 
 description: Script do Azure PowerShell - Azure Cosmos DB obter débito aprovisionado (RU/s) para a SQL API (principal)
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: f70229e22ae0ef5d761ef456e880f0e96c42643e
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 75a8ebbb04fd3cbad9f0a1a3f302b40439adbbcc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566794"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67602141"
 ---
 # <a name="get-the-provisioned-throughput-rus-for-a-database-or-container-for-azure-cosmos-db---sql-core-api"></a>Obtenha o débito aprovisionado (RU/s) para uma base de dados ou o contentor para o Azure Cosmos DB - SQL API (principal)
 

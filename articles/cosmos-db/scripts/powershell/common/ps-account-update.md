@@ -3,15 +3,15 @@ title: Script do Azure PowerShell - atualizar uma conta do Cosmos do Azure
 description: Exemplo do script do Azure PowerShell - atualizar uma conta do Cosmos do Azure com regiões foram adicionados
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4a695fd569459e6372465273675620cd40d7e6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fad9b47b4f451f4b77f32038b26d6dc43809a60
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247833"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603954"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>Atualizar uma conta do Cosmos do Azure e adicionar uma região com o PowerShell
 

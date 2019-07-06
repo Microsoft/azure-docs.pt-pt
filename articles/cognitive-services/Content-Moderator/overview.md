@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 14cf500cff9f1f7f8b1573862c3060326e6518fa
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: d814a943bc8dc789abe84b33583714beb998c0ef
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688854"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607007"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
@@ -65,7 +65,7 @@ As APIs de revisão permitem-lhe integrar o seu pipeline de moderação com os r
 
 ## <a name="the-review-tool"></a>A ferramenta de revisão
 
-O serviço do Content Moderator também inclui baseada na web [ferramenta de revisão](Review-Tool-User-Guide/human-in-the-loop.md), que aloja o conteúdo revisões para moderadores humanos processar. A contribuição humana não prepara o serviço, mas o trabalho combinado do serviço e das equipas de revisão humana permite que os programadores encontrem o equilíbrio certo entre eficiência e precisão. A ferramenta de revisão também fornece um amigável front-end para uma variedade de recursos do Content Moderator.
+O serviço do Content Moderator também inclui baseada na web [ferramenta de revisão](Review-Tool-User-Guide/human-in-the-loop.md), que aloja o conteúdo revisões para moderadores humanos processar. A contribuição humana não prepara o serviço, mas o trabalho combinado do serviço e das equipas de revisão humana permite que os programadores encontrem o equilíbrio certo entre eficiência e precisão. A ferramenta de revisão também fornece um front-end amigável de utilizador para uma variedade de recursos do Content Moderator.
 
 ![Home page da ferramenta de revisão humana do Content Moderator](images/homepage.PNG)
 

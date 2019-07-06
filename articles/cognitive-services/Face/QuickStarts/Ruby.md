@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815307"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603363"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início rápido: Detetar rostos numa imagem usando a REST API e Ruby
 
@@ -28,7 +28,7 @@ Neste início rápido, irá utilizar a API de REST de Face do Azure com Ruby par
 
 ## <a name="write-the-script"></a>Escrever o script
 
-Criar um novo arquivo _faceDetection.rb_e adicione o seguinte código. Isso chama a API Face de um URL de imagem específica.
+Criar um novo arquivo _faceDetection.rb_e adicione o seguinte código. Esse código chama a API Face de um URL de imagem específica.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 Terá de atualizar o `request['Ocp-Apim-Subscription-Key']` valor com a chave de subscrição e poderá ter de alterar o `uri` , para que ele contém o identificador de região correto de cadeias de caracteres (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região) . 
 
-Também pode pretender alterar o `imageUri` campo para apontar para a sua própria imagem de entrada. Também pode pretender chang o `returnFaceAttributes` campo, que especifica qual face deve atributos para recuperar.
+Também pode pretender alterar o `imageUri` campo para apontar para a sua própria imagem de entrada. Também pode pretender alterar o `returnFaceAttributes` campo, que especifica qual face deve atributos para recuperar.
 
 ## <a name="run-the-script"></a>Executar o script
 
@@ -74,7 +74,7 @@ Execute o script de Ruby com o seguinte comando:
 ruby faceDetection.rb
 ```
 
-Deverá ver uma cadeia de caracteres do JSON de dados de rostos detetados impressos no console. Segue-se um exemplo de uma resposta JSON com êxito.
+Deverá ver uma cadeia de caracteres do JSON de dados de rostos detetados impressos no console. O texto seguinte é um exemplo de uma resposta JSON com êxito.
 
 ```json
 [

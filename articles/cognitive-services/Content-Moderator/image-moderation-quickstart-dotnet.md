@@ -1,25 +1,25 @@
 ---
 title: 'Início rápido: Analise imagens para conteúdo objetáveis na C# -moderador de conteúdo'
 titlesuffix: Azure Cognitive Services
-description: Como analisar os conteúdos de imagens quanto a diversos materiais censuráveis com o SDK Content Moderator para .NET
+description: Como analisar o conteúdo da imagem para vários materiais objetáveis utilizando o SDK do moderador de conteúdo para .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d9a28dcd4af68cf9c00eb3d338c4bd83c8d89ecc
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699074"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604125"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Início rápido: Analise imagens para conteúdo objetáveisC#
 
-Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vai aprender a fazer análises para descobrir conteúdos para adultos ou racistas, textos extraíveis e rostos humanos com o objetivo de moderar materiais potencialmente censuráveis.
+Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Irá aprender a verificar a existência de conteúdo de adultos, texto passível de extração e rostos humanos com o objetivo de moderadores potencialmente objetáveis material.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -60,7 +60,7 @@ Adicione o código seguinte ao ficheiro *Program.cs* para criar um fornecedor de
 
 ### <a name="set-up-input-and-output-targets"></a>Configurar destinos de entrada e de saída
 
-Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos especificam os ficheiros dos conteúdos de imagem de entrada e dos conteúdos JSON de saída.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Estes campos especificar os ficheiros de conteúdo da imagem de entrada e saída JSON conteúdo.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
 
@@ -86,13 +86,13 @@ Adicione o seguinte método à classe **Programa**. Este método avalia uma imag
 
 ### <a name="load-the-input-images"></a>Carregar as imagens de entrada
 
-Adicione o seguinte código ao método **Main** na classe **Program**. Desta forma, o programa é configurado para obter os dados de avaliação de cada URL da imagem no ficheiro de entrada. Em seguida, escreve esses dados num ficheiro de saída individual.
+Adicione o seguinte código ao método **Main** na classe **Program**. Este código define o programa para recuperar dados de avaliação para cada URL de imagem no ficheiro de entrada. Em seguida, escreve esses dados num ficheiro de saída individual.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
 
 ## <a name="run-the-program"></a>Execute o programa
 
-O programa escreve os dados da cadeia JSON no ficheiro _ModerationOutput.json_. Os exemplos de imagens utilizados neste início rápido originam a saída abaixo. Tenha em atenção que cada imagem tem diferentes secções para `ImageModeration`, `FaceDetection` e `TextDetection`, que correspondem às três chamadas à API no método **EvaluateImage**.
+O programa escreve os dados da cadeia JSON no ficheiro _ModerationOutput.json_. Os exemplos de imagens utilizados neste início rápido originam a saída abaixo. Cada imagem tem diferentes secções para `ImageModeration`, `FaceDetection`, e `TextDetection`, que correspondem aos três chamadas de API na sua **EvaluateImage** método.
 
 ```json
 [{

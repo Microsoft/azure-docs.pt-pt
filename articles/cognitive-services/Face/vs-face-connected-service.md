@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: API faceC#'
 titleSuffix: Azure Cognitive Services
-description: Crie uma aplicação do Windows simples que utilize a API Face dos Serviços Cognitivos para detetar características de rostos numa imagem.
+description: Crie uma aplicação do Windows que utiliza a API Face dos serviços cognitivos para detetar recursos de faces numa imagem.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827665"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606803"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Ligar à API Face dos Serviços Cognitivos ao utilizar os Serviços Ligados no Visual Studio
 
@@ -147,7 +147,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
             });
         }
    ```
-    O código neste passo constrói um pedido HTTP com uma chamada para a API REST Face através da chave que adicionou quando adicionou o serviço ligado.
+    O código neste passo constrói um pedido HTTP com uma chamada à API de REST do rosto, utilizando a chave adicionado quando adicionou o serviço ligado.
 
 1. Adicione as funções de programa auxiliar GetImageAsByteArray e JsonPrettyPrint.
 
@@ -239,9 +239,9 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
 Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
-1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste Início Rápido nos resultados da pesquisa, selecione-o.
+1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste início rápido nos resultados da pesquisa, selecione-o.
 1. Selecione **Eliminar grupo de recursos**.
-1. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
+1. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9d057628f79eb5edbbd3424d29aa7683b5d99eb7
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 1776a387add47464287e4ee3a22a2e1f5c3c781a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357214"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604388"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e o Java de imagem digitalizada
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Início rápido: Extrair texto manuscrito usando a API REST de imagem digitalizada e Java
 
 Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API e o [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, pode detetar texto manuscrito numa imagem e, em seguida, extrair reconhecido carateres para um fluxo de carateres máquina utilizável.
 
@@ -79,11 +79,11 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the "westus" region.
+    // Free trial subscription keys are generated in the "westcentralus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =
-        "https://westus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
+        "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/read/core/asyncBatchAnalyze";
 
     private static final String imageToAnalyze =
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +

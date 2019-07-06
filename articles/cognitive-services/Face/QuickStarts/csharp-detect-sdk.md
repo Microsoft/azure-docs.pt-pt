@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815437"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606768"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início rápido: Detetar rostos numa imagem usando o .NET SDK de rostos
 
@@ -66,7 +66,7 @@ Também na **Main** método, adicione o seguinte código para utilizar o cliente
 
 ### <a name="detect-faces"></a>Detetar rostos
 
-Adicione o seguinte método à classe **Programa**. Utiliza o cliente do serviço de rostos para detetar rostos numa imagem remota, referenciada por um URL. Tenha em atenção que utiliza a `faceAttributes` campo&mdash;a **DetectedFace** objetos adicionados à `faceList` terão os atributos especificados (neste caso, a idade e género).
+Adicione o seguinte método à classe **Programa**. Utiliza o cliente do serviço de rostos para detetar rostos numa imagem remota, referenciada por um URL. Ele usa o `faceAttributes` campo&mdash;a **DetectedFace** objetos adicionados à `faceList` terão os atributos especificados (neste caso, a idade e género).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

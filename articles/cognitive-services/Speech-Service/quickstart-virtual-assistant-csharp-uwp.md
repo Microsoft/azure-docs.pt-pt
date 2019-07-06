@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: 4044f8d48efae4e8423f780c85e0f3ccfde12461
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467059"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604964"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Início rápido: Criar um Assistente de virtual de voz em primeiro lugar, com o SDK de voz, UWP
 
@@ -81,7 +80,7 @@ Neste início rápido descreve, passo a passo, como criar um aplicativo cliente 
     </Page>
     ```
 
-1. Abra o arquivo de origem do code-behind `MainPage.xaml.cs`. Pode encontrá-la agrupados sob `MainPage.xaml`. Substitua o conteúdo com o código abaixo. Eis o que abrange este exemplo: 
+1. Abra o arquivo de origem do code-behind `MainPage.xaml.cs`. Pode encontrá-la agrupados sob `MainPage.xaml`. Substitua o conteúdo com o código abaixo. Eis o que abrange este exemplo:
 
     * Utilizar as instruções para os espaços de nomes de voz e Speech.Dialog
     * Uma implementação simples para garantir o acesso ao microfone, vinculado a um manipulador do botão

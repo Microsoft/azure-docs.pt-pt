@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: cf60e298782d7bdcf15b53474b2d002a3fd62bba
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 5203467eadadf1180eabf7b5a51b113ae273ee7c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341884"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603543"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Gere uma miniatura usando a REST API e Python em de imagem digitalizada
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Gere uma miniatura usando a API REST de imagem digitalizada e Python
 
 Neste início rápido, irá gerar uma miniatura de uma imagem usando a API de REST da visão do computador. Com o [obter miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) método, pode especificar a altura desejada e a largura e a utiliza de imagem digitalizada corte inteligente para inteligentemente identificar a área de interesse e gerar as coordenadas de recorte com base na região.
 
@@ -49,7 +49,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the "westus" region.
+# Free trial subscription keys are generated in the "westcentralus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"

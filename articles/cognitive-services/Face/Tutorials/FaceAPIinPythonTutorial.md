@@ -1,25 +1,25 @@
 ---
 title: 'Início rápido: Detetar e quadro rostos numa imagem com o SDK de Python'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá criar um script de Python simples que utiliza a API de rostos para detetar e quadro rostos numa imagem remoto.
+description: Neste início rápido, irá criar um script de Python que utiliza a API de rostos para detetar e quadro rostos numa imagem remoto.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/03/2018
 ms.author: sbowles
-ms.openlocfilehash: b816f4b78921c4bace1d15dd408b3fd701a3d6c5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 741dd18a3b8da5e44d77c24d46adb8d550322281
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67339380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603287"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Início rápido: Criar um script de Python para detetar e rostos numa imagem de fotograma
 
-Neste início rápido, irá criar um script de Python simples que utiliza a API Face do Azure, através do SDK de Python, para detetar rostos humanos numa imagem remota. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
+Neste início rápido, irá criar um script de Python que utiliza a API Face do Azure, através do SDK de Python, para detetar rostos humanos numa imagem remota. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
@@ -39,7 +39,7 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>Detetar rostos numa imagem
 
-Criar um novo script de Python com o nome _FaceQuickstart.py_ e adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
+Criar um novo script de Python com o nome _FaceQuickstart.py_ e adicione o seguinte código. Esse código lida com a funcionalidade principal de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
 
 O script irá detetar rostos ao chamar o **cognitive_face.face.detect** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e retorna uma lista de faces.
 
@@ -64,11 +64,11 @@ print(faces)
 
 Execute a aplicação com o comando `python FaceQuickstart.py`. Obterá uma resposta de texto na janela da consola, semelhante ao seguinte:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-Esta é uma lista de rostos detetados. Cada item na lista é uma **dict** instância onde `faceId` é um ID exclusivo para o rosto detetado e `faceRectangle` descreve a posição do mostrador da detetado. 
+A saída representa uma lista de rostos detetados. Cada item na lista é uma **dict** instância onde `faceId` é um ID exclusivo para o rosto detetado e `faceRectangle` descreve a posição do mostrador da detetado. 
 
 > [!NOTE]
 > IDs de face expirem após 24 horas; precisará armazenar dados de face explicitamente se quiser manter a longo prazo.
@@ -83,7 +83,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Em seguida, na parte inferior do seu script, adicione o seguinte código. Esta ação cria uma função simples para analisar as coordenadas do retângulo e utiliza Pillow para desenhar retângulos na imagem original. Em seguida, apresenta a imagem no seu Visualizador de imagem padrão.
+Em seguida, na parte inferior do seu script, adicione o seguinte código. Este código cria uma função simples para analisar as coordenadas do retângulo e usa Pillow para desenhar retângulos na imagem original. Em seguida, apresenta a imagem no seu Visualizador de imagem padrão.
 
 ```python
 # Convert width height to a point in a rectangle

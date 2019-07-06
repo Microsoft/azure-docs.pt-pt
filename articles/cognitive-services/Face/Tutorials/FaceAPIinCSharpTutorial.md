@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 6a60afc45894518f92115976876ddd50efa1e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54069fbaa8ad06d257ab835ed3b170fecb76d800
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815331"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603347"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados de rostos numa imagem
 
-Neste tutorial, irá aprender como utilizar a API Face do Azure, através do cliente de .NET SDK, para detetar rostos numa imagem e, em seguida, apresentar esses dados na IU. Irá criar um aplicativo simples do Windows Presentation Framework (WPF) que Deteta rostos, desenha um quadro em torno de cada rosto e apresenta uma descrição do mostrador na barra de status. 
+Neste tutorial, irá aprender como utilizar a API Face do Azure, através do cliente de .NET SDK, para detetar rostos numa imagem e, em seguida, apresentar esses dados na IU. Irá criar um aplicativo do Windows Presentation Framework (WPF) que Deteta rostos, desenha um quadro em torno de cada rosto e apresenta uma descrição do mostrador na barra de status. 
 
 Este tutorial mostrar-lhe como:
 
@@ -46,7 +46,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Siga estes passos para criar um novo projeto de aplicativo do WPF.
 
-1. No Visual Studio, abra a caixa de diálogo novo projeto. Expanda **instalada**, em seguida, **Visual C#** , em seguida, selecione **WPF App (.NET Framework)**.
+1. No Visual Studio, abra a caixa de diálogo novo projeto. Expanda **instalada**, em seguida, **Visual C#** , em seguida, selecione **WPF App (.NET Framework)** .
 1. Dê à aplicação o nome **FaceTutorial** e, em seguida, clique em **OK**.
 1. Obtenha os pacotes NuGet necessários. Com o botão direito no seu projeto no Solution Explorer e selecione **gerir pacotes NuGet**; em seguida, localizar e instalar o pacote seguinte:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
@@ -57,7 +57,7 @@ Nesta secção, irá adicionar a estrutura básica da aplicação sem seus recur
 
 ### <a name="create-the-ui"></a>Criar a interface do Usuário
 
-Open *mainwindow. XAML* e substitua os conteúdos com o código a seguir&mdash;esta ação cria a janela da interface do Usuário. Tenha em atenção que `FacePhoto_MouseMove` e `BrowseButton_Click` são manipuladores de eventos que definirá posteriormente.
+Open *mainwindow. XAML* e substitua os conteúdos com o código a seguir&mdash;este código cria a janela da interface do Usuário. O `FacePhoto_MouseMove` e `BrowseButton_Click` métodos são os manipuladores de eventos que definirá posteriormente.
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
 
@@ -67,7 +67,7 @@ Open *MainWindow.xaml.cs* e adicionar espaços de nomes da biblioteca de cliente
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Em seguida, insira o seguinte código no **MainWindow** classe. Esta ação cria um **FaceClient** instância com a chave de subscrição, que tem de introduzir por conta própria. Também tem de definir a cadeia de caracteres de região `faceEndpoint` para a região correta para a sua subscrição (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região).
+Em seguida, insira o seguinte código no **MainWindow** classe. Este código cria um **FaceClient** instância com a chave de subscrição, que tem de introduzir por conta própria. Tem de definir a cadeia de caracteres de região `faceEndpoint` para a região correta para a sua subscrição (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -75,13 +75,13 @@ Em seguida, cole o código seguinte para o **MainWindow** método.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
 
-Por fim, adicione a **BrowseButton_Click** e **FacePhoto_MouseMove** métodos à classe. Elas correspondem aos manipuladores de eventos declarados na *mainwindow. XAML*. O **BrowseButton_Click** método cria uma **OpenFileDialog**, que permite que o usuário selecionar uma imagem. jpg. Em seguida, ele exibe a imagem na janela principal. Irá inserir o código restante **BrowseButton_Click** e **FacePhoto_MouseMove** em passos posteriores. Tenha também em atenção a `faceList` referência&mdash;uma lista de **DetectedFace** objetos. Isso é onde a aplicação irá armazenar e chamar os dados de rosto real.
+Por fim, adicione a **BrowseButton_Click** e **FacePhoto_MouseMove** métodos à classe. Esses métodos correspondem aos manipuladores de eventos declarados na *mainwindow. XAML*. O **BrowseButton_Click** método cria uma **OpenFileDialog**, que permite que o usuário selecionar uma imagem. jpg. Em seguida, ele exibe a imagem na janela principal. Irá inserir o código restante **BrowseButton_Click** e **FacePhoto_MouseMove** em passos posteriores. Tenha também em atenção a `faceList` referência&mdash;uma lista de **DetectedFace** objetos. Esta referência é onde a aplicação irá armazenar e chamar os dados de rosto real.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=148-150,187)]
 
-### <a name="try-the-app"></a>Experimentar a aplicação
+### <a name="try-the-app"></a>Experimente a aplicação
 
 Prima **Iniciar** no menu para testar a sua aplicação. Quando abre a janela da aplicação, clique em **procurar** no canto inferior esquerdo. R **File Open** deverá aparecer a caixa de diálogo. Selecionar uma imagem de seu sistema de ficheiros e certifique-se de que ele exibe na janela. Em seguida, feche a aplicação e avance para o passo seguinte.
 
@@ -91,19 +91,19 @@ Prima **Iniciar** no menu para testar a sua aplicação. Quando abre a janela da
 
 A aplicação irá detetar rostos ao chamar o **FaceClient.Face.DetectWithStreamAsync** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API REST para carregar uma imagem local.
 
-Inserir o seguinte método na **MainWindow** classe, veja a seguir os **FacePhoto_MouseMove** método. Isso define uma lista de atributos faciais para recuperar e lê o ficheiro de imagem submetidas para uma **Stream**. Em seguida, ele passa para ambos os **DetectWithStreamAsync** chamada de método.
+Inserir o seguinte método na **MainWindow** classe, veja a seguir os **FacePhoto_MouseMove** método. Esse método define uma lista de atributos faciais para recuperar e lê o ficheiro de imagem submetidas para uma **Stream**. Em seguida, ele passa para ambos os **DetectWithStreamAsync** chamada de método.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=189-226)]
 
 ## <a name="draw-rectangles-around-faces"></a>Desenhar retângulos em torno de rostos
 
-Em seguida, irá adicionar o código para desenhar um retângulo em torno de cada detetado rosto na imagem. Na **MainWindow** de classe, insira o seguinte código no final da **BrowseButton_Click** método, após o `FacePhoto.Source = bitmapSource` linha. Isto preenche uma lista de rostos detetados da chamada para **UploadAndDetectFaces**. Em seguida, ele desenha um retângulo em torno de cada rosto e exibe pela imagem modificada na janela principal.
+Em seguida, irá adicionar o código para desenhar um retângulo em torno de cada detetado rosto na imagem. Na **MainWindow** de classe, insira o seguinte código no final da **BrowseButton_Click** método, após o `FacePhoto.Source = bitmapSource` linha. Esse código preenche uma lista de rostos detetados da chamada para **UploadAndDetectFaces**. Em seguida, ele desenha um retângulo em torno de cada rosto e exibe pela imagem modificada na janela principal.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
 
 ## <a name="describe-the-faces"></a>Descreva os rostos
 
-Adicione o seguinte método para o **MainWindow** classe, veja a seguir os **UploadAndDetectFaces** método. Desta forma, os atributos de face obtidos numa cadeia de caracteres que descreve a aparência.
+Adicione o seguinte método para o **MainWindow** classe, veja a seguir os **UploadAndDetectFaces** método. Este método converte os atributos de face obtidos numa cadeia de caracteres que descrevem o mostrador.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=228-286)]
 

@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b4b10591069b71a4e70769f5bdcd6149768c5007
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827641"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604028"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logótipos de serviço do Azure nas imagens da câmara
 
-Neste tutorial, vou explorar uma aplicação de exemplo que utiliza a imagem digitalizada personalizado do Azure como parte de um cenário maior. A aplicação de aprovisionamento de IA Visual, uma aplicação xamarin. Forms para plataformas móveis, analisa imagens da câmara de logotipos do serviço do Azure e, em seguida, implementa o serviço real para a conta de utilizador do Azure. Aqui, vai aprender como ele usa visão personalizada em coordenação com outros componentes para fornecer um aplicativo útil de ponto-a-ponto. Executar o cenário de aplicação inteira para si próprio, ou simplesmente preencha a parte de visão personalizada da configuração e explore como a aplicação utiliza-o.
+Neste tutorial, vou explorar uma aplicação de exemplo que utiliza a imagem digitalizada personalizado do Azure como parte de um cenário maior. A aplicação de aprovisionamento de IA Visual, uma aplicação xamarin. Forms para plataformas móveis, analisa imagens da câmara de logotipos do serviço do Azure e, em seguida, implementa o serviço real para a conta de utilizador do Azure. Aqui, vai aprender como ele usa visão personalizada em coordenação com outros componentes para fornecer um aplicativo útil de ponto-a-ponto. Pode executar o cenário de aplicação inteira para si próprio, ou pode concluir a parte de visão personalizada da configuração e explorar a forma como a aplicação utiliza-o.
 
 Este tutorial irá mostrar-lhe como:
 
@@ -63,13 +63,13 @@ Depois de marcar uma imagem, vá para a direita para marcar a próxima Sílaba. 
 
 ## <a name="train-the-object-detector"></a>Preparar o detetor de objeto
 
-No painel da esquerda, defina o **etiquetas** mudar para **Tagged** para exibir as imagens. Em seguida, selecione o botão verde na parte superior da página para preparar o modelo. Isso irá ensiná-o algoritmo para reconhecer as etiquetas mesmo em novas imagens. Ele também irá testar o modelo em algumas das suas imagens existentes para gerar as pontuações de precisão.
+No painel da esquerda, defina o **etiquetas** mudar para **Tagged** para exibir as imagens. Em seguida, selecione o botão verde na parte superior da página para preparar o modelo. O algoritmo irá preparar reconhecer as etiquetas mesmo em novas imagens. Ele também irá testar o modelo em algumas das suas imagens existentes para gerar as pontuações de precisão.
 
 ![O site de visão personalizada, no separador imagens de formação. Nesta captura de ecrã, o botão de comboio é descrito](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Obter o URL de predição
 
-Depois do seu modelo é preparado, está pronto para integrá-la na sua aplicação. Para tal, terá de obter o URL de ponto de extremidade (o endereço do seu modelo, o que a aplicação irá consultar) e a chave de previsão (para conceder o acesso de aplicação para pedidos de predição). Sobre o **desempenho** separador, selecione a **URL de predição** botão na parte superior da página.
+Depois do seu modelo é preparado, está pronto para integrá-la na sua aplicação. Terá de obter o URL de ponto de extremidade (o endereço do seu modelo, o que a aplicação irá consultar) e a chave de previsão (para conceder o acesso de aplicação para pedidos de predição). Sobre o **desempenho** separador, selecione a **URL de predição** botão na parte superior da página.
 
 ![O site de visão personalizada, que mostra uma janela de API de predição, que apresenta um endereço de URL e a chave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
 

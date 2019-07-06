@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815375"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603316"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início rápido: Detetar rostos numa imagem usando a API de REST de rostos e o cURL
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="write-the-command"></a>Escrever o comando
  
-Irá utilizar um comando semelhante ao seguinte para chamar a API Face e obter dados de atributo de face a partir de uma imagem. Em primeiro lugar, copie o código para um editor de texto&mdash;terá de fazer alterações a certas partes do comando antes de pode executá-lo.
+Usará um comando semelhante ao seguinte para chamar a API Face e obter dados de atributo de face a partir de uma imagem. Em primeiro lugar, copie o código para um editor de texto&mdash;terá de fazer alterações a certas partes do comando antes de pode executá-lo.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -40,7 +40,7 @@ Substitua `<Subscription Key>` com a sua chave de subscrição de Face válido.
 
 ### <a name="face-endpoint-url"></a>URL de ponto final de rostos
 
-O URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de final do Azure Face a consulta. Poderá ter de alterar a primeira parte deste URL de acordo com a região que corresponde à sua chave de subscrição (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região).
+O URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de final do Azure Face a consulta. Terá de alterar a primeira parte deste URL de acordo com a região que corresponde à sua chave de subscrição. Consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região.
 
 ### <a name="url-query-string"></a>Cadeia de consulta de URL
 

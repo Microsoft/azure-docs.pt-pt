@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6722fa103b3d48a8ca8ff4b96c9d179a4f743608
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18a00c2aebd05d2ed2da54e436d245c70bf25051
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409095"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604465"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a REST API e C&#35; na visão do computador
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Início rápido: Extrair texto impresso (OCR) com a API de REST de visão do computador eC#
 
 Neste início rápido, irá extrair o texto impresso com reconhecimento ótico de carateres (OCR) de uma imagem com API de REST do imagem digitalizada. Com o [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) funcionalidade, pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres máquina utilizável.
 
@@ -247,10 +247,6 @@ O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e aprese
     ]
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, elimine a solução do Visual Studio. Para tal, abra o Explorador de Ficheiros, navegue para a pasta onde criou a solução do Visual Studio e elimine a pasta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
