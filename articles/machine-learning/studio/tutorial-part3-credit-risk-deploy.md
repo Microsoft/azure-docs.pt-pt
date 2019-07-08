@@ -61,14 +61,14 @@ Preparação para a implantação é um processo em três etapas:
 
 Em primeiro lugar, terá de cortar desta experiência um pouco. tem atualmente dois modelos diferentes na experimentação, mas pretende utilizar um modelo ao implementar isso como um serviço web.  
 
-Digamos que decidiu que o modelo de árvore elevada tem melhor desempenho do que o modelo SVM. Portanto, a primeira coisa a fazer é remover os [máquina de Vetor com suporte a duas classes] [ two-class-support-vector-machine] módulo e os módulos que eram usados para treiná-lo. Talvez queira fazer uma cópia da experimentação primeiro clicando **guardar como** na parte inferior da tela de experimentação.
+Digamos que decidiu que o modelo de árvore elevada tem melhor desempenho do que o modelo SVM. Portanto, a primeira coisa a fazer é remover os [máquina de Vetor com suporte a duas classes][two-class-support-vector-machine] módulo e os módulos que eram usados para treiná-lo. Talvez queira fazer uma cópia da experimentação primeiro clicando **guardar como** na parte inferior da tela de experimentação.
 
 tem de eliminar os seguintes módulos:  
 
 * [Máquina de Vetor com suporte de duas classes][two-class-support-vector-machine]
-* [Preparar modelo] [ train-model] e [Score Model] [ score-model] módulos que foram conectados a ele
-* [Normalizar dados] [ normalize-data] (ambos)
-* [Avaliar modelo] [ evaluate-model] (porque estamos avaliando os modelos de terminado)
+* [Preparar modelo][train-model] e [Score Model][score-model] módulos que foram conectados a ele
+* [Normalizar dados][normalize-data] (ambos)
+* [Avaliar modelo][evaluate-model] (porque estamos avaliando os modelos de terminado)
 
 Selecione cada módulo e prima a tecla Delete, ou o módulo com o botão direito e selecione **eliminar**. 
 
@@ -100,7 +100,7 @@ Quando clica em **no serviço de Web**, várias coisas acontecem:
   * [Árvore de decisões elevada de duas classes][two-class-boosted-decision-tree]
   * [Preparar modelo][train-model]
   * [Dividir os dados][split]
-  * a segunda [executar Script R] [ execute-r-script] módulo que foi utilizado para dados de teste
+  * a segunda [executar Script R][execute-r-script] módulo que foi utilizado para dados de teste
 * O modelo treinado guardado é adicionado novamente para a experimentação
 * **Entrada do serviço da Web** e **saída de serviço da Web** módulos são adicionados (estes identificam onde os dados do utilizador irão introduzir o modelo e quais dados são retornados, quando o serviço web é acessado)
 
@@ -108,8 +108,8 @@ Quando clica em **no serviço de Web**, várias coisas acontecem:
 > Pode ver que a experimentação é guardada em duas partes dentro de separadores que foram adicionados na parte superior da tela de experimentação. A experimentação de preparação original é no separador **experimentação de preparação**, e a experimentação preditiva recentemente criada está sob **experimentação preditiva**. A experimentação preditiva é o que vai implementar como um serviço web.
 
 precisa de uma etapa adicional com esta experiência específica.
-adicionou dois [executar Script R] [ execute-r-script] módulos para fornecer uma função de peso para os dados. Essa foi apenas um truque que precisava para formação e teste, para que possa tirar o esses módulos no modelo final.
-O Machine Learning Studio removido um [executar Script R] [ execute-r-script] módulo quando ele removido o [Split] [ split] módulo. Agora, pode remover o outro e ligue-se [Editor de metadados] [ metadata-editor] diretamente à [Score Model][score-model].    
+adicionou dois [executar Script R][execute-r-script] módulos para fornecer uma função de peso para os dados. Essa foi apenas um truque que precisava para formação e teste, para que possa tirar o esses módulos no modelo final.
+O Machine Learning Studio removido um [executar Script R][execute-r-script] módulo quando ele removido o [Split][split] módulo. Agora, pode remover o outro e ligue-se [Editor de metadados][metadata-editor] diretamente à [Score Model][score-model].    
 
 Nossa experiência deve agora ter um aspeto semelhante a esta:  
 
@@ -124,13 +124,13 @@ Nossa experiência deve agora ter um aspeto semelhante a esta:
 >Uma coisa importante a observar é que se o conjunto de dados original contido a etiqueta, em seguida, o schema esperado da entrada web será também esperar que uma coluna com a etiqueta! Uma maneira de evitar isso é remover a etiqueta e quaisquer outros dados que estava a ser o conjunto de dados de treinamento, mas não será nas entradas de web, antes de ligar a entrada de web e o conjunto de dados de treinamento num módulo comum. 
 > 
 
-Execute a experimentação pela última vez (clique em **executar**.) Se quiser verificar se o modelo ainda está funcionando, clique na saída do [modelo de pontuação] [ score-model] módulo e selecione **ver resultados**. Pode ver que os dados originais são apresentados, juntamente com o valor de risco de crédito ("etiquetas classificadas") e o valor de probabilidade de classificação ("classificada probabilidades".) 
+Execute a experimentação pela última vez (clique em **executar**.) Se quiser verificar se o modelo ainda está funcionando, clique na saída do [modelo de pontuação][score-model] módulo e selecione **ver resultados**. Pode ver que os dados originais são apresentados, juntamente com o valor de risco de crédito ("etiquetas classificadas") e o valor de probabilidade de classificação ("classificada probabilidades".) 
 
 ## <a name="deploy-the-web-service"></a>Implementar o serviço web
 Pode implementar a experimentação, como a um serviço web clássico ou como um novo serviço web baseado no Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Implementar como um serviço web clássico
-Para implementar um serviço da web clássico derivado a partir de nossa experiência, clique em **implementar serviço Web** abaixo de tela e selecione **implementar o serviço Web [clássica]**. O Machine Learning Studio implementa a experimentação como um serviço web e leva-o para o dashboard para esse serviço da web. Nesta página, pode retornar para a experimentação (**ver instantâneo** ou **ver mais recente**) e executar um teste simples do serviço web (veja **testar o serviço web** abaixo). Também há informações para a criação de aplicativos que podem aceder ao serviço web (mais sobre isso no próximo passo do tutorial).
+Para implementar um serviço da web clássico derivado a partir de nossa experiência, clique em **implementar serviço Web** abaixo de tela e selecione **implementar o serviço Web [clássica]** . O Machine Learning Studio implementa a experimentação como um serviço web e leva-o para o dashboard para esse serviço da web. Nesta página, pode retornar para a experimentação (**ver instantâneo** ou **ver mais recente**) e executar um teste simples do serviço web (veja **testar o serviço web** abaixo). Também há informações para a criação de aplicativos que podem aceder ao serviço web (mais sobre isso no próximo passo do tutorial).
 
 ![Dashboard de serviço da Web](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -147,7 +147,7 @@ Pode configurar o serviço clicando a **configuração** separador. Aqui pode mo
 
 Para implementar um novo serviço web derivado de nossa experiência:
 
-1. Clique em **implementar serviço Web** abaixo de tela e selecione **implementar o Web Service [novo]**. O Machine Learning Studio transfere para os serviços web do Azure Machine Learning **experimentação implementar** página.
+1. Clique em **implementar serviço Web** abaixo de tela e selecione **implementar o Web Service [novo]** . O Machine Learning Studio transfere para os serviços web do Azure Machine Learning **experimentação implementar** página.
 
 1. Introduza um nome para o serviço web. 
 
@@ -162,17 +162,17 @@ Pode configurar o serviço clicando a **configurar** separador. Aqui pode modifi
 Para testar o serviço web, clique nas **testar** separador (consulte **testar o serviço web** abaixo). Para obter informações sobre a criação de aplicativos que podem aceder ao serviço web, clique a **Consume** separador (a próxima etapa neste tutorial irá entrar em mais detalhes).
 
 > [!TIP]
-> Depois de implementar isso, é possível atualizar o serviço web. Por exemplo, se pretender alterar o seu modelo, em seguida, pode editar a experimentação de preparação, ajustar os parâmetros de modelo e clique em **implementar serviço Web**, ao selecionar **implementar o serviço Web [clássica]** ou **Implementar serviço da Web [novo]**. Quando implementar novamente a experimentação, ele substitui o serviço web, agora a utilizar o seu modelo atualizado.  
+> Depois de implementar isso, é possível atualizar o serviço web. Por exemplo, se pretender alterar o seu modelo, em seguida, pode editar a experimentação de preparação, ajustar os parâmetros de modelo e clique em **implementar serviço Web**, ao selecionar **implementar o serviço Web [clássica]** ou **Implementar serviço da Web [novo]** . Quando implementar novamente a experimentação, ele substitui o serviço web, agora a utilizar o seu modelo atualizado.  
 > 
 > 
 
 ## <a name="test-the-web-service"></a>Testar o serviço web
 
-Quando o serviço da web é acedido, os dados do utilizador inserem através da **entrada do serviço da Web** módulo onde ela é passada para o [Score Model] [ score-model] módulo e pontuadas. A forma como configurou a experimentação preditiva, o modelo espera que os dados no mesmo formato que o conjunto de dados de risco de crédito original.
+Quando o serviço da web é acedido, os dados do utilizador inserem através da **entrada do serviço da Web** módulo onde ela é passada para o [Score Model][score-model] módulo e pontuadas. A forma como configurou a experimentação preditiva, o modelo espera que os dados no mesmo formato que o conjunto de dados de risco de crédito original.
 Os resultados são devolvidos ao utilizador do serviço web através da **saída de serviço da Web** módulo.
 
 > [!TIP]
-> A forma como tem a experimentação preditiva configurada, toda a resulta dos [modelo de pontuação] [ score-model] módulo são devolvidos. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para fazer isso, inserir um [selecionar colunas] [ select-columns] módulo entre [Score Model] [ score-model] e a **Web saída de serviço**para eliminar colunas não pretende que o serviço web para retornar. 
+> A forma como tem a experimentação preditiva configurada, toda a resulta dos [modelo de pontuação][score-model] módulo são devolvidos. Isto inclui todos os dados de entrada e o valor de risco de crédito e a probabilidade de classificação. Mas pode retornar algo diferente se pretender que, por exemplo, pode devolver apenas o valor de risco de crédito. Para fazer isso, inserir um [selecionar colunas][select-columns] módulo entre [Score Model][score-model] e a **Web saída de serviço**para eliminar colunas não pretende que o serviço web para retornar. 
 > 
 > 
 
@@ -180,7 +180,7 @@ Pode testar um web clássico de serviço no **Machine Learning Studio** ou no **
 Pode testar uma nova web service apenas na **serviços Web Machine Learning** portal.
 
 > [!TIP]
-> Ao testar no portal do Azure Machine Learning Web Services, pode fazer com o portal criar dados de exemplo que pode utilizar para testar o serviço de solicitação-resposta. Sobre o **configurar** , selecione "Sim" para **ativada de dados de exemplo?**. Ao abrir o separador de solicitação-resposta sobre o **teste** página, o portal preenche os dados de exemplo retirados do conjunto de dados de risco de crédito original.
+> Ao testar no portal do Azure Machine Learning Web Services, pode fazer com o portal criar dados de exemplo que pode utilizar para testar o serviço de solicitação-resposta. Sobre o **configurar** , selecione "Sim" para **ativada de dados de exemplo?** . Ao abrir o separador de solicitação-resposta sobre o **teste** página, o portal preenche os dados de exemplo retirados do conjunto de dados de risco de crédito original.
 
 ### <a name="test-a-classic-web-service"></a>Testar um serviço web clássico
 
