@@ -100,10 +100,10 @@
           href: manage-database-permissions.md
         - name: Verificar estado de funcionamento do cluster
           href: check-cluster-health.md
-        - name: Gerir a ampliação do cluster
-          href: manage-cluster-scale-out.md
-        - name: Gerir o aumento vertical do cluster
-          href: manage-cluster-scale-up.md
+        - name: Gerir dimensionamento horizontal do cluster
+          href: manage-cluster-horizontal-scaling.md
+        - name: Gerir dimensionamento vertical do cluster
+          href: manage-cluster-vertical-scaling.md
         - name: Eliminar dados
           href: delete-data.md
         - name: Lidar com dados duplicados

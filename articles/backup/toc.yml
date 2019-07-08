@@ -62,6 +62,8 @@
           href: backup-azure-files-faq.md
         - name: FAQ - Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
+        - name: FAQ - Azure Backup Server e DPM
+          href: backup-azure-dpm-azure-server-faq.md
     - name: Arquitetura da cópia de segurança
       href: backup-architecture.md
     - name: Controlo de Acesso Baseado em Funções

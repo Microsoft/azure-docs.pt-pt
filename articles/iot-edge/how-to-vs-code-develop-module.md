@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 02/20/2019
+ms.date: 06/25/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff40ea3fec55c77d1135bde8088b00079e6b1c44
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448517"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos do Azure IoT Edge
 
