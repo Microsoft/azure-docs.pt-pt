@@ -252,7 +252,7 @@ catch(ServiceException $e){
 }
 ```
 
-As mensagens enviadas para tópicos do Service Bus são instâncias do [BrokeredMessage] [ BrokeredMessage] classe. [BrokeredMessage] [ BrokeredMessage] objetos têm um conjunto de propriedades padrão e métodos, bem como propriedades que podem ser utilizadas para conter as propriedades específicas do aplicativo personalizadas. O exemplo seguinte mostra como enviar cinco mensagens de teste para o `mytopic` tópico que criou anteriormente. O `setProperty` método é usado para adicionar uma propriedade personalizada (`MessageNumber`) para cada mensagem. O `MessageNumber` valor da propriedade varia em cada mensagem (pode utilizar este valor para determinar quais as subscrições recebem-la, como mostra a [criar uma subscrição](#create-a-subscription) secção):
+As mensagens enviadas para tópicos do Service Bus são instâncias do [BrokeredMessage][BrokeredMessage] classe. [BrokeredMessage][BrokeredMessage] objetos têm um conjunto de propriedades padrão e métodos, bem como propriedades que podem ser utilizadas para conter as propriedades específicas do aplicativo personalizadas. O exemplo seguinte mostra como enviar cinco mensagens de teste para o `mytopic` tópico que criou anteriormente. O `setProperty` método é usado para adicionar uma propriedade personalizada (`MessageNumber`) para cada mensagem. O `MessageNumber` valor da propriedade varia em cada mensagem (pode utilizar este valor para determinar quais as subscrições recebem-la, como mostra a [criar uma subscrição](#create-a-subscription) secção):
 
 ```php
 for($i = 0; $i < 5; $i++){
