@@ -10,7 +10,7 @@ ms.topic: howto
 ms.date: 05/09/2019
 ms.openlocfilehash: e9cb9a902cf60fbd3b297a72a7dfa836ee18c835
 ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/01/2019
 ms.locfileid: "67484591"
@@ -306,11 +306,11 @@ Certifique-se de que o certificado é instalado no computador\'arquivo pessoal d
         |---|---|
         | Source | Any |
         | Source port ranges | * |
-        | Destination | Any |
+        | Destino | Any |
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | \<Desired Number> |
+        | Prioridade | <Desired Number> |
         | Name | Port_LDAP_636 |
 
     ![regra de segurança de entrada](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
