@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/01/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 3903e14e8923f6d29f2a88c61aead0cfc605b5b5
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 84db33e4c7ac612353c590ac9d2904ac3bc48d38
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508669"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592396"
 ---
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>Tutorial: Devolver pesadas de caixa de dados do Azure e verifique se o carregamento de dados para o Azure (pré-visualização)
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Tutorial: Devolver pesadas de caixa de dados do Azure e verifique se o carregamento de dados para o Azure
 
 
 Este tutorial descreve como devolver pesadas de caixa de dados do Azure e certifique-se de que os dados carregados para o Azure.

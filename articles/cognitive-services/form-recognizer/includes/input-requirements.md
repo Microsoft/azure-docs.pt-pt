@@ -1,16 +1,16 @@
 ---
 author: PatrickFarley
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 690219347782aad2140b0a1b0541590c5426c568
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 816fa4b0df2fab77bcde261f30d8bad584257fd7
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459732"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592624"
 ---
 Formulário reconhecedor funciona em documentos de entrada que cumpram estes requisitos:
 

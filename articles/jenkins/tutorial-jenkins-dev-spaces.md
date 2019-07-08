@@ -6,13 +6,13 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/18/19
-ms.openlocfilehash: 49d4e56dabf046675970c65f2be71cea5094e9ef
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.date: 06/18/2019
+ms.openlocfilehash: 8c47b8caf2d289ed17647b8003cc702156f3cddb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550882"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592080"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 

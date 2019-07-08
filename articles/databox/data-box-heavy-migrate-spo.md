@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 06/05/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 1c432ee5851115e029b55722b6b238b4672e8345
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d74539ec1de8f503b0d0e423adf6273d1422fed5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446721"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592340"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Utilize o pesadas de caixa de dados do Azure para migrar os seus conteúdos de partilha de ficheiro ao SharePoint Online
 
@@ -23,7 +23,7 @@ O Microsoft Azure Data Box é um serviço que permite-lhe solicitar um dispositi
 
 - [Disco data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview) com capacidade utilizável de 35 TB por ordem para conjuntos de dados de pequeno a médio.
 - [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) com capacidade utilizável de 80 TB por dispositivo para conjuntos de dados de médio a grande.
-- [Dados de caixa pesada](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) com capacidade utilizável de 770 TB por dispositivo para grandes conjuntos de dados. Pesadas de caixa de dados está atualmente em pré-visualização.
+- [Dados de caixa pesada](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) com capacidade utilizável de 770 TB por dispositivo para grandes conjuntos de dados.
 
 Este artigo fala-se especificamente sobre como utilizar o pesadas de caixa de dados para migrar os seus conteúdos de partilha de ficheiro ao SharePoint Online.
 

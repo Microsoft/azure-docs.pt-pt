@@ -5,16 +5,16 @@ description: Saiba como utilizar o contentor do Reconhecedor de Formato para ana
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f38752928832b7dee6a7e55f1d25374a64391bbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a3c7de8f5e86df749ec3b6d9e73e6f6299e94faf
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441881"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592685"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contentores do reconhecedor de formulário
 Reconhecedor de formulário do Azure aplica-se a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e tabelas de formulários. Ele associa as entradas da tabela e valores com os pares chave-valor e, em seguida, produz dados estruturados, que inclui as relações no arquivo original. 

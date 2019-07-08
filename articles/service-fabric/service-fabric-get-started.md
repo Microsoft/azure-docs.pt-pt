@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/10/2019
+ms.date: 07/03/2019
 ms.author: aljo
-ms.openlocfilehash: 4d7fb257c932d84d8ddcb6c69e5286373f9b6adf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067225"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566046"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67067225"
 > 
 > 
 
-Para compilar e executar [aplicações do Azure Service Fabric][1] no computador de desenvolvimento Windows, tem de instalar o runtime do Service Fabric, o SDK e as ferramentas. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
+Para criar e executar [aplicações do Azure Service Fabric][1] no seu computador de desenvolvimento do Windows, instale o runtime, SDK e ferramentas do Service Fabric. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operativo com suporte
@@ -43,7 +43,7 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 
 > [!NOTE]
 > Suporte do Windows 7:
-> - O Windows 7 inclui, por predefinição, apenas o Windows PowerShell 2.0. Os cmdlets do PowerShell do Service Fabric necessitam do PowerShell 3.0 ou superior. Pode [transferir o Windows PowerShell 5.0][powershell5-download] no Centro de Transferências da Microsoft.
+> - O Windows 7 inclui, por predefinição, apenas o Windows PowerShell 2.0. Os cmdlets do PowerShell do Service Fabric necessitam do PowerShell 3.0 ou superior. Pode [transferir o Windows PowerShell 5.0][powershell5-download] do Microsoft Download Center.
 > - O Proxy Inverso do Service Fabric não está disponível no Windows 7.
 >
 
@@ -57,22 +57,22 @@ Instalador de plataforma Web (WebPI) é a forma recomendada de instalar o SDK e 
 As Ferramentas do Service Fabric fazem parte da carga de trabalho de Desenvolvimento do Azure no Visual Studio 2017. Ative esta carga de trabalho como parte da instalação do Visual Studio.
 Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK, utilizando o Instalador de Plataforma Web.
 
-* [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
+* [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Utilizar Visual Studio 2015 (requer a Atualização 2 do Visual Studio 2015 ou posterior)
 Para o Visual Studio 2015, as ferramentas do Service Fabric são instaladas juntamente com o SDK e o runtime, utilizando o Instalador de Plataforma Web:
 
-* [Instalar o SDK e as Ferramentas do Microsoft Azure Service Fabric][full-bundle-vs2015]
+* [Instalar o Microsoft Azure Service Fabric SDK e ferramentas][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Apenas instalação do SDK
 Se apenas precisa do SDK, pode instalar este pacote:
-* [Instalar o SDK do Microsoft Azure Service Fabric][core-sdk]
+* [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
 
 As versões atuais são:
-* Service Fabric SDK e ferramentas 3.4.639
-* Runtime do Service Fabric 6.5.639
-* Ferramentas do Service Fabric para Visual Studio 2015 2.4.11116.1
-* 15\.9 de 2017 do Visual Studio inclui as ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
+* Service Fabric SDK e ferramentas 3.4.641
+* Runtime do Service Fabric 6.5.641
+* Ferramentas do Service Fabric para Visual Studio 2015 2.5.20615.1
+* 15.9 de 2017 do Visual Studio inclui as ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
 
 Para obter uma lista de versões suportadas, consulte [versões de Service Fabric](service-fabric-versions.md)
 

@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 8086e67753821cd6dd87192835b8a2180014db17
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 60a7fe79de62e3b81e25c17c23ba39a08e8a061c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67338635"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604991"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Início rápido: Converter texto para voz com Python
 

@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: e415c681ae5a35de6e8ff76e09cfef8cc8cc98f8
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 8ee4cd30d5742896df96ccfd714d85ebbab194f9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544071"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595705"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Criar uma aplicação Web de página única do Azure Time Series Insights
 
@@ -101,7 +101,7 @@ Este tutorial utiliza também os dados de ambiente de Time Series Insights o apl
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Para configurar a aplicação para utilizar o seu ID de registo de aplicação do Azure AD, altere a `clientID` valor a utilizar o os **ID da aplicação** que copiou no **passo 3** quando [registrado o aplicativo para utilizar o Azure AD](#register-the-application-with-azure-ad). Se tiver criado uma **URL de fim de sessão** no Azure AD, defina o valor como o `postLogoutRedirectUri` valor.
+   1. Para configurar a aplicação para utilizar o seu ID de registo de aplicação do Azure AD, altere a `clientID` valor a utilizar o **ID da aplicação** que copiou no **passo 3** quando [registou a aplicação a utilizar O Azure AD](#register-the-application-with-azure-ad). Se tiver criado uma **URL de fim de sessão** no Azure AD, defina o valor como o `postLogoutRedirectUri` valor.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 

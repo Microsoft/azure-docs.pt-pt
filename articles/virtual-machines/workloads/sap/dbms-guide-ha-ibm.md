@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: a74dd1a932cac41081786f76938a5b35de62d878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7464ea481d4c95856b78a83a875f2cd24c00705b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689702"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503332"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -77,9 +77,9 @@ Antes de iniciar uma instalação, consulte a documentação e notas de SAP segu
 | Documentação | 
 | --- |
 | [Wiki de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Tem todas as notas de SAP necessária para Linux |
-| [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure] [ planning-guide] guia |
-| [Implementação de máquinas virtuais do Azure para SAP no Linux] [ deployment-guide] (Este artigo) |
-| [Implantação de system(DBMS) de gerenciamento para o SAP no Linux da base de dados de máquinas virtuais do Azure] [ dbms-guide] guia |
+| [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide] guia |
+| [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (Este artigo) |
+| [Implantação de system(DBMS) de gerenciamento para o SAP no Linux da base de dados de máquinas virtuais do Azure][dbms-guide] guia |
 | [Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure][azr-sap-plancheck] |
 | [SUSE Linux Enterprise Server para o SAP aplicativos 12 SP3 melhores práticas guias][sles-for-sap-bp] |
 | [SUSE Linux Enterprise elevada disponibilidade extensão 12 SP3][sles-ha-guide] |
@@ -110,7 +110,7 @@ Para implementar uma configuração de IBM Db2, tem de seguir estes passos:
   + Implemente VMs.
   + Atualizar o SUSE Linux e configurar sistemas de ficheiros.
   + Instale e configure Pacemaker.
-  + Instale [elevada disponibilidade NFS][nfs-ha].
+  + Instale [NFS de elevada disponibilidade][nfs-ha].
   + Instale [ASCS/ERS num cluster separado][ascs-ha].
   + Instale a base de dados IBM Db2 com a opção de Distributed/de alta disponibilidade (SWPM).
   + Instalar e criar um nó de base de dados secundária e a instância e configurar HADR.
@@ -496,13 +496,12 @@ Se efetuar a instalação antes que criou a configuração de Db2 HADR, faça as
 
 Utilize a ferramenta de configuração de J2EE para verificar ou atualizar o URL do JDBC. Como a ferramenta de configuração do J2EE é uma ferramenta gráfica, tem de ter X servidor instalado:
  
-1. Inicie sessão no servidor de aplicações principal da instância do J2EE e execute:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+1. Inicie sessão no servidor de aplicações principal da instância do J2EE e execute:   `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro do esquerda, escolha **store segurança**.
-1. Na estrutura de direito, escolha o jdbc/conjunto chave / \<SAPSID>/url.
+1. Na estrutura de direito, escolha o jdbc/conjuntochave/\<SAPSID > / url.
 1. Altere o nome de anfitrião no JDBC URL para o nome de anfitrião virtual.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
-1. Selecione **adicionar**.
+     `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
+1. Selecione **Adicionar**.
 1. Para guardar as alterações, selecione o ícone de disco no canto superior esquerdo.
 1. Feche a ferramenta de configuração.
 1. Reinicie a instância de Java.

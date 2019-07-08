@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 13d02b1c-d98a-40b1-824f-afa45a2deb6a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: f292ed4c39d6f11baaa66f25b8ab54587a6609bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d4457db8ae0cf32e138c4ca0c6b581a3d02227e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67096007"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Tutorial: Integração do Active Directory do Azure com Nomadic
 

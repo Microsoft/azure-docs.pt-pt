@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 47ae3eb41145a74c1726847943df9074a4a75dfe
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 96b9d90ce942b7755feae8298a408f46f20bf04d
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461694"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturar eventos através dos Hubs de eventos do Azure no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake
 Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-scalability.md#throughput-units). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
@@ -51,6 +51,8 @@ Tenha em atenção que os valores de data estão preenchidos com zeros; pode ser
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
 ```
+
+No caso do blob de armazenamento do Azure está temporariamente indisponível, a captura de Hubs de eventos irá reter os seus dados durante o período de retenção de dados configurado no seu hub de eventos e preencher novamente os dados assim que a sua conta de armazenamento estiver novamente disponível.
 
 ### <a name="scaling-to-throughput-units"></a>Dimensionar para as unidades de débito
 
@@ -135,6 +137,8 @@ Apache Avro tem guias de introdução completos para [Java][Java] and [Python][P
 ## <a name="how-event-hubs-capture-is-charged"></a>Como a captura de Hubs de eventos é cobrada
 
 Captura de Hubs de eventos é medido da mesma forma para unidades de débito: como uma tarifa por hora. O custo é diretamente proporcional ao número de unidades de débito adquiridas para o espaço de nomes. Como unidades de débito for aumentadas e diminuídas, medidores de captura de Hubs de eventos aumentarem e diminuir para fornecer desempenho correspondente. Os medidores ocorrerem em conjunto. Para detalhes de preços, consulte [preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+Tenha em atenção que captura não consumir quota de saída como é faturada separadamente. 
 
 ## <a name="integration-with-event-grid"></a>Integração com o Event Grid 
 

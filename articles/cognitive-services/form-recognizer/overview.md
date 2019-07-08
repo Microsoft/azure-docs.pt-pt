@@ -5,16 +5,16 @@ description: Aprenda a usar o reconhecedor de formulário para analisar dados de
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: a17e47fb059c23ab2e6eb69f3cfe6f2f8d0e51b2
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: e064faf3017b95cb3a5f3d9b89f178fb7f846766
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502909"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592608"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 

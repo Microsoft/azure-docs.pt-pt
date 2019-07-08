@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 82b2f5ca70927856aeac889675b5ec4a54ae034f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: e96b1959d9e03273a9ca4c549c0f8b0bda6a708b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796752"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592795"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
@@ -70,7 +70,7 @@ Seguem-se os cabeçalhos que podem incluir uma solicitação e resposta.
 O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna necessária para parâmetros obrigatórios. Tem o URL de codificar os parâmetros de consulta.  
   
   
-|Name|Value|Tipo|Necessário|  
+|Name|Value|Type|Necessário|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Contagem|O número de resultados a devolver, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócios.  Consulte [Local de negócios de categorias de pesquisa](local-categories.md)|String|Não|  
@@ -94,7 +94,7 @@ Seguem-se os objetos de resposta JSON que pode incluir a resposta. Se a solicita
 ### <a name="error"></a>Erro  
 Define o erro ocorrido.  
   
-|Elemento|Descrição|Tipo|  
+|Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Código|O código de erro que identifica a categoria de erro. Para obter uma lista de códigos possíveis, consulte [códigos de erro](#error-codes).|String|  
 |<a name="error-message" />mensagem|Uma descrição do erro.|String|  
@@ -107,7 +107,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior que a resposta inclui quando o pedido falhar.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |<a name="errors" />Erros|Uma lista de erros que descrevem os motivos por que o pedido falhou.|[Error](#error)[]|  
@@ -117,7 +117,7 @@ O objeto de nível superior que a resposta inclui quando o pedido falhar.
 ### <a name="license"></a>Licença  
 Define a licença sob a qual podem ser utilizada o texto ou fotos.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|O nome da licença.|String|  
 |url|O URL para um Web site em que o utilizador pode obter mais informações sobre a licença.<br /><br /> Utilize o nome e o URL para criar uma hiperligação.|String|  
@@ -126,7 +126,7 @@ Define a licença sob a qual podem ser utilizada o texto ou fotos.
 ### <a name="link"></a>Ligação  
 Define os componentes de um hiperlink.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|String|  
 |texto|O texto de exibição.|String|  
@@ -140,7 +140,7 @@ Define um publicador.
   
 Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambos.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |name|O nome do Editor.|String|  
 |url|O URL para o site do publicador.<br /><br /> Tenha em atenção que o publicador poderão não fornecer um Web site.|String|  
@@ -150,7 +150,7 @@ Tenha em atenção que um fabricante poderá fornecer seu nome ou o site ou ambo
 ### <a name="place"></a>Local  
 Define as informações sobre o local de uma empresa, como um restaurante ou hotel.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que pode ser definida como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
 |Endereço|O endereço postal de onde está localizada a entidade.|PostalAddress|  
@@ -164,7 +164,7 @@ Define as informações sobre o local de uma empresa, como um restaurante ou hot
 ### <a name="querycontext"></a>QueryContext  
 Define o contexto de consulta que Bing utilizado para o pedido.  
   
-|Elemento|Descrição|Tipo|  
+|Elemento|Descrição|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Um valor booleano que indica se a consulta especificada tem intencional adulto. O valor é **true** se a consulta tem intencional adulto; caso contrário, **falso**.|Boolean|  
 |alterationOverrideQuery|A cadeia de consulta a utilizar para forçar o Bing para utilizar a cadeia de caracteres original. Por exemplo, se a cadeia de consulta é *saling downwind*, a cadeia de caracteres de consulta de substituição será *+ saling downwind*. Lembre-se codificar a cadeia de consulta que resulta em *% 2Bsaling + downwind*.<br /><br /> Este campo está incluído apenas se a cadeia de consulta original contém um erro de ortografia.|String|  
@@ -174,21 +174,21 @@ Define o contexto de consulta que Bing utilizado para o pedido.
 
 ### <a name="identifiable"></a>Identificação
 
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Um identificador de recurso|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define uma pesquisa resulta de grupo, tal como mainline.
 
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|Uma lista de resultados de pesquisa para ver o grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado de pesquisa para apresentar.
 
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a apresentar. Se o item não incluir este campo, apresenta todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta de notícias.|Integer|
 |answerType|A resposta que contém o item para apresentar. Por exemplo, notícias.<br /><br />Utilize o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo de SearchResponse.<br /><br /> No entanto, utilizar o tipo de resposta apenas se este objeto inclui o campo de valor; caso contrário, ignorá-lo.|String|
@@ -209,7 +209,7 @@ Define o objeto de nível superior que a resposta inclui quando o pedido for con
   
 Tenha em atenção que, se o serviço suspeita de um ataque de negação de serviço, o pedido terá êxito (código de estado HTTP é 200 OK); No entanto, o corpo da resposta estará vazio.  
   
-|Name|Value|Tipo|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|String|  
 |Locais|Uma lista de entidades que são relevantes para a consulta de pesquisa.|Objeto JSON|  

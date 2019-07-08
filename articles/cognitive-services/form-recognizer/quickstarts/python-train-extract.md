@@ -5,16 +5,16 @@ description: Neste início rápido, vai utilizar a API de REST do reconhecedor d
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: b9985bfa15cf300f82a0d24400ed1167a2d3f135
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 63b58e5e667d03d7808973b0783ed98ab4cb5447
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537582"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605877"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
@@ -40,7 +40,7 @@ Para preparar um modelo de formulário reconhecedor com os documentos no seu con
 
 1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
 1. Substitua `<Subscription key>` com a chave de subscrição que copiou no passo anterior.
-1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter isso, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Certifique-se de que o **leitura** e **lista** permissões são verificadas e clique em **criar**. Em seguida, copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Substitua `<SAS URL>` com o Blob do Azure partilhado do contentor de armazenamento do URL de assinatura (SAS) de acesso. Para obter o URL de SAS, abra o Explorador de armazenamento do Microsoft Azure, o contentor com o botão direito e selecione **assinatura de acesso partilhado do Get**. Certifique-se de que o **leitura** e **lista** permissões são verificadas e clique em **criar**. Em seguida, copie o valor de **URL** secção. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
     ```python
     ########### Python Form Recognizer Train #############
