@@ -2,18 +2,18 @@
 title: Tutorial do Kubernetes no Azure - Implementar um cluster
 description: Neste tutorial do Azure Kubernetes Service (AKS), irá criar um cluster do AKS e utilizar o kubectl para ligar ao nó principal do Kubernetes.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 020b5935595506732c1c1425179741c45f8326d7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 27ec77e15d1289742fa40320631684d37c9660a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304459"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614262"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementar um cluster do Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Nos tutoriais adicionais, a aplicação Azure Vote é implementada no cluster, d
 
 Nos tutoriais anteriores, foi criada e carregada uma imagem de contentor para uma instância do Azure Container Registry. Se ainda não concluiu estes passos e pretende acompanhar, inicie na [Tutorial 1 – criar imagens de contentor][aks-tutorial-prepare-app].
 
-Este tutorial requer que está a executar a CLI do Azure versão 2.0.53 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este tutorial requer que está a executar a CLI do Azure versão 2.0.53 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
@@ -109,7 +109,7 @@ Para configurar `kubectl` para ligar ao seu cluster do Kubernetes, utilize o [az
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Para verificar a ligação ao cluster, execute o comando [kubectl get nodes][kubectl-get]:
+Para verificar a ligação ao seu cluster, execute o [kubectl obter nós][kubectl-get] comando:
 
 ```
 $ kubectl get nodes

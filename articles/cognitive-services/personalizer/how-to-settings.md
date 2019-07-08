@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 976830232453eee0993e64ac445c2e6a2f7e20ef
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7b559dc9a5e5c5bb5dbf7a2dc1e40bf6a0df5ec9
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478575"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626261"
 ---
 # <a name="personalizer-settings"></a>Definições de personalizer
 
@@ -35,7 +35,7 @@ Crie um recurso de Personalizer para cada ciclo de comentários.
 1. Localize o recurso de Personalizer. 
 1. Na **gestão de recursos** secção, selecione **definições**.
 
-    Antes de sair do portal do Azure, copie uma das suas chaves de recurso a partir da **chaves** página. Irá precisar de utilizar o [Personalizer SDK](https://go.microsoft.com/fwlink/?linkid=2092353).
+    Antes de sair do portal do Azure, copie uma das suas chaves de recurso a partir da **chaves** página. Irá precisar de utilizar o [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
 ### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurar as definições de recompensa para que o loop de comentários com base no caso de utilização
 

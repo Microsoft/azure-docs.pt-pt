@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 5b43d822bf29ce07f292403a3a24ad8c13964038
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 1730463829efadb8fc26d90c48e8b770b6e5a3a4
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389126"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622430"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -73,13 +73,7 @@ Os clientes podem substituir o nível de consistência predefinido que está def
 
 ```csharp
 // Override consistency at the client level
-ConsistencyPolicy consistencyPolicy = new ConsistencyPolicy
-    {
-        DefaultConsistencyLevel = ConsistencyLevel.BoundedStaleness,
-        MaxStalenessIntervalInSeconds = 5,
-        MaxStalenessPrefix = 100
-    };
-documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, consistencyPolicy);
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.Eventual);
 
 // Override consistency at the request level via request options
 RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };

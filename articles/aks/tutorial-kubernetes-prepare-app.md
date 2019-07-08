@@ -2,18 +2,18 @@
 title: Tutorial do Kubernetes no Azure - Preparar uma aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), irá aprender a preparar e criar uma aplicação de vários contentores com o Docker Compose que, em seguida, pode implementar no AKS.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304455"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614232"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o Azure Kubernetes Service (AKS)
 
@@ -32,9 +32,9 @@ Nos tutoriais adicionais, a imagem de contentor é carregada para o Azure Contai
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Introdução ao Docker][docker-get-started].
+Este tutorial pressupõe conhecimentos básicos dos principais conceitos do Docker, como contentores, imagens de contentor e comandos do `docker`. Para obter noções básicas sobre os contentores, veja [Get started with Docker][docker-get-started] (Introdução ao Docker).
 
-Para concluir este tutorial, precisa de um ambiente de desenvolvimento local do Docker que execute contentores do Linux. O Docker disponibiliza pacotes que o configuram num sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
+Para concluir este tutorial, precisa de um ambiente de desenvolvimento local do Docker que execute contentores do Linux. Docker disponibiliza pacotes que configuram num [Mac][docker-for-mac], [Windows][docker-for-windows], ou [Linux][docker para linux] system.
 
 O Azure Cloud Shell não inclui os componentes do Docker que são precisos para concluir todos os passos nestes tutoriais. Por conseguinte, recomendamos a utilização de um ambiente de desenvolvimento completo do Docker.
 
@@ -58,7 +58,7 @@ Dentro do diretório estão: o código de origem da aplicação, um ficheiro de 
 
 ## <a name="create-container-images"></a>Criar imagens de contentor
 
-[O Docker Compose][docker-compose] pode servir para automatizar a compilação de imagens de contentor e a implementação de aplicações com vários contentores.
+[Docker Compose][docker-compose] podem ser utilizados para automatizar a criação de imagens de contentor e a implementação de aplicações de vários contentores.
 
 Utilize o ficheiro `docker-compose.yaml` de exemplo para criar a imagem de contentor, transferir a imagem de Redis e iniciar a aplicação:
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Execute o comando [docker ps][docker-ps] para ver os contentores em execução:
+Executar o [docker ps][docker-ps] comando para ver os contentores em execução:
 
 ```
 $ docker ps
@@ -97,7 +97,7 @@ Para ver a aplicação em execução, introduza `http://localhost:8080` num nave
 
 Agora que a funcionalidade da aplicação foi validada, os contentores em execução podem ser parados e removidos. Não elimine as imagens de contentor - no tutorial seguinte, a imagem *azure-vote-front* é carregada para uma instância do Azure Container Registry.
 
-Pare e remova as instâncias de contentor e os recursos com o comando [docker-compose down][docker-compose-down]:
+Parar e remover as instâncias de contentor e os recursos com o [docker-compose para baixo][docker-compose-down] comando:
 
 ```console
 docker-compose down
@@ -117,7 +117,7 @@ Neste tutorial, uma aplicação foi testada e imagens de contentor foram criadas
 Avance para o próximo tutorial para saber como armazenar imagens de contentores no Azure Container Registry.
 
 > [!div class="nextstepaction"]
-> [Enviar imagens para o Azure Container Registry][aks-tutorial-prepare-acr]
+> [Push images to Azure Container Registry][aks-tutorial-prepare-acr] (Enviar imagens para o Azure Container Registry)
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

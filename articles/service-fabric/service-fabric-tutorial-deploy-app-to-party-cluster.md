@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: aljo,mikhegn
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4b3922ea97391a83d729bcf8b25c489a45119046
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c08633a45030e63366a1c17f512fa81e6556085e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302441"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620229"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 

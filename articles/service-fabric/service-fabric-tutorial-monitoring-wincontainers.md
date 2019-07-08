@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 011cac977e44f85b8b183d253e987ff1b38c9834
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61390513"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621921"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com os registos do Azure Monitor
 
@@ -86,7 +86,7 @@ Faça as alterações seguintes ao *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Adicione o Microsoft Monitoring Agent como uma extensão da máquina virtual. Localize o recurso de conjuntos de dimensionamento de máquinas virtuais: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Em *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, adicione a descrição de extensão seguinte na extensão *ServiceFabricNode*: 
+3. Adicione o Microsoft Monitoring Agent como uma extensão da máquina virtual. Localize o recurso de conjuntos de dimensionamento de máquinas virtuais: *resources* >  *"apiVersion": "[variables('vmssApiVersion')]"* . Em *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, adicione a descrição de extensão seguinte na extensão *ServiceFabricNode*: 
     
     ```json
     {

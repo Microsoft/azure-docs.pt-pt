@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: dd0c35d23541512e1ed021a57526ac50f7a68e26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67100146"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625324"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: Integração do Active Directory do Azure com Insperity ExpensAble
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD início de sessão único com Insperity ExpensAble, e
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de ExpensAble Insperity](http://expensable.com/support/support-overview) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de ExpensAble Insperity](https://www.insperity.com/products/expense-management/support/express/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD início de sessão único com Insperity ExpensAble, e
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Configurar Insperity ExpensAble início de sessão único
 
-Para configurar o início de sessão único num **Insperity ExpensAble** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [Insperity ExpensAble equipa de suporte](http://expensable.com/support/support-overview). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **Insperity ExpensAble** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [Insperity ExpensAble equipa de suporte](https://www.insperity.com/products/expense-management/support/express/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -181,7 +181,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-insperity-expensable-test-user"></a>Criar utilizador de teste Insperity ExpensAble
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Insperity ExpensAble. Trabalhar com [Insperity ExpensAble equipa de suporte](http://expensable.com/support/support-overview) para adicionar os utilizadores na plataforma Insperity ExpensAble. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Insperity ExpensAble. Trabalhar com [Insperity ExpensAble equipa de suporte](https://www.insperity.com/products/expense-management/support/express/) para adicionar os utilizadores na plataforma Insperity ExpensAble. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

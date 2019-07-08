@@ -51,6 +51,9 @@
   items:
     - name: Gerir
       items:
+        - name: Contas
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entidades
           items:
             - name: .NET

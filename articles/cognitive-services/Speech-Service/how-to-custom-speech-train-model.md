@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 7bc1f2adf3d8c38845218681a55e3942aa809db5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 49195efa54c8e6eca9186a9e2fc33da84ff34413
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603208"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625391"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Preparar um modelo de voz personalizada
 
@@ -25,12 +25,11 @@ Um conversão de voz em texto de preparação é necessário para melhorar a pre
 
 Se estiver com problemas de reconhecimento com o seu modelo, utilizando a etiqueta humanos transcrições e dados relacionados de treinamento adicional podem ajudar a melhorar a precisão. Utilize esta tabela para determinar o conjunto de dados a serem seguidas para resolver o problema (s):
 
-| Caso de utilização | Tipo de dados | Quantidade de dados |
-|----------|-----------|---------------|
-| Nomes apropriados são misrecognized | Introduza texto relacionado com (frases/expressões com) | MB de 10 a 500 MB |
-| Palavras são misrecognized devido a um destaque | Introduza texto relacionado com (pronúncia) | Fornecer as palavras misrecognized |
-| Palavras comuns são eliminadas ou misrecognized | Transcrições áudio + com etiqueta humanos | horas de transcrição de 10 para 1000 |
-
+| Caso de utilização | Tipo de dados |
+|----------|-----------|
+| Melhorar a precisão de reconhecimento, no vocabulário específicos da indústria e de gramática, como a terminologia médica ou gíria, IT | Introduza texto relacionado com (frases/expressões com) |
+| Defina a forma de fonética e apresentada de uma palavra ou o termo com pronúncia não padrão, tais como nomes de produto ou acrônimos. | Introduza texto relacionado com (pronúncia) |
+| Melhorar a precisão de reconhecimento em estilos, acentos ou ruídos de fundo específicos de fala | Transcrições áudio + com etiqueta humanos |
 > [!IMPORTANT]
 > Se ainda não carregou um conjunto de dados, veja [preparar e testar seus dados](how-to-custom-speech-test-data.md). Este documento fornece instruções para carregar dados e diretrizes para criar conjuntos de dados de alta qualidade.
 

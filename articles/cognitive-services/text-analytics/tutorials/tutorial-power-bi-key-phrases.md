@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828447"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626024"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o serviço cognitivos de análise de texto
 
@@ -103,7 +103,7 @@ A [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/ser
 Agora, está pronto para criar a função personalizada que vai integrar o Power BI e a Análise de Texto. A função recebe o texto que vai ser processado como parâmetro. Converte os dados de e para o formato JSON necessário e faz o pedido HTTP para a API de Expressões-Chave. Em seguida, a função analisa a resposta da API e devolve uma cadeia que contém uma lista separada por vírgulas das expressões-chave extraídas.
 
 > [!NOTE]
-> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmulas M do Power Query](https://msdn.microsoft.com/library/mt211003.aspx), ou apenas “M”, para abreviar. M é uma linguagem de programação funcional com base em [F#](https://docs.microsoft.com/dotnet/fsharp/). No entanto, não é preciso ser programador para concluir este tutorial. O código necessário está incluído abaixo.
+> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmulas M do Power Query](https://docs.microsoft.com/powerquery-m/power-query-m-reference), ou apenas “M”, para abreviar. M é uma linguagem de programação funcional com base em [F#](https://docs.microsoft.com/dotnet/fsharp/). No entanto, não é preciso ser programador para concluir este tutorial. O código necessário está incluído abaixo.
 
 No Power BI Desktop, verifique se que está ainda na janela Editor de Consultas. Se não estiver, selecione o friso **Base** e, no grupo **Dados externos** clique em **Editar Consultas**.
 
@@ -188,7 +188,7 @@ Agora, irá utilizar esta coluna para gerar uma nuvem de palavras. Para começar
 > [!NOTE]
 > Porquê utilizar expressões-chave extraídas para gerar um balão de palavras em vez do texto completo de todos os comentários? As expressões-chave dão-nos as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras no balão resultante não é distorcido pela utilização frequente de uma determinada palavra num número relativamente pequeno de comentários.
 
-Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel Visualizations, no lado direito da área de trabalho, clique nas reticências (**...**) e escolha **Import From Store** (Importar do Arquivo). Em seguida, procure “cloud” e clique no botão **Add** (Adicionar), junto ao elemento visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
+Se ainda não tiver o elemento visual Word Cloud instado, instale-o. No painel Visualizations, no lado direito da área de trabalho, clique nas reticências ( **...** ) e escolha **Import From Store** (Importar do Arquivo). Em seguida, procure “cloud” e clique no botão **Add** (Adicionar), junto ao elemento visual Word Cloud. O Power BI instala o elemento visual Word Cloud (Nuvem de Palavras) e indica-lhe que foi instalado com êxito.
 
 ![[adicionar um elemento visual]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Powe
 > [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) (Referência à API de Análise de Texto)
 
 > [!div class="nextstepaction"]
-> [Power Query M reference](https://msdn.microsoft.com/library/mt211003.aspx) (Referência à linguagem M do Power Query)
+> [Power Query M reference](https://docs.microsoft.com/powerquery-m/power-query-m-reference) (Referência à linguagem M do Power Query)
 
 > [!div class="nextstepaction"]
 > [Documentação do Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

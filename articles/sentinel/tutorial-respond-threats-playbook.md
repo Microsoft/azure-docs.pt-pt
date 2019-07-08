@@ -8,6 +8,7 @@ manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
 ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: db529b45751ff418c93c43119f0d925f6b4b086e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 52346e2ff9c47e58f2bd040582bee29eaf08bb13
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605316"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621201"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel-preview"></a>Tutorial: Configurar respostas de ameaças automatizada sentinela na pré-visualização no Azure
 

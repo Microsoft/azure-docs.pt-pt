@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial do modelo de regressão: ML automatizada'
+title: 'Tutorial do modelo de regressão: ML Automatizado'
 titleSuffix: Azure Machine Learning service
 description: Saiba como gerar um modelo de machine learning com aprendizagem automática. O Azure Machine Learning pode executar o pré-processamento de dados, a seleção de algoritmo e seleção de hiper-parâmetros de maneira automatizada para. Em seguida, o modelo final é implementado com o serviço Azure Machine Learning.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 907383c057c0c1eebee6550a0d1e9c75dd88513c
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 8cedf7abf71a772a0b770dd2f82d9a5508f5dd75
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417302"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622379"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -655,7 +655,7 @@ Defina o parâmetro de experimentação e as definições para a geração autom
 |**iteration_timeout_minutes**|10|Limite de tempo em minutos para cada iteração. Reduza este valor para diminuir o tempo de execução total.|
 |**iterations**|30|Número de iterações. Em cada iteração, um novo modelo de aprendizagem automática é preparado com os seus dados. Este é o valor principal que afeta o tempo de execução total.|
 |**primary_metric**| spearman_correlation | Métrica que pretende otimizar. O modelo mais adequado será escolhido com base nesta métrica.|
-|**preprocess**| Verdadeiro | Usando **True**, a experimentação pode pré-processar os dados de entrada (processamento de dados em falta, converter o texto em numérico, etc.)|
+|**preprocess**| True | Usando **True**, a experimentação pode pré-processar os dados de entrada (processamento de dados em falta, converter o texto em numérico, etc.)|
 |**Verbosidade**| logging.INFO | Controla o nível de registo.|
 |**n_cross_validations**|5|Número de divisões de validação cruzada a efetuar quando os dados de validação não for especificados.|
 
@@ -1127,6 +1127,8 @@ print(y_predict[:10])
 Crie um gráfico de dispersão para visualizar os valores de custo previsto em comparação comparados os valores de custo real. O seguinte código utiliza a `distance` funcionalidade como o eixo x e viagem `cost` como o eixo y. Para comparar a variância de custo previsto em cada valor de distância de viagem, as primeiras 100 previstos e valores de custo real são criados como série separada. Examinar o desenho mostra que a relação de custo/distância é quase linear e os valores de custo previsto são na maioria dos casos muito próximo os valores de custo real para a mesma distância de viagem.
 
 ```python
+%matplotlib inline
+
 import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(14, 10))
