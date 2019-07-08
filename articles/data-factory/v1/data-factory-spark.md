@@ -354,7 +354,7 @@ Crie a seguinte estrutura de pasta no armazenamento de BLOBs referenciado pelo s
 | ./jars | Todos os ficheiros nessa pasta são carregados e colocados no caminho da classe de Java do cluster. | Não | Pasta |
 | ./pyFiles | Todos os ficheiros nessa pasta são carregados e colocados em PYTHONPATH do cluster. | Não | Pasta |
 | ./files | Todos os ficheiros nessa pasta são carregados e colocados no diretório de trabalho de executor. | Não | Pasta |
-| . / arquiva | Todos os ficheiros nessa pasta são descomprimidos. | Não | Pasta |
+| ./archives | Todos os ficheiros nessa pasta são descomprimidos. | Não | Pasta |
 | ./logs | A pasta onde estão armazenados os registos do cluster do Spark.| Não | Pasta |
 
 Eis um exemplo para o armazenamento que contém dois arquivos de tarefa do Spark no armazenamento de BLOBs referenciada pelo serviço ligado do HDInsight:
