@@ -6,19 +6,19 @@ documentationCenter: ''
 author: rolyon
 manager: mtillman
 editor: ''
-ms.service: role-based-access-control,azure-resource-manager
+ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: e99a9d2cfa38c9b2ea74f9075b18f81006b34881
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: edb20221862e6439b3bc574995f4037cbc95f8f9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791527"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668857"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure com o modelo RBAC e do Resource Manager
 

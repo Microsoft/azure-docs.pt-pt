@@ -260,7 +260,7 @@ Nesta secção, vai criar dois serviços ligados na sua fábrica de dados.
     | ID de principal de serviço | Forneça o ID de aplicação do principal de serviço do Azure Active Directory que criou como parte dos pré-requisitos. |
     | Chave de principal de serviço | Forneça a chave de autenticação para o principal de serviço do Azure Active Directory. |
     | Prefixo do nome do cluster | Forneça um valor que terá o prefixo para todos os tipos de cluster que são criados pela fábrica de dados. |
-    |Subscrição |Selecione a sua subscrição na lista pendente.|
+    |Subscription |Selecione a sua subscrição na lista pendente.|
     | Selecionar grupo de recursos | Selecione o grupo de recursos que criou como parte do script do PowerShell que utilizou anteriormente.|
     |Selecione a região | Selecione uma região na lista pendente.|
     | Nome de utilizador SSH do SO/tipo de Cluster | Introduza um nome de utilizador do SSH, normalmente `sshuser`. |

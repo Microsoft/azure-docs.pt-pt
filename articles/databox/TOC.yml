@@ -155,6 +155,8 @@
               href: data-box-heavy-deploy-picked-up.md
         - name: Conceitos
           items:
+            - name: Leia as diretrizes de segurança
+              href: data-box-heavy-safety.md
             - name: Rever controlo e registo
               href: data-box-logs.md
             - name: Rever requisitos

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b300c40b4a9c832a0df87f7cfc6e6a9558d766f6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 36d85e11133e7197212ae1b37609628689b68a13
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448231"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657928"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com WPF
 
@@ -62,7 +62,7 @@ A primeira coisa que precisamos fazer é configurar nosso projeto no Visual Stud
 1. Abra o Visual Studio. Em seguida, selecione **ficheiro > novo > projeto**.
 2. No painel esquerdo, localize e selecione **Visual C#** . Em seguida, selecione **WPF App (.NET Framework)** no painel central.
    ![Criar um aplicativo do WPF no Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Nomeie o projeto, defina a versão do framework para o **.NET Framework 4.5.2 ou posterior**, em seguida, clique em **OK**.
+3. Nomeie o projeto `MSTranslatorTextDemo`, defina a versão do framework como **.NET Framework 4.5.2 ou posterior**, em seguida, clique em **OK**.
 4. O projeto foi criado. Observará que há duas guias abertas: `MainWindow.xaml` e `MainWindow.xaml.cs`. Neste tutorial, estamos a adicionar código para esses dois arquivos. O primeiro para a interface do usuário do aplicativo; o segundo para nosso chamadas para o texto do tradutor e verificação de ortografia do Bing.
    ![Reveja o seu ambiente](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ Vamos adicionar assemblies ao nosso projeto para serializar e desserializar obje
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Depois de adicionar estas referências ao seu projeto, pode clicar em **OK** para fechar **Gestor de referências**.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Todo o nosso projeto do é encapsulado no `MainWindow : Window` classe. Vamos co
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Todo o nosso projeto do é encapsulado no `MainWindow : Window` classe. Vamos co
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Todo o nosso projeto do é encapsulado no `MainWindow : Window` classe. Vamos co
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {
@@ -244,7 +245,7 @@ Todo o nosso projeto do é encapsulado no `MainWindow : Window` classe. Vamos co
 
 Este bloco de código, vamos declarar duas variáveis de membro que contêm informações sobre idiomas de disponíveis para a tradução:
 
-| Variável | Tipo | Descrição |
+| Variável | Type | Descrição |
 |----------|------|-------------|
 |`languageCodes` | matriz de cadeias de caracteres |C aches os códigos de idioma. O serviço Translator utiliza códigos curtos, como `en` para inglês, para identificar idiomas. |
 |`languageCodesAndTitles` | Dicionário classificado | Mapeia os nomes "amigáveis" na interface do utilizador de volta para os códigos curtos utilizados na API. São mantidos ordenados por ordem alfabética, sem ter em conta as maiúsculas/minúsculas. |

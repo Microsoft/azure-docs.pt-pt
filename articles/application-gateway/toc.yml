@@ -220,6 +220,8 @@
           href: application-gateway-troubleshooting-502.md
         - name: Firewall de Aplicações Web (WAF)
           href: web-application-firewall-troubleshoot.md
+        - name: Estado de Funcionamento de Recursos
+          href: resource-health-overview.md
     - name: Migrar do v1 para v2
       href: migrate-v1-v2.md
 - name: Referência

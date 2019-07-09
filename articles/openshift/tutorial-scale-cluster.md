@@ -6,14 +6,14 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: b25e17e7064006a1421142dfcd32997cb4426e8e
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: deb136a70c24cb7bd1b6c60505cc6ab0376a7b02
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305973"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672440"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>Tutorial: Dimensionar um cluster do Azure Red Hat OpenShift
 
@@ -36,7 +36,7 @@ Antes de começar este tutorial:
 
 * Criar um cluster ao seguir a [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
 
-## <a name="step-1-sign-in-to-azure"></a>Passo 1: Inicie sessão no  Azure
+## <a name="step-1-sign-in-to-azure"></a>Passo 1: Iniciar sessão no Azure
 
 Se estiver a executar a CLI do Azure localmente, execute `az login` para iniciar sessão no Azure.
 

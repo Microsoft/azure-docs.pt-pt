@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c3be09c998399cdca886f207bf5fc621bf51d8dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67099602"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Active Directory do Azure com ITRP
 
@@ -153,9 +153,9 @@ Para configurar o Azure AD início de sessão único com ITRP, siga estes passos
 
     1. Selecione **ativada**.
 
-    1. Na **URL de fim de sessão remoto** caixa, cole a **URL de fim de sessão** valor que copiou do portal do Azure.
+    1. Na **URL de fim de sessão remoto** caixa, cole a **URL de fim de sessão** valor que copiou do portal do Azure.
 
-    1. Na **URL de SSO SAML** caixa, cole a **URL de início de sessão** valor que copiou do portal do Azure.
+    1. Na **URL de SSO SAML** caixa, cole a **URL de início de sessão** valor que copiou do portal do Azure.
 
     1. Na **impressão digital de certificado** caixa, cole a **Thumbprint** valor do certificado, que copiou do portal do Azure.
 

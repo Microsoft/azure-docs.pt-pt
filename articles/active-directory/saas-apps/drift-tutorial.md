@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88940b40eb309a5fb6ff73c04a47813ec3a47669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4728ad4fcd44c754a62ec19037562e63d92ec304
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67103866"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656614"
 ---
 # <a name="tutorial-integrate-drift-with-azure-active-directory"></a>Tutorial: Integrar Descompassos com o Azure Active Directory
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     d. Na **URL de início de sessão** caixa de texto, escreva um URL: `https://start.drift.com`
 
-6. Seu aplicativo Descompassos espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir a caixa de diálogo de atributos do utilizador.
+6. Seu aplicativo Descompassos espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **editar** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
     ![image](common/edit-attribute.png)
 

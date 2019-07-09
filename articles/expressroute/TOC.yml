@@ -74,6 +74,9 @@
           href: expressroute-howto-circuit-arm.md
         - name: CLI do Azure
           href: howto-circuit-cli.md
+        - name: Modelo Azure Resource Manager
+          displayName: 'ARM,resource manager template'
+          href: expressroute-howto-circuit-resource-manager-template.md
     - name: Criar e modificar a configuração de peering
       items:
         - name: Portal do Azure
@@ -191,6 +194,7 @@
     - name: REST (clássico)
       href: 'https://msdn.microsoft.com/library/azure/dn606310'
     - name: Modelo do Resource Manager
+      displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Recursos
   items:

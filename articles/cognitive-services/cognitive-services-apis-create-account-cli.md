@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 26f7f3ab60347d9ec5f2a144410ad3de436f5b5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454897"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657715"
 ---
 # <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Criar uma conta de serviços cognitivos com Interface(CLI) de linha de comandos do Azure
 
@@ -43,7 +43,7 @@ As suas subscrições para os serviços cognitivos são representadas por recurs
 
 ### <a name="choose-your-resource-group-location"></a>Escolha a localização do grupo de recursos
 
-Para criar um recurso, terá uma das localizações do Azure disponíveis para a sua subscrição. Pode obter uma lista das localizações disponíveis com o [lista de conta de az-locations](/cli/azure/account#az_account_list) comando. A maioria dos serviços cognitivos podem ser acedidos a partir de várias localizações. Escolher o mais perto de si ou ver as localizações de estão disponíveis para o serviço.
+Para criar um recurso, terá uma das localizações do Azure disponíveis para a sua subscrição. Pode obter uma lista das localizações disponíveis com o [lista de conta de az-locations](/cli/azure/account#az-account-list-locations) comando. A maioria dos serviços cognitivos podem ser acedidos a partir de várias localizações. Escolher o mais perto de si ou ver as localizações de estão disponíveis para o serviço.
 
 > [!IMPORTANT]
 > * Lembre-se a localização do Azure, pois irá precisar ao chamar os serviços cognitivos do Azure.
@@ -55,7 +55,7 @@ az account list-locations \
     --out table
 ```
 
-Depois de ter sua localização do azure, crie um novo grupo de recursos na CLI do Azure utilizando o [criar grupo az](/cli/azure/group#az_group_create) comando.
+Depois de ter sua localização do azure, crie um novo grupo de recursos na CLI do Azure utilizando o [criar grupo az](/cli/azure/group#az-group-create) comando.
 
 No exemplo abaixo, substitua a localização do azure `westus2` com uma das localizações do Azure disponíveis para a sua subscrição.
 

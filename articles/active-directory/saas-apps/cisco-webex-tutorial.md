@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8c2fc2c2dbbfd2c98184215f696aaf18a87193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105556"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Webex reuniões
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Webex reuniões
 
     Na **iniciar sessão no URL** caixa de texto, cole o valor de **URL de resposta** que obtém preenchido automaticamente com o carregamento do ficheiro de metadados de SP.
 
-5. Aplicação de reuniões de Webex Cisco espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para adicionar os atributos.
+5. Aplicação de reuniões de Webex Cisco espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **editar** ícone para adicionar os atributos.
 
     ![image](common/edit-attribute.png)
 

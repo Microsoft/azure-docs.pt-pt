@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e1a6a44d7ff9d5786388fc47245ef5c79cb9be82
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155733"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657686"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Ativar o registo de diagnóstico para os serviços cognitivos do Azure
 
@@ -28,14 +28,14 @@ Para ativar o registo de diagnósticos, será necessário em algum lugar para ar
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -uma ferramenta de análise e pesquisa de registo flexível que permite a análise de registos não processados gerados pelo recurso do Azure.
 
 > [!NOTE]
-> Opções de configuração adicionais estão disponíveis. Para obter mais informações, consulte [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+> Opções de configuração adicionais estão disponíveis. Para obter mais informações, consulte [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="enable-diagnostic-log-collection"></a>Ativar a recolha de registo de diagnóstico  
 
 Vamos começar por ativar o diagnóstico de registo no portal do Azure.
 
 > [!NOTE]
-> Para ativar esta funcionalidade com o PowerShell ou a CLI do Azure, utilize as instruções fornecidas [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+> Para ativar esta funcionalidade com o PowerShell ou a CLI do Azure, utilize as instruções fornecidas [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
 
 1. Navegue para o portal do Azure. Em seguida, localize e selecione um recurso dos serviços cognitivos. Por exemplo, a subscrição de pesquisa Web Bing.   
 2. Em seguida, no menu de navegação do lado esquerdo, localize **monitorização** e selecione **das definições de diagnóstico**. Este ecrã contém todas as definições de diagnóstico criadas anteriormente para este recurso.

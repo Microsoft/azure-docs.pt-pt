@@ -5,15 +5,15 @@ keywords: ansible, azure, devops, máquina virtual
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ff0d3508f1d418a189fab0dfe5803280a20f9a00
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190129"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668649"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Início rápido: Configurar máquinas virtuais do Linux no Azure com o Ansible
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117505"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656629"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Criar uma aplicação ASP.NET Core e base de dados SQL no serviço de aplicações do Azure no Linux
 
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Criar uma cadeia de ligação
 
-Substitua a string seguinte com o  *\<nome do servidor >*,  *\<db-username >*, e  *\<db-palavra-passe >* utilizado anteriormente.
+Substitua a string seguinte com o  *\<nome do servidor >* ,  *\<db-username >* , e  *\<db-palavra-passe >* utilizado anteriormente.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +171,7 @@ Neste passo, implemente a aplicação .NET Core ligada à Base de Dados SQL do S
 
 ### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
 
-Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando seguinte, substitua  *\<nome da aplicação >*, bem como a  *\<cadeia de ligação >* parâmetro com a cadeia de ligação que criou anteriormente.
+Para definir cadeias de ligação para a sua aplicação do Azure, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. No comando seguinte, substitua  *\<nome da aplicação >* , bem como a  *\<cadeia de ligação >* parâmetro com a cadeia de ligação que criou anteriormente.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
@@ -362,7 +362,7 @@ Todos os itens a fazer existentes continuam a ser apresentados. Quando voltar a 
 
 ## <a name="stream-diagnostic-logs"></a>Transmitir registos de diagnóstico em fluxo
 
-O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+O projeto de exemplo já segue as instruções em [registo de núcleo ASP.NET no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) com duas alterações de configuração:
 
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` no *DotNetCoreSqlDb.csproj*.
 - Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` no *Startup.cs*.

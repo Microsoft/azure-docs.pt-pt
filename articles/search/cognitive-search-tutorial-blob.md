@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 292368687ea30b87f4a1fa851027f9bde38c9549
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: cedcc1be5525cc6932ff168e6549de84fa02a4ca
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485782"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669110"
 ---
 # <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutorial REST: Chamar APIs serviços cognitivos num pipeline de indexação do Azure Search
 
@@ -488,4 +488,4 @@ A forma mais rápida de os limpar no final do tutorial passa por eliminar o grup
 Personalize ou expanda o pipeline com competências personalizadas. A criação de uma competência personalizada e a sua adição a um conjunto de competências permite-lhe carregar análises de texto ou imagem que escreveu. 
 
 > [!div class="nextstepaction"]
-> [Exemplo: criar uma competência personalizada](cognitive-search-create-custom-skill-example.md)
+> [Exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
