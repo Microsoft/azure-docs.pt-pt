@@ -64,6 +64,8 @@
           href: faq-backup-sql-server.md
         - name: FAQ - Azure Backup Server e DPM
           href: backup-azure-dpm-azure-server-faq.md
+        - name: FAQ- Alerta do Azure Backup monitor
+          href: backup-azure-monitor-alert-faq.md
     - name: Arquitetura da cópia de segurança
       href: backup-architecture.md
     - name: Controlo de Acesso Baseado em Funções
