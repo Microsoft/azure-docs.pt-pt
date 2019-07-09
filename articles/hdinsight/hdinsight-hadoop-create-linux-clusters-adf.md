@@ -190,8 +190,8 @@ Neste artigo, vai configurar a atividade de ramo de registo para criar um cluste
     |Propriedade  |Value  |
     |---------|---------|
     |Name | Introduza um nome para a fábrica de dados. Este nome tem de ser globalmente exclusivo.|
-    |Subscrição | Selecione a sua subscrição do Azure. |
-    |Grupo de recursos | Selecione **utilizar existente** e, em seguida, selecione o grupo de recursos que criou com o script do PowerShell. |
+    |Subscription | Selecione a sua subscrição do Azure. |
+    |Resource group | Selecione **utilizar existente** e, em seguida, selecione o grupo de recursos que criou com o script do PowerShell. |
     |Version | Deixe **V2**. |
     |Location | A localização é automaticamente definida para a localização que especificou ao criar o grupo de recursos anteriormente. Para este tutorial, a localização está definida como **E.U.A. Leste**. |
 
