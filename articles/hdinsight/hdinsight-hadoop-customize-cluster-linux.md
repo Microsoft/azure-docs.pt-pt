@@ -178,8 +178,8 @@ Esta secção explica as diferentes formas que pode utilizar ações de script q
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
     | Name |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
-    | Head/Worker/Zookeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
-    | Parâmetros |Especifique os parâmetros, se necessário, o script. |
+    | Head/Worker/ZooKeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
+    | Parameters |Especifique os parâmetros, se necessário, o script. |
 
     Utilize o __manter esta ação de script__ entrada para se certificar de que o script é aplicado durante operações de dimensionamento.
 
