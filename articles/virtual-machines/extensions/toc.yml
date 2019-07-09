@@ -28,6 +28,10 @@
           href: azure-disk-enc-linux.md
         - name: Windows
           href: azure-disk-enc-windows.md
+    - name: Azure Backup para SQL Server
+      items:
+        - name: Azure Backup para SQL Server
+          href: backup-azure-sql-server-running-azure-vm.md
     - name: Script Personalizado
       items:
         - name: Linux - versão 2
