@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Obter registos de contentor e eventos
           href: container-instances-get-logs.md
-        - name: Registar com o Azure Log Analytics
+        - name: Criar registos com os registos do Azure Monitor
           href: container-instances-log-analytics.md
     - name: Resolução de problemas
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: FAQ
+      href: container-instances-faq.md
