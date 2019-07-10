@@ -9,7 +9,7 @@ ms.date: 07/17/2018
 ms.author: danlep
 ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60580294"
@@ -46,7 +46,7 @@ Para obter o ID de área de trabalho do log analytics e a chave primária:
 
 Agora que tem o ID de área de trabalho do log analytics e a chave primária, está pronto para criar um grupo de contentores de registo ativado.
 
-Os exemplos seguintes demonstram duas formas de criar um grupo de contentores com um único [fluentd] [ fluentd] contentor: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+Os exemplos seguintes demonstram duas formas de criar um grupo de contentores com um único [fluentd][fluentd] contentor: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
 
 ### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
