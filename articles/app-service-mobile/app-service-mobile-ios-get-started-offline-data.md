@@ -165,11 +165,11 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 | Atributo | Type |
 | --- | --- |
-| id | Número inteiro de 64 |
+| id | Integer 64 |
 | itemId | String |
-| properties | Dados binários |
+| properties |Binary Data |
 | table | String |
-| tableKind | Número inteiro de 16 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -179,9 +179,9 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | Atributo | Type |
 | --- | --- |
 | id |String |
-| operationId |Número inteiro de 64 |
-| properties |Dados binários |
-| tableKind |Número inteiro de 16 |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -191,7 +191,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 | --- | --- |
 | id |String |
 | key |String |
-| keyType |Número inteiro de 64 |
+| keyType |Integer 64 |
 | table |String |
 | value |String |
 
@@ -201,7 +201,7 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 | Atributo | Type | Nota |
 | --- | --- | --- |
-| id | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
+| id | String, marcada como necessária |chave primária no arquivo remoto |
 | Concluir | Boolean | Campo de item de tarefas pendentes |
 | texto |String |Campo de item de tarefas pendentes |
 | createdAt | Date | (opcional) É mapeado para **createdAt** propriedade do sistema |
