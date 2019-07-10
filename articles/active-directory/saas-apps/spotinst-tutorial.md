@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b3c9a0152144ac0d705c7d3f12c18cbc38398f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090141"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: Integração do Active Directory do Azure com Spotinst
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD início de sessão único com Spotinst, execute os se
 
     ![Spotinst domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva o URL:  `https://console.spotinst.com`
+    Na **URL de início de sessão** caixa de texto, escreva o URL:  `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > O valor de estado de reencaminhamento não é real. Atualizar o valor de estado de reencaminhamento com o valor de estado de reencaminhamento real, o que é explicado mais tarde no tutorial.

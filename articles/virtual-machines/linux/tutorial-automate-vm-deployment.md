@@ -4,7 +4,7 @@ description: Neste tutorial, irá aprender a utilizar o cloud-init e o Key Vault
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a65b7becc4ec60290670819799e9f8731d55058
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d56aa1c9b86542df3c2a7154669856686823e1dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67114261"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708607"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial – Como utilizar o cloud-init para personalizar uma máquina virtual do Linux no Azure no primeiro arranque
 
@@ -47,11 +47,11 @@ Estamos a trabalhar com os nossos parceiros para que o cloud-init seja incluído
 
 | Alias | Fabricante | Oferta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canónico |UbuntuServer |16.04-LTS |mais recente |
-| UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
-| | OpenLogic | CentOS | 7-CI | mais recente |
-| | RedHat | RHEL | 7-RAW-CI | mais recente |
+| UbuntuLTS |Canónico |UbuntuServer |16.04-LTS |latest |
+| UbuntuLTS |Canónico |UbuntuServer |14.04.5-LTS |latest |
+| CoreOS |CoreOS |CoreOS |Estável |latest |
+| | OpenLogic | CentOS | 7-CI | latest |
+| | RedHat | RHEL | 7-RAW-CI | latest |
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar ficheiro de configuração do cloud-init

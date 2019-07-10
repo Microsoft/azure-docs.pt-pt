@@ -4,7 +4,7 @@ description: CLI do Azure de exemplo - criar uma VM do Azure com a VM do Windows
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5bee7a2b9d203909ccd11c4485ecc850688f4ff
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505755"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708221"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorizar uma VM com os registos do Azure Monitor
 

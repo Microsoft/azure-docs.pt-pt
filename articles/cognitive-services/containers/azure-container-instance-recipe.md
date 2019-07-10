@@ -10,16 +10,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 45a03a0912681b4fc33ef8df88fa00fd5458f720
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445824"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704359"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance-aci"></a>Implementar e executar o contentor na instância de contentor do Azure (ACI)
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>Implementar e executar o contentor na instância de contentor do Azure
 
-Com os seguintes passos, dimensione as aplicações de serviços cognitivos do Azure na cloud facilmente com o Azure [instância de contentor](https://docs.microsoft.com/azure/container-instances/) (ACI). Esta ajuda que se concentrar na criação de seus aplicativos em vez de gerir a infraestrutura.
+Com os seguintes passos, dimensione as aplicações de serviços cognitivos do Azure na cloud facilmente com o Azure [instância de contentor](https://docs.microsoft.com/azure/container-instances/). Esta ajuda que se concentrar na criação de seus aplicativos em vez de gerir a infraestrutura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Esta solução funciona com qualquer contentor de serviços cognitivos. O recurs
 
 Todas as variáveis em colchetes angulares, `<>`, precisam ser substituídos pelos seus próprios valores. Essa substituição inclui dos parênteses.
 
-[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances (ACI)](./includes/create-aci-resource.md)]
+[!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
 ## <a name="use-the-container-instance"></a>Utilizar a instância de contentor
 

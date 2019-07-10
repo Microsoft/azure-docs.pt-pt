@@ -4,7 +4,7 @@ description: Neste tutorial, vai aprender a utilizar a CLI do Azure para criar e
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e90880aeaae17c80d6714f917f2ea849c953711f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecafd2b1a98ab38d7149ebddecd16a695847eccc
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169309"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703505"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e gerir redes virtuais do Azure para máquinas virtuais do Linux com a CLI do Azure
 
@@ -66,7 +66,7 @@ Antes de poder criar uma rede virtual, crie um grupo de recursos com [az group c
 az group create --name myRGNetwork --location eastus
 ```
 
-### <a name="create-virtual-network"></a>Criar rede virtual
+### <a name="create-virtual-network"></a>Criar a rede virtual
 
 Utilize o comando [az network vnet create](/cli/azure/network/vnet) para criar uma rede virtual. Neste exemplo, a rede tem o nome *mvVNet* e recebe o prefixo de endereço *10.0.0.0/16*. Também é criada uma sub-rede com o nome *myFrontendSubnet* e o prefixo *10.0.1.0/24*. Mais tarde no tutorial, vai ser ligada uma VM de front-end a esta sub-rede. 
 

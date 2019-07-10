@@ -4,7 +4,7 @@ description: Neste tutorial, vai aprender sobre as funcionalidades do Centro de 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb9df71859947f868b858cbed0d6f75b91956a94
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785872"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708129"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Utilize o Centro de segurança do Azure para monitorizar máquinas de virtuais do Windows
 
@@ -51,7 +51,7 @@ Antes de poder obter visibilidade das configurações de segurança de VM, terá
 
 1. No dashboard Centro de Segurança, clique em **Política de Segurança** e, em seguida, selecione a sua subscrição. 
 2. Em **Recolha de Dados**, em **Aprovisionamento Automático** selecione **Ativado**.
-3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)**.
+3. Em **Configuração de área de trabalho predefinida**, deixe como **Utilizar as áreas de trabalho criadas pelo Centro de Segurança (predefinição)** .
 4. Em **Eventos de Segurança**, mantenha a opção predefinida **Comuns**.
 4. Clique em **Guardar** no início da página. 
 

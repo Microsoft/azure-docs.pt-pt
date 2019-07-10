@@ -1,15 +1,15 @@
 ---
 author: IEvangelist
 ms.author: dapine
+ms.date: 06/26/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
-ms.openlocfilehash: 79fa102fcaa5570849757cbd1c9cf58c44382247
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9b1243760b3830830268cb386309254f8f0bd90a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434146"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704187"
 ---
 > [!TIP]
 > Pode utilizar o [imagens do docker](https://docs.docker.com/engine/reference/commandline/images/) command para listar as imagens de contentor transferido. Por exemplo, o comando seguinte lista o ID, o repositório e a etiqueta de cada imagem de contentor transferido, formatada como uma tabela:

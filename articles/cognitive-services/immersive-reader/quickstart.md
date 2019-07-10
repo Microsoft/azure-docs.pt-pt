@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 77d95383c801038c256ccb2bf386ddf06048cf78
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: a4da8d23e78fde9b936bcf9258eec137bcdf9231
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311797"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704145"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Início rápido: Criar uma aplicação web que inicia o leitor de imersão (C#)
 
 O [leitor envolventes](https://www.onenote.com/learningtools) é uma ferramenta projetada, inclusivamente que implementa técnicas comprovadas para melhorar a compreensão de leitura.
 
-Neste início rápido, criar uma aplicação web a partir do zero e integrar o leitor envolventes com o SDK de leitor envolvente e experimental. Um completo exemplo funcional deste início rápido está disponível [aqui](https://github.com/Microsoft/immersive-reader-sdk/samples/quickstart-csharp).
+Neste início rápido, criar uma aplicação web a partir do zero e integrar o leitor envolventes com o SDK de leitor envolvente e experimental. Um completo exemplo funcional deste início rápido está disponível [aqui](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/quickstart-csharp).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

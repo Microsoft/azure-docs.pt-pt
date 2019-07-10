@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61432828"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704752"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Guia de introdução do projeto Acoustics Unreal/Wwise
 Neste início rápido, irá experimentar projeto Acoustics controles de design usando o conteúdo de exemplo fornecido para o Unreal Engine e Wwise.
@@ -50,7 +50,7 @@ O projeto Acoustics Unreal Plug-in requer comportamento adicional seja exposto a
 
     ![Janela de captura de ecrã do Explorador do Windows, que mostra o script ao projeto de Wwise de patch](media/patch-wwise-script.png)
 
-* Se não tiver instalado o SDK do DirectX, precisará comentar a linha que contém DXSDK_DIR no `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se não tiver o DirectX SDK instalado, dependendo da versão do Wwise estiver a utilizar, poderá ter de comentar a linha que contém `DXSDK_DIR` em `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Captura de ecrã do editor de código que mostra DXSDK comentado](media/directx-sdk-comment.png)
 
@@ -72,7 +72,7 @@ Se o **oclusão** multiplicador for superior a 1 (a predefinição é 1), irá s
 Para ativar a transmissão através de parede, mover o **transmissão (dB)** controlo de deslize desativar seu nível mais baixo. 
 
 ### <a name="modify-wetness-for-a-source"></a>Modificar a umidade para uma origem
-Para alterar o ritmo umidade é alterado com a distância, utilize o **Warp de distância Percetual**. Projeto Acoustics calcula wet níveis por todo o espaço de simulação, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Aumentando a forma de muito distância exaggerates esse efeito, aumentando os níveis de wet relacionados à distância. Distorcendo valores menores do que 1 certifique o reverberation com base na distância alterar mais sutil. Também pode ser ajustado esse efeito em detalhes mais refinado ao ajustar a **Umidade (dB)**.
+Para alterar o ritmo umidade é alterado com a distância, utilize o **Warp de distância Percetual**. Projeto Acoustics calcula wet níveis por todo o espaço de simulação, que variam sem problemas com a distância e proporcionam indicações de percepção de distância. Aumentando a forma de muito distância exaggerates esse efeito, aumentando os níveis de wet relacionados à distância. Distorcendo valores menores do que 1 certifique o reverberation com base na distância alterar mais sutil. Também pode ser ajustado esse efeito em detalhes mais refinado ao ajustar a **Umidade (dB)** .
 
 Aumentar o tempo de Win32/decay por todo o espaço ao ajustar **escala de tempo de Win32/decay**. Considere o caso em que o resultado de simulação é um tempo de Win32/decay de 1,5 s. Definindo a **escala de tempo de Win32/decay** para 2 irá resultar num tempo Win32/decay aplicado para a origem de 3 s.
 

@@ -1,14 +1,14 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: c0c3675b68c8ecc83a56b99c44db71b2ac2d28d7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a642160fc7e94979a91687b07c26fafeb786bbb4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184536"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704235"
 ---
-Para encerrar o contentor, no ambiente de linha de comando onde o contentor está em execução, selecione Ctrl + C.
+Para encerrar o contentor, no ambiente de linha de comando onde o contentor está em execução, selecione <kbd>Ctrl + C</kbd>.

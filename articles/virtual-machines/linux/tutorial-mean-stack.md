@@ -4,7 +4,7 @@ description: Neste tutorial, vai aprender a criar uma pilha MongoDB, Express, An
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: eac10cd735ae16cf1c7c6d6987a3b53060caa1cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d870e5eedf362a6c929216735c8b5e9240aaa4f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66155295"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708485"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Criar uma pilha MongoDB, Express, AngularJS e node. js (MEAN) numa máquina virtual do Linux no Azure
 

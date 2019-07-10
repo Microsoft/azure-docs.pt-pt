@@ -4,7 +4,7 @@ description: CLI do Azure exemplo do Script - criar uma VM do Linux com o Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b463df00f57d2dd8f00964eaf10bd0d5f2c2eaab
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127710"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709511"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Monitorizar uma VM com o Azure Monitor
 

@@ -10,16 +10,19 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 1c6db84acc2bca8e649f5f7acb1dcbdfd6d1269d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b5c89d6d2066af3978845676a42a6c39ba3659e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67445133"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705562"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Início rápido: Utilize a API de texto do Translator para obter uma lista de idiomas suportados através de Java
 
 Neste início rápido, obtém uma lista de idiomas com suporte para tradução, Transliteração e pesquisa de dicionário com a API de texto do Translator.
+
+>[!TIP]
+> Se gostaria de ver todo o código de uma só vez, o código-fonte para este exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +107,7 @@ Adicionar estas linhas para o `GetLanguages` classe:
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
 
-Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication). 
+Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e criar um pedido
 
@@ -264,10 +267,10 @@ Encontre a abreviatura de país/região desta [lista de idiomas](https://docs.mi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Veja a referência de API para compreender tudo o que pode fazer com a API de texto do Translator.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos de Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 

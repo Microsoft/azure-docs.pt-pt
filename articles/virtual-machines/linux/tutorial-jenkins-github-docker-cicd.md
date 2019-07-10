@@ -4,7 +4,7 @@ description: Tutorial – Neste tutorial, vai aprender a criar uma máquina virt
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6c6510113710ea19128fcd27adbf8671a8f083bc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d8ef524121f41129d842cfdf9822fe6a19c71810
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122710"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709558"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com Jenkins, GitHub e Docker
 
@@ -152,7 +152,7 @@ Crie um webhook no interior do fork que criou:
 - Escolher **adicionar webhook**, em seguida, introduza *Jenkins* na caixa Filtro.
 - Para o **URL de Payload**, introduza `http://<publicIps>:8080/github-webhook/`. Certifique-se de que inclui / à direita
 - Para **tipo de conteúdo**, selecione *application/x-www-form-urlencoded*.
-- Para **que eventos deseja acionar este webhook?**, selecione *apenas o evento de push.*
+- Para **que eventos deseja acionar este webhook?** , selecione *apenas o evento de push.*
 - Definir **Active Directory** como marcada.
 - Clique em **adicionar webhook**.
 

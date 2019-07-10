@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5e27c6a1ab5fc9dff779c6e5d04689683d5c8e6d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 1ce4e9c47bf6f885417b6c06c6036d3cadcaef7b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274143"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706456"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Utilizar os sinalizadores de recurso numa aplicação ASP.NET Core
 
@@ -103,7 +103,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            .UseStartup<Startup>();
 ```
 
-Valores de sinalizador de funcionalidade devem mudar ao longo do tempo. Por predefinição, o Gestor de recursos, atualiza os valores de sinalizador de funcionalidade a cada 30 segundos. O código seguinte mostra como alterar o intervalo de consulta como 5 segundos no `options.UseFeatureFlags()` chamar:
+Valores de sinalizador de funcionalidade devem mudar ao longo do tempo. Por predefinição, o Gestor de recursos, atualiza os valores de sinalizador de funcionalidade a cada 30 segundos. O código seguinte mostra como alterar o intervalo de consulta para 5 minutos no `options.UseFeatureFlags()` chamar:
 
 ```csharp
 config.AddAzureAppConfiguration(options => {

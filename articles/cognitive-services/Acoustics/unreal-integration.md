@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 02d63897cffa2ceca46b992e7d07b917dd73bc72
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6207808efb9bee327afd2de21ffa59535acf4e55
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621554"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704798"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Projeto Acoustics Unreal e integração de Wwise
 Nesta explicação de procedimento fornece os passos de integração detalhadas do pacote de plug-in do projeto Acoustics em seu projeto jogo existente Unreal e Wwise. 
@@ -26,7 +26,7 @@ Requisitos de software:
 * [Plug-in do Wwise para Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Se estiver a utilizar uma integração direta do Wwise SDK em vez de utilizar os plug-ins Wwise Unreal, consulte o plug-in do projeto Acoustics Unreal e ajustar as chamadas à API de Wwise.
 
-Se gostaria de utilizar Acoustics de projeto com um mecanismo de áudio que não seja Wwise, contacte-nos sobre o [fóruns de projeto Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics). Pode utilizar o plug-in do projeto Acoustics Unreal para consultar dados de acoustics e, em seguida, fazer chamadas de API para o motor.
+Se gostaria de utilizar Acoustics de projeto com um mecanismo de áudio que não seja Wwise, fazer uma solicitação de aprimoramento no [fórum de discussão do projeto Acoustics](https://github.com/microsoft/ProjectAcoustics/issues). Pode utilizar o plug-in do projeto Acoustics Unreal para consultar dados de acoustics e, em seguida, fazer chamadas de API para o motor.
 
 ## <a name="download-project-acoustics"></a>Transferir o projeto Acoustics
 Se ainda não o fez, transfira o [pacote de plug-in do projeto Acoustics Unreal & Wwise](https://www.microsoft.com/download/details.aspx?id=58090)). 

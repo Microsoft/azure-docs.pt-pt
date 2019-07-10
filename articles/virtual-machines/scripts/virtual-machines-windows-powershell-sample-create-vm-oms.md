@@ -4,7 +4,7 @@ description: Registos do exemplo de Script do PowerShell do Azure - Monitor do A
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 130ca2dc156df8c816fecec6cf4302472d072e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 83a93e9c24b34a0a081e18946fa3ff21bd06a61d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723107"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695555"
 ---
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>Criar um VM de Monitor do Azure com o PowerShell 
 

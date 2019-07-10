@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: beb9818be05fbb9a9e9c958dccb2e375f7685bd0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 84960e82e25f4b6cc59324f17ce46de7f9f7ac23
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272798"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704659"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
@@ -41,7 +41,6 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar os contentores de 
 ### <a name="the-host-computer"></a>O computador anfitrião
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
-
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 

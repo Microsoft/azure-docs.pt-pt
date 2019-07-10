@@ -4,7 +4,7 @@ description: Exemplo do Script da CLI do Azure – Criar uma VM do Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97fe97d17c7f751dd44cf229a52346f8e9b0342b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6720aaf5e5ea037630e32ade29772b7f843e0c44
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680034"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709451"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>Criar uma máquina virtual totalmente configurada
 

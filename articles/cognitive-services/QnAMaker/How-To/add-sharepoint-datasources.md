@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: 99b20e36163ec8c91fba864706f883b7866de65c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: ecb9777643296685d0dcc7cd5a177f2fe00d2580
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592907"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704636"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma origem de dados protegida do SharePoint à sua base de dados de conhecimento
 
@@ -32,7 +32,7 @@ Pode adicionar tudo suportado do QnA Maker [tipos de ficheiro](../Concepts/data-
 1. Da biblioteca com o site do SharePoint, selecione o menu de reticências do ficheiro, `...`.
 1. Copie o URL do ficheiro.
 
-    ![Obter o URL de ficheiros do SharePoint ao selecionar o menu de reticências do ficheiro, em seguida, copiar o URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
+   ![Obter o URL de ficheiros do SharePoint ao selecionar o menu de reticências do ficheiro, em seguida, copiar o URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
 1. No portal do QnA Maker, sobre o **definições** página, [adicionar o URL](edit-knowledge-base.md#add-datasource) para a base de dados de conhecimento. 
 
@@ -52,7 +52,7 @@ Quando testa o par de QnA no painel de teste interativa, no portal do QnA Maker,
 
 ## <a name="permissions"></a>Permissões
 
-Conceder permissões acontece quando é adicionado um ficheiro protegido a partir de um site do SharePoint para uma base de dados de conhecimento. Dependendo de como o SharePoint é definido de segurança e as permissões da pessoa a adicionar o arquivo, isso poderia exigir:
+Conceder permissões acontece quando um ficheiro protegido do servidor do SharePoint é adicionado a uma base de dados de conhecimento. Dependendo de como o SharePoint é definido de segurança e as permissões da pessoa a adicionar o arquivo, isso poderia exigir:
 
 * Não existem passos adicionais - a pessoa a adicionar o ficheiro tem todas as permissões necessárias.
 * passos por ambos [Gestor de base de dados de conhecimento](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) e [Gestor de diretório Active Directory](#active-directory-manager-grant-file-read-access-to-qna-maker).
@@ -76,12 +76,12 @@ O Gestor do Active Directory (não o Gestor do QnA Maker) tem de conceder acesso
 ![O Gestor do Active Directory do Azure concede permissão de forma interativa](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
-The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharepoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
+The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
 -->
 <!--
 ### Grant access from the interactive pop-up window 
 
-The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharepoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharepoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
+The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 -->
@@ -91,7 +91,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**. 
 
-1. Search for and select the **QnAMakerPortalSharepoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
+1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
     ![Select QnA Maker app in App registrations list](../media/add-sharepoint-datasources/select-qna-maker-app-in-app-registrations.png)
 
@@ -115,9 +115,9 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. O Gestor de diretório Active Directory inicia sessão no portal do Azure e abre  **[aplicações empresariais](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
 
-1. Procure `QnAMakerPortalSharepoint` select a aplicação do QnA Maker. 
+1. Procure `QnAMakerPortalSharePoint` select a aplicação do QnA Maker. 
 
-    [![Procure QnAMakerPortalSharepoint na lista de aplicações da empresa](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+    [![Procure QnAMakerPortalSharePoint na lista de aplicações da empresa](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
 1. Sob **Security**, aceda à **permissões**. Selecione **conceder autorização de administrador para a organização**. 
 
@@ -165,7 +165,7 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
         {
             "fileUri": "<@microsoft.graph.downloadURL>",
             "fileName": "filename.xlsx",
-            "source": "<sharepoint link>"
+            "source": "<SharePoint link>"
         }
     ],
     "urls": [],
