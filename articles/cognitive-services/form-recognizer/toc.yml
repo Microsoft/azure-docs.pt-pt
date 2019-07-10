@@ -35,6 +35,8 @@
         - name: Configurar contentores
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Utilizar instâncias de contentor
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Referência
   items:
     - name: API do Reconhecedor de Formato

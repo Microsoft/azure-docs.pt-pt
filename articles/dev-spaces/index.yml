@@ -8,23 +8,31 @@ metadata:
   author: zr-msft
   ms.service: azure-dev-spaces
   ms.topic: landing-page
-  ms.date: 04/29/2019
+  ms.date: 07/08/2019
   ms.author: zarhoads
-  manager: jeconnoc
+  manager: gwallace
 abstract:
   description: 'O Azure Dev Spaces permite-lhe testar e programar de forma iterativa toda a sua aplicação de microsserviços em execução no Azure Kubernetes Service (AKS) sem que tenha de replicar ou simular dependências. O Azure Dev Spaces reduz o esforço e a complexidade da colaboração com a sua equipa num cluster partilhado do Azure Kubernetes Service (AKS), bem como da execução e depuração de contentores diretamente no AKS. Saiba como utilizar o Azure Dev Spaces com estes inícios rápidos.'
 sections:
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
-        text: 'Saia como utilizar o Azure Dev Spaces para colaborar em equipa no AKS:'
+        text: 'Saiba como utilizar o Azure Dev Spaces no AKS:'
       - type: list
         style: icon48
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Desenvolvimento em Equipa com a CLI do Azure
+            text: Criar em equipa
             href: quickstart-team-development.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Executar uma aplicação
+            href: quickstart-cli.md
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Executar uma aplicação com um Dockerfile
+            href: quickstart-cli-dockerfile.md
       - type: paragraph
         text: 'Saiba como desenvolver e depurar de forma iterativa diretamente no AKS com o Azure Dev Spaces:'
       - type: list

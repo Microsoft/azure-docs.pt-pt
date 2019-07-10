@@ -209,6 +209,8 @@
           href: sql-database-managed-instance-index.yml
         - name: Funcionalidades de instância gerida
           href: sql-database-managed-instance.md
+        - name: FAQ de instância gerida
+          href: sql-database-managed-instance-faq.md
         - name: Referência da API de Gestão
           href: sql-database-managed-instance-create-manage.md
         - name: Limites de recursos

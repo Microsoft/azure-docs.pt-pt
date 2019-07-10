@@ -9,6 +9,8 @@
   items:
     - name: 'ASP.NET Core - C#'
       href: signalr-quickstart-dotnet-core.md
+    - name: 'ASP.NET - C#'
+      href: signalr-quickstart-dotnet.md
     - name: Funções do Azure - JavaScript
       href: signalr-quickstart-azure-functions-javascript.md
     - name: 'Funções do Azure - C#'

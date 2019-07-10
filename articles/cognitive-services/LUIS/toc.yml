@@ -266,6 +266,8 @@
           href: luis-container-howto.md
         - name: Configurar contentores
           href: luis-container-configuration.md
+        - name: Utilizar instâncias de contentor
+          href: deploy-luis-on-container-instances.md
 - name: Referência
   items:
     - name: Privacidade do utilizador
