@@ -144,7 +144,7 @@ A tabela seguinte contém as propriedades e as descrições para os parâmetros 
 ### <a name="redisconfiguration-properties"></a>Propriedades de RedisConfiguration
 | Propriedade | Descrição | Escalões de preço |
 | --- | --- | --- |
-| capacidade de cópia de segurança de RDB |Se [persistência de dados de Redis](cache-how-to-premium-persistence.md) está ativada |Apenas Premium |
+| rdb-backup-enabled |Se [persistência de dados de Redis](cache-how-to-premium-persistence.md) está ativada |Apenas Premium |
 | rdb-storage-connection-string |A cadeia de ligação para a conta de armazenamento para [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
 | rdb-backup-frequency |A frequência de cópia de segurança de [persistência de dados de Redis](cache-how-to-premium-persistence.md) |Apenas Premium |
 | maxmemory-reserved |Configura a [memória reservada](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para processos de fora de cache |Standard e Premium |
@@ -155,7 +155,7 @@ A tabela seguinte contém as propriedades e as descrições para os parâmetros 
 | set-max-intset-entries |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | zset-max-ziplist-entries |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
 | zset-max-ziplist-value |Configura [otimização de memória](https://redis.io/topics/memory-optimization) para tipos de dados de agregação pequeno |Standard e Premium |
-| bases de dados |Configura o número de bases de dados. Esta propriedade pode ser configurada apenas durante a criação de cache. |Standard e Premium |
+| databases |Configura o número de bases de dados. Esta propriedade pode ser configurada apenas durante a criação de cache. |Standard e Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Para criar uma Cache do Azure para Redis
 Nova Cache do Azure para instâncias de Redis são criadas com o [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet.
