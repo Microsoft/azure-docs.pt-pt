@@ -142,6 +142,9 @@
         - name: Lista de verificação de segurança
           displayName: 'identity, active directory, password'
           href: azure-ad-secure-steps.md
+        - name: Escolher modo sem palavra-passe
+          displayName: 'identity, active directory, passwordless'
+          href: azure-ad-passwordless.md
         - name: Melhores práticas
           displayName: 'password, identity, active directory'
           href: azure-security-identity-management-best-practices.md

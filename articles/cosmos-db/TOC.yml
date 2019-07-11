@@ -797,6 +797,8 @@
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+    - name: Benefícios da arquitetura multimestre
+      href: multi-master-benefits.md
     - name: Casos de utilização
       items:
         - name: Casos de utilização comuns

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
 ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 06/13/2019
 ms.locfileid: "65510046"
@@ -52,7 +52,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual.
 Pode configurar estas definições manualmente ou fornecemos um script do PowerShell para automatizar a configuração.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>Opção 1: Utilizar um script do PowerShell para configurar a virtualização aninhada
-Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Reinício da VM do Azure é necessário para concluir a configuração. Este script pode funcionar em outros ambientes, mas não é garantido. Veja a mensagem de blogue do Azure com uma demonstração em vídeo em direto em Virtualização aninhada em execução no Azure! https://aka.ms/AzureNVblog.
+Um script do PowerShell para ativar a virtualização aninhada num anfitrião Windows Server 2016 está disponível no [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). O script verifica os pré-requisitos e, em seguida, configura a virtualização aninhada na VM do Azure. Reinício da VM do Azure é necessário para concluir a configuração. Este script pode funcionar em outros ambientes, mas não é garantido. Veja a mensagem de blogue do Azure com uma demonstração em vídeo em direto em Virtualização aninhada em execução no Azure! [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ).
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>Opção 2: Configurar manualmente a virtualização aninhada
 

@@ -1,0 +1,39 @@
+- name: Documentação da Pré-visualização do Azure Data Share
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: O que é a Pré-visualização do Azure Data Share?
+      href: overview.md
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: Partilhar dados
+      href: share-your-data.md
+    - name: Aceitar e receber dados
+      href: subscribe-to-data-share.md
+- name: Conceitos
+  items:
+    - name: Terminologia do Azure Data Share
+      href: terminology.md
+    - name: Funções e requisitos
+      href: concepts-roles-permissions.md
+- name: Guias de procedimentos
+  items:
+    - name: Monitorizar
+      href: how-to-monitor.md
+    - name: Configurar mapeamentos de conjuntos de dados
+      href: how-to-configure-mapping.md
+    - name: Resolução de problemas
+      href: data-share-troubleshoot.md
+- name: Recursos
+  items:
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/tag/data-share'
+    - name: Microsoft Tech Community
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Comentários sobre o produto
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

@@ -41,7 +41,7 @@ Neste cenário,:
 
 Neste cenário, vamos mostrar como ver o tempo de ida e volta inicial (RTT) de uma conversa de protocolo de controlo de transmissão (TCP) ocorrem entre dois pontos de extremidade.
 
-Quando uma conexão TCP é estabelecida, os primeiros três pacotes enviados na conexão de seguem um padrão de frequentemente referido como o handshake de três vias. Ao examinar os dois primeiros pacotes enviados neste handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando esta ligação foi estabelecida. Esta latência é referida como o tempo de ida e volta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o seguinte recurso. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Quando uma conexão TCP é estabelecida, os primeiros três pacotes enviados na conexão de seguem um padrão de frequentemente referido como o handshake de três vias. Ao examinar os dois primeiros pacotes enviados neste handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando esta ligação foi estabelecida. Esta latência é referida como o tempo de ida e volta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o seguinte recurso. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Passo 1
 
