@@ -41,7 +41,7 @@ Para cada recurso, encontrará a contagem de instâncias atual e o estado do dim
 
 Agora vamos através de um simples passo a passo para criar a sua primeira definição de dimensionamento automático.
 
-1. Abra o **dimensionamento automático** painel no Azure Monitor e selecione um recurso que pretende dimensionar. (Os passos seguintes utilizam um plano do serviço de aplicação associado a uma aplicação web. Pode [criar sua primeira aplicação web ASP.NET no Azure em 5 minutos.] [4])
+1. Abra o **dimensionamento automático** painel no Azure Monitor e selecione um recurso que pretende dimensionar. (Os passos seguintes utilizam um plano do serviço de aplicação associado a uma aplicação web. Pode [criar sua primeira aplicação web ASP.NET no Azure em 5 minutos.][4])
 1. Tenha em atenção que a contagem de instâncias atual é 1. Clique em **ativar o dimensionamento automático**.
   ![Definição de dimensionamento para a nova aplicação web][5]
 1. Forneça um nome para a definição de dimensionamento e, em seguida, clique em **adicionar uma regra**. Observe as opções de regra de dimensionamento que abra como um painel de contexto no lado direito. Por predefinição, isto define a opção de dimensionar sua contagem de instâncias por 1 se a percentagem de CPU do recurso superior a 70 por cento. Deixá-lo em seus valores predefinidos e clique em **adicionar**.
