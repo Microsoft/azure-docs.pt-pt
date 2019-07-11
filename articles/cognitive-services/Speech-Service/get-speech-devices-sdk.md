@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 31016073a3d1b62a2e22eae164eaccb03f6e0ae7
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cff35398509c021a3d2ccf708e2705ab7e259d34
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603229"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719806"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obter os dispositivos de voz dos serviços cognitivos SDK
 
@@ -25,8 +25,8 @@ O SDK de dispositivos de voz é uma biblioteca pretuned concebida para trabalhar
 
 |Dispositivos|Especificação|Descrição|Cenários|
 |--|--|--|--|
-|[Kit de programação de áudio de Roobo inteligente](https://ddk.roobo.com)</br>[Programa de configuração](speech-devices-sdk-roobo-v1.md) / [guia de início rápido](speech-devices-sdk-android-quickstart.md)![Kit de programação de áudio de Roobo inteligente](media/speech-devices-sdk/device-roobo-v1.jpg)|7 de matriz de mic, ARM SOC, de Wi-Fi, fora de áudio, e/s. </br>Android|O SDK de dispositivos de voz primeiro adaptar Array de Mic do Microsoft e front processamento SDK, para o desenvolvimento de cenários de transcrição e de voz de alta qualidade|Transcrição da conversação, o orador inteligente, agente, os de voz|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 câmeras RGB de matriz de mic e profundidade. </br>Windows/Linux|Um kit de programação com sensores de inteligência artificial (IA) para criar modelos de computador sofisticados e de voz. Ele combina uma câmera de matriz e a profundidade de melhor na classe de microfone espaciais com uma câmara de vídeo e um sensor de orientação — tudo num dispositivo pequeno com vários modos, opções e SDKs para acomodar uma gama de tipos de computação.|Construção de Smart de transcrição, Robotics, de conversação|
+|[Kit de programação de áudio de Roobo inteligente](https://ddk.roobo.com)</br>[Programa de configuração](speech-devices-sdk-roobo-v1.md) / [guia de início rápido](speech-devices-sdk-android-quickstart.md)![Kit de programação de áudio de Roobo inteligente](media/speech-devices-sdk/device-roobo-v1.jpg)|7 de matriz de mic, ARM SOC, de Wi-Fi, fora de áudio, e/s. </br>[Android](speech-devices-sdk-android-quickstart.md)|O SDK de dispositivos de voz primeiro adaptar Array de Mic do Microsoft e front processamento SDK, para o desenvolvimento de cenários de transcrição e de voz de alta qualidade|Transcrição da conversação, o orador inteligente, agente, os de voz|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br>[Programa de configuração](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [guia de início rápido](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 câmeras RGB de matriz de mic e profundidade. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Um kit de programação com sensores de inteligência artificial (IA) para criar modelos de computador sofisticados e de voz. Ele combina uma câmera de matriz e a profundidade de melhor na classe de microfone espaciais com uma câmara de vídeo e um sensor de orientação — tudo num dispositivo pequeno com vários modos, opções e SDKs para acomodar uma gama de tipos de computação.|Construção de Smart de transcrição, Robotics, de conversação|
 |Kit de programação de áudio de Roobo Smart 2![Kit de programação de áudio de Roobo Smart 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 de matriz de mic, ARM SOC, de Wi-Fi, Bluetooth, e/s. </br>Linux|2ª geração SDK de dispositivos de voz que fornece o sistema operacional alternativo e mais recursos numa estrutura de referência de custo-eficiência.|Transcrição da conversação, o orador inteligente, agente, os de voz|
 |Placa de desenvolvimento URbetter T11![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 de matriz de mic, ARM SOC, de Wi-Fi, Ethernet, HDMI, câmara USB. </br>Linux|Um nível de setor SDK de dispositivos de voz que se adapta a matriz de Microsoft Mic e suporte estendido e/s, como HDMI/Ethernet e mais periféricos USB|Transcrição da conversação, Education, Hospital, robôs, OTT caixa, o agente, de voz unidade até|
 

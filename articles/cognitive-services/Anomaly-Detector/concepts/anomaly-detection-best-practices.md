@@ -1,20 +1,21 @@
 ---
 title: Melhores práticas com a API do Detetor de Anomalias
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre as melhores práticas quando detetar anomalias, com a API de detetor de anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1ad4a67d7737733e4c910d3495be29860769f27e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477819"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721616"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para utilizar a API de detetor de anomalias
 
@@ -100,7 +101,7 @@ Para obter melhores resultados, fornecer 4 `period`do valor do ponto de dados, m
 
 Se os dados de transmissão em fluxo são amostrados num curto intervalo (por exemplo, segundos ou minutos), a enviar o número recomendado de pontos de dados pode exceder máximos número permitidos (8640 pontos de dados) a API de detetor de anomalias. Se seus dados mostram um padrão sazonal estável, considere enviar uma amostra dos seus dados de séries de tempo num intervalo de tempo maior, como horas. Os dados dessa forma de amostragem também visivelmente pode melhorar o tempo de resposta de API. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API de detetor de anomalias?](../overview.md)
 * [Quickstart: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias](../quickstarts/detect-data-anomalies-csharp.md)

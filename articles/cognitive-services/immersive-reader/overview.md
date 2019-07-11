@@ -1,26 +1,27 @@
 ---
-title: Sobre o leitor envolvente
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre o leitor envolvente
+title: O que é a API de leitor de imersão?
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre o leitor de imersão de API.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 38056f701b76f3fc2cf1f617a6977321445f78ff
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 4500b6213c549ab9977fe8f2d849ffa8089d04b9
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296749"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718432"
 ---
-# <a name="what-is-immersive-reader"></a>O que é o leitor de imersão?
+# <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
 O [leitor envolventes](https://www.onenote.com/learningtools) é uma ferramenta projetada, inclusivamente que implementa técnicas comprovadas para melhorar a compreensão de leitura para os leitores emergentes, aprendizes de linguagem e as pessoas com diferenças como dyslexia de aprendizado.
 
-Pode utilizar o leitor de imersão na sua aplicação web com o SDK de leitor envolventes.
+Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.
 
 ## <a name="what-does-immersive-reader-do"></a>O que faz o leitor de imersão?
 
@@ -28,7 +29,7 @@ O leitor de imersão foi projetado para fazer a leitura mais acessível para tod
 
 * Mostra o conteúdo numa vista de leitura mínimo
 
-  ![Leitor de imersão](./media/immersive-reader.png)
+  ![Leitura Avançada](./media/immersive-reader.png)
 
 * Exibe figuras de palavras usadas
 
@@ -56,7 +57,7 @@ O leitor de imersão é uma aplicação autónoma e web que, quando invocado uti
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Introdução ao leitor envolvente e experimental:
+Introdução à Leitura Avançada:
 
 * Ir para o [início rápido](./quickstart.md)
 * Explorar o [leitor envolvente SDK no GitHub](https://github.com/Microsoft/immersive-reader-sdk)

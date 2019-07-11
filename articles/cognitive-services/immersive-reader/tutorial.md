@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial: Iniciar a Leitura Avançada (Node.js)'
+title: 'Tutorial: Inicie o leitor envolventes com node. js'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá criar uma aplicação node. js que inicia o leitor envolvente e experimental.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ac90496c950d8a563bf8794b4c1bb105b6c12232
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f8697042ed46e0ff333f736454346908d76cf039
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444071"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718370"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
@@ -210,7 +211,7 @@ Pode incluir conteúdo matemática no leitor de imersão usando [MathML](https:/
 
 2. Navegue para _http://localhost:3000_ . Quando inicia o leitor envolventes e desloque-se para a parte inferior, verá a fórmula de matemática.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Explorar o [leitor envolvente SDK](https://github.com/Microsoft/immersive-reader-sdk) e o [envolventes leitor a referência do SDK](./reference.md)
 * Ver exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)

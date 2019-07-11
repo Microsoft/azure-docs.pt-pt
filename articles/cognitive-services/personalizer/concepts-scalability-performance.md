@@ -1,5 +1,5 @@
 ---
-title: Aprendizagem por reforço - Personalizer
+title: Escalabilidade e desempenho - Personalizer
 titleSuffix: Azure Cognitive Services
 description: 'Web sites de tráfego elevado e de elevado desempenho e aplicações têm dois fatores principais a serem considerados com Personalizer para escalabilidade e desempenho: latência e débito de treinamento.'
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 242cc1b96c08cd79dc3e2ef5efbbe96a934b8ad3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06c2e65c723e18acc515dd7effc61aae0564f411
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058442"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722428"
 ---
 # <a name="scalability-and-performance"></a>Desempenho e escalabilidade
 
@@ -62,6 +62,6 @@ Por exemplo, se a carga média tem 500 recursos e cada uma tem um estimado 20 ca
 
 Se estiver a atingir estes limites, contacte a nossa equipa de suporte para orientação de arquitetura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar e configurar Personalizer](how-to-settings.md).

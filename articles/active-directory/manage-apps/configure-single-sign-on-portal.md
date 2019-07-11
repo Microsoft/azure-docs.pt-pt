@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3841ba3782286fc1478f4c9c5f3bdd0726004b31
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 634c1d05847f3d4d7b7168d484cd16bf8e351b27
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702151"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723931"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação com o Azure Active Directory
 
@@ -74,7 +74,7 @@ Para configurar o domínio e os URLs:
 
 1. Para editar as opções de configuração de SAML básicas, selecione o **edite** ícone (um lápis) no canto superior direito do **configuração básica de SAML** secção.
 
-     ![Editar opções básicas de configuração SAML](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+     ![Editar opções básicas de configuração de SAML](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
 1. Os campos adequados na página, introduza as informações fornecidas pelo fornecedor do aplicativo no passo 1.
 1. Na parte superior da página, selecione **guardar**.

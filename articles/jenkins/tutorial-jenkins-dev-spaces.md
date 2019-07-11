@@ -7,12 +7,12 @@ ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/18/2019
-ms.openlocfilehash: 8c47b8caf2d289ed17647b8003cc702156f3cddb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: f5f74ebeb803a5c493f1dbedb6501adf3a88c215
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592080"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785661"
 ---
 <!-- GMinchAQ, 06/18/19 -->
 
@@ -63,7 +63,7 @@ Nesta secção, vai criar recursos do Azure:
     az group create --name MyResourceGroup --location westus2
     ```
 
-2. Crie um cluster do AKS. Criar o cluster do AKS numa [região que suporta espaços de desenvolvimento](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
+2. Crie um cluster do AKS. Criar o cluster do AKS numa [região que suporta espaços de desenvolvimento](../dev-spaces/about.md#supported-regions-and-configurations).
 
     ```bash
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2

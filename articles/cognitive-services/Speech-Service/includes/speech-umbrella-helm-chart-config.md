@@ -14,8 +14,8 @@ ms.openlocfilehash: ed64412ccf9d192506fafe546b1ccee7941aa43a
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711815"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717247"
 ---
 ### <a name="speech-umbrella-chart"></a>Conversão de voz (gráfico de síntese)
 

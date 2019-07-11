@@ -1,38 +1,37 @@
 ---
 title: Utilizar o Kubernetes no local
 titleSuffix: Azure Cognitive Services
-description: Com o Kubernetes (K8s) e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local.
+description: Com o Kubernetes e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 7/10/2019
 ms.author: dapine
-ms.openlocfilehash: 1e3afc80abad5f5c1f9b4d57c52ca75449eeb755
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711485"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786242"
 ---
 # <a name="use-kubernetes-on-premises"></a>Utilizar o Kubernetes no local
 
-Com o Kubernetes (K8s) e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local. Por fim, vamos explorar como testar os serviços implementados e várias opções de configuração.
+Com o Kubernetes e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local. Por fim, vamos explorar como testar os serviços implementados e várias opções de configuração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este procedimento requer várias ferramentas que tem de estar instaladas e executadas localmente.
+Tem de cumprir os seguintes pré-requisitos antes de utilizar a voz contentores no local:
 
-* Utilize uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar.
-* Instalar o [CLI do Azure][azure-cli] (az).
-* Instalar o [CLI do Kubernetes][kubernetes-cli] (kubectl).
-* Instalar o [Helm][helm-install] cliente, o Gestor de pacotes do Kubernetes.
-    * Instalar o servidor de Helm [Tiller][tiller-install].
-* Um recurso do Azure com o escalão de preço correto. Nem todos os escalões de preço trabalham com estas imagens de contentor:
-    * **Voz** recurso com preços Standard ou de F0 camadas apenas.
-    * **Os serviços cognitivos** recurso com o S0 escalão de preço.
+|Necessário|Objetivo|
+|--|--|
+| Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
+| Acesso ao registo de contentor | Para Kubernetes extrair as imagens do docker para o cluster, ele será necessário acesso ao registo de contentor. Precisa [pedir acesso ao registo de contentor][speech-preview-access] primeiro. |
+| CLI do Kubernetes | O [CLI do Kubernetes][kubernetes-cli] é necessária para gerir as credenciais partilhadas do container registry. Kubernetes é também necessária antes da Helm, que é o Gestor de pacotes do Kubernetes. |
+| Helm CLI | Como parte da [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
+|Recursos de voz |Para utilizar estes contentores, tem de ter:<br><br>R _voz_ recursos do Azure para obter a chave de faturação associada e a faturação URI do ponto final. Ambos os valores estão disponíveis no portal do Azure **voz** páginas de descrição geral e as chaves e são necessários para iniciar o contentor.<br><br>**{API_KEY}** : chave de recurso<br><br>**{ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador anfitrião recomendado
 
@@ -43,19 +42,13 @@ Consulte a [computador de anfitrião de contentor do serviço de voz][speech-con
 | **Conversão de voz em texto** | um Decodificador requer um mínimo de 1,150 milinúcleos. Se o `optimizedForAudioFile` é ativado, então 1,950 milinúcleos são necessários. (predefinição: dois decodificadores) | Necessário: 2 GB<br>Limitado:  4GB |
 | **Voz** | um pedido simultâneo requer um mínimo de 500 milinúcleos. Se o `optimizeForTurboMode` é ativado, então 1.000 milinúcleos são necessários. (predefinição: duas solicitações simultâneas) | Necessário: 1 GB<br> Limitado: 2 GB |
 
-## <a name="request-access-to-the-container-registry"></a>Pedir acesso ao registo de contentor
-
-Submeter os [formulário de pedido de contentores de voz dos serviços cognitivos][speech-preview-access] para pedir acesso ao contentor. 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
 ## <a name="connect-to-the-kubernetes-cluster"></a>Ligue ao cluster do Kubernetes
 
 Espera-se que o computador anfitrião tem um cluster de Kubernetes disponível. Veja este tutorial sobre [implementar um cluster de Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual sobre como implementar um cluster do Kubernetes num computador anfitrião.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar as credenciais do Docker com o cluster de Kubernetes
 
-Para permitir que o cluster de Kubernetes `docker pull` as imagens de configurado do `containerpreview.azurecr.io` registo de contentor, terá de transferir as credenciais de docker para o cluster. Executar o [ `kubectl create` ][kubectl-create] comando abaixo para criar um *segredo de docker-registry* com base nas credenciais fornecidas do contêiner [acesso ao Registro](#request-access-to-the-container-registry) secção.
+Para permitir que o cluster de Kubernetes `docker pull` as imagens de configurado do `containerpreview.azurecr.io` registo de contentor, terá de transferir as credenciais de docker para o cluster. Executar o [ `kubectl create` ][kubectl-create] comando abaixo para criar um *segredo de docker-registry* com base nas credenciais fornecidas pelo pré-requisito de acesso de registo de contentor.
 
 A partir da sua interface de linha de comandos de preferência, execute o seguinte comando. Certifique-se de que substitua a `<username>`, `<password>`, e `<email-address>` com as credenciais de registo de contentor.
 

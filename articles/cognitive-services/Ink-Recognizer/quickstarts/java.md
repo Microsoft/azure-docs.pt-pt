@@ -1,5 +1,6 @@
 ---
 title: 'Início rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o Java'
+titleSuffix: Azure Cognitive Services
 description: Utilize a API do reconhecedor de tinta para iniciar a reconhecer traços de tinta digital.
 services: cognitive-services
 author: aahill
@@ -9,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 04f2ac17871bbaf0506fe18122507167b23869a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060949"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721245"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o Java
 

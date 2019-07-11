@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 07/09/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8f8c8e98a7a99fc1b94bd5ae84062843ebabbc1
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 71c6b0d4cd664b12dbd0fbd4e9423240c8dbebb3
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550579"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723812"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação Android
 
-Neste tutorial, irá aprender como integrar uma aplicação Android na plataforma de identidades da Microsoft. Especificamente, a aplicação irá iniciar sessão de um utilizador, obter um token de acesso para chamar a API do Microsoft Graph e fazer um pedido para o Microsoft Graph API.  
+Neste tutorial, irá aprender como integrar uma aplicação Android com a plataforma de identidade da Microsoft. A aplicação irá iniciar sessão de um utilizador, obter um token de acesso para chamar a API do Microsoft Graph e fazer um pedido para o Microsoft Graph API.  
 
 Quando concluir o guia, a aplicação irá aceitar inícios de sessão de contas pessoais da Microsoft (incluindo o outlook.com, live.com e outros) e profissional ou escolar contas a partir de qualquer empresa ou organização que utiliza o Azure Active Directory.
 
@@ -33,7 +33,7 @@ Quando concluir o guia, a aplicação irá aceitar inícios de sessão de contas
 
 ![Mostra como funciona a aplicação de exemplo gerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-A aplicação neste exemplo irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API (Microsoft Graph API neste caso) protegida que requer autorização.
+A aplicação neste exemplo irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API (Microsoft Graph API) protegida que requer autorização.
 
 Mais especificamente:
 
@@ -43,7 +43,7 @@ Mais especificamente:
 * O token de acesso será incluído na solicitação HTTP para a API web.
 * Processe a resposta do Microsoft Graph.
 
-Este exemplo utiliza a biblioteca Microsoft Authentication para Android (MSAL) para implementar a autenticação MSAL automaticamente irá renovar os tokens, fornecer SSO entre outras aplicações no dispositivo e gerir a conta (s).
+Este exemplo utiliza a biblioteca Microsoft Authentication para Android (MSAL) para implementar a autenticação. MSAL automaticamente irá renovar os tokens, fornecer início de sessão único (SSO) entre as outras aplicações no dispositivo e gerir a conta (s).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,39 +58,37 @@ Este guia utiliza a biblioteca de autenticação seguintes:
 |---|---|
 |[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Biblioteca de Autenticação da Microsoft (MSAL)|
 
-## <a name="set-up-your-project"></a>Configurar seu projeto
+## <a name="create-a-project"></a>Criar um projeto
 
 Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo em vez disso, [baixar o código](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-### <a name="create-a-new-project"></a>Criar um novo projeto
-
-1. Abra o Android Studio e selecione **inicie um novo projeto do Android Studio**.
-    - Se o Android Studio estiver aberto, selecione **arquivo** > **New** > **novo projeto**.
-2. Deixe **atividade vazia** como é, selecione **próxima**.
-3. Nome à aplicação, defina o `Minimum API level` para **API 19 ou mais recente**, acessos **concluir**.
-5. No seu `app/build.gradle`, defina o `targetedSdkVersion` para 27. 
+1. Abra o Android Studio e selecione **inicie um novo projeto do Android Studio**
+2. Selecione **atividade básica** e clique em **próxima**.
+3. Nome à aplicação
+4. Guarde o nome do pacote. Irá introduzi-lo mais tarde no portal do Azure. 
+5. Definir o **nível mínimo de API** ao **API 19** ou superior e clique em **concluir**.
+6. Na vista de projeto, escolha **Project** na lista pendente para apresentar a origem e de arquivos do projeto de código-fonte, abra **gradle** e defina `targetSdkVersion` para `27`.
 
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
-Pode registar a sua aplicação em qualquer uma das duas formas, conforme descrito nas próximas duas secções.
-
-### <a name="register-your-app"></a>Registar a sua aplicação
-
-1. Vá para o [portal do Azure](https://aka.ms/MobileAppReg) > selecione `New registration`. 
-2. Introduza um **Name** para a sua aplicação > `Register`. **Não defina um URI de redirecionamento nesta fase**. 
-3. Na `Manage` secção, aceda a `Authentication` > `Add a platform` > `Android`
-    - Introduza o nome do pacote do seu projeto. Se tiver transferido o código, este valor é `com.azuresamples.msalandroidapp`. 
-    - Introduza o hash de assinatura de depuração/desenvolvimento. Utilize o comando de ferramenta de chave no portal para gerar o Hash de assinatura. 
-4. Pressionar `Configure` e armazenar o ***configuração de MSAL*** para utilizar mais tarde. 
+1. Aceda ao [Portal do Azure](https://aka.ms/MobileAppReg)
+2. Abra o [painel de registos de aplicação](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) e clique em **+ novo registo**.
+3. Introduza um **Name** para a sua aplicação e, em seguida, sem definir um URI de redirecionamento, clique em **registar**.
+4. Na **Manage** secção do painel que aparece, selecione **autenticação** >  **+ adicionar uma plataforma** > **Android**.
+5. Introduza o nome do pacote do seu projeto. Se tiver transferido o código, este valor é `com.azuresamples.msalandroidapp`.
+6. Na **hash de assinatura** secção a **configurar a sua aplicação Android** página, clique em **gerar um Hash de assinatura de desenvolvimento.** e copie o comando da ferramenta de chave a utilizar para a sua plataforma. Tenha em atenção que KeyTool.exe é instalado como parte do Kit de desenvolvimento Java (JDK) e tem também instalou a ferramenta de OpenSSL para executar o comando da ferramenta de chave.
+7. Introduza o **hash de assinatura** gerado pela ferramenta de chave.
+8. Clique em `Configure` e guarde o **configuração de MSAL** que aparece num **configuração para Android** página para que possam inseri-lo quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
 
 ## <a name="build-your-app"></a>Criar a sua aplicação
 
 ### <a name="configure-your-android-app"></a>Configurar a sua aplicação Android
 
-1. Clique com botão direito **res** > **New** > **pasta** > **não processados de recursos de pasta**
-2. No **app** > **res** > **não processados**, criar um novo ficheiro JSON denominado `auth_config.json` e cole o ***MSAL configuração***. Ver [MSAL configuração para obter mais informações](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
+1. No painel de projeto do Android Studio, navegue até **app\src\main\res**.
+2. Com o botão direito **res** e escolha **New** > **Directory**. Introduza `raw` como o novo nome de diretório e clique em **OK**.
+3. Na **app** > **src** > **res** > **brutos**, crie um novo ficheiro JSON chamado `auth_config.json`e cole a configuração de MSAL que guardou anteriormente. Ver [MSAL configuração para obter mais informações](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
    <!-- Workaround for Docs conversion bug -->
-3. No **app** > **manifestos** > **androidmanifest. XML**, adicione o `BrowserTabActivity` atividade abaixo. Esta entrada permite que a Microsoft chamada de retorno para a sua aplicação depois de terminar a autenticação:
+4. Na **app** > **src** > **principal** > **androidmanifest. XML**, adicione o `BrowserTabActivity`atividade abaixo. Esta entrada permite que a Microsoft chamada de retorno para a sua aplicação depois de terminar a autenticação:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -107,21 +105,20 @@ Pode registar a sua aplicação em qualquer uma das duas formas, conforme descri
     </activity>
     ```
 
-    Tenha em atenção de que o Hash de assinatura utilizado não deve ser codificada com na URL os **androidmanifest. XML**. 
+    Substitua o nome de pacote que registou no portal do Azure para o `android:host=` valor.
+    Substitua o hash de chave que registou no portal do Azure para o `android:path=` valor. O Hash de assinatura não deve ser codificada com URL.
 
-4. Dentro do **androidmanifest. XML** e, imediatamente acima a `<application>` etiqueta, adicione as seguintes permissões:
+5. Dentro de **androidmanifest. XML**, imediatamente acima a `<application>` etiqueta, adicione as seguintes permissões:
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     ```
 
-5. Na `BrowserTabActivity`, substitua o ***nome do pacote*** e ***Hash de assinatura*** com valores registrados no portal do Azure.
-
 ### <a name="create-the-apps-ui"></a>Criar a IU da aplicação
 
-1. Aceda a **res** > **layout**e, em seguida, abra **ctivity_main**.
-2. Alterar o esquema de atividade de `android.support.constraint.ConstraintLayout` ou outras para `LinearLayout`.
+1. Na janela de projeto do Android Studio, navegue até **app** > **src** > **principal** > **res**  >  **layout** e abra **ctivity_main** e abra o **texto** vista.
+2. Alterar o esquema de atividade, por exemplo `<androidx.coordinatorlayout.widget.CoordinatorLayout` para `<androidx.coordinatorlayout.widget.LinearLayout`.
 3. Adicionar a `android:orientation="vertical"` propriedade o `LinearLayout` nó.
 4. Cole o código seguinte para o `LinearLayout` nó, substituindo o conteúdo atual:
 
@@ -178,21 +175,22 @@ Pode registar a sua aplicação em qualquer uma das duas formas, conforme descri
 
 ### <a name="add-msal-to-your-project"></a>Adicionar MSAL ao seu projeto
 
-1. No Android Studio, selecione **Scripts de Gradle** > **gradle (módulo: aplicação)** .
-2. Sob **dependências**, cole o seguinte código:
+1. Na janela de projeto do Android Studio, navegue até **app** > **src** > **gradle**.
+2. Sob **dependências**, cole o seguinte:
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.microsoft.identity.client:msal:0.3.+'
     ```
 
-### <a name="use-msal"></a>Utilizar a MSAL 
+### <a name="use-msal"></a>Utilizar a MSAL
 
-As próximas seções fará alterações dentro do `MainAcitivty.java`. Podemos vai ser percorrendo cada passo necessário para adicionar e utilizar a MSAL na sua aplicação.
+Agora fazer as alterações no `MainActivity.java` para adicionar e utilizar a MSAL na sua aplicação.
+Na janela de projeto do Android Studio, navegue até **app** > **src** > **principal** > **java**  >  **com.example.msal**e abra `MainActivity.java`
 
 #### <a name="required-imports"></a>Importações necessárias
 
-Adicione as seguintes importações ao seu projeto: 
+Adicione as seguintes importações perto da parte superior do `MainActivity.java`:
 
 ```java
 import android.app.Activity;
@@ -213,11 +211,11 @@ import com.microsoft.identity.client.*;
 import com.microsoft.identity.client.exception.*;
 ```
 
-#### <a name="instantiating-msal"></a>Criar uma instância de MSAL 
+#### <a name="instantiate-msal"></a>Criar uma instância de MSAL
 
-Dentro do `MainActivity` classe, vamos precisar de criar uma instância de MSAL juntamente com algumas configurações sobre o que são aplicações fará incluindo os âmbitos e web API que pretende aceder. 
+Dentro do `MainActivity` classe, vamos precisar de criar uma instância de MSAL juntamente com algumas configurações sobre o que são aplicações fará incluindo os âmbitos e web API que pretende aceder.
 
-Copie as variáveis seguintes dentro do `MainActivity`:
+Copie as variáveis seguintes dentro do `MainActivity` classe:
 
 ```java
 final static String SCOPES [] = {"https://graph.microsoft.com/User.Read"};
@@ -233,7 +231,7 @@ private PublicClientApplication sampleApp;
 private IAuthenticationResult authResult;
 ```
 
-Agora para criar uma instância de MSAL, copie o seguinte código dentro do `onCreate(...)` método:
+Substitua os conteúdos do `onCreate()` com o seguinte código para criar uma instância de MSAL:
 
 ```java
 super.onCreate(savedInstanceState);
@@ -273,19 +271,19 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 });
 ```
 
-O bloco acima de código tenta iniciar sessão dos utilizadores silenciosamente quando abrem a sua aplicação através de `getAccounts(...)` e, se tiver êxito, `acquireTokenSilentAsync(...)`.  Nas próximas secções, implementaremos o manipulador de retorno de chamada para o caso de existirem são não contas com sessão iniciada. 
+O código acima tenta iniciar sessão dos utilizadores silenciosamente quando abrem a sua aplicação através de `getAccounts()` e, se tiver êxito, `acquireTokenSilentAsync()`.  Nas próximas secções, implementaremos o manipulador de retorno de chamada para o caso de existirem são não contas com sessão iniciada.
 
 #### <a name="use-msal-to-get-tokens"></a>Utilizar a MSAL para obter os Tokens
 
-Agora, podemos implementar lógica de processamento e obter tokens de forma interativa através de MSAL da interface do Usuário a aplicação. 
+Agora, podemos implementar lógica de processamento e obter tokens de forma interativa através de MSAL da interface do Usuário a aplicação.
 
-A MSAL expõe dois métodos principais para obter os tokens: `acquireTokenSilentAsync` e `acquireToken`.  
+A MSAL expõe dois métodos principais para obter os tokens: `acquireTokenSilentAsync()` e `acquireToken()`.  
 
-`acquireTokenSilentAsync` inicia sessão um utilizador e obter tokens sem qualquer interação do usuário se uma conta estiver presente. Se tiver êxito, MSAL será handoff os tokens para a sua aplicação, caso de falha, irão gerar um `MsalUiRequiredException`.  Se esta exceção é gerada ou pretende que o seu utilizador tem de ter um início de sessão interativo na experiência (as credenciais, mfa ou outros acesso condicional, as políticas podem ou não podem ser necessário), em seguida, pode utilizar `acquireToken`.  
+`acquireTokenSilentAsync()` inicia sessão um utilizador e obter tokens sem qualquer interação do usuário se uma conta estiver presente. Se tiver êxito, MSAL será handoff os tokens para a sua aplicação, caso de falha, irão gerar um `MsalUiRequiredException`.  Se esta exceção é gerada, ou pretende que o utilizador tem um início de sessão interativo na experiência (as credenciais, mfa ou outros acesso condicional, as políticas podem ou não podem ser necessário), em seguida, utilizar `acquireToken()`.  
 
-`acquireToken` mostrará sempre da interface do Usuário durante a tentativa de iniciar a sessão do utilizador e obter tokens; No entanto, ele poderá usar cookies de sessão no browser ou uma conta no Microsoft authenticator para lhe proporcionar uma experiência interativa SSO. 
+`acquireToken()` Apresenta a interface do Usuário durante a tentativa de iniciar a sessão do utilizador e obter os tokens. No entanto, ele pode usar cookies de sessão no browser ou uma conta no Microsoft authenticator, para proporcionar a experiência interativa SSO.
 
-Para começar, crie os seguintes três métodos de interface do Usuário dentro do `MainActivity` classe:
+Criar os seguintes três métodos de interface do Usuário dentro do `MainActivity` classe:
 
 ```java
 /* Set the UI for successful token acquisition data */
@@ -318,7 +316,7 @@ private void onCallGraphClicked() {
 }
 ```
 
-Em seguida, adicione um método para obter a atividade atual e processar silenciosas & interaktivního okna retornos de chamada:
+Adicione os seguintes métodos para obter a atividade atual e processar silenciosas & interaktivního okna retornos de chamada:
 
 ```java
 public Activity getActivity() {
@@ -414,11 +412,12 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 
 #### <a name="use-msal-for-sign-out"></a>Utilizar a MSAL para fim de sessão
 
-Em seguida, vamos adicionar suporte para fim de sessão à nossa aplicação. 
+Em seguida, adicionar suporte para fim de sessão.
 
-É importante observar, a fim de sessão com MSAL remove todas as informações conhecidas sobre um utilizador desta aplicação, mas o utilizador continuará a ter uma sessão ativa no respetivo dispositivo. Se o utilizador tentar iniciar sessão novamente eles podem ver a interação, mas não poderão ter de reintroduzir as respetivas credenciais devido à sessão de dispositivo que está a ser Active Directory. 
+> [!Important]
+> Terminar a sessão com MSAL remove todas as informações conhecidas sobre um usuário do aplicativo, mas o utilizador continuará a ter uma sessão ativa no respetivo dispositivo. Se o utilizador tentar iniciar sessão novamente eles poderão ver o início de sessão da interface do Usuário, mas não poderão ter de reintroduzir as respetivas credenciais porque a sessão do dispositivo ainda está ativa.
 
-Para adicionar a fim de sessão, copie o seguinte método na sua aplicação que percorre todas as contas e remove-os:
+Para adicionar capacidade de fim de sessão, adicione o seguinte método dentro do `MainActivity` classe. Este método percorre todas as contas e remove-os:
 
 ```java
 /* Clears an account's tokens from the cache.
@@ -461,16 +460,16 @@ private void onSignOutClicked() {
 
 #### <a name="call-the-microsoft-graph-api"></a>Chamar o Microsoft Graph API
 
-Assim que obtivemos um token com êxito, podemos fazer um pedido para o Microsoft Graph API. O token de acesso será dentro de `AuthenticationResult` dentro do retorno de chamada auth `onSuccess(...)` método. Para construir um pedido de autorizado, a aplicação terá de adicionar o token de acesso para o cabeçalho HTTP:
+Depois de recebermos um token, pode fazer um pedido para o [API do Microsoft Graph](https://graph.microsoft.com) o token de acesso será dentro do `AuthenticationResult` dentro do retorno de chamada auth `onSuccess()` método. Para construir um pedido de autorizado, a aplicação terá de adicionar o token de acesso para o cabeçalho HTTP:
 
 | Chave do cabeçalho    | value                 |
 | ------------- | --------------------- |
 | Autorização | Bearer \<access-token> |
 
-Para fazer isso no código, adicione os seguintes dois métodos para a sua aplicação para chamar graph e atualizar a interface do Usuário: 
+Adicione os seguintes dois métodos dentro do `MainActivity` classe Chamar graph e atualizar a interface do Usuário:
 
 ```java
-    /* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
+/* Use Volley to make an HTTP request to the /me endpoint from MS Graph using an access token */
 private void callGraphAPI() {
     Log.d(TAG, "Starting volley request to graph");
 
@@ -524,24 +523,22 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 
-Saiba mais sobre o [Microsoft Graph API](https://graph.microsoft.com)!
-
 #### <a name="multi-account-applications"></a>Aplicações de várias contas
 
-Esta aplicação baseia-se para um cenário de única conta. Cenários de várias contas também oferece suporte a MSAL, mas requer algum trabalho adicional de aplicações. Terá de criar a interface do Usuário para ajudar o usuário selecione a conta que pretendem utilizar para cada ação que requer tokens. Em alternativa, a sua aplicação pode implementar uma heurística para selecionar a conta a utilizar por meio do `getAccounts(...)` método. 
+Esta aplicação baseia-se para um cenário de única conta. A MSAL também oferece suporte a cenários de várias contas, mas requer algum trabalho adicional de aplicações. Terá de criar a interface do Usuário para ajudar o usuário selecione a conta que pretendem utilizar para cada ação que requer tokens. Em alternativa, a sua aplicação pode implementar uma heurística para selecionar a conta a utilizar por meio do `getAccounts()` método.
 
 ## <a name="test-your-app"></a>Testar a aplicação
 
 ### <a name="run-locally"></a>Executar localmente
 
-Se tiver acompanhado o código acima, tente criar e implementar a aplicação para um dispositivo de teste ou emulador. Deve ser capaz de iniciar sessão e obtenha tokens para o Azure AD ou pessoais contas da Microsoft! Depois de um utilizador iniciar sessão, esta aplicação irá apresentar os dados retornados de Microsoft Graph `/me` ponto final. 
+Crie e implemente a aplicação para um dispositivo de teste ou emulador. Deve ser capaz de iniciar sessão e obtenha tokens para o Azure AD ou pessoais contas Microsoft.
 
-Se tiver quaisquer problemas, pode abrir um problema neste documento ou na biblioteca de MSAL e informe-nos. 
+Depois de iniciar sessão, a aplicação irá apresentar os dados retornados de Microsoft Graph `/me` ponto final.
 
-### <a name="consent-to-your-app"></a>Consentimento para a sua aplicação
+### <a name="consent"></a>Consentimento
 
-Na primeira vez que qualquer utilizador inicia sessão na sua aplicação, serão solicitados pela identidade da Microsoft para dar consentimento às permissões solicitadas.  Embora a maioria dos usuários são capazes de consentir, alguns inquilinos do Azure AD tem desativado o consentimento do utilizador - exigindo que os administradores consentir em nome de todos os utilizadores.  Para suportar este cenário, certifique-se de que registe os âmbitos da sua aplicação no portal do Azure.
+Na primeira vez que qualquer utilizador inicia sessão na sua aplicação, serão solicitados pela identidade da Microsoft para dar consentimento às permissões solicitadas.  Embora a maioria dos usuários são capazes de consentir, alguns inquilinos do Azure AD tem desativado o consentimento do utilizador que requer que os administradores de consentir em nome de todos os utilizadores. Para suportar este cenário, registe os âmbitos da sua aplicação no portal do Azure.
 
-## <a name="help-and-support"></a>Ajuda e suporte
+## <a name="get-help"></a>Obter ajuda
 
-Teve problemas com este tutorial, ou com a plataforma de identidade da Microsoft? Consulte [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options)
+Visite [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se tiver problemas com este tutorial, ou com a plataforma de identidade da Microsoft.

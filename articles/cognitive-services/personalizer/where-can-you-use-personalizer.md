@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: a5bf0d7d0478ad836ed1921b302ab01b004ec73c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441051"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722212"
 ---
 # <a name="where-can-you-use-personalizer"></a>Onde pode utilizar o Personalizador?
 

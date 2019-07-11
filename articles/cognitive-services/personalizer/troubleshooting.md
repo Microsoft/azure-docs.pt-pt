@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas
+title: Resolução de problemas - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Perguntas sobre Personalizer de resolução de problemas pode ser encontrada neste artigo.
 author: edjez
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: article
 ms.date: 06/15/2019
 ms.author: edjez
-ms.openlocfilehash: 5136bd295c12c4439a894b4dcf0b868d32ce43ca
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: be6119d96b89622f45db1099a47e858a5893c2cb
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313154"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722258"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer resolução de problemas
 

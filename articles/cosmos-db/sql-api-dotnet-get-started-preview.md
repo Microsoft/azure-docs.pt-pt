@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39e0932288b513aa1579945396dff1a7d2df77b3
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60686816"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786240"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -60,7 +60,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 ## <a id="SetupVS"></a>Passo 2: Configurar o seu projeto do Visual Studio
 1. Abra o **Visual Studio 2017** no seu computador.
 1. No menu **Ficheiro**, selecione **Novo**, e, em seguida, escolha **Projeto**.
-1. Na **novo projeto** caixa de diálogo, selecione **Visual C#**   /  **aplicação de consola (.NET Framework)**, nomeie o projeto e, em seguida, clique em **OK** .
+1. Na **novo projeto** caixa de diálogo, selecione **Visual C#**   /  **aplicação de consola (.NET Framework)** , nomeie o projeto e, em seguida, clique em **OK** .
     ![Captura de ecrã da janela novo projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. No **Explorador de Soluções**, clique com o botão direito do rato na sua nova aplicação de consola, que está sob a sua solução Visual Studio e, em seguida, clique em **Gerir Pacotes NuGet...**
     
@@ -174,7 +174,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 Parabéns! Ligou com êxito a uma conta do Azure Cosmos DB. 
 
 ## <a name="step-4-create-a-database"></a>Passo 4: Criar uma base de dados
-Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) ou [ **CreateDatabaseAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) função do ``CosmosDatabases`` classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
+Uma base de dados pode ser criado utilizando o [ **CreateDatabaseIfNotExistsAsync** ](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync) ou [ **CreateDatabaseAsync** ](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseasync) função do ``CosmosDatabases`` classe. As bases de dados são os contentores lógicos dos itens particionados em contentores.
     
 1. Copie e cole o **CreateDatabase** método abaixo sua **GetStartedDemoAsync** método. **CreateDatabase** irá criar uma nova base de dados com o id ``FamilyDatabase`` se ainda não exista, com o id especificado a partir do ``databaseId`` campo. 
 
@@ -291,7 +291,7 @@ Parabéns! Criou uma base de dados do Azure Cosmos DB com êxito.
 > 
 > 
 
-Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) ou [ **CreateContainerAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmoscontainers) funcionem no **CosmosContainers** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
+Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** ](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync) ou [ **CreateContainerAsync** ](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync) funcionem no **CosmosContainers** classe. Um contentor consiste em itens (o que, no caso da API de SQL é documentos JSON) e associados a lógica de aplicação do lado do servidor de JavaScript, por exemplo, procedimentos armazenados, funções definidas pelo utilizador e acionadores.
 
 1. Copie e cole o **CreateContainer** método abaixo sua **CreateDatabase** método. **CreateContainer** irá criar um novo contentor com o id ``FamilyContainer`` se ainda não exista, com o id especificado a partir do ``containerId`` campo. 
 
@@ -326,7 +326,7 @@ Um contentor pode ser criado utilizando o [ **CreateContainerIfNotExistsAsync** 
 Parabéns! Criou um contentor do Azure Cosmos DB com êxito.  
 
 ## <a id="CreateDoc"></a>Passo 6: Adicionar itens ao contentor
-Um item pode ser criado utilizando o [ **CreateItemAsync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmositems) função dos **CosmosItems** classe. Quando é utilizada a API SQL, os itens são projetados como documentos, que são conteúdos JSON definidos pelo utilizador (arbitrários). Pode agora inserir um item no seu contentor do Azure Cosmos DB.
+Um item pode ser criado utilizando o [ **CreateItemAsync** ](/dotnet/api/microsoft.azure.cosmos.container.createitemasync) função dos **CosmosItems** classe. Quando é utilizada a API SQL, os itens são projetados como documentos, que são conteúdos JSON definidos pelo utilizador (arbitrários). Pode agora inserir um item no seu contentor do Azure Cosmos DB.
 
 Em primeiro lugar, temos de criar uma classe **Família** que irá representar objetos armazenados no Azure Cosmos DB neste exemplo. Também iremos criar subclasses **Principal**, **Subordinado**, **Animal de estimação** e **Endereço** utilizadas dentro da **Família**. Tenha em atenção que os documentos têm de ter um **Id** propriedade serializado como **id** no JSON. 
 1. Selecione **Ctrl + Shift + A** para abrir o **Add New Item** caixa de diálogo. Adicionar uma nova classe **Family.cs** ao seu projeto. 

@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: overview
+ms.topic: article
 ms.date: 06/17/2019
 ms.author: aahi
-ms.openlocfilehash: 3588527bf765c086e8b393485e2b8de6e7a16dff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7fc1ed9928bd988faca4537202ac57fee74b0b00
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451053"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721418"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo em destaque gerados pelo utilizador para a API de detetor de anomalias
 

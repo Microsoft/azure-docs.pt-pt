@@ -1,21 +1,21 @@
 ---
 title: Visualizar anomalias com deteção de batch e o Power BI
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilize a API de detetor de anomalias e o Power BI para visualizar anomalias ao longo de seus dados de séries de tempo.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: aahi
-ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b51d04f2706d890475c500e1e730cff75397c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827144"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721481"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias com deteção de batch e o Power BI
 
@@ -143,7 +143,7 @@ Na tela principal do Power BI, começa a utilizar as consultas que criámos acim
 
 Adicione os seguintes campos do **função invocada** para o gráfico **valores** campo. Utilize a captura de ecrã para ajudar a criar o gráfico abaixo.
 
-    * Value
+    * Valor
     * UpperMargins
     * LowerMargins
     * ExpectedValues

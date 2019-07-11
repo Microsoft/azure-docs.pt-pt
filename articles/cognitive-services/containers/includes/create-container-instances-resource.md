@@ -13,8 +13,8 @@ ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711408"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717187"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de contentor do Azure
 

@@ -1,20 +1,21 @@
 ---
-title: 'Início rápido: Criar uma aplicação web que inicia o leitor de imersão (C#)'
+title: 'Início rápido: Criar uma aplicação web que inicia o leitor envolventes comC#'
 titlesuffix: Azure Cognitive Services
-description: Neste início rápido, criar uma aplicação web a partir do zero e adicionar a funcionalidade de leitor envolvente e experimental.
+description: Neste início rápido, criar uma aplicação web a partir do zero e adicionar a funcionalidade de API de leitor envolvente e experimental.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: a4da8d23e78fde9b936bcf9258eec137bcdf9231
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3b408de6b60e7e7704ee228b52c399e5b80e3a9e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704145"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718410"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Início rápido: Criar uma aplicação web que inicia o leitor de imersão (C#)
 

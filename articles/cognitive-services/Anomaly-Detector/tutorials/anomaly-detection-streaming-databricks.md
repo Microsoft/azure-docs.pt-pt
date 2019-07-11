@@ -1,5 +1,6 @@
 ---
 title: 'Tutorial: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks'
+titleSuffix: Azure Cognitive Services
 description: Utilize a API de detetor de anomalias e o Azure Databricks para monitorizar anomalias nos seus dados.
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: aahi
-ms.openlocfilehash: 7009771f2b647bb582b3d8091edce99fe901a9f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080793"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721467"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias dos dados de transmissão em fluxo com o Azure Databricks
 
@@ -164,11 +165,11 @@ Neste tutorial, vai utilizar o [Azure APIs serviços cognitivos anomalias deteto
 
     |Value |Descrição  |
     |---------|---------|
-    |Name     | Um nome para o recurso de detetor de anomalias.        |
-    |Subscrição     | A subscrição do Azure, o recurso será associada.        |
+    |Nome     | Um nome para o recurso de detetor de anomalias.        |
+    |Subscription     | A subscrição do Azure, o recurso será associada.        |
     |Location     | Localização do Azure.        |
     |Escalão de preço     | Um escalão de preço para o serviço. Para obter mais informações sobre os preços de detetor de anomalias, consulte [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
-    |Grupo de recursos     | Especifique se pretende criar um novo grupo de recursos ou selecione um existente.        |
+    |Resource group     | Especifique se pretende criar um novo grupo de recursos ou selecione um existente.        |
 
 
      Selecione **Criar**.

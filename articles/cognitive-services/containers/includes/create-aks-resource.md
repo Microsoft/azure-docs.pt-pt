@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 1d68c08f6dfca74c38973af1686d614f3f10cc28
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455121"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712562"
 ---
 ## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Criar um recurso de cluster do Azure Kubernetes Service (AKS)
 
@@ -24,8 +24,8 @@ ms.locfileid: "67455121"
 
     |Definição|Valor|
     |--|--|
-    |Subscrição|Selecione a subscrição adequada|
-    |Grupo de recursos|Selecione um grupo de recursos disponíveis|
+    |Subscription|Selecione a subscrição adequada|
+    |Resource group|Selecione um grupo de recursos disponíveis|
     |Nome do cluster de Kubernetes|Nome desejado (minúscula)|
     |Região|Selecione uma localização próximas|
     |Versão do Kubernetes|1.12.8 (predefinição)|

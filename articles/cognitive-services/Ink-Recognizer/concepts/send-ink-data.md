@@ -1,6 +1,6 @@
 ---
-title: Enviar dados de escrita para a API do reconhecedor de tinta
-titlesuffix: Azure Cognitive Services
+title: Enviar dados de tinta digital para a API do Reconhecedor de Tinta Digital
+titleSuffix: Azure Cognitive Services
 description: Aprenda a chamar a API do analisador de tinta para diferentes aplicações
 services: cognitive-services
 author: erhopf
@@ -10,16 +10,16 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027097"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721782"
 ---
-# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de escrita para a API do reconhecedor de tinta 
+# <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta digital para a API do Reconhecedor de Tinta Digital 
 
-Escrita digital refere-se para as tecnologias que permitem digital representações de entrada, tais como os manuscritos e desenhos. Normalmente, isto é conseguido com um digitalizador que captura os movimentos de dispositivos de entrada, como uma caneta. À medida que dispositivos permitir experiências avançadas de escrita a tinta digital, inteligência artificial e de machine learning permite o reconhecimento de escrita de formas e texto em todos os contextos. A API do reconhecedor de tinta permite-lhe enviar traços de tinta e obter informações detalhadas sobre os mesmos. 
+Tinta digital refere-se às tecnologias que permitem representações digitais de entrada, como escrita manual e desenhos. Normalmente, isto é conseguido com um digitalizador que captura os movimentos de dispositivos de entrada, como uma caneta. À medida que os dispositivos continuam a permitir experiências avançadas de tinta digital, a inteligência artificial e a aprendizagem automática permitem o reconhecimento de texto e formas escritas em qualquer contexto. A API do reconhecedor de tinta permite-lhe enviar traços de tinta e obter informações detalhadas sobre os mesmos. 
 
 ## <a name="the-ink-recognizer-api-vs-ocr-services"></a>Os vs do reconhecedor API de tinta. Serviços de OCR
 
@@ -84,7 +84,7 @@ Com que os resultados de reconhecimento com antecedência dá-lhe informações 
 
 [Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornece ferramentas e tecnologias para permitir experiências de escrita a tinta digital numa grande variedade de dispositivos. Pode combinar a plataforma de tinta do Windows com a API de reconhecimento de tinta para criar aplicativos que exibem e interpretam os traços de tinta digital.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API do reconhecedor de tinta?](../overview.md)
 * [Referência da API de REST do reconhecedor de tinta](https://go.microsoft.com/fwlink/?linkid=2089907)

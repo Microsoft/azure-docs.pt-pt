@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 07/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cdc605c059857c826056fece782bbb9a9c86a15
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 93c5e473c62dc6b38f0b2c2906560d6099842d49
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275800"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718490"
 ---
 # <a name="tutorial-integrate-mondaycom-with-azure-active-directory"></a>Tutorial: Integrar monday.com com o Azure Active Directory
 
@@ -78,7 +78,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Na **configuração básica de SAML** painel, se tiver um ficheiro de metadados do fornecedor de serviço e que pretende configurar na **iniciada pelo IDP** modo, execute os seguintes passos:
+1. Na **configuração básica de SAML** painel, se tiver um ficheiro de metadados do fornecedor de serviço e que pretende configurar na **iniciada pelo IDP** modo, execute os seguintes passos:
 
     1. Selecione **carregamento de ficheiro de metadados**.
 
@@ -89,7 +89,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
        > [!Note]
        > Se o **identificador** e **URL de resposta** valores não são preenchidos automaticamente, em seguida, preencha os valores manualmente. O **identificador** e o **URL de resposta** são iguais e o valor é o seguinte padrão: `https://<your-domain>.monday.com/saml/saml_callback`
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<your-domain>.monday.com`
 
@@ -100,19 +100,15 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     ![O painel de atributos de utilizador](common/edit-attribute.png)
 
-6. Além dos acima, o aplicativo monday.com espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
+1. Além dos acima, o aplicativo monday.com espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | Email | user.mail |
     | FirstName | user.givenname |
     | LastName | user.surname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
-
-    ![image](./media/mondaycom-tutorial/attribute01.png)
-
-    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -136,17 +132,25 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-mondaycom"></a>Configurar monday.com
 
-1. Numa janela do browser web diferente, inicie sessão no monday.com como um administrador.
+1. Para automatizar a configuração no monday.com, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-2. Vá para o **perfil** no canto superior direito da página e clique em **administrador**.
+    ![Extensão My apps](common/install-myappssecure-extension.png)
 
-     ![configuração de Monday.com](./media/mondaycom-tutorial/configuration01.png)
+1. Depois de adicionar a extensão para o navegador, clique em **configurar monday.com** que irá direcioná-lo para o aplicativo monday.com. A partir daí, forneça as credenciais de administrador a iniciar sessão em monday.com. A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
 
-3. Selecione **Security** e certifique-se de clicar em **aberto** ao lado de SAML.
+    ![Configuração do programa de configuração](common/setup-sso.png)
+
+1. Se desejar configurar manualmente o monday.com, abra uma nova janela de browser e inicie sessão no monday.com como administrador e execute os seguintes passos:
+
+1. Vá para o **perfil** no canto superior direito da página e clique em **administrador**.
+
+    ![configuração de Monday.com](./media/mondaycom-tutorial/configuration01.png)
+
+1. Selecione **Security** e certifique-se de clicar em **aberto** ao lado de SAML.
 
     ![configuração de Monday.com](./media/mondaycom-tutorial/configuration02.png)
 
-4. Preencha os detalhes abaixo do IDP.
+1. Preencha os detalhes abaixo do IDP.
 
     ![configuração de Monday.com](./media/mondaycom-tutorial/configuration03.png)
 

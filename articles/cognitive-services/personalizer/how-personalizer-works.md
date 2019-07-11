@@ -6,15 +6,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: d0a0a6101d876493188426d19f2fa845d20ee274
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055486"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722369"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 

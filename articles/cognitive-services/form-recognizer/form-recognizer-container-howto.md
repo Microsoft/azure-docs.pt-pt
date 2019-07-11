@@ -1,5 +1,5 @@
 ---
-title: Instalar e executar a opção contentor - reconhecedor de formulário
+title: Como instalar e executar o contentor para o reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar o contentor do Reconhecedor de Formato para analisar dados de formulário e tabela.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f88cfb1d74897abddeaea6aaec9d7f7b1960be6e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a251e97d671c4aad0aebb1d6c3349cdc09444308
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704263"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718480"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contentores do reconhecedor de formulário
 
@@ -305,7 +305,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 > [!IMPORTANT]
 >  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Revisão [configurar contentores](form-recognizer-container-configuration.md) para definições de configuração.
 * Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md).

@@ -1,5 +1,5 @@
 ---
-title: Configurar a opção contentor - reconhecedor de formulário
+title: Como configurar um contentor para o reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
 description: Saiba como configurar o contentor do reconhecedor de formulário para analisar dados de formulário e de tabela.
 author: IEvangelist
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: e4b6a852ece3060ecf866d66d32f213355d99950
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592654"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718451"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar os contentores do reconhecedor de formulário
 
@@ -74,10 +74,10 @@ O contentor do reconhecedor de formulário exige uma montagem de entrada e um mo
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, a localização de montagem do [computador anfitrião](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões de conta de serviço do Docker e as permissões de localização de montagem do anfitrião.
 
-|Opcional| Name | Tipo de dados | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Necessário| `Input` | String | O destino da montagem de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Necessário| `Output` | String | O destino de montagem de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Necessário| `Input` | Cadeia | O destino da montagem de entrada. O valor predefinido é `/input`.    <br><br>Exemplo:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Necessário| `Output` | Cadeia | O destino de montagem de saída. O valor predefinido é `/output`.  <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo
 

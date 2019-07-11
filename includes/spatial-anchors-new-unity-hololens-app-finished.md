@@ -6,12 +6,12 @@ ms.date: 05/14/2019
 ms.topic: include
 ms.author: pmorgan
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3eee0b304f36847677167ada275451c4be9e9885
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "67135293"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722938"
 ---
 ## <a name="putting-everything-together"></a>Colocando tudo junto
 
@@ -27,7 +27,12 @@ using UnityEngine.XR.WSA;
 using UnityEngine.XR.WSA.Input;
 
 public class AzureSpatialAnchorsScript : MonoBehaviour
-{
+{   
+    /// <summary>
+    /// The sphere prefab.
+    /// </summary>
+    public GameObject spherePrefab;
+
     /// <summary>
     /// Set this string to the Spatial Anchors account id provided in the Spatial Anchors resource.
     /// </summary>
@@ -170,7 +175,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes a new CloudSpatialAnchorSessions.
+    /// Initializes a new CloudSpatialAnchorSession.
     /// </summary>
     void InitializeSession()
     {
@@ -232,9 +237,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
                 QueueOnUpdate(() =>
                 {
                     // Create a green sphere.
-                    GameObject spherePrimitive = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    sphere = GameObject.Instantiate(spherePrimitive, Vector3.zero, Quaternion.identity);
-                    sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
+                    sphere = GameObject.Instantiate(spherePrefab, Vector3.zero, Quaternion.identity) as GameObject;
                     sphere.AddComponent<WorldAnchor>();
                     sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
                     sphereMaterial.color = Color.green;
@@ -318,9 +321,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     protected virtual void CreateAndSaveSphere(Vector3 hitPoint)
     {
         // Create a white sphere.
-        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = hitPoint;
-        sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
+        sphere = GameObject.Instantiate(spherePrefab, hitPoint, Quaternion.identity) as GameObject;
         sphere.AddComponent<WorldAnchor>();
         sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
         sphereMaterial.color = Color.white;
@@ -393,7 +394,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, já saiba mais sobre como utilizar o Azure âncoras geográficos numa nova aplicação Unity HoloLens. Para saber mais sobre como utilizar as âncoras espaciais do Azure numa nova aplicação Android, avance para o próximo tutorial.
 

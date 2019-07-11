@@ -1,21 +1,21 @@
 ---
 title: O que é o reconhecedor de tinta? -API do reconhecedor de tinta
-titlesuffix: Azure Cognitive Services
-description: Integre o reconhecedor de tinta em seus aplicativos, Web sites, ferramentas e outras soluções para fornecer...
+titleSuffix: Azure Cognitive Services
+description: Integre o reconhecedor de tinta em seus aplicativos, Web sites, ferramentas e outras soluções para permitir que os dados de traços de tinta ser identificados e utilizada como entrada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
+ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95121523c510e72894086740ad340bdfd33f3c32
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65027230"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721395"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API do Reconhecedor de Tinta Digital?
 

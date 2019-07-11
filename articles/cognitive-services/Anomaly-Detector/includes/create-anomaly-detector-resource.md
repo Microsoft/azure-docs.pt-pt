@@ -12,8 +12,8 @@ ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
 ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711683"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717072"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso de detetor de anomalias
 
@@ -23,7 +23,7 @@ ms.locfileid: "67711683"
 
     |Definição|Valor|
     |--|--|
-    |Name|Nome pretendido (2 e 64 carateres)|
+    |Nome|Nome pretendido (2 e 64 carateres)|
     |Subscription|Selecione a subscrição adequada|
     |Location|Selecione qualquer localização disponível e próximas|
     |Escalão de Preço|`F0` -o escalão de preço mínimo|

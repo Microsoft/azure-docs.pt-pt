@@ -1,5 +1,5 @@
 ---
-title: Ciclo de comentários - Personalizer
+title: 'Início rápido: Criar um ciclo de comentários - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Personalizar o conteúdo desta C# início rápido com o serviço de Personalizer.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: edjez
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: quickstart
 ms.date: 06/11/2019
 ms.author: edjez
-ms.openlocfilehash: 2f2e3d01b02f7c06d69a09374528475301952179
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b856b8d134cc160b8bb759fce0408204cf0ba61
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055504"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722432"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Início rápido: Personalizar o conteúdo usandoC# 
 
