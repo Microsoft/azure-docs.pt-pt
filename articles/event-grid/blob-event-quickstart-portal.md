@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/17/2018
+ms.date: 07/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: a0043ca886bf6c92ab26d76b3678bf8a2764846a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11e04a92375f5b52849257124344673301739e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563686"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839158"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Início rápido: Encaminhar eventos de armazenamento de BLOBs para o ponto final da web com o portal do Azure
 
@@ -102,10 +102,10 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
 
 1. Navegue para o ficheiro de teste e carregue-o.
 
-1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
+1. Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configurou ao subscrever. A mensagem está no formato JSON e contém uma matriz com um ou mais eventos. No exemplo seguinte, a mensagem JSON contém uma matriz com um evento. Veja a sua aplicação Web e repare que foi recebido um evento criado por um blob. 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -127,7 +127,7 @@ Aciona um evento para o armazenamento de Blobs ao carregar um ficheiro. O fichei
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos

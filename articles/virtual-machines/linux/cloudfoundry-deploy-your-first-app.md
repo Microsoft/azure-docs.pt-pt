@@ -4,7 +4,7 @@ description: Implementar uma aplicação em Cloud Foundry no Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5a43ce3f09ce9695fa5add58b52271a46e2a271a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fe510865e687b6a44538627e4ef9025b41416841
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388510"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668351"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Implementar a sua primeira aplicação em Cloud Foundry no Microsoft Azure
 
@@ -31,16 +31,16 @@ ms.locfileid: "60388510"
 
 Existem várias opções para criação de um ambiente de Cloud Foundry no Azure:
 
-- Utilize o [oferta de Cloud Foundry da Pivotal] [ pcf-azuremarketplace] no Azure Marketplace para criar um ambiente padrão, que inclui o PCF Ops Manager e o Azure Service Broker. Pode encontrar [concluir as instruções] [ pcf-azuremarketplace-pivotaldocs] para implementar o marketplace oferecem na documentação do Pivotal.
+- Utilize o [oferta de Cloud Foundry da Pivotal][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] para implementar o marketplace oferecem na documentação do Pivotal.
 - Criar um ambiente personalizado por [implementar manualmente a Pivotal Cloud Foundry][pcf-custom].
-- [Implementa os pacotes do código-fonte aberto Cloud Foundry diretamente] [ oss-cf-bosh] configurando um [BOSH](https://bosh.io) diretor, uma VM que coordena a implementação do ambiente Cloud Foundry.
+- [Implementa os pacotes do código-fonte aberto Cloud Foundry diretamente][oss-cf-bosh] ao configurar uma [BOSH](https://bosh.io) diretor, uma VM que coordena a implementação do ambiente Cloud Foundry.
 
 > [!IMPORTANT] 
 > Se estiver implantando o PCF no Azure Marketplace, anote o SYSTEMDOMAINURL e as credenciais de administrador necessárias para aceder ao Gestor de aplicações Pivotal, que são descritos no guia de implementação do marketplace. Eles são necessários para concluir este tutorial. Para implementações do marketplace, o SYSTEMDOMAINURL está no formato https://system. *endereço IP*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Ligar ao controlador de Cloud
 
-O controlador de nuvem é o ponto de entrada principal num ambiente de Cloud Foundry para implantar e gerenciar aplicativos. O núcleo Cloud controlador API (CCAPI) é uma API REST, mas é acessível por meio de diversas ferramentas. Neste caso, iremos interagir com ele através do [Cloud Foundry CLI][cf-cli]. Pode instalar a CLI no Linux, MacOS ou Windows, mas se preferir não instalá-lo em todos os, está disponível pré-instalado no [Azure Cloud Shell][cloudshell-docs].
+O controlador de nuvem é o ponto de entrada principal num ambiente de Cloud Foundry para implantar e gerenciar aplicativos. O núcleo Cloud controlador API (CCAPI) é uma API REST, mas é acessível por meio de diversas ferramentas. Neste caso, iremos interagir com ele através do [Cloud Foundry CLI][cf-cli]. You can install the CLI on Linux, MacOS, or Windows, but if you'd prefer not to install it at all, it is available pre-installed in the [Azure Cloud Shell][cloudshell-docs].
 
 Para iniciar sessão, preceda `api` para o SYSTEMDOMAINURL que obteve da implementação do marketplace. Uma vez que a implementação do padrão utiliza um certificado autoassinado, também deve incluir o `skip-ssl-validation` mudar.
 
@@ -113,7 +113,7 @@ Para ver a aplicação de spring-hello-cloud, abra o URL fornecido no seu browse
 ![Interface do Usuário padrão para a Primavera de Hello Cloud][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> Para saber mais sobre o que acontece durante `cf push`, consulte [como os aplicativos são pré-configurados] [ cf-push-docs] na documentação do Cloud Foundry.
+> Para saber mais sobre o que acontece durante `cf push`, consulte [como os aplicativos são pré-configurados][cf-push-docs] na documentação do Cloud Foundry.
 
 ## <a name="view-application-logs"></a>Ver registos de aplicação
 

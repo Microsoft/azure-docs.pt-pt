@@ -2,17 +2,17 @@
 title: Práticas recomendadas do operador – o isolamento de Cluster nos serviços do Azure Kubernetes (AKS)
 description: Conheça as práticas recomendadas de operador de cluster para isolamento no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465311"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614919"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Melhores práticas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Este artigo de melhores práticas que se concentra em isolamento para os operado
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Clusters de conceção para multi-inquilinos
 
-O Kubernetes dispõe de funcionalidades que lhe permitem logicamente isolar as equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser para fornecer o menor número de privilégios, um âmbito para os recursos de cada equipe precisa. R [espaço de nomes] [ k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Recursos do kubernetes adicionais e considerações de isolamento e de vários inquilinos incluem as seguintes áreas:
+O Kubernetes dispõe de funcionalidades que lhe permitem logicamente isolar as equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser para fornecer o menor número de privilégios, um âmbito para os recursos de cada equipe precisa. R [espaço de nomes][k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Recursos do kubernetes adicionais e considerações de isolamento e de vários inquilinos incluem as seguintes áreas:
 
 * **Agendamento** inclui a utilização de funcionalidades básicas, tais como quotas de recursos e os orçamentos de interrupção de pod. Para obter mais informações sobre estas funcionalidades, consulte [melhores práticas para as funcionalidades básicas do scheduler no AKS][aks-best-practices-scheduler].
   * Recursos mais avançados do agendador incluem taints e tolerations, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre estas funcionalidades, consulte [melhores práticas para as funcionalidades avançadas do scheduler no AKS][aks-best-practices-advanced-scheduler].
@@ -38,7 +38,7 @@ O Kubernetes dispõe de funcionalidades que lhe permitem logicamente isolar as e
 
 **Melhores diretrizes de práticas** -utilize isolação lógica para separar as equipes e projetos. Tentar minimizar o número de clusters físicos do AKS implementa para isolar as equipes ou aplicações.
 
-Com o isolamento lógico, um único cluster AKS pode ser utilizado para várias cargas de trabalho, as equipes ou ambientes. Kubernetes [espaços de nomes] [ k8s-namespaces] formam o limite de isolamento lógico para cargas de trabalho e recursos.
+Com o isolamento lógico, um único cluster AKS pode ser utilizado para várias cargas de trabalho, as equipes ou ambientes. Kubernetes [espaços de nomes][k8s-namespaces] formam o limite de isolamento lógico para cargas de trabalho e recursos.
 
 ![Isolamento lógico de um cluster de Kubernetes no AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
@@ -56,7 +56,7 @@ Uma abordagem comum para isolamento de cluster é utilizar clusters do AKS fisic
 
 Normalmente, os clusters separados fisicamente têm uma densidade de pod baixa. Como cada equipe ou a carga de trabalho tem seu próprio cluster do AKS, o cluster é muitas vezes provisionado em excesso com recursos de computação. Muitas vezes, um pequeno número de pods está agendado em nós. Capacidade não utilizada em nós não pode ser utilizada para aplicações ou serviços no desenvolvimento por outras equipes. Estes recursos em excesso contribuem para os custos adicionais em clusters separados fisicamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo concentra-se no isolamento de cluster. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

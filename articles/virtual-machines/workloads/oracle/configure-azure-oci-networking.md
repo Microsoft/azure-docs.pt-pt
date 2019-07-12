@@ -3,7 +3,7 @@ title: Ligar o Azure ExpressRoute com a infraestrutura de nuvem de Oracle | Docu
 description: Ligar o Azure ExpressRoute com FastConnect de infraestrutura de nuvem da Oracle (OCI) para ativar soluções de aplicações entre Clouds Oracle
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/24/2019
 ms.author: rogirdh
-ms.openlocfilehash: ce1f86f7594692c797aaca5008b211b96ba81fbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 671d7c8eb9f10e346b49056e1cc117c9882bb6e8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453154"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707584"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Configurar uma interconexão direta entre o Azure e infraestrutura de nuvem da Oracle  
 

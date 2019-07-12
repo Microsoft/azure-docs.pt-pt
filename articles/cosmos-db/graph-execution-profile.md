@@ -5,16 +5,16 @@ services: cosmos-db
 author: luisbosquez
 manager: kfile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: lbosq
-ms.openlocfilehash: 2f3967c64e79b2bc7b01b35eff26f5ac0d4e3db4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4964f485f5e781b7fe0a0f09486512fe6a5b9035
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60888417"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592483"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como utilizar o passo de perfil de execução para avaliar as suas consultas do Gremlin
 
@@ -380,6 +380,6 @@ Essas duas consultas atingiu o mesmo resultado, no entanto, o primeiro será nec
 - O `metrics[0].time` valor é maior na primeira resposta, que indica que este passo único demorou mais tempo a resolver.
 - O `metrics[0].counts.resultsCount` valor é superior também na primeira resposta, que indica que o conjunto de dados do trabalho inicial era maior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o [Gremlin funcionalidades suportadas](gremlin-support.md) no Azure Cosmos DB. 
 * Saiba mais sobre o [API do Gremlin no Azure Cosmos DB](graph-introduction.md).

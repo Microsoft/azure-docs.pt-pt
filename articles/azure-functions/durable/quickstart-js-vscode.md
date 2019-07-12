@@ -10,13 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 91b61e88d876f481e74b8f2295b6fffced3f7902
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: glenga
+ms.reviewer: azfuncdf, cotresne
+ms.openlocfilehash: c54a5631222a6de261e9805f284a4dfa2801750f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065539"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612912"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 

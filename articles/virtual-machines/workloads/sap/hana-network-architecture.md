@@ -4,7 +4,7 @@ description: Arquitetura de rede de como implementar o SAP HANA no Azure (instâ
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8794a93cecb50774f30746c22931db31a9fa9194
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2359f1ea1d55b8ce153295cc71fdf78040e8e316
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239602"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707405"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Arquitetura de rede do SAP HANA (instâncias grandes)
 

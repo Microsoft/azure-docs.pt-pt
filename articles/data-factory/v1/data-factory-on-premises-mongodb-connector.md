@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 433a8b2f9fb1f4c4599afbb807e9270992a98a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a84d74e1bda6de8549c79dab1bec8c2515e213
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824189"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839068"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados do MongoDB com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -49,7 +49,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -100,7 +100,7 @@ Quando a origem é do tipo **MongoDbSource** as seguintes propriedades estão di
 
 
 ## <a name="json-example-copy-data-from-mongodb-to-azure-blob"></a>Exemplo JSON: Copiar dados do MongoDB para BLOBs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma MongoDB no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma MongoDB no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 O exemplo possui as seguintes entidades do data factory:
 
@@ -295,16 +295,16 @@ Ao mover dados para o MongoDB os seguintes mapeamentos de servem de tipos de Mon
 
 | Tipo de MongoDB | Tipo de .NET framework |
 | --- | --- |
-| Binário |Byte[] |
-| Boolean |Boolean |
+| Binary |Byte[] |
+| Booleano |Booleano |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| Cadeia |String |
+| ObjectID |Cadeia |
+| String |Cadeia |
 | UUID |Guid |
-| Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
+| Objeto |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 
 > [!NOTE]
 > Para saber mais sobre o suporte para matrizes com tabelas virtuais, consulte [suporte para tipos complexos usando tabelas virtuais](#support-for-complex-types-using-virtual-tables) secção abaixo.
@@ -326,14 +326,14 @@ Por exemplo, "ExampleTable" abaixo é uma tabela do MongoDB que tem uma coluna c
 
 | _id | Nome do cliente | Faturas | Nível de Serviço | Classificações |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: item "123": "torradeira", price: Desconto "456",: "0,2"}, {invoice_id: item "124": "oven", price: Desconto "1235",: "0,2"}] |Prateado |[5,6] |
+| 1111 |ABC |[{invoice_id: item "123": "torradeira", price: Desconto "456",: "0,2"}, {invoice_id: item "124": "oven", price: Desconto "1235",: "0,2"}] |Silver |[5,6] |
 | 2222 |XYZ |[{invoice_id:”135”, item:”fridge”, price: ”12543”, discount: ”0.0”}] |Dourado |[1,2] |
 
 O controlador irá gerar várias tabelas virtuais para representar nesta única tabela. A primeira tabela virtual é a tabela de base com o nome "ExampleTable", mostrado abaixo. A tabela base contém todos os dados da tabela original, mas os dados das matrizes foram omitidos e são expandidos nas tabelas virtuais.
 
 | _id | Nome do cliente | Nível de Serviço |
 | --- | --- | --- |
-| 1111 |ABC |Prateado |
+| 1111 |ABC |Silver |
 | 2222 |XYZ |Dourado |
 
 As tabelas seguintes mostram as tabelas virtuais que representam as matrizes originais no exemplo. Estas tabelas contenham o seguinte:

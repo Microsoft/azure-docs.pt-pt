@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1ca8a5ce7b615ed8d84c91d8a0d72098c175c44
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023862"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672121"
 ---
 # <a name="custom-web-api-skill"></a>Habilidade de Web API personalizada
 
@@ -205,4 +205,4 @@ Para casos quando a API Web não está disponível ou retorna um erro HTTP, um e
 
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Adicionar a habilidade personalizada a pesquisa cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Criar uma habilidade personalizada com a API de tradução de texto](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)

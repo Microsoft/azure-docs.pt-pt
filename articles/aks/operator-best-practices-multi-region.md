@@ -6,13 +6,13 @@ author: lastcoolnameleft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.author: lastcoolnameleft
-ms.openlocfilehash: 4afc1231e6c9fa49c04c7bf6dfe26ee5eb87cc31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: thfalgou
+ms.openlocfilehash: 4d4535af1814ab1250bbd56c989b4849013adff6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475161"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614847"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Melhores práticas para o negócio continuidade e recuperação após desastre no Azure Kubernetes Service (AKS)
 
@@ -124,7 +124,7 @@ Atualmente, o Kubernetes não fornece nenhuma implementação nativa para a repl
 
 ![Replicação assíncrona baseada em aplicativo](media/operator-best-practices-bc-dr/aks-app-based-async-repl.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo foca-se a continuidade do negócio e considerações sobre a recuperação após desastre para clusters do AKS. Para obter mais informações sobre as operações de cluster no AKS, veja estes artigos sobre as melhores práticas:
 

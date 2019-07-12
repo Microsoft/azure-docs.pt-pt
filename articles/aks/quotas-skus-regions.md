@@ -2,17 +2,17 @@
 title: Quotas e disponibilidade das regiões no Azure Kubernetes Service (AKS) SKUs
 description: Saiba mais sobre as quotas predefinidas, tamanhos de SKU de VM de nó restrito e disponibilidade das regiões do Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901452"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614555"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas e restrições de tamanho de máquina virtual e disponibilidade das regiões no Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Para obter a lista mais recente de onde pode implementar e executar clusters, ve
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Podem ser aumentados determinados limites e quotas predefinidos. Se o seu recurso oferece suporte a um aumento, solicitar o aumento por meio de um [pedido de suporte do Azure] [ azure-support] (para **tipo de problema**, selecione **Quota** ).
+Podem ser aumentados determinados limites e quotas predefinidos. Se o seu recurso oferece suporte a um aumento, solicitar o aumento por meio de um [pedido de suporte do Azure][azure-support] (para **tipo de problema**, selecione **Quota**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

@@ -4,7 +4,7 @@ description: Efetuar a atualização do sistema operativo para o SAP HANA no Azu
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5583a633c64943185f874e1c0ff80f654010aa53
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935641"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710017"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do sistema operativo
 Este documento descreve os detalhes sobre as atualizações de sistema operativo nas instâncias grandes do HANA.
@@ -50,6 +50,6 @@ Seguem-se alguns problemas conhecidos comuns durante a atualização:
 - Na classe de tipo II do SKU SKU, o software de base de software (SFS) é removido depois de atualizar o sistema operacional. Tem de reinstalar o SFS compatíveis depois de atualizar o sistema operacional.
 - Os controladores de smart de Ethernet (ENIC e FNIC) revertida para a versão mais antiga. Tem de reinstalar a versão compatível dos controladores após a atualização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Consultar [Backup e restauração](hana-overview-high-availability-disaster-recovery.md) de SO de classe de tipo I SKU de cópia de segurança.
 - Consultar [cópia de segurança do SO para SKUs do tipo II](os-backup-type-ii-skus.md) para a classe de tipo II SKU.

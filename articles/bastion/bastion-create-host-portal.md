@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4a52383e6ab24c6ae1e2be0b67293d65dfa04466
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 65116ebbd6a66241a5b35a39f3dfb8f826a3745f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477885"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594279"
 ---
 # <a name="create-an-azure-bastion-host-preview"></a>Criar um anfitrião de bastião do Azure (pré-visualização)
 
@@ -57,7 +57,7 @@ Esta secção ajuda-o a criar um novo recurso de Bastion do Azure no portal do A
     * **Sub-rede**: A sub-rede na sua rede virtual em que o novo recurso de anfitrião de bastião será implementado. Tem de criar uma sub-rede com o valor de nome **AzureBastionSubnet**. Este valor permite que o Azure saiba qual a sub-rede para implementar os recursos de Bastion. Isto é diferente de uma sub-rede de Gateway. É altamente recomendável que utilize, pelo menos, / 27 ou sub-rede maior (/ 27, / 26 e assim por diante). Criar a **AzureBastionSubnet** sem quaisquer grupos de segurança de rede, encaminhar tabelas ou delegações.
     * **Endereço IP público**: O IP público do recurso de Bastion no qual será acedido RDP/SSH (através da porta 443). Criar um novo IP público ou utilize um já existente. O endereço IP público tem de ser na mesma região que o recurso de Bastion que está a criar.
     * **Nome do endereço IP público**: O nome do recurso de endereço IP público.
-    * **Endereço IP público SKU**: Preenchidas previamente pelo padrão para **padrão**.
+    * **Endereço IP público SKU**: Preenchidas previamente pelo padrão para **padrão**. Bastion do Azure utiliza/suporta apenas o Standard SKU IP público.
     * **Atribuição**: Preenchidas previamente pelo padrão para **estático**.
 
 1. Quando tiver terminado de especificar as definições, clique em **rever + criar**. Isso valida os valores. Assim que a validação é bem-sucedida, pode iniciar o processo de criação.

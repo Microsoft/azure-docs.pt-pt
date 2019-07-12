@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c476c2b326045db37c54a358d68f4b5f8bbaed9a
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509605"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655982"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -57,7 +57,7 @@ Associação do híbrida do Azure AD suporta uma ampla gama de Windows de dispos
 
 - Windows 10
 - Windows Server 2016
-- Windows Server 2019
+- Windows Server de 2019
 
 Para dispositivos que executam o sistema de operativo ambiente de trabalho do Windows, versão suportada está listado neste artigo [informações de versão do Windows 10](https://docs.microsoft.com/windows/release-information/). Como melhor prática, a Microsoft recomenda a que atualização para a versão mais recente do Windows 10.
 
@@ -87,7 +87,7 @@ Se está contando com a ferramenta de preparação do sistema (Sysprep) e se est
 
 Se está contando com um instantâneo da Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que o instantâneo não está a partir de uma VM que já está registrada no Azure AD como a associação ao Azure AD híbrido.
 
-Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) ao seu inquilino, é altamente recomendável remover esse Estado antes de ativar a associação ao Azure AD híbrido. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo:
+Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azure AD registado](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) ao seu inquilino, é altamente recomendável remover esse Estado antes de ativar a associação ao Azure AD híbrido. Da versão do Windows 10 1809, as seguintes alterações foram feitas para evitar este estado duplo:
 
 - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido.
 - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001.
@@ -144,7 +144,7 @@ A tabela seguinte fornece detalhes sobre o suporte para esses locais UPNs AD na 
 | Encaminhável | Managed | Não suportado | |
 | Não encaminháveis | Managed | Não suportado | |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Associação ao Azure Active Directory configurar híbrido para o ambiente federado](hybrid-azuread-join-federated-domains.md)

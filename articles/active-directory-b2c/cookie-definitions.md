@@ -9,19 +9,19 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
-ms.component: B2C
-ms.openlocfilehash: 1de1734d791608f3262d2af70becc2e082c9f317
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: B2C
+ms.openlocfilehash: af3244a32e9d02a1ba5053da85547bf614053127
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511139"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587402"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Definições de cookies para o Azure Active Directory B2C
 
 A tabela seguinte lista os cookies utilizados no Azure Active Directory B2C.
 
-| Name | Domain | expiração | Objetivo |
+| Nome | Domain | expiração | Objetivo |
 | ----------- | ------ | -------------------------- | --------- |
 | x-ms-cpim-admin | main.b2cadmin.ext.azure.com | Fim da [sessão de browser](active-directory-b2c-token-session-sso.md) | Contém dados de associação do utilizador em inquilinos. Os inquilinos um utilizador é membro do e nível de associação (administrador ou utilizador). |
 | x-ms-cpim-slice | login.microsoftonline.com, b2clogin.com, com marca de domínio | Fim da [sessão de browser](active-directory-b2c-token-session-sso.md) | Utilizado para encaminhar pedidos para a instância de produção adequados. |

@@ -2,17 +2,17 @@
 title: Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 description: Como criar clusters do Azure Kubernetes Service (AKS) habilitados no Azure Active Directory
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
-ms.openlocfilehash: db166c82e39e9184528fde67ff868229cf9b1d57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 80137023643630e8472a70fcca6cb656aeba7123
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061120"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616394"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre o OpenID Connect, consulte [autorizar o aces
 
 Dentro de um cluster do Kubernetes, autenticação de token do webhook é utilizado para tokens de autenticação. Autenticação de token do Webhook é configurada e gerenciada como parte do AKS cluster.
 
-Para obter mais informações sobre a autenticação de token do webhook, veja a [autenticação de Token do Webhook] [ kubernetes-webhook] seção na documentação do Kubernetes.
+Para obter mais informações sobre a autenticação de token do webhook, veja a [autenticação de Token do Webhook][kubernetes-webhook] seção na documentação do Kubernetes.
 
 Para fornecer autenticação do Azure AD para um cluster do AKS, são criadas duas aplicações do Azure AD. A primeira aplicação é um componente de servidor que oferece autenticação de utilizador. O segundo aplicativo é um componente de cliente que é utilizado quando lhe for pedido, a CLI para a autenticação. Esta aplicação de cliente utiliza a aplicação de servidor para a autenticação real das credenciais fornecidas pelo cliente.
 
@@ -152,13 +152,13 @@ A partir do portal do Azure, selecione **do Azure Active Directory** > **proprie
 
 ## <a name="deploy-the-aks-cluster"></a>Implementar o cluster do AKS
 
-Utilize o [criar grupo az] [ az-group-create] comando para criar um grupo de recursos para o cluster do AKS.
+Utilize o [criar grupo az][az-group-create] comando para criar um grupo de recursos para o cluster do AKS.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Utilize o [criar az aks] [ az-aks-create] comando para implementar o cluster do AKS. Em seguida, substitua os valores no comando de exemplo seguinte. Utilize os valores recolhidos aquando da criação de aplicações do Azure AD para o ID da aplicação de servidor, segredo da aplicação, ID de aplicação de cliente e ID do inquilino.
+Utilize o [az aks criar][az-aks-create] comando para implementar o cluster do AKS. Em seguida, substitua os valores no comando de exemplo seguinte. Utilize os valores recolhidos aquando da criação de aplicações do Azure AD para o ID da aplicação de servidor, segredo da aplicação, ID de aplicação de cliente e ID do inquilino.
 
 ```azurecli
 az aks create \
@@ -177,7 +177,7 @@ Um cluster do AKS demora alguns minutos para criar.
 
 Antes de utilizar uma conta do Azure Active Directory com um cluster do AKS, tem de criar o enlace de função ou enlace de função de cluster. Funções definem as permissões a conceder e enlaces aplicá-las para os usuários desejados. Estas atribuições podem ser aplicadas a um determinado espaço de nomes ou em todo o cluster. Para obter mais informações, consulte [autorização RBAC usando][rbac-authorization].
 
-Em primeiro lugar, utilize o [az aks get-credentials] [ az-aks-get-credentials] comando com o `--admin` argumento para iniciar sessão para o cluster com acesso de administrador.
+Em primeiro lugar, utilize o [az aks get-credentials][az-aks-get-credentials] comando com o `--admin` argumento para iniciar sessão para o cluster com acesso de administrador.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -187,7 +187,7 @@ Em seguida, crie ClusterRoleBinding para uma conta do Azure AD que pretende conc
 
 - Se o utilizador conceder que o enlace do RBAC para está no mesmo inquilino do Azure AD, atribua permissões com base no nome principal de utilizador (UPN). Avançar para o passo para criar o manifesto YAML ClusterRoleBinding.
 
-- Se o utilizador estiver no Azure AD com um diferente de inquilino, consultar e utilizar o **objectId** propriedade em vez disso. Se for necessário, obtenha o objectId da conta de utilizador necessário, utilizando o [show de utilizador do ad az] [ az-ad-user-show] comando. Forneça o nome principal de utilizador (UPN) da conta necessária:
+- Se o utilizador estiver no Azure AD com um diferente de inquilino, consultar e utilizar o **objectId** propriedade em vez disso. Se for necessário, obtenha o objectId da conta de utilizador necessário, utilizando o [show de utilizador do ad az][az-ad-user-show] comando. Forneça o nome principal de utilizador (UPN) da conta necessária:
 
     ```azurecli-interactive
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
@@ -210,7 +210,7 @@ subjects:
   name: userPrincipalName_or_objectId
 ```
 
-Aplicam-se a ligação ao utilizar o [aplicam-se de kubectl] [ kubectl-apply] comando conforme mostrado no exemplo a seguir:
+Aplicam-se a ligação ao utilizar o [kubectl aplicar][kubectl-apply] comando conforme mostrado no exemplo a seguir:
 
 ```console
 kubectl apply -f rbac-aad-user.yaml
@@ -235,7 +235,7 @@ subjects:
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
-Aplicam-se a ligação ao utilizar o [aplicam-se de kubectl] [ kubectl-apply] comando conforme mostrado no exemplo a seguir:
+Aplicam-se a ligação ao utilizar o [kubectl aplicar][kubectl-apply] comando conforme mostrado no exemplo a seguir:
 
 ```console
 kubectl apply -f rbac-aad-group.yaml
@@ -245,7 +245,7 @@ Para obter mais informações sobre como proteger um cluster de Kubernetes com o
 
 ## <a name="access-the-cluster-with-azure-ad"></a>Aceder ao cluster com o Azure AD
 
-Extrair o contexto para o utilizador não administrador ao utilizar o [az aks get-credentials] [ az-aks-get-credentials] comando.
+Extrair o contexto para o utilizador não administrador ao utilizar o [az aks get-credentials][az-aks-get-credentials] comando.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

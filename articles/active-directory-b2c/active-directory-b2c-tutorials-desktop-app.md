@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508210"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835701"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação num aplicativo de cliente nativo através do Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar fluxos de utilizador](tutorial-create-user-flows.md) para permitir experiências de utilizador na sua aplicação. 
+- [Criar fluxos de utilizador](tutorial-create-user-flows.md) para permitir experiências de utilizador na sua aplicação.
 - Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com **desenvolvimento de área de trabalho do .NET** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
 
 ## <a name="add-the-native-client-application"></a>Adicionar a aplicação de cliente nativo
@@ -83,12 +83,12 @@ Prima **F5** para compilar e executar o exemplo.
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
 1. Clique em **sessão** para se inscrever como um utilizador. Esta opção utiliza a **B2C_1_signupsignin1** fluxo de utilizador.
-2. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Uma vez que ainda não tem uma conta, clique na ligação **Inscrever-se agora**. 
+2. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Uma vez que ainda não tem uma conta, clique na ligação **Inscrever-se agora**.
 3. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também recolhe a senha do usuário e os atributos solicitados definidos no fluxo de utilizador.
 
-    Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados. 
+    Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
-    ![Fluxo de trabalho de inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Página de inscrição mostrada como parte do início de sessão-no/inscrever-se fluxo de trabalho](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Clique em **Criar** para criar uma conta local no inquilino do Azure AD B2C.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 96d16552cfadca9b345d0f0cd0a344249897f571
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61258441"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836093"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Mover dados do SAP HANA com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -43,7 +43,7 @@ Para ativar a conectividade à instância do SAP HANA, instale os seguintes comp
 Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do SAP HANA no local através de APIs/ferramentas diferentes. 
 
 - A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -60,12 +60,12 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | string | Sim
+server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Cadeia de caracteres | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim 
-username | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
-password | A palavra-passe do utilizador. | string | Sim
-gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | string | Sim
-encryptedCredential | A cadeia de credencial encriptada. | string | Não
+username | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
+password | A palavra-passe do utilizador. | Cadeia de caracteres | Sim
+gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | Cadeia de caracteres | Sim
+encryptedCredential | A cadeia de credencial encriptada. | Cadeia de caracteres | Não
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, BLOBs do Azure, tabela do Azure, etc.).
@@ -82,10 +82,10 @@ Quando a origem na atividade de cópia é do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta | Especifica a consulta SQL para ler dados a partir da instância do SAP HANA. | Consulta SQL. | Sim |
+| query | Especifica a consulta SQL para ler dados a partir da instância do SAP HANA. | Consulta SQL. | Sim |
 
 ## <a name="json-example-copy-data-from-sap-hana-to-azure-blob"></a>Exemplo JSON: Copiar dados do SAP HANA para BLOBs do Azure
-O exemplo a seguir fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados do SAP HANA no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** a qualquer uma dos sinks listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
+O exemplo a seguir fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Este exemplo mostra como copiar dados do SAP HANA no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** a qualquer uma dos sinks listados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
 > [!IMPORTANT]
 > Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
@@ -292,10 +292,10 @@ REAL | Single
 DOUBLE | Single
 DECIMAL | Decimal
 BOOLEAN | Byte
-VARCHAR | String
-NVARCHAR | String
+VARCHAR | Cadeia
+NVARCHAR | Cadeia
 CLOB | Byte[]
-ALPHANUM | String
+ALPHANUM | Cadeia
 BLOB | Byte[]
 DATE | DateTime
 TIME | TimeSpan

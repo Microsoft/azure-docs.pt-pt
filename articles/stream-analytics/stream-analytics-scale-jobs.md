@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816801"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621737"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Dimensionar uma tarefa Azure Stream Analytics para aumentar o débito
 Este artigo mostra-lhe como otimizar uma consulta do Stream Analytics para aumentar o débito para tarefas do Stream Analytics. Pode utilizar o guia seguinte para dimensionar o seu trabalho para processar carga superior e tirar partido de mais recursos do sistema (por exemplo, mais largura de banda, mais recursos de CPU, mais memória).
@@ -85,7 +85,7 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

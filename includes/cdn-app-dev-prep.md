@@ -1,15 +1,15 @@
 ---
 author: zhangmanling
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184605"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594133"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de escrever o código de gerenciamento de CDN, tem de fazer uma preparação para permitir que o código interagir com o Azure Resource Manager. Para fazer esta preparação, terá de:

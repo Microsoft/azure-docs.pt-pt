@@ -2,18 +2,18 @@
 title: Interagir com relatórios através da API de JavaScript | Microsoft Docs
 description: A API de JavaScript do Power BI permite-lhe incorporar facilmente os relatórios do Power BI nas suas aplicações.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 252296af8b2065ae22bed8b421d4d00718b78287
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8203070fa8a48420dd192208701c539dc3ca7f25
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705524"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669070"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagir com relatórios do Power BI através da API de JavaScript
 
@@ -76,7 +76,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 #### <a name="advanced-filters"></a>Filtros avançados
 Os filtros avançados utilizam o operador lógico AND ou OR e aceitam uma ou duas condições, cada qual com o seu próprio operador e valor. As condições suportadas são:
 
-* Nenhuma
+* Nenhum
 * LessThan
 * LessThanOrEqual
 * GreaterThan
@@ -126,7 +126,7 @@ Para além de enviar informações para a iframe, a sua aplicação também pode
 
 [Saiba mais sobre o processamento de eventos](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a API de JavaScript do Power BI, veja as ligações seguintes:
 

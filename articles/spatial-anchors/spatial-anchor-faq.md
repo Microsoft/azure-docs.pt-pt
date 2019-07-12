@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 73979ec3bd1d667453a186ea1f20bbeddc12db8f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273308"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653253"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
 
@@ -120,11 +120,11 @@ Introdução ao [desenvolvimento aqui](index.yml).
 
 **P: Funciona com Unreal?**
 
-**R:** Esperamos ter suporte para Unreal em breve.
+**R:** Suporte para Unreal será considerado no futuro.
 
 **P: Funciona com o Xamarin?**
 
-**R:** Sim. Enquanto não fornecemos um SDK Xamarin, esperamos que os desenvolvedores podem usar âncoras espaciais do Azure nas suas aplicações Xamarin com a integração com a API de âncoras espaciais do Azure.
+**R:** Suporte para Xamarin será considerado no futuro.
 
 **P: O que as portas e protocolos faz uso de âncoras espaciais do Azure?**
 

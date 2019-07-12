@@ -4,17 +4,17 @@ description: incluir ficheiro
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4f3d31fa25ea5781bc3af7297719b77723597e17
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3cfa36331f8f4ad45f3bf8ff32eee7d89c7d8852
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444611"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608324"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 

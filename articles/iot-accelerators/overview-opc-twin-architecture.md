@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 002e2e06201688638df98e16c45282187f593a3a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444326"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606183"
 ---
 # <a name="opc-twin-architecture"></a>Arquitetura de OPC duplo
 

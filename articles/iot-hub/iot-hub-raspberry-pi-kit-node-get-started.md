@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7863e4a0f4cab6f6328de19d1611710f9188de3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597268"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838749"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligar o Raspberry Pi ao Hub IoT do Azure (node. js)
 
@@ -81,10 +81,6 @@ Os seguintes itens são opcionais:
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Obter cadeia de ligação do IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no IoT hub
 
@@ -259,7 +255,7 @@ Uma forma para monitorizar mensagens recebidas pelo hub IoT partir do seu dispos
 
 Para obter mais formas de processar os dados enviados pelo seu dispositivo, avance para a secção seguinte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Executar uma aplicação de exemplo para recolher dados de sensor e enviá-lo ao seu hub IoT.
 

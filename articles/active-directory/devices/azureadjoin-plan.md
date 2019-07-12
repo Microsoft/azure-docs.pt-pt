@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36429feed99c421984ed55d4e506954aa30f0040
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4332c921af770cb47e9a9a779d0bd148153fcd31
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482132"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666150"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -70,7 +70,7 @@ Ambiente federado, deve ter um fornecedor de identidade que oferece suporte a pr
 - **WS-Fed:** Esse protocolo é necessário para associar um dispositivo ao Azure AD.
 - **WS-Trust:** Esse protocolo é necessário para iniciar sessão num dispositivo associado ao Azure AD. 
 
-Se o fornecedor de identidade não suportar estes protocolos, associação do Azure AD não funciona de forma nativa. A partir do Windows 10 1809, os utilizadores podem iniciar sessão num dispositivo associado ao Azure AD com um fornecedor de identidade baseado em SAML através de [web início de sessão no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, web início de sessão é uma funcionalidade como só de pré-visualização.
+Se o fornecedor de identidade não suportar estes protocolos, associação do Azure AD não funciona de forma nativa. A partir do Windows 10 1809, os utilizadores podem iniciar sessão num dispositivo associado ao Azure AD com um fornecedor de identidade baseado em SAML através de [web início de sessão no Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Atualmente, web início de sessão é uma funcionalidade de pré-visualização e não é recomendada para implementações de produção.
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Autenticação baseada em certificados e smart cards
 
@@ -283,7 +283,7 @@ Se tiver dispositivos associados de um fornecedor MDM configurado para o Azure A
 
 Pode utilizar esta implementação para [exigir que os dispositivos geridos para aceder à aplicação de cloud com o acesso condicional](../conditional-access/require-managed-devices.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Junte-se a um novo dispositivo Windows 10 com o Azure AD durante uma primeira](azuread-joined-devices-frx.md)

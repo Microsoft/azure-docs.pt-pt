@@ -2,17 +2,17 @@
 title: Criar nós virtuais com a CLI do Azure em serviços do Azure Kubernetes (AKS)
 description: Saiba como utilizar a CLI do Azure para criar um cluster de serviços de Kubernetes do Azure (AKS) que usa nós virtuais para executar os pods.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: b149ba2bccb4bfb6f459b177096afcccbbfc3051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742795"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613786"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
 
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como criar e configurar os recursos de rede virtual e o c
 
 Nós virtuais de ativar a comunicação de rede entre os pods que são executados no ACI e o cluster do AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e permissões delegadas são atribuídas. Nós virtuais funcionam apenas com clusters do AKS criados usando *avançadas* funcionamento em rede. Por predefinição, os clusters do AKS são criados com *básica* funcionamento em rede. Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster do AKS que utiliza o sistema de rede avançado.
 
-Se não tiver utilizado anteriormente ACI, registe o fornecedor de serviço com a sua subscrição. Pode verificar o estado do uso de registo de fornecedor do ACI a [lista de fornecedores de az] [ az-provider-list] de comando, conforme mostrado no exemplo a seguir:
+Se não tiver utilizado anteriormente ACI, registe o fornecedor de serviço com a sua subscrição. Pode verificar o estado do uso de registo de fornecedor do ACI a [lista de fornecedores de az][az-provider-list] de comando, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Se o fornecedor é apresentado como *NotRegistered*, registar o fornecedor a utilizar o [Registre-se fornecedor de az] [ az-provider-register] conforme mostrado no exemplo a seguir:
+Se o fornecedor é apresentado como *NotRegistered*, registar o fornecedor a utilizar o [Registre-se fornecedor de az][az-provider-register] conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Criar uma rede virtual com o [criar a vnet de rede de az] [ az-network-vnet-create] comando. O exemplo seguinte cria um nome de rede virtual *myVnet* com o prefixo de endereço *10.0.0.0/8*e uma sub-rede denominada *myAKSSubnet*. O prefixo de endereço desta sub-rede está predefinido para *10.240.0.0/16*:
+Criar uma rede virtual com o [vnet de rede de az criar][az-network-vnet-create] comando. O exemplo seguinte cria um nome de rede virtual *myVnet* com o prefixo de endereço *10.0.0.0/8*e uma sub-rede denominada *myAKSSubnet*. O prefixo de endereço desta sub-rede está predefinido para *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Agora, crie uma sub-rede adicional para nós virtuais utilizando o [criar a sub-rede de vnet de rede de az] [ az-network-vnet-subnet-create] comando. O exemplo seguinte cria uma sub-rede denominada *myVirtualNodeSubnet* com o prefixo de endereço *10.241.0.0/16*.
+Agora, crie uma sub-rede adicional para nós virtuais utilizando o [criar a sub-rede de vnet de rede de az][az-network-vnet-subnet-create] comando. O exemplo seguinte cria uma sub-rede denominada *myVirtualNodeSubnet* com o prefixo de endereço *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -114,7 +114,7 @@ az network vnet subnet create \
 
 Para permitir que um cluster do AKS interaja com outros recursos do Azure, é utilizado um principal de serviço do Azure Active Directory. Este principal de serviço pode ser criado automaticamente com a CLI do Azure ou o portal, ou pode criar previamente um e atribuir permissões adicionais.
 
-Criar um principal de serviço através da [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] comando. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais.
+Crie um principal de serviço com o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac]. O parâmetro `--skip-assignment` limita a atribuição de permissões adicionais.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -144,7 +144,7 @@ Primeiro, obtenha o recurso de rede virtual ID usando [show de vnet de rede de a
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-Para conceder o acesso correto para o cluster do AKS utilizar a rede virtual, criar uma atribuição de função com o [criação da atribuição de função de az] [ az-role-assignment-create] comando. Substitua `<appId`> e `<vnetId>` pelos valores recolhidos nos dois passos anteriores.
+Para conceder o acesso correto para o cluster do AKS utilizar a rede virtual, criar uma atribuição de função com o [criação da atribuição de função de az][az-role-assignment-create] comando. Substitua `<appId`> e `<vnetId>` pelos valores recolhidos nos dois passos anteriores.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -158,7 +158,7 @@ Implementar um cluster do AKS para a sub-rede AKS que criou no passo anterior. O
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Utilize o comando [az aks create][az-aks-create] para criar um cluster AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substitua `<subnetId>` com o ID de obteve no passo anterior e, em seguida `<appId>` e `<password>` com o 
+Utilize o [az aks criar][az-aks-create] comando para criar um cluster do AKS. O exemplo seguinte cria um cluster com o nome *myAKSCluster* com um nó. Substitua `<subnetId>` com o ID de obteve no passo anterior e, em seguida `<appId>` e `<password>` com o 
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ Ao fim de vários minutos, o comando é concluído e devolve informações sobre
 
 ## <a name="enable-virtual-nodes-addon"></a>Ativar o suplemento de nós virtuais
 
-Para ativar a nós virtuais, agora utilizar o [enable-complementos de az aks] [ az-aks-enable-addons] comando. O exemplo seguinte utiliza a sub-rede denominada *myVirtualNodeSubnet* criado num passo anterior:
+Para ativar a nós virtuais, agora utilizar o [enable-complementos de az aks][az-aks-enable-addons] comando. O exemplo seguinte utiliza a sub-rede denominada *myVirtualNodeSubnet* criado num passo anterior:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -190,7 +190,7 @@ az aks enable-addons \
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
+Para configurar `kubectl` para ligar ao seu cluster do Kubernetes, utilize o [az aks get-credentials][az-aks-get-credentials] comando. Este passo transfere credenciais e configura a CLI do Kubernetes para as utilizar.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,7 +214,7 @@ aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Implementar uma aplicação de exemplo
 
-Crie um ficheiro denominado `virtual-node.yaml` e copie o YAML seguinte. Para agendar o contentor no nó, uma [nodeSelector] [ node-selector] e [toleration] [ toleration] são definidos.
+Crie um ficheiro denominado `virtual-node.yaml` e copie o YAML seguinte. Para agendar o contentor no nó, uma [nodeSelector][node-selector] and [toleration][toleration] são definidos.
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Execute a aplicação com o [aplicam-se de kubectl] [ kubectl-apply] comando.
+Execute a aplicação com o [kubectl aplicar][kubectl-apply] comando.
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Utilize o [kubectl obter pods] [ kubectl-get] comando com o `-o wide` argumento para uma lista de pods e o nó agendado de saída. Tenha em atenção que o `aci-helloworld` pod foi agendada ao `virtual-node-aci-linux` nó.
+Utilize o [kubectl obter pods][kubectl-get] comando com o `-o wide` argumento para uma lista de pods e o nó agendado de saída. Tenha em atenção que o `aci-helloworld` pod foi agendada ao `virtual-node-aci-linux` nó.
 
 ```
 $ kubectl get pods -o wide
@@ -303,7 +303,7 @@ Feche a sessão de terminal para seu pod de teste com `exit`. Quando a sessão s
 
 ## <a name="remove-virtual-nodes"></a>Remover nós virtuais
 
-Se já não pretenda utilizar nós virtuais, pode desativá-las com o [az aks disable-complementos] [ az aks disable-addons] comando. 
+Se já não pretenda utilizar nós virtuais, pode desativá-las com o [az aks disable-complementos][az aks disable-addons] comando. 
 
 Em primeiro lugar, elimine o pod helloworld em execução no nó virtual:
 

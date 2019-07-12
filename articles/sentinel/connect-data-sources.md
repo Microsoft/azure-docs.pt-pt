@@ -7,20 +7,21 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: a3b63cfa-b5fe-4aff-b105-b22b424c418a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921931"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673811"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -32,7 +33,18 @@ ms.locfileid: "65921931"
 
 Para integrar sentinela do Azure, primeiro tem de ligar às suas origens de dados. Sentinel do Azure é fornecido com uma série de conectores para soluções da Microsoft, disponíveis para ser usado na caixa e o fornecimento de integração em tempo real, incluindo soluções de proteção de ameaças da Microsoft e do Microsoft 365 origens, incluindo o Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security e muito mais. Além disso, existem conectores incorporados para o mais amplo ecossistema de segurança para soluções de terceiros. Também pode utilizar o formato de evento comum, Syslog ou REST API para ligar as origens de dados com o Azure sentinela também.  
 
-![Recoletores de dados](./media/collect-data/collect-data-page.png)
+1. No menu, selecione **conectores de dados**. Esta página permite ver a lista completa de conectores que fornece sentinela do Azure e o respetivo estado. Seleccione o conector que pretende ligar-se e selecione **página do conector aberto**. 
+
+   ![Recoletores de dados](./media/collect-data/collect-data-page.png)
+
+1. Na página de conector específico, certifique-se de ter concluído a todos os pré-requisitos e siga as instruções para ligar os dados ao sentinela do Azure. Pode demorar algum tempo para os registos iniciar a sincronização com o Azure sentinela. Depois de ligar, é apresentado um resumo dos dados na **dados recebidos** de gráficos e de estado de conectividade dos tipos de dados.
+
+   ![Ligar recoletores](./media/collect-data/opened-connector-page.png)
+  
+1. Clique nas **próximos passos** separador para obter uma lista de conteúdo de out-of-the-box sentinela do Azure fornece para o tipo de dados específicos.
+
+   ![Recoletores de dados](./media/collect-data/data-insights.png)
+ 
 
 ## <a name="data-connection-methods"></a>Métodos de ligação de dados
 

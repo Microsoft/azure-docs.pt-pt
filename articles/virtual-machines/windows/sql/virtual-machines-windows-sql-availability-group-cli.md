@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5015f00d3c6dfe0e1e5c2466af777cc0f1bc509
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518984"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607142"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar a CLI de VM do SQL do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar [CLI de VM do SQL do Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implementar um Cluster Windows de ativação pós-falha (WSFC) e adicionar VMs do SQL Server para o cluster, bem como para criar o Balanceador de carga interno e o serviço de escuta para um grupo de disponibilidade Always On.  A implantação real do grupo de disponibilidade Always On é ainda feita manualmente por meio do SQL Server Management Studio (SSMS). 
@@ -28,7 +28,7 @@ Este artigo descreve como utilizar [CLI de VM do SQL do Azure](/cli/azure/sql/vm
 Para automatizar a configuração de um grupo de disponibilidade Always On na CLI do Azure SQL VM, já tem de ter os seguintes pré-requisitos: 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) no *mesmo conjunto de disponibilidade ou zonas de disponibilidade diferentes* que tenham sido [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) no *mesmo conjunto de disponibilidade ou zonas de disponibilidade diferentes* que tenham sido [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - [CLI do Azure](/cli/azure/install-azure-cli). 
 - (Não utilizado por qualquer entidade) disponíveis dois endereços IP, um para o Balanceador de carga interno e para o serviço de escuta do grupo de disponibilidade na mesma sub-rede que o grupo de disponibilidade. Se está a ser utilizado um balanceador de carga existente, em seguida, apenas um endereço IP disponível é necessária para o serviço de escuta do grupo de disponibilidade. 
 

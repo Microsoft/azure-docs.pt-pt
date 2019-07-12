@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 4ca26c7b8fbfebbce8cfcb9915a7db12e5ad2352
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82d1114451b677880b0b02234546d9cdb2e743e2
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337413"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593052"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Descrição geral de certificados para serviços Cloud do Azure
 Os certificados são utilizados no Azure para serviços em nuvem ([certificados de serviço](#what-are-service-certificates)) e para a autenticação com a API de gestão ([certificados de gestão](#what-are-management-certificates)). Este tópico fornece uma visão geral de ambos os tipos de certificado, como ao [criar](#create) e implementá-las para o Azure.
@@ -39,7 +39,7 @@ Pode carregar certificados de serviço para o Azure utilizando o portal do Azure
 Certificados de serviço podem ser geridos separadamente dos seus serviços e podem ser geridos por diferentes pessoas. Por exemplo, um desenvolvedor pode carregar um pacote de serviço que se refere a um certificado que um gerente de TI anteriormente carregada para o Azure. Um gerente de TI pode gerir e renovar o certificado (alteração da configuração do serviço) sem a necessidade de carregar um novo pacote de serviço. Atualização sem um novo pacote de serviço é possível porque o nome lógico, o nome de arquivo e a localização do certificado está no arquivo de definição do serviço e enquanto o thumbprint do certificado é especificado no ficheiro de configuração do serviço. Para atualizar o certificado, apenas é necessário carregar um novo certificado e alterar o valor do thumbprint no ficheiro de configuração do serviço.
 
 >[!Note]
->O [FAQ de serviços Cloud](cloud-services-faq.md) artigo tem algumas informações úteis sobre certificados.
+>O [FAQ de serviços Cloud - configuração e gestão](cloud-services-configuration-and-management-faq.md) artigo tem algumas informações úteis sobre certificados.
 
 ## <a name="what-are-management-certificates"></a>O que são certificados de gestão?
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássica. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação dos vários serviços do Azure. Estes não estão realmente relacionadas a serviços em nuvem. 

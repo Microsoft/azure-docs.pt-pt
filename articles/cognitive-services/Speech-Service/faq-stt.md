@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 73e53e47576b0697c0d09b386bb3e830d976dd04
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606649"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839237"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Conversão de voz em texto perguntas mais frequentes
 
@@ -83,7 +83,12 @@ Contacte [suporte de voz](mailto:speechsupport@microsoft.com?subject=Request%20f
 
 **A**: A API REST limita os pedidos para 25 por 5 segundos. Pode encontrar detalhes em nossas páginas para [conversão de voz em texto](speech-to-text.md).
 
-Se tiver mais questões de privacidade que proíbem a utilização do serviço de voz personalizada, entre em contato com um dos canais de suporte.
+**P: Como sou cobrado por áudio de canal dupla?**
+
+**A**: Se submeter separadamente cada canal (cada canal em seu próprio arquivo), será cobrado pela duração de cada ficheiro. Se submeter um único arquivo com cada canal multiplexada em conjunto, em seguida, são cobradas durante o único ficheiro.
+
+> [!IMPORTANT]
+> Se tiver mais questões de privacidade que proíbem a utilização do serviço de voz personalizada, entre em contato com um dos canais de suporte.
 
 ## <a name="importing-data"></a>Importar dados
 

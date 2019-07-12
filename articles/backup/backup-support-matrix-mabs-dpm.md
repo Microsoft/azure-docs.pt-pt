@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 0f99042d91738c88a8b673444bb3d4a40602b012
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 85e65c36a0d636d94a9ef9070c21ab047542d8f4
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204173"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594267"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para cópia de segurança com o Microsoft Azure Backup Server ou o System Center DPM
 
@@ -55,7 +55,7 @@ Para obter mais informações:
 
 **Cenário** | **Agente** | **Location**
 --- | --- | ---
-**Cópia de segurança no local/cargas de trabalho de máquinas** | Agente de proteção do DPM/MABS é executado nas máquinas que pretende criar cópias de segurança.<br/><br/> O agente de MARS no servidor do DPM/MABS. | O DPM/MABS deve estar em execução no local.
+**Cópia de segurança no local/cargas de trabalho de máquinas** | Agente de proteção do DPM/MABS é executado nas máquinas que pretende criar cópias de segurança.<br/><br/> O agente de MARS no servidor do DPM/MABS.<br/> A versão mínima do agente dos serviços de recuperação do Microsoft Azure ou do agente de cópia de segurança do Azure, necessária para ativar esta funcionalidade é 2.0.8719.0.  | O DPM/MABS deve estar em execução no local.
 **Criar cópias de segurança de VMs do Azure/cargas de trabalho** | Agente de proteção do DPM/MABS no computador protegido.<br/><br/> O agente de MARS no servidor do DPM/MABS. | Tem de executar o DPM/MABS numa VM do Azure.
 
 ## <a name="supported-deployments"></a>Implementações suportadas
@@ -130,9 +130,9 @@ Conectividade para o serviço de cópia de segurança do Azure é necessária pa
 
 **MABS para o Azure** | **Subscrição** | **Cópia de segurança/restauro**
 --- | --- | ---
-Ligado | Ativa | Criar cópias de segurança para o disco do DPM/MABS.<br/><br/> Criar cópias de segurança para o Azure.<br/><br/> Restaure a partir de disco.<br/><br/> Restaure a partir do Azure.
+Ligado | Active | Criar cópias de segurança para o disco do DPM/MABS.<br/><br/> Criar cópias de segurança para o Azure.<br/><br/> Restaure a partir de disco.<br/><br/> Restaure a partir do Azure.
 Ligado | Expirado/desaprovisionada | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Se a subscrição expirou, pode restaurar a partir de disco ou no Azure.<br/><br/> Se a subscrição está desativada, não é possível restaurar a partir de disco ou no Azure. Os pontos de recuperação do Azure são eliminados.
-Sem conectividade durante mais de 15 dias | Ativa | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Pode restaurar a partir do disco ou do Azure.
+Sem conectividade durante mais de 15 dias | Active | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Pode restaurar a partir do disco ou do Azure.
 Sem conectividade durante mais de 15 dias | Expirado/desaprovisionada | Nenhuma cópia de segurança para o disco ou do Azure.<br/><br/> Se a subscrição expirou, pode restaurar a partir de disco ou no Azure.<br/><br/> Se a subscrição está desativada, não é possível restaurar a partir de disco ou no Azure. Os pontos de recuperação do Azure são eliminados.
 
 ## <a name="dpmmabs-storage-support"></a>Suporte de armazenamento do DPM/MABS
@@ -152,7 +152,7 @@ No DPM 2016/MABS v2 (em execução no Windows Server 2016) e posterior, pode tir
 - Cópias de segurança MBS são armazenadas num disco de sistema de ficheiros Resiliente (ReFS).
 - MB utiliza a clonagem para cópia de segurança mais rápida e uma utilização mais eficiente de espaço de armazenamento em bloco ReFS.
 - Quando adiciona volumes ao agrupamento de armazenamento local do DPM/MABS, configurá-las com letras de unidade. Em seguida, pode configurar o armazenamento de carga de trabalho em volumes diferentes.
-- Quando criar grupos de proteção para cópias de segurança no DPM/MABS, selecione a unidade que pretende utilizar. Por exemplo, pode armazenar cópias de segurança SQL ou de outra unidade de cargas de trabalho de alto desempenho de IOPS elevada e armazenar as cargas de trabalho que são uma cópia de segurança com menos frequência numa unidade de desempenho inferior.
+- Quando criar grupos de proteção para cópias de segurança no DPM/MABS, selecione a unidade que pretende utilizar. Por exemplo, pode armazenar cópias de segurança SQL ou de outras cargas de trabalho IOPS elevadas numa unidade de alto desempenho e armazenar as cargas de trabalho que são uma cópia de segurança com menos frequência numa unidade de desempenho inferior.
 
 
 ## <a name="supported-backups-to-mabs"></a>Cópias de segurança suportadas MABS
@@ -206,7 +206,7 @@ A tabela seguinte resume o que pode ser uma cópia de segurança para o DPM de m
 **VMs de VMware: vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> O DPM 2012 R2 necessita de System Center Update Rollup 1) <br/><br/>No local. | Fazer uma cópia de segurança de VMs de VMware no armazenamento de SAN, NFS e CSVs.<br/><br/> Recupere VM inteira.<br/><br/> Cópia de segurança do Windows/Linux.<br/><br/> Recuperação ao nível do item de pasta/para VMs do Windows apenas ficheiros.<br/><br/> Os VMware vApps não são suportados.<br/><br/> Recuperação para VMs do Linux destina-se a toda a máquina.
 
 
-- Tenha em atenção que as cargas de trabalho em cluster, cópias de segurança no DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio fidedigno/subordinado.
+- Cargas de trabalho em cluster, cópias de segurança no DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou num domínio fidedigno/filho.
 - Pode utilizar a autenticação de NTLM/certificados para criar cópias de segurança em grupos de trabalho ou domínios não fidedignos.
 
 

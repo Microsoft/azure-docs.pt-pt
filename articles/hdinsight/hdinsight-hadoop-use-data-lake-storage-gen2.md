@@ -7,12 +7,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: f381090e663923ec9f45fba03d0688c9879ab173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd639ae7e05309ab4528eb460ce38550db4cffe1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427403"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670768"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -72,31 +72,40 @@ Atribuir a identidade gerida para o **proprietário de dados de Blob de armazena
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Criar um cluster com geração 2 de armazenamento do Data Lake através da CLI do Azure
 
-Pode [transferir um ficheiro de modelo de exemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [transferir um ficheiro de parâmetros de exemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de utilizar o modelo, substitua a cadeia de caracteres `<SUBSCRIPTION_ID>` com o ID de subscrição do Azure real. Além disso, substitua a cadeia de caracteres `<PASSWORD>` com a palavra-passe escolhida para definir tanto a palavra-passe que pretende utilizar para iniciar sessão no seu cluster e a palavra-passe SSH.
+Pode [transferir um ficheiro de modelo de exemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) e [transferir um ficheiro de parâmetros de exemplo](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Antes de utilizar o modelo e o trecho de código da CLI do Azure abaixo, substitua os marcadores de posição seguintes com os respetivos valores corretos:
+
+| Marcador de posição | Descrição |
+|---|---|
+| `<SUBSCRIPTION_ID>` | O ID da sua subscrição do Azure |
+| `<RESOURCEGROUPNAME>` | O grupo de recursos onde pretende que a nova conta de armazenamento e cluster criada. |
+| `<MANAGEDIDENTITYNAME>` | O nome da identidade gerida que terá permissões na sua conta de geração 2 de armazenamento do Azure Data Lake. |
+| `<STORAGEACCOUNTNAME>` | A conta de geração 2 de armazenamento do Azure Data Lake novo que será criada. |
+| `<CLUSTERNAME>` | O nome do cluster do HDInsight. |
+| `<PASSWORD>` | A palavra-passe escolhida para iniciar sessão no cluster através de SSH, bem como o dashboard do Ambari. |
 
 O trecho de código abaixo faz as seguintes etapas iniciais:
 
 1. Registos na sua conta do Azure.
 1. Define a subscrição ativa em que as operações criar serão feitas.
-1. Cria um novo grupo de recursos para as novas atividades de implementação com o nome `hdinsight-deployment-rg`.
-1. Cria uma identidade gerida atribuído ao utilizador com o nome `test-hdinsight-msi`.
+1. Cria um novo grupo de recursos para as novas atividades de implementação. 
+1. Cria uma identidade gerida atribuído ao utilizador.
 1. Adiciona uma extensão para a CLI do Azure para utilizar as funcionalidades de geração 2 de armazenamento do Data Lake.
-1. Cria uma nova conta de geração 2 de armazenamento do Data Lake com o nome `hdinsightadlsgen2`, utilizando o `--hierarchical-namespace true` sinalizador.
+1. Cria uma nova conta de geração 2 de armazenamento do Data Lake ao utilizar o `--hierarchical-namespace true` sinalizador. 
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location eastus
+az group create --name <RESOURCEGROUPNAME> --location eastus
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -107,7 +116,7 @@ Depois de atribuir a função para a identidade gerida atribuído ao utilizador,
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```

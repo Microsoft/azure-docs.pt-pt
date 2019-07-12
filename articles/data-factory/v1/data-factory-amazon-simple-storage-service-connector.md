@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2468fdd44374343894416c8e39c263cecaa7d5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335339"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839553"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Amazon Simple Storage Service através do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -45,7 +45,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de uma orig
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Para um rápido passo a passo, consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se usar APIs ou ferramentas, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -65,7 +65,7 @@ Os serviços ligados ligam um arquivo de dados para uma fábrica de dados. Vai c
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso a segredos. |string |Sim |
+| accessKeyID |ID da chave de acesso a segredos. |Cadeia de caracteres |Sim |
 | secretAccessKey |A chave de acesso a segredos em si. |Cadeia secreta encriptada |Sim |
 
 >[!NOTE]
@@ -94,10 +94,10 @@ Seções, como a estrutura, disponibilidade e a política são semelhantes para 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| bucketName |O nome do registo de S3. |String |Sim |
-| key |A chave de objeto de S3. |String |Não |
-| prefix |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |String |Não |
-| version |A versão do objeto, S3, se o controlo de versões de S3 está ativado. |String |Não |
+| bucketName |O nome do registo de S3. |Cadeia |Sim |
+| key |A chave de objeto de S3. |Cadeia |Não |
+| prefix |Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando o chave está vazia. |Cadeia |Não |
+| version |A versão do objeto, S3, se o controlo de versões de S3 está ativado. |Cadeia |Não |
 | format | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato JSON](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender copiar ficheiros como-é entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não | |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**. Os níveis suportados são: **Ideal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não | |
 
@@ -180,7 +180,7 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon S3 para o armazenamento de Blobs do Azure
 Este exemplo mostra como copiar dados do Amazon S3 para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente à [qualquer um dos sinks de que são suportadas](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia na fábrica de dados.
 
-O exemplo fornece definições de JSON para as seguintes entidades do Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do Amazon S3 para armazenamento de BLOBs, utilizando o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
+O exemplo fornece definições de JSON para as seguintes entidades do Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do Amazon S3 para armazenamento de BLOBs, utilizando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).   
 
 * Um serviço ligado do tipo [AwsAccessKey](#linked-service-properties).
 * Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

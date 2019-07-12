@@ -2,21 +2,21 @@
 title: RDP para nós de servidor do Windows de cluster do Azure Kubernetes Service (AKS)
 description: Saiba como criar uma ligação RDP com o cluster do Azure Kubernetes Service (AKS), nós do servidor Windows para tarefas de manutenção e resolução de problemas.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: twhitney
-ms.openlocfilehash: 11f6869d4d5a2ee0ef2e986ee8268c7a001ea015
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688631"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614569"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Ligar com RDP para o Azure Kubernetes Service (AKS) nós do cluster do Windows Server para manutenção ou de resolução de problemas
 
-Em todo o ciclo de vida do cluster do Azure Kubernetes Service (AKS), terá de aceder a um nó de servidor do Windows de AKS. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode acessar os nós do AKS Windows Server com o protocolo RDP. Em alternativa, se pretender utilizar o SSH para aceder a nós do AKS Windows Server e que tem acesso para o mesmo par de chaves, que foi utilizado durante a criação do cluster, pode seguir os passos em [SSH em nós de cluster do Azure Kubernetes Service (AKS)] [ssh-steps]. Por motivos de segurança, os nós do AKS não são expostos à internet.
+Em todo o ciclo de vida do cluster do Azure Kubernetes Service (AKS), terá de aceder a um nó de servidor do Windows de AKS. Este acesso pode ser para manutenção, recolha de registos ou outras operações de resolução de problemas. Pode acessar os nós do AKS Windows Server com o protocolo RDP. Em alternativa, se pretender utilizar o SSH para aceder a nós do AKS Windows Server e que tem acesso para o mesmo par de chaves, que foi utilizado durante a criação do cluster, pode seguir os passos em [SSH em nós de cluster do Azure Kubernetes Service (AKS)][ssh-steps]. Por motivos de segurança, os nós do AKS não são expostos à internet.
 
 Suporte de nó do Windows Server está atualmente em pré-visualização no AKS.
 
@@ -24,7 +24,7 @@ Este artigo mostra-lhe como criar uma ligação RDP com um nó do AKS com os res
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente com um nó do Windows Server. Se precisar de um cluster do AKS, consulte o artigo sobre [criar um cluster do AKS com um contentor do Windows com a CLI do Azure][aks-windows-cli]. Tem o nome de utilizador do Windows administrador e a palavra-passe para o nó de servidor do Windows que pretende resolver problemas. Também precisa de um cliente RDP como [ambiente de trabalho remoto][rdp-mac].
+Este artigo pressupõe que tem um cluster do AKS existente com um nó do Windows Server. Se precisar de um cluster do AKS, consulte o artigo sobre [criar um cluster do AKS com um contentor do Windows com a CLI do Azure][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
 
 Também precisa da versão 2.0.61 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
@@ -66,19 +66,19 @@ Registe o endereço IP público da máquina virtual. Utilizará este endereço n
 
 ## <a name="get-the-node-address"></a>Obtenha o endereço do nó
 
-Para gerir um cluster de Kubernetes, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes. Se utilizar o Azure Cloud Shell, `kubectl` já está instalado. Para instalar `kubectl` localmente, utilize o [az aks install-cli] [ az-aks-install-cli] comando:
+Para gerir um cluster de Kubernetes, utilize [kubectl][kubectl], o cliente de linha de comandos do Kubernetes. Se utilizar o Azure Cloud Shell, `kubectl` já está instalado. Para instalar `kubectl` localmente, utilize o [az aks install-cli][az-aks-install-cli] comando:
     
 ```azurecli-interactive
 az aks install-cli
 ```
 
-Para configurar `kubectl` para se ligar ao cluster do Kubernetes, utilize o comando [az aks get-credentials][az-aks-get-credentials]. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los.
+Para configurar `kubectl` para ligar ao seu cluster do Kubernetes, utilize o [az aks get-credentials][az-aks-get-credentials] comando. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Lista o endereço IP de nós do Windows Server com o [kubectl Obtenha] [ kubectl-get] comando:
+Lista o endereço IP de nós do Windows Server com o [kubectl obter][kubectl-get] comando:
 
 ```console
 kubectl get nodes -o wide
@@ -113,15 +113,15 @@ Agora, pode executar os comandos de resolução de problemas *cmd* janela. Como 
 
 ## <a name="remove-rdp-access"></a>Remover o acesso do RDP
 
-Quando terminar, feche a ligação de RDP para o nó do Windows Server em seguida, saia da sessão RDP à máquina virtual. Depois de sair ambas as sessões RDP, eliminar a máquina virtual com o [az vm elimine] [ az-vm-delete] comando:
+Quando terminar, feche a ligação de RDP para o nó do Windows Server em seguida, saia da sessão RDP à máquina virtual. Depois de sair ambas as sessões RDP, eliminar a máquina virtual com o [az vm eliminar][az-vm-delete] comando:
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se precisar de dados adicionais de resolução de problemas, pode [ver os registos de nó principal do Kubernetes] [ view-master-logs] ou [Azure Monitor][azure-monitor-containers].
+Se precisar de dados adicionais de resolução de problemas, pode [ver os registos de nó principal do Kubernetes][view-master-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

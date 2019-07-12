@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: 6e1acf5f605d7f6fb42d24e6e7ec624a317b0e31
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872816"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612867"
 ---
 # <a name="what-are-durable-functions"></a>O que são funções duráveis?
 
@@ -43,8 +44,8 @@ O principal motivo para as funções durável é simplificar os requisitos de co
 
 Funções duráveis suporta atualmente os seguintes idiomas:
 
-* **C#**: ambos [pré-compiladas bibliotecas de classes](../functions-dotnet-class-library.md) e [ C# script](../functions-reference-csharp.md).
-* **F#**: pré-compiladas bibliotecas de classes e F# script. F#script só é suportado para a versão 1.x do runtime das funções do Azure.
+* **C#** : ambos [pré-compiladas bibliotecas de classes](../functions-dotnet-class-library.md) e [ C# script](../functions-reference-csharp.md).
+* **F#** : pré-compiladas bibliotecas de classes e F# script. F#script só é suportado para a versão 1.x do runtime das funções do Azure.
 * **JavaScript**: suportado apenas para a versão 2.x do runtime das funções do Azure. Requer versão 1.7.0 a extensão de funções duráveis, ou uma versão posterior. 
 
 Funções duráveis consistia na meta de suporte a todos [idiomas de funções do Azure](../supported-languages.md). Consulte a [lista de problemas de funções duráveis](https://github.com/Azure/azure-functions-durable-extension/issues) para o estado mais recente de trabalho para oferecer suporte a idiomas adicionais.
@@ -64,7 +65,7 @@ Pode começar a utilizar com as funções duráveis em menos de 10 minutos, conc
 
 Em ambos os inícios rápidos, localmente criar e testar uma função durável "hello world". Em seguida, publique o código de função no Azure. A função que cria orquestra e está ligado em conjunto de chamadas para outras funções.
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 O vídeo seguinte realça as vantagens de funções duráveis:
 
@@ -72,7 +73,7 @@ O vídeo seguinte realça as vantagens de funções duráveis:
 
 Uma vez que as funções durável é uma extensão avançada para [as funções do Azure](../functions-overview.md), não é adequado para todos os aplicativos. Para saber mais sobre as funções durável, veja [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md). Para uma comparação com outras tecnologias de orquestração do Azure, veja [comparar funções do Azure e Azure Logic Apps](../functions-compare-logic-apps-ms-flow-webjobs.md#compare-azure-functions-and-azure-logic-apps).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md)

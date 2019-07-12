@@ -7,154 +7,176 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.openlocfilehash: ba04ed7c95cbf00d5996ef237d3ac65053da0662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/24/2019
+ms.openlocfilehash: bdc393d041bd40fd27493ccc8f3c4f39adfa35b2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727386"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657179"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Utilizar MirrorMaker para replicar tópicos do Apache Kafka com o Kafka no HDInsight
 
 Aprenda a usar o recurso de espelhamento do Apache Kafka para replicar tópicos para um cluster secundário. Espelhamento podem ser executadas como um processo contínuo ou intermitentemente utilizado como um método de migração de dados de um cluster para outro.
 
-Neste exemplo, o espelhamento é utilizado para replicar tópicos entre dois clusters do HDInsight. Ambos os clusters estão numa rede Virtual do Azure na mesma região.
+Neste exemplo, o espelhamento é utilizado para replicar tópicos entre dois clusters do HDInsight. Ambos os clusters estão em diferentes redes virtuais em diferentes centros de dados.
 
 > [!WARNING]  
-> Espelhamento não deve ser considerado como um meio para alcançar a tolerância a falhas. O deslocamento para itens dentro de um tópico são diferentes entre os clusters de origem e de destino, para que os clientes não podem utilizar os dois alternadamente.
+> Espelhamento não deve ser considerado como um meio para alcançar a tolerância a falhas. O deslocamento para itens dentro de um tópico são diferentes entre clusters primários e secundários, para que os clientes não podem utilizar os dois alternadamente.
 >
 > Se estiver preocupado com tolerância a falhas, deve definir os replicação para os tópicos no seu cluster. Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
 ## <a name="how-apache-kafka-mirroring-works"></a>Como funciona o espelhamento do Apache Kafka
 
-Espelhamento funciona utilizando o [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) ferramenta (parte do Apache Kafka) para consumir registos dos tópicos no cluster de origem e, em seguida, criar uma cópia local no cluster de destino. MirrorMaker utiliza uma (ou mais) *consumidores* de leitura a partir do cluster de origem e um *produtor* que escreve para o cluster local (destino).
+Espelhamento funciona utilizando o [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) ferramenta (parte do Apache Kafka) para consumir registos dos tópicos no cluster principal e, em seguida, criar uma cópia local no cluster secundário. MirrorMaker utiliza uma (ou mais) *consumidores* de leitura a partir do cluster principal e um *produtor* que escreve para o cluster local (secundário).
 
-O diagrama seguinte ilustra o processo de espelhamento:
+A configuração de espelhamento mais úteis para a recuperação após desastre utiliza clusters do Kafka em diferentes regiões do Azure. Para conseguir isso, as redes virtuais onde residem os clusters em modo de peering em conjunto.
 
-![Diagrama do processo de espelhamento](./media/apache-kafka-mirroring/kafka-mirroring.png)
+O diagrama seguinte ilustra o processo de espelhamento e como a comunicação flui entre clusters:
 
-Apache Kafka no HDInsight não fornece acesso ao serviço Kafka através da internet pública. Os produtores de Kafka ou consumidores tem de estar na mesma rede virtual do Azure como nós do cluster do Kafka. Neste exemplo, tanto as origem e destino clusters do Kafka estão localizados numa rede virtual do Azure. O diagrama seguinte mostra como a comunicação flui entre os clusters:
+![Diagrama do processo de espelhamento](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
 
-![Diagrama de origem e destino Kafka clusters numa rede virtual do Azure](./media/apache-kafka-mirroring/spark-kafka-vnet.png)
-
-Os clusters de origem e de destino podem ser diferentes do número de nós e partições e deslocamentos dentro os tópicos são também diferentes. Espelhamento mantém o valor da chave que é utilizado para criação de partições, para que o pedido de registo é preservado numa base por chave.
+Os clusters primários e secundários podem ser diferentes no número de nós e partições e deslocamentos dentro os tópicos são também diferentes. Espelhamento mantém o valor da chave que é utilizado para criação de partições, para que o pedido de registo é preservado numa base por chave.
 
 ### <a name="mirroring-across-network-boundaries"></a>Espelhamento em limites de rede
 
 Se precisar de espelhar entre clusters do Kafka em redes diferentes, existem as seguintes considerações adicionais:
 
-* **Gateways**: As redes tem de ser capazes de comunicar no nível de TCPIP.
+* **Gateways**: As redes tem de ser capazes de comunicar ao nível do TCP/IP.
 
-* **Resolução de nomes**: Os clusters de Kafka em cada rede tem de conseguir ligar-se entre si utilizando nomes de anfitrião. Isso pode exigir um servidor de sistema de nomes de domínio (DNS) em cada rede que está configurada para encaminhar pedidos para as outras redes.
+* **Servidor de endereçamento**: Pode optar por resolver os nós do cluster utilizando os respetivos endereços IP ou nomes de domínio completamente qualificado.
 
-    Ao criar uma rede Virtual do Azure, em vez de utilizar o DNS automática fornecido com a rede, tem de especificar um servidor DNS personalizado e o endereço IP para o servidor. Depois de ter sido criada a rede Virtual, tem, em seguida, criar uma Máquina Virtual que utilize esse endereço IP, em seguida, instalar e configurar software DNS no mesmo.
+    * **Endereços IP**: Se configurar seus clusters Kafka para usar a publicidade de endereço IP, poderá continuar a configuração de espelhamento usando os endereços IP de nós do Mediador e nós zookeeper.
+    
+    * **Nomes de domínio**: Se não configurar seus clusters Kafka para fins de publicidade de endereço IP, os clusters tem de ser capazes de se ligar entre si utilizando totalmente qualificado nomes de domínio (FQDN). Isto requer um servidor de sistema de nomes de domínio (DNS) em cada rede que está configurada para encaminhar pedidos para as outras redes. Ao criar uma rede Virtual do Azure, em vez de utilizar o DNS automática fornecido com a rede, tem de especificar um servidor DNS personalizado e o endereço IP para o servidor. Depois de ter sido criada a rede Virtual, tem, em seguida, criar uma Máquina Virtual que utilize esse endereço IP, em seguida, instalar e configurar software DNS no mesmo.
 
     > [!WARNING]  
     > Criar e configurar o servidor DNS personalizado antes de instalar HDInsight numa rede Virtual. Não existe nenhuma configuração adicional necessária para o HDInsight utilizar o servidor DNS configurado para a rede Virtual.
 
 Para obter mais informações sobre como ligar duas redes virtuais do Azure, consulte [configurar uma ligação VNet a VNet](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
-## <a name="create-apache-kafka-clusters"></a>Criar clusters do Apache Kafka
+## <a name="mirroring-architecture"></a>Arquitetura do espelhamento
 
-Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é mais fácil de usar um modelo Azure Resource Manager. Utilize os seguintes passos para implementar uma rede virtual do Azure e dois clusters de Kafka à sua subscrição do Azure.
+Esta arquitetura apresenta dois clusters em diferentes grupos de recursos e redes virtuais: uma **primário** e **secundário**.
 
-1. Utilize o botão seguinte para iniciar sessão no Azure e abrir o modelo no Portal do Azure.
-   
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json" target="_blank"><img src="./media/apache-kafka-mirroring/deploy-to-azure.png" alt="Deploy to Azure"></a>
-   
-    O modelo do Azure Resource Manager está localizado em **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json** .
+### <a name="creation-steps"></a>Passos de criação
 
-    > [!WARNING]  
-    > Para garantir a disponibilidade do Kafka no HDInsight, o cluster tem de conter pelo menos três nós de trabalho. Este modelo cria um cluster do Kafka que contém três nós de trabalho.
+1. Crie dois novos grupos de recursos:
 
-2. Utilize as seguintes informações para preencher as entradas a **implementação personalizada** painel:
+    |Grupo de Recursos | Location |
+    |---|---|
+    | kafka-primary-rg | EUA Central |
+    | kafka-secondary-rg | EUA Centro-Norte |
+
+1. Criar uma nova rede virtual **kafka-principal-vnet** na **kafka-principal-rg**. Deixe as predefinições.
+1. Criar uma nova rede virtual **kafka secundário vnet** na **kafka-secundário-rg**, também com as predefinições.
+
+1. Crie dois novos clusters de Kafka:
+
+    | Nome do cluster | Grupo de Recursos | Rede virtual | Conta de Armazenamento |
+    |---|---|---|---|
+    | kafka-primary-cluster | kafka-primary-rg | kafka-primary-vnet | kafkaprimarystorage |
+    | kafka-secondary-cluster | kafka-secondary-rg | kafka-secondary-vnet | kafkasecondarystorage |
+
+1. Crie peerings de rede virtual. Este passo irá criar dois peerings: um da **kafka-principal-vnet** para **kafka secundário vnet** e uma cópia do **kafka secundário vnet** para  **kafka-principal-vnet**.
+    1. Selecione o **kafka-principal-vnet** rede virtual.
+    1. Clique em **Peerings** sob **definições**.
+    1. Clique em **Adicionar**.
+    1. Sobre o **adicionar peering** ecrã, introduza os detalhes, conforme mostrado na captura de ecrã abaixo.
+
+        ![Adicionar peering de vnet](./media/apache-kafka-mirroring/add-vnet-peering.png)
+
+1. Configure a publicidade de IP:
+    1. Aceda ao dashboard do Ambari do cluster principal: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
+    1. Clique em **serviços** > **Kafka**. Clique nas **configurações** separador.
+    1. Adicione as seguintes linhas de configuração para a parte inferior **modelo de kafka-env** secção. Clique em **Guardar**.
     
-    ![Implantação personalizada do HDInsight](./media/apache-kafka-mirroring/parameters.png)
-    
-    * **Grupo de recursos**: Crie um grupo ou selecione um existente. Este grupo contém o cluster do HDInsight.
+        ```
+        # Configure Kafka to advertise IP addresses instead of FQDN
+        IP_ADDRESS=$(hostname -i)
+        echo advertised.listeners=$IP_ADDRESS
+        sed -i.bak -e '/advertised/{/advertised@/!d;}' /usr/hdp/current/kafka-broker/conf/server.properties
+        echo "advertised.listeners=PLAINTEXT://$IP_ADDRESS:9092" >> /usr/hdp/current/kafka-broker/conf/server.properties
+        ```
 
-    * **Localização**: Selecione um local geograficamente próximo de.
-     
-    * **Nome do Cluster de base**: Este valor é utilizado como o nome de base para os clusters do Kafka. Por exemplo, introduzir **hdi** cria clusters com o nome **origem hdi** e **dest hdi**.
+    1. Introduza uma nota o **Guardar configuração** ecrã e clique em **guardar**.
+    1. Se lhe for pedido com o aviso de configuração, clique em **continuar mesmo assim**.
+    1. Clique em **Ok** sobre o **guardar alterações à configuração**.
+    1. Clique em **reinicie** > **reiniciar todos os afetados** no **reinício necessário** notificação. Clique em **confirmar reinício todos os**.
 
-    * **Nome de utilizador de início de sessão do cluster**: O nome de utilizador de administrador para a origem e destino clusters do Kafka.
+        ![Reinicie nós de kafka](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
-    * **Palavra-passe de início de sessão do cluster**: A palavra-passe de utilizador do administrador para a origem e destino clusters do Kafka.
+1. Configure o Kafka para escutar em todas as interfaces de rede.
+    1. Mantenha-se a **configurações** separador sob **serviços** > **Kafka**. Na **mediador Kafka** secção conjunto a **serviços de escuta** propriedade `PLAINTEXT://0.0.0.0:9092`.
+    1. Clique em **Guardar**.
+    1. Clique em **reinicie**, e **confirmar reinício todos os**.
 
-    * **Nome de utilizador SSH**: O utilizador SSH para criar para a origem e destino Kafka clusters.
+1. Registe os endereços IP do Mediador e Zookeeper para o cluster principal.
+    1. Clique em **anfitriões** no dashboard do Ambari.
+    1. Tome nota dos endereços IP para os corretores e Zookeepers. Os nós do Mediador ter **baixo** como as primeiras duas letras do nome do anfitrião e o zookeeper nós têm **zk** como as primeiras duas letras do nome do anfitrião.
 
-    * **SSH palavra-passe**: A palavra-passe do utilizador SSH para a origem e destino clusters do Kafka.
+        ![endereços de ip do Vista](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
-3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
-
-4. Por fim, marque **Afixar ao dashboard** e, em seguida, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
-
-> [!IMPORTANT]  
-> O nome dos HDInsight clusters estão **origem NOME_DE_BASE** e **dest NOME_DE_BASE**, onde NOME_DE_BASE é o nome que indicou para o modelo. Utilize esses nomes em passos posteriores ao estabelecer ligação com os clusters.
+1. Repita os três passos anteriores para o segundo cluster **cluster de kafka secundário**: configurar a publicidade de IP, serviços de escuta de definir e tome nota dos endereços IP de Zookeeper e de Mediador.
 
 ## <a name="create-topics"></a>Crie tópicos
 
-1. Ligar para o **origem** através de SSH do cluster:
+1. Ligar para o **primário** através de SSH do cluster:
 
     ```bash
-    ssh sshuser@source-BASENAME-ssh.azurehdinsight.net
+    ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
     Substitua **sshuser** com o nome de utilizador do SSH utilizado ao criar o cluster. Substitua **NOME_DE_BASE** com o nome de base utilizado ao criar o cluster.
 
     Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Utilize os seguintes comandos para encontrar os anfitriões de Apache Zookeeper para o cluster de origem:
+2. Utilize o seguinte comando para criar uma variável com os hosts de Apache Zookeeper para o cluster principal. Como as cadeias de caracteres `ZOOKEEPER_IP_ADDRESS1` têm de ser substituídas com os endereços IP reais registrados anteriormente, como `10.23.0.11` e `10.23.0.7`. Se estiver a utilizar a resolução FQDN com um servidor DNS personalizado, siga [essas etapas](apache-kafka-get-started.md#getkafkainfo) obter broker e zookeeper nomes.:
 
     ```bash
-    # Install jq if it is not installed
-    sudo apt -y install jq
-    # get the zookeeper hosts for the source cluster
-    export SOURCE_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    # get the zookeeper hosts for the primary cluster
+    export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     ```
-
-    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
 3. Para criar um tópico com o nome `testtopic`, utilize o seguinte comando:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $PRIMARY_ZKHOSTS
     ```
 
 3. Utilize o seguinte comando para verificar se o tópico foi criado:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $SOURCE_ZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $PRIMARY_ZKHOSTS
     ```
 
     A resposta contém `testtopic`.
 
-4. Utilize o seguinte para ver as informações do anfitrião Zookeeper para que isso (a **origem**) cluster:
+4. Utilize o seguinte para ver as informações do anfitrião Zookeeper para que isso (a **primário**) cluster:
 
     ```bash
-    echo $SOURCE_ZKHOSTS
+    echo $PRIMARY_ZKHOSTS
     ```
 
     Esta ação devolve informações semelhantes ao seguinte texto:
 
-    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+    `10.23.0.11:2181,10.23.0.7:2181,10.23.0.9:2181`
 
     Guarde estas informações. É utilizado na secção seguinte.
 
 ## <a name="configure-mirroring"></a>Configurar o espelhamento
 
-1. Ligar para o **destino** cluster com uma sessão SSH diferente:
+1. Ligar para o **secundário** cluster com uma sessão SSH diferente:
 
     ```bash
-    ssh sshuser@dest-BASENAME-ssh.azurehdinsight.net
+    ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Substitua **sshuser** com o nome de utilizador do SSH utilizado ao criar o cluster. Substitua **NOME_DE_BASE** com o nome de base utilizado ao criar o cluster.
+    Substitua **sshuser** com o nome de utilizador do SSH utilizado ao criar o cluster. Substitua **SECONDARYCLUSTER** com o nome que utilizou quando criou o cluster.
 
     Para obter informações, veja [Use SSH with HDInsight (Utilizar SSH com o HDInsight)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. R `consumer.properties` ficheiro é utilizado para configurar a comunicação com o **origem** cluster. Para criar o ficheiro, utilize o seguinte comando:
+2. R `consumer.properties` ficheiro é utilizado para configurar a comunicação com o **primário** cluster. Para criar o ficheiro, utilize o seguinte comando:
 
     ```bash
     nano consumer.properties
@@ -163,31 +185,27 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
     Utilize o seguinte texto como conteúdo do `consumer.properties` ficheiro:
 
     ```yaml
-    zookeeper.connect=SOURCE_ZKHOSTS
+    zookeeper.connect=PRIMARY_ZKHOSTS
     group.id=mirrorgroup
     ```
 
-    Substitua **SOURCE_ZKHOSTS** com as informações de anfitriões Zookeeper do **origem** cluster.
+    Substitua **PRIMARY_ZKHOSTS** com os endereços de IP do Zookeeper do **primário** cluster.
 
-    Este ficheiro descreve as informações de consumidor para utilizar durante a leitura a partir da origem de cluster do Kafka. Para a configuração de consumidor obter mais informações, consulte [configurações de consumidor](https://kafka.apache.org/documentation#consumerconfigs) em kafka.apache.org.
+    Este ficheiro descreve as informações de consumidor para utilizar durante a leitura do cluster de Kafka primário. Para a configuração de consumidor obter mais informações, consulte [configurações de consumidor](https://kafka.apache.org/documentation#consumerconfigs) em kafka.apache.org.
 
     Para guardar o ficheiro, utilize **Ctrl + X**, **Y**e, em seguida **Enter**.
 
-3. Antes de configurar o produtor que comunica com o cluster de destino, tem de encontrar o Mediador de anfitriões para o **destino** cluster. Utilize os seguintes comandos para obter estas informações:
+3. Antes de configurar o produtor que comunica com o cluster secundário, de uma variável para os endereços IP de Mediador da configuração do **secundário** cluster. Utilize os seguintes comandos para criar esta variável:
 
     ```bash
-    sudo apt -y install jq
-    DEST_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
-    echo $DEST_BROKERHOSTS
+    export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
+    O comando `echo $SECONDARY_BROKERHOSTS` deve devolver informações semelhantes ao seguinte texto:
 
-    O `echo` comando devolve informações semelhantes ao seguinte texto:
+    `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-        wn0-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn1-dest.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092
-
-4. R `producer.properties` ficheiro é utilizado para comunicar o __destino__ cluster. Para criar o ficheiro, utilize o seguinte comando:
+4. R `producer.properties` ficheiro é utilizado para comunicar o **secundário** cluster. Para criar o ficheiro, utilize o seguinte comando:
 
     ```bash
     nano producer.properties
@@ -196,52 +214,48 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
     Utilize o seguinte texto como conteúdo do `producer.properties` ficheiro:
 
     ```yaml
-    bootstrap.servers=DEST_BROKERS
+    bootstrap.servers=SECONDARY_BROKERHOSTS
     compression.type=none
     ```
 
-    Substitua **DEST_BROKERS** com as informações de Mediador do passo anterior.
+    Substitua **SECONDARY_BROKERHOSTS** com os endereços IP de Mediador utilizados no passo anterior.
 
     Para mais informações produtor de configuração, consulte [configurações de produtor](https://kafka.apache.org/documentation#producerconfigs) em kafka.apache.org.
 
-5. Utilize os seguintes comandos para encontrar os anfitriões Zookeeper para o cluster de destino:
+5. Utilize os seguintes comandos para criar uma variável de ambiente com os endereços IP dos anfitriões Zookeeper para o cluster secundário:
 
     ```bash
-    # Install jq if it is not installed
-    sudo apt -y install jq
-    # get the zookeeper hosts for the source cluster
-    export DEST_ZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    # get the zookeeper hosts for the secondary cluster
+    export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
-
-    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
 
 7. A configuração predefinida para o Kafka no HDInsight não permite a criação automática de tópicos. Tem de utilizar uma das seguintes opções antes de iniciar o processo de espelhamento:
 
-    * **Criar os tópicos no cluster de destino**: Esta opção permite-lhe definir o número de partições e o fator de replicação.
+    * **Criar os tópicos no cluster secundário**: Esta opção permite-lhe definir o número de partições e o fator de replicação.
 
         Pode criar tópicos antes do tempo com o seguinte comando:
 
         ```bash
-        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $DEST_ZKHOSTS
+        /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SECONDARY_ZKHOSTS
         ```
 
         Substitua `testtopic` com o nome do tópico para criar.
 
-    * **Configurar o cluster para a criação de tópico automática**: Esta opção permite MirrorMaker criar automaticamente os tópicos, no entanto, ele poderá criá-los com um número diferente de partições ou o fator de replicação que o tópico de origem.
+    * **Configurar o cluster para a criação de tópico automática**: Esta opção permite MirrorMaker criar automaticamente os tópicos, no entanto, ele poderá criá-los com um número de partições ou o fator de replicação que o tópico principal diferente.
 
-        Para configurar o cluster de destino para criar automaticamente os tópicos, execute estes passos:
+        Para configurar o cluster secundário, a criação automática de tópicos, execute estes passos:
 
-        1. Partir do [portal do Azure](https://portal.azure.com), selecione o destino de cluster do Kafka.
-        2. Desde a descrição geral do cluster, selecione __dashboard de clusters__. Em seguida, selecione __dashboard de clusters do HDInsight__. Quando lhe for pedido, autentique com as credenciais de início de sessão (admin) para o cluster.
-        3. Selecione o __Kafka__ serviço a partir da lista à esquerda da página.
-        4. Selecione __configurações__ no meio da página.
+        1. Aceda ao dashboard do Ambari do cluster secundário: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
+        1. Clique em **serviços** > **Kafka**. Clique nas **configurações** separador.
         5. Na __filtro__ , insira um valor de `auto.create`. Este procedimento filtra a lista de propriedades e apresenta o `auto.create.topics.enable` definição.
         6. Alterar o valor de `auto.create.topics.enable` como true e, em seguida, selecione __guardar__. Adicionar uma nota e, em seguida, selecione __guardar__ novamente.
         7. Selecione o __Kafka__ serviço, selecione __reiniciar__e, em seguida, selecione __reiniciar as__. Quando lhe for pedido, selecione __confirmar reinicie todos__.
 
+        ![configurar a criação automática de tópico](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+
 ## <a name="start-mirrormaker"></a>Iniciar o MirrorMaker
 
-1. A ligação de SSH para o **destino** do cluster, utilize o seguinte comando para iniciar o processo de MirrorMaker:
+1. A ligação de SSH para o **secundário** do cluster, utilize o seguinte comando para iniciar o processo de MirrorMaker:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
@@ -249,48 +263,38 @@ Embora pode criar uma rede virtual do Azure e clusters do Kafka manualmente, é 
 
     Os parâmetros utilizados neste exemplo são:
 
-    * **--consumer.config**: Especifica o ficheiro que contém as propriedades de consumidor. Essas propriedades são utilizadas para criar um consumidor que lê a partir da *origem* cluster do Kafka.
+    * **--consumer.config**: Especifica o ficheiro que contém as propriedades de consumidor. Essas propriedades são utilizadas para criar um consumidor que lê a partir da *primário* cluster do Kafka.
 
-    * **--producer.config**: Especifica o ficheiro que contém as propriedades de produtor. Essas propriedades são utilizadas para criar um produtor que escreve para o *destino* cluster do Kafka.
+    * **--producer.config**: Especifica o ficheiro que contém as propriedades de produtor. Essas propriedades são utilizadas para criar um produtor que escreve para o *secundário* cluster do Kafka.
 
-    * **--whitelist**: Uma lista de tópicos que MirrorMaker replica a partir do cluster de origem para o destino.
+    * **--whitelist**: Uma lista de tópicos que MirrorMaker replica do cluster principal para o secundário.
 
     * **--num.streams**: O número de threads de consumidor para criar.
 
-   Na inicialização, MirrorMaker devolve informações semelhantes ao seguinte texto:
+    O consumidor no nó secundário agora está à espera para receber mensagens.
 
-    ```json
-    {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-kafka.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-2, security.protocol=PLAINTEXT}
-    metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-1, security.protocol=PLAINTEXT}
-    ```
-
-2. A ligação de SSH para o **origem** do cluster, utilize o seguinte comando para iniciar um produtor e enviar mensagens para o tópico:
+2. A ligação de SSH para o **primário** do cluster, utilize o seguinte comando para iniciar um produtor e enviar mensagens para o tópico:
 
     ```bash
-    SOURCE_BROKERHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export PRIMARY_BROKERHOSTS=BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de origem. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
+     Quando chegar a uma linha em branco com um cursor, escreva algumas mensagens de texto. As mensagens são enviadas para o tópico o **primário** cluster. Quando terminar, utilize **Ctrl + C** para terminar o processo de produtor.
 
-     Quando chegar a uma linha em branco com um cursor, escreva algumas mensagens de texto. As mensagens são enviadas para o tópico o **origem** cluster. Quando terminar, utilize **Ctrl + C** para terminar o processo de produtor.
-
-3. A ligação de SSH para o **destino** do cluster, utilize **Ctrl + C** para terminar o processo de MirrorMaker. Pode demorar vários segundos para terminar o processo. Para verificar que as mensagens foram replicadas para o destino, utilize o seguinte comando:
+3. A ligação de SSH para o **secundário** do cluster, utilize **Ctrl + C** para terminar o processo de MirrorMaker. Pode demorar vários segundos para terminar o processo. Para verificar que as mensagens foram replicadas para o secundário, utilize o seguinte comando:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-    Substitua `$CLUSTERNAME` com o nome do cluster de destino. Quando lhe for pedido, introduza a palavra-passe para o início de sessão (administrador) do cluster.
-
-    A lista de tópicos inclui agora `testtopic`, qual é criado quando MirrorMaster Espelha o tópico do cluster de origem para o destino. As mensagens obtidas a partir do tópico são os mesmos tal como foi introduzido no cluster de origem.
+    A lista de tópicos inclui agora `testtopic`, qual é criado quando MirrorMaster Espelha o tópico do cluster principal para o secundário. As mensagens obtidas a partir do tópico são os mesmos que aqueles que introduziu no cluster principal.
 
 ## <a name="delete-the-cluster"></a>Eliminar o cluster
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-Uma vez que os passos neste documento criam ambos os clusters no mesmo grupo de recursos do Azure, pode eliminar o grupo de recursos no portal do Azure. A eliminar o grupo de recursos remove todos os recursos criados através dos seguintes deste documento, a rede Virtual do Azure e conta de armazenamento utilizada pelos clusters.
+Os passos neste documento criado clusters em grupos de recursos do Azure diferente. Para eliminar todos os recursos que criou, pode eliminar os grupos de dois recursos criados: **kafka-principal-rg** e **kafka secondary_rg**. Eliminar os grupos de recursos remove todos os recursos criados através dos seguintes neste documento, incluindo clusters, redes virtuais e contas de armazenamento.
 
 ## <a name="next-steps"></a>Próximos Passos
 

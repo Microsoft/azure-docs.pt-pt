@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9d8482fdf8e914801fb77e2ab1712145fa3ccea0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9cad403e39239ea92aa432ef3234c5388bfa95c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077497"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673467"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -109,7 +109,7 @@ Sim.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Como é que a WAN Virtual é diferente do Gateway de Rede Virtual do Azure?
 
-O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar-se até 1000 ligações de sucursal com 2 Gbps no hub para todas as regiões, exceto na região Oeste Central. Para a região Centro-Oeste, estão disponíveis 20 Gbps. Estarão disponíveis 20 Gbps para mais regiões no futuro. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que pode ligar-se mais de 1.000 ramificações em hubs.
+O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar-se até 1000 ligações de sucursal com 20 Gbps no hub para todas as regiões. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que pode ligar-se mais de 1.000 ramificações em hubs.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como é Virtual WAN que suporta dispositivos SD-WAN?
 

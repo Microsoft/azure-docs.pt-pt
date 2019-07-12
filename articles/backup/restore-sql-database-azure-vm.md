@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 856f45f448aa843e9dc04ec3b6a60841cfe33227
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242377"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704868"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
@@ -156,7 +156,7 @@ Se tiver selecionado **completa e diferencial** como o tipo de restauro, efetue 
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurar bases de dados com grande número de ficheiros
 
-Se o tamanho de cadeia de caracteres total dos ficheiros numa base de dados é maior do que uma [determinada limite](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), cópia de segurança do Azure armazena a lista de ficheiros de base de dados num componente de pit diferentes, de modo a que não será capaz de definir o caminho de restauro de destino durante a restauração operação. Em vez disso, os ficheiros serão restaurados para o caminho predefinido SQL.
+Se o tamanho de cadeia de caracteres total dos ficheiros numa base de dados é maior do que uma [determinada limite](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), cópia de segurança do Azure armazena a lista de ficheiros de base de dados num componente de pit diferentes, de modo a que não será capaz de definir o caminho de restauro de destino durante a restauração operação. Em vez disso, os ficheiros serão restaurados para o caminho predefinido SQL.
 
   ![Restaurar a base de dados com ficheiros grandes](./media/backup-azure-sql-database/restore-large-files.jpg)
 

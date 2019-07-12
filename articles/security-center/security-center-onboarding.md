@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 19/02/2019
+ms.date: 02/19/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d93d2f1f1c082610cb14a5ea621e0919a41866
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966801"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589005"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.

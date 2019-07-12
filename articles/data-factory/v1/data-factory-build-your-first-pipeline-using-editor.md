@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573820"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839119"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar a primeira fábrica de dados com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,6 +32,9 @@ ms.locfileid: "64573820"
 
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory, que está geralmente disponível. Se utilizar a versão atual do serviço Data Factory, veja [início rápido: Criar uma fábrica de dados com o Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> O editor de JSON no Portal do Azure para a criação e implantação v1 do ADF pipelines será desligada em 31 de Julho de 2019. Após 31 de Julho de 2019, pode continuar a utilizar [cmdlets do Powershell do ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [SDK de .net do ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [APIs de REST do ADF v1](https://docs.microsoft.com/rest/api/datafactory/) criar e implementar a v1 do ADF pipelines.
 
 Neste artigo, ficará a saber como utilizar o [portal do Azure](https://portal.azure.com/) para criar a sua primeira fábrica de dados. Para fazer o tutorial com outras ferramentas/SDKs, selecione uma das opções na lista pendente. 
 

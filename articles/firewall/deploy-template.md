@@ -3,21 +3,20 @@ title: Implantar o Firewall do Azure através de um modelo
 description: Implantar o Firewall do Azure através de um modelo
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115693"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657080"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implantar o Firewall do Azure através de um modelo
 
-O [modelo de configuração de sandbox criar AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*, e *JumpboxSubnet*. O *ServersSubnet* e *JumpboxSubnet* cada sub-rede tiver uma máquina virtual do Windows Server única e dois núcleos.
+O [modelo de configuração de sandbox criar AzureFirewall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox) cria um ambiente de rede de teste com uma firewall. A rede tem uma rede virtual (VNet) com três sub-redes: *AzureFirewallSubnet*, *ServersSubnet*, e *JumpboxSubnet*. O *ServersSubnet* e *JumpboxSubnet* cada sub-rede tiver uma máquina virtual do Windows Server única e dois núcleos.
 
 A firewall está no *AzureFirewallSubnet* sub-rede, e tem uma coleção de regras de aplicação com uma única regra que permite o acesso à *www.microsoft.com*.
 
@@ -34,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 **Para instalar e implantar o Firewall do Azure com o modelo:**
 
-1. Aceder ao modelo em [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
+1. Aceder ao modelo em [ https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox ](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox).
    
 1. Leia a introdução e, quando estiver pronto para implementar, selecione **implementar no Azure**.
    

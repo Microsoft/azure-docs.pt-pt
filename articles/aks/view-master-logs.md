@@ -2,17 +2,17 @@
 title: Ver registos de controlador do Azure Kubernetes Service (AKS)
 description: Saiba como ativar e ver os registos para o nó principal do Kubernetes no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 256101cce5588f56a8094a7a9a98e5fe69e6ec73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497263"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613930"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
@@ -20,11 +20,11 @@ Com o Azure Kubernetes Service (AKS), os componentes principais, tais como o *ku
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer a um cluster do AKS existente em execução na sua conta do Azure. Se ainda não tiver um cluster do AKS, crie uma utilizando o [CLI do Azure] [ cli-quickstart] ou [portal do Azure][portal-quickstart]. O Azure Monitor registos funciona com ambas as RBAC e não-RBAC ativado clusters do AKS.
+Este artigo requer a um cluster do AKS existente em execução na sua conta do Azure. Se ainda não tiver um cluster do AKS, crie uma utilizando o [CLI do Azure][cli-quickstart] or [Azure portal][portal-quickstart]. O Azure Monitor registos funciona com ambas as RBAC e não-RBAC ativado clusters do AKS.
 
 ## <a name="enable-diagnostics-logs"></a>Ativar registos de diagnóstico
 
-Para ajudar a recolher e analisar dados de várias origens, os registos do Azure Monitor fornece um mecanismo de análise e linguagem de consulta que fornece informações para o seu ambiente. Uma área de trabalho é utilizada para agrupar e analisar os dados e pode ser integrado com outros serviços do Azure como o Application Insights e o Centro de segurança. Utilizar uma plataforma diferente para analisar os registos, em vez disso, pode optar por enviar registos de diagnóstico para um hub de evento ou a conta de armazenamento do Azure. Para obter mais informações, consulte [o que é o Azure Monitor registos?] [log-analytics-overview].
+Para ajudar a recolher e analisar dados de várias origens, os registos do Azure Monitor fornece um mecanismo de análise e linguagem de consulta que fornece informações para o seu ambiente. Uma área de trabalho é utilizada para agrupar e analisar os dados e pode ser integrado com outros serviços do Azure como o Application Insights e o Centro de segurança. Utilizar uma plataforma diferente para analisar os registos, em vez disso, pode optar por enviar registos de diagnóstico para um hub de evento ou a conta de armazenamento do Azure. Para obter mais informações, consulte [o que é o Azure Monitor registos?][log-analytics-overview].
 
 Registos de Monitor do Azure são ativados e geridos no portal do Azure. Para ativar a recolha de registos para os componentes de mestres de Kubernetes no seu cluster do AKS, abra o portal do Azure num navegador da web e conclua os seguintes passos:
 
@@ -37,15 +37,15 @@ Registos de Monitor do Azure são ativados e geridos no portal do Azure. Para at
 1. Quando estiver pronto, selecione **guardar** para ativar a recolha dos registos selecionados.
 
 > [!NOTE]
-> AKS captura apenas registos de auditoria para os clusters que são criados ou atualizados depois de um sinalizador de funcionalidade está ativado na sua subscrição. Para registar o *AKSAuditLog* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
+> AKS captura apenas registos de auditoria para os clusters que são criados ou atualizados depois de um sinalizador de funcionalidade está ativado na sua subscrição. Para registar o *AKSAuditLog* sinalizador de funcionalidade, utilize o [Registre-se de funcionalidade de az][az-feature-register] comando conforme mostrado no exemplo a seguir:
 >
 > `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
 >
-> Aguarde que o estado a mostrar *registado*. Pode verificar o estado de registo com o [lista de funcionalidades de az] [ az-feature-list] comando:
+> Aguarde que o estado a mostrar *registado*. Pode verificar o estado de registo com o [lista de funcionalidades de az][az-feature-list] comando:
 >
 > `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
 >
-> Quando estiver pronto, atualize o registo do fornecedor de recursos AKS com o [Registre-se fornecedor de az] [ az-provider-register] comando:
+> Quando estiver pronto, atualize o registo do fornecedor de recursos AKS com o [Registre-se fornecedor de az][az-provider-register] comando:
 >
 > `az provider register --namespace Microsoft.ContainerService`
 
@@ -77,7 +77,7 @@ spec:
     - containerPort: 80
 ```
 
-Criar o pod com o [criar kubectl] [ kubectl-create] de comando e especifique o ficheiro YAML, conforme mostrado no exemplo a seguir:
+Criar o pod com o [kubectl criar][kubectl-create] de comando e especifique o ficheiro YAML, conforme mostrado no exemplo a seguir:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -133,7 +133,7 @@ Para ajudar a analisar os dados de registo, a tabela seguinte fornece detalhes s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu como ativar e rever os registos para os componentes de mestres de Kubernetes no seu cluster do AKS. Para monitorizar e resolver problemas ainda mais, pode também [ver os registos Kubelet] [ kubelet-logs] e [ativar o acesso de nó SSH][aks-ssh].
+Neste artigo, aprendeu como ativar e rever os registos para os componentes de mestres de Kubernetes no seu cluster do AKS. Para monitorizar e resolver problemas ainda mais, pode também [ver os registos Kubelet][kubelet-logs] and [enable SSH node access][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

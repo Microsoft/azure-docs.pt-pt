@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 0bf4aff8e0bae3e84e6383ec560dbfe67e30b994
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c42066b3ac02264ee357bac7ed3fdd360e9d5d4a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408728"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798405"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início rápido: Criar um .NET Core de aplicação com a configuração de aplicações
 
@@ -39,7 +39,7 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Explorador de configuração** > **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Explorador de configuração** >  **+ criar** para adicionar os seguintes pares de chave-valor:
 
     | Chave | Value |
     |---|---|
@@ -53,15 +53,15 @@ Utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microso
 
 1. Crie uma pasta nova para o projeto.
 
-2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicação web de MVC do ASP.NET Core:
+2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicação de consola do ASP.NET Core:
 
         dotnet new console
 
 ## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
 
-1. Adicionar uma referência para o `Microsoft.Extensions.Configuration.AzureAppConfiguration` pacote NuGet ao executar o seguinte comando:
+1. Adicionar uma referência para o `Microsoft.Azure.AppConfiguration.AspNetCore` pacote NuGet ao executar o seguinte comando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
 
 2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
