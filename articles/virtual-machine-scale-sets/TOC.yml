@@ -156,6 +156,8 @@
           maintainContext: true
     - name: FAQ do Conjunto de Dimensionamento
       href: virtual-machine-scale-sets-faq.md
+    - name: Atributos de segurança
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: Procedimento
   items:
     - name: Planear e conceber

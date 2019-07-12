@@ -254,7 +254,7 @@
         - name: Lidar com operações de longa duração
           href: media-services-dotnet-long-operations.md
         - name: Especificação de ingestão em tempo real de MP4 fragmentado
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Introdução
           href: media-services-azure-media-clipper-getting-started.md
         - name: Carregar vídeos
@@ -458,11 +458,11 @@
     - name: Especificações
       items:
         - name: Ingestão em Direto - Especificação de ingestão em tempo real de MP4 fragmentado
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Ingestão Dinâmica - Assinalar Metadados Temporizados na Transmissão em Direto
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Multimédia do Azure

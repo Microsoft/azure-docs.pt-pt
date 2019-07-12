@@ -61,6 +61,8 @@
       href: load-balancer-standard-availability-zones.md
     - name: Métricas e diagnósticos do Balanceador de Carga Standard
       href: load-balancer-standard-diagnostics.md
+    - name: Atributos de segurança
+      href: load-balancer-security-attributes.md
 - name: Procedimento
   items:
     - name: Criar um Balanceador de Carga público com redundância de zona
