@@ -212,11 +212,11 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 
 | Nome do Campo | Utilização | Nome da API |
 | --- | --- | --- |
-| durável |- |- |
-| prioridade |- |- |
+| durable |- |- |
+| priority |- |- |
 | ttl |Tempo de duração para esta mensagem |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| primeiro acquirer |- |- |
-| Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| first-acquirer |- |- |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="properties"></a>properties
 
