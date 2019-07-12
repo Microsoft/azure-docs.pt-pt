@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8357a53ee065812922b5df53fbdef7c14e5f0ff7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761921"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621035"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas de ligações de entrada
 
@@ -29,7 +29,7 @@ Esta página descreve problemas comuns com ligações de entrada e como resolvê
         
     Utilize o [ **dados de exemplo** ](stream-analytics-sample-data-input.md) botão para cada entrada e transferir os dados de exemplo de entrada.
         
-    Inspecionar os dados de exemplo para compreender a forma dos dados: o esquema e o [tipos de dados](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+    Inspecionar os dados de exemplo para compreender a forma dos dados: o esquema e o [tipos de dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Erros de desserialização de causas de eventos de entrada com formato incorreto 
 Desserialização problemas causados quando o fluxo de entrada da sua tarefa do Stream Analytics contém mensagens com formato incorreto. Por exemplo, pode dever-se uma mensagem incorretamente formada por um parêntesis de em falta ou uma chave num objeto JSON ou tem um formato de timestamp incorreto no campo de tempo. 
@@ -145,5 +145,5 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

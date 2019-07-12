@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 623950131769f95b9b8442b2316b1c4fd1c3b831
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083925"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656444"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
 Utilizar o Azure Active Directory (Azure AD), pode designar administradores limitados para gerir as tarefas de identidade em funções com menos privilégios. Os administradores podem ser atribuídos para esses efeitos como adicionar ou alterar os utilizadores, atribuir funções administrativas, repor palavras-passe do utilizador, gerir licenças de utilizador e gerir nomes de domínio. As permissões de utilizador padrão podem ser alteradas apenas nas definições de utilizador no Azure AD.
 
 O Administrador Global tenha acesso a todas as funcionalidades administrativas. Por predefinição, a pessoa que se inscreve para uma subscrição do Azure é atribuída a função de Administrador Global do diretório. Apenas os administradores globais e administradores de função com privilégios, podem delegar funções de administrador. Para reduzir o risco para o seu negócio, que recomendamos que atribua esta função para apenas algumas pessoas na sua empresa.
-
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
@@ -853,7 +852,7 @@ Pode gerir todos os aspetos do produto Intune.
 Pode gerir as definições para a Microsoft Kaizala.  
 
   > [!NOTE]
-  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >  
   
@@ -895,7 +894,7 @@ Pode gerir todos os aspectos do produto Skype para empresas.
 Pode ler o Centro de mensagens publicações, mensagens de privacidade de dados, grupos, domínios e subscrições.
 
   > [!NOTE]
-  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1044,14 +1043,13 @@ Pode ler início de sessão e relatórios de auditoria.
 | microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo propriedades com privilégios), no auditLogs no Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo propriedades com privilégios), no signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar o estado de funcionamento do serviço do Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Relatórios de utilização de leitura Office 365. |
 
 ### <a name="search-administrator"></a>Administrador de pesquisa
 Pode criar e gerir todos os aspetos das definições do Microsoft Search.
 
   > [!NOTE]
-  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1068,7 +1066,7 @@ Pode criar e gerir todos os aspetos das definições do Microsoft Search.
 Pode criar e gerir o conteúdo editorial como marcadores, Q e como, localizações, floorplan.
 
   > [!NOTE]
-  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1111,7 +1109,7 @@ Pode ler as informações de segurança e de relatórios e gerir a configuraçã
 Cria e gere eventos de segurança.
 
   > [!NOTE]
-  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 

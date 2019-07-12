@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72d01d6927ee421d01a831244acf65c44a084354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1938164e957daa84b22fa83e9cb9fa8d51ffeb15
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508669"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654086"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão para o multi-inquilino do Azure Active Directory com as políticas personalizadas no Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
-    
+
 8. Clique em **Criar**. Copiar o **ID da aplicação** a ser utilizado mais tarde.
 9. Selecione a aplicação e, em seguida, selecione **definições**.
 10. Selecione **chaves**, introduza a descrição da chave, selecione uma duração e, em seguida, clique em **guardar**. Copie o valor da chave que é apresentada a ser utilizado mais tarde.
@@ -57,7 +57,7 @@ Precisa armazenar a chave da aplicação que criou no seu inquilino do Azure AD 
 
 1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 2. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-3. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+3. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 4. Selecione **chaves de política** e, em seguida, selecione **Add**.
 5. Para **opções**, escolha `Manual`.
 6. Introduza um **nome** para a chave de política. Por exemplo, `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
@@ -67,7 +67,7 @@ Precisa armazenar a chave da aplicação que criou no seu inquilino do Azure AD 
 
 ## <a name="add-a-claims-provider"></a>Adicionar um fornecedor de afirmações
 
-Se pretender que os utilizadores iniciem sessão através da utilização do Azure AD, terá de definir do Azure AD como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado. 
+Se pretender que os utilizadores iniciem sessão através da utilização do Azure AD, terá de definir do Azure AD como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado.
 
 Pode definir do Azure AD como um fornecedor de afirmações ao adicionar o Azure AD para o **ClaimsProvider** elemento no arquivo de extensão da sua política.
 
@@ -93,7 +93,7 @@ Pode definir do Azure AD como um fornecedor de afirmações ao adicionar o Azure
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
-        
+
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
             <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
@@ -178,7 +178,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
-    
+
     Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `Common-AAD`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.

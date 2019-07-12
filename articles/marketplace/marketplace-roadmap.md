@@ -7,13 +7,13 @@ manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
 ms.date: 06/17/2019
-ms.author: BrianLevenson
-ms.openlocfilehash: 39a0ea2ec173c8e3a2f79fd19dfa35ce2806d442
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: blevens
+ms.openlocfilehash: 83710085c4bdfc76b851e59046cb148f768e3513
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274867"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621430"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Roteiro do Azure Marketplace e AppSource
 

@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247728"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619693"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Centro de parceiros
 
@@ -138,7 +138,7 @@ O **encomendas por tipo de licença do marketplace** gráfico mostra uma contage
 
 - **Cobrado por meio do Azure**: A Microsoft cobra aos clientes em seu nome, quando opta por [vender a sua oferta através do Microsoft](./create-new-saas-offer.md#sell-through-microsoft) com este tipo de licença. Os tipos de pagamento incluem pay as you go por meio de cartão de crédito ou fatura de Enterprise.
 - **Traga a sua própria licença**: A Microsoft não cobrar aos clientes para a utilização deste tipo de oferta do marketplace. Listado como **[obtê-lo agora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** no marketplace.
-- **Gratuito**: A Microsoft não cobrar aos clientes para a utilização deste tipo de oferta do marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md#free-trial)** no marketplace.
+- **Gratuito**: A Microsoft não cobrar aos clientes para a utilização deste tipo de oferta do marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md##free-trial-listing)** no marketplace.
 - **Microsoft, como o revendedor**: Representa ofertas vendidas pelos revendedores da Microsoft como parte da  **[programa de fornecedor de soluções Cloud (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Pedidos de análise do Centro de parceiros por tipo de licença](./media/analyze-license-type.png)
@@ -279,7 +279,7 @@ Receberá uma notificação de pop-up e um e-mail com uma ligação para o **Dow
 | ID da Encomenda| Encomenda| O identificador exclusivo do pedido de cliente para o seu serviço do Marketplace. Ofertas de baseada na utilização da máquina virtual não estão associadas um pedido.| |
 | Data de compra do pedido| Encomenda| A data em que a ordem de Marketplace foi criada.|||
 | Estado da encomenda| Encomenda| O estado de uma ordem de Marketplace ao tempo que os dados foi atualizados pela última vez.|     |
-| Estado da encomenda: Ativa  | Encomenda| O cliente tenha adquirido uma encomenda e não cancelou a sua ordem.|         |
+| Estado da encomenda: Active  | Encomenda| O cliente tenha adquirido uma encomenda e não cancelou a sua ordem.|         |
 | ORDER Status: foi cancelada | Encomenda| O cliente comprou uma encomenda e, em seguida, cancelada sua ordem.||
 | Fornecedor de E-Mail| Cliente| O endereço de e-mail do fornecedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente é uma empresa por meio de revendedor, este será o revendedor. Se um fornecedor de soluções Cloud (CSP) estiver envolvido, este será o CSP.|
 | Nome do fornecedor| Cliente| O nome do fornecedor envolvido na relação entre o cliente da Microsoft e de fim. Se o cliente é uma empresa por meio de revendedor, este será o revendedor. Se um fornecedor de soluções Cloud (CSP) estiver envolvido, este será o CSP.|

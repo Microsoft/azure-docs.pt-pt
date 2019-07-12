@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808390"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656748"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -56,10 +56,9 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
     | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
-   | **Tipo de Aplicação** | Aplicação Web Java | Tipo de aplicação que está a monitorizar |
+   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Localização** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 
@@ -143,7 +142,7 @@ Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recu
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

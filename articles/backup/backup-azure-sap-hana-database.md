@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: raynew
-ms.openlocfilehash: a16ed7134fc9f3c159715f58f116de3fb30e8aca
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1c5c38e9af58aa9468fb0e22491327d3a35f0dda
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481109"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656648"
 ---
 # <a name="back-up-an-sap-hana-database"></a>Fazer cópias de segurança de uma base de dados do SAP HANA
 
@@ -26,7 +26,7 @@ ms.locfileid: "67481109"
 
 **Suporte** | **Detalhes**
 --- | ---
-**Áreas geográficas suportadas** | Sudeste da Austrália, leste da Austrália <br> Sul do Brasil <br> Canadá Central, Canadá leste <br> Sudeste asiático, Ásia Oriental <br> E.U.A. leste, E.U.A. Leste 2, EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, Centro-Norte, E.U.A. Central, Centro-Sul dos E.U.A.<br> Índia Central, Sul da Índia <br> Leste do Japão, Oeste do Japão<br> Centro da Coreia, Sul da Coreia do Sul <br> Europa do Norte, Europa Ocidental <br> Sul do Reino Unido, oeste do Reino Unido
+**Áreas geográficas suportadas** | Sudeste da Austrália, leste da Austrália <br> Sul do Brasil <br> Canadá Central, Canadá leste <br> Sudeste asiático, Ásia Oriental <br> E.U.A. leste, E.U.A. Leste 2, EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, Centro-Norte, E.U.A. Central, Centro-Sul dos E.U.A.<br> Índia Central, Sul da Índia <br> Leste do Japão, Oeste do Japão<br> Centro da Coreia, Sul da Coreia do Sul <br> Europa do Norte, Europa Ocidental <br> Sul do Reino Unido, oeste do Reino Unido
 **Sistemas de operativos VM** | SLES 12 com SP2 ou SP3.
 **Versões suportadas do HANA** | SDC em HANA 1.x, MDC em HANA 2.x < = SPS03
 

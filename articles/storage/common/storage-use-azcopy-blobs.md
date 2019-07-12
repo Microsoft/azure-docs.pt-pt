@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f95af348eb11abee5a46a89e08da5bf4eb873c42
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 83e32a1e8f77604330a9f3aba0e011a0a0851e2f
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566132"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625615"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com AzCopy e armazenamento de BLOBs
 
@@ -162,7 +162,7 @@ Esta secção contém os exemplos seguintes:
 > * Copiar todos os contentores, diretórios e ficheiros para outra conta de armazenamento
 
 > [!NOTE]
-> Na versão atual, precisa acrescentar um token SAS para cada URL de origem. Se fornecer credenciais de autorização com o Azure Active Directory (AD), pode omitir o o token SAS apenas a partir do URL de destino. 
+> Na versão atual, precisa acrescentar um token SAS para cada URL de origem. Se fornecer credenciais de autorização com o Azure Active Directory (AD), pode omitir o token SAS apenas a partir do URL de destino. 
 
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiar um blob para outra conta de armazenamento
 

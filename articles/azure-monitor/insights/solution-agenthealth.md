@@ -7,18 +7,18 @@ author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9e27e224e42bf3f65fadcac22210fda314445fa
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571151"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665983"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de estado de funcionamento de agente no Azure Monitor
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão do System Center Operations Manager ligado ao Azure Monitor, que são sem resposta e a submeter dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -115,6 +115,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas do consultas de registo. 

@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 3b33b4aa-7286-4d79-b461-8e1812edc2e1
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 350d2c6253a417637c7ec8f2e38919dc4b969340
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 33953c3a6b4244ec50ca5b1505b6d48621527d64
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190779"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620558"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ligar a sua aplicação da Barracuda 
 
@@ -50,7 +51,7 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar aparelhos de Barracuda a sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).

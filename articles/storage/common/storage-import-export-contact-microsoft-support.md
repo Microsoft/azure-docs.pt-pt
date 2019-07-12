@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: alkohli;
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604221"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621047"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
 
@@ -85,6 +85,6 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
     ![Gerir pedidos de suporte](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [resolver problemas relacionados com o serviço importar/exportar](storage-import-export-tool-troubleshooting-v1.md).

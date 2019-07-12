@@ -5,14 +5,14 @@ author: mattwojo
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: b0c78cbcc06de3a18f2127693a7c1b24c075e297
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f861a05bd369fb279ab82e230cad307a3569967e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65806240"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619380"
 ---
 # <a name="how-to-create-a-commercial-marketplace-account-in-partner-center"></a>Como criar uma conta do Marketplace comercial no Centro de parceiros
 
@@ -72,6 +72,6 @@ As publicar informações de perfil do contrato e da empresa serão migradas par
 
 Assim que a sua conta é migrada do CPP para Centro de parceiros, a conta do Centro de parceiros torna-se a conta principal a ser utilizado para qualquer conta atualizações, gestão de utilizadores, permissões e gestão de dividendos. Estas atualizações de conta automaticamente serão sincronizadas novamente para a sua conta CPP só de leitura até que o portal CPP eventualmente foi preterido. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir a sua conta do Marketplace comercial no Centro de parceiros](./manage-account.md) 

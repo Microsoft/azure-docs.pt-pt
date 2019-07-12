@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 249e5ac33b1420ada2cda45ea729471351f21adf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14594e95efe94fe38502dc6269627158c42a04be
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341992"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622358"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
 
@@ -336,28 +336,66 @@ Para criar as suas dependências e publicar a utilizar um sistema de entrega con
 
 ## <a name="unit-testing"></a>Teste de unidade
 
-As funções escritas no Python podem ser testadas como outro código de Python com estruturas de teste padrão. Para a maioria das ligações, é possível criar um objeto fictício de entrada através da criação de uma instância de uma classe adequada do `azure.functions` pacote.
+As funções escritas no Python podem ser testadas como outro código de Python com estruturas de teste padrão. Para a maioria das ligações, é possível criar um objeto fictício de entrada através da criação de uma instância de uma classe adequada do `azure.functions` pacote. Uma vez que o [ `azure.functions` ](https://pypi.org/project/azure-functions/) pacote não está imediatamente disponível, certifique-se de que instalá-lo por meio de sua `requirements.txt` de ficheiros, tal como descrito na [gerenciamento de versão e o pacote do Python](#python-version-and-package-management) secção acima.
 
 Por exemplo, segue-se um teste de simulação de uma função acionada por HTTP:
 
-```python
-# myapp/__init__.py
-import azure.functions as func
-import logging
-
-
-def main(req: func.HttpRequest,
-         obj: func.InputStream):
-
-    logging.info(f'Python HTTP triggered function processed: {obj.read()}')
+```json
+{
+  "scriptFile": "httpfunc.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
 ```
 
 ```python
-# myapp/test_func.py
+# myapp/httpfunc.py
+import azure.functions as func
+import logging
+
+def my_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+```python
+# myapp/test_httpfunc.py
 import unittest
 
 import azure.functions as func
-from . import my_function
+from httpfunc import my_function
 
 
 class TestFunction(unittest.TestCase):
@@ -366,7 +404,7 @@ class TestFunction(unittest.TestCase):
         req = func.HttpRequest(
             method='GET',
             body=None,
-            url='/my_function',
+            url='/api/HttpTrigger',
             params={'name': 'Test'})
 
         # Call the function.
@@ -375,7 +413,7 @@ class TestFunction(unittest.TestCase):
         # Check the output.
         self.assertEqual(
             resp.get_body(),
-            'Hello, Test!',
+            b'Hello Test',
         )
 ```
 

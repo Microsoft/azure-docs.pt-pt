@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7a1e440a8dc8f518e272df9e126771df54390ed5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 586ddb237144daddf0cbfd19785fcba7658469a0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60762485"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621479"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolver problemas de consultas do Azure Stream Analytics
 
@@ -25,11 +25,11 @@ Este artigo descreve problemas comuns com o desenvolvimento de consultas do Stre
     - Sobre o **consulta** separador, selecione **teste**. Utilizar dados de exemplo transferidos para [testar a consulta](stream-analytics-test-query.md). Examine os erros e tentar corrigi-las.   
     - Também pode [testar a consulta diretamente na entrada em direto](stream-analytics-live-data-local-testing.md) com as ferramentas do Stream Analytics para Visual Studio.
 
-2.  Se usar [ **Timestamp By**](https://msdn.microsoft.com/library/azure/mt573293.aspx), verifique se os eventos têm carimbos maior do que o [hora de início da tarefa](stream-analytics-out-of-order-and-late-events.md).
+2.  Se usar [ **Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), verifique se os eventos têm carimbos maior do que o [hora de início da tarefa](stream-analytics-out-of-order-and-late-events.md).
 
 3.  Elimine armadilhas comuns, tais como:
-    - R [ **onde** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) cláusula na consulta filtrou todos os eventos, impedindo que qualquer saída a ser gerado.
-    - R [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) falhar, fazendo com que a tarefa efetuar a ativação de função. Para evitar falhas de conversão de tipo, utilize [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) em vez disso.
+    - R [ **onde** ](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) cláusula na consulta filtrou todos os eventos, impedindo que qualquer saída a ser gerado.
+    - R [ **CAST** ](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) falhar, fazendo com que a tarefa efetuar a ativação de função. Para evitar falhas de conversão de tipo, utilize [ **TRY_CAST** ](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) em vez disso.
     - Quando utiliza as funções de janela, aguarde que a duração de janela inteira ver o resultado da consulta.
     - O carimbo de hora para eventos precede a hora de início de tarefa e, portanto, os eventos estão a ser ignorados.
 
@@ -99,5 +99,5 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

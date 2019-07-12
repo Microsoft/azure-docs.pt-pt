@@ -8,18 +8,19 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7594261fc8af4e7b392e2f229b28cfee36a52115
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06f49dc00b83ee2190f6361ebb8e6f052384402a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366322"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657310"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -78,8 +79,8 @@ Certifique-se de que especifica a camada de SKU correta e a família SKU:
 
 > [!IMPORTANT]
 > O circuito de ExpressRoute é cobrado a partir do momento numa que chave de serviço é emitida. Certifique-se de que efetue esta operação quando o fornecedor de conectividade estiver pronto para aprovisionar o circuito.
-> 
-> 
+>
+>
 
 A resposta contém a chave de serviço. Para obter descrições detalhadas dos parâmetros de executar o seguinte comando:
 
@@ -208,8 +209,8 @@ Para obter instruções passo a passo, consulte a [configuração do encaminhame
 
 > [!IMPORTANT]
 > Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que oferecem serviços de conectividade de 2 de camada. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade configura e gere o encaminhamento por si.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Ligar uma rede virtual a um circuito ExpressRoute
 Em seguida, ligar uma rede virtual para o seu circuito do ExpressRoute. Utilize o [ligar redes virtuais para circuitos do ExpressRoute](expressroute-howto-linkvnet-arm.md) artigo quando trabalha com o modelo de implementação do Resource Manager.
@@ -291,7 +292,7 @@ Pode modificar algumas propriedades de um circuito do ExpressRoute sem afetar a 
 Pode efetuar as seguintes tarefas sem tempo de inatividade:
 
 * Ativar ou desativar um suplemento ExpressRoute premium para o seu circuito do ExpressRoute.
-* Aumente a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada. 
+* Aumente a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada.
 * Altere o plano de medição de dados limitados para dados ilimitados. Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
 * Pode ativar e desativar *permitir operações clássicas*.
 
@@ -314,8 +315,8 @@ O circuito tem agora as funcionalidades de suplemento ExpressRoute premium ativa
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Para desativar o suplemento ExpressRoute premium
 > [!IMPORTANT]
 > Se estiver a utilizar os recursos que são maiores que o que é permitido para o circuito standard, esta operação pode falhar.
-> 
-> 
+>
+>
 
 Tenha em atenção as seguintes informações:
 
@@ -341,7 +342,7 @@ Para opções de largura de banda suportadas para o seu fornecedor, consulte a [
 > Poderá ter de recriar o circuito do ExpressRoute, se houver a capacidade inadequada na porta existente. Não é possível atualizar o circuito se não existir nenhuma capacidade adicional disponível naquele local.
 >
 > Não é possível reduzir a largura de banda de um circuito do ExpressRoute sem interrupção. Desatualização de largura de banda exige que desaprovisionar o circuito do ExpressRoute e, em seguida, reaprovisionar um novo circuito do ExpressRoute.
-> 
+>
 
 Depois de decidir o tamanho necessário, utilize o seguinte comando para redimensionar o seu circuito:
 
@@ -369,7 +370,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Para controlar o acesso a clássica e Resource Manager ambientes
-Reveja as instruções em [circuitos do ExpressRoute mover do clássico para o modelo de implementação do Resource Manager](expressroute-howto-move-arm.md).  
+Reveja as instruções em [circuitos do ExpressRoute mover do clássico para o modelo de implementação do Resource Manager](expressroute-howto-move-arm.md).
 
 ## <a name="delete"></a>Desaprovisionar e eliminar um circuito do ExpressRoute
 Tenha em atenção as seguintes informações:

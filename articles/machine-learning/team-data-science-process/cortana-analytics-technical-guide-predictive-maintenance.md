@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: feccaea0451ae36d841aae95ed0baf54f90c2700
-ms.sourcegitcommit: 3107874d7559ea975e4d55ae33cdf45f4b5485e4
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568268"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626409"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo
 
@@ -103,7 +103,7 @@ A consulta do Azure Stream Analytics pode ser encontrada ao:
   * ***CONSULTA*** para ver a consulta em si
   * ***PRODUZ*** para ver as diferentes saídas
 
-Informações sobre a construção de consulta do Azure Stream Analytics podem ser encontradas no [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) no MSDN.
+Informações sobre a construção de consulta do Azure Stream Analytics podem ser encontradas no [referência de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) no MSDN.
 
 Nesta solução, as consultas de saída três conjuntos de dados com perto de informações de análise em tempo real sobre o fluxo de dados de entrada para um dashboard do Power BI fornecido como parte deste modelo de solução. Como há um conhecimento implícito sobre o formato de dados de entrada, estas consultas tem de ser alteradas com base no seu formato de dados.
 

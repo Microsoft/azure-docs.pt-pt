@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: cafceb0c7ee6b165ee03727e1dff76db00d2863b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f38f1c313be17457c28c5b30fa743f7a0eae2cc0
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077343"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67621984"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
@@ -56,8 +56,8 @@ Neste artigo, gerar dados de exemplo e enviá-lo para um hub de eventos. O prime
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
-    | Grupo de recursos | *test-hub-rg* | Crie um novo grupo de recursos. |
+    | Subscription | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
+    | Resource group | *test-hub-rg* | Crie um novo grupo de recursos. |
     | Location | *E.U.A. Oeste* | Selecione *E.U.A. oeste* deste artigo. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades. Crie o espaço de nomes do hub de eventos na mesma localização que o cluster de Kusto para um melhor desempenho (mais importantes para espaços de nomes de hub de eventos com um débito elevado).
     | Nome do espaço de nomes | Um nome de espaço de nomes exclusivo | Escolha um nome exclusivo que identifique o seu espaço de nomes. Por exemplo, *mytestnamespace*. O nome de domínio *servicebus.windows.net* é anexado ao nome que indicar. O nome só pode conter letras, números e hífenes. O nome tem de começar com uma letra e terminar com uma letra ou número. O valor deve ter entre 6 e 50 carateres.
     | Nome do hub de eventos | *test-hub* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. O nome do hub de eventos tem de ser exclusivo no espaço de nomes. |
@@ -187,7 +187,7 @@ Com a aplicação de geração de dados, agora pode ver o fluxo dos dados do hub
     ![Conjunto de resultados das mensagens](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > O Explorador de dados do Azure tem uma política de agregação (criação de batches) para ingestão de dados, concebida para otimizar o processo de ingestão. A política está configurada para 5 minutos, pelo que poderá experienciar uma latência.
+    > O Explorador de dados do Azure tem uma política de agregação (criação de batches) para ingestão de dados, concebida para otimizar o processo de ingestão. A política está configurada para 5 minutos, por predefinição, pelo que poderá experienciar uma latência. Ver [política de criação de batches](/azure/kusto/concepts/batchingpolicy) para opções de agregação. Ver [política de transmissão em fluxo](/azure/kusto/concepts/streamingingestionpolicy) para ingestão com nenhuma agregação.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

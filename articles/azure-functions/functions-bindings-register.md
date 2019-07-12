@@ -8,14 +8,14 @@ manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/25/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 88ffd6ec24ed19dd3b1e57277884c8759cdac1f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5969c3e0d270b45347f8132b2d655ba2e56cb2c0
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480339"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625900"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar as extensões de vinculação de funções do Azure
 
@@ -33,8 +33,8 @@ A tabela seguinte indica quando e como se registrar enlaces.
 |-------------------------|------------------------------------|------------------------------------|
 |Portal do Azure|Automático|Automático|
 |Linguagens .NET não ou local de desenvolvimento de ferramentas de núcleo do Azure|Automático|[Utilizar ferramentas de núcleo de funções do Azure e os pacotes de extensão](#extension-bundles)|
-|C#biblioteca de classe com o Visual Studio 2019|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2019)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2019)|
-|Biblioteca de classes do c# com o Visual Studio Code|N/A|[Utilizar o .NET Core CLI](#c-class-library-with-visual-studio-code)|
+|C#biblioteca de classes com o Visual Studio|[Utilizar as ferramentas do NuGet](#vs)|[Utilizar as ferramentas do NuGet](#vs)|
+|Biblioteca de classes do c# com o Visual Studio Code|N/A|[Utilizar o .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles"></a>Pacotes de extensão para o desenvolvimento local
 
@@ -69,9 +69,9 @@ O conjunto atual de extensões instaladas, o pacote padrão são enumeradas niss
 
 <a name="local-csharp"></a>
 
-## <a name="c-class-library-with-visual-studio-2019"></a>C\# biblioteca de classes com o Visual Studio 2019
+## <a name="vs"></a> C\# biblioteca de classes com o Visual Studio
 
-Na **Visual Studio 2019**, pode instalar pacotes a partir da consola do Gestor de pacotes utilizando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
+Na **Visual Studio**, pode instalar pacotes a partir da consola do Gestor de pacotes utilizando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -81,24 +81,25 @@ O nome do pacote utilizado para uma determinada associação é fornecido no art
 
 Substitua `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais do pacote na [NuGet.org](https://nuget.org). As versões principais que correspondem ao runtime das funções 1.x ou 2.x são especificados no artigo de referência para o enlace.
 
-## <a name="c-class-library-with-visual-studio-code"></a>Biblioteca de classes c# com o Visual Studio Code
+Se usar `Install-Package` para fazer referência a um enlace, não é necessário utilizar [pacotes de extensão](#extension-bundles). Essa abordagem é específica para bibliotecas de classes criadas no Visual Studio.
+
+## <a name="vs-code"></a> Biblioteca de classes c# com o Visual Studio Code
 
 > [!NOTE]
 > Recomendamos que utilize [pacotes de extensão](#extension-bundles) ter funções instalar automaticamente um conjunto compatível de pacotes de extensão de enlace.
 
-Na **Visual Studio Code**, instalar pacotes para um C# projeto de biblioteca de classes do prompt de comando com o [dotnet adicionar o pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na CLI do núcleo do .NET, conforme mostrado no exemplo a seguir:
+Na **Visual Studio Code**, instalar pacotes para um C# projeto de biblioteca de classes do prompt de comando com o [dotnet adicionar o pacote](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) comando na CLI do núcleo do .NET. O exemplo seguinte demonstra como adicionar um enlace:
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <TARGET_VERSION>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 Só pode ser utilizada a CLI do .NET Core para o desenvolvimento de 2.x as funções do Azure.
 
-O nome do pacote para utilizar para uma determinada associação é fornecido no artigo de referência para esse enlace. Por exemplo, veja a [secção do artigo de referência de ligação do Service Bus de pacotes](functions-bindings-service-bus.md#packages---functions-1x).
+Substitua `<BINDING_TYPE_NAME>` com o nome do pacote fornecido no artigo de referência para a sua ligação pretendida. Pode encontrar o artigo de referência de ligações desejada na [lista de ligações suportadas](./functions-triggers-bindings.md#supported-bindings).
 
 Substitua `<TARGET_VERSION>` no exemplo com uma versão específica do pacote, tais como `3.0.0-beta5`. Versões válidas estão listadas nas páginas individuais do pacote na [NuGet.org](https://nuget.org). As versões principais que correspondem ao runtime das funções 1.x ou 2.x são especificados no artigo de referência para o enlace.
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Exemplo do Azure de Acionador e associação de função](./functions-bindings-example.md)
-
