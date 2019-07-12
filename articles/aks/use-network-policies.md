@@ -2,17 +2,17 @@
 title: Proteger os pods com as políticas de rede no Azure Kubernetes Service (AKS)
 description: Saiba como proteger o tráfego que entram e saem de pods ao utilizar políticas de rede do Kubernetes no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230007"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613957"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Precisa da versão 2.0.61 da CLI do Azure ou posterior instalado e configurado. 
 > 
 > Se pretender continuar a utilizar os clusters de teste existente que utilizou uma política de rede durante a pré-visualização, atualize o seu cluster para um novas versões do Kubernetes para a versão de DG mais recente e, em seguida, implemente o manifesto YAML seguinte para corrigir o servidor de métricas com falha e o Kubernetes dashboard. Esta correção é apenas necessária para os clusters que é utilizado o motor de política de rede Calico.
 >
-> Como prática recomendada de segurança, [reveja o conteúdo desse manifesto YAML] [ calico-aks-cleanup] para compreender o que é implementado no cluster do AKS.
+> Como prática recomendada de segurança, [reveja o conteúdo desse manifesto YAML][calico-aks-cleanup] para compreender o que é implementado no cluster do AKS.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -62,7 +62,7 @@ Política de rede só funciona com a opção de CNI do Azure (avançado). Implem
 | Plataformas suportadas                      | Linux                      | Linux                       |
 | Suporte a opções de redes             | Azure CNI                  | Azure CNI                   |
 | Conformidade com a especificação do Kubernetes | Todos os tipos de política suportados |  Todos os tipos de política suportados |
-| Recursos adicionais                      | Nenhuma                       | Estendido o modelo de política consiste em política de rede Global, definir globais de rede e ponto final de anfitrião. Para obter mais informações sobre como utilizar o `calicoctl` CLI para gerir estes estendido de recursos, consulte [referência de usuário calicoctl][calicoctl]. |
+| Recursos adicionais                      | Nenhum                       | Estendido o modelo de política consiste em política de rede Global, definir globais de rede e ponto final de anfitrião. Para obter mais informações sobre como utilizar o `calicoctl` CLI para gerir estes estendido de recursos, consulte [referência de usuário calicoctl][calicoctl]. |
 | Suporte                                  | Suportado pelo suporte do Azure e a equipe de engenharia | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pagas adicional, consulte [opções de suporte do projeto Calico][calico-support]. |
 | Registo                                  | Regras adicionada / eliminada no IPTables são registadas em cada anfitrião em */var/log/azure-npm.log* | Para obter mais informações, consulte [registos de componente de Calico][calico-logs] |
 
@@ -76,7 +76,7 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda num
 
 Em primeiro lugar, vamos criar um cluster do AKS que suporta a política de rede. O recurso da diretiva de rede pode ser ativado apenas quando o cluster ser criado. Não é possível ativar a política de rede num cluster do AKS existente.
 
-Para utilizar a política de rede com um cluster do AKS, tem de utilizar o [CNI Azure Plug-in] [ azure-cni] e definir sua própria rede virtual e sub-redes. Para obter mais informações sobre como planear os intervalos de sub-rede obrigatório, consulte [configurar redes avançada][use-advanced-networking].
+Para utilizar a política de rede com um cluster do AKS, tem de utilizar o [CNI Azure Plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 O script de exemplo seguinte:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-A criação do cluster demora alguns minutos. Quando o cluster estiver pronto, configure `kubectl` para ligar ao seu cluster do Kubernetes com o [az aks get-credentials] [ az-aks-get-credentials] comando. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los:
+A criação do cluster demora alguns minutos. Quando o cluster estiver pronto, configure `kubectl` para ligar ao seu cluster do Kubernetes com o [az aks get-credentials][az-aks-get-credentials] comando. Este comando transfere credenciais e configura a CLI do Kubernetes para utilizá-los:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Aplicar a política de rede utilizando o [aplicam-se de kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede utilizando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Esta política de rede utiliza uma *namespaceSelector* e uma *podSelector* elemento para a regra de entrada. A sintaxe YAML é importante para as regras de entrada ser suplementar. Neste exemplo, ambos os elementos têm de corresponder para a regra de entrada a ser aplicado. Kubernetes versões anteriores ao *1.12* não pode interpretar corretamente esses elementos e restringir o tráfego de rede conforme o esperado. Para obter mais informações sobre este comportamento, consulte [comportamento de e para seletores][policy-rules].
 
-Aplicar a política de rede atualizado utilizando o [aplicam-se de kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede atualizado utilizando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 Nos exemplos mais complexos, pode definir várias regras de entrada, como um *namespaceSelector* e, em seguida, uma *podSelector*.
 
-Aplicar a política de rede atualizado utilizando o [aplicam-se de kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede atualizado utilizando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Neste artigo, criou dois espaços de nomes e aplicada uma política de rede. Para limpar esses recursos, utilize o [eliminar kubectl] [ kubectl-delete] de comando e especifique os nomes de recursos:
+Neste artigo, criou dois espaços de nomes e aplicada uma política de rede. Para limpar esses recursos, utilize o [kubectl eliminar][kubectl-delete] de comando e especifique os nomes de recursos:
 
 ```console
 kubectl delete namespace production

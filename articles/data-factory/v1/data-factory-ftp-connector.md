@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4aba7aadbe92b6c4f0ab417785e230bb6a6823df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486588"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836330"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Mover dados de um servidor FTP através do Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -45,7 +45,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de uma orig
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente de cópia do Data Factory**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para uma passo a passo rápido.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **PowerShell**, **modelo Azure Resource Manager**, **.NET API**e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -211,7 +211,7 @@ Na atividade de cópia, quando a origem é do tipo **FileSystemSource**, a segui
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo JSON: Copiar dados do servidor de FTP para BLOBs do Azure
 Este exemplo mostra como copiar dados de um servidor FTP para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos sinks indicados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats), utilizando a atividade de cópia na fábrica de dados.
 
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md):
 
 * Um serviço ligado do tipo [FtpServer](#linked-service-properties)
 * Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
