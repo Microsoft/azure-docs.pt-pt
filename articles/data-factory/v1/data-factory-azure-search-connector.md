@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567236"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836634"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados por push para um índice da Azure Search utilizando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -40,7 +40,7 @@ Pode criar um pipeline com uma atividade de cópia que emite dados de um arquivo
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -79,7 +79,7 @@ Para a atividade de cópia, quando o sink é do tipo **AzureSearchIndexSink**, a
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).| Intercalar (predefinição)<br/>Carregamento| Não |
+| WriteBehavior | Especifica se deve intercalar ou substituir quando um documento já existe no índice. Consulte a [WriteBehavior propriedade](#writebehavior-property).| Intercalar (predefinição)<br/>Carregar| Não |
 | WriteBatchSize | Carrega dados para o índice da Azure Search, quando o tamanho do buffer atinge writeBatchSize. Consulte a [WriteBatchSize propriedade](#writebatchsize-property) para obter detalhes. | 1 a 1000. Valor predefinido é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade de WriteBehavior
@@ -100,7 +100,7 @@ A seguinte tabela especifica se um tipo de dados do Azure Search é suportado ou
 
 | Tipo de dados do Azure Search | Suportado no Sink do Azure Search |
 | ---------------------- | ------------------------------ |
-| String | S |
+| Cadeia | S |
 | Int32 | S |
 | Int64 | S |
 | Double | S |

@@ -4,17 +4,17 @@ description: incluir ficheiro
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 497552edaad2a35d58bc8b3f05533afcc5f399e2
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568365"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608326"
 ---
 Definições de configuração para [funções duráveis](../articles/azure-functions/durable-functions-overview.md).
 

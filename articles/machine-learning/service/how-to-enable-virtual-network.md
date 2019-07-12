@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 01/08/2019
-ms.openlocfilehash: f1cb7c9aa0844c82acd333c4f9dd87a4dda013e7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 07/10/2019
+ms.openlocfilehash: 06004f766cb8e9b12c2353bbe5e432e77df03cee
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165335"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797704"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Executar com segurança experimentações e inferência dentro de uma rede virtual do Azure
 

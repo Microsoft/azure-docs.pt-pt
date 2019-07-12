@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61070101"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593905"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de extremidade na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -117,7 +117,7 @@ O dashboard contém um gráfico que controla uma métrica ao longo do período d
 | Campo | Descrição |
 | --- | --- |
 | Taxa de transferência |Indica a média da taxa em que o conteúdo que foi transferido da CDN para um autor de pedido. |
-| Duração |Indica o tempo médio, em milissegundos, necessário para entregar um recurso de um autor de pedido (por exemplo, navegador da web). |
+| Duration |Indica o tempo médio, em milissegundos, necessário para entregar um recurso de um autor de pedido (por exemplo, navegador da web). |
 | Taxa de pedidos comprimido |Indica a percentagem de pedidos com êxito na foram entregues da CDN (servidores de borda) para o autor do pedido (por exemplo, navegador da web) num formato compactado. |
 | Taxa de erros de 4xx |Indica a percentagem de resultados que geraram um código de estado de 4xx. |
 | Taxa de erros de 5XX |Indica a percentagem de resultados que geraram um código de estado de 5xx. |

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08a02842c97b0f4076a1b311aa918df6d83c592
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824506"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723921"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Resolver problemas relacionados com a extensão do painel de acesso para o Internet Explorer
 
@@ -39,58 +39,49 @@ Pode diagnosticar problemas de instalação com a extensão do painel de acesso 
 Para transferir e instalar a ferramenta de diagnóstico:
 
 1. [Selecione esta ligação para transferir a ferramenta de diagnóstico.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+1. Abra o ficheiro e extraia o conteúdo para o seu computador.
+1. Para executar a ferramenta, com o botão direito no arquivo chamado *AccessPanelExtensionDiagnosticTool.js* e selecione **aberta com** > **Host de Script com base do Microsoft Windows** .
 
-2. Abra o ficheiro e extraia o conteúdo para o seu computador.
-   
-3. Para executar a ferramenta, com o botão direito no arquivo chamado *AccessPanelExtensionDiagnosticTool.js* e selecione **aberta com** > **Host de Script com base do Microsoft Windows** .
-   
     ![Abrir com > Microsoft Windows com base em Host de Script](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 
-4. Reveja os resultados de diagnóstico que são apresentados e selecione **Sim** para corrigir os problemas. O **resultados de verificação** é apresentada a caixa de diálogo com informações sobre o que fazer se a extensão não funciona.  
-
-5. Leia a mensagem e selecione **OK**.
+1. Reveja os resultados de diagnóstico que são apresentados e selecione **Sim** para corrigir os problemas. O **resultados de verificação** é apresentada a caixa de diálogo com informações sobre o que fazer se a extensão não funciona.  
+1. Leia a mensagem e selecione **OK**.
 
 ## <a name="check-that-the-access-panel-extension-is-enabled"></a>Verifique que a extensão do painel de acesso está ativada
 
 Para verificar que ativou a extensão do painel de acesso no Internet Explorer:
 
 1. No Internet Explorer, selecione o **ícone de engrenagem** no canto superior direito da janela e selecione **opções da Internet**.
-   
-2. Vá para o **programas** separador e selecione **gerir suplementos**.
-   
-3. Selecione **extensão do painel de acesso** no **Microsoft Corporation** secção e selecione **ativar**.
-   
-4. Para guardar as alterações, feche todas as janelas de navegador do Internet Explorer, precisa abrir. A alteração tem efeito na próxima vez que abrir o Internet Explorer.
+1. Vá para o **programas** separador e selecione **gerir suplementos**.
+1. Selecione **extensão do painel de acesso** no **Microsoft Corporation** secção e selecione **ativar**.
+1. Para guardar as alterações, feche todas as janelas de navegador do Internet Explorer, precisa abrir. A alteração tem efeito na próxima vez que abrir o Internet Explorer.
 
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Ativar extensões para navegação InPrivate
 
 Para ativar extensões para navegação InPrivate:
 
 1. No Internet Explorer, selecione o **ícone de engrenagem** no canto superior direito da janela e selecione **opções da Internet**.
-   
-2. Vá para o **privacidade** separador e certifique-se de que o **desativar as barras de ferramentas e extensões quando começar a Navegação InPrivate** caixa de verificação está desmarcada.
-   
-3.  Para guardar as alterações, feche todas as janelas de navegador do Internet Explorer, precisa abrir. A alteração tem efeito na próxima vez que abrir o Internet Explorer.
+1. Vá para o **privacidade** separador e certifique-se de que o **desativar as barras de ferramentas e extensões quando começar a Navegação InPrivate** caixa de verificação está desmarcada.
+1. Para guardar as alterações, feche todas as janelas de navegador do Internet Explorer, precisa abrir. A alteração tem efeito na próxima vez que abrir o Internet Explorer.
 
 ## <a name="uninstall-the-access-panel-extension"></a>Desinstalar a extensão do painel de acesso
 
 Para desinstalar a extensão do painel de acesso do seu computador:
 
-1. No painel de controlo, procure *desinstalar*. 
+1. No painel de controlo, procure *desinstalar*.
+1. Nos resultados da pesquisa, selecione **desinstalar um programa**.
 
-2. Nos resultados da pesquisa, selecione **desinstalar um programa**.
-   
-    ![Procure o programa de desinstalação.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
+    ![Selecione a opção de programa de desinstalação do painel de controlo](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
 
-3. Na lista, selecione **extensão do painel de acesso** e selecione **desinstalação**.
+1. Na lista, selecione **extensão do painel de acesso** e selecione **desinstalação**.
 
-    ![Desinstale a extensão do painel de acesso.](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
-   
-4. Pode, em seguida, tentar instalar a extensão novamente para ver se o problema foi resolvido.
+    ![Desinstalar a extensão do painel de acesso](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
+
+1. Pode, em seguida, tentar instalar a extensão novamente para ver se o problema foi resolvido.
 
 Caso se depare com problemas de desinstalar a extensão, pode também removê-lo com o [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) ferramenta.
 
 ## <a name="related-articles"></a>Artigos relacionados
+
 * [Acesso a aplicações e início de sessão único com o Azure Active Directory](what-is-single-sign-on.md)
 * [Como implementar a extensão do painel de acesso para o Internet Explorer usando a diretiva de grupo](deploy-access-panel-browser-extension.md)
-

@@ -2,17 +2,17 @@
 title: Práticas recomendadas do operador – serviços de Kubernetes no Azure (AKS) do scheduler funcionalidades avançadas
 description: Conheça as práticas recomendadas de operador de cluster para a utilização de funcionalidades de agendador avançadas, como taints e tolerations, seletores de nó e afinidade, ou entre pod afinidade e antiafinidade no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055630"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614881"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador avançadas no Azure Kubernetes Service (AKS)
 
@@ -181,7 +181,7 @@ Um bom exemplo é uma aplicação web que também utiliza uma Cache do Azure par
 
 Neste exemplo é uma implementação mais complexa que a utilização de seletores de nó ou de afinidade de nó. A oferece implantação controlo sobre como o Kubernetes agenda pods em nós e logicamente pode isolar os recursos. Para obter um exemplo completo desta aplicação web com Cache do Azure para o exemplo de Redis, consulte [Colocalizar pods no mesmo nó][k8s-pod-affinity].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo concentra-se nas funcionalidades avançadas de scheduler de Kubernetes. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

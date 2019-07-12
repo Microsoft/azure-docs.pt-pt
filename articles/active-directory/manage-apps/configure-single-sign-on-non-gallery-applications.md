@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b7cbcf4e485dc93d49b9559dcb7d0d4f597ebe
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67550340"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807652"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurar o início de sessão único para aplicações externas à galeria na plataforma de identidade da Microsoft
 
@@ -50,13 +50,14 @@ Para registar aplicações com todos os outros tipos de [suportado mecanismos de
 Para ligar uma aplicação não listada com um modelo de integração de aplicações, siga estes passos:
 
 1. Inicie sessão para o [portal do Azure Active Directory](https://aad.portal.azure.com/) com a conta de administrador do Microsoft identity platform.
-2. Selecione **aplicações empresariais** > **novo aplicativo**.
-3. (Opcional mas recomendado) Na **adicionar a partir da galeria** caixa de pesquisa, introduza o nome a apresentar da aplicação. Se a aplicação aparece nos resultados da pesquisa, selecione-o e ignore o resto deste procedimento.
-4. Selecione **aplicação da Galeria não**. O **adicionar seu próprio aplicativo** é apresentada a página.
+1. Selecione **aplicações empresariais** > **novo aplicativo**.
+1. (Opcional mas recomendado) Na **adicionar a partir da galeria** caixa de pesquisa, introduza o nome a apresentar da aplicação. Se a aplicação aparece nos resultados da pesquisa, selecione-o e ignore o resto deste procedimento.
+1. Selecione **aplicação da Galeria não**. O **adicionar seu próprio aplicativo** é apresentada a página.
 
-   ![Adicionar aplicação](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Introduza o nome a apresentar para a sua nova aplicação.
-6. Selecione **Adicionar**.
+   ![Mostra o adicionar sua própria página de aplicativo](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Introduza o nome a apresentar para a sua nova aplicação.
+1. Selecione **Adicionar**.
 
 Ao adicionar uma aplicação desta forma, é possível fornecer uma experiência semelhante das disponível para aplicações previamente integradas. Primeiro selecione **início de sessão único** da barra lateral do aplicativo. A página seguinte (**selecionar um método de início de sessão único**) apresenta as opções para configurar o SSO:
 
@@ -64,7 +65,7 @@ Ao adicionar uma aplicação desta forma, é possível fornecer uma experiência
 - **Com base em palavra-passe**
 - **Ligado**
 
-![Selecionar um método de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Mostra uma página de método de início de sessão único de Select](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Para obter mais informações sobre estas opções, consulte as secções seguintes deste artigo.
 
@@ -72,7 +73,7 @@ Para obter mais informações sobre estas opções, consulte as secções seguin
 
 Selecione o **SAML** opção para configurar a autenticação baseada no SAML para o aplicativo. (Esta opção requer que a aplicação suporta SAML 2.0). O **definir a segurança de início de sessão único com o SAML** é apresentada a página.
 
-![Configurar o início de sessão único com SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Mostra a configuração de início de sessão único com página SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Esta página tem cinco cabeçalhos diferentes:
 
@@ -90,7 +91,7 @@ Agora recolha informações sobre como utilizar as capacidades SAML da aplicaç�
 
 Para configurar o Azure AD, vá para o **configuração básica de SAML** cabeçalho e selecione seu **editar** ícone (um lápis). Pode introduzir os valores manualmente ou carregar um ficheiro de metadados para extrair o valor dos campos.
 
-![Configuração básica de SAML](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Mostra a página de configuração de SAML básico](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 Os dois campos seguintes são necessários:
 
@@ -141,7 +142,7 @@ Para ver ou editar as afirmações enviadas no token SAML para o aplicativo:
 
 - Vá para o **atributos de utilizador e afirmações** cabeçalho e selecione o **editar** ícone. O **atributos de utilizador e afirmações** é apresentada a página.
 
-![Atributos de utilizador e afirmações](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Mostra a página de afirmações e atributos do utilizador](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Poderá ter de editar as declarações emitidas no SAML token por dois motivos:
 
@@ -158,7 +159,7 @@ Do Azure AD, pode transferir o certificado ativo no formato Base64 ou Raw direta
 
 Para ver, criar ou transferir os certificados (ativos ou inativos), vá para o **certificado de assinatura SAML** cabeçalho e selecione o **editar** ícone. O **certificado de assinatura SAML** aparece.
 
-![Certificado de assinatura de SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Mostra a página de certificado de assinatura de SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Certifique-se de que tem do certificado:
 
@@ -182,13 +183,13 @@ Depois de configurar a sua aplicação para utilizar o Azure AD como fornecedor 
 Para atribuir um novo utilizador ou grupo à sua aplicação:
 
 1. Na barra lateral do aplicativo, selecione **utilizadores e grupos**. O  **\<nome da aplicação >-os utilizadores e grupos** é apresentada a página, que mostra a lista atual dos utilizadores e grupos atribuídos.
-2. Selecione **adicionar utilizadores**. O **atribuições adicionar** é apresentada a página.
-3. Selecione **utilizadores e grupos (\<número > selecionados)** . O **utilizadores e grupos** é apresentada a página, que mostra uma lista de utilizadores e grupos.
-4. Tipo ou desloque-se para encontrar o utilizador ou grupo que pretende atribuir a partir da lista.
-5. Selecione cada utilizador ou grupo que pretende adicionar e, em seguida, selecione o **selecione** botão. O **utilizadores e grupos** desaparece da página.
-6. Na **adicionar atribuições** página, selecione **atribuir**. O  **\<nome da aplicação >-os utilizadores e grupos** é apresentada a página com os utilizadores adicionais apresentados na lista.
+1. Selecione **adicionar utilizadores**. O **atribuições adicionar** é apresentada a página.
+1. Selecione **utilizadores e grupos (\<número > selecionados)** . O **utilizadores e grupos** é apresentada a página, que mostra uma lista de utilizadores e grupos.
+1. Tipo ou desloque-se para encontrar o utilizador ou grupo que pretende atribuir a partir da lista.
+1. Selecione cada utilizador ou grupo que pretende adicionar e, em seguida, selecione o **selecione** botão. O **utilizadores e grupos** desaparece da página.
+1. Na **adicionar atribuições** página, selecione **atribuir**. O  **\<nome da aplicação >-os utilizadores e grupos** é apresentada a página com os utilizadores adicionais apresentados na lista.
 
-   ![Aplicação de utilizadores e grupos](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Mostra a página de utilizadores e grupos de aplicações](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 A partir desta lista, pode:
 
@@ -213,26 +214,29 @@ Selecione esta opção para configurar [baseado em palavra-passe de início de s
 
 Depois de selecionar **baseado em palavra-passe**, lhe for pedido para introduzir o URL baseada na web e página de entrada da aplicação.
 
-![Com base em palavra-passe de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Mostra a página de URL de início de sessão para introduzir o URL de início de sessão](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Em seguida, efetue estes passos:
 
 1. Introduza o URL. Esta cadeia tem de ser a página que inclua o campo de entrada de nome de utilizador.
-2. Selecione **Guardar**. O Azure AD tenta analisar a página de início de sessão para um nome de utilizador de entrada e uma palavra-passe de entrada.
-3. Se o Azure AD da análise tentativa falhar, selecione **configurar \<nome da aplicação > definições de início de sessão único de palavra-passe** para apresentar o **configurar início de sessão** página. (Se a tentativa for bem sucedida, pode ignorar o resto deste procedimento).
-4. Selecione **manualmente detetar campos de início de sessão**. Instruções adicionais que descrevem a detecção manual de início de sessão campos são apresentados.
+1. Selecione **Guardar**. O Azure AD tenta analisar a página de início de sessão para um nome de utilizador de entrada e uma palavra-passe de entrada.
+1. Se o Azure AD da análise tentativa falhar, selecione **configurar \<nome da aplicação > definições de início de sessão único de palavra-passe** para apresentar o **configurar início de sessão** página. (Se a tentativa for bem sucedida, pode ignorar o resto deste procedimento).
+1. Selecione **manualmente detetar campos de início de sessão**. Instruções adicionais que descrevem a detecção manual de início de sessão campos são apresentados.
 
    ![Configuração manual de baseado em palavra-passe de início de sessão único](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Selecione **recolher campos de início de sessão**. É aberta uma página de estado de captura num novo separador, que mostra a mensagem **captura de metadados está atualmente em curso**.
-6. Se o **necessário da extensão de painel de acesso** é apresentada a caixa num novo separador, selecione **instalar agora** para instalar o **segura de aplicações minha extensão de início de sessão** extensão do browser. (Requer a extensão do browser Microsoft Edge, Chrome ou Firefox.) Em seguida, instalar, iniciar e ativar a extensão e atualize a página de estado de captura.
+
+1. Selecione **recolher campos de início de sessão**. É aberta uma página de estado de captura num novo separador, que mostra a mensagem **captura de metadados está atualmente em curso**.
+1. Se o **necessário da extensão de painel de acesso** é apresentada a caixa num novo separador, selecione **instalar agora** para instalar o **segura de aplicações minha extensão de início de sessão** extensão do browser. (Requer a extensão do browser Microsoft Edge, Chrome ou Firefox.) Em seguida, instalar, iniciar e ativar a extensão e atualize a página de estado de captura.
 
    A extensão do browser, em seguida, é aberta noutro separador, que apresenta o URL introduzido.
-7. No separador com o URL introduzido, passar pelo processo de início de sessão. Preencha os campos de nome de utilizador e palavra-passe e tente iniciar sessão. (Não tem de fornecer a palavra-passe correta.)
+
+1. No separador com o URL introduzido, passar pelo processo de início de sessão. Preencha os campos de nome de utilizador e palavra-passe e tente iniciar sessão. (Não tem de fornecer a palavra-passe correta.)
 
    Uma linha de comandos pede-lhe para guardar os campos de início de sessão capturados.
-8. Selecione **OK**. A guia fecha, a extensão do browser atualiza a página de estado de captura com a mensagem **metadados foi atualizado para a aplicação**e esse navegador separador também fecha.
-9. No Azure AD **configurar o início de sessão** página, selecione **Ok, fui capaz de início de sessão para a aplicação com êxito**.
-10. Selecione **OK**.
+
+1. Selecione **OK**. A guia fecha, a extensão do browser atualiza a página de estado de captura com a mensagem **metadados foi atualizado para a aplicação**e esse navegador separador também fecha.
+1. No Azure AD **configurar o início de sessão** página, selecione **Ok, fui capaz de início de sessão para a aplicação com êxito**.
+1. Selecione **OK**.
 
 Após a captura de página de início de sessão, pode atribuir utilizadores e grupos, e pode definir políticas de credencial como regular [aplicativos de SSO de palavra-passe](what-is-single-sign-on.md).
 

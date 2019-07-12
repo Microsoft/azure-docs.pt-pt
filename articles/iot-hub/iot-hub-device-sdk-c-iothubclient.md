@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff766375dd9ad7cb3bbdf1ef686abb77d1206099
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60400699"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797871"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>O Azure IoT-device SDK para C – mais informações sobre o IoTHubClient
 
@@ -264,13 +264,13 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 Existem algumas opções que são frequentemente utilizadas:
 
-* **SetBatching** (bool) – se **true**, dados enviados para o IoT Hub é enviado em lotes. Se **false**, em seguida, as mensagens são enviadas individualmente. A predefinição é **false**. Tenha em atenção que o **SetBatching** opção só se aplica para o protocolo HTTPS e não para os protocolos MQTT ou AMQP.
+* **SetBatching** (bool) – se **true**, dados enviados para o IoT Hub é enviado em lotes. Se **false**, em seguida, as mensagens são enviadas individualmente. A predefinição é **false**. Processamento em lote através de AMQP / AMQP WS, bem como a adição de propriedades do sistema nas mensagens D2C, é suportado.
 
 * **Tempo limite** (unsigned int) – este valor é representado em milissegundos. Se enviar um pedido HTTPS ou de receber uma resposta demora mais tempo do que este tempo, em seguida, a ligação exceder o tempo limite.
 
 A opção de criação de batches é importante. Por predefinição, os eventos de ingresses biblioteca individualmente (um único evento, é tudo o que passar para **o IoTHubClient\_LL\_SendEventAsync**). Se a opção de criação de batches estiver **true**, a biblioteca recolhe os eventos de tantos possível do buffer (até o tamanho máximo de mensagens que aceitará do IoT Hub).  O lote de eventos é enviado para o IoT Hub numa única chamada HTTPS (os eventos individuais são agrupados numa matriz JSON). Ativar a criação de batches normalmente resulta em ganhos de desempenho grande, uma vez que estiver reduzindo ida e volta de rede. Ela reduz consideravelmente também os largura de banda, uma vez que estão a enviar um conjunto de cabeçalhos HTTPS com um lote de evento, em vez de um conjunto de cabeçalhos para cada evento individual. A menos que tenha um motivo específico para fazer de outra forma, normalmente, desejará permitir a criação de batches.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreve detalhadamente o comportamento do **o IoTHubClient** biblioteca encontrada na **Azure IoT device SDK para C**. Com essas informações, deve ter uma boa compreensão dos recursos da **o IoTHubClient** biblioteca. É o segundo artigo dessa série [Azure IoT device SDK para C - serializador](iot-hub-device-sdk-c-serializer.md), que fornece detalhes semelhantes sobre o **serializador** biblioteca.
 

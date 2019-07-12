@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 07/09/2019
 ms.author: chackdan
-ms.openlocfilehash: bd76658c939496f27bf3751060c18d17968acd15
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b11a3ba4fbffe1d35b590f2e5c47f19b6fb028c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60386813"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718127"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento de capacidade do cluster de Service Fabric
 Para qualquer implementação de produção, planeamento de capacidade é um passo importante. Aqui estão alguns dos itens que deve considerar como parte desse processo.
@@ -77,8 +77,8 @@ O escalão de durabilidade é utilizado para indicar ao sistema os privilégios 
 | Escalão de durabilidade  | Número mínimo necessário de VMs | SKUs de VM suportadas                                                                  | Atualizações feitas ao conjunto de dimensionamento de máquina virtual                               | Atualizações e manutenção iniciada pelo Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Dourado             | 5                              | SKUs de full-nó dedicados de um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser atrasada até aprovadas pelo cluster do Service Fabric | Pode ser colocada em pausa durante 2 horas por UD para dar tempo adicional para réplicas de recuperar de falhas anteriores |
-| Prateado           | 5                              | VMs de núcleo único ou superior                                                        | Pode ser atrasada até aprovadas pelo cluster do Service Fabric | Não pode ser atrasada durante qualquer período significativo de tempo                                                    |
-| Bronze           | 1                              | Todos                                                                                | Cluster do Service Fabric não será adiado           | Não pode ser atrasada durante qualquer período significativo de tempo                                                    |
+| Silver           | 5                              | VMs de núcleo único ou superior com, pelo menos, 50 GB de local SSD                      | Pode ser atrasada até aprovadas pelo cluster do Service Fabric | Não pode ser atrasada durante qualquer período significativo de tempo                                                    |
+| Bronze           | 1                              | VMs com, pelo menos, 50 GB de local SSD                                              | Cluster do Service Fabric não será adiado           | Não pode ser atrasada durante qualquer período significativo de tempo                                                    |
 
 > [!WARNING]
 > Obter tipos de nós em execução com durabilidade de Bronze _sem privilégios_. Isso significa que as tarefas de infraestrutura que afetam as cargas de trabalho sem monitorização de estado serão não ser paradas ou atrasadas, que podem afetar as suas cargas de trabalho. Utilize apenas Bronze para tipos de nós que executam apenas as cargas de trabalho sem monitorização de estado. Para cargas de trabalho de produção, em execução Silver ou superior é recomendado. 
@@ -108,10 +108,10 @@ Utilizar Gold ou Silver durabilidade para todos os tipos de nós que alojam serv
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Recomendações operacionais para o nó escreva que definiu para durabilidade silver ou gold nível.
 
 - Manter o cluster e as aplicações em bom estado durante todo o tempo e certifique-se de que os aplicativos respondem a todos [eventos de ciclo de vida de réplica do serviço](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está bloqueada) no momento oportuno.
-- Adote o mais seguras maneiras de tornar um SKU de VM alterar (horizontal/vertical): Alterar o SKU de VM de um conjunto de dimensionamento de máquina virtual é, inerentemente, uma operação não segura e por isso, deve ser evitado se possível. Eis o processo que pode seguir para evitar problemas comuns.
+- Adote o mais seguras maneiras de tornar um SKU de VM alterar (horizontal/vertical): Alterar o SKU de VM de um conjunto de dimensionamento de máquina virtual requer um número de passos e considerações. Eis o processo que pode seguir para evitar problemas comuns.
     - **Para tipos de nó não primário:** Recomenda-se que crie o novo conjunto de dimensionamento de máquina virtual, modificar a restrição de posicionamento de serviço para incluir o novo tipo de conjunto/nó de dimensionamento de máquina virtual e, em seguida, reduzir a contagem de instâncias de conjunto de dimensionamento a antiga máquina virtual como zero, um nó por vez (isto é tornar -se de que a remoção de nós não afetam a fiabilidade do cluster).
-    - **Para o tipo de nó primário:** Nossa recomendação é que não altere os SKU de VM do tipo de nó primário. A alteração do tipo de nó primário que SKU não é suportado. Se o motivo para o novo SKU é a capacidade, recomendamos que adicione mais instâncias. Se isso não é possível, crie um novo cluster e [restaurar estado do aplicativo](service-fabric-reliable-services-backup-restore.md) (se aplicável) do cluster antigo. Não é necessário restaurar o estado do serviço qualquer sistema, eles são recriados quando implanta aplicativos para o novo cluster. Se estiver a executar aplicativos sem monitoração de estado no seu cluster, implante seus aplicativos para o novo cluster.  Não têm nada a restaurar. Se optar por seguir o caminho não suportado e quiser alterar o SKU de VM, em seguida, fazer modificações para o dimensionamento de máquinas virtuais definição de modelo para refletir o novo SKU do conjunto. Se o cluster tem apenas um tipo de nó, em seguida, certifique-se de que todas as suas aplicações com monitorização de estado a responder a todos [eventos de ciclo de vida de réplica do serviço](service-fabric-reliable-services-lifecycle.md) (como a réplica de compilação está bloqueada) na forma oportuna e que a réplica de serviço reconstruir duração é menos de cinco minutos (para o nível de durabilidade Silver). 
-    
+    - **Para o tipo de nó primário:** Se o SKU de VM que selecionou tem capacidade e pretende alterar para uma maior SKU de VM, siga nosso indicações [dimensionamento vertical para um tipo de nó primário](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
+
 - Manter uma contagem mínima de cinco nós para qualquer conjunto de dimensionamento de máquina virtual que tem o nível de durabilidade de Gold ou Silver ativada.
 - Cada conjunto de dimensionamento com o nível de durabilidade Gold ou Silver tem de mapear para o seu próprio tipo de nó no cluster do Service Fabric. O mapeamento de vários conjuntos de dimensionamento de máquina virtual para um tipo de nó único, impedirá que coordenação entre o cluster do Service Fabric e a infraestrutura do Azure a funcionar corretamente.
 - Não eliminar instâncias de VM aleatórias, utilize sempre o dimensionamento de conjunto de dimensionamento de máquinas virtuais para baixo de funcionalidade. A eliminação aleatórias de instâncias de VM tem um potencial de criação de desequilíbrios na instância de VM-se distribuídas por UD e FD. Esse desequilíbrio pode afetar negativamente a capacidade de sistemas corretamente o balanceamento de carga entre as réplicas do serviço/instâncias de serviço.
@@ -143,7 +143,7 @@ Eis a recomendação sobre como escolher o escalão de fiabilidade.  O número d
 | --- | --- |
 | 1 |Não especifique o parâmetro de escalão de fiabilidade, o sistema calcula-lo |
 | 3 |Bronze |
-| 5 ou 6|Prateado |
+| 5 ou 6|Silver |
 | 7 ou 8 |Dourado |
 | 9 e até |Platinum |
 
@@ -160,11 +160,11 @@ Uma vez que as necessidades de capacidade de um cluster é determinado pela carg
 Para cargas de trabalho de produção: 
 
 - É recomendado para dedicar os seus clusters NodeType primário para serviços do sistema e restrições de posicionamento de utilização para implementar a aplicação NodeTypes secundário.
-- O SKU de VM recomendados é D3 padrão ou D3_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD.
-- O uso de suporte mínimo SKU de VM é Standard D1 ou D1_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD. 
-- 14 GB SSD local é um requisito mínimo. Nossa recomendação é um mínimo de 50 GB. Para cargas de trabalho, especialmente ao executar contentores do Windows, discos maiores são necessários. 
+- O SKU de VM recomendados é D2_V2 padrão ou o equivalente com um mínimo de 50 GB de local SSD.
+- O uso de suporte mínimo SKU de VM é Standard_D2_V3 ou D1_V2 padrão ou equivalente com um mínimo de 50 GB de local SSD. 
+- Nossa recomendação é um mínimo de 50 GB. Para cargas de trabalho, especialmente ao executar contentores do Windows, discos maiores são necessários. 
 - Principais parcial SKUs de VM, como Standard A0 não são suportadas para cargas de trabalho de produção.
-- O SKU Standard A1 não é suportado para cargas de trabalho de produção por motivos de desempenho.
+- Uma série de que SKUs de VM não são suportadas para cargas de trabalho de produção por motivos de desempenho.
 - VMs de baixa prioridade não são suportadas.
 
 > [!WARNING]
@@ -182,10 +182,10 @@ Portanto, para cargas de trabalho de produção, o tamanho de tipo mínimo recom
 
 Para cargas de trabalho de produção 
 
-- O SKU de VM recomendados é D3 padrão ou D3_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD.
-- O uso de suporte mínimo SKU de VM é Standard D1 ou D1_V2 padrão ou equivalente com um mínimo de 14 GB de local SSD. 
+- O SKU de VM recomendados é D2_V2 padrão ou o equivalente com um mínimo de 50 GB de local SSD.
+- O uso de suporte mínimo SKU de VM é Standard_D2_V3 ou D1_V2 padrão ou equivalente com um mínimo de 50 GB de local SSD. 
 - Principais parcial SKUs de VM, como Standard A0 não são suportadas para cargas de trabalho de produção.
-- O SKU Standard A1 não é suportado para cargas de trabalho de produção por motivos de desempenho.
+- Uma série de que SKUs de VM não são suportadas para cargas de trabalho de produção por motivos de desempenho.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateless-workloads"></a>Tipo de nó de não-primary - diretrizes de capacidade para cargas de trabalho sem monitorização de estado
 
@@ -197,10 +197,10 @@ Esta orientação de cargas de trabalho sem monitorização de estado que está 
 
 Para cargas de trabalho de produção 
 
-- O SKU de VM recomendados é D3 padrão ou D3_V2 padrão ou equivalente. 
+- O SKU de VM recomendados é D2_V2 padrão ou equivalente. 
 - O uso de suporte mínimo SKU de VM é Standard D1 ou D1_V2 padrão ou equivalente. 
 - Principais parcial SKUs de VM, como Standard A0 não são suportadas para cargas de trabalho de produção.
-- O SKU Standard A1 não é suportado para cargas de trabalho de produção por motivos de desempenho.
+- Uma série de que SKUs de VM não são suportadas para cargas de trabalho de produção por motivos de desempenho.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 

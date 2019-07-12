@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 4055b474938e38f653021b46f18200f8e39dd69d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c9b85895e701ff74e025d6f7895bc32513bc29a1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604751"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806908"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre a pré-visualização de assistentes de virtual primeiro de voz personalizada
 
@@ -43,6 +43,7 @@ Código de exemplo para a criação de um Assistente de virtual de voz em primei
 * [Exemplos de Assistente de voz em primeiro lugar virtual (SDK)](https://aka.ms/csspeech/samples)
 * [Início rápido: voz em primeiro lugar virtual assistentes (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Início rápido: voz em primeiro lugar virtual assistentes (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Direcionar o cliente de voz de linha (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## <a name="customization"></a>Personalização
 
@@ -60,5 +61,5 @@ Assistentes de voz em primeiro lugar virtual criados usando os serviços de voz 
 
 * [Obtenha gratuitamente uma chave de subscrição de serviços de voz](get-started.md)
 * [Obtenha o SDK de voz](speech-sdk.md)
-* [Criar e implementar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)
 * [Obter a solução de assistente Virtual e o modelo de Enterprise](https://github.com/Microsoft/AI)

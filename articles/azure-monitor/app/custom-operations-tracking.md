@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c33c481d96a9edecc6360a9a91c095c2bca220b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900894"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798337"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o .NET SDK do Application Insights
 
@@ -51,7 +51,10 @@ Neste exemplo, o contexto de rastreio é propagado de acordo com o [protocolo HT
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -170,7 +173,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -207,20 +210,7 @@ public async Task Process(BrokeredMessage message)
 O exemplo seguinte mostra como controlar os [fila de armazenamento do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) operações e telemetria correlacionar entre o produtor, consumidor e armazenamento do Azure. 
 
 A fila de armazenamento tem uma API de HTTP. Todas as chamadas para a fila são controladas pelo Recoletor de dependência do Application Insights para pedidos HTTP.
-Certifique-se de que tem `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` em `applicationInsights.config`. Se não o tiver, adicione-o programaticamente, conforme descrito em [filtragem e processamento prévio no que o Azure Application Insights SDK](../../azure-monitor/app/api-filtering-sampling.md).
-
-Se configurar manualmente o Application Insights, certifique-se de criar e inicializar `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` forma semelhante à:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+Ele está configurado por predefinição em aplicativos ASP.NET e ASP.NET Core, com outros tipos de aplicação, pode consultar [documentação das aplicações de consola](../../azure-monitor/app/console.md)
 
 Também pode querer correlacionar o ID de operação do Application Insights com o ID de pedido de armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de armazenamento e um ID de pedido do servidor, consulte [monitorizar, diagnosticar e resolver problemas do armazenamento do Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -335,7 +325,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Process
+#### <a name="process"></a>Processo
 
 No exemplo a seguir, uma mensagem de entrada é controlada-se da mesma forma de forma a solicitação HTTP recebida:
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 51ca597208b582e95fd305886dcf163744825eee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: af6fd7b99147396a70fccc7b2b11dfef3def15a8
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509645"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786300"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o serviço de aplicações do Azure
 
@@ -133,7 +133,7 @@ Os desenvolvedores com um único aplicativo bloco de implementação de um em se
 
 Quando o ajuste definições de área dinâmica para dados de aplicação, reveja os detalhes do seu plano de serviço de aplicações e levar em conta vários aplicativos e o bloco de implementação tem de localizar a alocação ideal de memória.
 
-Se estiver implantando um aplicativo de JAR, deve ser nomeado *app.jar* para que a imagem incorporada pode identificar corretamente a sua aplicação. (O plug-in do Maven faz essa renomeação automaticamente.) Se não deseja mudar o nome do seu JAR para *app.jar*, pode carregar um script de shell com o comando a executar o JAR. Em seguida, cole o caminho completo para esse script no [ficheiro de arranque](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do portal.
+Se estiver implantando um aplicativo de JAR, deve ser nomeado *app.jar* para que a imagem incorporada pode identificar corretamente a sua aplicação. (O plug-in do Maven faz essa renomeação automaticamente.) Se não deseja mudar o nome do seu JAR para *app.jar*, pode carregar um script de shell com o comando a executar o JAR. Em seguida, cole o caminho completo para esse script no [ficheiro de arranque](app-service-linux-faq.md#built-in-images) caixa de texto na seção de configuração do portal.
 
 ### <a name="turn-on-web-sockets"></a>Ativar o web sockets
 
@@ -170,6 +170,10 @@ Em alternativa, pode configurar a definição de aplicação com o plug-in do Ma
 ### <a name="adjust-startup-timeout"></a>Ajustar o tempo limite de inicialização
 
 Se a sua aplicação Java é especialmente grande, deve aumentar o limite de tempo de inicialização. Para tal, crie uma definição da aplicação, `WEBSITES_CONTAINER_START_TIME_LIMIT` e defini-lo para o número de segundos que o serviço de aplicações deve aguardar antes de exceder o tempo limite. O valor máximo é `1800` segundos.
+
+### <a name="pre-compile-jsp-files"></a>Pré-compilar os arquivos de JSP
+
+Para melhorar o desempenho de aplicações Tomcat, pode compilar seus arquivos JSP antes de implementar no serviço de aplicações. Pode utilizar o [Plug-in Maven](https://sling.apache.org/components/jspc-maven-plugin/plugin-info.html) fornecido pelo Apache Sling ou utilizar isto [Ant criar ficheiro](https://tomcat.apache.org/tomcat-9.0-doc/jasper-howto.html#Web_Application_Compilation).
 
 ## <a name="secure-applications"></a>Aplicações seguras
 

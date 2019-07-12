@@ -1,43 +1,44 @@
 ---
-title: Ligue os dados de ICDX da Symantec para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar a dados da Symantec ICDX a sentinela do Azure.
+title: Ligue os dados de ICDx da Symantec para a pré-visualização de sentinela do Azure | Documentos da Microsoft
+description: Saiba como ligar dados ICDx da Symantec para sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3b21371d6321b208b19ca8b2524308736c3ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74169b4bd2654fb0ff7ec4cdb2f2b02c0f4cc6e8
+ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244348"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673759"
 ---
-# <a name="connect-your-symantec-icdx-appliance"></a>Ligar a aplicação Symantec ICDX 
+# <a name="connect-your-symantec-icdx-appliance"></a>Ligar a aplicação Symantec ICDx da 
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Conector da Symantec ICDX permite-lhe ligar facilmente todos os seus Symantec solução logs de segurança com o Azure sentinela, para ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança. Integração entre ICDX da Symantec e o Azure sentinela faz uso da REST API.
+Conector da Symantec ICDx permite-lhe ligar facilmente todos os seus Symantec solução logs de segurança com o Azure sentinela, para ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança. Integração entre ICDx da Symantec e o Azure sentinela faz uso da REST API.
 
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
-## <a name="configure-and-connect-symantec-icdx"></a>Configurar e ligar Symantec ICDX 
+## <a name="configure-and-connect-symantec-icdx"></a>Configurar e ligar Symantec ICDx 
 
-Symantec ICDX pode integrar e exportar registos diretamente para o Azure sentinela.
+Symantec ICDx pode integrar e exportar registos diretamente para o Azure sentinela.
 
-1. Abra a consola de gestão ICDX para adicionar reencaminhadores do Microsoft Azure sentinela (Log Analytics).
+1. Abra a consola de gestão ICDx para adicionar reencaminhadores do Microsoft Azure sentinela (Log Analytics).
 2. Na barra de navegação ICDx, clique em **configuração**. 
 3. Na parte superior a **Configuration** ecrã, clique em **reencaminhadores**.
 4. Sob **reencaminhadores**, junto ao Microsoft Azure sentinela (Log Analytics), clique em **Add**. 
@@ -66,7 +67,7 @@ Symantec ICDX pode integrar e exportar registos diretamente para o Azure sentine
     - **Nome do registo personalizado**: Escreva o nome de registo personalizado no Microsoft Azure portal do Log Analytics área de trabalho para o qual pretende reencaminhar eventos. A predefinição é SymantecICDx. Este campo é obrigatório.
 8. Clique em *guardar* para concluir a configuração de reencaminhador. 
 9. Para iniciar o reencaminhador, em **opções**, clique em **mais** e, em seguida **iniciar**.
-10. Para utilizar o esquema relevante no Log Analytics para os eventos de ICDX da Symantec, procure **SymantecICDX_CL**.
+10. Para utilizar o esquema relevante no Log Analytics para os eventos de ICDx da Symantec, procure **SymantecICDx_CL**.
 
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
@@ -75,8 +76,8 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste documento, aprendeu a ligar ICDX da Symantec para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
+## <a name="next-steps"></a>Passos seguintes
+Neste documento, aprendeu a ligar ICDx da Symantec para sentinela do Azure. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
 

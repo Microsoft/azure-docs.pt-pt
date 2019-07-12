@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388858"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666266"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Acerca dos dispositivos de VPN e dos parâmetros IPsec/IKE para ligações do Gateway da Rede de VPNs
 
@@ -31,10 +31,6 @@ Precisa de um dispositivo VPN para configurar uma ligação de rede de VPNs (S2S
 
 ## <a name="devicetable"></a>Dispositivos VPN validados e guias de configuração de dispositivo
 
-> [!NOTE]
-> Ao configurar uma ligação Site a Site, é preciso um endereço IP IPv4 destinado ao público para o dispositivo VPN.
->
-
 Em parceria com os fornecedores dos dispositivos, validámos uma série de dispositivos VPN padrão. Todos os dispositivos nas famílias de dispositivos na lista seguinte deverão funcionar com gateways de VPN. Veja [Acerca das definições do Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para compreender a utilização do tipo de VPN (PolicyBased ou RouteBased) para a solução do Gateway de VPN que quer configurar.
 
 Para ajudar a configurar o dispositivo VPN, consulte as ligações que correspondem à família de dispositivos adequada. As ligações para as instruções de configuração são fornecidas numa base de melhor esforço. Para obter suporte para dispositivos VPN, contacte o fabricante do dispositivo.
@@ -48,6 +44,7 @@ Para ajudar a configurar o dispositivo VPN, consulte as ligações que correspon
 | Check Point |Gateway de Segurança |R80.10 |[Guia de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guia de configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Suportadas |[Guia de configuração*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Suportadas |Suportadas |
+| Cisco | CSR | RouteBased: IOS-XE 16.10 | | [Script de configuração](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Suportadas |Suportadas |
 | Cisco |Meraki |N/A |Não compatível |Não compatível |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e posterior |[Guia de configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
@@ -158,21 +155,21 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
-| 4 |AES256        |SHA256            |Nenhuma         |
-| 5 |AES128        |SHA1              |Nenhuma         |
+| 4 |AES256        |SHA256            |Nenhum         |
+| 5 |AES128        |SHA1              |Nenhum         |
 | 6 |3DES          |SHA256            |Nenhuma         |
 
 #### <a name="azure-gateway-as-responder"></a>Gateway do Azure como dispositivo de resposta
 
 |-  |**Encriptação**|**Autenticação**|**Grupo PFS**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Nenhuma         |
+| 1 |GCM AES256    |GCM (AES256)      |Nenhum         |
 | 2 |AES256        |SHA1              |Nenhuma         |
 | 3 |3DES          |SHA1              |Nenhuma         |
-| 4 |AES256        |SHA256            |Nenhuma         |
+| 4 |AES256        |SHA256            |Nenhum         |
 | 5 |AES128        |SHA1              |Nenhuma         |
-| 6 |3DES          |SHA256            |Nenhuma         |
-| 7 |DES           |SHA1              |Nenhuma         |
+| 6 |3DES          |SHA256            |Nenhum         |
+| 7 |DES           |SHA1              |Nenhum         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |
@@ -187,7 +184,7 @@ A tabela seguinte apresenta as Ofertas de SA IPsec (Modo Rápido de IKE). As ofe
 | 19|AES256        |SHA256            |14           |
 | 20|AES256        |SHA1              |24           |
 | 21|AES256        |SHA256            |24           |
-| 22|AES128        |SHA256            |Nenhuma         |
+| 22|AES128        |SHA256            |Nenhum         |
 | 23|AES128        |SHA256            |1            |
 | 24|AES128        |SHA256            |2            |
 | 25|AES128        |SHA256            |14           |

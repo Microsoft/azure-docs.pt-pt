@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dbe3039845b1c9160e4f4fa3007cad1f588f71e
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ca6f79b5febdbf12c80ab85d07117bf937babef0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560762"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798200"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -76,14 +76,14 @@ Quando instalar a extensão, tem das credenciais de ID e a administração de di
 
 O servidor NPS tem de conseguir comunicar com os seguintes URLs através das portas 80 e 443.
 
-- [https://adnotifications.windowsazure.com](https://adnotifications.windowsazure.com)
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
+- https:\//adnotifications.windowsazure.com
+- https:\//login.microsoftonline.com
 
 Além disso, a conectividade com os seguintes URLs é necessário para concluir o [configuração do adaptador com o script do PowerShell fornecido](#run-the-powershell-script)
 
-- [https://login.microsoftonline.com](https://login.microsoftonline.com)
-- [https://provisioningapi.microsoftonline.com](https://provisioningapi.microsoftonline.com)
-- [https://aadcdn.msauth.net](https://aadcdn.msauth.net)
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
 
@@ -231,6 +231,14 @@ Pode optar por criar esta chave e defini-lo como FALSE, enquanto os seus utiliza
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
+### <a name="nps-extension-health-check-script"></a>Script de verificação de estado de funcionamento de extensão NPS
+
+O script seguinte está disponível na galeria do TechNet para realizar os passos de verificação de estado de funcionamento básico ao resolver problemas com a extensão NPS.
+
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+
+---
+
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Como posso verificar que o certificado de cliente é instalado conforme o esperado?
 
 Procure o certificado autoassinado criado pelo instalador no arquivo de certificados e verifique se a chave privada tem as permissões concedidas ao utilizador **serviço de rede**. O certificado tem um nome de requerente dos **CN \<tenantid\>, UO = extensão NPS da Microsoft**
@@ -308,7 +316,7 @@ Recomenda-se que conjuntos de cifras mais antigas e mais fraco desativados ou re
 
 Soluções adicionais de orientação e possíveis de resolução de problemas podem ser encontradas no artigo [resolver mensagens de erro da extensão NPS para multi-factor Authentication](howto-mfa-nps-extension-errors.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Configurar IDs alternativos para o início de sessão ou configurar uma lista de exceções para IPs que não deve realizar a verificação de dois passos no [avançado de opções de configuração para a extensão NPS para multi-factor Authentication](howto-mfa-nps-extension-advanced.md)
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002827"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798330"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -46,12 +46,14 @@ A tabela seguinte fornece uma rápida visão geral do escopo da durabilidade e d
 | SLA de disponibilidade para solicitações de leitura | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,99% (99,9% para o escalão de acesso esporádico) |
 | SLA de disponibilidade para pedidos de escrita | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) |
 
+Todos os dados na sua conta de armazenamento é replicada, incluindo blobs de blocos e blobs de acréscimo, blobs de páginas, filas, tabelas e ficheiros. Todos os tipos de contas de armazenamento são replicados, embora ZRS requer uma conta de armazenamento para fins gerais v2.
+
 Para obter informações sobre cada opção de redundância de preços, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). 
 
 Para obter informações sobre o armazenamento do Azure garante-se para durabilidade e disponibilidade, consulte a [SLA de armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> O armazenamento Premium suporta o armazenamento apenas localmente redundante (LRS).
+> Armazenamento Premium do Azure suporta o armazenamento apenas localmente redundante (LRS).
 
 ## <a name="changing-replication-strategy"></a>Alterar a estratégia de replicação
 Pode alterar a estratégia de replicação da conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma do [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num período de indisponibilidade.

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43498a7829a43fad331841aca045f52ae680be
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481475"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723992"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para início de sessão único com o Proxy de aplicações e o PingAccess
 
@@ -53,10 +53,11 @@ Se ativou o Proxy de aplicações ativada e já instaladas um conector, pode ign
 O conector do Proxy de aplicações é um serviço do Windows Server que direciona o tráfego dos funcionários para as aplicações publicadas. Para obter mais instruções de instalação, consulte [Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Inicie sessão para o [portal do Azure Active Directory](https://aad.portal.azure.com/) como um administrador da aplicação. O **Centro de administração do Azure Active Directory** é apresentada a página.
-2. Selecione **do Azure Active Directory** > **proxy de aplicações** > **transferir o conector serviço**. O **transferir do conector de Proxy da aplicação** é apresentada a página.
+1. Selecione **do Azure Active Directory** > **proxy de aplicações** > **transferir o conector serviço**. O **transferir do conector de Proxy da aplicação** é apresentada a página.
 
    ![Download do conector de proxy de aplicação](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Siga as instruções de instalação.
+
+1. Siga as instruções de instalação.
 
 Transferir o conector automaticamente deve ativar Proxy de aplicações para o seu diretório, mas se não, pode selecionar **ativar o Proxy de aplicação**.
 
@@ -205,7 +206,7 @@ Exemplo para incluir o endereço de e-mail para o access_token que PingAccess ir
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Utilização de declarações de mapeamento de política (opcional)
 
-[Mapeamento de política (pré-visualização) de afirmações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) para atributos que não existem no AzureAD. Mapeamento de afirmações permite-lhe migrar aplicações antigas do local para a cloud ao adicionar declarações personalizadas adicionais que são apoiadas por seus objetos de AD FS ou o utilizador
+[Mapeamento de política (pré-visualização) de afirmações](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) para atributos que não existem no AzureAD. Mapeamento de afirmações permite-lhe migrar aplicações antigas do local para a cloud ao adicionar declarações personalizadas adicionais que são apoiadas por seus objetos de AD FS ou o utilizador
 
 Para tornar a sua aplicação utilizar uma declaração personalizada e incluir campos adicionais, não se esqueça de que também [criou uma política de mapeamento de afirmações personalizadas e Atribuímos à aplicação](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 

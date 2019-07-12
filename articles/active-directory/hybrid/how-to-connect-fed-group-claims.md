@@ -5,19 +5,19 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: e00e41a34bb28a2569d5922926a8f6c4fbe4bd57
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 2d547c73137605e4666499b568bdcebce394935a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481426"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595232"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar afirmações de grupo para aplicações com o Azure Active Directory (pré-visualização pública)
 

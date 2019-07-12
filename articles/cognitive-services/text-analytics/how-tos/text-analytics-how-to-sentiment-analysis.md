@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: f98f16e9996d90b0380f05885e4c2d74e1413f23
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657671"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797792"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: como detetar sentimentos com a Análise de Texto
 
@@ -139,7 +139,7 @@ O [próxima versão de análise de sentimentos](https://westcentralus.dev.cognit
 > * O formato de pedido de v3 de análise de sentimentos e [limites de dados](../overview.md#data-limits) são os mesmos que a versão anterior.
 > * Neste momento, a análise de sentimentos V3: 
 >    * Atualmente só suporta o idioma inglês.  
->    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`, ` East Asia` 
+>    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`, `East Asia` 
 
 |Funcionalidade |Descrição  |
 |---------|---------|

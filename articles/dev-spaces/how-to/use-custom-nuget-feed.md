@@ -9,13 +9,13 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Utilize um NuGet personalizado feed para acessar e usar pacotes NuGet num espaço de desenvolvimento do Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-manager: ghogen
-ms.openlocfilehash: 1a000e378a9b8ecfb09d778fd6444e3f24b3df7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: gwallace
+ms.openlocfilehash: ca1fee76dfe280322a39fad56b9f85ebe1a92d3b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686462"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704042"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Utilizar um NuGet personalizado feed num espaço de desenvolvimento do Azure
 

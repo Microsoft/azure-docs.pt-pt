@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a241f66adecbab1d0b1462f379d3765d6c1de252
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6f872880b61a5bd9510abda2f15e2edea16e940
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466804"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703883"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta de serviços de multimédia com REST
 
 Serviços de multimédia, vai carregar os ficheiros digitais são para um contêiner de blob associado a um recurso. O [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto faixas e legendagem de áudio ficheiros (e os metadados relativos a esses ficheiros). Assim que os ficheiros são carregados para o contentor do recurso, o conteúdo estiver armazenado em segurança na cloud para processamento adicional e transmissão em fluxo.
 
-Este artigo mostra-lhe como carregar um ficheiro local suing REST.
+Este artigo mostra-lhe como carregar um ficheiro local com o REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,6 +61,6 @@ Verá o **resposta** com as informações sobre URLs de elementos. Copie o URL d
 
 Utilize as APIs de armazenamento do Azure ou SDKs (por exemplo, o [API do REST de armazenamento](../../storage/common/storage-rest-api-auth.md), [SDK de JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md), ou [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)

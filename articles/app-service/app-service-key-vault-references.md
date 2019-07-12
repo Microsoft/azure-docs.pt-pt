@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9b7bc043c748000f03a98a28f856299527015388
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7a049c8def0a5014aeb8a0e7a16aaa8def28009
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66397815"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705706"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utilizar referências de Key Vault para o serviço de aplicações e as funções do Azure (pré-visualização)
 
@@ -38,6 +38,8 @@ Para ler os segredos do Key Vault, terá de ter um cofre que criou e conceder pe
    > Cofre de chaves faz referência atualmente atribuído apenas sistema de suporte de identidades geridas. Não não possível utilizar as identidiades atribuídas.
 
 1. Criar uma [política no Cofre de chaves de acesso](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) para a identidade de aplicação que criou anteriormente. Ative a permissão secreta "Get" nesta política. Não configure "aplicações autorizadas" ou `applicationId` definições, como isso não é compatível com uma identidade gerida.
+
+    Conceder acesso a uma aplicação identidade no Cofre de chaves é uma operação única e permanecerá mesmo para todas as subscrições do Azure. Pode usá-lo para implementar certificados tantas quanto quiser. 
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 

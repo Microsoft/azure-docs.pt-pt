@@ -4,7 +4,7 @@ description: A utilizar a consola de série para grub em máquinas virtuais do A
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: 440d917c2ee4a51f2c8ba4b134b50508bdaf4bcb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a3be6420a91093e060850459ff22fc5823b8cf2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735271"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710591"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o GRand Unified carregador de inicialização, que é provável que a primeira coisa que verá quando se reinicia uma VM. Uma vez que ele exibe antes do sistema operativo foi iniciado, não está acessível através de SSH. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.

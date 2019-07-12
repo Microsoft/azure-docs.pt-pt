@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: e7395c69d99884a5c662e545a69778ed195aec55
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543130"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827450"
 ---
 # <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Monitorizar o estado de hardware de ficheiros do Azure FXT Edge
 
@@ -58,7 +58,7 @@ O painel de controle de front-esquerdo tem vários indicadores de estado LED (1)
 
 Os indicadores de estado à esquerda mostram uma luz amber sólida se existe um erro no sistema. A tabela abaixo descreve possíveis causas e soluções para os erros. 
 
-Se ainda terá o erro depois de tentar essas soluções, contacte o suporte para obter ajuda. 
+Se ainda terá o erro depois destas soluções, de tentar [contacte o suporte](fxt-support-ticket.md) para obter ajuda. 
 
 | Ícone | Descrição | Condição de erro | Possíveis soluções |
 |----------------|---------------|--------------------|----------------------|
@@ -79,7 +79,7 @@ Prima o botão de ID para alternar entre o modo de ID de sistema e o modo de est
 |-------------------------------------------|-----------------------------------------------|
 | Sólido azul | Operação normal: o sistema estiver ativado, operando normalmente, e o modo de ID de sistema não está ativo. <br/>Prima o botão de ID e o estado de funcionamento do sistema se quiser mudar para o modo de ID de sistema. |
 | Intermitência azul | Modo de ID de sistema está ativo. Prima o botão de ID de sistema e o estado de funcionamento do sistema, se quiser mudar para o modo de estado de funcionamento do sistema. |
-| Amber sólido | O sistema está no modo de isento de falhas. Se o problema persistir, contacte o suporte ao cliente da Microsoft. |
+| Amber sólido | O sistema está no modo de isento de falhas. Se o problema persistir, [contacte o suporte ao cliente da Microsoft](fxt-support-ticket.md). |
 | Intermitência amber | Falha de sistema. Verifique o registo de eventos do sistema de mensagens de erro específicas. Para obter informações sobre as mensagens de evento e erro gerado pelo firmware do sistema e os agentes que monitorizam os componentes do sistema, consulte a página de pesquisa de código de erro em qrl.dell.com. |
 
 

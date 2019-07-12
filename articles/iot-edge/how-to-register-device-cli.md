@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: de00c317483da9bcd93bb2e2505350d787385925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb8dcb410f17ba894210c9c090ec0975f83c0b3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495383"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796127"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Registar um novo dispositivo Azure IoT Edge com o CLI do Azure
 
@@ -28,7 +28,7 @@ Este artigo mostra como registar um novo dispositivo IoT Edge com a CLI do Azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma [IoT hub](../iot-hub/iot-hub-create-using-cli.md) na sua subscrição do Azure.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure tem de ser 2.0.24 ou superior. Utilize `az –-version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
+* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a versão da CLI do Azure tem de ser 2.0.24 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
 * O [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="create-a-device"></a>Criar um dispositivo

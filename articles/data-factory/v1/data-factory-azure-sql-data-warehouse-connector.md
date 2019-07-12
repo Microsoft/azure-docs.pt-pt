@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7570cfc8a9804f753a9de140a71436bcc0cebb43
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335403"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836657"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -53,7 +53,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de/para um 
 
 A maneira mais fácil para criar um pipeline que copia dados de/para Azure SQL Data Warehouse é usar o Assistente para copiar dados. Consulte [Tutorial: Carregar dados para o SQL Data Warehouse com o Data Factory](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -146,7 +146,7 @@ GO
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Especifica uma consulta para a atividade de cópia executar de forma a que os dados de um setor específico é limpo. Para obter detalhes, consulte [secção repetibilidade](#repeatability-during-copy). |Uma instrução de consulta. |Não |
-| allowPolyBase |Indica se deve utilizar o PolyBase (quando aplicável), em vez de mecanismo BULKINSERT. <br/><br/> **Com o PolyBase é a forma recomendada para carregar dados para o SQL Data Warehouse.** Ver [utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) secção para as restrições e detalhes. |Verdadeiro <br/>FALSE (predefinição) |Não |
+| allowPolyBase |Indica se deve utilizar o PolyBase (quando aplicável), em vez de mecanismo BULKINSERT. <br/><br/> **Com o PolyBase é a forma recomendada para carregar dados para o SQL Data Warehouse.** Ver [utilizar o PolyBase para carregar dados para o Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) secção para as restrições e detalhes. |True <br/>FALSE (predefinição) |Não |
 | polyBaseSettings |Um grupo de propriedades que pode ser especificada quando o **allowPolybase** estiver definida como **verdadeiro**. |&nbsp; |Não |
 | rejectValue |Especifica o número ou porcentagem das linhas que pode ser rejeitada antes da consulta falha. <br/><br/>Saiba mais sobre as opções de rejeição do PolyBase no **argumentos** secção [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) tópico. |0 (predefinição), 1, 2,... |Não |
 | rejectType |Especifica se a opção de rejectValue é especificada como um valor literal ou uma percentagem. |Valor de percentagem (predefinição), |Não |
@@ -313,19 +313,19 @@ Data Factory cria a tabela no arquivo de destino com o mesmo nome de tabela no a
 | money | money |
 | Real | Real |
 | SmallMoney | SmallMoney |
-| Binário | Binário |
+| Binary | Binary |
 | Varbinary | Varbinary (até 8000) |
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Hora | Hora |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
 | Text | Varchar (até 8000) |
 | NText | NVarChar (até 4000) |
 | Image | VarBinary (até 8000) |
 | UniqueIdentifier | UniqueIdentifier |
-| char | char |
+| Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (até 8000) |
 | NVarChar | NVarChar (até 4000) |
@@ -381,7 +381,7 @@ O mapeamento é igual a [mapeamento do tipo de dados do SQL Server para o ADO.NE
 Também pode mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink na definição da atividade de cópia. Para obter detalhes, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="json-examples-for-copying-data-to-and-from-sql-data-warehouse"></a>Exemplos JSON para copiar dados de e para o SQL Data Warehouse
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para o Azure SQL Data Warehouse e o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para o Azure SQL Data Warehouse e o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 ### <a name="example-copy-data-from-azure-sql-data-warehouse-to-azure-blob"></a>Exemplo: Copiar dados do armazém de dados SQL do Azure para BLOBs do Azure
 O exemplo define as seguintes entidades do Data Factory:

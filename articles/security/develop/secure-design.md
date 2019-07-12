@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b637f547de06d9347a1c74ad7da560be97f16881
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 12b9793cabb261368c437bd2ae2dbb39cf078bef
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144441"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653290"
 ---
 # <a name="design-secure-applications-on-azure"></a>Design aplicações seguras no Azure
 Neste artigo, apresentamos as atividades de segurança e controlos a ter em consideração ao conceber aplicações para a cloud. Recursos, juntamente com perguntas de segurança e conceitos para considerar durante os requisitos e design fases do Microsoft de formação [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudar a definir as atividades e serviços do Azure que pode usar para projetar um aplicativo mais seguro.
@@ -39,7 +39,7 @@ Utilize os seguintes recursos durante a fase de treinamento para se familiarizar
 
   - [SDKs e ferramentas](https://docs.microsoft.com/azure/index#pivot=sdkstools) descreve as ferramentas que estão disponíveis no Azure.
 
-  - [Os serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/?view=vsts#pivot=index&panel=indexA) fornece ferramentas de colaboração de desenvolvimento. As ferramentas incluem pipelines de alto desempenho, repositórios de Git gratuitos, quadros de Kanban configuráveis e teste de carga abrangente de automatizado e baseado na nuvem.
+  - [Os serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/) fornece ferramentas de colaboração de desenvolvimento. As ferramentas incluem pipelines de alto desempenho, repositórios de Git gratuitos, quadros de Kanban configuráveis e teste de carga abrangente de automatizado e baseado na nuvem.
     O [central de recursos de DevOps](https://docs.microsoft.com/azure/devops/learn/) combina os nossos recursos de aprendizado do DevOps práticas, Git controle de versão, métodos ágeis, como Trabalhamos com DevOps da Microsoft e como pode avaliar o seu próprio progressão de DevOps.
 
   - [Top 5 de segurança de itens a considerar antes de enviar para produção](https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca) mostra-lhe como ajudar a proteger as suas aplicações web no Azure e proteger as suas aplicações contra ataques de aplicativo de web mais comum e perigosas.
@@ -152,7 +152,7 @@ O design do aplicativo de modelagem e enumerar [STRIDE](https://docs.google.com/
 
 | Ameaças | Propriedade de segurança | Potenciais atenuação de plataforma do Azure |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Spoofing               | Autenticação        | [Exigir ligações HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
+| Spoofing               | Authentication        | [Exigir ligações HTTPS](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Adulteração              | Integridade             | Valide certificados SSL/TLS. Aplicativos que usam o SSL/TLS completamente tem de verificar os certificados X.509 das entidades que se ligam ao. Utilizar certificados do Azure Key Vault para [gerenciar seu x509 certificados](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Rejeição            | Não rejeição       | Ativar o Azure [monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Divulgação de Informações | Confidencialidade       | Encriptar dados confidenciais [Inativos](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) e [em trânsito](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |

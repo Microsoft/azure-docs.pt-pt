@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: zhiweiw
+ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60349986"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702561"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e resolver erros de sincronização de atributo duplicado
 
@@ -107,8 +107,8 @@ Para o **cenário de objeto órfão**, apenas o utilizador único **Joe Johnson*
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ambas estas contas pertencem ao mesmo utilizador?
 Essa pergunta verifica um utilizador em conflito de entrada e o objeto de utilizador existente no Azure AD para ver se eles pertencem ao mesmo utilizador.  
 1. O objeto em conflito recentemente está sincronizado com o Azure Active Directory. Compare os atributos de objectos:  
-   - Nome a apresentar
-   - Nome do Principal de Utilizador
+   - Nome a Apresentar
+   - Nome Principal de utilizador
    - ID de objeto
 2. Se não for compará-los do Azure AD, verifique se o Active Directory tem objetos com o fornecido **UserPrincipalNames**. Resposta **não** se encontrar ambos.
 

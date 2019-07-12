@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3611072759c62f42294730405f1dc402c496acce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735010"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785826"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
@@ -150,8 +150,18 @@ Subscreva eventos de configuração de aplicações do Azure para responder a ev
 | [Início rápido: encaminhar eventos de configuração de aplicações do Azure para um ponto final web personalizado com a CLI do Azure](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de configuração de aplicações do Azure para um WebHook. |
 | [Esquema de eventos](event-schema-app-configuration.md) | Mostra os campos nos eventos de configuração de aplicações do Azure. |
 
+## <a name="azure-signalr"></a>Azure SignalR
+Subscreva eventos de serviço Azure SignalR para responder a eventos de ligação de cliente.
 
-## <a name="next-steps"></a>Passos Seguintes
+|Cargo | Descrição |
+|---------|---------|
+| [Reagir a eventos do serviço Azure SignalR ao utilizar o Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Descrição geral da integração do serviço Azure SignalR com o Event Grid. |
+| [Como enviar eventos de serviço Azure SignalR para o Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Mostra como enviar eventos do serviço Azure SignalR para uma aplicação através do Event Grid. |
+| [Esquema de eventos](event-schema-azure-signalr.md) | Mostra os campos nos eventos do serviço Azure SignalR. |
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
 * Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).

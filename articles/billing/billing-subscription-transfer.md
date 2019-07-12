@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff3c57c31526119ab81225a1c70b163173be937
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514432"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657890"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -38,7 +38,7 @@ Se for um cliente Enterprise Agreement(EA), os administradores de empresa podem 
 
 1. Selecione **subscrições** no painel esquerdo. Consoante o acesso, poderá ter de selecionar um âmbito de faturação e, em seguida, selecione **subscrições** ou **subscrições do Azure**.
 
-1. Selecione **transferência para outra conta** para a subscrição que pretende transferir. 
+1. Selecione **transferir a propriedade de faturação** para a subscrição que pretende transferir. 
 
    ![Selecione a subscrição para transferir](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 

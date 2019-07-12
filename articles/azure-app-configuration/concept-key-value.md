@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393608"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706474"
 ---
 # <a name="keys-and-values"></a>As chaves e valores
 
@@ -94,7 +94,7 @@ Também pode incluir os seguintes padrões de etiqueta:
 | `label=1.0.*` | Corresponde a etiquetas que começam com **1.0.** |
 | `label=*.0.0` | Corresponde a etiquetas que terminam com **.0.0** |
 | `label=*.0.*` | Corresponde a etiquetas que contêm **.0.** |
-| `label=%00,1.0.0` | Corresponde a etiquetas `null` ou **1.0.1**, limitado a cinco CSVs |
+| `label=%00,1.0.0` | Corresponde a etiquetas `null` ou **1.0.0**, limitado a cinco CSVs |
 
 ## <a name="values"></a>Valores
 
@@ -102,7 +102,7 @@ Valores atribuídos às chaves também são cadeias de caracteres unicode. Pode 
 
 Dados de configuração armazenados num arquivo de configuração de aplicação, que inclui todas as chaves e valores, são encriptados em descanso e em trânsito. Configuração de aplicações não é uma solução de substituição para o Azure Key Vault. Não armazene segredos da aplicação no mesmo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Instantâneo de ponto no tempo](./concept-point-time-snapshot.md)  
 * [Gestão de recursos](./concept-feature-management.md)  

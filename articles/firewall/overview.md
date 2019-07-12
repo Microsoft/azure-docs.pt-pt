@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 6/26/2019
+ms.date: 7/10/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 9a875f4450b700fc9db74b4402471e282f8e9dab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: da82f6c93045b38aed887860c6d5c45c93b2260b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442915"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703957"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -30,7 +30,7 @@ O Azure Firewall oferece as seguintes funcionalidades:
 
 Elevada disponibilidade é incorporada, pelo que não foram encontrados balanceadores de carga adicionais são necessários e não há nada que tem de configurar.
 
-## <a name="availability-zones-public-preview"></a>As zonas de disponibilidade (pré-visualização pública)
+## <a name="availability-zones"></a>Zonas de Disponibilidade
 
 Firewall do Azure pode ser configurado durante a implementação para abranger várias zonas de disponibilidade para maior disponibilidade. Com zonas de disponibilidade, a sua disponibilidade aumenta para o tempo de atividade de 99,99%. Para obter mais informações, consulte o Firewall do Azure [contrato de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/azure-firewall/v1_0/). O tempo de atividade de 99,99% são oferecidos SLAS quando duas ou mais zonas de disponibilidade estão selecionadas.
 
@@ -51,7 +51,7 @@ O Azure Firewall pode aumentar verticalmente conforme as suas necessidades para 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
 
-Pode limitar o tráfego HTTP/S de saída a uma lista especificada de nomes de domínio completamente qualificados (FQDN), incluindo carateres universais. Esta funcionalidade não precisa de terminação de SSL.
+Pode limitar o tráfego de saída HTTP/S ou o tráfego de SQL do Azure (pré-visualização) para uma lista especificada de nomes de domínio completamente qualificado (FQDN), incluindo carateres universais. Esta funcionalidade não precisa de terminação de SSL.
 
 ## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
@@ -77,7 +77,11 @@ Todos os endereços IP de tráfego de rede virtual de saída são convertidos no
 
 O tráfego de rede de entrada para o seu endereço IP público do firewall é traduzido (Tradução de Endereços de Rede de Destino) e filtrado para os endereços IP privados nas suas redes virtuais.
 
-## <a name="multiple-public-ips-public-preview"></a>Público vários IPs (pré-visualização pública)
+## <a name="multiple-public-ip-addresses"></a>Vários endereços IP públicos
+
+> [!IMPORTANT]
+> Firewall do Azure com vários endereços IP públicos está disponível através do Azure PowerShell, CLI do Azure, REST e modelos. A interface de utilizador do portal está a ser adicionada para as regiões de forma incremental e vai estar disponível em todas as regiões quando a implementação estiver concluída.
+
 
 Pode associar vários endereços IP públicos (até 100) com a firewall.
 
@@ -85,9 +89,6 @@ Isto permite que os seguintes cenários:
 
 - **DNAT** -é possível converter várias instâncias de porta padrão para os seus servidores de back-end. Por exemplo, se tiver dois endereços IP públicos, é possível converter a porta TCP 3389 (RDP) para os dois endereços IP.
 - **SNAT** -portas adicionais estão disponíveis para ligações SNAT de saída, reduzindo a possibilidade de exaustão de porta SNAT. Neste momento, o Firewall do Azure seleciona aleatoriamente o endereço IP público de origem para utilizar uma ligação. Se tiver qualquer filtragem jusante na sua rede, terá de permitir que todos os endereços IP públicos associados com a firewall.
-
-> [!NOTE]
-> Durante a pré-visualização pública, se adicionar ou remover um endereço IP público para um firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos. Não é possível remover o primeiro endereço IP público atribuído para o firewall, a menos que a firewall está desalocada ou eliminada.
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
@@ -108,10 +109,10 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |Podem obter mascarados alertas de inteligência de ameaças|Alertas de inteligência quando configurado para o modo só de alerta de ameaças de regras de rede com o destino 80/443 para máscaras de filtragem de saída.|Crie a filtragem de saída para 80/443 usando regras de aplicações. Em alternativa, altere o modo de inteligência de ameaças **alertar e negar**.|
 |Firewall do Azure utiliza o DNS do Azure apenas para resolução de nomes|Firewall do Azure resolve FQDNs apenas a utilizar o DNS do Azure. Um servidor DNS personalizado não é suportado. Não existe nenhum impacto na resolução DNS em outras sub-redes.|Estamos a trabalhar para reduzir esta limitação.|
 |SNAT/DNAT de Firewall do Azure não funciona para destinos de IP privados|Suporte de Firewall SNAT/DNAT do Azure está limitado a entrada/saída de Internet. SNAT/DNAT atualmente não funciona para destinos de IP privados. Por exemplo, spoke para and-spoke.|Esta é uma limitação atual.|
-|Não é possível remover o primeiro endereço IP público|Não é possível remover o primeiro endereço IP público atribuído para o firewall, a menos que a firewall está desalocada ou eliminada.|Esta ação é propositada.|
-|Se adicionar ou remover um endereço IP público, as regras DNAT podem não funcionar temporariamente.| Se adicionar ou remover um endereço IP público a uma firewall em execução, conectividade de entrada existente usando regras DNAT pode não funcionar para 40-120 segundos.|Esta é uma limitação da pré-visualização pública para esta funcionalidade.|
+|Não é possível remover a configuração do primeiro IP pública|Cada endereço IP público do Firewall do Azure é atribuído a um *configuração do IP*.  A configuração do primeiro IP é atribuída durante a implementação de firewall e, normalmente também contém uma referência para a sub-rede de firewall (a menos que configurado explicitamente diferente por meio de uma implementação de modelo). Não é possível eliminar esta configuração de IP, porque ele seria anula a alocação da firewall. Pode ainda alterar ou remover o endereço IP público associado a esta configuração de IP se a firewall não tiver pelo menos um outro endereço IP público disponível para utilização.|Esta ação é propositada.|
 |As zonas de disponibilidade só podem ser configuradas durante a implementação.|As zonas de disponibilidade só podem ser configuradas durante a implementação. Não é possível configurar zonas de disponibilidade depois de implementar uma firewall.|Esta ação é propositada.|
 |SNAT em ligações de entrada|Além de DNAT, ligações via o endereço IP público do firewall (entrada) são um SNAT para um firewall de IPs privados. Este requisito hoje (também para as NVAs ativo/ativo) para garantir que o encaminhamento simétrico.|Para preservar a origem original para HTTP/S, considere usar [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) cabeçalhos. Por exemplo, utilize um serviço como [porta da frente do Azure](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) à frente da firewall. Também pode adicionar WAF como parte da porta de entrada do Azure e a cadeia para o firewall.
+|FQDN do SQL filtragem suporte apenas no modo de proxy (porta 1433)|Base de dados SQL do Azure, Azure SQL Data Warehouse e o Azure SQL instância gerida:<br><br>Durante a pré-visualização, o FQDN do SQL filtragem é suportada no modo de proxy apenas (a porta 1433).<br><br>Para o IaaS do SQL do Azure:<br><br>Se estiver a utilizar portas não padrão, pode especificar essas portas nas regras de aplicação.|Para o SQL no modo de redirecionamento, o que é o padrão de se ligar a partir do Azure, em vez disso, pode filtrar o acesso usando a marca de serviço do SQL como parte das regras de rede de Firewall do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

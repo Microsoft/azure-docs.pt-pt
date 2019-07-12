@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 7172c1c4c31a47500eaba28ab6ed21e54674b80a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a1d5e5a15a2af7db5b6256a6a0c5f19f0e7cf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077712"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620977"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Azure Stream Analytics para o processamento de dados a partir de dispositivos da IoT
 
@@ -102,14 +102,14 @@ Vamos tornar a nossa consulta mais detalhada. Para cada tipo de sensor, queremos
 
 ![Consulta do filtro de 30 segundos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-Agora, deve ver resultados que contêm apenas 245 linhas e nomes de sensores em que a temperatura média é superior a 100. Esta consulta agrupa a transmissão de eventos por **dspl**, que é o nome do sensor, e coloca-a numa **Janela em Cascata** de 30 segundos. As consultas temporais têm de indicar como queremos que o tempo progrida. Com a cláusula **TIMESTAMP BY**, especificamos a coluna **OUTPUTTIME** para associar as horas a todos os cálculos temporais. Para obter informações detalhadas, leia os artigos MSDN sobre as funções [Time Management (Gestão do Tempo)](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Windowing (Múltiplas Janelas)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+Agora, deve ver resultados que contêm apenas 245 linhas e nomes de sensores em que a temperatura média é superior a 100. Esta consulta agrupa a transmissão de eventos por **dspl**, que é o nome do sensor, e coloca-a numa **Janela em Cascata** de 30 segundos. As consultas temporais têm de indicar como queremos que o tempo progrida. Com a cláusula **TIMESTAMP BY**, especificamos a coluna **OUTPUTTIME** para associar as horas a todos os cálculos temporais. Para obter informações detalhadas, leia os artigos MSDN sobre as funções [Time Management (Gestão do Tempo)](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Windowing (Múltiplas Janelas)](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
 
 ### <a name="query-detect-absence-of-events"></a>Consulta: Detetar a ausência de eventos
 Como podemos escrever uma consulta para encontrar uma falta de eventos de entrada? Vamos descobrir quando foi a última vez que um sensor enviou dados e não enviou eventos durante os cinco minuto seguintes. A consulta está localizada no ficheiro AbsenceOfEvent.txt.
 
 ![Detetar a ausência de eventos](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-Aqui, vamos utilizar uma associação **EXTERNA** para a mesma transmissão de dados (associação automática). Para uma associação **NTERNA**, só é apresentado um resultado quando é encontrada uma correspondência.  Numa associação **EXTERNA**, se um evento externo à associação não tiver qualquer correspondência, será apresentada a linha NULO para todas as colunas à direita. Esta técnica é muito útil para localizar a ausência de eventos. Para obter mais informações sobre [JOIN (ASSOCIAÇÃO)](https://msdn.microsoft.com/library/azure/dn835026.aspx), veja a nossa documentação MSDN.
+Aqui, vamos utilizar uma associação **EXTERNA** para a mesma transmissão de dados (associação automática). Para uma associação **NTERNA**, só é apresentado um resultado quando é encontrada uma correspondência.  Numa associação **EXTERNA**, se um evento externo à associação não tiver qualquer correspondência, será apresentada a linha NULO para todas as colunas à direita. Esta técnica é muito útil para localizar a ausência de eventos. Para obter mais informações sobre [JOIN (ASSOCIAÇÃO)](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics), veja a nossa documentação MSDN.
 
 ## <a name="conclusion"></a>Conclusão
 O objetivo deste tutorial é demonstrar como escrever diferentes consultas de linguagem SAQL (Stream Analytics Query Language) e ver os resultados no browser. No entanto, isto é apenas o início. O Stream Analytics tem muitas outras funcionalidades. O Stream Analytics suporta uma variedade de entradas e saídas e pode mesmo tirar partido de funções no Azure Machine Learning para o transformar numa ferramenta robusta para analisar fluxos de dados. Pode começar a explorar mais sobre o Stream Analytics através do nosso [mapa de aprendizagem](https://docs.microsoft.com/azure/stream-analytics/). Para obter mais informações sobre como escrever consultas, leia o artigo sobre [padrões de consulta comuns](stream-analytics-stream-analytics-query-patterns.md).

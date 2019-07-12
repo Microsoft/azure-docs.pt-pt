@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a4900964fb6feeb4c7cb0f147d3681031cac6a7b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864781"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798434"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início rápido: Criar uma função do Azure com configuração de aplicações
 
@@ -39,9 +39,9 @@ Para fazer este início rápido, instale [Visual Studio 2019](https://visualstud
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Explorador de configuração** > **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Explorador de configuração** >  **+ criar** para adicionar os seguintes pares de chave-valor:
 
-    | Chave | Value |
+    | Chave | Valor |
     |---|---|
     | TestApp:Settings:Message | Dados de configuração de aplicações do Azure |
 
@@ -56,7 +56,7 @@ Para fazer este início rápido, instale [Visual Studio 2019](https://visualstud
 1. Clique no projeto e selecione **gerir pacotes NuGet**. Sobre o **procurar** separador, procure e adicione os seguintes pacotes NuGet ao seu projeto. Se não é possível encontrá-los, selecione o **incluir pré-lançamento** caixa de verificação.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
 2. Open *Function1.cs*e adicione uma referência para o fornecedor de configuração de aplicações do .NET Core.
@@ -117,7 +117,7 @@ Para fazer este início rápido, instale [Visual Studio 2019](https://visualstud
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma função do Azure. Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
 

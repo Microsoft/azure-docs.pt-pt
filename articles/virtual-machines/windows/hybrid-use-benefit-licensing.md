@@ -4,7 +4,7 @@ description: Saiba como maximizar os benefícios do Windows Software Assurance p
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 739c867171d7b59a68f7e4d11bbf50a189568ce7
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681292"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722757"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).

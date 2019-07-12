@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60769113"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705769"
 ---
 # <a name="create-an-external-app-service-environment"></a>Criar um ambiente de serviço de aplicações externo
 
@@ -33,15 +33,15 @@ Existem duas formas de implementar um Ambiente de Serviço de Aplicações (ASE)
 - Com um VIP num endereço IP externo, muitas vezes chamado ASE Externo.
 - Com o VIP num endereço IP interno, muitas vezes chamado ASE de ILB porque o ponto final interno é um balanceador de carga interno (ILB).
 
-Este artigo mostra-lhe como criar um ASE externo. Para obter uma descrição geral do ASE, veja [uma introdução ao ambiente de serviço de aplicações][Intro]. Para obter informações sobre como criar um ASE de ILB, veja [criar e utilizar um ASE de ILB][MakeILBASE].
+Este artigo mostra-lhe como criar um ASE externo. Para obter uma descrição geral do ASE, veja [uma introdução ao ambiente de serviço de aplicações][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Antes de criar o ASE
 
 Depois de criar o ASE, não é possível alterar o seguinte:
 
 - Location
-- Subscrição
-- Grupo de recursos
+- Subscription
+- Resource group
 - VNet utilizada
 - Sub-rede utilizada
 - Tamanho da sub-rede
@@ -72,7 +72,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
 2. Selecione a sua subscrição. A aplicação e o ASE são criadas nas mesmas subscrições.
 
-3. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, consulte a [descrição geral do Azure Resource Manager][ARMOverview].
+3. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
 
 4. Selecione seu sistema operacional (Windows, Linux ou Docker). 
 
@@ -96,7 +96,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
     b. Introduza um novo nome de sub-rede.
 
-    c. Selecione o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos que `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. Não é recomendada a `/28`, por exemplo, uma vez que apenas 16 endereços estão disponíveis. Infraestrutura utiliza endereços, pelo menos, sete e redes do Azure utiliza outra 5. Num `/28` sub-rede, fica apenas com um máximo dimensionamento de 4 instâncias de plano de serviço de aplicações para um ASE externo e apenas 3 instâncias do plano do serviço de aplicações para um ASE de ILB.
+    c. Selecione o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos que `/24`, que tem 128 endereços e pode processar um ASE de tamanho máximo. Não é recomendada a `/28`, por exemplo, uma vez que apenas 16 endereços estão disponíveis. Infraestrutura utiliza endereços, pelo menos, sete e redes do Azure utiliza outra 5. Num `/28` sub-rede, fica apenas com um máximo dimensionamento de 4 instâncias de plano de serviço de aplicações para um ASE externo e apenas 3 instâncias do plano do serviço de aplicações para um ASE de ILB.
 
     d. Selecione o intervalo IP de sub-rede.
 
@@ -110,7 +110,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
 1. Selecione a sua subscrição. A aplicação e o ASE são criadas nas mesmas subscrições.
 
-1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, consulte a [descrição geral do Azure Resource Manager][ARMOverview].
+1. Selecione ou crie um grupo de recursos. Com grupos de recursos, pode gerir os recursos relacionados do Azure como uma unidade. Grupos de recursos também são úteis quando estabelecer as regras de controlo de acesso baseado em funções para as suas aplicações. Para obter mais informações, veja a [Descrição geral do Azure Resource Manager][ARMOverview].
 
 1. Selecione o plano de serviço de aplicações e, em seguida, selecione **criar novo**. Aplicações web do Linux e aplicações de web do Windows não podem estar no mesmo plano serviço de aplicações, mas podem ser no mesmo ambiente de serviço de aplicações. 
 
@@ -132,7 +132,7 @@ Para criar um ASE enquanto pode criar um plano de serviço de aplicações:
 
     b. Introduza um novo nome de sub-rede.
 
-    c. Selecione o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos que `/25`, que tem 128 endereços e pode processar um ASE de tamanho máximo. Não é recomendada a `/28`, por exemplo, uma vez que apenas 16 endereços estão disponíveis. Infraestrutura utiliza endereços, pelo menos, sete e redes do Azure utiliza outra 5. Num `/28` sub-rede, fica apenas com um máximo dimensionamento de 4 instâncias de plano de serviço de aplicações para um ASE externo e apenas 3 instâncias do plano do serviço de aplicações para um ASE de ILB.
+    c. Selecione o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos que `/24`, que tem 128 endereços e pode processar um ASE de tamanho máximo. Não é recomendada a `/28`, por exemplo, uma vez que apenas 16 endereços estão disponíveis. Infraestrutura utiliza endereços, pelo menos, sete e redes do Azure utiliza outra 5. Num `/28` sub-rede, fica apenas com um máximo dimensionamento de 4 instâncias de plano de serviço de aplicações para um ASE externo e apenas 3 instâncias do plano do serviço de aplicações para um ASE de ILB.
 
     d. Selecione o intervalo IP de sub-rede.
 
@@ -176,7 +176,7 @@ Se criar um autónomo do ASE, ele não tem nada nele. Um ASE vazio ainda incorre
 
 Pode ainda criar instâncias da primeira versão do ambiente de serviço de aplicações (ASEv1). Para iniciar o processo, pesquisar no Marketplace **ambiente do serviço de aplicações v1**. Criar o ASE da mesma forma que criar o ASE de autónomo. Quando estiver concluído, o seu ASEv1 tem dois front-ends e duas funções de trabalho. Com o ASEv1, tem de gerir os front-ends e trabalhos. Eles não serão adicionados automaticamente quando cria seus planos de serviço de aplicações. Os front-ends atuam como pontos finais de HTTP/HTTPS e enviar o tráfego para os operadores. As funções de trabalho são as funções que alojam as suas aplicações. Pode ajustar a quantidade de front-ends e trabalhos depois de criar o seu ASE. 
 
-Para saber mais sobre o ASEv1, veja [introdução para a v1 do ambiente de serviço de aplicações][ASEv1Intro]. Para obter mais informações sobre como aumentar, gerir e monitorizar o ASEv1, veja [como configurar um ambiente de serviço de aplicações][ConfigureASEv1].
+Para saber mais sobre o ASEv1, veja [introdução para a v1 do ambiente de serviço de aplicações][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

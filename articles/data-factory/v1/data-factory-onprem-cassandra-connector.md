@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b098aaf2df5e04983aa53563d5e0203f3287b42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823985"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839952"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Mover dados de uma base de dados de Cassandra no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -49,7 +49,7 @@ Ao instalar o gateway, ele automaticamente instala um driver ODBC do Microsoft C
 Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do Cassandra no local através de APIs/ferramentas diferentes.
 
 - A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -101,7 +101,7 @@ Quando a origem é do tipo **CassandraSource**, as seguintes propriedades estão
 | consistencyLevel |O nível de consistência Especifica o número de réplicas devem responder a uma solicitação de leitura antes de retornar dados para a aplicação cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer a solicitação de leitura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Ver [configurar a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes. |Não. Valor predefinido é um. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Exemplo JSON: Copiar dados do Cassandra para BLOBs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma base de dados do Cassandra no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma base de dados do Cassandra no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
@@ -262,20 +262,20 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 ### <a name="type-mapping-for-cassandra"></a>Mapeamento do tipo de Cassandra
 | Tipo de Cassandra | .NET com base em tipo |
 | --- | --- |
-| ASCII |String |
+| ASCII |Cadeia |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| BOOLEAN |Booleano |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
 | FLOAT |Single |
-| INET |String |
+| INET |Cadeia |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |Cadeia |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -300,7 +300,7 @@ Pode utilizar o [Assistente para copiar](data-factory-data-movement-activities.m
 ### <a name="example"></a>Exemplo
 Por exemplo, "Seguinte ExampleTable" é uma tabela de base de dados do Cassandra que contém a coluna de chave primária de um número inteiro com o nome "pk_int", uma coluna de texto valor com nome, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (com o nome "StringSet").
 
-| pk_int | Value | Lista | Mapa | StringSet |
+| pk_int | Valor | Lista | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |

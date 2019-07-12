@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 535842989ef49ee13a5ddee7c4349a3b819f741c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112114"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797843"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional de diretório Active Directory do Azure
 
@@ -114,7 +114,7 @@ Na sua política de acesso condicional, pode selecionar **navegadores** como apl
 
 Esta definição funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de dispositivo em conformidade, os seguintes sistemas operativos e browsers são suportados:
 
-| SO                     | Browsers                                      |
+| OS                     | Browsers                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -134,14 +134,14 @@ No Windows 7, iOS, Android e macOS do Azure AD identifica o dispositivo com um c
 
 #### <a name="chrome-support"></a>Suporte do Chrome
 
-Para o Chrome suporte no **(versão 1703) do Windows 10 Creators Update** ou posterior, instale [esta extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Para o Chrome suporte no **(versão 1703) do Windows 10 Creators Update** ou posterior, instale o [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Esta extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
 
 Para implementar automaticamente esta extensão para navegadores de Chrome, crie a seguinte chave de registo:
 
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Nome | 1 |
 | Type | REG_SZ (String) |
 | Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -150,7 +150,7 @@ Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Nome | 1 |
 | Type | REG_SZ (String) |
 | Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

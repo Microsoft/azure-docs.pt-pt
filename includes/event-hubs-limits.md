@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66736023"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812495"
 ---
 A tabela seguinte apresenta uma lista de quotas e limites específica [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para obter informações sobre os preços de Hubs de eventos, consulte [preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limite | Scope | Notas | Value |
+| Limite | Scope | Notas | Valor |
 | --- | --- | --- | --- |
-| Número de espaços de nomes de Hubs de eventos por subscrição |Subscrição |- |100 |
+| Número de espaços de nomes de Hubs de eventos por subscrição |Subscription |- |100 |
 | Número de hubs de eventos por espaço de nomes |Espaço de Nomes |Os pedidos subsequentes para a criação de um novo hub de eventos são rejeitados. |10 |
 | Número de partições por hub de eventos |Entidade |- |32 |
 | Número de grupos de consumidores por hub de eventos |Entidade |- |20 |
@@ -31,11 +31,12 @@ A tabela seguinte apresenta uma lista de quotas e limites específica [os Hubs d
 | Unidades de débito máximas |Espaço de Nomes |Excede o limite de unidade de débito faz com que seus dados para ser otimizados e gera um [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para pedir um número maior de unidades de débito para o escalão Standard, de ficheiros uma [pedido de suporte](/azure/azure-supportability/how-to-create-azure-support-request). [Unidades de débito adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20 de forma de compra. |20 |
 | Número de regras de autorização por espaço de nomes |Espaço de Nomes|Pedidos subsequentes para criação de regras de autorização são rejeitados.|12 |
 | Número de chamadas para o método GetRuntimeInformation | Entidade | - | 50 por segundo | 
+| Número de regras de configuração de IP e de rede virtual (VNet) | Entidade | - | 128 | 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Dedicado de Hubs de eventos - quotas e limites
 A oferta de Hubs de eventos dedicados é faturada por um preço mensal fixo, com um mínimo de 4 horas de utilização. O escalão dedicado oferece todas as funcionalidades do plano padrão, mas com capacidade de dimensionamento empresarial e limites para os clientes com cargas de trabalho exigentes. 
 
-| Funcionalidade | Limits |
+| Funcionalidade | Limites |
 | --- | ---|
 | Largura de banda |  20 CUs |
 | Espaços de nomes | 50 por CU |

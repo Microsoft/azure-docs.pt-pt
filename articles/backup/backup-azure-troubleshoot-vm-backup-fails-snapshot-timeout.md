@@ -7,14 +7,14 @@ manager: saurabhsensharma
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: saurabhsensharma
-ms.openlocfilehash: 5abaa040b22000a300fba22590866846f6dbbd4a
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.date: 07/05/2019
+ms.author: saurse
+ms.openlocfilehash: 1bfc862a7063a023fd148e5504b3baa7fb275229
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565673"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704975"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -81,7 +81,7 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - operação de extensão de VMSnapshot falhou
 
 **Código de erro**: ExtentionOperationFailedForManagedDisks <br>
-**Mensagem de erro**: Operação de extensão de VMSnapshot falhou<br>
+**Mensagem de erro**: Falha na operação de extensão do VMSnapshot<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
 **Fazer com que 1: [Não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  

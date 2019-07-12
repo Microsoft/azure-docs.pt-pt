@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/09/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1688cc9317306e7f524536754854b6147ad3dd5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3de6a2cbdfe7a6d006a3bbfab16792376eda0d07
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108773"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702539"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Início rápido: Adicionar uma aplicação com o seu inquilino do Azure Active Directory
 
@@ -43,27 +43,21 @@ Para testar os passos neste tutorial, recomendamos utilizar um ambiente de não 
 Para adicionar uma aplicação da galeria ao seu inquilino do Azure AD:
 
 1. Na [portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, selecione **Azure Active Directory**.
-
 1. Na **do Azure Active Directory** painel, selecione **aplicações empresariais**.
+1. O **todos os aplicativos** painel abre-se para mostrar uma amostra aleatória das aplicações no seu inquilino do Azure AD. Selecione **nova aplicação** na parte superior a **todos os aplicativos** painel adicionar uma aplicação da galeria com o seu inquilino.
 
-    ![Abrir aplicações empresariais](media/add-application-portal/open-enterprise-apps.png)
+    ![Selecionar novo aplicativo para adicionar uma aplicação de galeria com o seu inquilino](media/add-application-portal/new-application.png)
 
-1. O **todos os aplicativos** painel abre-se para mostrar uma amostra aleatória das aplicações no seu inquilino do Azure AD. Selecione **nova aplicação** na parte superior a **todos os aplicativos** painel.
+1. Na **categorias** painel, verá ícones sob o **em destaque aplicativos** área que são uma amostra aleatória das aplicações de galeria. Para ver mais aplicações, pode selecionar **mostrar mais** , mas não é recomendada a pesquisa desta forma, porque existem milhares de aplicações na galeria.
 
-    ![Nova aplicação](media/add-application-portal/new-application.png)
-
-1. Na **categorias** painel, verá ícones sob o **em destaque aplicativos** área que são uma amostra aleatória das aplicações de galeria.  Para ver mais aplicações, pode selecionar **mostrar mais**. No entanto, não é recomendada a pesquisa desta forma, uma vez que existem milhares de aplicações na galeria.
-
-    ![Procurar por nome ou categoria](media/add-application-portal/categories.png)
+    ![Procurar uma aplicação por nome ou categoria](media/add-application-portal/categories.png)
 
 1. Para procurar num aplicativo **adicionar a partir da galeria**, introduza o nome da aplicação que pretende adicionar. Selecione a aplicação a partir de resultados e selecione **adicionar**. A exemplo a seguir mostra a **Adicionar aplicação** formulário que aparece a seguir a procurar github.com.
 
-    ![Adicionar uma aplicação](media/add-application-portal/add-an-application.png)
+    ![Mostra como adicionar uma aplicação a partir da Galeria](media/add-application-portal/add-an-application.png)
 
 1. No formulário específico da aplicação, pode alterar as informações de propriedade. Por exemplo, pode editar o nome da aplicação para satisfazer as necessidades da sua organização. Este exemplo utiliza o nome **GitHub-test**.
-
 1. Quando terminar de efetuar alterações às propriedades, selecione **adicionar**.
-
 1. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização.
 
 Terminar de adicionar a sua aplicação. Aproveite para descansar. As secções seguintes mostram-lhe como alterar o logótipo e editar outras propriedades da aplicação.
@@ -73,17 +67,12 @@ Terminar de adicionar a sua aplicação. Aproveite para descansar. As secções 
 Vamos supor que teve de se ausentar e que voltou agora para retomar a configuração da aplicação. A primeira coisa a fazer é encontrar o seu aplicativo.
 
 1. Na  **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, selecione **Azure Active Directory**.
-
 1. Na **do Azure Active Directory** painel, selecione **aplicações empresariais**.
-
 1. Partir do **tipo de aplicação** menu pendente, selecione **todos os aplicativos**e, em seguida, selecione **aplicar**. Para saber mais sobre as opções de visualização, veja [View tenant applications](view-applications-portal.md) (Ver aplicações do inquilino).
-
 1. Agora, pode ver uma lista com todas as aplicações no seu inquilino do Azure AD. A lista é uma amostra aleatória. Para ver mais aplicações, selecione **mostrar mais** uma ou mais vezes.
-
 1. Para encontrar rapidamente uma aplicação no seu inquilino, introduza o nome da aplicação na caixa de pesquisa e selecione **aplicar**. Neste exemplo localiza o aplicativo de teste do GitHub adicionado anteriormente.
 
-    ![Procurar uma aplicação](media/add-application-portal/find-application.png)
-
+    ![Mostra como localizar um aplicativo usando a caixa de pesquisa](media/add-application-portal/find-application.png)
 
 ## <a name="configure-user-sign-in-properties"></a>Configurar as propriedades de início de sessão do utilizador
 
@@ -94,7 +83,7 @@ Para editar as propriedades da aplicação:
 1. Selecione a aplicação para abri-lo.
 1. Selecione **propriedades** para abrir o painel de propriedades para edição.
 
-    ![Editar o painel de propriedades](media/add-application-portal/edit-properties.png)
+    ![Mostra o ecrã de propriedades e as propriedades da aplicação editável](media/add-application-portal/edit-properties.png)
 
 1. Dispense alguns momentos para compreender as opções de início de sessão. As opções de determinam como os utilizadores que são atribuídos ou não atribuídos à aplicação podem iniciar sessão na aplicação. Além disso, as opções também determinam se um utilizador pode ver a aplicação no painel de acesso.
 
@@ -144,8 +133,7 @@ Para utilizar um logótipo personalizado:
 1. Atualize o logótipo.
 1. Quando tiver terminado, selecione **guardar**.
 
-    ![Alterar o logótipo](media/add-application-portal/change-logo.png)
-
+    ![Mostra como alterar o logótipo da página de propriedades da aplicação](media/add-application-portal/change-logo.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -155,5 +143,3 @@ Agora, está pronto para configurar a aplicação para início de sessão único
 
 > [!div class="nextstepaction"]
 > [Configure single sign-on](configure-single-sign-on-portal.md) (Configurar o início de sessão único)
-
-

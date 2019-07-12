@@ -4,7 +4,7 @@ description: Utilizar a consola de série para SysRq e NMI chama em máquinas vi
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ad29bbd038c8982778f2dbca63756f6995077dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79729cf222c208a78a2eac430e51b996cddb4e78
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204921"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710545"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utilizar a consola de série para chamadas SysRq e NMI
 

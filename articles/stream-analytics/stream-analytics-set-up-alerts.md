@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 26e8e004f917b1c138bc27389cac1cc52672f3d4
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0fd489d856a16953a5a450a347c9737fe440ad28
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329863"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621763"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para tarefas do Azure Stream Analytics
 
@@ -58,7 +58,7 @@ O exemplo seguinte demonstra como configurar alertas para quando a tarefa entra 
 
 Os seguintes alertas são recomendados para monitorização do desempenho da sua tarefa do Stream Analytics. Essas métricas devem ser avaliadas a cada minuto ao longo do último período de 5 minutos.
 
-|Métrica|Condição|Agregação de Tempo|Limiar|Ações corretivas|
+|Métrica|Condição|Agregação de tempo|Limiar|Ações corretivas|
 |-|-|-|-|-|
 |% De utilização SU|Maior que|Máximo|80|Existem vários fatores que aumentam a utilização em SU %. Pode dimensionar com da paralelização de consulta ou aumentar o número de unidades de transmissão em fluxo. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
 |Erros de tempo de execução|Maior que|Total|0|Examine a atividade ou registos de diagnóstico e efetue as alterações necessárias para as entradas, consulta ou saídas.|
@@ -75,6 +75,6 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-get-started.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

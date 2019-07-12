@@ -3,8 +3,8 @@ title: Delegar tarefas na gestão de direitos do Azure AD (pré-visualização) 
 description: Saiba mais sobre as funções que pode atribuir a delegar tarefas na gestão de direitos do Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 06/07/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fa0be8e2af7644564ba27e6d58fda09b1ae7bc7
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: d4c4933847a39a56084894e5bbd40e166e6b73b6
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191502"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798640"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegar tarefas na gestão de direitos do Azure AD (pré-visualização)
 
@@ -64,7 +64,7 @@ Agora, a pesquisa e os departamentos de marketing podem utilizar a gestão de di
 
 Gestão de direitos tem as seguintes funções que são específicas da gestão de direitos.
 
-| Função | Descrição |
+| Role | Descrição |
 | --- | --- |
 | Criador de catálogo | Criar e gerir catálogos. Normalmente, um administrador de TI que não seja um Administrador Global ou um proprietário do recurso para uma coleção de recursos. A pessoa que cria automaticamente um catálogo torna-se primeiro proprietário de catálogo no catálogo e pode adicionar os proprietários de catálogo adicionais. |
 | Proprietário de catálogo | Editar e gerir catálogos existentes. Normalmente, um administrador de TI ou os proprietários de recursos ou um utilizador que tiver designado o proprietário do catálogo. |
@@ -84,7 +84,7 @@ A tabela seguinte lista as tarefas que podem realizar estas funções.
 | [Editar um catálogo](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Eliminar um catálogo](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
 | [Adicionar um proprietário de catálogo ou um Gestor de pacotes de acesso a um catálogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Criar um novo pacote de acesso num catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark: |  |  |
+| [Criar um novo pacote de acesso num catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [Gerir funções de recursos num pacote de acesso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Especifique quem pode pedir um pacote de acesso](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Atribuir diretamente um utilizador a um pacote de acesso](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -148,7 +148,7 @@ Se quiser delegar a gestão de um acesso ou do catálogo de pacotes no catálogo
 
 1. Clique em **selecione** para adicionar esses membros.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar aprovadores](entitlement-management-access-package-edit.md#policy-request)
 - [Adicionar recursos a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)

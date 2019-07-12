@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b4f8caf03aad339cea3c3fcc732fc1af6086ea7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f6c2f36e1061243851b37da47659aaf7a18e8d6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108893"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673011"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é o Azure Active Directory Identity Protection (atualizadas)?
 
@@ -119,7 +119,7 @@ O risco de utilizador é calculado considerando todos os riscos associados ao ut
 
 ## <a name="how-identity-protection-detects-risk"></a>Como o Identity Protection Deteta risco  
 
-Azure AD utiliza machine learning para detetar anomalias e atividade suspeita, usando ambos os sinais detectadas em tempo real durante a inícios de sessão, bem como não - em tempo real sinaliza relacionados com utilizadores e suas atividades de início de sessão. Utilizando estes dados, Identity Protection calcula um risco de início de sessão em tempo real sempre que um utilizador efetua a autenticação, bem como que determina um nível de risco de utilizador geral para o utilizador de alcance. Proteção de identidade permite-lhe automaticamente agir sobre estas deteções de risco ao risco de utilizador de proteção de identidade configuração e políticas de início de sessão de risco.  
+Azure AD utiliza machine learning para detetar anomalias e atividade suspeita, usando ambos os sinais detectadas em tempo real durante a inícios de sessão, bem como não - em tempo real sinaliza relacionados com utilizadores e suas atividades de início de sessão. Utilizando estes dados, Identity Protection calcula um risco de início de sessão em tempo real sempre que um utilizador efetua a autenticação, bem como que determina um nível de risco de utilizador geral para cada utilizador. Proteção de identidade permite-lhe automaticamente agir sobre estas deteções de risco ao risco de utilizador de proteção de identidade configuração e políticas de início de sessão de risco.  
 
  
 
@@ -194,7 +194,7 @@ Para começar a utilizar com o Identity Protection, primeiro de configurar uma p
 
 Identity Protection suporta 3 funções no Azure AD para balancear as atividades de gestão em torno de sua implantação: 
 
-| Função | Pode fazer | Não é possível fazer |
+| Role | Pode fazer | Não é possível fazer |
 | --- | --- | --- |
 | Administrador global | Acesso total ao Identity Protection, carregar Identity Protection | |
 | Administrador de segurança | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |

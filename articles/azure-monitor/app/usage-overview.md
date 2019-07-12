@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: f2539d5250ff436a720fe10f748f40db29b0ee25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba29688958ee11aa9906a820f7a3d2bf41223743
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783431"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798172"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Análise de utilização com o Application Insights
 
@@ -132,11 +132,11 @@ Para essa técnica é anexar valores de propriedade distintos para toda a teleme
 
 No portal do Application Insights, filtrar e dividir os dados nos valores de propriedade, de modo a comparar as diferentes versões.
 
-Para fazer isso, [configurar um inicializador de telemetria](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Para fazer isso, [configurar um inicializador de telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer):
+
+**Aplicações ASP.NET**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -155,13 +155,29 @@ No inicializador de aplicação web, como Global.asax.cs:
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**Aplicações ASP.NET Core**
+
+> [!NOTE]
+> Adicionar inicializador usando `ApplicationInsights.config` ou utilizar `TelemetryConfiguration.Active` não é válido para aplicativos do ASP.NET Core. 
+
+Para [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) aplicativos, adicionar um novo `TelemetryInitializer` é feito adicionando-o para o contêiner de Injeção de dependência, conforme mostrado abaixo. Isso é feito `ConfigureServices` método de sua `Startup.cs` classe.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 Todos os TelemetryClients novo adiciona automaticamente o valor de propriedade que especificar. Eventos de telemetria individuais podem substituir os valores predefinidos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
    - [Utilizadores, Sessões, Eventos](usage-segmentation.md)
    - [Funis](usage-funnels.md)
    - [Retenção](usage-retention.md)

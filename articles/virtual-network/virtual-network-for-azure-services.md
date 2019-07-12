@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: malop;kumud
-ms.openlocfilehash: e5481b0e262021e28a398b72b5ad022673947609
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357122abba483a96dd9f2d602a793ee06e80b245
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409499"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785542"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Integração da rede virtual para serviços do Azure
 
@@ -43,7 +43,7 @@ Implementação de serviços dentro de uma rede virtual fornece as seguintes cap
 - Instâncias de serviço são implementadas numa sub-rede numa rede virtual. Entrada e acesso de rede de saída para a sub-rede tem de ser aberto por meio [grupos de segurança de rede](security-overview.md#network-security-groups), com orientação fornecida pelo serviço.
 - Determinados serviços também impõem restrições na sub-rede que são implementados, limitar a aplicação de políticas, rotas ou combinar VMs e recursos de serviço dentro da mesma sub-rede. Verifique com cada serviço nas restrições específicas, como eles podem ser alterados ao longo do tempo. Exemplos de tais serviços são ficheiros do Azure NetApp, HSM dedicados, Azure Container Instances, serviço de aplicações. 
 - Opcionalmente, os serviços podem exigir um [delegado sub-rede](virtual-network-manage-subnet.md#add-a-subnet) como um identificador explícito que uma sub-rede pode hospedar um serviço específico. Ao delegar, serviços obtém permissões explícitas para criar recursos específicos do serviço na sub-rede de delegado.
-- Ver um exemplo de uma resposta de REST API num [rede virtual com uma sub-rede de delegado](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get_virtual_network_with_a_delegated_subnet). Uma lista abrangente de serviços que estão a utilizar o modelo de sub-rede delegados pode ser obtida através da [delegações disponíveis](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
+- Ver um exemplo de uma resposta de REST API num [rede virtual com uma sub-rede de delegado](https://docs.microsoft.com/rest/api/virtualnetwork/virtualnetworks/get#get-virtual-network-with-a-delegated-subnet). Uma lista abrangente de serviços que estão a utilizar o modelo de sub-rede delegados pode ser obtida através da [delegações disponíveis](https://docs.microsoft.com/rest/api/virtualnetwork/availabledelegations/list) API.
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>Serviços que podem ser implementados numa rede virtual
 
@@ -51,7 +51,7 @@ Implementação de serviços dentro de uma rede virtual fornece as seguintes cap
 |-|-|-|
 | Computação | Máquinas virtuais: [Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Serviço em nuvem](https://msdn.microsoft.com/library/azure/jj156091): Rede virtual (clássico) apenas<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)| Não <br/> Não <br/> Não <br/> No²
 | Rede | [Gateway de aplicação - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) <br/>[Aplicações virtuais de rede](/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) | Sim <br/> Sim <br/> Sim <br/> Não
-|Dados|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Sim <br/> Sim <br/> 
+|Data|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância gerida da base de dados SQL do Azure](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fazure%2fvirtual-network%2ftoc.json)| Sim <br/> Sim <br/> 
 |Análise | [O Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |No² <br/> No² <br/> 
 | identidade | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) |Não <br/>
 | Contentores | [Serviço Kubernetes do Azure (AKS)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Instância de contentor do Azure (ACI)](https://www.aka.ms/acivnet)<br/>[Motor do serviço de contentor do Azure](https://github.com/Azure/acs-engine) com CNI de rede Virtual do Azure [Plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)|No²<br/> Sim <br/><br/> Não

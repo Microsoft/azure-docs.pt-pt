@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88d83a851ad878ac9ee9b0195816d2ca35e4c13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487270"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839365"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -81,12 +81,12 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |N/D |
+| name |Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
 | type |Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
-| structure |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto de dados](#Structure). |Não |N/D |
-| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#Type). |Sim |N/D |
+| structure |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
+| typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
 | external | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como true. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
-| availability | Define o período de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), diariamente é produzido um setor. <br/><br/>Para obter detalhes, consulte o conjunto de dados disponibilidade. <br/><br/>Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte a [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |N/D |
+| availability | Define o período de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), diariamente é produzido um setor. <br/><br/>Para obter detalhes, consulte o conjunto de dados disponibilidade. <br/><br/>Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte a [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
 | policy |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte a [política de conjunto de dados](#Policy) secção. |Não |ND |
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
@@ -235,8 +235,8 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| frequency |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |N/D |
-| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |N/D |
+| frequency |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |ND |
 | style |Especifica se o setor de deve ser produzido no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definida como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definida como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definida como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definida como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de 1 PM - 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo scheduler para computar os limites de setor de conjunto de dados. <br/><br/>Tenha em atenção que, se esta propriedade tem partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes de minutos e segundos da **anchorDateTime** são ignorados. |Não |01/01/0001 |
 | offset |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/>Observe que, se os dois **anchorDateTime** e **deslocamento** forem especificados, o resultado é a mudança combinada. |Não |ND |
@@ -282,7 +282,7 @@ O **política** secção na definição do conjunto de dados define os critério
 ### <a name="validation-policies"></a>Políticas de validação
 | Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Valida que os dados no **armazenamento de Blobs do Azure** cumpre os requisitos de tamanho mínimo (em megabytes). |Armazenamento de Blobs do Azure |Não |N/D |
+| minimumSizeMB |Valida que os dados no **armazenamento de Blobs do Azure** cumpre os requisitos de tamanho mínimo (em megabytes). |Armazenamento de Blobs do Azure |Não |ND |
 | minimumRows |Valida que os dados num **base de dados SQL do Azure** ou uma **tabelas do Azure** contém o número mínimo de linhas. |<ul><li>Base de dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
 
 #### <a name="examples"></a>Exemplos
@@ -316,7 +316,7 @@ Conjuntos de dados externos são aqueles que não são produzidos por uma execu�
 
 A menos que um conjunto de dados está a ser produzido pela fábrica de dados, deverá ser marcado como **externo**. Esta definição geralmente aplica-se para as entradas da primeira atividade num pipeline, a menos que a atividade ou o encadeamento de pipeline está a ser utilizado.
 
-| Name | Descrição | Necessário | Valor predefinido |
+| Nome | Descrição | Necessário | Valor predefinido |
 | --- | --- | --- | --- |
 | dataDelay |O tempo para atrasar a verificação da disponibilidade dos dados externos para o determinado setor. Por exemplo, pode atrasar uma verificação de hora a hora, utilize esta definição.<br/><br/>A definição só se aplica a hora presente. Por exemplo, caso seja 1 que, neste momento, e este valor é 10 minutos, a validação começa em 1:10 PM.<br/><br/>Tenha em atenção que esta definição não afeta setores no passado. Reparte com **hora de fim do setor** + **dataDelay** < **agora** são processadas sem demora.<br/><br/>Vezes maior do que 23:59 horas devem ser especificadas utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar a 24 horas, a não utilize 24: 00:00. Em alternativa, utilize 1.00:00:00. Se usar 24: 00:00, ela é tratada como 24 dias (24.00:00:00). Para 1 dia e quatro horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e da próxima tentativa. Esta definição aplica-se a hora atual. Se o anterior tentar com falha, repita seguinte é depois do **retryInterval** período. <br/><br/>Se for 1 que, neste momento, começamos a primeira tentativa. Se a duração para concluir a primeira verificação de validação é de 1 minuto e a operação falhou, a próxima repetição é em 1:00 + 1 min (duração) + 1min (intervalo de repetições) = 1:02 PM. <br/><br/>Para setores no passado, não existe nenhum atraso. A nova tentativa ocorre imediatamente. |Não |01: 00:00 (1 minuto) |
@@ -328,7 +328,6 @@ A menos que um conjunto de dados está a ser produzido pela fábrica de dados, d
 Pode criar conjuntos de dados ao utilizar uma destas ferramentas ou SDKs:
 
 - Assistente de Cópia
-- Portal do Azure
 - Visual Studio
 - PowerShell
 - Modelo Azure Resource Manager

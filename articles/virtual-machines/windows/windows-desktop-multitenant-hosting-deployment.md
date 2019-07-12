@@ -4,7 +4,7 @@ description: Saiba como maximizar os benefícios do Windows Software Assurance p
 services: virtual-machines-windows
 documentationcenter: ''
 author: xujing
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b99ae2abdc4e062588174b6d945b6592ae8e58ed
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485491"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707859"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento multi-inquilino 
 Para os clientes com Windows 10 Enterprise E3/E5 por usuário ou o Windows Virtual Desktop Access por utilizador (licenças de subscrição de utilizador ou licenças de subscrição de utilizador do suplemento), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe reunir as suas licenças do Windows 10 para a cloud e executar máquinas virtuais do Windows 10 no Azure sem ter de adquirir outra licença. Para obter mais informações, consulte [alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -33,7 +33,7 @@ Para os clientes com Windows 10 Enterprise E3/E5 por usuário ou o Windows Virtu
 ## <a name="deploying-windows-10-image-from-azure-marketplace"></a>Implementar a imagem do Windows 10 no Azure Marketplace 
 Para implementações de modelo do Powershell, CLI e do Azure Resource Manager, a imagem do Windows 10 pode ser encontrada com a seguinte publishername, oferta, sku.
 
-| SO  |      Nome do Editor      |  Oferta | Sku |
+| OS  |      Nome do Editor      |  Oferta | Sku |
 |:----------|:-------------:|:------|:------|
 | Windows 10 Pro    | MicrosoftWindowsDesktop | Windows-10  | RS2-Pro   |
 | Windows 10 Pro N  | MicrosoftWindowsDesktop | Windows-10  | RS2-ProN  |

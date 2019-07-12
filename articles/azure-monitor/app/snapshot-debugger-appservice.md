@@ -11,13 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
-ms.author: brahmnes
-ms.openlocfilehash: cf06c7c21d30fb107baee0d43b33b221c7da2773
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: bfung
+ms.openlocfilehash: 3e8ce3c2eff7b1f7184bb37f141e62563d4fe714
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439858"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612687"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o depurador de instantâneos para aplicações de .NET no serviço de aplicações do Azure
 

@@ -4,7 +4,7 @@ description: Saiba como resolver problemas de máquina virtual do Windows no Azu
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0569878d61ce83c4847867378d8e68fe0faa59b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320928"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709401"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM do Windows ao anexar o disco do SO a uma VM de recuperação com o portal do Azure
 Se a sua máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma atualização de aplicação com falhas que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM do Windows para corrigir quaisquer erros, em seguida, voltar a criar a VM original.

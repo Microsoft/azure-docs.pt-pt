@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c003ebaed645fcdefb379eb100220ccc2207d82
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 0d9019a6b4a32066480a70f72562bc5a7a9a1e8b
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202982"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797638"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas de ML de experimentações no Python
 
@@ -40,7 +40,7 @@ Se preferir uma experiência sem código, também pode [criar sua automatizada e
 
 Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta tipos de tarefa de classificação, regressão e previsão.
 
-Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo. Embora os algoritmos DNN estejam disponíveis durante o treinamento, ML automatizado não criar modelos DNN.
+Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo. 
 
 Classificação | Regressão | Previsão de série temporal
 |-- |-- |--
@@ -372,7 +372,7 @@ Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver 
 
    Em que:
 
-   |Saída|Definição|
+   |Output|Definição|
    |----|--------|
    |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
    |TypeDetected|Tipo de dados detetado da funcionalidade de entrada.|

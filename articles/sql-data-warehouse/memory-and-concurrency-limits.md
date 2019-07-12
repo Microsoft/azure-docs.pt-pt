@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241272"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595567"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de memória e simultaneidade para o Azure SQL Data Warehouse
 Ver os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse. Para obter mais informações e para aplicar estas capacidades ao seu plano de gestão da carga de trabalho, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md). 
@@ -174,7 +174,7 @@ A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simult
 
 Quando for cumprida uma nesses limiares, novas consultas são colocados em fila e executadas numa base first in, First Out.  Como um consultas é concluído e o número de consultas e ranhuras fique abaixo dos limites, o SQL Data Warehouse versões consultas em fila. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como tirar partido das classes de recursos para otimizar ainda mais a carga de trabalho, reveja os artigos seguintes:
 * [Classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md)

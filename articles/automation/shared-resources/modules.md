@@ -3,18 +3,17 @@ title: Gerir módulos na automatização do Azure
 description: Este artigo descreve como gerir módulos na automatização do Azure
 services: automation
 ms.service: automation
-ms.subservice: shared-resources
 author: bobbytreed
 ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 69817d1412aa13d0e7983aa3ad27c15e59185432
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: cd085164fc9804e0c1c822df1c72d3ef94093a07
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478161"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672791"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerir módulos na automatização do Azure
 
@@ -71,7 +70,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 Segue-se uma lista dos cmdlets no interno `Orchestrator.AssetManagement.Cmdlets` módulo é importado para cada conta de automatização. Estes cmdlets estão acessíveis nos seus runbooks e configurações de DSC e permitem-lhe interagir com os seus ativos na sua conta de automatização. Além disso, os cmdlets internos permitem-lhe obter segredos a partir encriptados **variável** valores, **credenciais**e criptografado **ligação** campos. Os cmdlets do PowerShell do Azure não é possível obter estes segredos. Estes cmdlets não requerem implicitamente ligar para o Azure, ao usá-los. Isso é benéfico para cenários em que tem uma ligação, como uma conta Run As que tem de utilizar para autenticar para o Azure.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

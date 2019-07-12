@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1e30490dbd51f541afd0b7036769cfc638a75877
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79446e6676a35a1b51e5e0839eb539d730b499da
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514374"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807122"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>API de v2 de Monitor de estado: Enable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-enable-instrumentationengine-v040-alpha"></a>API de v2 de Monitor de estado: Enable-InstrumentationEngine (v0.4.0-alpha)
 
 Este artigo descreve um cmdlet que faz parte do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -61,7 +61,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="-verbose"></a>-Verbose
 **Parâmetro comum.** Utilize este parâmetro para a saída de registos detalhados.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exemplo da saída da ativar com êxito o mecanismo de instrumentação

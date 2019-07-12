@@ -4,7 +4,7 @@ description: Saiba mais sobre o suporte de pré-visualização para o tamanho VM
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809876"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797557"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Descrição geral de máquina virtual de série HC
 
@@ -31,7 +31,7 @@ A topologia acima apresenta para a configuração de Hipervisor de HC series tam
 
 A VM não tem conhecimento que pCores 0-1 e 24 e 25 não estavam tendo em conta a ele. Portanto, ele expõe cada vNUMA como se ele tivesse nativamente 22 núcleos.
 
-Intel Xeon Platinum, Gold e Silver CPUs também introduzem uma rede de malha 2D-die para comunicação dentro e externo para o socket de CPU. Recomendamos vivamente a afixação de processo para otimizar o desempenho e consistência. A afixação de processo irá funcionar em VMs de série HC porque silicone subjacente é exposta como-é a VM do convidado. Obter mais informações sobre a arquitetura do Intel Xeon SP em: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold e Silver CPUs também introduzem uma rede de malha 2D-die para comunicação dentro e externo para o socket de CPU. Recomendamos vivamente a afixação de processo para otimizar o desempenho e consistência. A afixação de processo irá funcionar em VMs de série HC porque silicone subjacente é exposta como-é a VM do convidado. Para obter mais informações, consulte [arquitetura Intel Xeon SP](https://bit.ly/2RCYkiE).
 
 O diagrama seguinte mostra a diferenciação de núcleos reservados para o hipervisor do Azure e a VM de série HC.
 

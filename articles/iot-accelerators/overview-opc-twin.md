@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730264"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603634"
 ---
 # <a name="what-is-opc-twin"></a>O que é duplo de OPC?
 
@@ -28,7 +28,7 @@ Duplo de OPC permite que os operadores de fábrica analisar a rede de fábrica, 
 ### <a name="simple-control"></a>Controle simples
 Duplo de OPC permite que os operadores de fábrica reagir a eventos e reconfigurar suas máquinas do chão de fábrica da cloud, automática ou manualmente, sem perder tempo. Duplo de OPC fornece APIs REST para chamar os serviços no servidor OPC UA, navegue também o seu espaço de endereços em relação às variáveis de leitura/escrita e executar métodos. Por exemplo, um boiler utiliza temperatura KPI para controlar a linha de produção. O sensor de temperatura publica a alteração nos dados com o publicador OPC. O operador de fábrica recebe o alerta que a temperatura atingiu o limiar. A linha de produção arrefece automaticamente através do OPC duplo. O operador de fábrica é notificado o interessantes para baixo.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 Pode usar o duplo de OPC para simples para autenticação e para uma experiência de programação simples.
 
 ### <a name="simple-authentication"></a>Autenticação simples 

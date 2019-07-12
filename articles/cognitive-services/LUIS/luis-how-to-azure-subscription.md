@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
-ms.openlocfilehash: 7f82bf5a40df0554d4f98b2d835fcbd69279be43
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: dedc498ebc910b448b1684136c288b2045780e00
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204148"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797960"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
@@ -32,6 +32,8 @@ Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os s
 
 Criar a [recurso de ponto final de predição](get-started-portal-deploy-app.md#create-the-endpoint-resource) no portal do Azure. Este recurso só deve ser utilizado para consultas de previsão de ponto final. Não utilize este recurso para criação de alterações para a aplicação.
 
+Pode criar um recurso de compreensão de idiomas ou um recurso dos serviços cognitivos. Se estiver a criar um recurso de compreensão de idiomas, é uma boa prática postpend o tipo de recurso para o nome do recurso. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -45,6 +47,15 @@ Criar a [recurso de ponto final de predição](get-started-portal-deploy-app.md#
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>Usando o recurso a partir do portal de LUIS
+
+Se estiver a utilizar o recurso a partir do portal do LUIS, não é necessário saber a sua chave e a localização. Em vez disso, precisa saber o seu inquilino de recursos, a subscrição e o nome do recurso.
+
+Uma vez que [atribua](#assign-resource-key-to-luis-app-in-luis-portal) seu recurso à sua aplicação do LUIS no portal do LUIS, a chave e a localização são fornecidos como parte do URL de ponto final de predição de consulta da secção Gerir **chaves e ponto final definições** página.
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>Usando o recurso da REST API ou SDK
+
+Se estiver a utilizar o recurso do REST API(s) ou SDK, precisa saber a sua chave e a localização. Estas informações são fornecidas como parte do URL de ponto final de predição de consulta da secção Gerir **chaves e ponto final definições** página, bem como no portal do Azure, nas páginas de descrição geral e chaves do recurso.
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir a chave de recurso a aplicação do LUIS no Portal do LUIS
 

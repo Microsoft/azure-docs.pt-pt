@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184240"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671410"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize as ferramentas de automatização de infraestrutura com máquinas virtuais no Azure
 Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à escala, alguma forma de automatização é normalmente pretende-se. Existem muitas ferramentas e soluções que permitem-lhe automatizar a implementação de toda a infraestrutura do Azure e o ciclo de vida de gestão. Este artigo apresenta algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Essas ferramentas normalmente se adaptam a uma das abordagens seguintes:
@@ -45,7 +45,7 @@ Aprenda a:
 
 
 ## <a name="puppet"></a>Puppet
-[Puppet](https://www.puppet.com) é uma plataforma de automação de prontas para empresas que lide com o processo de entrega e a implementação de aplicação. Agentes são instalados nos computadores de destino para permitir que o mestre de Puppet para executar manifestos que definem a configuração pretendida para a infraestrutura do Azure e VMs. Puppet pode integrar com outras soluções, como Jenkins e o GitHub para um fluxo de trabalho do devops melhorada. Para obter mais informações, consulte [funciona como a Puppet](https://puppet.com/product/how-puppet-works).
+[Puppet](https://www.puppet.com) é uma plataforma de automação de prontas para empresas que lide com o processo de entrega e a implementação de aplicação. Agentes são instalados nos computadores de destino para permitir que o mestre de Puppet para executar manifestos que definem a configuração pretendida para a infraestrutura do Azure e VMs. Puppet pode integrar com outras soluções, como Jenkins e o GitHub para um fluxo de trabalho do devops melhorada. Para obter mais informações, consulte [funciona como a Puppet](https://puppet.com/products/how-puppet-works).
 
 Aprenda a:
 
@@ -53,7 +53,7 @@ Aprenda a:
 
 
 ## <a name="cloud-init"></a>Inicialização da cloud
-[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Porque o cloud-init é chamado durante o processo de inicialização inicial, não são passos adicionais ou agentes necessários a aplicar a configuração.  Para obter mais informações sobre como formatar corretamente sua `#cloud-config` arquivos, consulte a [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os arquivos são arquivos de texto codificados em base64.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Porque o cloud-init é chamado durante o processo de inicialização inicial, não são passos adicionais ou agentes necessários a aplicar a configuração.  Para obter mais informações sobre como formatar corretamente sua `#cloud-config` arquivos, consulte a [site de documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os arquivos são arquivos de texto codificados em base64.
 
 O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
