@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591531"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607285"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -54,7 +54,7 @@ Em máquinas de virtuais do Azure pode licenciar o SQL Server usando a opção p
 
 Com o licenciamento PAYG, uma instância de cluster de ativação pós-falha (FCI) do SQL Server em máquinas de virtuais do Azure leva a custos de todos os nós da FCI, incluindo os nós passivos. Para obter mais informações, consulte [preços de máquinas virtuais do SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Os clientes com contrato Enterprise com Software Assurance tem o direito de utilizar um nó FCI passivo livre para cada nó ativo. Para tirar partido deste benefício no Azure, utilizar imagens de BYOL VM e, em seguida, utilize a mesma licença em ambos os nós ativos e passivos da FCI. Para obter mais informações, consulte [contrato Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Os clientes com contrato Enterprise com Software Assurance tem o direito de utilizar um nó FCI passivo livre para cada nó ativo. Para tirar partido deste benefício no Azure, utilizar imagens de BYOL VM e, em seguida, utilize a mesma licença em ambos os nós ativos e passivos da FCI. Para obter mais informações, consulte [contrato Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Licenciamento do SQL Server em Azure Virtual Machines Consulte para comparar PAYG e BYOL [introdução às SQL VMs](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 

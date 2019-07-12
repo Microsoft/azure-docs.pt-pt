@@ -2,21 +2,21 @@
 title: Principais de serviço do Azure Kubernetes Services (AKS)
 description: Criar e gerir um principal de serviço do Azure Active Directory para um cluster no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
-ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066794"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615113"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
-Para interagir com as APIs do Azure, os clusters do AKS requerem um [principal de serviço do Azure Active Directory (AD)][aad-service-principal]. O principal de serviço é necessário para criar e gerir dinamicamente outros recursos do Azure como um balanceador de carga ou registo de contentor do Azure (ACR).
+Para interagir com APIs do Azure, um cluster do AKS requer um [principal de serviço do Azure Active Directory (AD)][aad-service-principal]. O principal de serviço é necessário para criar e gerir dinamicamente outros recursos do Azure como um balanceador de carga ou registo de contentor do Azure (ACR).
 
 Este artigo mostra como criar e utilizar um principal de serviço para os seus clusters do AKS.
 
@@ -30,7 +30,7 @@ Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e confi
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e utilizar um principal de serviço automaticamente
 
-Quando criar um cluster do AKS no portal do Azure ou com o comando [az aks create][az-aks-create], o Azure pode gerar automaticamente um principal de serviço.
+Quando cria um cluster do AKS no Azure portal ou utilizando o [az aks criar][az-aks-create] comando, o Azure pode gerar automaticamente um principal de serviço.
 
 No exemplo seguinte da CLI do Azure, não está especificado nenhum principal de serviço. Neste cenário, a CLI do Azure cria um principal de serviço para o cluster do AKS. Para concluir esta operação com êxito, a sua conta do Azure tem de ter os direitos adequados para criar um principal de serviço.
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>Criar um principal de serviço manualmente
 
-Para criar manualmente um principal de serviço com a CLI do Azure, utilize o comando [az ad sp create-for-rbac][az-ad-sp-create]. No exemplo a seguir, o parâmetro `--skip-assignment` impede que sejam atribuídas atribuições predefinidas adicionais:
+Para criar manualmente um principal de serviço com a CLI do Azure, utilize o [az ad sp create-for-rbac][az-ad-sp-create] comando. No exemplo a seguir, o parâmetro `--skip-assignment` impede que sejam atribuídas atribuições predefinidas adicionais:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do seu `appId` e `pa
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Especificar um principal de serviço para um cluster do AKS
 
-Para utilizar um principal de serviço existente quando criar um cluster do AKS com o comando [az aks create][az-aks-create], utilize os parâmetros `--service-principal` e `--client-secret` para especificar `appId` e `password` no resultado do comando [az ad sp create-for-rbac][az-ad-sp-create]:
+Para utilizar um principal de serviço existente quando criar um cluster do AKS com o [criar az aks][az-aks-create] comando, utilize o `--service-principal` e `--client-secret` parâmetros para especificar o `appId` e `password` da saída do [az ad sp create-for-rbac][az-ad-sp-create] comando:
 
 ```azurecli-interactive
 az aks create \
@@ -81,7 +81,7 @@ Se implementar um cluster do AKS com o portal do Azure, na página *Autenticaç�
 
 O principal de serviço para o cluster do AKS pode ser utilizado para aceder a outros recursos. Por exemplo, se pretender implementar o seu cluster do AKS para uma sub-rede de rede virtual do Azure existente ou ligar para o Azure Container Registry (ACR), terá de delegar o acesso a esses recursos para o principal de serviço.
 
-Delegar permissões, criar uma atribuição de função com o [criação da atribuição de função de az] [ az-role-assignment-create] comando. Atribuir o `appId` a um âmbito específico, tal como um grupo de recursos ou recurso de rede virtual. Uma função, em seguida, define quais as permissões que o principal de serviço tem no recurso, conforme mostrado no exemplo a seguir:
+Delegar permissões, criar uma atribuição de função com o [criação da atribuição de função de az][az-role-assignment-create] comando. Atribuir o `appId` a um âmbito específico, tal como um grupo de recursos ou recurso de rede virtual. Uma função, em seguida, define quais as permissões que o principal de serviço tem no recurso, conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -99,23 +99,23 @@ Se utilizar o Azure Container Registry (ACR) como arquivo de imagem de contentor
 
 Pode utilizar as redes avançados em que a rede virtual e sub-rede ou endereços IP públicos são outro grupo de recursos. Atribua um conjunto de permissões de função seguinte:
 
-- Criar uma [função personalizada] [ rbac-custom-role] e definir as seguintes permissões de função:
+- Criar uma [função personalizada][rbac-custom-role] e definir as seguintes permissões de função:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- Ou, atribuir os [contribuinte de rede] [ rbac-network-contributor] função incorporada na sub-rede na rede virtual
+- Ou, atribuir os [contribuinte de rede][rbac-network-contributor] função incorporada na sub-rede na rede virtual
 
 ### <a name="storage"></a>Armazenamento
 
 Terá de aceder aos recursos de disco existentes noutro grupo de recursos. Atribua um conjunto de permissões de função seguinte:
 
-- Criar uma [função personalizada] [ rbac-custom-role] e definir as seguintes permissões de função:
+- Criar uma [função personalizada][rbac-custom-role] e definir as seguintes permissões de função:
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- Ou, atribuir os [contribuinte de conta de armazenamento] [ rbac-storage-contributor] função incorporada no grupo de recursos
+- Ou, atribuir os [contribuinte de conta de armazenamento][rbac-storage-contributor] função incorporada no grupo de recursos
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -126,12 +126,12 @@ Se usar o Virtual Kubelet para integrar com o AKS e optar por executar o Azure C
 Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em atenção as seguintes considerações.
 
 - O principal de serviço para Kubernetes faz parte da configuração do cluster. No entanto, não utilize a identidade para implementar o cluster.
-- Por predefinição, as credenciais do principal de serviço são válidas durante um ano. Pode [atualizar ou rodar as credenciais do principal de serviço] [ update-credentials] em qualquer altura.
+- Por predefinição, as credenciais do principal de serviço são válidas durante um ano. Pode [atualizar ou rodar as credenciais do principal de serviço][update-credentials] em qualquer altura.
 - Cada principal de serviço está associado a uma aplicação do Azure AD. O principal de serviço de um cluster do Kubernetes pode ser associado a qualquer nome de aplicação do Microsoft Azure AD válido (por exemplo: *https://www.contoso.org/example* ). O URL para a aplicação não tem de ser um ponto final real.
 - Quando especificar o **ID de Cliente** do principal de serviço, utilize o valor de `appId`.
 - No nó de agente VMs no cluster de Kubernetes, as credenciais do principal de serviço são armazenadas no arquivo. `/etc/kubernetes/azure.json`
-- Quando utilizar o comando [az aks create][az-aks-create] para gerar automaticamente o principal de serviço, as credenciais do principal de serviço são escritas no ficheiro `~/.azure/aksServicePrincipal.json` no computador utilizado para executar o comando.
-- Ao eliminar um cluster do AKS que tenha sido criado pelo [az aks create][az-aks-create], o principal de serviço que foi criado automaticamente não é eliminado.
+- Quando utiliza a [criar az aks][az-aks-create] comandos para gerar o principal de serviço automaticamente, o serviço de credenciais do principal são escritas no ficheiro `~/.azure/aksServicePrincipal.json` na máquina utilizada para executar o comando.
+- Ao eliminar um cluster do AKS que foi criado pelo [az aks criar][az-aks-create], o principal de serviço que foi criado automaticamente não é eliminado.
     - Para eliminar o principal de serviço, de consulta para o seu cluster *servicePrincipalProfile.clientId* e, em seguida, elimine com [eliminação do az ad app][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos com seus próprios valores:
 
         ```azurecli
@@ -140,7 +140,7 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
-As credenciais do principal de serviço para um cluster do AKS são colocadas em cache pela CLI do Azure. Se estas credenciais tiverem expirado, encontrar erros ao implementar clusters do AKS. A seguinte mensagem de erro quando em execução [criar az aks] [ az-aks-create] pode indicar um problema com as credenciais do principal de serviço em cache:
+As credenciais do principal de serviço para um cluster do AKS são colocadas em cache pela CLI do Azure. Se estas credenciais tiverem expirado, encontrar erros ao implementar clusters do AKS. A seguinte mensagem de erro quando em execução [az aks criar][az-aks-create] pode indicar um problema com as credenciais do principal de serviço em cache:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -156,7 +156,7 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 A hora de expiração predefinida para as credenciais do principal de serviço é um ano. Se sua *aksServicePrincipal.json* ficheiro é mais antigo do que um ano, elimine o ficheiro e tente implementar novamente um cluster do AKS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre principais de serviço do Azure Active Directory, consulte [aplicativos e objetos de principal de serviço][service-principal].
 

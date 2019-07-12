@@ -1,17 +1,17 @@
 ---
 title: Monitorização na base de dados do Azure para MariaDB
 description: Este artigo descreve as métricas de monitorização e alertas para base de dados do Azure para MariaDB, incluindo as estatísticas de CPU, armazenamento e conexão.
-author: andrela
-ms.author: ajlam
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 8625441f836256028362fc327873383f5b46620c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fb998edffed290bb7bc59945163f0fd48c55cbf5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065733"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612530"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na base de dados do Azure para MariaDB
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MariaDB fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
@@ -26,12 +26,12 @@ Estas métricas estão disponíveis para a base de dados do Azure para MariaDB:
 
 |Métrica|Nome a apresentar de métrica|Unidade|Descrição|
 |---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|A percentagem de CPU em utilização.|
-|memory_percent|Percentagem de memória|Percentagem|A percentagem de memória em utilização.|
-|io_consumption_percent|Percentagem de e/s|Percentagem|A percentagem de e/s em utilização.|
-|storage_percent|Percentagem de armazenamento|Percentagem|A percentagem de armazenamento utilizado fora do servidor 's máxima.|
+|cpu_percent|Percentagem de CPU|Percent|A percentagem de CPU em utilização.|
+|memory_percent|Percentagem de memória|Percent|A percentagem de memória em utilização.|
+|io_consumption_percent|Percentagem de e/s|Percent|A percentagem de e/s em utilização.|
+|storage_percent|Percentagem de armazenamento|Percent|A percentagem de armazenamento utilizado fora do servidor 's máxima.|
 |storage_used|Armazenamento utilizado|Bytes|A quantidade de armazenamento em utilização. O armazenamento utilizado pelo serviço pode incluir os ficheiros de base de dados, registos de transações e os registos do servidor.|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percent|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|

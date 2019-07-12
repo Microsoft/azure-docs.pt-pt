@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4658de97bc8b8a175934286a5be3f074968ff7bd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485368"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653516"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "simples" no Azure Search
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exemplo 3: Consultas de filtro
 
-[Sintaxe de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) é uma expressão de OData que pode utilizar com **pesquisa** ou por si só. Um filtro de autónoma, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar completamente a documentos de interesse. Sem uma cadeia de consulta, significa que não existe nenhuma análise lexical ou linguística, nenhuma classificação (todas as pontuações são 1) e nenhuma classificação. Tenha em atenção que a cadeia de pesquisa está vazia.
+[Sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão de OData que pode utilizar com **pesquisa** ou por si só. Um filtro de autónoma, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar completamente a documentos de interesse. Sem uma cadeia de consulta, significa que não existe nenhuma análise lexical ou linguística, nenhuma classificação (todas as pontuações são 1) e nenhuma classificação. Tenha em atenção que a cadeia de pesquisa está vazia.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Outra forma poderosa de combinar filtrar e pesquisar é através de **`search.is
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Para obter mais informações sobre a função, veja [search.ismatch "Exemplos de filtro"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Para obter mais informações sobre a função, veja [search.ismatch "Exemplos de filtro"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Exemplo 4: Filtros de intervalo
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Exemplo 5: Pesquisa geográfica
 
-O índice de exemplo inclui um campo de geo_location com coordenadas de latitude e longitude. Este exemplo utiliza a [geo.distance função](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) que filtros em documentos dentro da circunferência do ponto de partida, fora a uma distância arbitrária (em quilômetros), que fornece. Pode ajustar o último valor na consulta (4) para reduzir ou ampliar a área de superfície da consulta.
+O índice de exemplo inclui um campo de geo_location com coordenadas de latitude e longitude. Este exemplo utiliza a [geo.distance função](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtros em documentos dentro da circunferência do ponto de partida, fora a uma distância arbitrária (em quilômetros), que fornece. Pode ajustar o último valor na consulta (4) para reduzir ou ampliar a área de superfície da consulta.
 
 O exemplo a seguir está no formato de mensagem para melhorar a legibilidade:
 
@@ -285,7 +285,7 @@ Para obter o próximo 5, ignore o primeiro batch:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,agency,business_title,civil_service_title,work_location,job_description&search="fire department"&$orderby=civil_service_title&$top=5&$skip=5
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Tente especificar consultas no seu código. As ligações seguintes explicam como configurar a consultas de pesquisa para o .NET e a API de REST com a sintaxe simples predefinido.
 
 * [Consultar o índice da Azure Search utilizando o SDK .NET](search-query-dotnet.md)

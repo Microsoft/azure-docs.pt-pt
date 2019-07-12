@@ -4,7 +4,7 @@ description: Guia para configuração de múltiplos SID SAP NetWeaver de elevada
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dadbfb138fb9e3e77cee265c008524b9c424a5dd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153856"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709627"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de múltiplos SID SAP NetWeaver
 
@@ -447,7 +447,7 @@ ms.locfileid: "66153856"
 
 Em Setembro de 2016, a Microsoft lançou um recurso onde pode gerir vários endereços IP virtuais utilizando uma [Balanceador de carga interno do Azure][load-balancer-multivip-overview]. Esta funcionalidade já existe no balanceador de carga externo do Azure.
 
-Se tiver uma implementação de SAP, pode utilizar um balanceador de carga interno para criar uma configuração de cluster do Windows para o SAP ASCS/SCS, conforme documentado no [guia de elevada disponibilidade SAP NetWeaver em VMs do Windows] [ sap-ha-guide].
+Se tiver uma implementação de SAP, pode utilizar um balanceador de carga interno para criar uma configuração de cluster do Windows para o SAP ASCS/SCS, conforme documentado no [guia de elevada disponibilidade SAP NetWeaver em VMs do Windows][sap-ha-guide].
 
 Este artigo se concentra em como mover de uma única instalação ASCS/SCS a uma configuração de múltiplos SID SAP, ao instalar instâncias adicionais do SAP ASCS/SCS em cluster para um cluster de Clustering de ativação pós-falha de servidor ao Windows ' (WSFC) existente. Quando esse processo é concluído, terá configurado um cluster de múltiplos SID SAP.
 
@@ -457,7 +457,7 @@ Este artigo se concentra em como mover de uma única instalação ASCS/SCS a uma
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Já configurou um cluster WSFC que é utilizado para uma instância do SAP ASCS/SCS, tal como explicado no [guia de elevada disponibilidade SAP NetWeaver em VMs do Windows] [ sap-ha-guide] e conforme mostrado neste diagrama.
+Já configurou um cluster WSFC que é utilizado para uma instância do SAP ASCS/SCS, tal como explicado no [guia de elevada disponibilidade SAP NetWeaver em VMs do Windows][sap-ha-guide] e conforme mostrado neste diagrama.
 
 ![Instância do SAP ASCS/SCS de elevada disponibilidade][sap-ha-guide-figure-6001]
 
@@ -489,7 +489,7 @@ O cenário completo com dois sistemas SAP de elevada disponibilidade teria o seg
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 Para preparar a infraestrutura, pode instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
-| Nome do parâmetro | Value |
+| Nome do parâmetro | Valor |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | Balanceador de carga interno do SAP DBMS | PR5 |
@@ -662,9 +662,9 @@ O procedimento de alto nível é o seguinte:
 
 7. [Alterar o tipo de início da instância de serviço Windows do SAP ERS][sap-ha-guide-9.4].
 
-8. [Instalar o servidor de principal da aplicação SAP] [ sap-ha-guide-9.5] no novo dedicado a VM.
+8. [Instalar o servidor de principal da aplicação SAP][sap-ha-guide-9.5] no novo dedicado a VM.
 
-9. [Instalar o servidor de aplicações adicionais do SAP] [ sap-ha-guide-9.6] no novo dedicado a VM.
+9. [Instalar o servidor de aplicações adicionais do SAP][sap-ha-guide-9.6] no novo dedicado a VM.
 
 10. [Testar a ativação pós-falha de instância do SAP ASCS/SCS e os replicação SIOS][sap-ha-guide-10].
 

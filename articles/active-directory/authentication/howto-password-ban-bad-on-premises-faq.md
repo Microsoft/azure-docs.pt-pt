@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917668"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702900"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917668"
 
 Documentação de orientação atual da Microsoft sobre esse tópico pode ser encontrada na seguinte hiperligação:
 
-[Orientações de palavra-passe do Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Orientações de palavra-passe do Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
 **P: É no local suportada em nuvens não pública de proteção de palavra-passe do Azure AD?**
 
@@ -43,6 +43,10 @@ Uma alteração de palavra-passe é quando o utilizador seleciona uma nova palav
 Um conjunto de palavra-passe (por vezes denominado uma reposição de palavra-passe) é quando um administrador substitui a palavra-passe numa conta com uma nova palavra-passe, por exemplo, utilizando a ferramenta de gerenciamento do Active Directory utilizadores e computadores. Esta operação requer um alto nível de privilégio (normalmente, o administrador de domínio) e a pessoa que efetua a operação, normalmente, não tem conhecimento da palavra-passe antiga. Cenários de assistência técnica, muitas vezes, fazem-lo, por exemplo quando um usuário que esqueceu a palavra-passe a prestar assistência. Também poderá ver a palavra-passe definida eventos quando uma nova conta de utilizador está a ser criada pela primeira vez com uma palavra-passe.
 
 A política de validação da palavra-passe se comporta iguais, independentemente de se está a ser feito uma alteração de palavra-passe ou um conjunto. O serviço de agente do Azure AD palavra-passe DC de proteção de registrar eventos diferentes para o informar se uma alteração de palavra-passe ou a operação de definição foi feita.  Ver [proteção de palavra-passe do Azure AD, monitorização e registo](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**P: Por que os eventos de rejeição de palavra-passe duplicados registados durante a tentativa de definir uma palavra-passe fraca estão usando o Active Directory utilizadores e computadores do snap-in Gestão?**
+
+O snap-in Gestão de computadores e utilizadores do Active Directory irão tentar primeiro definir a nova palavra-passe utilizando o protocolo Kerberos. Após uma falha no snap-in fará com que uma segunda tentativa de definir a palavra-passe a utilizar um protocolo de (SAM RPC) legado (os protocolos específicos utilizados não são importantes). Se a nova palavra-passe é considerado um fraco proteção de palavra-passe do Azure AD, tal resultará em dois conjuntos de eventos de rejeição de reposição de palavra-passe que está a ser registados.
 
 **P: É possível para instalar a proteção de palavra-passe do Azure AD lado a lado com outros produtos baseados em palavra-passe-filtro?**
 

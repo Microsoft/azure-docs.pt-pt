@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: e4b9f31425c5029cdeb991fbdcdb7ae4a5c749c9
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704752"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798146"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Guia de introdução do projeto Acoustics Unreal/Wwise
 Neste início rápido, irá experimentar projeto Acoustics controles de design usando o conteúdo de exemplo fornecido para o Unreal Engine e Wwise.
@@ -57,7 +57,9 @@ O projeto Acoustics Unreal Plug-in requer comportamento adicional seja exposto a
 ### <a name="open-the-unreal-project"></a>Abra o projeto Unreal. 
 Ele irá pedir-lhe para reconstruir módulos; Clique em Sim.
 
-Se abrir o projeto falhar em falhas de compilação, verifique se instalou o plug-in do projeto Acoustics Wwise para a mesma versão do Wwise utilizada no projeto de exemplo de projeto Acoustics.
+>Se abrir o projeto falhar em falhas de compilação, verifique se instalou o plug-in do projeto Acoustics Wwise para a mesma versão do Wwise utilizada no projeto de exemplo de projeto Acoustics.
+
+>Se não utilizar [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, terá de voltar a gerar bancos som antes de áudio reproduzirá no projeto de exemplo.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimente com controles de design de projeto Acoustics
 Ouça a forma como a cena parece clicando no botão de reprodução no editor de Unreal. Na área de trabalho, utilize W, S, D e o mouse para mover-se. Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Aqui estão algumas atividades de design para experimentar:

@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: ebd60607f9a24074e0fa985973dfc35674f0d66c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788228"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838428"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Tutorial: Partilhar os seus dados com a pré-visualização de partilha de dados do Azure
 
@@ -29,6 +29,8 @@ Neste tutorial, ficará a saber como:
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta de armazenamento do Azure: Se ainda não tiver uma, pode criar um [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Permissão para adicionar a atribuição de função para a conta de armazenamento, o que está presente no *Microsoft.Authorization/role atribuições/gravação* permissão. Esta permissão existe na função de proprietário. 
+* Seu endereço de email de início de sessão do Azure destinatários (usando o alias de email não irá funcionar).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 

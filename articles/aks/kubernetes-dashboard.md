@@ -2,17 +2,17 @@
 title: Gerir um cluster do serviço Kubernetes do Azure com o dashboard de web
 description: Saiba como utilizar o dashboard de interface do Usuário de web do Kubernetes incorporado para gerir um cluster do Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: twhitney
-ms.openlocfilehash: 80c0bd630ba2263696b72b003e27c53f1e457704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0de2f285b5eca88a098a2d7cfe1608ad2f0db71b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304533"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615229"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceder ao dashboard de web do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e confi
 
 ## <a name="start-the-kubernetes-dashboard"></a>Iniciar o dashboard do Kubernetes
 
-Para iniciar o dashboard do Kubernetes, utilize o [procurar az aks] [ az-aks-browse] comando. O exemplo seguinte abre o dashboard para o cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*:
+Para iniciar o dashboard do Kubernetes, utilize o [az aks procurar][az-aks-browse] comando. O exemplo seguinte abre o dashboard para o cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -42,7 +42,7 @@ Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kuberne
 
 Se o seu cluster do AKS utiliza o RBAC, um *ClusterRoleBinding* tem de ser criado antes de poder aceder corretamente o dashboard. Por predefinição, o dashboard do Kubernetes é implementado com um mínimo de acesso de leitura e mostra os erros de acesso RBAC. O dashboard do Kubernetes não suporta atualmente as credenciais fornecidas pelo usuário para determinar o nível de acesso, em vez disso, ele usa as funções concedidas à conta de serviço. Um administrador de cluster pode optar por conceder o acesso adicional para o *dashboard do kubernetes* conta, de serviço, no entanto, isso pode ser um vetor de escalamento de privilégios. Também pode integrar a autenticação do Azure Active Directory para fornecer um nível mais granular de acesso.
 
-Para criar uma ligação, utilize o [kubectl criar clusterrolebinding] [ kubectl-create-clusterrolebinding] comando conforme mostrado no exemplo a seguir. 
+Para criar uma ligação, utilize o [kubectl criar clusterrolebinding][kubectl-create-clusterrolebinding] comando conforme mostrado no exemplo a seguir. 
 
 > [!WARNING]
 > Este enlace de exemplo não se aplica a quaisquer componentes de autenticação adicional e pode levar a utilização insegura. O dashboard do Kubernetes é aberto para qualquer pessoa com acesso ao URL. Não expõem o dashboard do Kubernetes publicamente.
@@ -53,7 +53,7 @@ Para criar uma ligação, utilize o [kubectl criar clusterrolebinding] [ kubectl
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 ```
 
-Agora pode aceder ao dashboard do Kubernetes no seu cluster habilitados no RBAC. Para iniciar o dashboard do Kubernetes, utilize o [procurar az aks] [ az-aks-browse] comando conforme detalhado no passo anterior.
+Agora pode aceder ao dashboard do Kubernetes no seu cluster habilitados no RBAC. Para iniciar o dashboard do Kubernetes, utilize o [az aks procurar][az-aks-browse] comando conforme detalhado no passo anterior.
 
 ## <a name="create-an-application"></a>Criar uma aplicação
 

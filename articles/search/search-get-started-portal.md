@@ -10,19 +10,20 @@ ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: laobri
 ms.custom: seodec2018
-ms.openlocfilehash: 98ca455fd92b0c9ed276082413734c6bc063f310
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 2a4d7435383f740dc386a740062e66cd2d3585b0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671944"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798934"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Início rápido: Criar um índice da Azure Search no portal do Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
+> * [C#](search-get-started-dotnet.md)
 
 Para obter um rápido recorrem aos conceitos de Azure Search, experimente as ferramentas incorporadas no portal do Azure. Assistentes e editores não oferecem uma paridade completa com o .NET e REST APIs, mas pode começar a utilizar rapidamente com uma introdução sem código, escrever consultas interessantes em relação a dados de exemplo numa questão de minutos.
 
@@ -33,9 +34,9 @@ Para obter um rápido recorrem aos conceitos de Azure Search, experimente as fer
 > * Ver um índice existente e as opções para modificá-la
 > * Explorar a pesquisa em texto completo, filtros, facetas, a pesquisa difusa e a pesquisa geográfica com **Explorador de pesquisa**
 
-Se as ferramentas são demasiado limitação, pode considerar uma [baseadas em código introdução à programação do Azure Search no .NET](search-howto-dotnet-sdk.md) ou utilize [Postman ou Fiddler para fazer chamadas de REST API](search-get-started-postman.md).
+Se as ferramentas são demasiado limitação, pode considerar uma [baseadas em código introdução à programação do Azure Search no .NET](search-howto-dotnet-sdk.md) ou utilize [Postman para fazer chamadas de REST API](search-get-started-postman.md). Também pode ver uma demonstração de seis minutos dos passos deste tutorial a partir do terceiro minuto deste [Vídeo de Descrição Geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. Também pode ver uma demonstração de seis minutos dos passos deste tutorial a partir do terceiro minuto deste [Vídeo de Descrição Geral do Azure Search](https://channel9.msdn.com/Events/Connect/2016/138).
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -210,7 +211,7 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 
 * Apenas os campos filtráveis podem ser facetados. Apenas os campos recuperáveis podem ser devolvidos nos resultados.
 
-* O *classificação* campo é de ponto flutuante de dupla precisão e o agrupamento será por valor exato. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 classificações em estrelas," "4 classificações em estrelas", etc.), consulte [como implementar a navegação por facetas no Azure Search](https://docs.microsoft.com/en-us/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* O *classificação* campo é de ponto flutuante de dupla precisão e o agrupamento será por valor exato. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 classificações em estrelas," "4 classificações em estrelas", etc.), consulte [como implementar a navegação por facetas no Azure Search](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a> Realçar os resultados de pesquisa
@@ -267,7 +268,11 @@ Também aprendeu como localizar índices, indexadores e origens de dados no port
 
 ## <a name="clean-up"></a>Limpeza
 
-Se este tutorial foi a primeira utilização do serviço Azure Search, elimine o grupo de recursos que contém o serviço Azure Search. Se não, procure o nome do grupo de recursos certo na lista de serviços e elimine o adequado.
+Quando está trabalhando na sua própria subscrição, é uma boa idéia no final de um projeto para identificar se ainda precisa que os recursos que criou. Pode executar esquerda de recursos custa dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+
+Pode localizar e gerir recursos no portal, utilizando o **todos os recursos** ou **grupos de recursos** ligação no painel de navegação à esquerda.
+
+Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e origens de dados. Pode eliminar os itens individuais no portal para se manter sob o limite. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

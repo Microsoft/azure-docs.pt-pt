@@ -4,7 +4,7 @@ description: Saiba como criar um cluster de uma instância do SAP ASCS/SCS num c
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d26df6aeb09934408b9081ac077af52ffc24d66
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60936313"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709066"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -310,11 +310,11 @@ Para utilizar uma partilha de ficheiros de escalamento horizontal, o seu sistema
 * Tem de utilizar discos Premium do Azure.
 * Recomendamos que utilize o Managed Disks do Azure.
 * Recomendamos que formatar os volumes com o sistema de ficheiros Resiliente (ReFS).
-    * Para obter mais informações, consulte [SAP Note 1869038 - suporte SAP para o sistema de ficheiros ReFs] [ 1869038] e o [escolhendo o sistema de ficheiros] [ planning-volumes-s2d-choosing-filesystem] capítulo o volumes de planejamento do artigo de espaços de armazenamento direto.
+    * Para obter mais informações, consulte [SAP Note 1869038 - suporte SAP para o sistema de ficheiros ReFs][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] capítulo dos volumes de planejamento de artigo nos espaços de armazenamento direto.
     * Certifique-se de que instale [atualização cumulativa do Microsoft KB4025334][kb4025334].
 * Pode utilizar os tamanhos de VM de Azure de série DSv2 ou série DS.
 * Para um desempenho de rede eficiente entre VMs, que é necessária para sincronização de disco espaços de armazenamento direto, utilize um tipo VM que tenha, pelo menos, uma largura de banda de rede "Alta".
-    Para obter mais informações, consulte a [série DSv2] [ dv2-series] e [série DS] [ ds-series] especificações.
+    Para obter mais informações, consulte a [série DSv2][dv2-series] and [DS-Series][ds-series] especificações.
 * Recomendamos que reservar alguma capacidade não alocada no agrupamento de armazenamento. Deixar alguma capacidade não alocada no agrupamento de armazenamento fornece o espaço de volumes para reparar "in-loco" se uma unidade falha. Isto melhora o desempenho e segurança dos dados.  Para obter mais informações, consulte [escolher o tamanho do volume][choosing-the-size-of-volumes-s2d].
 * As VMs do Azure de partilha de ficheiros de escalamento horizontal tem de ser implementada no seu próprio conjunto de disponibilidade do Azure.
 * Não precisa de configurar o Balanceador de carga interno do Azure para o nome de rede de partilha de ficheiros de escalamento horizontal, tal como para \<anfitrião global de SAP\>. Isso é feito para o \<nome de anfitrião virtual ASCS/SCS\> da instância do SAP ASCS/SCS ou para o DBMS. Uma partilha de ficheiros de escalamento horizontal aumenta horizontalmente a carga por todos os nós de cluster. \<Anfitrião de global de SAP\> utiliza o endereço IP local para todos os nós de cluster.

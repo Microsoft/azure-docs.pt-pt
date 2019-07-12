@@ -4,7 +4,7 @@ description: Como utilizar os benefícios da assinatura do Visual Studio para im
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fcd97b07416526d71d5bee9bc198eb0d912e1c55
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61403118"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719150"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Utilizar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Pode usar o Windows 7, Windows 8, ou Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste fornecida que tem uma subscrição do Visual Studio (anteriormente conhecido como MSDN) adequada. Este artigo descreve os requisitos de elegibilidade para executar o Windows 7, Windows 8.1, Windows 10 Enterprise no Azure e utilize as seguintes imagens de galeria do Azure.
@@ -63,6 +63,6 @@ Também pode ver o ID de oferta do [separador "Subscrições"](https://account.w
 
 ![Detalhes de ID de oferta do portal de contas do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora, pode implementar as VMs com o [PowerShell](quick-create-powershell.md), [modelos do Resource Manager](ps-template.md), ou [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

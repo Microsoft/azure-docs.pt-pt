@@ -4,15 +4,15 @@ description: Passos para configurar alertas em métricas de Gateway de VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509896"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605221"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configure alertas em métricas de Gateway de VPN
 
@@ -27,10 +27,10 @@ Este artigo ajuda-o a configurar alertas em métricas de Gateway de VPN do Azure
 |**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Média de utilização de largura de banda de túneis criada no gateway. |
 |**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criada no gateway.   |
 |**TunnelEgressPackets** | Count | 5 minutos | Contagem de pacotes de saída em túneis criadas no gateway.   |
-|**TunnelEgressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de saída ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
+|**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de saída ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
 |**TunnelIngressBytes** | Bytes | 5 minutos | Tráfego de entrada em túneis criada no gateway.   |
-|**TunnelIngressPackets** | Contagem | 5 minutos | Contagem de pacotes de entrada em túneis criadas no gateway.   |
-|**TunnelIngressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de entrada ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
+|**TunnelIngressPackets** | Count | 5 minutos | Contagem de pacotes de entrada em túneis criadas no gateway.   |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de entrada ignorados em túneis causados por erro de correspondência de Seletor de tráfego. |
 
 
 ## <a name="setup"></a>Configurar alertas do Azure Monitor com base nas métricas ao utilizar o portal do Azure
@@ -69,6 +69,6 @@ Os seguintes passos de exemplo irão criar um alerta num gateway para:
 
    ![Botão para o gerenciamento de regras de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "selecione")
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar alertas em registos de diagnóstico de túnel, veja [configurar alertas em registos de diagnóstico do Gateway de VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).

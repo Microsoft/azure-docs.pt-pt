@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 06e45127f940e01de5f3ceeefc354014a88014db
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: e6e0cdd73a5a2999f78599a06cc7ee397ecc3b4b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514393"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806597"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir o acesso a um Azure container registry através de uma rede virtual do Azure ou as regras de firewall
 
@@ -39,6 +39,14 @@ Este artigo mostra dois cenários para criar as regras de acesso de rede para li
 * Para utilizar o Azure CLI os passos neste artigo, a CLI do Azure versão 2.0.58 ou posterior é necessária. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
 * Se ainda não tiver um registo de contentor, criar uma (é necessário um SKU Premium) e enviar uma imagem de exemplo como `hello-world` do Hub do Docker. Por exemplo, utilizar o [portal do Azure][quickstart-portal] or the [Azure CLI][quickstart-cli] para criar um registo. 
+
+* Se quiser restringir o acesso de registro com uma rede virtual numa subscrição do Azure diferente, terá de registar o fornecedor de recursos do Azure Container Registry nessa subscrição. Por exemplo:
+
+  ```azurecli
+  az account set --subscription <Name or ID of subscription of virtual network>
+
+  az provider register --namespace Microsoft.ContainerRegistry
+  ``` 
 
 ## <a name="about-network-rules-for-a-container-registry"></a>Sobre regras de rede para um registo de contentor
 

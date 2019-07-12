@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304238"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785858"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
@@ -85,14 +85,14 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| subject | string | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| id | string | Identificador exclusivo para o evento. |
-| data | objeto | Dados de eventos específicos para o fornecedor de recursos. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| topic | Cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| subject | Cadeia de caracteres | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | Cadeia de caracteres | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | Cadeia de caracteres | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| id | cadeia | Identificador exclusivo para o evento. |
+| data | object | Dados de eventos específicos para o fornecedor de recursos. |
+| dataVersion | cadeia | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | Cadeia de caracteres | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 
@@ -104,6 +104,7 @@ Para saber mais sobre as propriedades no objeto de dados, veja a origem do event
 * [Serviços de Multimédia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gestão)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 
 Para obter tópicos personalizados, o publicador de eventos determina o objeto de dados. Os dados de nível superior devem ter os mesmos campos que eventos padrão definido pelo recurso.
 
@@ -111,7 +112,7 @@ Quando publica eventos tópicos personalizados, crie assuntos para seus eventos 
 
 Às vezes, o requerente tem mais detalhes sobre o que aconteceu. Por exemplo, o **contas de armazenamento** publicador fornece o assunto `/blobServices/default/containers/<container-name>/blobs/<file>` quando um ficheiro é adicionado a um contentor. Um subscritor pode filtrar pelo caminho `/blobServices/default/containers/testcontainer` para obter todos os eventos para esse contentor, mas não outros contentores na conta de armazenamento. Um subscritor pode também filtrar ou rota pelo sufixo `.txt` apenas trabalhar com arquivos de texto.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução ao Azure Event Grid, consulte [o que é o Event Grid?](overview.md)
 * Para obter mais informações sobre a criação de uma subscrição do Azure Event Grid, veja [esquema de subscrições do Event Grid](subscription-creation-schema.md).

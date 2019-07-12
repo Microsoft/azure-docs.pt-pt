@@ -4,7 +4,7 @@ description: Comandos de interface de linha de comandos (CLI) do Azure para geri
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: ac1a6136eae79700c427b27c8869bc9241c62abc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a155159759a4b817842087bff7d4167ed8ed0c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717809"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722824"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo Resource Manager
 Este artigo fornece sintaxe e as opções para comandos de interface de linha de comandos (CLI) do Azure, que normalmente usaria para criar e gerir recursos do Azure no modelo de implementação Azure Resource Manager. Aceder a estes comandos ao executar a CLI no modo Resource Manager (arm). Não se trata de uma referência completa e a versão da CLI pode mostrar um pouco diferentes comandos ou parâmetros. Para obter uma visão geral dos recursos do Azure e grupos de recursos, consulte [descrição geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  

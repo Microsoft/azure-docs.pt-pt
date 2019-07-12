@@ -6,14 +6,14 @@ author: kasinh
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/09/2019
 ms.author: kasinh
-ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 770baeeacb5f3808eba05f9e262bcbca75c6baad
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60650902"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705217"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Recuperar dados do Azure Backup Server
 Pode utilizar o Azure Backup Server para recuperar os dados que fez backup para um cofre dos serviços de recuperação. Por isso, o processo para fazer é integrado ao console de gerenciamento do servidor de cópia de segurança do Azure e é semelhante para o fluxo de trabalho de recuperação para outros componentes de cópia de segurança do Azure.
@@ -83,21 +83,13 @@ Para recuperar dados de um servidor de cópia de segurança do Azure:
 | Não. | Mensagem de Erro | Passos de resolução de problemas |
 |:---:|:--- |:--- |
 | 1. |Este servidor não está registado no cofre especificado pelas credenciais do cofre. |**Causa:** Este erro ocorre quando o ficheiro de credenciais do cofre selecionado não pertence ao Cofre de serviços de recuperação associado com o Azure Backup Server no qual a recuperação é tentada. <br> **Resolução:** Transferir o ficheiro de credenciais do cofre a partir do Cofre de serviços de recuperação para o qual o servidor de cópia de segurança do Azure está registrado. |
-| 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor do DPM. |**Causa:** Existem que não existem outros servidores de cópia de segurança do Azure registados no Cofre de serviços de recuperação, ou os servidores ainda não carregou os metadados para o servidor selecionado não é um servidor de cópia de segurança do Azure (também conhecido como o Windows Server ou o cliente do Windows). <br> **Resolução:** Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado. <br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna irá carregar os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
+| 2. |Ou os dados recuperáveis não estão disponíveis ou o servidor selecionado não é um servidor do DPM. |**Causa:** Existem que não existem outros servidores de cópia de segurança do Azure registados no Cofre de serviços de recuperação, ou os servidores ainda não carregou os metadados para o servidor selecionado não é um servidor de cópia de segurança do Azure (com o Windows Server ou cliente Windows). <br> **Resolução:** Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado. <br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna irá carregar os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
 | 3. |Nenhum outro servidor DPM está registado neste cofre. |**Causa:** Não existem não existem outros servidores do Azure cópia de segurança que são registados no cofre a partir do qual está sendo tentada a recuperação.<br>**Resolução:** Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado.<br>Se existirem que outros servidores do Azure Backup registados no Cofre de serviços de recuperação, aguarde um dia após a instalação para iniciar o processo de recuperação. Tarefa noturna carrega os metadados para todas as cópias de segurança protegidos para a cloud. Os dados estarão disponíveis para recuperação. |
 | 4. |A frase de acesso de encriptação fornecida não corresponde à frase de acesso associada ao seguinte servidor:  **\<nome do servidor >** |**Causa:** A frase de acesso de encriptação utilizado no processo de encriptar os dados a partir de dados do servidor de cópia de segurança do Azure que está a ser recuperados não corresponde a frase de acesso de encriptação fornecida. O agente não consegue desencriptar os dados. Por conseguinte, a recuperação falhará.<br>**Resolução:** Forneça o exato mesmo encriptação frase de acesso associado com o servidor de cópia de segurança do Azure, cujos dados está a ser recuperados. |
 
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Por que não é possível adicionar um servidor DPM externo após a instalação UR7 e ao agente de cópia de segurança do Azure mais recente?
+Leia as perguntas frequentes:
 
-Para os servidores DPM com origens de dados que estão protegidos para a cloud (ao utilizar um update rollup anterior ao Update Rollup 7), tem de aguardar pelo menos um dia depois de instalar o UR7 e o agente de cópia de segurança do Azure mais recente, para iniciar **deservidordeadicionarDPMexterno**. O período de tempo de um dia é necessário para carregar os metadados dos grupos de proteção do DPM para o Azure. Metadados de grupo de proteção é carregado pela primeira vez por meio de uma tarefa noturna.
-
-### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>O que é a versão mínima do agente dos serviços de recuperação do Microsoft Azure necessário?
-
-A versão mínima do agente dos serviços de recuperação do Microsoft Azure ou do agente de cópia de segurança do Azure, necessária para ativar esta funcionalidade é 2.0.8719.0.  Para ver a versão do agente: abrir o painel de controlo **>** itens do painel de controlo de todos os **>** programas e funcionalidades **>** Agente de serviços de recuperação do Microsoft Azure. Se a versão for inferior a 2.0.8719.0, transfira e instale o [agente de cópia de segurança do Azure mais recente](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Limpar DPM externo](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## <a name="next-steps"></a>Passos seguintes:
-• [FAQ sobre cópia de segurança do azure](backup-azure-backup-faq.md)
+- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre cópias de segurança de VM do Azure
+- [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente de cópia de segurança do Azure

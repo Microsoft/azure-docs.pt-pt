@@ -2,17 +2,17 @@
 title: Conceitos - acesso e identidade dos serviços de Kubernetes no Azure (AKS)
 description: Saiba mais sobre o acesso e identidade no Azure Kubernetes Service (AKS), incluindo a integração do Active Directory do Azure, Kubernetes controlo de acesso baseado em funções (RBAC) e funções e associações.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467060"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615867"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o Azure Kubernetes Service (AKS)
 
@@ -40,9 +40,9 @@ Pode ser aprimorada a segurança dos clusters do AKS com a integração do Azure
 
 ![Integração do Active Directory do Azure com clusters do AKS](media/concepts-identity/aad-integration.png)
 
-Com os clusters do AKS integrada no AD do Azure, pode conceder a utilizadores ou o acesso de grupos de recursos dentro de um espaço de nomes ou entre o cluster do Kubernetes. Para obter um `kubectl` contexto de configuração, um usuário pode executar o [az aks get-credentials] [ az-aks-get-credentials] comando. Quando um utilizador, em seguida, interage com o cluster do AKS com `kubectl`, são-lhes pedido que inicie sessão com as credenciais do Azure AD. Esta abordagem fornece uma única origem para gestão de contas de utilizador e as credenciais de palavra-passe. O utilizador só pode aceder os recursos, conforme definido pelo administrador do cluster.
+Com os clusters do AKS integrada no AD do Azure, pode conceder a utilizadores ou o acesso de grupos de recursos dentro de um espaço de nomes ou entre o cluster do Kubernetes. Para obter um `kubectl` contexto de configuração, um usuário pode executar o [az aks get-credentials][az-aks-get-credentials] comando. Quando um utilizador, em seguida, interage com o cluster do AKS com `kubectl`, são-lhes pedido que inicie sessão com as credenciais do Azure AD. Esta abordagem fornece uma única origem para gestão de contas de utilizador e as credenciais de palavra-passe. O utilizador só pode aceder os recursos, conforme definido pelo administrador do cluster.
 
-Autenticação do Azure AD em clusters do AKS usa o OpenID Connect, uma camada de identidade criada com base no protocolo de OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar tokens de acesso para aceder a recursos protegidos e OpenID Connect implementa a autenticação como uma extensão para o processo de autorização de OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação abrir ID Connect][openid-connect]. Para verificar os tokens de autenticação obtido a partir do Azure AD através do OpenID Connect, os clusters do AKS utilizam autenticação de Token do Webhook de Kubernetes. Para obter mais informações, consulte a [documentação de autenticação de Token do Webhook][webhook-token-docs].
+Autenticação do Azure AD em clusters do AKS usa o OpenID Connect, uma camada de identidade criada com base no protocolo de OAuth 2.0. OAuth 2.0 define os mecanismos de obter e utilizar tokens de acesso para aceder a recursos protegidos e OpenID Connect implementa a autenticação como uma extensão para o processo de autorização de OAuth 2.0. Para obter mais informações sobre o OpenID Connect, consulte a [documentação abrir ID Connect][openid-connect]. To verify the authentication tokens obtained from Azure AD through OpenID Connect, AKS clusters use Kubernetes Webhook Token Authentication. For more information, see the [Webhook Token Authentication documentation][webhook-token-docs].
 
 ## <a name="role-based-access-controls-rbac"></a>Controlos de acesso baseado em funções (RBAC)
 

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1bf42e5f418f99f5e5327d790c1adffe2357b84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021943"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668865"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada para um pipeline de pesquisa cognitiva
 
 Uma [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montada a partir de [predefinidos habilidades](cognitive-search-predefined-skills.md) , bem como [competências personalizadas](cognitive-search-custom-skill-web-api.md) que criar e adicionar a pessoalmente o pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite para ser incluída num pipeline de pesquisa cognitiva. 
 
-Criar uma habilidade personalizada dá-lhe uma forma de inserir transformações exclusivas ao seu conteúdo. Uma habilidade personalizada é executado de forma independente, aplicar qualquer passo de enriquecimento necessitar. Por exemplo, poderia definir entidades personalizadas de campo específico, criar modelos de classificação personalizada para diferenciar empresariais e contratos financeiros e documentos ou adicionar uma habilidade de reconhecimento de voz para alcançar-se em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
+Criar uma habilidade personalizada dá-lhe uma forma de inserir transformações exclusivas ao seu conteúdo. Uma habilidade personalizada é executado de forma independente, aplicar qualquer passo de enriquecimento necessitar. Por exemplo, poderia definir entidades personalizadas de campo específico, criar modelos de classificação personalizada para diferenciar empresariais e contratos financeiros e documentos ou adicionar uma habilidade de reconhecimento de voz para alcançar-se em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md).
 
  Seja qual for necessitar, existe uma interface simples e clara para ligar uma habilidade personalizada para o resto do pipeline enriquecimento de capacidade personalizado. O único requisito para inclusão numa [conjunto de capacidades](cognitive-search-defining-skillset.md) é a capacidade de aceitar entradas e emitir as saídas de formas consumidas no conjunto de capacidades como um todo. O foco deste artigo é sobre os formatos de entrada e saídos que requer que o pipeline de melhoria.
 
@@ -156,7 +156,7 @@ Quando cria um enricher de Web API, pode descrever os cabeçalhos HTTP e os par�
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Exemplo: Criar uma habilidade personalizada para a API de texto a traduzir](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Criar conjunto de capacidades (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos plena](cognitive-search-output-field-mapping.md)

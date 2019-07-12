@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596644"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672927"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Melhores práticas para criar soluções de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -48,7 +48,7 @@ Este artigo fornece as práticas recomendadas para [criando um arquivo de soluç
 - Configurar a solução para [referência](solutions-solution-file.md#solution-resource) as regras de alerta para que esse utilizador pode alterar a respetiva configuração.  Podem querer fazer alterações, como modificar a lista de destinatários, alterar o limiar do alerta ou desativar a regra de alerta. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Percorrer o processo básico de [estruturação e criação de uma solução de gestão](solutions-creating.md).
 * Saiba como [criar um arquivo de solução](solutions-solution-file.md).
 * [Adicionar pesquisas guardadas e alertas](solutions-resources-searches-alerts.md) à sua solução de gestão.

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 41a57d1ad5d216797fc60ea13acff346734fdef8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433636"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703966"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar clusters do Azure HDInsight ao utilizar as ações de script
 
@@ -146,7 +146,7 @@ Scripts de ações de script podem ser usados por meio dos utilitários a seguir
 
 HDInsight fornece scripts para instalar os seguintes componentes em clusters do HDInsight:
 
-| Name | Script |
+| Nome | Script |
 | --- | --- |
 | Adicionar uma conta de armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Ver [adicionar mais contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Ver [instalar e utilizar Hue no Hadoop do HDInsight clusters](hdinsight-hadoop-hue-linux.md). |
@@ -176,7 +176,7 @@ Esta secção explica as diferentes formas que pode utilizar ações de script q
     | Propriedade | Value |
     | --- | --- |
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Name |Especifique um nome para a ação de script. |
+    | Nome |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/ZooKeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
     | Parameters |Especifique os parâmetros, se necessário, o script. |
@@ -255,10 +255,10 @@ Vá para o [portal do Azure](https://portal.azure.com):
 
     A tabela seguinte descreve os elementos no formulário:
 
-    | Propriedade | Value |
+    | Propriedade | Valor |
     | --- | --- |
     | Selecione um script | Para utilizar o seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Name |Especifique um nome para a ação de script. |
+    | Nome |Especifique um nome para a ação de script. |
     | URI do script de bash |Especifique o URI do script. |
     | Head/Worker/ZooKeeper |Especifique os nós em que o script é executado: **HEAD**, **Worker**, ou **ZooKeeper**. |
     | Parameters |Especifique os parâmetros, se necessário, o script. |

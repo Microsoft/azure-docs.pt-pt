@@ -4,7 +4,7 @@ description: Como aumentar ou reduzir verticalmente uma máquina virtual do Linu
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46baa3d4dbcd466944d7a91e446e380c89f53f2b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127077"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671742"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionar a máquina virtual do Linux com a CLI do Azure 
 
-Depois de aprovisionar uma máquina virtual (VM), pode aumentar ou reduzir verticalmente a VM ao alterar o [tamanho VM][vm-sizes]. Em alguns casos, deve desalocar a VM pela primeira vez. Terá de desalocar a VM se o tamanho pretendido não está disponível no cluster de hardware que está a alojar a VM. Este artigo detalha como redimensionar uma VM do Linux com a CLI do Azure. 
+Depois de aprovisionar uma máquina virtual (VM), pode aumentar ou reduzir verticalmente a VM ao alterar o [tamanho da VM][vm-sizes]. Em alguns casos, deve desalocar a VM pela primeira vez. Terá de desalocar a VM se o tamanho pretendido não está disponível no cluster de hardware que está a alojar a VM. Este artigo detalha como redimensionar uma VM do Linux com a CLI do Azure. 
 
 ## <a name="resize-a-vm"></a>Redimensionar uma VM
 Redimensionar uma VM, terá da versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalado e registado à utilização conta do Azure [início de sessão az](/cli/azure/reference-index).
@@ -55,7 +55,7 @@ Redimensionar uma VM, terá da versão mais recente [CLI do Azure](/cli/azure/in
    > [!WARNING]
    > A desalocar a VM também libera a qualquer endereços IP dinâmicos atribuídos à VM. Os discos de SO e dados não são afetados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para escalabilidade adicional, execute várias instâncias VM e aumentar horizontalmente. Para obter mais informações, consulte [Dimensionar automaticamente máquinas do Linux num conjunto de dimensionamento de Máquina Virtual][scale-set]. 
 
 <!-- links -->

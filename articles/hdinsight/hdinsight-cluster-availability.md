@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 195999ba685828042fc958e8aed7e67bad694657
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64718906"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786567"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Como monitorizar a disponibilidade do cluster com os registos do Ambari e o Azure Monitor
 
@@ -123,7 +123,7 @@ Por exemplo, execute o **tarifa de disponibilidade** consulta de exemplo ao clic
 > [!NOTE] 
 > Tarifa de disponibilidade é medida durante um período de 24 horas, para que o cluster tem de executar durante, pelo menos, 24 horas, só poderá ver os preços de disponibilidade exata.
 
-Pode afixar esta tabela para um dashboard partilhado clicando **Pin** no canto superior direito. Se não tem quaisquer dashboards partilhados graváveis, verá como criar um aqui: [Criar e partilhar dashboards no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-a-dashboard-and-manage-access-control).
+Pode afixar esta tabela para um dashboard partilhado clicando **Pin** no canto superior direito. Se não tem quaisquer dashboards partilhados graváveis, verá como criar um aqui: [Criar e partilhar dashboards no portal do Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard).
 
 ### <a name="azure-monitor-alerts"></a>Alertas de Monitor do Azure
 

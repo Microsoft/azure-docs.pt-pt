@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184244"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673471"
 ---
 *Aquecer a Cache*  
 O disco com o anfitrião só de leitura de colocação em cache são capaz de lhe dar mais elevada IOPS que o limite de disco. Para obter este máximo desempenho de leitura da cache do anfitrião, primeiro deve entender o cache do disco. Isto garante que a leitura do IOs que a ferramenta de benchmark irá orientar no volume de CacheReads, na verdade, acessa o cache e não o disco diretamente. O resultado de acertos na cache em ESP adicionais da cache única ativada disco.
@@ -25,7 +25,7 @@ O disco com o anfitrião só de leitura de colocação em cache são capaz de lh
 
 ### <a name="iometer"></a>Iometer
 
-[Transferir a ferramenta de Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
+[Transferir a ferramenta de Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
 
 #### <a name="test-file"></a>Ficheiro de teste
 
@@ -62,24 +62,24 @@ Execute os passos abaixo para entender cache
 
 1. Criar duas especificações de acesso com valores apresentados abaixo,
 
-   | Name | Tamanho do pedido | % Aleatório | % De leitura |
+   | Nome | Tamanho do pedido | % Aleatório | % De leitura |
    | --- | --- | --- | --- |
    | RandomWrites\_1 MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Execute o teste de Iometer para inicializar o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Definir a duração do teste de "Tempo de execução" para 2 horas, no separador "Configuração de teste".
 
-   | Cenário | Volume de destino | Name | Duração |
+   | Cenário | Volume de destino | Nome | Duration |
    | --- | --- | --- | --- |
    | Inicialize o disco de Cache |CacheReads |RandomWrites\_1 MB |2 horas |
 1. Execute o teste de Iometer para aquecer o disco de cache com os parâmetros seguintes. Utilize três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Definir a duração do teste de "Tempo de execução" para 2 horas, no separador "Configuração de teste".
 
-   | Cenário | Volume de destino | Name | Duração |
+   | Cenário | Volume de destino | Nome | Duration |
    | --- | --- | --- | --- |
    | Quente no disco de Cache |CacheReads |RandomReads\_1MB |2 horas |
 
 Depois do disco de cache é preparado, prossiga com os cenários de teste listados abaixo. Para executar o teste de Iometer, utilize, pelo menos, três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade de fila e selecione uma das especificações de teste guardado, conforme mostrado na tabela abaixo, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e débito ao executar estes testes. Para todos os cenários, são utilizados um tamanho de e/s pequeno de 8 KB e uma profundidade de fila de alta de 128.
 
-| Cenário de teste | Volume de destino | Name | Resultado |
+| Cenário de teste | Volume de destino | Nome | Resultado |
 | --- | --- | --- | --- |
 | Um máximo de IOPS de leitura |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | Um máximo de IOPS de escrita |NoCacheWrites |RandomReads\_8K |64,000 IOPS |

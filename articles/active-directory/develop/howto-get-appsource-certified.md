@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b820068f7bd59941346c8d2a3e8ede15252d58b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc42ab8a8cfb0d182c69bd0940e23cffdb2be0af
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540274"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807241"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como obter o AppSource certificada para Azure Active Directory
 
@@ -56,19 +56,19 @@ Aplicações de inquilino único podem ativar a *contactar-Me* experiência, mas
 
 ## <a name="appsource-trial-experiences"></a>Experiências de avaliação do AppSource
 
-### <a name="free-trial-customer-led-trial-experience"></a>Versão de avaliação gratuita (por um instrutor cliente experiência de avaliação) 
+### <a name="free-trial-customer-led-trial-experience"></a>Versão de avaliação gratuita (por um instrutor cliente experiência de avaliação)
 
-A avaliação liderada por cliente é a experiência que AppSource recomenda que oferece um acesso de clique único à sua aplicação. Abaixo como obter uma ilustração desta experiência é semelhante a:<br/><br/>
+A avaliação liderada por cliente é a experiência que AppSource recomenda que oferece um acesso de clique único à sua aplicação. O exemplo seguinte mostra esta experiência semelhante ao seguinte:
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Utilizador encontrar seu aplicativo no Web Site do AppSource</li><li>Seleciona a opção "Avaliação gratuita"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource redireciona o utilizador para um URL no seu web site</li><li>Inicia o web site do <i>single-sign-on</i> processos automaticamente (no carregamento de página)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Utilizador é redirecionado à página de início de sessão do Microsoft</li><li>Utilizador fornece credenciais para iniciar sessão</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>Utilizador encontrar seu aplicativo no Web Site do AppSource</li><li>Seleciona a opção "Avaliação gratuita"</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource redireciona o utilizador para um URL no seu web site</li><li>Inicia o web site do <i>single-sign-on</i> processos automaticamente (no carregamento de página)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>Utilizador é redirecionado à página de início de sessão do Microsoft</li><li>Utilizador fornece credenciais para iniciar sessão</li></ul></td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
     <td></td>
 </tr>
 </table>
@@ -79,20 +79,20 @@ Pode utilizar a experiência de avaliação do parceiro quando um manual ou uma 
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Utilizador encontrar seu aplicativo no web site do AppSource</li><li>Seleciona a opção "Contactar-Me"</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Preenche um formulário com informações de contacto</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>Utilizador encontrar seu aplicativo no web site do AppSource</li><li>Seleciona a opção "Contactar-Me"</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Preenche um formulário com informações de contacto</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
             <td>Receber informações de utilizador</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
             <td>Configurar o ambiente</td>
         </tr>
         <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
+            <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
             <td>Utilizador de contacto com informações de avaliação</td>
         </tr>
         </table><br/><br/>
@@ -100,9 +100,9 @@ Pode utilizar a experiência de avaliação do parceiro quando um manual ou uma 
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Utilizador aceder à sua aplicação e concluir o processo de início de sessão único</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>Utilizador aceder à sua aplicação e concluir o processo de início de sessão único</li></ul></td>
+    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>Utilizador dá consentimento para a sua aplicação</li></ul></td>
+    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Início de sessão é concluído e o utilizador é redirecionado para o seu web site</li><li>Utilizador começa a avaliação gratuita</li></ul></td>
    
 </tr>
 </table>
@@ -110,16 +110,15 @@ Pode utilizar a experiência de avaliação do parceiro quando um manual ou uma 
 ### <a name="more-information"></a>Mais informações
 
 Para obter mais informações sobre a experiência de avaliação do AppSource, consulte [este vídeo](https://aka.ms/trialexperienceforwebapps). 
- 
+
 ## <a name="next-steps"></a>Próximos Passos
 
 - Para obter mais informações sobre a criação de aplicações que suportam a inícios de sessão do Azure AD, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Para informações sobre como listar a sua aplicação SaaS no AppSource, aceda a ver [informações do parceiro de AppSource](https://appsource.microsoft.com/partners)
 
-
 ## <a name="get-support"></a>Obter suporte
 
-Para a integração do Azure AD, utilizamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte. 
+Para a integração do Azure AD, utilizamos [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a Comunidade para fornecer suporte.
 
 É altamente recomendável colocar as suas questões no Stack Overflow pela primeira vez e procurar problemas existentes para ver se alguém recebe sua pergunta antes de o pedido. Certifique-se de que suas perguntas ou comentários são marcados com [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
@@ -131,6 +130,5 @@ Utilize a seguinte secção de comentários para fornecer comentários e ajude-n
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started
-
 
 <!--Image references-->

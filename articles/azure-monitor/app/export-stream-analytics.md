@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: b791d74c2b3e94465a1903299d5db0b281ec9355
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d4a4196aa601fc8da79da3962faec026eff5ec87
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053322"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625067"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilizar o Stream Analytics para processar os dados exportados do Application Insights
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de origens. Pode transformar e filtrar os dados e, em seguida, encaminhar para uma variedade de sinks.
@@ -148,7 +148,7 @@ Cole esta consulta:
 
 * introdução de exportação é o alias que demos no fluxo de entrada
 * saída de pbi é o alias de saída que definimos
-* Usamos [externa GetElements aplicar](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está numa matriz JSON aninhada. Em seguida, selecione escolhe o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. O [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) cláusula agrupa os elementos em períodos de tempo de um minuto.
+* Usamos [externa GetElements aplicar](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) porque o nome do evento está numa matriz JSON aninhada. Em seguida, selecione escolhe o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. O [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) cláusula agrupa os elementos em períodos de tempo de um minuto.
 
 ### <a name="query-to-display-metric-values"></a>Consulta para exibir os valores de métrica
 ```SQL

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136180"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718279"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Resolver problemas de domínio e problemas de certificado SSL no App Service do Azure
 
@@ -325,7 +325,6 @@ Pode gerir o seu domínio, mesmo se não tiver uma aplicação de Web do serviç
 
 **Posso mover uma aplicação web com um domínio personalizado para outra subscrição ou do ambiente de serviço de aplicações v1 para V2?**
 
-Sim, pode mover a sua aplicação web em várias subscrições. Siga as orientações no [como mover os recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Existem algumas limitações ao mover a aplicação web. Para obter mais informações, consulte [limitações para mover os recursos de serviço de aplicações](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Sim, pode mover a sua aplicação web em várias subscrições. Siga as orientações no [como mover os recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Existem algumas limitações ao mover a aplicação web. Para obter mais informações, consulte [limitações para mover os recursos de serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 Depois de mover a aplicação web, os enlaces de nome de anfitrião dos domínios dentro dos domínios personalizados definição devem permanecer os mesmos. Não existem passos adicionais necessários para configurar os enlaces de nome de anfitrião.

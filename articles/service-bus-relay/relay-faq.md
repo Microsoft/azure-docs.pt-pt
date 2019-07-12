@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6ea5e72f70620004b4b00be0c779893a3b2ad90
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111470"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706194"
 ---
 # <a name="azure-relay-faqs"></a>FAQ de reencaminhamento do Azure
 
@@ -42,7 +42,7 @@ O serviço de reencaminhamento do Service Bus anteriormente com o nome é agora 
 Esta secção responde a algumas perguntas mais frequentes sobre o reencaminhamento de estrutura de preços. Também pode ver o [FAQ do suporte do Azure](https://azure.microsoft.com/support/faq/) para o Azure geral informações sobre preços. Para obter informações completas sobre os preços de reencaminhamento, consulte [os detalhes dos preços do Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como é cobrado para ligações híbridas e de reencaminhamento do WCF?
-Para obter informações completas sobre os preços de reencaminhamento, consulte a [ligações híbridas e reencaminhamentos do WCF] [ Pricing overview] tabela no barramento de serviço, a página de detalhes de preços. Além dos preços indicados nessa página, é-lhe cobrada transferências de dados associados para saída fora do datacenter em que seu aplicativo está aprovisionado.
+Para obter informações completas sobre os preços de reencaminhamento, consulte a [ligações híbridas e reencaminhamentos do WCF][Pricing overview] tabela no barramento de serviço, a página de detalhes de preços. Além dos preços indicados nessa página, é-lhe cobrada transferências de dados associados para saída fora do datacenter em que seu aplicativo está aprovisionado.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Como me são faturadas as ligações híbridas?
 Seguem-se três cenários de faturação de exemplo para ligações híbridas:
@@ -106,7 +106,7 @@ Para mover um espaço de nomes de uma subscrição do Azure para outra subscriç
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Para utilizar o portal do Azure para migrar espaços de nomes do reencaminhamento do Azure a partir de uma subscrição para outra subscrição, veja [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para utilizar o portal do Azure para migrar espaços de nomes do reencaminhamento do Azure a partir de uma subscrição para outra subscrição, veja [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -128,12 +128,12 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Para obter uma descrição de exceções comuns e ações sugeridas, que pode realizar, consulte [exceções de reencaminhamento][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso partilhado e que idiomas posso utilizar para gerar uma assinatura?
-Assinaturas de acesso partilhado (SAS) são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no nó, PHP, Java, C e c#, veja [autenticação do Service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
+Assinaturas de acesso partilhado (SAS) são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no nó, PHP, Java, C, e C#, consulte [autenticação do Service Bus com assinaturas de acesso partilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível para pontos finais de reencaminhamento de lista de permissões?
 Sim. O cliente de reencaminhamento faz ligações para o serviço de reencaminhamento do Azure, utilizando nomes de domínio completamente qualificado. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que suportam listas de permissões de DNS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

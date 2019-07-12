@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4724789dd1a0893c5ef4ab112306c185f0e87da7
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274378"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807426"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Descrição geral do serviço de gráfico de recursos do Azure
 
@@ -28,6 +28,8 @@ Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 > [!NOTE]
 > Gráfico de recursos do Azure capacita a barra de pesquisa do portal do Azure, o novo procurar "Todos os recursos" experiência e do Azure Policy [histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. Foi concebido para ajudar os clientes a gerir os ambientes de grande escala.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Como é que o Resource Graph complementa o Azure Resource Manager?
 
@@ -77,7 +79,7 @@ Para obter mais informações, consulte [orientações para pedidos limitados](.
 
 Gráfico de recursos oferece suporte a CLI do Azure, o Azure PowerShell e o Azure SDK para .NET. A consulta está estruturada a mesma para cada idioma. Saiba como ativar o Resource Graph na [CLI do Azure](first-query-azurecli.md#add-the-resource-graph-extension) e no [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Executar a sua primeira consulta [CLI do Azure](first-query-azurecli.md).
 - Executar a sua primeira consulta [do Azure PowerShell](first-query-powershell.md).

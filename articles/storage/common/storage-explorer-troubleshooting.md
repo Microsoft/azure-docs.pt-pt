@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118691"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840390"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
@@ -59,7 +59,7 @@ Se não tiver uma função de conceder permissões de camada de qualquer gestão
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não é possível obter a gestão de permissões de camada precisa do meu administrador?
 
-Ainda não temos uma solução de RBAC neste momento. Como solução, pode pedir um URI de SAS para [anexar ao seu recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+Ainda não temos uma solução de RBAC neste momento. Como solução, pode pedir um URI de SAS para [anexar ao seu recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado Autoassinado na cadeia de certificados (e erros semelhantes)
 
@@ -233,46 +233,76 @@ Se acidentalmente anexados utilizando um URL de SAS inválido e não é possíve
 
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
-Em geral, os seguintes pacotes são necessários para executar o Explorador de armazenamento no Linux:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) observação: Explorador de armazenamento versão 1.7.0 e anteriormente requer o .NET Core 2.0. Se tiver uma versão mais recente do .NET Core instalado, em seguida, terá de aplicar um patch Explorador de armazenamento (ver abaixo). Se estiver a executar o Explorador de armazenamento 1.8.0 ou superior, em seguida, deve ser capaz de usar a cópia de segurança para o .NET Core 2.2. Não foram verificadas versões posteriores 2.2 trabalhar neste momento.
-* `libgnome-keyring-common` e `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> Explorador de armazenamento, conforme indicado na. a transferência de tar.gz apenas é suportada para as distribuições de Ubuntu. Outras distribuições não foram verificadas e podem necessitar de pacotes adicionais ou alternativas.
+
+Esses pacotes são os requisitos mais comuns do Explorador de armazenamento no Linux:
+
+* [O tempo de execução do .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` ou `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-Dependendo de sua distribuição, pode haver diferentes ou mais pacotes tem de instalar.
+> [!NOTE]
+> Explorador de armazenamento versão 1.7.0 e anteriormente requer o .NET Core 2.0. Se tiver uma versão mais recente do .NET Core instalado, terá [Explorador de armazenamento de patches](#patching-storage-explorer-for-newer-versions-of-net-core). Se estiver a executar o Explorador de armazenamento 1.8.0 ou superior, em seguida, deve ser capaz de usar a cópia de segurança para o .NET Core 2.2. Não foram verificadas versões posteriores 2.2 trabalhar neste momento.
 
-Explorador de armazenamento é oficialmente suportado no Ubuntu 18.04, 16.04 e 14.04. Passos de instalação para uma máquina limpa são os seguintes:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Transfira o Explorador de armazenamento.
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Transfira o Explorador de armazenamento
-2. Instalar o tempo de execução do .NET Core, a versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (se já tiver instalado uma versão mais recente, poderá ter de corrigir o Explorador de armazenamento, consulte a seguir)
-3. Execute `sudo apt-get install libgconf-2-4`
-4. Execute `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. Transfira o Explorador de armazenamento.
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Transfira o Explorador de armazenamento
-2. Instalar o tempo de execução do .NET Core, a versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (se já tiver instalado uma versão mais recente, poderá ter de corrigir o Explorador de armazenamento, consulte a seguir)
-3. Execute `sudo apt install libgnome-keyring-dev`
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Transfira o Explorador de armazenamento
-2. Instalar o tempo de execução do .NET Core, a versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (se já tiver instalado uma versão mais recente, poderá ter de corrigir o Explorador de armazenamento, consulte a seguir)
-3. Execute `sudo apt install libgnome-keyring-dev`
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Explorador de armazenamento de aplicação de patches para as versões mais recentes do .NET Core
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Explorador de armazenamento de aplicação de patches para as versões mais recentes do .NET Core 
-Se tiver uma versão do .NET Core superior a 2.0 instalado e estiver a executar a versão de Explorador de armazenamento 1.7.0 ou mais antigos, mais provavelmente precisará corrigir o Explorador de armazenamento, concluindo os seguintes passos:
+Para o Explorador de armazenamento 1.7.0 ou mais, poderá ter de aplicar um patch a versão do .NET Core utilizado pelo Explorador de armazenamento.
+
 1. Baixe a versão 1.5.43 de StreamJsonRpc [do nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "Baixe o pacote" no lado direito da página.
-2. Depois de transferir o pacote, alterar sua extensão de ficheiro de `.nupkg` para `.zip`
-3. Deszipe o pacote
-4. Ir para `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+2. Depois de transferir o pacote, alterar sua extensão de ficheiro da `.nupkg` para `.zip`.
+3. Deszipe o pacote.
+4. Abra o `streamjsonrpc.1.5.43/lib/netstandard1.1/` pasta.
 5. Cópia `StreamJsonRpc.dll` nas seguintes localizações dentro da pasta do Explorador de armazenamento:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Abrir no Explorador do portal do Azure não funciona
 

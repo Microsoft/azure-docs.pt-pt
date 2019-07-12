@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787294"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812821"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -45,12 +45,13 @@ O [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-e
 Estas funções de exemplo produzem os dados de resposta JSON seguintes. O tipo de dados de todos os campos é `string`.
 
 | Campo                   |Descrição                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |O ID da instância de orquestração. |
-| **`statusQueryGetUri`** |O URL de estado da instância de orquestração. |
-| **`sendEventPostUri`**  |O URL de "emitir um evento" da instância de orquestração. |
-| **`terminatePostUri`**  |O URL da instância de orquestração "terminar". |
-| **`rewindPostUri`**     |O URL de "o recuo" da instância de orquestração. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |O ID da instância de orquestração. |
+| **`statusQueryGetUri`**     |O URL de estado da instância de orquestração. |
+| **`sendEventPostUri`**      |O URL de "emitir um evento" da instância de orquestração. |
+| **`terminatePostUri`**      |O URL da instância de orquestração "terminar". |
+| **`purgeHistoryDeleteUri`** |O URL da instância de orquestração "Limpar histórico". |
+| **`rewindPostUri`**         |(pré-visualização) O URL de "o recuo" da instância de orquestração. |
 
 Esta é uma resposta de exemplo:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -134,7 +136,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**        | URL             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -156,12 +158,12 @@ O payload de resposta para o **HTTP 200** e **HTTP 202** casos é um objeto JSON
 
 | Campo                 | Tipo de dados | Descrição |
 |-----------------------|-----------|-------------|
-| **`runtimeStatus`**   | string    | O estado de tempo de execução da instância. Os valores incluem *em execução*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
+| **`runtimeStatus`**   | cadeia    | O estado de tempo de execução da instância. Os valores incluem *em execução*, *pendente*, *falha*, *cancelado*, *Terminated*, *Concluída*. |
 | **`input`**           | JSON      | Os dados JSON utilizados para inicializar a instância. Este campo é `null` se o `showInput` parâmetro de cadeia de caracteres de consulta está definido como `false`.|
 | **`customStatus`**    | JSON      | Os dados JSON utilizados para o estado de orquestração personalizado. Este campo é `null` se não for definido. |
 | **`output`**          | JSON      | A saída JSON da instância. Este campo é `null` se a instância não é um estado concluído. |
-| **`createdTime`**     | string    | A hora em que a instância foi criada. Utiliza o ISO 8601 estendido notação. |
-| **`lastUpdatedTime`** | string    | A hora em que a instância mantidas pela última vez. Utiliza o ISO 8601 estendido notação. |
+| **`createdTime`**     | Cadeia de caracteres    | A hora em que a instância foi criada. Utiliza o ISO 8601 estendido notação. |
+| **`lastUpdatedTime`** | Cadeia de caracteres    | A hora em que a instância mantidas pela última vez. Utiliza o ISO 8601 estendido notação. |
 | **`historyEvents`**   | JSON      | Uma matriz JSON que contém o histórico de execução da orquestração. Este campo é `null` , a menos que o `showHistory` parâmetro de cadeia de caracteres de consulta está definido como `true`. |
 
 Aqui está um payload de resposta de exemplo incluindo as orquestração histórico e a atividade saídas de execução (formatadas para legibilidade):
@@ -262,7 +264,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**        | URL             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -360,7 +362,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 
 #### <a name="response"></a>Resposta
 
@@ -373,7 +375,7 @@ O payload de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte 
 
 | Campo                  | Tipo de dados | Descrição |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | inteiro   | O número de instâncias eliminado. Para o caso de instância única, este valor deve ser sempre `1`. |
+| **`instancesDeleted`** | integer   | O número de instâncias eliminado. Para o caso de instância única, este valor deve ser sempre `1`. |
 
 Aqui está um payload de resposta de exemplo (formatado para legibilidade):
 
@@ -435,7 +437,7 @@ O payload de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte 
 
 | Campo                   | Tipo de dados | Descrição |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | inteiro   | O número de instâncias eliminado. |
+| **`instancesDeleted`**  | integer   | O número de instâncias eliminado. |
 
 Aqui está um payload de resposta de exemplo (formatado para legibilidade):
 
@@ -473,8 +475,8 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
-| **`eventName`**   | do IdP             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
+| **`eventName`**   | URL             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
 | **`{content}`**   | Conteúdo do pedido | O payload do evento formatada em JSON. |
 
 #### <a name="response"></a>Resposta
@@ -528,7 +530,7 @@ O pedido parâmetros para esta API incluem o conjunto padrão mencionado anterio
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para a instância da orquestração a terminar. |
 
 #### <a name="response"></a>Resposta
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 As respostas para esta API não contêm qualquer conteúdo.
 
-## <a name="rewind-instance-preview"></a>Retroceder a instância (pré-visualização)
+### <a name="rewind-instance-preview"></a>Retroceder a instância (pré-visualização)
 
 Restaura uma instância da orquestração com falha num Estado de execução ao reproduzir as operações com falha mais recentes.
 
-### <a name="request"></a>Pedir
+#### <a name="request"></a>Pedir
 
 Para a versão 1.x do runtime das funções, o pedido é formatado da seguinte forma (várias linhas são exibidas por motivos de clareza):
 
@@ -577,10 +579,10 @@ O pedido parâmetros para esta API incluem o conjunto padrão mencionado anterio
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo de avanço rápido a instância de orquestração. |
 
-### <a name="response"></a>Resposta
+#### <a name="response"></a>Resposta
 
 Vários valores de código de estado possível podem ser devolvidos.
 
@@ -596,7 +598,90 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 As respostas para esta API não contêm qualquer conteúdo.
 
-## <a name="next-steps"></a>Passos Seguintes
+### <a name="signal-entity-preview"></a>Entidade de sinal (pré-visualização)
+
+Envia uma mensagem de operação unidirecional para um [entidade durável](durable-functions-types-features-overview.md#entity-functions). Se a entidade não existir, será criado automaticamente.
+
+#### <a name="request"></a>Pedir
+
+O pedido HTTP é formatado da seguinte forma (várias linhas são exibidas por motivos de clareza):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, bem como os seguintes parâmetros exclusivos do pedido:
+
+| Campo             | Tipo de parâmetro  | Descrição |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | O tipo da entidade. |
+| **`entityKey`**   | URL             | O nome exclusivo da entidade. |
+| **`op`**          | Cadeia de consulta    | Opcional. O nome da operação definida pelo utilizador para invocar. |
+| **`{content}`**   | Conteúdo do pedido | O payload do evento formatada em JSON. |
+
+Eis um exemplo de solicitação que envia uma mensagem de "Add" definido pelo utilizador para um `Counter` entidade nomeada `steps`. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, será criada por este pedido:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Resposta
+
+Esta operação tem vários possíveis respostas:
+
+* **HTTP 202 (aceite)** : A operação de sinal foi aceite para processamento assíncrono.
+* **O HTTP 400 (pedido incorreto)** : O conteúdo do pedido não era do tipo `application/json`, não era um JSON válido ou tinha um inválido `entityKey` valor.
+* **HTTP 404 (não encontrado)** : Especificado `entityType` não foi encontrado.
+
+Um pedido HTTP com êxito não contém qualquer conteúdo na resposta. Um pedido HTTP falhado pode conter informações de erro de formato JSON no conteúdo de resposta.
+
+### <a name="query-entity-preview"></a>Entidade de consulta (pré-visualização)
+
+Obtém o estado da entidade especificado.
+
+#### <a name="request"></a>Pedir
+
+O pedido HTTP é formatado da seguinte forma (várias linhas são exibidas por motivos de clareza):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Resposta
+
+Esta operação tem duas possíveis respostas:
+
+* **HTTP 200 (OK)** : A entidade especificada existe.
+* **HTTP 404 (não encontrado)** : A entidade especificada não foi encontrada.
+
+Uma resposta com êxito contém o estado da entidade JSON serializado como seu conteúdo.
+
+#### <a name="example"></a>Exemplo
+Segue-se um exemplo de um pedido HTTP que obtém o estado de um existente `Counter` entidade nomeada `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Se o `Counter` entidade simplesmente continha um número de passos guardado num `currentValue` campo, o conteúdo de resposta pode ser semelhante ao seguinte (formatado para legibilidade):
+
+```json
+{
+    "currentValue": 5
+}
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como lidar com erros](durable-functions-error-handling.md)

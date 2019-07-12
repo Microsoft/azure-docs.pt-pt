@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 06/24/2019
 author: roaror
 ms.author: roaror
-ms.openlocfilehash: ad302df3144787fd231166c7052ecfde268f4086
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67451039"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67665922"
 ---
-# <a name="use-compass-to-connect-to-your-cosmos-db-account"></a>Utilize a bússola para ligar à sua conta do Cosmos DB
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar a bússola do MongoDB para ligar à API do Azure Cosmos DB para MongoDB 
 
 Este tutorial demonstra como usar [MongoDB bússola](https://www.mongodb.com/products/compass) quando o armazenamento de e/ou gestão de dados no Cosmos DB. Podemos usar o API do Azure Cosmos DB para o MongoDB para este passo a passo. Para aqueles que não estão familiarizados, bússola é uma GUI para MongoDB. Que é frequentemente utilizada para visualizar os seus dados, executar consultas ad-hoc, juntamente com a gerir os seus dados. 
 

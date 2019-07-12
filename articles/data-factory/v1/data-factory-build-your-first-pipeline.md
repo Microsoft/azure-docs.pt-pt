@@ -14,21 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564600"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839444"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Crie seu primeiro pipeline para transformar dados com o cluster do Hadoop
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -36,7 +35,7 @@ ms.locfileid: "60564600"
 
 Neste tutorial, vai criar a primeira fábrica de dados do Azure com um pipeline de dados. O pipeline transforma dados de entrada ao executar o script do Hive num cluster do Azure HDInsight (Hadoop) para produzir dados de saída.  
 
-Este artigo fornece a visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, pode fazer o tutorial, utilizando uma das ferramentas/SDKs seguintes: Portal do Azure, Visual Studio, PowerShell, o modelo do Resource Manager, REST API. Selecione uma das opções na lista suspensa no início (ou) ligações no final deste artigo para fazer o tutorial com uma destas opções.    
+Este artigo fornece a visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, pode fazer o tutorial, utilizando uma das ferramentas/SDKs seguintes: Visual Studio, PowerShell, modelo do Resource Manager, REST API. Selecione uma das opções na lista suspensa no início (ou) ligações no final deste artigo para fazer o tutorial com uma destas opções.    
 
 ## <a name="tutorial-overview"></a>Descrição geral do tutorial
 Neste tutorial, vai executar os seguintes passos:
@@ -93,13 +92,12 @@ Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 
 
-- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-- [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Portal do Azure e o Visual Studio fornecem a forma de GUI da criação de fábricas de dados. Ao passo que, opções de PowerShell, o modelo do Resource Manager e REST API fornece a forma de criação de scripts/programação da criação de fábricas de dados.
+O Visual Studio fornece uma forma de GUI da criação de fábricas de dados. Ao passo que, opções de PowerShell, o modelo do Resource Manager e REST API fornece a forma de criação de scripts/programação da criação de fábricas de dados.
 
 > [!NOTE]
 > O pipeline de dados neste tutorial transforma os dados de entrada para produzirem dados de saída. Não copia dados de um de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como copiar dados com o Azure Data Factory, veja [Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

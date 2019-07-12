@@ -3,16 +3,16 @@ title: Funcionalidades do motor de regras de CDN do Azure da Verizon Premium | D
 description: Funcionalidades do motor de regras de documentação de referência para a CDN do Azure da Verizon Premium.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 7e75a6ffe28aa74ea2fad30bbe2728317712d86b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443482"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593232"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>CDN do Azure de funcionalidades do motor de regras de Premium da Verizon
 
@@ -24,7 +24,7 @@ A terceira parte de uma regra é o recurso. Um recurso define o tipo de ação q
 
 Esses recursos foram desenvolvidos para controlar o acesso ao conteúdo.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Negar o acesso (403)](#deny-access-403) | Determina se todos os pedidos são rejeitados com uma resposta em 403 Proibido.
 [Token Auth](#token-auth) | Determina se a autenticação baseada em tokens é aplicada a um pedido.
@@ -36,7 +36,7 @@ Name | Objetivo
 
 Esses recursos foram desenvolvidos para personalizar a quando e como conteúdo é colocado em cache.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Parâmetros de largura de banda](#bandwidth-parameters) | Determina se os parâmetros de limitação de largura de banda (por exemplo, ec_rate e ec_prebuf) são Active Directory.
 [Limitação de largura de banda](#bandwidth-throttling) | Limita a largura de banda para a resposta fornecida pela ponto de presença (POP).
@@ -66,7 +66,7 @@ Name | Objetivo
 
 Esta funcionalidade foi concebida para fornecer informações adicionais dentro de uma regra.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Comentário](#comment) | Permite que uma nota a ser adicionados dentro de uma regra.
 
@@ -74,7 +74,7 @@ Name | Objetivo
 
 Esses recursos foram desenvolvidos para adicionar, modificar ou eliminar cabeçalhos da solicitação ou resposta.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Cabeçalho de resposta de idade](#age-response-header) | Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 [Depurar os cabeçalhos de resposta de Cache](#debug-cache-response-headers) | Determina se uma resposta pode incluir o cabeçalho de resposta de EC-X-Debug, que fornece informações sobre a política de cache para o recurso solicitado.
@@ -86,7 +86,7 @@ Name | Objetivo
 
 Esses recursos foram desenvolvidos para personalizar os dados armazenados nos ficheiros de registo não processados.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Campo de registo personalizado 1](#custom-log-field-1) | Determina o formato e o conteúdo que é atribuído para o campo de registo personalizado num ficheiro de registo não processados.
 [Cadeia de consulta de registo](#log-query-string) | Determina se uma cadeia de consulta é armazenada, juntamente com o URL nos registos de acesso.
@@ -140,7 +140,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Esses recursos foram desenvolvidos para controlar a forma como a CDN se comunica com um servidor de origem.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Pedidos de ligação Keep-Alive máximos](#maximum-keep-alive-requests) | Define o número máximo de pedidos para uma ligação Keep-Alive antes de ser fechado.
 [Cabeçalhos de especiais de proxy](#proxy-special-headers) | Define o conjunto de cabeçalhos de pedido de CDN específicas que são reencaminhados a partir de um preenchimento de para um servidor de origem.
@@ -149,7 +149,7 @@ Name | Objetivo
 
 Esses recursos oferecem uma funcionalidade avançada para utilizadores avançados.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Métodos HTTP colocáveis em cache](#cacheable-http-methods) | Determina o conjunto de métodos HTTP adicionais que podem ser colocadas em cache na rede.
 [Tamanho do corpo de pedido colocáveis em cache](#cacheable-request-body-size) | Define o limiar para determinar se uma resposta de POSTAGEM pode ser colocado em cache.
@@ -159,7 +159,7 @@ Name | Objetivo
 
 Esses recursos permitem que um pedido para ser redirecionado ou reescrito para um URL diferente.
 
-Name | Objetivo
+Nome | Objetivo
 -----|--------
 [Seguir redirecionamentos](#follow-redirects) | Determina se os pedidos podem ser redirecionados para o nome de anfitrião definida no cabeçalho de localização devolvido por um servidor de origem do cliente.
 [Redirecionamento de URL](#url-redirect) | Redireciona os pedidos com o cabeçalho de localização.
@@ -173,7 +173,7 @@ Name | Objetivo
 
 **Objetivo**: Determina se um cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 
-Value|Resultado
+Valor|Resultado
 --|--
 Enabled | O cabeçalho de resposta de idade está incluído na resposta enviada para o autor do pedido.
 Desativado | O cabeçalho de resposta de idade está excluído da resposta enviada para o autor do pedido.
@@ -228,7 +228,7 @@ Segundos de Prebuf|Defina esta opção para o número de segundos para os POPs a
 
 **Objetivo:** Determina se deve ignorar o pedido de colocação em cache.
 
-Value|Resultado
+Valor|Resultado
 --|--
 Enabled|Faz com que todos os pedidos para enquadram-se por meio de para o servidor de origem, mesmo que o conteúdo foi colocado em cache anteriormente no POPs.
 Desativado|Faz com que POPs para cache recursos de acordo com a política de cache definida no respetivos cabeçalhos de resposta.
@@ -296,7 +296,7 @@ Informações da chave:
 
 A maneira mais fácil de obter este tipo de configuração é colocar o Max-Age externos e os recursos de tratamento de cabeçalho Cache-Control na mesma instrução.
 
-Value|Resultado
+Valor|Resultado
 --|--
 Substituir|Garante que as ações seguintes ocorrem:<br/> -Substitui a `Cache-Control` cabeçalho gerado pelo servidor de origem. <br/>-Adiciona o `Cache-Control` cabeçalho produzidos pelo recurso externo Max-Age na resposta.
 Pass-Through|Garante que o `Cache-Control` cabeçalho produzido pelo recurso externo Max-Age nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Cache-Control` cabeçalho, que passa para o utilizador final. <br/> Se o servidor de origem não produza um `Cache-Control` cabeçalho, então, esta opção pode fazer com que o cabeçalho de resposta a que não contenha um `Cache-Control` cabeçalho.
@@ -547,11 +547,11 @@ Depure cabeçalhos podem ser solicitados, incluindo o seguinte cabeçalho e as d
 
 `X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
-**Exemplo:**
+**Example:**
 
 EC-X-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Value|Resultado
+Valor|Resultado
 -|-
 Enabled|Pedidos para cabeçalhos de resposta de cache de depuração irão devolver uma resposta que inclui o cabeçalho X-EC-Debug.
 Desativado|O cabeçalho de resposta de EC-X-Debug será excluído da resposta.
@@ -612,7 +612,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 
 **Objetivo**: Determina se todos os pedidos são rejeitados com uma resposta em 403 Proibido.
 
-Value | Resultado
+Valor | Resultado
 ------|-------
 Enabled| Faz com que todos os pedidos que satisfazem os critérios de correspondência para ser rejeitada com uma resposta de proibido 403.
 Desativado| Restaura o comportamento padrão. O comportamento padrão é permitir que o servidor de origem para determinar o tipo de resposta que vai ser devolvido.
@@ -634,7 +634,7 @@ Desativado| Restaura o comportamento padrão. O comportamento padrão é permiti
 
 A maneira mais fácil de obter este tipo de configuração é colocar Max-Age externos e os recursos de tratamento de cabeçalho expira na mesma instrução.
 
-Value|Resultado
+Valor|Resultado
 --|--
 Substituir|Garante que as seguintes ações, terá lugar:<br/>-Substitui a `Expires` cabeçalho gerado pelo servidor de origem.<br/>-Adiciona o `Expires` cabeçalho produzidos pelo recurso externo Max-Age na resposta.
 Pass-Through|Garante que o `Expires` cabeçalho produzido pelo recurso externo Max-Age nunca é adicionado à resposta. <br/> Se o servidor de origem produz um `Expires` cabeçalho, ele passará para o utilizador final. <br/>Se o servidor de origem não produza um `Expires` cabeçalho, então, esta opção pode fazer com que o cabeçalho de resposta a que não contenha um `Expires` cabeçalho.
@@ -758,7 +758,7 @@ Informações da chave:
 
 Um pedido de cache não ocorre quando o cliente HTTP envia um `Cache-Control: no-cache` e/ou `Pragma: no-cache` cabeçalho na solicitação HTTP.
 
-Value|Resultado
+Valor|Resultado
 --|--
 Enabled|Permite que os pedidos de não-cache de um cliente HTTP para serem reencaminhados para o servidor de origem e o servidor de origem irá devolver os cabeçalhos de resposta e o corpo por meio do POP de volta para o cliente HTTP.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é impedir que os pedidos de cache não sejam encaminhados para o servidor de origem.
@@ -825,7 +825,7 @@ Devido a da maneira na qual cache definições são controladas, esta funcionali
 
 Por predefinição, este código de estado é devolvido quando a solicitação de intervalo de bytes especificada não pode ser satisfeita por um POP e um campo de cabeçalho If-Range pedido não foi especificado.
 
-Value|Resultado
+Valor|Resultado
 -|-
 Enabled|Impede que os POPs a responder a uma solicitação de intervalo de bytes inválido com um código de estado de pedidos gama não Satisfiable 416. Em vez disso, os servidores irão fornecer o recurso solicitado e retornar um 200 OK ao cliente.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é que respeite o código de estado de pedidos gama não Satisfiable 416.
@@ -1192,7 +1192,7 @@ A chave de encriptação que é utilizada para encriptar e desencriptar valores 
 
 Esta funcionalidade tem precedência sobre a maioria dos recursos com a exceção a funcionalidade de reescrita de URLs.
 
-Value | Resultado
+Valor | Resultado
 ------|---------
 Enabled | Protege os conteúdos solicitados com a autenticação baseada em tokens. Apenas as solicitações de clientes que fornecem um token válido e cumprem os requisitos serão cumpridas. Transações de FTP são excluídas da autenticação baseada em tokens.
 Desativado| Restaura o comportamento padrão. O comportamento padrão é permitir que a configuração da autenticação baseada em tokens determinar se um pedido esteja protegido.
@@ -1240,7 +1240,7 @@ Redirecionamento de URL só é aplicável para códigos de resposta de 3xx.
 
 A opção de valor de cabeçalho opcional suporta carateres alfanuméricos e espaços entre aspas duplas.
 
-#### <a name="authentication"></a>Autenticação
+#### <a name="authentication"></a>Authentication
 
 Esta funcionalidade suporta a capacidade de incluir o cabeçalho WWW-Authenticate em resposta a um pedido não autorizado para conteúdo protegido pela autenticação baseada em Token. Se o cabeçalho WWW-Authenticate foi definido como "básico" na sua configuração, será solicitado o utilizador não autorizado para as credenciais da conta.
 
@@ -1270,7 +1270,7 @@ Os parâmetros afetados por esta funcionalidade são:
 
 Valores válidos são:
 
-Value|Resultado
+Valor|Resultado
 ---|----
 Enabled|Faz com que o POP Ignorar maiúsculas / minúsculas ao comparar os URLs para os parâmetros de autenticação baseada em tokens.
 Desativado|Restaura o comportamento padrão. O comportamento padrão é para comparações de URL para a autenticação de Token seja maiúsculas e minúsculas.

@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41ec1f510b028a2ffe2554bfcbd77bc439c4e79
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272961"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612672"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página da aplicação mostra uma mensagem de erro depois do utilizador inicia sessão
 
@@ -99,7 +99,7 @@ Para alterar o valor do identificador de utilizador, siga estes passos:
 
 ## <a name="change-the-nameid-format"></a>Alterar o formato NameID
 
-Se o aplicativo esperar outro formato para o **NameID** atributo (identificador de utilizador), veja [nameID de edição](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization.md#editing-nameid) para alterar o formato NameID.
+Se o aplicativo esperar outro formato para o **NameID** atributo (identificador de utilizador), veja [nameID de edição](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-claims-customization#editing-nameid) para alterar o formato NameID.
 
 O Azure AD seleciona o formato para o **NameID** atributo (identificador de utilizador) com base no formato que é solicitado pela aplicação no AuthRequest de SAML ou o valor que está selecionado. Para obter mais informações, consulte a secção "NameIDPolicy" [único início de sessão do protocolo SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol#nameidpolicy).
 

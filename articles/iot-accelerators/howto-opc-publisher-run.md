@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 0af4fcb6ea87069f3dea73f33828abd4f4bb06f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3b386171afc7916e5e803c39a9c7b3520752e6fd
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450766"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603753"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
 
@@ -710,6 +710,6 @@ Se não tiver um servidor OPC UA real, pode utilizar o [OPC UA PLC de exemplo](h
 
 Ele implementa um número de etiquetas, o que gerar dados aleatórios e etiquetas com anomalias. Pode estender o exemplo se tiver de simular os valores de marca adicionais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu como executar o publicador OPC, as próximas etapas recomendadas são para saber mais sobre [OPC duplo](overview-opc-twin.md) e [OPC cofre](overview-opc-vault.md).

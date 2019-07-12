@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f725f38a335972ae8e0a8b8402a99202caa54a70
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147073"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805714"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Utilizar registos para resolver problemas de validação no disco do Azure Data Box
 
@@ -90,10 +90,10 @@ Os erros contidos no *error.xml* com correspondente ações recomendadas são re
 | `InvalidBlobNameFormat` | Caminho do ficheiro não mapear para um caminho de blob válido na nuvem de acordo com o Blob do Azure convenções de nomenclatura.|Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
 | `InvalidFileNameFormat` | Caminho do ficheiro não mapear para um caminho de ficheiro válido na nuvem de acordo com os ficheiros do Azure convenções de nomenclatura. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
 | `InvalidDiskNameFormat` | Caminho do ficheiro não mapear para um nome de disco válido na cloud de acordo com as convenções de nomenclatura de disco gerido do Azure. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.       |
-| `NotPartOfFileShare` | Não foi possível carregar os ficheiros porque o caminho de carregamento não é válido. Carregue os ficheiros numa pasta do ficheiros do Azure.   | Remova os ficheiros de erro e carregar esses ficheiros para uma pasta pré-criada. Repita a validação. |
-| `NonVhdFileNotSupportedForManagedDisk` | Não é possível carregar um ficheiro de não-VHD como um disco gerido. |Remova os ficheiros não VHD estas não são suportadas. Repita a validação. |
+| `NotPartOfFileShare` | O caminho de carregamento de ficheiros não é válido. Carregue os ficheiros numa pasta do ficheiros do Azure.   | Remova os ficheiros de erro e carregar esses ficheiros para uma pasta pré-criada. Repita a validação. |
+| `NonVhdFileNotSupportedForManagedDisk` | Não é possível carregar um ficheiro de não-VHD como um disco gerido. |Remover os ficheiros não VHD `ManagedDisk` pasta que estes não são suportados ou mover estes ficheiros para uma `PageBlob` pasta. Repita a validação. |
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Resolução de problemas [erros de carregamento de dados](data-box-disk-troubleshoot-upload.md).

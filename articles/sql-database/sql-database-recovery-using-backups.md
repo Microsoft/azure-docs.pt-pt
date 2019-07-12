@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232654"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706979"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -77,7 +77,7 @@ Geralmente, restaurar uma base de dados para um ponto anterior para fins de recu
 
 - **Substituição de base de dados**
 
-  Se a base de dados restaurada destina-se como um substituto para a base de dados original, deve especificar o tamanho de computação da base de dados orinal e escalão de serviço. Em seguida, pode mudar o nome da base de dados original e dar a base de dados restaurada ao nome original utilizando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando em T-SQL.
+  Se a base de dados restaurada destina-se como um substituto para a base de dados original, deve especificar o tamanho de computação da base de dados original e a camada de serviços. Em seguida, pode mudar o nome da base de dados original e dar a base de dados restaurada ao nome original utilizando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando em T-SQL.
 
 - **Recuperação de dados**
 
@@ -124,7 +124,7 @@ Georrestauro encontra-se a opção de recuperação predefinida quando a sua bas
 Restauro de ponto no tempo na geo-secundária não é atualmente suportado. Restauro de ponto no tempo pode ser feito apenas numa base de dados primária. Para obter informações detalhadas sobre como utilizar o restauro geográfico para recuperar a partir de uma falha, consulte [recuperar a partir de um período de indisponibilidade](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Georrestauro encontra-se a solução de recuperação de desastre mais básica, disponível na base de dados SQL. Ele conta com criados automaticamente cópias de segurança georreplicado com RPO = 1 hora e o tempo de recuperação estimado de até 12 horas. Não garantem que tenham a capacidade para restaurar os bancos de dados após um ourage regional porque um aumento sharp de procura, será provável que a região de destino. Para não críticas aplicativo de negócios que utilizar bases de dados relativamente pequenos, o restauro geográfico é uma solução de recuperação após desastre apropriado. Para busniess aplicativos críticos que utilizam bases de dados grandes e devem garantir a continuidade do negócio, deve usar [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md). Oferece um RPO e RTO muito mais baixo e a capacidade é sempre garantida. Para obter mais informações sobre as opções de continuidade do negócio, veja [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
+> Georrestauro encontra-se a solução de recuperação de desastre mais básica, disponível na base de dados SQL. Ele conta com criados automaticamente cópias de segurança georreplicado com RPO = 1 hora e o tempo de recuperação estimado de até 12 horas. Não garantem que tenham a capacidade para restaurar os bancos de dados após um ourage regional porque um aumento sharp de procura, será provável que a região de destino. Para não críticas aplicativo de negócios que utilizar bases de dados relativamente pequenos, o restauro geográfico é uma solução de recuperação após desastre apropriado. Para aplicações comerciais críticas que utilizam bases de dados grandes e devem garantir a continuidade do negócio, deve usar [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md). Oferece um RPO e RTO muito mais baixo e a capacidade é sempre garantida. Para obter mais informações sobre as opções de continuidade do negócio, veja [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Georrestauro com o portal do Azure
 
@@ -181,7 +181,7 @@ Para restaurar uma base de dados individual ou agrupada através da API REST:
 
 Cópias de segurança automáticas proteger as bases de dados de utilizador e erros de aplicações, a eliminação acidental de base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os escalões de serviço e tamanhos de computação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
 - Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).

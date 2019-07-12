@@ -4,7 +4,7 @@ description: Saiba como utilizar o Chef para implementações de máquina de vir
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: jeconnoc
+manager: gwallace
 tags: azure-service-management,azure-resource-manager
 editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2017
+ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 9cb7172fb529d8f0cd8650db7c06a78176ef342d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74b92c277b1d6eaa0984e55a70459bad59c2bf84
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64729550"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719269"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef é uma ótima ferramenta para o fornecimento de automatização e assim o desejar configurações de estado.
 
@@ -55,9 +54,24 @@ Chef também usa os conceitos de "Guias detalhados" e "Receitas", que são, efet
 
 Em primeiro lugar, de preparação de sua estação de trabalho através da criação de um diretório para armazenar ficheiros de configuração do Chef e guias detalhados.
 
-Crie um diretório chamado C:\chef.
+Crie um diretório chamado C:\Chef.
 
-Transferir o Azure PowerShell [definições de publicação](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Transfira e instale a versão mais recente [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versão logon em sua estação de trabalho.
+
+## <a name="configure-azure-service-principal"></a>Configurar o Principal de Serviço do Azure
+
+No mais simples de termos e Principal de serviço do Azure é uma conta de serviço.   Usaremos um Principal de serviço para ajudar-na criar recursos do Azure a partir de nossa estação de trabalho do Chef.  Para criar o Principal de serviço relevante com as permissões necessárias, que é necessário para executar os seguintes comandos do PowerShell:
+ 
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+Tire uma nota de SubscriptionID, TenantID, ID de cliente e segredo do cliente (a palavra-passe definido acima), irá precisar mais tarde. 
 
 ## <a name="setup-chef-server"></a>Configurar o servidor do Chef
 
@@ -86,7 +100,7 @@ Depois de criar a sua organização, Baixe o starter kit.
 
 Este ficheiro de zip do starter kit contém os ficheiros de configuração da organização e a chave de utilizador no `.chef` diretório.
 
-O `organization-validator.pem` devem ser baixadas separadamente, porque é uma chave privada e chaves privadas não devem ser armazenadas no servidor do Chef. Partir [Chef gerir](https://manage.chef.io/) e selecione "Repor a chave de validação", que fornece um arquivo para download separadamente. Guarde o ficheiro c:\chef.
+O `organization-validator.pem` devem ser baixadas separadamente, porque é uma chave privada e chaves privadas não devem ser armazenadas no servidor do Chef. Partir [Chef gerir](https://manage.chef.io/), vá para a secção de administração e selecionar "Repor a chave de validação", que fornece um arquivo para download separadamente. Guarde o ficheiro c:\chef.
 
 ### <a name="configuring-your-chef-workstation"></a>Configurar a sua estação de trabalho do Chef
 
@@ -138,19 +152,20 @@ validation_client_name   "myorg-validator"
 
 validation_key           "#{current_dir}/myorg.pem"
 
-Adicione também o seguinte ficheiro de definições de publicação de linha que reflete o nome do seu Azure.
+knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-Modificar o "cookbook_path" ao remover o /.... / do caminho para que seja apresentado como:
+knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+knife[:azure_client_secret] =     "#1234p$wdchef19"
 
-Estas linhas garantirá que referencia o diretório de guias detalhados em c:\chef\cookbooks Knife e também utiliza o nosso arquivo de definições de publicação do Azure durante as operações do Azure.
+
+Estas linhas garantirá que referencia o diretório de guias detalhados em c:\chef\cookbooks Knife e também utiliza o Principal de serviço do Azure que criou durante as operações do Azure.
 
 O ficheiro de knife.rb deve agora ter um aspeto semelhante ao seguinte exemplo:
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -159,17 +174,19 @@ O ficheiro de knife.rb deve agora ter um aspeto semelhante ao seguinte exemplo:
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## <a name="install-chef-workstation"></a>Instalar a estação de trabalho do Chef
@@ -182,13 +199,13 @@ Na área de trabalho, verá uma "PowerShell CW", o que é um ambiente carregado 
 `chef --version` deverá devolver algo como:
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -218,7 +235,7 @@ Execute o seguinte comando.
 
 Para garantir que tudo está configurada corretamente, execute o seguinte comando.
 
-    knife azure image list
+    knife azurerm server list
 
 Se tudo o que está configurado corretamente, verá uma lista de rolagem de imagens do Azure disponíveis por meio de.
 
@@ -273,32 +290,50 @@ Neste passo, fazer uma cópia do guia que tenha criado no computador local e car
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Implementar uma máquina virtual com o Knife Azure
 Implementar uma máquina virtual do Azure e aplique o manual de "Servidor Web", que instala o web service e o padrão página web do IIS.
 
-Para fazer isso, utilize o **criar servidor do azure de knife** comando.
+Para fazer isso, utilize o **knife azurerm server criar** comando.
 
 Um exemplo do comando apresentada a seguir.
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'westus' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
-Os parâmetros são facilmente compreensíveis. Substitua as variáveis específicas e executar.
+
+O exemplo acima irá criar uma máquina de virtual Standard_DS2_v2 com o Windows Server 2016 instalado na região E.U.A. oeste. Substitua as variáveis específicas e executar.
 
 > [!NOTE]
-> Através da linha de comando, eu estou também automatizar minhas regras de filtro de rede do ponto final ao utilizar o parâmetro de pontos de extremidade – tcp. Posso abrir as portas 80 e a 3389 para fornecer acesso a minha página da web e sessão RDP.
+> Através da linha de comando, eu estou também automatizar minhas regras de filtro de rede do ponto final ao utilizar o parâmetro de pontos de extremidade – tcp. Posso abrir as portas 80 e a 3389 para fornecer acesso à página da web e sessão RDP.
 >
 >
 
 Depois de executar o comando, vá ao portal do Azure para ver o seu computador começar a aprovisionar.
 
-![][13]
+![][15]
 
 O prompt de comando apresentada a seguir.
 
-![][10]
+![][16]
 
-Assim que a implementação estiver concluída, deve ser capaz de ligar ao serviço web através da porta 80, uma vez que abrir a porta quando aprovisionou a máquina virtual com o comando Knife Azure. Como esta máquina virtual é a única máquina de virtual neste serviço em nuvem, ligá-lo com o url do serviço cloud.
+Assim que a implementação estiver concluída, o endereço IP público da nova máquina virtual será apresentado o após a conclusão da implementação, pode copiar isso e cole-o num navegador da web e ver o site que tenha implementado. Quando implementar a máquina virtual, abrir a porta 80, pelo que deve ser disponível externamente.   
 
 ![][11]
 
 Este exemplo utiliza o código HTML criativo.
+
+Também pode ver o estado do nó [Chef gerir](https://manage.chef.io/). 
+
+![][17]
 
 Não se esqueça de que também pode ligar através de uma sessão RDP a partir do portal do Azure por meio da porta 3389.
 
@@ -316,6 +351,10 @@ Obrigado! Aceda e comece a infraestrutura como jornada de código com o Azure ho
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 
 <!--Link references-->

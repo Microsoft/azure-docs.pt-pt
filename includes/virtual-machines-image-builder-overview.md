@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: 6eedc095f155a77cddf48211dbc4a677bf188112
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 55d73b2602a9a862375ca3e72dee4597c1d6f1d6
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509897"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659883"
 ---
 Imagens de padronizada de máquinas virtuais (VM) permitem às organizações migrar para a cloud e garantir a consistência nas Implantações. Imagens incluem, geralmente, as definições predefinidas de segurança e a configuração e de software necessárias. Definir o seu pipeline de processamento de imagens exige tempo, a infraestrutura e a configuração, mas com o construtor de imagens de VM do Azure, basta indicar uma configuração simples que descrevem a sua imagem, submetê-lo para o serviço e a imagem é criada e distribuída.
  
@@ -33,7 +33,7 @@ Para a pré-visualização, estas funcionalidades são suportadas:
 - Criação de imagens no formato VHD.
  
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>Regiões
 O serviço de construtor de imagem do Azure vai estar disponível para pré-visualização nestas regiões. Imagens podem ser distribuídas fora nestas regiões.
 - East US
 - EUA Leste 2
@@ -55,7 +55,7 @@ AIB suportará RHEL ISO, como uma origem para:
 - RHEL 7.4
 - RHEL 7.5
 
-A 7,6 RHEL não é suportado, mas que está sendo testado.
+RHEL 7,6 ISOs não são suportadas, mas estão a ser testadas.
 
 ## <a name="how-it-works"></a>Como funciona
 

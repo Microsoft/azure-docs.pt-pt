@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: apipm
-ms.openlocfilehash: 7f7c37843ccaf78c7b7e6ec7a959106df45053d6
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.author: apimpm
+ms.openlocfilehash: af550d3cdf359fc79b3cc2c799e531e5ec491c4e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461613"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613636"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 

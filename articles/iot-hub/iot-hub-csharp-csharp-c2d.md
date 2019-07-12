@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
-ms.openlocfilehash: 0d83bdc3fd3f644013a2d2b80128839658524db9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 629342e44af16b6d23f9ed85f8c5306c807b8bfc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65864452"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621906"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Enviar mensagens a partir da cloud para o seu dispositivo com o Hub IoT (.NET)
 
@@ -22,11 +22,11 @@ ms.locfileid: "65864452"
 
 ## <a name="introduction"></a>Introdução
 
-O IoT Hub do Azure é um serviço totalmente gerido que ajuda a habilitar comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. [Envie telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md) mostra como criar um hub IoT, aprovisionar uma identidade de dispositivo no mesmo e código de uma aplicação de dispositivo que envia mensagens do dispositivo para a cloud.
+O IoT Hub do Azure é um serviço totalmente gerido que ajuda a habilitar comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md) início rápido mostra como criar um hub IoT, aprovisionar uma identidade de dispositivo no mesmo e código de uma aplicação de dispositivo que envia mensagens do dispositivo para a cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial baseia-se no manual de início rápido [enviar telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md). Ele mostra como realizar os passos seguintes:
+Este tutorial baseia-se nas [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md). Ele mostra como realizar os passos seguintes:
 
 * Da sua solução back-end, envie mensagens de cloud-para-dispositivo para um único dispositivo através do IoT Hub.
 
@@ -38,13 +38,13 @@ Pode encontrar mais informações sobre mensagens de cloud para o dispositivo no
 
 No final deste tutorial, executa duas aplicações de consola .NET.
 
-* **SimulatedDevice**, uma versão modificada da aplicação criada no [enviar telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md), que liga ao seu hub IoT e recebe mensagens de cloud-para-dispositivo.
+* **SimulatedDevice**, uma versão modificada da aplicação que criou no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md), que liga ao seu hub IoT e recebe mensagens de cloud-para-dispositivo.
 
 * **SendCloudToDevice**, que envia uma mensagem de cloud-para-dispositivo para a aplicação de dispositivo através do IoT Hub e, em seguida, recebe a confirmação de entrega.
 
 > [!NOTE]
 > IoT Hub tem suporte SDK para muitas plataformas de dispositivos e linguagens (incluindo C, Java e Javascript) por meio [do Azure IoT device SDKs](iot-hub-devguide-sdks.md). Para obter instruções passo a passo sobre como ligar o seu dispositivo ao código do tutorial e, em geral, hub IoT do Azure, consulte a [Guia do programador do IoT Hub](iot-hub-devguide.md).
-> 
+>
 
 Para concluir este tutorial, precisa do seguinte:
 
@@ -54,7 +54,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 ## <a name="receive-messages-in-the-device-app"></a>Receber mensagens na aplicação do dispositivo
 
-Nesta secção, vai modificar a aplicação de dispositivo que criou no [enviar telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md) para receber mensagens da cloud para dispositivo do IoT hub.
+Nesta secção, vai modificar a aplicação de dispositivo que criou no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md) para receber mensagens da cloud para dispositivo do IoT hub.
 
 1. No Visual Studio, no **SimulatedDevice** do projeto, adicione o seguinte método para o **programa** classe.
 
@@ -138,7 +138,7 @@ Agora escrever uma aplicação de consola .NET que envia mensagens de cloud-para
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. Adicione o seguinte método à classe **Programa**. Definir o nome do dispositivo para o que utilizou quando definir o dispositivo no [enviar telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md).
+6. Adicione o seguinte método à classe **Programa**. Definir o nome do dispositivo para o que utilizou quando definir o dispositivo no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -149,7 +149,7 @@ Agora escrever uma aplicação de consola .NET que envia mensagens de cloud-para
    }
    ```
 
-   Este método envia uma nova mensagem de cloud-para-dispositivo para o dispositivo com o ID, `myFirstDevice`. Alterar este parâmetro, apenas se a modificação da utilizada na [enviar telemetria a partir de um dispositivo para um hub IoT... ](quickstart-send-telemetry-dotnet.md).
+   Este método envia uma nova mensagem de cloud-para-dispositivo para o dispositivo com o ID, `myFirstDevice`. Alterar este parâmetro, apenas se a modificação da utilizada na [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md).
 
 7. Por fim, adicione as seguintes linhas para o **Main** método.
 
@@ -171,7 +171,7 @@ Agora escrever uma aplicação de consola .NET que envia mensagens de cloud-para
 
 ## <a name="receive-delivery-feedback"></a>Receber comentários de entrega
 
-É possível para as confirmações de entrega (ou expiração) do pedido do IoT Hub para cada mensagem de cloud-para-dispositivo. Esta opção permite que a solução de back-end informar facilmente a lógica de repetição ou de compensação. Para obter mais informações sobre os comentários de cloud para o dispositivo, consulte [D2C e C2D mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
+É possível para confirmações de entrega (ou expiração) do pedido do IoT Hub para cada mensagem de cloud-para-dispositivo. Esta opção permite que a solução de back-end informar facilmente a lógica de repetição ou de compensação. Para obter mais informações sobre os comentários de cloud para o dispositivo, consulte [D2C e C2D mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 Nesta secção, modificar os **SendCloudToDevice** aplicação para solicitar os comentários e recebê-la a partir do IoT hub.
 

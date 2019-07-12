@@ -3,15 +3,15 @@ title: Arquitetura de conectividade na base de dados do Azure para MariaDB
 description: Descreve a arquitetura de conectividade da base de dados do Azure para MariaDB server.
 author: kummanish
 ms.author: manishku
-ms.service: mariaDB
+ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 126e7ce4d9784a2f6a59f39562dff9a0b9d60ea0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d49e4dff1664d6630c966583a722f8e136061de5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735395"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595262"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade na base de dados do Azure para MariaDB
 Este artigo explica a base de dados do Azure para MariaDB arquitetura de conectividade, bem como a forma como o tráfego é direcionado para a base de dados do Azure para MariaDB a instância de clientes dentro e fora do Azure.
@@ -66,7 +66,7 @@ A tabela seguinte lista os IPs primário e secundário da base de dados do Azure
 > [!NOTE]
 > *E.U.A. Leste 2* também tem um endereço IP terciário de `52.167.104.0`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar e gerir a base de dados do Azure para MariaDB regras de firewall com o portal do Azure](./howto-manage-firewall-portal.md)
 * [Criar e gerir a base de dados do Azure para as regras de firewall da MariaDB com a CLI do Azure](./howto-manage-firewall-cli.md)

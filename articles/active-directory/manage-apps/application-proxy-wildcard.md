@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd29fc00a1c25a7c092393591060ca7e2938155
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 5d3b8176566593c5c9e9ff63a6ccbafcb2a35cd5
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481273"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827998"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações de caráter universal no proxy de aplicações do Azure Active Directory
 
@@ -45,7 +45,9 @@ Pode publicar aplicações com carateres universais se tanto, os URLs internos e
 
 > http(s)://*.\<domain\>
 
-Por exemplo: `http(s)://*.adventure-works.com`. Enquanto os URLs internos e externos podem utilizar domínios diferentes, como melhor prática, deve ser igual. Quando a publicação da aplicação, verá um erro se um dos URLs de não tiver um caráter universal.
+Por exemplo: `http(s)://*.adventure-works.com`.
+
+Enquanto os URLs internos e externos podem utilizar domínios diferentes, como melhor prática, deve ser igual. Quando a publicação da aplicação, verá um erro se um dos URLs de não tiver um caráter universal.
 
 Se tiver aplicações adicionais com diferentes definições de configuração, tem de publicar essas exceções como aplicações separadas para substituir as configurações padrão para o caráter universal. Aplicativos sem um caráter universal sempre têm precedência sobre aplicações de caráter universal. Da perspectiva do configuração, são aplicativos "apenas" regulares.
 
@@ -60,7 +62,7 @@ Para começar, certifique-se de que cumprir estes requisitos.
 Embora [domínios personalizados](application-proxy-configure-custom-domain.md) são opcionais para todas as outras aplicações, são um pré-requisito para aplicações de caráter universal. Criar domínios personalizados requer que:
 
 1. Crie um domínio verificado no Azure.
-2. Carregar um certificado SSL no formato PFX para o proxy de aplicações.
+1. Carregar um certificado SSL no formato PFX para o proxy de aplicações.
 
 Deve considerar a utilização de um certificado de caráter universal para corresponder a aplicação que pretende criar. Em alternativa, também pode utilizar um certificado que apenas apresenta uma lista de determinados aplicativos. Neste caso, apenas as aplicações listadas no certificado estará acessíveis por meio desta aplicação de caráter universal.
 
@@ -82,11 +84,11 @@ Aqui estão algumas considerações que deve levar em conta para aplicações de
 
 Para aplicações de caráter universal, o **URL interno** têm de ser formatados como `http(s)://*.<domain>`.
 
-![Para o URL interno, utilize o formato HTTP (s) :/ / *. < domínio >](./media/application-proxy-wildcard/22.png)
+![Para o URL interno, utilize o formato HTTP (s) :/ / *. \<domínio >](./media/application-proxy-wildcard/22.png)
 
 Quando configura uma **URL externo**, tem de utilizar o seguinte formato: `https://*.<custom domain>`
 
-![Para o URL externo, utilize o domínio de https://*.<custom formato >](./media/application-proxy-wildcard/21.png)
+![Para o URL externo, utilize o formato https://*. \<domínio personalizado >](./media/application-proxy-wildcard/21.png)
 
 Outras posições do caráter universal, vários carateres universais ou outras cadeias de caracteres de regex não são suportadas e estão a causar erros.
 
@@ -95,11 +97,11 @@ Outras posições do caráter universal, vários carateres universais ou outras 
 Pode excluir um aplicativo da aplicação de caráter universal por
 
 - Publicação da aplicação de exceção como aplicativo regular
-- Ativar o caráter universal apenas para aplicações específicas, por meio de suas definições de DNS  
+- Ativar o caráter universal apenas para aplicações específicas, por meio de suas definições de DNS
 
 Publicar uma aplicação como aplicativo comum é o método preferencial para excluir uma aplicação a partir de um caráter universal. Deve publicar as aplicações excluídas antes das aplicações de caráter universal para garantir que suas exceções são impostas desde o início. O aplicativo mais específico sempre irá ter precedência – uma aplicação publicada como `budgets.finance.adventure-works.com` terão precedência sobre o aplicativo `*.finance.adventure-works.com`, que por sua vez, tem precedência sobre o aplicativo `*.adventure-works.com`.
 
-Também pode limitar o caráter universal só funcionar para aplicações específicas através da sua gestão de DNS. Como melhor prática, deve criar uma entrada CNAME, que inclui um caráter universal e corresponde ao formato do URL externo que configurou. No entanto, em vez disso, pode apontar URLs de aplicação específica para os carateres universais. Por exemplo, em vez de `*.adventure-works.com`, aponte `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`. 
+Também pode limitar o caráter universal só funcionar para aplicações específicas através da sua gestão de DNS. Como melhor prática, deve criar uma entrada CNAME, que inclui um caráter universal e corresponde ao formato do URL externo que configurou. No entanto, em vez disso, pode apontar URLs de aplicação específica para os carateres universais. Por exemplo, em vez de `*.adventure-works.com`, aponte `hr.adventure-works.com`, `expenses.adventure-works.com` e `travel.adventure-works.com individually` para `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
 Se utilizar esta opção, também precisa de outra entrada CNAME para o valor `AppId.domain`, por exemplo, `00000000-1a11-22b2-c333-444d4d4dd444.adventure-works.com`, também apontando para a mesma localização. Pode encontrar os **AppId** na página de propriedades do aplicativo do aplicativo com carateres universais:
 
@@ -110,7 +112,7 @@ Se utilizar esta opção, também precisa de outra entrada CNAME para o valor `A
 A aplicação de caráter universal é representada com apenas um mosaico no [MyApps painel](https://myapps.microsoft.com). Por predefinição, este mosaico está oculta. Para mostrar o mosaico e ter ' s land de usuários numa página específica:
 
 1. Siga as diretrizes para [definir um URL da home page](application-proxy-configure-custom-home-page.md).
-2. Definir **Mostrar aplicativo** para **verdadeiro** na página de propriedades do aplicativo.
+1. Definir **Mostrar aplicativo** para **verdadeiro** na página de propriedades do aplicativo.
 
 ### <a name="kerberos-constrained-delegation"></a>Delegação restringida de Kerberos
 

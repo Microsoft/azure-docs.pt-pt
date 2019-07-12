@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 5da09d705246ffd5002a1a21daab2266525f579e
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357501"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621755"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Dimensionar a sua tarefa do Stream Analytics com as funções do Azure Machine Learning Studio
 
@@ -95,7 +95,7 @@ Vamos examinar o dimensionamento utilizando as seguintes medidas de latência pa
 | 200 ms | lotes de 1000 eventos ou abaixo |
 | 250 ms | evento de 5.000 lotes |
 | 300 ms | lotes de 10 000 eventos |
-| 500 ms | lotes de eventos de 25.000 |
+| 500 ms | lotes de eventos de 25.000 |
 
 1. Com a primeira opção (**não** aprovisionamento mais SUs). O tamanho de lote pode ser aumentado para **25.000**. Aumentar o tamanho de lote desta forma, permitirá que a tarefa processar 1 000 000 eventos com 20 ligações simultâneas para o serviço web do Machine Learning (com uma latência de 500 ms por chamada). Para que a latência adicional da tarefa de Stream Analytics devido a pedidos de função de sentimento contra os pedidos de serviço da web de Machine Learning poderia ser aumentada de **200 ms** ao **500 ms**. No entanto, tamanho do lote **não é possível** aumenta infinitamente a serviços web Machine Learning requer que o tamanho da carga de um pedido de ser de 4 MB ou menor e a tempo limite de pedidos de serviço da web após 100 segundos da operação.
 1. Usando a segunda opção, o tamanho do lote é deixado em 1000, com latência de serviço da web de 200 ms, todas as 20 ligações simultâneas para o serviço web seria capazes de processar 1000 * 20 * 5 eventos = 100 000 por segundo. Portanto, para processar 1 000 000 eventos por segundo, a tarefa precisaria 60 SUs. Em comparação com a primeira opção, a tarefa do Stream Analytics tornaria o mais batch solicitações de web service, por sua vez, gerando um custo maior.
@@ -145,5 +145,5 @@ Para saber mais sobre o Stream Analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

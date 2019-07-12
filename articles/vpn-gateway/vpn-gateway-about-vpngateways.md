@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 05/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d4bba41170408b640b4e8d3809c77b7a6443c6a
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b4ad8697997a8c90a6548c66819bfe790c8235e3
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480049"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798998"
 ---
 # <a name="what-is-vpn-gateway"></a>O que é um Gateway de VPN?
 
@@ -51,7 +51,7 @@ A tabela seguinte pode ajudá-lo a decidir a melhor opção de conectividade par
 
 ## <a name="gwsku"></a>SKUs de Gateway
 
-Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para saber mais sobre as SKUs do gateway, incluindo as funcionalidades suportadas, produção e desenvolvimento-teste, bem como passos de configuração, consulte [SKUs de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Quando cria um gateway de rede virtual, tem de especificar o SKU de gateway que pretende utilizar. Selecione o SKU que atende as suas necessidades com base nos tipos de cargas de trabalho, taxas de transferência, funcionalidades e SLA. Para obter mais informações sobre o gateway SKUs, incluindo suportados recursos, produção e desenvolvimento e teste e passos de configuração, consulte a [definições do Gateway de VPN - SKUs de Gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku) artigo. Para informações do SKU de legado, consulte [trabalhar com SKUs legados](vpn-gateway-about-skus-legacy.md).
 
 ### <a name="benchmark"></a>SKUs de Gateway por túnel, ligação e débito
 
@@ -152,7 +152,7 @@ Para obter mais informações sobre os SKUs de gateway para o Gateway de VPN, ve
 
 Para perguntas mais frequentes sobre o Gateway de Aplicação, veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 - Veja [Subscription and service limits (Subscrições e limites do serviço)](../azure-subscription-service-limits.md#networking-limits).

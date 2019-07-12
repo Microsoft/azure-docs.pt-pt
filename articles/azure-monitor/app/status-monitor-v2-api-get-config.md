@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1f7061c9823ddc8ff7f8f42976041f1c9ff68fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7eaaaa2dd7b22d138ea2f0a52d0bf0a1b2eab026
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514390"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807093"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API de v2 de Monitor de estado: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v040-alpha"></a>API de v2 de Monitor de estado: Get-ApplicationInsightsMonitoringConfig (v0.4.0-alpha)
 
 Este artigo descreve um cmdlet que faz parte do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -45,7 +45,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 Não existem parâmetros necessários.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 
 #### <a name="example-output-from-reading-the-config-file"></a>Exemplo de saída ler o ficheiro de configuração

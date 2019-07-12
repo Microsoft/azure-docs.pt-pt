@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0e38a431970613f34ee3af0fdb0eb55c5ad344bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509730"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835481"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início rápido: Configurar o início de sessão de uma aplicação ASP.NET com o Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **desenvolvimento na web e ASP.NET** carga de trabalho. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **desenvolvimento na web e ASP.NET** carga de trabalho.
 - Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
 - [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
@@ -41,8 +41,8 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 ## <a name="run-the-application-in-visual-studio"></a>Execute a aplicação no Visual Studio
 
 1. Na pasta de projeto da aplicação de exemplo, abra a solução **B2C-WebAPI-DotNet.sln** no Visual Studio.
-2. Para este início rápido, vai executar ambos os projetos **TaskWebApp** e **TaskService** em simultâneo. Clique com o botão direito do rato na solução **B2C-WebAPI-DotNet** no Explorador de Soluções e, em seguida, selecione **Definir Projetos de Arranque**. 
-3. Selecione **Vários projetos de arranque** e altere a **Ação** de ambos os projetos para **Iniciar**. 
+2. Para este início rápido, vai executar ambos os projetos **TaskWebApp** e **TaskService** em simultâneo. Clique com o botão direito do rato na solução **B2C-WebAPI-DotNet** no Explorador de Soluções e, em seguida, selecione **Definir Projetos de Arranque**.
+3. Selecione **Vários projetos de arranque** e altere a **Ação** de ambos os projetos para **Iniciar**.
 4. Clique em **OK**.
 5. Prima **F5** para depurar as duas aplicações. Cada aplicação abre no seu próprio separador do browser:
 
@@ -53,37 +53,37 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
 1. Clique em **Inscrever-se / Iniciar sessão** na aplicação Web ASP.NET para iniciar o fluxo de trabalho.
 
-    ![Exemplo de aplicação Web ASP.NET](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
+    ![Aplicação web ASP.NET de exemplo no browser com o início de sessão de segurança/início de sessão realçado de ligação](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
     O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter.
 
 2. O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia chamada Wingtip Toys para a aplicação web. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
-    ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+    ![Página de sessão ou inscrever-se a mostrar os botões de fornecedor de identidade](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    Autentica (início de sessão) com sua conta de redes sociais, credenciais e autorize a aplicação para ler as informações da sua conta de redes sociais. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
+    Autentica (início de sessão) com sua conta de redes sociais, credenciais e autorize a aplicação para ler as informações da sua conta de redes sociais. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade.
 
 3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
 ## <a name="edit-your-profile"></a>Editar o seu perfil
 
-O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. Aplicação web de exemplo utiliza um fluxo de utilizador do perfil de edição do Azure AD B2C para o fluxo de trabalho. 
+O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. Aplicação web de exemplo utiliza um fluxo de utilizador do perfil de edição do Azure AD B2C para o fluxo de trabalho.
 
 1. Na barra de menus da aplicação, clique no nome do perfil e selecione **Editar perfil** para editar o perfil que criou.
 
-    ![Editar perfil](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+    ![Exemplo de aplicação web no browser com a ligação do perfil de editar realçada](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. Altere o seu **Nome a apresentar** ou **Cidade** e, em seguida, clique em **Continuar** para atualizar o seu perfil. 
+2. Altere o seu **Nome a apresentar** ou **Cidade** e, em seguida, clique em **Continuar** para atualizar o seu perfil.
 
     A alteração é apresentada na parte superior direita da home page da aplicação Web.
 
 ## <a name="access-a-protected-api-resource"></a>Aceder a um recurso protegido da API
 
-1. Clique em **Lista de Tarefas** para introduzir e modificar os itens da lista de tarefas. 
+1. Clique em **Lista de Tarefas** para introduzir e modificar os itens da lista de tarefas.
 
 2. Introduza texto na caixa de texto **Novo Item**. Clique em **Adicionar** para chamar a API Web protegida pelo Azure AD B2C, que adiciona um item da lista de tarefas.
 
-    ![Adicionar um item da lista de tarefas](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ![Exemplo de aplicação web no browser com adicionar um item de lista de tarefas](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
     A aplicação Web ASP.NET inclui um token de acesso do Azure AD no pedido para o recurso da API Web protegido para executar operações nos itens da lista de tarefas do utilizador.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: bc058cb3f27545b9e4ad8ef1062ca4d2fa4c9fa8
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 46f52cb0478b47f8f6b45356815bc4c74e7cc800
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155155"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724118"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -84,7 +84,6 @@ Para a VM criada a partir de uma imagem personalizada, tem de configurar a chave
 
 3. Confirme que a VM está configurada para utilizar o servidor correto do KMS do Azure. Para tal, execute o seguinte comando:
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -93,29 +92,26 @@ Para a VM criada a partir de uma imagem personalizada, tem de configurar a chave
 
 4. Certifique-se ao utilizar o Psping que tem conetividade ao servidor do KMS. Mude para a pasta para a qual extraiu a transferência de Pstools.zip e execute o seguinte:
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    Na penúltima linha da saída, verifique se vê: Enviado = 4, recebidos = 4, perdida = 0 (perda de 0%).
 
    Se perdida for superior a 0 (zero), a VM tem conetividade ao servidor do KMS. Nesta situação, é capaz de resolver kms.core.windows.net se a VM estiver numa rede virtual e tiver um servidor DNS personalizado especificado, deve certificar-se de que o servidor DNS. Em alternativa, altere o servidor DNS de forma que resolver kms.core.windows.net.
 
    Observe que, se remover todos os servidores DNS de uma rede virtual, as VMs usam o serviço DNS interno do Azure. Este serviço pode resolver kms.core.windows.net.
   
-Certifique-se também de que a firewall de convidado não foi configurada de forma que faria a bloquear tentativas de ativação.
+    Além disso, certifique-se de que o tráfego de rede de saída para o ponto final KMS com a porta 1688 não está bloqueado pela firewall na VM.
 
-1. Depois de verificar a conectividade com êxito kms.core.windows.net, execute o seguinte comando essa linha de comandos elevada do Windows PowerShell. Este comando repete a ativação várias vezes.
+5. Depois de verificar a conectividade com êxito kms.core.windows.net, execute o seguinte comando essa linha de comandos elevada do Windows PowerShell. Este comando repete a ativação várias vezes.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-Uma ativação com êxito devolve informações semelhantes ao seguinte:
-
-**Ativar o Windows (r), edição de ServerDatacenter (12345678-1234-1234-1234-12345678)... Produto ativado com êxito.**
+    Uma ativação com êxito devolve informações semelhantes ao seguinte:
+    
+    **Ativar o Windows (r), edição de ServerDatacenter (12345678-1234-1234-1234-12345678)...  Produto ativado com êxito.**
 
 ## <a name="faq"></a>FAQ 
 

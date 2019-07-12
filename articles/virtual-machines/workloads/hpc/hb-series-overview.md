@@ -4,7 +4,7 @@ description: Saiba mais sobre o suporte de pré-visualização para o tamanho VM
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: amverma
-ms.openlocfilehash: bf143aa316a3d373a6303865cdc39ee0aaf27d87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62e4d3dbd7357f8c98df3307c1c8fe52cbed1c5e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809921"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707763"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Descrição geral de máquinas virtuais de série HB
 
@@ -63,7 +63,7 @@ O diagrama seguinte mostra a diferenciação de núcleos reservados para o hiper
 | Suporte de CycleCloud do Azure    | Sim                         |
 | Suporte do Azure Batch         | Sim                         |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre tamanhos de VM de HPC para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) no Azure.
 

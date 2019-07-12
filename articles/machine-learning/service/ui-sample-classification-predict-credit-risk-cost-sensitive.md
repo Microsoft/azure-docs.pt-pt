@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787822"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606170"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)
 
@@ -37,7 +37,7 @@ Este é o gráfico concluído para esta fase experimental:
 
     ![Abra a experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="data"></a>Dados
+## <a name="data"></a>Data
 
 Usamos o conjunto de dados do cartão de crédito alemão do repositório de UC Irvine. Este conjunto de dados contém 1.000 exemplos com 20 recursos e 1 etiqueta. Cada exemplo representa uma pessoa. Os recursos de 20 incluem recursos numéricos e categóricos. Consulte a [Web site UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para obter mais informações sobre o conjunto de dados. A última coluna é a etiqueta que indica o risco de crédito e tem apenas dois valores possíveis: risco elevado crédito = 2 e o risco de crédito baixa = 1.
 
@@ -164,3 +164,4 @@ Explore os outros exemplos disponíveis para a interface visual:
 - [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemplo 5 - classificação: Prever o volume de alterações](ui-sample-classification-predict-churn.md)
+- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)

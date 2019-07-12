@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bc53fadfb622794703deaff560c9083ca6a1a10
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61341717"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656826"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Suporte de metadados de OpenAPI 2.0 nas funções do Azure (pré-visualização)
 O OpenAPI 2.0 (anteriormente Swagger) suporte a metadados nas funções do Azure é uma funcionalidade de pré-visualização que pode utilizar para escrever uma definição de OpenAPI 2.0 dentro de uma aplicação de funções. Em seguida, pode alojar esse ficheiro com a aplicação de função.
@@ -45,7 +45,7 @@ Para obter instruções passo a passo, consulte a [tutorial de introdução](./f
 
 ### <a name="templates"></a>Modelos disponíveis
 
-|Name| Descrição |
+|Nome| Descrição |
 |:-----|:-----|
 |Definição gerada|Uma definição de OpenAPI com a quantidade máxima de informações que podem ser inferidas a partir de metadados de existente da função.|
 
@@ -75,7 +75,7 @@ A tabela seguinte representa as definições do portal do Azure e os dados corre
    1. Definir **origem de definição de API** ao **função**.
    1. Clique em **modelo de definição de API de gerar** e, em seguida **guardar** para criar uma definição de modelo para modificar mais tarde.
    1. Tenha em atenção que o URL de definição de API e a chave.
-1. [Configurar a implementação de integração contínua/contínua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+1. [Configurar a implementação de integração contínua/contínua (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#requirements-for-continuous-deployment).
 2. Modifique o swagger no controle de origem em \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
 Agora, as alterações para swagger no seu repositório estão alojadas pela sua aplicação de função na API do URL de definição e a chave que anotou no passo 1.c.

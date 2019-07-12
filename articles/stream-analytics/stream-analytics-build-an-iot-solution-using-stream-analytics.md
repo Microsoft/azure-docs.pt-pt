@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5b2c153646021aeb8ee0dbb787cfce41af19568d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443681"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620526"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 
@@ -164,7 +164,7 @@ Existem vários recursos que podem ser facilmente implementados num grupo de rec
 
    Parafraseando a intenção da consulta, digamos que precisa contar o número de veículos introduza pedágio. Como pedágio autoestrada tem um fluxo contínuo de veículos introduzir, esses são os eventos de entrada são análogos para um fluxo que nunca deixa. Para quantificar o fluxo, tem de definir um "período de tempo" para medir o ao longo. Vamos refinar ainda mais, a pergunta para "quantos veículos introduzir pedágio a cada três minutos?" Isto é frequentemente referido como a contagem de em cascata.
 
-   Como pode ver, o Azure Stream Analytics utiliza uma linguagem de consulta que é parecida com SQL e adiciona algumas extensões para especificar os aspetos relacionados com a hora da consulta.  Para obter mais detalhes, leia sobre [gerenciamento de tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) construções utilizadas na consulta.
+   Como pode ver, o Azure Stream Analytics utiliza uma linguagem de consulta que é parecida com SQL e adiciona algumas extensões para especificar os aspetos relacionados com a hora da consulta.  Para obter mais detalhes, leia sobre [gerenciamento de tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) construções utilizadas na consulta.
 
 3. Examine as entradas da tarefa de exemplo TollApp. Apenas a entrada de EntryStream é utilizada na consulta atual.
    - **EntryStream** entrada é uma ligação do Hub de eventos que enfileira dados que representam sempre que um carro insere um tollbooth na autoestrada. Uma aplicação web que é parte do exemplo é a criação de eventos, e esses dados são enfileirados em deste Hub de eventos. Tenha em atenção que esta entrada é consultada na cláusula FROM da consulta de transmissão em fluxo.

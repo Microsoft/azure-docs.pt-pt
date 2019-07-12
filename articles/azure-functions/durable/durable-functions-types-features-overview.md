@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731125"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812834"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de funções duráveis e recursos (funções do Azure)
 
@@ -27,7 +27,7 @@ Este artigo fornece uma descrição geral dos tipos de funções que pode utiliz
 
 ## <a name="types-of-durable-functions"></a>Tipos de funções duráveis
 
-Pode utilizar três tipos de função durável nas funções do Azure: atividade, o orchestrator e o cliente.
+Pode utilizar quatro tipos de função durável nas funções do Azure: atividade, o orchestrator, o entity e o cliente.
 
 ### <a name="activity-functions"></a>Funções de atividade
 
@@ -43,7 +43,7 @@ Para obter mais informações e exemplos, veja [funções de atividade](durable-
 
 ### <a name="orchestrator-functions"></a>Funções do Orchestrator
 
-As funções do Orchestrator descrevem como as ações são executadas e a ordem em que as ações são executadas. As funções do Orchestrator descrevem a orquestração no código (C# ou o JavaScript) conforme mostrado na [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md). Uma orquestração pode ter vários tipos de ações, incluindo [funções de atividade](#activity-functions), [orquestrações secundárias](#sub-orchestrations), [aguardar por eventos externos](#external-events)e [temporizadores](#durable-timers). 
+As funções do Orchestrator descrevem como as ações são executadas e a ordem em que as ações são executadas. As funções do Orchestrator descrevem a orquestração no código (C# ou o JavaScript) conforme mostrado na [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md). Uma orquestração pode ter vários tipos de ações, incluindo [funções de atividade](#activity-functions), [orquestrações secundárias](#sub-orchestrations), [aguardar por eventos externos](#external-events)e [temporizadores](#durable-timers). As funções do Orchestrator podem também interagir com [funções de entidade](#entity-functions).
 
 Uma função de orquestrador tem de ser acionada por um [acionador de orquestração](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ Um orquestrador é iniciado por um [cliente do orchestrator](#client-functions).
 
 Para obter mais informações e exemplos, veja [acionadores de orquestração](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Funções de entidade (pré-visualização)
+
+Funções de entidade definem operações de leitura e atualizando pequenas partes do Estado, conhecido como *entidades duráveis*. Como funções do orchestrator, as funções de entidade são as funções com um tipo de Acionador especial *acionador de entidade*. Ao contrário das funções do orchestrator, as funções de entidade não tem quaisquer restrições de código específica. Funções de entidade também gerir o estado explicitamente em vez de implicitamente que representa o estado através do fluxo de controle.
+
+> [!NOTE]
+> Funções de entidade e funcionalidade relacionada só está disponível no 2.0 de funções durável e superior.
+
+Para obter mais informações sobre as funções de entidade, veja a [funções de entidade](durable-functions-preview.md#entity-functions) documentação das funcionalidades de pré-visualização.
+
 ### <a name="client-functions"></a>Funções do cliente
 
-As funções do cliente são as funções acionadas que criar novas instâncias de uma orquestração. As funções do cliente são o ponto de entrada para a criação de uma instância de uma orquestração de funções duráveis. Pode acionar uma função de cliente a partir de qualquer origem (HTTP, fila, fluxo de eventos). Pode escrever uma função de cliente em qualquer idioma que a aplicação suporta. 
-
-As funções do cliente também tem um [cliente de orquestração](durable-functions-bindings.md#orchestration-client) enlace. A função de um cliente pode utilizar a ligação para criar e gerir orquestrações duráveis do cliente de orquestração. 
+As funções do cliente são funções acionadas que criar e gerir instâncias de orquestrações e entidades. Eles são, efetivamente, o ponto de entrada para interagir com as funções durável. Pode acionar uma função de cliente a partir de qualquer origem (HTTP, fila, o fluxo de eventos, etc.). Uma função de cliente utiliza a [ligação do cliente de orquestração](durable-functions-bindings.md#orchestration-client) para criar e gerir orquestrações duráveis e entidades.
 
 O exemplo mais básico de uma função de cliente é uma função acionada por HTTP, que inicia uma função de orquestrador e, em seguida, devolve uma resposta da verificação de estado. Por exemplo, veja [deteção de URL da API HTTP](durable-functions-http-api.md#http-api-url-discovery).
 

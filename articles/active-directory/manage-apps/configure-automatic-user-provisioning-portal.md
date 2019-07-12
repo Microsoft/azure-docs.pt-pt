@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b994078350aec5657659f8835d228eb907606bb8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963567"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807625"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
 
@@ -31,14 +31,11 @@ Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com)
 Utilize o portal do Azure Active Directory para ver e gerir todos os aplicativos que estão configurados para início de sessão único num diretório. Aplicações empresariais são as aplicações que são implementadas e utilizadas na sua organização. Siga estes passos para ver e gerir as suas aplicações empresariais:
 
 1. Abra o [portal do Azure Active Directory](https://aad.portal.azure.com).
-
 1. Selecione **aplicações empresariais** no painel à esquerda. É apresentada uma lista de todas as aplicações configuradas, incluindo aplicações que foram adicionadas a partir da galeria.
-
 1. Selecione uma aplicação para carregar o seu painel de recursos, onde pode ver relatórios e gerir as definições da aplicação.
-
 1. Selecione **aprovisionamento** para gerir as definições da aplicação selecionada de configuração de contas de utilizador.
 
-   ![Painel de recursos de aplicação](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Ecrã de aprovisionamento para gerir as definições de configuração de contas de utilizador](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modos de aprovisionamento
 
@@ -68,17 +65,17 @@ Expanda **mapeamentos** para ver e editar os atributos de utilizador que fluem e
 
 Existe um conjunto pré-configuradas de mapeamentos entre objetos de utilizador do Azure AD e objetos de utilizador de cada aplicação de SaaS. Algumas aplicações, gerir outros tipos de objetos, tais como grupos ou contactos. Selecione um mapeamento da tabela para abrir o editor de mapeamento para a direita, onde pode ver e personalizá-las.
 
-![Painel de recursos de aplicação](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Mostra o ecrã de mapeamento do atributo](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Personalizações suportadas incluem:
 
 * Ativar e desativar mapeamentos para objetos específicos, como o objeto de utilizador do Azure AD para o objeto de utilizador da aplicação SaaS.
 * Editar os atributos que o fluam a partir do objeto de utilizador do Azure AD para o objeto de utilizador da aplicação. Para obter mais informações sobre o mapeamento do atributo, consulte [Noções básicas sobre os tipos de mapeamento de atributos](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtrar as ações de aprovisionamento do Azure AD é executado na aplicação de destino. Em vez de precisar do Azure AD totalmente sincronizar objetos, pode limitar as ações a executar. 
+* Filtrar as ações de aprovisionamento do Azure AD é executado na aplicação de destino. Em vez de precisar do Azure AD totalmente sincronizar objetos, pode limitar as ações a executar.
 
   Por exemplo, selecione apenas **atualização** e do Azure AD apenas as atualizações de utilizador existente num aplicativo de contas, mas não cria novos. Apenas a determinados **criar** e apenas o Azure cria novas contas de utilizador mas não atualiza os existentes. Esta funcionalidade permite aos administradores criar mapeamentos diferentes para a criação de conta e atualizar os fluxos de trabalho.
 
-* Adicionar um novo mapeamento do atributo. Selecione **adicionar novo mapeamento** na parte inferior da **mapeamento do atributo** painel. Preencha os **Editar atributo** formam e selecione **Ok** para adicionar o mapeamento de novo à lista. 
+* Adicionar um novo mapeamento do atributo. Selecione **adicionar novo mapeamento** na parte inferior da **mapeamento do atributo** painel. Preencha os **Editar atributo** formam e selecione **Ok** para adicionar o mapeamento de novo à lista.
 
 ### <a name="settings"></a>Definições
 

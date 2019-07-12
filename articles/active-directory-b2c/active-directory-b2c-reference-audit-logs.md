@@ -11,12 +11,12 @@ ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2c1bfd9e2659127ab77e9db661b54fde18a8d25c
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 216f5413ce3dae1f2d040643a30a4d7db4a879b8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205353"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835401"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Registos de auditoria do acesso ao Azure AD B2C
 
@@ -34,44 +34,44 @@ O **B2C** categoria nos registos de auditoria contém os seguintes tipos de ativ
 |Tipo de atividade |Descrição  |
 |---------|---------|
 |Autorização |Atividades relacionadas a autorização de um utilizador aos recursos de acesso B2C (por exemplo, um administrador aceder a uma lista das políticas de B2C)         |
-|Diretório |Atividades relacionadas com os atributos de diretório obtidos quando um administrador inicia sessão no Portal do Azure |
+|Diretório |Atividades relacionadas com os atributos de diretório obtidos quando um administrador inicia sessão no portal do Azure |
 |Aplicação | Operações CRUD em aplicações B2C |
 |Chave |Operações CRUD em chaves armazenadas no contentor de chaves do B2C |
 |Resource |Operações de CRUD nos recursos de B2C (por exemplo, políticas e fornecedores de identidade)
-|Autenticação |Validação de credenciais de utilizador e a emissão de token|
+|Authentication |Validação de credenciais de utilizador e a emissão de token|
 
 > [!NOTE]
 > Para atividades CRUD do objeto de utilizador, consulte a **diretório principal** categoria.
 
 ## <a name="example-activity"></a>Atividade de exemplo
-O exemplo abaixo mostra os dados capturados quando um utilizador inicia sessão com um fornecedor de identidade externo: ![Registos de auditoria - exemplo](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
+O exemplo abaixo mostra os dados capturados quando um utilizador inicia sessão com um fornecedor de identidade externo: ![Exemplo da página de detalhes de atividade do Log de auditoria no portal do Azure](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
 O painel de detalhes de atividade contém as seguintes informações relevantes:
 
 |Section|Campo|Descrição|
 |-------|-----|-----------|
-| Atividade | Name | Que atividade ocorreu. Por exemplo, "emitir uma id_token para a aplicação" (o que conclui o usuário real início de sessão). |
-| Iniciado por (Ator) | ObjectId | O **ID de objeto** da aplicação B2C que o utilizador está a iniciar sessão (este identificador não está visível no Portal do Azure, mas pode ser acessado pela Graph API por exemplo). |
+| Atividade | Nome | Que atividade ocorreu. Por exemplo, "emitir uma id_token para a aplicação" (o que conclui o usuário real início de sessão). |
+| Iniciado por (Ator) | ObjectId | O **ID de objeto** da aplicação B2C que o utilizador está a iniciar sessão (este identificador não está visível no portal do Azure, mas pode ser acessado pela Graph API por exemplo). |
 | Iniciado por (Ator) | Spn | O **ID da aplicação** da aplicação B2C que o utilizador está a iniciar sessão. |
 | Destino (s) | ObjectId | O **ID de objeto** do utilizador que está a iniciar sessão. |
 | Detalhes Adicionais | TenantId | O **ID de inquilino** do inquilino do Azure AD B2C. |
 | Detalhes Adicionais | `PolicyId` | O **ID de política** do fluxo de utilizador (política) a ser utilizado para a sessão do utilizador. |
 | Detalhes Adicionais | ApplicationId | O **ID da aplicação** da aplicação B2C que o utilizador está a iniciar sessão. |
 
-## <a name="accessing-audit-logs-through-the-azure-portal"></a>Aceder a registos de auditoria através do Portal do Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Aceder aos registos de auditoria através do portal do Azure
 1. Aceda ao [Portal do Azure](https://portal.azure.com). Certifique-se de que está no diretório do B2C.
 2. Clique em **do Azure Active Directory** na barra de Favoritos à esquerda
-    
-    ![Registos de auditoria - botão AAD](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
+
+    ![O Azure Active Directory botão realçado no menu esquerdo do portal](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-aad.png)
 
 1. Sob **atividade**, clique em **registos de auditoria**
 
-    ![Registos de auditoria - secção de registos](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
+    ![Botão de registos de auditoria realçado na secção de atividade do menu](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-section.png)
 
 2. Na **categoria** dropbox, selecione **B2C**
 3. Clique em **aplicam-se**
 
-    ![Registos de auditoria - categoria](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
+    ![Categoria e botão de aplicar realçada no filtro de registo de auditoria](./media/active-directory-b2c-reference-audit-logs/audit-logs-portal-category.png)
 
 Verá uma lista de atividades iniciadas durante os últimos sete dias.
 - Utilize o **tipo de recurso de atividade** lista pendente para filtrar pelos tipos de atividade descritos acima

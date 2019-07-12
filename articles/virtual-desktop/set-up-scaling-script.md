@@ -4,15 +4,15 @@ description: Descreve como configurar o script de dimensionamento automático pa
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: e9f500e3ab965b9dbfc5e395a6572497c85f6f8f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b98db361a8ec888eb8bf9e1bf3658a7e38111c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755126"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620422"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
@@ -75,7 +75,7 @@ Em seguida, terá de criar as credenciais armazenadas com segurança:
     Por exemplo, **Set-Variable - nome KeyPath-escopo Global-valor "c:\\HostPool1 dimensionamento"**
 5. Executar o **New StoredCredential - KeyPath \$KeyPath** cmdlet. Quando lhe for pedido, introduza as credenciais de área de Trabalho Virtual do Windows com permissões para consultar o conjunto de anfitrião (o conjunto de host é especificado na **Config. XML**).
     - Se utilizar principais de serviço diferentes ou conta padrão, execute o **New StoredCredential - KeyPath \$KeyPath** cmdlet, uma vez para cada conta criar local armazenado as credenciais.
-6. Execute **Get StoredCredentials-lista** para confirmar as credenciais foram criadas com êxito.
+6. Execute **Get StoredCredential-lista** para confirmar as credenciais foram criadas com êxito.
 
 ### <a name="configure-the-configxml-file"></a>Configurar o arquivo Config. XML
 

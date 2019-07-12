@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 302e8edcf6cad16644a454fd9b56b42ffd1fab61
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ca03c8d52de1580b755833dd990d1d7671f372ca
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482557"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785704"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código do Azure Active Directory (v1.0 ponto final)
 
@@ -58,7 +58,7 @@ As seguintes amostras ilustram aplicativos Web, os utilizadores de assinatura. A
  Plataforma | Apenas inicia sessão dos utilizadores | Chamadas Microsoft Graph ou Graph do AAD| Chama outro ASP.NET ou API Web do ASP.NET Core 2.0
  -------- | ------------------- | --------------------- | -------------------------
 ![Esta imagem mostra o logótipo do ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) </p>(Graph do AAD) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![Esta imagem mostra o logótipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/azure/active-directory/develo/pguidedsetups/active-directory-aspnetwebapp-v1) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Graph do AAD) |
+![Esta imagem mostra o logótipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [webApp-openidconnect-dotnet](quickstart-v1-aspnet-webapp.md) </p> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) </p> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)</p> (Graph do AAD) |
 ![Esta imagem mostra o logótipo de Python](media/sample-v2-code/logo_python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
 ![Esta imagem mostra o registo de Java](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
 ![Esta imagem mostra o logótipo PHP](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
@@ -67,7 +67,7 @@ As seguintes amostras ilustram aplicativos Web, os utilizadores de assinatura. A
 
 Os exemplos seguintes mostram como implementar o controlo de acesso baseado em funções (RBAC). RBAC é utilizado para restringir as permissões de determinadas funcionalidades numa aplicação web a determinados utilizadores. Os utilizadores estão autorizados dependendo se pertencem a um **grupo do Azure AD** ou tem um determinado aplicativo **função**.
 
-Plataforma | Exemplo |
+Plataforma | Sample |
  -------- | ------------------- |
 ![Esta imagem mostra o logótipo do ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) </p>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Uma aplicação web de MVC do .NET 4.5 que utiliza o Azure AD **funções** para autorização
 
@@ -82,7 +82,7 @@ As seguintes amostras ilustram aplicativos de cliente público (deskto/pmobile a
 Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama um ASP.NET ou ASP.NET Core 2.x API Web
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Ambiente de trabalho (WPF)           | ![Esta imagem mostra o .NET /C# logótipo](media/sample-v2-code/logo_NET.png)  | Interativo | Parte da [nativo-dotnet-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [Dotnet-native-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Mobile (UWP)            | .![Esta imagem mostra o .NET /C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interativo | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Este exemplo utiliza [WAM](https://docs.microsoft.com/windows/uw/psecurity/web-account-manager), e não [ADAL.NET](https://aka.ms/adalnet)|  [DotNet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicação de UWP com ADAL.NET para chamar um Web API de inquilino único) </p> [DotNet-webapi-multi-inquilino-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicação de UWP com ADAL.NET para chamar um Web API de multi-inquilino)|
+Mobile (UWP)            | .![Esta imagem mostra o .NET /C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interativo | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Este exemplo utiliza [WAM](/windows/uwp/security/web-account-manager), e não [ADAL.NET](https://aka.ms/adalnet)|  [DotNet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (aplicação de UWP com ADAL.NET para chamar um Web API de inquilino único) </p> [DotNet-webapi-multi-inquilino-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (aplicação de UWP com ADAL.NET para chamar um Web API de multi-inquilino)|
 Móveis (Android, iOS, UWP)   | ![Esta imagem mostra o .NET /C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Móveis (Android)           | ![Esta imagem mostra o logótipo do Android](media/sample-v2-code/logo_Android.png) | Interativo |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Móveis (iOS)           | ![Esta imagem mostra iOS / Objective C ou Swift](media/sample-v2-code/logo_iOS.png) | Interativo |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
@@ -108,7 +108,7 @@ O exemplo a seguir mostra como proteger uma API com o Azure AD da web de node. j
 
 Nas secções anteriores deste artigo, também pode encontrar outros exemplos que ilustram uma aplicação de cliente **chamar** um ASP.NET ou ASP.NET Core **Web API**. Estes exemplos não são novamente mencionados nesta secção, mas vai encontrá-las na última coluna das tabelas acima ou abaixo
 
-| Plataforma | Exemplo |
+| Plataforma | Sample |
 |--------|-------------------|
 | ![Esta imagem mostra o logótipo de node. js](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi) |
 

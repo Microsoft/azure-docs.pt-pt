@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 0203/26/2019
+ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33d7f11842d6f22a86816b590cddd91eaf76ed72
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244860"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607041"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -76,14 +76,14 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 
 ### <a name="azure-tenant-and-subscription"></a>Inquilino do Azure e subscrição
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | Registos de auditoria do Azure Active Directory | Configurado através de definições de diagnóstico para cada diretório. Ver [registos de integrar o Azure AD com os registos do Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
 | Registos de atividade | Armazenados em separado por predefinição e pode ser utilizado para perto de alertas em tempo real. Instale a solução de análise para a área de trabalho do Log Analytics de escrita de registo de atividades. Ver [recolher e analisar registos de atividades do Azure no Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Recursos do Azure
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | Diagnóstico de recursos | Configure definições de diagnóstico para escrever dados de diagnóstico, incluindo métricas numa área de trabalho do Log Analytics. Ver [Stream registos de diagnóstico do Azure para o Log Analytics](diagnostic-logs-stream-log-store.md). |
 | Soluções de monitorização | Soluções de monitorização escrever dados em que eles recolher a sua área de trabalho do Log Analytics. Ver [detalhes de recolha de dados para soluções de gestão no Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Ver [monitorizar soluções no Azure Monitor](../insights/solutions.md) para obter detalhes sobre como instalar e utilizar as soluções. |
@@ -92,7 +92,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 
 ### <a name="virtual-machines"></a>Virtual Machines
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 |  Origens de dados do agente | Origens de dados recolhidos a partir [Windows](agent-windows.md) e [Linux](../learn/quick-collect-linux-computer.md) agentes incluem eventos, dados de desempenho e registos personalizados. Ver [origens de dados do agente no Azure Monitor](data-sources.md) para obter uma lista de origens de dados e detalhes sobre a configuração. |
 | Soluções de monitorização | Soluções de monitorização gravar dados que recolhemos agentes para sua área de trabalho do Log Analytics. Ver [detalhes de recolha de dados para soluções de gestão no Azure](../insights/solutions-inventory.md) para obter uma lista de soluções. Ver [monitorizar soluções no Azure Monitor](../insights/solutions.md) para obter detalhes sobre como instalar e utilizar as soluções. |
@@ -101,7 +101,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 
 ### <a name="applications"></a>Aplicações
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | Pedidos e exceções | Dados detalhados sobre exceções e pedidos de aplicação estão no _pedidos_, _pageViews_, e _exceções_ tabelas. Chama [componentes externos](../app/asp-net-dependencies.md) estão no _dependências_ tabela. |
 | Utilização e desempenho | Desempenho da aplicação está disponível na _pedidos_, _browserTimings_ e _performanceCounters_ tabelas. Dados para [métricas personalizadas](../app/api-custom-events-metrics.md#trackevent) está no _customMetrics_ tabela.|
@@ -110,21 +110,21 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 
 ### <a name="insights"></a>Informações
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | Azure Monitor para contentores | Dados de inventário e de desempenho recolhidos pelo [Monitor do Azure para contentores](../insights/container-insights-overview.md). Ver [detalhes de recolha de dados de contentor](../insights/container-insights-log-search.md#container-records) para obter uma lista das tabelas. |
 | Azure Monitor para VMs | Dados de mapa e de desempenho recolhidos pelo [do Azure Monitor para VMs](../insights/vminsights-overview.md). Ver [como consultar os registos do Azure Monitor para VMs](../insights/vminsights-log-search.md) para obter detalhes sobre como consultar estes dados. |
 
-### <a name="custom"></a>Personalizado 
+### <a name="custom"></a>Personalizar 
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | API REST | Escreva dados para uma área de trabalho do Log Analytics a partir de qualquer cliente REST. Ver [enviar dados de registo para o Azure Monitor com a API HTTP Data Collector](data-collector-api.md) para obter detalhes.
 | Aplicação Lógica | Escrever todos os dados para uma área de trabalho do Log Analytics a partir de um fluxo de trabalho de aplicação lógica com o **do Azure Log Analytics Data Collector** ação. |
 
 ### <a name="security"></a>Segurança
 
-| Dados | Descrição |
+| Data | Descrição |
 |:---|:---|
 | Centro de Segurança do Azure | [Centro de segurança do Azure](/azure/security-center/) armazena os dados que recolhe numa área de trabalho do Log Analytics onde podem ser analisados com outros dados de registo. Ver [recolha de dados no Centro de segurança do Azure](../../security-center/security-center-enable-data-collection.md) para obter detalhes sobre a configuração de área de trabalho. |
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) armazena os dados de origens de dados numa área de trabalho do Log Analytics. Ver [ligar a origens de dados](/azure/sentinel/connect-data-sources).  |

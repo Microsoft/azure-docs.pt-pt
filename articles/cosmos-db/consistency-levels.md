@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.openlocfilehash: dcd51756a9c5a5a24a082862bb911cc2d2605d61
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9de37c04e5e791445659de0ab667b51f44a4024
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954368"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839830"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -48,7 +48,7 @@ A semântica dos níveis de cinco consistência é descrita aqui:
 
   Estagnação limitada ofertas total global do pedido, exceto dentro da "janela limitada". As garantias de leitura monotónica existem dentro de uma região dentro e fora da janela de limitada. Consistência forte tem a mesma semântica que aquela oferecidos pelo estagnação limitada. A janela de envelhecimento é igual a zero. Estagnação limitada é também referida como o atraso de tempo de transação atómica. Quando um cliente executa operações de leitura numa região que aceita escritas, as garantias fornecidas pelo consistência de estagnação limitada são idênticas a essas garantias pela consistência forte.
 
-- **Sessão**: As leituras são garantidas para honrar o prefixo consistente (supondo que uma sessão de escritor"única"), leituras monotónicas, escritas monotónica, garantias de leitura-your-escritas e escrita de acordo com leituras. Consistência da sessão é confinada a uma sessão de cliente.
+- **Sessão**:  Dentro de uma sessão de cliente único as leituras são garantidas que respeite o prefixo consistente (supondo que uma sessão de escritor"única"), leituras monotónicas, escritas monotónica, garantias de leitura-your-escritas e escrita de acordo com leituras. Os clientes fora da sessão efetuar operações de escrita Verão a consistência eventual.
 
 - **Prefixo consistente**: Atualizações que são devolvidas contêm alguns prefixos de todas as atualizações, sem intervalos. Nível de consistência de prefixo consistente garante que leituras nunca veem escritas fora de ordem.
 

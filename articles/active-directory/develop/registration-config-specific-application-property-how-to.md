@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bccaa28d34ebff47c7de73a4d9b3d8296ae9fef
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b01ff1e2d0c9bc926d54bd54716e0579ef395ec0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476129"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655999"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Como preencher campos específicos para uma aplicação personalizada desenvolvida
 
@@ -41,9 +41,9 @@ Este artigo fornece uma breve descrição de todos os campos disponíveis no for
 
 | Campo            | Descrição                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | O nome da aplicação. Ele deve ter um mínimo de quatro carateres.                |
+| Nome             | O nome da aplicação. Ele deve ter um mínimo de quatro carateres.                |
 | Tipos de conta suportados| Selecionar quais as contas que pretender seu aplicativo para oferecer suporte a: contas apenas neste diretório organizacional, contas de qualquer diretório organizacional ou contas em qualquer diretório organizacional e contas Microsoft pessoais.  |
-| (Opcional) do URI de redirecionamento | Selecione o tipo de aplicação que quer criar, **Web** ou **cliente público (móvel e ambiente de trabalho)** e, em seguida, introduza o URI de redirecionamento (ou URL de resposta) para a sua aplicação. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a sua aplicação, como myapp://auth. Para ver exemplos específicos de aplicações Web ou nativas, veja os nossos [inícios rápidos](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).|
+| (Opcional) do URI de redirecionamento | Selecione o tipo de aplicação que quer criar, **Web** ou **cliente público (móvel e ambiente de trabalho)** e, em seguida, introduza o URI de redirecionamento (ou URL de resposta) para a sua aplicação. Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, http://localhost:31544 pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web. Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a sua aplicação, como myapp://auth. Para ver exemplos específicos de aplicações Web ou nativas, veja os nossos [inícios rápidos](https://docs.microsoft.com/azure/active-directory/develop).|
 
 Quando tiver preenchido as campos acima, o aplicativo está registado no portal do Azure e será redirecionado para a página de descrição geral do aplicativo. As páginas de definições no painel esquerdo em **gerir** têm mais campos para personalizar seu aplicativo. As tabelas a seguir descrevem todos os campos. Apenas conseguiria obter um subconjunto desses campos, dependendo de ter criado uma aplicação web ou uma aplicação cliente público.
 
@@ -60,7 +60,7 @@ Quando tiver preenchido as campos acima, o aplicativo está registado no portal 
 | Carregar novo logótipo | Pode utilizar este para carregar um logótipo para a sua aplicação. O logótipo tem de estar no formato. bmp,. jpg ou. PNG e o tamanho do ficheiro deve ser inferior a 100 KB. As dimensões para a imagem devem ser pixels 215 x 215, com dimensões da imagem central de: 94 x 94 pixéis.|
 | URL da home page   | Este é o URL de início de sessão especificado durante o registo de aplicação.|
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 | Campo           | Descrição        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

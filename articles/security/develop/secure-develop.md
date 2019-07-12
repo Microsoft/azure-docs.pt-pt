@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f68f6c366571b8f0f04f8507606c1a4008ab0405
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4add4bf07178aa616e86f8a64b313630466824f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443250"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653269"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
 Neste artigo, apresentamos as atividades de segurança e controlos a serem considerados ao desenvolver aplicativos para a nuvem. Perguntas de segurança e conceitos a serem considerados durante as fases de implementação e a verificação da Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são abordados. O objetivo é ajudar a definir as atividades e serviços do Azure que pode utilizar para desenvolver um aplicativo mais seguro.
@@ -88,7 +88,7 @@ Isso significa que menos pessoas têm acesso aos seus dados reais, o que reduz a
 
 Se proteger contra força bruta e com base no dicionário adivinhar, deve implementar uma política de palavra-passe segura para se certificar de que os utilizadores criam uma palavra-passe complexa (por exemplo, 12 carateres comprimento mínimo e a necessidade de alfanuméricos e carateres especiais).
 
-Pode usar uma estrutura de identidade para criar e impor políticas de palavra-passe. O Azure AD B2C ajuda-o com a gestão de palavra-passe, fornecendo [políticas incorporadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy), [reposição de palavra-passe self-service](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)e muito mais.
+Pode usar uma estrutura de identidade para criar e impor políticas de palavra-passe. O Azure AD B2C ajuda-o com a gestão de palavra-passe, fornecendo [políticas incorporadas](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [reposição de palavra-passe self-service](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)e muito mais.
 
 Para se Defender contra ataques em contas padrão, certifique-se de que todas as chaves e palavras-passe sejam substituíveis e os que forem gerados ou substituídos após instalar recursos.
 

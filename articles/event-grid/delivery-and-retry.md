@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952894"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812913"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente
 
@@ -43,6 +43,12 @@ Para comportamento determinístico, defina a hora do evento ao vivo e tentativas
 
 Por predefinição, o Event Grid expira todos os eventos que não são entregues no prazo de 24 horas. Pode [personalizar a política de repetição](manage-event-delivery.md) durante a criação de uma subscrição de evento. Fornecer o número máximo de tentativas de entrega (a predefinição é 30) e o evento time-to-live (a predefinição é 1440 minutos).
 
+## <a name="delayed-delivery"></a>Entrega atrasada
+
+Como um ponto de extremidade sofre falhas de entrega, o Event Grid irá começar a atrasar a entrega e tentativa de eventos para esse ponto final. Por exemplo, se os dez primeiros eventos publicados para um ponto final falharem, Event Grid irá assumir que o ponto final está com problemas e atrasará todas as tentativas subsequentes *novas e* entregas durante algum tempo – em alguns casos, até algumas horas .
+
+O objetivo funcional entrega atrasado é proteger pontos finais de mau estado de funcionamento, bem como o sistema do Event Grid. Sem término e o atraso de entrega para pontos finais de mau estado de funcionamento, política de repetição do Event Grid e capacidades de volume podem facilmente sobrecarregar os um sistema.
+
 ## <a name="dead-letter-events"></a>Eventos de mensagens não entregues
 
 Quando o Event Grid não é possível entregar um evento, ele pode enviar o evento não serão entregues para uma conta de armazenamento. Este processo é conhecido como mensagens não entregues. Por predefinição, não ative Event Grid mensagens não entregues. Para ativá-la, tem de especificar uma conta de armazenamento para armazenar eventos não serão entregues ao criar a subscrição de evento. Obter eventos a partir desta conta de armazenamento para resolver entregas.
@@ -63,25 +69,29 @@ Grelha de eventos utiliza códigos de resposta HTTP para confirmar a receção d
 
 ### <a name="success-codes"></a>Códigos de êxito
 
-Os seguintes códigos de resposta HTTP indicam que um evento tem foi entregue com êxito para o webhook. Grelha de eventos considera a entrega completo.
+Considera do Event Grid **apenas** os seguintes códigos de resposta HTTP como entregas bem-sucedidas. Todos os outros códigos são considerados entregas com falha e serão repetidos de estado ou deadlettered conforme apropriado. Ao receber um código de estado com êxito, Event Grid considera entrega completo.
 
 - 200 OK
+- 201 criado
 - Aceite 202
+- 203 informações não-autoritativa
+- 204-sem conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os seguintes códigos de resposta HTTP indicam que não foi uma tentativa de entrega de eventos.
+Todos os outros códigos não no conjunto acima (200 204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específicas associadas aos mesmos descritos abaixo, siga todos os outros exponencial término modelo padrão. É importante ter em mente que, devido à natureza altamente em paralelo da arquitetura do Event Grid, o comportamento de repetição é determinística. 
 
-- 400 pedido inválido
-- 401 não autorizado
-- 404 Não Encontrado
-- 408 tempo limite do pedido
-- Entidade do pedido 413 demasiado grande
-- 414 URI demasiado longo
-- 429 demasiados pedidos
-- 500 Erro de Servidor Interno
-- 503 Serviço Indisponível
-- 504 Tempo Limite do Gateway
+| Código de estado | Comportamento de tentativas |
+| ------------|----------------|
+| 400 pedido inválido | Repetir após 5 minutos ou mais (mensagens não entregues imediatamente se a configuração de mensagens não entregues) |
+| 401 não autorizado | Repetir após 5 minutos ou mais |
+| 403 Proibido | Repetir após 5 minutos ou mais |
+| 404 Não Encontrado | Repetir após 5 minutos ou mais |
+| 408 Tempo Limite do Pedido | Tente novamente depois de 2 minutos ou mais |
+| Entidade do pedido 413 demasiado grande | Repetir após 10 segundos ou mais (mensagens não entregues imediatamente se a configuração de mensagens não entregues) |
+| 503 Serviço Indisponível | Repetir após 30 segundos ou mais |
+| Todas as outras pessoas | Repetir após 10 segundos ou mais |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

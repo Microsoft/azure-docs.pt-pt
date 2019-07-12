@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73b832002d1c15505e8ae845ac2585548c8e080f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482148"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702713"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de final de plataforma de identidade do Microsoft
 
@@ -53,7 +53,7 @@ O mesmo acontece com todos os recursos de terceiros que integraram com a platafo
 
 Ao definir esses tipos de permissões, o recurso tem um controle refinado sobre os seus dados e como as funcionalidades de API é exposta. Uma aplicação de terceiros pode pedir estas permissões de utilizadores e administradores, que têm de aprovar o pedido antes da aplicação pode aceder a dados ou agir em nome de um utilizador. Por segmentar a funcionalidade do recurso em conjuntos menores de permissão, aplicações de terceiros podem ser criadas para solicitar apenas as permissões específicas que precisam para executar a respetiva função. Os utilizadores e administradores podem saber exatamente os dados que a aplicação tem acesso aos e podem ser mais seguro de que não está se comportando com más intenções. Os desenvolvedores sempre devem concordar com o conceito de privilégio mínimo, pedindo apenas as permissões necessárias para as aplicações a funcionar.
 
-OAuth 2.0, esses tipos de permissões são chamados *âmbitos*. Eles também normalmente conhecido como *permissões*. Uma permissão é representada na plataforma de identidades da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph, o valor de cadeia de caracteres para cada permissão é:
+OAuth 2.0, esses tipos de permissões são chamados *âmbitos*. Eles são muitas vezes, denominados *permissões*. Uma permissão é representada na plataforma de identidades da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph, o valor de cadeia de caracteres para cada permissão é:
 
 * Leia o calendário de um utilizador através da utilização `Calendars.Read`
 * Escrever para o calendário de um utilizador ao utilizar `Calendars.ReadWrite`
@@ -167,7 +167,8 @@ O consentimento de administrador não aceita um parâmetro de âmbito, para que 
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões solicitadas estaticamente para uma aplicação
 
 1. Aceda ao seu aplicativo no [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência, ou [criar uma aplicação](quickstart-register-app.md) se ainda não o fez.
-2. Localize a **permissões do Microsoft Graph** secção e, em seguida, adicione as permissões que a sua aplicação necessita.
+2. Localize a **permissões API** secção e, em que as permissões de API, clique em Adicionar uma permissão.
+3. Selecione **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que a sua aplicação necessita.
 3. **Guardar** o registo de aplicações.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendado: Iniciar sessão do utilizador na sua aplicação

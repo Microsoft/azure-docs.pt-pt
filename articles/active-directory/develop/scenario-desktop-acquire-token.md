@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111261"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795093"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicação de ambiente de trabalho que chama o web APIs - adquirir um token
 
@@ -293,8 +293,9 @@ Também pode adquirir um token ao fornecer o nome de utilizador e palavra-passe.
 
 Este fluxo é **não recomendada** porque seu aplicativo perguntar um utilizador a palavra-passe não é seguro. Para obter mais informações sobre este problema, consulte [este artigo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). O fluxo preferencial para obter um token silenciosamente em máquinas de associados a um domínio do Windows é [a autenticação integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Caso contrário, pode também utilizar [fluxo de código de dispositivo](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > Embora isso seja útil em alguns casos (cenários de DevOps), se pretender utilizar o nome de utilizador/palavra-passe em cenários interativos em que forneça sua onw da interface do Usuário, deve realmente pensar sobre como mover para fora. Com o nome de utilizador/palavra-passe está fornecendo-up uma série de coisas:
-
+>
 > - núcleos de inquilinos de identidade moderna: palavra-passe obtém fished, repetidos. Como temos este conceito de um segredo de partilha que pode ser interceptado.
 > Isso é incompatível com o início.
 > - os utilizadores que precisam de fazer a MFA não será capazes de início de sessão (como não há nenhuma interação do)
@@ -651,7 +652,7 @@ Classes e interfaces envolvidos na serialização de cache de tokens são os seg
 > [!IMPORTANT]
 > MSAL.NET cria caches de token para e fornece-lhe com o `IToken` coloca em cache quando chamar um aplicativo `GetUserTokenCache` e `GetAppTokenCache` métodos. Não deve implementar a interface por conta própria. É sua responsabilidade, ao implementar uma serialização de cache de token personalizados:
 >
-> - Reaja aos `BeforeAccess` e `AfterAccess` "eventos". O`BeforeAccess` delegado é da responsabilidade de anular a serialização da cache, ao passo que o `AfterAccess` um é responsável pela serialização do cache.
+> - Reaja aos `BeforeAccess` e `AfterAccess` "eventos" (ou eles *Async* equivalente). O`BeforeAccess` delegado é da responsabilidade de anular a serialização da cache, ao passo que o `AfterAccess` um é responsável pela serialização do cache.
 > - Parte desses eventos armazenar ou carregar blobs, que são transmitidas o argumento do evento para qualquer armazenamento que pretende.
 
 As estratégias são diferentes, dependendo se estiver escrevendo uma serialização de cache de token para uma aplicação de cliente público (Desktop) ou uma aplicação de cliente confidencial (web aplicação/API web, aplicação de daemon).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Uma pré-visualização de uma cache token de qualidade de produtos baseados em ficheiros serializador para aplicações de cliente público (para aplicações de ambiente de trabalho em execução no Windows, Mac e linux) está disponível a partir da [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) biblioteca de código-fonte aberto. Pode incluí-lo em seus aplicativos a partir do pacote nuget do seguinte: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Exclusão de responsabilidade. A biblioteca de Microsoft.Identity.Client.Extensions.Msal é uma extensão ao longo do MSAL.NET. Classes dessas bibliotecas podem se tornam em MSAL.NET no futuro, como está ou com alterações significativas.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Serialização de cache de tokens dupla (cache MSAL unificada + V3 da ADAL)

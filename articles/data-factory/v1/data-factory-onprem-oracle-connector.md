@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462416"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839939"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
@@ -83,7 +83,7 @@ Pode criar um pipeline com uma atividade de cópia. O pipeline que move os dados
 
 A maneira mais fácil para criar um pipeline é usar o Assistente para copiar. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente de cópia de dados.
 
-Também pode utilizar uma das seguintes ferramentas para criar um pipeline: o **portal do Azure**, **Visual Studio**, **Azure PowerShell**, um **do Azure Resource Manager modelo**, o **API de .NET**, ou a **REST API**. Consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline com uma atividade de cópia.
+Também pode utilizar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo Azure Resource Manager**, o **.NET API**, ou o **REST API**. Consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, conclua os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -187,7 +187,7 @@ Na atividade de cópia, quando a origem é o **OracleSource** tipo, as seguintes
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar dados de e para a base de dados Oracle
 
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para uma base de dados Oracle e de ou para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks listados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para uma base de dados Oracle e de ou para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks listados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia no Azure Data Factory.
 
 **Exemplo: Copiar dados do Oracle para o armazenamento de Blobs do Azure**
 
@@ -599,27 +599,27 @@ Ao mover dados do Oracle, são utilizados os seguintes mapeamentos do tipo de da
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(com suporte apenas no Oracle 10g e versões posteriores ao utilizar um controlador Microsoft) |
-| CHAR |String |
-| CLOB |String |
+| CHAR |Cadeia |
+| CLOB |Cadeia |
 | DATE |DateTime |
 | FLOAT |Decimal, String (se precisão > 28) |
 | INTEGER |Decimal, String (se precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DO INTERVALO COMO SEGUNDO |TimeSpan |
-| LONG |String |
+| LONG |Cadeia |
 | LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
+| NCHAR |Cadeia |
+| NCLOB |Cadeia |
 | NUMBER |Decimal, String (se precisão > 28) |
-| NVARCHAR2 |String |
+| NVARCHAR2 |Cadeia |
 | RAW |Byte[] |
-| ROWID |String |
+| ROWID |Cadeia |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
-| UNSIGNED INTEGER |Number |
-| VARCHAR2 |String |
-| XML |String |
+| UNSIGNED INTEGER |Número |
+| VARCHAR2 |Cadeia |
+| XML |Cadeia |
 
 > [!NOTE]
 > Tipos de dados **intervalo ano para mês** e **intervalo dia TO segundo** não são suportados quando utiliza um controlador de Microsoft.

@@ -2,18 +2,18 @@
 title: Coleções de área de trabalho do BI Power FAQ
 description: Perguntas mais frequentes relacionadas com coleções de área de trabalho do Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701574"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672410"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Coleções de área de trabalho do BI Power FAQ
 

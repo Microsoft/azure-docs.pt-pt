@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8d1f9ca5a964787f0ee68e6d99fe870cd7b5994b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67183940"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673474"
 ---
 O Armazenamento de Blobs do Azure é a solução de armazenamento de objetos da Microsoft para a cloud. Armazenamento de Blobs está otimizado para armazenar grandes quantidades de dados não estruturados. Dados não estruturados são os dados que não cumprem a um modelo de dados específica ou a definição, como texto ou dados binários.
 
@@ -28,7 +28,7 @@ Armazenamento de BLOBs é projetado para:
 * Armazenamento de dados de cópia de segurança e restauro, recuperação após desastre e arquivo.
 * Armazenamento de dados para análise por um serviço no local ou alojado no Azure.
 
-Utilizadores ou aplicações de cliente podem acessar objetos no armazenamento de BLOBs através de HTTP/HTTPS, de qualquer lugar do mundo. Objetos no armazenamento de BLOBs são acessíveis através da [API de REST de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [da CLI do Azure](https://docs.microsoft.com/cli/azure/storage), ou uma biblioteca de cliente de armazenamento do Azure. Bibliotecas de cliente estão disponíveis para uma variedade de linguagens, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [node. js](http://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [ir ](https://github.com/azure/azure-storage-blob-go/), [PHP](http://azure.github.io/azure-storage-php/), e [Ruby](http://azure.github.io/azure-storage-ruby).
+Utilizadores ou aplicações de cliente podem acessar objetos no armazenamento de BLOBs através de HTTP/HTTPS, de qualquer lugar do mundo. Objetos no armazenamento de BLOBs são acessíveis através da [API de REST de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [da CLI do Azure](https://docs.microsoft.com/cli/azure/storage), ou uma biblioteca de cliente de armazenamento do Azure. Bibliotecas de cliente estão disponíveis para uma variedade de linguagens, incluindo [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [node. js](https://azure.github.io/azure-storage-node), [Python](https://docs.microsoft.com/python/azure/), [ir ](https://github.com/azure/azure-storage-blob-go/), [PHP](https://azure.github.io/azure-storage-php/), e [Ruby](https://azure.github.io/azure-storage-ruby).
 
 ## <a name="about-azure-data-lake-storage-gen2"></a>Sobre o Azure Data Lake Storage Gen2
 

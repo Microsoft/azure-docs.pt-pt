@@ -4,7 +4,7 @@ description: Guia de cópia de segurança para SAP HANA fornece duas principais 
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91671b39e6ac33e16636cc924f5c0aa5e3fcbf3b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60937087"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709949"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guia de segurança para SAP HANA em Máquinas Virtuais do Azure
 
@@ -231,7 +231,7 @@ Com base nos resultados de teste, que as tabelas seguintes mostram os prós e co
 |Serviço de cópia de segurança do Azure                               | Permite a cópia de segurança VM com base nos instantâneos de blob | Quando não utilizar o restauro ao nível do ficheiro, ela exige a criação de uma nova VM para o processo de restauração, o que implica, em seguida, a necessidade de uma nova chave de licença do SAP HANA|
 |Instantâneos de manual blob                              | Flexibilidade para criar e restaurar os discos VM específicos sem alterar o ID exclusivo da VM|Todos os trabalho manual, o que precisa ser feito pelo cliente|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [SAP HANA Azure Backup no nível de arquivo](sap-hana-backup-file-level.md) descreve a opção de cópia de segurança baseados em ficheiros.
 * [Cópia de segurança do SAP HANA com base nos instantâneos de armazenamento](sap-hana-backup-storage-snapshots.md) descreve a opção de cópia de segurança do baseadas em instantâneos de armazenamento.
 * Para saber como estabelecer a elevada disponibilidade e o plano de recuperação após desastre do SAP HANA no Azure (instâncias grandes), veja [SAP HANA (instâncias grandes) elevada disponibilidade e recuperação após desastre no Azure](hana-overview-high-availability-disaster-recovery.md).

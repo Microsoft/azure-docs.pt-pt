@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: e0d5363e253e89b32b5eca14366504f0ace39043
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 1e5a4ac9f159ce238149d44127fd63dcf3279623
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479630"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807109"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v031-alpha"></a>API de v2 de Monitor de estado: Enable-ApplicationInsightsMonitoring (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v040-alpha"></a>API de v2 de Monitor de estado: Enable-ApplicationInsightsMonitoring (v0.4.0-alpha)
 
 Este artigo descreve um cmdlet que faz parte do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -93,9 +93,9 @@ Pode criar um script de instalação única para vários computadores ao definir
 - **MachineFilter** é necessária C# regex do computador ou o nome da VM.
     - ". *" irá corresponder a todos
     - 'ComputerName' corresponderá ao apenas computadores com o nome exato especificado.
-- **AppFilter** é necessária C# regex do computador ou o nome da VM.
+- **AppFilter** é necessária C# regex do nome de Site do IIS. Pode obter uma lista de sites no seu servidor ao executar o comando [get-iissite](https://docs.microsoft.com/powershell/module/iisadministration/get-iissite).
     - ". *" irá corresponder a todos
-    - 'ApplicationName' corresponderá ao apenas as aplicações IIS com o nome exato especificado.
+    - 'SiteName' corresponderá ao apenas o Site do IIS com o nome exato especificado.
 - **InstrumentationKey** é necessária para ativar a monitorização de aplicações que correspondem aos filtros de duas anteriores.
     - Deixe este valor nulo se pretender definir regras para excluir a monitorização.
 

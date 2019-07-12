@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076228"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621825"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Comece a utilizar o Azure Stream Analytics: Deteção de fraudes em tempo real
 
@@ -188,7 +188,7 @@ Agora que tem um fluxo de eventos de chamada, pode configurar uma tarefa do Stre
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Introduza um nome para identificar a entrada da tarefa.   |
-   |Subscrição   |  \<A sua subscrição\> |  Selecione a subscrição do Azure com o Hub de eventos que criou.   |
+   |Subscription   |  \<A sua subscrição\> |  Selecione a subscrição do Azure com o Hub de eventos que criou.   |
    |Espaço de nomes do hub de eventos  |  asa-eh-ns-demo |  Introduza o nome do espaço de nomes do Hub de eventos.   |
    |O nome do hub de eventos  | asa-eh-frauddetection-demo | Selecione o nome do seu Hub de eventos.   |
    |Nome da política do Hub de Eventos  | asa-policy-manage-demo | Selecione a política de acesso que criou anteriormente.   |
@@ -207,7 +207,7 @@ Uma consulta simples apenas poderá ler todos os dados de entrada. No entanto, m
 
 As consultas que criar aqui apenas irão apresentar os dados transformados na tela. Numa seção posterior, irá configurar um sink de saída e uma consulta que escreve os dados transformados para esse sink.
 
-Para saber mais sobre a linguagem, veja a [referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx).
+Para saber mais sobre a linguagem, veja a [referência de linguagem de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obter dados de exemplo para o teste de consultas
 
@@ -289,11 +289,11 @@ Para essa transformação, pretende uma seqüência de temporais windows que nã
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Esta consulta utiliza a `Timestamp By` palavra-chave no `FROM` cláusula para especificar que campo timestamp no fluxo de entrada para utilizar para definir a janela em cascata. Neste caso, a janela divide os dados em segmentos pelo `CallRecTime` campo em cada registo. (Não se for especificado nenhum campo, a operação de windowing utiliza a hora em que cada evento chegar ao hub de eventos. Consulte o "Tempo da aplicação do Vs de tempo de chegada" na [Stream referência de linguagem de consulta do Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Esta consulta utiliza a `Timestamp By` palavra-chave no `FROM` cláusula para especificar que campo timestamp no fluxo de entrada para utilizar para definir a janela em cascata. Neste caso, a janela divide os dados em segmentos pelo `CallRecTime` campo em cada registo. (Não se for especificado nenhum campo, a operação de windowing utiliza a hora em que cada evento chegar ao hub de eventos. Consulte o "Tempo da aplicação do Vs de tempo de chegada" na [Stream referência de linguagem de consulta do Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     Inclui a projeção `System.Timestamp`, que retorna um carimbo para o final de cada janela. 
 
-    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar o `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país/região para o valor de cada 5 segundos de chamadas.
+    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) funcionar o `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país/região para o valor de cada 5 segundos de chamadas.
 
 2. Clique em **teste** novamente. Nos resultados, tenha em atenção que os carimbos de data / sob **WindowEnd** são em incrementos de 5 segundos.
 
@@ -358,7 +358,7 @@ Se tiver uma conta de armazenamento de BLOBs existentes, pode utilizá-lo. Para 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
    |Alias de saída  |  CallStream-FraudulentCalls   |  Introduza um nome para identificar a saída da tarefa.   |
-   |Subscrição   |  \<A sua subscrição\> |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
+   |Subscription   |  \<A sua subscrição\> |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
    |Conta de armazenamento  |  asaehstorage |  Introduza o nome da conta de armazenamento que criou. |
    |Contentor  | asa-fraudulentcalls-demo | Selecione criar novo e introduza um nome de contentor. |
 
@@ -418,5 +418,5 @@ Para obter mais informações sobre o Stream Analytics em geral, veja estes arti
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

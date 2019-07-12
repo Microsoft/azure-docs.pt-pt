@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15bb4a1cd19af70b29d1d74f43e137cf884c4db
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f213acea71f22815d8b26b6c4c6cb54f64b8b34
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164102"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807808"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD
 
@@ -34,9 +34,7 @@ Para ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure A
 Este artigo pressupõe que já tenha SharePoint 2013 ou mais recente no seu ambiente. Além disso, considere os seguintes pré-requisitos:
 
 * O SharePoint inclui suporte nativo do Kerberos. Por conseguinte, os utilizadores que estão a aceder a sites internos remotamente através do Proxy de aplicações do Azure AD podem assumir que tenham uma experiência de início de sessão único (SSO).
-
 * Este cenário inclui alterações de configuração ao seu servidor do SharePoint. Recomendamos que utilize um ambiente de teste. Dessa forma, pode fazer atualizações ao seu servidor de teste pela primeira vez e, em seguida, facilitam um ciclo de testes antes de entrar em produção.
-
 * É necessário SSL no URL publicado. SSL também é necessário o URL interno para garantir que as ligações são enviados/mapeada corretamente.
 
 ## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Passo 1: Configurar o Kerberos (KCD) de delegação restrita
@@ -55,13 +53,13 @@ Em primeiro lugar, certifique-se de que o aplicativo web do SharePoint está em 
 Para garantir que seus sites estão em execução sob uma conta de serviço definido, execute os seguintes passos:
 
 1. Abra o **Administração Central do SharePoint** site.
-2. Aceda a **Security** e selecione **configurar contas de serviço**.
-3. Selecione **Web Pool de aplicativos - SharePoint – 80**. As opções podem ser ligeiramente diferentes com base no nome do seu conjunto de web, ou se o conjunto de web utiliza SSL por padrão.
+1. Aceda a **Security** e selecione **configurar contas de serviço**.
+1. Selecione **Web Pool de aplicativos - SharePoint – 80**. As opções podem ser ligeiramente diferentes com base no nome do seu conjunto de web, ou se o conjunto de web utiliza SSL por padrão.
 
    ![Opções para configurar uma conta de serviço](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-4. Se **Selecione uma conta para este componente** campo é definido como **Serviço Local** ou **serviço de rede**, tem de criar uma conta. Se não tiver terminado e pode avançar para a secção seguinte.
-5. Selecione **Registre-se conta gerida novo**. Depois de criar a sua conta, tem de definir **Pool de aplicativos Web** antes de poder utilizar a conta.
+1. Se **Selecione uma conta para este componente** campo é definido como **Serviço Local** ou **serviço de rede**, tem de criar uma conta. Se não tiver terminado e pode avançar para a secção seguinte.
+1. Selecione **Registre-se conta gerida novo**. Depois de criar a sua conta, tem de definir **Pool de aplicativos Web** antes de poder utilizar a conta.
 
 ### <a name="set-a-service-principal-name-for-the-sharepoint-service-account"></a>Defina um nome de principal de serviço para a conta de serviço do SharePoint
 
@@ -77,7 +75,7 @@ HTTP/SharePoint
 ```
 
 > [!NOTE]
-> O utilizador deverá respeite as seguintes recomendações para o URL interno:
+> Siga estas recomendações para o URL interno:
 > * Utilizar HTTPS
 > * Não utilize portas personalizadas
 > * No DNS, criar um anfitrião (A) a ponto para o SharePoint WFE (ou Balanceador de carga) e não um Alias (CName)
@@ -101,12 +99,12 @@ Configure o KCD para que o serviço de Proxy de aplicações do Azure AD pode de
 Para configurar o KCD, repita os passos seguintes para cada computador do conector:
 
 1. Iniciar sessão como um administrador de domínio para um controlador de domínio e, em seguida, abra **Active Directory Users and Computers**.
-2. Encontre o que o conector está em execução no computador. Neste exemplo, é o mesmo servidor do SharePoint.
-3. Clique duas vezes o computador e, em seguida, clique nas **delegação** separador.
-4. Certifique-se de que as definições de delegação estiverem definidas como **confiar no computador para delegação apenas as serviços especificados**. Em seguida, selecione **utilizar qualquer protocolo de autenticação**.
-5. Clique nas **Add** botão, clique em **usuários ou computadores**e localize a conta do conjunto aplicacional do SharePoint, por exemplo _demo\spAppPoolAccount_.
-6. Na lista de SPNs, selecione aquela que criou anteriormente para a conta de serviço.
-7. Clique em **OK**. Clique em **OK** novamente para guardar as alterações.
+1. Encontre o que o conector está em execução no computador. Neste exemplo, é o mesmo servidor do SharePoint.
+1. Clique duas vezes o computador e, em seguida, clique nas **delegação** separador.
+1. Certifique-se de que as definições de delegação estiverem definidas como **confiar no computador para delegação apenas as serviços especificados**. Em seguida, selecione **utilizar qualquer protocolo de autenticação**.
+1. Clique nas **Add** botão, clique em **usuários ou computadores**e localize a conta do conjunto aplicacional do SharePoint, por exemplo _demo\spAppPoolAccount_.
+1. Na lista de SPNs, selecione aquela que criou anteriormente para a conta de serviço.
+1. Clique em **OK**. Clique em **OK** novamente para guardar as alterações.
   
    ![Definições de delegação](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
@@ -119,28 +117,28 @@ Agora que configurou o KCD, está pronto para configurar o Proxy de aplicações
    * **Método de pré-autenticação**: Azure Active Directory
    * **Traduzir URL nos cabeçalhos**: NO
 
-   >[!TIP]
-   >O SharePoint usa a _cabeçalho de anfitrião_ valor para procurar o site. Também gera links com base nesse valor. O efeito líquido é que qualquer ligação que gera o SharePoint é um URL publicado que está corretamente definido para utilizar o URL externo. Definindo o valor como **Sim** também permite que o conector encaminhar a solicitação para a aplicação de back-end. No entanto, definindo o valor como **não** significa que o conector não enviará o nome de anfitrião interno. Em vez disso, o conector envia o cabeçalho de anfitrião como o URL publicado para a aplicação de back-end.
+   > [!TIP]
+   > O SharePoint usa a _cabeçalho de anfitrião_ valor para procurar o site. Também gera links com base nesse valor. O efeito líquido é que qualquer ligação que gera o SharePoint é um URL publicado que está corretamente definido para utilizar o URL externo. Definindo o valor como **Sim** também permite que o conector encaminhar a solicitação para a aplicação de back-end. No entanto, definindo o valor como **não** significa que o conector não enviará o nome de anfitrião interno. Em vez disso, o conector envia o cabeçalho de anfitrião como o URL publicado para a aplicação de back-end.
 
    ![Publicar o SharePoint como aplicação](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
-2. Assim que a sua aplicação for publicada, configure as definições de início de sessão únicas com os seguintes passos:
+1. Assim que a sua aplicação for publicada, configure as definições de início de sessão únicas com os seguintes passos:
 
    1. Na página da aplicação no portal, selecione **início de sessão único**.
-   2. Para o início de sessão em modo único, selecione **a autenticação integrada do Windows**.
-   3. Definir o SPN da aplicação interna para o valor que definiu anteriormente. Neste exemplo, isso seria **HTTP/SharePoint**.
-   4. Em "Delegado início de sessão Identity", selecione a opção mais adequada para a sua configuração de floresta do Active Directory. Por exemplo, se tiver um único domínio do AD na sua floresta, selecione **nome da conta SAM no local** (como mostrado abaixo), mas se os seus utilizadores não estiverem no mesmo domínio que o SharePoint e, em seguida, selecione os servidores do conector de Proxy de aplicação  **Nome principal de utilizador no local** (não mostrados).
+   1. Para o início de sessão em modo único, selecione **a autenticação integrada do Windows**.
+   1. Definir o SPN da aplicação interna para o valor que definiu anteriormente. Neste exemplo, isso seria **HTTP/SharePoint**.
+   1. Em "Delegado início de sessão Identity", selecione a opção mais adequada para a sua configuração de floresta do Active Directory. Por exemplo, se tiver um único domínio do AD na sua floresta, selecione **nome da conta SAM no local** (como mostrado abaixo), mas se os seus utilizadores não estiverem no mesmo domínio que o SharePoint e, em seguida, selecione os servidores do conector de Proxy de aplicação  **Nome principal de utilizador no local** (não mostrados).
 
    ![Configurar a autenticação integrada do Windows para SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
-3. Para concluir a configuração a sua aplicação, vá para o **utilizadores e grupos** secção e atribuir utilizadores a aceder a esta aplicação. 
+1. Para concluir a configuração a sua aplicação, vá para o **utilizadores e grupos** secção e atribuir utilizadores a aceder a esta aplicação. 
 
 ## <a name="step-3-configure-sharepoint-to-use-kerberos-and-azure-ad-proxy-urls"></a>Passo 3: Configurar o SharePoint para utilizar o Kerberos e URLs de Proxy do Azure AD
 
 Próxima etapa é estender o aplicativo de web do SharePoint para uma nova zona, configurada com o Kerberos e o mapeamento de acesso alternativo apropriado para permitir que o SharePoint para processar pedidos de entrada enviados para o URL interno, e responder com ligações criadas para o URL externo.
 
 1. Iniciar o **Shell de gestão do SharePoint**.
-2. Execute o seguinte script para expandir a sua aplicação web para a zona da Extranet e ativar a autenticação Kerberos:
+1. Execute o seguinte script para expandir a sua aplicação web para a zona da Extranet e ativar a autenticação Kerberos:
 
    ```powershell
    # Replace "http://spsites/" with the URL of your web application
@@ -149,17 +147,17 @@ Próxima etapa é estender o aplicativo de web do SharePoint para uma nova zona,
    Get-SPWebApplication "http://spsites/" | New-SPWebApplicationExtension -Name "SharePoint - AAD Proxy" -SecureSocketsLayer -Zone "Extranet" -Url "https://sharepoint-f128.msappproxy.net/" -AuthenticationProvider $winAp
    ```
 
-3. Abra o **Administração Central do SharePoint** site.
-4. Sob **definições do sistema**, selecione **configurar mapeamentos de acesso alternativo**. Abre a caixa de mapeamentos de acesso alternativo.
-5. Selecione o seu site, por exemplo **SharePoint – 80**. Por enquanto, o zona Extranet não tem o URL interno definido corretamente ainda:
+1. Abra o **Administração Central do SharePoint** site.
+1. Sob **definições do sistema**, selecione **configurar mapeamentos de acesso alternativo**. Abre a caixa de mapeamentos de acesso alternativo.
+1. Selecione o seu site, por exemplo **SharePoint – 80**. Por enquanto, o zona Extranet não tem o URL interno definido corretamente ainda:
 
-   ![Caixa de mapeamentos de acesso alternativa](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
+   ![Mostra a caixa de mapeamentos de acesso alternativo](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
-6. Clique em **adicionar URLs internos**.
-7. Na **URL protocolo, porta e anfitrião** caixa de texto, tipo a **URL interno** configurado no proxy do AD do Azure, por exemplo <https://SharePoint/>.
-8. Selecione zona **Extranet** na lista pendente.
-9. Clique em **Guardar**.
-10. Os mapeamentos de acesso alternativo deve agora ter um aspeto semelhante a esta:
+1. Clique em **adicionar URLs internos**.
+1. Na **URL protocolo, porta e anfitrião** caixa de texto, tipo a **URL interno** configurado no proxy do AD do Azure, por exemplo <https://SharePoint/>.
+1. Selecione zona **Extranet** na lista pendente.
+1. Clique em **Guardar**.
+1. Os mapeamentos de acesso alternativo deve agora ter um aspeto semelhante a esta:
 
     ![Corrigir os mapeamentos de acesso alternativo](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
@@ -168,7 +166,7 @@ Próxima etapa é estender o aplicativo de web do SharePoint para uma nova zona,
 Configuração do SharePoint é agora concluído, mas uma vez que é o URL interno da zona Extranet <https://SharePoint/>, um certificado tem de ser definido para este site.
 
 1. Abra a consola do Windows PowerShell.
-2. Execute o seguinte script para gerar um certificado autoassinado e adicioná-lo para o computador meu arquivo:
+1. Execute o seguinte script para gerar um certificado autoassinado e adicioná-lo para o computador meu arquivo:
 
    ```powershell
    # Replace "SharePoint" with the actual hostname of the Internal URL of your Azure AD proxy application
@@ -178,10 +176,10 @@ Configuração do SharePoint é agora concluído, mas uma vez que é o URL inter
    > [!NOTE]
    > Certificados autoassinados são adequados apenas para fins de teste. Em ambientes de produção, recomenda-se vivamente a utilização de certificados emitidos por uma autoridade de certificado em vez disso.
 
-3. Abra a consola "Gestor de serviços de informação de Internet".
-4. Expanda o servidor na vista de árvore, expanda "Sites", selecione o site "SharePoint – AAD Proxy" e clique em **enlaces**.
-5. Selecione o enlace https e clique em **editar...** .
-6. No campo de certificado SSL, escolha **SharePoint** certificado e clique em OK.
+1. Abra a consola "Gestor de serviços de informação de Internet".
+1. Expanda o servidor na vista de árvore, expanda "Sites", selecione o site "SharePoint – AAD Proxy" e clique em **enlaces**.
+1. Selecione o enlace https e clique em **editar...** .
+1. No campo de certificado SSL, escolha **SharePoint** certificado e clique em OK.
 
 Agora pode acessar o site do SharePoint externamente através do Proxy de aplicações do Azure AD.
 

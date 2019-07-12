@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c22caa4b3da69d46241dfbaa7556d0209130415c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851576"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626136"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criando tabelas no armazém de dados SQL do Azure
 
@@ -42,7 +42,7 @@ Para mostrar a organização das tabelas no SQL Data Warehouse, poderia usar o f
 
 | Tabela de WideWorldImportersDW  | Tipo de tabela | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Localidade | Dimensão | wwi.DimCity |
+| City | Dimensão | wwi.DimCity |
 | Encomenda | Fatos | wwi.FactOrder |
 
 
@@ -107,7 +107,7 @@ Por predefinição, o SQL Data Warehouse armazena uma tabela como um índice col
 Para obter uma lista dos recursos de columnstore, consulte [o que há de novo para os índices columnstore](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para melhorar o desempenho de índice columnstore, veja [maximizando a qualidade de rowgroup nos índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estatísticas
-O otimizador de consultas utiliza as estatísticas de nível de coluna quando cria o plano para execução de uma consulta. Para melhorar o desempenho de consulta, é importante ter as estatísticas em colunas individuais, especialmente as colunas utilizadas na consulta associa. [Criar estatísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics) ocorre automaticamente.  No entanto, atualizar as estatísticas não acontece automaticamente. Atualize estatísticas após um número significativo de linhas é adicionado ou alterado. Por exemplo, Atualize as estatísticas após uma carga. Para obter mais informações, consulte [orientações de estatísticas](sql-data-warehouse-tables-statistics.md).
+O otimizador de consultas utiliza as estatísticas de nível de coluna quando cria o plano para execução de uma consulta. Para melhorar o desempenho de consulta, é importante ter as estatísticas em colunas individuais, especialmente as colunas utilizadas na consulta associa. [Criar estatísticas](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) ocorre automaticamente.  No entanto, atualizar as estatísticas não acontece automaticamente. Atualize estatísticas após um número significativo de linhas é adicionado ou alterado. Por exemplo, Atualize as estatísticas após uma carga. Para obter mais informações, consulte [orientações de estatísticas](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para a criação de tabelas
 Pode criar uma tabela como uma nova tabela vazia. Também pode criar e preencher uma tabela com os resultados de uma instrução select. Seguem-se os comandos T-SQL para a criação de uma tabela.

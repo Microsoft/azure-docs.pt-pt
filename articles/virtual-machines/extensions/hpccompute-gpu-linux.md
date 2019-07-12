@@ -4,7 +4,7 @@ description: Extensão do Microsoft Azure para instalar controladores de GPU da 
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683178"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706707"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de controladores de NVIDIA GPU para Linux
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683178"
 
 Esta extensão instala controladores NVIDIA GPU em VMs de série N do Linux. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do [contrato de licença de utilizador final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM poderá reiniciar para concluir a configuração de controlador.
 
+Instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Uma extensão também está disponível para instalar controladores NVIDIA GPU no [VMs de série N Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -69,23 +71,23 @@ O JSON seguinte mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>properties
 
-| Name | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverLinux | string |
+| publisher | Microsoft.HpcCompute | cadeia |
+| type | NvidiaGpuDriverLinux | cadeia |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
 
 Todas as definições são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação de driver, instale o controlador mais recente suportado e o Kit de ferramentas CUDA (conforme aplicável).
 
-| Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
+| Nome | Descrição | Default Value | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o kernel, mesmo que não é necessário para instalação de controladores | false | true, false | boolean |
-| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | latest | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | cadeia |
 | installCUDA | Instale o Kit de ferramentas de CUDA. Relevante apenas para VMs de série de NC/ND. | true | true, false | boolean |
 
 

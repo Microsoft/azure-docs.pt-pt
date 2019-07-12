@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 5dbdeeba68ae75069b61bd6dc069279ec3c5e5de
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443018"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806985"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -48,7 +48,7 @@ Antes de começar, verifique se o abaixo:
 **Implementações suportadas** | As VMs do Azure do SQL Marketplace e externas (SQL Server instalado manualmente) são suportadas VMs.
 **Áreas geográficas suportadas** | Sudeste da Austrália (ASE), leste da Austrália (AE) <br> Sul do Brasil (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> EUA Leste (EUS), este dos E.U.A. 2 (EUS2), EUA Centro-Oeste (WCUS), E.U.A. oeste (WUS); E.U.A. oeste 2 (WUS 2) Norte dos E.U.A. (NCUS) dos EUA Central (CUS) Centro-Sul dos E.U.A. (SCUS) <br> India Central (INC), India South (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Europa do Norte (m), Europa Ocidental <br> Sul do Reino Unido (UKS), do Reino Unido oeste (UKW)
 **Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux não é atualmente suportado.
-**Versões suportadas do SQL Server** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versões suportadas do SQL Server** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versões suportadas do .NET** | .NET framework 4.5.2 e superior instalado na VM
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para o SQL Server 2008 e SQL Server 2008 R2
@@ -95,7 +95,7 @@ Consoante a preferência de cópia de segurança e os tipos de cópias de segura
     --- | ---
     Completo | Primária
     Diferencial | Primária
-    Registar |  Primária
+    registo |  Primária
     Apenas de cópia completa |  Primária
 
 - **Preferência de cópia de segurança: Apenas secundária**
@@ -104,7 +104,7 @@ Consoante a preferência de cópia de segurança e os tipos de cópias de segura
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registar |  Secundária
+registo |  Secundária
 Apenas de cópia completa |  Secundária
 
 - **Preferência de cópia de segurança: Secundário**
@@ -113,7 +113,7 @@ Apenas de cópia completa |  Secundária
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registar |  Secundária
+registo |  Secundária
 Apenas de cópia completa |  Secundária
 
 - **Sem preferência de cópia de segurança**
@@ -122,7 +122,7 @@ Apenas de cópia completa |  Secundária
 --- | ---
 Completo | Primária
 Diferencial | Primária
-Registar |  Secundária
+registo |  Secundária
 Apenas de cópia completa |  Secundária
 
 ## <a name="set-vm-permissions"></a>Definir permissões de VM
@@ -231,7 +231,7 @@ catch
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre](backup-sql-server-database-azure-vms.md) backup bancos de dados do SQL Server.
 * [Saiba mais sobre](restore-sql-database-azure-vm.md) restaurar cópia de segurança de bases de dados do SQL Server.

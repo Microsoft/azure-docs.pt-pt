@@ -1,6 +1,6 @@
 ---
-title: Carregamento e o armazenamento com os serviços de multimédia do Azure na cloud | Documentos da Microsoft
-description: Este carregamento do artigo na cloud e conceitos de armazenamento.
+title: As contas de armazenamento do Azure com contas de serviços de multimédia do Azure | Documentos da Microsoft
+description: Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: fc5bf052a7677d76c7128404a420f8c886cf3fe1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439114"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619305"
 ---
-# <a name="cloud-upload-and-storage"></a>Carregamento e armazenamento na cloud
+# <a name="azure-storage-accounts"></a>Contas de Armazenamento do Azure
 
 Para começar a gerir, encriptar, codificar, analisar e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services. Quando criar uma conta dos Serviços de Multimédia, terá de fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está ligada à sua conta dos Serviços de Multimédia. 
 

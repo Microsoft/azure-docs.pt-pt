@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: sohamnchatterjee
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: magattus
-ms.openlocfilehash: 63f6156e6e1a94c49b2147f7c25da35c247c701d
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: adef39e7ccb75fdd46849eeaefdb55438eb45f18
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331878"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593544"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura CDN do Azure por Metro 
 > [!div class="op_single_selector"]

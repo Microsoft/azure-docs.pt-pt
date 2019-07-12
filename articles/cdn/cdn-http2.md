@@ -6,19 +6,19 @@ documentationcenter: ''
 author: lichard
 manager: erikre
 editor: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: 2d27cd54486a08e18fe74c852af29d5cf6432023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c59ecceee35587f1b7d844f160ac0f61c5288e0e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60737079"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593753"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Suporte de HTTP/2 na CDN do Azure
 

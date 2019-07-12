@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca9feb226a077484ba43bef7cd14d962ea95b37a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60586854"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653428"
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral da segurança operacionais do Azure
 
@@ -47,7 +47,7 @@ Pode consolidar dados de várias origens e combinar dados dos seus serviços do 
 
 O Azure Backup oferece componentes que são transferidos e implementados no computador adequado ou no servidor ou na cloud. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes de cópia de segurança do Azure (quer esteja a proteger dados no local ou na cloud) podem ser utilizados para fazer cópias de segurança de dados para um cofre de serviços de recuperação do Azure no Azure. 
 
-Para obter mais informações, consulte a [tabela de componentes de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-azure-backup-components-should-i-use).
+Para obter mais informações, consulte a [tabela de componentes de cópia de segurança do Azure](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
 ### <a name="site-recovery"></a>Site Recovery
 
@@ -184,7 +184,7 @@ Profissionais de DevOps maduros adotam várias das seguintes práticas. Essas pr
 - [Infraestrutura como código (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) é uma prática que permite a automatização e a validação da criação e a subdivisão do redes e máquinas virtuais para o ajudar a entrega de plataformas de hospedagem de aplicativo seguro e estável.
 - [Microsserviços](https://www.visualstudio.com/learn/what-are-microservices/) arquitetura é utilizada para isolar os casos de utilização empresarial em pequenas serviços reutilizáveis.  Esta arquitetura permite a escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a solução de segurança e auditoria, veja os artigos seguintes:
 

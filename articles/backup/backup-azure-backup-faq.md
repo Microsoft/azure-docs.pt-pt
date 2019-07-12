@@ -6,14 +6,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c4e79d166d92a88934e5c5330ca852da8900c6f3
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: aecad4273493cd573935c78cae51bd0f59461e2e
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275563"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806975"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -51,37 +51,6 @@ Não. Um cofre dos serviços de recuperação só pode alterar as opções de ar
 - Para o agente utilizado para cópia de segurança pastas de ficheiros do Azure, leia este [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
-## <a name="vmware-and-hyper-v-backup"></a>Cópia de segurança do VMware e Hyper-V
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Posso criar cópias de segurança dos servidores VMware vCenter para o Azure?
-Sim. Pode utilizar o Azure Backup Server para cópia de segurança no servidor do VMware vCenter e anfitriões ESXi para o Azure.
-
-- [Saiba mais](backup-mabs-protection-matrix.md) sobre versões suportadas.
-- [Siga estes passos](backup-azure-backup-server-vmware.md) para fazer backup de um servidor VMware.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>É necessário uma licença separada para recuperar um cluster do VMware/Hyper-V completa no local?
-Não precisa separar de licenciamento para a proteção de VMware/Hyper-V.
-
-- Se for um cliente do System Center, utilize o System Center Data Protection Manager (DPM) para proteger as VMs de VMware.
-- Se não tenha um cliente do System Center, pode utilizar o Azure Backup Server (pay as you go) para proteger as VMs de VMware.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>Cópia de segurança do DPM e o servidor de cópia de segurança do Azure
-
-### <a name="which-dpm-versions-are-supported"></a>As versões do DPM que são suportadas?
-Versões suportadas do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que instale as atualizações mais recentes do DPM e execute o [versão mais recente](https://aka.ms/azurebackup_agent) do agente de cópia de segurança do Azure no servidor do DPM.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Pode registar o servidor para diversos cofres?
-Não. Um servidor DPM ou o Azure Backup pode ser registado para apenas um cofre.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Posso utilizar o Servidor do Backup do Azure para criar uma cópia de segurança de Recuperação Bare-metal (BMR) para um servidor físico? <br/>
-Sim.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack?
-Não. Pode utilizar o Azure Backup para proteger o Azure Stack, Azure Backup não suporta a utilização do DPM na cópia de segurança de aplicações no Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se tiver instalado o agente de cópia de segurança do Azure para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para efetuar cópias de segurança de cargas de trabalho no local para o Azure?
-Sim. Mas deve configurar o DPM primeiro e, em seguida, instale o agente de cópia de segurança do Azure.  Instalar componentes por esta ordem garante que o Azure Backup agent funciona com o DPM. Instalar o agente antes de instalar o DPM não é aconselhado ou suportada.
-
 ## <a name="general-backup"></a>Cópia de segurança geral
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites sobre o agendamento de cópia de segurança?
@@ -118,7 +87,7 @@ Para cópias de segurança do Linux de VM do Azure, o Azure Backup suporta [a li
 Limites de tamanhos-se da seguinte forma:
 
 SO/máquina | Limite de tamanho da origem de dados
---- | --- 
+--- | ---
 Windows 8 ou posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 ou posterior | 54 400 GB
@@ -185,7 +154,7 @@ Pode criar até 9999 pontos de recuperação por instância protegida. Uma inst�
 - Saiba mais sobre [cópia de segurança e retenção](./backup-overview.md#backup-and-retention).
 
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Quantas vezes-posso dados de recuperação que é uma cópia de segurança para o Azure?
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados de cópia de segurança para o Azure?
 Não existe limite no número de recuperações do Backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure?

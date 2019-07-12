@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60eeb420c723e22b771b4b86b55c2ce7d6a23659
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 98b0ec2e1defc4701bff798b2fa93900ec8a9a64
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536833"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595168"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD
 
@@ -54,7 +54,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 
 **Tabela 2: v1.0 e v2.0 opcional conjunto de afirmações**
 
-| Name                       |  Descrição   | Tipo de token | Tipo de utilizador | Notas  |
+| Nome                       |  Descrição   | Tipo de token | Tipo de utilizador | Notas  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora quando o usuário autenticado pela última vez. A especificação de OpenID Connect consulte.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
@@ -83,7 +83,7 @@ Essas declarações são sempre incluídas na v1.0 tokens de AD do Azure, mas n�
 
 **Tabela 3: só de v2.0 afirmações opcionais**
 
-| Afirmação do JWT     | Name                            | Descrição                                | Notas |
+| Afirmação do JWT     | Nome                            | Descrição                                | Notas |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Endereço IP                      | O endereço IP, o sessão iniciado a partir de cliente.   |       |
 | `onprem_sid`  | Identificador de segurança no local |                                             |       |
@@ -93,7 +93,7 @@ Essas declarações são sempre incluídas na v1.0 tokens de AD do Azure, mas n�
 | `nickname`    | Apelido                        | Um nome adicional para o utilizador, separado do primeiro ou último nome. | 
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. <br>"family_name": "Santos" | Suportado no MSA e o Azure AD   |
 | `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto user.<br>"given_name": "Frank"                   | Suportado no MSA e o Azure AD  |
-| `upn`         | Nome do Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador duradouro para o utilizador e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da afirmação. |
+| `upn`         | Nome Principal de utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador duradouro para o utilizador e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da afirmação. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de afirmações opcionais
 
@@ -168,7 +168,7 @@ Declara as afirmações opcionais solicitadas por um aplicativo. Um aplicativo p
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| Name        | Tipo                       | Descrição                                           |
+| Nome        | Tipo                       | Descrição                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As afirmações opcionais devolvidas no token JWT ID. |
 | `accessToken` | Coleção (OptionalClaim) | As afirmações opcionais devolvido no token de acesso JWT. |
@@ -181,7 +181,7 @@ Se for suportado por uma declaração específica, também pode modificar o comp
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| Name                 | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                 | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da afirmação opcional.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | A origem (objeto de diretório) da afirmação. Existem afirmações predefinidas e declarações definidas pelo utilizador a partir das propriedades de extensão. Se o valor de origem for nulo, a afirmação é uma afirmação opcional predefinida. Se o valor de origem for utilizador, o valor na propriedade nome é a propriedade de extensão do objeto de utilizador. |
@@ -193,7 +193,7 @@ Além do conjunto de afirmações opcionais standard, também pode configurar to
 
 > [!Note]
 > - Extensões de esquema de diretório são um recurso exclusivo de AD do Azure, portanto, se seu aplicativo manifesto pedidos de uma extensão personalizada e um utilizador MSA registos na sua aplicação, estas extensões não vão ser devolvidas.
-> - Afirmações opcionais de AD do Azure só funcionam com a extensão do Azure AD e não funciona o trabalho com a extensão de diretório do Microsoft Graph. Ambas as APIs requerem o `Directory.ReadWriteAll` permissão, o que só é possível dar consentimento pelos administradores.
+> - Afirmações opcionais de AD do Azure só funcionam com a extensão do Azure AD e não funciona com a extensão de diretório do Microsoft Graph. Ambas as APIs requerem o `Directory.ReadWriteAll` permissão, o que só é possível dar consentimento pelos administradores.
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
@@ -303,7 +303,7 @@ Existem várias opções disponíveis para atualização das propriedades na con
 -   Pode modificar o manifesto do aplicativo. O exemplo abaixo irá utilizar este método para fazer a configuração. Leitura a [Noções básicas sobre o documento de manifesto de aplicação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) primeiro para obter uma introdução para o manifesto.
 -   Também é possível escrever uma aplicação que utiliza a [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) para atualizar a sua aplicação. O [referência de tipo complexo e entidade](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) na referência do Graph API guia o pode ajudar a configurar as afirmações opcionais.
 
-**Exemplo:** No exemplo abaixo, irá modificar o manifesto de um aplicativo para adicionar afirmações para acesso, o ID e o SAML se destina a aplicação de tokens.
+**Example:** No exemplo abaixo, irá modificar o manifesto de um aplicativo para adicionar afirmações para acesso, o ID e o SAML se destina a aplicação de tokens.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Depois de autenticado, escolha o seu inquilino do Azure AD ao selecioná-la a partir do canto superior direito da página.

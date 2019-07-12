@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc657e079949b8217031906efeb84049217d6493
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bf90ec8987ec419131ba21137972a0905e33f19
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510238"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654128"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Twitter ao utilizar políticas personalizadas no Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Precisa armazenar a chave secreta que registou anteriormente no seu inquilino do
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
 6. Para **opções**, escolha `Manual`.
 7. Introduza um **nome** para a chave de política. Por exemplo, `TwitterSecret`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
@@ -58,7 +58,7 @@ Precisa armazenar a chave secreta que registou anteriormente no seu inquilino do
 
 ## <a name="add-a-claims-provider"></a>Adicionar um fornecedor de afirmações
 
-Se pretender que os utilizadores iniciem sessão com uma conta do Twitter, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado. 
+Se pretender que os utilizadores iniciem sessão com uma conta do Twitter, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado.
 
 Pode definir uma conta do Twitter como um fornecedor de afirmações ao adicioná-la para o **ClaimsProviders** elemento no arquivo de extensão da sua política.
 
@@ -147,7 +147,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
     ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
-    
+
     Atualize o valor de **TechnicalProfileReferenceId** para o ID do perfil técnico que criou anteriormente. Por exemplo, `Twitter-OAUTH1`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.

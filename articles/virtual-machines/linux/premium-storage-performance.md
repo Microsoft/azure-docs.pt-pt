@@ -9,11 +9,23 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e5ce8f4a2d857485258711022dee81099fb2b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6de3144a87a5bfad38e1b33148f292b26c0f181
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712203"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67658237"
 ---
+[!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
+
+> [!NOTE]
+> Por vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../../virtual-network/virtual-network-optimize-network-bandwidth.md).
+>
+> Se quiser efetuar testes de desempenho do disco, consulte nosso artigo sobre [comparações de benchmark entre um disco](disks-benchmarks.md).
+>
+> Se a VM suportar redes aceleradas, certifique-se de que está ativada. Se não estiver ativada, pode ativá-la em VMs já implementadas em ambos [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+
+Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [selecione um tipo de disco do Azure para IaaS VMs](disks-types.md) e [metas de escalabilidade e desempenho de armazenamento do Azure para contas de armazenamento](../../storage/common/storage-scalability-targets.md).
+
+
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

@@ -6,14 +6,14 @@ manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
+ms.date: 07/09/2019
 ms.author: v-adgera
-ms.openlocfilehash: 57abb005f70661d23ea90eaf801b8e5407340bb7
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462039"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722847"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar APIs de duplos Digital do Azure para tarefas comuns
 
@@ -238,4 +238,4 @@ Esta secção mostra alguns exemplos de consultas de API para a gestão de utili
 
 Para saber como autenticar com a API de gestão, leia [autenticar com as APIs](./security-authenticating-apis.md).
 
-Para ver todos os pontos finais da API, leia [como utilizar o Swagger de duplos Digital](./how-to-use-swagger.md).
+Para saber mais sobre os pontos finais de API, leia [como utilizar o Swagger de duplos Digital](./how-to-use-swagger.md).

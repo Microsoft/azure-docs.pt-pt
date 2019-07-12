@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: e63670504dedf426829778e154b2d5c2b69d98a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435058"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839627"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
@@ -42,7 +42,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>from</td>
-    <td><em>O parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
+    <td><em>O parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem. <br/><br/>Tem de utilizar o <code>from</code> parâmetro, em vez de autodetection ao utilizar o <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> funcionalidade.</td>
   </tr>
   <tr>
     <td>para</td>
@@ -374,7 +374,7 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Ação</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Este é o comportamento padrão. Linguagem inapropriada passará de origem ao destino.<br/><br/>

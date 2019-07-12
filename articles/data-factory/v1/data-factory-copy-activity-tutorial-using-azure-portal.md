@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 168e5eea2004a31b108a8a00d883298f8e2198ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82e8fe26cc58117bc6249f8a7e87612dabc5f438
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60566525"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839515"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o portal do Azure para criar um pipeline do Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -35,6 +35,9 @@ ms.locfileid: "60566525"
 
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
+
+> [!WARNING]
+> O editor de JSON no Portal do Azure para a criação e implantação v1 do ADF pipelines será desligada em 31 de Julho de 2019. Após 31 de Julho de 2019, pode continuar a utilizar [cmdlets do Powershell do ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [SDK de .net do ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [APIs de REST do ADF v1](https://docs.microsoft.com/rest/api/datafactory/) criar e implementar a v1 do ADF pipelines.
 
 Neste artigo, vai aprender a utilizar o [portal do Azure](https://portal.azure.com) para criar uma fábrica de dados com um pipeline que copia dados de um armazenamento de BLOBs do Azure para uma Base de Dados SQL do Azure. Se não estiver familiarizado com o Azure Data Factory, leia o artigo [Introduction to Azure Data Factory](data-factory-introduction.md) (Introdução ao Azure Data Factory) antes de fazer este tutorial.   
 
@@ -67,7 +70,7 @@ Veja a seguir os passos que deve executar como parte deste tutorial:
     A atividade de cópia copia dados de um blob no armazenamento de blobs do Azure para uma tabela na base de dados SQL do Azure. Pode utilizar uma atividade de cópia num pipeline para copiar dados de qualquer origem suportada para qualquer destino suportado. Para ver uma lista dos arquivos de dados suportados, veja o artigo [Data movement activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) (Atividades de movimento de dados). 
 5. Monitorize o pipeline. Neste passo, vai **monitorizar** os setores dos conjuntos de dados de entrada e saída com o portal do Azure. 
 
-## <a name="create-data-factory"></a>Criar fábrica de dados
+## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 > [!IMPORTANT]
 > Conclua os [pré-requisitos do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), se ainda não o tiver feito.   
 
@@ -120,7 +123,7 @@ O AzureStorageLinkedService liga a sua conta do Armazenamento do Azure à fábri
 
 O AzureSqlLinkedService liga a sua base de dados SQL do Azure à fábrica de dados. Os dados copiados do armazenamento de blobs são armazenados nesta base de dados. Como parte dos [pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md), criou a tabela emp nesta base de dados.  
 
-### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Storage do Azure
+### <a name="create-an-azure-storage-linked-service"></a>Criar um serviço ligado do Armazenamento do Azure
 Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dados. Especifique o nome e a chave da sua conta de armazenamento do Azure nesta secção.  
 
 1. No painel **Data Factory**, clique no mosaico **Criar e implementar**.
@@ -141,7 +144,7 @@ Neste passo, vai ligar a sua conta de Armazenamento do Azure à fábrica de dado
 
     Para obter mais informações sobre as propriedades JSON na definição do serviço ligado, veja o artigo [Azure Blob Storage connector](data-factory-azure-blob-connector.md#linked-service-properties) (Conector do Armazenamento de Blobs do Azure).
 
-### <a name="create-a-linked-service-for-the-azure-sql-database"></a>Criar um serviço ligado para a Base de Dados SQL do Azure
+### <a name="create-a-linked-service-for-azure-sql-database"></a>Criar um serviço ligado da base de dados do Azure SQL
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados. Especifique o nome do servidor SQL do Azure, o nome da base de dados, o nome de utilizador e a palavra-passe do utilizador nesta secção. 
 
 1. No **Editor do Data Factory**, clique no botão **Novo arquivo de dados**, na barra de ferramentas, e selecione **Base de Dados SQL do Azure** no menu pendente. Deverá ver o modelo JSON para criar o serviço ligado SQL do Azure no painel à direita.
@@ -158,7 +161,7 @@ O serviço ligado do armazenamento do Azure especifica a cadeia de ligação que
 
 Do mesmo modo, o serviço ligado Base de Dados SQL do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua base de dados SQL do Azure. E o conjunto de dados da tabela SQL de saída (OututDataset) especifica a tabela na base de dados para a qual os dados do armazenamento de blobs vão ser copiados. 
 
-### <a name="create-input-dataset"></a>Criar conjunto de dados de entrada
+### <a name="create-an-input-dataset"></a>Criar um conjunto de dados de entrada
 Neste passo, vai criar um conjunto de dados com o nome InputDataset que aponta para um ficheiro de blobs (emp.text) na pasta raiz de um contentor de blobs (adftutorial) no Armazenamento do Azure, representado pelo serviço ligado AzureStorageLinkedService. Se não especificar um valor para fileName (ou se o ignorar), os dados de todos os blobs da pasta de entrada são copiados para o destino. Neste tutorial, vai especificar um valor para fileName. 
 
 1. No **Editor** do Data Factory, clique em **... Mais**, clique em **Novo conjunto de dados** e clique em **Armazenamento de Blobs do Azure**, no menu pendente. 
@@ -215,7 +218,7 @@ Neste passo, vai criar um conjunto de dados com o nome InputDataset que aponta p
     Para obter mais informações sobre estas propriedades JSON, veja [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) (Conector de Blobs do Azure).      
 3. Clique em **Implementar**, na barra de ferramentas, para criar e implementar o conjunto de dados **InputDataset**. Confirme que consegue ver **InputDataset** na vista de árvore.
 
-### <a name="create-output-dataset"></a>Criar conjunto de dados de saída
+### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
 O serviço ligado Base de Dados SQL do Azure especifica a cadeia de ligação que o serviço Data Factory utiliza no tempo de execução para ligar à sua base de dados SQL do Azure. O conjunto de dados da tabela SQL de saída (OututDataset) que vai criar neste passo especifica a tabela na base de dados para a qual os dados do armazenamento de blobs vão ser copiados.
 
 1. No **Editor** do Data Factory, clique em **... Mais**, clique em **Novo conjunto de dados** e clique em **SQL Azure**, no menu pendente. 
@@ -262,7 +265,7 @@ O serviço ligado Base de Dados SQL do Azure especifica a cadeia de ligação qu
     Para obter mais informações sobre estas propriedades JSON, veja o artigo [Azure SQL connector](data-factory-azure-sql-connector.md#dataset-properties) (Conector do SQL do Azure).
 3. Clique em **Implementar**, na barra de ferramentas, para criar e implementar o conjunto de dados **OutputDataset**. Confirme que consegue ver **OutputDataset** na vista de árvore, em **Conjuntos de Dados**. 
 
-## <a name="create-pipeline"></a>Criar pipeline
+## <a name="create-a-pipeline"></a>Criar um pipeline
 Neste passo, vai criar um pipeline com uma **atividade de cópia** que utiliza **InputDataset** como entrada e **OutputDataset** como saída.
 
 Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutorial, o conjunto de dados de saída está configurado para produzir um setor uma vez por hora. As horas de início e de fim do pipeline têm um dia de diferença, ou seja, 24 horas. Desta forma, o pipeline produz 24 setores de conjuntos de dados de saída. 
@@ -329,7 +332,7 @@ Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutori
 **Parabéns!** Criou com êxito uma fábrica de dados do Azure, com um pipeline para copiar dados de um armazenamento de blobs do Azure para uma base de dados SQL do Azure. 
 
 
-## <a name="monitor-pipeline"></a>Monitorizar o pipeline
+## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos de uma fábrica de dados do Azure.    
 
 ### <a name="monitor-pipeline-using-monitor--manage-app"></a>Monitorizar o pipeline com a Aplicação de Monitorização e Gestão
@@ -360,7 +363,7 @@ Os passos seguintes mostram-lhe como monitorizar pipelines na sua fábrica de da
 
 Para obter detalhes sobre a utilização desta aplicação, veja [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App (Monitorizar e gerir pipelines do Azure Data Factory com a Aplicação de Monitorização e Gestão)](data-factory-monitor-manage-app.md).
 
-### <a name="monitor-pipeline-using-diagram-view"></a>Monitorizar o pipeline com a Vista de Diagrama
+### <a name="monitor-the-pipeline-using-diagram-view"></a>Monitorizar o pipeline com a vista de diagrama
 Também pode utilizar a vista de diagrama para monitorizar os pipelines de dados.  
 
 1. No painel **Data Factory**, clique em **Diagrama**.

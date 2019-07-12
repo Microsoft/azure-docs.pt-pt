@@ -4,7 +4,7 @@ description: Saiba como instalar e configurar o ambiente de trabalho remoto (xrd
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 56aa06ade50f6c0eb1467b1295cbebb907023398
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63f66d345b88984a49b8eb18b02fd79fb0603022
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209365"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695506"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM do Linux no Azure
 Máquinas de virtuais do Linux (VMs) no Azure, normalmente, são geridas a partir da linha de comandos a utilizar uma ligação de secure shell (SSH). Quando novos para Linux, ou para cenários de resolução de problemas rápidos, o uso de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de desktop ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](https://www.xrdp.org)) para a sua VM do Linux com o modelo de implementação do Resource Manager.

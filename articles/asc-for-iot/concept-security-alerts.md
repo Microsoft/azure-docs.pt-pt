@@ -2,24 +2,25 @@
 title: Guia de alerta de segurança do Centro de segurança do Azure para pré-visualização do IoT | Documentos da Microsoft
 description: Saiba mais sobre alertas de segurança e a remediação recomendada com o Centro de segurança do Azure para recursos de IoT e o serviço.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: db3a955cd9e572d1daca044aed75048e394e8457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6168278a51cf5a73fec0387ab61f46e201d158f9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200762"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616952"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Centro de segurança do Azure para os alertas de segurança de IoT
 
@@ -37,7 +38,7 @@ Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-cre
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertas incorporados para dispositivos de IoT
 
-| Gravidade | Name                                                   | Origem de Dados | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Severity | Nome                                                   | Origem de Dados | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alta     | Início de sessão local com êxito                                 | Agente       | Detetado de início de sessão de dispositivo local concluída com êxito                                                                                                                                                                                                                                                                                                                                                                                         |
 | Alta     | Força bruta                                  | Agente       | Várias tentativas de início de sessão sem êxito detetada, seguido de um início de sessão com êxito. Dispositivo teve um ataque de força bruta.                                                                                                                                                                                                                                                                                                              |
@@ -81,7 +82,7 @@ Para obter mais detalhes, consulte [criar alertas personalizados](quickstart-cre
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertas incorporados para o IoT Hub
 
-| Gravidade | Name                                                                         | Descrição                                                                                                                                                                                                                                                                                                                            |
+| Severity | Nome                                                                         | Descrição                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Médio   | Novo certificado adicionado a um IoT Hub                                    |Novo certificado foi adicionado a um hub IoT. Se esta adição não foi feita por uma entidade autorizada, tal poderá indicar atividade maliciosa.                                                                                                                                                                                                    |
 | Médio   | Certificado eliminado de um IoT Hub                                    | Certificado eliminado de um hub IoT. Se esta ação não foi feita por uma entidade autorizada, tal poderá indicar atividade maliciosa.                                                                                                                                                                                                |

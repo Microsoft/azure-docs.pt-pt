@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5d4657f87b0a6cbae0699c5a2f95773ff55f633
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235949"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798438"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -49,7 +49,7 @@ Considere os seguintes requisitos ao utilizar a configuração de estado de auto
 
 Para nós a executar o Windows, são suportadas as seguintes versões:
 
-- Windows Server 2019
+- Windows Server de 2019
 - Windows Server 2016
 - Windows Server 2012R2
 - Windows Server 2012
@@ -81,6 +81,10 @@ Se os nós estão localizados numa rede privada, os seguintes URLs e portas são
 * Global URL: *. Azure-Automation.NET
 * URL global do US Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+Isso fornece a conectividade de rede para o nó gerido comunicar com a automatização do Azure.
+Se estiver a utilizar os recursos de DSC que se comunicam entre nós, como o [WaitFor * recursos](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), também terá de permitir o tráfego entre nós.
+Consulte a documentação para cada recurso de DSC compreender os requisitos de rede.
 
 #### <a name="proxy-support"></a>Suporte para o proxy
 
@@ -129,7 +133,7 @@ Prefere ver do que ler? Dê uma olhada no vídeo seguinte de Maio de 2015, quand
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar, consulte o artigo [introdução à configuração de estado de automatização do Azure](automation-dsc-getting-started.md)
 - Para saber como a carregar nós, consulte [integrar computadores para gestão de configuração de estado de automatização do Azure](automation-dsc-onboarding.md)

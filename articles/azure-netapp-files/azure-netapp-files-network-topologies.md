@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 207fb003eb1fdaafe4f43f7cd41dd4b7662eddf9
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 5b54d8f21f4cb1cdd7bb06871df6ac22d19d1ab6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331968"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705205"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
 Planejamento da arquitetura de rede é um elemento-chave da criação de qualquer infraestrutura de aplicativo. Este artigo ajuda-o a criar uma arquitetura de rede em vigor a partir das cargas de trabalho beneficiar de capacidades avançadas de ficheiros do Azure NetApp.
 
-Volumes de ficheiros NetApp do Azure foram concebidos para ser contidos numa sub-rede de finalidade especial chamado [delegado sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) na sua rede Virtual do Azure. Por conseguinte, pode aceder os volumes diretamente a partir da sua VNet, de VNets em modo de peering na mesma região ou no local através de um Gateway de rede Virtual (ExpressRoute ou o Gateway de VPN), se necessário. A sub-rede é dedicada aos ficheiros do Azure NetApp e nenhuma conectividade a outros serviços do Azure ou à internet.
+Volumes de ficheiros NetApp do Azure foram concebidos para ser contidos numa sub-rede de finalidade especial chamado um [delegado sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) na sua rede Virtual do Azure. Por conseguinte, pode aceder os volumes diretamente a partir da sua VNet, de VNets em modo de peering na mesma região ou no local através de um Gateway de rede Virtual (ExpressRoute ou o Gateway de VPN), se necessário. A sub-rede é dedicada aos ficheiros do Azure NetApp e nenhuma conectividade a outros serviços do Azure ou à Internet.
 
 ## <a name="considerations"></a>Considerações  
 
@@ -35,7 +35,7 @@ Deve compreender algumas considerações ao planejar para a rede de ficheiros do
 
 As funcionalidades indicadas abaixo não são atualmente suportadas para ficheiros de NetApp do Azure: 
 
-* Grupos de segurança de rede (NSGs) na sub-rede
+* Grupos de segurança de rede (NSG) aplicados à sub-rede delegada
 * Definido pelo utilizador rotas (UDRs) com o próximo salto como a sub-rede de ficheiros do Azure NetApp
 * Políticas do Azure (por exemplo, políticas nomenclatura personalizadas) na interface de ficheiros do Azure NetApp
 * Balanceadores de carga para tráfego de ficheiros do Azure NetApp
@@ -71,7 +71,7 @@ Antes de aprovisionar um volume de ficheiros do Azure NetApp, terá de criar uma
 
 ### <a name="subnets"></a>Sub-redes
 
-Sub-redes segmentar a rede virtual em espaços de endereço separados que podem ser usados pelos recursos do Azure nos mesmos.  Volumes de ficheiros NetApp do Azure estão contidos numa sub-rede de finalidade especial chamado [delegado sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
+Sub-redes segmentar a rede virtual em espaços de endereço separados que podem ser usados pelos recursos do Azure nos mesmos.  Volumes de ficheiros NetApp do Azure estão contidos numa sub-rede de finalidade especial chamado um [delegado sub-rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet). 
 
 Delegação de sub-rede dá permissões explícitas para o serviço de ficheiros de NetApp do Azure para criar recursos específicos do serviço na sub-rede.  Ele usa um identificador exclusivo na implementar o serviço. Neste caso, é criada uma interface de rede para permitir a conectividade aos ficheiros do Azure NetApp.
 
@@ -99,7 +99,7 @@ O diagrama seguinte ilustra um ambiente nativo do Azure:
 
 Se tiver adicionais VNets na mesma região que precisam de aceder a recursos uns dos outros, as VNets podem ser ligadas usando [VNet peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) para permitir a conectividade segura através da infraestrutura do Azure. 
 
-Considere VNet 2 e 3 de VNet no diagrama acima. Se precisar de 1 da VM ligar à VM 2 e o Volume 2, ou se precisar de 2 de VM ligar a 1 da VM ou Volume 1, terá de ativar o VNet peering entre a VNet 2 e 3 de VNet. 
+Considere VNet 2 e 3 de VNet no diagrama acima. Se precisar de 2 de VM ligar à VM 3 ou Volume 2, ou se precisar de 3 de VM ligar a VM 2 ou Volume 1, terá de ativar o VNet peering entre a VNet 2 e 3 de VNet. 
 
 Além disso, considere um cenário em que VNet 1 está agrupada com VNet 2 e VNet 2 está agrupada com 3 VNet na mesma região. Os recursos de 1 de VNet podem ligar a recursos na VNet 2, mas não é possível ligar a recursos na VNet 3, a menos que a VNet 1 e 3 de VNet em modo de peering. 
 
@@ -111,17 +111,17 @@ O diagrama seguinte ilustra um ambiente híbrido:
 
 ![Ambiente de rede híbrida](../media/azure-netapp-files/azure-netapp-files-network-hybrid-environment.png)
 
-No cenário híbrido, aplicações a partir de centros de dados no local precisam de aceder aos recursos no Azure.  Esse é o caso, se deseja estender seu centro de dados para o Azure ou que pretende utilizar serviços nativos do Azure ou para recuperação após desastre. Ver [opções de planeamento de Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) sobre como ligar a vários recursos no local para recursos no Azure através de uma VPN de site a site ou do ExpressRoute.
+No cenário híbrido, aplicações a partir de datacenters no local precisam de aceder aos recursos no Azure.  Esse é o caso, se pretender expandir o seu datacenter para o Azure ou que pretende utilizar serviços nativos do Azure ou para recuperação após desastre. Ver [opções de planeamento de Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable) para obter informações sobre como ligar a vários recursos no local para recursos no Azure através de uma VPN de site a site ou do ExpressRoute.
 
 Numa topologia hub-and-spoke híbrida, a VNet no Azure do hub atua como um ponto central de conectividade à sua rede no local. Os spokes são VNets em modo de peering com o hub e podem ser utilizadas para isolar cargas de trabalho.
 
-Dependendo da configuração. Pode ligar recursos no local para recursos do hub e os spokes.
+Dependendo da configuração, pode ligar recursos no local para recursos do hub e os spokes.
 
 Na topologia ilustrada acima, a rede no local está ligada a um concentrador de VNet no Azure e, existem 2 spoke VNets na mesma região em modo de peering com a VNet do hub.  Neste cenário, as opções de conectividade suportadas para volumes de ficheiros do Azure NetApp são os seguintes:
 
-* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 1 no hub através de um site-site VPN ou Expressroute. 
+* Recursos no local VM 1 e 2 de VM podem ligar ao Volume 1 no hub através de um circuito de site-site VPN ou ExpressRoute. 
 * Recursos no local VM 1 e 2 de VM podem ligar ao Volume 2 ou 3 de Volume através de uma VPN site a site e o peering de Vnet regional.
-* 3 de VM no hub VNet pode ligar ao volume 2 no spoke VNet 1 e 3 de Volume no spoke VNet 2.
+* 3 de VM no hub VNet pode ligar ao Volume 2 no spoke VNet 1 e 3 de Volume no spoke VNet 2.
 * 4 de VM do spoke VNet 1 e 5 de VM do spoke VNet 2 podem ligar ao Volume 1 na VNet do hub.
 
 4 de VM no spoke VNet 1 não é possível ligar ao Volume 3 no spoke VNet 2. Além disso, 5 de VM no spoke VNet2 não consegue ligar ao Volume 2 no spoke 1 da VNet. Esse é o caso, uma vez que as VNets spoke não em modo de peering e _encaminhamento de tráfego não é suportado através do peering de VNet_.

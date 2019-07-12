@@ -1,20 +1,20 @@
 ---
-title: 'Início rápido: Consultar dados no Explorador de dados do Azure'
-description: Neste início rápido, irá aprender a consultar e partilhar dados no Azure Data Explorer.
+title: 'Início rápido: Consultar dados na IU da Web do Azure Data Explorer'
+description: Neste guia de introdução, saiba como consultar e partilhar os dados na IU da Web do Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775703"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797180"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Início rápido: Consultar dados no Explorador de dados do Azure
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Início rápido: Consultar dados na IU da Web do Azure Data Explorer
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer fornece uma aplicação Web que lhe permite executar e partilhar consultas. A aplicação está disponível no portal do Azure e como uma aplicação Web autónoma. Neste artigo, vai trabalhar na versão autónoma, que permite ligar a vários clusters e partilhar ligações avançadas para as suas consultas.
 
@@ -191,5 +191,4 @@ Não criou recursos neste início rápido, mas se quiser remover um ou ambos os 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Escrever consultas do Azure Data Explorer](write-queries.md)
+[Escrever consultas do Azure Data Explorer](write-queries.md)

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707148"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706216"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -86,7 +86,7 @@ Se utilizar a redundância de zona para o espaço de nomes, precisa fazer alguma
 
 ## <a name="best-practices"></a>Melhores práticas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas práticas recomendadas do Azure Service Bus?
-Ver [melhores práticas para melhoramentos do desempenho através do Service Bus] [ Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho quando troca de mensagens.
+Ver [melhores práticas para melhoramentos do desempenho através do Service Bus][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho quando troca de mensagens.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>O que deve saber antes de criar entidades?
 As seguintes propriedades de uma fila e tópico são imutáveis. Considere esta limitação quando Aprovisiona suas entidades, como estas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
@@ -134,7 +134,7 @@ Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro hora
 Para obter uma lista de possíveis exceções do Service Bus, consulte [descrição geral de exceções][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma assinatura de acesso partilhado e que idiomas suportam gerar uma assinatura?
-Assinaturas de acesso partilhado são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no node. js, PHP, Java e C\#, consulte a [assinaturas de acesso partilhado] [ Shared Access Signatures] artigo.
+Assinaturas de acesso partilhado são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no node. js, PHP, Java e C\#, consulte a [assinaturas de acesso partilhado][Shared Access Signatures] artigo.
 
 ## <a name="subscription-and-namespace-management"></a>Gestão de subscrição e o espaço de nomes
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um espaço de nomes para outra subscrição do Azure?
@@ -143,7 +143,7 @@ Pode mover um espaço de nomes de uma subscrição do Azure para outra, através
 
 #### <a name="portal"></a>Portal
 
-Para utilizar o portal do Azure para migrar os espaços de nomes do Service Bus para outra subscrição, siga as indicações [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para utilizar o portal do Azure para migrar os espaços de nomes do Service Bus para outra subscrição, siga as indicações [aqui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

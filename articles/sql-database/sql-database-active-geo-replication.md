@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 06/18/2019
-ms.openlocfilehash: 826944fd3713f5cc3e99f20cb140055bfdb11a14
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341433"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807302"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -43,7 +43,6 @@ Pode gerir a replicação e ativação pós-falha de uma base de dados individua
 - [Transact-SQL: Base de dados ou conjunto elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [REST API: Base de dados](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Após a ativação pós-falha, certifique-se de que os requisitos de autenticação para o seu servidor e base de dados são configurados na nova principal. Para obter detalhes, consulte [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md).
 
 Tira partido da georreplicação ativa a [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) tecnologia do SQL Server para a replicação assíncrona de transações consolidadas na base de dados primária para uma base de dados secundária, usando o isolamento de instantâneo. Os grupos de ativação pós-falha automática fornecem a semântica de grupo por cima de georreplicação ativa, mas o mesmo mecanismo de replicação assíncrona é utilizado. Embora num determinado período, a base de dados secundária pode ser um pouco por trás da base de dados primária, os dados secundários são garantidos que nunca terá transações parciais. Redundância entre regiões habilita aplicativos para recuperar rapidamente de uma perda permanente de todo o datacenter ou partes de um datacenter causado por desastres naturais, catastróficos erros humanos ou atos mal-intencionados. Os dados específicos de RPO que podem ser encontrados em [descrição geral da continuidade do negócio](sql-database-business-continuity.md).
 
@@ -83,12 +82,12 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Ativação pós-falha planeada**
 
-  Ativação pós-falha planeada executa uma sincronização completa entre bases de dados primárias e secundárias antes dos comutadores secundários para a função primária. Isso garante sem perda de dados. Ativação pós-falha planeada é utilizada nos seguintes cenários: (a) para executar o DR explorações produção quando a perda de dados não é aceitável; (b) pode mudar para a base de dados para uma região diferente. e (c) para devolver a base de dados para a região primária após a falha foi Atenuado (reativação pós-falha).
+  Depois de concluída a sincronização completa, prevista comutadores de ativação pós-falha as funções de bases de dados primárias e secundárias. É uma operação online que não resulta numa perda de dados. O tempo da operação depende do tamanho do registo de transação principal que precisa ser sincronizada. Ativação pós-falha planeada foi concebida para os seguintes cenários: (a) para executar o DR explorações produção quando a perda de dados não é aceitável; (b) pode mudar para a base de dados para uma região diferente. e (c) para devolver a base de dados para a região primária após a falha foi Atenuado (reativação pós-falha).
 
 - **Ativação pós-falha não planeada**
 
-  Ativação pós-falha não planeada ou forçada muda imediatamente o secundário para a função principal sem qualquer sincronização com o principal. Esta operação irá resultar na perda de dados. Ativação pós-falha não planeada é utilizada como um método de recuperação durante as falhas quando o principal não está acessível. Quando o original principal esteja novamente online, irá automaticamente voltar a ligar sem sincronização e se tornar um secundário novo.
-
+  Ativação pós-falha não planeada ou forçada muda imediatamente o secundário para a função principal sem qualquer sincronização com o principal. Todas as transações consolidadas para o primário, mas não é replicado para o secundário serão perdidas. Esta operação foi concebida como um método de recuperação durante as falhas quando o principal não está acessível, mas a disponibilidade de base de dados deve ser restaurada rapidamente. Quando o original principal esteja novamente online irá automaticamente voltar a ligar e se tornar um secundário novo. Todas as transações não sincronizadas antes da ativação pós-falha serão mantidas no ficheiro de cópia de segurança, mas não vão ser sincronizadas com a nova principal para evitar conflitos. Essas transações tem de ser manualmente intercalada com a versão mais recente da base de dados primário.
+ 
 - **Várias bases de dados secundárias legíveis**
 
   Até 4 bases de dados secundárias pode ser criado para cada principal. Se há apenas uma base de dados secundária, e este falhar, o aplicativo é exposto ao risco mais alto até que seja criada uma nova base de dados secundário. Se existirem várias bases de dados secundários, o aplicativo permanece protegido mesmo que uma das bases de dados secundários falhar. Secundários adicionais também podem ser utilizados para ampliar cargas de trabalho só de leitura
@@ -105,21 +104,26 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Uma base de dados secundária pode explicitamente ser mudado para a função primária em qualquer altura, o aplicativo ou o utilizador. Durante uma falha real a opção "não planeada" deve ser usada, que promove imediatamente uma secundária para ser o primário. Quando o primário falhou recupera e estiver novamente disponível, o sistema marca primário como um secundário recuperado automaticamente e colocá-lo atualizado com a nova principal. Devido à natureza assíncrona de replicação, uma pequena quantidade de dados pode ser perdida durante as ativações pós-falha não planeadas se falhar de um site primário antes de ser replicado as alterações mais recentes para o secundário. Quando um site primário com várias bases de dados secundárias falha, o sistema é automaticamente reconfigura as relações de replicação e ligações restantes secundários para primária recentemente promovida sem exigir qualquer intervenção do utilizador. Assim que a falha que causou a ativação pós-falha é minimizada, talvez seja desejável para a aplicação volte para a região primária. Para tal, o comando de ativação pós-falha deve ser invocado com a opção "planeada".
 
-- **Mantendo credenciais e as regras de firewall em sincronia**
+## <a name="preparing-secondary-database-for-failover"></a>A preparar a base de dados secundária para a ativação pós-falha
 
-Recomendamos que utilize [regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall do IP como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
+Para garantir que o seu aplicativo pode aceder imediatamente a nova principal após a ativação pós-falha, certifique-se de que os requisitos de autenticação para o servidor secundário e a base de dados estão configurados corretamente. Para obter detalhes, consulte [segurança de base de dados SQL após a recuperação após desastre](sql-database-geo-replication-security-config.md). Para garantir a conformidade após a ativação pós-falha, certifique-se de que a política de retenção de cópia de segurança na base de dados secundário corresponde dos principais. Estas definições não fazem parte da base de dados e não são replicadas. Por predefinição, o elemento secundário será configurado com um período de retenção PITR padrão de sete dias. Para obter detalhes, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).
 
 ## <a name="configuring-secondary-database"></a>Configurar a base de dados secundária
 
-Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Se a base de dados primária está com uma carga de trabalho de escrita intensivas, uma secundária com o tamanho de computação inferior não pode ser capaz de acompanhar. Fará com que o desfasamento de Refazer na indisponibilidade secundária, potencial e, consequentemente, um risco de perda de dados substancial após uma ativação pós-falha. Como resultado, o RPO publicado = 5 s não pode ser garantida. Também poderá resultar em falhas ou interrupção de outras cargas de trabalho principal. 
-
-A outra conseqüência de uma configuração secundária desequilibrada é que, após a ativação pós-falha, desempenho do aplicativo será inferior devido a capacidade de computação suficiente da nova principal. Será necessário atualizar para uma computação superior para o nível necessário, o que não será possível até que a falha é atenuada. 
-
-> [!NOTE]
-> Atualmente, a atualização da base de dados principal não é possível se secundário está offline. 
+Bases de dados primários e secundários têm de ter a mesma camada de serviço. É também vivamente recomendado que essa base de dados secundária é criada com o mesmo tamanho de computação (DTUs ou vCores) como principal. Se a base de dados primária está com uma carga de trabalho de escrita intensivas, uma secundária com o tamanho de computação inferior não pode ser capaz de acompanhar. Ele fará com que o desfasamento de Refazer na indisponibilidade secundária e potencial. Uma base de dados secundária que esteja atrasada face à primária também arrisca uma grande perda de dados, caso seja preciso uma ativação pós-falha forçada. Para mitigar estes riscos, georreplicação ativa em vigor irá limitar taxa de registo do primário para permitir que suas bases de dados secundárias sejam atualizadas. A outra conseqüência de uma configuração secundária desequilibrada é que, após a ativação pós-falha, desempenho do aplicativo será inferior devido a capacidade de computação suficiente da nova principal. Será necessário atualizar para uma computação superior para o nível necessário, o que não será possível até que a falha é atenuada. 
 
 
-Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-purchase-models.md).
+> [!IMPORTANT]
+> O RPO publicado = 5 s não pode ser garantida, a menos que a base de dados secundária está configurado com o mesmo tamanho de computação como principal. 
+
+
+Se optar por criar o secundário com o menor tamanho de computação, o gráfico de percentagem de e/s de registo no portal do Azure fornece uma boa forma de estimar o tamanho mínimo de computação da secundária que é necessário para sustentar a carga de replicação. Por exemplo, se a sua base de dados primária é P6 (1000 DTUS) e o respetivo registo de % de e/s é de 50% secundário tem de ser, pelo menos, P4 (500 DTU). Também pode obter os dados de e/s de registo usando [resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [DM db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vistas de base de dados.  A limitação é comunicada como um Estado de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO no [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [DM os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) vistas de base de dados. 
+
+Para obter mais informações sobre os tamanhos de computação de base de dados SQL, consulte [quais são os escalões de serviço de base de dados SQL](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantendo credenciais e as regras de firewall em sincronia
+
+Recomendamos que utilize [regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall do IP como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Atualizar ou fazer downgrade base de dados primária
 
@@ -206,7 +210,7 @@ Como discutido anteriormente, georreplicação ativa também pode ser gerida atr
 
 - Para scripts de exemplo, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-  - [Configurar e efetuar a ativação pós-falha de uma base de dados agrupada através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+  - [Configurar e efetuar a ativação pós-falha de uma base de dados de conjunto através de georreplicação ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - Base de dados SQL também oferece suporte a grupos de ativação pós-falha automática. Para obter mais informações, consulte usando [grupos de ativação pós-falha automática](sql-database-auto-failover-group.md).
 - Para uma visão geral de continuidade de negócio e cenários, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md)
 - Para saber mais sobre SQL do Azure, base de dados automatizada de cópias de segurança, consulte [cópias de segurança automatizadas de base de dados SQL](sql-database-automated-backups.md).

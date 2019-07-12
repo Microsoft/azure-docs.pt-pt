@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823951"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839014"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -51,7 +51,7 @@ Para o Data Management Gateway ligar à base de dados MySQL, tem de instalar o [
 Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do Cassandra no local através de APIs/ferramentas diferentes. 
 
 - A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -99,7 +99,7 @@ Quando a origem na atividade de cópia é do tipo **RelationalSource** (que incl
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemplo JSON: Copiar dados do MySQL para BLOBs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma base de dados do MySQL no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de uma base de dados do MySQL no local para um armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
@@ -305,40 +305,40 @@ Ao mover dados para o MySQL, os seguintes mapeamentos de servem de tipos do MySQ
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| booleano |Boolean |
-| char |String |
+| bool |Booleano |
+| char |Cadeia |
 | date |Datetime |
 | datetime |Datetime |
 | decimal |Decimal |
 | precisão dupla |Double |
 | double |Double |
-| Enum |String |
+| Enum |Cadeia |
 | float |Single |
 | Int unsigned |Int64 |
 | int |Int32 |
 | número inteiro sem sinal |Int64 |
-| inteiro |Int32 |
+| integer |Int32 |
 | varbinary longa |Byte[] |
-| long varchar |String |
+| long varchar |Cadeia |
 | longblob |Byte[] |
-| longtext |String |
+| longtext |Cadeia |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |String |
+| mediumtext |Cadeia |
 | numeric |Decimal |
 | real |Double |
-| set |String |
+| set |Cadeia |
 | smallint não assinado |Int32 |
 | smallint |Int16 |
-| texto |String |
+| text |Cadeia |
 | time |TimeSpan |
 | timestamp |Datetime |
 | tinyblob |Byte[] |
 | tinyint não assinado |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |String |
+| tinytext |Cadeia |
+| varchar |Cadeia |
 | ano |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink

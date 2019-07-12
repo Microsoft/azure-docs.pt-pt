@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: b7e6201d75556908cc16d97734d1c074efd0a587
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148422"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612303"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorizar e gerir tarefas do Stream Analytics com cmdlets do Azure PowerShell
 Saiba como monitorizar e gerir os recursos de Stream Analytics com cmdlets do Azure PowerShell e scripts do powershell que são executadas tarefas básicas do Stream Analytics.
@@ -228,7 +228,7 @@ Se especificar uma entrada que já existe e não especificar o parâmetro – Fo
 
 Se especificar – forçar o parâmetro e especificar um existente introduzir o nome, a entrada será substituída sem confirmação.
 
-Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte o [entrada de criar (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] secção o [referência de API do REST de gestão do Stream Analytics Biblioteca][stream.analytics.rest.api.reference].
+Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [entrada de criar (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exemplo 1**
 
@@ -287,7 +287,7 @@ Se especificar um nome de tarefa já existe e não especificar o parâmetro – 
 
 Se especificar – forçar o parâmetro e especificar um nome de tarefa existente, a definição de tarefa irá ser substituída sem confirmação.
 
-Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [criar tarefa do Stream Analytics] [ msdn-rest-api-create-stream-analytics-job] seção o [Stream Analytics Management REST API biblioteca de referência] [stream.analytics.rest.api.reference].
+Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [criar tarefa do Stream Analytics][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exemplo 1**
 
@@ -330,7 +330,7 @@ Se especificar uma saída que já existe e não especificar o parâmetro – For
 
 Se especificar – forçar o parâmetro e especificar o nome de saída de um existente, a saída irá ser substituída sem confirmação.
 
-Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [criar saída (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] seção o [referência de API do REST de gestão do Stream Analytics Biblioteca][stream.analytics.rest.api.reference].
+Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [saída de criar (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exemplo 1**
 
@@ -373,7 +373,7 @@ Se especificar uma transformação que já existe e não especificar o parâmetr
 
 Se especificar – forçar o parâmetro e especificar um nome de transformação existente, a transformação irá ser substituída sem confirmação.
 
-Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [transformação de criar (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] secção do [API de REST de gestão do Stream Analytics Biblioteca de referência][stream.analytics.rest.api.reference].
+Para obter informações detalhadas sobre a estrutura de ficheiros JSON e o conteúdo, consulte a [transformação de criar (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Exemplo 1**
 
@@ -550,7 +550,7 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx

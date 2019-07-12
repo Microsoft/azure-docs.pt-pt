@@ -4,15 +4,15 @@ description: Este artigo descreve como utilizar contadores de gráficos de Remot
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 0b4113f1e0024415135aa99d1fb4e881efe448a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a139542bf9272336784ac96d667d65caa1ed96ff
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66499268"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607340"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnosticar problemas de desempenho de gráficos no ambiente de trabalho remoto
 
@@ -103,7 +103,7 @@ Se os recursos de cliente estão a causar o congestionamento, efetue uma ou amba
 > [!NOTE]
 > Atualmente não suportamos o contador de Frames/Second de origem. Por enquanto, o contador de origem Frames/Second sempre será definido como 0.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para criar uma máquina virtual do Azure com otimização de GPU, veja [configurar a aceleração da (GPU unidade) para o ambiente de pré-visualização de ambiente de Trabalho Virtual do Windows de processamento gráfico](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
 - Para uma descrição geral de faixas de escalamento e resolução de problemas, consulte [descrição geral, comentários e suporte de resolução de problemas](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).

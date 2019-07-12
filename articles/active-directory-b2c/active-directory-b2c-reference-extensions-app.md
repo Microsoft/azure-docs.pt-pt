@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/06/2017
+ms.date: 09/06/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d9fbceee8fb0e565df668406f09df27272318dd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d38d8d791c6b932d8a28a898f2e2b80caff7ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509471"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654061"
 ---
 # <a name="azure-ad-b2c-extensions-app"></a>Azure AD B2C: Aplicação de extensões
 
@@ -40,7 +40,7 @@ Caso tenha eliminado acidentalmente a aplicação de extensões de b2c, tem 30 d
 1. Inicie sessão no site como um administrador global do diretório do Azure AD B2C que pretende restaurar a aplicação foi eliminada para. Este administrador global tem de ter um endereço de e-mail semelhante ao seguinte: `username@{yourTenant}.onmicrosoft.com`.
 1. Emitir um HTTP GET contra o URL `https://graph.windows.net/myorganization/deletedApplications` com a api-version = 1.6. Esta operação irá listar todas as aplicações que foram eliminadas nos últimos 30 dias.
 1. Localize a aplicação na lista em que o nome comece com "b2c-extensão-app" e copie o `objectid` valor da propriedade.
-1. Emitir um HTTP POST contra o URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Substitua a `{OBJECTID}` parte do URL com o `objectid` do passo anterior. 
+1. Emitir um HTTP POST contra o URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Substitua a `{OBJECTID}` parte do URL com o `objectid` do passo anterior.
 
 Deve agora conseguir [ver a aplicação restaurada](#verifying-that-the-extensions-app-is-present) no portal do Azure.
 

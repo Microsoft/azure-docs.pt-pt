@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: 3eb20013a6b3afaddce10f2e4652add0edf22a9a
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276785"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827689"
 ---
 # <a name="scaling-with-event-hubs"></a>Dimensionar com os Hubs de eventos
 
@@ -48,14 +48,14 @@ O serviço de Hubs de eventos aumenta o débito, quando a carga aumenta acima do
 Para obter mais informações sobre a funcionalidade de ampliação automática, consulte [Dimensionar automaticamente unidades de débito](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partições
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-As partições permitem-lhe dimensionamento para seu processamento a jusante. Por causa do modelo de consumidor particionado dos Hubs de eventos oferece com partições, pode aumentar horizontalmente ao processar seus eventos em simultâneo. Um Hub de eventos pode ter até 32 partições.
+### <a name="partition-key"></a>Chave de partição
 
-Recomendamos que equilibre as unidades de débito de 1:1 e as partições para alcançar a escala ideal. Uma única partição tem uma entrada e de saída até uma unidade de débito garantido. Embora possa ser capaz de alcançar um débito mais elevado numa partição, o desempenho não é garantido. É por isso é altamente recomendável que o número de partições num hub de eventos de ser maior que ou igual ao número de unidades de débito.
+Pode utilizar uma [chave de partição](event-hubs-programming-guide.md#partition-key) para mapear dados de eventos recebidos em partições específicas para a finalidade de organização de dados. A chave de partição é um valor fornecido pelo remetente transmitido para um hub de eventos. É processada através de uma função hash estática que cria a atribuição de partições. Se não especificar uma chave de partição ao publicar um evento, é utilizada uma atribuição round robin.
 
-Tendo em conta o débito total que tencione necessidade, sabe o número de unidades de débito que necessita e o número mínimo de partições, mas o número de partições que deve ter? Escolha o número de partições com base em quer atingir o paralelismo a jusante, bem como as suas necessidades de débito futuras. Não existe nenhum custo associado para o número de partições que tem dentro de um Hub de eventos.
+O publicador de eventos apenas tem conhecimento da respetiva chave de partição, não da partição onde os eventos são publicados. Este desacoplamento da chave e da partição faz com que o remetente não tenha necessidade de saber muito sobre o processamento a jusante. Uma identidade por dispositivo ou utilizador exclusivo faz com que uma chave de partição seja segura, mas outros atributos como a geografia também podem ser utilizados para agrupar os eventos relacionados numa única partição.
 
-Para obter informações detalhadas sobre os preços dos Hubs de Eventos, veja [Preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:

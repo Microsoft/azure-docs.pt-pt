@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 7fb0fba519a7833ac318c713dc9eb3c6ac7f8b5b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509547"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622402"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -65,7 +65,7 @@ Para adicionar uma nova medida de telemetria, selecione **+ nova medida**, escol
 > Os nomes de campo no modelo do dispositivo tem de corresponder os nomes de propriedade no código de dispositivo correspondente para que a medição de telemetria a apresentar na aplicação quando está ligado um dispositivo real. Fazer o mesmo ao configurar as definições de propriedades do dispositivo e comandos enquanto continua a definir o modelo de dispositivo nas seções a seguir.
 . png, por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 
-| Nome a apresentar        | Nome do Campo    |  Unidades    | Mín.   |Máx.|
+| Nome a Apresentar        | Nome do Campo    |  Unidades    | Mín.   |Máx.|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatura         | temp          |  degC     |  0    |100|
 
@@ -86,7 +86,7 @@ Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do
 
 Por exemplo, pode adicionar um novo **erro de Motor de ventoinha** eventos.
 
-| Nome a apresentar        | Nome do Campo    |  Gravidade de predefinição |
+| Nome a Apresentar        | Nome do Campo    |  Gravidade de predefinição |
 | --------------------| ------------- |-----------|
 | Erro de Motor da Ventoinha     | fanmotorerror |  Erro    |
 
@@ -109,7 +109,7 @@ Forneça os detalhes para **nome a apresentar**, **nome do campo**, e **valores*
 
 Por exemplo, pode adicionar um novo **ventoinha modo** estado de que tem dois valores possíveis que o dispositivo pode enviar, **operacional** e **parado**.
 
-| Nome a apresentar | Nome do Campo    |  Valor de 1   | Nome a apresentar | Valor 2    |Nome a apresentar  | 
+| Nome a Apresentar | Nome do Campo    |  Valor de 1   | Nome a Apresentar | Valor 2    |Nome a Apresentar  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Modo da Ventoinha     | fanmode       |  1         | Em funcionamento    |     0      | Parada      |
 
@@ -128,7 +128,7 @@ Para adicionar uma nova medida de localização, selecione **+ nova medida**, es
 
 Por exemplo, pode adicionar uma nova medida de telemetria de localização:
 
-| Nome a apresentar        | Nome do Campo    |
+| Nome a Apresentar        | Nome do Campo    |
 | --------------------| ------------- |
 | Localização do recurso      |  assetloc     |
 
@@ -150,7 +150,7 @@ assetloc: {
 
 ## <a name="settings"></a>Definições
 
-Definições de controlarem um dispositivo. Eles permitem aos operadores forneça entradas para o dispositivo. Pode adicionar várias definições ao seu modelo de dispositivo que são apresentados como mosaicos no **definições** separador para operadores para utilizar. Pode adicionar vários tipos de definições: número, texto, data, alternar, lista de seleção e rótulo de seção.
+Definições de controlarem um dispositivo. Eles permitem aos operadores forneça entradas para o dispositivo. Pode adicionar várias definições ao seu modelo de dispositivo que são apresentados como mosaicos no **definições** separador para operadores para utilizar. Pode adicionar vários tipos de definições: número, texto, data, alternar e rótulo de seção.
 
 Elas podem estar em um de três Estados. O dispositivo comunica esses Estados.
 
@@ -162,7 +162,7 @@ Elas podem estar em um de três Estados. O dispositivo comunica esses Estados.
 
 Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha selecionando **configurações** e introduzir no novo **número** definição:
 
-| Nome a apresentar  | Nome do Campo    |  Unidades  | Casas decimais |Inicial|
+| Nome a Apresentar  | Nome do Campo    |  Unidades  | Casas decimais |Inicial|
 | --------------| ------------- |---------| ---------|---- |
 | Ventoinha velocidade     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -170,7 +170,7 @@ Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha sele
 
 Depois de selecionar **salvar**, o **ventoinha velocidade** definição aparece como um mosaico. Um operador pode utilizar a definição no **Device Explorer** página para alterar a velocidade de fã do dispositivo.
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>properties
 
 Propriedades são metadados associada ao dispositivo, tal como uma localização do dispositivo fixo e o número de série. Adicionar várias propriedades ao seu modelo de dispositivo que são apresentados como mosaicos no **propriedades** separador. Uma propriedade tem um tipo como o número, texto, data, alternar, propriedade do dispositivo, etiqueta ou uma localização fixa. Um operador especifica os valores de propriedades quando criam um dispositivo e podem editar estes valores em qualquer altura. Propriedades do dispositivo são só de leitura e são enviadas do dispositivo para a aplicação. Um operador não é possível alterar propriedades do dispositivo. Quando se liga um dispositivo real, atualiza o mosaico de propriedade do dispositivo na aplicação.
 
@@ -181,7 +181,7 @@ Existem duas categorias de propriedades:
 
 Por exemplo, pode adicionar a última data de serviço para o dispositivo como uma nova **data** propriedade (uma propriedade de aplicação) no **propriedades** separador:
 
-| Nome a apresentar  | Nome do Campo | Valor Inicial   |
+| Nome a Apresentar  | Nome do Campo | Valor Inicial   |
 | --------------| -----------|-----------------|
 | Última assistência      | lastServiced        | 01/29/2019     |
 
@@ -213,7 +213,7 @@ Pode criar uma propriedade de localização como uma propriedade de aplicação 
 
 3. Configurar **nome a apresentar**, **nome do campo**e (opcionalmente) **valor inicial** para a localização.
 
-    | Nome a apresentar  | Nome do Campo | Valor Inicial |
+    | Nome a Apresentar  | Nome do Campo | Valor Inicial |
     | --------------| -----------|---------|
     | Endereço de instalação | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -235,7 +235,7 @@ Pode criar uma propriedade de localização como uma propriedade de dispositivo 
 
 3. Configurar o nome a apresentar e o nome de campo e selecione **localização** como o tipo de dados:
 
-    | Nome a apresentar  | Nome do Campo | Tipo de Dados |
+    | Nome a Apresentar  | Nome do Campo | Tipo de Dados |
     | --------------| -----------|-----------|
     | Localização do dispositivo | deviceLocation | location  |
 
@@ -258,9 +258,9 @@ Como é que um comando diferente a partir de uma definição?
 
 Por exemplo, pode adicionar um novo **eco** comando ao selecionar o **comandos** separador, em seguida, selecionando **+ novo comando**e introduzir os novos detalhes do comando:
 
-| Nome a apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
+| Nome a Apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
 | --------------| -----------|---------------- | --------- |
-| Comando Echo  | echo       |  30             | texto      |
+| Comando Echo  | echo       |  30             | text      |
 
 ![Formulário de "Configurar o comando" com detalhes para eco](./media/howto-set-up-template/commandsecho1.png)
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: b8012cbdad02995c3fc98a3ea1fa02a3a08bd2dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 58bfee5963257df380adac94133dcc55dd03a443
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870881"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617625"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de Volume de ficheiros do Azure do serviço Fabric (pré-visualização)
 O plug-in de volume de ficheiros do Azure é um [Plug-in de volume do Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contentores do Docker. Este plug-in de volume do Docker vem empacotado como uma aplicação do Service Fabric que pode ser implementada nos clusters do Service Fabric. A sua finalidade é fornecer volumes com base nos Ficheiros do Azure a outras aplicações de contentor do Service Fabric que estejam implementadas no cluster.
@@ -225,6 +225,6 @@ São suportados parâmetros de aplicação para volumes, conforme mostrado no fr
 
 Se não for especificado um controlador de registo do Docker, tem de implementar agentes (ou contentores) para lidar com os registos do cluster. O **DriverOption** etiqueta pode ser utilizada para especificar as opções para o controlador de registo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para ver os exemplos de contentor, incluindo o driver de volume, visite o [exemplos de contentor do Service Fabric](https://github.com/Azure-Samples/service-fabric-containers)
 * Para implementar contentores no cluster do Service Fabric, consulte o artigo [implementar um contentor no Service Fabric](service-fabric-deploy-container.md)

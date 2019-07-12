@@ -1,5 +1,5 @@
 ---
-title: Configurar o início de sessão com um provedor de SAML do Salesforce ao utilizar políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
+title: Configurar o início de sessão com um provedor de SAML do Salesforce ao utilizar políticas personalizadas no Azure Active Directory B2C
 description: Configure o início de sessão com um provedor de SAML do Salesforce ao utilizar políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e565822c006191615dbc10b980da24dcd9ed787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7cbde2beb03c174facbd145954387a31f6158a9a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508309"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654179"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com um provedor de SAML do Salesforce ao utilizar políticas personalizadas no Azure Active Directory B2C
 
@@ -31,11 +31,11 @@ Este artigo mostra-lhe como ativar o início de sessão para os utilizadores de 
 
 ### <a name="set-up-salesforce-as-an-identity-provider"></a>Configurar o Salesforce como um fornecedor de identidade
 
-1. [Inicie sessão no Salesforce](https://login.salesforce.com/). 
+1. [Inicie sessão no Salesforce](https://login.salesforce.com/).
 2. No menu da esquerda, em **configurações**, expanda **identidade**e, em seguida, selecione **fornecedor de identidade**.
 3. Selecione **ativar o fornecedor de identidade**.
-4. Sob **selecionar o certificado**, selecione o certificado que pretende que o Salesforce para utilizar para comunicar com o Azure AD B2C. Pode utilizar o certificado predefinido. 
-5. Clique em **Guardar**. 
+4. Sob **selecionar o certificado**, selecione o certificado que pretende que o Salesforce para utilizar para comunicar com o Azure AD B2C. Pode utilizar o certificado predefinido.
+5. Clique em **Guardar**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Criar uma aplicação ligada no Salesforce
 
@@ -49,7 +49,7 @@ Este artigo mostra-lhe como ativar o início de sessão para os utilizadores de 
       ```
 
 6. Na **URL de ACS** , insira o seguinte URL. Certifique-se de que substitui o valor `your-tenant` com o nome do seu inquilino do Azure AD B2C.
-      
+
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
@@ -90,17 +90,17 @@ Tem de armazenar o certificado que criou no seu inquilino do Azure AD B2C.
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
 6. Para **opções**, escolha `Upload`.
 7. Introduza um **Nome** para a política. Por exemplo, SAMLSigningCert. O prefixo `B2C_1A_` é adicionado automaticamente para o nome da sua chave.
-8. Procure e selecione o certificado de B2CSigningCert.pfx que criou. 
+8. Procure e selecione o certificado de B2CSigningCert.pfx que criou.
 9. Introduza o **palavra-passe** para o certificado.
 3. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um fornecedor de afirmações
 
-Se pretender que os utilizadores iniciem sessão com uma conta do Salesforce, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado. 
+Se pretender que os utilizadores iniciem sessão com uma conta do Salesforce, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado.
 
 Pode definir uma conta do Salesforce como um fornecedor de afirmações ao adicioná-la para o **ClaimsProviders** elemento no arquivo de extensão da sua política.
 
@@ -189,7 +189,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
     ```XML
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
-    
+
     Atualize o valor de **TechnicalProfileReferenceId** para o **Id** do perfil técnico que criou anteriormente. Por exemplo, `LinkedIn-OAUTH`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.

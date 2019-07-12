@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e29a9265e010c3f442b742faf62b16dae02739fa
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 29ab9b3c33aae6005510c34b207c7f87714149e5
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191183"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608314"
 ---
 ### <a name="preview"></a>Como participar na pré-visualização pública
 
@@ -56,3 +56,7 @@ Para estabelecer uma ligação, as seguintes funções são necessárias:
 ### <a name="previewbill"></a>Preços - me será faturado por participar na pré-visualização?
 
 Só serão cobradas parcialmente durante a pré-visualização pública. No entanto, não existe nenhum SLA anexado à sua implementação. Para obter mais informações, veja a [página de preços](https://aka.ms/BastionHostPricing).
+
+### <a name="previewbill"></a>Por que motivo recebo "a sua sessão expirou" erro de mensagens antes de inicia a sessão de Bastion?
+
+Uma sessão deve ser iniciada apenas a partir do portal do Azure. Inicie sessão no portal do Azure e iniciar a sessão novamente. Se for para o URL diretamente a partir de outra sessão de browser ou separador, este erro é esperado. Ajuda a garantir que a sua sessão é mais segura e que a sessão pode ser acedida apenas por meio do portal do Azure.

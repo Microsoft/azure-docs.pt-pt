@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ec1d5fb13d7fb191bfee6194e69a217bcaddbb9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482580"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655486"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: Registar uma aplicação com a plataforma de identidade da Microsoft
 
@@ -50,7 +50,7 @@ Este início rápido mostra como adicionar e registe-se de uma aplicação com o
        - Para aplicações Web, indique o URL base da sua aplicação. Por exemplo, `http://localhost:31544` pode ser o URL de uma aplicação Web em execução no seu computador local. Os utilizadores utilizariam este URL para iniciar sessão numa aplicação de cliente Web.
        - Para aplicações cliente públicas, indique o URI utilizado pelo Azure AD para devolver respostas de token. Introduza um valor específico para a aplicação, por exemplo `myapp://auth`.
 
-     Para ver exemplos específicos de aplicações Web ou nativas, veja os nossos [inícios rápidos](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Para ver exemplos específicos de aplicações Web ou nativas, veja os nossos [inícios rápidos](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. Quando terminar, selecione **Registar**.
 
@@ -67,6 +67,6 @@ O Azure AD atribui um ID de aplicação (cliente) exclusivo à sua aplicação e
     - [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md)
     - [Configurar uma aplicação para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
     - [Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md)
-- Escolha um [início rápido](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) para criar uma aplicação e adicionar funcionalidades rapidamente, como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais.
+- Escolha um [início rápido](https://docs.microsoft.com/azure/active-directory/develop) para criar uma aplicação e adicionar funcionalidades rapidamente, como obter tokens, atualizar tokens, iniciar a sessão de um utilizador, apresentar algumas informações de utilizador e muito mais.
 - Saiba mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre eles, consulte [Objetos da aplicação e objetos principais de serviço](app-objects-and-service-principals.md).
 - Para saber mais sobre as diretrizes de imagem corporativa que deve seguir quando desenvolver aplicações, veja [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).

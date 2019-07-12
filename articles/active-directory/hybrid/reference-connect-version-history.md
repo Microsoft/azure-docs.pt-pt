@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109165"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654048"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -408,18 +408,18 @@ Bloquear acesso à conta do AD DS ao implementar as seguintes alterações de pe
 *   Remova todas as ACEs de objeto específico, exceto ACEs específicos para o próprio. Queremos manter as permissões predefinidas intactos quando se trata-se para o próprio.
 *   Atribua estas permissões específicas:
 
-Tipo     | Name                          | Access               | Aplica-se a
+Type     | Nome                          | Access               | Aplica-se a
 ---------|-------------------------------|----------------------|--------------|
-Permitir    | SISTEMA                        | Controlo total         | Este objeto  |
-Permitir    | Administradores da empresa             | Controlo total         | Este objeto  |
-Permitir    | Admins do domínio                 | Controlo total         | Este objeto  |
-Permitir    | Administradores                | Controlo total         | Este objeto  |
-Permitir    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
-Permitir    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
-Permitir    | Controladores de domínio de empresa | Permissões de leitura     | Este objeto  |
-Permitir    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
-Permitir    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
-Permitir    | Utilizadores autenticados           | Permissões de leitura     | Este objeto  |
+Allow    | SISTEMA                        | Controlo total         | Este objeto  |
+Allow    | Administradores da empresa             | Controlo total         | Este objeto  |
+Allow    | Admins do domínio                 | Controlo total         | Este objeto  |
+Allow    | Administradores                | Controlo total         | Este objeto  |
+Allow    | Controladores de domínio de empresa | Listar conteúdo        | Este objeto  |
+Allow    | Controladores de domínio de empresa | Ler todas as propriedades  | Este objeto  |
+Allow    | Controladores de domínio de empresa | Permissões de leitura     | Este objeto  |
+Allow    | Utilizadores autenticados           | Listar conteúdo        | Este objeto  |
+Allow    | Utilizadores autenticados           | Ler todas as propriedades  | Este objeto  |
+Allow    | Utilizadores autenticados           | Permissões de leitura     | Este objeto  |
 
 Para reforçar as definições para o AD DS conta que pode ser executado [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell irá atribuir as permissões mencionadas acima para a conta do AD DS.
 
@@ -889,7 +889,7 @@ Sincronização do Azure AD Connect
 * No seu inquilino do Azure AD, existe uma configuração de serviço que indica se o recurso de sincronização de palavra-passe está ativado para o seu inquilino ou não. Anteriormente, é fácil para a configuração do serviço estar configurado incorretamente pelo Azure AD Connect quando tiver um Active Directory e um servidor de teste. Agora, o Azure AD Connect irá tentar manter a configuração de serviço consistente com o Active Directory apenas o servidor do Azure AD Connect.
 * O Azure AD Connect, assistente agora detecta e retorna um aviso se locais AD não tem a Reciclagem do AD ativado.
 * Anteriormente, exportar do Azure AD expire e falha, se o tamanho combinado de objetos no lote excede determinado limiar. Agora, o serviço de sincronização será repita a tentativa reenviar os objetos em lotes separados, mais pequenos, se o problema for encontrado.
-* A aplicação de gestão de chaves do serviço de sincronização foi removida do Menu Iniciar do Windows. Gestão da chave de encriptação irá continuar a ser suportado por meio da interface de linha de comandos utilizando miiskmu.exe. Para obter informações sobre a gestão de chave de encriptação, consulte o artigo [abandonar a chave de encriptação do Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* A aplicação de gestão de chaves do serviço de sincronização foi removida do Menu Iniciar do Windows. Gestão da chave de encriptação irá continuar a ser suportado por meio da interface de linha de comandos utilizando miiskmu.exe. Para obter informações sobre a gestão de chave de encriptação, consulte o artigo [abandonar a chave de encriptação do Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Anteriormente, se alterar a senha de conta de serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a senha de conta de serviço de sincronização do Azure AD Connect. Agora, este processo já não é necessário.
 
 SSO de ambiente de trabalho
@@ -1270,5 +1270,5 @@ Data da versão: setembro de 2014
 
 **Lançamento inicial do Azure AD Sync.**
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

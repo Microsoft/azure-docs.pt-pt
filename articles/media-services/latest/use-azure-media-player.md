@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/10/2018
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c599bc2bba27a3b3603d8d67e2c6049dc2a8b08b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926521"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840158"
 ---
 # <a name="azure-media-player-overview"></a>Descrição geral de leitor de multimédia do Azure
 
@@ -30,7 +30,7 @@ Serviços de multimédia do Microsoft Azure permitem que o conteúdo ser atendid
 
 ### <a name="start-using"></a>Começar a utilizar
 
-Pode utilizar o [página de demonstração do leitor de multimédia do Azure](https://aka.ms/amp) para reproduzir exemplos de serviços de multimédia do Azure ou o seu próprio fluxo.  
+Pode utilizar o [página de demonstração do leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para reproduzir exemplos de serviços de multimédia do Azure ou o seu próprio fluxo.  
 
 Para reproduzir um novo vídeo, cole um URL e prima diferentes **atualização**.
 
@@ -40,7 +40,7 @@ Para configurar várias opções de reprodução (por exemplo, tecnológica, idi
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitor de diagnóstico de um fluxo de vídeo
 
-Pode utilizar o [página de demonstração do leitor de multimédia do Azure](https://aka.ms/amp) para monitorizar o diagnóstico de um fluxo de vídeo. 
+Pode utilizar o [página de demonstração do leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para monitorizar o diagnóstico de um fluxo de vídeo. 
 
 ![Diagnóstico do leitor de multimédia do Azure](./media/azure-media-player/diagnostics.png)
 

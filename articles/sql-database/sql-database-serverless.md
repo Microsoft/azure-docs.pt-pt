@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 06/12/2019
-ms.openlocfilehash: afa575c9015cbb21386d23101b74456822dfa33c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.date: 07/05/2019
+ms.openlocfilehash: 5a1a5ea39c9c0ed8973e1ecfa46977d2d06f83e7
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275478"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603614"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>SQL Database do Azure sem servidor (pré-visualização)
 
@@ -166,7 +166,7 @@ Criar uma nova base de dados ou para mover a que base de dados existente para um
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
    |Min vCores|Qualquer um dos {0,5, 1, 2, 4} que não exceda vCores máx.|0,5 vCores|
-   |Autopause atraso|Mínimo: 360 minutos (6 horas)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desativar autopause: -1|minutos de 360|
+   |Autopause atraso|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desativar autopause: -1|60 minutos|
 
 > [!NOTE]
 > Com o T-SQL para mover uma base de dados existente para sem servidor ou alterar seu tamanho de computação não é atualmente suportada, mas pode ser feito através do portal do Azure ou o PowerShell.
@@ -322,7 +322,7 @@ Suponha que o preço de unidade de computação é $0.000073/vCore/second.  Em s
 
 O escalão de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da Austrália Central, China, Norte da China, Sul de França, Alemanha Central, Alemanha Nordeste, Índia Ocidental, Sul da Coreia, África do Sul Ocidental, norte do Reino Unido, sul do Reino Unido, oeste do Reino Unido e EUA Centro-Oeste.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar, consulte o artigo [início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte [limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 618e7e19b20f361aa0a8c668e9621a29db43772d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244777"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797740"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 
@@ -35,6 +35,11 @@ Utilize os seguintes passos para ativar o TTL num contêiner sem expiração. At
    * Clique em **Guardar** para guardar as alterações.
 
    ![Configurar o TTL no portal do Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+
+
+- Quando DefaultTimeToLive é nulo, em seguida, o TTL de está desativada
+- Quando o DefaultTimeToLive é -1, em seguida, o tempo de configuração vida é ativada (sem predefinição)
+- Quando DefaultTimeToLive tem qualquer outro valor Int (exceto 0) o tempo de configuração vida é em
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Ativar o TTL num contentor com o SDK
 
@@ -215,7 +220,7 @@ collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o tempo de duração no seguinte artigo:
 

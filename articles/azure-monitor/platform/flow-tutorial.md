@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46a4544b86648ee99a751d4793013f6104d1d9df
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60396601"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807039"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de registo do Azure Monitor com o conector para o Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) permite-lhe criar fluxos de trabalho automatizados através de centenas de ações para uma variedade de serviços. Saída de uma ação pode ser utilizada como entrada para outro, permitindo que crie a integração entre diferentes serviços.  O conector Azure Log Analytics para o Microsoft Flow permite-lhe criar fluxos de trabalho que incluem dados obtidos através de consultas de registo a partir de uma área de trabalho do Log Analytics no Azure Monitor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Por exemplo, pode utilizar o Microsoft Flow a utilizar dados de registo do Monitor de LAzure numa notificação de e-mail do Office 365, criar um bug no Azure DevOps ou publicar uma mensagem Slack.  Pode acionar um fluxo de trabalho por uma agenda simples ou de alguma ação num serviço ligado, como quando é recebido um e-mail ou um tweet.  
+Por exemplo, pode utilizar o Microsoft Flow a utilizar dados de registo do Azure Monitor numa notificação de e-mail do Office 365, criar um bug no Azure DevOps ou publicar uma mensagem Slack.  Pode acionar um fluxo de trabalho por uma agenda simples ou de alguma ação num serviço ligado, como quando é recebido um e-mail ou um tweet.  
 
 O tutorial neste artigo mostra-lhe como criar um fluxo que envia automaticamente os resultados de uma consulta de registo do Azure Monitor por e-mail, apenas um exemplo de como pode utilizar o conector do Log Analytics no Microsoft Flow. 
 

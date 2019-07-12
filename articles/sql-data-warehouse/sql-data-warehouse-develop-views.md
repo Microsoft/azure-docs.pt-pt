@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873617"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595504"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Modos de exibição no armazém de dados SQL do Azure
 Sugestões para utilizar vistas de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções. 
@@ -23,12 +23,18 @@ Sugestões para utilizar vistas de T-SQL no Azure SQL Data Warehouse para o dese
 ## <a name="why-use-views"></a>Por que usar modos de exibição?
 Modos de exibição podem ser usados num número de diferentes formas de melhorar a qualidade da sua solução.  Este artigo destaca alguns exemplos de como enriquecer a sua solução com vistas, bem como as limitações de que precisam ser consideradas.
 
+
+> [!IMPORTANT]
+> Veja a nova sintaxe de vista materializada na [CREATE MATERIALIZADA vista AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Para obter mais informações, consulte a [notas de versão](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > Sintaxe para criar vista não é abordada neste artigo. Para obter mais informações, consulte a [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentação.
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Abstração de arquitetura
+
 Um padrão de aplicação comum é voltar a criar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido de um objeto mudar o nome padrão ao carregamento de dados.
 
 O exemplo seguinte adiciona registos nova data a uma dimensão de data. Tenha em atenção a como uma nova tabela, DimDate_New, é criada pela primeira vez e, em seguida, o nome mudada para substituir a versão original da tabela.

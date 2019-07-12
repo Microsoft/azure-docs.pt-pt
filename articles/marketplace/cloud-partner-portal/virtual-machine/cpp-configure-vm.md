@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0637491a1d7799bcaef594123aab53f89690c86f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938435"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654039"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar a VM alojado no Azure
 
@@ -66,7 +66,7 @@ Discos de SO do Windows são generalizados com o [ferramenta sysprep](https://do
 > [!WARNING]
 >  Uma vez que as atualizações possam ser executadas automaticamente, assim que execute o sysprep, deve para desativar a VM até ser implantado.  Este encerramento evitará atualizações subsequentes de fazer alterações de instância específica para o VHD do SO ou serviços instalados.
 
-Para obter mais informações sobre a execução de sysprep, consulte [passos para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Para obter mais informações sobre a execução de sysprep, consulte [passos para generalizar um VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)
 
 ### <a name="linux"></a>Linux
 
@@ -93,6 +93,6 @@ Criação de cópias de VM, muitas vezes, é útil para cópia de segurança, te
 - VM do Windows: [Transferir um VHD do Windows do Azure](../../../virtual-machines/windows/download-vhd.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Após a configuração da sua VM, está pronto para [implementar uma máquina virtual a partir de um disco rígido virtual](./cpp-deploy-vm-vhd.md).

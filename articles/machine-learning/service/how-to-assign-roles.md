@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e062fd73f2baeb4948430b13e0caa1f5c0b3f066
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341104"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797664"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
 
@@ -26,7 +26,7 @@ Neste artigo, irá aprender a gerir o acesso a uma área de trabalho do Azure Ma
 
 Uma área de trabalho do Azure Machine Learning é um recurso do Azure. Como os outros recursos do Azure, quando é criada uma nova área de trabalho do Azure Machine Learning, ele vem com três funções padrão. Pode adicionar utilizadores à área de trabalho e atribuí-las a uma destas funções incorporadas.
 
-| Função | Nível de acesso |
+| Role | Nível de acesso |
 | --- | --- |
 | **Leitor** | Ações de só de leitura na área de trabalho. Os leitores podem listar e ver ativos na área de trabalho, mas não é possível criar ou atualizar estes recursos. |
 | **Contribuidor** | Ver, criar, editar ou eliminar (quando aplicável) ativos numa área de trabalho. Por exemplo, os contribuintes podem criar uma experimentação, criar ou anexar um cluster de cálculo, submeter uma execução e implementar um serviço web. |

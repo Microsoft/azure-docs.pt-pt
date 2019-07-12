@@ -4,7 +4,7 @@ description: Implemente o agente do Log Analytics na máquina de virtual do Wind
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b9d0e582b77dc06e1655a7bdb57ee232c603bc86
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064432"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706672"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Azure Monitor para Windows
 
@@ -34,7 +34,7 @@ Registos de Monitor do Azure fornece capacidades de monitorização em recursos 
 
 A extensão de agente do Log Analytics para o Windows oferece suporte ao seguir as versões do sistema operacional Windows:
 
-- Windows Server 2019
+- Windows Server de 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e versão 1803
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
@@ -90,7 +90,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 | Nome | Valor / exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publicador | Microsoft.EnterpriseCloud.Monitoring |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |

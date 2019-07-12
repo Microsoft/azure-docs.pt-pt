@@ -9,23 +9,24 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f639ec57f3d29dff1993bbc664477b8648ce9a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441404"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612569"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Enviar mensagens da cloud para o dispositivo com o IoT Hub (Python)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>Introdução
-O IoT Hub do Azure é um serviço totalmente gerido que ajuda a habilitar comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. O [introdução ao IoT Hub](quickstart-send-telemetry-python.md) início rápido mostra como criar um hub IoT, aprovisionar uma identidade de dispositivo no mesmo e código de uma aplicação de dispositivo simulado que envia mensagens do dispositivo para a cloud.
+
+O IoT Hub do Azure é um serviço totalmente gerido que ajuda a habilitar comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos e uma solução de back-end. O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido mostra como criar um hub IoT, aprovisionar uma identidade de dispositivo no mesmo e código de uma aplicação de dispositivo simulado que envia mensagens do dispositivo para a cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Este tutorial baseia-se nas [introdução ao IoT Hub](quickstart-send-telemetry-python.md). Mostra-lhe como para:
+Este tutorial baseia-se nas [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md). Mostra-lhe como para:
 
 * Da sua solução back-end, envie mensagens de cloud-para-dispositivo para um único dispositivo através do IoT Hub.
 
@@ -37,7 +38,7 @@ Pode encontrar mais informações sobre mensagens de cloud para o dispositivo na
 
 No final deste tutorial, executa duas aplicações de consola Python:
 
-* **SimulatedDevice.py**, uma versão modificada da aplicação que criou no [introdução ao IoT Hub](quickstart-send-telemetry-python.md), que liga ao seu hub IoT e recebe mensagens de cloud-para-dispositivo.
+* **SimulatedDevice.py**, uma versão modificada da aplicação que criou no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md), que liga ao seu hub IoT e recebe mensagens de cloud-para-dispositivo.
 
 * **SendCloudToDeviceMessage.py**, que envia uma mensagem de cloud-para-dispositivo para a aplicação de dispositivo simulado através do IoT Hub e, em seguida, recebe a confirmação de entrega.
 
@@ -78,7 +79,7 @@ Nesta secção, vai criar uma aplicação de consola Python para simular o dispo
     RECEIVE_CALLBACKS = 0
     ```
 
-3. Adicione o seguinte código para **SimulatedDevice.py** ficheiro. Substitua o valor de marcador de posição de "{deviceConnectionString}" com a cadeia de ligação do dispositivo para o dispositivo que criou o [introdução ao IoT Hub](quickstart-send-telemetry-python.md) início rápido:
+3. Adicione o seguinte código para **SimulatedDevice.py** ficheiro. Substitua o valor de marcador de posição de "{deviceConnectionString}" com a cadeia de ligação do dispositivo para o dispositivo que criou o [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido:
 
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -170,7 +171,7 @@ Nesta secção, vai criar uma aplicação de consola Python para simular o dispo
 
 ## <a name="send-a-cloud-to-device-message"></a>Enviar uma mensagem de cloud-para-dispositivo
 
-Nesta secção, vai criar uma aplicação de consola Python que envia mensagens de cloud-para-dispositivo para a aplicação de dispositivo simulado. Precisa do ID de dispositivo do dispositivo que adicionou no [introdução ao IoT Hub](quickstart-send-telemetry-python.md) início rápido. Também precisa da cadeia de ligação do IoT Hub para o hub que pode encontrar no [portal do Azure](https://portal.azure.com).
+Nesta secção, vai criar uma aplicação de consola Python que envia mensagens de cloud-para-dispositivo para a aplicação de dispositivo simulado. Precisa do ID de dispositivo do dispositivo que adicionou no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido. Também precisa da cadeia de ligação do IoT Hub para o hub que pode encontrar no [portal do Azure](https://portal.azure.com).
 
 1. Com um editor de texto, crie uma **SendCloudToDeviceMessage.py** ficheiro.
 
@@ -189,7 +190,7 @@ Nesta secção, vai criar uma aplicação de consola Python que envia mensagens 
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-3. Adicione o seguinte código para **SendCloudToDeviceMessage.py** ficheiro. Substitua o valor de marcador de posição de "{IoTHubConnectionString}" com a cadeia de ligação do IoT Hub para o hub que criou na [introdução ao IoT Hub](quickstart-send-telemetry-python.md) início rápido. Substitua o marcador de posição de "{deviceId}" com o ID de dispositivo do dispositivo que adicionou no [introdução ao IoT Hub](quickstart-send-telemetry-python.md) início rápido:
+3. Adicione o seguinte código para **SendCloudToDeviceMessage.py** ficheiro. Substitua o valor de marcador de posição de "{IoTHubConnectionString}" com a cadeia de ligação do IoT Hub para o hub que criou na [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido. Substitua o marcador de posição de "{deviceId}" com o ID de dispositivo do dispositivo que adicionou no [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md) início rápido:
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -268,7 +269,7 @@ Pode agora executar as aplicações.
 
 1. Abra uma linha de comandos e instale o **SDK do dispositivo de Hub de IoT do Azure para Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-device-client
     ```
 
@@ -282,7 +283,7 @@ Pode agora executar as aplicações.
 
 3. Abra uma nova linha de comandos e instale o **SDK do serviço de Hub de IoT do Azure para Python**.
 
-    ```
+    ```shell
     pip install azure-iothub-service-client
     ```
 

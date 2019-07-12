@@ -4,7 +4,7 @@ description: Disponibilidade elevada de múltiplos SID para uma instância do SA
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dbc21922be66c793e76882cbd145f19681684252
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27e75ac256cf71441e00a004bb2331277aa07b43
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66143276"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710028"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -255,7 +255,7 @@ O cenário completo com dois sistemas SAP de elevada disponibilidade teria o seg
 
 Para preparar a infraestrutura, pode instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
-| Nome do parâmetro | Value |
+| Nome do parâmetro | Valor |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | Balanceador de carga interno do SAP DBMS | PR5 |
@@ -427,7 +427,7 @@ O procedimento de alto nível é o seguinte:
 
     Também abra a porta de sonda de Balanceador de carga interno do Azure, que é 62350 em nosso cenário. Ele é descrito [neste artigo][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Alterar o tipo de início de instância de serviço de Windows de liquidação (ERS) de recibo SAP avaliada][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
+7. [Alterar o tipo de início da instância de serviço do SAP avaliada recibo liquidação (ERS) Windows][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
 
 8. Instale o servidor de aplicação principal de SAP na VM novo dedicada, conforme descrito no guia de instalação de SAP.  
 

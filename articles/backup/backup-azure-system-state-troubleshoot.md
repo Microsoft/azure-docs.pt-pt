@@ -8,13 +8,13 @@ keywords: como a cópia de segurança; Estado do sistema de cópia de segurança
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: c9e5645fef952257580d74eb6e11911e2286bd79
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: srinathv
+ms.openlocfilehash: 87b5fff58ecf9e89bc94f31a0bc3a591c146c88f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165123"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705005"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Resolver problemas de cópia de segurança do Estado do sistema
 
