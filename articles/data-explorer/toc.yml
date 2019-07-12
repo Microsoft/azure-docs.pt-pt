@@ -66,6 +66,8 @@
           href: write-queries.md
         - name: Consultar dados no Azure Data Lake
           href: data-lake-query-data.md
+        - name: Consultar dados no Azure Monitor
+          href: query-monitor-data.md
         - name: Python
           href: python-query-data.md
         - name: Análise de Séries Temporais e Machine Learning

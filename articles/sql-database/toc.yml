@@ -30,6 +30,8 @@
       items:
         - name: Regras de firewall de IP ao nível do servidor
           href: sql-database-server-level-firewall-rule.md
+        - name: Configurar um ponto final público numa Instância Gerida
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Ligação de VM cliente a uma instância gerida
           href: sql-database-managed-instance-configure-vm.md
         - name: Ligação ponto a site a uma instância gerida
@@ -512,8 +514,6 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Ligar a aplicações
           href: sql-database-managed-instance-connect-app.md
-        - name: Configurar o ponto final público
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Carregar e mover dados
       items:
         - name: Copiar uma base de dados no Azure

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/10/2019
 abstract:
-  description: '<p>A Pré-visualização do Azure Data Share é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros. Selecione os conjuntos de dados que quer partilhar, adicione os destinatários e comece a partilhar dados com a capacidade de gerir, monitorizar e controlar as suas relações de partilha de dados. </p><p>Saiba como utilizar o Azure Data Share através dos nossos tutoriais.</p>'
+  description: '<p>A Pré-visualização do Azure Data Share é um serviço seguro e fiável que permite partilhar dados com organizações de terceiros. Selecione os conjuntos de dados que quer partilhar, adicione os destinatários e comece a partilhar dados com a capacidade de gerir, monitorizar e controlar as suas relações de partilha de dados. </p><p>Saiba como utilizar o Azure Data Share através dos nossos tutoriais e manuais de instruções.</p>'
   aside:
     image:
       alt: null
