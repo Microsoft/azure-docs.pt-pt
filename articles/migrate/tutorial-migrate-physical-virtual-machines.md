@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8dc3b485d83f7bc55ca913e2c706164d4953ee61
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 006f7270570eba17fb44421b1c181d9ad68ad2ee
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809604"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854183"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrar servidores físicos ou virtualizados para o Azure 
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 > * Instale o serviço de mobilidade nas máquinas que pretende migrar.
 > * Ative a replicação.
 > * Execute uma migração de teste para se certificar de que está tudo a funcionar conforme esperado.
-> * Executar um uma migração completa para o Azure.
+> * Execute uma migração completa para o Azure.
 
 > [!NOTE]
 > Tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que pode configurar rapidamente a uma prova de conceito. Tutoriais utilizam as opções predefinidas, sempre que possível e não mostram todas as configurações possíveis e caminhos. Para obter instruções detalhadas, consulte os guias de instruções para o Azure Migrate.

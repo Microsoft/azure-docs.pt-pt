@@ -4,7 +4,7 @@ description: Guia de elevada disponibilidade para SAP NetWeaver no SUSE Linux En
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142961"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797497"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicações de SAP
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142961"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 Este artigo descreve como implementar as máquinas virtuais, configurar as máquinas virtuais, instalar o framework de cluster e instalar um sistema SAP NetWeaver 7.50 elevada disponibilidade.
-As configurações de exemplo, comandos de instalação etc. Número de instância do ASCS 00, 02 de número de instâncias de ERS e NW1 de ID de sistema SAP é utilizado. Os nomes dos recursos (por exemplo, as máquinas virtuais, redes virtuais) no exemplo partem do princípio de que utiliza a [modelo de convergência] [ template-converged] com ID NW1 para criar os recursos de sistema SAP.
+As configurações de exemplo, comandos de instalação etc. Número de instância do ASCS 00, 02 de número de instâncias de ERS e NW1 de ID de sistema SAP é utilizado. Os nomes dos recursos (por exemplo, as máquinas virtuais, redes virtuais) no exemplo partem do princípio de que utiliza a [convergido modelo][template-converged] com ID NW1 para criar os recursos de sistema SAP.
 
 Leia as seguintes notas de SAP e documentos pela primeira vez
 
@@ -76,7 +76,7 @@ Leia as seguintes notas de SAP e documentos pela primeira vez
 * [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide]
 * [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
 * [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [SUSE SAP HA guias das melhores práticas] [ suse-ha-guide] os guias contêm todas as informações necessárias para configurar a HA do Netweaver e SAP HANA System Replication no local. Utilize estes guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [SUSE SAP HA guias das melhores práticas][suse-ha-guide] os guias contêm todas as informações necessárias para configurar a HA do Netweaver e SAP HANA System Replication no local. Utilize estes guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão do SP3 de extensão 12 do SUSE elevada disponibilidade][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Descrição geral
@@ -125,7 +125,7 @@ O servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a bas
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configurar um servidor NFS elevada disponibilidade
 
-SAP NetWeaver requer armazenamento partilhado para o diretório de transporte e perfil. Leia [elevada disponibilidade para NFS nas VMs do Azure no SUSE Linux Enterprise Server] [ nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
+SAP NetWeaver requer armazenamento partilhado para o diretório de transporte e perfil. Leia [elevada disponibilidade para NFS nas VMs do Azure no SUSE Linux Enterprise Server][nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Configurar a (A) SCS
 
@@ -137,8 +137,8 @@ O Azure Marketplace contém uma imagem para o SUSE Linux Enterprise Server para 
 
 Pode utilizar um dos modelos de início rápido no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, disponibilidade definida etc. Siga estes passos para implementar o modelo:
 
-1. Abra o [modelo ASCS/SCS múltiplos SID] [ template-multisid-xscs] ou o [convergido modelo] [ template-converged] no portal do Azure. 
-   O modelo ASCS/SCS cria apenas as regras de balanceamento de carga para o SAP NetWeaver ASCS/SCS e instâncias ERS (apenas Linux), ao passo que o modelo convergido também cria as regras de balanceamento de carga para uma base de dados (por exemplo o Microsoft SQL Server ou o SAP HANA). Se planear instalar um sistema de baseadas em SAP NetWeaver e também deve instalar a base de dados nos mesmos computadores, utilize o [modelo de convergência][template-converged].
+1. Abra o [modelo ASCS/SCS múltiplos SID][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Introduza os seguintes parâmetros
    1. Prefixo de recursos (ASCS/SCS múltiplos SID modelo)  
       Introduza o prefixo que pretende utilizar. O valor é utilizado como um prefixo para os recursos que são implementados.
@@ -512,7 +512,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[A]**  Configurar Keep Alive de
 
-   A comunicação entre o servidor de aplicações SAP NetWeaver e ASCS/SCS é encaminhada através de um balanceador de carga de software. O Balanceador de carga desliga ligações inativas após um tempo limite configurável. Para impedir que isto terá de definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [1410736 de nota SAP] [ 1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicações SAP NetWeaver e ASCS/SCS é encaminhada através de um balanceador de carga de software. O Balanceador de carga desliga ligações inativas após um tempo limite configurável. Para impedir que isto terá de definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [1410736 de nota SAP][1410736] para obter mais informações.
 
    O ASCS/SCS perfil parâmetro colocar/encni/set_so_keepalive já foi adicionado no último passo.
 
@@ -710,7 +710,7 @@ O passos abaixo partem do princípio de que instalou o servidor de aplicações 
 
 ## <a name="install-database"></a>Instalar base de dados
 
-Neste exemplo, SAP NetWeaver está instalado no SAP HANA. Pode usar cada base de dados suportado para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [disponibilidade elevada do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]. Para obter uma lista de bases de dados suportados, consulte [SAP 1928533 de observação][1928533].
+Neste exemplo, SAP NetWeaver está instalado no SAP HANA. Pode usar cada base de dados suportado para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [disponibilidade elevada do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Executar a instalação de instância de base de dados do SAP
 
@@ -887,6 +887,9 @@ Os seguintes testes são uma cópia dos casos de teste nos guias de práticas re
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Estado do recurso depois do teste:

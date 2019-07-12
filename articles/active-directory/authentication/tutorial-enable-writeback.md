@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413965"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853027"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Ativar a repetição de escrita de palavra-passe
 
@@ -54,11 +54,11 @@ Ativar a funcionalidade de repetição de escrita de palavras-passe no Azure AD 
 2. Navegue até o **Azure Active Directory**, clique em **Reposição de Palavra-passe** e, em seguida, escolha **Integração no local**.
 3. Defina a opção **Repetir a escrita de palavras-passe no diretório no local** para **Sim**.
 4. Defina a opção **Permitir que os utilizadores desbloqueiem as contas sem repor a palavra-passe** para **Sim**.
-5. Clicar em **Guardar**
+5. Clique em **Guardar**
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ativou a repetição de escrita de palavras-passe para a reposição personalizada de palavra-passe. Deixe a janela do portal do Azure aberta e avance para o próximo tutorial para configurar definições adicionais relacionadas com a reposição personalizada de palavra-passe antes de implementar a solução num piloto.
 
 > [!div class="nextstepaction"]
-> [Ativar SSPR no ecrã de início de sessão do Windows](tutorial-sspr-windows.md)
+> [Avaliar o risco de início de sessão](tutorial-risk-based-sspr-mfa.md)

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
-ms.author: pibehre
+ms.author: piyush
 ROBOTS: NOINDEX
-ms.openlocfilehash: 751b6e5979174eae9bc815061f16bf99bd0899cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 066c7f8dbd6f64ba40ec539b636922069ee8b925
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336733"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849899"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>O que é a Web Language Model API? (Pré-visualização)
 

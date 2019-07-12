@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 78edd22502bbf08fda8d1828413bbc0b0f8aa9c7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: fe83cd5f38e8c091ee72875da370b6929a99b727
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809338"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854144"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs de VMware para o Azure (baseado em agente)
 
@@ -29,7 +29,7 @@ Neste tutorial, ficará a saber como:
 > * Configure uma política de replicação.
 > * Ative a replicação.
 > * Execute uma migração de teste para se certificar de que está tudo a funcionar conforme esperado.
-> * Executar um uma migração completa para o Azure.
+> * Execute uma migração completa para o Azure.
 
 > [!NOTE]
 > Tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que pode configurar rapidamente a uma prova de conceito. Tutoriais utilizam as opções predefinidas, sempre que possível e não mostram todas as configurações possíveis e caminhos. Para obter instruções detalhadas, consulte os guias de instruções para a migração e de avaliação de VMware.

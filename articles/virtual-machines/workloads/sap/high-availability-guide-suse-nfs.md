@@ -4,7 +4,7 @@ description: Disponibilidade elevada para NFS nas VMs do Azure no SUSE Linux Ent
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: ed92be0c1968d8f8a931d59d2dadefbbb12f2100
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93644b9a3487906a27db70bfe82cceccdc7ab45c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925747"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707233"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilidade elevada para NFS nas VMs do Azure no SUSE Linux Enterprise Server
 
@@ -52,7 +52,7 @@ ms.locfileid: "64925747"
 [sap-hana-ha]:sap-hana-high-availability.md
 
 Este artigo descreve como implementar as máquinas virtuais, configurar as máquinas virtuais, instalar o framework de cluster e instalar um servidor NFS elevada disponibilidade, que pode ser utilizado para armazenar os dados compartilhados de um sistema SAP elevada disponibilidade.
-Este guia descreve como configurar um servidor NFS elevada disponibilidade, que é utilizado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, as máquinas virtuais, redes virtuais) no exemplo partem do princípio de que utiliza a [modelo de servidor de ficheiros SAP] [ template-file-server] com o prefixo de recurso **prod**.
+Este guia descreve como configurar um servidor NFS elevada disponibilidade, que é utilizado por dois sistemas SAP, NW1 e NW2. Os nomes dos recursos (por exemplo, as máquinas virtuais, redes virtuais) no exemplo partem do princípio de que utiliza a [modelo de servidor de ficheiros SAP][template-file-server] com o prefixo de recurso **prod**.
 
 Leia as seguintes notas de SAP e documentos pela primeira vez
 
@@ -110,7 +110,7 @@ Pode utilizar um modelo do Azure a partir do GitHub para implementar necessário
 O Azure Marketplace contém uma imagem para o SUSE Linux Enterprise Server para 12 de aplicações SAP que pode utilizar para implementar novas máquinas virtuais.
 Pode utilizar um dos modelos de início rápido no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, disponibilidade definida etc. Siga estes passos para implementar o modelo:
 
-1. Abra o [modelo de servidor de ficheiros SAP] [ template-file-server] no portal do Azure   
+1. Abra o [modelo de servidor de ficheiros SAP][template-file-server] no portal do Azure   
 1. Introduza os seguintes parâmetros
    1. Prefixo de recursos  
       Introduza o prefixo que pretende utilizar. O valor é utilizado como um prefixo para os recursos que são implementados.

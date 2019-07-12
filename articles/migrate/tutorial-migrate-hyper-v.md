@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0d4ab3225501c2573b07f27e40a8f42508a4df88
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 4a88e9dddd492d5c24698bcde8c3a1fd942eaf66
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809541"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854198"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs do Hyper-V para o Azure 
 
@@ -30,7 +30,7 @@ Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar o 
 > * Configurar o environmen de destino....
 > * Ative a replicação.
 > * Execute uma migração de teste para se certificar de que está tudo a funcionar conforme esperado.
-> * Executar um uma migração completa para o Azure.
+> * Execute uma migração completa para o Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
