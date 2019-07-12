@@ -4,7 +4,7 @@ description: Como voltar a implementar máquinas de virtuais do Windows no Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b71ca93ac3e3e6c77c5f87b4859a2e3e0e1040d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48b10b6fd854cc6da1f2ea2d48852d162e995946
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104062"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710257"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Reimplementar a máquina de virtual do Windows para o novo nó do Azure
 Se o ter sido enfrentando dificuldades resolução de problemas de ambiente de trabalho remoto (RDP) ligação ou a aplicação de acesso baseado em Windows máquinas virtuais do Azure (VM), reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, Azure vai encerrar a VM, mova a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, ligue-o novamente, mantendo a todas as suas opções de configuração e os recursos associados. Este artigo mostra-lhe como voltar a implementar uma VM com o Azure PowerShell ou o portal do Azure.

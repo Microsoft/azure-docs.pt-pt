@@ -4,7 +4,7 @@ description: Guia de elevada disponibilidade para SAP NetWeaver em máquinas de 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e5493b3688c4de9dab971d58b58f85d00f8003b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935896"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709020"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
@@ -193,7 +193,7 @@ Esta série de artigos abrange:
 * Passos de instalação SAP para implementar sistemas SAP de elevada disponibilidade no Azure ao utilizar o modelo de implementação Azure Resource Manager.
 
     > [!IMPORTANT]
-    > Recomendamos vivamente que utilize o modelo de implementação Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implementação clássica. Saiba mais sobre o Azure [modelos de implementação][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+    > Recomendamos vivamente que utilize o modelo de implementação Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implementação clássica. Saiba mais sobre os [modelos de implementação][virtual-machines-azure-resource-manager-architecture-benefits-arm] do Azure.   
     >
 * SAP elevada disponibilidade no:
   * ![Windows][Logo_Windows]**Windows**, com **Cluster de ativação pós-falha de servidor do Windows (WSFC)**

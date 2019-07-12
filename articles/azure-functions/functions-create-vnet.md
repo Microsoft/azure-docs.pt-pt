@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063272"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612893"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar funções com uma rede virtual do Azure
 
@@ -80,7 +81,7 @@ Em seguida, crie uma VM pré-configurada que é executado WordPress numa rede vi
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
-    | **Nome** | myResourceGroup-vnet | Pode utilizar o nome predefinido gerado para a rede virtual. |
+    | **Name** | myResourceGroup-vnet | Pode utilizar o nome predefinido gerado para a rede virtual. |
     | **Intervalo de endereços** | 10.10.0.0/16 | Utilize um intervalo de endereço único para a rede virtual. |
     | **Nome da sub-rede** | Tutorial-Net | Nome da sub-rede. |
     | **Intervalo de endereços** (sub-rede) | 10.10.1.0/24   | O tamanho da sub-rede define o número de interfaces podem ser adicionados à sub-rede. Esta sub-rede é utilizada pelo WordPress site.  A `/24` sub-rede fornece 254 endereços de anfitriões. |
@@ -143,7 +144,7 @@ Com a integração de VNet ativada, pode criar um proxy na sua aplicação de fu
 
     | Definição  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
-    | **Nome** | Fábrica | O nome pode ser qualquer valor. É utilizado para identificar o proxy. |
+    | **Name** | Fábrica | O nome pode ser qualquer valor. É utilizado para identificar o proxy. |
     | **Modelo de rota** | /plant | Rota que mapeia para um recurso VM. |
     | **URL de back-end** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Substitua `<YOUR_VM_IP>` com o endereço IP da sua VM do WordPress que criou anteriormente. Este mapeamento devolve um único arquivo do site. |
 

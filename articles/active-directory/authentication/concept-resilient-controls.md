@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113478"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594964"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -143,7 +143,7 @@ O exemplo seguinte: **O exemplo A - política de AC de contingência para restau
   * Nome: EM001 - ATIVAR EM EMERGÊNCIA: Interrupção da MFA [1/4] - Exchange SharePoint – exigir a associação do Azure AD híbrido
   * Utilizadores e grupos: Inclua ContingencyAccess. Excluir CoreAdmins e EmergencyAccess
   * Aplicações na cloud: Exchange Online e SharePoint Online
-  * Condições: Qualquer
+  * Condições: Any
   * Controlo da concessão: Exigir a associação a um domínio
   * Estado: Desativado
 * Política de 2: Impedir as plataformas que não sejam Windows
@@ -185,7 +185,7 @@ Neste próximo exemplo, **exemplo B - políticas de CA de contingência para per
   * Nome: EM001 - ATIVAR EM EMERGÊNCIA: Interrupção de conformidade do dispositivo [1/2] - Salesforce - os utilizadores de todos os blocos, exceto SalesforceContingency
   * Utilizadores e grupos: Inclua todos os utilizadores. Excluir SalesAdmins e SalesforceContingency
   * Aplicações na cloud: Salesforce.
-  * Condições: Nenhuma
+  * Condições: Nenhum
   * Controlo da concessão: Bloquear
   * Estado: Desativado
 * Política de 2: Bloquear a equipe de vendas a partir de qualquer plataforma que não seja mobile (para reduzir a área de superfície de ataque)
