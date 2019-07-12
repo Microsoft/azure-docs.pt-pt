@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 17214bb4904cc540de0a7d6f753b7e70abfa564c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ef2a55b377c2ca48b9417310926a014a82f679d7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443636"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621888"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
 Este artigo descreve os tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Ao utilizar os dados de saída, pode fazer ainda mais análises de negócio e o armazenamento de dados dos seus dados.
 
-Ao conceber a sua consulta do Stream Analytics, consulte o nome da saída, utilizando o [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Pode usar uma única saída por tarefa ou várias saídas por transmissão em fluxo de trabalho (se necessário), fornecendo várias cláusulas INTO na consulta.
+Ao conceber a sua consulta do Stream Analytics, consulte o nome da saída, utilizando o [cláusula INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics). Pode usar uma única saída por tarefa ou várias saídas por transmissão em fluxo de trabalho (se necessário), fornecendo várias cláusulas INTO na consulta.
 
 Para criar, editar e testar a tarefa do Stream Analytics produz, pode utilizar o [portal do Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), e [Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -37,7 +37,7 @@ A tabela seguinte lista os nomes das propriedades e suas descrições para confi
 | Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída | Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para o Data Lake Store. |
-| Subscrição | A subscrição que contém a sua conta de armazenamento do Azure Data Lake. |
+| Subscription | A subscrição que contém a sua conta de armazenamento do Azure Data Lake. |
 | Nome da conta | O nome da conta do Data Lake Store, onde está a enviar a saída. É apresentada uma lista pendente de contas do Data Lake Store que estão disponíveis na sua subscrição. |
 | Padrão do prefixo do caminho | O caminho do ficheiro que é utilizado para escrever ficheiros na conta do Data Lake Store especificado. Pode especificar uma ou mais instâncias de {date} e {time} variáveis:<br /><ul><li>Exemplo 1: pasta1/registos / {data} / {time}</li><li>Exemplo 2: pasta1/registos / {data}</li></ul><br />O carimbo de data / hora da estrutura de pasta criada segue UTC e não a hora local.<br /><br />Se o padrão de caminho de ficheiro não contém uma barra (/), o último padrão no caminho de ficheiro é tratado como um prefixo de nome de ficheiro. <br /><br />Nessas circunstâncias, são criados novos ficheiros:<ul><li>Alteração no esquema de saída</li><li>Reinício externo ou interno de uma tarefa</li></ul> |
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato de data em que os ficheiros estão organizados. Exemplo: DD/MM/AAAA |
@@ -149,7 +149,7 @@ O Power BI utiliza a política de retenção first in, First Out (FIFO). Recolha
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Converter um tipo de dados do Stream Analytics para o Power BI
 O Azure Stream Analytics atualiza o modelo de dados dinamicamente no tempo de execução, se alterar o esquema de saída. Todas as alterações de nome de coluna, alterações de tipo de coluna e a adição ou remoção de colunas são controlados.
 
-Esta tabela abrange as conversões de tipo de dados do [tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para o Power BI [tipos de modelo de dados de entidade (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), se um conjunto de dados do Power BI e a tabela não existem.
+Esta tabela abrange as conversões de tipo de dados do [tipos de dados do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) para o Power BI [tipos de modelo de dados de entidade (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), se um conjunto de dados do Power BI e a tabela não existem.
 
 Do Stream Analytics | Para o Power BI
 -----|-----
@@ -169,8 +169,8 @@ Anterior/atual | Int64 | Cadeia | Datetime | Valor de duplo
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Valor de duplo
 Valor de duplo | Valor de duplo | Cadeia | Cadeia | Valor de duplo
-Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
-Datetime | Cadeia | Cadeia |  Datetime | String
+Cadeia | String | String | String | Cadeia 
+Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
 ## <a name="table-storage"></a>Table Storage
 

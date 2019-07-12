@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: astay;cephalin;kraigb
+ms.author: cephalin
+ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: ad2ea32749c6556d17460b2a16ed41bbaa2ec62e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: fb90122f7277687886a6579fdb729b7f91660ed6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956147"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617280"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurar uma aplicação Python de Linux para o serviço de aplicações do Azure
 
@@ -131,7 +132,7 @@ Se o seu módulo principal estiver numa subpasta, como `website`, especifique es
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Também pode adicionar todos os argumentos adicionais para Gunicorn para  *\<comando personalizado >*, como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+Também pode adicionar todos os argumentos adicionais para Gunicorn para  *\<comando personalizado >* , como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 Para utilizar um servidor de não-Gunicorn, tal como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), pode substituir  *\<personalizada-command >* com algo semelhante a isto:
 

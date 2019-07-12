@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: e7210b2b1be072f5326070d768d5fe12c386ee0b
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 5312ad2593e732f4c84eb67ed263bc9e4666a67a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191606"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594197"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion-preview"></a>Trabalhar com acesso NSG e Bastion do Azure (pré-visualização)
 
@@ -44,9 +44,9 @@ Neste diagrama:
 
 Se aplicar NSGs para o **AzureBastionSubnet**, permitir que as seguintes duas etiquetas de serviço para o plano de controlo do Azure e infraestrutura:
 
-* **GatewayManager (apenas Resource Manager)** : Esta etiqueta denota os prefixos de endereço do serviço Gestor de Gateway do Azure. Se especificar GatewayManager para o valor, o tráfego é permitido ou negado para GatewayManager.
+* **GatewayManager (apenas Resource Manager)** : Esta etiqueta denota os prefixos de endereço do serviço Gestor de Gateway do Azure. Se especificar GatewayManager para o valor, o tráfego é permitido ou negado para GatewayManager.  Se estiver a criar NSGs a AzureBastionSubnet, ative a marca de GatewayManager para tráfego de entrada.
 
-* **AzureCloud (apenas Resource Manager)** : Esta etiqueta denota o espaço de endereços IP para o Azure, incluindo todos os endereços IP públicos datacenter. Se especificar AzureCloud para o valor, o tráfego é permitido ou negado para os endereços IP públicos do Azure. Se quiser apenas permitir o acesso ao AzureCloud numa região específica, pode especificar a região. Por exemplo, se pretender permitir o acesso apenas a AzureCloud do Azure na região E.U.A. leste, poderia especificar AzureCloud.EastUS como a etiqueta de serviço.
+* **AzureCloud (apenas Resource Manager)** : Esta etiqueta denota o espaço de endereços IP para o Azure, incluindo todos os endereços IP públicos datacenter. Se especificar AzureCloud para o valor, o tráfego é permitido ou negado para os endereços IP públicos do Azure. Se pretender permitir o acesso apenas a AzureCloud numa região específica, pode especificar a região. Por exemplo, se pretender permitir o acesso apenas a AzureCloud do Azure na região E.U.A. leste, poderia especificar AzureCloud.EastUS como a etiqueta de serviço. Se estiver a criar NSGs a AzureBastionSubnet, ative a marca de AzureCloud para tráfego de saída.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

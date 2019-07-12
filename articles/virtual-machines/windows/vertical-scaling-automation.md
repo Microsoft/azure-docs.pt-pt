@@ -4,7 +4,7 @@ description: Aumentar verticalmente uma Máquina Virtual do Windows em resposta 
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4f964713-fb67-4bcc-8246-3431452ddf7d
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 581471bb20b0774625dda8a5fa1fdd27d571a5b5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: a7cccd36c619e58b8dedb9a52e70c478dc7b857c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483868"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707927"
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Aumentar verticalmente as VMs do Windows com a automatização do Azure
 

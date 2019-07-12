@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 134ab2a5f0b1b1569cdf4747f5bbe3f895ba4e8f
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 8487f82b123b42f9d6a6f0fbd6d6cbb240bf9fdc
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293024"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785534"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -44,7 +44,7 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
    > Implementação do serviço de proxy é um requisito obrigatório para a implementação da proteção de palavra-passe do Azure AD, apesar do controlador de domínio pode ter saída conectividade à internet direta. 
    >
 * Todas as máquinas onde será instalado o serviço de Proxy de proteção de palavra-passe do Azure AD tem de ter .NET 4.7 instalado.
-  .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todas as máquinas, incluindo controladores de domínio, o que obtém os componentes de proteção de palavra-passe do Azure AD instalados tem de ter o tempo de execução do C Universal instalado. Pode obter o tempo de execução, tornando-se de que tem todas as atualizações do Windows Update. Ou pode obtê-lo num pacote de atualização específicas do sistema operacional. Para obter mais informações, consulte [atualização para o tempo de execução do C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Conectividade de rede tem de existir entre, pelo menos, um controlador de domínio em cada domínio e pelo menos um servidor que aloja o serviço de proxy para a proteção de palavra-passe. Essa conectividade tem de permitir o controlador de domínio aceder a porta de mapeador de ponto final do RPC 135 e a porta do servidor RPC no serviço de proxy. Por predefinição, a porta do servidor RPC é uma porta dinâmica da RPC, mas pode ser configurado para [utilizar uma porta estática](#static).
 * Todos os computadores que alojam o serviço de proxy tem de ter acesso à rede para os seguintes pontos finais:

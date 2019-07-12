@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6506a93914cfbc10f37980c4b916a93aa9aad75d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67564407"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827065"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -210,10 +210,20 @@ Partilhas de ficheiros Standard estão disponíveis em todas as regiões até 5 
 |Europa Ocidental     |LRS|Não         |
 |EUA Oeste 2     |LRS, ZRS|Não         |
 
+Para nos ajudar a atribuir prioridades a novas regiões e funcionalidades, preencha este [pesquisa](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="steps-to-onboard"></a>Passos para carregar
 
-Para inscrever a sua subscrição para a pré-visualização de partilhas de ficheiros maior, execute os seguintes comandos do PowerShell:
+Para inscrever a sua subscrição para a pré-visualização de partilhas de ficheiros maior, terá de utilizar o Azure PowerShell. Pode utilizar [Azure Cloud Shell](https://shell.azure.com/) ou instale o [módulo do PowerShell do Azure localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para executar os seguintes comandos do PowerShell:
+
+Em primeiro lugar, certifique-se de está selecionada a subscrição que pretende inscrever na pré-visualização:
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Em seguida, inscrever na pré-visualização com os comandos seguintes:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage

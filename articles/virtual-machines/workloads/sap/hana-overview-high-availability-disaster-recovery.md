@@ -4,7 +4,7 @@ description: Estabelecer a elevada disponibilidade e o plano de recuperação ap
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b7cc1744ac285df8ed502256c30f77bdc8db81f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 078ce7e2acd93ecab6b37407f460672d4acb1853
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477584"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707328"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Instâncias grandes do SAP HANA elevada disponibilidade e recuperação após desastre no Azure 
 

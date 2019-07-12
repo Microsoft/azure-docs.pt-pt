@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688908"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705145"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
@@ -100,8 +100,8 @@ Por predefinição, todos os detalhes, exceto **hora da última ocorrência**, s
 * Alerta
 * Item de cópia de segurança
 * Servidor protegido
-* Gravidade
-* Duração
+* Severity
+* Duration
 * Hora de criação
 * Estado
 * Hora da última ocorrência
@@ -260,21 +260,6 @@ O mosaico de armazenamento de cópia de segurança no dashboard mostra o armazen
 * Utilização do armazenamento na cloud LRS associada ao Cofre
 * Utilização do armazenamento na cloud GRS associada ao Cofre
 
-
-## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora para o estado da tarefa de agente de cópia de segurança do Azure refletir no portal?
-O portal do Azure pode demorar até 15 minutos para refletir o estado da tarefa de agente de cópia de segurança do Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando uma tarefa de cópia de segurança falhar, o tempo que demora para emitir um alerta?
-Um alerta é gerado dentro de 20 minutos da falha de cópia de segurança do Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe um caso onde não ser enviado um e-mail se estiverem configuradas notificações?
-Sim. Nas seguintes situações, não são enviadas notificações.
-
-* Se as notificações estão configuradas por hora e um alerta for emitido e resolvido dentro da hora
-* Quando uma tarefa é cancelada
-* Se uma segunda tarefa de cópia de segurança falhar porque a tarefa de cópia de segurança original está em curso
 
 ## <a name="troubleshooting-monitoring-issues"></a>Resolução de problemas de monitorização
 

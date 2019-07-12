@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/19/2019
 ms.author: juliako
-ms.openlocfilehash: f26467a250314fa8a6fe401f4ec1d6a999b6bb4d
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a951ebd46335ad4639b8499283ddd30f13edd64e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296214"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605656"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -142,7 +142,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
 
 ## <a name="live-event-preview-url"></a>URL de pré-visualização de eventos em direto
 
-Uma vez a **evento em direto** começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes de publicar ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o evento em direto para disponibilizar a transmissão em direto para uma entrega por meio de um ou mais (previamente criado) **pontos finais de transmissão em fluxo**. Para tal, crie um novo [saída Live](https://docs.microsoft.com/rest/api/media/liveoutputs) sobre o **evento em direto**. 
+Depois do evento Live começa a receber a contribuição de feed, pode utilizar o seu ponto de extremidade de pré-visualização para pré-visualizar e validar que estão a receber a transmissão em direto antes de publicar ainda mais. Depois de ter verificado que o fluxo de pré-visualização é bom, pode utilizar o evento em direto para que a transmissão em direto disponíveis para entrega através de um ou mais (previamente criada) de transmissão em fluxo pontos finais. Para tal, crie um novo [Live saída](https://docs.microsoft.com/rest/api/media/liveoutputs) no evento em direto. 
 
 > [!IMPORTANT]
 > Certifique-se de que o vídeo está a ser encaminhados para o URL de pré-visualização antes de continuar!
@@ -158,11 +158,11 @@ Assim que tiver o fluxo a ser encaminhados para o evento em direto, pode começa
 > [!NOTE]
 > Início de saídas após a criação do Live e param quando eliminado. Ao eliminar a saída em direto, não serão eliminados os ativos e conteúdo no elemento subjacente. 
 
-A relação entre um **evento em direto** e a respetiva **Live saídas** é semelhante a tradicional de televisão de difusão, no qual um canal (**evento em direto**) representa uma constante fluxo de vídeo e uma gravação (**Live saída**) tem um âmbito para um segmento de tempo específico (por exemplo, noite notícias da 6 17:30, para as 19:00: 00). Pode gravar programas de televisão com um Videogravador Digital (DVR) – a funcionalidade equivalente nos Eventos em Direto é gerida através da propriedade **ArchiveWindowLength**. É uma duração de período de tempo de ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR e pode ser definida a partir de um mínimo de 3 minutos até um máximo de 25 horas.
+A relação entre um **evento em direto** e a respetiva **Live saídas** é semelhante a televisão tradicional de difusão, por meio das quais um canal (evento em direto) representa um fluxo constante de vídeo e uma gravação (Live Saída) é confinada para um segmento de tempo específico (por exemplo, noite notícias da 6 17:30, para as 19:00: 00). Pode gravar programas de televisão com um gravador de vídeo Digital (DVR) – a funcionalidade equivalente nos eventos em direto é gerenciada através da **archiveWindowLength** propriedade. É uma duração de período de tempo de ISO-8601 (por exemplo, PTHH:MM:SS), que especifica a capacidade do DVR e pode ser definida a partir de um mínimo de 3 minutos até um máximo de 25 horas.
 
-O **Live saída** objeto é como um gravador de banda que irá capturar e registrar a transmissão em direto para um elemento na sua conta de Media Services. O conteúdo gravado será persistido para a conta de armazenamento do Azure anexada à sua conta, no contêiner definido pelo recurso do recurso. O **Live saída** também permite-lhe controlar algumas propriedades do fluxo em direto saída, como o quanto da transmissão em fluxo é mantido na gravação do arquivo (por exemplo, a capacidade de DVR na cloud) e, se é ou não podem começar a visualizadores assistir à transmissão em direto. O arquivo no disco é um arquivo circular "janela" que contém apenas a quantidade de conteúdo especificado na **archiveWindowLength** propriedade da **Live saída**. Conteúdo que se encontre fora essa janela é descartado automaticamente do contentor de armazenamento e não é recuperável. Pode criar várias **saídas Live** (até três máximo) num **evento em direto** com definições e comprimentos de arquivo diferente.  
+O objeto de saída em direto é como um gravador de banda que detectará e o registo à transmissão em direto para um elemento na sua conta de Media Services. O conteúdo gravado será persistido para a conta de armazenamento do Azure anexada à sua conta, no contêiner definido pelo recurso do recurso. A saída do Live também permite-lhe controlar algumas propriedades do fluxo em direto saída, como muito da transmissão em fluxo é mantida na gravação do arquivo (por exemplo, a capacidade de DVR na cloud) e se é ou não podem iniciar os visualizadores assistem à transmissão em direto. O arquivo no disco é um arquivo circular "janela" que contém apenas a quantidade de conteúdo especificado na propriedade archiveWindowLength da saída em direto. Conteúdo que se encontre fora essa janela é descartado automaticamente do contentor de armazenamento e não é recuperável. Pode criar várias saídas em direto (até três máximo) num evento em direto com definições e comprimentos de arquivo diferente.  
 
-Se tiver publicado a **saída Live**da **Asset** usando um **localizador de transmissão em fluxo**, o **evento em direto** (até o tamanho de janela DVR) será continuar a ser visualizado até a expiração ou a eliminação do localizador de transmissão em fluxo, o que ocorrer primeiro.
+Se tiver publicado a saída em direto **Asset** usando um **localizador de transmissão em fluxo**, o evento em direto (até o tamanho de janela DVR) irá continuar a ser visualizado até a expiração ou a eliminação, o localizador de transmissão em fluxo o que ocorrer primeiro.
 
 Para obter mais informações, consulte [usando um DVR na cloud](live-event-cloud-dvr.md).
 

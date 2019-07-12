@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: dc086bc1252c084b717807213b5ba4c7f9d7bb97
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: db1074046adc52ad859a325c2b875da84dbdb0cd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514063"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701374"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -20,7 +20,7 @@ Para começar a criar Software como serviço (SaaS) oferece, certifique-se de qu
 
 ![Dashboard de Marketplace comercial no Centro de parceiros](./media/new-offer-overview.png)
 
-Selecione a + **criar um novo...** botão, em seguida, selecione o **Software como serviço** item de menu. 
+Selecione a + **nova oferta...** botão, em seguida, selecione o **Software como serviço** item de menu. 
 
 Se selecionar um dos outros tipos de oferta, será redirecionado para o antigo [Cloud Partner Portal](https://cloudpartner.azure.com/).  Ofertas de SaaS apenas estão disponíveis no portal do Marketplace comercial no Centro de parceiros neste momento. 
 
@@ -31,13 +31,14 @@ O **nova oferta** é apresentada a caixa de diálogo.
 ![Caixa de diálogo do novo oferta](./media/new-offer-popup.png)
 
 
-## <a name="offer-id-and-name"></a>ID de oferta e o nome
+## <a name="offer-id-and-alias"></a>ID de oferta e alias
 
-- **ID da oferta**: Crie um identificador exclusivo para cada oferta na sua conta. Este ID será visível para os clientes o endereço de URL para a oferta do marketplace e modelos do Azure Resource Manager (se aplicável). ID de oferta tem de ser em minúsculas, de alfanuméricos (incluindo hífenes e carateres de sublinhado, mas sem espaço em branco). Isso está limitado a 50 carateres e não pode ser atualizado depois de selecionar criar.  
+- **ID da oferta**: Identificador exclusivo para cada oferta na sua conta. Este ID será visível para os clientes o endereço de URL para a oferta do marketplace e modelos do Azure Resource Manager (se aplicável). ID de oferta tem de ser em minúsculas, de alfanuméricos (incluindo hífenes e carateres de sublinhado, mas sem espaço em branco). Isso está limitado a 50 carateres e não pode ser alterado depois de selecionar *criar*.  
 Exemplo: teste-oferta-1
 <br>Resulta no URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Nome da oferta**: O nome oficial da sua oferta de aplicação SaaS, consistente no âmbito de publicações, anúncios e sites.  Este nome pode ser trademarked.  Oferecer o nome não pode conter espaços em branco, emojis (a menos que eles são o símbolo de marca comercial ou direitos de autor) e tem de estar limitado a 50 carateres.
+- **Alias da oferta**: O nome usado para fazer referência a oferta no portal do Centro de parceiros. Este nome não será usado no marketplace e é diferente da *nome de oferta* e outros valores que serão mostrados aos clientes. Este valor não pode ser alterado depois de selecionar *criar*.
+
 <br>Exemplo: Oferta de teste 1&#8482;
 
 Selecione **Criar**.  Uma **descrição geral da oferta** página é criada para esta oferta.  
@@ -115,8 +116,8 @@ Promova o seu negócio com a Microsoft através da criação de uma listagem do 
 ##### <a name="get-it-now-free"></a>Obter agora (gratuito)
 Liste a sua oferta aos clientes gratuitamente ao fornecer um URL válido (início com http ou https) em que eles podem aceder à sua aplicação.  Por exemplo: `https://contoso.com/saas-app`
 
-##### <a name="free-trial"></a>Avaliação gratuita
-Liste a sua oferta aos clientes numa base de avaliação gratuita, fornecendo um URL válido (início com http ou https) em que eles podem aceder à sua aplicação.  Por exemplo: `https://contoso.com/trial/saas-app`
+##### <a name="free-trial-listing"></a>Versão de avaliação gratuita (listagem)
+Liste a sua oferta aos clientes com uma ligação para uma avaliação gratuita, fornecendo um URL válido (início com http ou https) em que eles podem aceder à sua aplicação.  Por exemplo: `https://contoso.com/trial/saas-app`. Lista as versões de avaliação gratuitas de ofertas são criadas, gerenciados e configurado pelo seu serviço e fazer não tem subscrições geridas pela Microsoft.
 
 ##### <a name="contact-me"></a>Contactem-me
 Recolha informações de contacto do cliente ao ligar o seu sistema de gerenciamento de relação do cliente (CRM). O cliente será solicitado para a permissão para partilhar as suas informações. Estes detalhes de cliente, juntamente com o nome da oferta, o ID e a origem de marketplace onde perceberam que a sua oferta, serão enviados para o sistema CRM que configurou. Para obter mais informações sobre como configurar o seu sistema de CRM, consulte [gestão de oportunidades potenciais do Connect](#connect-lead-management). 
@@ -169,7 +170,7 @@ Centro de parceiros suporta os seguintes sistemas CRM para gestão de oportunida
 
 Lembre-se **guardar** antes de passar para a secção seguinte!
 
-## <a name="properties"></a>Propriedades
+## <a name="properties"></a>properties
 O **propriedades** separador pede-lhe definir as categorias e setores utilizados para agrupar a sua oferta no Marketplace, os contratos legais, dar suporte a sua oferta e a versão da aplicação. 
 
 Selecione **guardar** depois de concluir estes campos. 
@@ -204,6 +205,9 @@ Lembre-se **guardar** antes de passar para a secção seguinte!
 ## <a name="offer-listing"></a>Listagem de oferta
 
 A oferta listagem separador apresenta as linguagens (e mercados) em que a sua oferta está disponível, atualmente inglês (Estados Unidos) é o único local disponível. Além disso, esta página apresenta o estado da listagem específicas de idioma e a data/hora em que foi adicionado. Terá de definir os detalhes de marketplace (oferecem o nome, descrição, termos de pesquisa, etc.) para cada idioma / mercado.
+
+> [!NOTE]
+> Lista de conteúdo (por exemplo, a descrição da oferta, documentos, capturas de ecrã, termos de política de privacidade e de utilização) de ofertas não é necessário para estar em inglês, desde que a descrição da oferta começa com a frase "Esta aplicação está disponível apenas em [idioma diferente do inglês]." Também é aceitável para fornecer uma *URL de ligação útil* para oferecer conteúdo num idioma diferente do utilizado na conteúdo da lista de ofertas.
 
 ### <a name="offer-listings"></a>Listas de ofertas
 
@@ -268,9 +272,9 @@ O **técnica configuração** separador define os detalhes técnicos (caminho de
 
 - **Webhook de ligação** (obrigatório): Para todos os eventos assíncronos que a Microsoft tem de enviar a em nome do cliente (exemplo: Subscrição de SaaS tornou-se inválida), é necessário fornecer um webhook da ligação. Se ainda não tiver um sistema de webhook no local, a configuração mais simples é fazer com que uma aplicação de lógica de ponto final de HTTP que irá escutar quaisquer eventos que está a ser postados nele e, em seguida, manipulá-las adequadamente (por exemplo, https:\//prod-1westus.logic.azure.com:443/work). Para obter mais informações, consulte [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **ID de inquilino do Azure AD** (obrigatório): No portal do Azure, é necessário que [criar uma aplicação do Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a ligação entre os dois serviços estiver atrás de uma comunicação autenticada. Para localizar os [ID do inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id), vá para o Azure Active Directory e selecione **propriedades**, em seguida, procure o **ID de diretório** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de inquilino do Azure AD** (obrigatório): No portal do Azure, é necessário que [criar uma aplicação do Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a ligação entre os dois serviços estiver atrás de uma comunicação autenticada. Para localizar os [ID do inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vá para o Azure Active Directory e selecione **propriedades**, em seguida, procure o **ID de diretório** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID de aplicação do Azure AD** (obrigatório): Também tem sua [ID da aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) e uma chave de autenticação. Para obter esses valores, vá para o Azure Active Directory e selecione **registos de aplicações**, em seguida, procure o **ID de aplicação** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, aceda a **configurações** e selecione **chaves**. Terá de fornecer uma descrição e a duração e, em seguida, irá ser fornecido um valor numérico.
+- **ID de aplicação do Azure AD** (obrigatório): Também tem sua [ID da aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e uma chave de autenticação. Para obter esses valores, vá para o Azure Active Directory e selecione **registos de aplicações**, em seguida, procure o **ID de aplicação** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, aceda a **configurações** e selecione **chaves**. Terá de fornecer uma descrição e a duração e, em seguida, irá ser fornecido um valor numérico.
 
  Tenha em atenção que o ID da aplicação do Azure está associado ao seu ID de publicador, por isso, certifique-se de que o mesmo ID de aplicação é utilizado em todas as suas ofertas.
 
@@ -306,6 +310,22 @@ Selecione **guardar** depois de concluir estes campos.
 #### <a name="plan-pricing-and-availability"></a>Plano de preços e a disponibilidade
 
 O **preços e disponibilidade** separador permite-lhe configurar os mercados em que este plano estará disponível, o modelo de monetização pretendido, o preço e o período de faturação. Além disso, pode indicar se pretende tornar o plano visíveis para todos os utilizadores ou apenas para clientes específicos (um público privado).
+
+##### <a name="enabling-free-trials"></a>Ativar as avaliações gratuitas
+
+Ofertas SaaS através do marketplace comercial permitem-lhe fornecer uma avaliação gratuita de um mês, quando de vendas por meio da Microsoft. Para todos os faturação modelos e termos, exceto os planos com tráfego limitado, as avaliações gratuitas são suportadas. Esta opção permite que os clientes tenham uma barreira baixa de entrada através de um mês de acesso gratuito.  Se optar por ativar uma versão de avaliação gratuita para os planos de dentro da sua oferta, o cliente não será capaz de converter uma subscrição paga antes do final do período inicial de um mês.  Durante este período, os clientes a adquirir a sua oferta podem experimentar um dos planos suportados que têm a versão de avaliação gratuita, ativada e converter entre eles.  A conversão para uma subscrição paga é feita automaticamente no final do período de vigência.
+
+>[!Note]
+>Se o cliente escolhe converter para um plano sem avaliações gratuitas, a conversão irá acontecer, mas a avaliação gratuita vai ser perdida imediatamente.  Além disso, quando um cliente inicia a ter de adquirir um plano, já não poderem avaliação gratuita na mesma subscrição novamente, mesmo que eles convertam para um SKU que oferece suporte a versões de avaliação gratuitas.
+
+A capacidade de configurar uma avaliação gratuita está disponível para cada plano na sua oferta. Basta navegar para o preço e a disponibilidade para cada oferta e marque a caixa para permitir que uma versão de avaliação de um mês.
+
+![Checkbox de avaliação gratuita de um mês](./media/free-trial-enable.png)
+
+Para obter informações sobre o cliente a participar atualmente numa avaliação gratuita de subscrições, utilize a nova propriedade de API `isFreeTrial`, que será marcado como true ou false. Consulte a [SaaS obter subscrição API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) para obter mais informações.
+
+>[!Note]
+>As avaliações gratuitas não são suportadas para planos que tiram partido do serviço de medição do marketplace.
 
 #### <a name="markets"></a>Mercados
 
@@ -434,13 +454,13 @@ Para poder implementar a versão de teste em seu nome, criar e fornecer uma subs
 
 - **ID de subscrição do Azure** (necessário para o Azure Resource Manager e o Logic apps): Introduza o ID de subscrição para conceder acesso aos seus serviços de conta do Azure para utilização de recursos de relatórios e de faturação. Recomendamos que considere [criar uma subscrição do Azure separada](https://docs.microsoft.com/azure/billing/billing-create-subscription) a utilizar para versões de teste se ainda não tiver um. Pode encontrar o seu ID de subscrição do Azure ao iniciar sessão para o [portal do Azure](https://portal.azure.com/) e ao navegar para o **subscrições** separador do menu do lado esquerdo. Selecione a guia irá apresentar o seu ID de subscrição (por exemplo, "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **ID de inquilino do Azure AD** (obrigatório): Introduza o seu Azure Active Directory (AD) [ID de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-tenant-id). Para localizar este ID, inicie sessão no [portal do Azure](https://portal.azure.com/), selecione o separador de diretório Active Directory no menu da esquerda, selecione **propriedades** , em seguida, procure o **ID de diretório** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode ver ID do inquilino da sua organização utilizar o seu URL de nome de domínio em: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
+- **ID de inquilino do Azure AD** (obrigatório): Introduza o seu Azure Active Directory (AD) [ID de inquilino](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Para localizar este ID, inicie sessão no [portal do Azure](https://portal.azure.com/), selecione o separador de diretório Active Directory no menu da esquerda, selecione **propriedades** , em seguida, procure o **ID de diretório** número indicado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Também pode ver ID do inquilino da sua organização utilizar o seu URL de nome de domínio em: [ https://www.whatismytenantid.com ](https://www.whatismytenantid.com).
 
 - **Nome de inquilino do Azure AD** (necessário para o Dynamics 365): Introduza o nome do Azure Active Directory (AD). Para localizar este nome, inicie sessão para o [portal do Azure](https://portal.azure.com/), no canto superior direito, o nome do inquilino será listado sob o nome da sua conta.
 
-- **ID de aplicação do Azure AD** (obrigatório): Introduza o seu Azure Active Directory (AD) [ID da aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Para localizar este ID, inicie sessão na [portal do Azure](https://portal.azure.com/), selecione o separador de diretório Active Directory no menu da esquerda, selecione **registos das aplicações**, em seguida, procure o **ID da aplicação** número listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de aplicação do Azure AD** (obrigatório): Introduza o seu Azure Active Directory (AD) [ID da aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Para localizar este ID, inicie sessão na [portal do Azure](https://portal.azure.com/), selecione o separador de diretório Active Directory no menu da esquerda, selecione **registos das aplicações**, em seguida, procure o **ID da aplicação** número listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Segredo do cliente de aplicação do Azure AD** (obrigatório): Introduza a sua aplicação do Azure AD [segredo do cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key). Para localizar este valor, inicie sessão para o [portal do Azure](https://portal.azure.com/). Selecione o **do Azure Active Directory** separador no menu à esquerda, selecione **registos das aplicações**, em seguida, selecione a sua aplicação de unidade de teste. Em seguida, selecione **certificados e segredos**, selecione **novo segredo de cliente**, introduza uma descrição, selecione **Never** sob **Expires**, em seguida, escolher **adicionar**. Lembre-se de que copie o valor. (Não saia da página antes de fazê-lo; caso contrário, não terá acesso ao valor.)
+- **Segredo do cliente de aplicação do Azure AD** (obrigatório): Introduza a sua aplicação do Azure AD [segredo do cliente](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Para localizar este valor, inicie sessão para o [portal do Azure](https://portal.azure.com/). Selecione o **do Azure Active Directory** separador no menu à esquerda, selecione **registos das aplicações**, em seguida, selecione a sua aplicação de unidade de teste. Em seguida, selecione **certificados e segredos**, selecione **novo segredo de cliente**, introduza uma descrição, selecione **Never** sob **Expires**, em seguida, escolher **adicionar**. Lembre-se de que copie o valor. (Não saia da página antes de fazê-lo; caso contrário, não terá acesso ao valor.)
 
 Lembre-se **guardar** antes de passar para a secção seguinte!
 
@@ -476,6 +496,6 @@ Se esta for a primeira vez que esta oferta de publicação, pode:
 - Fornecem instruções de testes para a equipe de certificação para se certificar de que a sua aplicação é testada corretamente, além de quaisquer notas suplementares útil para compreender a sua aplicação.
 - Submeter a oferta para publicação selecionando **submeter**. Nós lhe enviaremos um e-mail a informá-lo quando uma versão de pré-visualização da oferta está disponível para rever e aprovar. Tem de regressar ao centro de parceiros e selecionar **Go-live** para a oferta publicar a sua oferta para o público (ou se oferece uma privada, para o público-alvo privado).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

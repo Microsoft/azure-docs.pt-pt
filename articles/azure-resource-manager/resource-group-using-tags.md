@@ -4,14 +4,14 @@ description: Mostra como aplicar etiquetas para organizar os recursos do Azure p
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 861e108efa6da3668f529e0324fd0de19fe84328
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 77175738a0cae5c6185a8ac74e51e9b91b685235
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206480"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827950"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -268,7 +268,7 @@ Pode obter informações sobre etiquetas através do [utilização de recursos d
 
 Para operações de REST API, consulte [referência de API de REST de faturação do Azure](/rest/api/billing/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](tag-support.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](manage-resource-groups-portal.md).  

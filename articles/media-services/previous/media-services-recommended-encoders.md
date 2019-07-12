@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec881d190de719c2a7dbedcbf28b0b3ea57140d8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332657"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840119"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
 Quando em direto de transmissão em fluxo com os serviços de multimédia do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador de locais com um canal de codificação em direto, o seu codificador deve enviar um fluxo de velocidade única de alta qualidade como saída. Se optar por utilizar um codificador de locais com um pass-through canal, seu codificador deve enviar um fluxo de velocidade de transmissão como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão em fluxo em direto com no local codificadores](media-services-live-streaming-with-onprem-encoders.md).
@@ -54,7 +54,7 @@ Passar a verificação de canal
 4. Criar um evento em direto publicado
 5. Execute seu codificador em direto para cerca de 10 minutos
 6. Pare o evento em direto
-7. Criar, iniciar um ponto de final de transmissão em fluxo, utilize um leitor, tal como [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) assista o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade (ou em alternativa ver e validar via a URL de pré-visualização durante a sessão em direto antes do passo 6)
+7. Criar, iniciar um ponto de final de transmissão em fluxo, utilize um leitor, tal como [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) assista o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade (ou em alternativa ver e validar via a URL de pré-visualização durante a sessão em direto antes do passo 6)
 8. Registe o ID de recurso publicado o URL de transmissão em fluxo para este arquivo live e as definições e a versão utilizada a partir do seu codificador em direto
 9. Repor o estado de canal depois de criar cada exemplo
 10. Repita os passos 3 a 9 para todas as configurações suportados por seu codificador (com e sem ad sinalização/legendas/diferentes velocidades de codificação)
@@ -66,7 +66,7 @@ Verificação de canal de codificação em direto
 4. Criar um evento em direto publicado
 5. Execute seu codificador em direto para cerca de 10 minutos
 6. Pare o evento em direto
-7. Criar, iniciar um ponto de final de transmissão em fluxo, utilize um leitor, tal como [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) assista o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade (ou em alternativa ver e validar via a URL de pré-visualização durante a sessão em direto antes do passo 6)
+7. Criar, iniciar um ponto de final de transmissão em fluxo, utilize um leitor, tal como [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) assista o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade (ou em alternativa ver e validar via a URL de pré-visualização durante a sessão em direto antes do passo 6)
 8. Registe o ID de recurso publicado o URL de transmissão em fluxo para este arquivo live e as definições e a versão utilizada a partir do seu codificador em direto
 9. Repor o estado de canal depois de criar cada exemplo
 10. Repita os passos 3 a 9 para todas as configurações suportados por seu codificador (com e sem ad sinalização/legendas/várias velocidades de codificação)
@@ -77,7 +77,7 @@ Verificação de longevidade
 3. Configure seu codificador para enviar por push um velocidade de transmissão em fluxo em direto.
 4. Criar um evento em direto publicado
 5. Execute seu codificador em direto para uma semana ou mais
-6. Utilizar como um jogador [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver a transmissão em direto da hora a hora (ou elemento arquivado) para garantir que essa reprodução tem sem falhas visível
+6. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver a transmissão em direto da hora a hora (ou elemento arquivado) para garantir que essa reprodução tem sem falhas visível
 7. Pare o evento em direto
 8. Registe o ID de recurso publicado o URL de transmissão em fluxo para este arquivo live e as definições e a versão utilizada a partir do seu codificador em direto
 

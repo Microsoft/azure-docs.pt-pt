@@ -5,38 +5,16 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7a37c9d51541c279a6b820641b6eb46175aa8413
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184230"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673470"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium do Azure: conceber o elevado desempenho
-
-Este artigo fornece diretrizes para a criação de aplicativos de alto desempenho usando o armazenamento Premium do Azure. Pode utilizar as instruções fornecidas neste documento, combinado com melhores práticas de desempenho aplicáveis para as tecnologias utilizadas pela sua aplicação. Para ilustrar as diretrizes, usamos SQL Server em execução no armazenamento Premium como um exemplo em todo este documento.
-
-Enquanto estamos a resolver cenários de desempenho para a camada de armazenamento neste artigo, precisará otimizar a camada de aplicativo. Por exemplo, se estiver a alojar um Farm do SharePoint no armazenamento Premium do Azure, pode utilizar os exemplos do SQL Server deste artigo para otimizar o servidor de base de dados. Além disso, Otimize o servidor Web e servidor de aplicações para obter a maior parte do desempenho do Farm do SharePoint.
-
-Este artigo o ajudará a resposta a perguntas comuns sobre a otimização de desempenho de aplicações no armazenamento do Azure Premium, a seguir
-
-* Como medir o desempenho da aplicação?  
-* Por que motivo está a ver não esperado de alto desempenho?  
-* Que fatores influenciam o desempenho da aplicação no armazenamento Premium?  
-* Como é que esses fatores influenciam o desempenho da sua aplicação no armazenamento Premium?  
-* Como pode otimizar para IOPS, largura de banda e latência?  
-
-Nós fornecemos estas diretrizes especificamente para o armazenamento Premium como cargas de trabalho em execução no armazenamento Premium são altamente confidencial do desempenho. Nós fornecemos exemplos quando apropriado. Também pode aplicar alguns destas diretrizes para aplicativos em execução em VMs de IaaS com discos de armazenamento Standard.
-
-> [!NOTE]
-> Por vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Se a VM suportar redes aceleradas, certifique-se de que está ativada. Se não estiver ativada, pode ativá-la em VMs já implementadas em ambos [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
-
-Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [selecione um tipo de disco do Azure para IaaS VMs](../articles/virtual-machines/windows/disks-types.md) e [metas de desempenho e escalabilidade do armazenamento do Azure](../articles/storage/common/storage-scalability-targets.md) artigos.
-
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
 
 Vamos avaliar se o desempenho de uma aplicação bem ou não a utilizar como indicadores de desempenho, a rapidez uma aplicação está a processar um pedido de utilizador, a quantidade de dados está a processar uma aplicação por pedido, quantas solicitações é um aplicativo de processamento numa determinada período de tempo, que um usuário precisa esperar para obter uma resposta depois de submeter o pedido. São os termos de técnicos para estes indicadores de desempenho, IOPS, débito ou largura de banda e latência.
@@ -278,7 +256,7 @@ Seguem-se as definições de cache de disco recomendado para discos de dados,
 
 | **Definição de colocação em cache do disco** | **Recomendação sobre quando utilizar esta definição** |
 | --- | --- |
-| Nenhuma |Configure o cache do anfitrião como nenhum para discos de só de escrita e de escrita intensiva. |
+| Nenhum |Configure o cache do anfitrião como nenhum para discos de só de escrita e de escrita intensiva. |
 | ReadOnly |Configure o cache do anfitrião como só de leitura para os discos só de leitura e de leitura / escrita. |
 | ReadWrite |Configure o cache do anfitrião como ReadWrite apenas se o seu aplicativo manipula corretamente a escrita de dados em cache para discos persistentes quando necessário. |
 
@@ -413,4 +391,4 @@ Saiba mais sobre os tipos de disco disponível:
 Para usuários do SQL Server, leia os artigos sobre melhores práticas de desempenho para o SQL Server:
 
 * [Melhores práticas de desempenho para SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Armazenamento Premium do Azure proporciona um desempenho mais elevado para o SQL Server na VM do Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Armazenamento Premium do Azure proporciona um desempenho mais elevado para o SQL Server na VM do Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

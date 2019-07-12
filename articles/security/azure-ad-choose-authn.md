@@ -4,17 +4,17 @@ description: Este guia ajuda CEOs, Diretores de informática, officers, Arquitet
 services: active-directory
 keywords: ''
 author: martincoetzer
-ms.author: martincoetzer
+ms.author: martinco
 ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 26fca12060363f4ad05baaeceb6fb800a0d76216
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c0faeb211860391c93563200f509d60876a504b9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449259"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786702"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -94,7 +94,7 @@ Detalhes sobre perguntas de decisão:
 
 * **Cenários avançados**. Se a organizações optam por, é possível utilizar as informações de identidades com relatórios do Azure AD Identity Protection com o Azure AD Premium P2. Um exemplo é o relatório fugas de credenciais. Windows Hello para empresas tem [requisitos específicos, ao utilizar a sincronização de hash de palavra-passe](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [O Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) requerem a sincronização de hash de palavra-passe para utilizadores de aprovisionamento com as credenciais da empresa no domínio gerido.
 
-    As organizações que requerem a autenticação multifator com sincronização de hash de palavra-passe tem de utilizar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Essas organizações não é possível utilizar métodos de autenticação multifator de terceiros ou no local que depende de Federação.
+    As organizações que requerem a autenticação multifator com sincronização de hash de palavra-passe tem de utilizar a autenticação multifator do Azure AD ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Essas organizações não é possível utilizar métodos de autenticação multifator de terceiros ou no local que depende de Federação.
 
 > [!NOTE]
 > Necessitam de acesso condicional do Azure AD [do Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenças.
@@ -118,7 +118,7 @@ Consulte a [implementar a sincronização de hash de palavra-passe](https://docs
 
 * **Cenários avançados**. Autenticação pass-through impõe a política de conta no local ao tempo de início de sessão. Por exemplo, o acesso é negado quando a conta de um utilizador no local, estado estiver desativado, bloqueada, ou [palavra-passe expirada](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou está fora das horas quando o utilizador tem permissão para iniciar sessão. 
 
-    As organizações que requerem a autenticação multifator com a autenticação pass-through tem de utilizar o Azure multi-factor Authentication (MFA) ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls). Essas organizações não é possível utilizar um método de autenticação multifator de terceiros ou no local que depende de Federação. Funcionalidades avançadas exigem que a sincronização de hash de palavra-passe é implementada independentemente de escolher a autenticação pass-through. Um exemplo é o relatório fugas de credenciais de proteção de identidade.
+    As organizações que requerem a autenticação multifator com a autenticação pass-through tem de utilizar o Azure multi-factor Authentication (MFA) ou [controles personalizados de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview). Essas organizações não é possível utilizar um método de autenticação multifator de terceiros ou no local que depende de Federação. Funcionalidades avançadas exigem que a sincronização de hash de palavra-passe é implementada independentemente de escolher a autenticação pass-through. Um exemplo é o relatório fugas de credenciais de proteção de identidade.
 
 * **Continuidade do negócio**. Recomendamos que implemente dois agentes de autenticação extra pass-through. São esses extras além do primeiro agente no servidor do Azure AD Connect. Esta implementação adicional garante elevada disponibilidade dos pedidos de autenticação. Quando tem três agentes implementados, um agente ainda pode falhar quando outro agente está inativo para manutenção. 
 
@@ -177,7 +177,7 @@ Os diagramas seguintes descrevem os componentes de arquitetura de alto nível ne
 |Consideração|Sincronização de hash de palavra-passe + SSO totalmente integrado|Autenticação pass-through + SSO totalmente integrado|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
 |Onde acontecer autenticação?|Na cloud|Na cloud após uma troca de verificação de palavra-passe segura com o agente de autenticação no local|Local|
-|Quais são os requisitos de servidor no local para além do sistema de provisionamento: Do Azure AD Connect?|Nenhuma|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores do WAP na rede de perímetro/rede de Perímetro|
+|Quais são os requisitos de servidor no local para além do sistema de provisionamento: Do Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores do WAP na rede de perímetro/rede de Perímetro|
 |Quais são os requisitos para a Internet no local e o funcionamento em rede para além do sistema de provisionamento?|Nenhuma|[Acesso de Internet de saída](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) dos servidores a executar agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) para os servidores WAP no perímetro<br><br>Acesso de rede de entrada para servidores do AD FS dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
 |Existe um requisito do certificado SSL?|Não|Não|Sim|
 |Existe um solução de monitorização de estado de funcionamento?|Não necessário|Estado do agente fornecido pelo [Centro de administração do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|

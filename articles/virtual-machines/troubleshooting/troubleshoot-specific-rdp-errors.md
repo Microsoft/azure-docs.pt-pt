@@ -5,7 +5,7 @@ keywords: Erro de área de trabalho remoto, erro de conexão de área de trabalh
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 5feb1d64-ee6f-4907-949a-a7cffcbc6153
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea8a2fa3a37815f3a7a48078e408e6607dc37eb4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60318702"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709287"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Resolução de mensagens de erro do RDP específicas a uma VM do Windows no Azure
 Poderá receber uma mensagem de erro específico ao utilizar a ligação de ambiente de trabalho remoto a uma máquina virtual de Windows (VM) no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, juntamente com passos para resolvê-los de resolução de problemas. Se estiver a ter problemas de ligação à sua VM através de RDP mas não encontrar uma mensagem de erro específica, consulte a [guia para o ambiente de trabalho remoto de resolução de problemas](troubleshoot-rdp-connection.md).
@@ -105,7 +105,7 @@ Todos os computadores do Windows tem um ambiente de trabalho remoto utilizadores
 
 Certifique-se de que a conta que estiver a utilizar para ligar com tem direitos de início de sessão de ambiente de trabalho remoto. Como solução, utilize um domínio ou conta de administrador local para ligar através do ambiente de trabalho remoto. Para adicionar a conta pretendida para o grupo local de utilizadores de ambiente de trabalho remoto, utilize o snap-in do Console de gerenciamento Microsoft (**ferramentas do sistema > utilizadores e grupos locais > grupos > Remote Desktop Users**).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se nenhum destes erros ocorreram e tiver um desconhecido emitir com a ligação com o protocolo RDP, consulte a [guia para o ambiente de trabalho remoto de resolução de problemas](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 * Para passos ao aceder ao aplicações em execução numa VM de resolução de problemas, consulte [resolver problemas de acesso para uma aplicação em execução numa VM do Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

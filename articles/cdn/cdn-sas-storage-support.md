@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60324157"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593414"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilizar a CDN do Azure com SAS
 
@@ -135,7 +135,7 @@ Como parâmetros SAS não são visíveis para a CDN do Azure, a CDN do Azure nã
 
 | Nome do parâmetro SAS | Descrição |
 | --- | --- |
-| Iniciar | O tempo que pode começar a CDN do Azure para aceder ao ficheiro de Blobs. Devido a relógio skew (quando é recebido um sinal de relógio em momentos diferentes para diferentes componentes), escolha uma hora 15 minutos anteriormente, se pretender que o recurso estejam disponíveis imediatamente. |
+| Start | O tempo que pode começar a CDN do Azure para aceder ao ficheiro de Blobs. Devido a relógio skew (quando é recebido um sinal de relógio em momentos diferentes para diferentes componentes), escolha uma hora 15 minutos anteriormente, se pretender que o recurso estejam disponíveis imediatamente. |
 | fim | O tempo após o qual da CDN do Azure já não pode aceder ao ficheiro de Blobs. Anteriormente ficheiros em cache no CDN do Azure ainda estão acessíveis. Para controlar o tempo de expiração de ficheiros, defina a hora de expiração adequado no token de segurança de CDN do Azure ou remover o recurso. |
 | Endereços IP permitidos | Opcional. Se estiver a utilizar **CDN do Azure da Verizon**, pode definir este parâmetro para os intervalos definidos na [CDN do Azure da Verizon Edge intervalos de IP servidor](/azure/cdn/cdn-pop-list-api). Se estiver a utilizar **CDN do Azure da Akamai**, não é possível definir o parâmetro de intervalos IP, porque os endereços IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para um pedido efetuado com a conta SAS. Recomenda-se a definição de HTTPS.|

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: msangapu-msft
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d465a93a23b7f0098471e0074240dfcbe9658736
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448427"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617358"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 

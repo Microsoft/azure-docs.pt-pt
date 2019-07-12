@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462008"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839920"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -50,7 +50,6 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
 
 - A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 - Também pode utilizar as seguintes ferramentas para criar um pipeline:
-  - Portal do Azure
   - Visual Studio
   - Azure PowerShell
   - Modelo Azure Resource Manager
@@ -79,7 +78,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | database |Nome da base de dados PostgreSQL. |Sim |
 | schema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, básico e Windows. |Sim |
-| o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
+| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
 
@@ -106,12 +105,12 @@ Quando a origem é do tipo **RelationalSource** (que inclui o PostgreSQL), as se
 > [!NOTE]
 > Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.
 
-**Exemplo:**
+**Example:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo JSON: Copiar dados do PostgreSQL para BLOBs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
@@ -311,41 +310,41 @@ Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de 
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit variado [(n)] |varbit |Byte[], String |
-| boolean |booleano |Boolean |
+| boolean |bool |Booleano |
 | Caixa | |Byte[], String |
 | bytea | |Byte[], String |
-| caráter [(n)] |char [(n)] |String |
-| caráter variados [(n)] |varchar [(n)] |String |
-| CID | |String |
-| CIDR | |String |
+| caráter [(n)] |char [(n)] |Cadeia |
+| caráter variados [(n)] |varchar [(n)] |Cadeia |
+| CID | |Cadeia |
+| cidr | |Cadeia |
 | Círculo | |Byte[], String |
 | date | |Datetime |
-| daterange | |String |
+| daterange | |Cadeia |
 | precisão dupla |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
-| inteiro |int, int4 |Int32 |
-| intervalo de [campos] [(p)] | |Timespan |
-| json | |String |
+| intarry | |Cadeia |
+| int4range | |Cadeia |
+| int8range | |Cadeia |
+| integer |int, int4 |Int32 |
+| intervalo de [campos] [(p)] | |Período de tempo |
+| json | |Cadeia |
 | jsonb | |Byte[] |
 | Linha | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numérico [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |String |
+| numrange | |Cadeia |
 | oid | |Int32 |
-| caminho | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
-| ponto | |Byte[], String |
+| point | |Byte[], String |
 | Polígono | |Byte[], String |
 | real |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
-| série |serial4 |Int32 |
-| texto | |String |
+| serial |serial4 |Int32 |
+| text | |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem para colunas no conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

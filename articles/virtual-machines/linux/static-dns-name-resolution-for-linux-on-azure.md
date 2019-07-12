@@ -4,7 +4,7 @@ description: Como criar cartões de interface de rede virtual e utilizar o DNS i
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 5e893d597c2193676cb350fc80d7baa694ad6fd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c180c129e4e2c434cffe2ea2ca823904e8faae89
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60478264"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708709"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Criar cartões de interface de rede virtual e utilizar o DNS interno para resolução de nomes VM no Azure
 
@@ -163,6 +163,6 @@ az vm create \
 
 Ao utilizar os sinalizadores CLI para destacar os recursos existentes, que eu o instruir do Azure para implementar a VM dentro da rede existente. Para reiterar, depois de uma VNet e sub-rede tem sido implementados, pode ser deixados como recursos estáticos ou permanentes na sua região do Azure.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Criar um ambiente personalizado para uma VM com Linux diretamente através dos comandos da CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Criar uma VM do Linux no Azure através de modelos](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abe3f67141011c765f9de93bcf51998ddae002cb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939506"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696149"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): Um driver de armazenamento do Azure dedicado para o Hadoop
 
@@ -43,7 +43,7 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, o driver ABFS traduz-se o recurso ou recursos especificados no URI a arquivos e diretórios e faz chamadas para a API de REST de armazenamento do Azure Data Lake com essas referências.
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 O driver ABFS suporta duas formas de autenticação para que a aplicação do Hadoop com segurança pode aceder aos recursos contidos dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake. Todos os detalhes de esquemas de autenticação disponíveis são fornecidos na [guia de segurança do armazenamento do Azure](../common/storage-security-guide.md). São:
 
@@ -59,9 +59,9 @@ Detalhes de todas as entradas de configuração suportados estão especificados 
 
 ### <a name="hadoop-documentation"></a>Documentação do Hadoop
 
-O driver ABFS é documentado na íntegra a [documentação oficial Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+O driver ABFS é documentado na íntegra a [documentação oficial Hadoop](https://github.com/apache/hadoop/blob/trunk/hadoop-tools/hadoop-azure/src/site/markdown/abfs.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um Cluster do Databricks do Azure](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Utilizar o URI do Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

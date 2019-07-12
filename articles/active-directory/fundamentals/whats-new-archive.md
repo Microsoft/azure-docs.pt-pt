@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68be46b406e7a5caaabbc0726a6aece0fd0423ce
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a6935d2a89968b55dec1626d23b3f290261cf66f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472189"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655450"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivada para o que há de novo? no Azure Active Directory
 
@@ -2213,7 +2213,7 @@ Devido a estas novas capacidades, o relatório APIs sob o ponto de extremidade /
 **Categoria de serviço:** Minhas aplicações  
 **Capacidade de produto:** Início de sessão único  
 
-O Azure AD suporta a deteção de campo de início de sessão automático para aplicações que compõem um campo de nome e palavra-passe de utilizador do HTML. Estes passos estão documentados em [How to capture automaticamente os campos de início de sessão para uma aplicação como](https://docs.microsoft.com/azure/active-directory/application-config-sso-problem-configure-password-sso-non-gallery#how-to-manually-capture-sign-in-fields-for-an-application). Pode encontrar esta capacidade adicionando um *não galeria* aplicação no **aplicações empresariais** página no [portal do Azure](https://aad.portal.azure.com). Além disso, pode configurar o **início de sessão único** modo nesta aplicação nova para **baseado em palavra-passe de início de sessão único**, introduza um URL de web e, em seguida, guarde a página.
+O Azure AD suporta a deteção de campo de início de sessão automático para aplicações que compõem um campo de nome e palavra-passe de utilizador do HTML. Estes passos estão documentados em [How to capture automaticamente os campos de início de sessão para uma aplicação como](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-password-single-sign-on-non-gallery-applications-problems#manually-capture-sign-in-fields-for-an-app). Pode encontrar esta capacidade adicionando um *não galeria* aplicação no **aplicações empresariais** página no [portal do Azure](https://aad.portal.azure.com). Além disso, pode configurar o **início de sessão único** modo nesta aplicação nova para **baseado em palavra-passe de início de sessão único**, introduza um URL de web e, em seguida, guarde a página.
  
 Devido a um problema de serviço, essa funcionalidade foi temporariamente desativada. O problema foi resolvido, e a deteção de campo de início de sessão automático estiver novamente disponível.
 

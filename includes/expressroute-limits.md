@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 05/28/2019
+ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9f7f9b1504533e0ec503e97c086c380da71671a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299711"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67622117"
 ---
 | Resource | Limite de máximo/predefinido |
 | --- | --- |
@@ -42,4 +42,4 @@ ms.locfileid: "66299711"
 | 40 Gbps * |10 |100 |
 | Gbps de 100 * |10 |100 |
 
-\* Apenas a Direct ExpressRoute
+**Apenas o Direct de ExpressRoute 100 Gbps*

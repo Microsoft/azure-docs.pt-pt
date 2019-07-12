@@ -4,26 +4,25 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 07/08/2019
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: bab7b4daf8b03115c73b6fbaefe352cecc761b6f
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+manager: gwallace
+ms.openlocfilehash: cc41e268678872910113c8e198bdaaac34232458
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502996"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706310"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Início rápido: Programar com .NET Core no Kubernetes com espaços de desenvolvimento do Azure (Visual Studio Code)
 
 Neste guia, vai aprender a:
 
 - Configurar os Espaços de Programador do Azure com um cluster Kubernetes gerido no Azure.
-- Desenvolva iterativamente código em contentores através do Visual Studio Code e a linha de comandos.
+- Iterativamente desenvolva o código em contentores com o Visual Studio Code.
 - Depure o código no seu espaço de desenvolvimento do Visual Studio Code.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -68,95 +67,27 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 Neste artigo, vai utilizar o [aplicação de exemplo do Azure Dev espaços](https://github.com/Azure/dev-spaces) para demonstrar a utilização de espaços de desenvolvimento do Azure.
 
-Clonar a aplicação a partir do GitHub e navegue para o *dev-espaços/exemplos/dotnetcore/obter-iniciada/webfrontend* diretório:
+Clone a aplicação a partir do GitHub.
 
 ```cmd
 git clone https://github.com/Azure/dev-spaces
-cd dev-spaces/samples/dotnetcore/getting-started/webfrontend
 ```
 
-## <a name="prepare-the-application"></a>Para preparar a aplicação
-
-Gerar os ativos de gráfico do Docker e o Helm para executar a aplicação no Kubernetes com o `azds prep` comando:
-
-```cmd
-azds prep --public
-```
-
-Tem de executar o `prep` comando a partir do *dev-espaços/exemplos/dotnetcore/obter-iniciada/webfrontend* diretório ao gerar corretamente os ativos de gráfico do Docker e o Helm.
-
-## <a name="build-and-run-code-in-kubernetes"></a>Criar e executar códigos no Kubernetes
-
-Criar e executar seu código no AKS com o `azds up` comando:
-
-```cmd
-$ azds up
-Synchronizing files...4s
-Using dev space 'default' with target 'MyAKS'
-Installing Helm chart...2s
-Waiting for container image build...1m 43s
-Building container image...
-Step 1/12 : FROM microsoft/dotnet:2.2-sdk
-Step 2/12 : ARG BUILD_CONFIGURATION=Debug
-Step 3/12 : ENV ASPNETCORE_ENVIRONMENT=Development
-Step 4/12 : ENV DOTNET_USE_POLLING_FILE_WATCHER=true
-Step 5/12 : EXPOSE 80
-Step 6/12 : WORKDIR /src
-Step 7/12 : COPY ["webfrontend.csproj", "./"]
-Step 8/12 : RUN dotnet restore "webfrontend.csproj"
-Step 9/12 : COPY . .
-Step 10/12 : RUN dotnet build --no-restore -c $BUILD_CONFIGURATION
-Step 11/12 : RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION -- \"\$@\"" > /entrypoint.sh
-Step 12/12 : ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
-Built container image in 3m 44s
-Waiting for container...13s
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
-Service 'webfrontend' port 80 (http) is available at http://localhost:54256
-...
-```
-
-Pode ver o serviço em execução, abrindo a URL pública, o que é apresentada no resultado do `azds up` comando. Neste exemplo, é o URL público *http://webfrontend.1234567890abcdef1234.eus.azds.io/* .
-
-Se parar a `azds up` através de comandos *Ctrl + c*, o serviço continua em execução no AKS e público URL permanecerão disponível.
-
-## <a name="update-code"></a>Atualizar código
-
-Para implementar uma versão atualizada do seu serviço, pode atualizar qualquer arquivo em seu projeto e execute novamente o `azds up` comando. Por exemplo:
-
-1. Se `azds up` ainda está em execução, prima *Ctrl + c*.
-1. Atualização [linha 20 no `Controllers/HomeController.cs` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) para:
-    
-    ```csharp
-    ViewData["Message"] = "Your application description page in Azure.";
-    ```
-
-1. Guarde as alterações.
-1. Volte a executar o `azds up` comando:
-
-    ```cmd
-    $ azds up
-    Using dev space 'default' with target 'MyAKS'
-    Synchronizing files...1s
-    Installing Helm chart...3s
-    Waiting for container image build...
-    ...    
-    ```
-
-1. Navegue para o serviço em execução e clique em *sobre*.
-1. Observe as alterações.
-1. Prima *Ctrl + c* para parar o `azds up` comando.
-
-## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>Ativar o Visual Studio Code para depurar no Kubernetes
+## <a name="prepare-the-sample-application-in-visual-studio-code"></a>Preparar o aplicativo de exemplo no Visual Studio Code
 
 Abra o Visual Studio Code, clique em *arquivo* , em seguida, *abra...* , navegue para o *dev-espaços/exemplos/dotnetcore/obter-iniciada/webfrontend* diretório e clique em *aberto*.
 
-Agora tem o *webfrontend* projeto aberto no Visual Studio Code, que é o mesmo serviço que foi executada com o `azds up` comando. Para este serviço no AKS com o Visual Studio Code, em vez do uso de depurar `azds up` diretamente, tem de preparar este projeto para utilizar o Visual Studio Code para comunicar com o seu espaço de desenvolvimento.
+Agora tem o *webfrontend* projeto aberto no Visual Studio Code. Para executar a aplicação no seu espaço de desenvolvimento, gere os ativos de gráfico de Docker e o Helm, com a extensão de espaços de desenvolvimento do Azure no Pallette comando.
 
 Para abrir a paleta de comandos no Visual Studio Code, clique em *View* , em seguida, *paleta de comandos*. Comece a escrever `Azure Dev Spaces` e clique em `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 
-![](./media/common/command-palette.png)
+![Preparar ficheiros de configuração para espaços de desenvolvimento do Azure](./media/common/command-palette.png)
 
-Esse comando Prepare seu projeto para executar nos espaços de desenvolvimento do Azure diretamente a partir do Visual Studio Code. Ele também gera uma *.vscode* diretório com a depuração de configuração na raiz do seu projeto.
+Quando o Visual Studio Code também pede-lhe para configurar o ponto final público, escolha `Yes` para ativar um ponto final público.
+
+![Selecione o ponto final público](media/common/select-public-endpoint.png)
+
+Esse comando Prepare seu projeto para executar nos espaços de desenvolvimento do Azure através da geração de um gráfico Dockerfile e Helm. Ele também gera uma *.vscode* diretório com a depuração de configuração na raiz do seu projeto.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Criar e executar o código no Kubernetes a partir do Visual Studio
 
@@ -169,21 +100,42 @@ Este comando é compilada e executada o seu serviço nos espaços de desenvolvim
 > [!Note]
 > Se não vir quaisquer comandos de espaços de desenvolvimento do Azure no *paleta de comandos*, certifique-se de que instalou o [extensão do Visual Studio Code para espaços de desenvolvimento do Azure](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Verifique também se tiver aberto o *dev-espaços/exemplos/dotnetcore/obter-iniciada/webfrontend* diretório no Visual Studio Code.
 
+Pode ver o serviço em execução ao abrir o URL público.
+
+Clique em *depurar* , em seguida, *parar depuração* para parar o depurador.
+
+## <a name="update-code"></a>Atualizar código
+
+Para implementar uma versão atualizada do seu serviço, pode atualizar qualquer arquivo em seu projeto e volte a executar *.NET Core iniciar (AZDS)* . Por exemplo:
+
+1. Se seu aplicativo ainda está em execução, clique em *depurar* , em seguida, *parar depuração* interrompê-lo.
+1. Atualização [linha 22 no `Controllers/HomeController.cs` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) para:
+    
+    ```csharp
+    ViewData["Message"] = "Your application description page in Azure.";
+    ```
+
+1. Guarde as alterações.
+1. Volte a executar *.NET Core lançamento (AZDS)* .
+1. Navegue para o serviço em execução e clique em *sobre*.
+1. Observe as alterações.
+1. Clique em *depurar* , em seguida, *parar depuração* para parar a aplicação.
+
 ## <a name="setting-and-using-breakpoints-for-debugging"></a>Configuração e seu uso de pontos de interrupção para depuração
 
 Inicie o serviço no usando o modo de depuração *.NET Core iniciar (AZDS)* .
 
-Navegue de volta para o *Explorer* vista clicando *vista* , em seguida, *Explorer*. Abra `Controllers/HomeController.cs` e clique em algum lugar na linha 20 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*.
+Navegue de volta para o *Explorer* vista clicando *vista* , em seguida, *Explorer*. Abra `Controllers/HomeController.cs` e clique em algum lugar na linha 22 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*.
 
 Abra o serviço num navegador e que nenhuma mensagem será exibida. Regresse ao Visual Studio Code e observe a linha 20 é realçada. Definir o ponto de interrupção foi colocado em pausa o serviço na linha 20. Para retomar o serviço, pressionar *F5* ou clique em *depurar* , em seguida, *continuar*. Regresse ao seu navegador e tenha em atenção que agora é apresentada a mensagem.
 
 Enquanto executa o seu serviço no Kubernetes com um depurador anexado, tem acesso total ao depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remover o ponto de interrupção ao colocar o cursor na linha 20 `Controllers/HomeController.cs` e pressionando *F9*.
+Remover o ponto de interrupção ao colocar o cursor na linha 22 em `Controllers/HomeController.cs` e pressionando *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Atualizar o código do Visual Studio Code
 
-Enquanto o serviço está em execução no modo de depuração, atualizar linha 20 no `Controllers/HomeController.cs`. Por exemplo:
+Enquanto o serviço está em execução no modo de depuração, atualizar linha 22 no `Controllers/HomeController.cs`. Por exemplo:
 
 ```csharp
 ViewData["Message"] = "Your application description page in Azure while debugging!";

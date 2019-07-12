@@ -4,7 +4,7 @@ description: Implemente o cliente do Chef para uma máquina virtual utilizando a
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800279"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706092"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão de VM do chef para Linux e Windows
 
@@ -68,26 +68,26 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 
 ### <a name="core-property-values"></a>Valores de propriedades de núcleo
 
-| Name | Valor / exemplo | Tipo de Dados
-| ---- | ---- | ---- 
+| Nome | Valor / exemplo | Tipo de Dados
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (data) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | string |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | cadeia |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | Cadeia de caracteres |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Definições
 
-| Name | Valor / exemplo | Tipo de Dados | Obrigatório?
+| Nome | Valor / exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
-| settings/bootstrap_options/validation_client_name | `myorg-validator` | string | S |
-| settings/runlist | `recipe[mycookbook::default]` | string | S |
+| settings/bootstrap_options/validation_client_name | `myorg-validator` | Cadeia de caracteres | S |
+| settings/runlist | `recipe[mycookbook::default]` | Cadeia de caracteres | S |
 
 ### <a name="protected-settings"></a>Definições protegidas
 
-| Name | Exemplo | Tipo de Dados | Obrigatório?
+| Nome | Exemplo | Tipo de Dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
-| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | S |
+| protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | Cadeia de caracteres | S |
 
 <!--
 ### Linux-specific settings
@@ -105,7 +105,7 @@ O JSON seguinte mostra o esquema para a extensão de VM da Chef. A extensão req
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Modelos podem ser utilizados para implementar uma ou mais máquinas virtuais, instalar o cliente do Chef, ligar ao servidor Chef e a executar a configuração inicial no servidor conforme definido pelo [Run-list](https://docs.chef.io/run_lists.html)
 
-Um modelo do Resource Manager de exemplo que inclui a extensão de VM do Chef pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Um modelo do Resource Manager de exemplo que inclui a extensão de VM do Chef pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
@@ -153,6 +153,6 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 Informações de resolução de problemas adicionais podem ser encontradas no [Leiame de extensão de VM do Chef](https://github.com/chef-partners/azure-chef-extension).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

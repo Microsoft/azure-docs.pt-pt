@@ -12,14 +12,15 @@ ms.date: 05/03/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e5fc24e426c87bbc5062183f2ee2db0e546484
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 74c6787068cf8ba1e86cbf43955d0ac995aa8de1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388202"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702118"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiências de utilizador final para as aplicações no Azure Active Directory
+
 Azure Active Directory (Azure AD) fornece várias formas de personalizáveis para implementar aplicações para utilizadores finais em sua organização:
 
 * Painel de acesso do Azure AD
@@ -30,27 +31,31 @@ Azure Active Directory (Azure AD) fornece várias formas de personalizáveis par
 Qual método (s) optar por implementar na sua organização é a seu critério.
 
 ## <a name="azure-ad-access-panel"></a>Painel de acesso do Azure AD
+
 Painel de acesso em https://myapps.microsoft.com é um portal baseado na web que permite que um utilizador final com uma conta organizacional no Azure Active Directory para ver e aplicativos baseados na nuvem de lançamento para a qual tenham sido concedido acesso pelo administrador do Azure AD. Se for um utilizador final com [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), também pode utilizar as capacidades de gestão de grupos self-service através do painel de acesso.
 
-![Painel de acesso do Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Captura de ecrã mostra o portal do painel de acesso do Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
 O painel de acesso separado no portal do Azure e não requer que os utilizadores tenham uma subscrição do Azure ou uma subscrição do Office 365.
 
 Para obter mais informações sobre o painel de acesso do Azure AD, consulte a [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="office-365-application-launcher"></a>Iniciador de aplicações do Office 365
+
 Para organizações que implantaram o Office 365, o aplicações atribuídas a utilizadores através do Azure AD também serão apresentadas no portal do Office 365 em [ https://portal.office.com/myapps ](https://portal.office.com/myapps). Isto torna mais fácil e conveniente para os utilizadores numa organização para iniciar as aplicações sem ter de utilizar um portal segundo e é a solução de início de aplicação recomendada para organizações que utilizam o Office 365.
 
-![Portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Captura de ecrã mostra o portal do Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Para obter mais informações sobre o iniciador de aplicações do Office 365, consulte [ter a aplicação aparece no iniciador de aplicações do Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## <a name="direct-sign-on-to-federated-apps"></a>Início de sessão direto em aplicações federadas
+
 Mais aplicações federadas que suportam SAML 2.0, WS-Federation ou OpenID conectam também suporte a capacidade dos utilizadores iniciar a aplicação e, em seguida, é feita através do Azure AD ao redirecionamento automático ou ao clicar numa ligação para iniciar sessão. Isso é conhecido como fornecedor de serviços-iniciada pelo início de sessão e mais aplicações federadas na Galeria de aplicações do Azure AD suportam esta (consulte a documentação ligada a partir do Assistente de configuração de início de sessão único da aplicação no portal do Azure para obter detalhes).
 
 ![Exemplo de página de início de uma sessão de aplicação móvel](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Ligações de início de sessão em diretas
+
 O Azure AD também suporta únicas início de sessão em ligações diretas para aplicativos individuais que oferecem suporte baseado em palavra-passe de início de sessão único, ligado início de sessão único e qualquer outra forma de início de sessão único federado.
 
 Estas ligações são especificamente elaboradas URLs que enviam um utilizador através do processo de início de sessão do AD do Azure para uma aplicação específica sem a necessidade do lançamento de utilizador-los a partir do Azure AD aceder ao painel ou do Office 365. Estes **URLs de acesso de utilizador** pode ser encontrado em Propriedades de aplicativos corporativos disponíveis. No portal do Azure, selecione **do Azure Active Directory** > **aplicações empresariais**. Selecione a aplicação e, em seguida, selecione **propriedades**.
@@ -70,4 +75,5 @@ Quando um utilizador autorizado clica em um desses links específico do aplicati
 Estas ligações utilizam os mesmos mecanismos de controlo de acesso, como o painel de acesso e o Office 365, e apenas esses utilizadores ou grupos a quem foi concedidos ao aplicativo no portal do Azure será capazes de autenticar com êxito. No entanto, qualquer utilizador que não está autorizado, verá uma mensagem que explica o que não foi concedidos acesso e recebem uma ligação para carregar o painel de acesso para ver as aplicações disponíveis para os quais têm acesso.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para planos de implantação, consulte [planos de implantação do Azure Active Directory](../fundamentals/active-directory-deployment-plans.md)

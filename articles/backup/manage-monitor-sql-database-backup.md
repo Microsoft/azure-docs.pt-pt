@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 913140a51603429e003f04f860bca9b4ddb1c214
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492732"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704890"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar backup de bancos de dados do SQL Server
 
@@ -145,7 +145,7 @@ Depois de desativar a proteção, mas antes de eliminar o cofre, anular o regist
 
 Às vezes, a extensão de carga de trabalho na VM pode ser afetada por um motivo ou outro. Nesses casos, todas as operações acionadas na VM começarão a falhar. Em seguida, terá de voltar a registar a extensão na VM. **Voltar a registar** operação reinstala a extensão de cópia de segurança da carga de trabalho na VM para a continuidade das operações.  <br>
 
-Recomenda-se para utilizar esta opção com cuidado; Quando acionado numa VM com a extensão já em bom estada, esta operação fará com que a extensão para obter a ser reiniciado. Isso pode resultar em todas as tarefas em curso para efetuar a ativação. Consulte para um ou mais da [sintomas](backup-sql-server-azure-troubleshoot.md#symptoms) antes de acionar a operação de voltar a registar.
+Recomenda-se para utilizar esta opção com cuidado; Quando acionado numa VM com a extensão já em bom estada, esta operação fará com que a extensão para obter a ser reiniciado. Isso pode resultar em todas as tarefas em curso para efetuar a ativação. Consulte para um ou mais da [sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de acionar a operação de voltar a registar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

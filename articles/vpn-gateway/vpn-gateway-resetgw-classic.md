@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457210"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612452"
 ---
 # <a name="reset-a-vpn-gateway"></a>Repor um Gateway de VPN
 
@@ -24,7 +24,7 @@ Um gateway de VPN é composto por duas instâncias de VM em execução numa conf
 
 Quando emitir o comando para repor o gateway, a instância ativa atual do gateway de VPN do Azure é reiniciada imediatamente. Haverá um intervalo breve durante a ativação pós-falha da instância ativa (a ser reiniciadas), para a instância em espera. O intervalo deve ser inferior a um minuto.
 
-Se a ligação não for restaurada após o primeiro reinício, execute o mesmo comando novamente para reiniciar a segunda instância da VM (o novo gateway ativo). Se forem pedidos dois reinícios seguidos, haverá um período ligeiramente superior em que ambas as instâncias da VM (ativa e no modo de espera) estão a ser reiniciadas. Isto resultará num intervalo maior na conetividade da VPN, de até 2 a 4 minutos para as VMs concluírem os reinícios.
+Se a ligação não for restaurada após o primeiro reinício, execute o mesmo comando novamente para reiniciar a segunda instância da VM (o novo gateway ativo). Se forem pedidos dois reinícios seguidos, haverá um período ligeiramente superior em que ambas as instâncias da VM (ativa e no modo de espera) estão a ser reiniciadas. Isso fará com que um intervalo maior na conetividade da VPN, até 30 a 45 minutos para as VMs concluírem os reinícios.
 
 Depois de dois reinícios, se ainda ocorrerem problemas de conectividade em vários locais, abra um pedido de suporte do portal do Azure.
 

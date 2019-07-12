@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7c0a39ab09a52d61e51d297c5018eac6b00d7ad4
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60645335"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625173"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o servidor de cópia de segurança do Azure (MABS) da Microsoft no quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. Ele também fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -223,13 +223,6 @@ No exemplo a seguir, o *item do SharePoint recuperar* foi eliminado acidentalmen
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Neste momento, siga os passos de recuperação anteriormente no artigo para recuperar um banco de dados do SharePoint a partir do disco.
-
-## <a name="faqs"></a>FAQs
-P. Posso recuperar um item do SharePoint para a localização original se o SharePoint estiver configurado com o SQL AlwaysOn (com a proteção no disco)?<br>
-R: Sim, o item pode ser recuperado para o site do SharePoint original.
-
-P. Posso recuperar uma base de dados do SharePoint para a localização original se o SharePoint estiver configurado com o AlwaysOn de SQL?<br>
-R: Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, não é possível modificar a menos que o grupo de disponibilidade é removido. Como resultado, o MABS não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
 ## <a name="next-steps"></a>Próximos Passos
 

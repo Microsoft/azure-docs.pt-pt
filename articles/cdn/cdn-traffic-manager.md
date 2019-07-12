@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: f7de7fe1c677d54c0fa3e6d3ca4730ef1083bc81
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 276fe9352d0c4ca7ec525b88d65689b56c0ba027
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273269"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593334"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar ativação pós-falha em vários pontos finais da CDN do Azure com o Gestor de tráfego do Azure
 
@@ -95,7 +95,7 @@ Depois de configurar os perfis de CDN e o Gestor de tráfego, siga estes passos 
  
 Depois de concluir estes passos, seu serviço com vários CDNS com capacidades de ativação pós-falha é configurado com o Gestor de tráfego do Azure. Poderá acessar o teste de URLs do seu domínio personalizado. Para testar a funcionalidade, desative o ponto de final CDN primário e certifique-se de que o pedido corretamente será movido para o ponto de final CDN secundário. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Também pode configurar outros métodos de encaminhamento, tais como geográfica, para equilibrar a carga entre diferentes pontos finais de CDN. Para obter mais informações, consulte [configurar o método de encaminhamento de tráfego geográfico utilizando o Gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 

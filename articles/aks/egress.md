@@ -2,17 +2,17 @@
 title: Endereço IP estático para o tráfego de saída no Azure Kubernetes Service (AKS)
 description: Saiba como criar e utilizar um endereço IP público estático para o tráfego de saída num cluster do Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 6612d801804cdd1e092b50977230f24b378e64ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 094a696a12025dcfd575ce3f035b12b4a04aba10
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466431"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615572"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Utilizar um endereço IP público estático para o tráfego de saída no Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ Este artigo mostra-lhe como criar e utilizar um endereço IP público estático 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
+Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
@@ -34,7 +34,7 @@ Uma vez um serviço de Kubernetes do tipo `LoadBalancer` é criado, o agente de 
 
 ## <a name="create-a-static-public-ip"></a>Criar um IP público estático
 
-Quando cria um endereço IP público estático para utilização com o AKS, o recurso de endereço IP tem de ser criado no **nó** grupo de recursos. Obtenha o nome do grupo de recursos com o [show do az aks] [ az-aks-show] comando e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo seguinte obtém o grupo de recursos de nó para o nome de cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Quando cria um endereço IP público estático para utilização com o AKS, o recurso de endereço IP tem de ser criado no **nó** grupo de recursos. Obtenha o nome do grupo de recursos com o [show do az aks][az-aks-show] comando e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo seguinte obtém o grupo de recursos de nó para o nome de cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -42,7 +42,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Agora, crie um endereço IP público estático com o [criar ip público de rede de az] [ az-network-public-ip-create] comando. Especifique o nome de grupo de recursos de nó obteve no comando anterior e, em seguida, um nome para o IP cobrem recursos, como *myAKSPublicIP*:
+Agora, crie um endereço IP público estático com o [criar ip público de rede de az][az-network-public-ip-create] comando. Especifique o nome de grupo de recursos de nó obteve no comando anterior e, em seguida, um nome para o IP cobrem recursos, como *myAKSPublicIP*:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -65,7 +65,7 @@ O endereço IP é apresentado, conforme mostrado no seguinte exemplo condensado:
   }
 ```
 
-Pode obter mais tarde utilizando endereços IP públicos a [lista de public-ip de rede de az] [ az-network-public-ip-list] comando. Especifique o nome do grupo de recursos de nó e, em seguida, consultar para o *ipAddress* conforme mostrado no exemplo a seguir:
+Pode obter mais tarde utilizando endereços IP públicos a [lista de public-ip de rede de az][az-network-public-ip-list] comando. Especifique o nome do grupo de recursos de nó e, em seguida, consultar para o *ipAddress* conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 $ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -121,7 +121,7 @@ $ curl -s checkip.dyndns.org
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 40.121.183.52</body></html>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para evitar a manutenção de vários endereços IP públicos no balanceador de carga do Azure, pode usar um controlador de entrada. Controladores de entrada fornecem benefícios adicionais, tais como a terminação de SSL/TLS, o suporte para reescritas URI e a encriptação de SSL/TLS a montante. Para obter mais informações, consulte [criar um controlador de entrada básico no AKS][ingress-aks-cluster].
 

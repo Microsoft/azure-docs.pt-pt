@@ -4,7 +4,7 @@ description: Neste início rápido, vai aprender a utilizar o portal do Azure pa
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b3f972fadfa972b581474c1a61769564f81260af
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: fed118ee78e6a11f3492060a55ac9847bb5b6a88
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560468"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720036"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Criar uma máquina virtual do Windows no portal do Azure
 
@@ -97,7 +97,7 @@ No portal, selecione a VM e na descrição geral da VM, utilize o botão **Clica
 
 Quando já não forem necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Selecione o grupo de recursos para a máquina virtual, em seguida, selecione **eliminar**. Certifique-se o nome do grupo de recursos para concluir a eliminação de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 

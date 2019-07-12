@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/05/2019
-ms.openlocfilehash: 29fdb200075a5b5843944a7a890cc2f8ad61f1ee
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/11/2019
+ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543859"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840072"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Implementar um modelo com uma imagem personalizada do Docker
 
@@ -116,6 +116,9 @@ Os passos nestas instruções da secção criar uma imagem personalizada do Dock
     ```text
     FROM ubuntu:16.04
 
+    ARG CONDA_VERSION=4.5.12
+    ARG PYTHON_VERSION=3.6
+
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
 
@@ -124,12 +127,12 @@ Os passos nestas instruções da secção criar uma imagem personalizada do Dock
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
-    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
         /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
         rm ~/miniconda.sh && \
         /opt/miniconda/bin/conda clean -tipsy
 
-    RUN conda install -y python=3.6 && \
+    RUN conda install -y conda=${CONDA_VERSION} python=${PYTHON_VERSION} && \
         conda clean -aqy && \
         rm -rf /opt/miniconda/pkgs && \
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;

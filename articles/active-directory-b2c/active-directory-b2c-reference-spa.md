@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d415686e4d8a10043df59aa6bf58a5ed4be0149
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: a9eadabcedc9d5fd1baedb6cd893e6f7829c5ca8
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154022"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835740"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Página única início de sessão com o fluxo implícito de OAuth 2.0 no Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ O Azure AD B2C estende o fluxo implícito de OAuth 2.0 padrão a mais do que a a
 
 O fluxo de início de sessão implícito é parecido com a figura a seguir. Cada passo é descrito em detalhe posteriormente neste artigo.
 
-![OpenID Connect pistas de diagrama](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![Diagrama de estilo pista que mostra o fluxo implícito OpenID Connect](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Enviar pedidos de autenticação
 
@@ -263,5 +263,5 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > Que direciona o utilizador para o `end_session_endpoint` limpa alguns do Estado do utilizador único início de sessão com o Azure AD B2C. No entanto, ele não iniciar sessão do utilizador sem sessão de fornecedor de identidade social do utilizador. Se o utilizador selecionar o mesmo identificar o fornecedor durante um subsequente início de sessão, o utilizador é reautenticar, sem introduzir as respetivas credenciais. Se um usuário deseja terminar a sua aplicação do Azure AD B2C, isso não significa necessariamente desejam completamente terminar sessão sua conta do Facebook, por exemplo. No entanto, para contas locais, a sessão do utilizador será terminada corretamente.
-> 
+>
 

@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 94ba0040b1de7e1f03825f1cd2ef2a6536343d96
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271755"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592306"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>O que é o Azure Data Box Heavy? (pré-visualização)
+# <a name="what-is-azure-data-box-heavy"></a>O que é o Azure Data Box Heavy?
 
 Pesadas de caixa de dados do Azure permite-lhe enviar centenas de terabytes de dados para o Azure numa rápida, baixo custo e de forma fiável. Os dados são transferidos para o Azure ao enviar-lhe um dispositivo pesadas de caixa de dados com capacidade de armazenamento de 1 PB, preencher com os seus dados e enviar à Microsoft. O dispositivo tem uma rugged letras maiúsculas e minúsculas para proteger e proteger os seus dados durante o trânsito.
 
-Pesadas de caixa de dados está atualmente em pré-visualização. Inscreva-se para pedir para um dispositivo por meio do portal do Azure. Depois do dispositivo é recebido no seu datacenter, configurá-lo com a IU web local. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No Centro de dados do Azure, os seus dados são carregados para suas contas de armazenamento do Azure. Pode controlar todo o processo de ponto-a-ponto no portal do Azure.
+Depois do dispositivo é recebido no seu datacenter, configurá-lo com a IU web local. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No Centro de dados do Azure, os seus dados são carregados para suas contas de armazenamento do Azure. Pode controlar todo o processo de ponto-a-ponto no portal do Azure.
 
 
 > [!IMPORTANT]
-> - O Data Box Heavy está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução.
-> - Para pedir um dispositivo, inscreva-se no [Portal de pré-visualização](https://aka.ms/azuredatabox).
-> - Durante a pré-visualização, o Data Box Heavy pode ser enviado aos clientes nos EUA e na União Europeia. Para obter mais informações, aceda a [Disponibilidade de região](#region-availability).
+> - Para pedir um dispositivo, inscreva-se [portal do Azure](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -115,25 +114,14 @@ Para obter as informações mais atualizadas sobre a disponibilidade de região 
 
 ## <a name="sign-up"></a>Inscrever-se
 
-O Data Box Heavy está em pré-visualização e precisa de inscrever-se. Siga os passos seguintes para se inscrever para dados de caixa pesado:
+Siga os passos seguintes para se inscrever para dados de caixa pesado:
 
-1. Inicie sessão no Portal do Azure em: https://aka.ms/azuredatabox.
+1. Inicie sessão no Portal do Azure em: https://portal.azure.com.
 2. Clique em **+ criar um recurso** para criar um novo recurso. Procure o **Azure Data Box**. Selecione o serviço **Azure Data Box**.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Clique em **Criar**.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Escolha a subscrição que pretende utilizar para a pré-visualização do Data Box Heavy. Selecione a região onde pretende implementar o recurso Data Box Heavy. Na opção **Data Box Heavy**, clique em **Inscrever-se**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Escolha a subscrição que pretende utilizar para dados de caixa pesada. Selecione a região onde pretende implementar o recurso Data Box Heavy. Na opção **Data Box Heavy**, clique em **Inscrever-se**.
 5. Responder a perguntas sobre dados frequência de transferência de destino de período de tempo, residência país/região, o serviço do Azure para transferência de dados, largura de banda de rede e dados. Reveja a Privacidade e termos e selecione a caixa de verificação A Microsoft pode utilizar o seu endereço de e-mail para contactá-lo.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Assim que estiver inscrito e ativado para pré-visualização, é possível pedir uma pesada de caixa de dados.
+Assim que estiver inscrito no, é possível pedir uma pesada de caixa de dados.
 
     

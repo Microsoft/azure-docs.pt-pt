@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579971"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594167"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -155,7 +155,7 @@ Vamos abordar a estrutura básica do programa escrito.
 
 Agora que a estrutura básica do programa é escrita, criamos os métodos chamados pelo `Main` método.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 Antes, pode utilizar a biblioteca de gestão de CDN do Azure, é necessário autenticar o nosso principal de serviço e obter um token de autenticação.  Este método utiliza a ADAL para obter o token.
 
 ```csharp

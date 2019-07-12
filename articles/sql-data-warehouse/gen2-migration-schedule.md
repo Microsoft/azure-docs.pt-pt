@@ -3,19 +3,19 @@ title: Migrar o Azure SQL Data Warehouse existente para o ger2 | Documentos da M
 description: Instruções para migrar um armazém de dados existente para geração 2 e a agenda de migração por região.
 services: sql-data-warehouse
 author: mlee3gsd
-ms.author: anumjs
+ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 3141f3a1d6a9f09261dee4113276af72168e35e8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cef3036b01709847016d9523a5770febb8ff1134
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444698"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839662"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -39,13 +39,13 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | Leste do Canadá |\* |\* |
 | EUA Central |Disponível |1 de Junho de 2019 |
 | Leste da China |\* |\* |
-| Leste da China 2 |\* |Geração 2 apenas |
+| Leste da China 2 |Disponível |Geração 2 apenas |
 | China Norte |\* |\* |
 | Norte da China 2 |Disponível |Geração 2 apenas |
 | Ásia Oriental |Disponível |1 de Junho de 2019 |
 | East US |Disponível |1 de Junho de 2019 |
 | EUA Leste 2 |Disponível |1 de Junho de 2019 |
-| França Central |\* |1 de Junho de 2019 |
+| França Central |Disponível |1 de Junho de 2019 |
 | Alemanha Central |\* |\* |
 | Alemanha Oeste-Central |1 de Setembro de 2019|2 de Janeiro de 2020 |
 | Índia Central |Disponível |1 de Junho de 2019 |
@@ -56,10 +56,12 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | Coreia do Sul |Disponível |1 de Maio de 2019 |
 | EUA Centro-Norte |Disponível |1 de Maio de 2019 |
 | Europa do Norte |Disponível |1 de Junho de 2019 |
+| África do Sul, Norte |12 de Julho de 2019 |Geração 2 apenas |
 | EUA Centro-Sul |Disponível |1 de Junho de 2019 |
 | Sudeste Asiático |Disponível |1 de Junho de 2019 |
-| Reino Unido Sul |Disponível, 2019 |1 de Junho de 2019 |
-| Reino Unido Oeste |\*|\* |
+| Norte dos EAU |20 de Julho de 2019 |Geração 2 apenas |
+| Reino Unido Sul |Disponível |1 de Junho de 2019 |
+| Reino Unido Oeste |Disponível |Geração 2 apenas |
 | EUA Centro-Oeste |2 de Setembro de 2019 |2 de Janeiro de 2020|
 | Europa Ocidental |Disponível |1 de Junho de 2019 |
 | EUA Oeste |Disponível |1 de Junho de 2019 |

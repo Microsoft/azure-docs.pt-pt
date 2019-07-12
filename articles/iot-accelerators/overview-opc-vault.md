@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 99dfcaeb1ef5b52e6827f1b3ac65d6201557a8fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 40a9016ac7a10175b51f0fb6f072dd089bde3a51
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887763"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606284"
 ---
 # <a name="what-is-opc-vault"></a>O que é o OPC Cofre?
 

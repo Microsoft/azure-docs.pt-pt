@@ -2,17 +2,17 @@
 title: Atualizar um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como atualizar um cluster do Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 2cadd4b33cb52307599ce1e83eee8370ef9850fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: dd88b5a044fe495da374178be8774f45bdd30f61
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66692772"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614051"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Atualizar um cluster do Azure Kubernetes Service (AKS)
 
@@ -22,11 +22,11 @@ Para o AKS clusters que utilizam vários conjuntos de nós ou nós do Windows Se
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer a execução da versão 2.0.65 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este artigo requer a execução da versão 2.0.65 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Verifique a existência de atualizações de cluster do AKS disponíveis
 
-Para verificar quais versões do Kubernetes estão disponíveis para o seu cluster, utilize o [az aks get-atualizações] [ az-aks-get-upgrades] comando. O exemplo seguinte verifica a existência de atualizações disponíveis para o cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*:
+Para verificar quais versões do Kubernetes estão disponíveis para o seu cluster, utilize o [az aks get-atualizações][az-aks-get-upgrades] comando. O exemplo seguinte verifica a existência de atualizações disponíveis para o cluster com o nome *myAKSCluster* no grupo de recursos com o nome *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
@@ -47,7 +47,7 @@ default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
 
 ## <a name="upgrade-an-aks-cluster"></a>Atualizar um cluster do AKS
 
-Com uma lista de versões disponíveis para o seu cluster do AKS, utilize o [az aks upgrade] [ az-aks-upgrade] comando para atualizar. Durante o processo de atualização, o AKS adiciona um novo nó ao cluster que executa a versão especificada do Kubernetes, em seguida, cuidadosamente [cordon e avança] [ kubernetes-drain] um de nós do antigos para minimizar a interrupção para em execução aplicações. Quando o novo nó é confirmado como em execução pods de aplicação, o nó antigo é eliminado. O processo se repete até que todos os nós do cluster foram atualizados.
+Com uma lista de versões disponíveis para o seu cluster do AKS, utilize o [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] um de nós do antigos para minimizar a interrupção de aplicações em execução. Quando o novo nó é confirmado como em execução pods de aplicação, o nó antigo é eliminado. O processo se repete até que todos os nós do cluster foram atualizados.
 
 O exemplo seguinte atualiza um cluster para a versão *1.12.8*:
 
@@ -57,7 +57,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Demora alguns minutos a atualizar o cluster, dependendo da quantidade de nós que tem.
 
-Para confirmar que a atualização foi concluída com êxito, utilize o [show do az aks] [ az-aks-show] comando:
+Para confirmar que a atualização foi concluída com êxito, utilize o [show do az aks][az-aks-show] comando:
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table

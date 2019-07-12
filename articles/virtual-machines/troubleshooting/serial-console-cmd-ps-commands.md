@@ -4,7 +4,7 @@ description: Como utilizar comandos CMD e do PowerShell no SAC em VMs do Windows
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306888"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710614"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows - CMD e o PowerShell
 

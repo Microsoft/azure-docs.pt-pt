@@ -2,17 +2,17 @@
 title: Práticas recomendadas do operador – recursos de agendador básica dos serviços de Kubernetes no Azure (AKS)
 description: Conheça as práticas recomendadas de operador de cluster para a utilização de recursos do agendador básica, tais como quotas de recursos e pod orçamentos de interrupção no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: f6e370442c9c359a38025762fb90269119ec0ea6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074131"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614627"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador básica no Azure Kubernetes Service (AKS)
 
@@ -118,19 +118,19 @@ kubectl apply -f nginx-pdb.yaml
 
 Trabalhar com os seus desenvolvedores de aplicativos e os proprietários para compreender suas necessidades e aplicar os orçamentos de interrupção de pod apropriado.
 
-Para obter mais informações sobre como utilizar os orçamentos de interrupção de pod, consulte [especifiquem um orçamento de interrupção para seu aplicativo][k8s-pdbs].
+Para obter mais informações sobre como utilizar os orçamentos de interrupção de pod, consulte [especifiquem um orçamento de interrupção para a sua aplicação][k8s-pdbs].
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Verificar regularmente a existência de problemas de cluster com o Assistente do kube
 
 **Melhores diretrizes de práticas** -regularmente executam a versão mais recente do `kube-advisor` ferramenta de código-fonte aberto para detetar problemas no seu cluster. Se aplicar quotas de recursos num cluster do AKS existente, execute `kube-advisor` primeiro para encontrar os pods que não têm pedidos de recursos e os limites definidos.
 
-O [kube advisor] [ kube-advisor] ferramenta é um projeto de código-fonte aberto associado do AKS que verifica a existência de um cluster do Kubernetes, relatórios de problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
+O [kube advisor][kube-advisor] ferramenta é um projeto de código-fonte aberto associado do AKS que verifica a existência de um cluster do Kubernetes, relatórios de problemas que encontrar. É uma verificação útil identificar os pods que não têm limites e pedidos de recursos no local.
 
-A ferramenta de aconselhamento do kube pode reportar pedido de recurso e limites em falta em aplicativos de PodSpecs para Windows, bem como as aplicações do Linux, mas a própria ferramenta kube advisor deverá ser programada num pod do Linux. Pode agendar um pod para serem executadas num conjunto de nós com um através do sistema operacional específico uma [Seletor de nó] [ k8s-node-selector] na configuração o pod.
+A ferramenta de aconselhamento do kube pode reportar pedido de recurso e limites em falta em aplicativos de PodSpecs para Windows, bem como as aplicações do Linux, mas a própria ferramenta kube advisor deverá ser programada num pod do Linux. Pode agendar um pod para serem executadas num conjunto de nós com um através do sistema operacional específico uma [Seletor de nó][k8s-node-selector] na configuração o pod.
 
 Num cluster do AKS que hospeda várias equipes de desenvolvimento e aplicações, pode ser difícil de controlar os pods sem esses recursos solicitam e nos limites do conjunto. Como melhor prática, executar regularmente `kube-advisor` nos seus clusters do AKS, especialmente se não atribuir quotas de recursos para espaços de nomes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo concentra-se nas funcionalidades básicas do agendador de Kubernetes. Para obter mais informações sobre as operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 

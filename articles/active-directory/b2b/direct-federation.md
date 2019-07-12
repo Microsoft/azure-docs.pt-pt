@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4dadc68e78fbaa979751d5bcd04ef481c3ab886
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 1bc3c1325e8379082134e2cbec1586f7d338ee61
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544351"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797928"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com o AD FS e fornecedores de terceiros para os utilizadores convidados (pré-visualização)
 |     |
@@ -62,7 +62,7 @@ Por exemplo, quando configurar a Federação direta para **fabrikam.com**, o URL
 ### <a name="signing-certificate-renewal"></a>Renovação do certificado de assinatura
 Se especificar o URL de metadados nas definições do fornecedor de identidade, o Azure AD serão renovadas automaticamente o certificado de assinatura quando este expirar. No entanto, se o certificado é girado por qualquer motivo, antes da hora de expiração, ou se não fornecer um URL de metadados, do Azure AD que não poderá renová-la. Neste caso, terá de atualizar manualmente o certificado de assinatura.
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
-### <a name="can-i-set-up-direct-federation-with-an-unmanaged-email-verified-tenant"></a>Posso configurar a Federação direta com um inquilino não gerido (verificado por e-mail)? 
+### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Posso configurar a Federação direta com um domínio para o qual um inquilino não gerido (verificado por e-mail) existe? 
 Sim. Se o domínio ainda não foi verificado e o inquilino não tenha sofrido um [obtenção do controlo administrativo](../users-groups-roles/domains-admin-takeover.md), pode configurar a Federação direta. Os inquilinos não geridos ou verificado por e-mail, são criados quando um utilizador redeems um convite de B2B ou executa uma inscrição Self-Service do Azure AD através de um domínio que não existe atualmente. Pode configurar a Federação direta com estes domínios. Se tentar configurar a Federação direta com um domínio verificado de DNS, no portal do Azure ou através do PowerShell, verá um erro.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Se o Federação direta e a autenticação de código de acesso único por e-mail estiverem ativadas, o qual o método tem precedência?
 Quando o Federação direta é estabelecida com uma organização de parceiro, ela terá precedência sobre a autenticação de código de acesso único de e-mail para novos utilizadores convidados dessa organização. Se um utilizador convidado resgatado um convite através da autenticação de código de acesso único antes de configurar o Federação direta, eles irá continuar a utilizar a autenticação de código de acesso único. 
@@ -87,7 +87,7 @@ As tabelas seguintes mostram os requisitos para atributos específicos e as afir
 
 Atributos necessários para a resposta SAML 2.0 do IdP:
 
-|Atributo  |Value  |
+|Atributo  |Valor  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Audiência     |`urn:federation:MicrosoftOnline`         |

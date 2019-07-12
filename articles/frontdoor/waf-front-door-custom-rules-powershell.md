@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: aac871e71ca0dd30a32e74dd92e417fc95eaa5e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff8330ab8aec7f0e9aa92409ce1eafd5be5ceeaf
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241329"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605761"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurar uma política de firewall de aplicações web com o Azure PowerShell
 Política de firewall (WAF) de aplicações web do Azure define inspeções é necessárias quando um pedido chega à porta de entrada.
@@ -79,7 +79,7 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 O exemplo seguinte cria um gerido regra conjunto predefinidos com o Azure PowerShell:
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## <a name="configure-a-security-policy"></a>Configurar uma política de segurança
 
@@ -106,7 +106,7 @@ O exemplo abaixo utiliza o nome do grupo de recursos *myResourceGroupFD1* com a 
 > [!NOTE]
 > Só precisa definir *WebApplicationFirewallPolicyLink* propriedade uma vez para ligar uma política de segurança a uma porta de entrada front-end. Atualizações à política subsequentes são automaticamente aplicadas no front-end.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [porta de entrada](front-door-overview.md) 
 - Saiba mais sobre [WAF para a porta de entrada](waf-overview.md)

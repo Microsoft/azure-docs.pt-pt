@@ -4,15 +4,15 @@ description: Como resolver problemas ao configurar uma sessão de inquilino e an
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928126"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786713"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
 
@@ -284,6 +284,18 @@ Se o sistema operativo Microsoft Windows 10, prossiga com as instruções abaixo
     ```
 
 16. Quando os cmdlets são feitos em execução, reinicie a VM com a pilha de lado a lado com funcionamento incorreto.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Modelo de licenciamento remoto não está configurado
+
+Se iniciar sessão sessão multi do Windows 10 Enterprise usando uma conta de administrador, poderá receber uma notificação que diz "modo de licenciamento de ambiente de trabalho remoto não está configurado, os serviços de ambiente de trabalho remoto deixa de funcionar em X dias. No servidor de Mediador de ligações, utilize o Gestor de servidor para especificar o modo de licenciamento de ambiente de trabalho remoto." Se vir esta mensagem, que significa que terá de configurar manualmente o modo de licenciamento **por utilizador**.
+
+Para configurar manualmente o modo de licenciamento:  
+
+1. Aceda ao seu **menu Iniciar** caixa de pesquisa, em seguida, localizar e abrir **gpedit. msc** para acessar o editor de diretiva de grupo local. 
+2. Aceda a **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Os serviços de ambiente de trabalho remoto** > **anfitrião de sessões de ambiente de trabalho remoto** > **licenciamento**. 
+3. Selecione **defina o modo de licenciamento de ambiente de trabalho remoto** e altere-o para **por utilizador**.
+
+Estamos atualmente analisando os problemas de tempo limite de notificação e o período de tolerância e plano para resolvê-los numa atualização futura. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,7 +7,7 @@ author: senthuransivananthan
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cbde4c7fd568e6d9ff9a0d90332da96926e08077
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922396"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593138"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início rápido: Criar um perfil de CDN do Azure e o ponto de extremidade usando o modelo do Resource Manager
 
@@ -45,7 +45,7 @@ Crie o grupo de recursos na localização que selecionou. Este exemplo mostra a 
 az group create --name cdn --location eastus
 ```
 
-![Novo Grupo de Recursos](./media/create-profile-resource-manager-template/cdn-create-resource-group.png)
+![Novo grupo de recursos](./media/create-profile-resource-manager-template/cdn-create-resource-group.png)
 
 ## <a name="create-the-resource-manager-template"></a>Criar o modelo do Resource Manager
 
@@ -220,7 +220,7 @@ A eliminar o grupo de recursos removerá automaticamente todos os recursos que f
 az group delete --name cdn
 ```
 
-![Eliminar Grupo de Recursos](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
+![Eliminar grupo de recursos](./media/create-profile-resource-manager-template/cdn-delete-resource-group.png)
 
 ## <a name="references"></a>Referências
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486856"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839356"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -35,7 +35,7 @@ Fábrica de dados permite-lhe criar fluxos de trabalho condicionados por dados p
 Para obter mais informações, consulte [descrição geral e conceitos chave](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Onde posso encontrar os detalhes dos preços do Azure Data Factory?
-Ver [página de detalhes de preços de fábrica de dados] [ adf-pricing-details] para os detalhes de preços do Azure Data Factory.  
+Ver [página de detalhes de preços de fábrica de dados][adf-pricing-details] para os detalhes de preços do Azure Data Factory.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Como posso começar a utilizar com o Azure Data Factory?
 * Para obter uma descrição geral do Azure Data Factory, veja [introdução ao Azure Data Factory](data-factory-introduction.md).
@@ -51,11 +51,10 @@ Ver **limites do Azure Data Factory** secção a [subscrição do Azure e limite
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>O que é a experiência de criação/programador com o serviço Azure Data Factory?
 Pode autor/criar fábricas de dados através de uma das ferramentas/SDKs seguintes:
 
-* **Portal do Azure** painéis do Data Factory no portal do Azure fornecem a interface do usuário avançada para a criação de serviços de ad ligado de fábricas de dados. O **Editor do Data Factory**, que também faz parte do portal, pode facilmente criar serviços ligados, tabelas, conjuntos de dados e pipelines com a especificação de definições de JSON para esses artefactos. Ver [criar seu primeiro pipeline de dados com o portal do Azure](data-factory-build-your-first-pipeline-using-editor.md) para um exemplo de como utilizar o portal/editor para criar e implementar uma fábrica de dados.
 * **Visual Studio** pode utilizar o Visual Studio para criar uma fábrica de dados do Azure. Ver [criar seu primeiro pipeline de dados com o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes.
-* **O Azure PowerShell** veja [criar e monitor do Azure Data Factory com o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para um tutorial/passo a passo para criar uma fábrica de dados com o PowerShell. Ver [referência de Cmdlet do Data Factory] [ adf-powershell-reference] conteúdo na biblioteca MSDN para obter uma documentação completa de cmdlets do Data Factory.
-* **Biblioteca de classes .NET** pode criar fábricas de dados programaticamente ao utilizar o SDK .NET do Data Factory. Ver [criar, monitorizar e gerir fábricas de dados com o .NET SDK](data-factory-create-data-factories-programmatically.md) para obter instruções sobre a criação de uma fábrica de dados com o .NET SDK. Ver [dados de referência da biblioteca de classe de fábrica] [ msdn-class-library-reference] para obter uma documentação completa do SDK .NET do Data Factory.
-* **REST API** também pode utilizar a API REST exposta pelo serviço do Azure Data Factory para criar e implementar as fábricas de dados. Ver [referência de API de REST do Data Factory] [ msdn-rest-api-reference] para uma documentação abrangente de API de REST do Data Factory.
+* **O Azure PowerShell** veja [criar e monitor do Azure Data Factory com o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para um tutorial/passo a passo para criar uma fábrica de dados com o PowerShell. Ver [referência de Cmdlet do Data Factory][adf-powershell-reference] conteúdo na biblioteca MSDN para obter uma documentação completa de cmdlets do Data Factory.
+* **Biblioteca de classes .NET** pode criar fábricas de dados programaticamente ao utilizar o SDK .NET do Data Factory. Ver [criar, monitorizar e gerir fábricas de dados com o .NET SDK](data-factory-create-data-factories-programmatically.md) para obter instruções sobre a criação de uma fábrica de dados com o .NET SDK. Ver [referência de biblioteca de classe do Data Factory][msdn-class-library-reference] para obter uma documentação completa do SDK .NET do Data Factory.
+* **REST API** também pode utilizar a API REST exposta pelo serviço do Azure Data Factory para criar e implementar as fábricas de dados. Ver [referência de API de REST do Data Factory][msdn-rest-api-reference] para uma documentação abrangente de API de REST do Data Factory.
 * **Modelo Azure Resource Manager** consulte [Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) detalhes fo.
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear uma fábrica de dados?
@@ -178,7 +177,7 @@ Pode voltar a executar um setor de uma das seguintes formas:
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+  Ver [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo demorou a processar um setor?
 Utilize o Explorador de janelas de atividade em monitorizar e gerir aplicações para saber quanto tempo demorou a processar um setor de dados. Ver [Explorador de janelas de atividade](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.

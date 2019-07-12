@@ -4,7 +4,7 @@ description: Como configurar controladores de NVIDIA GPU para VMs de série N qu
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6c8bdb27e9e976a7a490c2a824e994242378641
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479102"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671185"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar controladores NVIDIA GPU em VMs de série N que executem o Linux
 
@@ -346,6 +346,6 @@ Em seguida, crie uma entrada para o seu script de atualização no `/etc/rc.d/rc
 
 * Pode definir a utilizar o modo de persistência `nvidia-smi` , de modo a saída do comando é mais rápida quando precisar de cartões de consulta. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Tenha em atenção que se a VM é reiniciada, a definição modo desaparece. Pode sempre criar um script a definição de modo a executar na inicialização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para capturar uma imagem de VM do Linux com seus controladores NVIDIA instalados, consulte [como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

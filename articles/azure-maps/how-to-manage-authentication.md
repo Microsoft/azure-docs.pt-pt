@@ -3,17 +3,17 @@ title: Gerir a autenticação no Azure Maps | Documentos da Microsoft
 description: Pode utilizar o portal do Azure para gerir a autenticação no Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952560"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837822"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação no Azure Maps
 
@@ -59,7 +59,7 @@ Depois de criar uma conta do Azure Maps, tem de estabelecer uma ligação entre 
 
 ## <a name="grant-rbac-to-azure-maps"></a>RBAC de concessão para o Azure Maps
 
-Depois de associar uma conta do Azure Maps inquilino do Azure AD, pode conceder controlo de acesso ao atribuir um utilizador ou aplicação para uma ou mais funções de controlo de acesso do Azure Maps.
+Depois de associar uma conta do Azure Maps inquilino do Azure AD, pode conceder controlo de acesso ao atribuir um utilizador, grupo ou aplicação para uma ou mais funções de controlo de acesso do Azure Maps.
 
 1. Aceda a **controlo de acesso (IAM)** , selecione **atribuições de funções**e, em seguida, selecione **adicionar atribuição de função**.
 
@@ -96,7 +96,7 @@ Depois de registar a sua aplicação e associou-o com o Azure Maps, pode solicit
 Para obter mais informações sobre o pedido de tokens de acesso do Azure AD para utilizadores e os principais de serviço, consulte [cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a autenticação do Azure AD e o SDK de Web de mapas do Azure, veja [do Azure AD e o SDK Web do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
 

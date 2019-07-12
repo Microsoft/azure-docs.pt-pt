@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c4f961dda273c7f3885159818dabf228abced42
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146904"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839472"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para tabelas do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -39,7 +39,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de/para um 
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
 
@@ -131,7 +131,7 @@ O DivisionID está especificada como a chave de partição.
 }
 ```
 ## <a name="json-examples"></a>Exemplos JSON
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para armazenamento de tabelas do Azure e base de dados do Azure Blob. No entanto, os dados podem ser copiados **diretamente** Coletores de partir de qualquer uma das origens qualquer suportadas. Para obter mais informações, consulte a secção "arquivos de dados suportados e formatos" em [mover dados com a atividade de cópia](data-factory-data-movement-activities.md).
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de e para armazenamento de tabelas do Azure e base de dados do Azure Blob. No entanto, os dados podem ser copiados **diretamente** Coletores de partir de qualquer uma das origens qualquer suportadas. Para obter mais informações, consulte a secção "arquivos de dados suportados e formatos" em [mover dados com a atividade de cópia](data-factory-data-movement-activities.md).
 
 ## <a name="example-copy-data-from-azure-table-to-azure-blob"></a>Exemplo: Copiar dados de tabelas do Azure para BLOBs do Azure
 O exemplo a seguir mostra:
@@ -484,7 +484,7 @@ Ao mover dados para e a partir de tabelas do Azure, o seguinte procedimento [map
 | Edm.Guid |Guid |Um identificador exclusivo global de 128 bits. |
 | Edm.Int32 |Int32 |Um inteiro de 32 bits. |
 | Edm.Int64 |Int64 |Um inteiro de 64 bits. |
-| Edm.String |String |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ser até 64 KB. |
+| Edm.String |Cadeia |Um valor codificado em UTF-16. Valores de cadeia de caracteres podem ser até 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Exemplo de conversão de tipo
 O exemplo a seguir é para copiar dados de um Blob do Azure para tabelas do Azure com conversões de tipo.

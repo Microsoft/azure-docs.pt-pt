@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dabaa06e224c6498c0080c4546c04f40e3919bb6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: bb6cd43c77c31874115250d13f8d4067b3db7b36
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448539"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67804972"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -62,13 +62,14 @@ Um dispositivo Azure IoT Edge:
 
 - Armazenamento de Blobs do Azure no módulo do IoT Edge suporta as seguintes configurações de dispositivo:
 
-  | Sistema operativo | Arquitetura |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server de 2019 | AMD64 |
-  | Raspbian stretch | ARM32 |
+  | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian stretch | Não | Sim | Não |  
+  | Ubuntu Server 16.04 | Sim | Não | Sim |
+  | Ubuntu Server 18.04 | Sim | Não | Sim |
+  | Windows 10 IoT Enterprise, build 17763 | Sim | Não | Não |
+  | Windows Server 2019, build 17763 | Sim | Não | Não |
+  
 
 Recursos da cloud:
 

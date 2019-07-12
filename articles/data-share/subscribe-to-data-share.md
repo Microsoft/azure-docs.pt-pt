@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 2dc4994d88fc03c23a6d5722d6018c926e7d6b8c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788165"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838423"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Tutorial: Aceitar e receber dados através da pré-visualização do compartilhamento de dados do Azure
 
@@ -31,6 +31,8 @@ Certifique-se de que todos os pré-requisitos estão concluídos antes de aceita
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Uma conta de armazenamento do Azure: Se ainda não tiver uma, pode criar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Um convite de partilha de dados: Um convite do Microsoft Azure com um requerente intitulado "convite de partilha de dados do Azure partir **<yourdataprovider@domain.com>** ".
+* Permissão para adicionar a atribuição de função para a conta de armazenamento, o que está presente no *Microsoft.Authorization/role atribuições/gravação* permissão. Esta permissão existe na função de proprietário. 
+* Registo do fornecedor de recursos para Microsoft.DataShare. Consulte a [fornecedores de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentação para obter informações sobre como fazer isso. 
 
 > [!IMPORTANT]
 > Para aceitar e receber uma partilha de dados do Azure, primeiro tem de registar o fornecedor de recursos de Microsoft.DataShare e tem de ser um proprietário da conta de armazenamento que aceitar dados. Siga as instruções documentadas na [resolver problemas de pré-visualização do Azure dados partilhar](data-share-troubleshoot.md) para registar o fornecedor de recursos de partilha de dados, bem como adicionar a próprio como proprietário da conta de armazenamento. 

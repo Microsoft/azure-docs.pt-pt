@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5d473cffeefe29febc4f0dfb2a620d917bf238d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540861"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672115"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de capacidades num pipeline de melhoria
 
-Pesquisa cognitiva extrai e otimiza os dados para torná-lo pesquisáveis no Azure Search. Chamamos passos de extração e enriquecimento *capacidades cognitivas*, combinados num *conjunto de capacidades* referenciado durante a indexação. Pode utilizar um conjunto de capacidades [habilidades internas](cognitive-search-predefined-skills.md) ou competências personalizadas (consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+Pesquisa cognitiva extrai e otimiza os dados para torná-lo pesquisáveis no Azure Search. Chamamos passos de extração e enriquecimento *capacidades cognitivas*, combinados num *conjunto de capacidades* referenciado durante a indexação. Pode utilizar um conjunto de capacidades [habilidades internas](cognitive-search-predefined-skills.md) ou competências personalizadas (consulte [exemplo: Criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md) para obter mais informações).
 
 Neste artigo, saiba como criar um pipeline de melhoria para as competências que pretende utilizar. Um conjunto de capacidades está ligado a um Azure Search [indexador](search-indexer-overview.md). Uma parte do design de pipeline, abordada neste artigo, é construir o conjunto de capacidades em si. 
 

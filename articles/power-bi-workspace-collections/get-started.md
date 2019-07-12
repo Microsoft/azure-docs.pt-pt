@@ -2,18 +2,18 @@
 title: Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
 description: As Coleções de Áreas de Trabalho do Power BI são um serviço do Azure que permite aos programadores de aplicações adicionar relatórios de Power BI interativos às suas próprias aplicações.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3381166e40f6d9586306e351b5f3ea77cc2ad8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685173"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669129"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
 

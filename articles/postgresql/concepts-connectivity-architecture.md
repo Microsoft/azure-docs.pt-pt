@@ -3,15 +3,15 @@ title: Arquitetura de conectividade na base de dados do Azure para PostgreSQL
 description: Descreve a arquitetura de conectividade da base de dados do Azure para o servidor PostgreSQL.
 author: kummanish
 ms.author: manishku
-ms.service: PostgreSQL
+ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 73c23c471cb12ca3a3a7df4380779b464b8d86d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d91458c555c819c4bcf97215a712719ebc5eb71
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735740"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588946"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na base de dados do Azure para PostgreSQL
 Este artigo explica a base de dados do Azure para PostgreSQL arquitetura de conectividade, bem como a forma como o tráfego é direcionado para a sua base de dados do Azure para PostgreSQL a instância de base de dados de clientes dentro e fora do Azure.

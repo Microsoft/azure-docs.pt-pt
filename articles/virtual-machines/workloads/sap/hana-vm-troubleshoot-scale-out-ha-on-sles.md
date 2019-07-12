@@ -4,7 +4,7 @@ description: Guia para verificar e resolver problemas de uma configuração de e
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477098"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707246"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Certifique-se e resolver problemas de configuração de elevada disponibilidade de escalamento horizontal de SAP HANA no SLES 12 SP3 
 
@@ -42,7 +42,7 @@ Este artigo ajuda-o a verificar a configuração de cluster Pacemaker para SAP H
 ## <a name="important-notes"></a>Notas importantes
 
 Todos os testes para Escalamento SAP HANA, em combinação com o SAP HANA System Replication e Pacemaker foi feito com o SAP HANA 2.0 apenas. A versão do sistema operativo foi SUSE Linux Enterprise Server 12 SP3 para aplicações SAP. O pacote RPM mais recente, SAPHanaSR aumento horizontal do SUSE, foi utilizado para configurar o cluster Pacemaker.
-SUSE publicado um [detalhadas descrição dessa configuração de desempenho optimizado][sles-hana-scale-out-ha-paper].
+SUSE publicado um [detalhadas descrição dessa configuração otimizado para desempenho][sles-hana-scale-out-ha-paper].
 
 Para tipos de máquinas virtuais que são suportados para SAP HANA horizontal, consulte a [diretório de IaaS com certificação SAP HANA][sap-hana-iaas-list].
 
@@ -94,7 +94,7 @@ Ao seguir as recomendações de rede do SAP HANA, três sub-redes foram criadas 
 
 Para obter informações sobre a configuração do SAP HANA relacionada ao uso de várias redes, consulte [global.ini de SAP HANA](#sap-hana-globalini).
 
-Todas as VMS do cluster tem três vNICs que corresponde ao número de sub-redes. [Como criar uma máquina virtual Linux no Azure com rede várias placas de interface] [ azure-linux-multiple-nics] descreve um potencial problema de encaminhamento no Azure ao implementar uma VM do Linux. Neste artigo de encaminhamento específico apenas se aplica a utilização de múltiplos vNICs. O problema foi resolvido pela SUSE por predefinição no SLES 12 SP3. Para obter mais informações, consulte [Multi-NIC com o cloud-netconfig no Azure e no EC2][suse-cloud-netconfig].
+Todas as VMS do cluster tem três vNICs que corresponde ao número de sub-redes. [Como criar uma máquina virtual Linux no Azure com rede várias placas de interface][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
 
 Para verificar que o SAP HANA está corretamente configurada para utilizar várias redes, execute os seguintes comandos. Verifique primeiro no nível do SO que todos os três endereços IP internos para todos os três sub-redes estão ativos. Se tiver definido as sub-redes com diferentes intervalos de endereços IP, terá de se adaptar os comandos:
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Manutenção planeada 
 
 Existem diferentes casos de utilização que diz respeito à manutenção planeada. Uma questão é que se trata-se apenas a manutenção de infraestrutura, como alterações no nível do SO e de configuração do disco ou de uma atualização do HANA.
-Pode encontrar informações adicionais em documentos do SUSE, como [para período de inatividade] [ sles-zero-downtime-paper] ou [cenário de otimização de desempenho do SAP HANA SR] [ sles-12-for-sap]. Esses documentos também incluem exemplos que mostram como migrar manualmente um site primário.
+Pode encontrar informações adicionais em documentos do SUSE, como [para período de inatividade][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Esses documentos também incluem exemplos que mostram como migrar manualmente um site primário.
 
 Testes internos intensa foi feito para verificar o caso de utilização de manutenção de infraestrutura. Para evitar quaisquer problemas relacionados com a migração primária, decidimos que sempre migrar um site primário antes de colocar um cluster no modo de manutenção. Dessa forma, não é necessário para que o cluster esquecer a situação anterior: do lado que foi principal e que foi secundário.
 

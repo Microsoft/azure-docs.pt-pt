@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926137"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621941"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de funcionamento em rede de contentor do Service Fabric
 
@@ -202,12 +202,12 @@ Quando um serviço de contentor é reiniciado ou se move para outro nó no clust
 
    |Definição |Value | |
    | --- | --- | --- |
-   |Prioridade |2000 | |
-   |Name |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |Priority |2000 | |
+   |Nome |Custom_Dns  | |
+   |Source |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
-   |Ação | Permitir  | |
+   |Action | Allow  | |
    | | |
 
 4. Especificar o modo de funcionamento em rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. **Abra** resultados de modo no serviço de obter um endereço IP dedicado de rede. Se não for especificado um modo, o serviço assume a predefinição **nat** modo. No exemplo a seguir manifesto, o `NodeContainerServicePackage1` e `NodeContainerServicePackage2` services podem cada escuta na mesma porta (ambos os serviços estão à escuta na `Endpoint1`). Quando abrir o modo de funcionamento em rede é especificado, `PortBinding` não não possível especificar configurações.

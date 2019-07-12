@@ -14,21 +14,20 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164244"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836707"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
@@ -124,8 +123,8 @@ Com o serviço ligado do HDInsight a pedido, o cluster do HDInsight é criado au
 
     Propriedade | Descrição
     -------- | ----------- 
-    ClusterSize | Especifica o tamanho do cluster HDInsight Hadoop.
-    TimeToLive | Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado.
+    clusterSize | Especifica o tamanho do cluster HDInsight Hadoop.
+    timeToLive | Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado.
     linkedServiceName | Especifica a conta de armazenamento que é utilizada para armazenar os registos que são gerados pelo cluster do HDInsight Hadoop. 
 
     > [!IMPORTANT]
@@ -173,13 +172,13 @@ Neste passo, irá criar conjuntos de dados para representar os dados de entrada 
 
     Propriedade | Descrição |
     -------- | ----------- |
-    tipo |O tipo de propriedade é definido para **AzureBlob**, uma vez que os dados estão contidos no Armazenamento de Blobs do Azure.
+    type |O tipo de propriedade é definido para **AzureBlob**, uma vez que os dados estão contidos no Armazenamento de Blobs do Azure.
     linkedServiceName | Refere-se ao AzureStorageLinkedService1 que criou anteriormente.
     fileName |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste caso, apenas o input.log é processado.
-    tipo | Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
+    type | Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
     columnDelimiter | As colunas nos ficheiros de registo são delimitadas por vírgula (`,`)
     frequência/intervalo | A frequência definida para o Mês, sendo o intervalo 1, o que significa que os setores de entrada estão disponíveis mensalmente.
-    externo | Esta propriedade é definida como verdadeira se os dados de entrada para a atividade não forem gerados pelo pipeline. Esta propriedade só é especificada em conjuntos de dados de entrada. Para o conjunto de dados de entrada da primeira atividade, defina-a sempre como verdadeira.
+    external | Esta propriedade é definida como verdadeira se os dados de entrada para a atividade não forem gerados pelo pipeline. Esta propriedade só é especificada em conjuntos de dados de entrada. Para o conjunto de dados de entrada da primeira atividade, defina-a sempre como verdadeira.
 4. Guarde o ficheiro **InputDataset.json**.
 
 #### <a name="create-output-dataset"></a>Criar conjunto de dados de saída

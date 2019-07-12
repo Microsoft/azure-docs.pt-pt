@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137073"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720022"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
 
@@ -30,7 +30,7 @@ Este artigo tem respostas a perguntas mais frequentes (FAQ) sobre problemas de c
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Existem limitações que deve ter conhecimento se eu quiser mover os recursos de serviço de aplicações?
 
-Se pretender mover os recursos de serviço de aplicações para um novo grupo de recursos ou subscrição, existem algumas limitações a ter em consideração. Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Se pretender mover os recursos de serviço de aplicações para um novo grupo de recursos ou subscrição, existem algumas limitações a ter em consideração. Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como posso utilizar um nome de domínio personalizado para a minha aplicação web?
 
@@ -56,11 +56,11 @@ Para saber como comprar e configurar um certificado SSL para a sua aplicação w
 
 Atualmente, o Azure Application Insights não suporta a operação de movimentação. Se o seu grupo de recursos original inclui um recurso do Application Insights, não é possível mover esse recurso. Se incluir o recurso do Application Insights ao tentar mover uma aplicação de serviço de aplicações, toda a mover a falha da operação. No entanto, o Application Insights e o plano de serviço de aplicações não é necessário estar no mesmo grupo de recursos que a aplicação para a aplicação a funcionar corretamente.
 
-Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de orientação e saiba mais sobre os recursos a mover operações?
 
-[Limitações do serviço de aplicações](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra como mover recursos para uma nova subscrição ou para um novo grupo de recursos na mesma subscrição. Pode obter informações sobre a lista de verificação de movimentação do recurso, saiba quais os serviços que suportam a operação de movimentação e saber mais sobre as limitações de serviço de aplicações e outros tópicos.
+[Limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostra como mover recursos para uma nova subscrição ou para um novo grupo de recursos na mesma subscrição. Pode obter informações sobre a lista de verificação de movimentação do recurso, saiba quais os serviços que suportam a operação de movimentação e saber mais sobre as limitações de serviço de aplicações e outros tópicos.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como posso definir o fuso horário do servidor para a minha aplicação web?
 

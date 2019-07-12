@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: e178326c4a165a9bebbef6b0162cc79c1f9a0727
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: f92cb247afb25562a96373c28534549a2f16d8c9
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67459517"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805594"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar cluster do Apache Hadoop no HDInsight do Azure através do portal do Azure
 
@@ -41,12 +41,12 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
     |Propriedade  |Descrição  |
     |---------|---------|
     |Nome do cluster   | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode consistir em máximo de 59 carateres, incluindo letras, números e hífenes. O primeiro e último carateres do nome não podem ser hífenes. |
-    |Subscrição    |  Selecione a sua subscrição do Azure. |
+    |Subscription    |  Selecione a sua subscrição do Azure. |
     |Tipo de cluster     | Ignorar por agora. Irá fornecer estas informações no próximo passo deste procedimento.|
     |Nome de utilizador de início de sessão de cluster e a palavra-passe    | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
     |Utilize a palavra-passe de início de sessão do cluster para SSH| Selecione esta caixa de verificação para utilizar a mesma palavra-passe de utilizador SSH que forneceu para o utilizador de início de sessão do cluster.|
-    |Grupo de recursos     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
+    |Resource group     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
     |Location    | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
 
     ![Introdução ao fornecimento de valores básicos do cluster no HDInsight com Linux](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "Fornecer valores básicos para criar um cluster do HDInsight")
@@ -68,7 +68,7 @@ Nesta secção, irá criar um cluster do Hadoop no HDInsight através do portal 
     |---------|---------|
     |Tipo de armazenamento primário    | Neste artigo, selecione o armazenamento do Azure para utilizar o Azure Storage Blob como conta de armazenamento predefinida. Também pode utilizar o Azure Data Lake Storage como armazenamento predefinido. |
     |Método de seleção     |  Para este artigo, selecione **As minhas subscrições** para utilizar uma conta de armazenamento da sua subscrição do Azure. Para utilizar a conta de armazenamento de outras subscrições, selecione **Chave de acesso** e, em seguida, forneça a chave de acesso dessa conta. |
-    |Selecione uma conta de armazenamento   | Selecione **Selecione uma conta de armazenamento** para selecionar uma conta de armazenamento existente ou selecione **criar nova**.|
+    |Selecione uma conta de armazenamento   | Selecione **Selecione uma conta de armazenamento** para selecionar uma conta de armazenamento existente ou selecione **criar nova**. Se criar uma nova conta, o nome tem de ter entre 3 e 24 carateres de comprimento e pode incluir apenas letras minúsculas e números.|
 
     Aceite todos os outros valores predefinidos e, em seguida, selecione **seguinte** para avançar para a página de resumo.
 

@@ -4,7 +4,7 @@ description: Lista os tamanhos de diferentes com otimização de computação di
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 4733a4c92a5bdfe2eabd2144a1c6c8738ac6693e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 137cda7e224d3968cae8614c96fddf914d3b5e5e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511712"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708875"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de computação
 
@@ -37,5 +37,5 @@ ms.locfileid: "64511712"
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.

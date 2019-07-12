@@ -1,7 +1,7 @@
 ---
 title: 'Guia de introdução do Python: Criar, carregar e consultar índices com APIs de REST de pesquisa do Azure - Azure Search'
 description: Explica como criar um índice, carregar dados e executar consultas com o Python, blocos de notas do Jupyter e a API de REST do Azure Search.
-ms.date: 06/20/2019
+ms.date: 07/11/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 613879abd4c5c09450b690b793500a99428cff29
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 123afa2452c3e492b85292514e64f84d3baec390
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485463"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840294"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Início rápido: Criar um índice da Azure Search no Python com blocos de notas do Jupyter
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "67485463"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo, começando do zero. Em alternativa, pode executar um bloco de notas terminado. Para transferir uma cópia, vá para o[repositório azure-pesquisa-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Criar um bloco de notas do Jupyter que cria, carrega e consulta o índice da Azure Search com o Python e o [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de notas passo a passo. Em alternativa, pode [transferir e executar um bloco de notas do Jupyter Python terminado](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -295,28 +295,15 @@ Este passo mostra-lhe como consultar um índice com o [API REST do Search docume
    searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
    ```
 
-## <a name="clean-up"></a>Limpeza 
+## <a name="clean-up"></a>Limpeza
 
-Deve excluir o índice se já não precisam dele. Um serviço gratuito está limitado a três índices. Deve excluir qualquer índice que não estiver ativamente a utilizar para criar espaço para outros tutoriais.
+Quando está trabalhando na sua própria subscrição, é uma boa idéia no final de um projeto para identificar se ainda precisa que os recursos que criou. Pode executar esquerda de recursos custa dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-A maneira mais fácil eliminar objetos é através do portal, mas como esse é um guia de introdução do Python, a seguinte sintaxe produz o mesmo resultado:
+Pode localizar e gerir recursos no portal, utilizando o **todos os recursos** ou **grupos de recursos** ligação no painel de navegação à esquerda.
 
-   ```python
-  url = endpoint + "indexes/hotels-quickstart" + api_version
-  response  = requests.delete(url, headers=headers)
-   ```
+Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e origens de dados. Pode eliminar os itens individuais no portal para se manter sob o limite. 
 
-Pode confirmar a eliminação do índice ao solicitar uma lista de índices existentes. Se não existe mais, hotéis-início rápido, em seguida, sabe que o seu pedido foi concluída com êxito.
-
-```python
-url = endpoint + "indexes" + api_version + "&$select=name"
-
-response  = requests.get(url, headers=headers)
-index_list = response.json()
-pprint(index_list)
-```
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como uma simplificação, este início rápido utiliza uma versão abreviada do índice de hotéis. É possível criar a versão completa para experimentar o mais interessantes de consultas. Para obter a versão completa e todos os documentos de 50, execute o **importar dados** assistente, selecionando *hotéis-sample* das fontes de dados de exemplo incorporado.
 

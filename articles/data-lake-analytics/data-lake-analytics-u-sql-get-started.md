@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a138801ba13c6008880e3d24c89d1c23323b853
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813857"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626219"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introdução ao U-SQL no Azure Data Lake Analytics
 U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para permitem-lhe processar dados em qualquer escala. Por meio da capacidade de dimensionável e de consulta distribuído de U-SQL, pode analisar eficazmente os dados em repositórios relacionais, como a base de dados do Azure SQL. U-SQL, pode processar os dados não estruturados, ao aplicar o esquema na leitura e inserção de lógica personalizada e UDFs. Além disso, o U-SQL inclui extensibilidade que lhe dá controle refinado sobre como executar à escala. 
@@ -22,7 +22,7 @@ U-SQL é uma linguagem que combina SQL declarativa com imperativo c# para permit
 ## <a name="learning-resources"></a>Recursos de aprendizado
 
 * O [U-SQL Tutorial](https://aka.ms/usqltutorial) fornece instruções orientadas da maior parte da linguagem U-SQL. Este documento é leitura recomendado para todos os desenvolvedores que desejam saber mais sobre U-SQL.
-* Para obter informações detalhadas sobre o **sintaxe de linguagem U-SQL**, consulte a [referência de linguagem U-SQL](https://go.microsoft.com/fwlink/p/?LinkId=691348).
+* Para obter informações detalhadas sobre o **sintaxe de linguagem U-SQL**, consulte a [referência de linguagem U-SQL](https://docs.microsoft.com/u-sql/).
 * Para compreender os **filosofia de design de U-SQL**, consulte a mensagem de blogue do Visual Studio [introdução de U-SQL – uma linguagem que torna fácil de processamento de dados grande](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## <a name="prerequisites"></a>Pré-requisitos

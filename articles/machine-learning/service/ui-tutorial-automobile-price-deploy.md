@@ -3,22 +3,22 @@ title: 'Tutorial: Implementar um modelo de machine learning com a interface visu
 titleSuffix: Azure Machine Learning service
 description: Saiba como criar uma solução de Análise Preditiva na interface visual de serviço do Azure Machine Learning. Formar, Pontuar e implementar um modelo de aprendizagem automática com arrastar e largar módulos. Este tutorial é a parte dois de uma série de duas partes sobre prever preços de automóveis com regressão linear.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/11/2019
+ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389210"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839312"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementar um modelo de machine learning com a interface visual
 
-Neste tutorial, fazer uma observação expandida ao desenvolver uma solução preditiva na interface visual de serviço do Azure Machine Learning. Este tutorial é a **segunda parte de uma série composta por duas partes**. Na [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md), treinados, classificadas e avaliado um modelo para prever preços de automóveis. Nesta parte do tutorial,:
+Para atribuir a outras pessoas oportunidade de se usar o modelo de previsão desenvolvido em [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md), pode implementá-la como um serviço web do Azure. Até agora, já foi fazer experiências com seu modelo de formação. Agora, chegou a hora para gerar novas predições com base na entrada do usuário. Nesta parte do tutorial,:
 
 > [!div class="checklist"]
 > * Preparar um modelo de implementação
@@ -29,56 +29,40 @@ Neste tutorial, fazer uma observação expandida ao desenvolver uma solução pr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Concluída [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md).
+Concluída [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md) para saber como dar formação e Pontuar o modelo de machine learning na interface do visual.
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implementação
 
-Para atribuir a outras pessoas oportunidade de se usar o modelo de previsão desenvolvido neste tutorial, pode implementá-la como um serviço web do Azure.
+Antes de implementar a sua experimentação como um serviço web, primeiro tem de converter sua *experimentação de preparação* num *experimentação preditiva*.
 
-Até agora, já foi fazer experiências com seu modelo de formação. Agora, chegou a hora para gerar novas predições com base na entrada do usuário.
+1. Selecione **criar a experimentação preditiva*** na parte inferior da tela de experimentação.
 
-Preparação para a implantação é um processo de dois passos:  
+    ![Animados gif que mostra a conversão automática de uma experimentação de preparação para uma experimentação preditiva](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-1. Converter os *experimentação de preparação* que criou num *experimentação preditiva*
-1. Implementar a experimentação preditiva como um serviço web
+    Quando seleciona **experimentação preditiva criar**, várias coisas acontecem:
+    
+    * O modelo preparado é armazenado como uma **modelo preparado** módulo na paleta do módulo. Pode encontrá-lo sob **modelos de formação**.
+    * Módulos que eram usados para treinamento são removidos; especificamente:
+      * Preparar Modelo
+      * Dividir Dados
+      * Avaliar Modelo
+    * O modelo treinado guardado é adicionado novamente para a experimentação.
+    * **Entrada do serviço da Web** e **saída de serviço da Web** módulos são adicionados. Estes módulos de identificam em que os dados de utilizador irão introduzir o modelo e, em que os dados são retornados.
 
-Talvez queira fazer uma cópia da experimentação primeiro selecionando **guardar como** na parte inferior da tela de experimentação.
+    O **experimentação de preparação** ainda é guardado em novos separadores na parte superior da tela de experimentação.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter a experimentação de preparação para uma experimentação preditiva
+1. **Execute** a experimentação.
 
-Para obter esse modelo pronto para implantação, converta esta experimentação de preparação para uma experimentação preditiva. Normalmente, isto envolve três passos:
-
-1. Guarde o modelo Treinou e substituir os módulos de treinamento
-1. Cortar a experimentação para remover módulos que eram necessários apenas para formação
-1. Definir em que o serviço web irá aceitar dados de entrada e em que gera a saída
-
-Pode executar estes passos manualmente ou pode selecionar **no serviço de Web** na parte inferior da tela de experimentação tê-los feito automaticamente.
-
-![Animados gif que mostra a conversão automática de uma experimentação de preparação para uma experimentação preditiva](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
-
-Quando seleciona **no serviço de Web**, várias coisas acontecem:
-
-* O modelo preparado é convertido numa única **modelo preparado** módulo. Ele é armazenado na paleta do módulo para a esquerda da tela de experimentação. Pode encontrá-lo sob **modelos de formação**.
-* Módulos que eram usados para treinamento são removidos; especificamente:
-  * Preparar Modelo
-  * Dividir Dados
-  * Avaliar Modelo
-* O modelo treinado guardado é adicionado novamente para a experimentação
-* **Entrada do serviço da Web** e **saída de serviço da Web** módulos são adicionados. Estes módulos de identificam em que os dados do utilizador irão introduzir o modelo e, em que os dados são retornados.
-
-Pode ver que a experimentação é guardada em duas partes em novos separadores na parte superior da tela de experimentação. A experimentação de preparação original é no separador **experimentação de preparação**, e a experimentação preditiva recentemente criada está sob **experimentação preditiva**. A experimentação preditiva é o que vai implementar como um serviço web.
+1. Selecione a saída do **modelo de pontuação** módulo e selecione **ver resultados** para verificar o modelo ainda está a funcionar. Pode ver que os dados originais, juntamente com o preço previsto ("etiquetas classificadas"), são apresentados.
 
 A experimentação deverá agora ser semelhante a esta:  
 
 ![Captura de ecrã que mostra a configuração esperada da experimentação depois de prepará-lo para a implementação](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Execute a experimentação pela última vez (selecione **executar**). Escolha o destino de computação que pretende que a experimentação para execução na caixa de diálogo pop-up. Para verificar se o modelo ainda está a funcionar, selecione a saída do módulo do modelo de pontuação e selecione **ver resultados**. Pode ver que os dados originais, juntamente com o preço previsto ("etiquetas classificadas"), são apresentados.
-
 ## <a name="deploy-the-web-service"></a>Implementar o serviço web
 
-Para implementar um novo serviço web derivado de sua experiência:
-
 1. Selecione **implementar serviço Web** abaixo da tela.
+
 1. Selecione o **destino de computação** que gostaria de executar o serviço web.
 
     Atualmente, a interface visual só suporta a implementação para destinos de computação do Azure Kubernetes Service (AKS). Pode escolher entre destinos de computação AKS disponíveis na sua área de trabalho do serviço de aprendizagem ou configurar um novo ambiente do AKS utilizando os passos na caixa de diálogo que aparece.
@@ -91,9 +75,7 @@ Para implementar um novo serviço web derivado de sua experiência:
 
 ## <a name="test-the-web-service"></a>Testar o serviço web
 
-Dados de entrada do usuário inserem seu modelo implementado por meio da **entrada de serviço da Web** módulo. A entrada é classificada, em seguida, o **modelo de pontuação** módulo. A forma como configurou a experimentação preditiva, o modelo espera que os dados no mesmo formato que o conjunto de dados original do preço de automóveis. Por fim, os resultados são devolvidos para o utilizador através da **saída de serviço da Web** módulo.
-
-Pode testar um serviço web no guia de serviço da web na interface do visual.
+Pode testar e gerir os seus serviços de web de visual interface ao navegar para o **serviços da Web** separador.
 
 1. Aceda à secção de serviço web. Verá que o serviço web implementado com o nome **Tutorial - prever o preço do automóvel [Exp preditiva]** .
 
@@ -107,19 +89,13 @@ Pode testar um serviço web no guia de serviço da web na interface do visual.
 
     ![Captura de ecrã que mostra o página de teste do serviço de web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Teste de dados de entrada ou utilizar os dados de exemplo autofilled e selecione **teste** na parte inferior. O pedido de teste foi submetido para o serviço web e os resultados são mostrados na página. Embora um valor do preço é gerado para os dados de entrada, não é utilizado para gerar o valor de previsão.
+1. Teste de dados de entrada ou utilizar os dados de exemplo autofilled e selecione **teste**.
 
-## <a name="manage-the-web-service"></a>Gerir o serviço web
-
-Assim que tiver implantado o serviço da web, pode gerenciá-lo a partir da **serviços da Web** guia na interface do visual.
-
-Pode eliminar um serviço da web, selecionando **eliminar** na página de detalhes do serviço da web.
-
-   ![Captura de ecrã que mostra a localização do botão Delete web service na parte inferior da janela](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
+    O pedido de teste foi submetido para o serviço web e os resultados são mostrados na página. Embora um valor do preço é gerado para os dados de entrada, não é utilizado para gerar o valor de previsão.
 
 ## <a name="consume-the-web-service"></a>Consumir o serviço web
 
-Nos passos anteriores deste tutorial, implementou um modelo de predição de automóveis como um serviço web do Azure. Agora, os utilizadores podem enviar dados para o mesmo e receber resultados através da REST API.
+Os utilizadores agora podem enviar pedidos de API para o seu serviço web do Azure e receber os resultados para prever o preço de suas automóveis novos.
 
 **Pedido/resposta** -o utilizador envia uma ou mais linhas de dados dos automóveis para o serviço utilizando um protocolo HTTP. O serviço responde com um ou mais conjuntos de resultados.
 
@@ -131,9 +107,9 @@ Navegue para o **API Doc** guia, para obter mais informações de API.
 
   ![Captura de ecrã que mostra detalhes adicionais da API que os usuários podem encontrar no separador de documentos de API](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## <a name="manage-models-and-deployments-in-azure-machine-learning-service-workspace"></a>Gerir modelos e implementações na área de trabalho de serviço de Azure Machine Learning
+## <a name="manage-models-and-deployments"></a>Gerir implementações e modelos
 
-Os modelos e implementações de serviços da web que criar na interface do visual podem ser geridas a partir da área de trabalho do serviço do Azure Machine Learning.
+Os modelos e implementações de serviços da web que criar na interface do visual também podem ser geridas da área de trabalho de serviço do Azure Machine Learning.
 
 1. Abra a área de trabalho do [portal do Azure](https://portal.azure.com/).  
 
@@ -155,7 +131,7 @@ Os modelos e implementações de serviços da web que criar na interface do visu
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu que as principais etapas da criação, implantação e consumir um modelo de machine learning na interface do visual. Para saber mais sobre como pode utilizar a interface visual para resolver outros tipos de problemas, consulte as experimentações de exemplo.
+Neste tutorial, aprendeu que as principais etapas da criação, implantação e consumir um modelo de machine learning na interface do visual. Para saber mais sobre como pode utilizar a interface visual para resolver outros tipos de problemas, consulte os nossos outras experimentações de exemplo.
 
 > [!div class="nextstepaction"]
 > [Exemplo de classificação de risco de crédito](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

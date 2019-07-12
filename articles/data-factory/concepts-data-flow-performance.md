@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 05/16/2019
-ms.openlocfilehash: bbbc2bc5c47821469ecf15a27195b1bf0c12e6e5
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 1ee266d7d9846a357dce613817affdb0cde5bfdc
+ms.sourcegitcommit: e6cb7ca206a125c05acfd431b5a64391a8dcc6b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190636"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569032"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>E guia de ajuste do desempenho de fluxos de dados de mapeamento
 
@@ -127,7 +127,18 @@ Clicar nesse ícone, verá o plano de execução e o perfil de desempenho subseq
 * Tenha isso em mente ao escolher esta opção popular. Pode executar fora dos recursos de nó de cluster se está a combinar muitos arquivos de origem grande numa partição de ficheiro de saída individual.
 * Para evitar o esgotamento de recursos de nó de computação, pode manter o padrão ou o esquema de particionamento explícita no ADF, o que otimiza o desempenho, e, em seguida, adicionar uma atividade de cópia subsequente no pipeline que une todos da parte ficheiros a partir da pasta de saída para um único novo ficheiro. Essencialmente, essa técnica separa a ação de transformação de mesclagem de arquivos e alcança o mesmo resultado que a definição "para o único ficheiro de saída".
 
+### <a name="looping-through-file-lists"></a>Looping através de listas de ficheiro
+
+Na maioria dos casos, os dados fluem no ADF executará melhor a partir de um pipeline que permite a transformação de origem de fluxo de dados para fazer a iteração ao longo de vários ficheiros. Em outras palavras, é preferível utilizar carateres universais ou fluxo que para iterar sobre uma grande lista de ficheiros de uso de ForEach no pipeline, chamar um executar fluxo de dados em cada iteração de listas de ficheiro dentro da sua origem de dados. O processo de fluxo de dados serão executadas mais rapidamente, permitindo que o loop ocorrer dentro do fluxo de dados.
+
+Por exemplo, se eu tiver uma lista de ficheiros de dados a partir de Julho de 2019 que gostaria de processar numa pasta no armazenamento de BLOBs, seria um melhor desempenho para chamar uma atividade de fluxo de dados de executar uma vez a partir do seu pipeline e utilizar um caráter universal na sua origem, como este :
+
+```DateFiles/*_201907*.txt```
+
+Isso executará melhor do que o Blob Store num pipeline que, em seguida, itera em todos os ficheiros correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro de uma pesquisa.
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 Consulte os outros artigos fluxo de dados relacionados com desempenho:
 
 - [Separador otimizar o fluxo de dados](concepts-data-flow-optimize-tab.md)

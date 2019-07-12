@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dkshir
-ms.openlocfilehash: d079e082fb8ac90f398e46f283bd1e33e2b4ab40
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.custom: security-recommendations
+ms.openlocfilehash: 4416f3149c33a0c9a437b2fbd6a48729a5a7f044
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67463087"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722866"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Recomendações de segurança para a implementação do Azure Internet das coisas (IoT)
 

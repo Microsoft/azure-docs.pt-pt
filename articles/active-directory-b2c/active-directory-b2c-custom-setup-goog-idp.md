@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498fe63964e44de8f9e1bc06c1740f1a9ef9b392
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510379"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654176"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Google com as políticas personalizadas no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Este artigo mostra-lhe como ativar o início de sessão para os utilizadores de 
 
 ## <a name="register-the-application"></a>Registar a aplicação
 
-Para ativar o início de sessão para os utilizadores de uma conta do Google, terá de criar um projeto de aplicação do Google. 
+Para ativar o início de sessão para os utilizadores de uma conta do Google, terá de criar um projeto de aplicação do Google.
 
 1. Inicie sessão para o [consola de programadores da Google](https://console.developers.google.com/) com as suas credenciais de conta.
 2. Introduza um **nome do projeto**, clique em **criar**e, em seguida, certifique-se de que está a utilizar o novo projeto.
@@ -50,7 +50,7 @@ Tem de armazenar o segredo do cliente que registou anteriormente no seu inquilin
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+4. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
 6. Para **opções**, escolha `Manual`.
 7. Introduza um **nome** para a chave de política. Por exemplo, `GoogleSecret`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
@@ -60,7 +60,7 @@ Tem de armazenar o segredo do cliente que registou anteriormente no seu inquilin
 
 ## <a name="add-a-claims-provider"></a>Adicionar um fornecedor de afirmações
 
-Se pretender que os utilizadores iniciem sessão com uma conta do Google, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado. 
+Se pretender que os utilizadores iniciem sessão com uma conta do Google, terá de definir a conta como um fornecedor de afirmações com Azure AD B2C possam comunicar através de um ponto de extremidade. O ponto final fornece um conjunto de afirmações que são utilizadas pelo Azure AD B2C para verificar que um utilizador específico foi autenticado.
 
 Pode definir uma conta do Google como um fornecedor de afirmações ao adicioná-la para o **ClaimsProviders** elemento no arquivo de extensão da sua política.
 
@@ -152,7 +152,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
+
     Atualize o valor de **TechnicalProfileReferenceId** para o ID do perfil técnico que criou anteriormente. Por exemplo, `Google-OAuth`.
 
 3. Guardar a *TrustFrameworkExtensions.xml* de ficheiro e carregá-lo novamente para a verificação.

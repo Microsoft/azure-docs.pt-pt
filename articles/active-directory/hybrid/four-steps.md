@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.subservice: hybrid
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b5e8ab63c1784ff073c7ba38cd4a6319db43c5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67452738"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655935"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com o Azure Active Directory
 
@@ -147,7 +147,7 @@ Da mesma forma, o [relatório de gestão de palavra-passe Self-Service](https://
 
 ### <a name="self-service-app-management"></a>Gestão de aplicações self-service
 
-Antes dos utilizadores Self-podem detetar aplicações a partir de seu painel de acesso, tem de ativar [acesso da aplicação self-service](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) para todos os aplicativos que deseja permitir que os utilizadores Self-detetar e pedir acesso. Acesso de aplicações self-service é uma excelente forma de permitir que os utilizadores Self-detetar aplicações e, opcionalmente, permitir que o grupo de negócio para aprovar o acesso a esses aplicativos. Pode permitir que o grupo de empresas gerir as credenciais atribuídas a esses utilizadores para [palavra-passe de início de sessão único em aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-the-application-for-password-single-sign-on) diretamente a partir de seus painéis de acesso.
+Antes dos utilizadores Self-podem detetar aplicações a partir de seu painel de acesso, tem de ativar [acesso da aplicação self-service](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) para todos os aplicativos que deseja permitir que os utilizadores Self-detetar e pedir acesso. Acesso de aplicações self-service é uma excelente forma de permitir que os utilizadores Self-detetar aplicações e, opcionalmente, permitir que o grupo de negócio para aprovar o acesso a esses aplicativos. Pode permitir que o grupo de empresas gerir as credenciais atribuídas a esses utilizadores para [palavra-passe de início de sessão único em aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) diretamente a partir de seus painéis de acesso.
 
 ### <a name="self-service-group-management"></a>Gestão de grupos self-service
 

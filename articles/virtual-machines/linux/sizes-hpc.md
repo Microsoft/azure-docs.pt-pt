@@ -4,7 +4,7 @@ description: Lista os tamanhos diferentes disponíveis para máquinas virtuais n
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 003a14174ff65bab253f27a458d4f3e2c0a1a6db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 847f25d9be1a8654bbc0435d7874acb0ff793304
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069990"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695590"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 
@@ -56,7 +56,15 @@ O Azure Marketplace tem muitas distribuições de Linux que suportam a conetivid
   "typeHandlerVersion": "1.0",
   } 
   ```
- 
+  
+  O seguinte comando instala a extensão de InfiniBandDriverLinux mais recente versão 1.0 em todas as VMs com capacidade RDMA num conjunto nomeado de dimensionamento VM existente *myVMSS* implementados no grupo de recursos com o nome *myResourceGroup*:
+  ```powershell
+  $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
+  Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "InfiniBandDriverLinux" -Publisher "Microsoft.HpcCompute" -Type "InfiniBandDriverLinux" -TypeHandlerVersion "1.0"
+  Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "MyVMSS" -VirtualMachineScaleSet $VMSS
+  Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
+  ```
+  
   > [!NOTE]
   > Nas imagens de HPC baseada em CentOS, as atualizações de kernel estão desativadas no **yum** ficheiro de configuração. Isso ocorre porque os drivers de RDMA do Linux são distribuídos como um pacote RPM e atualizações de controladores poderão não funcionar se o kernel é atualizado.
   >
@@ -83,6 +91,8 @@ O Azure fornece várias opções para criar clusters HPC de VMs do Linux que pod
 
 * **Os conjuntos de dimensionamento de máquinas virtuais** - In de dimensionamento de máquinas virtuais do conjunto, certifique-se de que limite a implementação para um único grupo de colocação. Por exemplo, num modelo do Resource Manager, defina o `singlePlacementGroup` propriedade `true`. 
 
+* **MPI entre máquinas virtuais** - se a comunicação de MPI se for necessário entre máquinas virtuais (VMs), certifique-se de que as VMs estão no mesmo conjunto de disponibilidade ou a virtual máquina mesmo conjunto de dimensionamento.
+
 * **Azure CycleCloud** -crie um cluster HPC no [Azure CycleCloud](/azure/cyclecloud/) para executar trabalhos de MPI em nós do Linux.
 
 * **O Azure Batch** -crie uma [do Azure Batch](/azure/batch/) nós de computação do conjunto para executar cargas de trabalho MPI no Linux. Para obter mais informações, consulte [utilização com capacidade RDMA ou ativadas para GPU instâncias em conjuntos do Batch](../../batch/batch-pool-compute-intensive-sizes.md). Consulte também os [Batch Shipyard](https://github.com/Azure/batch-shipyard) projeto, para executar cargas de trabalho baseadas em contentores no Batch.
@@ -105,7 +115,7 @@ O Azure fornece várias opções para criar clusters HPC de VMs do Linux que pod
 - [GPU](../windows/sizes-gpu.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como configurar, otimizar e dimensionar [cargas de trabalho HPC](../workloads/hpc/configure.md) no Azure.
 - Saiba mais sobre como [computação do Azure (ACU) de unidades](acu.md) pode ajudá-lo a comparar o desempenho de computação nos SKUs do Azure.

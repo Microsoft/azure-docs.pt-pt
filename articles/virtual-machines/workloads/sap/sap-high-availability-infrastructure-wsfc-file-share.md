@@ -4,7 +4,7 @@ description: Preparação de infraestrutura do Azure para elevada disponibilidad
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409603"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709001"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para elevada disponibilidade SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para as instâncias do SAP ASCS/SCS
 
@@ -345,7 +345,7 @@ Na **tipo de conta de armazenamento** caixa, selecione **o armazenamento Premium
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar as definições de tempo limite do cluster
 
-Depois de instalar com êxito o cluster de servidor de ficheiros de escalamento horizontal do Windows, adapte os limites de tempo limite de ativação pós-falha de deteção para condições no Azure. Os parâmetros de ser alteradas estão documentados em [ajuste os limites de rede de cluster de ativação pós-falha][tuning-failover-cluster-network-thresholds]. Supondo que as VMs em cluster estão na mesma sub-rede, altere os parâmetros seguintes para estes valores:
+Depois de instalar com êxito o cluster de servidor de ficheiros de escalamento horizontal do Windows, adapte os limites de tempo limite de ativação pós-falha de deteção para condições no Azure. Os parâmetros de ser alteradas estão documentados em [limiares de rede de cluster de ativação pós-falha de otimização][tuning-failover-cluster-network-thresholds]. Supondo que as VMs em cluster estão na mesma sub-rede, altere os parâmetros seguintes para estes valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15

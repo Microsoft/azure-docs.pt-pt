@@ -4,7 +4,7 @@ description: Saiba como criar imagens de Debian VHD para implementação no Azur
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: a6de7a7c-cc70-44e7-aed0-2ae6884d401a
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: szark
-ms.openlocfilehash: 6ef0a9f6efbf5f8398ba242150b2eb6102875f7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bdeaf4ec4a276e7cdd94402159f6adac474b3af8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799276"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671536"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Preparar um VHD Debian para o Azure
 ## <a name="prerequisites"></a>Pré-requisitos

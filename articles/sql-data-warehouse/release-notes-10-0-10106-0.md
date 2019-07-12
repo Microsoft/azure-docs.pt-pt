@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 05/13/2019
+ms.date: 07/03/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 9e5f10c2b4c2108626db79ad9821a8b07e57a2e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee01ebad9e03aaa34911db49ce344d51b6a756d8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417715"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798711"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de versão do armazém de dados SQL do Azure
 
@@ -25,20 +25,31 @@ Este artigo resume as novas funcionalidades e melhorias nas versões recentes do
 
 À medida que novos recursos estão sendo lançados para todas as regiões, verifique a versão implementada para a sua instância e as notas de versão mais recente do Azure SQL DW para a disponibilidade de funcionalidades. Para verificar a sua versão do Azure SQL DW, ligar ao seu armazém de dados através do SQL Server Management Studio (SSMS) e execute `SELECT @@VERSION AS 'SQL Data Warehouse';` para devolver a versão atual do Azure SQL DW.
 
-Exemplo de saída: ![Versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+Exemplo de saída:
+
+![Versão do SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
 
 Utilize a data identificada para confirmar que versão foi aplicada ao seu armazém de dados de SQL do Azure.
+
+## <a name="july-2019"></a>Julho de 2019
+
+| Melhorias de serviço | Detalhes |
+| --- | --- |
+|**Vista materializada (pré-visualização)**|Uma vista materializada persistir os dados retornados da consulta de definição de vista e é atualizada automaticamente à medida que muda de dados nas tabelas subjacentes. Melhora o desempenho de consultas complexas (normalmente, as consultas com associações e agregações) oferecendo operações de manutenção simples. Para obter mais informações, consulte: </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Instruções T-SQL suportadas no Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi expandida para incluir suporte para: </br> - [NO FUSO HORÁRIO](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**Conjunto de resultados, colocação em cache (pré-visualização)**|Comandos DBCC adicionados gerir o resultado anunciado anteriormente definir a cache. Para obter mais informações, consulte: </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> Consulte também a nova coluna result_set_cache [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) que mostra quando uma consulta executada usado o resultado definido cache.|
+|**Ordem de índice columnstore em cluster (pré-visualização)**|Nova coluna, column_store_order_ordinal, adicionado ao [index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) para identificar a ordem das colunas num índice columnstore em cluster ordenada.|
 
 ## <a name="may-2019"></a>Maio de 2019
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-|**(Pré-visualização) de máscara de dados dinâmicos**|Máscara de dados dinâmica (DDM) impede o acesso não autorizado aos seus dados confidenciais no seu armazém de dados por meio de sua ofuscação-lo no momento nos resultados da consulta, com base nas regras de máscara que definir. Para obter mais informações, consulte [máscara de dados dinâmicos da base de dados SQL](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
-|**Importância da carga de trabalho agora em disponibilidade geral**|Classificação de gestão da carga de trabalho e a importância oferecem a capacidade para influenciar a ordem de execução de consultas. Para obter mais informações sobre a importância da carga de trabalho, consulte a [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md) artigos de descrição geral na documentação. Veja a [CLASSIFICADOR de carga de trabalho de criar](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc também.<br/><br/>Veja a importância da carga de trabalho em ação no abaixo vídeos:<br/> -[Conceitos de gestão da carga de trabalho](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Cenários de gestão da carga de trabalho](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**(Pré-visualização) de máscara de dados dinâmicos**|A Máscara de Dados Dinâmica (DDM) previne acessos não autorizados aos seus dados confidenciais no seu armazém de dados ao ofuscá-lo imediatamente nos resultados das consultas com base nas regras de máscara que definir. Para obter mais informações, consulte [máscara de dados dinâmicos da base de dados SQL](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Importância da carga de trabalho agora em disponibilidade geral**|A Classificação de Gestão e a Importância das Cargas de Trabalho oferecem a possiblidade de influenciar a ordem de execução das consultas. Para obter mais informações sobre a importância da carga de trabalho, consulte a [classificação](sql-data-warehouse-workload-classification.md) e [importância](sql-data-warehouse-workload-importance.md) artigos de descrição geral na documentação. Veja a [CLASSIFICADOR de carga de trabalho de criar](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) doc também.<br/><br/>Veja a importância da carga de trabalho em ação no abaixo vídeos:<br/> -[Conceitos de gestão da carga de trabalho](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Cenários de gestão da carga de trabalho](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Suporte adicional de T-SQL**|A área de superfície de linguagem T-SQL para o SQL Data Warehouse foi expandida para incluir suporte para: </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**Funções JSON**|Os analistas comerciais podem agora utilizar o familiar em linguagem T-SQL para consultar e manipular documentos que são formatados como dados JSON com as seguintes funções JSON de novo no armazém de dados do Azure:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
 |**Conjunto de resultados, colocação em cache (pré-visualização)**|Conjunto de resultados de colocação em cache permite que os tempos de resposta de consulta instantâneas reduzindo o tempo de resposta para analistas de negócios e os utilizadores de relatórios. Para obter mais informações, consulte:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [ALTERAR opções de conjunto de base de dados (Transact SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [SET RESULT SET CACHING (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [Instrução SET (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
-|**Ordem de índice columnstore em cluster (pré-visualização)**|Columnstore é um ativador de chave para armazenar e consultar com eficiência os grandes quantidades de dados. Para cada tabela, ele divide os dados de entrada em grupos de linhas e cada coluna de formulários de um grupo de linhas um segmento num disco.  Ordenado columnstore em cluster índices ainda mais otimizam a execução da consulta ao ativar a eliminação de segmento eficiente.   Para obter mais informações, consulte:</br> -  [Criar tabela (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
+|**Ordem de índice columnstore em cluster (pré-visualização)**|O Columnstore é um ativador de chaves para armazenar e consultar eficientemente grandes quantidades de dados. Em cada tabela, divide os dados recebidos em Grupos de Linhas e cada coluna de um Grupo de Linhas forma um Segmento num disco.  Os índices columnstore em cluster ordenados otimizam ainda mais a execução de consultas ao permitir a eliminação eficiente de segmentos.   Para obter mais informações, consulte:</br> -  [Criar tabela (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> -  [CREATE COLUMNSTORE INDEX (Transact-SQL)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest).|
 
 ## <a name="march-2019"></a>Março de 2019
 

@@ -4,7 +4,7 @@ description: Saiba como ativar InfiniBand com SR-IOV.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,27 +12,26 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 879b1eed7bf4778d4d49f6f991d6d74214d33823
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 2e28627359f339a3bf818a15d6a5c8e456fb554a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537662"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797527"
 ---
 # <a name="enable-infiniband-with-sr-iov"></a>Ativar InfiniBand com SR-IOV
-
 
 A forma mais simples e recomendada para configurar a sua imagem VM personalizada com InfiniBand (IB) é adicionar a extensão InfiniBandDriverLinux ou InfiniBandDriverWindows VM à sua implementação.
 Saiba como utilizar estas extensões VM com [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances)
 
-Configurar manualmente o InfiniBand SR-iov ativado VMs (atualmente série HB e HC), siga os passos abaixo. Estes passos destinam-se apenas ao RHEL/CentOS. Para Ubuntu (16.04 e 18.04) e SLES (12 SP4 e 15), os controladores de caixa de entrada funcionam bem. Para Ubuntu, 
-
+Configurar manualmente o InfiniBand SR-iov ativado VMs (atualmente série HB e HC), siga os passos abaixo. Estes passos destinam-se apenas ao RHEL/CentOS. Para Ubuntu (16.04 e 18.04) e SLES (12 SP4 e 15), os controladores de caixa de entrada funcionam bem.
 
 ## <a name="manually-install-ofed"></a>Instalar manualmente o OFED
 
 Instale os controladores MLNX_OFED mais recente para ConnectX-5 partir [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=26).
 
 Para RHEL/CentOS (o exemplo abaixo 7,6):
+
 ```bash
 sudo yum install -y kernel-devel python-devel
 sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++

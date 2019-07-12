@@ -9,24 +9,24 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 27cdada0bfbb4236e16d17c263aaba0f4f5c511f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399162"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620105"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutorial para mostrar a como usar o [ficheiro capacidades de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [BLOBs do Azure armazenamento](../storage/index.yml). Este tutorial mostra-lhe como:
+Este tutorial baseia-se sobre o código no [enviar mensagens da cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutorial para mostrar a como usar o [ficheiro capacidades de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [BLOBs do Azure armazenamento](../storage/index.yml). Este tutorial mostra-lhe como:
 
 * Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
 
 * Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
 
-O [enviar telemetria para o IoT Hub (Java)](quickstart-send-telemetry-java.md) e [enviar mensagens da Cloud para dispositivo hub IoT (Java)](iot-hub-java-java-c2d.md) tutoriais mostram-dispositivo-para-cloud e cloud-para-dispositivo mensagens funcionalidades básicas do IoT Hub. O [configurar o encaminhamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md) guia de introdução e [enviar mensagens da cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) tutorial mostrar é a funcionalidade mensagens dispositivo-para-cloud e cloud-para-dispositivo básica IoT Hub. O [configurar o encaminhamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
 * Vídeos
@@ -37,7 +37,7 @@ Estes ficheiros são normalmente processada na cloud com ferramentas, como de lo
 
 No final deste tutorial executa duas aplicações de consola Java:
 
-* **simulated-device**, uma versão modificada da aplicação criada no tutorial [mensagens Send Cloud-para-dispositivo com o IoT Hub]. Esta aplicação carrega um ficheiro para o armazenamento com um URI de SAS fornecido pelo IoT hub.
+* **simulated-device**, uma versão modificada da aplicação criada no tutorial [enviar mensagens de cloud para o dispositivo com o IoT Hub]. Esta aplicação carrega um ficheiro para o armazenamento com um URI de SAS fornecido pelo IoT hub.
 
 * **carregar-notificação de leitura-ficheiro**, que recebe notificações de carregamento de ficheiros do seu hub IoT.
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 ## <a name="upload-a-file-from-a-device-app"></a>Carregar um ficheiro a partir de uma aplicação de dispositivo
 
-Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) para carregar um ficheiro para o hub IoT.
+Nesta secção, modificar a aplicação de dispositivo que criou no [enviar mensagens da cloud para o dispositivo com o IoT Hub](iot-hub-java-java-c2d.md) para carregar um ficheiro para o hub IoT.
 
 1. Copiar um ficheiro de imagem para o `simulated-device` pasta e mude o nome `myimage.png`.
 
@@ -265,7 +265,9 @@ Pode utilizar o portal para ver o ficheiro carregado no contentor de armazenamen
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do hub IoT e cenários com os seguintes artigos:
 
 * [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
+
 * [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:

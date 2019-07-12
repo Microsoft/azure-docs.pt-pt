@@ -4,19 +4,19 @@ description: Como ativar a virtualização aninhada em máquinas de virtuais do 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: acb44a34eae84d8a5718ebcc0003d3cf50b9d43a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510046"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720206"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada na VM do Azure
 
@@ -120,6 +120,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>Criar a máquina virtual convidada
 
+>[!IMPORTANT] 
+>
+>O agente convidado do Azure não é suportado em VMs aninhadas e pode causar problemas no anfitrião e VMs aninhadas. Não instale o agente do Azure em VMs aninhadas e não utilizar uma imagem para criar as VMs aninhadas que já tenha instalado o agente de convidado do Azure.
+
 1. Abra o Gestor de Hyper-V e criar uma nova máquina virtual. Configure a máquina virtual para utilizar a nova rede interna que criou.
     
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
@@ -168,7 +172,7 @@ Se não tiver configurado o DHCP para atribuir dinamicamente um endereço IP par
 
 2. A máquina virtual convidada com o botão direito e clique em ligar.
 
-3. Inicie sessão máquina virtual convidada.
+3. Inicie sessão na máquina virtual convidada.
 
 4. Na máquina virtual convidada, abra o Centro de compartilhamento e rede.
 

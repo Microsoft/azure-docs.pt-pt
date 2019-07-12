@@ -2,36 +2,36 @@
 title: Criar um controlador de entrada básica no Azure Kubernetes Service (AKS)
 description: Saiba como instalar e configurar um controlador de entradas NGINX básico num cluster do Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: b0dfe69a77d236e7a811ca5c7407428327c62ff3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 1e5c3aa7ed4ec990dba07fb24830fae243141ad5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430993"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615586"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Criar um controlador de entrada no Azure Kubernetes Service (AKS)
 
 Um controlador de entrada é uma parte do software que fornece o proxy inverso, encaminhamento de tráfego configurável e terminação de TLS para serviços do Kubernetes. Recursos de entrada do Kubernetes são utilizados para configurar as regras de entrada e as rotas para serviços individuais do Kubernetes. Utilizar um controlador de entrada e de regras de entrada, um único endereço IP pode servir-se para encaminhar o tráfego para vários serviços num cluster do Kubernetes.
 
-Este artigo mostra-lhe como implementar o [controlador de entradas NGINX] [ nginx-ingress] num cluster do Azure Kubernetes Service (AKS). Dois aplicativos, em seguida, são executados no cluster do AKS, cada um deles está acessível através do endereço IP único.
+Este artigo mostra-lhe como implementar o [controlador de entradas NGINX][nginx-ingress] num cluster do Azure Kubernetes Service (AKS). Dois aplicativos, em seguida, são executados no cluster do AKS, cada um deles está acessível através do endereço IP único.
 
 Também pode:
 
 - [Ativar o suplemento de encaminhamento de aplicação de HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que utiliza uma rede interna, privada e o endereço IP][aks-ingress-internal]
 - [Criar um controlador de entrada que utiliza os seus próprios certificados TLS][aks-ingress-own-tls]
-- Criar um controlador de entrada que utiliza a encriptar vamos para gerar automaticamente certificados TLS [com um endereço IP público dinâmico] [ aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
+- Criar um controlador de entrada que utiliza a encriptar vamos para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo utiliza o Helm para instalar o controlador de entrada do NGINX, o Gestor de certificado e um exemplo de aplicação web. Tem de ter o Helm inicializado no seu cluster do AKS e utilizar uma conta de serviço para Tiller. Para obter mais informações sobre como configurar e utilizar o Helm, consulte [instalar aplicações com Helm no Azure Kubernetes Service (AKS)][use-helm].
 
-Este artigo também requer a execução da versão 2.0.64 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este artigo também requer a execução da versão 2.0.64 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
@@ -43,7 +43,7 @@ O controlador de entrada também tem de ser agendado num nó de Linux. Nós do W
 > O exemplo seguinte cria um espaço de nomes do Kubernetes para os recursos de entrada com o nome *básico de entrada*. Especifique um espaço de nomes para o seu próprio ambiente, conforme necessário. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos do Helm.
 
 > [!TIP]
-> Se gostaria de ativar [preservação de IP de origem do cliente] [ client-source-ip] para pedidos de contentores no seu cluster, adicionar `--set controller.service.externalTrafficPolicy=Local` para o Helm comando de instalação. A origem de cliente IP é armazenado no cabeçalho do pedido em *X-reencaminhados-para*. Ao utilizar um controlador de entrada com preservação de IP de origem de cliente ativada, o pass-through SSL não funcionará.
+> Se gostaria de ativar [preservação de IP de origem do cliente][client-source-ip] para os pedidos para contentores no seu cluster, adicionar `--set controller.service.externalTrafficPolicy=Local` para o Helm comando de instalação. A origem de cliente IP é armazenado no cabeçalho do pedido em *X-reencaminhados-para*. Ao utilizar um controlador de entrada com preservação de IP de origem de cliente ativada, o pass-through SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -215,7 +215,7 @@ Também pode:
 - [Ativar o suplemento de encaminhamento de aplicação de HTTP][aks-http-app-routing]
 - [Criar um controlador de entrada que utiliza uma rede interna, privada e o endereço IP][aks-ingress-internal]
 - [Criar um controlador de entrada que utiliza os seus próprios certificados TLS][aks-ingress-own-tls]
-- Criar um controlador de entrada que utiliza a encriptar vamos para gerar automaticamente certificados TLS [com um endereço IP público dinâmico] [ aks-ingress-tls] ou [com um endereço IP público estático][aks-ingress-static-tls]
+- Criar um controlador de entrada que utiliza a encriptar vamos para gerar automaticamente certificados TLS [com um endereço IP público dinâmico][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm

@@ -4,7 +4,7 @@ description: Aprenda a utilizar o SAP nas máquinas virtuais do Linux (VMs) | Mi
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aba060680871fb727103efd6068ca2fb4d84432e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648887"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709957"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Utilizar o SAP nas máquinas virtuais do Linux no Azure
 A Computação na Cloud é um termo utilizado em grande escala que está a ganhar cada vez mais importância no setor de TI, desde as pequenas às grandes empresas e até multinacionais. O Microsoft Azure é a Plataforma de Serviços Cloud da Microsoft que oferece um amplo espetro de novas possibilidades. Agora os clientes podem aprovisionar rapidamente e anular o aprovisionamento de aplicações como Serviços Cloud, para que não estejam limitados a restrições técnicas ou orçamentais. Em vez de investirem tempo e dinheiro na infraestrutura de hardware, as empresas podem concentrar-se na aplicação, nos processos empresariais e nas vantagens para os clientes e utilizadores.

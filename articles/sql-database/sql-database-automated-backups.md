@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 06/27/2019
-ms.openlocfilehash: 1eeb37ce74b3e2f57588197d6bb88f59944c61cf
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: ce16450f7f25e5703cf283c4babb2a935aad21de
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460669"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813055"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -109,7 +109,11 @@ Se a sua base de dados é encriptado com TDE, as cópias de segurança são encr
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Como a que a Microsoft garante a integridade de cópia de segurança
 
-De forma contínua, a equipe de engenharia do Azure SQL Database automaticamente testa o restauro de cópias de segurança da base de dados automatizada das bases de dados em todo o serviço. Após o restauro, a bases de dados também recebem as verificações de integridade com o DBCC CHECKDB. Quaisquer problemas encontrados durante a verificação de integridade irão resultar num alerta para a equipa de engenharia. Para obter mais informações sobre a integridade dos dados na base de dados do Azure SQL, consulte [integridade dos dados na base de dados do Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
+De forma contínua, a base de dados SQL do Azure automaticamente a equipa de engenharia testes o restauro de cópias de segurança da base de dados automatizada das bases de dados colocados em servidores lógicos e conjuntos elásticos (isso não está disponível na instância gerida). Após o restauro de ponto no tempo, bases de dados também recebem as verificações de integridade com o DBCC CHECKDB.
+
+Cópia de segurança inicial automática com demora de instância gerida `CHECKSUM` das bases de dados restaurados com nativo `RESTORE` comando ou o serviço de migração de dados depois de concluída a migração.
+
+Quaisquer problemas encontrados durante a verificação de integridade irão resultar num alerta para a equipa de engenharia. Para obter mais informações sobre a integridade dos dados na base de dados do Azure SQL, consulte [integridade dos dados na base de dados do Azure SQL](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
 ## <a name="how-do-automated-backups-impact-compliance"></a>Como cópias de segurança automáticas afetar conformidade
 
@@ -181,7 +185,7 @@ Código de estado: 200
 
 Para obter mais informações, consulte [API de REST de retenção de cópia de segurança](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Cópias de segurança da base de dados são uma parte essencial de qualquer estratégia de recuperação de desastre e continuidade comercial, porque eles protegem os dados de danos acidentais ou eliminação. Para saber mais sobre as outras base de dados do Azure SQL soluções de continuidade empresarial, consulte [descrição geral da continuidade de negócio](sql-database-business-continuity.md).
 - Para restaurar para um ponto no tempo, com o portal do Azure, consulte [restaurar base de dados para um ponto no tempo com o portal do Azure](sql-database-recovery-using-backups.md).

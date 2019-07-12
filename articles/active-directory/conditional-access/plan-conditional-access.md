@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ddc2738305600c611cab1e09d654164f78b3d6
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509445"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655506"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a implementação de acesso condicional no Azure Active Directory
 
@@ -162,7 +162,7 @@ O plano de teste é importante ter uma comparação entre os resultados esperado
 |---|---|---|---|
 |[Exigir a MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Autorizado o utilizador iniciar sessão no *aplicação* enquanto estiverem num local confiável / de trabalho|Não é pedido ao utilizador para a MFA| |
 |[Exigir a MFA quando não estiver no trabalho](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Autorizado o utilizador iniciar sessão no *aplicação* enquanto estiverem não num local confiável / de trabalho|É-lhe pedido para MFA de utilizador e pode iniciar sessão com êxito| |
-|[Exigir a MFA (por administrador)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Administrador global, iniciar sessão numa *aplicação*|Administrador é solicitado a MFA| |
+|[Exigir a MFA (por administrador)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|Administrador global, iniciar sessão numa *aplicação*|Administrador é solicitado a MFA| |
 |[Inícios de sessão de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|Utilizador inicia sessão na *App* usando um [browser de Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Administrador é solicitado a MFA| |
 |[Gestão de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Utilizador autorizado tenta iniciar sessão a partir de um dispositivo autorizado|Acesso concedido| |
 |[Gestão de Dispositivos](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Autorizado o utilizador tentou iniciar sessão a partir de um dispositivo não autorizado|Acesso bloqueado| |

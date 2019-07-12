@@ -2,17 +2,17 @@
 title: Conceitos - Noções básicas do Kubernetes para serviços do Azure Kubernetes (AKS)
 description: Saiba os componentes de carga de trabalho de Kubernetes e como se relacionam aos recursos no Azure Kubernetes Service (AKS) e de cluster básico
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514533"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616008"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Para executar as suas aplicações e serviços de suporte, terá de Kubernetes *
 
 O tamanho de VM do Azure para os nós define o número de CPUs, quantidade de memória e o tamanho e tipo de armazenamento disponível (por exemplo, SSD de elevado desempenho ou regular HDD). Se prevê a necessidade de aplicativos que exigem grandes quantidades de CPU e memória ou armazenamento de elevado desempenho, planeie o tamanho de nó em conformidade. Também pode aumentar verticalmente o número de nós no cluster do AKS para satisfazer a procura.
 
-No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar. Os nós de agente são faturados como máquinas virtuais standard, para quaisquer descontos que tenha o tamanho de VM que está a utilizar (incluindo [do Azure reservas][reservation-discounts]) são automaticamente aplicadas.
+No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar. Os nós de agente são faturados como máquinas virtuais standard, para quaisquer descontos que tenha o tamanho de VM que está a utilizar (incluindo [reservas Azure][reservation-discounts]) são automaticamente aplicadas.
 
 Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar um tempo de execução do contentor que não seja Moby, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
@@ -132,7 +132,7 @@ Utiliza o Kubernetes *pods* para executar uma instância da sua aplicação. Um 
 
 Quando cria um pod, pode definir *limites de recursos* para pedir uma determinada quantidade de recursos de CPU ou memória. O agendador de Kubernetes tenta agendar os pods para ser executada num nó com os recursos disponíveis para satisfazer o pedido. Também pode especificar os limites de recursos máximo que impedem que um determinado pod consumir demasiados recursos de computação do nó subjacente. Uma prática recomendada é incluir os limites de recursos para todos os pods ajudar a compreender quais os recursos são necessários e permitidos o agendador de Kubernetes.
 
-Para obter mais informações, consulte [pods do Kubernetes] [ kubernetes-pods] e [pod de Kubernetes ciclo de vida][kubernetes-pod-lifecycle].
+Para obter mais informações, consulte [pods do Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Um pod é um recurso de lógico, mas o contentor (es) é onde executar as cargas de trabalho de aplicação. Pods são recursos normalmente efémeros, descartáveis e pods individualmente agendadas perder alguns dos recursos de disponibilidade e redundância elevados que fornece do Kubernetes. Em vez disso, o pods normalmente são implementados e geridos pelo Kubernetes *controladores*, por exemplo, o controlador de implementação.
 

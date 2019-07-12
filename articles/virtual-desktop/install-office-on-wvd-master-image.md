@@ -4,15 +4,15 @@ description: Como instalar e personalizar o Office numa imagem mestra de pré-vi
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 6d2bb7efdd5567da377e1e15fec4935b7d4a3a6f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0e89d37011ccdfc3acdace5b45faa8e9a64e4d3e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444120"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620473"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -174,6 +174,6 @@ Eis como instalar o OneDrive no modo de por máquina:
 
 Área de Trabalho Virtual do Windows não suporta o Skype para empresas e Equipes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que adicionou Office à imagem, pode continuar a personalizar a imagem VHD principal. Ver [preparar e personalizar uma imagem VHD principal](set-up-customize-master-image.md).

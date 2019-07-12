@@ -4,7 +4,7 @@ description: Lista atualizada das configurações atuais e certificações de SA
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: rclaus
 ms.custom: ''
-ms.openlocfilehash: a38d5b44aaca0aa28e7ecd32543d2b0563964b3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e64e2386611060b1393a330695a4729fe9490e54
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797451"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709985"
 ---
 # <a name="sap-certifications-and-configurations-running-on-microsoft-azure"></a>Certificações SAP e configurações em execução no Microsoft Azure
 

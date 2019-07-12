@@ -2,17 +2,17 @@
 title: Configurar redes do Azure CNI no Azure Kubernetes Service (AKS)
 description: Saiba como configurar redes de CNI do Azure (avançado) no Azure Kubernetes Service (AKS), incluindo a implementação de um cluster do AKS numa rede virtual existente e a sub-rede.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: 8e541834b31a762c65eabf07072d9b9f7333923e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 4d2b4bef5bfcade93b222e69e85df782480e430e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441966"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615795"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar redes do Azure CNI no Azure Kubernetes Service (AKS)
 
@@ -169,7 +169,7 @@ As perguntas e respostas seguintes aplicam-se para o **Azure CNI** configuraçã
 
   Não é recomendável, mas esta configuração é possível. O intervalo de endereços do serviço é um conjunto de IPs virtuais (VIPs) Kubernetes atribui a serviços internos no seu cluster. Redes do Azure tem sem visibilidade para o intervalo IP do serviço de cluster de Kubernetes. Devido à falta de visibilidade do intervalo de endereços do serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual de cluster que sobrepõe-se com o intervalo de endereços do serviço. Se ocorrer uma sobreposição desse tipo, o Kubernetes pode atribuir um serviço de um IP já está em utilização por outro recurso na sub-rede, fazendo com que um comportamento imprevisível ou falhas. Ao garantir que usar um intervalo de endereços fora da rede virtual do cluster, é possível evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o funcionamento em rede no AKS nos seguintes artigos:
 

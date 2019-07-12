@@ -9,12 +9,12 @@ ms.date: 04/19/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fe142439dc80af660d286e5913fee13d4de8e86
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147297"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625665"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Execute comandos CLI do Azure ou do PowerShell com credenciais do Azure AD para aceder aos dados de BLOBs ou filas
 
@@ -26,7 +26,7 @@ Pode atribuir permissões aos dados de BLOBs e filas para um principal de segura
 
 As extensões são suportadas para operações de contentores e filas. As operações que podem ser chamados depende das permissões concedidas para a entidade de segurança do Azure AD com a qual inicia sessão no CLI do Azure ou o PowerShell. Permissões para os contentores de armazenamento do Azure ou filas são atribuídas através do controlo de acesso baseado em funções (RBAC). Por exemplo, se está atribuído a **leitor de dados de Blob** função, em seguida, pode executar comandos de scripts de leitura de dados de um contentor ou uma fila. Se estiver atribuído a **contribuinte de dados do Blob** função, em seguida, pode executar comandos de scripts que ler, escreverem ou eliminar um contentor ou fila ou os dados nelas contidos. 
 
-Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure num contentor ou fila, consulte [permissões para chamar as operações REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
+Para obter detalhes sobre as permissões necessárias para cada operação de armazenamento do Azure num contentor ou fila, consulte [chamar operações de armazenamento com tokens de OAuth](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Chamar comandos da CLI com credenciais do Azure AD
 

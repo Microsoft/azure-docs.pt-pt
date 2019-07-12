@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 984d8ffa9f901437f1413e1d5d3145cabba80883
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af8aa85488240dbbe4a07811d73ebdbaafefcfef
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954984"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588604"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instruções T-SQL suportadas no Azure SQL Data Warehouse
 Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
@@ -23,6 +23,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 ## <a name="data-definition-language-ddl-statements"></a>Instruções de definição DDL (linguagem) de dados
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTERAR O ÍNDICE](https://msdn.microsoft.com/library/ms188388.aspx)
+* [ALTERAR a vista de MATERIALIZED](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (pré-visualização) 
 * [ALTERAR O PROCEDIMENTO](https://msdn.microsoft.com/library/ms189762.aspx)
 * [ALTER SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
@@ -34,6 +35,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [CRIAR TABELA EXTERNA](https://msdn.microsoft.com/library/dn935021.aspx)
 * [CRIAR FUNÇÃO](https://msdn.microsoft.com/library/mt203952.aspx)
 * [CRIAR ÍNDICE](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Criar MATERIALIZED vista AS SELECIONE](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (pré-visualização) 
 * [CRIAR PROCEDIMENTO](https://msdn.microsoft.com/library/ms187926.aspx)
 * [CRIAR ESQUEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
@@ -52,7 +54,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [VISTA DE LISTA](https://msdn.microsoft.com/library/ms173492.aspx)
 * [REMOVER O CLASSIFICADOR DE CARGA DE TRABALHO](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [MUDAR O NOME](https://msdn.microsoft.com/library/mt631611.aspx)
-* [CONJUNTO RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) (pré-visualização)
+* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -63,9 +65,12 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 
 ## <a name="database-console-commands"></a>Comandos da consola de base de dados
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
+* [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (pré-visualização)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 * [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
+* [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
+* [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) (pré-visualização)
 * [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)

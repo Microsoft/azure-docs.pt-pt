@@ -2,24 +2,25 @@
 title: Compreender o Centro de segurança do Azure para recomendações de segurança de IoT pré-visualização | Documentos da Microsoft
 description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas no Centro de segurança do Azure para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 02ced504-d3aa-4770-9d10-b79f80af366c
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 122a1585abf43d1aedc7f329cd7e41a6228f8c3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ee71bbacdba7a14e94de41563a04be9c0f00d13
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200676"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618417"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
@@ -35,7 +36,7 @@ Neste artigo, encontrará uma lista de recomendações que pode ser acionada no 
 
 Recomendações de dispositivos fornecem informações e sugestões para melhorar a postura de segurança do dispositivo. 
 
-| Gravidade | Name                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
+| Severity | Nome                                                      | Origem de Dados | Descrição                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Médio   | Portas abertas no dispositivo                                      | Agente       | Um ponto de final de escuta foi encontrado no dispositivo                                                                                                                                                          |
 | Médio   | Política de firewall permissiva encontrada das cadeias. | Agente       | Permitido a política de firewall foi encontrada (entrada/saída). Política de firewall deve negar todo o tráfego por predefinição e definem regras para permitir a comunicação necessária de/para o dispositivo.                               |
@@ -47,7 +48,7 @@ Recomendações de dispositivos fornecem informações e sugestões para melhora
 
 Recomendações operacionais fornecem informações e sugestões para melhorar a configuração do agente de segurança.
 
-| Gravidade | Name                                    | Origem de Dados | Descrição                                                                       |
+| Severity | Nome                                    | Origem de Dados | Descrição                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
 | Baixa      | Agente envia mensagens unutilized          | Agente       | 10% ou mais das mensagens de segurança foram inferior a 4kb nas últimas 24 horas.  |
 | Baixa      | Configuração de duplo de segurança não ideal | Agente       | Configuração de duplo de segurança não é ideal.                                        |
@@ -58,7 +59,7 @@ Recomendações operacionais fornecem informações e sugestões para melhorar a
 
 Os alertas de recomendação fornecem informações e sugestões para ações melhorar a postura de segurança do seu ambiente.  
 
-| Gravidade | Name                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
+| Severity | Nome                                                     | Origem de Dados | Descrição                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alta     | Credenciais de autenticação idênticos utilizadas por vários dispositivos | IoT Hub     | Credenciais de autenticação do IoT Hub são utilizadas por vários dispositivos. Isto pode indicar um dispositivo ilegítimo representando um dispositivo legítimo. Utilização da credencial duplicados aumenta o risco de representação do dispositivo por um ator malicioso. |
 | Médio   | Política de filtro IP predefinido deve ser negar                  | IoT Hub     | Configuração de filtro IP deve ter regras definidas para o tráfego permitido e deve por predefinição, negam o tráfego de todos os outros por predefinição.                                                                                                     |

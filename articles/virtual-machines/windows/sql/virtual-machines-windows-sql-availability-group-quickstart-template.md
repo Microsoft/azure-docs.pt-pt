@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb09d91bb3204a1ab3dc4f9df71eabd2ee7d2bd1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 406bd11765e4b580849e8719939c3e11c19d99a8
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591327"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604557"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
@@ -38,7 +38,7 @@ Outras partes da configuração do grupo de disponibilidade devem ser feitas man
 Para automatizar a configuração de um grupo de disponibilidade Always On na através de modelos de início rápido, já tem de ter os seguintes pré-requisitos: 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) na mesma disponibilidade ou conjunto de zona de disponibilidade que tenham sido [registado com o fornecedor de recursos de VM do SQL Server](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) na mesma disponibilidade ou conjunto de zona de disponibilidade que tenham sido [registado com o fornecedor de recursos de VM do SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md).  
 - (Não utilizado por qualquer entidade) disponíveis dois endereços IP, um para o Balanceador de carga interno e para o serviço de escuta do grupo de disponibilidade na mesma sub-rede que o grupo de disponibilidade. Se está a ser utilizado um balanceador de carga existente, em seguida, é necessário apenas um endereço IP disponível.  
 
 ## <a name="permissions"></a>Permissões
@@ -97,7 +97,7 @@ O Always On (AG) serviço de escuta requer um balanceador de carga de Azure inte
 
    | Definição | Value |
    | --- | --- |
-   | **Nome** |Um nome de texto que representa o Balanceador de carga. Por exemplo, **sqlLB**. |
+   | **Name** |Um nome de texto que representa o Balanceador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interno**: A maioria das implementações utilizar um balanceador de carga interno, que permite que aplicativos dentro da mesma rede virtual ligar ao grupo de disponibilidade.  </br> **Externo**: Permite que os aplicativos para se ligar ao grupo de disponibilidade por meio de uma ligação de Internet pública. |
    | **Rede virtual** | Selecione a rede virtual que as instâncias do SQL Server estão em. |
    | **Sub-rede** | Selecione a sub-rede que instâncias do SQL Server estão em. |
@@ -190,7 +190,7 @@ Este erro pode ser causado por um dos dois motivos. A conta de domínio especifi
 
     ![Conta de utilizador em branco indica UPN em falta](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
-5. Preencha os **nome de início de sessão do utilizador** para corresponder ao nome do utilizador e selecione o domínio correto no menu pendente. 
+5. Preencha os **nome de início de sessão do utilizador** para corresponder ao nome do utilizador e selecione o domínio adequado na lista suspensa. 
 6. Selecione **aplicar** para guardar as alterações e fechar a caixa de diálogo selecionando **OK**. 
 
    Depois de efetuadas estas alterações, tente implementar o modelo de início rápido do Azure mais uma vez. 

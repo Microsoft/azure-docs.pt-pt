@@ -4,7 +4,7 @@ description: Compreender os detalhes de utilização de máquinas virtuais
 services: virtual-machines
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-virtual-machine
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d3e6d3c534a9295b76043dc8a6e01b9c1bb1496e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc341492779e6ed5aef2505a98ad8a116866fe4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743212"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695267"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Compreender a utilização de máquina virtual do Azure
 Ao analisar os dados de utilização do Azure, pode ser obtida a informações sobre consumo poderosas – informações que podem ativar a custam melhor gerenciamento e a alocação em toda a organização. Este documento fornece uma descrição aprofundada seus detalhes de consumo de computação do Azure. Para obter mais detalhes sobre a utilização do Azure geral, navegue para [entender a sua fatura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -82,7 +82,7 @@ O nome da região preenchido no campo de localização de recursos nos detalhes 
 |    chinaeast             |    Leste da China                            |
 |    chinanorth            |    China Norte                           |
 |    eastasia              |    Ásia Oriental                             |
-|    eualeste                |    EUA Leste                               |
+|    eualeste                |    East US                               |
 |    eastus2               |    EUA Leste 2                             |
 |    GermanyCentral        |    Alemanha Central                            |
 |    GermanyNortheast      |    Nordeste da Alemanha                          |

@@ -4,7 +4,7 @@ description: Como utilizar o cloud-init para configurar um swapfile numa VM do L
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 626fd4739daf2506854c42f16ac986a361ebab38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: adf03ea912a028c1059683c49350dea3743ee7a6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60729822"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671707"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Utilizar o cloud-init para configurar um swapfile numa VM do Linux
 Este artigo mostra-lhe como utilizar [cloud-init](https://cloudinit.readthedocs.io) para configurar o swapfile em várias distribuições de Linux. O swapfile tradicionalmente foi configurado pelo Linux agente (WALA) com base em exigia que as distribuições.  Este documento descreverá o processo de criação do swapfile a pedido durante o tempo de aprovisionamento com o cloud-init.  Para obter mais informações sobre o cloud-init funcionamento nativamente no Azure e distribuições de Linux suportadas, consulte [descrição geral do cloud-init](using-cloud-init.md)

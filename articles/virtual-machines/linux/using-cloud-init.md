@@ -4,7 +4,7 @@ description: Descrição geral das capacidades de cloud-init no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 377ad49ae3a5ae0f61cd0fd93b68dd817d617397
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 057f7c42c037dac4cb2be686df09287de7113f0d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050817"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695393"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Suporte de cloud-init para máquinas virtuais no Azure
 Este artigo explica o suporte de que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure.  
@@ -34,8 +34,8 @@ O cloud-init também funciona em distribuições. Por exemplo, não utiliza **ap
 
 | Publicador | Oferta | SKU | Versão | preparado para o cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canónico |UbuntuServer |18.04-LTS |mais recente |sim | 
-|Canónico |UbuntuServer |17.10 |mais recente |sim | 
+|Canónico |UbuntuServer |18.04-LTS |latest |sim | 
+|Canónico |UbuntuServer |17.10 |latest |sim | 
 |Canónico |UbuntuServer |16.04-LTS |mais recente |sim | 
 |Canónico |UbuntuServer |14.04.5-LTS |mais recente |sim |
 |CoreOS |CoreOS |Estável |mais recente |sim |
@@ -94,7 +94,7 @@ Assim que a VM tiver sido aprovisionada, cloud-init será executado por meio de 
 
 Para obter mais detalhes de registo do cloud-init, consulte o [documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter exemplos de alterações de configuração cloud-init, veja os documentos seguintes:
  
 - [Adicionar um utilizador de Linux adicional a uma VM](cloudinit-add-user.md)

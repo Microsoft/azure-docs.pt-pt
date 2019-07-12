@@ -3,17 +3,17 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184604"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593995"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil da CDN
 
@@ -31,11 +31,11 @@ Um perfil da CDN é um contentor de pontos finais da CDN e especifica um escalã
 
 3. Nas definições do perfil da CDN, utilize os valores especificados na tabela seguinte:
    
-    | Definição  | Value |
+    | Definição  | Valor |
     | -------- | ----- |
-    | **Nome** | Introduza *my-cdn-perfil-123* como nome do perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
+    | **Name** | Introduza *my-cdn-perfil-123* como nome do perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
     | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |
-    | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Este nome tem de ser globalmente exclusivo. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. | 
+    | **Grupo de recursos** | Selecione **Criar novo** e introduza *my-resource-group-123* como nome do grupo de recursos. Se já estiver a ser utilizado, poderá introduzir um diferente ou selecionar **Utilizar existente** e selecionar **my-resource-group-123** na lista pendente. | 
     | **Localização do grupo de recursos** | Selecione **EUA Central** na lista pendente. |
     | **Escalão de preço** | Selecione **Standard da Verizon** na lista pendente. |
     | **Agora, crie um novo ponto final da CDN** | Deixe por selecionar. |  

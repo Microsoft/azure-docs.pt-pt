@@ -4,15 +4,15 @@ description: Como preparar, personalizar e carregar uma imagem mestre da pré-vi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 186086a94470faaf19fa8a3c07939b9856ae2ec9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 2413a380adf32755452482d2b68d2055f7db666d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466823"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620428"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -220,7 +220,7 @@ As instruções seguintes indicam como carregar sua imagem mestre para uma conta
 
     ![Uma captura de ecrã da notificação "imagem criada com êxito".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que possui uma imagem, pode criar ou atualizar conjuntos de anfitrião. Para saber mais sobre como criar e atualizar conjuntos de anfitrião, veja os artigos seguintes:
 

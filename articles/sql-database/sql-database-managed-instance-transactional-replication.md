@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: bcbdd5fd8395cb0a47038595127e9b20118bdf1b
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147715"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696194"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com único, em pool e a instância de bases de dados na base de dados do Azure SQL
 
@@ -50,7 +50,7 @@ O **distribuidor** é uma instância ou um servidor que recolhe as alterações 
 
 O **assinante** é uma instância ou um servidor que está a receber as alterações feitas no publicador. Os assinantes podem ser único, agrupados, e instância bases de dados em bancos de dados de base de dados do Azure SQL ou SQL Server. Um subscritor numa base de dados individual ou agrupada deve ser configurado como assinante do push. 
 
-| Função | Bases de dados únicos e em pool | Bases de dados de instância |
+| Role | Bases de dados únicos e em pool | Bases de dados de instância |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim | 
 | **Distribuidor** | Não | Sim|
@@ -92,7 +92,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
 ## <a name="requirements"></a>Requisitos
 
-- Conectividade utiliza a autenticação do SQL entre os participantes de replicação. 
+- A conectividade utiliza a Autenticação SQL entre os participantes da replicação. 
 - Um compartilhamento de conta de armazenamento do Azure para o diretório de trabalho utilizado pela replicação. 
 - Porta 445 (saída de TCP) tem de estar abertas nas regras de segurança de sub-rede da instância gerida para aceder à partilha de ficheiros do Azure. 
 - A porta 1433 (saída de TCP) tem de ser aberta se o publicador/distribuidor estão numa instância gerida e o assinante está no local.
@@ -139,7 +139,7 @@ Nesta configuração, um Azure SQL Database (único, em pool e a instância da b
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-1. [Configurar a replicação transacional para uma instância gerida](replication-with-sql-database-managed-instance.md). 
+1. [Configurar a replicação entre duas instâncias geridas](replication-with-sql-database-managed-instance.md). 
 1. [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Criar uma subscrição de emissão](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) ao utilizar o nome do servidor de base de dados do Azure SQL como o subscritor (por exemplo `N'azuresqldbdns.database.windows.net` e o nome de base de dados do Azure SQL como a base de dados de destino (por exemplo **Adventureworks**. )
 

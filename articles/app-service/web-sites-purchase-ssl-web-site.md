@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955704"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618903"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
@@ -49,10 +50,10 @@ Utilize a tabela seguinte para ajudar a configurar o certificado. Quando termina
 
 | Definição | Descrição |
 |-|-|
-| Name | Um nome amigável para o seu certificado de serviço de aplicações. |
+| Nome | Um nome amigável para o seu certificado de serviço de aplicações. |
 | Nome de anfitrião de domínio sem "www" | Se especificar o domínio raiz aqui, obtém um certificado que protege *ambos* o domínio de raiz e o `www` subdomínio. Para proteger qualquer subdomínio apenas, especifique o nome de domínio completamente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`). |
-| Subscrição | O centro de dados onde o a aplicação Web está alojada. |
-| Grupo de recursos | O grupo de recursos que contém o certificado. Pode utilizar um grupo de recursos ou selecione o mesmo grupo de recursos que a sua aplicação de serviço de aplicações, por exemplo. |
+| Subscription | O centro de dados onde o a aplicação Web está alojada. |
+| Resource group | O grupo de recursos que contém o certificado. Pode utilizar um grupo de recursos ou selecione o mesmo grupo de recursos que a sua aplicação de serviço de aplicações, por exemplo. |
 | SKU do certificado | Determina o tipo de certificado para criar, se um certificado padrão ou uma [certificado de caráter universal](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Termos legais | Clique para confirmar que aceita os termos legais. Os certificados são obtidos a partir da GoDaddy. |
 
@@ -70,8 +71,8 @@ Na **estado do Key Vault** página, clique em **repositório do Key Vault** para
 
 | Definição | Descrição |
 |-|-|
-| Name | Um nome exclusivo que consiste em para carateres alfanuméricos e travessões. |
-| Grupo de recursos | Como uma recomendação, selecione o mesmo grupo de recursos como o certificado de serviço de aplicações. |
+| Nome | Um nome exclusivo que consiste em para carateres alfanuméricos e travessões. |
+| Resource group | Como uma recomendação, selecione o mesmo grupo de recursos como o certificado de serviço de aplicações. |
 | Location | Selecione a mesma localização que a sua aplicação de serviço de aplicações. |
 | Escalão de preço | Para obter informações, consulte [os detalhes dos preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define as aplicações e de ter permissão para aceder aos recursos do cofre. Pode configurá-lo mais tarde, seguindo os passos indicados em [conceder acesso de aplicações de vários para um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |

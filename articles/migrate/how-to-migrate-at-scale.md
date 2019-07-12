@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597116"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808027"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migração de dimensionamento de VMs com o Azure Site Recovery
 
-Este artigo ajuda-o a compreender o processo de uso de scripts para migrar o grande número de VMs com o Azure Site Recovery. Estes scripts estão disponíveis para a transferência a [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repositório no GitHub. Os scripts podem ser utilizados para migrar VMware, AWS, GCP VMs e servidores físicos para migração do Azure e o suporte para discos geridos. Também pode utilizar estes scripts para migrar VMs de Hyper-V, se migrar as VMs que os servidores físicos. Os scripts de tirar partido do Azure Site Recovery PowerShell documentados [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Este artigo ajuda-o a compreender como usar scripts para migrar o grande número de VMs com o Azure Site Recovery. Estes scripts estão disponíveis para a transferência a [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repositório no GitHub. Os scripts podem ser utilizados para migrar VMware, AWS, GCP VMs e servidores físicos para discos geridos no Azure. Também pode utilizar estes scripts para migrar VMs de Hyper-V, se migrar as VMs que os servidores físicos. Os scripts que tiram partido do PowerShell do Azure Site Recovery estão documentados [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## <a name="current-limitations"></a>Limitações atuais:
 - Suporta a especificação de endereço IP estático apenas para o NIC primário de VM de destino

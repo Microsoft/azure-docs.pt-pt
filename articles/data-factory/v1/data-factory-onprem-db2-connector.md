@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72c88ef10bf1df217ec6e24ac744d0b30386b4a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824019"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839025"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados de DB2 usando a atividade de cópia de fábrica de dados do Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -64,7 +64,7 @@ O conector de DB2 da fábrica de dados suporta as seguintes plataformas de IBM D
 Pode criar um pipeline com uma atividade de cópia para mover dados de um arquivo de dados DB2 no local através de APIs e ferramentas diferentes: 
 
 - A maneira mais fácil para criar um pipeline é usar o Assistente de cópia de fábrica de dados do Azure. Para uma passo a passo rápido sobre como criar um pipeline com o Assistente de cópia, consulte o [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md). 
-- Também pode utilizar ferramentas para criar um pipeline, incluindo o portal do Azure, Visual Studio, Azure PowerShell, um modelo Azure Resource Manager, a API de .NET e a API REST. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+- Também pode utilizar ferramentas para criar um pipeline, incluindo o Visual Studio, Azure PowerShell, um modelo Azure Resource Manager, a API de .NET e a API REST. Para obter instruções passo a passo Criar um pipeline com uma atividade de cópia, consulte a [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -112,7 +112,7 @@ Para a atividade de cópia, quando a origem é do tipo **RelationalSource** (que
 > Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. A instrução de consulta, coloque os nomes das propriedades utilizando "" (as aspas duplas).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados de DB2 para armazenamento de Blobs do Azure
-Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com o [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). O exemplo mostra como copiar dados de uma base de dados DB2 no armazenamento de Blobs. No entanto, os dados podem ser copiados para [tipo de sink de armazenar todos os dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia de fábrica de dados do Azure.
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). O exemplo mostra como copiar dados de uma base de dados DB2 no armazenamento de Blobs. No entanto, os dados podem ser copiados para [tipo de sink de armazenar todos os dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia de fábrica de dados do Azure.
 
 O exemplo possui as seguintes entidades do Data Factory:
 
@@ -309,7 +309,7 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | Tipo de base de dados de DB2 | Tipo de .NET framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -318,24 +318,24 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
-| Binário |Byte[] |
+| Char |Cadeia |
+| VarChar |Cadeia |
+| LongVarChar |Cadeia |
+| DB2DynArray |Cadeia |
+| Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
-| Blobs |Byte[] |
-| DbClob |String |
+| Graphic |Cadeia |
+| VarGraphic |Cadeia |
+| LongVarGraphic |Cadeia |
+| Clob |Cadeia |
+| Blob |Byte[] |
+| DbClob |Cadeia |
 | SmallInt |Int16 |
-| Integer |Int32 |
+| Número inteiro |Int32 |
 | BigInt |Int64 |
 | Real |Single |
 | Double |Double |
@@ -344,10 +344,10 @@ Os seguintes mapeamentos são utilizados quando a atividade de cópia converte o
 | DecimalFloat |Decimal |
 | Numeric |Decimal |
 | Date |DateTime |
-| Hora |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | Xml |Byte[] |
-| Char |String |
+| Char |Cadeia |
 
 ## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
 Para saber como mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

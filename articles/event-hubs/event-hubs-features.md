@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5b2618807a39f20de041a78204dcc40793b22843
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275437"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827730"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -66,30 +66,8 @@ Não precisa de criar os nomes dos publicadores com antecedência, mas devem cor
 [Captura de Hubs de eventos](event-hubs-capture-overview.md) permite-lhe capturar os dados de transmissão em fluxo nos Hubs de eventos e guarde-o à sua escolha de uma conta de armazenamento de BLOBs ou uma conta do Azure Data Lake Service automaticamente. Pode ativar a captura do portal do Azure e especifique um tamanho mínimo e a janela de tempo para executar a captura. Utilizar a captura de Hubs de eventos, especificar sua própria conta de armazenamento de Blobs do Azure e um contentor ou uma conta de serviço do Azure Data Lake, um dos quais é utilizado para armazenar os dados capturados. Dados capturados são escritos no formato Apache Avro.
 
 ## <a name="partitions"></a>Partições
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-O Event Hubs fornece transmissão de mensagens através de um padrão de consumidor particionado em que cada consumidor só lê um subconjunto específico, ou partição, do fluxo de mensagens. Este padrão permite um dimensionamento horizontal do processamento de eventos e fornece outras funcionalidades centradas nos fluxos que não estão disponíveis nas filas e nos tópicos.
-
-Uma partição é uma sequência ordenada de eventos mantida num hub de eventos. À medida que chegam novos eventos, eles são adicionados ao final desta sequência. Uma partição pode ser considerada como um "registo de consolidação".
-
-![Hubs de Eventos](./media/event-hubs-features/partition.png)
-
-Os Hubs de eventos retém os dados durante um período de retenção configurado aplicado a todas as partições de evento hub. Os eventos expiram em intervalos de tempo; não é possível eliminá-los explicitamente. Uma vez que as partições são independentes e contêm a sua própria sequência de dados, aumentam frequentemente com taxas diferentes.
-
-![Hubs de Eventos](./media/event-hubs-features/multiple_partitions.png)
-
-O número de partições é especificado durante a criação e deve ser entre 2 e 32. O número de partições não é alterável, pelo que deve considerar uma escala a longo prazo quando definir o número de partições. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Pode aumentar o número de partições além de 32 ao contactar a equipa do Event Hubs.
-
-Enquanto as partições serem identificáveis e poderem ser enviadas diretamente, enviando diretamente para uma partição não é recomendado. Em vez disso, pode utilizar construções de nível superior, apresentadas na [publicador de eventos](#event-publishers) e seções de capacidade. 
-
-As partições são preenchidas com uma seqüência de dados de eventos que contêm o corpo do evento, uma matriz de propriedades definida pelo utilizador e metadados, como o desvio na partição e o respetivo número na sequência de transmissão.
-
-Para obter mais informações sobre as partições e o compromisso entre disponibilidade e fiabilidade, veja o [Guia de programação de Hubs de Eventos](event-hubs-programming-guide.md#partition-key) e o artigo [Disponibilidade e consistência em Hubs de Eventos](event-hubs-availability-and-consistency.md).
-
-### <a name="partition-key"></a>Chave de partição
-
-Pode utilizar uma [chave de partição](event-hubs-programming-guide.md#partition-key) para mapear dados de eventos recebidos em partições específicas para a finalidade de organização de dados. A chave de partição é um valor fornecido pelo remetente transmitido para um hub de eventos. É processada através de uma função hash estática que cria a atribuição de partições. Se não especificar uma chave de partição ao publicar um evento, é utilizada uma atribuição round robin.
-
-O publicador de eventos apenas tem conhecimento da respetiva chave de partição, não da partição onde os eventos são publicados. Este desacoplamento da chave e da partição faz com que o remetente não tenha necessidade de saber muito sobre o processamento a jusante. Uma identidade por dispositivo ou utilizador exclusivo faz com que uma chave de partição seja segura, mas outros atributos como a geografia também podem ser utilizados para agrupar os eventos relacionados numa única partição.
 
 ## <a name="sas-tokens"></a>Tokens SAS
 

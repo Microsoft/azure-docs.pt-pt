@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 68a5d5278e1181695695647cff187d4b95624b40
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 05723a90725992e6b955524a2d35c82d3378ee3d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537639"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621843"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Resolver problemas de execução do pacote no runtime de integração de SSIS
 
@@ -57,11 +57,33 @@ A causa potencial é que o fornecedor ADO.NET utilizado no pacote não está ins
 
 Um problema conhecido em versões mais antigas do SQL Server Management Studio (SSMS) pode causar este erro. Se o pacote contiver um componente personalizado (por exemplo, componentes de Feature Pack do SSIS do Azure ou de parceiro) não está instalado na máquina onde o SSMS é utilizado para efetuar a implementação, o SSMS remove o componente e fazer com que o erro. Atualize [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para a versão mais recente que tenha o problema foi corrigido.
 
+### <a name="error-messagessis-executor-exit-code--1073741819"></a>Mensagem de erro: "código de saída do Executor do SSIS:-1073741819."
+
+* Causa potencial & ação recomendada:
+  * Este erro pode ser devido a limitação para a origem do Excel e de destino ao executar várias origens de Excel ou destinos em paralelo em vários threads. Pode resolver essa limitação ao alterar os componentes do Excel são executadas em seqüência ou separá-los em diferentes pacotes e acionador por meio de "Executar tarefa do pacote" com a propriedade de ExecuteOutOfProcess definida como True.
+
 ### <a name="error-message-there-is-not-enough-space-on-the-disk"></a>Mensagem de erro: "Não existe espaço suficiente no disco"
 
 Este erro significa que o nó do integration runtime do SSIS se esgotar o disco local. Verifique se o pacote ou a configuração personalizada está a consumir muito espaço em disco:
 * Se o disco é consumido ao seu pacote, ele será liberado cópia de segurança depois de concluída a execução do pacote.
 * Se o disco for consumido pela sua configuração personalizada, irá precisar para parar o runtime de integração do SSIS, modificar o seu script e iniciar o integration runtime novamente. O contentor de BLOBs totalmente do Azure especificada para a configuração personalizada será copiada para o nó do runtime de integração de SSIS, por isso, verifique se existe qualquer conteúdo desnecessário nesse contentor.
+
+### <a name="error-message-failed-to-retrieve-resource-from-master-microsoftsqlserverintegrationservicesscalescaleoutcontractcommonmasterresponsefailedexception-code300004-descriptionload-file--failed"></a>Mensagem de erro: "Falha ao obter o recurso do principal. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Código: 300004. Descrição: carregar ficheiro "***" falhou. "
+
+* Causa potencial & ação recomendada:
+  * Se a atividade de SSIS está em execução pacote do sistema de arquivos (ficheiro de pacote ou arquivo de projeto), este erro ocorrerá se o ficheiro de projeto, pacote ou de configuração não está acessível com a credencial de acesso do pacote fornecido na atividade SSIS
+    * Se estiver a utilizar ficheiros do Azure:
+      * O caminho do ficheiro deve começar com \\ \\ \<nome da conta de armazenamento\>. file.core.windows.net\\\<caminho da partilha de ficheiros\>
+      * O domínio deve ser "Azure"
+      * O nome de utilizador deve ser \<nome da conta de armazenamento\>
+      * A palavra-passe deve ser \<chave de acesso de armazenamento\>
+    * Se está a utilizar ficheiros no local, verifique se VNet, a credencial de acesso do pacote e a permissão estão configurados corretamente para que o runtime de integração Azure-SSIS pode aceder a partilha de ficheiros no local
+
+### <a name="error-message-the-file-name--specified-in-the-connection-was-not-valid"></a>Mensagem de erro: "O nome de ficheiro"..." especificado na ligação não era válida "
+
+* Causa potencial & ação recomendada:
+  * For especificado um nome de ficheiro inválido
+  * Certifique-se de que está a utilizar o FQDN (nome completamente qualificado domínio) em vez de curto período de tempo no seu Gerenciador de conexões
 
 ### <a name="error-message-cannot-open-file-"></a>Mensagem de erro: "Não é possível abrir o ficheiro"...""
 

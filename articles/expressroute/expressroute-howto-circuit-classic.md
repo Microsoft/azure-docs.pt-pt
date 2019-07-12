@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7c3368408b06f13139b9126dfecad0a82857134
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370275"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657298"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito do ExpressRoute com o PowerShell (clássico)
 
@@ -21,6 +21,7 @@ ms.locfileid: "60370275"
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +126,7 @@ Pode modificar algumas propriedades de um circuito do ExpressRoute sem afetar a 
 Pode efetuar as seguintes tarefas sem tempo de inatividade:
 
 * Ativar ou desativar um suplemento ExpressRoute premium para o seu circuito do ExpressRoute.
-* Aumente a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada. 
+* Aumente a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. Desatualização de largura de banda de um circuito não é suportada.
 * Altere o plano de medição de dados limitados para dados ilimitados. Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
 * Pode ativar e desativar *permitir operações clássicas*.
 
@@ -154,8 +155,8 @@ O circuito agora têm as funcionalidades de suplemento ExpressRoute premium ativ
 
 > [!IMPORTANT]
 > Esta operação pode falhar se estiver a utilizar os recursos que são maiores que o que é permitido para o circuito standard.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Considerações
 
@@ -189,8 +190,8 @@ Verifique os [FAQ do ExpressRoute](expressroute-faqs.md) para opções de largur
 > Poderá ter de recriar o circuito do ExpressRoute, se houver a capacidade inadequada na porta existente. Não é possível atualizar o circuito se não existir nenhuma capacidade adicional disponível naquele local.
 >
 > Não é possível reduzir a largura de banda de um circuito do ExpressRoute sem interrupção. Desatualização de largura de banda exige que desaprovisionar o circuito do ExpressRoute e, em seguida, reaprovisionar um novo circuito do ExpressRoute.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Redimensionar um circuito
 

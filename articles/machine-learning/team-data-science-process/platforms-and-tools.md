@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428729"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626366"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -48,7 +48,7 @@ Ele também inclui **ferramentas de ML e AI** como xgboost, mxnet e Vowpal Wabbi
 
 Atualmente está disponível no DSVM **Windows** e **Linux CentOS** sistemas operativos. Escolha o tamanho da sua DSVM (número de núcleos de CPU) e a quantidade de memória com base nas necessidades dos projetos de ciência de dados que pretende executar no mesmo. 
 
-Para obter mais informações sobre a edição do Windows da DSVM, consulte [máquina de Virtual de ciência de dados do Microsoft](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) no Azure marketplace. Para a edição Linux da DSVM, consulte [máquina de Virtual de ciência de dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para obter mais informações sobre a edição do Windows da DSVM, consulte [máquina de Virtual de ciência de dados do Microsoft](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) no Azure marketplace. Para a edição Linux da DSVM, consulte [máquina de Virtual de ciência de dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 Para saber como executar algumas das tarefas de ciência de dados comuns com eficiência em DSVM, veja [dez coisas que pode fazer na máquina Virtual de ciência de dados](../data-science-virtual-machine/vm-do-ten-things.md)
 

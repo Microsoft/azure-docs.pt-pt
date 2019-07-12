@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sumeet.mittal
-ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sumi
+ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61033905"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595374"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -182,7 +182,7 @@ Não há encargos adicionais para a utilização de políticas de ponto final de
 
 São aplicados os limites seguintes às políticas de ponto final de serviço: 
 
- |Recurso | Limite predefinido |
+ |Resource | Limite predefinido |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
  |ServiceEndpintPoliciesPerSubnet|100 |

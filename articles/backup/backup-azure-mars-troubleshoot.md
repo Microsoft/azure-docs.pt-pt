@@ -3,17 +3,17 @@ title: Resolver problemas relacionados com o agente de cópia de segurança do A
 description: Resolver problemas de instalação e registo do agente do Backup do Azure
 services: backup
 author: saurabhsensharma
-manager: shivamg
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 1c4c2ed6265bdb3c29986fb0b90c3d85d32aadca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b175efad081b8382d80be8427aa074920fd3e
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434015"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705046"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas relacionados com o agente dos serviços de recuperação do Azure (MARS) da Microsoft
 
@@ -46,7 +46,7 @@ Recomendamos que verifique o seguinte antes de iniciar a resolução de problema
 | Causa | Ações recomendadas |
 | ---     | ---    |
 | **As credenciais do Cofre não são válidas** <br/> <br/> Ficheiros de credenciais de cofre podem estar danificados ou poderão ter expirado. (Por exemplo, eles talvez tenham sido transferidos mais de 48 horas antes da hora de registo.)| Transferir novas credenciais do Cofre de serviços de recuperação no portal do Azure. (Consulte a etapa 6 na [transferir o agente de MARS](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) seção.) Em seguida, siga estes passos, conforme apropriado: <ul><li> Se já tiver instalado e registado MARS, abra a consola do MMC do agente de cópia de segurança do Microsoft Azure e, em seguida, selecione **registar o servidor** no **ações** painel para concluir o registo com o novo credenciais. <br/> <li> Se a nova instalação falhar, tente voltar a instalar com as novas credenciais.</ul> **Nota**: Se tiverem sido transferidos vários ficheiros de credenciais do cofre, apenas o ficheiro mais recente é válido durante as próximas 48 horas. Recomendamos que transfira um novo ficheiro de credenciais do cofre.
-| **Firewall e servidor proxy está a bloquear o registo** <br/>ou <br/>**Sem conectividade internet** <br/><br/> Se o servidor proxy ou máquina limitou a conectividade à internet e não a garantir o acesso para os URLs necessários, o registo falhará.| Siga estes passos:<br/> <ul><li> Trabalhar com a sua equipa de TI para garantir que o sistema tem conectividade à internet.<li> Se não tiver um servidor proxy, certifique-se de que a opção de proxy não está selecionada quando registar o agente. [Verifique as definições de proxy](#verifying-proxy-settings-for-windows).<li> Se tiver um servidor de firewall/proxy, trabalhar com a sua equipa de rede para garantir que estes URLs e endereços IP têm acesso:<br/> <br> **URLs**<br> www.msftncsi.com <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente registar-se novamente depois de concluir os passos de resolução de problemas anteriores.
+| **Firewall e servidor proxy está a bloquear o registo** <br/>ou <br/>**Sem conectividade internet** <br/><br/> Se o servidor proxy ou máquina limitou a conectividade à internet e não a garantir o acesso para os URLs necessários, o registo falhará.| Siga estes passos:<br/> <ul><li> Trabalhar com a sua equipa de TI para garantir que o sistema tem conectividade à internet.<li> Se não tiver um servidor proxy, certifique-se de que a opção de proxy não está selecionada quando registar o agente. [Verifique as definições de proxy](#verifying-proxy-settings-for-windows).<li> Se tiver um servidor de firewall/proxy, trabalhar com a sua equipa de rede para garantir que estes URLs e endereços IP têm acesso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Endereços IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Tente registar-se novamente depois de concluir os passos de resolução de problemas anteriores.
 | **Software antivírus está a bloquear o registo** | Se tiver software antivírus instalado no servidor, adicione regras de exclusão necessários para a análise de software antivírus para estes ficheiros e pastas: <br/><ui> <li> CBengine.exe <li> CSC.exe<li> A pasta de rascunho. Localização predefinida é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> A pasta bin em C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recomendações adicionais
@@ -89,13 +89,13 @@ Recomendamos que verifique o seguinte antes de iniciar a resolução de problema
 
 | Erro  | Causas possíveis | Ações recomendadas |
 |---------|---------|---------|
-|<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft.     | <li> A pasta de rascunho se encontra num volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O ficheiro de OnlineBackup.KEK está em falta.         | <li>Atualizar para o [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a localização de pasta ou cache de rascunho para um volume com espaço livre entre 5% e de 10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos em [perguntas comuns sobre o backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de rascunho ou o caminho de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft.     | <li> A pasta de rascunho se encontra num volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O ficheiro de OnlineBackup.KEK está em falta.         | <li>Atualizar para o [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a localização de pasta ou cache de rascunho para um volume com espaço livre entre 5% e de 10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos em [perguntas comuns sobre o backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de rascunho ou o caminho de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Frase de acesso de encriptação não corretamente configurado
 
 | Erro  | Causas possíveis | Ações recomendadas |
 |---------|---------|---------|
-| <br />Erro 34506. A frase de acesso de encriptação armazenado neste computador não está corretamente configurado.    | <li> A pasta de rascunho se encontra num volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O ficheiro de OnlineBackup.KEK está em falta.        | <li>Atualizar para o [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a localização de pasta ou cache de rascunho para um volume com espaço livre entre 5% e de 10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos em [perguntas comuns sobre o backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de rascunho ou o caminho de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Erro 34506. A frase de acesso de encriptação armazenado neste computador não está corretamente configurado.    | <li> A pasta de rascunho se encontra num volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O ficheiro de OnlineBackup.KEK está em falta.        | <li>Atualizar para o [versão mais recente](https://aka.ms/azurebackup_agent) do agente MARS.<li>Mova a localização de pasta ou cache de rascunho para um volume com espaço livre entre 5% e de 10% do tamanho total dos dados de cópia de segurança. Ao mover corretamente a localização da cache, consulte os passos em [perguntas comuns sobre o backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Certifique-se de que o ficheiro de OnlineBackup.KEK está presente. <br>*A localização predefinida para a pasta de rascunho ou o caminho de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 
 ## <a name="backups-dont-run-according-to-schedule"></a>As cópias de segurança não são executados de acordo com a agenda
@@ -168,6 +168,6 @@ Se a recuperação continuar a falhar, reinicie o seu servidor ou cliente. Se n�
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para seu problema resolvido rapidamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Obter mais detalhes sobre [como criar cópias de segurança do Windows Server com o Azure Backup agent](tutorial-backup-windows-server-to-azure.md).
 * Se precisar de restaurar uma cópia de segurança, consulte [restaurar ficheiros para uma máquina Windows](backup-azure-restore-windows-server.md).

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708684"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703922"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -198,7 +198,7 @@ Pode especificar os metadados de específicos de aplicativo adicionais na forma 
 
 Controlo de acesso para as chaves geridas pelo Cofre de chaves é fornecido no nível de um cofre de chaves que age como o contentor de chaves. A política de controlo de acesso para chaves, é diferente da política de controlo de acesso para segredos no Cofre de chaves do mesmo. Os utilizadores podem criar cofres de um ou mais para armazenar chaves e são necessários para manter uma segmentação de apropriado de cenário e a gestão de chaves. Controlo de acesso para chaves é independente do controlo de acesso para segredos.  
 
-As seguintes permissões podem ser concedidas, num por utilizador / serviço principal base, em que a entrada de controle de acesso de chaves no cofre. Estas permissões espelham de perto as operações permitidas num objeto de chave:  
+As seguintes permissões podem ser concedidas, num por utilizador / serviço principal base, em que a entrada de controle de acesso de chaves no cofre. Estas permissões espelham de perto as operações permitidas num objeto de chave.  Conceder acesso a um serviço principal no Cofre de chaves é uma operação única e permanecerá mesmo para todas as subscrições do Azure. Pode usá-lo para implementar certificados tantas quanto quiser. 
 
 - Permissões para operações de gestão de chaves
   - *get*: Ler a parte pública de uma chave, juntamente com seus atributos
@@ -476,5 +476,4 @@ Para obter mais informações, consulte a [operações de conta de armazenamento
 ## <a name="see-also"></a>Consultar Também
 
 - [Autenticação, os pedidos e respostas](authentication-requests-and-responses.md)
-- [Versões do Key Vault](key-vault-versions.md)
 - [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

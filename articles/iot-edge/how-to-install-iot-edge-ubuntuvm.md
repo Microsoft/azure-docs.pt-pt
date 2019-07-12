@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595137"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796165"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar o Azure IoT Edge em máquinas de virtuais de Ubuntu
 
@@ -45,11 +45,7 @@ No primeiro arranque, o Azure IoT Edge numa VM do Ubuntu preinstalls a versão m
 No portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16.04 LTS + tempo de execução do Azure IoT Edge** para iniciar o fluxo de trabalho de criação de VM. A partir daí, conclua os passos 3 e 4 nas instruções de "Implementar do Azure Marketplace" acima.
 
 ## <a name="deploy-from-azure-cli"></a>Implementar a partir da CLI do Azure
-1. Se esta for a primeira vez que implementar uma máquina virtual a partir da CLI, terá de ativar a implementação programática para a sua subscrição do Azure:
-   1. Abra o [do Azure IoT Edge no Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) oferta do Marketplace
-   1. Selecione **TI obter agora** e **continuar** na caixa de diálogo subsequente
-   1. Selecione **pretende implementar através de programação? Introdução ao** na parte inferior da caixa de diálogo no portal
-   1. Clique nas **ativar** botão no **configurar implementação programática** página, em seguida, clique em **guardar**
+
 1. Se estiver a utilizar o CLI do Azure no seu ambiente de trabalho, comece por iniciar sessão:
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ No portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16.04 L
       az account list --output table
       ```
     
-   1. Copie o campo de SubscriptionID para a subscrição que pretende utilizar
-   1. Execute este comando com o ID de acabou de criar:
+   1. Copie o campo de SubscriptionID para a subscrição que pretende utilizar.
+
+   1. Defina a subscrição de trabalhar com o ID que acabou de criar:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ No portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16.04 L
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. Aceite os termos de utilização para a máquina virtual. Se pretende rever os termos em primeiro lugar, siga os passos em [implementar no Azure Marketplace](#deploy-from-the-azure-marketplace).
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. Crie uma nova máquina virtual:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. Definir a cadeia de ligação do dispositivo (pode seguir a [registar um novo dispositivo Azure IoT Edge com o CLI do Azure](how-to-register-device-cli.md) guia de procedimentos se não estiver familiarizado com esse processo):
@@ -91,7 +94,7 @@ No portal do Azure, procure "Azure IoT Edge" e selecione **Ubuntu Server 16.04 L
 Se desejar SSH para esta VM após a configuração, utilize o publicIpAddress com o comando: `ssh azureuser@{publicIpAddress}`
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

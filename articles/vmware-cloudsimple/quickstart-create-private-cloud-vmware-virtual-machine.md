@@ -3,17 +3,17 @@ title: Início rápido - criar uma VM do VMware numa nuvem privada
 description: Descreve como criar e uma VM do VMware na nuvem privada CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/03/19
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 217154578ad11755cd658ff3b106cfbe266277ab
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154618"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595686"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Criar máquinas virtuais VMware em sua nuvem privada
 

@@ -10,13 +10,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 05/22/2019
-ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66016381"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657982"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fusos horários na instância gerida da base de dados SQL do Azure
 
@@ -30,7 +30,9 @@ Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-tra
 
 ## <a name="supported-time-zones"></a>Suportado fusos horários
 
-Um conjunto de fusos horários suportados é herdado de sistema operacional subjacente da instância gerida. É atualizada regularmente para obter novas definições de fuso horário e refletir as alterações para os já existentes. 
+Um conjunto de fusos horários suportados é herdado de sistema operacional subjacente da instância gerida. É atualizada regularmente para obter novas definições de fuso horário e refletir as alterações para os já existentes.
+
+[Política de alterações de fuso horário de Verão/horário](https://aka.ms/time) garante a precisão histórico de 2010 para a frente.
 
 Uma lista com os nomes das zonas de tempo suportados é exposta por meio da [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista de sistema.
 
@@ -43,7 +45,7 @@ Um fuso horário de uma instância gerida pode ser definido durante a criação 
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>Definir o fuso horário através do portal do Azure
 
-Ao introduzir parâmetros para uma nova instância, selecione um fuso horário na lista de suportadas fusos horários. 
+Ao introduzir parâmetros para uma nova instância, selecione um fuso horário na lista de suportadas fusos horários.
   
 ![Definir um fuso horário durante a criação de instância](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -82,7 +84,10 @@ Pode restaurar um ficheiro de cópia de segurança ou importar dados para uma in
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Ao efetuar um restauro de ponto no tempo, o tempo de restauro para é interpretado como hora UTC. Esta definição evita qualquer ambiguidade devido ao horário de Verão e as alterações do mesmo potenciais.
+<del>Ao efetuar um restauro de ponto no tempo, o tempo de restauro para é interpretado como hora UTC. Esta definição evita qualquer ambiguidade devido ao horário de Verão e as alterações do mesmo potenciais.<del>
+
+ >[!WARNING]
+  > Comportamento atual não está em conformidade com a instrução acima e tempo de restauração para é interpretado de acordo com o fuso horário da instância gerida de origem onde as cópias de segurança automáticas da base de dados são obtidas a partir de. Estamos a trabalhar sobre como corrigir este comportamento para interpretar fornecido ponto no tempo como hora UTC. Ver [problemas conhecidos](sql-database-managed-instance-timezone.md#known-issues) para obter mais detalhes.
 
 ### <a name="auto-failover-groups"></a>Grupos de ativação pós-falha automática
 
@@ -95,6 +100,21 @@ Utilizar o mesmo fuso horário entre uma instância primária e secundária de u
 
 - Não é possível alterar o fuso horário da instância gerida existente.
 - Processos externos iniciados das tarefas do SQL Server Agent não observam o fuso horário da instância.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+Quando o restauro de ponto no tempo (PITR), a operação é executada, o tempo de restauro para é interpretado de acordo com o fuso horário definido na instância gerida em que as cópias de segurança automáticas da base de dados são obtidas a partir, mesmo que a página do portal da PITR sugere que o tempo é interpretado como UTC.
+
+Exemplo:
+
+Digamos que essa instância em que as cópias de segurança automáticas são extraídas de tem o conjunto de fuso horário da hora padrão do Leste (UTC-5).
+Página do portal para o restauro de ponto no tempo sugere que o tempo que escolher para restaurar a é a hora UTC:
+
+![PITR com a hora local através do portal](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+No entanto, o tempo de restauro para realmente é interpretado como hora padrão do leste, e neste exemplo específico, base de dados vai ser restaurada para o estado em 9 AM Standard hora do leste e não a hora UTC.
+
+Se quiser fazer no momento do restauro para um ponto específico no fuso horário UTC, primeiro calcular o tempo equivalente no fuso horário de instância de origem e utilizar esse tempo no portal ou de script do PowerShell/CLI.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários suportados
 

@@ -3,17 +3,17 @@ title: incluir ficheiro
 description: incluir ficheiro
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/25/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d62da82b4a4dd35532dd8776a9111689db469201
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ffd9e54c0f39b4256dbc83a336328797a8b53c45
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448376"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608318"
 ---
 ## <a name="register-extensions"></a>Registe-se as extensões
 

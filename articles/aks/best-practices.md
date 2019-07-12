@@ -2,17 +2,17 @@
 title: Melhores práticas para o Azure Kubernetes Service (AKS)
 description: Coleção dos cluster operador e desenvolvedor de melhores práticas para criar e gerir aplicações no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
-ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514565"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615969"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Operador de cluster e desenvolvedor de melhores práticas para criar e gerir aplicações no Azure Kubernetes Service (AKS)
 
@@ -76,6 +76,6 @@ Para ajudar a compreender alguns dos recursos e componentes destas melhores prá
 * [Opções de armazenamento](concepts-storage.md)
 * [Opções de dimensionamento](concepts-scale.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisa para começar a utilizar com o AKS, siga um dos inícios rápidos para implementar um cluster do Azure Kubernetes Service (AKS) com o [CLI do Azure](kubernetes-walkthrough.md) ou [portal do Azure](kubernetes-walkthrough-portal.md).

@@ -2,15 +2,16 @@
 title: Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 em máquinas de virtuais do Azure
 description: Execute a aplicação de Micro foco BankDemo em máquinas virtuais do Azure (VMs) para aprender a utilizar o Micro Focus Enterprise Server e o Enterprise Developer.
 author: sread
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304806"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621343"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
 
@@ -266,7 +267,7 @@ O último ponto que precisa fazer é configurar uma sessão de 3270 usando Rumba
 
 Parabéns! Está agora a executar um aplicativo do CICS no Azure utilizando Micro Focus Enterprise Server.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar o servidor empresarial em contentores do Docker no Azure](run-enterprise-server-container.md)
 - [Migração de mainframe - Portal](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)

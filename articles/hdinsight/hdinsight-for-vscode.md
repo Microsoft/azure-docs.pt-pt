@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: aadfae9a7b74986fd0ac8857669dd3ccaf62af1f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ebc41fc74d24708a177bf554029df8384c49df05
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166156"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657243"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -304,20 +304,20 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     | name | description | type | 
     | :- | :- | :- | 
     | file | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
-    | proxyUser | Utilizador representar ao executar a tarefa | string | 
-    | className | Classe principal do aplicativo Java/Spark | string |
+    | proxyUser | Utilizador representar ao executar a tarefa | cadeia | 
+    | className | Classe principal do aplicativo Java/Spark | cadeia |
     | args | Argumentos de linha de comandos para a aplicação | lista de cadeias de caracteres | 
     | jars | jars a ser utilizado nesta sessão | Lista de cadeia de caracteres | 
     | pyFiles | Arquivos de Python a serem usados nesta sessão | Lista de cadeia de caracteres |
     | files | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
-    | driverMemory | Quantidade de memória a utilizar para o processo de driver | string |
+    | driverMemory | Quantidade de memória a utilizar para o processo de driver | Cadeia de caracteres |
     | driverCores | Número de núcleos para utilizar para o processo de driver | int |
-    | executorMemory | Quantidade de memória a utilizar por processo de executor | string |
+    | executorMemory | Quantidade de memória a utilizar por processo de executor | Cadeia de caracteres |
     | executorCores | Número de núcleos para utilizar para cada executor | int |
     | numExecutors | Número de executores para iniciar a esta sessão | int |
     | archives | Arquivos compactados a ser utilizado nesta sessão | Lista de cadeia de caracteres |
-    | queue | O nome da fila YARN para o qual submetido | string |
-    | name | O nome desta sessão | string |
+    | queue | O nome da fila YARN para o qual submetido | Cadeia de caracteres |
+    | name | O nome desta sessão | Cadeia de caracteres |
     | conf | Propriedades de configuração de Spark | Mapa de chave = valor |
 
     Corpo da resposta   
@@ -326,10 +326,10 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     | name | description | type | 
     | :- | :- | :- | 
     | id | O id de sessão | int | 
-    | appId | O id de aplicação desta sessão |  String |
+    | appId | O id de aplicação desta sessão |  Cadeia |
     | appInfo | As informações detalhadas de aplicação | Mapa de chave = valor |
     | log | As linhas de registo | lista de cadeias de caracteres |
-    | state |   O estado de batch | string |
+    | state |   O estado de batch | Cadeia de caracteres |
 
 >[!NOTE]
 >A configuração do livy atribuído serão apresentados no painel de resultados quando submeta o script.
@@ -436,7 +436,7 @@ Ao submeter a tarefa a um cluster do HDInsight com geração 2 do ADLS, será so
 
 > [!NOTE]
 > 
->Pode obter a chave de acesso da conta de armazenamento no portal do Azure. Para obter informações, consulte [ver e copiar chaves de acesso](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys).
+>Pode obter a chave de acesso da conta de armazenamento no portal do Azure. Para obter informações, consulte [ver e copiar chaves de acesso](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## <a name="unlink-cluster"></a>Desassociar o cluster
 

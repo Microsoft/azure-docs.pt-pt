@@ -2,17 +2,17 @@
 title: Utilizar políticas de segurança de pod no Azure Kubernetes Service (AKS)
 description: Saiba como controlar o pod admissão com PodSecurityPolicy no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: iainfou
-ms.openlocfilehash: 9da722006651cfc9e9f2a175d5c330ba5df08123
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: c398567dd3383f4b0b4fd2eaa4b474d1e95b7575
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447073"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613882"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualizar - proteger o seu cluster através de políticas de segurança de pod no Azure Kubernetes Service (AKS)
 

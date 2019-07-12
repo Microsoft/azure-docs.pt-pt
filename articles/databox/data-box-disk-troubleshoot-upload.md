@@ -6,22 +6,116 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 6f3ac38c3eac968bd2f7ec2aada435466d3ff279
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67148312"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807499"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Compreender os registos para resolver problemas de carregamento de dados no disco do Azure Data Box
 
 Este artigo aplica-se para o disco do Microsoft Azure Data Box e descreve os problemas que vê ao carregar dados para o Azure.
 
-## <a name="data-upload-logs"></a>Registos de carregamento de dados
+## <a name="about-upload-logs"></a>Sobre os registos de carregamento
 
-Quando os dados são carregados para o Azure no datacenter, `_error.xml` e `_verbose.xml` ficheiros são gerados. Estes registos são carregados para a mesma conta de armazenamento que foi utilizada para carregar dados. Um exemplo do `_error.xml` é mostrado abaixo.
+Quando os dados são carregados para o Azure no datacenter, `_error.xml` e `_verbose.xml` ficheiros são gerados para cada conta de armazenamento. Estes registos são carregados para a mesma conta de armazenamento que foi utilizada para carregar dados. 
+
+Ambos os registos estão no mesmo formato e contêm descrições XML dos eventos que ocorreu ao copiar os dados a partir do disco para a conta de armazenamento do Azure.
+
+O registo verboso contém informações completas sobre o estado da operação de cópia para cada blob ou um ficheiro, ao passo que o registo de erros contém apenas as informações de blobs ou ficheiros que encontrou erros durante o carregamento.
+
+O registo de erros com a mesma estrutura como o log detalhado, mas filtra operações bem-sucedidas.
+
+## <a name="download-logs"></a>Transferir registos
+
+Siga os passos seguintes para localizar os registos de carregamento.
+
+1. Se houver algum erro ao carregar os dados para o Azure, o portal apresenta um caminho para a pasta onde estão localizados os registos de diagnóstico.
+
+    ![Ligar a registos no portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+
+2. Aceda a **waies**.
+
+    ![erro e registos verbosos](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+
+Em cada caso, consulte os registos de erros e os registos verbosos. Selecione cada registo e transferir uma cópia local.
+
+## <a name="sample-upload-logs"></a>Registos de carregamento de exemplo
+
+Um exemplo do `_verbose.xml` é mostrado abaixo. Neste caso, o pedido for concluído com êxito sem erros.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetapageblob.vhd</BlobPath>
+    <FilePath>\PageBlob\botetapageblob.vhd</FilePath>
+    <Length>1073742336</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <PageRangeList>
+      <PageRange Offset="0" Length="4194304" Status="Completed" />
+      <PageRange Offset="4194304" Length="4194304" Status="Completed" />
+      <PageRange Offset="8388608" Length="4194304" Status="Completed" />
+      --------CUT-------------------------------------------------------
+      <PageRange Offset="1061158912" Length="4194304" Status="Completed" />
+      <PageRange Offset="1065353216" Length="4194304" Status="Completed" />
+      <PageRange Offset="1069547520" Length="4194304" Status="Completed" />
+      <PageRange Offset="1073741824" Length="512" Status="Completed" />
+    </PageRangeList>
+  </Blob>
+  <Blob Status="Completed">
+    <BlobPath>$root/botetablockblob.txt</BlobPath>
+    <FilePath>\BlockBlob\botetablockblob.txt</FilePath>
+    <Length>19</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <BlockList>
+      <Block Offset="0" Length="19" Status="Completed" />
+    </BlockList>
+  </Blob>
+  <File Status="Completed">
+    <FileStoragePath>botetaazurefilesfolder/botetaazurefiles.txt</FileStoragePath>
+    <FilePath>\AzureFile\botetaazurefilesfolder\botetaazurefiles.txt</FilePath>
+    <Length>20</Length>
+    <ImportDisposition Status="Created">rename</ImportDisposition>
+    <FileRangeList>
+      <FileRange Offset="0" Length="20" Status="Completed" />
+    </FileRangeList>
+  </File>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Para a mesma ordem, uma amostra do `_error.xml` é mostrado abaixo.
+
+```xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<DriveLog Version="2018-10-01">
+  <DriveId>184020D95632</DriveId>
+  <Summary>
+    <ValidationErrors>
+      <None Count="3" />
+    </ValidationErrors>
+    <CopyErrors>
+      <None Count="3" Description="No errors encountered" />
+    </CopyErrors>
+  </Summary>
+  <Status>Completed</Status>
+</DriveLog>
+```
+
+Um exemplo do `_error.xml` é mostrado abaixo onde o pedido foi concluído com erros. 
+
+O ficheiro de erro em vez disso tem um `Summary` erros de nível de seção e outra seção que contém todos os ficheiros. 
+
+O `Summary` contém o `ValidationErrors` e o `CopyErrors`. Neste caso, 8 de ficheiros ou pastas que foram carregadas para o Azure e não havia nenhum erro de validação. Quando os dados foram copiados para a conta de armazenamento do Azure, 5 ficheiros ou pastas carregado com êxito. Os restantes 3 arquivos ou pastas foram mudar o nome de acordo com as convenções de nomenclatura de contentores do Azure e, em seguida, carregadas com êxito para o Azure.
+
+O estado de nível de ficheiro estão na `BlobStatus` que descreve quaisquer ações executadas para carregar os blobs. Neste caso, três contentores são mudar o nome porque as pastas para que os dados foram copiados não cumpriu com as convenções de nomenclatura do Azure para contentores. Para blobs desses contentores carregados, o novo nome de contentor, o caminho do blob no Azure, o caminho de ficheiro inválido original e o tamanho do blob são incluídos.
     
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
@@ -57,32 +151,17 @@ Quando os dados são carregados para o Azure no datacenter, `_error.xml` e `_ver
     </DriveLog>
 ```
 
-## <a name="download-logs"></a>Transferir registos
-
-Existem duas formas de localizar e transferir os registos de diagnóstico.
-
-- Se houver algum erro ao carregar os dados para o Azure, o portal apresenta um caminho para a pasta onde estão localizados os registos de diagnóstico.
-
-    ![Ligar a registos no portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-- Vá para a conta de armazenamento associada a sua encomenda do Data Box. Aceda a **Serviço Blob > Procurar blobs** e procure o blob correspondente à conta de armazenamento. Aceda a **waies**.
-
-    ![Copiar registos 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-Em cada caso, consulte os registos de erros e os registos verbosos. Selecione cada registo e transferir uma cópia local.
-
-
 ## <a name="data-upload-errors"></a>Erros de carregamento de dados
 
 Os erros gerados quando o carregamento dos dados para o Azure estão resumidos na tabela seguinte.
 
-| Código de erro | Descrição                        |
+| Código de erro | Descrição                   |
 |-------------|------------------------------|
 |`None` |  Foi concluída com êxito.           |
-|`Renamed` | Mudar o nome com êxito o blob.  |                                                            |
+|`Renamed` | Mudar o nome com êxito o blob.   |
 |`CompletedWithErrors` | Carregamento concluído com erros. Os detalhes dos ficheiros de erro são incluídos no ficheiro de registo.  |
 |`Corrupted`|CRC calculado durante a ingestão de dados não corresponde ao CRC calculado durante o carregamento.  |  
-|`StorageRequestFailed` | Falha no pedido de armazenamento do Azure.   |     |
+|`StorageRequestFailed` | Falha no pedido de armazenamento do Azure.   |     
 |`LeasePresent` | Este item é concedido e está a ser utilizado por outro utilizador. |
 |`StorageRequestForbidden` |Não foi possível carregar devido a problemas de autenticação. |
 |`ManagedDiskCreationTerminalFailure` | Não foi possível carregar como discos geridos. Os ficheiros estão disponíveis na conta de armazenamento de teste como blobs de páginas. Pode converter manualmente os blobs de páginas para discos geridos.  |
