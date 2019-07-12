@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 07/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 3972f9f93cc6323601102f1a54bb067a8995d9e4
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484763"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701484"
 ---
 # <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
@@ -34,7 +34,7 @@ O Azure Data Box Edge é um dispositivo de computação de ponta ativado por IA 
     - Dividir os dados em subconjuntos e transferir os dados necessários para análises mais profundas na cloud.
     - Analisar e reagir a eventos de IoT. 
 
-- **Inferir o Azure Machine Learning** - com o Data Box Edge, pode executar modelos de Machine Learning (ML) para obter resultados rápidos que podem ser analisados antes de os dados serem enviados para a cloud. O conjunto completo de dados podem ser transferido para continuar para voltar a preparar e melhorar os seus modelos de ML. Para obter mais informações sobre como utilizar o hardware do Azure ML acelerados modelos num dispositivo de limite do Data Box, consulte [modelos com aceleração por hardware de implementar o Azure ML no limite do Data Box](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferir o Azure Machine Learning** - com o Data Box Edge, pode executar modelos de Machine Learning (ML) para obter resultados rápidos que podem ser analisados antes de os dados serem enviados para a cloud. O conjunto completo de dados podem ser transferido para continuar para voltar a preparar e melhorar os seus modelos de ML. Para obter mais informações sobre como utilizar o hardware do Azure ML acelerados modelos num dispositivo de limite de caixa de dados, consulte [modelos com aceleração por hardware de implementar o Azure ML no limite da caixa de dados](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transferir dados através de rede para o Azure** - utilize o Data Box Edge para transferir dados fácil e rapidamente para o Azure, para permitir mais computação e análise ou para arquivo. 
 
@@ -88,16 +88,9 @@ A solução Data Box Edge inclui o recurso Data Box Edge, o dispositivo físico 
 
 O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamento de destino para a qual transfere dados não têm de estar todos na mesma região.
 
-- **Disponibilidade de recursos** - nesta versão, o recurso Data Box Edge está disponível nas seguintes regiões:
-    - **Estados Unidos** -E.U.A. leste
-    - **União Europeia** - Europa Ocidental
-    - **Ásia Oriental** - Sudoeste Asiático
+- **Disponibilidade de recursos** – para uma lista de todas as regiões onde o recurso de borda de caixa de dados está disponível, aceda a [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Edge de caixa de dados também podem ser implementada na Cloud do Azure Government. Para obter mais informações, consulte [o que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-    Edge de caixa de dados também podem ser implementada na Cloud do Azure Government. Para obter mais informações, consulte [o que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
-    
-- **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. 
-
-    As regiões nas quais as contas de armazenamento armazenam os dados do Data Box devem estar localizadas próximo de onde estiver o dispositivo, para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento. 
+- **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. As regiões onde as contas de armazenamento armazenam dados de borda de caixa de dados devem estar localizadas próximo de onde estiver o dispositivo para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

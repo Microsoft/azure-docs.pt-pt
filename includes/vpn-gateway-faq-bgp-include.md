@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184077"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659882"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 Não, o BGP é suportado no Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e nos gateways de VPN **HighPerformance**. O SKU **Básico** NÃO é suportado.
@@ -85,7 +85,7 @@ Sim, mas pelo menos um dos gateways de rede virtual tem de estar na configuraç�
 Sim. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Que endereço utiliza o gateway de VPN do Azure para o IP do Elemento de Rede BGP?
-O gateway de VPN do Azure irá alocar um único endereço IP a partir do intervalo GatewaySubnet definido para a rede virtual. Por predefinição, é o penúltimo endereço do intervalo. Por exemplo, se o seu GatewaySubnet for 10.12.255.0/27, situado entre 10.12.255.0 e 10.12.255.31, o endereço IP do Elemento de Rede BGP no gateway de VPN do Azure será 10.12.255.30. Pode encontrar estas informações quando listar as informações do gateway de VPN do Azure.
+O gateway de VPN do Azure irá alocar um único endereço IP do intervalo GatewaySubnet para gateways de VPN ativo-em espera ou dois endereços IP para gateways VPN ativos-ativos. Pode obter os endereços IP de BGP real atribuído ao utilizar o PowerShell (Get-AzVirtualNetworkGateway, procure a propriedade de "bgpPeeringAddress") ou no portal do Azure (sob a propriedade de "Configurar ASN BGP" na página de configuração do Gateway).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Quais são os requisitos dos endereços IP do Elemento de Rede BGP no meu dispositivo VPN?
 O seu endereço do elemento de rede BGP no local **NÃO DEVE** ser o mesmo que o endereço IP público do seu dispositivo VPN. Utilize um endereço IP diferente no dispositivo VPN do IP do Elemento de Rede BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo, mas note que não pode ser um endereço APIPA (169.254.x.x). Especifique este endereço no Gateway de Rede Local correspondente que representa a localização.

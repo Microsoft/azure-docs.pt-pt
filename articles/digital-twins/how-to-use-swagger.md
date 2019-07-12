@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 0b8c2b50e00c8e9727b09a454504d214a3060fe4
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9d4fd798309398dff38081cc66b4071c5dd1f5bf
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67502705"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670793"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Documentação de referência Swagger de duplos Digital do Azure
 
@@ -42,15 +42,15 @@ O material de referência de Swagger gerado automaticamente fornece uma visão g
 
 Um resumo conciso descreve a API.
 
-[![Parte superior do swagger](media/how-to-use-swagger/swagger_management_top.PNG)](media/how-to-use-swagger/swagger_management_top.PNG#lightbox)
+[![Parte superior do swagger](media/how-to-use-swagger/swagger-management-top-img.png)](media/how-to-use-swagger/swagger-management-top-img.png#lightbox)
 
 Modelos de objeto de API de gestão também estão listados.
 
-[![Modelos de swagger](media/how-to-use-swagger/swagger_management_models.PNG)](media/how-to-use-swagger/swagger_management_models.PNG#lightbox)
+[![Modelos de swagger](media/how-to-use-swagger/swagger-management-models-img.png)](media/how-to-use-swagger/swagger-management-models-img.png#lightbox)
 
 Pode selecionar cada modelo de objeto listadas para obter um resumo mais detalhado de atributos de chaves.
 
-[![Modelo de swagger](media/how-to-use-swagger/swagger_management_model.PNG)](media/how-to-use-swagger/swagger_management_model.PNG#lightbox)
+[![Modelo de swagger](media/how-to-use-swagger/swagger-management-model-img.png)](media/how-to-use-swagger/swagger-management-model-img.png#lightbox)
 
 Os modelos de objeto do Swagger gerados são convenientes ver todos os gémeos de Digital do Azure disponíveis [objetos e APIs](./concepts-objectmodel-spatialgraph.md). Os desenvolvedores podem usar este recurso quando eles criam soluções no duplos Digital do Azure.
 
@@ -64,7 +64,7 @@ Cada ponto de extremidade listado também inclui as informações de solicitaç�
 * Tipos de dados de parâmetro necessário.
 * Método HTTP para aceder ao recurso.
 
-[![Pontos de extremidade do swagger](media/how-to-use-swagger/swagger_management_endpoints.PNG)](media/how-to-use-swagger/swagger_management_endpoints.PNG#lightbox)
+[![Pontos de extremidade do swagger](media/how-to-use-swagger/swagger-management-endpoints-img.png)](media/how-to-use-swagger/swagger-management-endpoints-img.png#lightbox)
 
 Para ver uma descrição mais detalhada, selecione cada recurso.
 
@@ -74,11 +74,11 @@ Para ver uma descrição mais detalhada, selecione cada recurso.
 
 Depois de selecionar um ponto de extremidade específico, consulte **experimentá-lo**.
 
-[![Tente do swagger](media/how-to-use-swagger/swagger_management_try.PNG)](media/how-to-use-swagger/swagger_management_try.PNG#lightbox)
+[![Tente do swagger](media/how-to-use-swagger/swagger-management-try-img.png)](media/how-to-use-swagger/swagger-management-try-img.png#lightbox)
 
 Expanda essa secção para aparecer em campos de entrada para cada um dos parâmetros obrigatório e opcional. Introduza os valores corretos e selecione **Execute**.
 
-[![Tentei do swagger](media/how-to-use-swagger/swagger_management_tried.PNG)](media/how-to-use-swagger/swagger_management_tried.PNG#lightbox)
+[![Tentei do swagger](media/how-to-use-swagger/swagger-management-tried-img.png)](media/how-to-use-swagger/swagger-management-tried-img.png#lightbox)
 
 Depois de executar o teste, pode validar os dados de resposta.
 
@@ -86,7 +86,7 @@ Depois de executar o teste, pode validar os dados de resposta.
 
 Cada ponto de extremidade listado também inclui dados de corpo de resposta para validar o seu desenvolvimento e testes. Estes exemplos incluem os códigos de estado e o JSON que pretende ver os pedidos HTTP com êxito.
 
-[![Resposta do swagger](media/how-to-use-swagger/swagger_management_response.PNG)](media/how-to-use-swagger/swagger_management_response.PNG#lightbox)
+[![Resposta do swagger](media/how-to-use-swagger/swagger-management-response-img.png)](media/how-to-use-swagger/swagger-management-response-img.png#lightbox)
 
 Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melhorar a falhar de testes.
 
@@ -102,7 +102,7 @@ Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melho
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | Name  | Substituir | Exemplo |
+    | Nome  | Substituir | Exemplo |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | O URL de documentação da API REST da gestão encontrado no portal do  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -120,7 +120,7 @@ Depois de concluir o registo do Azure Active Directory:
 
 1. Em seguida, será redirecionado para o sucesso seguinte modal.
 
-    [![Modal de redirecionamento do swagger](media/how-to-use-swagger/swagger_auth_redirect.png)](media/how-to-use-swagger/swagger_auth_redirect.png#lightbox)
+    [![Modal de redirecionamento do swagger](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
 

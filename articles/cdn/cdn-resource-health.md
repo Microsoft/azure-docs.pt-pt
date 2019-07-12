@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6710f5e5b873f751ad21068acdc15d38574f8378
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696178"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593446"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorizar o estado de funcionamento de recursos do CDN do Azure
   
@@ -60,7 +60,7 @@ Estados relacionados com o estado de funcionamento de recursos de CDN do Azure p
 |Lamentamos, mas estamos a ter problemas ao carregar o portal suplementar | Verifique aqui as atualizações de estado Se o problema persistir após o período de resolução esperado, contacte o suporte.|
 Lamentamos, estamos a ter problemas com alguns dos nossos fornecedores da CDN | Verifique aqui as atualizações de estado Se o problema persistir após o período de resolução esperado, contacte o suporte. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Leia uma visão geral do Estado de funcionamento de recursos do Azure](../resource-health/resource-health-overview.md)
 - [Resolver problemas com a compactação de CDN](./cdn-troubleshoot-compression.md)

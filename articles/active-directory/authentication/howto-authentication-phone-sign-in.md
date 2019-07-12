@@ -1,25 +1,25 @@
 ---
-title: Palavra-passe sem início de sessão com a aplicação Microsoft Authenticator (pré-visualização) - Azure Active Directory
+title: Passe início de sessão com a aplicação Microsoft Authenticator (pré-visualização) - Azure Active Directory
 description: Início de sessão no Azure AD com a aplicação Microsoft Authenticator sem utilizar a sua palavra-passe (pré-visualização pública)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 07/09/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb10378d890c2b7156b6764321e177a22ffc538a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3125de0d1fd784b30c000bb287b457397c0fbebb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472750"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703028"
 ---
-# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Palavra-passe sem início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
+# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
 
 A aplicação Microsoft Authenticator pode ser utilizada para iniciar sessão em qualquer conta do Azure AD sem utilizar uma palavra-passe. Similar à tecnologia de [Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification), o Microsoft Authenticator utiliza autenticação baseada em chave para ativar uma credencial de utilizador que está associada a um dispositivo e utiliza um biometria ou PIN.
 
@@ -39,28 +39,11 @@ Para a pré-visualização pública, um administrador tem, primeiro, adicione um
 
 ### <a name="steps-to-enable"></a>Passos para ativar
 
-1. Certifique-se de que tem a versão mais recente da versão de pré-visualização pública do módulo PowerShell do Azure Active Directory V2. Pode pretender desinstalar e reinstalar para confirmar isso executando os seguintes comandos:
-
-    ```powershell
-    Uninstall-Module -Name AzureADPreview
-    Install-Module -Name AzureADPreview
-    ```
-
-2. Autenticar para o inquilino do Azure AD para utilizar o módulo do Azure AD V2 PowerShell. A conta utilizada tem de ser um administrador de segurança ou Administrador Global.
-
-    ```powershell
-    Connect-AzureAD
-    ```
-
-3. Crie a política de autenticação de sessão:
-
-    ```powershell
-    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
-    ```
+Siga os passos no artigo [ativar o início de sessão para o Azure AD](howto-authentication-passwordless-enable.md#enable-new-passwordless-authentication-methods), para ativar métodos de autenticação de início no seu diretório.
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Como ativar início de sessão no telefone os meus utilizadores finais?
 
-Para a pré-visualização pública, não é possível para impor que os usuários para criar ou utilizar nesta credencial nova. Um utilizador final só irá encontrar iniciar sessão sem palavra-passe depois de um administrador tiver ativado o respetivo inquilino e o utilizador atualizou a aplicação Microsoft Authenticator para ativar o início de sessão no telefone.
+Para a pré-visualização pública, não é possível para impor que os usuários para criar ou utilizar nesta credencial nova. Um utilizador final só irá encontrar o início de sessão passe assim que um administrador tiver ativado o respetivo inquilino e o utilizador atualizou a aplicação Microsoft Authenticator para ativar o início de sessão no telefone.
 
 > [!NOTE]
 > Esta capacidade está na aplicação desde Março de 2017, para que haja uma possibilidade que quando a política está ativada para um inquilino, os utilizadores poderão encontrar este fluxo imediatamente. Lembre-se e preparar os seus utilizadores para esta alteração.
@@ -76,17 +59,19 @@ Assim que o utilizador tiver a conta MFA com notificações push, configuradas n
 
 ### <a name="ad-fs-integration"></a>Integração do AD FS
 
-Quando um utilizador tiver ativado a credencial sem palavra-passe do Microsoft Authenticator, a autenticação para que o usuário sempre será predefinido para enviar uma notificação para aprovação. Essa lógica impede que os utilizadores num inquilino híbrido sejam direcionadas para AD FS para a verificação de início de sessão sem que o usuário tirar uma etapa adicional de clicar em "Use a palavra-passe em vez disso,". Este processo também irá ignorar quaisquer políticas de acesso condicional no local e fluxos de autenticação pass-through. A exceção a este processo é se um login_hint for especificado, um utilizador serão autoforwarded para o AD FS e ignorar a opção para utilizar a credencial sem palavra-passe.
+Quando um utilizador tiver ativado a credencial de passe do Microsoft Authenticator, a autenticação para que o usuário sempre será predefinido para enviar uma notificação para aprovação. Essa lógica impede que os utilizadores num inquilino híbrido sejam direcionadas para AD FS para a verificação de início de sessão sem que o usuário tirar uma etapa adicional de clicar em "Use a palavra-passe em vez disso,". Este processo também irá ignorar quaisquer políticas de acesso condicional no local e fluxos de autenticação pass-through. A exceção a este processo é se um login_hint for especificado, um utilizador serão autoforwarded para o AD FS e ignorar a opção para utilizar as credenciais de início.
 
 ### <a name="azure-mfa-server"></a>Servidor MFA do Azure
 
-Os utilizadores finais que estão ativados para a MFA através do servidor de MFA do Azure no local de uma organização pode ainda criar e utilizar uma credencial de início de sessão de telefone sem palavra-passe. Se o utilizador tenta atualizar várias instalações (5 +) do Microsoft Authenticator com a credencial, esta alteração poderá resultar num erro.  
+Os utilizadores finais que estão ativados para a MFA através do servidor de MFA do Azure no local de uma organização pode ainda criar e utilizar uma credencial de início de sessão de telefone de início. Se o utilizador tenta atualizar várias instalações (5 +) do Microsoft Authenticator com a credencial, esta alteração poderá resultar num erro.  
 
 ### <a name="device-registration"></a>Registo de dispositivos
 
 Um dos pré-requisitos para criar esta credencial novas, forte, é que o dispositivo em que reside está registrado no inquilino do Azure AD, para um utilizador individual. Devido a restrições de registo do dispositivo, um dispositivo só pode ser registrado num único inquilino. Este limite significa que apenas uma conta profissional ou escolar na aplicação Microsoft Authenticator pode ser ativada para o início de sessão no telemóvel.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+[O que é passe?](concept-authentication-passwordless.md)
 
 [Saiba mais sobre o registo de dispositivos](../devices/overview.md#getting-devices-in-azure-ad)
 

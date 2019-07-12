@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fd81115f4e811366b6b115d1c73a9be7ca26698b
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485628"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706786"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
-O Azure Search é um recurso de autónomo utilizado para serem incorporados numa experiência de pesquisa em aplicações personalizadas. Embora o Azure Search integra-se facilmente com outros serviços do Azure, também pode utilizá-lo por si só, com as aplicações em servidores de rede, ou com o software em execução noutras plataformas na cloud.
+O Azure Search é um recurso de autónomo utilizado para serem incorporados numa experiência de pesquisa em aplicações personalizadas. Embora o Azure Search integra-se facilmente com outros serviços do Azure, também pode utilizá-lo como um componente autônomo ou integrá-lo com as aplicações em servidores de rede, ou com o software em execução noutras plataformas na cloud.
 
 Neste artigo, saiba como criar um recurso do Azure Search no [portal do Azure](https://portal.azure.com/).
 
@@ -73,10 +73,10 @@ Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em tod
 
 Se estiver indexando dados fornecidos pelo Azure outro serviço (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), recomendamos que crie o seu serviço de pesquisa do Azure na mesma região para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
 
-Se estiver a utilizar o possível de ia de pesquisa cognitiva, crie o seu serviço na mesma região que o recurso dos serviços cognitivos. Colocalização de serviços é um requisito para a melhoria de IA.
+Se estiver a utilizar o possível de ia de pesquisa cognitiva, crie o seu serviço na mesma região que o recurso dos serviços cognitivos. *Localização conjunta de Azure Search e os serviços cognitivos na mesma região é um requisito para melhoria do IA*.
 
 > [!Note]
-> Índia central não está atualmente disponível para os novos serviços. Para os serviços já na Índia Central, pode aumentar verticalmente sem restrições e seu serviço é totalmente suportado nessa região. A restrição nesta região é temporária e vamos remover esta nota quando mais aplica-se.
+> Índia central não está atualmente disponível para os novos serviços. Para os serviços já na Índia Central, pode aumentar verticalmente sem restrições e seu serviço é totalmente suportado nessa região. A restrição nesta região é temporário e limitado a apenas novos serviços. Vamos remover esta nota quando já não se aplica a restrição.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
 
@@ -88,27 +88,29 @@ Um escalão de preço não pode ser alterado após a criação do serviço. Se p
 
 ## <a name="create-your-service"></a>Criar o serviço
 
-Não se esqueça de afixar o serviço ao dashboard para facilitar o acesso sempre que iniciar sessão.
+Introduza as entradas necessárias para criar o serviço. 
 
-![Afixar ao dashboard](./media/search-create-service-portal/new-service3.png "afixar o recurso ao seu dashboard para acesso conveniente")
+![Reveja e criar o serviço](./media/search-create-service-portal/new-service3.png "revisão e criar o serviço")
+
+O serviço é implementado numa questão de minutos, o que pode monitorar por meio de notificações do Azure. Considere a afixar o serviço ao seu dashboard para facilitar o acesso no futuro.
+
+![Monitorizar e afixar o serviço](./media/search-create-service-portal/monitor-notifications.png "Monitor e o serviço de pin")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Obter uma chave e o ponto final do URL
 
-Com algumas exceções, a utilização de seu novo serviço requer que forneça o ponto de final do URL e uma chave de api de autorização. Inícios rápidos, tutoriais, tal como [Explore pesquisa APIs REST do Azure (Postman)](search-get-started-postman.md) e [como utilizar o Azure Search no .NET](search-howto-dotnet-sdk.md), exemplos e código personalizado, tudo o precisa de um ponto final e a chave para ser executado no seu recurso em particular.
+A menos que estiver a utilizar o portal, aceder ao seu novo serviço requer que forneça o ponto de final do URL e uma chave de api de autenticação.
 
 1. Na página de descrição geral do serviço, localize e copie o ponto final do URL no lado direito da página.
 
-   ![Página de descrição geral do serviço com o ponto final do URL](./media/search-create-service-portal/url-endpoint.png "ponto final do URL e outros detalhes de serviço")
-
 2. No painel de navegação esquerdo, selecione **chaves** e, em seguida, copie uma das chaves de administração (ambos são equivalentes). Chaves de api são necessárias para criar, atualizar e eliminar objetos no seu serviço.
 
-   ![Chaves de página que mostra a chaves de primárias e secundárias](./media/search-create-service-portal/admin-api-keys.png "chaves de api para autorização")
+   ![Página de descrição geral do serviço com o ponto final do URL](./media/search-create-service-portal/get-url-key.png "ponto final do URL e outros detalhes de serviço")
 
-Um ponto final e a chave não são necessários para tarefas com base no portal. O portal já está ligado ao seu recurso do Azure Search com direitos de administrador. Para um tutorial do portal, comece com [Tutorial: Importar, índice e a consulta no Azure Search](search-get-started-portal.md).
+Um ponto final e a chave não são necessários para tarefas com base no portal. O portal já está ligado ao seu recurso do Azure Search com direitos de administrador. Para obter instruções portal, comece com [início rápido: Criar um índice da Azure Search no portal do](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Dimensionar o serviço
 
-Pode demorar alguns minutos a criar um serviço (15 minutos ou mais consoante o escalão). Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Uma vez que escolheu o escalão Standard para o seu serviço do Azure Search, pode dimensionar o serviço em duas dimensões: réplicas e partições. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
+Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Se tiver escolhido o escalão Standard para o serviço Azure Search, pode dimensionar o serviço em duas dimensões: réplicas e partições. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
 
 As ***partições*** permitem ao serviço armazenar e pesquisar mais documentos.
 
@@ -126,7 +128,7 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 ![Adicionar capacidade](./media/search-create-service-portal/settings-scale.png "adicionar capacidade através de réplicas e partições")
 
 > [!Note]
-> Cada escalão tem diferentes [limites](search-limits-quotas-capacity.md) para o número total de Unidades de Pesquisa permitido num único serviço (Réplicas * Partições = Total de Unidades de Pesquisa).
+> Por partição aumentos de armazenamento e a velocidade em escalões superiores. Para obter mais informações, consulte [capacidade e limites](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>Quando adicionar um segundo serviço
 
@@ -148,4 +150,4 @@ Não é necessário um segundo serviço para elevada disponibilidade. A elevada 
 Depois de aprovisionar um serviço Azure Search, pode continuar no portal para criar seu primeiro índice.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Importar dados, o índice e executar consultas no portal](search-get-started-portal.md)
+> [Quickstart: Criar um índice da Azure Search no portal](search-get-started-portal.md)

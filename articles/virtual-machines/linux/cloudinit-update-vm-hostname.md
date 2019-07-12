@@ -4,7 +4,7 @@ description: Como utilizar o cloud-init para personalizar uma VM do Linux durant
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: da20c4b30e2708bf7754d025cfbd2c269c3b5c7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e437200ec6af22d104f9878e7bdfd20141759fb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648946"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668206"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>Utilizar o cloud-init para definir o nome de anfitrião para uma VM do Linux no Azure
 Este artigo mostra-lhe como utilizar [cloud-init](https://cloudinit.readthedocs.io) para configurar um nome de anfitrião específico numa máquina virtual ou máquina virtual (VM) de conjuntos de dimensionamento (VMSS) em aprovisionamento tempo no Azure. Executam estes scripts de inicialização da cloud no primeiro arranque, assim que os recursos foram aprovisionados através do Azure. Para obter mais informações sobre o cloud-init funcionamento nativamente no Azure e distribuições de Linux suportadas, consulte [descrição geral do cloud-init](using-cloud-init.md)
@@ -69,7 +69,7 @@ A VM deve comunicar o nome do anfitrião como esse conjunto de valores no fichei
 myhostname
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter exemplos de cloud-init adicionais das alterações de configuração, consulte o seguinte:
  
 - [Adicionar um utilizador de Linux adicional a uma VM](cloudinit-add-user.md)

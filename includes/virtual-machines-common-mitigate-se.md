@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 46ade0ecb0e2e081585803a0b1bc7eab989e21e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 169e25aeb8503a11f768a2a3062022eef51a76b8
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735222"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67659880"
 ---
 **Última atualização de documentos**: 4 de Junho de 2019 3 18:00 PST.
 
@@ -21,7 +21,7 @@ A divulgação de um [nova classe de vulnerabilidades de CPU](https://portal.msr
 
 A Microsoft implantou o atenuações em todos os nossos serviços cloud. A infraestrutura que executa o Azure e isola as cargas de trabalho do cliente uns dos outros está protegida. Isso significa que um potencial atacante terá usando a mesma infraestrutura não é possível atacar o seu aplicativo usando estas vulnerabilidades.
 
-Está a utilizar o Azure [memória preservação da manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) sempre que possível, para minimizar o impacto de cliente e elimina a necessidade de reinicializações. O Azure irá continuar a utilizar esses métodos quando efetuar atualizações em todo o sistema para o anfitrião e proteger os nossos clientes.
+Está a utilizar o Azure [memória preservação da manutenção](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) sempre que possível, para minimizar o impacto de cliente e elimina a necessidade de reinicializações. O Azure irá continuar a utilizar esses métodos quando efetuar atualizações em todo o sistema para o anfitrião e proteger os nossos clientes.
 
 Obter mais informações sobre como a segurança integra todos os aspectos do Azure estão disponíveis na [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/) site. 
 

@@ -7,7 +7,8 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7d64f02c7bebb6d4326281ba87d118eab075eba9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c730c240ed5ff68a1d48ef17d15de1aaa73ab1e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228596"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619912"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>O que é a pré-visualização de sentinela do Azure?
 
@@ -79,7 +80,7 @@ Automatizar as tarefas comuns e [simplificar a orquestração de segurança com 
 
 Por exemplo, se usar o sistema de emissão de permissões do ServiceNow, pode utilizar as ferramentas fornecidas para utilizar o Azure Logic Apps para automatizar fluxos de trabalho e abrir um pedido de suporte no ServiceNow sempre que um determinado evento é detetado.
 
-![Manuais de procedimentos](./media/tutorial-respond-threats-playbook/logic-app.png)
+![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
 

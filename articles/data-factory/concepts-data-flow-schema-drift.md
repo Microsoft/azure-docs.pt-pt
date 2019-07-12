@@ -3,16 +3,15 @@ title: Mapeamento de desvios de esquema de fluxo de dados do Azure Data Factory
 description: Criar fluxos de dados resilientes no Azure Data Factory com os Descompassos de esquema
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262164"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722882"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desvios de esquema de fluxo de dados de mapeamento
 
@@ -34,7 +33,7 @@ Para proteger contra os Descompassos de esquema, é importante ter os recursos n
 
 * Quando selecionar esta opção, todos os campos de entrada serão lido a partir da sua origem de cada execução de fluxo de dados e são passados para todo o fluxo para o Sink.
 
-* Certifique-se utilizar "Automaticamente-mapa" para mapear todos os novos campos na transformação de Sink para que todos os novos campos obterem escolhido para cima e foi colocados no seu destino:
+* Certifique-se utilizar "Automaticamente-mapa" para mapear todos os novos campos na transformação de Sink para que todos os novos campos obterem escolhido para cima e foi colocados no seu destino.
 
 <img src="media/data-flow/automap.png" width="400">
 

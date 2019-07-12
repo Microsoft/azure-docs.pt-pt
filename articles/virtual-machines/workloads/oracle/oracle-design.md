@@ -4,7 +4,7 @@ description: Conceber e implementar uma base de dados do Oracle no ambiente do A
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 039b1628571b786a4997c08f96cc9aa0f347c7f7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8058246ea5f4ac87c24fab8c5ec64032eb8a1f0b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446705"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710649"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceba e implemente uma base de dados Oracle no Azure
 
@@ -233,7 +233,7 @@ Depois de configurar e configurado o seu ambiente do Azure, a próxima etapa é 
 - [Configurar Oracle Golden Gate](configure-oracle-golden-gate.md)
 - [Oracle backup e recuperação](oracle-backup-recovery.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar VMs de elevada disponibilidade](../../linux/create-cli-complete.md)
 - [Explore exemplos de CLI do Azure de implementação de VM](../../linux/cli-samples.md)

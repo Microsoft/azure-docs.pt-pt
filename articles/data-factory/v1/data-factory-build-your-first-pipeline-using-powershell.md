@@ -14,21 +14,20 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9d273886b3add43818af80915e42b4aa7ca69a89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f18fc8a18cbcf5d85b68ed40790eda36d653812
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146896"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836581"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Descrição geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 >
 >
 
@@ -164,8 +163,8 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 
    | Propriedade | Descrição |
    |:--- |:--- |
-   | ClusterSize |Especifica o tamanho do cluster HDInsight. |
-   | TimeToLive |Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado. |
+   | clusterSize |Especifica o tamanho do cluster HDInsight. |
+   | timeToLive |Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado. |
    | linkedServiceName |Especifica a conta de armazenamento que é utilizada para armazenar os registos que são gerados pelo HDInsight |
 
     Tenha em atenção os seguintes pontos:

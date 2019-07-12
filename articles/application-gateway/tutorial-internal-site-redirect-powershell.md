@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 9b3586080f1b0d42548ed9b0d676f357dd1e4e45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157f7fa0979da21584550e7669a20f670aca5219
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729597"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785723"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com o redirecionamento interno com o Azure PowerShell
 
@@ -298,7 +298,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-Introduza o nome de domínio na barra de endereço do seu browser. Como, por exemplo, http://www.contoso.com.
+Introduza o nome de domínio na barra de endereço do seu browser. Por exemplo, http\:/ / www.contoso.com.
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 

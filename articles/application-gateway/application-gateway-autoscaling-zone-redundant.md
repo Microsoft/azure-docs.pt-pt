@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 6aad0502b5739906d1fa8fa896f8d0af8cc38e30
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204998"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655300"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona v2 
 
@@ -35,7 +35,7 @@ O novo SKU v2 inclui os seguintes melhoramentos:
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-O SKU de WAF_v2 e Standard_v2 está disponível nas seguintes regiões: Centro-Norte, EUA Centro-Sul, E.U.A. oeste, E.U.A. oeste 2, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, Europa do Norte, Europa Ocidental, Sudeste asiático, França Central, do Reino Unido oeste, leste do Japão, oeste do Japão. Mais regiões serão adicionados no futuro.
+O SKU de WAF_v2 e Standard_v2 está disponível nas seguintes regiões: Centro-Norte, EUA Centro-Sul, E.U.A. oeste, E.U.A. oeste 2, E.U.A. leste, E.U.A. Leste 2, E.U.A. Central, Europa do Norte, Europa Ocidental, Sudeste asiático, França Central, do Reino Unido oeste, leste do Japão, oeste do Japão, leste da Austrália, Sudeste da Austrália, Canadá Central, leste do Canadá, Coreia, Ásia Oriental Central, Coreia do Sul, Sul da Índia, do Reino Unido Sul, Índia Central, Índia Ocidental, Sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
@@ -154,7 +154,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 
 Um script do PowerShell do Azure está disponível na galeria do PowerShell para o ajudar a migrar a partir do seu v1 aplicação/WAF do Gateway para o SKU do dimensionamento automático do v2. Este script ajuda-o a copiar a configuração do seu gateway v1. Migração de tráfego é sua responsabilidade. Para obter mais informações, consulte [migrar Gateway de aplicação Azure da v1 para v2](migrate-v1-v2.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure](quick-create-portal.md)
 - [Criar um dimensionamento automático, o gateway de aplicação com redundância de zona com um endereço IP virtual reservado com o Azure PowerShell](tutorial-autoscale-ps.md)

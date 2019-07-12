@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242969"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839686"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
     | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser semelhante ao seguinte: **mynewserver-20180430.database.windows.net**. |
-    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
+    | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
     | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
     | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 
@@ -603,7 +603,7 @@ A carregar com o PolyBase e realizar a autenticação através de identidades ge
         
    1. Consulta como normal usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Consulte o seguinte [documentation] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) se desejar configurar pontos finais de serviço de rede virtual para o SQL Data Warehouse. 
+Consulte o seguinte procedimento [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) se desejar configurar pontos finais de serviço de rede virtual para o SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

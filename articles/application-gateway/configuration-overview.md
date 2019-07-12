@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073966"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795909"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -297,6 +297,7 @@ Esta definição permite-lhe configurar um caminho de encaminhamento personaliza
   | / home/secondhome /          | /pathrule*      | /override/            | / substituição/home/secondhome /   |
   | /pathrule/home/            | /pathrule/home* | /override/            | /override/                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | / Substituir/secondhome /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>Utilização para o serviço de aplicações
 
@@ -343,7 +344,7 @@ Um gateway de aplicação monitoriza o estado de funcionamento de todos os recur
 > [!NOTE]
 > Depois de criar uma sonda de estado de funcionamento personalizadas, terá de associá-la a uma definição de HTTP de back-end. Uma sonda personalizada não monitorizar o estado de funcionamento do conjunto de back-end, a menos que a definição de HTTP correspondente é explicitamente associada um serviço de escuta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe sobre os componentes de Gateway de aplicação, pode:
 

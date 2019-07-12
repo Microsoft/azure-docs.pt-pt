@@ -5,7 +5,7 @@ keywords: SSH ligação recusada, ssh erro, azure ssh, ligação de SSH falhou
 services: virtual-machines-linux
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: aedf06c5a5e225f0cafb81b17923d6c742da69eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 153117488cf94eb304eeb63ba6dca92a6c6ff27d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506238"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696233"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>SSH detalhada, resolução de problemas de passos para problemas de ligação a uma VM do Linux no Azure
 Existem muitas razões possíveis para que o cliente SSH pode não ser capaz de alcançar o serviço SSH na VM. Se tiver acompanhado por meio de mais [SSH geral, passos de resolução de problemas](troubleshoot-ssh-connection.md), precisa resolver o problema de ligação. Este artigo orienta-o pelos passos de resolução de problemas detalhados para determinar em que está a falhar a ligação SSH e como resolvê-lo.

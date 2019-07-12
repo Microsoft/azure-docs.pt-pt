@@ -4,7 +4,7 @@ description: Transferir o templatefor uma VM para ajudar a automatizar as implem
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b001f8b3fd9c7be19431304b4106d0912181c07e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075885"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718643"
 ---
 # <a name="download-the-template-for-a-vm"></a>Transferir o modelo para uma VM
 Quando cria uma VM no Azure com o portal ou PowerShell, um modelo do Resource Manager é criado automaticamente para. Pode utilizar este modelo rapidamente duplicar uma implementação. O modelo contém informações sobre todos os recursos num grupo de recursos. Para uma máquina virtual, isso significa que o modelo contém tudo o que é criado para oferecer suporte a VM no grupo de recursos, incluindo os recursos de rede.
@@ -49,6 +49,6 @@ Também pode transferir o modelo. JSON ficheiro com o [Export-AzResourceGroup](h
     Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre como implementar recursos com modelos, veja [instruções do modelo do Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 

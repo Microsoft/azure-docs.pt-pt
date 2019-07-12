@@ -4,18 +4,18 @@ description: Utilize as APIs de REST do Azure para recolher métricas de utiliza
 services: virtual-machines
 author: rloutlaw
 ms.reviewer: routlaw
-manager: jeconnoc
+manager: gwallace
 ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 924154a64673b4ff646f3b6ece373b278ee37181
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773269"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667458"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obter métrica de utilização de Máquina Virtual com a API REST
 
@@ -42,7 +42,7 @@ Os seguintes cabeçalhos são necessários:
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Name | Descrição |
+| Nome | Descrição |
 | :--- | :---------- |
 | subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos do Azure associado com o recurso. Pode obter este valor de API do Gestor de recursos do Azure, CLI ou o portal. |

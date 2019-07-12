@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/01/219
+ms.date: 05/01/2019
 ms.author: bwren
-ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b1627306f1a8e9d9285c72118bfebdcb53d369b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234197"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626125"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar dados de registo do Azure Monitor para o Power BI
 
@@ -28,12 +28,12 @@ ms.locfileid: "65234197"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Descrição geral
-Para importar dados a partir de um [área de trabalho do Log Analytics](manage-access.md) do Azure Monitor para o Power BI, vai criar um conjunto de dados no Power BI com base num [consulta de registo](../log-query/log-query-overview.md) no Azure Monitor.  A consulta é executada sempre que o conjunto de dados é atualizado.  Em seguida, pode criar relatórios do Power BI que utilizam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exportar a sua consulta do Log Analytics para [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Em seguida, utilize esta opção para criar uma consulta no Power BI Desktop e, em seguida, publique-o no Power BI como um conjunto de dados.  Os detalhes deste processo são descritos abaixo.
+Para importar dados a partir de um [área de trabalho do Log Analytics](manage-access.md) do Azure Monitor para o Power BI, vai criar um conjunto de dados no Power BI com base num [consulta de registo](../log-query/log-query-overview.md) no Azure Monitor.  A consulta é executada sempre que o conjunto de dados é atualizado.  Em seguida, pode criar relatórios do Power BI que utilizam dados do conjunto de dados.  Para criar o conjunto de dados no Power BI, exportar a sua consulta do Log Analytics para [linguagem do Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification).  Em seguida, utilize esta opção para criar uma consulta no Power BI Desktop e, em seguida, publique-o no Power BI como um conjunto de dados.  Os detalhes deste processo são descritos abaixo.
 
 ![O log Analytics para o Power BI](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Consulta de exportação
-Comece por criar um [consulta de registo](../log-query/log-query-overview.md) que devolve os dados que deseja preencher o conjunto de dados do Power BI.  Em seguida, exportar essa consulta para [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) que podem ser utilizadas pelo Power BI Desktop.
+Comece por criar um [consulta de registo](../log-query/log-query-overview.md) que devolve os dados que deseja preencher o conjunto de dados do Power BI.  Em seguida, exportar essa consulta para [linguagem do Power Query (M)](https://docs.microsoft.com/powerquery-m/power-query-m-language-specification) que podem ser utilizadas pelo Power BI Desktop.
 
 1. [Criar a consulta de registo no Log Analytics](../log-query/get-started-portal.md) para extrair os dados para o conjunto de dados.
 2. Selecione **exportar** > **do Power BI consulta (M)** .  Isto exporta a consulta para um ficheiro de texto chamado **PowerBIQuery.txt**. 

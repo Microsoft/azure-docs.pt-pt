@@ -7,19 +7,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: danlep
-ms.openlocfilehash: 98a72123a05fa7d8dc16be7ddb787f2a2cf7e4d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d91706da898e84effc6194a74dce69a66be0f4ac
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563125"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657614"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monte um volume de emptyDir no Azure Container Instances
 
 Saiba como montar uma *emptyDir* volume para partilhar dados entre os contentores num grupo de contentor no Azure Container Instances.
 
 > [!NOTE]
-> Montar uma *emptyDir* volume está atualmente restrita para contentores do Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+> Montar uma *emptyDir* volume está atualmente restrita para contentores do Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades para os contentores do Windows, pode encontrar as diferenças de plataforma atual no [descrição geral](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="emptydir-volume"></a>volumes de emptyDir
 

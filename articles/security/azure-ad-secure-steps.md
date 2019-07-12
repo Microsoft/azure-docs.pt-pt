@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
-ms.author: martincoetzer
-ms.openlocfilehash: f63ceb6a80f253ea1661d215939705f8e39f3e58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: martinco
+ms.openlocfilehash: a3a1542279077ffb949fbfd9c8cb7236827803d9
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67119286"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588907"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -196,5 +196,5 @@ Há muitos aspectos de uma infraestrutura de identidade segura, mas esta lista d
 
 Agradecemos muito a sério como levar a segurança de identidade e Espero que este documento é um Roteiro úteis para uma postura mais segura para a sua organização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se precisar de assistência para planear e implementar as recomendações, consulte a [planos de implantação do projeto do Azure AD](https://aka.ms/deploymentplans) para obter ajuda.

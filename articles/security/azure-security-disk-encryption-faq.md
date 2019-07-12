@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98acc7f6dd5ec7cf3702bbcbe60e2739732512e2
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c28cf4326593897dcbc90902737fc4846356078d
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67294919"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653391"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de IaaS FAQ
 
@@ -33,6 +33,10 @@ Não existe nenhum custo para encriptar discos da VM com o Azure Disk Encryption
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Como posso começar a utilizar o Azure Disk Encryption?
 
 Para começar, leia os [descrição geral do Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+
+## <a name="what-vm-sizes-and-operating-systems-support-azure-disk-encryption"></a>Os tamanhos de VM e os sistemas operativos suportam o Azure Disk Encryption?
+
+O [pré-requisitos do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) listas de artigos a [tamanhos de VM](azure-security-disk-encryption-prerequisites.md#supported-vm-sizes) e [sistemas operacionais VM](azure-security-disk-encryption-prerequisites.md#supported-operating-systems) que suportam o Azure Disk Encryption.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Pode criptografar volumes de arranque e dados com o Azure Disk Encryption?
 

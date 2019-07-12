@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de4029d7c454ed590fdf974771d5f55c52590c93
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409084"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839057"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ligar o Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure na cloud
 
@@ -65,10 +65,6 @@ Os seguintes itens são opcionais no caso de não ter um sensor. Tem também a o
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Obter cadeia de ligação do IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no IoT hub
 
@@ -257,7 +253,7 @@ Uma forma para monitorizar mensagens recebidas pelo hub IoT partir do seu dispos
 
 Para obter mais formas de processar os dados enviados pelo seu dispositivo, avance para a secção seguinte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Com êxito ligado um Feather HUZZAH ESP8266 ao seu hub IoT e enviados os dados de sensor capturada ao seu hub IoT.
 

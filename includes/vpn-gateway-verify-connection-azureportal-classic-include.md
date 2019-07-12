@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 60a64758ae93320fc44a0705038e9db7e114b9bd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184088"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673464"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN de VNet clássica ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.
 
-1. No [portal do Azure](http://portal.azure.com), clique em **Todos os recursos** e navegue para a rede virtual clássica.
+1. No [portal do Azure](https://portal.azure.com), clique em **Todos os recursos** e navegue para a rede virtual clássica.
 2. No painel da rede virtual, clique em **Descrição geral** para aceder à secção **Ligações VPN** do mesmo.
 3. No gráfico das ligações VPN, clique no site.
 

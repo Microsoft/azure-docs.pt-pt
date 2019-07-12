@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 406797203a99df7e805e08ee7589148599eeffce
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237801"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670724"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning
 
@@ -25,7 +25,7 @@ Este início rápido mostra como pode utilizar o [Azure Machine Learning a área
 
 Ver uma vídeo versão deste início rápido:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2G9N6]
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
@@ -84,7 +84,7 @@ Se não planeja usar os recursos que criou neste artigo, eliminá-los para evita
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou os recursos que necessários para experimentar e implementar modelos. Executou o código num bloco de notas e explorou o histórico de execução para o código na sua área de trabalho na cloud.
 

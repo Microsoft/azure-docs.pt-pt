@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b3b896b2c423f2f9155ddb7803e59e719bd027cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 466d5eff27d9a8105fb840ce4ba79571b6207092
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510728"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835519"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário
 
@@ -64,11 +64,11 @@ Conclua os passos a [introdução às políticas personalizadas](active-director
 
 3. Na **Name** , escreva um nome para a aplicação (por exemplo, *Contoso.AADB2C.API*) e, em seguida, selecione **OK**.
 
-    ![Criar novo projeto do visual studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Criar um novo projeto do Visual Studio no Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. Na **nova aplicação Web ASP.NET** janela, selecione um **Web API** ou **aplicação de API do Azure** modelo.
 
-    ![Selecione o modelo de API web](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Selecionar um modelo de API web no Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. Certifique-se de que a autenticação está definida como **sem autenticação**.
 
@@ -138,15 +138,15 @@ Na API, web uma _controlador_ é um objeto que processa os pedidos HTTP. O contr
 
 1. No Explorador de Soluções, clique com o botão direito do rato na pasta **Controladores**, selecione **Adicionar** e, em seguida, selecione **Controlador**.
 
-    ![Adicionar novo controlador](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Adicionar um controlador de novo no Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. Na **Adicionar estrutura** janela, selecione **Web API Controller - vazia**e, em seguida, selecione **Add**.
 
-    ![Vazio do selecione Web API 2 Controller-](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Seleção de Web API 2 Controller - vazio no Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. Na **Add Controller** janela, o nome do controlador **IdentityController**e, em seguida, selecione **Add**.
 
-    ![Escreva o nome do controlador](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Introduzir o nome do controlador no Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     O scaffolding cria um ficheiro denominado *IdentityController.cs* no *controladores* pasta.
 
@@ -206,11 +206,11 @@ Na API, web uma _controlador_ é um objeto que processa os pedidos HTTP. O contr
 ## <a name="step-3-publish-the-project-to-azure"></a>Passo 3: Publicar o projeto no Azure
 1. No Solution Explorer, clique com botão direito a **Contoso.AADB2C.API** projeto e, em seguida, selecione **Publish**.
 
-    ![Publicar no serviço de aplicações do Microsoft Azure](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Publicar no serviço de aplicações do Microsoft Azure com o Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. Na **Publish** janela, selecione **serviço de aplicações do Microsoft Azure**e, em seguida, selecione **publicar**.
 
-    ![Criar novo serviço de aplicações do Microsoft Azure](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Criar novo serviço de aplicações do Microsoft Azure com o Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     O **criar serviço de aplicações** é aberta a janela. Aqui, cria todos os recursos do Azure necessários para executar a sua aplicação web ASP.NET no Azure.
 
@@ -219,9 +219,9 @@ Na API, web uma _controlador_ é um objeto que processa os pedidos HTTP. O contr
 
 3. Na **nome da aplicação Web** , escreva um nome de aplicação exclusivo (carateres válidos são a-z, 0-9 e hífenes (-). O URL da aplicação web é http://<APP_NAME>.azurewebsites.NET, onde *app_name* é o nome da sua aplicação web. Também pode aceitar o nome gerado automaticamente, que já é exclusivo.
 
-    ![Forneça as propriedades do serviço de aplicações](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Configurar as propriedades do serviço de aplicações](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. Para começar a criar recursos do Azure, selecione **criar**.  
+4. Para começar a criar recursos do Azure, selecione **criar**.
     Depois de ter sido criada a sua aplicação web ASP.NET, o assistente publica-o para o Azure e, em seguida, inicia a aplicação no browser predefinido.
 
 6. Copie o URL da aplicação web.
@@ -262,7 +262,7 @@ Localize a `<ClaimsProviders>` nó e, em seguida, adicione o seguinte fragmento 
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -347,14 +347,14 @@ Depois de adicionar a nova afirmação, o código de terceiros entidade confiado
 
 2. Open **B2C_1A_signup_signin**, a política personalizada de terceiros (RP) da entidade confiadora que carregou e, em seguida, selecione **executar agora**.
 
-    ![A janela de B2C_1A_signup_signin](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![A página de política personalizada de B2C_1A_signup_signin no portal do Azure](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. Testar o processo, escrevendo **teste** no **nome fornecido** caixa.  
+3. Testar o processo, escrevendo **teste** no **nome fornecido** caixa.
     O Azure AD B2C apresenta uma mensagem de erro na parte superior da janela.
 
-    ![Testar a política](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![Testes de validação de entrada de nome fornecido na página de início de sessão inscrição](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4. Na **determinado nome** , escreva um nome (diferente de "teste").  
+4. Na **determinado nome** , escreva um nome (diferente de "teste").
     O Azure AD B2C, o utilizador se inscreve e, em seguida, envia um loyaltyNumber à sua aplicação. Tenha em atenção o número neste JWT.
 
 ```

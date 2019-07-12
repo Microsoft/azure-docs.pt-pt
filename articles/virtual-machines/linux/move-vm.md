@@ -4,7 +4,7 @@ description: Mova uma VM do Linux para outro Azure subscrição ou grupo de recu
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: d2d3f36c9b4ee0557f9e060bec762877a94ea637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c22fe8beea894bccb311a63a1be70c972188e59
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473951"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667291"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Mover uma VM do Linux para outra subscrição ou grupo de recursos
 Este artigo explica como mover uma máquina virtual (VM) do Linux entre grupos de recursos ou subscrições. Mover uma VM entre subscrições, pode ser útil se tiver criado uma VM numa subscrição de pessoal e agora quero movê-lo para a subscrição da sua empresa.

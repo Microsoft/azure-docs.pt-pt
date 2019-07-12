@@ -4,7 +4,7 @@ description: Saiba como utilizar o Terraform para criar e gerir um ambiente comp
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 406af03ab81b279be4f0d72dcca4ec8ec0e4ee55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c5161f1e8f6eba735e6989f36b8d8008d4b975
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304658"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708642"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual Linux no Azure com o Terraform
 

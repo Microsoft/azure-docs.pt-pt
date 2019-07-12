@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6fceee819762e10809a94f72d944e7625cb7e67c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 49b8554f6064f036d4305cf7a5c1450c2f18c48d
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478553"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798493"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -104,7 +104,7 @@ Este script do PowerShell inclui suporte para as seguintes configurações:
 
 1. Guarde o seguinte script no seu computador. Neste exemplo, guarde-o com o nome de ficheiro *New-RunAsAccount.ps1*.
 
-   O script usa vários cmdlets do Azure Resource Manager para criar recursos. A tabela seguinte mostra os cmdlets e as respetivas permissões necessárias.
+   O script usa vários cmdlets do Azure Resource Manager para criar recursos. Precedente [permissões](#permissions) tabela mostra os cmdlets e as respetivas permissões necessárias.
 
     ```powershell
     #Requires -RunAsAdministrator
@@ -370,13 +370,35 @@ Para renovar o certificado, faça o seguinte:
 
 ## <a name="limiting-run-as-account-permissions"></a>Limitar as permissões de conta Run As
 
-Para controlar o direcionamento de automatização relativamente aos recursos na automatização do Azure, a conta Run As, por padrão é concedida direitos de contribuinte na subscrição. Se precisar de restringir o que o principal de serviço RunAs pode fazer, pode remover a conta da função de contribuinte à subscrição e adicioná-lo como um contribuinte para os grupos de recursos que pretende especificar.
+Para controlar o direcionamento de automação de recursos no Azure, pode executar o [AutomationRunAsAccountRoleAssignments.ps1 atualização](https://aka.ms/AA5hug8) script na galeria do PowerShell para alterar o seu principal de serviço de conta Run As existente para criar e utilizar uma definição de função personalizada. Esta função terão permissão para todos os recursos, exceto [Key Vault](https://docs.microsoft.com/azure/key-vault/). 
 
-No portal do Azure, selecione **subscrições** e escolha a subscrição da sua conta de automatização. Selecione **controlo de acesso (IAM)** e, em seguida, selecione a **atribuições de funções** separador. Procure o principal de serviço para a sua conta de automatização (parece \<AutomationAccountName\>_unique identificador). Selecione a conta e clique em **remover** removê-lo a partir da subscrição.
+> [!IMPORTANT]
+> Depois de ser executada a `Update-AutomationRunAsAccountRoleAssignments.ps1` script, os runbooks que aceder ao Cofre de chaves com o uso de contas RunAs deixará de funcionar. Deve rever os runbooks na sua conta para chamadas para o Cofre de chaves do Azure.
+>
+> Para ativar o acesso ao Cofre de chaves através de runbooks de automatização do Azure terá [adicionar a conta RunAs para permissões do Cofre de chaves](#add-permissions-to-key-vault).
 
-![Contribuintes de subscrição](media/manage-runas-account/automation-account-remove-subscription.png)
+Se precisar de restringir o que o principal de serviço RunAs pode fazer ainda mais, pode adicionar outros tipos de recursos para o `NotActions` da definição de função personalizada. O exemplo seguinte restringe o acesso para `Microsoft.Compute`. Se esta opção para adicionar o **NotActions** da definição de função, esta função não será capaz de aceder a qualquer recurso de computação. Para saber mais sobre as definições de função, veja [compreender as definições de funções para recursos do Azure](../role-based-access-control/role-definitions.md).
 
-Para adicionar o principal de serviço para um grupo de recursos, selecione o grupo de recursos no portal do Azure e selecione **controlo de acesso (IAM)** . Selecione **adicionar atribuição de função**, esta ação abre o **adicionar atribuição de função** página. Para **função**, selecione **contribuinte**. Na **selecione** escreva o nome do principal de serviço para a conta Run As de caixa de texto e, selecione-o na lista. Clique em **Guardar** para guardar as alterações. Conclua estes passos para os grupos de recursos que pretende dar a Run As de automatização principal de serviço acesso para.
+```powershell
+$roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
+$roleDefinition.NotActions.Add("Microsoft.Compute/*")
+$roleDefinition | Set-AzureRMRoleDefinition
+```
+
+Para determinar se o Principal de serviço utilizado por sua conta Run As está a ser o **contribuinte** ou uma definição de função personalizada, aceda à sua conta de automatização e, em **definições da conta**, selecione **executar como contas** > **conta Run as Azure**. Sob **função** , encontrará a definição de função que está a ser utilizada. 
+
+[![](media/manage-runas-account/verify-role.png "Certifique-se a função de conta Run As")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+
+Para determinar a definição de função utilizada pelas contas Run As de automatização para várias subscrições ou contas de automatização, pode utilizar o [verificação AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) script na galeria do PowerShell.
+
+### <a name="add-permissions-to-key-vault"></a>Adicionar permissões ao Cofre de chaves
+
+Se pretender permitir a automatização do Azure gerir o Cofre de chaves e seu principal de serviço de conta Run As está a utilizar uma definição de função personalizada, terá de efetuar passos adicionais para permitir este comportamento:
+
+* Conceder permissões para o Key Vault
+* Definir a política de acesso
+
+Pode utilizar o [expandir AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) script na galeria do PowerShell para permitir que as suas permissões de conta Run As ao Cofre de chaves ou visite [conceder acesso de aplicações para um cofre de chaves ](../key-vault/key-vault-group-permissions-for-apps.md) para obter mais detalhes sobre as definições as permissões no Cofre de chaves.
 
 ## <a name="misconfiguration"></a>Configuração incorreta
 

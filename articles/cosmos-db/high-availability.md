@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 928c943e21e7d00b87ac1e506b98d47107ac4348
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 904994134db28a8244f15ff42e0104e8565c68dd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508570"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839801"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Como uma base de dados globalmente distribuída, o Cosmos DB oferece SLAs abrang
 
 ## <a name="high-availability-with-cosmos-db-in-the-event-of-regional-outages"></a>Elevada disponibilidade com o Cosmos DB em caso de falhas regionais
 
-Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua base de dados sempre é de elevada disponibilidade. Os seguintes detalhes de capturar o comportamento do Cosmos DB durante um período de inatividade, consoante a configuração de conta do Cosmos:
+As falhas regionais não são invulgares e o Azure Cosmos DB garante que a disponibilidade da sua base de dados é sempre elevada. Os seguintes detalhes de capturar o comportamento do Cosmos DB durante um período de inatividade, consoante a configuração de conta do Cosmos:
 
 - Com o Cosmos DB, antes de uma operação de escrita é reconhecida para o cliente, os dados de maneira duradoura consolidados por um quórum de réplicas na região que aceita as operações de escrita.
 
@@ -81,8 +81,8 @@ A tabela seguinte resume a capacidade de elevada disponibilidade de várias conf
 
 |KPI  |Região única sem zonas de disponibilidade (não-AZ)  |Região única com zonas de disponibilidade (AZ)  |Escritas de várias regiões com zonas de disponibilidade (AZ, 2 regiões) – a maioria de configuração recomendada |
 |---------|---------|---------|---------|
-|SLA de disponibilidade de escrita     |   99,99%      |    99,99%     |  99,999%  |
-|Ler o SLA de disponibilidade   |   99,99%      |   99,99%      |  99,999%       |
+|SLA de disponibilidade de escrita     |   99,99%      |    99,99%     |  99.999%  |
+|Ler o SLA de disponibilidade   |   99,99%      |   99,99%      |  99.999%       |
 |Preço  |  Taxa de faturação de região única |  Taxa de faturação de zona de disponibilidade de região única |  Taxa de faturação de várias regiões       |
 |Falhas de zona – perda de dados   |  Perda de dados  |   Sem perda de dados |   Sem perda de dados  |
 |Falhas de zona – disponibilidade |  Perda de disponibilidade  | Sem perda de disponibilidade  |  Sem perda de disponibilidade  |
@@ -93,7 +93,8 @@ A tabela seguinte resume a capacidade de elevada disponibilidade de várias conf
 |Débito    |  X RU/s aprovisionada débito      |  X RU/s aprovisionada débito       |  2 x débito aprovisionado de RU/s <br/><br/> Esse modo de configuração exige duas vezes a quantidade de débito em comparação com uma única região com zonas de disponibilidade devido a existirem duas regiões.   |
 
 > [!NOTE] 
-> Para ativar o suporte de zona de disponibilidade, a conta do Azure Cosmos DB tem de ter gravações de várias-master/várias-region ativadas. 
+> Para ativar o suporte de zona de disponibilidade para uma região de várias conta do Cosmos do Azure, a conta tem de ter vários mestres escritas ativadas.
+
 
 Pode ativar a redundância de zona ao adicionar uma região para contas do Cosmos do Azure novas ou existentes. Atualmente, apenas pode ativar a redundância de zona ao utilizar o Azure portal, modelos de PowerShell e Azure Resource Manager. Para ativar a redundância de zona na sua conta do Cosmos do Azure, deve definir os `isZoneRedundant` sinalizador para `true` para uma localização específica. Pode definir este sinalizador dentro da propriedade de localizações. Por exemplo, o seguinte fragmento de powershell permite que a redundância de zona para a região "Sudeste Asiático":
 

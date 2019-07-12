@@ -2,17 +2,17 @@
 title: Repor as credenciais para um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como atualização ou redefinir o principal de serviço de credenciais para um cluster no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 189bcf2ddc7d301c8100f74e51374abd217a144f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475496"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614134"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para um principal de serviço no Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Se pretender criar um principal de serviço e, em seguida, atualize o cluster do
 
 ### <a name="get-the-service-principal-id"></a>Obter o ID de principal de serviço
 
-Para atualizar as credenciais para o principal de serviço existente, obtenha o ID de principal de serviço de cluster com o [show do az aks] [ az-aks-show] comando. O exemplo seguinte obtém o ID para o cluster com o nome *myAKSCluster* no *myResourceGroup* grupo de recursos. O ID de principal de serviço está definido como uma variável chamada *SP_ID* para utilização no comando adicional.
+Para atualizar as credenciais para o principal de serviço existente, obtenha o ID de principal de serviço de cluster com o [show do az aks][az-aks-show] comando. O exemplo seguinte obtém o ID para o cluster com o nome *myAKSCluster* no *myResourceGroup* grupo de recursos. O ID de principal de serviço está definido como uma variável chamada *SP_ID* para utilização no comando adicional.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -54,7 +54,7 @@ Agora continue para [atualização de cluster do AKS com novas credenciais](#upd
 
 Se optar por atualizar as credenciais de principal de serviço existente na secção anterior, ignore este passo. Continuar a [atualização de cluster do AKS com novas credenciais](#update-aks-cluster-with-new-credentials).
 
-Para criar um principal de serviço e, em seguida, atualize o cluster do AKS para utilizar estas credenciais novas, utilize o [az ad sp create-for-rbac] [ az-ad-sp-create] comando. No exemplo a seguir, o parâmetro `--skip-assignment` impede que sejam atribuídas atribuições predefinidas adicionais:
+Para criar um principal de serviço e, em seguida, atualize o cluster do AKS para utilizar estas credenciais novas, utilize o [az ad sp create-for-rbac][az-ad-sp-create] comando. No exemplo a seguir, o parâmetro `--skip-assignment` impede que sejam atribuídas atribuições predefinidas adicionais:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -71,7 +71,7 @@ O resultado será semelhante ao seguinte exemplo. Tome nota do seu `appId` e `pa
 }
 ```
 
-Agora defina variáveis para o serviço principal ID e segredo do cliente usa a saída da sua própria [az ad sp create-for-rbac] [ az-ad-sp-create] de comando, conforme mostrado no exemplo a seguir. O *SP_ID* é sua *appId*e o *SP_SECRET* é o *palavra-passe*:
+Agora defina variáveis para o serviço principal ID e segredo do cliente usa a saída da sua própria [az ad sp create-for-rbac][az-ad-sp-create] de comando, conforme mostrado no exemplo a seguir. O *SP_ID* é sua *appId*e o *SP_SECRET* é o *palavra-passe*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -80,7 +80,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>Atualizar o cluster do AKS com novas credenciais
 
-Independentemente de decidir atualizar as credenciais para o principal de serviço existente ou criar um principal de serviço, agora atualizar o cluster do AKS com as suas novas credenciais com o [az aks-as credenciais de atualização] [ az-aks-update-credentials] comando. As variáveis para o *– principal de serviço* e *– segredo do cliente* são utilizadas:
+Independentemente de decidir atualizar as credenciais para o principal de serviço existente ou criar um principal de serviço, agora atualizar o cluster do AKS com as suas novas credenciais com o [az aks-as credenciais de atualização][az-aks-update-credentials] comando. As variáveis para o *– principal de serviço* e *– segredo do cliente* são utilizadas:
 
 ```azurecli-interactive
 az aks update-credentials \

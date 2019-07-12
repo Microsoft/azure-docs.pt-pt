@@ -4,7 +4,7 @@ description: Saiba como utilizar o portal do Azure para criar e partilhar imagen
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 93734045cd06f279f37d7725aa573a59c4ec0be9
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 475bf3d07ff619618339207b53d5bcc4c8b0ab06
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67465707"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709155"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagem partilhada com o portal do Azure
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e2a807bbd6baeb2f14a6d36f5d98a28d48725449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59a85e855c9fab9f2a3437c83c867b8076f55049
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082719"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607216"
 ---
 # <a name="manage-sql-server-vms-in-azure-using-the-azure-portal"></a>Gerir VMs do SQL Server no Azure com o portal do Azure
 
@@ -33,7 +33,7 @@ O **máquinas virtuais do SQL** recursos agora são um serviço de gestão indep
 ## <a name="remarks"></a>Observações
 
 - O **máquinas virtuais do SQL** recurso é o método recomendado para ver e gerir as suas VMs do SQL Server. No entanto, atualmente, o **máquinas virtuais do SQL** recurso não suporta a gestão dos [fim do suporte (término do suporte ao)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) VMs do SQL Server. Para gerir as definições para as suas VMs do término do suporte ao SQL Server, utilize o preterido [guia de configuração do SQL Server](#access-sql-server-configuration-tab) em vez disso. 
-- O **máquinas virtuais do SQL** recurso só está disponível para VMs do SQL Server que têm [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+- O **máquinas virtuais do SQL** recurso só está disponível para VMs do SQL Server que têm [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
 ## <a name="access-sql-virtual-machine-resource"></a>Recurso de máquina virtual do SQL de acesso
@@ -60,7 +60,7 @@ Selecionar a sua VM do SQL Server irá abrir o **máquinas virtuais do SQL** rec
   > O **máquinas virtuais do SQL** recursos destina-se as definições de SQL Server dedicadas. Selecione o nome da VM no **Máquina Virtual** campo para navegar para as definições que são específicas para a VM, mas não exclusivo para o SQL Server. 
 
 ## <a name="access-sql-server-configuration-tab"></a>Guia de configuração do SQL Server de acesso
-O guia de configuração do SQL Server foi preterido. Neste momento, é o único método para gerenciar [fim do suporte (término do suporte ao)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) VMs do SQL Server e as VMs do SQL Server que não foram [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-the-sql-vm-resource-provider).
+O guia de configuração do SQL Server foi preterido. Neste momento, é o único método para gerenciar [fim do suporte (término do suporte ao)](virtual-machines-windows-sql-server-2008-eos-extend-support.md) VMs do SQL Server e as VMs do SQL Server que não foram [registado com o fornecedor de recursos de VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 Para acessar o separador de configuração de servidor SQL preterido, terá de navegar para o **máquinas virtuais** recursos. Para tal, faça o seguinte:
 
@@ -77,7 +77,7 @@ Para acessar o separador de configuração de servidor SQL preterido, terá de n
 
 ![Configuração do SQL Server](media/virtual-machines-windows-sql-manage-portal/sql-vm-configuration.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os artigos seguintes: 
 

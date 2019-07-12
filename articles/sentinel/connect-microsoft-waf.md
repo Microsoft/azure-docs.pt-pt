@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 99c553145f0a600826e48bec437449f278b74fbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a308394c3cfa77f80db1361b5a49a485ee5ca0e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205650"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611356"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Ligar dados a partir de firewall de aplicações do Microsoft web
 
@@ -49,7 +50,7 @@ Assim que a firewall de aplicações do Microsoft web é implementada e obtenç�
     1. Selecione os tipos de registo que pretende analisar. Recomendamos que: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
 1. Para utilizar o esquema relevante no Log Analytics para os alertas de firewall de aplicação do Microsoft web, procure **AzureDiagnostics**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar a firewall de aplicações do Microsoft web ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).

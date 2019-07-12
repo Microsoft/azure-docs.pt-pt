@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244481"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595523"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carregar dados de revenda da Contoso para o Azure SQL Data Warehouse
 
@@ -72,7 +72,7 @@ WITH (
 ```
 
 ### <a name="12-create-the-external-data-source"></a>1.2. Criar origem de dados externa
-Utilize esta opção [criar origem de dados externa] [ CREATE EXTERNAL DATA SOURCE] comando para a localização dos dados e o tipo de dados do arquivo. 
+Utilize esta opção [criar origem de dados externa][CREATE EXTERNAL DATA SOURCE] comando para a localização dos dados e o tipo de dados do arquivo. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Configurar o formato de dados
-Os dados são armazenados em arquivos de texto no armazenamento de Blobs do Azure, e cada campo é separado com um delimitador. No SSMS, execute o seguinte [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] comandos para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e pipe delimitados.
+Os dados são armazenados em arquivos de texto no armazenamento de Blobs do Azure, e cada campo é separado com um delimitador. No SSMS, execute o seguinte [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] comandos para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e pipe delimitados.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Carregar os dados para novas tabelas
-Para carregar dados do armazenamento de Blobs do Azure para a tabela de armazém de dados, utilize o [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrução. Carregamento com CTAS aproveita as tabelas externas com rigidez de tipos que criou. Para carregar os dados para novas tabelas, utilize um [CTAS] [ CTAS] instrução por tabela. 
+Para carregar dados do armazenamento de Blobs do Azure para a tabela de armazém de dados, utilize o [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] instrução por tabela. 
  
 CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e tipos de dados em tabela externa.
 
@@ -276,12 +276,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para obter mais informações sobre a manutenção de índices columnstore, consulte a [Gerir índices columnstore] [ manage columnstore indexes] artigo.
+Para obter mais informações sobre a manutenção de índices columnstore, consulte a [Gerir índices columnstore][manage columnstore indexes] artigo.
 
 ## <a name="6-optimize-statistics"></a>6. Otimizar as estatísticas
 É melhor criar estatísticas de coluna única imediatamente após uma carga. Se souber que determinados colunas não serão em predicados de consulta, pode ignorar criar estatísticas nessas colunas. Se criar estatísticas de coluna única em cada coluna, poderá demorar muito tempo a recriar todas as estatísticas. 
 
-Se optar por criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no [estatísticas] [ statistics] artigo.
+Se optar por criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no [estatísticas][statistics] artigo.
 
 O exemplo seguinte é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna junção das tabelas de fatos. Pode sempre adicionar estatísticas única ou várias colunas de outras colunas da tabela de fatos mais tarde.
 
@@ -343,7 +343,7 @@ GROUP BY p.[BrandName]
 ## <a name="next-steps"></a>Passos Seguintes
 Para carregar o conjunto completo de dados, execute o exemplo [carregar o armazém de dados de revenda completa do Contoso](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) do repositório de exemplos do Microsoft SQL Server.
 
-Para obter mais sugestões de desenvolvimento, veja [SQL Data Warehouse development overview (Descrição geral do desenvolvimento no SQL Data Warehouse)][SQL Data Warehouse development overview].
+Para mais sugestões de desenvolvimento, consulte [Descrição geral do desenvolvimento no SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

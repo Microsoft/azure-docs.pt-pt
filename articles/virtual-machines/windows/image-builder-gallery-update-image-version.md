@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
-manager: jeconnoc
-ms.openlocfilehash: f1bce4c2e5c7ae9dc7ec5917fbc5ac115eecdffa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: d60a7680bc283ba015d0649fb1d2671f8e5cf793
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160099"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718627"
 ---
 # <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Pré-visualização: Criar uma nova versão de imagem a partir de uma versão de imagem existente usando o construtor de imagens do Azure
 

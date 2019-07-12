@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6687a279b9992d31e3529aaf47054b3cb5c6d0eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f813bc07cc7c88ce36de28d1e233b210535143c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873440"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595438"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Vistas de sistema suportadas no Azure SQL Data Warehouse
 Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
@@ -26,6 +26,9 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
+* [sys.pdw_materialized_view_column_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
+* [sys.pdw_materialized_view_distribution_properties](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest) (Preview)
+* [sys.pdw_materialized_view_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) (pré-visualização)
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)

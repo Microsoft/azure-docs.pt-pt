@@ -5,14 +5,14 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: d4d1044a30d4ebc551cf1305993aba2a201c4c94
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: dd800c0eeb18fe45b44a72aeb58b500623b2b366
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514445"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705085"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Perguntas comuns sobre o backup de arquivos e pastas
 
@@ -88,9 +88,19 @@ Este aviso pode aparecer mesmo que configurou uma política de cópia de seguran
 O tamanho da pasta cache determina a quantidade de dados para a cópia de segurança.
 - Os volumes de pasta de cache devem ter espaço livre que é igual a, pelo menos, 5 a 10% do tamanho total dos dados de cópia de segurança.
 - Se o volume tiver menos de 5% de espaço livre, aumentar o tamanho do volume ou mova a pasta de cache para um volume com espaço suficiente.
-- Se criar cópias de segurança do Estado do sistema Windows, precisaria mais 30-35 GB de espaço livre no volume que contém a pasta de cache
-### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Como posso alterar a localização da cache para o agente de MARS?
+- Se criar cópias de segurança do Estado do sistema Windows, precisaria mais 30-35 GB de espaço livre no volume que contém a pasta da cache.
 
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válido e acessível?
+
+1. Por predefinição a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Certifique-se de que o caminho de sua correspondências de localização de pasta de rascunho com os valores das entradas de chave de registo mostrados abaixo:
+
+  | Caminho do registo | Chave do Registo | Value |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nova localização da pasta cache* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nova localização da pasta cache* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Como posso alterar a localização da cache para o agente de MARS?
 
 1. Execute este comando numa linha de comandos elevada para parar o mecanismo de cópia de segurança:
 
@@ -140,6 +150,6 @@ Sim, pode utilizar o **alterar propriedades** opção no agente de MARS para aju
 Se uma tarefa de restauro em curso é cancelada, interrompe o processo de restauração. Todos os ficheiros restaurados antes do cancelamento mantenha-se no destino configurado (localização original ou alternativa), sem qualquer reversões.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba](tutorial-backup-windows-server-to-azure.md) como fazer uma cópia de segurança de uma máquina Windows.

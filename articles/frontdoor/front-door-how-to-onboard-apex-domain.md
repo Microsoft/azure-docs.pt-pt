@@ -3,16 +3,16 @@ title: Carregar um domínio de raiz ou apex para uma porta da frente existente c
 description: Saiba como integrar um domínio de raiz ou apex para uma porta da frente existente com o portal do Azure.
 services: front-door
 author: sharad4u
-ms.service: front-door
+ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 464c38b0ece274d2ea7df89ab9fd7c0a60dc4b58
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8fe8da95a61d2f2bb35095236131670cb6ef0e70
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333339"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605782"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Carregar um domínio de raiz ou apex na sua porta de entrada
 Porta de entrada do Azure utiliza registos CNAME para validar a propriedade do domínio para a integração de domínios personalizados. Além disso, a porta de entrada não expõe o endereço IP de front-end associado a seu perfil de porta de entrada e por isso, não é possível mapear o domínio de vértice para um endereço IP, se a intenção é integrá-lo a porta da frente do Azure.

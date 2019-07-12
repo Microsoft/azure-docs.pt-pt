@@ -4,7 +4,7 @@ description: Criar uma VM do Linux no Azure com a CLI clássica do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a757e156d48eb27a9e4d9b38cb08d5417f1e35b6
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473744"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671078"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Criar uma VM do Linux com a CLI clássica do Azure
 
@@ -52,12 +52,12 @@ Uma forma rápida de escolher uma distribuição consiste em utilizar os aliases
 
 | Alias | Fabricante | Oferta | SKU | Version |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7.2 |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
-| Debian |credativ |Debian |8 |mais recente |
-| openSUSE |SUSE |openSUSE |13.2 |mais recente |
-| RHEL |Red Hat |RHEL |7.2 |mais recente |
-| UbuntuLTS |Canónico |Ubuntu Server |14.04.4-LTS |mais recente |
+| CentOS |OpenLogic |CentOS |7.2 |latest |
+| CoreOS |CoreOS |CoreOS |Estável |latest |
+| Debian |credativ |Debian |8 |latest |
+| openSUSE |SUSE |openSUSE |13.2 |latest |
+| RHEL |Red Hat |RHEL |7.2 |latest |
+| UbuntuLTS |Canónico |Ubuntu Server |14.04.4-LTS |latest |
 
 As secções seguintes utilizam o alias `UbuntuLTS` para a opção **ImageURN** (`-Q`) para implementar um Ubuntu 14.04.4 LTS Server.
 
@@ -201,7 +201,7 @@ applicable law.
 myAdminUser@myVM:~$
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 O comando `azure vm quick-create` é a forma mais rápida de implementar uma VM para que possa iniciar sessão numa shell bash e começar a trabalhar. No entanto, utilizar o comando `vm quick-create` não lhe dá um controlo extenso nem lhe permite criar um ambiente mais complexo.  Para implementar uma VM com Linux personalizada para a sua infraestrutura, pode seguir qualquer um dos artigos seguintes:
 
 * [Criar um ambiente personalizado para uma VM com Linux diretamente através dos comandos da CLI do Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

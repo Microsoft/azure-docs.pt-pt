@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a91d0f75b7e27065bd2ee0ea430a859d265afacb
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 2eae81f357904bd5034d7409ef42b681d1085930
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332042"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67695227"
 ---
 # <a name="vpn-gateways-overview"></a>Descrição geral de gateways VPN
 
@@ -44,8 +44,6 @@ Casos de utilização para VPN de site para site incluem:
 
 ### <a name="cryptographic-parameters"></a>Parâmetros criptográficos
 
-Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptografia predefinido para estabelecer uma ligação segura.  Quando cria uma ligação do dispositivo VPN no local, os parâmetros têm de corresponder.
-
 Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptografia predefinido para estabelecer uma ligação segura.  Quando cria uma ligação do dispositivo VPN no local, tem de utilizar qualquer um dos seguintes parâmetros suportados pelo gateway de VPN no local.
 
 #### <a name="phase-1-proposals"></a>Propostas de fase 1
@@ -66,7 +64,7 @@ Uma ligação de VPN de site a site utiliza os seguintes parâmetros de criptogr
 |-----------|------------|------------|------------|
 | Encriptação | AES 128 | AES 256 | AES 256 |
 | Algoritmo hash| SHA 256 | SHA 256 | SHA 1 |
-| Perfeito Forward Secrecy grupo (grupo PFS) | Nenhuma | Nenhum | Nenhuma |
+| Perfeito Forward Secrecy grupo (grupo PFS) | Nenhum | Nenhum | Nenhuma |
 | Tempo de vida | segundos de 1.800 | segundos de 1.800 | segundos de 1.800 |
 | Tamanho dos dados | 4GB | 4GB | 4GB |
 

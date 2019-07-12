@@ -4,7 +4,7 @@ description: Como voltar a implementar máquinas virtuais do Linux no Azure para
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1c1ac1a20c1c06db10c1462c95f4d924c5ec09d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cffed7949eff63484c84f385510baa8cd4244958
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116952"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710271"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Voltar a implementar a máquina virtual do Linux para o novo nó do Azure
 Se tiver dificuldades, resolução de problemas de SSH ou acesso de aplicação a uma máquina virtual (VM) do Linux no Azure, a reimplementação da VM pode ajudar. Quando voltar a implementar uma VM, ele muda a VM para um novo nó dentro da infraestrutura do Azure e, em seguida, liga-o novamente. Todas as suas opções de configuração e os recursos associados são mantidos. Este artigo mostra-lhe como voltar a implementar uma VM com a CLI do Azure ou o portal do Azure.
@@ -47,7 +47,7 @@ azure vm redeploy --resource-group myResourceGroup --vm-name myVM
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Se estiver a ter problemas de ligação à sua VM, pode encontrar ajuda específica sobre [resolução de problemas de ligações SSH](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [detalhadas passos de resolução de problemas de SSH](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se não conseguir aceder uma aplicação em execução na sua VM, pode ainda ler [resolução de problemas de aplicação](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 

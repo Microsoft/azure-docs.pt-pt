@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 529c536d9ea3b898745f03c80b63702b2af485da
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 53ff318dcc034fb11e2d554f9ad8e8814eb32879
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165585"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672593"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, acionadores e funções definidas pelo utilizador
 
@@ -37,7 +37,7 @@ Escrever procedimentos armazenados, acionadores e funções definidas pelo utili
 * **Encapsulamento:** Procedimentos armazenados podem ser utilizados para agrupar lógica num único local. Encapsulamento adiciona uma camada de abstração sobre os dados, que permite-lhe evoluir as suas aplicações de forma independente a partir dos dados. Essa camada de abstração é útil quando os dados são o esquema e não precisa de gerir a adicionar a lógica adicional diretamente na sua aplicação. A abstração permite que seu mantê-lo que seguros ao facilitar o acesso a partir dos scripts.
 
 > [!TIP]
-> Procedimentos armazenados são mais adequados para operações que são pesadas de escrita. Ao decidir onde utilizar procedimentos armazenados, Otimize as encapsulando a quantidade máxima de escritas possível. Em termos gerais, procedimentos armazenados não são o meio mais eficaz para fazer um grande número de operações de leitura para que o uso de procedimentos armazenados para um grande número de batch de leituras para retornar para o cliente não irá produzir o benefício pretendido.
+> Procedimentos armazenados são mais adequados para operações de escrita intensiva e requerem uma transação num valor de chave de partição. Ao decidir se deve utilizar procedimentos armazenados, Otimize as encapsulando a quantidade máxima de escritas possível. Em termos gerais, procedimentos armazenados não são o meio mais eficaz para fazer um grande número de operações de leitura ou de consulta, então armazenados procedimentos para batch um grande número de leituras por oposição a retornar para o cliente não irão produzir o benefício pretendido. Para obter melhor desempenho, estas operações de leitura intensiva devem ser feitas no lado do cliente, utilizando o SDK do Cosmos. 
 
 ## <a name="transactions"></a>Transações
 

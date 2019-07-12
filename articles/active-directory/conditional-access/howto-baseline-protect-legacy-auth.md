@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8e9ea8956d87e2ec47cc65495e81d8a0f0ad8cb
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: d21b54c3bea98a9a1499dc75890f75f28f2f9dc0
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560927"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655714"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Política de linha de base: Bloco antigos de autenticação (pré-visualização)
 
@@ -25,11 +25,11 @@ Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud,
 * Clientes com Office antigos que não utilizam autenticação moderna (por exemplo, cliente do Office 2010)
 * Qualquer cliente que utiliza protocolos de email herdados, como o IMAP/SMTP/POP3
 
-Hoje em dia, a maioria de todos os comprometer início de sessão tentativas provenientes da autenticação. Autenticação de legado não suporta a autenticação multifator (MFA). Mesmo que tenha uma política MFA ativada no seu diretório, um ator indevido pode autenticar com um protocolo de legado e ignorar o MFA.
+Hoje em dia, a maioria de todos os comprometer início de sessão tentativas provenientes de autenticação. Autenticação de legado não suporta a autenticação multifator (MFA). Mesmo que tenha uma política MFA ativada no seu diretório, um ator indevido pode autenticar com um protocolo de legado e ignorar o MFA.
 
-É a melhor forma de proteger a sua conta de pedidos de autenticação malicioso efetuados por protocolos legados bloquear estas tentativas tudo junto. Para facilitar para impedir todos os pedidos de início de sessão feitos por protocolos legados, criamos uma política de linha de base que faz exatamente isso.
+É a melhor forma de proteger a sua conta de pedidos de autenticação malicioso efetuados por protocolos legados bloquear estas tentativas completamente. Num esforço para tornar mais fácil para que possa proteger o seu ambiente, criamos esta política de linha de base para autenticação de legado do bloco.
 
-**Autenticação de legado do bloco** é [política de linha de base](concept-baseline-protection.md) que bloqueia todos os pedidos de autenticação feitos a partir de protocolos legados. Autenticação moderna deve ser utilizada para se inscrever com êxito todos os utilizadores. Utilizado em conjunto com as políticas de linha de base, todos os pedidos provenientes de protocolos legados serão bloqueados e todos os utilizadores serão obrigados a MFA sempre que for necessário. Esta política não bloqueia o Exchange ActiveSync.
+**Autenticação de legado do bloco** é um [política de linha de base](concept-baseline-protection.md) que bloqueia todos os pedidos de autenticação feitos a partir de protocolos legados. Autenticação moderna deve ser utilizada para se inscrever com êxito todos os utilizadores. Utilizado em conjunto com as políticas de linha de base, todos os pedidos provenientes de protocolos legados serão bloqueados e todos os utilizadores serão obrigados a MFA sempre que for necessário. Esta política não bloqueia o Exchange ActiveSync.
 
 ## <a name="identify-legacy-authentication-use"></a>Identificar a utilização de autenticação
 
@@ -78,13 +78,13 @@ SharePoint Online está ativado para padrão de autenticação moderna. Para dir
 
 Para impedir que os pedidos de autenticação legada feitos pelo Skype para empresas, é necessário ativar a autenticação moderna do Skype para empresas Online. Para diretórios criados após 1 de Agosto de 2017, a autenticação moderna do Skype para empresas está ativada por predefinição.
 
-Para ativar a autenticação moderna no Skype para empresas, sugerimos que faz a transição para o Microsoft Teams, que suporta a autenticação moderna por predefinição. No entanto, se conseguir tr neste momento, terá de ativar a autenticação moderna do Skype para empresas Online, para que o Skype para clientes empresariais começa com autenticação moderna. Siga estes passos no artigo [Skype para topologias de negócio com autenticação moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para obter passos para ativar a autenticação moderna para o Skype para empresas.
+Sugerimos que faz a transição para o Microsoft Teams, que suporta a autenticação moderna por predefinição. No entanto, se for não é possível migrar neste momento, terá de ativar a autenticação moderna do Skype para empresas Online, para que o Skype para clientes de empresas começar a utilizar autenticação moderna. Siga os passos neste artigo [Skype para topologias de negócio com autenticação moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para ativar a autenticação moderna para o Skype para empresas.
 
-Além de permitir a autenticação moderna do Skype para empresas Online, recomendamos a moderna autenticação estar ativada para o Exchange Online ao ativar a autenticação moderna do Skype para empresas. Este processo ajudará a sincronizar o estado da autenticação moderna, no Exchange Online e Skype para empresas online e irá impedir que vários pedidos de início de sessão para o Skype para clientes empresariais.
+Além de permitir a autenticação moderna do Skype para empresas Online, recomendamos que ative a autenticação moderna para o Exchange Online ao ativar a autenticação moderna do Skype para empresas. Este processo ajudará a sincronizar o estado da autenticação moderna, no Exchange Online e Skype para empresas online e irá impedir que vários pedidos de início de sessão para o Skype para clientes empresariais.
 
 ### <a name="step-5-using-mobile-devices"></a>Passo 5: Utilizar dispositivos móveis
 
-Aplicações no seu dispositivo móvel precisam bloquear antigos de autenticação também. Recomendamos que utilize o Outlook para dispositivos móveis. Outlook Mobile suporta a autenticação moderna por predefinição e irá satisfazer outras políticas de proteção de linha de base do MFA.
+Aplicações no seu dispositivo móvel precisam bloquear antigos de autenticação também. Recomendamos que utilize o Outlook para dispositivos móveis. Outlook para dispositivos móveis suporta a autenticação moderna por predefinição e irá satisfazer outras políticas de proteção de linha de base do MFA.
 
 Para utilizar o cliente de e-mail nativa no iOS, terá de ter o iOS versão 11.0 ou posterior para garantir que o cliente de correio foi atualizado para bloquear antigos de autenticação.
 
@@ -92,9 +92,10 @@ Para utilizar o cliente de e-mail nativa no iOS, terá de ter o iOS versão 11.0
 
 Se for um cliente de híbrida com o Exchange Server no local e o Skype para empresas no local, ambos os serviços precisará ser atualizado para ativar a autenticação moderna. Ao utilizar a autenticação moderna num ambiente híbrido, ainda está de autenticar os utilizadores no local. A história de autorizar o acesso às alterações de recursos (ficheiros ou e-mails).
 
-Antes de poder ativar a autenticação moderna no local, certifique-se de que cumpre theIf cumprir os requisitos, agora, está pronto para ativar a autenticação moderna no local.
+Antes de poder ativar a autenticação moderna no local,. não se esqueça de que cumpriu os pré-requisitos.
+Agora, está pronto para ativar a autenticação moderna no local.
 
-Passos para ativar a autenticação moderna encontrar nos seguintes artigos:
+Passos para ativar a autenticação moderna podem ser encontrados nos seguintes artigos:
 
 * [Como configurar o Exchange Server no local para utilizar autenticação moderna híbrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
 * [Como utilizar a autenticação moderna (ADAL) com o Skype para empresas](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
@@ -105,7 +106,7 @@ A política **política de linha de base: Bloco antigos de autenticação (pré-
 
 Para ativar esta política e proteger a sua organização:
 
-1. Inicie sessão para o **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Inicie sessão para o **portal do Azure** como Administrador Global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **do Azure Active Directory** > **acesso condicional**.
 1. Na lista de políticas, selecione **política de linha de base: Bloco antigos de autenticação (pré-visualização)** .
 1. Definir **ativar política** ao **utilizar a política imediatamente**.

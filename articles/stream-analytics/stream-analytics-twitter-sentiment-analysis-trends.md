@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763362"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620845"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimentos do Twitter em tempo real no Azure Stream Analytics
 
@@ -232,9 +232,9 @@ Agora que os eventos de tweet são de transmissão em fluxo em tempo real do Twi
 
 ## <a name="specify-the-job-query"></a>Especifique a consulta de tarefa
 
-Stream Analytics suporta um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, veja a [referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Este tutorial ajuda-o a criar e testar várias consultas em dados do Twitter.
+Stream Analytics suporta um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, veja a [referência de linguagem de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Este tutorial ajuda-o a criar e testar várias consultas em dados do Twitter.
 
-Para comparar o número de menções entre tópicos, pode utilizar um [janela em cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de menções por tópico a cada cinco segundos.
+Para comparar o número de menções entre tópicos, pode utilizar um [janela em cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obter a contagem de menções por tópico a cada cinco segundos.
 
 1. Fechar o **entradas** painel se ainda não o fez.
 
@@ -266,7 +266,7 @@ Para comparar o número de menções entre tópicos, pode utilizar um [janela em
 
     Se não usou `TwitterStream` como o alias de entrada, substitua o seu alias para `TwitterStream` na consulta.  
 
-    Esta consulta utiliza a **TIMESTAMP BY** palavra-chave para especificar um campo timestamp no payload a ser utilizada na computação temporal. Se este campo não for especificado, a operação de windowing é efetuada utilizando a hora que cada evento chegou ao hub de eventos. Saiba mais na seção "Vs de tempo de chegada a hora de aplicação" [referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Esta consulta utiliza a **TIMESTAMP BY** palavra-chave para especificar um campo timestamp no payload a ser utilizada na computação temporal. Se este campo não for especificado, a operação de windowing é efetuada utilizando a hora que cada evento chegou ao hub de eventos. Saiba mais na seção "Vs de tempo de chegada a hora de aplicação" [referência de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     Essa consulta acessa também um carimbo para o final de cada janela utilizando o **Timestamp** propriedade.
 
@@ -348,7 +348,7 @@ Pode usar uma ferramenta como o [Explorador de armazenamento do Azure](https://s
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Criar outra consulta para identificar tópicos em destaque
 
-Outra consulta, pode utilizar para compreender o sentimento do Twitter se baseia numa [janela deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Para identificar tópicos em destaque, procure tópicos que cruzam um valor de limiar para menções num período de tempo especificado.
+Outra consulta, pode utilizar para compreender o sentimento do Twitter se baseia numa [janela deslizante](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Para identificar tópicos em destaque, procure tópicos que cruzam um valor de limiar para menções num período de tempo especificado.
 
 Para efeitos deste tutorial, procurar tópicos que são mencionados a mais de 20 vezes nos últimos 5 segundos.
 
@@ -379,5 +379,5 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

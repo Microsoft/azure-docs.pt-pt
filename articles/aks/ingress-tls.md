@@ -2,23 +2,23 @@
 title: Criar uma entrada HTTPS com o cluster do Azure Kubernetes Service (AKS)
 description: Saiba como instalar e configurar um controlador de entradas NGINX que utiliza a encriptar vamos para a geração automática de certificado TLS num cluster do Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
-ms.openlocfilehash: c858d1ac56da5f04346b3cd84402d4eeeb7fd975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 30f25ad9152bc722b54a834ef0ed037ac1666014
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430972"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615298"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entradas HTTPS no Azure Kubernetes Service (AKS)
 
 Um controlador de entrada é uma parte do software que fornece o proxy inverso, encaminhamento de tráfego configurável e terminação de TLS para serviços do Kubernetes. Recursos de entrada do Kubernetes são utilizados para configurar as regras de entrada e as rotas para serviços individuais do Kubernetes. Utilizar um controlador de entrada e de regras de entrada, um único endereço IP pode servir-se para encaminhar o tráfego para vários serviços num cluster do Kubernetes.
 
-Este artigo mostra-lhe como implementar o [controlador de entradas NGINX] [ nginx-ingress] num cluster do Azure Kubernetes Service (AKS). O [Gestor de cert] [ cert-manager] projeto é utilizado para gerar e configurar automaticamente [vamos encriptar] [ lets-encrypt] certificados. Por fim, duas aplicações são executadas no cluster do AKS, cada um deles está acessível através de um único endereço IP.
+Este artigo mostra-lhe como implementar o [controlador de entradas NGINX][nginx-ingress] in an Azure Kubernetes Service (AKS) cluster. The [cert-manager][cert-manager] projeto é utilizado para gerar e configurar automaticamente [vamos encriptar][deencriptarpermite]certificados. Por fim, duas aplicações são executadas no cluster do AKS, cada um deles está acessível através de um único endereço IP.
 
 Também pode:
 
@@ -30,11 +30,11 @@ Também pode:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
+Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Este artigo utiliza o Helm para instalar o controlador de entrada do NGINX, o Gestor de certificado e um exemplo de aplicação web. Tem de ter o Helm inicializado no seu cluster do AKS e utilizar uma conta de serviço para Tiller. Certifique-se de que está a utilizar a última versão do Helm. Para obter instruções de atualização, consulte a [Helm instalar docs][helm-install]. Para obter mais informações sobre como configurar e utilizar o Helm, consulte [instalar aplicações com Helm no Azure Kubernetes Service (AKS)][use-helm].
+Este artigo utiliza o Helm para instalar o controlador de entrada do NGINX, o Gestor de certificado e um exemplo de aplicação web. Tem de ter o Helm inicializado no seu cluster do AKS e utilizar uma conta de serviço para Tiller. Certifique-se de que está a utilizar a última versão do Helm. Para obter instruções de atualização, consulte a [Helm instalar docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
-Este artigo também requer a execução da versão 2.0.64 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+Este artigo também requer a execução da versão 2.0.64 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
@@ -46,7 +46,7 @@ O controlador de entrada também tem de ser agendado num nó de Linux. Nós do W
 > O exemplo seguinte cria um espaço de nomes do Kubernetes para os recursos de entrada com o nome *básico de entrada*. Especifique um espaço de nomes para o seu próprio ambiente, conforme necessário. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos do Helm.
 
 > [!TIP]
-> Se gostaria de ativar [preservação de IP de origem do cliente] [ client-source-ip] para pedidos de contentores no seu cluster, adicionar `--set controller.service.externalTrafficPolicy=Local` para o Helm comando de instalação. A origem de cliente IP é armazenado no cabeçalho do pedido em *X-reencaminhados-para*. Ao utilizar um controlador de entrada com preservação de IP de origem de cliente ativada, o pass-through SSL não funcionará.
+> Se gostaria de ativar [preservação de IP de origem do cliente][client-source-ip] para os pedidos para contentores no seu cluster, adicionar `--set controller.service.externalTrafficPolicy=Local` para o Helm comando de instalação. A origem de cliente IP é armazenado no cabeçalho do pedido em *X-reencaminhados-para*. Ao utilizar um controlador de entrada com preservação de IP de origem de cliente ativada, o pass-through SSL não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -98,7 +98,7 @@ O controlador de entrada está agora acessível através do FQDN.
 
 ## <a name="install-cert-manager"></a>Instalar o Gestor de certificado
 
-O controlador de entrada do NGINX oferece suporte a terminação de TLS. Existem várias formas de obter e configurar certificados para HTTPS. Este artigo demonstra como utilizar [Gestor de cert][cert-manager], que fornece automática [permite encriptar] [ lets-encrypt] geração de certificados e funcionalidade de gestão.
+O controlador de entrada do NGINX oferece suporte a terminação de TLS. Existem várias formas de obter e configurar certificados para HTTPS. Este artigo demonstra como utilizar [Gestor de cert][cert-manager] , which provides automatic [Lets Encrypt][lets-encrypt] funcionalidade de geração e gestão de certificados.
 
 > [!NOTE]
 > Este artigo utiliza o `staging` ambiente para encriptar vamos. Nas implementações de produção, utilize `letsencrypt-prod` e `https://acme-v02.api.letsencrypt.org/directory` nas definições de recursos e ao instalar o gráfico do Helm.
@@ -129,11 +129,11 @@ helm install \
   jetstack/cert-manager
 ```
 
-Para obter mais informações sobre a configuração do Gestor de certificados, consulte a [cert-Gestor projeto][cert-manager].
+Para obter mais informações sobre a configuração do Gestor de certificados, consulte a [cert-manager projeto][cert-manager].
 
 ## <a name="create-a-ca-cluster-issuer"></a>Criar um emissor de cluster de AC
 
-Antes dos certificados podem ser emitidos, Gestor de certificados requer um [emissor] [ cert-manager-issuer] ou [ClusterIssuer] [ cert-manager-cluster-issuer] recursos. Esses recursos do Kubernetes são idênticos em funcionalidade, no entanto `Issuer` funciona num único espaço de nomes, e `ClusterIssuer` funciona em todos os espaços de nomes. Para obter mais informações, consulte a [cert-manager emissor] [ cert-manager-issuer] documentação.
+Antes dos certificados podem ser emitidos, Gestor de certificados requer um [emissor][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] recursos. Esses recursos do Kubernetes são idênticos em funcionalidade, no entanto `Issuer` funciona num único espaço de nomes, e `ClusterIssuer` funciona em todos os espaços de nomes. Para obter mais informações, consulte a [emissor de certificado-manager][cert-manager-issuer] documentação.
 
 Criar um emissor de cluster, tal como `cluster-issuer.yaml`, usando o manifesto de exemplo seguinte. Atualize o endereço de e-mail com um endereço válido da sua organização:
 
@@ -232,7 +232,7 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="create-a-certificate-object"></a>Criar um objeto de certificado
 
-Em seguida, um recurso de certificado tem de ser criado. O recurso de certificado define o certificado X.509 desejado. Para obter mais informações, consulte [cert-Gestor certificados][cert-manager-certificates].
+Em seguida, um recurso de certificado tem de ser criado. O recurso de certificado define o certificado X.509 desejado. Para obter mais informações, consulte [cert-manager certificados][cert-manager-certificates].
 
 Gestor de CERT provavelmente criou automaticamente um objeto de certificado para si com entrada-shim, que é implementada automaticamente com o Gestor de cert desde v0.2.2. Para obter mais informações, consulte a [documentação de entrada shim][ingress-shim].
 

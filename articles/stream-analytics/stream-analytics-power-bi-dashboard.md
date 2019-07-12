@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 0e67a56e3d723874ed93fc8dcad91e3063d923ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076159"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612280"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics e o Power BI: Um dashboard de análise em tempo real para dados de transmissão em fluxo
 
@@ -242,5 +242,5 @@ Para obter assistência, tente nosso [fórum do Azure Stream Analytics](https://
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de linguagem de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API de REST de gestão do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

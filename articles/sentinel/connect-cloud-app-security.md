@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: cd9e5e27-fdd4-4717-8924-be4c1c430f23
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a418bb318654752eaf48ffbdd05b80cabb487ece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e75c9003103e267e864a98c7ee5c1bef2176bae
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65207557"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612411"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Ligue os dados do Microsoft Cloud App Security 
 
@@ -46,7 +47,7 @@ Se o Cloud App Security é implementado e ingestão de seus dados, os dados de a
 3. Para utilizar o esquema relevante no Log Analytics para os alertas do Cloud App Security, procure **SecurityAlert**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar o Microsoft Cloud App Security ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).

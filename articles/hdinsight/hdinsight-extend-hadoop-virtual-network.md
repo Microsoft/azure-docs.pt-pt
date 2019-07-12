@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: 61a208f3e84125acc2a3cb22d3abccf16587e581
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 07/10/2019
+ms.openlocfilehash: dab4262e5412c8ef3cd1e0d2ef8203d7f289693f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543682"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839190"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -25,7 +25,9 @@ Saiba como utilizar o HDInsight com um [rede Virtual do Azure](../virtual-networ
 * Acesse diretamente [Apache Hadoop](https://hadoop.apache.org/) serviços que não estão disponíveis publicamente na Internet. Por exemplo, [Apache Kafka](https://kafka.apache.org/) APIs ou o [Apache HBase](https://hbase.apache.org/) API de Java.
 
 > [!IMPORTANT]  
-> Depois de 28 de Fevereiro de 2019, os recursos de rede (por exemplo, NICs, LBs, etc.) nos clusters novos criados numa VNET serão aprovisionados no mesmo grupo de recursos de cluster de HDInsight. Anteriormente, esses recursos tenham sido aprovisionados no grupo de recursos VNET. Não há nenhuma alteração para os clusters em execução atuais e os clusters criados sem uma VNET.
+> Criar um cluster do HDInsight numa VNET, irá criar vários recursos de rede, como NICs e Balanceadores de carga. Fazer **não** eliminar estes recursos de rede, conforme necessário para o cluster funcione corretamente com a VNET.
+>
+> Depois de 28 de Fevereiro de 2019, esses recursos de rede (por exemplo, NICs, LBs, etc.) nos clusters novos criados numa VNET serão aprovisionados no mesmo grupo de recursos de cluster de HDInsight. Anteriormente, esses recursos tenham sido aprovisionados no grupo de recursos VNET. Não há nenhuma alteração para os clusters em execução atuais e os clusters criados sem uma VNET.
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>Pré-requisitos para exemplos de código e exemplos
 
@@ -270,8 +272,7 @@ Se utilizar rotas definidas pelo utilizador ou grupos de segurança de rede para
     | ---- | ---- | ---- | ---- | ----- |
     | Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | \*:443 | Entrada |
     | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | \*:443 | Entrada |
-    | Austrália | Austrália Central | 20.36.36.33</br>20.36.36.196 | \*:443 | Entrada |
-    | &nbsp; | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
+    | Austrália | Leste da Austrália | 104.210.84.115</br>13.75.152.195 | \*:443 | Entrada |
     | &nbsp; | Sudeste da Austrália | 13.77.2.56</br>13.77.2.94 | \*:443 | Entrada |
     | Brasil | Sul do Brasil | 191.235.84.104</br>191.235.87.113 | \*:443 | Entrada |
     | Canadá | Leste do Canadá | 52.229.127.96</br>52.229.123.172 | \*:443 | Entrada |

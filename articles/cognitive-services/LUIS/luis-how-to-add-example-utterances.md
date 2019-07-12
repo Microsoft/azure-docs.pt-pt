@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dd8ed146c507d8d39ba99c6573321ee80bc891c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: af43697dc864019c6fd86b041e231a54d8aa8b40
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442569"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827478"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
@@ -45,7 +45,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > Quando selecionar as palavras a marca como entidades:
     > * Para uma única palavra, basta selecioná-lo. 
-    > * Para um conjunto de duas ou mais palavras, selecione no início e, em seguida, no final do conjunto.
+    > * Para um conjunto de duas ou mais palavras, selecione a primeira palavra e, em seguida, a palavra final.
 
 1. Na **o tipo de entidade que pretende criar?** caixa pop-up, verifique o nome da entidade e selecione o **simples** tipo de entidade e, em seguida, selecione **feito**.
 

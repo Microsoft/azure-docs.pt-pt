@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ecb7030fa3652525a36ce15d66ea6e5daf9c3296
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: b16fecd6db1f4bed319c832795a2252f8de96c6c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304212"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607124"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Expandir o suporte para o SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
@@ -43,7 +43,7 @@ Imagens implementadas através do Marketplace são fornecidos com a extensão SQ
 ## <a name="licensing"></a>Licenciamento
 Implementações do pay as you go do SQL Server 2008 R2 podem converter [Azure híbrido benefício (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-Para converter uma licença do Software Assurance (SA) com base em pay as you go, os clientes se deverá registar com a VM de SQL [fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Depois de registado com o fornecedor de recursos de VM do SQL Server, o tipo de licença do SQL será intercambiável entre AHB e pay as you go.
+Para converter uma licença do Software Assurance (SA) com base em pay as you go, os clientes se deverá registar com a VM de SQL [fornecedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). Depois de registado com o fornecedor de recursos de VM do SQL Server, o tipo de licença do SQL será intercambiável entre AHB e pay as you go.
 
 Instâncias de SQL Server 2008 ou o SQL Server 2008 R2 Self-instaladas na VM do Azure podem registar com o fornecedor de recursos do SQL e converter o tipo de licença para pay as you go.
 
@@ -69,7 +69,7 @@ Soluções de recuperação após desastre para o término do suporte ao SQL Ser
 - **Azure Site Recovery**: Pode replicar a VM entre zonas e as regiões através da replicação do Azure Site Recovery. SQL Server necessita de instantâneos consistentes com a aplicação garantir a recuperação em caso de desastre. O Azure Site Recovery oferece RPO mínimo de 1 hora e de 2 horas + tempo de recuperação do SQL Server RTO de término do suporte ao SQL Server DR.
 
 ## <a name="security-patching"></a>Aplicação de patches de segurança
-Atualizações de segurança expandida para VMs do SQL Server serão entregue através dos canais do Microsoft Update, assim que a VM do SQL Server foi registado com o SQL [fornecedor de recursos](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). Também podem ser transferidos patches manual ou automaticamente.
+Atualizações de segurança expandida para VMs do SQL Server serão entregue através dos canais do Microsoft Update, assim que a VM do SQL Server foi registado com o SQL [fornecedor de recursos](virtual-machines-windows-sql-register-with-resource-provider.md). Também podem ser transferidos patches manual ou automaticamente.
 
 A **Aplicação de patches automatizada** está ativada por predefinição. A Aplicação de patches automatizada permite ao Azure automaticamente aplicar o patch do SQL Server e o sistema operativo. Se a extensão de IaaS do SQL está instalada, pode especificar um dia da semana, hora e a duração de uma janela de manutenção. O Azure executa a aplicação de patches nesta janela de manutenção. A agenda da janela de manutenção utiliza a região da VM para a hora.  Para obter mais informações, consulte o artigo [Aplicação de Patches Automatizada para o SQL Server nas Virtual Machines do Azure](virtual-machines-windows-sql-automated-patching.md).
 

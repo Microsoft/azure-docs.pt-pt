@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c024954053588537ac3363703876f716a38f41d9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358213"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702935"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Histórico de versão do agente de proteção de palavra-passe do AD do Azure
 
@@ -38,7 +38,7 @@ Data de lançamento: 3/13/2019
   * Versão do software e os dados de inquilino do Azure só estão disponíveis para os agentes do DC e proxies de executar a versão 1.2.116.0 ou posterior.
   * Dados de inquilino do Azure não podem ser relatados até um novo registo (ou renovação) do proxy ou floresta tiver ocorrido.
 * O serviço de Proxy requer agora que o .NET 4.7 está instalado.
-  * .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
   * Em sistemas de núcleo de servidor poderá ser necessário passar o sinalizador /q para o instalador do .NET 4.7 para fazer com que ela tenha êxito.
 * O serviço de Proxy agora suporta a atualização automática. A atualização automática utiliza o serviço Atualizador de agente ligar do Microsoft Azure AD que é instalada lado a lado com o serviço de Proxy. A atualização automática está ativada por predefinição.
 * A atualização automática pode ser ativada ou desativado usando o cmdlet Set-AzureADPasswordProtectionProxyConfiguration. A definição atual pode ser consultada com o cmdlet Get-AzureADPasswordProtectionProxyConfiguration.

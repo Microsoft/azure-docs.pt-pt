@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048710"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655396"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -237,7 +237,7 @@ Para e v2 de WAF do Gateway de aplicação, os registos mostram mais algumas inf
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -300,9 +300,9 @@ O log do firewall é gerado apenas se está ativado para cada gateway de aplica�
 |ruleSetVersion     | Regra de definir a versão utilizada. Valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID de regra do evento acionadora.        |
 |message     | Obter mensagem amigável para o evento acionadora. São fornecidos mais detalhes na secção de detalhes.        |
-|action     |  Ação executada na solicitação. Valores disponíveis são bloqueado e permitidos.      |
+|ação     |  Ação executada na solicitação. Valores disponíveis são bloqueado e permitidos.      |
 |site     | Site para o qual o registo foi gerado. Atualmente, apenas Global está listado porque as regras são globais.|
-|Detalhes     | Detalhes do evento acionadora.        |
+|details     | Detalhes do evento acionadora.        |
 |details.message     | Descrição da regra.        |
 |details.data     | Dados específicos encontrados no pedido que correspondem a regra.         |
 |details.file     | Ficheiro de configuração que continha a regra.        |

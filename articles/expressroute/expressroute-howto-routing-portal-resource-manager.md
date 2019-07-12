@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 40ecdb3f83dba741d1430a912a3f17500a36da6e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 08d8103c4b35148a87d347e31b11c7c8c968598b
+ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484340"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67622333"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar um peering de um circuito do ExpressRoute
 
@@ -132,6 +132,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração do p
    * Uma sub-rede /30 para a ligação secundária. A sub-rede não pode ser parte de qualquer espaço de endereço reservado para redes virtuais. Esta sub-rede vai atribuir o primeiro endereço IP pode ser utilizado para o router como a Microsoft utiliza o segundo IP pode ser utilizado para o seu router.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Para obter ligações primária e secundária tem de utilizar o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode usar uma privada como número para este peering, exceto para o número do 65515 ao 65520, inclusivamente.
+   * Tem anuncia as rotas do seu router de limite no local para o Azure através do BGP ao configurar o peering privado.
    * **Opcional –** um hash MD5 se optar por utilizar um.
 3. Selecione a linha de peering privada do Azure, conforme mostrado no exemplo a seguir:
 
@@ -186,7 +187,7 @@ Selecione a linha para peering e modificar as propriedades do peering.
 
 Remova a configuração do peering selecionando o ícone Eliminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Passo seguinte, [ligar uma VNet a um circuito do ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md)
 * Para obter mais informações sobre o fluxo de trabalho do ExpressRoute, veja [Fluxos de trabalho do ExpressRoute](expressroute-workflows.md).

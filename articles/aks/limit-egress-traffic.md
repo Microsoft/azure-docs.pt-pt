@@ -2,17 +2,17 @@
 title: Restringir o tráfego de saída no Azure Kubernetes Service (AKS)
 description: Saiba quais portas e endereços são necessários para controlar o tráfego de saída no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 52a9ba20b60e8ef6cdb743546cd842e4ee24b3fd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 12922496bc97ad51d1cc96f7ffe8df05c1fd66ea
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441926"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614968"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,7 @@ O seguinte FQDN / regras de aplicações são recomendadas para clusters do AKS 
 | apt.dockerproject.org                   | HTTPS:443 | Este endereço é utilizado para a instalação de driver correto e de operação em nós baseada em GPU. |
 | nvidia.github.io                        | HTTPS:443 | Este endereço é utilizado para a instalação de driver correto e de operação em nós baseada em GPU. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu quais portas e endereços para permitir que se restringir o tráfego de saída para o cluster. Também pode definir como os pods próprios podem comunicar e que restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods através de políticas de rede no AKS][network-policy].
 

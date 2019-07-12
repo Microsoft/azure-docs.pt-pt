@@ -4,7 +4,7 @@ description: Saiba como criar e carregar um Azure disco rígido virtual (VHD) qu
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 6c6b8f72-32d3-47fa-be94-6cb54537c69f
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f9baec5421a63e46536480cde8d60d3877d4d7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966105"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670979"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
 Neste artigo, aprenderá a preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores de preparação que são abordados neste artigo são máquinas de virtuais de Hyper-V, com base em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem da Red Hat, consulte [Web site do Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas automatizar a criação de RHEL imagens veja a [construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).

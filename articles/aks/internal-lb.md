@@ -2,17 +2,17 @@
 title: Criar um balanceador de carga interno no Azure Kubernetes Service (AKS)
 description: Saiba como criar e utilizar um balanceador de carga interno para expor os seus serviços com o Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: 50a2161be4ee70f7ae5c8baa3816eb9f9943a5d2
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.author: mlearned
+ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358009"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615138"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utilizar um balanceador de carga interno com o Azure Kubernetes Service (AKS)
 

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835605"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836722"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -55,7 +56,7 @@ O módulo é executado separadamente do código da aplicação e está configura
 
 ### <a name="user-claims"></a>Afirmações de utilizador
 
-Para todas as arquiteturas de linguagem, serviço de aplicações disponibiliza afirmações do utilizador para o seu código injetando-los para os cabeçalhos de pedido. Para aplicações ASP.NET 4.6, o serviço de aplicações preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com afirmações do utilizador autenticado, pelo que pode seguir o padrão de código do .NET, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações do PHP, o serviço de aplicações preenche o `_SERVER['REMOTE_USER']` variável.
+Para todas as arquiteturas de linguagem, serviço de aplicações disponibiliza afirmações do utilizador para o seu código injetando-los para os cabeçalhos de pedido. Para aplicações ASP.NET 4.6, o serviço de aplicações preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com afirmações do utilizador autenticado, pelo que pode seguir o padrão de código do .NET, incluindo o `[Authorize]` atributo. Da mesma forma, para aplicações do PHP, o serviço de aplicações preenche o `_SERVER['REMOTE_USER']` variável. Para aplicações de Java, as afirmações são [acessível a partir do Tomcat servlet](containers/configure-language-java.md#authenticate-users).
 
 Para [as funções do Azure](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` não é alimentado para o código do .NET, mas ainda é possível encontrar as afirmações de utilizador nos cabeçalhos do pedido.
 
@@ -150,11 +151,11 @@ Esta opção fornece mais flexibilidade na manipulação de pedidos anónimos. P
 
 Guias de procedimentos específica do fornecedor:
 
-* [Como configurar a aplicação para utilizar o início de sessão do Azure Active Directory][AAD]
-* [Como configurar a aplicação para utilizar o início de sessão do Facebook][Facebook]
-* [Como configurar a aplicação para utilizar o início de sessão do Google][Google]
-* [Como configurar a aplicação para utilizar o Microsoft Account login][MSA]
-* [Como configurar a aplicação para utilizar o início de sessão do Twitter][Twitter]
+* [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory][AAD]
+* [Como configurar a sua aplicação para utilizar o início de sessão do Facebook][Facebook]
+* [Como configurar a sua aplicação para utilizar o início de sessão do Google][Google]
+* [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft][MSA]
+* [Como configurar a sua aplicação para utilizar o início de sessão do Twitter][Twitter]
 * [How to: Utilizar a autenticação personalizada para a sua aplicação][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md

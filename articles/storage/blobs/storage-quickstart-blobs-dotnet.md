@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: c5e9981c6854ff778775631f1d671189830e564b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 70afb39be696b660d3f85ae0c4b2c108bceb318c
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435757"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625687"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Início rápido: Biblioteca de clientes do Blob storage do Azure para .NET
 
@@ -179,7 +179,7 @@ Utilize as seguintes classes do .NET para interagir com estes recursos:
 * [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): O **CloudStorageAccount** classe representa a sua conta de armazenamento do Azure. Utilize esta classe para autorizar o acesso ao armazenamento de Blobs com as chaves de acesso da conta.
 * [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): O **CloudBlobClient** classe fornece um ponto de acesso ao serviço de BLOBs no seu código.
 * [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): O **CloudBlobContainer** classe representa um contentor de BLOBs no seu código.
-* [CloudBlockBlob](//dotnet/api/microsoft.azure.storage.blob.cloudblockblob): O **CloudBlockBlob** objeto representa um blob de blocos em seu código. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): O **CloudBlockBlob** objeto representa um blob de blocos em seu código. Os blobs de blocos são constituídos por blocos de dados que podem ser geridos individualmente.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -384,7 +384,7 @@ Quando premir a tecla **Enter**, a aplicação elimina o contentor de armazename
 
 Depois de verificar os ficheiros, prima qualquer tecla para concluir a demonstração e eliminar os ficheiros de teste.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET.
 

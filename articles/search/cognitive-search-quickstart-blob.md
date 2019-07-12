@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8f3a1dadaddb423a83f4c3691a4b5747a5196d2a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022099"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795338"
 ---
 # <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de IA com competências cognitivas no Azure Search
 
@@ -79,11 +79,11 @@ Em seguida, adicione passos de melhoramento ao pipeline de indexação. Se não 
 
 1. Expanda **anexar serviços cognitivos** para ver as opções para resourcing as APIs serviços cognitivos. Para efeitos deste tutorial, pode utilizar o **gratuito** recursos.
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Anexar serviços cognitivos](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 2. Expanda **possível adicionar** e selecione as competências que realizam o processamento de linguagem natural. Para este início rápido, escolha o reconhecimento de entidades de pessoas, organizações e localizações.
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Anexar serviços cognitivos](media/cognitive-search-quickstart-blob/skillset.png)
 
    O portal oferece capacidades incorporadas para análise de texto e de processamento de OCR. No portal, um conjunto de competências funciona através de um campo de origem exclusivo. Tal poderá parecer como um destino pequeno, mas, para os blobs do Azure, o campo `content` contém a maior parte do documento de blobs (por exemplo, um documento Word ou uma apresentação do PowerPoint). Como tal, este campo é uma entrada ideal uma vez que contém todo o conteúdo de um blob.
 
@@ -166,11 +166,13 @@ Outro conceito importante é que as competências funcionam através de campos d
 
 Por fim, aprendeu que pode visualizar resultados através da consulta do índice. No final, o Azure Search fornece um índice pesquisável, que pode consultar com a sintaxe de consulta [simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou [completamente expandida](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Um índice com campos melhorados é igual a qualquer outro. Se pretender incorporar [analisadores personalizados](search-analyzers.md) ou standard, [perfis de classificação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinónimos](search-synonyms.md), [filtros por facetas](search-filters-facets.md), pesquisa geográfica ou qualquer outra funcionalidade do Azure Search, pode certamente fazê-lo.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up"></a>Limpeza
 
-Se tiver terminado a exploração, a forma mais rápida de a limpar passará por eliminar o grupo de recursos que contém o serviço do Azure Search e o serviço Blob do Azure.  
+Quando está trabalhando na sua própria subscrição, é uma boa idéia no final de um projeto para identificar se ainda precisa que os recursos que criou. Pode executar esquerda de recursos custa dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
-Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este exercício. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
+Pode localizar e gerir recursos no portal, utilizando o **todos os recursos** ou **grupos de recursos** ligação no painel de navegação à esquerda.
+
+Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e origens de dados. Pode eliminar os itens individuais no portal para se manter sob o limite. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -4,7 +4,7 @@ description: Exemplos do PowerShell de Máquina Virtual do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 53784c3d74f9e6af5f1e84cc098194113e81333b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d954bc068693a34ef1d69e4296e972979d4f61b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771265"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671015"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemplos do PowerShell da Máquina Virtual do Azure
 
@@ -45,4 +45,5 @@ A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que c
 |**Monitorizar máquinas virtuais**||
 | [Monitorizar uma VM com os registos do Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
 | [Copiar um disco gerido para o mesmo ou numa subscrição diferente](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia um disco gerido para o mesmo ou numa subscrição diferente que esteja na mesma região que o disco gerido principal.
+| [Recolher detalhes sobre todas as VMs numa subscrição com o PowerShell](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um csv que contém o nome de VM nome, grupo de recursos, região, rede Virtual, sub-rede, endereço IP privado, tipo de SO e endereço IP público de VMs na subscrição fornecida.
 | | |

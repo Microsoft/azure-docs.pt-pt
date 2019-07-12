@@ -4,7 +4,7 @@ description: Implemente o agente do Log Analytics na máquina virtual Linux util
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/01/2019
 ms.author: roiyz
-ms.openlocfilehash: 2c16e4c105a69d0d48d0b161db2caa390837bf26
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 7d8192a3b6ff732481a4d48f6e188b4bb3989cda
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514549"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705940"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor para Linux
 

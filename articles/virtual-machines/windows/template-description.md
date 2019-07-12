@@ -4,7 +4,7 @@ description: Saiba mais sobre como o recurso de máquina virtual está definido 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: f4a69fd57bf2e9535fdb1664365b074927e27585
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd4fad40ef4809c756321493854f38fd813569ca
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707276"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710290"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuais num modelo Azure Resource Manager
 
@@ -152,7 +152,7 @@ Este exemplo mostra uma seção de recurso típico de um modelo para criar um n�
 >
 >
 
-## <a name="api-version"></a>Versão da API
+## <a name="api-version"></a>Versão de API
 
 Ao implementar recursos com um modelo, terá de especificar uma versão da API a utilizar. O exemplo mostra o recurso de máquina virtual com este elemento apiVersion:
 

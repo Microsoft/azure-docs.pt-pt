@@ -1,5 +1,5 @@
 ---
-title: Configurar o início de sessão para uma organização do Azure Active Directory - Azure Active Directory B2C | Documentos da Microsoft
+title: Configurar o início de sessão para uma organização do Azure Active Directory - Azure Active Directory B2C
 description: Configure o início de sessão para uma organização específica do Azure Active Directory no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b867a7f9ffeab3d243c8c094830aa0984cffd04a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508428"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654206"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o início de sessão para uma organização específica do Azure Active Directory no Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
 7. Para o **URI de redirecionamento**, aceite o valor **Web**e introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Todos os URLs devem agora estar a utilizar [b2clogin.com](b2clogin.md).
@@ -63,10 +63,10 @@ Para ativar o início de sessão para que os utilizadores específicos de um org
     ```
 
 8. Para **ID de cliente**, introduza o ID da aplicação que registou anteriormente e para **segredo do cliente**, introduza o segredo do cliente que registou anteriormente.
-9. Opcionalmente, introduza um valor para **Domain_hint**. Por exemplo, `ContosoAD`. Este é o valor a utilizar quando nos Referimos a este fornecedor de identidade usando *domain_hint* no pedido. 
+9. Opcionalmente, introduza um valor para **Domain_hint**. Por exemplo, `ContosoAD`. Este é o valor a utilizar quando nos Referimos a este fornecedor de identidade usando *domain_hint* no pedido.
 10. Clique em **OK**.
 11. Selecione **mapear declarações do fornecedor de identidade** e defina as seguintes declarações:
-    
+
     - Para **ID de utilizador**, introduza `oid`.
     - Para **nome a apresentar**, introduza `name`.
     - Para **nome fornecido**, introduza `given_name`.

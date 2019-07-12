@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58136aba278097e9778cc1361ed77a4512e3d51b
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751909"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625350"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
@@ -50,7 +50,7 @@ O diagrama seguinte mostra a experiência de identidade da Microsoft a um nível
 
 ### <a name="app-registration-experience"></a>Experiência de registo de aplicação
 
-O portal do Azure **[registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908)** experiência é uma experiência de portal para gerir todas as aplicações que já integrado com a plataforma de identidade do Microsoft. Se tiver utilizado o Portal de registo de aplicação, começando com a experiência de registo de aplicação do portal do Azure em vez disso.
+O portal do Azure **[registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908)** experiência é uma experiência de portal para gerir todas as aplicações que já integrado com a plataforma de identidade do Microsoft. Se tiver utilizado o Portal de registo de aplicação, começar a utilizar a experiência de registo de aplicação do portal do Azure em vez disso.
 
 Para a integração com o Azure AD B2C (quando está a autenticar identidades sociais ou locais), terá de registar a sua aplicação num inquilino do B2C. Esta experiência também é parte do portal do Azure.
 

@@ -6,12 +6,12 @@ ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: f418cd6c5470740ce123448ddbbe54cb6e89dabe
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67475948"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796088"
 ---
 # <a name="azure-custom-resource-providers-overview"></a>Visão geral sobre provedores de recurso personalizado do Azure
 
@@ -125,6 +125,7 @@ Se tiver perguntas para o desenvolvimento de fornecedor de recursos do Azure per
 
 Neste artigo, aprendeu sobre fornecedores personalizados. Vá para o artigo seguinte para criar um provedor personalizado.
 
-- [Tutorial: Criar o fornecedor de recursos personalizado do Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Quickstart: Criar o fornecedor de recursos personalizado do Azure e implementar recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Criar ações personalizadas e os recursos no Azure](./tutorial-custom-providers-101.md)
 - [How To: Adicionar ações personalizadas a API REST do Azure](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)

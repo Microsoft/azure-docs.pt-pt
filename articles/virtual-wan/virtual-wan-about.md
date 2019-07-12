@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 06/28/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 7ee6b2dd07a89de4f5347e82bde19990dbb6c995
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46f3f87fac5b65229e03ee91d8f2b93b1a1590e8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077549"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795287"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
 WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramo automatizada e otimizado para e através do Azure. Regiões do Azure servem como fontes que pode optar por ligar seus ramos para. Pode aproveitar o backbone do Azure também ligar ramos e desfrute de conectividade de ramificação-para-VNet. Temos uma lista de parceiros que oferecem suporte a automação de conectividade com a VPN de WAN Virtual do Azure. Para obter mais informações, consulte a [Virtual WAN parceiros e localizações de](virtual-wan-locations-partners.md) artigo.
 
-WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como site-site VPN (disponível em geral), ExpressRoute (pré-visualização), o utilizador de ponto-para-site VPN (pré-visualização) numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede virtual.
+WAN Virtual do Azure reúne vários serviços de conectividade de cloud do Azure como utilizador de ponto-para-site VPN, ExpressRoute e VPN site a site numa única interface operacional. Conectividade para VNets do Azure é estabelecida através de ligações de rede virtual.
+
+ExpressRoute e de utilizador de ponto-para-site VPN para Virtual WAN estão atualmente em pré-visualização.
 
 ![Diagrama da WAN Virtual](./media/virtual-wan-about/virtualwan1.png)
 
@@ -87,6 +89,6 @@ Para informações de localização, consulte a [Virtual WAN parceiros e localiz
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma ligação de site a site com Virtual WAN](virtual-wan-site-to-site-portal.md)

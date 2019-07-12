@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785824"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606146"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemplo 5 - classificação: Prever o volume de alterações, apetência e de segurança de vendas 
 
@@ -37,7 +37,7 @@ Este é o gráfico concluído para esta fase experimental:
 
     ![Abra a experimentação](media/ui-sample-classification-predict-churn/open-sample5.png)
 
-## <a name="data"></a>Dados
+## <a name="data"></a>Data
 
 Os dados que usamos para esta fase experimental são da KDD Cup 2009. O conjunto de dados tem 50 000 linhas e colunas de funcionalidades 230. A tarefa é prever o volume de alterações, apetência e venda de segurança para os clientes que utilizam estas funcionalidades. Para obter mais informações sobre os dados e a tarefa, consulte a [Web site do concurso KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
@@ -79,3 +79,4 @@ Explore os outros exemplos disponíveis para a interface visual:
 - [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemplo 3 - classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)

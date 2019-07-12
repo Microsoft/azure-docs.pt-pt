@@ -4,15 +4,15 @@ description: Passos para configurar alertas de eventos de registo de diagnóstic
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 6c85f47a2e3691306d59c5c44856fd08c07f2d36
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67202897"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607120"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configure alertas nos eventos de registo de diagnóstico do Gateway de VPN
 
@@ -20,7 +20,7 @@ Este artigo ajuda-o a configurar alertas com base em eventos de registo de diagn
 
 Os seguintes registos estão disponíveis no Azure:
 
-|***Nome*** | ***Descrição*** |
+|***Name*** | ***Descrição*** |
 |---        | ---               |
 |GatewayDiagnosticLog | Contém os registos de diagnóstico para eventos de configuração do gateway, principais alterações e eventos de manutenção |
 |TunnelDiagnosticLog | Contém eventos de alteração de estado de túnel. Eventos de ligar/desligar Tunnel tenham um motivo resumido para que a alteração de estado, se aplicável |

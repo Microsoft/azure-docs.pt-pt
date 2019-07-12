@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f0d86a62c59df5bebd34137d0903fcaa7014573d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f745f92133f4f43cd2a65f2b69ded1eff9e8ed
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204262"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620620"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Ligue os dados do Azure Advanced proteção contra ameaças (ATP)
 
@@ -48,7 +49,7 @@ Se o ATP do Azure é implementado e ingestão de seus dados, os alertas suspeito
 
 6. Para utilizar o esquema relevante no Log Analytics para os alertas da ATP do Azure, procure **SecurityAlert**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar a proteção de ameaças avançada do Azure ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
 - Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
 - Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).

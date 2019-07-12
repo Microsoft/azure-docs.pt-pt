@@ -4,7 +4,7 @@ description: Saiba como configurar a MPI para HPC no Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 5356a033dbc3d989dd27019f03b1fe36035ff9a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441640"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797517"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar a Message Passing Interface para HPC
 
@@ -126,7 +126,7 @@ A afixação de processo funciona corretamente para 15, 30 e 60 PPN por predefin
 
 ## <a name="osu-mpi-benchmarks"></a>Parâmetros de comparação de OSU MPI
 
-[Transferir Benchmarks de OSU MPI] [ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/) e untar.
+[Transferir OSU MPI Benchmarks](http://mvapich.cse.ohio-state.edu/benchmarks/) e untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ Parâmetros de comparação de MPI estão sob `mpi/` pasta.
 
 ## <a name="discover-partition-keys"></a>Descubra as chaves de partição
 
-Descubra as chaves de partição (p-keys) para comunicar com outras VMs.
+Descubra as chaves de partição (p-keys) para comunicar com outras VMs no mesmo inquilino (conjunto de disponibilidade ou conjunto de dimensionamento de VM).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Utilize a partição que não seja a chave de partição predefinido (0x7fff). UCX requer MSB de p-chave a ser limpo. Por exemplo, defina UCX_IB_PKEY como 0x000b para 0x800b.
 
+Também observe que, desde que o inquilino (AVSet ou VMSS) existe, os PKEYs permanecerem o mesmo. Isso vale mesmo quando os nós são adicionada/eliminada. Novos inquilinos obtém PKEYs diferentes.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Configurar limites de utilizador para MPI
 
 Configure limites de utilizador de MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

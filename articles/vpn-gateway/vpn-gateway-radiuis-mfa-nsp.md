@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e10151cd117a3400893f94559b2c9892de9f3c7
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60458125"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666204"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar a autenticação de RADIUS do gateway de VPN do Azure com o servidor NPS para multi-factor Authentication 
 
@@ -52,18 +52,18 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
 ### <a name="step-2-configure-the-nps-for-azure-mfa"></a>Passo 2 configurar o NPS da MFA do Azure
 
 1. No servidor NPS, [instalar a extensão NPS da MFA do Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. Abra a consola do NSP, com o botão direito **clientes RADUIS**e, em seguida, selecione **New**. Crie o cliente RADUIS ao especificar as seguintes definições:
+2. Abra a consola NPS, clique com botão direito **clientes RADIUS**e, em seguida, selecione **New**. Crie o cliente RADIUS ao especificar as seguintes definições:
 
     - **Nome amigável**: Escreva um nome.
     - **Endereço (IP ou DNS)** : Escreva a sub-rede do gateway que criou no passo 1.
     - **Segredo partilhado**: escreva qualquer chave secreta e não se esqueça dela para utilização posterior.
 
-      ![A imagem sobre definições de cliente RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![A imagem sobre definições de cliente RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  Na **avançadas** separador, defina o nome do fornecedor para **RADIUS padrão** e certifique-se de que o **opções adicionais** não está selecionada a caixa de verificação.
 
-    ![A imagem sobre as definições avançadas do RADUIS cliente](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![A imagem sobre definições avançadas do cliente RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Aceda a **políticas** > **políticas de rede**, faça duplo clique em **ligações ao servidor de Microsoft Routing e acesso remoto** política, selecione  **Conceder acesso**e, em seguida, clique em **OK**.
 

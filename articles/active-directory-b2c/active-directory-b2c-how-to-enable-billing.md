@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510131"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835425"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Ligar uma subscrição do Azure a um inquilino do Azure Active Directory B2C
 
@@ -45,9 +45,9 @@ Navegue para o inquilino do Azure AD que mostra a sua subscrição do Azure. Abr
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Localizar o Azure AD B2C no Azure Marketplace
 
-Clique nas **criar um recurso** botão. No campo **Procurar no Marketplace**, escreva `B2C`.
+Clique nas **criar um recurso** botão. Na **pesquisar no Marketplace** , insira `Active Directory B2C`.
 
-![Botão Adicionar realçado e o texto do Azure AD B2C no campo Procurar no marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Captura de ecrã portal com "Active Directory B2C" na pesquisa de mercado](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 Na lista de resultados, selecione **do Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Para a subscrição, selecione uma subscrição do Azure Active Directory que é
 
 Selecione um grupo de recursos e a localização do grupo de recursos. A escolha feita aqui não tem qualquer impacto na sua localização do inquilino do Azure AD B2C, o desempenho ou o estado de faturação.
 
-![Criar o recurso B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![A página de criação de recursos do Azure AD B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerir os recursos de inquilino do Azure AD B2C
 
@@ -80,7 +80,15 @@ Pode usar este recurso para:
 - Submeter pedidos de suporte
 - Mova o recurso de inquilino do Azure AD B2C para outra subscrição do Azure ou para outro grupo de recursos.
 
-![Definições de recursos de B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Página de definições de recursos de B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
+
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Alterar o inquilino do Azure AD B2C faturação de subscrição
+
+Se as subscrições de origem e de destino existem no mesmo inquilino do Azure Active Directory, inquilinos do Azure AD B2C podem ser movidos para outra subscrição.
+
+Para saber como mover recursos do Azure, como o seu inquilino do Azure AD B2C para outra subscrição, veja [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/resource-group-move-resources.md).
+
+Antes de iniciar a migração, certifique-se de que leia o artigo completo para compreender totalmente as limitações e requisitos para tal uma movimentação. Além de instruções para mover os recursos, ele inclui informações críticas, como uma lista de verificação de pré-mover e como validar a operação de movimentação.
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 

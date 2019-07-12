@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: fb7821b07e68459cb3d76812a12e85387b9f0f52
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 28dba8af059e24040abb254dd4ecd8e336d8221d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295111"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594286"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -40,7 +40,7 @@ O novo monitorização unificada e alertas para o Application Insights irão abr
 - **Métricas do Application Insights plataforma** – que fornece métricas pré-criados populares do produto do Application Insights. Para obter mais informações, consulte este artigo sobre como usar [métricas de plataforma para o Application Insights no novo Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Teste de disponibilidade de informações de aplicações e Web** -que fornece a capacidade de avaliar a capacidade de resposta e a disponibilidade da sua aplicação web ou servidor. Para obter mais informações, consulte este artigo sobre como usar [testes de disponibilidade e alertas para o Application Insights no novo Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
 - **Métricas do Application Insights personalizado** – que lhe permite definir e emitir as suas próprias métricas de monitorização e alertas. Para obter mais informações, consulte este artigo sobre como usar [métrica personalizada para o Application Insights no novo Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-- **Anomalias de falha do Application Insights (parte de deteção inteligente)** – que notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos HTTP falhados ou as chamadas de dependência. Application Insights de anomalias de falha (parte de deteção inteligente) como parte do novo Monitor do Azure, estará disponível em breve e iremos atualizar este documento com links na próxima iteração como ela é revertida-out nos próximos meses.
+- **Anomalias de falha do Application Insights (parte de deteção inteligente)** – que notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos HTTP falhados ou as chamadas de dependência. Para obter mais informações, consulte este artigo sobre como usar [deteção inteligente – anomalias de falha](https://docs.microsoft.com/azure/azure-monitor/app/proactive-failure-diagnostics).
 
 ## <a name="unified-metrics-and-alerts-for-other-azure-resources"></a>Unificada métricas e alertas para outros recursos do Azure
 
@@ -84,7 +84,7 @@ Além disso, o seguinte será faturáveis em ambit dos [preços do Azure Monitor
 Este artigo será atualizado regularmente com ligações e informações detalhadas acerca do Azure nova monitorização e alertas de funcionalidade, bem como a disponibilidade de ferramentas para ajudar os utilizadores a adotar a nova plataforma do Azure Monitor.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [novo unificada do Azure Monitor](../../azure-monitor/overview.md).
 * Saiba mais sobre a nova [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).

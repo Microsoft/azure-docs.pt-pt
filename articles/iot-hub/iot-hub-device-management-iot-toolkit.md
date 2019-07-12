@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5697e0b51e8349de62e71be1471beb76aa48765
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401175"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838724"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utilizar ferramentas de IoT do Azure para Visual Studio Code para gestão de dispositivos do IoT Hub do Azure
 
@@ -63,7 +63,7 @@ Execute as ferramentas de IoT do Azure para Visual Studio Code com várias opç�
 5. A lista de dispositivos será mostrada na **dispositivos do Azure IoT Hub** guia em poucos segundos.
 
    > [!Note]
-   > Também pode concluir a configuração ao escolher **Definir Cadeia de Ligação do Hub IoT**. Introduza a cadeia de ligação do hub IoT que se liga o dispositivo de IoT na janela de pop-up.
+   > Também pode concluir a configuração ao escolher **Definir Cadeia de Ligação do Hub IoT**. Introduza o **iothubowner** cadeia de ligação de política do hub IoT que se liga o dispositivo de IoT na janela de pop-up.
 
 ## <a name="direct-methods"></a>Métodos diretos
 
@@ -97,7 +97,7 @@ Para enviar uma mensagem do seu hub IoT para o seu dispositivo, siga estes passo
 
 3. Os resultados serão mostrados na **saída** > **o Kit de ferramentas do Azure IoT Hub** vista.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu como utilizar a extensão Azure IoT Tools para Visual Studio Code com várias opções de gestão.
 

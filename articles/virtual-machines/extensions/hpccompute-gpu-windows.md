@@ -4,7 +4,7 @@ description: Extensão do Microsoft Azure para instalar controladores de GPU da 
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388680"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705947"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388680"
 
 Esta extensão instala controladores NVIDIA GPU em VMs de série N do Windows. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do [contrato de licença de utilizador final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM poderá reiniciar para concluir a configuração de controlador.
 
+Instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Uma extensão também está disponível para instalar controladores NVIDIA GPU no [VMs de série N Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -37,7 +38,7 @@ Esta extensão oferece suporte a OSs seguintes:
 
 | Distribuição | Version |
 |---|---|
-| Windows 10 (até versão 1803)| Core |
+| Windows 10 | Core |
 | Windows Server 2016 | Core |
 | Windows Server 2012R2 | Core |
 
@@ -69,13 +70,13 @@ O JSON seguinte mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>Propriedades
+### <a name="properties"></a>properties
 
-| Name | Valor / exemplo | Tipo de Dados |
+| Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | string |
-| type | NvidiaGpuDriverWindows | string |
+| publisher | Microsoft.HpcCompute | cadeia |
+| type | NvidiaGpuDriverWindows | cadeia |
 | typeHandlerVersion | 1.2 | int |
 
 

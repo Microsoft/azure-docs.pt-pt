@@ -4,7 +4,7 @@ description: Disposição em camadas e a extensão de nós de dados para o SAP H
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5868aaf29d6b57ea608763840a08f1991a982e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a292efc3e660379325ccb6870e540e38c6cdd5e9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628596"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709658"
 ---
 # <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>Utilizar nós de extensão e de criação de camadas de dados do SAP HANA
 

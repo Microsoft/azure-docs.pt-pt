@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ec91ca83d7aa1bc5e6c290d35b573a60cc0ed19
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789401"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605778"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exemplo 3 - classificação: Prever o risco do crédito
 
@@ -39,7 +39,7 @@ Este é o gráfico concluído para esta fase experimental:
 
 [Exemplo 4 - classificação: Credit Risk Prediction (custo confidenciais)](ui-sample-classification-predict-credit-risk-cost-sensitive.md) fornece uma experiência avançada que resolve o mesmo problema que esta experiência. Ele mostra como realizar _custo confidencial_ classificação usando uma **executar Script do Python** módulo e comparar o desempenho de dois algoritmos de classificação binária. Fazer referência a ele, se quiser saber mais sobre como criar experimentações de classificação.
 
-## <a name="data"></a>Dados
+## <a name="data"></a>Data
 
 Usamos o conjunto de dados do cartão de crédito alemão do repositório de UC Irvine.
 O conjunto de dados contém 1.000 exemplos com 20 recursos e 1 etiqueta. Cada exemplo representa uma pessoa. Os recursos incluem recursos numéricos e categóricos. Consulte a [Web site UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para o significado dos recursos categóricos. A última coluna é a etiqueta que indica o risco de crédito e tem apenas dois valores possíveis: risco elevado crédito = 2 e o risco de crédito baixa = 1.
@@ -70,7 +70,7 @@ Nos resultados da avaliação, pode ver que o AUC do modelo é 0.776. Com o limi
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore os outros exemplos disponíveis para a interface visual:
 
@@ -78,3 +78,4 @@ Explore os outros exemplos disponíveis para a interface visual:
 - [Exemplo 2 - regressão: Compare os algoritmos de previsão de preços de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemplo 5 - classificação: Prever o volume de alterações](ui-sample-classification-predict-churn.md)
+- [Exemplo 6 - classificação: Prever a atrasos de voos](ui-sample-classification-predict-flight-delay.md)

@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: mahender
-ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mahender, yevbronsh
+ms.openlocfilehash: b18d5ba303d1cf7ab637638043f9e0727437c232
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136992"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827863"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o serviço de aplicações e funções do Azure
 
@@ -275,6 +275,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 ```
 
 Para saber mais sobre Microsoft.Azure.Services.AppAuthentication e as operações que expõe, veja a [Referência de Microsoft.Azure.Services.AppAuthentication] e o [serviço de aplicações e o Cofre de chaves com o .NET de MSI exemplo](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+
+
+### <a name="using-the-azure-sdk-for-java"></a>Com o Azure SDK para Java
+
+Para aplicações de Java e funções, a maneira mais simples de trabalhar com uma identidade gerida é através da [Azure SDK para Java](https://github.com/Azure/azure-sdk-for-java). Esta secção mostra-lhe como começar com a biblioteca no seu código.
+
+1. Adicionar uma referência para o [biblioteca do SDK do Azure](https://mvnrepository.com/artifact/com.microsoft.azure/azure). Para projetos do Maven, poderá adicionar este trecho de código para o `dependencies` secção do ficheiro POM do projeto:
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. Utilize o `AppServiceMSICredentials` objeto para a autenticação. Este exemplo mostra como esse mecanismo pode ser utilizado para trabalhar com o Azure Key Vault:
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
 
 ### <a name="using-the-rest-protocol"></a>Utilizando o protocolo REST
 

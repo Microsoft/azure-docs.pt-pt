@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481448"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701158"
 ---
 # <a name="offer-creation-checklist"></a>Lista de verificação de criação de ofertas
 
@@ -38,12 +38,12 @@ Itens que é necessárias para fornecer ou especificar são indicados abaixo. Al
 
 ## <a name="new-offer-modal"></a>Nova oferta modal 
 
-A primeira informações que será solicitado a fornecer são um nome e uma ID da sua oferta. 
+A primeira informações que será solicitado a fornecer são uma ID e um alias para a sua oferta. 
 
 | **Nome do campo**    | **Notas**   |  
 | :---------------- | :-----------| 
 | ID de oferta  | Obrigatório, não pode ser alterado após a criação. Máximo de 50 carateres e deve ser composto apenas carateres em minúsculas, de alfanuméricos, travessões e carateres de sublinhado. |
-| Nome da oferta  | Necessário. |
+| Alias de oferta  | Necessário. |
 
 ## <a name="offer-setup-page"></a>Página de configuração de oferta
 
@@ -78,12 +78,12 @@ A página de listagem é onde fornecer o texto e imagens que os clientes veem ao
 
 | **Nome do campo**    | **Notas**   |
 | :---------------- | :-----------| 
-| Name  | Necessárias, máximos 50 carateres. |
+| Nome  | Necessárias, máximos 50 carateres. |
 | Resumo  | Necessárias, máximos 100 carateres. | 
 | Descrição  | Necessárias, Máx 3000 carateres. |
 | Instruções de introdução  | Necessárias, Máx 3000 carateres. |
 | Instruções de introdução  | Necessárias, Máx 3000 carateres. |
-| Palavras a procurar  | Opcional, mas recomendado, as 3 máximas palavras-chave. |
+| Pesquisar palavras-chave  | Opcional, mas recomendado, as 3 máximas palavras-chave. |
 | URL de política de privacidade  | Necessário. |
 | URL de materiais de Marketing de programa CSP  | Opcional. |
 | Ligações úteis Title + URL  | Opcional. |

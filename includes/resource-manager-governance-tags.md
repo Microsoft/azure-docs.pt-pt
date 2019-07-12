@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 06/18/2019
+ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 5358fe387d2a371d96d46d8546ce0f20b47ca54b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 099bca7483100da1a4ee2f8f10057c416ad145b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206500"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841470"
 ---
 Aplicar etiquetas aos recursos do Azure, fornecendo os metadados para as organizar numa taxonomia. Cada etiqueta é constituída por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
@@ -24,9 +24,9 @@ A taxonomia deve considerar uma estratégia para além de uma estratégia de ide
 As seguintes limitações aplicam-se às etiquetas:
 
 * Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](../articles/azure-resource-manager/tag-support.md).
-* Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nomes/valores de etiquetas. Esta limitação aplica-se apenas a etiquetas diretamente aplicadas ao recurso ou grupo de recursos. Um grupo de recursos pode conter muitos recursos que tenham, cada um, 15 pares de nomes/valores de etiqueta. Se tiver mais de 15 valores que têm de ser associados a um recurso, utilize uma cadeia JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Este artigo mostra um exemplo de atribuição de uma cadeia JSON à etiqueta.
+* Cada recurso ou grupo de recursos pode ter um máximo de 50 pares de nome/valor de etiqueta. Atualmente, apenas suporte de contas de armazenamento, de 15 etiquetas, mas esse limite será gerado para 50 numa versão futura. Se precisar de aplicar etiquetas mais do que o número máximo permitido, utilize uma cadeia de caracteres do JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Um grupo de recursos pode conter muitos recursos que tenham, cada 50 pares de nome/valor de etiqueta.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
-* Máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais estão limitados a um total de 2048 carateres para todos os nomes de etiquetas e valores. VMs generalizadas não oferecem suporte a marcas.
+* VMs generalizadas não oferecem suporte a marcas.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
 * Não não possível aplicar etiquetas a recursos clássicos, como os serviços Cloud.
 * Nomes de etiquetas não podem conter estes carateres: `<`, `>`, `%`, `&`, `\`, `?`, `/`

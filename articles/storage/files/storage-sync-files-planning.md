@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a745fefa5ceb0f81cf8d66e7af9e308c0ecb40b9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e9e790ac8ac67478a0e7b5143a5b2f1fdd9c790c
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449860"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798668"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -69,23 +69,10 @@ Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que f
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos de sistema de sincronização de ficheiros do Azure e interoperabilidade 
 Esta secção abrange os requisitos de sistema do agente de sincronização de ficheiros do Azure e a interoperabilidade com recursos do Windows Server e funções e soluções de terceiros.
 
-### <a name="evaluation-tool"></a>Ferramenta de avaliação
-Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu sistema usando a ferramenta de avaliação do Azure File Sync. Essa ferramenta é um cmdlet do PowerShell do Azure que verifica a existência de potenciais problemas com o seu sistema de ficheiros e o conjunto de dados, tais como carateres não suportados ou uma versão de SO não suportada. Tenha em atenção que suas verificações abrangem mais, mas não todos os recursos mencionados abaixo; Recomendamos que leia o restante desta seção com cuidado para garantir que sua implementação transcorre normalmente. 
+### <a name="evaluation-cmdlet"></a>Cmdlet de avaliação
+Antes de implementar o Azure File Sync, deve avaliar se é compatível com o seu sistema com o cmdlet de avaliação do Azure File Sync. Este cmdlet verifica a existência de potenciais problemas com o seu sistema de ficheiros e o conjunto de dados, tais como carateres não suportados ou uma versão de SO não suportada. Tenha em atenção que suas verificações abrangem mais, mas não todos os recursos mencionados abaixo; Recomendamos que leia o restante desta seção com cuidado para garantir que sua implementação transcorre normalmente. 
 
-#### <a name="download-instructions"></a>Instruções para download
-1. Certifique-se de que tem a versão mais recente do PackageManagement, e o PowerShellGet instalado (Isto permite-lhe instalar os módulos de pré-visualização)
-    
-    ```powershell
-        Install-Module -Name PackageManagement -Repository PSGallery -Force
-        Install-Module -Name PowerShellGet -Repository PSGallery -Force
-    ```
- 
-2. Reinicie o PowerShell
-3. Instalar os módulos
-    
-    ```powershell
-        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
-    ```
+O cmdlet de avaliação pode ser instalado ao instalar o módulo do PowerShell de Az, o que pode ser instalado, seguindo as instruções aqui: [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 #### <a name="usage"></a>Utilização  
 É possível invocar a ferramenta de avaliação de algumas formas diferentes: pode efetuar as verificações do sistema, as verificações de conjunto de dados ou ambos. Para realizar verificações do sistema e o conjunto de dados: 
@@ -115,11 +102,11 @@ Para exibir os resultados no CSV:
 
     | Version | SKUs suportados | Opções de implementação suportadas |
     |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
-    | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
-    | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do Usuário) |
+    | Windows Server de 2019 | Datacenter e Standard | Completa e Core |
+    | Windows Server 2016 | Datacenter e Standard | Completa e Core |
+    | Windows Server 2012 R2 | Datacenter e Standard | Completa e Core |
 
-    Versões futuras do Windows Server serão adicionadas à medida que são lançadas. Versões anteriores do Windows podem ser adicionadas com base nos comentários dos utilizadores.
+    Versões futuras do Windows Server serão adicionadas à medida que são lançadas.
 
     > [!Important]  
     > É recomendável manter todos os servidores que utiliza com o Azure File Sync atualizados com as atualizações mais recentes do Windows Update. 
@@ -169,8 +156,12 @@ Clustering de ativação pós-falha do Windows Server é suportada pelo Azure Fi
 > O agente do Azure File Sync tem de ser instalado em cada nó num Cluster de ativação pós-falha para a sincronização funcione corretamente.
 
 ### <a name="data-deduplication"></a>A eliminação de duplicados de dados
-**Versão do agente 5.0.2.0**   
-Eliminação de dados duplicados é suportada em volumes com camadas ativado no Windows Server 2016 e Windows Server 2019 da cloud. Ativar a eliminação de duplicados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento. Tenha em atenção que essas economias de volume aplicam-se apenas no local; não vão ser duplicados seus dados nos ficheiros do Azure. 
+**Versão do agente 5.0.2.0 ou mais recente**   
+Eliminação de dados duplicados é suportada em volumes com camadas ativado no Windows Server 2016 e Windows Server 2019 da cloud. Ativar a eliminação de duplicados de dados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento. 
+
+Quando a eliminação de dados duplicados está ativada num volume com camadas ativado da cloud, com otimização de eliminação de duplicados ficheiros no local do ponto final de servidor irão ser dispostos em camadas semelhante a um ficheiro normal, com base na cloud em definições de política de criação de camadas. Uma vez a eliminação de duplicados tem sido camados ficheiros otimizados, o trabalho de recolha de lixo de eliminação de duplicados de dados será executado automaticamente para recuperar espaço em disco ao remover segmentos desnecessários que já não são referenciados por outros ficheiros no volume.
+
+Tenha em atenção de que a economia de volume aplicam-se apenas ao servidor; não vão ser duplicados seus dados na partilha de ficheiros do Azure.
 
 **Windows Server 2012 R2 ou versões mais antigas do agente**  
 Para volumes que não têm a cloud em camadas ativado, o Azure File Sync suporta a ser ativada no volume do Windows eliminação de duplicados de dados de servidor.
@@ -220,7 +211,7 @@ Como o antivírus funciona através da análise de ficheiros para o código mali
 Soluções da Microsoft internas antivírus, o Windows Defender e System Center Endpoint Protection (SCEP), o ambos ignorar automaticamente de ficheiros de leitura com esse atributo seja definido. Temos testado-los e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
 
 > [!Note]  
-> Fornecedores de antivírus podem verificar a compatibilidade entre o produto e o Azure File Sync com o [Azure ficheiro sincronização antivírus compatibilidade teste Suite] (https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
+> Fornecedores de antivírus podem verificar a compatibilidade entre o produto e, em seguida, utilizar o Azure File Sync a [pacote de testes de compatibilidade de antivírus sincronização ficheiros do Azure](https://www.microsoft.com/download/details.aspx?id=58322), que está disponível para download no Microsoft Download Center.
 
 ### <a name="backup-solutions"></a>Soluções de cópia de segurança
 Como as soluções antivírus, soluções de cópia de segurança podem fazer com que a remoção de ficheiros em camadas. Recomendamos que utilize uma solução de cópia de segurança na cloud para criar cópias de segurança da partilha de ficheiros do Azure em vez de um produto de cópia de segurança no local.
@@ -263,6 +254,7 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Ásia Oriental | RAE de Hong Kong |
 | East US | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
+| França Central | Paris |
 | Coreia do Sul Central| Seoul |
 | Coreia do Sul| Busan |
 | Leste do Japão | Tóquio, Saitama |
@@ -304,6 +296,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Ásia Oriental           | Sudeste Asiático     |
 | East US             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
+| França Central      | Sul de França       |
 | Leste do Japão          | Oeste do Japão         |
 | Oeste do Japão          | Leste do Japão         |
 | Coreia do Sul Central       | Coreia do Sul        |
@@ -326,7 +319,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Considere as definições de proxy e firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 * [Implementar os ficheiros do Azure](storage-files-deployment-guide.md)

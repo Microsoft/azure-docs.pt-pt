@@ -6,14 +6,14 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: af5ddd50556b493cddf27d1ebb766d9bf6105107
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8bb077242c0a989e100c81d4dfefeb53f4bc90c4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67433437"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620697"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurar o tráfego de rede de saída para clusters do HDInsight do Azure através do Firewall (pré-visualização)
 
@@ -81,7 +81,7 @@ Crie as regras de rede para configurar corretamente o seu cluster do HDInsight.
    | **Name** | **Protocolo** | **Endereço de origem** | **Endereço de destino** | **Porta de destino** | **Notas** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | Serviço de hora |
-   | Rule_2 | Qualquer | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se estiver a utilizar o pacote de segurança da empresa (ESP), em seguida, adicione uma regra de rede na secção de endereços IP que permite a comunicação com o AAD-DS para clusters do ESP. Pode encontrar os endereços IP dos controladores de domínio na secção de AAD-DS no portal | 
+   | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Se estiver a utilizar o pacote de segurança da empresa (ESP), em seguida, adicione uma regra de rede na secção de endereços IP que permite a comunicação com o AAD-DS para clusters do ESP. Pode encontrar os endereços IP dos controladores de domínio na secção de AAD-DS no portal | 
    | Rule_3 | TCP | * | Endereço IP da sua conta de armazenamento do Data Lake | `*` | Se estiver a utilizar o armazenamento do Azure Data Lake, pode adicionar uma regra de rede na secção de endereços IP para resolver um problema SNI com ADLS Gen1 e Gen2. Esta opção irá encaminhar o tráfego à firewall que poderá resultar em custos de superiores para cargas de dados de grande dimensão, mas o tráfego será iniciada e auditada nos registos de firewall. Determine o endereço IP para a sua conta de armazenamento do Data Lake. Pode utilizar um comando do powershell como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` para resolver o FQDN para um endereço IP.|
    | Rule_4 | TCP | * | * | `12000` | (Opcional) Se estiver a utilizar o Log Analytics, em seguida, crie uma regra de rede na secção de endereços IP para permitir a comunicação com a sua área de trabalho do Log Analytics. |
 

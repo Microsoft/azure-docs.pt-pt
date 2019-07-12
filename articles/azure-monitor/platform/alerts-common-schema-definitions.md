@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: 5f351dd7fddb4c15b28954eccf8ada3bfc14dbca
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.subservice: alerts
+ms.openlocfilehash: c37ecfbadd7345fea347ff488895f16ba505c818
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447657"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594385"
 ---
 # <a name="common-alert-schema-definitions"></a>Definições do esquema de alertas comuns
 

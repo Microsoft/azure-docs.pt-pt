@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055274"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840130"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
 
@@ -97,7 +97,7 @@ Como parceiro de codificador de serviços de multimédia do Azure no local, serv
 10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.
 11. Execute seu codificador em direto para cerca de 10 minutos.
 12. Pare o evento em direto. 
-13. Utilizar como um jogador [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível em todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
+13. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível em todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
 14. Registe o ID de recurso, o URL de transmissão em fluxo publicado para o arquivo em direto e as definições e a versão utilizada a partir do seu codificador em direto.
 15. Repor o estado do evento em direto depois de criar cada exemplo.
 16. Repita os passos 5 a 15 para todas as configurações suportadas por seu codificador (com e sem a sinalização do ad, legendas ou velocidades de codificação diferentes).
@@ -116,14 +116,14 @@ Como parceiro de codificador de serviços de multimédia do Azure no local, serv
 10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.
 11. Execute seu codificador em direto para cerca de 10 minutos.
 12. Pare o evento em direto.
-13. Utilizar como um jogador [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
+13. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
 14. Registe o ID de recurso, o URL de transmissão em fluxo publicado para o arquivo em direto e as definições e a versão utilizada a partir do seu codificador em direto.
 15. Repor o estado do evento em direto depois de criar cada exemplo.
 16. Repita os passos 5 a 15 para todas as configurações suportadas por seu codificador (com e sem a sinalização do ad, legendas ou velocidades de codificação diferentes).
 
 ### <a name="longevity-verification"></a>Verificação de longevidade
 
-Siga os passos como na [verificação de evento em direto de pass-through](#pass-through-live-event-verification) , exceto para o passo 11. <br/>Em vez de 10 minutos, execute seu codificador em direto para uma semana ou mais tempo. Utilizar como um jogador [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para ver a transmissão em direto da hora a hora (ou um elemento arquivado) para garantir que essa reprodução tem sem falhas visível.
+Siga os passos como na [verificação de evento em direto de pass-through](#pass-through-live-event-verification) , exceto para o passo 11. <br/>Em vez de 10 minutos, execute seu codificador em direto para uma semana ou mais tempo. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver a transmissão em direto da hora a hora (ou um elemento arquivado) para garantir que essa reprodução tem sem falhas visível.
 
 ### <a name="email-your-recorded-settings"></a>As definições gravadas de e-mail
 

@@ -2,18 +2,18 @@
 title: Perguntas mais frequentes sobre para o Azure Kubernetes Service (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/03/2019
-ms.author: iainfou
-ms.openlocfilehash: d4fa365e1ed055fa8ddeb8fd475e152af84a3b71
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.date: 07/08/2019
+ms.author: mlearned
+ms.openlocfilehash: 495f182ed450d0fac69b31ea2996bacc60863fea
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560454"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672767"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
@@ -62,30 +62,28 @@ Para nós do Windows Server (atualmente em pré-visualização no AKS), o Window
 Cada implementação do AKS abrange dois grupos de recursos:
 
 1. Criar o primeiro grupo de recursos. Este grupo contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o segundo grupo de recursos durante a implementação. É um exemplo do segundo grupo de recursos *MC_myResourceGroup_myAKSCluster_eastus*. Para obter informações sobre como especificar o nome deste segundo grupo de recursos, consulte a secção seguinte.
-1. O segundo grupo de recursos, como *MC_myResourceGroup_myAKSCluster_eastus*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem a VMs de nó do Kubernetes, redes virtuais e armazenamento. O objetivo deste grupo de recursos é simplificar a limpeza de recursos.
+1. O segundo grupo de recursos, conhecido como o *grupo de recursos de nó*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem a VMs de nó do Kubernetes, redes virtuais e armazenamento. Por predefinição, o grupo de recursos de nó tem um nome como *MC_myResourceGroup_myAKSCluster_eastus*. AKS elimina automaticamente o recurso de nó sempre que o cluster é eliminado, pelo que só deve ser utilizada para os recursos que partilham o ciclo de vida do cluster.
 
-Se criar recursos para utilizar com o seu cluster do AKS, como contas de armazenamento ou endereços IP públicos reservados, colocá-los no grupo de recursos gerada automaticamente.
+## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Pode fornecer meu próprio nome para o grupo de recursos de nó do AKS?
 
-## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Pode fornecer meu próprio nome para o grupo de recursos de infraestrutura do AKS?
-
-Sim. Por predefinição, o fornecedor de recursos do AKS cria automaticamente um grupo de recursos secundários (como *MC_myResourceGroup_myAKSCluster_eastus*) durante a implementação. Para estar em conformidade com a política empresarial, pode fornecer seu próprio nome para este cluster gerido (*MC_* ) grupo de recursos.
+Sim. Por predefinição, AKS designar o grupo de recursos do nó *MC_clustername_resourcegroupname_location*, mas também pode fornecer seu próprio nome.
 
 Para especificar o seu próprio nome de grupo de recursos, instalar o [pré-visualização do aks][aks-preview-cli] versão de extensão da CLI do Azure *0.3.2* ou posterior. Quando cria um cluster do AKS com o [criar az aks][az-aks-create] comando, utilize o *– grupo de recursos de nó* parâmetro e especifique um nome para o grupo de recursos. Se [utilizar um modelo Azure Resource Manager][aks-rm-template] para implementar um cluster do AKS, pode definir o nome do grupo de recursos, utilizando o *nodeResourceGroup* propriedade.
 
 * O grupo de recursos secundário é criado automaticamente pelo fornecedor de recursos do Azure na sua própria subscrição.
 * Pode especificar um nome de grupo de recursos personalizado apenas quando estiver a criar o cluster.
 
-À medida que trabalha com o *MC_* grupo de recursos, tenha em atenção que não é possível:
+À medida que trabalha com o grupo de recursos de nó, tenha em atenção que não é possível:
 
-* Especifique um grupo de recursos existente para o *MC_* grupo.
-* Especifique uma subscrição diferente para o *MC_* grupo de recursos.
-* Alteração da *MC_* nome do grupo de recursos depois do cluster ter sido criado.
-* Especificar os nomes dos recursos geridos dentro de *MC_* grupo de recursos.
-* Modificar ou eliminar etiquetas de recursos geridos dentro da *MC_* grupo de recursos. (Consulte informações adicionais na próxima seção.)
+* Especifique um grupo de recursos existente para o grupo de recursos de nó.
+* Especifique uma subscrição diferente para o grupo de recursos de nó.
+* Altere o nome de grupo de recursos de nó depois do cluster ter sido criado.
+* Especifique os nomes dos recursos geridos no grupo de recursos de nó.
+* Modificar ou eliminar etiquetas de recursos geridos no grupo de recursos de nó. (Consulte informações adicionais na próxima seção.)
 
-## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Posso modificar as etiquetas e outras propriedades dos recursos no grupo de recursos MC_ AKS?
+## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>Posso modificar as etiquetas e outras propriedades de recursos do AKS no grupo de recursos de nó?
 
-Se modificar ou eliminar etiquetas criadas pelo Azure e outras propriedades de recurso no *MC_* grupo de recursos, foi possível obter resultados inesperados, tais como o dimensionamento e atualização de erros. AKS permite-lhe criar e modificar etiquetas personalizadas. Pode desejar criar ou modificar etiquetas personalizadas, por exemplo, para atribuir um centro de custo ou de unidade de negócios. Ao modificar os recursos sob o *MC_* do cluster do AKS, interromperá o objetivo de nível de serviço (SLO). Para obter mais informações, consulte [faz AKS oferecer um contrato de nível de serviço?](#does-aks-offer-a-service-level-agreement)
+Se modifica ou eliminar etiquetas criadas pelo Azure e outras propriedades de recurso no grupo de recursos de nó, foi possível obter resultados inesperados, tais como o dimensionamento e atualização de erros. AKS permite-lhe criar e modificar etiquetas personalizadas. Pode desejar criar ou modificar etiquetas personalizadas, por exemplo, para atribuir um centro de custo ou de unidade de negócios. Ao modificar os recursos no grupo de recursos do nó do cluster do AKS, quebrar o objetivo de nível de serviço (SLO). Para obter mais informações, consulte [faz AKS oferecer um contrato de nível de serviço?](#does-aks-offer-a-service-level-agreement)
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Os controladores de admissão do Kubernetes AKS oferece suporte? Controladores de admissão podem ser adicionados ou removidos?
 

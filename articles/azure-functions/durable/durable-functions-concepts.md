@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071351"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812899"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de funções duráveis e conceitos técnicos (funções do Azure)
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>Padrão #6: Agregador (pré-visualização)
+### <a name="aggregator"></a>Padrão #6: Agregador (pré-visualização)
 
 O padrão de sexto é sobre agregar dados de eventos num período de tempo numa única endereçável *entidade*. Neste padrão, os dados sejam agregados podem ter várias origens, poderão ser entregue em lotes ou podem estar espalhados durante períodos de longa duração de tempo. O agregador poderá ter de tomar medidas em dados de eventos à medida que chegam e clientes externos poderão ter de consultar os dados agregados.
 
@@ -385,27 +385,46 @@ O complicado tentando implementar este padrão com normal, as funções sem moni
 Utilizar um [função de entidade durável](durable-functions-preview.md#entity-functions), um pode implementar este padrão facilmente como uma única função.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Também podem ser modeladas duráveis entidades como classes do .NET. Isso pode ser útil se a lista de operações ficar grande e se é principalmente estático. O exemplo seguinte é uma implementação equivalente do `Counter` entidade com métodos e classes do .NET.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-Da mesma forma, os clientes podem consultar para o estado de uma função de entidade usando métodos no `orchestrationClient` enlace.
+Proxies gerados dinamicamente também estão disponíveis para a sinalização de entidades de uma forma de tipo seguro. E, além de sinalização, os clientes também podem consultar para o estado de uma função de entidade usando métodos no `orchestrationClient` enlace.
 
 > [!NOTE]
 > Funções de entidade só estão atualmente disponíveis no [pré-visualização 2.0 de funções durável](durable-functions-preview.md).
@@ -484,7 +503,7 @@ Os blobs de armazenamento são principalmente usados como um mecanismo de locaç
 
 Devem haver um controle em todos os problemas conhecidos a [problemas do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) lista. Se se deparar com um problema e não é possível localizar o problema no GitHub, abra um novo problema. Inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as funções durável, veja [tipos e recursos de função de funções duráveis](durable-functions-types-features-overview.md). 
 

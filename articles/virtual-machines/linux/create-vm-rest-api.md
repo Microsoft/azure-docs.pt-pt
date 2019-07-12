@@ -4,7 +4,7 @@ description: Saiba como criar uma máquina virtual Linux no Azure que utiliza a 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391366"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667951"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que utiliza autenticação SSH com a API REST
 
@@ -63,10 +63,10 @@ Para obter informações gerais sobre como trabalhar com pedidos de REST API, co
 
 As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 
-| Name                       | Necessário | Tipo                                                                                | Descrição  |
+| Nome                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
-| name                       |          | string                                                                              | Nome da máquina virtual. |
+| location                   | True     | Cadeia de caracteres                                                                              | Localização do recurso. |
+| name                       |          | Cadeia de caracteres                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento para os discos da máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições de sistema operativo da máquina virtual. |
@@ -137,7 +137,7 @@ Pode utilizar o cliente de sua preferência para enviar este pedido HTTP. També
 
 Existem duas respostas com êxito para a operação criar ou atualizar uma máquina virtual:
 
-| Name        | Tipo                                                                              | Descrição |
+| Nome        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |
@@ -153,7 +153,7 @@ Um condensada *201 criado* mostra a resposta do corpo de pedido de exemplo anter
 
 Para obter mais informações sobre as respostas de REST API, consulte [processar a mensagem de resposta](/rest/api/azure/#process-the-response-message).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as APIs de REST do Azure ou outras ferramentas de gestão, como a CLI do Azure ou do Azure PowerShell, consulte o seguinte:
 

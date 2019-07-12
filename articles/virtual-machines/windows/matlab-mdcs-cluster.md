@@ -4,7 +4,7 @@ description: Utilizar máquinas virtuais do Microsoft Azure para criar clusters 
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 49824741facc8822a9417306794f1028fc180e16
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 857382c09192e71d9727a91274993091f2f903b2
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60555141"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718688"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Criar clusters de servidor de computação distribuída da MATLAB em VMs do Azure
 Utilize as máquinas virtuais do Microsoft Azure para criar um ou mais clusters de servidor de computação de Distributed MATLAB para executar intensivas de computação paralelas MATLAB cargas de trabalho. Instalar o software de servidor de computação distribuída da MATLAB numa VM para utilizar como uma imagem base e utilizar um modelo de início rápido do Azure ou o script do Azure PowerShell (disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implementar e gerir o cluster. Após a implementação, ligar ao cluster para executar cargas de trabalho.

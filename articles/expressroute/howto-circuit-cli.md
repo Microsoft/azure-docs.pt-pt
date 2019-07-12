@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837815"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657073"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute com a CLI
 
@@ -23,9 +24,10 @@ Este artigo descreve como criar um circuito do ExpressRoute do Azure com a Inter
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -127,8 +129,8 @@ Agora, está pronto para criar um circuito do ExpressRoute.
 
 > [!IMPORTANT]
 > O circuito de ExpressRoute é cobrado a partir do momento numa que chave de serviço é emitida. Efetue esta operação quando o fornecedor de conectividade estiver pronto para aprovisionar o circuito.
-> 
-> 
+>
+>
 
 Se ainda não tiver um grupo de recursos, tem de criar uma antes de criar o seu circuito do ExpressRoute. Pode criar um grupo de recursos ao executar o seguinte comando:
 
@@ -136,7 +138,7 @@ Se ainda não tiver um grupo de recursos, tem de criar uma antes de criar o seu 
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-O exemplo seguinte mostra como criar um 200 Mbps circuito do ExpressRoute através de Equinix no vale do silício. Se estiver a utilizar um fornecedor diferente e configurações diferentes, substitua essa informação ao fazer o seu pedido. 
+O exemplo seguinte mostra como criar um 200 Mbps circuito do ExpressRoute através de Equinix no vale do silício. Se estiver a utilizar um fornecedor diferente e configurações diferentes, substitua essa informação ao fazer o seu pedido.
 
 Certifique-se de que especifica a camada de SKU correta e a família SKU:
 
@@ -267,8 +269,8 @@ Para obter instruções passo a passo, consulte a [configuração do encaminhame
 
 > [!IMPORTANT]
 > Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que oferecem serviços de conectividade de 2 de camada. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade configura e gere o encaminhamento por si.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Ligar uma rede virtual a um circuito ExpressRoute
 
@@ -279,7 +281,7 @@ Em seguida, ligar uma rede virtual para o seu circuito do ExpressRoute. Utilize 
 Pode modificar algumas propriedades de um circuito do ExpressRoute sem afetar a conectividade. Pode fazer as seguintes alterações sem tempo de inatividade:
 
 * Pode ativar ou desativar um suplemento ExpressRoute premium para o seu circuito do ExpressRoute.
-* Pode aumentar a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. No entanto, a desatualização de largura de banda de um circuito não é suportada. 
+* Pode aumentar a largura de banda do seu circuito do ExpressRoute, desde que haja capacidade na porta. No entanto, a desatualização de largura de banda de um circuito não é suportada.
 * Pode alterar o plano de medição de dados limitados para dados ilimitados. No entanto, a alteração do plano de medição de dados ilimitados para dados limitados não é suportada.
 * Pode ativar e desativar *permitir operações clássicas*.
 
@@ -299,8 +301,8 @@ O circuito tem agora as funcionalidades de suplemento ExpressRoute premium ativa
 
 > [!IMPORTANT]
 > Esta operação pode falhar se estiver a utilizar os recursos que são maiores que o que é permitido para o circuito standard.
-> 
-> 
+>
+>
 
 Antes de desativar o suplemento ExpressRoute premium, compreenda os seguintes critérios:
 

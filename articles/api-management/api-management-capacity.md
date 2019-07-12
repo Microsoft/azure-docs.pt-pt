@@ -11,16 +11,16 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658333"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836956"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gestão de API do Azure
 
-**Capacidade** é a única, mais importante [métrica do Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) para tomar decisões informadas se pretende dimensionar uma instância de gestão de API para acomodar mais carga. Sua construção é complexa e impõe determinado comportamento.
+**Capacidade** é o mais importante [métrica do Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) para tomar decisões informadas se pretende dimensionar uma instância de gestão de API para acomodar mais carga. Sua construção é complexa e impõe determinado comportamento.
 
 Este artigo explica o que o **capacidade** é e como ele se comporta. Ele mostra como acessar **capacidade** métricas no portal do Azure e sugere quando considerar o dimensionamento ou a atualizar a instância de gestão de API.
 
@@ -40,12 +40,14 @@ Para seguir os passos deste artigo, tem de ter:
 
 ![Métrica de capacidade](./media/api-management-capacity/capacity-ingredients.png)
 
-**Capacidade** é um indicador de carga numa instância APIM. Ela reflete a utilização de recursos (CPU, memória) e comprimentos de fila de rede. Utilização da CPU e memória revela o consumo de recursos por:
+**Capacidade** é um indicador de carga numa instância de gestão de API. Ela reflete a utilização de recursos (CPU, memória) e comprimentos de fila de rede. Utilização da CPU e memória revela o consumo de recursos por:
 
-+ Serviços APIM, como ações ou pedido de processamento de gestão, que pode incluir pedidos de reencaminhamento ou executar uma política
++ Serviços de gestão de API, como ações ou pedido de processamento de gestão, que pode incluir pedidos de reencaminhamento ou executar uma política
 + processos de sistema operativo selecionado, incluindo processos que envolvem o custo de handshakes de SSL em novas ligações.
 
 Total **capacidade** é uma média de seus próprios valores de cada unidade de uma instância de gestão de API.
+
+Embora o **métrica de capacidade** é criado para a superfície problemas com a instância de gestão de API, há casos em problemas não serão refletidos em alterações na **métricas de capacidade**.
 
 ## <a name="capacity-metric-behavior"></a>Comportamento da métrica capacidade
 
@@ -63,6 +65,8 @@ As operações mais complexas nas solicitações são, mais alto a **capacidade*
 ![Picos de métricos de capacidade](./media/api-management-capacity/capacity-spikes.png)
 
 **Capacidade** também pode expandam intermitentemente ou ser maior que zero, mesmo se não houver nenhuma solicitação a ser processada. Ele acontece devido a ações específicas do sistema ou da plataforma e não deve ser levado em consideração ao decidir se uma instância de dimensionar.
+
+Baixa **métrica de capacidade** não significa necessariamente que a instância de gestão de API não está tendo problemas.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Utilizar o Portal do Azure para examinar a capacidade
   

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
-ms.openlocfilehash: caed77234646654d151b64d2c80b7231342f6d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: anmola
+ms.openlocfilehash: 1210b34590484379ae487ad1b87e76a433e4582a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050472"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621808"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar num contentor do Service Fabric Reliable Services e Reliable Actors no Windows
 

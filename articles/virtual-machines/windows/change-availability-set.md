@@ -5,7 +5,7 @@ keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 59e28591bda0bada24929fe95fba248d333833e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e3aa213b2ba58e2a09e0364ab6cd9bc42d131d8
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64723368"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719258"
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>Alterar a conjunto de disponibilidade para uma VM do Windows
 Os passos seguintes descrevem como alterar o conjunto de disponibilidade de uma VM com o Azure PowerShell. Só pode ser adicionada uma VM para um conjunto quando é criado de disponibilidade. Para alterar a disponibilidade definida, terá de eliminar e, em seguida, recriar a máquina virtual. 

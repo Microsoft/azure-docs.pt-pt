@@ -9,29 +9,29 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d52e0e1093668a65e76bd6600329619240aee182
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596618"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612596"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-node-node-c2d.md) tutorial para mostrar a como usar o [ficheiro capacidades de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [BLOBs do Azure armazenamento](../storage/index.yml). Este tutorial mostra-lhe como:
+Este tutorial baseia-se sobre o código no [enviar mensagens da cloud para o dispositivo com o IoT Hub](iot-hub-node-node-c2d.md) tutorial para mostrar a como usar o [ficheiro capacidades de carregamento do IoT Hub](iot-hub-devguide-file-upload.md) para carregar um ficheiro para [BLOBs do Azure armazenamento](../storage/index.yml). Este tutorial mostra-lhe como:
 
-- Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
-- 
-- Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
+* Fornecer com segurança a um dispositivo do Azure URI de blob para carregar um ficheiro.
 
-O [introdução ao IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+* Utilize as notificações de carregamento de arquivo do IoT Hub para acionar a processar o ficheiro no seu back-end de aplicação.
 
-*  Ficheiros grandes que contêm imagens
-*  Vídeos
-*  Dados de vibração amostrados em alta frequência
-*  Alguma forma de dados pré-processados.
+O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-node.md) início rápido demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
+
+* Ficheiros grandes que contêm imagens
+* Vídeos
+* Dados de vibração amostrados em alta frequência
+* Alguma forma de dados pré-processados.
 
 Estes ficheiros são normalmente processada na cloud com ferramentas, como de lote [do Azure Data Factory](../data-factory/introduction.md) ou o [Hadoop](../hdinsight/index.yml) pilha. Quando precisar de upland arquivos de um dispositivo, pode continuar a utilizar a segurança e fiabilidade do IoT Hub.
 
@@ -216,6 +216,8 @@ Pode utilizar o portal para ver o ficheiro carregado no contentor de armazenamen
 
 Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do IoT Hub para simplificar os carregamentos de ficheiros a partir de dispositivos. Pode continuar a explorar as funcionalidades do hub IoT e cenários com os seguintes artigos:
 
-*  [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
-*  [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
-*  [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
+* [Criar um hub IoT através de programação](iot-hub-rm-template-powershell.md)
+
+* [Introdução ao C SDK](iot-hub-device-sdk-c-intro.md)
+
+* [SDKs do Azure IoT](iot-hub-devguide-sdks.md)

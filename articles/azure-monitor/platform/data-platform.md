@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808948"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606979"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -70,9 +70,9 @@ A tabela seguinte compara as métricas e registos no Azure Monitor.
 | Atributo  | Métricas | Registos |
 |:---|:---|:---|
 | Benefícios | Simples e capaz de cenários de quase em tempo real, como alertas. Ideal para deteção rápida dos problemas. | Analisado com avançada linguagem de consulta. Ideal para uma análise detalhada e a identificar a causa raiz. |
-| Dados | Apenas a valores numéricos | Dados de texto ou numérico |
+| Data | Apenas a valores numéricos | Dados de texto ou numérico |
 | estrutura | Conjunto padrão de propriedades, incluindo o tempo de exemplo, o recurso a ser monitorizado, um valor numérico. Algumas métricas incluem várias dimensões para a definição ainda mais. | Conjunto exclusivo de propriedades, dependendo do tipo de registo. |
-| Coleção | Coletados em intervalos regulares. | Pode ser recolhidos esporadicamente como eventos de acionam um registo a ser criada. |
+| Collection | Coletados em intervalos regulares. | Pode ser recolhidos esporadicamente como eventos de acionam um registo a ser criada. |
 | Ver no portal do Azure | Explorador de Métricas | Log Analytics |
 | Origens de dados incluem | Métricas de plataforma recolhidos a partir de recursos do Azure.<br>Aplicações monitorizadas pelo Application Insights.<br>Personalizado definido pela aplicação ou API. | Aplicação e os registos de diagnóstico.<br>Soluções de monitorização.<br>Os agentes e as extensões de VM.<br>Pedidos de aplicação e exceções.<br>Centro de segurança do Azure.<br>API do Recoletor de dados. |
 
@@ -87,7 +87,7 @@ Além de usar as ferramentas no Azure para analisar dados de monitorização, po
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [métricas no Azure Monitor](data-platform-metrics.md).
 - Leia mais sobre [inicia sessão no Azure Monitor](data-platform-logs.md).

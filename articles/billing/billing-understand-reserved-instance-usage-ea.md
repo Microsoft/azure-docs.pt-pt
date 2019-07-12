@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 37d43dbdd8de66a10a94827e313679dc6ffd220d
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490390"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798162"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter os custos de reserva do contrato Enterprise e utilização
 
@@ -119,9 +119,9 @@ Obter dados de custo amortizado e filtro para uma utilização de ordem de reser
 Pode utilizar de reserva de estorno para outras organizações por etiquetas, grupos de recursos ou subscrição. Dados de custo amortizado fornecem valor monetário da utilização de uma reserva atentamente os seguintes tipos de dados:
 
 - Recursos (como uma VM)
-- Grupo de recursos
+- Resource group
 - Tags
-- Subscrição
+- Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Obter a taxa combinada para encargos
 
@@ -139,19 +139,19 @@ Obter os dados de custos Amortized e filtrar os dados para uma instância reserv
 2. Obtenha os custos de reserva. Soma os _custo_ valores para obter o valor monetário do que paga pela instância reservada. Ele inclui os custos de utilizado e não utilizados da reserva.
 3. Subtrai os custos de reserva de custos estimados de pay as you go para obter a poupança estimada.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>As compras de reserva e amortização na análise de custos do Azure
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>As compras de reserva e amortização na análise de custos
 
-Custo de instância reservada está disponível no [modo de pré-visualização de análise de custo do Azure](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Por predefinição, a vista de dados de custo é para o custo real. Pode mudar para o custo amortizado. Eis um exemplo.
+Os custos de reserva estão disponíveis no [análise de custo](https://aka.ms/costanalysis). Por predefinição, mostra de análise de custos **custo real**, que é a forma como os custos serão apresentados na sua fatura. Para exibir as compras de reserva dividido e associados aos recursos que utilizar o benefício, mude **amortizado custo**:
 
 ![Exemplo que mostra onde pode selecionar o custo amortizado na análise de custos](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Aplica filtros para ver as cobranças por um tipo de reserva ou custo. Agrupar por nome da reserva para ver os custos divididos por reservas.
+Agrupar por tipo de custos para ver uma quebra de para baixo de utilização, compras e reembolsos; ou ao reserva para uma análise detalhada de custos de reserva e sob demanda. Lembre-se de que os custos de reserva apenas que verá ao examinar o custo real são aquisições, mas os custos serão atribuídos aos recursos individuais que utilizado o benfit ao ver a custo amortizado. Também verá um novo **UnusedReservation** cobrar tipo quando observar amortizado custo.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
 Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 

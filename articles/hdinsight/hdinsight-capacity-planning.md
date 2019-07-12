@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237161"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786503"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -82,7 +82,7 @@ Dimensionamento de um cluster é determinado pela quantidade de seus nós VM. Pa
 
 Consoante o tipo de cluster, o aumento do número de nós de trabalho adiciona capacidades de computacionais adicionais (por exemplo, mais núcleos), mas também pode adicionar a quantidade total de memória necessária para todo o cluster oferecer suporte a dentro da memória armazenamento de dados a ser processados. Tal como acontece com a escolha do tipo e tamanho VM, selecionar a escala de adequado do cluster é normalmente contactado empiricamente, através de cargas de trabalho simuladas ou consultas canary.
 
-Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, em seguida, dimensioná-lo a voltar a reduzir esses nós adicionais já não são necessários. Para obter mais informações, consulte [clusters do HDInsight de escala](hdinsight-scaling-best-practices.md).
+Pode aumentar horizontalmente o seu cluster para os picos de procura de carga, em seguida, dimensioná-lo a voltar a reduzir esses nós adicionais já não são necessários. O [funcionalidade de dimensionamento automático](hdinsight-autoscale-clusters.md) permite-lhe automaticamente dimensionar o cluster com base em predeterminados métricas e os tempos. Para obter mais informações sobre como dimensionar os seus clusters manualmente, consulte [clusters do HDInsight de escala](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida do cluster
 
@@ -126,7 +126,7 @@ Pode [contacte o suporte para pedir um aumento de quota](https://docs.microsoft.
 
 No entanto, existem alguns limites de quota fixo, por exemplo uma única subscrição do Azure pode ter no máximo, 10.000 núcleos. Para obter detalhes sobre estes limites, consulte [subscrição do Azure e limites do serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como definir e configurar clusters no HDInsight com o Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, serviços de ML ou Storm.
 * [Monitorizar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre os principais cenários para monitorar para o seu cluster do HDInsight que pode afetar a capacidade do seu cluster.

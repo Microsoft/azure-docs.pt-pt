@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966836"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706240"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -87,21 +87,21 @@ Utilizando as pessoas fidedignas explicadas no diagrama anterior, é necessário
 
 **Jorge (Proprietário de Carga de Trabalho)**
 
-* Proprietário/Colaborador de Grupo de Recursos
+* Proprietário/colaborador de grupo de recursos
 
 **Diogo (Segurança de TI)**
 
-* Proprietário/Colaborador de Subscrição ou Administrador de Segurança
+* Proprietário/colaborador de subscrição ou administrador de segurança
 
 **Júlia (Operações de Segurança)**
 
 * Leitor de Subscrição ou Leitor de Segurança para visualizar Alertas
-* Proprietário/Colaborador de Subscrição ou Administrador de Sistema necessário para dispensar Alertas
+* Proprietário/colaborador de subscrição ou administrador de segurança necessário para dispensar alertas
 
 **Samuel (Analista de Segurança)**
 
 * Leitor de Subscrição para visualizar Alertas
-* Proprietário/Colaborador de Subscrição necessário para dispensar Alertas
+* Proprietário/colaborador de subscrição necessário para dispensar alertas
 * O acesso à área de trabalho poderá ser necessário
 
 Mais algumas informações importantes a considerar:

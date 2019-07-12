@@ -11,16 +11,16 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0bc4620d0c55d6e94a3d99c39ab405dab2743e5
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 2f3ec9792a7af0398da770286b805be4d1f25589
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461657"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657971"
 ---
 # <a name="use-mlflow-with-azure-machine-learning-service-preview"></a>Utilizar MLflow com o serviço Azure Machine Learning (pré-visualização)
 
-Este artigo demonstra como utilizar MLflow URI de controlo e a API, o registo, coletivamente, também conhecido como MLflow de controlo, com o serviço Azure Machine Learning para controlar e inicie sessão métricas de experimentação e artefactos no seu [do Azure Machine Learning área de trabalho do serviço](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace). Se já utilizar MLflow de controlo para suas experimentações, a área de trabalho fornece uma localização centralizada, segura e dimensionável para armazenar os seus modelos e métricas de treinamento.
+Este artigo demonstra como utilizar MLflow URI de controlo e a API, o registo, coletivamente, também conhecido como MLflow de controlo, com o serviço Azure Machine Learning para controlar e inicie sessão métricas de experimentação e artefactos no seu [do Azure Machine Learning área de trabalho do serviço](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces). Se já utilizar MLflow de controlo para suas experimentações, a área de trabalho fornece uma localização centralizada, segura e dimensionável para armazenar os seus modelos e métricas de treinamento.
 
 [MLflow](https://www.mlflow.org) é uma biblioteca de código-fonte aberto para gerir o ciclo de vida das suas experimentações de machine learning. [Controlo de MLFlow](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) é um componente do MLflow que registra e controla seu treinamento executar a métrica e artefatos do modelo, se suas experimentações são executadas localmente, numa máquina virtual ou no remoto o cluster de cálculo.
 ![mlflow com o diagrama do azure machine learning](media/how-to-use-mlflow/mlflow-diagram.png)

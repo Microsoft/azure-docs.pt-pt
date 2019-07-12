@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: a41c3f60d4b949f78c0755f97c9ef7e6302d78d8
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 68c40cf893bf150756f0a03056473e82cff5754f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330004"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620966"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
@@ -117,7 +117,7 @@ Registos de execução tem informações sobre eventos que ocorreram durante a e
 
 Qualquer erro que ocorre durante a tarefa está a processar dados está nesta categoria de registos. Estes registos com mais frequência são criados durante a dados lidos, serialização e operações de escrita. Estes registos não incluem erros de conectividade. Erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de diversas diferentes [erros de dados de entrada e saída](https://docs.microsoft.com/azure/stream-analytics/data-errors).
 
-Name | Descrição
+Nome | Descrição
 ------- | -------
 Origem | Nome da tarefa de entrada ou saída onde ocorreu o erro.
 Mensagem | Mensagem associada com o erro.
@@ -150,5 +150,5 @@ ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_ide
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Erros de dados do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)

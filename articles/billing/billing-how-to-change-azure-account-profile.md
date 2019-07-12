@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850766"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724095"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil para a sua conta do Azure
 
@@ -87,10 +87,16 @@ Opção de desativar que recebem mensagens de correio eletrónico de marketing:
 1. Vá para o [formulário de pedido](https://account.microsoft.com/profile/permissions-link-request) para submeter um pedido com o seu endereço de e-mail do perfil. Receberá uma ligação por e-mail para atualizar as suas preferências.
 2. Selecione a ligação para abrir o **gerir permissões de comunicação** página. Esta página mostra os tipos de comunicações de marketing que o endereço de e-mail foi incluído no. Limpar qualquer tópicos que deseja otimizado de e, em seguida, selecione **guardar**.
 
-
 ![Exemplo da página para gerir permissões de comunicação](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Quando participar de comunicações de marketing, continuar a receber notificações de serviço, com base na sua conta.
+
+## <a name="change-the-subscription-name"></a>Alterar o nome da subscrição
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com), selecione **subscrição** do painel esquerdo e, em seguida, selecione a subscrição que pretende mudar o nome.
+1. Selecione **descrição geral**e, em seguida, selecione **mudar o nome** na barra de comandos.
+    ![Exemplo de mudar o nome de subscrição do Azure](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Depois de ter alterado o nome, selecione **guardar**.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

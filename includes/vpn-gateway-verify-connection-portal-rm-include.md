@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d478107f3176e79c88a05d9cbe6207606a6246d5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c1793a22c59cda279a9d8c4522bcec2606d25582
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184090"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673465"
 ---
 No portal do Azure, pode ver o estado da ligação de um Gateway de VPN do Resource Manager ao navegar para essa ligação. Os passos seguintes mostram uma forma de navegar para a ligação e realizar uma verificação.
 
-1. No [Portal do Azure](http://portal.azure.com), clique em **Todos os recursos** e navegue para o gateway de rede virtual.
+1. No [Portal do Azure](https://portal.azure.com), clique em **Todos os recursos** e navegue para o gateway de rede virtual.
 2. No painel do gateway de rede virtual, clique em **Ligações**. Pode ver o estado de cada ligação.
 3. Clique no nome da ligação que pretende verificar para abrir o **Essentials**. No Essentials, pode ver mais informações sobre a ligação. Quando efetuar uma ligação com êxito o **Estado** é alterado para "Com Êxito" e "Ligado".
 

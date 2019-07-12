@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 05/07/2019
 ms.topic: overview
 description: Introdução aos espaços de desenvolvimento do Azure
 keywords: Docker, Kubernetes, Azure, AKS, serviço Kubernetes do Azure, contentores, kubectl, k8s
-manager: jeconnoc
-ms.openlocfilehash: 3e887409518f5cc97238a0168213a7918e318c04
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+manager: gwallace
+ms.openlocfilehash: 33ac5a7aa6d823105b87325ba52aa77cd9b9b3a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394014"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706305"
 ---
 # <a name="azure-dev-spaces"></a>Espaços de Programador do Azure
 
@@ -40,13 +39,13 @@ Uma vez que as equipes podem trabalhar com toda a aplicação e colaborar direta
 
 Espaços de desenvolvimento do Azure fornece as ferramentas para gerar o Docker e Kubernetes ativos para os seus projetos. Estas ferramentas permite-lhe adicionar facilmente aplicações de novas e existentes para um espaço de desenvolvimento e outros clusters do AKS.
 
-Para obter mais informações sobre como funciona a espaços de desenvolvimento do Azure, consulte [como os espaços de desenvolvimento do Azure funciona e é configurada][how-dev-spaces-works].
+Para obter mais informações sobre como funciona a espaços de desenvolvimento do Azure, consulte [como os espaços de desenvolvimento do Azure funciona e é configurado][how-dev-spaces-works].
 
 ## <a name="supported-regions-and-configurations"></a>Regiões suportadas e configurações
 
 O Azure Dev Spaces é suportado apenas por clusters do AKS nas regiões **E.U.A. Leste**, **E.U.A. Leste 2**, **E.U.A. Central**, **E.U.A. Oeste 2**, **Europa do Norte**, **Europa Ocidental**, **Sul do Reino Unido**, **Sudeste Asiático**, **Leste da Austrália**, **Canadá Central** e **Leste do Canadá**. O Azure Dev Spaces suporta a utilização da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, MacOS ou Windows 8 ou superior para criar e executar aplicações no AKS. Também suporta a utilização de [Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) instalado no Windows 8 ou superior. Para Visual Studio 2019, terá da carga de trabalho de desenvolvimento do Azure. Para o Visual Studio 2017, terá da carga de trabalho de desenvolvimento para a Web e [Visual Studio Tools para o Kubernetes](https://aka.ms/get-vsk8stools).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o desenvolvimento rápido e iterativo, para as equipes com os espaços de desenvolvimento do Azure com o início rápido de desenvolvimento de equipe.
 

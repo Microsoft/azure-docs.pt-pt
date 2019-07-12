@@ -4,7 +4,7 @@ description: Saiba como utilizar o Azure PowerShell para criar uma imagem de má
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: c58faa7104a3ca2c740a1d1e35ca5bfd47c3a9fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 707c642fae4d7698eb3d793b83dc574872925f0f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241218"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709135"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Criar uma galeria de imagem partilhada com o Azure PowerShell 
 

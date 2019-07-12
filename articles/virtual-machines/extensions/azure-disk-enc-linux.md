@@ -4,7 +4,7 @@ description: Implementa o Azure Disk Encryption para Linux para uma máquina vir
 services: virtual-machines-linux
 documentationcenter: ''
 author: ejarvi
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 05d20e75cf8f0c84936ff4e5dfa42d60678f6ffc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: d544aae33faf60be00a2b4ea0a45f405efcedb39
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295340"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706132"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -141,20 +141,20 @@ Using `AADClientCertificate`:
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | string |
-| type | AzureDiskEncryptionForLinux | string |
+| publisher | Microsoft.Azure.Security | Cadeia de caracteres |
+| type | AzureDiskEncryptionForLinux | Cadeia de caracteres |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (esquema de 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (esquema de 0,1) AADClientSecret | password | string |
-| (esquema de 0,1) AADClientCertificate | thumbprint | string |
+| (esquema de 0,1) AADClientSecret | password | Cadeia de caracteres |
+| (esquema de 0,1) AADClientCertificate | thumbprint | cadeia |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
-| KeyEncryptionKeyURL | url | string |
-| (opcional) KeyVaultURL | url | string |
-| Passphrase | password | string | 
-| SequenceVersion | uniqueidentifier | string |
-| VolumeType | OS, Data, All | string |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | Cadeia de caracteres | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | Cadeia de caracteres |
+| KeyEncryptionKeyURL | url | cadeia |
+| (opcional) KeyVaultURL | url | Cadeia de caracteres |
+| Passphrase | password | Cadeia de caracteres | 
+| SequenceVersion | uniqueidentifier | Cadeia de caracteres |
+| VolumeType | OS, Data, All | Cadeia de caracteres |
 
 ## <a name="template-deployment"></a>Implementação de modelos
 

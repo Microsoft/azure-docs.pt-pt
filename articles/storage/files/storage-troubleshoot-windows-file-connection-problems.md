@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7bc7f3631748f4ac74a76e9e67aa2aef2c8f9a71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1241a6ee5a49504619c377fa3f7006320def14ec
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480314"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805908"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
 Este artigo lista problemas comuns relacionados com ficheiros do Microsoft Azure quando se liga a partir de clientes do Windows. Ele também fornece possíveis causas e resoluções para esses problemas. Além dos passos de resolução de problemas neste artigo, pode também usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows tem pré-requisitos corretos. AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o ambiente para obter um desempenho ideal. Também pode encontrar estas informações no [solucionador de problemas de partilhas de ficheiros do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece os passos para ajudá-lo com problemas de partilhas de ficheiros do Azure de ligar/mapeamento/montagem.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Erro de 5 ao montar uma partilha de ficheiros do Azure
 
 Ao tentar montar uma partilha de ficheiros, pode receber o erro seguinte:
@@ -108,7 +108,6 @@ Trabalhar com o seu departamento de TI ou um ISP para abrir a porta 445 de saíd
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 - utilizar a API REST com base em ferramentas como o Explorer/Powershell do armazenamento
 Os ficheiros do Azure também suporta REST, além de SMB. Acesso REST funciona através da porta 443 (tcp padrão). Existem várias ferramentas que são escritas usando a REST API que permitem a Rica experiência de interface do Usuário. [Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) é uma delas. [Transferir e instalar o Explorador de armazenamento](https://azure.microsoft.com/features/storage-explorer/) e ligar à partilha de ficheiros de cópia de ficheiros do Azure. Também pode utilizar [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) que utilizador também a REST API.
 
-
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está ativada
 
 Erro de sistema 53 ou erro de sistema 87 pode ocorrer se a comunicação de NTLMv1 estiver ativada no cliente. Ficheiros do Azure suportam apenas a autenticação NTLMv2. Ter NTLMv1 ativado cria um cliente menos seguras. Por conseguinte, a comunicação é bloqueada para ficheiros do Azure. 
@@ -136,6 +135,13 @@ Ocorre um erro 1816 quando atingir o limite superior de identificadores abertos 
 
 Reduzir o número de identificadores abertos em simultâneo por fechar alguns identificadores e tente novamente. Para obter mais informações, consulte [lista de verificação de armazenamento do Microsoft Azure, desempenho e escalabilidade](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+Para ver identificadores abertos para uma partilha de ficheiros, o diretório ou o ficheiro, utilize o [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet do PowerShell.  
+
+Para fechar identificadores abertos para uma partilha de ficheiros, o diretório ou o ficheiro, utilize o [Close AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet do PowerShell.
+
+> [!Note]  
+> Os cmdlets Get-AzStorageFileHandle e fechar AzStorageFileHandle estão incluídos no Az módulo do PowerShell versão 2.4 ou posterior. Para instalar o módulo do PowerShell de Az mais recente, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erro "Falha de autorização" ao navegar para uma partilha de ficheiros do Azure no portal
 
@@ -155,6 +161,23 @@ Navegue para a conta de armazenamento onde está localizada a partilha de fichei
 ### <a name="solution-for-cause-2"></a>Solução para causa 2
 
 Certifique-se de que as regras de rede e de firewall virtual estiverem configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual está a causar o problema, alterar temporariamente a definição da conta de armazenamento para **permitir o acesso de todas as redes**. Para obter mais informações, consulte [armazenamento do Azure configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não é possível eliminar um ficheiro ou diretório numa partilha de ficheiros do Azure
+
+### <a name="cause"></a>Causa
+Este problema ocorre, normalmente, se o ficheiro ou diretório tem um identificador aberto. 
+
+### <a name="solution"></a>Solução
+
+Se os clientes do SMB tem sido fechada identificadores abertos tudo e o problema continua a ocorrer, efetue o seguinte:
+
+- Utilize o [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet do PowerShell para ver os identificadores abertos.
+
+- Utilize o [Close AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet do PowerShell para fechar identificadores abertos. 
+
+> [!Note]  
+> Os cmdlets Get-AzStorageFileHandle e fechar AzStorageFileHandle estão incluídos no Az módulo do PowerShell versão 2.4 ou posterior. Para instalar o módulo do PowerShell de Az mais recente, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Tornar mais lenta de copiar o arquivo de e para ficheiros do Azure no Windows
@@ -183,7 +206,7 @@ Se a correção está instalada, é apresentada a seguinte saída:
 > Imagens do Windows Server 2012 R2 no Azure Marketplace tem correção KB3114025 instalado por predefinição, a partir de Dezembro de 2015.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Nenhuma pasta com uma letra de unidade no **meu computador**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Nenhuma pasta com uma letra de unidade em "Meu computador" ou "Este PC"
 
 Se mapear uma partilha de ficheiros do Azure como administrador com a utilização de rede, o compartilhamento parece estar em falta.
 

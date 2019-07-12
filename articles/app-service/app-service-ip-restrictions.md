@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 2b0892fb107827cd9060a36855e9b8bf4416463c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3c547fbc09aeb034df5b7ed579639e1ff4bc0b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069441"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705808"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso de serviço de aplicações do Azure #
 
@@ -98,7 +98,7 @@ Além de ser capaz de controlar o acesso à sua aplicação, também pode restri
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulação programática de regras de restrição de acesso ##
 
-Atualmente não há CLI ou PowerShell para a nova capacidade de restrições de acesso, mas os valores podem ser definidos manualmente, com uma operação PUT na configuração da aplicação no Gestor de recursos. Por exemplo, pode utilizar resources.azure.com e edite o bloco de ipSecurityRestrictions para adicionar o JSON necessário.
+Atualmente não há CLI ou PowerShell para a nova capacidade de restrições de acesso, mas os valores podem ser definidos manualmente, com uma [API REST do Azure](https://docs.microsoft.com/rest/api/azure/) operação PUT na configuração da aplicação no Gestor de recursos. Por exemplo, pode utilizar resources.azure.com e edite o bloco de ipSecurityRestrictions para adicionar o JSON necessário.
 
 A localização para estas informações no Gestor de recursos é:
 
@@ -106,15 +106,19 @@ Management.Azure.com/subscriptions/**ID de subscrição**/resourceGroups/**grupo
 
 A sintaxe JSON de exemplo anterior é:
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>Restrições de IP da aplicação de função
 

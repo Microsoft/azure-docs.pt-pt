@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0224c215c1d5f6e0c36402926a594dcd79d2af0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 600b6db1eb3d3b422d62e49c5bc816a1a56370f9
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057234"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798516"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicativo de Desktop que chamadas de web APIs - configuração de código
 
@@ -50,7 +50,7 @@ Se pretende usar a autenticação interativa ou fluxo de código de dispositivo,
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -61,7 +61,7 @@ O código a seguir cria uma instância de uma aplicação de cliente pública de
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -72,7 +72,7 @@ Pode falar mais adicionando um número de modificadores de criação. Por exempl
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .WithAadAuthority(AzureCloudInstance.AzureUsGovernment,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -169,13 +169,13 @@ Agora, para criar a sua aplicação, apenas terá de escrever o código a seguir
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
-           .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
+           .WithDefaultRedirectUri()
            .Build();
 ```
 
 e antes da chamada para o `.Build()` método, pode substituir a configuração com chamadas para `.WithXXX` métodos, como visto anteriormente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obter um token para uma aplicação de ambiente de trabalho](scenario-desktop-acquire-token.md)

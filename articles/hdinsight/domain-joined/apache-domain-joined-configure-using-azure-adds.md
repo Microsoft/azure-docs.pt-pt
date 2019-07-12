@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
-ms.openlocfilehash: 8699533cd64e6b1778c5e78b8c51eb1efe518c75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81f14fa54303911a34b334f41b5f7f6b0f9f394b
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67126219"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720620"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Pacote de Segurança Enterprise mediante a utilização do Azure Active Directory Domain Services
 
@@ -34,6 +34,8 @@ Neste artigo, irá aprender a configurar um cluster do HDInsight com ESP, utiliz
 Ativar AzureAD DS é um pré-requisito antes de poder criar um cluster do HDInsight com ESP. Para obter mais informações, consulte [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/create-instance.md). 
 
 Quando o Azure AD-DS está ativado, todos os utilizadores e objetos de iniciar a sincronização do Azure Active Directory (AAD) para o Azure AD-DS por predefinição. O comprimento da operação de sincronização depende do número de objetos no Azure AD. A sincronização pode demorar alguns dias para centenas de milhares de objetos. 
+
+O nome de domínio que utiliza com o Azure AD-DS tem de ser 39 carateres ou menos, para trabalhar com o HDInsight.
 
 Pode optar por sincronizar apenas os grupos que precisam de acesso para os clusters do HDInsight. Esta opção de apenas determinados grupos de sincronização é chamada *âmbito de sincronização*. Ver [configurar um âmbito sincronização do Azure AD ao seu domínio gerido](../../active-directory-domain-services/scoped-synchronization.md) para obter instruções.
 

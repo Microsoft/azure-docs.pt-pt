@@ -4,7 +4,7 @@ description: Criar uma VM do Windows numa zona de disponibilidade com o portal d
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e813b26a91d25fbaa1298acd455f27d2cac705f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15dd81b6d222c811fe26ec693927355ebdeb47ee
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61403702"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719047"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o portal do Azure
 

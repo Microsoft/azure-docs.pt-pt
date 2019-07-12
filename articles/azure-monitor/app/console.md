@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: 602cd9696271931babad9aa962638c5b646c80ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2a28462633d47ad1d3f247793e3fcf6f4d40c0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901854"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795451"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Aplicações de consola do Application Insights para .NET
 [O Application Insights](../../azure-monitor/app/app-insights-overview.md) permite-lhe monitorizar a sua aplicação web de disponibilidade, desempenho e utilização.
@@ -27,14 +27,16 @@ Precisa de uma subscrição com [Microsoft Azure](https://azure.com). Inicie ses
 
 ## <a name="getting-started"></a>Introdução
 
-* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md ). Para o tipo de aplicação, escolha **gerais**.
+* No [portal do Azure](https://portal.azure.com), [crie um recurso do Application Insights](../../azure-monitor/app/create-new-resource.md). Para o tipo de aplicação, escolha **gerais**.
 * Faça uma cópia da Chave de Instrumentação. Localizar a chave no **Essentials** pendente do novo recurso que criou. 
 * Instalar a versão mais recente [applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) pacote.
 * Definir a chave de instrumentação no código antes de qualquer telemetria de controlo (ou variável de ambiente APPINSIGHTS_INSTRUMENTATIONKEY conjunto). Depois disso, será capaz de controlar a telemetria e vê-lo no portal do Azure manualmente
 
 ```csharp
-TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
-var telemetryClient = new TelemetryClient();
+// you may use different options to create configuration as shown later in this article
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+configuration.InstrumentationKey = " *your key* ";
+var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
@@ -46,7 +48,6 @@ Pode inicializar e configurar o Application Insights a partir do código ou com 
 > Instruções que faça referência a **applicationinsights. config** só são aplicáveis aos aplicativos que visam o .NET Framework e não se aplicam às aplicações de .NET Core.
 
 ### <a name="using-config-file"></a>Utilizar o ficheiro de configuração
-
 Por predefinição, o SDK do Application Insights procura por `ApplicationInsights.config` ficheiros no diretório de trabalho quando `TelemetryConfiguration` está a ser criada
 
 ```csharp
@@ -94,6 +95,8 @@ Pode obter um exemplo completo do ficheiro de configuração ao instalar a vers�
 ```
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configurar a recolha de telemetria a partir do código
+> [!NOTE]
+> Ficheiro de configuração de leitura não é suportado no .NET Core. Pode considerar utilizar [Application Insights SDK para ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 
 * Durante a inicialização do aplicativo criar e configurar `DependencyTrackingTelemetryModule` instância - ele tem de ser singleton e têm de ser preservado para a vida útil do aplicativo.
 
@@ -118,14 +121,18 @@ module.Initialize(configuration);
 * Adicionar inicializadores de telemetria comuns
 
 ```csharp
-// stamps telemetry with correlation identifiers
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-
 // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* Para a aplicação do Windows do .NET Framework, também pode instalar e inicializar o módulo de recoletor de contador de desempenho, tal como descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+Se tiver criado a configuração com simples `TelemetryConfiguration()` construtor, terá de ativar o suporte de correlação além disso. **Não é necessária** se ler a configuração do ficheiro, utilizado `TelemetryConfiguration.CreateDefault()` ou `TelemetryConfiguration.Active`.
+
+```csharp
+configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+```
+
+* Também poderá instalar e inicializar o módulo de recoletor de contador de desempenho, tal como descrito [aqui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+
 
 #### <a name="full-example"></a>Exemplo completo
 
@@ -142,10 +149,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+            TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
             configuration.InstrumentationKey = "removed";
-            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient();

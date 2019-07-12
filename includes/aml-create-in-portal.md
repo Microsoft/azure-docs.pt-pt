@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 05/21/2019
-ms.openlocfilehash: a33eb98525ea857ee52ad2fffa5937207504909d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 2ec45b67367198c14fc9d03cdb659a51aed8a504
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720515"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67841427"
 ---
 1. Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. 
 
@@ -24,7 +24,7 @@ ms.locfileid: "67720515"
 
    ![Criar um recurso no portal do Azure](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
 
-1. Na barra de pesquisa, introduza **Machine Learning**. Selecione o **área de trabalho do Machine Learning serviço** resultado de pesquisa.
+1. Utilize a barra de pesquisa, para selecionar **área de trabalho do Machine Learning serviço**.
 
    ![Procure uma área de trabalho](./media/aml-create-in-portal/allservices-search.png)
 
@@ -34,6 +34,8 @@ ms.locfileid: "67720515"
 
 1. Na **área de trabalho do ML service** painel, configurar a sua área de trabalho.
 
+    ![Criar área de trabalho](./media/aml-create-in-portal/workspace-create-main-tab.png)
+
    Campo|Descrição
    ---|---
    Nome de área de trabalho |Introduza um nome exclusivo que identifica a sua área de trabalho. Neste exemplo, utilizamos **docs ws**. Nomes têm de ser exclusivos entre o grupo de recursos. Utilize um nome que é fácil de lembrar e diferenciar de áreas de trabalho criadas por outras pessoas.  
@@ -41,13 +43,7 @@ ms.locfileid: "67720515"
    Resource group | Utilize um grupo de recursos existente na sua subscrição ou introduza um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, utilizamos **docs aml**. 
    Location | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados. Esta localização é onde a área de trabalho é criada.
 
-1. Para iniciar o processo de criação, selecione **rever + criar**.
-
-    ![Criar área de trabalho](./media/aml-create-in-portal/workspace-create-main-tab.png)
-
-1. Reveja a configuração de área de trabalho. Se estiver correto, selecione **criar**. Pode demorar alguns minutos a criar a área de trabalho.
-
-1. Para verificar o estado da implementação, selecione o ícone de notificações **bell**, na barra de ferramentas.
+1. Reveja a configuração da área de trabalho e selecione **criar**. Pode demorar alguns minutos a criar a área de trabalho.
 
 1. Quando o processo estiver concluído, é apresentada uma mensagem de êxito da implementação. Ele também está presente na secção notificações. Para ver a nova área de trabalho, selecione **Ir para recurso**.
 

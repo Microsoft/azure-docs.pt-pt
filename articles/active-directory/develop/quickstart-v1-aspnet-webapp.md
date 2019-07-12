@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/21/2019
-ms.author: andret
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17aaff1a6da2c18e9b1d915f61844635b1ad130b
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d0a5f9c14e04e9a0b5b8b48524a425ea94ebf3af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66001444"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702993"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -32,7 +32,7 @@ Neste início rápido, irá aprender como implementar o início de sessão com a
 No final deste início rápido, a aplicação irá aceitar inícios de sessão de contas profissionais e escolares de organizações que se integraram no Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Se precisar de ativar a inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o  *[ponto final de plataforma do Microsoft identity](azure-ad-endpoint-comparison.md)*. Para mais informações, veja [este tutorial ASP.NET](tutorial-v2-asp-webapp.md) , bem como [este artigo](active-directory-v2-limitations.md) explicando o *ponto final de plataforma do Microsoft identity*.
+> Se precisar de ativar a inícios de sessão de contas pessoais, além de contas profissionais e escolares, pode utilizar o  *[ponto final de plataforma do Microsoft identity](azure-ad-endpoint-comparison.md)* . Para mais informações, veja [este tutorial ASP.NET](tutorial-v2-asp-webapp.md) , bem como [este artigo](active-directory-v2-limitations.md) explicando o *ponto final de plataforma do Microsoft identity*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -70,7 +70,7 @@ Para transferir o projeto do Visual Studio deste exemplo em vez disso, siga este
 ## <a name="step-2-create-your-aspnet-project"></a>Passo 2: Criar o seu projeto ASP.NET
 
 1. No Visual Studio, aceda a **Ficheiro -> Novo -> Projeto**.
-2. Para **tipo de projeto**, selecione **Web**, em seguida, selecione **aplicação Web ASP.NET (.NET Framework)**.
+2. Para **tipo de projeto**, selecione **Web**, em seguida, selecione **aplicação Web ASP.NET (.NET Framework)** .
 3. Nome à aplicação e selecione **criar**.
 4. Selecione **vazio** e, em seguida, selecione **MVC** sob **adicionar pastas e referências de núcleo** para adicionar referências MVC.
 5. Selecione **Criar**.
@@ -280,7 +280,7 @@ Quando estiver pronto para testar, utilize uma conta profissional (Azure AD) par
 
 #### <a name="expected-results"></a>Resultados esperados
 
-Depois do utilizador inicia sessão, o utilizador é redirecionado para a home page do seu web site, que é o URL HTTPS especificado nas informações de registo da sua aplicação no Portal de registo de aplicação do Microsoft. Esta página mostra agora *Olá {Utilizador}*, uma ligação para terminar sessão e uma ligação para ver as afirmações do utilizador – que é uma ligação para o controlador Autorizar criado anteriormente.
+Depois do utilizador inicia sessão, o utilizador é redirecionado para a home page do seu web site, que é o URL HTTPS especificado nas informações de registo da sua aplicação no Portal de registo de aplicação do Microsoft. Esta página mostra agora *Olá {Utilizador}* , uma ligação para terminar sessão e uma ligação para ver as afirmações do utilizador – que é uma ligação para o controlador Autorizar criado anteriormente.
 
 ### <a name="see-users-claims"></a>Ver as afirmações do utilizador
 
@@ -292,7 +292,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 
 | Propriedade | Value | Descrição |
 |---|---|---|
-| Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
+| Nome | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |
 | Assunto| {Subject} |Uma cadeia de caracteres para identificar exclusivamente o utilizador iniciar sessão em toda a web |
 | ID do inquilino | {Guid} | Um *guid* que representa exclusivamente a organização do Azure AD do utilizador |

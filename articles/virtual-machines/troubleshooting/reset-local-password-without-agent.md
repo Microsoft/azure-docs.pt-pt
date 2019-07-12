@@ -4,7 +4,7 @@ description: Como repor a palavra-passe de uma conta de utilizador do Windows lo
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc38714f4edb024255b4015cef54f26d5eef189
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708125"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710665"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor a palavra-passe do Windows local offline para VM do Azure
 Pode redefinir a senha do Windows local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado do Azure está instalado. Esse método é a principal maneira para repor uma palavra-passe de uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não está a responder ou deixar de instalar depois de carregar uma imagem personalizada, pode repor manualmente uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe da conta local ao anexar o disco virtual de origem do SO a outra VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 

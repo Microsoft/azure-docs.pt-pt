@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: a0846a7d03cc2f63af6747c8b8514b563c1d4a5d
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447806"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707009"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Descrição geral do Azure SQL Database managed limites de recursos de instância
 
@@ -37,11 +37,11 @@ A instância gerida de base de dados SQL do Azure pode ser implementada em duas 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, vCore = 1 LP (hyper-thread) |
-| vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Memória (memória/núcleo) | 7 GB por vCore | 5.1 GB por vCore |
+| Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| Máx. de memória (memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
 | Memória de OLTP máximo em memória | Limite da instância: 3 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 8 GB por base de dados<br/> -16 núcleos: 20 GB por base de dados<br/> -24-core: 36 GB por base de dados | Limite da instância: 2,5 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 13 GB por base de dados<br/> -16 núcleos: 32 GB por base de dados |
-| Armazenamento de instância de máximo (fins gerais) |  8 TB | 8 TB |
-| Armazenamento de instância de máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Instância de Max reservado (para fins gerais) de armazenamento |  8 TB | 8 TB |
+| Instância de Max reservado (crítico para a empresa) de armazenamento | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
 > Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
@@ -53,16 +53,16 @@ A instância gerida tem dois escalões de serviço: Fins gerais e crítico para 
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
-| Tamanho máximo de armazenamento de instância | -2 TB para 4 vCores (Gen5 apenas)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
-| Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
+| Máx. de memória | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
+| Instância de Max reservado tamanho de armazenamento | -2 TB para 4 vCores (Gen5 apenas)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Tamanho máx. da base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
-| Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore) |
-| Taxa de transferência do registo | 3 MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
-| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
-| Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
-| Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
+| Número máx. de ficheiros de base de dados por instância | Até 280 | 32.767 ficheiros por base de dados |
+| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Aumentar o tamanho do ficheiro para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore)<br/>Adicione mais vCores para obter um melhor desempenho de e/s. |
+| Limite de taxa de transferência de escrita de registo | 3 MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
+| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Aumente o tamanho de ficheiro para obter um melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
+| Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore)<br/>Adicione mais vCores para obter mais espaço de TempDB. | Limitado pelo tamanho de armazenamento máximo da instância. Tamanho do ficheiro de registo de TempDB está limitado a 24GB/vCore. |
 | Número máximo de sessões | 30000 | 30000 |
 
 > [!NOTE]

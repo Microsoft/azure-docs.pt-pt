@@ -4,7 +4,7 @@ description: Utilize estes passos de resolução de problemas detalhados para is
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: Não é possível iniciar a aplicação, programa não abrir, escutar a porta bloqueada, não é possível iniciar o programa, escutar a porta bloqueada
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bc528cdd098a2e355c542c3ca8f9bcb0287f339
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922323"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710532"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Resolver problemas de conectividade de aplicativo em máquinas virtuais no Azure
 
@@ -37,12 +37,12 @@ Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os esp
 ## <a name="quick-start-troubleshooting-steps"></a>Passos de resolução de problemas de início rápido
 Se tiver problemas a ligar a uma aplicação, tente os seguintes passos de resolução de problemas gerais. Após cada passo, tente ligar ao seu aplicativo novamente:
 
-* Reinicie a máquina virtual
+* Reiniciar a máquina virtual
 * Recrie o ponto final / regras de firewall / regras de grupo (NSG) de segurança de rede
   * [Modelo do Resource Manager - gerir grupos de segurança de rede](../../virtual-network/manage-network-security-group.md)
   * [Modelo clássico – os pontos finais gerem serviços em nuvem](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * Ligar a partir de uma localização diferente, por exemplo, a outra rede virtual do Azure
-* Voltar a implementar a máquina virtual
+* Reimplementar a máquina virtual
   * [Reimplementar VM do Windows](redeploy-to-new-node-windows.md)
   * [Reimplementar VM do Linux](redeploy-to-new-node-linux.md)
 * Recriar a máquina virtual

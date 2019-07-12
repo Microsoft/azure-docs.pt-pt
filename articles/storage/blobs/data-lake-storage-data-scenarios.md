@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
-ms.openlocfilehash: c5b6287757f6b71cfd60687f463673f142db04d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd3875c5c78a02efab1251166ec7113902be3e08
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939300"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723245"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilizar a geração 2 de armazenamento do Azure Data Lake para requisitos de grandes volumes de dados
 
@@ -39,8 +39,8 @@ R *sistema de ficheiros* é um contentor para pastas e arquivos. Precisa de, pel
 
 |Ferramenta | Orientação |
 |---|--|
-|Explorador do Storage do Azure | [Criar um sistema de ficheiros através do Explorador de armazenamento](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [Criar um contentor de BLOBs ou a partilha de ficheiros com AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Explorador do Storage do Azure | [Criar um sistema de ficheiros através do Explorador de armazenamento](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [Criar um contentor de BLOBs ou a partilha de ficheiros com AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |Ficheiro do Hadoop (HDFS) sistema comando Interface de linha (CLI) com o HDInsight |[Criar um sistema de ficheiros com HDFS com o HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 |Código num bloco de notas do Databricks do Azure|[Criar um sistema de ficheiros de conta de armazenamento (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Criar um sistema de ficheiros e montá-la (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
@@ -54,11 +54,11 @@ Há três formas de conceder acesso:
 
 * Atribua uma destas funções para um utilizador, grupo, identidade gerida pelo utilizador ou principal de serviço:
 
-  [Leitor de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [Leitor de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [Contribuinte de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [Contribuinte de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 
-  [Proprietário de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [Proprietário de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * Utilize um token de assinatura de acesso partilhado (SAS).
 
@@ -196,4 +196,4 @@ Aqui está uma lista de ferramentas que pode utilizar para transferir dados da g
 |Ferramenta | Orientação |
 |---|--|
 |Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) (Atividade de Cópia no Azure Data Factory) |
-|Apache DistCop | [Utilizar o DistCp para copiar dados entre os Blobs de armazenamento do Azure e de geração 2 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|Apache DistCp | [Utilizar o DistCp para copiar dados entre os Blobs de armazenamento do Azure e de geração 2 de armazenamento do Azure Data Lake](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

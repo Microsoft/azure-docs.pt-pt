@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: be36f9ab881f2375b14ba0ea36038f9e840d199f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e70611d438678ded1260dd00a04960c798fdde5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156483"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836229"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Mover dados para e do SQL Server no local ou em IaaS (VM do Azure) com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -56,7 +56,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de/para uma
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Consulte [Tutorial: Criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**e  **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager**, **.NET API**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia.
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
@@ -79,7 +79,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | type |A propriedade de tipo deve ser definida como: **OnPremisesSqlServer**. |Sim |
 | connectionString |Especifique as informações de connectionString necessárias para se ligar à base de dados de SQL Server no local, utilizando a autenticação SQL ou autenticação do Windows. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\username**. |Não |
+| username |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 
 Pode criptografar as credenciais com o **New-AzDataFactoryEncryptValue** cmdlet e utilizá-los na cadeia de ligação, conforme mostrado no exemplo a seguir (**EncryptedCredential** propriedade):
@@ -88,7 +88,7 @@ Pode criptografar as credenciais com o **New-AzDataFactoryEncryptValue** cmdlet 
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 ```
 
-### <a name="samples"></a>Exemplos
+### <a name="samples"></a>Amostras
 **JSON para utilizar a autenticação de SQL**
 
 ```json
@@ -178,7 +178,7 @@ Se não especificar sqlReaderQuery ou sqlReaderStoredProcedureName, as colunas d
 
 
 ## <a name="json-examples-for-copying-data-from-and-to-sql-server"></a>Exemplos JSON para copiar dados de e para o SQL Server
-Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos seguintes mostram como copiar dados de e para o SQL Server e o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
+Os exemplos seguintes fornecem definições de JSON de exemplo que pode utilizar para criar um pipeline com [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos seguintes mostram como copiar dados de e para o SQL Server e o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das origens qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.
 
 ## <a name="example-copy-data-from-sql-server-to-azure-blob"></a>Exemplo: Copiar dados do SQL Server para BLOBs do Azure
 O exemplo a seguir mostra:

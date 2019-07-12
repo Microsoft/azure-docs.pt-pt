@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: d28244d75da540948093c775ffc525a80e362526
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5972f5745a2a01cbb7f23cc0523b2aef75e08a61
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184476"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673472"
 ---
 FedEx, UPS ou DHL pode ser utilizado para enviar o pacote de Datacenter do Azure. Se pretender utilizar uma operadora que não seja FedEx/DHL, contacte a equipa de operações de caixa de dados do Azure em `adbops@microsoft.com`
 
@@ -21,6 +21,6 @@ FedEx, UPS ou DHL pode ser utilizado para enviar o pacote de Datacenter do Azure
     
     - Um número de conta FedEx, UPS ou DHL é necessário para entregar as unidades de volta a partir de localizações dos EUA e Europa Ocidental. 
     - Um número de conta DHL é preferido para envio de unidades de volta a partir de localizações Ásia e Austrália. 
-    - Se não tiver um número de conta, crie uma [FedEx](http://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/) conta da transportadora.
+    - Se não tiver um número de conta, crie uma [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/) conta da transportadora.
 - Quando os pacotes de envio, tem de seguir a [termos de serviço do Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 - Pacote corretamente sua discos para evitar potenciais danos e os atrasos no processamento.

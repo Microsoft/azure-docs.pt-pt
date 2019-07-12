@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: b2da78f5c750dbc694085bb46a6ed43e74884d45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 73b1392adb2beee9e60d078d865257889b3205f8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303045"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612714"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK de .NET de gestão: Configurar e executar tarefas de análise com a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar tarefas de análise com a API do Stream Analytics para .NET com o SDK de .NET de gestão. Configurar um projeto, criar origens de entrada e saídas, transformações e iniciar e parar tarefas. Para as tarefas de análise, pode transmitir dados do armazenamento de BLOBs ou de um hub de eventos.
@@ -295,7 +295,7 @@ Que aprendeu as noções básicas da utilização de um SDK .NET para criar e ex
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics Management SDK de .NET](https://msdn.microsoft.com/library/azure/dn889315.aspx).
-* [Referência do idioma de consulta do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

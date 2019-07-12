@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cea4b3fb78f3430fdd92e40552d687501af4be8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153978"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621964"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para o Armazenamento do Microsoft Azure
 
@@ -111,7 +111,7 @@ Os alertas são gerados pelas tentativas invulgares e potencialmente prejudiciai
 
 ### <a name="anomalous-access-pattern-alerts"></a>Alertas de padrão de acesso anómalos
 
-* **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, quando alguém acedeu uma conta de armazenamento de uma localização geográfica invulgar.
+* **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando alguém acedeu uma conta de armazenamento de uma localização geográfica invulgar.
 Causas possíveis:
    * Um atacante acedeu a sua conta de armazenamento
    * Um usuário legítimo acedeu a sua conta de armazenamento de uma nova localização
@@ -120,10 +120,16 @@ Causas possíveis:
    * Um atacante acedeu a sua conta de armazenamento através de uma nova aplicação.
    * Um usuário legítimo usou um novo aplicativo/browser para aceder à sua conta de armazenamento.
 
-* **Acesso anónimo**: Este alerta indica que existe uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, esta conta tem sido acedidos anonimamente (ou seja, sem qualquer autenticação), que é inesperado em comparação com o padrão de acesso recentes nesta conta.
+* **Acesso anónimo**: Este alerta indica que esta conta foi acedido anonimamente (ou seja, sem qualquer autenticação), que é inesperado em comparação com o padrão de acesso recentes nesta conta.
 Causas possíveis:
    * Um invasor ter explorado acesso de leitura público para um contentor.
    * Um usuário legítimo ou aplicativo tenha utilizado o acesso de leitura público para um contentor.
+
+* **Anomalias de tor**: Este alerta indica que esta conta tem sido acedida com êxito de um endereço IP que é conhecido como um nó do Active Directory de saída de Tor (um proxy anonymizing). A gravidade deste alerta considera o tipo de autenticação utilizado (se aplicável) e se este é o primeiro caso desse acesso.
+Causas possíveis:
+   * Um atacante acedeu a sua conta de armazenamento através de Tor.
+   * Um usuário legítimo acedeu a sua conta de armazenamento através de Tor.
+
 
 ### <a name="anomalous-extractupload-alerts"></a>Alertas de carregamento/extração anómalos
 

@@ -7,13 +7,13 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: pvrk
-ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shivamg
+ms.openlocfilehash: f29acfc58c281622973f2f16ea36763a78751ed0
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400189"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704920"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 

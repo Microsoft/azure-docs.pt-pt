@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9accdc19062cba7bb313afac3da056798c325a4c
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274410"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786538"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com conjuntos de dados de grandes recursos do Azure
 
@@ -82,7 +82,7 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > [!IMPORTANT]
 > A consulta tem **project** a **id** campo por ordem para a paginação trabalhar. Se estiver em falta da consulta, a resposta não incluir a **$skipToken**.
 
-Por exemplo, veja [próxima consulta de página](/rest/api/azureresourcegraph/resources/resources#next_page_query) nos documentos de REST API.
+Por exemplo, veja [próxima consulta de página](/rest/api/azureresourcegraph/resources/resources#next-page-query) nos documentos de REST API.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

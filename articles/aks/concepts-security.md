@@ -2,17 +2,17 @@
 title: Conceitos - segurança nos serviços de Kubernetes do Azure (AKS)
 description: Saiba mais sobre segurança no Azure Kubernetes Service (AKS), incluindo a comunicação de nó e mestras, políticas de rede e os segredos de Kubernetes.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 69ec3869f7bfd74b150db537a01e604cae87570f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 1d100f17130594ace6169f5840915c88435cb9a8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441986"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615780"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 

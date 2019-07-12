@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 140e6c338d12732d1e41ccd9dabef1de7d5cf8d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee65aa5753d9967022ca91a66433b11761b73a32
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068848"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835801"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com encriptação dinâmica
 
@@ -73,7 +73,7 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
   
      Pode criar um leitor, utilizando o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
 
-     Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de que clicar em "Opções avançadas" e verifique as opções de encriptação.
+     Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer). Certifique-se de que clicar em "Opções avançadas" e verifique as opções de encriptação.
 
      Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](https://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. 
     

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 3f19668cc4fb4f4f4a900c157aa79de83ad1b79b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163726"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722547"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -73,6 +73,8 @@ Qualquer política de indexação tem de incluir o caminho de raiz `/*` como um 
 - Exclua o caminho de raiz para seletivamente incluem caminhos que têm de ser indexados.
 
 - Para os caminhos com caracteres regulares que incluem: carateres alfanuméricos e _ (caráter de sublinhado), não precisa de escape a cadeia de caminho em torno de aspas duplas (por exemplo, "/ caminho /?"). Para os caminhos com outros caracteres especiais, precisa escapar a cadeia de caminho em torno de aspas duplas (por exemplo, "/\"caminho abc\"/?"). Se necessitar de carateres especiais no seu caminho, pode escapar cada caminho para segurança. Funcionalmente não faz nenhuma diferença se de que cada caminho Vs apenas aqueles que têm carateres especiais de escape.
+
+- A propriedade do sistema "etag" foi excluída da indexação por predefinição, a menos que a etag é adicionada ao caminho incluído para indexar o limite de tempo.
 
 Ver [esta secção](how-to-manage-indexing-policy.md#indexing-policy-examples) para exemplos de política de indexação.
 

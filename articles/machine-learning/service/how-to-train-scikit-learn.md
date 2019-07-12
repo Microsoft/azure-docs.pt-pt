@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2c9b104d1fe9333221bc20e7e23b436358c9ece
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: c9e983f7981c1155964617694d2cce86aba741b7
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514016"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840011"
 ---
 # <a name="train-and-register-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Dar formação e registar Scikit-saiba modelos à escala com o serviço Azure Machine Learning
 

@@ -2,17 +2,17 @@
 title: Limitações para conjuntos de nós do Windows Server no Azure Kubernetes Service (AKS)
 description: Saiba mais sobre as limitações conhecidas ao executar conjuntos de nós do Windows Server e cargas de trabalho de aplicação no Azure Kubernetes Service (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: twhitney
-ms.openlocfilehash: 457a908a70fccd9f4209121d9b99e5e53905500b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: mlearned
+ms.openlocfilehash: 0d79b4d76249bd4a79f8adbd5df0cfa1ae133760
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444111"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613743"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para conjuntos de nós do Windows Server e cargas de trabalho de aplicação no Azure Kubernetes Service (AKS)
 

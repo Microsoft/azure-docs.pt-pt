@@ -13,39 +13,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ed05748a450d8d2082476aaba0831383e5fb60a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 20fdd63939c91f8421048e4904b8a694849570ab
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441556"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808060"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL
 
-A Base de Dados SQL é um serviço gerido de bases de dados relacionais para fins gerais do Microsoft Azure que suporta estruturas como dados relacionados, JSON, espaciais e XML. Base de dados SQL proporciona um desempenho dimensionável de forma dinâmica dentro de dois modelos de compras diferentes: um modelo de compra baseado em vCore e um modelo de compra baseado em DTU. A Base de Dados SQL disponibiliza também opções como [índices columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para análises e relatórios aprofundados e [OLTP dentro da memória](sql-database-in-memory.md) para processamento transacional avançado. A Microsoft lida com a aplicação de patches e a atualização da base de código do SQL ininterruptamente e abstrai toda a gestão da infraestrutura subjacente.
+Base de dados SQL do Azure é um serviço para fins gerais base de dados relacional gerida que lhe permite criar elevada disponibilidade e a camada de armazenamento de dados de elevado desempenho para as aplicações e soluções na cloud do Microsoft Azure. Base de dados SQL pode ser a escolha certa para uma variedade de aplicações em cloud moderna, porque permite-lhe utilizar funcionalidades poderosas para processamento de ambos os dados relacionais e [estruturas não-relacionais](sql-database-multi-model-features.md) , como gráficos, JSON, espaciais e XML. Baseia-se a versão estável mais recente do [motor de base de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) e permite-lhe utilizar o conjunto avançado de consulta avançada, como os recursos de processamento [tecnologias dentro da memória de alto desempenho](sql-database-in-memory.md)e [processamento de consultas inteligentes](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Com a estratégia da cloud prioritária da Microsoft, as mais recentes capacidades do SQL Server são lançadas primeiro na Base de Dados SQL e, depois, no próprio SQL Server. Esta abordagem disponibiliza-lhe as últimas capacidades do SQL Server sem sobrecarga em termos de aplicação de patches ou atualizações - com estas funcionalidades novas testadas em milhões de bases de dados. Base de dados SQL permite-lhe definir e dimensionar com facilidade desempenho dentro de dois modelos de compras diferentes: uma [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e uma [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). Base de dados SQL é o serviço totalmente gerido que tem alta-disponibilidade incorporada, as cópias de segurança e outras operações de manutenção comuns. A Microsoft lida com todos os patches e a atualização do código SQL e o sistema operacional de forma totalmente integrada e abstrai toda a gestão da infraestrutura subjacente.
 
 > [!NOTE]
 > Para obter um glossário dos termos na base de dados do Azure SQL, consulte [Glossário de termos de base de dados SQL](sql-database-glossary-terms.md)
 
 A Base de Dados SQL do Azure oferece as seguintes opções de implementação para bases de dados SQL do Azure:
 
-- Como um [base de dados individual](sql-database-single-database.md) com seu próprio conjunto de recursos geridos através de um servidor de base de dados SQL. Uma base de dados é semelhante a um [bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) no SQL Server.
-- Uma [conjunto elástico](sql-database-elastic-pool.md), que é uma coleção de bases de dados com um conjunto partilhado de recursos geridos através de um servidor de base de dados SQL. Bases de dados individuais podem ser movidas para dentro e fora de um conjunto elástico.
-- [Instância gerida](sql-database-managed-instance.md), que é uma coleção de bases de dados do sistema e do usuário com um conjunto partilhado de recursos. Uma instância gerida é semelhante a uma instância do [motor de base de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
-
-A ilustração seguinte mostra estas opções de implementação:
-
 ![deployment-options](./media/sql-database-technical-overview/deployment-options.png)
 
-A Base de Dados SQL partilha a base de código com o [motor de bases de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). Com a estratégia da cloud prioritária da Microsoft, as mais recentes capacidades do SQL Server são lançadas primeiro na Base de Dados SQL e, depois, no próprio SQL Server. Esta abordagem disponibiliza-lhe as últimas capacidades do SQL Server sem sobrecarga em termos de aplicação de patches ou atualizações - com estas funcionalidades novas testadas em milhões de bases de dados. Para obter informações sobre as novas capacidades quando são anunciadas, veja:
-
-- **[Mapa do Azure para a base de dados SQL](https://azure.microsoft.com/roadmap/?category=databases)** :
-
-  Um local onde encontrará as novidades e futuras.
-
-- **[Blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)** :
-
-  Um lugar onde os membros blog sobre as funcionalidades e notícias da base de dados SQL da Equipe do produto SQL Server.
+- [Base de dados individual](sql-database-single-database.md) representa totalmente gerido isolado base de dados que é a escolha perfeita para as aplicações de cloud modernas e microsserviços que precisam de uma origem de dados fiável único. Uma base de dados é semelhante a um [bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) na [motor de base de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
+- [Instância gerida](sql-database-managed-instance.md) é uma instância totalmente gerido do [motor de base de dados do Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json) contendo um conjunto de bases de dados que podem ser utilizados em conjunto. É uma opção perfeita para fácil migração de bases de dados do SQL Server no local para a cloud do Azure e para aplicativos que precisam para tirar partido das funcionalidades de base de dados poderoso que fornece o motor de base de dados do SQL Server.
+- [Conjunto elástico](sql-database-elastic-pool.md) é uma coleção de [bases de dados únicas](sql-database-single-database.md) com um conjunto partilhado de recursos, tais como CPU ou memória. Bases de dados individuais podem ser movidas para dentro e fora de um conjunto elástico.
 
 > [!IMPORTANT]
 > Para compreender as diferenças de funcionalidade entre a base de dados SQL e o SQL Server, bem como as diferenças entre as diferentes opções de implementação de base de dados do Azure SQL, veja [funcionalidades do SQL](sql-database-features.md).
@@ -54,6 +42,7 @@ Base de dados SQL proporciona um desempenho previsível com vários tipos de rec
 
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
+Todos os tipos de base de dados SQL permite-lhe definir a quantidade de recursos que será atribuído. 
 - Bases de dados individuais, cada base de dados é isolada umas das outras e portáteis, tendo cada um com seu próprio quantidade garantida de recursos de computação, memória e armazenamento. Base de dados SQL fornece recursos de computação, memória e armazenamento diferentes para diferentes necessidades - e a capacidade de forma dinâmica [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e reduzir verticalmente. O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) para a base de dados permite-lhe dimensionar para 100 TB, com a cópia de segurança rápida e recursos de restauração.
 - Com os conjuntos elásticos, pode criar novas bases de dados ou mover bases de dados individuais para um conjunto de recursos para maximizar a utilização de recursos e poupar dinheiro – e a capacidade de dinamicamente [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md) e reduzir verticalmente.
 - Com as instâncias geridas, cada instância gerida está isolada das restantes instâncias com recursos garantidos. Dentro de uma instância gerida, os bancos de dados de instância partilham um conjunto de recursos - e a capacidade de forma dinâmica [Dimensionar recursos de instância gerida](sql-database-managed-instance-resource-limits.md) e reduzir verticalmente.
@@ -65,11 +54,8 @@ A escalabilidade dinâmica é diferente do dimensionamento automático. O dimens
 ### <a name="purchasing-models-service-tiers-compute-sizes-and-storage-amounts"></a>Adquirir modelos, escalões de serviço, tamanhos de computação e quantidades de armazenamento
 
 Base de dados SQL disponibiliza dois modelos de compras:
-
-- O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória, recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 - O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento. O modelo de compra baseado em vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos. Para obter mais informações sobre o benefício híbrido do Azure, consulte [perguntas mais frequentes sobre](#sql-database-frequently-asked-questions-faq).
-
-  
+- O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória, recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 
@@ -88,7 +74,7 @@ Os scripts podem ajudar na monitorização e no dimensionamento dos conjuntos el
 
 Pode misturar bases de dados individuais com conjuntos elásticos e alterar os escalões de serviço de bases de dados individuais e conjuntos elásticos rápida e facilmente adaptá-los à sua situação. Com o poder e a o alcance do Azure, pode combinar outros serviços do Azure com a Base de Dados SQL para satisfazer as necessidades de design da sua aplicação única, aumentar as eficiências de custos e recursos e conseguir novas oportunidades de negócio.
 
-### <a name="extensive-monitoring-and-alerting-capabilities"></a>Capacidades alargadas de monitorização e alertas
+## <a name="extensive-monitoring-and-alerting-capabilities"></a>Capacidades alargadas de monitorização e alertas
 
 Utilize a [monitorização de desempenho incorporada](sql-database-performance.md) e as ferramentas de [alerta](sql-database-insights-alerts-portal.md) juntamente com as classificações de desempenho. Com estas ferramentas, pode avaliar rapidamente o impacto de aumentar ou reduzir verticalmente consoante as necessidades de desempenho atuais ou do projeto. Além disso, a Base de Dados SQL pode [emitir métricas e registos de diagnósticos](sql-database-metrics-diag-logging.md) para uma monitorização mais fácil. Pode configurar a Base de Dados SQL para armazenar a utilização de recursos, funções de trabalho e sessões e a conectividade a um dos recursos do Azure seguintes:
 
@@ -260,3 +246,8 @@ Os clientes da base de dados SQL terão os seguintes direitos associados com o b
 - Para um conjunto de amostras de CLI do Azure e PowerShell, veja:
   - [Exemplos da CLI do Azure para a Base de Dados SQL (Azure CLI samples for SQL Database)](sql-database-cli-samples.md)
   - [Exemplos do Azure PowerShell para a Base de Dados SQL (Azure PowerShell samples for SQL Database)](sql-database-powershell-samples.md)
+
+ - Para obter informações sobre as novas capacidades quando são anunciadas, consulte 
+   - **[Mapa do Azure para a base de dados SQL](https://azure.microsoft.com/roadmap/?category=databases)**  -um local para saber quais são as novidades e futuras.
+  - **[Blogue de base de dados SQL do Azure](https://azure.microsoft.com/blog/topics/database)**  -um local onde os membros blog sobre as funcionalidades e notícias da base de dados SQL da Equipe do produto SQL Server.
+

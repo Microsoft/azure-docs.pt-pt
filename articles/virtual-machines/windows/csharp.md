@@ -4,7 +4,7 @@ description: Utilize c# e do Azure Resource Manager para implementar uma máquin
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bc7eef9c4633b6064f2be251bc436c103f4e4a0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304577"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718693"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs do Windows no Azure com c# #
 
@@ -394,7 +394,7 @@ Deve demorar cerca de cinco minutos para esta aplicação de consola executar to
 
 2. Antes de premir **Enter** para iniciar a eliminação de recursos, pode demorar alguns minutos para verificar a criação de recursos no portal do Azure. Clique no estado de implementação para ver informações sobre a implementação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Tire partido da utilização de um modelo para criar uma máquina virtual, utilizando as informações em [implementar a Máquina Virtual do Azure com c# e um modelo do Resource Manager](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Saiba mais sobre como utilizar o [bibliotecas do Azure para .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
 

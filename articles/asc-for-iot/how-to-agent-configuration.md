@@ -2,24 +2,25 @@
 title: Configurar o Centro de segurança do Azure para pré-visualização do IoT agente | Documentos da Microsoft
 description: Saiba como configurar os agentes para utilização com o Centro de segurança do Azure para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198448"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618268"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
@@ -107,7 +108,7 @@ A tabela seguinte contém as propriedades controláveis do ASC para os agentes d
 
 Valores predefinidos estão disponíveis no esquema apropriado no [Github](https://aka.ms/iot-security-module-default).
 
-| Name| Estado | Valores válidos| Valores predefinidos| Descrição |
+| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Necessário: Falso |Valores válidos: Duração em formato ISO 8601 |Valor predefinido: PT7M |Tempo máx. antes das mensagens de prioridade alta são enviados.|
 |lowPriorityMessageFrequency |Necessário: Falso|Valores válidos: Duração em formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes das mensagens de baixa prioridade são enviados.| 
@@ -118,22 +119,22 @@ Valores predefinidos estão disponíveis no esquema apropriado no [Github](https
 
 ### <a name="supported-security-events"></a>Eventos de segurança suportados
 
-|Nome do evento| propertyName | Valor Predefinido| Evento de instantâneo| Detalhes de estado  |
+|Nome do evento| propertyName | Default Value| Evento de instantâneo| Detalhes de estado  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Eventos de diagnóstico|eventPriorityDiagnostic| Desativado| Falso| Agente relacionada com eventos de diagnóstico. Utilize este evento para o registo verboso.| 
 |Erro de configuração |eventPriorityConfigurationError |Baixa |Falso |O agente falhou ao analisar a configuração. Verifique a configuração no esquema.| 
-|Estatísticas de eventos ignorados |eventPriorityDroppedEventsStatistics |Baixa |Verdadeiro|Estatísticas de eventos relacionados com o agente. |
-|Estatísticas de mensagens|eventPriorityMessageStatistics |Baixa |Verdadeiro |Agente relacionadas com as estatísticas de mensagens. |
-|Hardware ligado|eventPriorityConnectedHardware |Baixa |Verdadeiro |Instantâneo de todo o hardware ligados ao dispositivo.|
-|Porta de escuta|eventPriorityListeningPorts |Alta |Verdadeiro |Instantâneo de portas de escuta abertos no dispositivo.|
+|Estatísticas de eventos ignorados |eventPriorityDroppedEventsStatistics |Baixa |True|Estatísticas de eventos relacionados com o agente. |
+|Estatísticas de mensagens|eventPriorityMessageStatistics |Baixa |True |Agente relacionadas com as estatísticas de mensagens. |
+|Hardware ligado|eventPriorityConnectedHardware |Baixa |True |Instantâneo de todo o hardware ligados ao dispositivo.|
+|Porta de escuta|eventPriorityListeningPorts |Alta |True |Instantâneo de portas de escuta abertos no dispositivo.|
 |Criar processo |eventPriorityProcessCreate |Baixa |Falso |Criação no dispositivo do processo de auditorias.|
 |Terminar processo|eventPriorityProcessTerminate |Baixa |Falso |Finalização no dispositivo do processo de auditorias.| 
-|Informações do sistema |eventPrioritySystemInformation |Baixa |Verdadeiro |Um instantâneo de informações do sistema (por exemplo: SO ou CPU).| 
-|Usuários locais| eventPriorityLocalUsers |Alta |Verdadeiro|Um instantâneo dos usuários registrados locais no sistema. |
+|Informações do sistema |eventPrioritySystemInformation |Baixa |True |Um instantâneo de informações do sistema (por exemplo: SO ou CPU).| 
+|Usuários locais| eventPriorityLocalUsers |Alta |True|Um instantâneo dos usuários registrados locais no sistema. |
 |Iniciar sessão|  eventPriorityLogin |Alta|Falso|Auditoria os eventos de início de sessão no dispositivo (locais e remotos inícios de sessão).|
 |Criar ligação |eventPriorityConnectionCreate|Baixa|Falso|Audita conexões TCP criados para e do dispositivo. |
-|Configuração da firewall| eventPriorityFirewallConfiguration|Baixa|Verdadeiro|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
-|Linha de base do SO| eventPriorityOSBaseline| Baixa|Verdadeiro|Verifique o instantâneo de linha de base de SO de dispositivo.|
+|Configuração da firewall| eventPriorityFirewallConfiguration|Baixa|True|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
+|Linha de base do SO| eventPriorityOSBaseline| Baixa|True|Verifique o instantâneo de linha de base de SO de dispositivo.|
  
 
 ## <a name="next-steps"></a>Passos Seguintes

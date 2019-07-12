@@ -3,17 +3,17 @@ title: Resolver erros de cópia de segurança com máquinas virtuais do Azure
 description: Resolver problemas de cópia de segurança e restauro de máquinas virtuais do Azure
 services: backup
 author: srinathvasireddy
-manager: vijayts
+manager: sivan
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: srinathvasireddy
-ms.openlocfilehash: 23137cd686bcdba59880ff705a43b16ced992b59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: srinathv
+ms.openlocfilehash: d7b99e7076e52db004bba7155922f4b144f2ad0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66303982"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704904"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados durante o uso de cópia de segurança do Azure com as informações listadas abaixo:
@@ -31,7 +31,7 @@ Isto pode acontecer devido a erros de armazenamento transitório ou a conta de a
 ## <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState - a VM não está num Estado que permita cópias de segurança.
 
 Código de erro: UserErrorVmNotInDesirableState <br/>
-Mensagem de erro: VM não está num Estado que permita cópias de segurança.<br/>
+Mensagem de erro: A VM não está num estado que permita cópias de segurança.<br/>
 
 A operação de cópia de segurança falhou porque a VM está num estado falhado. Para a VM de cópia de segurança bem-sucedida Estado deve estar em execução, parado ou parada (desalocada).
 
@@ -182,7 +182,7 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | O cancelamento não é suportado para este tipo de tarefa: <br>Aguarde até que a tarefa é concluída. |Nenhuma |
 | A tarefa não está num Estado pode ser cancelado: <br>Aguarde até que a tarefa é concluída. <br>**ou**<br> A tarefa selecionada não está num Estado pode ser cancelado: <br>Aguarde o conclusão do trabalho. |É provável que a tarefa está quase terminando. Aguarde até que a tarefa estiver concluída.|
 | Cópia de segurança não é possível cancelar a tarefa porque não está em curso: <br>O cancelamento só é suportado para tarefas em curso. Tente cancelar uma tarefa em curso. |Este erro ocorre devido a um estado transitório. Aguarde um minuto e repita a operação de cancelamento. |
-| Cópia de segurança falha ao cancelar a tarefa: <br>Aguarde até que a tarefa é concluída. |Nenhuma |
+| Cópia de segurança falha ao cancelar a tarefa: <br>Aguarde até que a tarefa é concluída. |Nenhum |
 
 ## <a name="restore"></a>Restauro
 
@@ -191,13 +191,13 @@ Desta forma, garante-es que os instantâneos são criados através do anfitrião
 | Falha no restauro com um erro interno de cloud. |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se **endereço** estiver configurado, as definições de DNS estão configuradas.<br> <li>O serviço de nuvem para o qual está a tentar restaurar está configurado com **ReservedIP**, e as VMs existentes no serviço cloud estão no estado de paragem. Pode verificar que um serviço em nuvem reservou a um IP utilizando os seguintes cmdlets do PowerShell: **$deployment = Get-AzureDeployment - ServiceName "servicename"-DEP de ranhura "Produção" $. ReservedIPName**. <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especiais para o mesmo serviço cloud: <ul><li>Máquinas de virtuais em configuração de Balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço cloud na interface do Usuário ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já está a ser utilizado: <br>Especifique um nome DNS diferente e tente novamente. |Este nome DNS refere-se para o nome do serviço cloud, normalmente, terminando **. cloudapp.net**. Este nome tem de ser exclusivo. Se obtiver este erro, tem de escolher um nome VM diferente durante o restauro. <br><br> Este erro é mostrado apenas aos utilizadores do portal do Azure. A operação de restauro através do PowerShell é bem-sucedida, porque ele restaura apenas os discos e não cria a VM. O erro irá ser enfrentado quando a VM explicitamente é criada por si, depois da operação de restauro de disco. |
 | A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
-| O serviço cloud especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual a ser restaurada: <br>Especifique um serviço cloud diferente que não está a utilizar um IP reservado. Ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhuma |
-| O serviço cloud atingiu o limite no número de pontos finais de entrada: <br>Repita a operação especificando um serviço cloud diferente ou através de um ponto final existente. |Nenhuma |
-| A conta de armazenamento dos serviços de recuperação cofre e o destino estão em duas regiões diferentes: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está na mesma região do Azure como o seu Cofre de serviços de recuperação. |Nenhuma |
-| Não é suportada a conta de armazenamento especificada para a operação de restauro: <br>São suportadas apenas básico ou Standard contas de armazenamento com as definições de replicação localmente redundantes ou georredundantes. Selecione uma conta de armazenamento suportadas. |Nenhuma |
+| O serviço cloud especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual a ser restaurada: <br>Especifique um serviço cloud diferente que não está a utilizar um IP reservado. Ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhum |
+| O serviço cloud atingiu o limite no número de pontos finais de entrada: <br>Repita a operação especificando um serviço cloud diferente ou através de um ponto final existente. |Nenhum |
+| A conta de armazenamento dos serviços de recuperação cofre e o destino estão em duas regiões diferentes: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está na mesma região do Azure como o seu Cofre de serviços de recuperação. |Nenhum |
+| Não é suportada a conta de armazenamento especificada para a operação de restauro: <br>São suportadas apenas básico ou Standard contas de armazenamento com as definições de replicação localmente redundantes ou georredundantes. Selecione uma conta de armazenamento suportadas. |Nenhum |
 | O tipo de conta de armazenamento especificada para a operação de restauro não está online: <br>Certifique-se de que a conta de armazenamento especificada na operação de restauro está online. |Este erro pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma falha. Escolha outra conta de armazenamento. |
 | Atingiu a quota de grupo de recursos: <br>Elimine alguns grupos de recursos do portal do Azure ou contacte o suporte do Azure para aumentar os limites. |Nenhuma |
-| A sub-rede selecionada não existe: <br>Selecione uma sub-rede existente. |Nenhuma |
+| A sub-rede selecionada não existe: <br>Selecione uma sub-rede existente. |Nenhum |
 | O serviço de cópia de segurança não tem autorização para aceder aos recursos na sua subscrição. |Para resolver este erro, restaurar discos utilizando os passos em [restaurar discos de cópia de segurança](backup-azure-arm-restore-vms.md#restore-disks). Em seguida, use o PowerShell os passos em [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Cópia de segurança ou restauro demora algum tempo

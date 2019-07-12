@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 1ce4e9c47bf6f885417b6c06c6036d3cadcaef7b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706456"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798385"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Utilizar os sinalizadores de recurso numa aplicação ASP.NET Core
 
@@ -86,30 +86,42 @@ public class Startup
 
 Recomendamos que mantenha os sinalizadores de recurso fora da aplicação e geri-los separadamente. Se o fizer, permite-lhe alterar o sinalizador Estados em qualquer altura e ter essas alterações entrem em vigor no aplicativo imediatamente. Configuração de aplicações fornece um local centralizado para organizar e controlar todos os seus sinalizadores de recurso através de um portal dedicado da interface do Usuário. Configuração de aplicações também fornece os sinalizadores para a sua aplicação diretamente através do seu cliente de .NET Core bibliotecas.
 
-A maneira mais fácil para ligar a sua aplicação ASP.NET Core para configuração de aplicações é através do fornecedor de configuração `Microsoft.Extensions.Configuration.AzureAppConfiguration`. Para utilizar este pacote do NuGet, adicione o seguinte código para o *Program.cs* ficheiro:
+A maneira mais fácil para ligar a sua aplicação ASP.NET Core para configuração de aplicações é através do fornecedor de configuração `Microsoft.Azure.AppConfiguration.AspNetCore`. Siga estes passos para utilizar este pacote do NuGet.
 
-```csharp
-using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+1. Open *Program.cs* de ficheiros e adicione o seguinte código.
 
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-           .ConfigureAppConfiguration((hostingContext, config) => {
-               var settings = config.Build();
-               config.AddAzureAppConfiguration(options => {
-                   options.Connect(settings["ConnectionStrings:AppConfig"])
-                          .UseFeatureFlags();
-                });
-           })
-           .UseStartup<Startup>();
-```
+   ```csharp
+   using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
-Valores de sinalizador de funcionalidade devem mudar ao longo do tempo. Por predefinição, o Gestor de recursos, atualiza os valores de sinalizador de funcionalidade a cada 30 segundos. O código seguinte mostra como alterar o intervalo de consulta para 5 minutos no `options.UseFeatureFlags()` chamar:
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+       WebHost.CreateDefaultBuilder(args)
+              .ConfigureAppConfiguration((hostingContext, config) => {
+                  var settings = config.Build();
+                  config.AddAzureAppConfiguration(options => {
+                      options.Connect(settings["ConnectionStrings:AppConfig"])
+                             .UseFeatureFlags();
+                   });
+              })
+              .UseStartup<Startup>();
+   ```
+
+2. Open *Startup.cs* e atualizar o `Configure` método para adicionar um middleware para permitir que os valores de sinalizador de funcionalidade sejam atualizados em intervalos periódicos enquanto o ASP.NET Core web aplicação continua a receber pedidos.
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   {
+       app.UseAzureAppConfiguration();
+       app.UseMvc();
+   }
+   ```
+
+Valores de sinalizador de funcionalidade devem mudar ao longo do tempo. Por predefinição, os valores de sinalizador de funcionalidade são colocadas em cache durante um período de 30 segundos, para que uma operação de atualização acionada quando o middleware recebe um pedido não atualizará o valor até que o valor em cache expire. O código seguinte mostra como alterar a hora de expiração da cache ou o intervalo de consulta para 5 minutos no `options.UseFeatureFlags()` chamar.
 
 ```csharp
 config.AddAzureAppConfiguration(options => {
     options.Connect(settings["ConnectionStrings:AppConfig"])
            .UseFeatureFlags(featureFlagOptions => {
-                featureFlagOptions.PollInterval = TimeSpan.FromSeconds(300);
+                featureFlagOptions.CacheExpirationTime = TimeSpan.FromMinutes(5);
            });
 });
 ```
@@ -283,7 +295,7 @@ app.UseForFeature(featureName, appBuilder => {
 });
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como implementar os sinalizadores de recurso na sua aplicação ASP.NET Core, utilizando o `Microsoft.FeatureManagement` bibliotecas. Para obter mais informações sobre o suporte de gestão de recursos no ASP.NET Core e configuração de aplicações, consulte os seguintes recursos:
 
