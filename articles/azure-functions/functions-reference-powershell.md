@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: 489c94f37b6c88db001dee437cc6ed89383e6053
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442184"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706405"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de programadores do PowerShell de funções do Azure
 
@@ -84,8 +85,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, em UTC, a função foi acionada        | DateTime |
-| MethodName | O nome da função que foi acionada     | string   |
-| RandGuid   | um guid exclusivo para esta execução da função | string   |
+| MethodName | O nome da função que foi acionada     | Cadeia de caracteres   |
+| RandGuid   | um guid exclusivo para esta execução da função | Cadeia de caracteres   |
 
 Cada tipo de Acionador tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` para `QueueTrigger` contém o `InsertionTime`, `Id`, `DequeueCount`, entre outras coisas. Para obter mais informações nos metadados do acionador de fila, vá para o [documentação oficial para acionadores de fila](functions-bindings-storage-queue.md#trigger---message-metadata). Verifique a documentação sobre o [acionadores](functions-triggers-bindings.md) que está a trabalhar para ver o que vem de dentro os metadados de Acionador.
 
@@ -133,10 +134,10 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se parâmetros válidos para chamar `Push-OutputBinding`:
 
-| Name | Type | Posição | Descrição |
+| Nome | Type | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | String | 1 | O nome da ligação de saída que pretende definir. |
-| **`-Value`** | Object | 2 | O valor de enlace de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
+| **`-Name`** | Cadeia | 1 | O nome da ligação de saída que pretende definir. |
+| **`-Value`** | Objeto | 2 | O valor de enlace de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | com o nome | (Opcional) Quando especificado, força o valor a ser definido para um enlace de saída especificado. | 
 
 Também são suportados os seguintes parâmetros comuns: 
@@ -283,7 +284,7 @@ Um número de acionadores e enlaces estão disponíveis para utilizar com a sua 
 Todos os acionadores e enlaces são representados no código, como alguns tipos de dados reais:
 
 * Tabela de hash
-* string
+* Cadeia de caracteres
 * byte[]
 * int
 * double
@@ -306,10 +307,10 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados JSON, ele é passado como uma tabela de hash. Se os dados são uma cadeia de caracteres, ele é passado como uma cadeia de caracteres. | object |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Dictionary < string, string ><sup>*</sup> |
-| **`Method`** | O método HTTP do pedido.                                | string                    |
+| **`Method`** | O método HTTP do pedido.                                | Cadeia de caracteres                    |
 | **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Dictionary < string, string ><sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Dictionary < string, string ><sup>*</sup> |
-| **`Url`** | O URL do pedido.                                        | string                    |
+| **`Url`** | O URL do pedido.                                        | Cadeia de caracteres                    |
 
 <sup>*</sup> Todos os `Dictionary<string,string>` chaves diferenciam maiúsculas de minúsculas.
 
@@ -320,7 +321,7 @@ O objeto de resposta que deve enviar de volta é do tipo `HttpResponseContext`, 
 | Propriedade      | Descrição                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | object                    |
-| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
+| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | cadeia                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou tabela de hash   |
 | **`StatusCode`**  | O código de estado HTTP da resposta.                       | cadeia de caracteres ou int             |
 

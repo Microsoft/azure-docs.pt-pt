@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ce07c6c19c19f134cc322309bb338b94ef11ea85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d53c1de9678db497a20788d0cab7ee4f0e6f0c9c
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393865"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607069"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Orientações de preços para as VMs do SQL Server do Azure
 
@@ -110,7 +110,7 @@ Trazer o seu próprio SQL licenciamento graças à mobilidade de licenças é re
 
 - **Cargas de trabalho com o tempo de vida conhecido e o dimensionamento**. Por exemplo, uma aplicação que é necessária para o ano inteiro e qual a pedido tem sido prevista.
 
-Para utilizar BYOL com uma VM do SQL Server, tem de ter uma licença para o SQL Server Standard ou Enterprise e [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção necessária por meio de alguns programas de licenciamento de volume e uma compra opcional com outras pessoas. O nível de preço fornecido por meio de programas de licenciamento por Volume varia com base no tipo de contrato e a quantidade e ou compromisso para com SQL Server. Mas como uma regra prática, a trazer a sua própria licença para cargas de trabalho de produção contínua tem as seguintes vantagens:
+Para utilizar BYOL com uma VM do SQL Server, tem de ter uma licença para o SQL Server Standard ou Enterprise e [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção necessária por meio de alguns programas de licenciamento de volume e uma compra opcional com outras pessoas. O nível de preço fornecido por meio de programas de licenciamento por Volume varia com base no tipo de contrato e a quantidade e ou compromisso para com SQL Server. Mas como uma regra prática, a trazer a sua própria licença para cargas de trabalho de produção contínua tem as seguintes vantagens:
 
 | Benefício BYOL | Descrição |
 |-----|-----|
@@ -166,7 +166,7 @@ Para outros fluxos de trabalho, considere automaticamente encerrar e reiniciar a
 > [!IMPORTANT]
 > Encerrar e a desalocar a VM são a única forma de evitar encargos. Simplesmente parar ou utilizar as opções de energia para encerrar a VM ainda incorre em custos de utilização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para o Azure geral preços orientações, consulte [evitar custos inesperados com a faturação do Azure e a gestão de custos](../../../billing/billing-getting-started.md). Para as máquinas virtuais mais recente, preços, incluindo o SQL Server, consulte a página dos preços do Azure VM Azure [VMs do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [VMs do Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

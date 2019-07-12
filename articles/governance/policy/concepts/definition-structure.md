@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 398efd36e6c8d82a5090b7446c95abb2d1bfbca1
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 03c7be9112ed22bb43e259fa72581d382a276163
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428766"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718196"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -105,7 +105,7 @@ Parâmetros funcionam da mesma forma, na criação de políticas. Ao incluir par
 Um parâmetro tem as seguintes propriedades que são utilizadas na definição de política:
 
 - **name**: O nome do seu parâmetro. Utilizado pelo `parameters` função de implementação dentro da regra de política. Para obter mais informações, consulte [usando um valor de parâmetro](#using-a-parameter-value).
-- `type`: Determina se o parâmetro é um **cadeia de caracteres** ou uma **matriz**.
+- `type`: Determina se o parâmetro é um **cadeia de caracteres**, **matriz**, **objeto**, **booleanos**, **inteiro**, **float**, ou **datetime**.
 - `metadata`: Define subproperties principalmente utilizados pelo portal do Azure para apresentar informações amigáveis:
   - `description`: A explicação sobre o que o parâmetro é utilizado para. Pode ser utilizado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável apresentado no portal para o parâmetro.

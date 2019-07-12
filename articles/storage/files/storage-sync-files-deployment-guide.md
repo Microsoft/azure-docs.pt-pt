@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12fd1b03e58d1c62157c6652ce96d8f0172dadb2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240102"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606111"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -25,7 +25,7 @@ Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azu
     - [Disponibilidade de região](storage-sync-files-planning.md#region-availability) para o Azure File Sync.
     - [Criar uma partilha de ficheiros](storage-how-to-create-file-share.md) para obter uma descrição passo a passo de como criar uma partilha de ficheiros.
 * Pelo menos uma instância suportada do Windows Server ou cluster do Windows Server para sincronizar com o Azure File Sync. Para obter mais informações sobre as versões suportadas do Windows Server, consulte [interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
-* O módulo do PowerShell de Az pode ser utilizado com o PowerShell 5.1 ou o PowerShell 6 +. Pode utilizar o módulo do PowerShell de Az para o Azure File Sync em qualquer sistema de suporte, incluindo sistemas de não-Windows, no entanto, o cmdlet de registo do servidor sempre tem de ser executado diretamente na instância do Windows Server que está a registar. No Windows Server 2012 R2, pode verificar que está a executar, pelo menos, do PowerShell 5.1. \* examinando o valor da **PSVersion** propriedade do **$PSVersionTable** objeto:
+* O módulo do PowerShell de Az pode ser utilizado com o PowerShell 5.1 ou o PowerShell 6 +. Pode utilizar o módulo do PowerShell de Az para o Azure File Sync em qualquer sistema de suporte, incluindo sistemas de não-Windows, no entanto, o cmdlet de registo do servidor tem sempre de ser executado na instância do Windows Server estão a registar (isso pode ser feito diretamente ou através do PowerShell comunicação remota). No Windows Server 2012 R2, pode verificar que está a executar, pelo menos, do PowerShell 5.1. \* examinando o valor da **PSVersion** propriedade do **$PSVersionTable** objeto:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -39,17 +39,25 @@ Recomendamos vivamente que leia [planear uma implementação de ficheiros do Azu
     > Se planeja usar a interface do Usuário de registo do servidor, em vez de registrar-se diretamente a partir do PowerShell, tem de utilizar o PowerShell 5.1.
 
 * Se tiver optado por utilizar o PowerShell 5.1, certifique-se de que, no .NET, pelo menos, 4.7.2 está instalado. Saiba mais sobre [versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) no seu sistema.
-* O módulo do PowerShell de Az, que pode ser instalado, seguindo as instruções aqui: [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* O módulo de Az.StorageSync, que está atualmente instalado, independentemente do módulo de Az:
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Se estiver a instalar o .NET 4.7.2+ no Windows Server Core, tem de instalar com o `quiet` e `norestart` sinalizadores ou a instalação falhará. Por exemplo, se instalar o .NET 4.8, o comando teria o aspeto semelhante ao seguinte:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* O módulo do PowerShell de Az, que pode ser instalado, seguindo as instruções aqui: [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > O módulo de Az.StorageSync está agora instalado automaticamente quando instala o módulo do PowerShell de Az.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparar o Windows Server para ser utilizado com o Azure File Sync
 Para cada servidor que pretende utilizar com o Azure File Sync, incluindo a cada nó de servidor num Cluster de ativação pós-falha, desativar **a configuração de segurança avançada do Internet Explorer**. Isto é necessário apenas para o registo inicial do servidor. Pode reativá-la depois de o servidor estar registado.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+> [!Note]  
+> Pode ignorar este passo se estiver a implementar o Azure File Sync no Windows Server Core.
+
 1. Abra o Gestor de servidor.
 2. Clique em **servidor Local**:  
     !["Servidor local", no lado esquerdo da IU do Gestor de servidores](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Para cada servidor que pretende utilizar com o Azure File Sync, incluindo a cada
 Para desativar a configuração de segurança avançada do Internet Explorer, execute o seguinte a partir de uma sessão do PowerShell elevada:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -100,7 +113,14 @@ Quando tiver terminado, selecione **criar** para implementar o serviço de sincr
 Substitua **< Az_Region >** , **< RG_Name >** , e **< my_storage_sync_service >** pelos seus próprios valores, em seguida, utilize o seguinte cmds para criar e implementar um Serviço de sincronização de armazenamento:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -382,7 +402,7 @@ Para migrar uma implementação de DFS-R para o Azure File Sync:
 
 Para obter mais informações, consulte [interoperabilidade do Azure File Sync com o sistema de ficheiros distribuído (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Adicionar ou remover um ponto de final de servidor de sincronização de ficheiros do Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou anular o registo de um servidor com o Azure File Sync](storage-sync-files-server-registration.md)
 - [Monitorizar a sincronização de ficheiros do Azure](storage-sync-files-monitoring.md)

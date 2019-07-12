@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447973"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657521"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Explorador de dados do Azure com o Azure Data Factory 
 
@@ -46,7 +46,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
     **Definição**  | **Descrição do campo**
     |---|---|
-    | **Nome** | Introduza um nome globalmente exclusivo para a fábrica de dados. Se receber o erro *"nome do Data factory \"LoadADXDemo\" não está disponível"* , introduza um nome diferente para a fábrica de dados. Para regras de nomenclatura dos artefactos do Data Factory, veja [regras de nomenclatura do Data Factory](/azure/data-factory/naming-rules).|
+    | **Name** | Introduza um nome globalmente exclusivo para a fábrica de dados. Se receber o erro *"nome do Data factory \"LoadADXDemo\" não está disponível"* , introduza um nome diferente para a fábrica de dados. Para regras de nomenclatura dos artefactos do Data Factory, veja [regras de nomenclatura do Data Factory](/azure/data-factory/naming-rules).|
     | **Subscrição** | Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. |
     | **Grupo de Recursos** | Selecione **criar novo** e introduza o nome de um novo grupo de recursos. Selecione **utilizar existente**, se tiver um grupo de recursos existente. |
     | **Versão** | Selecione **V2** |
@@ -141,7 +141,7 @@ Explorador de dados novo serviço ligado do Azure é criado para copiar os dados
     * Selecione **concluir** para concluir a criação do serviço ligado.
 
     > [!NOTE]
-    > O principal de serviço é utilizado pelo Azure Data Factory para aceder ao serviço do Explorador de dados do Azure. Para o principal de serviço, [criar um Azure Active Directory (Azure AD) principal de serviço](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Não utilize o **do Azure Key Vault** método.
+    > O principal de serviço é utilizado pelo Azure Data Factory para aceder ao serviço do Explorador de dados do Azure. Para o principal de serviço, [criar um Azure Active Directory (Azure AD) principal de serviço](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Não utilize o **do Azure Key Vault** método.
 
 1. O **o arquivo de dados de destino** abre. A ligação de dados do Explorador de dados do Azure que criou está disponível para utilização. Selecione **seguinte** para configurar a ligação.
 

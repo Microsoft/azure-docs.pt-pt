@@ -5,19 +5,19 @@ services: networking
 documentationcenter: ''
 author: KumudD
 manager: ''
-ms.service: networking
+ms.service: virtual-network
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: ypitsch,kumud
-ms.openlocfilehash: ecce41878f7579862bba083f8cecf5db3cbde3e6
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: bcd2415255643926db2cd4e1e4e55bb7381d6437
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67144142"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672543"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
