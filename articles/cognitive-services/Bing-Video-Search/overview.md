@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7b17c03b464ed7ccc13de2221c8e4cb36be05c3f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 64d6613a5bfb9b13500d2263d2f826d342972639
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442700"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867854"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>O que é a API de Pesquisa de Vídeos do Bing?
 
@@ -27,7 +27,7 @@ A API de pesquisa de vídeos do Bing torna mais fácil adicionar capacidades de 
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Sugerir termos de pesquisa em tempo real](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Melhore a sua experiência de aplicação utilizando a [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md) para apresentar os termos de pesquisa sugeridos, à medida que estão a ser escritos. |
 | [Filtrar e restringir os resultados de vídeo](concepts/get-videos.md#filtering-videos)                      | Filtre os vídeos devolvidos ao editar os parâmetros de consulta.                                                                                                       |
-| [Recortar, redimensionar e apresentar miniaturas](resize-and-crop-thumbnails.md)                                                | Edição e exibição de visualizações de miniaturas para os vídeos devolvidos pela API de pesquisa de vídeos do Bing.                                                                                      |
+| [Recortar, redimensionar e apresentar miniaturas](../bing-web-search/resize-and-crop-thumbnails.md)                                                | Edição e exibição de visualizações de miniaturas para os vídeos devolvidos pela API de pesquisa de vídeos do Bing.                                                                                      |
 | [Obtenha vídeos populares](trending-videos.md) | Procurar vídeos populares em todo o mundo.                                                                                                          |
 | [Obtenha informações de vídeo](video-insights.md) | Personalize uma pesquisa de vídeos populares em todo o mundo.                                                                                                          |
 

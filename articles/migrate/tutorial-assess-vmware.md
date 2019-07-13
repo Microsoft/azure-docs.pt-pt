@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
-ms.openlocfilehash: 5dc1a05e93bf1e82269a4291f147bac6e8ba657a
-ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
+ms.date: 07/12/2019
+ms.author: hamusa
+ms.openlocfilehash: 5f70037b1e6ce284b55ff5ff0ae38eb50c320122
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813009"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868662"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Avaliar VMs VMware com o Azure Migrate: Avaliação de servidor
 
@@ -85,6 +85,7 @@ Azure Migrate: Avaliação do servidor é executada uma simples aplicação de V
     - Transferir um ficheiro de modelo OVA e importe-o ao vCenter Server.
     - Criar a aplicação e verifique se pode ligar a avaliação do servidor de migrar do Azure.
     - Configurar a aplicação pela primeira vez e registrá-la com o projeto do Azure Migrate.
+- Pode configurar várias aplicações para um único projeto do Azure Migrate. Em todas as aplicações, a deteção de VMs até 35 000 é suportada. Um máximo de 10 000 servidores pode ser detetado por aplicação.
 
 ### <a name="download-the-ova-template"></a>Transferir o modelo de OVA
 
@@ -171,12 +172,24 @@ Configure a aplicação através dos seguintes passos.
 Agora, ligar a partir da aplicação ao vCenter Server e iniciar a deteção de VMS.
 
 1. Na **especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP do vCenter Server. Pode deixar a porta predefinida ou especificar uma porta personalizada, no qual o vCenter Server aguarda.
-2. Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que a aplicação irá utilizar para detetar VMs no vCenter server. Certifique-se de que a conta tem o [permissões necessárias para a deteção](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. Na **nome de utilizador** e **palavra-passe**, especifique as credenciais de conta só de leitura que a aplicação irá utilizar para detetar VMs no vCenter server. Certifique-se de que a conta tem o [permissões necessárias para a deteção](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Pode definir o âmbito de deteção ao limitar o acesso à conta do vCenter em conformidade; Saiba mais sobre o controlo de âmbito de deteção [aqui](tutorial-assess-vmware.md#scoping-discovery).
 3. Clique em **validar ligação** para se certificar de que a aplicação pode ligar ao vCenter Server.
 4. Depois da ligação é estabelecida, clique em **guardar e iniciar a deteção**.
 
-
 Esta ação inicia a deteção. Demora cerca de 15 minutos para os metadados de VMs detetadas a aparecer no portal.
+
+### <a name="scoping-discovery"></a>Controlo de âmbito de deteção
+
+Deteção pode ser confinada ao limitar o acesso da conta do vCenter utilizada para a deteção. Pode definir o âmbito para centros de dados do vCenter Server, clusters, pasta de clusters, anfitriões, pasta de anfitriões ou VMs individuais. 
+
+> [!NOTE]
+> Atualmente, a avaliação de servidor não é capaz de detetar VMs, se a conta do vCenter tem acesso concedido ao nível de pasta VM do vCenter. Se quiser definir o âmbito sua deteção por pastas de VM, pode fazê-lo ao garantir que o vCenter conta tem acesso só de leitura atribuído a um nível VM.  Seguem-se instruções sobre como pode fazer isso:
+>
+> 1. Atribua permissões só de leitura em todas as VMs nas pastas VM à qual pretende definir o âmbito de deteção. 
+> 2. Conceder acesso só de leitura a todos os objetos de principal onde estão alojadas as VMs. Todos os objetos principais - host, pasta de anfitriões, cluster, pasta de clusters - na hierarquia até o Centro de dados estão a ser incluído. Não é necessário propagar as permissões para todos os objetos subordinados.
+> 3. Utilizar as credenciais para a deteção de selecionar o datacenter como *âmbito da coleção*. O RBAC configurar garante que o utilizador correspondente do vCenter terão acesso às VMs apenas específico de inquilino.
+>
+> Tenha em atenção essa pasta de anfitriões e clusters são suportados.
 
 ### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: 9b8f3894062c34e743a39f28b5f079a67a285c84
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 8956aff86777e2a2570c6a555a9bd0882f328a77
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67357672"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868402"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -31,10 +31,10 @@ A versão 3 da API de texto do Translator fornece uma API da Web baseados em JSO
 
 ## <a name="base-urls"></a>Base URLs
 
-Microsoft Translator é fornecida fora várias localizações de datacenter. Atualmente estão localizados em 6 [geografias do Azure](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator é fornecida fora várias localizações de datacenter. Atualmente estão localizados em 10 [geografias do Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** E.U.A. oeste 2 e EUA Centro-Oeste 
-* **Ásia-Pacífico:** Sudeste asiático e sul da Coreia
+* **Americas:** Este dos E.U.A., Centro-Sul dos E.U.A., oeste dos E.U.A. e E.U.A. oeste 2 
+* **Ásia-Pacífico:** Sul da Coreia, leste do Japão, Sudeste asiático e leste da Austrália
 * **Europa:** Europa do Norte e Europa Ocidental
 
 Pedidos para a API de texto do Microsoft Translator estiverem na maioria dos casos, processados pelo centro de dados que esteja mais próximo da origem da solicitação. Em caso de falha do datacenter, o pedido pode ser encaminhado fora da área geográfica do Azure.
@@ -49,7 +49,7 @@ Para forçar o pedido deve ser processada por uma determinada localização geog
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Subscrever a API de texto do Translator ou [serviço de multi de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
 

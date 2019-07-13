@@ -58,7 +58,8 @@
     - name: Obter informações através de tokens
       href: use-insights-token.md
     - name: Redimensionar e recortar miniaturas
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Pesquisar por uma imagem ao utilizar tokens de informações de imagens
       href: tutorial-visual-search-insights-token.md
     - name: Criar uma aplicação Web de página única
