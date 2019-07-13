@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b615185472ede25fd6ceef9cc3e7325375e16ac7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233889"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846671"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |Tipo de entidade|description|
 |--|--|
-|Calendário|Calendário é qualquer coisa sobre reuniões pessoais e de compromissos, _não_ eventos públicos (como agendas de cup do mundo, calendários de eventos de Seattle ou calendários genéricos (por exemplo, que dia é hoje em dia, o que Outono começar, quando é dia de trabalho).|
+|Calendário|Calendário é qualquer coisa sobre reuniões pessoais e de compromissos, _não_ eventos públicos (por exemplo, o mundo cup agendas, calendários de eventos de Seattle) ou calendários genéricos (por exemplo, que dia é hoje em dia, o que Outono começar, quando é dia de trabalho).|
 |Comunicação|Pedidos para fazer chamadas, envie textos ou mensagens instantâneas, localize e adicione a contactos e vários outros pedidos relacionados com a comunicação (geralmente de saída). Consultas de nome de contato único não pertencem ao domínio de comunicação.|
 |Email|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
 |HomeAutomation|O domínio de HomeAutomation fornece intenções e entidades relacionadas para controlar os dispositivos de casa inteligentes. Principalmente suporta o comando de controle relacionados com luzes e ar-condicionado, mas tem algumas capacidades de generalização para outras aplicações electric.|

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
-ms.author: gracez
-ms.openlocfilehash: 33907437ab330278bdf7b023f6a93bd96e78cbad
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.author: nitinme
+ms.openlocfilehash: 205ca0baa195a3859fd7d5cc04e3057411ecbe1c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561328"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845896"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de voz do Bing para o serviço de voz
 

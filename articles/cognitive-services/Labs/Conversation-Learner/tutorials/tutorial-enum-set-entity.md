@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: e990ebe89f4446a0226aa0e0f73ffd900e5b021a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.author: nolachar
+ms.openlocfilehash: ed18d30a0c3f5d51cb3a07b8948863cdda16c1ae
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592950"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845952"
 ---
 # <a name="when-to-use-enum-entities-and-set-entity-actions"></a>Quando utilizar entidades de Enumeração e ações de conjunto de entidades
 
@@ -71,7 +71,7 @@ Quando os valores possíveis da entidade estão abertas e não corrigido, terá 
 
 Exemplo: Bot: O que é o seu nome?
 Utilizador: Bot de Matt: O que é a cor favorita?
-Utilizador: Prateado
+Utilizador: Silver
 
 Esses prompts são considerados abertas, uma vez que poderia ser respondidas com valores arbitrários.
 
