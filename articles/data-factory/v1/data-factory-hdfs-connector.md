@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1324479ed3b1438e993504552c6279bcef5a15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f28c7b94a9eb8131f0638a24a0d4b3cfccf062e5
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431077"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836298"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory, que está a utilizar:"]
@@ -179,7 +179,7 @@ Ver [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-
 ## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>Exemplo JSON: Copiar dados do HDFS no local para BLOBs do Azure
 Este exemplo mostra como copiar dados de um HDFS no local para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** a qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.  
 
-O exemplo fornece definições de JSON para as seguintes entidades do Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do HDFS para armazenamento de Blobs do Azure, utilizando [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
+O exemplo fornece definições de JSON para as seguintes entidades do Data Factory. Pode utilizar estas definições para criar um pipeline para copiar dados do HDFS para armazenamento de Blobs do Azure, utilizando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 1. Um serviço ligado do tipo [OnPremisesHdfs](#linked-service-properties).
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).

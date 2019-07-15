@@ -352,8 +352,12 @@
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Recuperar blobs eliminados
               href: storage-blob-soft-delete.md
-        - name: Utilizar o Emulador do Armazenamento
-          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Utilizar um emulador de armazenamento
+          items:
+            - name: Utilizar o emulador de open-source Azurite
+              href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Utilizar o emulador de armazenamento do Azure
+              href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Definir e obter propriedades e metadados
           href: storage-properties-metadata.md
         - name: Alojar um website estático

@@ -6,16 +6,18 @@
   href: create-manage-support-requests-using-access-control.md
 - name: Pedidos de aumento de quota
   items:
-    - name: Pedidos de aumento da Quota do Modelo de Implementação do Resource Manager
+    - name: Aumento de limite de vCPU de computação
       items:
-        - name: Aumento do limite de vCPU das Séries de VM
-          href: per-vm-quota-requests.md
-        - name: Aumento do limite total regional de vCPU
-          href: regional-quota-requests.md
-        - name: Aumento do limite de rede
-          href: networking-quota-requests.md
-    - name: Pedidos de aumento da Quota do Modelo de Implementação Clássica
-      href: classic-deployment-model-quota-increase-requests.md
+        - name: Modelo de implementação do Resource Manager
+          items:
+            - name: Aumento do limite de vCPU das Séries de VM
+              href: per-vm-quota-requests.md
+            - name: Aumento do limite total regional de vCPU
+              href: regional-quota-requests.md
+        - name: Modelo de implementação clássica
+          href: classic-deployment-model-quota-increase-requests.md
+    - name: Aumento do limite de rede
+      href: networking-quota-requests.md
 - name: Resolução de problemas de subscrição de SKU ou região
   href: sku-series-unavailable.md
 - name: Referência
