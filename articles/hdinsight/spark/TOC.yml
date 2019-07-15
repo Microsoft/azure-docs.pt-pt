@@ -22,6 +22,8 @@
       href: apache-spark-load-data-run-query.md
     - name: Utilizar o IntelliJ para executar consultas do Apache Spark
       href: apache-spark-intellij-tool-plugin.md
+    - name: Depuração da tarefa do Spark falhada no IntelliJ (pré-visualização)
+      href: apache-spark-intellij-tool-failure-debug.md
     - name: Analisar dados com ferramentas do BI
       href: apache-spark-use-bi-tools.md
     - name: Executar uma tarefa de transmissão

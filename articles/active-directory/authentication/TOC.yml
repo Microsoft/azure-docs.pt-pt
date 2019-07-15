@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Ativar a integração local de SSPR
       href: tutorial-enable-writeback.md
-    - name: Ativar a reposição de palavra-passe do Windows 10
-      href: tutorial-sspr-windows.md
     - name: Integrar o Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Conceitos
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Ativar repetição de escrita de palavras-passe
           href: howto-sspr-writeback.md
-        - name: 'SSPR para Windows 7, 8 e 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: SSPR para clientes Windows
+          href: howto-sspr-windows.md
     - name: MFA baseada na cloud
       items:
         - name: Implementar o MFA baseado na cloud
