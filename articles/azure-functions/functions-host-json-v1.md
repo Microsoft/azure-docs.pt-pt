@@ -213,7 +213,7 @@ Controlos de filtragem para os registos de escrita por um [objeto ILogger](funct
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |categoryFilter|n/d|Especifica a filtragem por categoria| 
-|defaultLevel|Informações|Para as categorias não especificadas no `categoryLevels` matriz, enviar registos neste nível e superior para o Application Insights.| 
+|defaultLevel|Information|Para as categorias não especificadas no `categoryLevels` matriz, enviar registos neste nível e superior para o Application Insights.| 
 |categoryLevels|n/d|Uma matriz de categorias que especifica o nível de registo mínimo para enviar para o Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor e, mais tempo valores têm precedência. No exemplo anterior *Host. JSON* do ficheiro, todas as categorias que começam com "Host.Aggregator" registo em `Information` nível. Todas as outras categorias que começam com "Host", como "Host.Executor", inicie sessão em `Error` nível.| 
 
 ## <a name="queues"></a>filas
