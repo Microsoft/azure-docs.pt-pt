@@ -1,6 +1,6 @@
 ---
 title: Detetar idioma com a API de REST de análise de texto | Documentos da Microsoft
-description: Como detetar o idioma a utilizar a API de REST de análise de texto dos serviços cognitivos do Azure.
+description: Detete idioma ao utilizar a API de REST de análise de texto dos serviços cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,31 +9,31 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 6f1e71b75aa68c8f4ea1fa8ed373da25dbb3c24b
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: e1adeb34cf999f471bb183e4d7de9c65427252bb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67304054"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986514"
 ---
-# <a name="example-how-to-detect-language-with-text-analytics"></a>Exemplo: como detetar idiomas com a Análise de Texto
+# <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar idioma com análise de texto
 
-O [deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) recurso da API avalia o texto de entrada e para cada documento e devolve os identificadores de idiomas com uma pontuação indicando a força da análise.
+O [deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) recurso da API REST de análise de texto do Azure avalia a introdução de texto para cada documento e devolve os identificadores de idioma com uma pontuação que indica a força da análise.
 
-Esta funcionalidade é útil para arquivos de conteúdo que recolhem texto arbitrário quando o idioma é desconhecido. Pode analisar os resultados desta análise para determinar o idioma que é utilizado no documento de entrada. A resposta também devolve uma pontuação que reflete a confiança do modelo (um valor entre 0 e 1).
+Esta funcionalidade é útil para arquivos de conteúdo que recolhem texto arbitrário quando o idioma é desconhecido. Pode analisar os resultados desta análise para determinar o idioma que é utilizado no documento de entrada. A resposta também devolve uma pontuação que reflete a confiança do modelo. O valor de pontuação é entre 0 e 1.
 
-Não publicamos a lista exata de idiomas para esta funcionalidade, mas ele pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural. 
+A funcionalidade de deteção de idioma pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais ou culturais. A lista exata de idiomas para esta funcionalidade não está publicada.
 
-Se tiver conteúdo expressado numa linguagem com menos frequência utilizada, pode tentar a deteção de idioma para ver se ele retorna um código. A resposta para idiomas que não puderem ser detetadas está `unknown`.
+Se tiver conteúdo expresso numa linguagem utilizada com menos frequência, pode experimentar a funcionalidade de deteção de idioma para ver se ele retorna um código. A resposta para idiomas que não puderem ser detetadas está `unknown`.
 
 > [!TIP]
 > Análise de texto também fornece um Docker baseado em Linux imagem de contentor para a deteção de idioma, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
 
 ## <a name="preparation"></a>Preparação
 
-Tem de ter documentos JSON no seguinte formato: ID, text
+Tem de ter documentos JSON no seguinte formato: ID e o texto.
 
-Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a deteção do idioma.
+O tamanho do documento tem de ser em 5,120 carateres por documento. Pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O exemplo a seguir é um exemplo de conteúdo, que pode enviar para a deteção de idioma:
 
    ```
     {
@@ -64,33 +64,33 @@ Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter at�
 
 ## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
-Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
+Para obter mais informações sobre a definição de pedido, consulte [chamar a API de análise de texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
++ Crie um pedido POST. Para rever a documentação da API para este pedido, consulte a [API de deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-+ Definir o ponto final HTTP para deteção de idioma, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/languages`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
++ Defina o ponto de final HTTP para a deteção de idioma. Utilizar um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o `/languages` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`.
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, consulte [localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
+## <a name="step-2-post-the-request"></a>Passo 2: O pedido POST
 
-A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
+A análise é realizada aquando da receção do pedido. Para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo lugar, consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-the-results"></a>Passo 3: Ver os resultados
 
-Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
+Todos os pedidos POST devolverem uma resposta JSON formatado com os IDs e detetado propriedades.
 
-O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou salvar a saída num arquivo no sistema local. Em seguida, importe a saída num aplicativo que pode utilizar para ordenar, procure e manipular os dados.
 
-Os resultados do pedido de exemplo deverão assemelhar-se ao seguinte JSON. Tenha em atenção que se trata de um documento com múltiplos itens. Os resultados são apresentados em inglês. Os identificadores de idioma incluem um nome amigável e um código de idioma no formato [ISO 639-1](https://www.iso.org/standard/22109.html).
+Os resultados do pedido de exemplo deverão assemelhar-se ao seguinte JSON. Tenha em atenção que é um documento com vários itens. Os resultados são apresentados em inglês. Os identificadores de idioma incluem um nome amigável e um código de idioma no formato [ISO 639-1](https://www.iso.org/standard/22109.html).
 
 Uma pontuação positiva igual a 1,0 expressa o nível de confiança mais elevado possível da análise.
 
@@ -154,7 +154,7 @@ Uma pontuação positiva igual a 1,0 expressa o nível de confiança mais elevad
 
 ### <a name="ambiguous-content"></a>Conteúdo ambíguo
 
-Se o analisador não conseguir analisar a entrada (por exemplo, imagine que enviou um bloco de texto com apenas números árabes), irá devolver `(Unknown)`.
+Se o analisador não é possível analisar a entrada, ele retorna `(Unknown)`. Um exemplo é se enviar um bloco de texto que consiste somente em numerais árabes.
 
 ```
     {
@@ -167,9 +167,9 @@ Se o analisador não conseguir analisar a entrada (por exemplo, imagine que envi
         }
       ]
 ```
-### <a name="mixed-language-content"></a>Conteúdo de idioma misto
+### <a name="mixed-language-content"></a>Conteúdo de linguagens mistas
 
-O conteúdo de idioma misto dentro do mesmo documento devolve o idioma com maior presença no conteúdo, mas com uma classificação positiva inferior, o que reflete o nível de confiança marginal dessa avaliação. No seguinte exemplo, a entrada é uma mistura de inglês, espanhol e francês. O analisador conta carateres em cada segmento para determinar o idioma predominante.
+Conteúdo de linguagens mistas dentro do mesmo documento devolve o idioma com a representação maior no conteúdo, mas com uma classificação positiva inferior. A classificação reflete a força marginal da avaliação. No seguinte exemplo, a entrada é uma mistura de inglês, espanhol e francês. O analisador conta carateres em cada segmento para determinar o idioma predominante.
 
 **Input (Entrada)**
 
@@ -186,7 +186,7 @@ O conteúdo de idioma misto dentro do mesmo documento devolve o idioma com maior
 
 **Saída**
 
-O resultado é composto pelo idioma predominante com uma pontuação inferior a 1,0 que indica um nível de confiança mais baixo.
+A saída resultante é composta por idioma predominante, com uma classificação de inferior a 1.0, que indica um nível mais fraco de confiança.
 
 ```
 {
@@ -208,12 +208,12 @@ O resultado é composto pelo idioma predominante com uma pontuação inferior a 
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxos de trabalho relativos à deteção de idioma com recurso à Análise de Texto nos Serviços Cognitivos. Segue-se um lembrete rápido dos principais pontos anteriormente explicados e demonstrados:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de idioma ao utilizar a análise de texto nos serviços cognitivos do Azure. Os seguintes pontos foram explicados e demonstrei:
 
-+ [Deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) está disponível para uma ampla variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural.
++ [Deteção de idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) está disponível para uma ampla variedade de linguagens, variantes, dialetos e alguns idiomas regionais ou culturais.
 + Documentos JSON no corpo do pedido incluem um ID e o texto.
-+ O pedido POST refere-se a um ponto final `/languages` com recurso a uma [chave de acesso personalizada e um ponto final](text-analytics-how-to-access-key.md) válido para a sua subscrição.
-+ O resultado da resposta, que consiste em identificadores de idioma para cada ID de documento, pode ser transmitido para qualquer aplicação que aceite JSON, incluindo, por exemplo, o Excel e o Power BI.
++ O pedido POST é um `/languages` ponto final utilizando personalizado [aceder a chave e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para a sua subscrição.
++ Saída de resposta consiste em identificadores de idioma para cada ID de documento. A saída pode ser transmitida para qualquer aplicação que aceita JSON. As aplicações de exemplo incluem o Excel e o Power BI, para citar alguns.
 
 ## <a name="see-also"></a>Consulte também 
 

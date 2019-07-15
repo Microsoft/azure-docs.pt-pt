@@ -9,20 +9,17 @@ ms.topic: tutorial
 ms.date: 06/05/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 61569159d83493bb5338f8eda5b9201ef9164143
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: c98d52e95a285c2979742c8572a86718238548f4
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734590"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985631"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (pré-visualização)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET core (pré-visualização)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -102,7 +99,7 @@ Agora que existe a sua aplicação, terá de certificar-se de que ele possa se c
 
    SDK de JavaScript utiliza os termos de genéricos *contentor* e *item*. Os contentores podem ser uma coleção, um grafo ou uma tabela. Os itens podem ser um documento, um vértice/aresta ou uma linha e são o conteúdo dentro dos contentores. 
    
-   `module.exports = config;` código isused para exportar seus ```config``` de objeto, para que fazer referência a ele no ```app.js``` ficheiro.
+   `module.exports = config;` código é usado para exportar seus ```config``` de objeto, para que fazer referência a ele no ```app.js``` ficheiro.
 
 ## <a id="Connect"></a>Ligar a uma conta do Azure Cosmos DB
 
@@ -155,7 +152,7 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
 
    Uma base de dados pode ser criado utilizando o `createIfNotExists` ou criar função do **bases de dados** classe. As bases de dados são os contentores lógicos dos itens particionados em contentores. 
 
-2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A função **createDatabase** cria uma base de dados nova com o ID ```FamilyDatabase```, especificado a partir do objeto ```config```, se ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
+2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. O **createDatabase** função irá criar uma nova base de dados com o ID ```FamilyDatabase```especificados do ```config``` objeto se ainda não exista. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
 
    ```javascript
    /**
@@ -383,7 +380,7 @@ Um contentor pode ser criado utilizando o `createIfNotExists` ou criar a funçã
 
 Um item pode ser criado através da função de criação do **itens** classe. Quando estiver a utilizar a API de SQL, os itens são projetados como documentos, que são definidas pelo utilizador conteúdos JSON (arbitrários). Pode agora inserir um item no Azure Cosmos DB.
 
-1. Copie e cole a função **createFamilyItem** abaixo da função **readContainer**. A função **createFamilyItem** cria os itens que contêm os dados JSON guardados no objeto ```config```. Vamos confirmar que não existe nenhum item com o mesmo ID antes de o criarmos.
+1. Copie e cole a função **createFamilyItem** abaixo da função **readContainer**. A função **createFamilyItem** cria os itens que contêm os dados JSON guardados no objeto ```config```. Iremos verificar para se certificar de que um item com o mesmo ID ainda não existir antes de criá-lo.
 
    ```javascript
    /**
@@ -679,7 +676,7 @@ node app.js
 
 Quando já não são necessários estes recursos, pode eliminar o grupo de recursos, conta do Azure Cosmos DB e todos os recursos relacionados. Para tal, selecione o grupo de recursos que utilizou para a conta do Azure Cosmos DB, selecione **eliminar**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Monitorizar uma conta do Azure Cosmos DB](monitor-accounts.md)

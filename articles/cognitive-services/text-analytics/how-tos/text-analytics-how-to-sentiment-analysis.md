@@ -1,6 +1,6 @@
 ---
-title: Análise de sentimentos com a análise de texto dos serviços cognitivos do Azure | Documentos da Microsoft
-description: Saiba como detetar sentimentos com a API REST de Análise de Texto.
+title: Análise de sentimentos ao utilizar a API de REST de análise de texto dos serviços cognitivos do Azure | Documentos da Microsoft
+description: Saiba como detetar o sentimento utilizando a API de REST de análise de texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,37 +9,37 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: e17b68dfd63952d0c8c81415b090b047c5808e2e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: c3004dd3910dd5fdafc933efa213c9f097310e87
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797792"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68001716"
 ---
-# <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: como detetar sentimentos com a Análise de Texto
+# <a name="example-detect-sentiment-with-text-analytics"></a>Exemplo: Detetar sentimento com análise de texto
 
-A [API de Análise de Sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e devolve uma pontuação de sentimento para cada documento entre 0 (negativo) e 1 (positivo).
+O [API de análise de sentimento de Azure](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) avalia a introdução de texto e devolve uma pontuação de sentimento para cada documento. Intervalo de pontuações de 0 (negativo) a 1 (positivo).
 
-Esta funcionalidade é útil para detetar sentimentos positivos e negativos nas redes sociais, em críticas de clientes e fóruns de discussão. Os conteúdos são fornecidos por si; os modelos e dados de preparação são fornecidos pelo serviço.
+Esta funcionalidade é útil para detetar sentimentos positivos e negativos nas redes sociais, em críticas de clientes e fóruns de discussão. O conteúdo é fornecido por si. Modelos e dados de treinamento são fornecidos pelo serviço.
 
-Atualmente, a Análise de Sentimentos suporta os seguintes idiomas: inglês, alemão, espanhol e francês. Os outros idiomas estão em pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
+Atualmente, a API de sentimento de análise suporta o inglês, alemão, espanhol e francês. Os outros idiomas estão em pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
 
 > [!TIP]
-> Análise de texto também fornece um Docker baseado em Linux imagem de contentor para a análise de sentimentos, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
+> A API de análise de texto do Azure também fornece um Docker baseado em Linux imagem de contentor para a análise de sentimentos, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
 
 ## <a name="concepts"></a>Conceitos
 
-A Análise de Texto utiliza um algoritmo de classificação de aprendizagem automática para gerar uma pontuação de sentimento entre 0 e 1. As pontuações próximas de 1 indicam um sentimento positivo, enquanto as próximas de 0 indicam um sentimento negativo. O modelo é previamente preparado com um corpo de texto extenso com associações de sentimentos. Atualmente, não é possível fornecer os seus próprios dados de preparação. O modelo utiliza uma combinação de técnicas durante a análise de texto, incluindo o processamento de texto, a análise de parte do discurso, posicionamento de palavras e associações de palavras. Para obter mais informações sobre o algoritmo, veja [Introdução à Análise de Texto](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
+A Análise de Texto utiliza um algoritmo de classificação de aprendizagem automática para gerar uma pontuação de sentimento entre 0 e 1. As pontuações próximas de 1 indicam um sentimento positivo, enquanto as próximas de 0 indicam um sentimento negativo. O modelo é previamente preparado com um corpo de texto extenso com associações de sentimentos. Atualmente, não é possível fornecer seus próprios dados de treinamento. O modelo utiliza uma combinação de técnicas durante a análise de texto. Técnicas incluem o processamento de texto, a análise de parte da voz, colocação do word e associações do word. Para obter mais informações sobre o algoritmo, veja [Introdução à Análise de Texto](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/).
 
-A análise de sentimentos é realizada em todo o documento em vez de extrair sentimentos de uma entidade particular no texto. Na prática, a precisão da pontuação tende a melhorar quando os documentos contêm uma ou duas frases em vez de um grande bloco de texto. Durante a fase de avaliação de objetividade, o modelo determina se um documento como um todo é objetivo ou se contém sentimentos. Um documento que é maioritariamente objetivo não passa para a fase de deteção de sentimentos, o que resulta numa pontuação de 0,50 sem processamento adicional. No caso dos outros documentos, a fase seguinte gera uma pontuação acima ou abaixo de 0,50, consoante o grau de sentimento detetado no documento.
+A análise de sentimentos é realizada em todo o documento em vez de extrair sentimentos de uma entidade particular no texto. Na prática, existe uma tendência de precisão de classificação para melhorar a quando os documentos contêm uma ou duas frases, em vez de um grande bloco de texto. Durante a fase de avaliação de objetividade, o modelo determina se um documento como um todo é objetivo ou se contém sentimentos. Um documento que é principalmente objetivo não avança para a fase de deteção de sentimentos, o que resulta numa pontuação 0.50, com qualquer processamento adicional. Para documentos que continuam no pipeline, a próxima fase gera uma pontuação acima ou abaixo 0,50. A classificação depende o grau de sentimento detetado no documento.
 
 ## <a name="preparation"></a>Preparação
 
-A análise de sentimentos produz um resultado de qualidade superior quando são fornecidos segmentos de texto mais pequenos. O mesmo já não acontece com a extração de expressões-chave, que tem um melhor desempenho com blocos de texto maiores. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
+Análise de sentimentos produz um resultado de maior qualidade, quando dá segmentos mais pequenos de texto para trabalhar em. O mesmo já não acontece com a extração de expressões-chave, que tem um melhor desempenho com blocos de texto maiores. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
 
-Tem de ter documentos JSON no seguinte formato: ID, texto, de idioma
+Tem de ter documentos JSON no seguinte formato: ID, texto e idiomas.
 
-Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a análise de sentimentos.
+Tamanho do documento tem de ser em 5,120 carateres por documento. Pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O exemplo a seguir é um exemplo de conteúdo, que pode enviar para análise de sentimentos:
 
 ```
     {
@@ -75,33 +75,33 @@ Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter at�
 
 ## <a name="step-1-structure-the-request"></a>Passo 1: O pedido de estrutura
 
-Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
+Para obter mais informações sobre a definição de pedido, consulte [chamar a API de análise de texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
++ Crie um pedido POST. Para rever a documentação da API para este pedido, consulte a [API de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Definir o ponto final HTTP para análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
++ Definir o ponto final HTTP para análise de sentimentos utilizando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o `/sentiment` recurso: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, consulte [localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
 > [!Tip]
-> Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar o pedido e publicá-lo no serviço.
+> Uso [Postman](text-analytics-how-to-call-api.md) ou abrir o **consola de teste de API** no [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar o pedido e postá-lo para o serviço.
 
 ## <a name="step-2-post-the-request"></a>Passo 2: O pedido de POST
 
-A análise é realizada aquando da receção do pedido. Consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo.
+A análise é realizada aquando da receção do pedido. Para obter informações sobre o tamanho e número de pedidos pode enviar por minuto e segundo lugar, consulte a [limites de dados](../overview.md#data-limits) secção na descrição geral.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-the-results"></a>Passo 3: Ver os resultados
 
-O analisador de sentimentos classifica o texto como predominantemente positivo ou negativo. Para tal, atribui uma pontuação entre 0 e 1. Os valores próximos de 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de carateres não puder ser analisada em termos de sentimento ou não tiver sentimento, a pontuação será sempre exatamente 0,5. Por exemplo, se passar por uma cadeia de carateres em espanhol com um código de idioma em inglês, a pontuação é 0,5.
+O analisador de sentimento classifica o texto como predominantemente positivo ou negativo. Atribui uma classificação no intervalo de 0 a 1. Os valores próximos de 0,5 são neutros ou indeterminados. Uma pontuação de 0,5 indica neutralidade. Quando uma cadeia de caracteres não pode ser analisada quanto ao sentimento ou não sentimento, a pontuação é sempre 0,5 exatamente. Por exemplo, se passar por uma cadeia de carateres em espanhol com um código de idioma em inglês, a pontuação é 0,5.
 
-O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou salvar a saída num arquivo no sistema local. Em seguida, importe a saída num aplicativo que pode utilizar para ordenar, procure e manipular os dados.
 
-O seguinte exemplo mostra a resposta para a coleção de documentos neste artigo.
+O exemplo seguinte mostra a resposta para a coleção de documentos, neste artigo:
 
 ```json
 {
@@ -131,26 +131,26 @@ O seguinte exemplo mostra a resposta para a coleção de documentos neste artigo
 }
 ```
 
-## <a name="sentiment-analysis-v3-public-preview"></a>Pré-visualização pública de V3 de análise de sentimentos
+## <a name="sentiment-analysis-v3-public-preview"></a>Sentiment Analysis v3 pré-visualização pública
 
-O [próxima versão de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) está agora disponível para pré-visualização pública, fornecendo aprimoramentos significativos na precisão e detalhes de categorização de texto da API e classificação. 
+O [próxima versão de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-preview/operations/56f30ceeeda5650db055a3c9) está agora disponível para pré-visualização pública. Ele fornece aprimoramentos significativos na precisão e detalhes de categorização de texto da API e classificação. 
 
 > [!NOTE]
 > * O formato de pedido de v3 de análise de sentimentos e [limites de dados](../overview.md#data-limits) são os mesmos que a versão anterior.
-> * Neste momento, a análise de sentimentos V3: 
->    * Atualmente só suporta o idioma inglês.  
->    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`, `East Asia` 
+> * Neste momento, a análise de sentimentos v3: 
+>    * Atualmente, suporta apenas o idioma inglês.  
+>    * Está disponível nas seguintes regiões: `Central US`, `Central Canada`, e `East Asia`.
 
 |Funcionalidade |Descrição  |
 |---------|---------|
-|Maior exatidão     | Melhoria significativa na deteção de sentimento positivo, neutro, negativo e misto em documentos de texto em relação às versões anteriores.           |
-|Classificação de sentimento de nível de frases e documentos     | Detete o sentimento de um documento e seu frases individuais. Se o documento inclui vários frases, cada sentença também está atribuída uma classificação de sentimento.         |
-|Categoria de sentimentos e pontuação     | A API devolve agora categorias de sentimento (`positive`, `negative`, `neutral` e `mixed`) para texto, além de uma classificação de sentimento.        |
-| Saída melhorada | Agora, a análise de sentimentos retorna informações para um documento de texto completo e a respetivas frases individuais. |
+|Maior exatidão     | melhoria significativa na deteção de sentimentos positivos, neutros, negativos e mistos em documentos de texto em relação às versões anteriores.           |
+|Classificação de sentimento de nível de frases e documentos     | deteção do sentimento de um documento e das respetivas frases individuais. Se o documento incluir várias frases, a cada frase é também atribuída uma classificação de sentimento.         |
+|Categoria de sentimentos e pontuação     | A API devolve agora categorias de sentimentos para texto, além de uma classificação de sentimento. As categorias são `positive`, `negative`, `neutral`, e `mixed`.       |
+| Saída melhorada | Agora, a análise de sentimentos retorna informações para um documento de texto completo e sua frases individuais. |
 
 ### <a name="sentiment-labeling"></a>A etiquetagem de sentimentos
 
-Análise de sentimentos V3 pode retornar as pontuações e as etiquetas (`positive`, `negative`, e `neutral`) num nível de documento e frase. Ao nível do documento a `mixed` etiqueta de sensibilidade (não pontuação) também pode ser devolvidas. O sentimento do documento é determinado pelo agregar de pontuações dos respetivos frases.
+V3 de análise de sentimentos pode retornar as pontuações e as etiquetas a um nível de documento e frase. As pontuações e as etiquetas são `positive`, `negative`, e `neutral`. No nível de documento, o `mixed` etiqueta de sensibilidade (e não a pontuação) também a pode ser devolvida. O sentimento do documento é determinado ao agregar as pontuações das sentenças.
 
 | Sentimento frase                                                        | Devolveu a etiqueta de documento |
 |---------------------------------------------------------------------------|----------------|
@@ -159,9 +159,9 @@ Análise de sentimentos V3 pode retornar as pontuações e as etiquetas (`positi
 | Pelo menos uma frase negativo e pelo menos uma frase positivo.         | `mixed`        |
 | Todas as frases são neutras.                                                 | `neutral`      |
 
-### <a name="sentiment-analysis-v3-example-request"></a>Pedido de exemplo de análise V3 de sentimentos
+### <a name="sentiment-analysis-v3-example-request"></a>Pedido de exemplo da v3 de análise de sentimentos
 
-O JSON seguinte é um exemplo de um pedido efetuado para a nova versão de análise de sentimentos. Tenha em atenção que a formatação de pedido é o mesmo que a versão anterior:
+O JSON seguinte é um exemplo de um pedido efetuado para a nova versão de análise de sentimentos. A formatação de pedido é o mesmo que a versão anterior:
 
 ```json
 {
@@ -180,7 +180,7 @@ O JSON seguinte é um exemplo de um pedido efetuado para a nova versão de anál
 }
 ```
 
-### <a name="sentiment-analysis-v3-example-response"></a>Análise de sentimentos V3 resposta de exemplo
+### <a name="sentiment-analysis-v3-example-response"></a>Resposta de exemplo da v3 de análise de sentimentos
 
 Embora o formato do pedido é o mesmo que a versão anterior, o formato de resposta foi alterado. O JSON seguinte é uma resposta da nova versão da API de exemplo:
 
@@ -260,12 +260,12 @@ Pode encontrar um exemplo C# aplicação que chama esta versão de análise de s
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxos de trabalho relativos à análise de sentimentos com recurso à Análise de Texto nos Serviços Cognitivos. Em resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimentos ao utilizar a análise de texto nos serviços cognitivos do Azure. Em resumo:
 
-+ A [API de Análise de Sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponível para alguns idiomas.
++ O [API de análise de sentimentos](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponível para os idiomas selecionados.
 + Documentos JSON no corpo do pedido incluem um código de ID, texto e idiomas.
-+ O pedido POST refere-se a um ponto final `/sentiment` com recurso a uma [chave de acesso personalizada e um ponto final](text-analytics-how-to-access-key.md) válido para a sua subscrição.
-+ O resultado da resposta, que consiste numa pontuação de sentimento para cada ID de documento, pode ser transmitido para qualquer aplicação que aceite JSON, incluindo, por exemplo, o Excel e o Power BI.
++ O pedido POST é um `/sentiment` ponto final utilizando personalizado [aceder a chave e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para a sua subscrição.
++ Saída de resposta, que consiste numa classificação de sentimento para cada ID de documento, possa ser transmitida para qualquer aplicação que aceita JSON. As aplicações de exemplo incluem o Excel e o Power BI, para citar alguns.
 
 ## <a name="see-also"></a>Consulte também 
 

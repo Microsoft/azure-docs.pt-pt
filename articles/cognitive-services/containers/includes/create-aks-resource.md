@@ -1,7 +1,7 @@
 ---
-title: Suporte de contentor
+title: Criar um recurso de cluster do serviço Kubernetes do Azure
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um kubernetes do azure resource (AKS).
+description: Saiba como criar um recurso do Azure Kubernetes Service (AKS).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,32 +9,32 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: eb2d609c3a7dfd769c6a19854366ac5e45fddb7d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712562"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67877444"
 ---
-## <a name="create-an-azure-kubernetes-service-aks-cluster-resource"></a>Criar um recurso de cluster do Azure Kubernetes Service (AKS)
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço Kubernetes do Azure
 
-1. Vá para o [criar](https://ms.portal.azure.com/#create/microsoft.aks) para serviços do Kubernetes.
+1. Aceda a [do Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) e selecione **criar**.
 
-1. Sobre o **Noções básicas** separador, introduza os seguintes detalhes:
+1. Sobre o **Noções básicas** separador, introduza as seguintes informações:
 
     |Definição|Valor|
     |--|--|
-    |Subscription|Selecione a subscrição adequada|
+    |Subscription|Selecione uma subscrição adequada|
     |Resource group|Selecione um grupo de recursos disponíveis|
-    |Nome do cluster de Kubernetes|Nome desejado (minúscula)|
+    |Nome do cluster de Kubernetes|Introduza um nome (em minúsculas)|
     |Região|Selecione uma localização próximas|
     |Versão do Kubernetes|1.12.8 (predefinição)|
-    |Prefixo de nome DNS|Criado automaticamente, mas, opcionalmente, pode substituir|
+    |Prefixo de nome DNS|Criado automaticamente, mas pode substituir|
     |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
     |Contagem de nós|Deixe o controlo de deslize com o valor predefinido|
 
-1. Na **escala** separador, deixe a *nós virtuais* e *conjuntos de dimensionamento de máquinas virtuais* valores predefinidos.
-1. Sobre o **autenticação** separador, deixe *principal de serviço* e *ativar RBAC* valores predefinidos.
+1. Na **escala** separador, deixe **nós virtuais** e **conjuntos de dimensionamento de Máquina Virtual (pré-visualização)** definido para os valores predefinidos.
+1. Na **autenticação** separador, deixe **principal de serviço** e **ativar RBAC** definido para os valores predefinidos.
 1. Sobre o **redes** separador, introduza as seguintes seleções:
 
     |Definição|Value|
@@ -42,10 +42,10 @@ ms.locfileid: "67712562"
     |Encaminhamento de aplicações de HTTP|Não|
     |Configuração de rede|Básica|
 
-1. Na **monitorização** separador, certifique-se de que *ativar a monitorização do contentor* está definida como **Sim** e deixe o *área de trabalho do Log Analytics* como seu valor predefinido
+1. Na **monitorização** separador, certifique-se de que **ativar a monitorização do contentor** está definida como **Sim**e deixe **área de trabalho do Log Analytics** como o valor predefinido.
 1. Sobre o **etiquetas** separador, deixe os pares nome/valor em branco por agora.
-1. Clique em **reveja e criar**.
-1. Depois de passar a validação, clique em **criar**.
+1. Selecione **reveja e criar**.
+1. Depois de passar a validação, selecione **criar**.
 
 > [!NOTE]
-> Se a validação falhar, podem ser devido uma *principal de serviço* erro. Navegue de volta para o *autenticação* separador e, novamente para o *rever + criar* onde validação deve executar e, em seguida, passar.
+> Se a validação falhar, pode ser devido um erro de "Principal de serviço". Volte para o **autenticação** separador e, em seguida, voltar ao **revisão + criar**, onde validação deve executar e, em seguida, passar.

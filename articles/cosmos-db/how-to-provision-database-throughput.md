@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: de39581f832c30c64a69797805df7e13ce47b439
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: e44017ea2df24445c28361a0f3d7fb2671317b6d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565867"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000651"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Débito de aprovisionar uma base de dados no Azure Cosmos DB
 
@@ -59,6 +59,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > Pode utilizar SDKs do Cosmos para a API de SQL para aprovisionar débito para todas as APIs. Pode, opcionalmente, utilize o seguinte exemplo para a API de Cassandra também.
 
 ### <a id="dotnet-all"></a>Todas as APIs
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
 //set the throughput for the database
@@ -72,6 +73,9 @@ await client.CreateDatabaseIfNotExistsAsync(
     new Database {Id = databaseName},  
     options);
 ```
+
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API para Cassandra
 

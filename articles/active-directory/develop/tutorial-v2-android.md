@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c6b0d4cd664b12dbd0fbd4e9423240c8dbebb3
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: cb1e322e0424debc14a29ad8a516c95acea54714
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723812"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872103"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação Android
 
@@ -33,61 +33,57 @@ Quando concluir o guia, a aplicação irá aceitar inícios de sessão de contas
 
 ![Mostra como funciona a aplicação de exemplo gerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-android-intro/android-intro.svg)
 
-A aplicação neste exemplo irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API (Microsoft Graph API) protegida que requer autorização.
+A aplicação neste tutorial irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API (Microsoft Graph API) protegida que requer autorização e protegida por plataforma de identidades da Microsoft.
 
 Mais especificamente:
 
 * A aplicação irá iniciar sessão no usuário, seja por meio de um navegador ou o Microsoft Authenticator e Portal da empresa do Intune.
-* O utilizador final irá aceitar as permissões de que seu aplicativo solicitou. 
+* O utilizador final irá aceitar as permissões de que seu aplicativo solicitou.
 * A aplicação será emitida um token de acesso para a Microsoft Graph API.
 * O token de acesso será incluído na solicitação HTTP para a API web.
 * Processe a resposta do Microsoft Graph.
 
-Este exemplo utiliza a biblioteca Microsoft Authentication para Android (MSAL) para implementar a autenticação. MSAL automaticamente irá renovar os tokens, fornecer início de sessão único (SSO) entre as outras aplicações no dispositivo e gerir a conta (s).
+Este exemplo utiliza a biblioteca Microsoft Authentication para Android (MSAL) para implementar a autenticação: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
+
+ MSAL automaticamente irá renovar os tokens, fornecer início de sessão único (SSO) entre as outras aplicações no dispositivo e gerir a conta (s).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Esta configuração assistida utiliza o Android Studio.
-* É necessário o Android 16 ou posterior (19 + é recomendado).
-
-## <a name="library"></a>Biblioteca
-
-Este guia utiliza a biblioteca de autenticação seguintes:
-
-|Biblioteca|Descrição|
-|---|---|
-|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Biblioteca de Autenticação da Microsoft (MSAL)|
+* Este tutorial requer o Android Studio versão 16 ou posterior (19 + é recomendado).
 
 ## <a name="create-a-project"></a>Criar um projeto
 
 Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo em vez disso, [baixar o código](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
 
-1. Abra o Android Studio e selecione **inicie um novo projeto do Android Studio**
-2. Selecione **atividade básica** e clique em **próxima**.
-3. Nome à aplicação
-4. Guarde o nome do pacote. Irá introduzi-lo mais tarde no portal do Azure. 
+1. Abra o Android Studio e selecione **inicie um novo projeto do Android Studio**.
+2. Selecione **atividade básica** e selecione **próxima**.
+3. Dê um nome à aplicação.
+4. Guarde o nome do pacote. Irá introduzi-lo mais tarde no portal do Azure.
 5. Definir o **nível mínimo de API** ao **API 19** ou superior e clique em **concluir**.
 6. Na vista de projeto, escolha **Project** na lista pendente para apresentar a origem e de arquivos do projeto de código-fonte, abra **gradle** e defina `targetSdkVersion` para `27`.
 
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
-1. Aceda ao [Portal do Azure](https://aka.ms/MobileAppReg)
+1. Aceda ao [Portal do Azure](https://aka.ms/MobileAppReg).
 2. Abra o [painel de registos de aplicação](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) e clique em **+ novo registo**.
 3. Introduza um **Name** para a sua aplicação e, em seguida, sem definir um URI de redirecionamento, clique em **registar**.
 4. Na **Manage** secção do painel que aparece, selecione **autenticação** >  **+ adicionar uma plataforma** > **Android**.
 5. Introduza o nome do pacote do seu projeto. Se tiver transferido o código, este valor é `com.azuresamples.msalandroidapp`.
-6. Na **hash de assinatura** secção a **configurar a sua aplicação Android** página, clique em **gerar um Hash de assinatura de desenvolvimento.** e copie o comando da ferramenta de chave a utilizar para a sua plataforma. Tenha em atenção que KeyTool.exe é instalado como parte do Kit de desenvolvimento Java (JDK) e tem também instalou a ferramenta de OpenSSL para executar o comando da ferramenta de chave.
+6. Na **hash de assinatura** secção a **configurar a sua aplicação Android** página, clique em **gerar um Hash de assinatura de desenvolvimento.** e copie o comando da ferramenta de chave a utilizar para a sua plataforma.
+
+   > [!Note]
+   > KeyTool.exe é instalado como parte do Kit de desenvolvimento Java (JDK). Também tem de instalar a ferramenta de OpenSSL para executar o comando da ferramenta de chave.
+
 7. Introduza o **hash de assinatura** gerado pela ferramenta de chave.
-8. Clique em `Configure` e guarde o **configuração de MSAL** que aparece num **configuração para Android** página para que possam inseri-lo quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
+8. Clique em `Configure` e guarde o **configuração de MSAL** que aparece na **configuração para Android** página para que possam inseri-lo quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
 
 ## <a name="build-your-app"></a>Criar a sua aplicação
 
-### <a name="configure-your-android-app"></a>Configurar a sua aplicação Android
+### <a name="add-your-app-registration"></a>Adicionar o registo de aplicação
 
 1. No painel de projeto do Android Studio, navegue até **app\src\main\res**.
 2. Com o botão direito **res** e escolha **New** > **Directory**. Introduza `raw` como o novo nome de diretório e clique em **OK**.
 3. Na **app** > **src** > **res** > **brutos**, crie um novo ficheiro JSON chamado `auth_config.json`e cole a configuração de MSAL que guardou anteriormente. Ver [MSAL configuração para obter mais informações](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
-   <!-- Workaround for Docs conversion bug -->
 4. Na **app** > **src** > **principal** > **androidmanifest. XML**, adicione o `BrowserTabActivity`atividade abaixo. Esta entrada permite que a Microsoft chamada de retorno para a sua aplicação depois de terminar a autenticação:
 
     ```xml
@@ -118,7 +114,7 @@ Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo
 ### <a name="create-the-apps-ui"></a>Criar a IU da aplicação
 
 1. Na janela de projeto do Android Studio, navegue até **app** > **src** > **principal** > **res**  >  **layout** e abra **ctivity_main** e abra o **texto** vista.
-2. Alterar o esquema de atividade, por exemplo `<androidx.coordinatorlayout.widget.CoordinatorLayout` para `<androidx.coordinatorlayout.widget.LinearLayout`.
+2. Alterar o esquema de atividade, por exemplo: `<androidx.coordinatorlayout.widget.CoordinatorLayout` para `<androidx.coordinatorlayout.widget.LinearLayout`.
 3. Adicionar a `android:orientation="vertical"` propriedade o `LinearLayout` nó.
 4. Cole o código seguinte para o `LinearLayout` nó, substituindo o conteúdo atual:
 
@@ -186,7 +182,7 @@ Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo
 ### <a name="use-msal"></a>Utilizar a MSAL
 
 Agora fazer as alterações no `MainActivity.java` para adicionar e utilizar a MSAL na sua aplicação.
-Na janela de projeto do Android Studio, navegue até **app** > **src** > **principal** > **java**  >  **com.example.msal**e abra `MainActivity.java`
+Na janela de projeto do Android Studio, navegue até **app** > **src** > **principal** > **java**  >  **com.example.msal**e abra `MainActivity.java`.
 
 #### <a name="required-imports"></a>Importações necessárias
 

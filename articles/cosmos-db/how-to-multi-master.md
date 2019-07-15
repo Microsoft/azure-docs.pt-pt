@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 646706eabf1b3a33c3143410f0e922a03e6a8ad6
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0b65a8f3bf36d9c5506c0436e11c7be3abdcd9f6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565894"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000689"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar com vários mestres em seus aplicativos que utilizam o Azure Cosmos DB
 
@@ -34,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>SDK de .NET v3 (pré-visualização)
+## <a id="netv3"></a>.NET SDK v3
 
-Para ativar com vários mestres em seu aplicativo, defina `UseCurrentRegion` para a região em que a aplicação está a ser implementada e em que é replicado do Cosmos DB:
+Para ativar com vários mestres em seu aplicativo, defina `ApplicationRegion` para a região em que a aplicação está a ser implementada e em que é replicado do Cosmos DB:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Opcionalmente, pode utilizar o `CosmosClientBuilder` e `WithApplicationRegion` para alcançar o mesmo resultado:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>SDK do Java Async
@@ -90,7 +101,7 @@ connection_policy.PreferredLocations = [region]
 client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Leia os artigos seguintes:
 
