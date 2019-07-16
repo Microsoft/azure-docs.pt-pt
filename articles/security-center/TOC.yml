@@ -127,38 +127,16 @@
           href: security-center-apply-disk-encryption.md
         - name: Aplicar atualizações do Sistema
           href: security-center-apply-system-updates.md
-        - name: Ativar a encriptação da conta de armazenamento
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Ativar o Agente de VM
-          href: security-center-enable-vm-agent.md
         - name: Instalar o Endpoint Protection
           href: security-center-install-endpoint-protection.md
         - name: Reiniciar após atualizações do sistema
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Remediar configurações de segurança
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Atualizar a versão do SO
-          href: security-center-update-os-version.md
         - name: Avaliação de vulnerabilidades não instalada
           href: security-center-vulnerability-assessment-recommendations.md
-        - name: Adicionar uma firewall de aplicação Web
-          href: security-center-add-web-application-firewall.md
         - name: Finalizar a proteção das aplicações
           href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
-        - name: Adicionar uma firewall da próxima geração
-          href: security-center-add-next-generation-firewall.md
-        - name: Ativar os Grupos de Segurança de Rede
-          href: security-center-enable-network-security-groups.md
-        - name: Restringir o acesso através de pontos finais de acesso à Internet
-          href: security-center-restrict-access-through-internet-facing-endpoints.md
         - name: Encaminhar o tráfego apenas através da NGFW
           href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-        - name: Ativar a auditoria e a deteção de ameaças nas bases de dados SQL
-          href: security-center-enable-auditing-on-sql-databases.md
-        - name: Ativar a auditoria e a deteção de ameaças em servidores SQL
-          href: security-center-enable-auditing-on-sql-servers.md
-        - name: Ativar a Encriptação de Dados Transparente
-          href: security-center-enable-transparent-data-encryption.md
         - name: Relatórios de ameaça
           href: security-center-threat-report.md
         - name: Alertas personalizados

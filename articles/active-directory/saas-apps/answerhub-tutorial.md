@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e51c37f983162b82747760b05e2ec5e4e6553c0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106950"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure com AnswerHub
 
@@ -193,7 +193,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai configurar Eduarda Almeida para utilizar o Azure AD início de sessão único, concedendo acesso para AnswerHub.
+Nesta secção, vai configurar o utilizador Eduarda Almeida para utilizar o Azure AD início de sessão único ao conceder o acesso de utilizador para AnswerHub.
 
 **Para atribuir o utilizador de teste do Azure AD:**
 

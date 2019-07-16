@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 158819d481c0ce245539d783f194b159b2b9edb6
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: d73a63a8f58e14149121d0860268fc23930001bf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606513"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226354"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frase de voz em texto
 
@@ -24,6 +24,9 @@ Ao fornecer os serviços de voz com uma lista de frase, pode melhorar a precisã
 Por exemplo, se tiver um comando "Mover para" e um destino possível de "Ward", que pode ser falado, pode adicionar uma entrada de "Mover para Ward". Adicionar uma frase irá aumentar a probabilidade de que quando o áudio é reconhecido que "Mover para Ward" será reconhecido em vez de "Mudança para os".
 
 Únicas palavras ou frases completas podem ser adicionados a uma lista de frase. Durante o reconhecimento, uma entrada numa lista de frase é utilizada se uma correspondência exata está incluída no áudio. Criar no exemplo anterior, se a lista de frase inclui "Mover para Ward" e a frase capturada é a "Progride lentamente", em seguida, o resultado de reconhecimento será "Mover para Ward lentamente".
+
+>[!Note]
+> Atualmente, a lista de frase suporta apenas em inglês para conversão de voz em texto.
 
 ## <a name="how-to-use-phrase-lists"></a>Como utilizar a lista de frase
 

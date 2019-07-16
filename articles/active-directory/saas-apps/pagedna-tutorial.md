@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54c3ae22b9cc2e447960b9e3527bbbb0afae3e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095101"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Active Directory do Azure com PageDNA
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD início de sessão único com PageDNA, siga os passos
 1. Na **configurar PageDNA** secção, copie o URL ou URLs que tem de:
 
    * **URL de início de sessão**
-   * **Azure AD Identifier**
+   * **Identificador do Azure AD**
    * **URL de fim de sessão**
 
     ![Copie os URLs de configuração](common/copy-configuration-urls.png)
@@ -171,7 +171,7 @@ Nesta secção, vai criar um utilizador de teste no portal do Azure com o nome E
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para PageDNA.
+Nesta secção, vai ativar o utilizador Eduarda Almeida para utilizar o Azure início de sessão único ao conceder o acesso de utilizador para PageDNA.
 
 1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações** > **PageDNA**.
 
@@ -212,3 +212,4 @@ Quando seleciona **PageDNA** no portal as minhas aplicações, deve estar automa
 * [Início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 * [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

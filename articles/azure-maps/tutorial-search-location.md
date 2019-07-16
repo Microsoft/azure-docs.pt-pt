@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: e787366694b55d3dcd61eec2c5a5b42dd187ec55
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357604"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226844"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -239,9 +239,9 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    A API `sup` fornece informações de um janela ancorada na posição necessária no mapa. 
+    A API `*atlas.Popup` fornece informações de um janela ancorada na posição necessária no mapa. 
 
-2. Na *script* marcar, afinal o `GetMap` de função, adicione o seguinte código para mostrar o moused ao longo de informações do resultado em pop-up.
+2. Adicione o seguinte código dentro do `GetMap` função, para mostrar o moused ao longo de informações do resultado em pop-up.
 
     ```JavaScript
     function showPopup(e) {

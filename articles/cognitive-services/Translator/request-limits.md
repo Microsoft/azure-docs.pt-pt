@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: a7621cc80a38d9a07872a94d8e5221dc04023b86
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435036"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226257"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
 
@@ -54,7 +54,7 @@ Se chega a superar as estes limites ou enviar demasiado grande de uma parte da q
 
 Limites para [subscrições múltiplos serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) são os mesmos que o escalão S1.
 
-Estes limites estão limitados aos modelos de tradução padrão da Microsoft. Modelos de tradução personalizadas que utilizam o Translator personalizados estão limitados a caráter 1.800 por segundo.
+Estes limites estão limitados aos modelos de tradução padrão da Microsoft. Modelos de tradução personalizadas que utilizam o Translator personalizados estão limitados a 1.800 carateres por segundo.
 
 ## <a name="latency"></a>Latência
 
@@ -78,7 +78,7 @@ Ao utilizar o [BreakSentence](https://docs.microsoft.com/azure/cognitive-service
 > [!NOTE]
 > Este limite não se aplica a traduções.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Disponibilidade regional](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

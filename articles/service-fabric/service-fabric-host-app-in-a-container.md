@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c479553dcb6debe47a2b37ef85b6f3930e135c8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119095"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228123"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -41,14 +41,14 @@ Neste tutorial, ficará a saber como:
 1. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Instale o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description), para que possam executar contentores no Windows 10.
 3. Instale o [runtime do Service Fabric, versão 6.2 ou posterior](service-fabric-get-started.md) e o [SDK do Service Fabric, versão 3.1](service-fabric-get-started.md) ou posterior.
-4. Instale o [Visual Studio 2017, versão 15.7](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento Web e em ASP.NET**.
-5. Instale o [Azure PowerShell][link-azure-powershell-install]
+4. Instale [16.1 de versão de 2019 do Visual Studio](https://www.visualstudio.com/) ou posterior com o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
+5. Instalar [o Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Transferir e executar o Fabrikam Fiber CallCenter
-Transfira a aplicação de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique na ligação **transferir arquivo**.  A partir do diretório *sourceCode* no ficheiro *fabrikam.zip*, extraia o ficheiro *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* para o seu computador.
+Transfira o [Fabrikam Fiber CallCenter][link-fabrikam-github] aplicação de exemplo.  Clique na ligação **transferir arquivo**.  A partir do diretório *sourceCode* no ficheiro *fabrikam.zip*, extraia o ficheiro *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* para o seu computador.
 
-Certifique-se de que a aplicação Fabrikam Fiber CallCenter é compilada e executada sem erros.  Inicie o Visual Studio como **administrador** e abra o ficheiro [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Prima F5 para depurar e executar a aplicação.
+Certifique-se de que a aplicação Fabrikam Fiber CallCenter é compilada e executada sem erros.  Inicie o Visual Studio como um **administrador** e abra o [FabrikamFiber.CallCenter.sln][link-fabrikam-github] ficheiro.  Prima F5 para depurar e executar a aplicação.
 
 ![Exemplo de Fabrikam Web][fabrikam-web-page]
 
@@ -161,7 +161,7 @@ Ao criar o cluster,
 
 2. Inicie sessão com a sua conta do Azure para poder aceder às suas subscrições. 
 
-3. Selecione a lista pendente de **Ponto Final de Ligação** e selecione a opção **Criar Novo Cluster...**.    
+3. Selecione a lista pendente de **Ponto Final de Ligação** e selecione a opção **Criar Novo Cluster...** .    
         
 4. Na caixa de diálogo **Criar cluster**, modifique as seguintes definições:
 
@@ -260,7 +260,7 @@ Remove-AzResourceGroup -Name $acrresourcegroupname
 Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/21/2019
+ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9de11c0049cf3db3feea311a2541640437ba8632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719931"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228083"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutorial: Monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric com o Application Insights
 
@@ -46,7 +46,7 @@ Nesta série de tutoriais, ficará a saber como:
 Antes de começar este tutorial:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instale o Visual Studio 2017](https://www.visualstudio.com/) e as cargas de trabalho de **desenvolvimento no Azure** e **desenvolvimento na Web e em ASP.NET**.
+* [Instalar o Visual Studio 2019](https://www.visualstudio.com/) e instale o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
 * [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Transferir a aplicação de votação de exemplo
@@ -74,7 +74,7 @@ Assim que tiver preenchido as informações necessárias, clique em **Criar** pa
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Adicionar o Application Insights aos serviços da aplicação
 
-Inicie o Visual Studio 2017 com privilégios elevados ao clicar com o botão direito no ícone do Visual Studio no Menu Iniciar e escolher **executar como administrador**. Clique em **Ficheiro** > **Abrir** > **Projeto/Solução** e navegue para a aplicação de Votação (criada na primeira parte do tutorial ou clonado pelo Git). Open *voting*. Se lhe for pedido para restaurar pacotes NuGet da aplicação, clique em **Sim**.
+Inicie o Visual Studio 2019 com privilégios elevados ao clicar com o botão direito no ícone do Visual Studio no Menu Iniciar e escolher **executar como administrador**. Clique em **Ficheiro** > **Abrir** > **Projeto/Solução** e navegue para a aplicação de Votação (criada na primeira parte do tutorial ou clonado pelo Git). Open *voting*. Se lhe for pedido para restaurar pacotes NuGet da aplicação, clique em **Sim**.
 
 Siga estes passos para configurar o Application Insights para serviços de VotingWeb e VotingData:
 
@@ -118,7 +118,7 @@ Eis os passos para configurar o pacote NuGet:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Em ambos os ficheiros, no aninhada *retornar* declaração de estado de *createserviceinstancelisteners ()* ou *createservicereplicalisteners ()*, em  *ConfigureServices* > *serviços*, com os outros serviços singleton declarados, adicione:
+    2. Em ambos os ficheiros, no aninhada *retornar* declaração de estado de *createserviceinstancelisteners ()* ou *createservicereplicalisteners ()* , em  *ConfigureServices* > *serviços*, com os outros serviços singleton declarados, adicione:
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
@@ -212,9 +212,9 @@ Vamos adicionar alguns eventos personalizados a *VoteDataController.cs* (em *Con
 
 1. Adicione `using Microsoft.ApplicationInsights;` no fim do outro através de declarações.
 2. Declare um novo *TelemetryClient* no início da classe, abaixo da criação do *IReliableStateManager*: `private TelemetryClient telemetry = new TelemetryClient();`.
-3. Na função *Put()*, adicione um evento que confirme que um voto foi adicionado. Adicione `telemetry.TrackEvent($"Added a vote for {name}");` após a transação estar concluída, mesmo antes da declaração *OkResult*.
-4. Em *Delete()*, há um "if/else" com base na condição de que o *votesDictionary* contém votos para uma determinada opção de voto.
-    1. Adicione um evento que confirme a eliminação de um voto na declaração *if*, após *await tx.CommitAsync()*: `telemetry.TrackEvent($"Deleted votes for {name}");`
+3. Na função *Put()* , adicione um evento que confirme que um voto foi adicionado. Adicione `telemetry.TrackEvent($"Added a vote for {name}");` após a transação estar concluída, mesmo antes da declaração *OkResult*.
+4. Em *Delete()* , há um "if/else" com base na condição de que o *votesDictionary* contém votos para uma determinada opção de voto.
+    1. Adicione um evento que confirme a eliminação de um voto na declaração *if*, após *await tx.CommitAsync()* : `telemetry.TrackEvent($"Deleted votes for {name}");`
     2. Adicione um evento para mostrar que a eliminação não ocorreu na declaração *else*, antes do elemento de matriz: `telemetry.TrackEvent($"Unable to delete votes for {name}, voting option not found");`
 
 Eis um exemplo do aspeto que as funções *Put()* e *Delete()* poderão ter depois de adicionar os eventos:

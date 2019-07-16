@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: aaae84fcb7df2abfe7e78adb64c22fb19fe45f4e
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 203526b23a9571f0cccf3ebed432978772282418
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606718"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226412"
 ---
 # <a name="try-speech-services-for-free"></a>Experimente gratuitamente os serviços de voz
 
@@ -89,7 +89,7 @@ Para adicionar um recurso de serviços de voz (escalão gratuito ou pago) à sua
 
    * Um nome para o novo recurso. O nome auxilia a distinguir entre várias subscrições para o mesmo serviço.
    * Escolha a subscrição do Azure que o novo recurso está associado para determinar como são cobradas as taxas.
-   * Selecione a região onde o recurso será utilizado. Atualmente, os serviços de voz está disponível nas regiões E.U.A. oeste, Europa do Norte e Ásia Oriental.
+   * Escolha o [região](regions.md) onde o recurso será utilizado.
    * Escolha a um escalão de preço gratuito ou pago. Clique em **vista de detalhes de preço completos** para obter informações completas sobre as quotas de utilização e de preços para cada camada.
    * Criar um novo grupo de recursos para esta subscrição de voz ou o atribuir a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam a que manter suas várias subscrições do Azure, organizadas.
    * Para obter acesso conveniente a sua subscrição no futuro, selecione o **afixar ao dashboard** caixa de verificação.

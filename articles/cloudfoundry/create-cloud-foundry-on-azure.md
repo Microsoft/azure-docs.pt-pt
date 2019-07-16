@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 11c8fdca595840389f318ce9810674d53ac7f2d2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: f5ae599b516ac3ce6a9fcc40c0e26d242134e7d7
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273362"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226625"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster de Pivotal Cloud Foundry no Azure
 
@@ -64,7 +64,7 @@ Para obter mais informações, consulte [utilizar chaves SSH com Windows no Azur
 
     > [!NOTE]
     >
-    > Escolha o seu próprio home page da aplicação e o identificador de URI, por exemplo, [ http://www.contoso.com ](http://www.contoso.com).
+    > Escolha de http de home page e identificador URI, por exemplo, seu próprio aplicativo\://www\.contoso.com.
 
 4. Criar um principal de serviço com o novo ID de aplicação.
 
