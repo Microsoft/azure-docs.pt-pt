@@ -195,6 +195,8 @@
           href: search-howto-schedule-indexers.md
         - name: Campos de mapa
           href: search-indexer-field-mappings.md
+        - name: Ligar à Instância Gerida do SQL
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Ligar a VMs do SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Monitorizar indexadores

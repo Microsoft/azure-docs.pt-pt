@@ -7,18 +7,21 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: .NET
-      href: create-sql-api-dotnet.md
-    - name: Pré-visualização em .NET
-      href: create-sql-api-dotnet-preview.md
-    - name: Java
-      href: create-sql-api-java.md
-    - name: Node.js
-      href: create-sql-api-nodejs.md
-    - name: Python
-      href: create-sql-api-python.md
-    - name: Xamarin
-      href: create-sql-api-xamarin-dotnet.md
+    - name: Criar recursos do Cosmos DB
+      expanded: true
+      items:
+        - name: Portal do Azure
+          href: create-cosmosdb-resources-portal.md
+        - name: Aplicação .NET
+          href: create-sql-api-dotnet.md
+        - name: Aplicação Java
+          href: create-sql-api-java.md
+        - name: Aplicação Node.js
+          href: create-sql-api-nodejs.md
+        - name: Aplicação Python
+          href: create-sql-api-python.md
+        - name: Aplicação Xamarin
+          href: create-sql-api-xamarin-dotnet.md
 - name: Tutoriais
   items:
     - name: 1 - Criar e gerir dados
@@ -27,12 +30,6 @@
           items:
             - name: .NET
               href: sql-api-get-started.md
-            - name: Pré-visualização em .NET
-              href: sql-api-dotnet-get-started-preview.md
-            - name: .NET Core
-              href: sql-api-dotnetcore-get-started.md
-            - name: Pré-visualização em .NET Core
-              href: sql-api-dotnet-core-get-started-preview.md
             - name: Java
               href: sql-api-java-get-started.md
             - name: Java assíncrono
@@ -43,8 +40,6 @@
           items:
             - name: .NET
               href: sql-api-dotnet-application.md
-            - name: Pré-visualização em .NET
-              href: sql-api-dotnet-application-preview.md
             - name: Java
               href: sql-api-java-application.md
             - name: Node.js
@@ -755,6 +750,8 @@
       href: sql-api-sdk-dotnet.md
     - name: .NET Core
       href: sql-api-sdk-dotnet-core.md
+    - name: .NET Standard
+      href: sql-api-sdk-dotnet-standard.md
     - name: Biblioteca de feed de alterações em .NET
       href: sql-api-sdk-dotnet-changefeed.md
     - name: Biblioteca de executor em massa em .NET

@@ -102,6 +102,8 @@
           href: manage-database-permissions.md
         - name: Verificar estado de funcionamento do cluster
           href: check-cluster-health.md
+        - name: Selecionar o cluster SKU de VM
+          href: manage-cluster-choose-sku.md
         - name: Gerir dimensionamento horizontal do cluster
           href: manage-cluster-horizontal-scaling.md
         - name: Gerir dimensionamento vertical do cluster

@@ -280,8 +280,10 @@
               href: platform/custom-fields.md
         - name: Configurar aplicações
           items:
-            - name: Aplicações do Azure
+            - name: Aplicações alojadas no Azure
               items:
+                - name: Conjunto de dimensionamento de máquinas virtuais do Azure VM e Azure
+                  href: app/azure-vm-vmss-apps.md
                 - name: Serviço de aplicações do Azure
                   href: app/azure-web-apps.md
                 - name: Cloud Services do Azure
@@ -709,8 +711,8 @@
               href: platform/metrics-getting-started.md
             - name: Funcionalidades avançadas do Explorador de Métricas
               href: platform/metrics-charts.md
-            - name: Exemplos de gráficos de métricas
-              href: platform/metric-chart-samples.md
+            - name: Métricas baseadas no registo
+              href: platform/app-insights-metrics.md
             - name: Resolução de problemas de gráficos de métricas
               href: platform/metrics-troubleshoot.md
         - name: Registos
