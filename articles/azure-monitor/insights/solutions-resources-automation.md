@@ -242,8 +242,8 @@ As propriedades de agendas de tarefas são descritas na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| schedule name |Único **nome** entidade com o nome da agenda. |
-| runbook name  |Único **nome** entidade com o nome do runbook.  |
+| schedule name |Único **name** entidade com o nome da agenda. |
+| runbook name  |Único **name** entidade com o nome do runbook.  |
 
 
 
@@ -281,9 +281,9 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
+| string   | Coloque o valor entre aspas duplas.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valor numérico com aspas simples.| "64" | 64 |
-| boolean  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
+| boolean  | **true** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
