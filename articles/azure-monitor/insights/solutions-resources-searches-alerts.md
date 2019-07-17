@@ -176,9 +176,9 @@ As propriedades de recursos de ação do alerta são descritas nas tabelas segui
 
 | Nome do elemento | Necessário | description |
 |:--|:--|:--|
-| type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
-| name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
-| description | Não | Descrição opcional do alerta. |
+| Type | Sim | Tipo de ação.  Isto é **alerta** para ações de alerta. |
+| Name | Sim | Nome a apresentar para o alerta.  Este é o nome que é apresentado na consola para a regra de alerta. |
+| Description | Não | Descrição opcional do alerta. |
 | Severity | Sim | Gravidade de registo de alerta de entre os valores seguintes:<br><br> **critical**<br>**warning**<br>**informational**
 
 
@@ -187,7 +187,7 @@ Esta secção é necessária. Define as propriedades para o limiar de alerta.
 
 | Nome do elemento | Necessário | description |
 |:--|:--|:--|
-| Operador | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
+| Operator | Sim | Operador de comparação entre os valores seguintes:<br><br>**gt = maior que<br>lt = menor que** |
 | Value | Sim | O valor a comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
