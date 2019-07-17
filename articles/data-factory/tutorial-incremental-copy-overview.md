@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 87b5b30738451800da21736d7f139c4ba85ff998
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520447"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233700"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carrega dados de forma incremental a partir de um arquivo de dados de origem para um arquivo de dados de destino
 
@@ -29,9 +29,11 @@ Neste caso, é possível definir uma marca d'água na base de dados de origem. U
 ![Fluxo de trabalho para a utilização de uma marca d'água](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
 
 Para obter instruções passo a passo, veja os seguintes tutoriais: 
-
 - [Copiar dados de forma incremental de uma tabela na Base de Dados SQL do Azure para o armazenamento de Blobs do Azure](tutorial-incremental-copy-powershell.md)
 - [Copiar dados de forma incremental a partir de várias tabelas no SQL Server no local para a Base de Dados SQL do Azure](tutorial-incremental-copy-multiple-tables-powershell.md)
+
+Para modelos, consulte o seguinte:
+- [Cópia do delta com a tabela de controle](solution-template-delta-copy-with-control-table.md)
 
 ## <a name="delta-data-loading-from-sql-db-by-using-the-change-tracking-technology"></a>Carregamento do SQL DB utilizando a tecnologia de controlo de alterações de dados delta
 A tecnologia de Controlo de Alterações é uma solução simples no SQL Server e na Base de Dados SQL do Azure que fornece um mecanismo de controlo de alterações eficiente para aplicações. Permite que uma aplicação facilmente identifique dados que foram inseridos, atualizados ou eliminados. 
@@ -41,21 +43,24 @@ O fluxo de trabalho para esta abordagem é descrito no diagrama seguinte:
 ![Fluxo de trabalho para utilizar o Controlo de Alterações](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
-[Copiar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure utilizando a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+- [Copiar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure utilizando a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>A carregar ficheiros de novos e alterados apenas através de LastModifiedDate
 Pode copiar os ficheiros de novos e alterados apenas através de LastModifiedDate para o arquivo de destino. ADF irá analisar todos os ficheiros de arquivo de origem, aplique o filtro de ficheiros pelo respetivo LastModifiedDate e apenas copie o ficheiro de novo e atualizado desde a última vez para o arquivo de destino.  Lembre-se permitir que enormes quantidades da ADF análise de ficheiros, mas apenas copiar alguns arquivos para o destino, ainda poderia esperar que a duração de tempo devido a análise do ficheiro é demorada também.   
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
-[Copiar ficheiros novos e alterados com base em LastModifiedDate do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+- [Copiar ficheiros novos e alterados com base em LastModifiedDate do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+
+Para modelos, consulte o seguinte:
+- [Copiar novos ficheiros ao LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>A carregar novos ficheiros utilizando apenas a hora particionados de nome de ficheiro ou pasta.
 Pode copiar ficheiros novos apenas, onde ficheiros ou pastas já foi particionado com informações de timeslice como parte do nome do ficheiro ou pasta (por exemplo, /yyyy/mm/dd/file.csv) de tempo. É a abordagem de desempenho a maioria para novos ficheiros de carregamento incremental. 
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
-[Copiar novos ficheiros com base na pasta particionada de tempo ou nome de ficheiro do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
+- [Copiar novos ficheiros com base na pasta particionada de tempo ou nome de ficheiro do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Avançar para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]

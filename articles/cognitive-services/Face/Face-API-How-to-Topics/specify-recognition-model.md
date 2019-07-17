@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
-ms.openlocfilehash: 0f1069c4a3d0a841b792cedf5a5a90aec80a4cc9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: fd60923351970dfe5aa5705a0508dbd39941ef58
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592971"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254351"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
@@ -45,8 +45,7 @@ Ao utilizar o [Se deparam - detetar] API, atribuir a versão de modelo com o `re
 
 Opcionalmente, pode especificar a _returnRecognitionModel_ parâmetro (predefinição **false**) para indicar se _recognitionModel_ deve ser devolvido na resposta. Deste modo, um URL do pedido para o [Se deparam - detetar] REST API terá esta aparência:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 Se estiver a utilizar a biblioteca de cliente, pode atribuir o valor para `recognitionModel` passando uma cadeia de caracteres que representa a versão.
 Se deixá-lo não atribuído, a versão de modelo padrão (_recognition_01_) será utilizado. Veja o seguinte exemplo de código para a biblioteca de cliente .NET.
@@ -78,7 +77,7 @@ Não há nenhuma alteração no [Rosto – Identificar] API; só precisa de espe
 
 ## <a name="find-similar-faces-with-specified-model"></a>Encontrar rostos semelhantes com o modelo especificado
 
-Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão de modelo com `recognitionModel` ao criar a lista de rostos com [FaceList - Create] API ou [LargeFaceList - Create]. Se não especificar este parâmetro, o original `recognition_01` modelo é usado. Uma lista de rostos utiliza sempre o modelo de reconhecimento de que foi criado com e rostos novo passará a ser associados a este modelo quando são adicionados a ela; Isto não pode ser alterado após a criação. Para ver o modelo de uma lista de face está configurada com, utilize o [FaceList - Get] API com o _returnRecognitionModel_ parâmetro definido como **verdadeiro**.
+Também pode especificar um modelo de reconhecimento para pesquisa de semelhança. Pode atribuir a versão de modelo com `recognitionModel` ao criar a lista de rostos com [FaceList - criar] API ou [LargeFaceList - criar]. Se não especificar este parâmetro, o original `recognition_01` modelo é usado. Uma lista de rostos utiliza sempre o modelo de reconhecimento de que foi criado com e rostos novo passará a ser associados a este modelo quando são adicionados a ela; Isto não pode ser alterado após a criação. Para ver o modelo de uma lista de face está configurada com, utilize o [FaceList - Get] API com o _returnRecognitionModel_ parâmetro definido como **verdadeiro**.
 
 Veja o seguinte exemplo de código para a biblioteca de cliente .NET.
 
@@ -119,6 +118,6 @@ Neste artigo, aprendeu como especificar o modelo de reconhecimento para utilizar
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
 [PersonGroup – Preparar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup – Criar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
-[FaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
+[FaceList - criar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
 [FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
-[LargeFaceList - Create]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
+[LargeFaceList - criar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc

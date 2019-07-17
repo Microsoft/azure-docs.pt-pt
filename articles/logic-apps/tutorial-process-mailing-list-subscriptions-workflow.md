@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b28c38d2444f227d26df1f9ca2d70876ff41064
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60503463"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260602"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gerir pedidos de listas de correio com o Azure Logic Apps
 
@@ -61,10 +61,10 @@ Inicie sessão no <a href="https://portal.azure.com" target="_blank">portal do A
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Nome** | LA-MailingList | O nome para a aplicação lógica | 
+   | **Name** | LA-MailingList | O nome para a aplicação lógica | 
    | **Subscrição** | <*your-Azure-subscription-name*> | O nome para a subscrição do Azure | 
    | **Grupo de recursos** | LA-MailingList-RG | O nome para o [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizado para organizar os recursos relacionados | 
-   | **Localização** | EUA Leste 2 | A região onde pretende armazenar as informações da aplicação lógica | 
+   | **Location** | EUA Leste 2 | A região onde pretende armazenar as informações da aplicação lógica | 
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. | 
    |||| 
 
@@ -126,9 +126,9 @@ Agora que tem um acionador, adicione uma [ação](../logic-apps/logic-apps-overv
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Para** | <*approver-email-address*> | O endereço de e-mail do aprovador. Para fins de teste, pode utilizar o seu próprio endereço. | 
+   | **To** | <*approver-email-address*> | O endereço de e-mail do aprovador. Para fins de teste, pode utilizar o seu próprio endereço. | 
    | **Opções do Utilizador** | Aprovar, Rejeitar | As opções de resposta que o aprovador pode escolher. Por predefinição, o aprovador pode escolher "Aprovar" ou "Rejeitar" como resposta. | 
-   | **Assunto** | Aprovar pedido de membro para test-members-ML | Um assunto de e-mail descritivo | 
+   | **Subject** | Aprovar pedido de membro para test-members-ML | Um assunto de e-mail descritivo | 
    |  |  |  | 
 
    Por agora, ignore a lista de conteúdo dinâmico ou a lista de parâmetros inline que aparece quando clica dentro das caixas de edição específicas. 
@@ -147,7 +147,7 @@ Em seguida, adicione uma condição para verificar a resposta que o aprovador es
 
 2. Mude o nome da condição com uma descrição melhor.
 
-   1. Na barra de título da condição, escolha o botão **reticências** (**...** ) > **Rename** (Mudar o nome).
+   1. Na barra de título da condição, escolha o botão **reticências** ( **...** ) > **Rename** (Mudar o nome).
 
       Por exemplo, se o browser estiver na vista estreita:
 
@@ -206,7 +206,7 @@ Em seguida, adicione uma condição para verificar se o membro novo foi associad
 
 ## <a name="check-for-success-or-failure"></a>Verificar se a operação foi concluída com êxito ou se falhou
 
-1. No ramo **Se verdadeiro**, na ação **Add member to list** , escolha **Mais...** > **Adicionar uma condição**.
+1. No ramo **Se verdadeiro**, na ação **Add member to list** , escolha **Mais...**  > **Adicionar uma condição**.
 
 2. Mude o nome da condição com a descrição ```If add member succeeded```
 
@@ -247,8 +247,8 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Para** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Assunto** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a 'test-members-ML': **Endereço de e-mail**" | 
+   | **To** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de êxito. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
+   | **Subject** | <*subject-for-success-email*> | O assunto do e-mail de êxito. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Êxito! Membro adicionado a 'test-members-ML': **Endereço de e-mail**" | 
    | **Corpo** | <*body-for-success-email*> | O conteúdo do corpo do e-mail de êxito. Neste tutorial, introduza este texto e selecione os campos especificados em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico:  <p>"Membro novo foi associado a 'test-members-ML': **Endereço de e-mail**"</br>"Estado de optar ativamente por participar no membro: **Estado**" | 
    | | | | 
 
@@ -272,8 +272,8 @@ Depois, configure os e-mails que vão ser enviados quando a associação do memb
 
    | Definição | Valor | Descrição | 
    | ------- | ----- | ----------- | 
-   | **Para** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
-   | **Assunto** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Falha, membro não adicionado a 'test-members-ML': **Endereço de e-mail**" | 
+   | **To** | <*your-email-address*> | O endereço de e-mail para onde enviar o e-mail de falha. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. | 
+   | **Subject** | <*subject-for-failure-email*> | O assunto do e-mail de falha. Neste tutorial, introduza este texto e selecione o campo especificado em **Add member to list** na lista de parâmetros ou na lista de conteúdo dinâmico: <p>"Falha, membro não adicionado a 'test-members-ML': **Endereço de e-mail**" | 
    | **Corpo** | <*body-for-failure-email*> | O conteúdo do corpo do e-mail de falha. Neste tutorial, introduza este texto: <p>"É possível que o membro já exista. Verifique a sua conta do MailChimp." | 
    | | | | 
 

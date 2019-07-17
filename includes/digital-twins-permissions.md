@@ -9,10 +9,10 @@ ms.date: 06/28/2019
 ms.author: dkshir
 ms.custom: include file
 ms.openlocfilehash: 324f41055cf333081f308a3ff533ff7df6b33038
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 07/16/2019
 ms.locfileid: "67479233"
 ---
 >[!NOTE]

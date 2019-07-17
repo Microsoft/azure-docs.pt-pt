@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fe83cd5f38e8c091ee72875da370b6929a99b727
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: d222936f93f90573a46cd7f6216fbde8043332c7
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854144"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261418"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMs de VMware para o Azure (baseado em agente)
 
@@ -121,7 +121,7 @@ O administrador de inquilino/global pode conceder permissões da seguinte forma
 
 #### <a name="assign-application-developer-role"></a>Atribuir a função de programador da aplicação 
 
-O administrador global/inquilino pode atribuir a função de programador da aplicação a uma conta. [Saiba mais](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+O administrador global/inquilino pode atribuir a função de programador da aplicação a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="assign-permissions-to-create-key-vault"></a>Atribuir permissões para criar o Cofre de chaves
 

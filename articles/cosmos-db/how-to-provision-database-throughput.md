@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: e44017ea2df24445c28361a0f3d7fb2671317b6d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2744422e2e082c5bc6f63975b1100f336d32d5fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68000651"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250068"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Débito de aprovisionar uma base de dados no Azure Cosmos DB
 
@@ -33,6 +33,22 @@ Este artigo explica como aprovisionar o débito, numa base de dados no Azure Cos
    * Selecione **OK**.
 
 ![Caixa de diálogo de captura de ecrã da nova base de dados](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+
+
+## <a name="provision-throughput-using-azure-cli"></a>Aprovisionar débito com a CLI do Azure
+
+```azcli-interactive
+az cosmosdb database create --db-name
+                            [--key]
+                            [--name]
+                            [--resource-group-name]
+                            [--subscription]
+                            [--throughput]
+                            [--url-connection]
+```
+
+
+
 
 ## <a name="provision-throughput-using-powershell"></a>Débito de aprovisionamento com o PowerShell
 

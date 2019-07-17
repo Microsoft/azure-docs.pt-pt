@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 853e23d4dd2c9192c15ab477571ca5cd0059e965
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68225446"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248906"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integrar a Kiteworks com o Azure Active Directory
 
@@ -104,7 +104,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
 1. Na barra de ferramentas na parte superior, clique em **definições**.
 
-    ![Configurar o início de sessão único](./media/kiteworks-tutorial/tutorial_kiteworks_06.png) 
+    ![Configurar o início de sessão único](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. Na **autenticação e autorização** secção, clique em **configuração de SSO**.
 
@@ -118,7 +118,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     b. Selecione **iniciar AuthnRequest**.
 
-    c. Na **ID de entidade do IDP** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure. 
+    c. Na **ID de entidade do IDP** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
 
     d. Na **único URL de início de sessão no serviço** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
@@ -135,7 +135,7 @@ Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.S
 1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 1. Selecione **novo utilizador** na parte superior do ecrã.
 1. Na **utilizador** propriedades, siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome**, introduza `B.Simon`.
    1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
    1. Clique em **Criar**.
@@ -162,7 +162,7 @@ Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único a
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Kiteworks.
 
-Kiteworks suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Kitewors se não existir ainda.
+Kiteworks suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder a Kiteworks, se não existir ainda.
 
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte a Kiteworks](https://accellion.com/support).
@@ -175,8 +175,8 @@ Quando clica no mosaico Kiteworks no painel de acesso, deve ser automaticamente 
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

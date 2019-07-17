@@ -564,6 +564,8 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Copiar novos ficheiros por DataÚltimaModificação
           href: solution-template-copy-new-files-lastmodifieddate.md
+        - name: Mover ficheiros
+          href: solution-template-move-files.md
         - name: Cópia em massa com a tabela de controlo
           href: solution-template-bulk-copy-with-control-table.md
         - name: Cópia delta com a tabela de controlo
@@ -574,6 +576,8 @@
       items:
         - name: Resolução de problemas de atividade
           href: data-factory-troubleshoot-guide.md
+        - name: Resolução de problemas da Gestão do Azure-SSIS IR
+          href: ssis-integration-runtime-management-troubleshoot.md
         - name: Resolução de Problemas de Execução de Pacotes no Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Referência

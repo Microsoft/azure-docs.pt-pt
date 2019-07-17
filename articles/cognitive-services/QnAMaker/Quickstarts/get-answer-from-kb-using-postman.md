@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7083285ac81aa8eafee8de49175e40934e5d05b4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914861"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253814"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Início rápido: Receber uma resposta da base de dados de conhecimento com o Postman
 
@@ -73,7 +73,7 @@ Para gerar uma resposta com o Postman, conclua os seguintes passos:
 
 Se quiser obter uma resposta do ponto de extremidade de teste, acrescentar o URL com o `isTest` body propriedade.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Página de publicação também fornece informações que lhe [gerar uma resposta](get-answer-from-kb-using-curl.md) com cURL. 
 

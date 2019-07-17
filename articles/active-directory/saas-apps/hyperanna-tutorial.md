@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec333ccff0a79f0f0c1d070785768b7abb36bfac
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: ed5370fda9be2573f773bd2fe653feb74defeb7d
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228920"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248869"
 ---
 # <a name="tutorial-integrate-hyperanna-with-azure-active-directory"></a>Tutorial: Integrar HyperAnna com o Azure Active Directory
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
     | |
     |--|
     | `https://microsoft.hyperanna.com/userservice/auth/saml` |
-    |` https://anna.hyperanna.com/userservice/auth/saml` |
+    | `https://anna.hyperanna.com/userservice/auth/saml` |
 
 1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
@@ -152,9 +152,9 @@ Quando clica no mosaico HyperAnna no painel de acesso, deve ser automaticamente 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

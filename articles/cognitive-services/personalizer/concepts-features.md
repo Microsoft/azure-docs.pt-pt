@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: edjez
-ms.openlocfilehash: 94eaeb6e34e74e1a0f1a3958c23cf33b86c4adcd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: c317cbec02b82743c233bf36f743cea808c30c69
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620287"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253593"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -56,7 +56,7 @@ Personalizer aceita recursos organizados em namespaces. Determinar, no seu aplic
 Seguem-se exemplos de espaços de nomes de recursos utilizados pelas aplicações:
 
 * User_Profile_from_CRM
-* Hora
+* Time
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
@@ -66,9 +66,10 @@ Seguem-se exemplos de espaços de nomes de recursos utilizados pelas aplicaçõe
 * current_time
 * NewsArticle_TextAnalytics
 
-Pode nomear a funcionalidade espaços de nomes seguindo as suas próprias convenções, desde que eles são chaves JSON válidas.
+Pode nomear a funcionalidade espaços de nomes seguindo as suas próprias convenções, desde que eles são chaves JSON válidas. Espaços de nomes são utilizados para organizar recursos em conjuntos distintos e para eliminar a ambiguidade funcionalidades com nomes semelhantes. Pode pensar em espaços de nomes como um prefixo que é adicionado aos nomes de funcionalidade. Não não possível aninhar espaços de nomes.
 
-No seguinte JSON `user`, `state`, e `device` são espaços de nomes do recurso.
+
+No seguinte JSON `user`, `state`, e `device` são espaços de nomes do recurso. Nota de pré-visualização pública: Atualmente estamos vivamente recomendada a utilização de nomes para a funcionalidade espaços de nomes com base no UTF-8 e começar com letras diferentes. Por exemplo, `user`, `state`, e `device` começam com `u`, `s`, e `d`. Atualmente, ter espaços de nomes com o mesmo primeiros carateres pode resultar em conflitos em índices utilizados para machine learning.
 
 Objetos JSON podem incluir objetos JSON aninhados e simples/valores de propriedade. Uma matriz pode ser incluída apenas se os itens de matriz são números. 
 
@@ -77,7 +78,7 @@ Objetos JSON podem incluir objetos JSON aninhados e simples/valores de proprieda
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },
@@ -167,7 +168,7 @@ As ações que são enviados para a API de classificação dependem o que está 
 
 Eis alguns exemplos:
 
-|Objetivo|Ação|
+|Objetivo|Action|
 |--|--|
 |Personalize o artigo é realçado num Web site de notícias.|Cada ação seja um artigo de notícias potenciais.|
 |Otimize a colocação do ad num Web site.|Cada ação será um esquema ou de regras para criar um esquema para o ads (por exemplo, na parte superior, nas imagens pequenas, certas, grandes imagens).|

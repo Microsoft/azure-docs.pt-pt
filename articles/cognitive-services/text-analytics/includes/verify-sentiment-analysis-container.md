@@ -1,5 +1,5 @@
 ---
-title: Suporte de contentor
+title: Certifique-se a instância de contentor de análise de sentimentos
 titleSuffix: Azure Cognitive Services
 description: Saiba como verificar a instância de contentor de análise de sentimentos.
 services: cognitive-services
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f68d9c7098f2b1ca782e2522c632c2e267b35336
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455089"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229187"
 ---
 ## <a name="verify-the-sentiment-analysis-container-instance"></a>Certifique-se a instância de contentor de análise de sentimentos
 
 1. Selecione o **descrição geral** separador e copie o endereço IP.
-1. Abra um novo separador do browser e utilizar o endereço IP, por exemplo, `http://<IP-address>:5000 (http://55.55.55.55:5000`). Home page do contentor é apresentada, permitindo-lhe saber o contentor está em execução.
+1. Abra um novo separador do browser e introduza o endereço IP. Por exemplo, introduza `http://<IP-address>:5000 (http://55.55.55.55:5000`). É apresentada a página de página inicial do contentor, permitindo-lhe saber o contentor está em execução.
 
-    ![Ver a home page do contentor para verificar se está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png)
+    ![Ver a home page do contentor para verificar que está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Selecione o **descrição do serviço de API** ligação para navegar para a página do swagger de contentores.
+1. Selecione o **descrição do serviço de API** ligação para aceder à página de swagger do contentor.
 
-1. Escolher qualquer uma da **POST** APIs e selecione **experimentá-lo**.  Os parâmetros são apresentados, incluindo a entrada de exemplo:
+1. Escolher qualquer uma da **POST** APIs e selecione **experimentá-lo**.  Os parâmetros são apresentados, incluindo esta entrada de exemplo:
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "67455089"
     }
     ```
 
-1. Substitua a entrada com o seguinte JSON:
+1. Substitua a entrada com o seguinte conteúdo JSON:
 
     ```json
     {
@@ -67,9 +67,9 @@ ms.locfileid: "67455089"
 
 1. Selecione **Execute** para determinar os sentimentos do texto.
 
-    O modelo empacotado no contentor gera uma pontuação entre 0 e 1, em que 0 é negativo e 1 é positivo.
+    O modelo que é empacotado no contentor gera uma pontuação entre 0 e 1, em que 0 é negativo e 1 é positivo.
 
-    A resposta JSON devolvida inclui o sentimento para entrada de texto atualizado:
+    A resposta JSON devolvido inclui o sentimento para entrada de texto atualizado:
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "67455089"
     }
     ```
 
-Vamos agora pode correlacionar o documento `id` payloads de resposta JSON para o documento de payload do pedido original `id`e ver o que não havia uma pontuação igual ao longo do `.98` que indicam um sentimento positivo muito.
+Vamos agora pode correlacionar o documento `id` dos dados JSON do payload de resposta para o documento de payload do pedido original `id`. Vemos uma pontuação igual a mais do que `.98`, que indicam um sentimento positivo rigidez.

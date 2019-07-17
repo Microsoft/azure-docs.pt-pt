@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 16b653d1018c0c9c090f027ebcd01468af0eefd8
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688558"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234719"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -105,6 +105,10 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
    * **Ficheiro de pacote (. zip)** : Este pacote contém ficheiros necessários dois compactados num pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
    * **ID do inquilino**: O ID de inquilino para a conta para obter acesso.
    * **Ativar o acesso JIT**: Selecione **Sim** para ativar [controlo de acesso just-in-time](request-just-in-time-access.md) para a conta. Quando ativada, solicitar o acesso à conta do consumidor durante um período de tempo especificado. Para exigir que os consumidores do seu aplicativo gerenciado concedem o acesso permanente de conta, selecione **não**.
+   * **Personalizar ações de cliente permitidas?** : Selecione **Sim** para especificar quais ações os consumidores podem executar nos recursos gerenciados.
+   * **Permitidas ações de cliente**: Se selecionou **Sim** para a configuração anterior, pode especificar quais ações são permitidas para os consumidores utilizando [negar atribuições para recursos do Azure](../role-based-access-control/deny-assignments.md).
+
+     Para ações disponíveis, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Por exemplo, para permitir os consumidores para reiniciar as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` para as ações permitidas. O `*/read` ação automaticamente é permitida para que precise incluir essa definição.
    * **PrincipalId**: Esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, o grupo de utilizadores ou a aplicação que é concedida acesso aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
    * **Definição de função**: Esta propriedade é uma lista de todos os as controlo de acesso baseado em funções (RBAC) funções incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
    * **Definições de política**: Aplicar uma [do Azure Policy](../governance/policy/overview.md) para seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../governance/policy/samples/index.md).
@@ -178,7 +182,7 @@ Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. E
 
 Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar e publicar uma aplicação gerida do Catálogo de Serviços](publish-service-catalog-app.md).

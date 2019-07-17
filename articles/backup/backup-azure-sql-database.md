@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: raynew
-ms.openlocfilehash: 8e7e5d871fa1bb557de4e6fce22658115bf0fe94
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 2957e784540f7c6450235d26da43121db2458dd1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806985"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249518"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -46,9 +46,9 @@ Antes de começar, verifique se o abaixo:
 **Suporte** | **Detalhes**
 --- | ---
 **Implementações suportadas** | As VMs do Azure do SQL Marketplace e externas (SQL Server instalado manualmente) são suportadas VMs.
-**Áreas geográficas suportadas** | Sudeste da Austrália (ASE), leste da Austrália (AE) <br> Sul do Brasil (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> EUA Leste (EUS), este dos E.U.A. 2 (EUS2), EUA Centro-Oeste (WCUS), E.U.A. oeste (WUS); E.U.A. oeste 2 (WUS 2) Norte dos E.U.A. (NCUS) dos EUA Central (CUS) Centro-Sul dos E.U.A. (SCUS) <br> India Central (INC), India South (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Europa do Norte (m), Europa Ocidental <br> Sul do Reino Unido (UKS), do Reino Unido oeste (UKW)
+**Áreas geográficas suportadas** | Sudeste da Austrália (ASE), leste da Austrália (AE) <br> Sul do Brasil (BRS)<br> Canadá Central (CNC), leste do Canadá (CE)<br> Sudeste Asiático (SEA), Ásia Oriental (EA) <br> EUA Leste (EUS), este dos E.U.A. 2 (EUS2), EUA Centro-Oeste (WCUS), E.U.A. oeste (WUS); E.U.A. oeste 2 (WUS 2) Norte dos E.U.A. (NCUS) dos EUA Central (CUS) Centro-Sul dos E.U.A. (SCUS) <br> Índia Central (INC), Índia do Sul (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia Central (KRC), Sul da Coreia (KRS) <br> Europa do Norte (m), Europa Ocidental <br> Sul do Reino Unido (UKS), do Reino Unido oeste (UKW)
 **Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux não é atualmente suportado.
-**Versões suportadas do SQL Server** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Versões suportadas do SQL Server** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPs conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, desenvolvedor, Express.
 **Versões suportadas do .NET** | .NET framework 4.5.2 e superior instalado na VM
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para o SQL Server 2008 e SQL Server 2008 R2
@@ -76,7 +76,7 @@ Não é são cobrados a utilizadores para esta funcionalidade até o momento est
 - Pode fazer até **~ 2000** bases de dados do SQL Server num cofre. Pode criar vários cofres no caso de ter um maior número de bases de dados.
 - Pode configurar a cópia de segurança para até **50** bases de dados em um ir; esta restrição ajuda a otimizar cargas de cópia de segurança.
 - Damos suporte a bancos de dados até **2TB** tamanho; para tamanhos maiores do que isso, podem surgir problemas de desempenho.
-- Para ter uma idéia de como o número de bases de dados podem ser protegidos por servidor, é necessário considerar fatores como a largura de banda, tamanho da VM, frequência de cópia de segurança, tamanho da base de dados, etc. Estamos a trabalhar num Planeador de implementações que pode ajudar a calcular que esses números em o proprietário. Podemos estarão publicando-lo em breve.
+- Para ter uma idéia de como o número de bases de dados podem ser protegidos por servidor, é necessário considerar fatores como a largura de banda, tamanho da VM, frequência de cópia de segurança, tamanho da base de dados, etc. [Transferir](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) o planeador de implementações de recurso que indica o número aproximado de bases de dados pode ter por servidor com base nos recursos da VM e a política de cópia de segurança.
 - Em caso de grupos de disponibilidade, os backups são feitos de diferentes nós com base em alguns fatores. O comportamento de cópia de segurança de um grupo de disponibilidade é resumido abaixo.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Criar cópias de segurança comportamento em caso de sempre em grupos de disponibilidade
@@ -231,7 +231,7 @@ catch
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre](backup-sql-server-database-azure-vms.md) backup bancos de dados do SQL Server.
 * [Saiba mais sobre](restore-sql-database-azure-vm.md) restaurar cópia de segurança de bases de dados do SQL Server.

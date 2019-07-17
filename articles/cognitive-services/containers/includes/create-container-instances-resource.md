@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: 38addf4651373ba0f4df411325218a255c835508
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 05284d434e6bd22fd50957f7cc5ec966f88a4fd4
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717187"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229266"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Criar um recurso de instância de contentor do Azure
 
@@ -39,12 +39,12 @@ ms.locfileid: "67717187"
     |--|--|
     |Portas|Defina a porta TCP para `5000`. Expõe o contentor na porta 5000.|
 
-4. Na **avançadas** separador, introduza o necessária **variáveis de ambiente** para o contentor [definições de faturação](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) do recurso ACI:
+4. Sobre o **avançadas** separador, introduza o necessário **variáveis de ambiente** para o contentor de definições do recurso ACI de faturação:
 
-    | Chave | Value |
+    | Chave | Valor |
     |--|--|
-    |`apikey`|Copiado do **chaves** página do recurso de análise de texto. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copiado do **descrição geral** página do recurso de análise de texto. Exemplo: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Copiado do **chaves** página do recurso. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copiado do **descrição geral** página do recurso.|
     |`eula`|`accept`|
 
 1. Clique em **rever e criar**

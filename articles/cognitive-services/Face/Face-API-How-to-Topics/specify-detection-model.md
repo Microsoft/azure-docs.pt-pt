@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: fbefbea171a8559466117c55703a14268b4c4c99
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 26ab3cb247309aa21791ca5a984f39ef40ce9a78
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592932"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249621"
 ---
 # <a name="specify-a-face-detection-model"></a>Especifique um modelo de deteção facial
 
@@ -45,8 +45,7 @@ Quando utiliza a [Se deparam - detetar] API, pode atribuir a versão de modelo c
 
 Um URL do pedido para o [Se deparam - detetar] REST API terá esta aparência:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
 Se estiver a utilizar a biblioteca de cliente, pode atribuir o valor para `detectionModel` ao transmitir uma cadeia de caracteres apropriada. Se o deixar não atribuídos, a API irá utilizar a versão de modelo padrão (`detection_01`). Veja o seguinte exemplo de código para a biblioteca de cliente .NET.
 
@@ -106,7 +105,7 @@ Os modelos de deteção de rostos diferentes estão otimizados para diferentes t
 
 A melhor forma de comparar os desempenhos do `detection_01` e `detection_02` modelos é usá-los num conjunto de dados de exemplo. É recomendável chamar a [Se deparam - detetar] API numa variedade de imagens, especialmente imagens de muitas faces ou de faces que são difíceis de ver, com cada modelo de deteção. Preste atenção ao número de rostos que retorna cada modelo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu como especificar o modelo de deteção a utilizar com as APIs de rostos diferentes. Em seguida, seguir um guia de introdução para começar a utilizar a deteção de rostos.
 
