@@ -209,7 +209,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define o nível de registo de ficheiros está ativado.  As opções são `never`, `always`, `debugOnly`. |
 |logLevel|n/d|Objeto que define a categoria de registo de filtragem para as funções na aplicação. Versão 2.x segue o layout do ASP.NET Core para filtragem de categoria do registo. Isto permite-lhe filtrar o registo para funções específicas. Para obter mais informações, consulte [filtragem de Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|n/d| O [consola](#console) definição de registo. |
+|console|n/d| O [console](#console) definição de registo. |
 |applicationInsights|n/d| O [Application Insights](#applicationinsights) definição. |
 
 ## <a name="console"></a>console
