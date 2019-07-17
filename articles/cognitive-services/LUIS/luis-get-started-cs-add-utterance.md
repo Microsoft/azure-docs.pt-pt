@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01fd5b06a2e534a85c88d5c1a706713f07f40106
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710398"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277556"
 ---
 # <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar através do modeloC#
 
@@ -49,7 +49,7 @@ O projeto do Visual Studio precisa de **System.Web**. No Explorador de soluçõe
 
 ### <a name="add-other-dependencies"></a>Adicionar outras dependências
 
-O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParser**. No Explorador de Soluções, clique com o botão direito do rato em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet...**. Navegue para e adicione cada um dos dois pacotes. 
+O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParser**. No Explorador de Soluções, clique com o botão direito do rato em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet...** . Navegue para e adicione cada um dos dois pacotes. 
 
 ![Adicionar dependências de terceiros](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 

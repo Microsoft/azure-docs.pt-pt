@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end zonal para fazer o balanceamento de carga das VMs dentro de uma zona de disponibilidade através do portal do Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61096051"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273392"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs dentro de uma zona de disponibilidade com o Balanceador de carga Standard com o portal do Azure
 
@@ -52,9 +52,9 @@ O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Qua
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupZLB* na caixa de texto.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Subscription               | Selecione a sua subscrição.    |    
+    | Resource group         | Selecione **criar novo** e escreva *MyResourceGroupZLB* na caixa de texto.|
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **público**.                                        |
     | SKU           | Selecione **padrão**.                          |

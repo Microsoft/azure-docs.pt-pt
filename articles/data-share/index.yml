@@ -49,3 +49,13 @@ sections:
         items:
           - html: <a href="share-your-data">Partilhar dados com o Azure Data Share</a>
           - html: <a href="subscribe-to-data-share">Aceitar e receber dados com o Azure Data Share</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/microsoft.azure.management.datashare">.NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/datashare">API REST</a></p>

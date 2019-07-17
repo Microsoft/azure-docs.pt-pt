@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: a8a1f6fe9372d013d310c557161ceb813b8a478b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3682b9e0c38344be1522440290b46f8c10bd5607
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67163644"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275913"
 ---
 # <a name="application-settings"></a>Definições da aplicação
 
@@ -24,8 +24,8 @@ Estas definições de aplicação são armazenadas no [exportados](https://westu
 
 |Definição|Valor predefinido|Notas|
 |--|--|--|
-|NormalizePunctuation|Verdadeiro|Remove a pontuação.|
-|NormalizeDiacritics|Verdadeiro|Remove diacríticos.|
+|NormalizePunctuation|True|Remove a pontuação.|
+|NormalizeDiacritics|True|Remove diacríticos.|
 
 ## <a name="diacritics-normalization"></a>Normalização de diacríticos 
 
@@ -48,7 +48,7 @@ As expressões seguintes mostram como a normalização de diacríticos afeta exp
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>Português (Brasil) `pt-br` diacríticos
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -66,7 +66,7 @@ As expressões seguintes mostram como a normalização de diacríticos afeta exp
 
 #### <a name="dutch-nl-nl-diacritics"></a>Holandês `nl-nl` diacríticos
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -85,7 +85,7 @@ As expressões seguintes mostram como a normalização de diacríticos afeta exp
 
 Isto inclui subcultures de francês e canadenses.
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -104,7 +104,7 @@ Isto inclui subcultures de francês e canadenses.
 
 #### <a name="german-de-de-diacritics"></a>Alemão `de-de` diacríticos
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`| 
@@ -112,7 +112,7 @@ Isto inclui subcultures de francês e canadenses.
 
 #### <a name="italian-it-it-diacritics"></a>Italiano `it-it` diacríticos
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -129,7 +129,7 @@ Isto inclui subcultures de francês e canadenses.
 
 Isto inclui o México espanhol e canadenses.
 
-|Diacríticos definidos como falso|Diacríticos definidos como falso|
+|Diacríticos definidos como falso|Diacríticos definido como verdadeiro|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|

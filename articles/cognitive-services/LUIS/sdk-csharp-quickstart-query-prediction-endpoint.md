@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557431"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275812"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Consultar o ponto final de previsão com o C# .NET SDK
 
@@ -58,7 +58,7 @@ az cognitiveservices account create \
 Crie um projeto de consola .NET Core no Visual Studio Community 2017.
 
 1. Abra o Visual Studio Community 2017.
-1. Criar um novo projeto, a partir da **Visual C#**  secção, escolha **a aplicação de consola (.NET Core)**.
+1. Criar um novo projeto, a partir da **Visual C#**  secção, escolha **a aplicação de consola (.NET Core)** .
 1. Introduza o nome do projeto `QueryPrediction`, deixe os valores predefinidos restantes e selecione **OK**.
     Esta ação cria um projeto simples com o arquivo de código principal chamado **Program.cs**.
 

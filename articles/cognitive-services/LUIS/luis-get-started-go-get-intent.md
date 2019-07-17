@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 055cbb8df3d91e1a3ada3fdbb471e74d146b86b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c74e16c55a1b4050ee02c96a1728a07261ff6c3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197073"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276134"
 ---
 # <a name="quickstart-get-intent-using-go"></a>Início rápido: Objetivo de GET com Go
 

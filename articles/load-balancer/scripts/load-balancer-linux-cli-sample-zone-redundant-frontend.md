@@ -3,7 +3,7 @@ title: Exemplo da CLI - VMs de Balanceador de Carga em múltiplas zonas de dispo
 description: Este exemplo de script de CLI do Azure mostra como balancear cargas de tráfego de VMs por zonas de disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: kumud
-ms.openlocfilehash: fff34f6a36f9c01b1f28b6b1f13189537d8c9060
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: fdfd1de3d20a275dbc19ed414a22ebe2a6864eeb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61323492"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273717"
 ---
 # <a name="azure-cli-script-example-load-balance-vms-across-availability-zones"></a>Exemplo do script da CLI do Azure: Balancear carga de VMs por zonas de disponibilidade
 
@@ -182,7 +182,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm create](/cli/azure/vm#az-vm-create) | Cria a máquina virtual e liga-a à placa de rede, à rede virtual, à sub-rede e ao NSG. Este comando também especifica a imagem de máquina virtual a ser utilizada e as credenciais administrativas.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

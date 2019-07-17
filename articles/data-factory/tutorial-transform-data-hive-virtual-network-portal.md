@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66165242"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277479"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Data Factory que transforma os dados com a Atividade do Hive num cluster HDInsight que se encontra numa Rede Virtual do Azure (VNet). Vai executar os seguintes passos neste tutorial:
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 - **Conta de Armazenamento do Azure**. Tem de criar um script do Hive e carregá-lo para o armazenamento do Azure. A saída do script do Hive é armazenada nesta conta de armazenamento. Neste exemplo, o cluster HDInsight utiliza esta conta de Armazenamento do Azure como armazenamento primário. 
 - **Rede Virtual do Azure.** Se não tiver uma rede virtual do Azure, crie-a seguindo [estas instruções](../virtual-network/quick-create-portal.md). Neste exemplo, o HDInsight está numa Rede Virtual do Azure. Eis um exemplo de configuração da Rede Virtual do Azure. 
 
-    ![Criar rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
+    ![Criar a rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **Cluster HDInsight.** Criar um cluster do HDInsight e associe-o para a rede virtual que criou no passo anterior ao seguir este artigo: [Expandir HDInsight do Azure com uma rede Virtual do Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
 
     ![HDInsight numa rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
@@ -201,9 +201,9 @@ Neste passo, vai criar um novo pipeline com uma atividade do Hive. A atividade e
 Tenha em atenção os seguintes pontos:
 
 - **scriptPath** aponta para o caminho do script do Hive na Conta de Armazenamento do Azure que utilizou para MyStorageLinkedService. O caminho é sensível a maiúsculas e minúsculas.
-- **Output** é um argumento utilizado no script do Hive. Utilize o formato `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontá-lo para uma pasta existente no seu Armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. 
+- **Output** é um argumento utilizado no script do Hive. Utilize o formato `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` para apontá-lo para uma pasta existente no seu Armazenamento do Azure. O caminho é sensível a maiúsculas e minúsculas. 
 
-1. Na IU do Data Factory, clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Pipeline**. 
+1. Na IU do Data Factory, clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Pipeline**. 
 
     ![Menu Novo pipeline](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-pipeline-menu.png)
 2. Na caixa de ferramentas **Atividades**, expanda **HDInsight** e arraste e largue a atividade **Hive** na superfície de desenho do pipeline. 
@@ -226,7 +226,7 @@ Tenha em atenção os seguintes pontos:
         ![Definições do script](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. No separador **Script**, expanda a secção **Avançadas**. 
     6. Clique em **Preencher automaticamente a partir do script** em **Parâmetros**. 
-    7. Introduza o valor para o parâmetro **Saída** no formato `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Por exemplo: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Introduza o valor para o parâmetro **Saída** no formato `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. Por exemplo: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Argumentos do script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Para publicar os artefactos no Data Factory, clique em **Publicar**.

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial mostra como configurar o encaminhamento de porta a utilizar o Balanceador de carga do Azure para criar ligações para as VMs numa rede virtual do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322619"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273436"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configurar o encaminhamento de porta no balanceador de carga do Azure com o portal
 
@@ -49,9 +49,9 @@ Primeiro, crie um balanceador de carga Standard público que pode balancear a ca
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Subscription               | Selecione a sua subscrição.    |    
+    | Resource group         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **público**.                                        |
     | SKU           | Selecione **padrão**.                          |
@@ -90,7 +90,7 @@ Criar uma rede virtual com duas máquinas virtuais e adicionar as VMs para o con
    - **Subscrição** > **grupo de recursos**: Lista pendente e selecione **MyResourceGroupLB**.
    - **Nome da máquina virtual**: Tipo *MyVM1*.
    - **Região**: Selecione **Europa Ocidental**. 
-   - **Nome de utilizador**: Type *azureuser*.
+   - **Nome de utilizador**: Tipo *azureuser*.
    - **palavra-passe**: Tipo *Azure1234567*. 
      Volte a escrever a palavra-passe no **Confirmar palavra-passe** campo.
    
@@ -111,7 +111,7 @@ Criar uma rede virtual com duas máquinas virtuais e adicionar as VMs para o con
    
 1. Adicione a VM para um conjunto de back-end de Balanceador de carga que criou:
    
-   1. Sob **BALANCEAMENTO de carga** > **colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?**, selecione **Sim**. 
+   1. Sob **BALANCEAMENTO de carga** > **colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?** , selecione **Sim**. 
    1. Para **opções de balanceamento de carga**, menu pendente e selecione **Balanceador de carga do Azure**. 
    1. Para **selecionar um balanceador de carga**, menu pendente e selecione **MyLoadBalancer**. 
    1. Sob **selecionar um conjunto de back-end**, selecione **criar nova**, em seguida, escreva *MyBackendPool*e selecione **criar**. 
@@ -216,7 +216,7 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
    - **Porta**: Tipo *80*.
    - **Porta de back-end**: Tipo *80*.
    - **Conjunto back-end**: Selecione **MyBackendPool**.
-   - **Sonda de estado de funcionamento**: Select **MyHealthProbe**. 
+   - **Sonda de estado de funcionamento**: Selecione **MyHealthProbe**. 
    
 1. Selecione **OK**.
    

@@ -3,7 +3,7 @@ title: Exemplo do PowerShell – balanceamento de carga de múltiplos sites com 
 description: Este exemplo de script do Azure PowerShell mostra como fazer o balanceamento de carga de múltiplos sites para a mesma máquina virtual
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: 6bedba2c68c05ee7ed6518996e54d007f3e83dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 098d300efc0b151d07b087959750a209c392872f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170674"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273620"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Exemplo de script do PowerShell do Azure: Vários Web sites de balanceamento de carga
 
@@ -66,7 +66,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma r
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | Cria uma máquina virtual. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos no grupo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 

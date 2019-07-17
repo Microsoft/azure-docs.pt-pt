@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial mostra-lhe como criar um balanceador de carga básico interno com o portal do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09a73b5d97e46797dd880f64383fdf03fd591f3d
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61318503"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273502"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Carga de tráfego interno de saldo com um balanceador de carga básico no portal do Azure
 
@@ -91,9 +91,9 @@ Crie um balanceador de carga interno básico com o portal. O nome e endereço IP
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscrição               | Selecione a sua subscrição.    |    
-    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Subscription               | Selecione a sua subscrição.    |    
+    | Resource group         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **interno**.                                        |
     | SKU           | Selecione **Básico**.                          |
@@ -180,7 +180,7 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
    - **Porta**: Tipo *80*.
    - **Porta de back-end**: Tipo *80*.
    - **Conjunto back-end**: Selecione **MyBackendPool**.
-   - **Sonda de estado de funcionamento**: Select **MyHealthProbe**. 
+   - **Sonda de estado de funcionamento**: Selecione **MyHealthProbe**. 
    
 1. Selecione **OK**.
    

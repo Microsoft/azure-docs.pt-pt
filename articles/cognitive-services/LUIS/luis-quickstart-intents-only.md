@@ -3,20 +3,20 @@ title: Prever intenções
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie uma aplicação personalizada que prevê a intenção de um utilizador. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123906"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277568"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Criar aplicação LUIS para determinar as intenções dos usuários
 
@@ -49,7 +49,7 @@ Esta aplicação tem algumas intenções.
 |--|--|
 |ApplyForJob|Determine se o utilizador é aplicar para uma tarefa.|
 |GetJobInformation|Determine se o utilizador está à procura de informações sobre tarefas em geral ou de uma tarefa específica.|
-|Nenhuma|Determinar se o utilizador está fazendo algo aplicação deixar de responder. Este se intenção fornecido como parte da criação de aplicações e não pode ser eliminada. |
+|Nenhum|Determinar se o utilizador está fazendo algo aplicação deixar de responder. Este se intenção fornecido como parte da criação de aplicações e não pode ser eliminada. |
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 
@@ -131,7 +131,7 @@ Esta aplicação tem algumas intenções.
 
     O `verbose=true` parâmetro de cadeia de consulta significa incluem **todas as intenções** nos resultados de consulta da aplicação. A matriz de entidades está vazia porque esta aplicação não tem entidades atualmente. 
 
-    O resultado JSON identifica a intenção com a melhor classificação como a propriedade **`topScoringIntent`**. Todas as classificações estão compreendidas entre 1 e 0, estando a melhor classificação próxima de 1. 
+    O resultado JSON identifica a intenção com a melhor classificação como a propriedade **`topScoringIntent`** . Todas as classificações estão compreendidas entre 1 e 0, estando a melhor classificação próxima de 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Criar intenção para aplicativos de tarefa
 
@@ -231,7 +231,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 * [Azure Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Este tutorial criou a aplicação Recursos Humanos (RH), criou duas intenções, adicionou expressões de exemplo a cada intenção, adicionou expressões de exemplo à intenção None, preparou, publicou e testou no ponto final. Estes são os passos básicos de criação de um modelo do LUIS. 
 
@@ -239,7 +239,3 @@ Continuar com esta aplicação, [adicionando uma lista simple de entidade e a fr
 
 > [!div class="nextstepaction"]
 > [Adicionar intenções e entidades pré-concebidas a esta aplicação](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

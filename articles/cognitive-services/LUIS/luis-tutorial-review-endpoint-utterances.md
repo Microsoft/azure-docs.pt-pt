@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599647"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276034"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões não sabe por rever as expressões de ponto final
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
@@ -74,31 +74,22 @@ Utilize os passos seguintes:
     
     [![Expressões com ponto final de captura de ecrã de revisão com entidades ver o botão de alternar realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    Esta expressão, `I'm looking for a job with Natural Language Processing`, não está na intenção correta. 
+
+    O motivo pelo qual a expressão foi mispredicted é que o **ApplyForJob** intenção tem 21 discursos em comparação com as 7 expressões na **GetJobInformation**. A intenção com expressões com mais terão uma predição superior. É importante que a quantidade e a qualidade de expressões em objetivos é balanceada.
+
+1.  Para alinhar essa expressão, selecione a intenção correta e marcar a entidade de tarefa dentro do mesmo. Adicione a expressão alterado para a aplicação ao selecionar a caixa de verificação verde. 
+
     |Expressão|Intenção correta|Entidades em falta|
     |:--|:--|:--|
-    |Estou à procura de uma tarefa com o Processamento de Linguagem Natural|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Tarefa - "Processo de Linguagem Natural"|
 
-    Esta expressão não está na intenção correta e tem uma classificação inferior a 50%. A intenção **ApplyForJob** tem 21 expressões, em comparação com as sete expressões na **GetJobInformation**. Juntamente com o alinhamento correto das expressões de ponto final, devem ser adicionadas mais expressões à intenção **GetJobInformation**. Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
+    Adicionar a expressão move a expressão do **rever expressões de ponto final** para o **GetJobInformation** intenção. A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
 
-1. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta, **GetJobInformation** na coluna **Intenção alinhada**. 
-
-    [![Expressões com ponto final de captura de ecrã de revisão alinhando expressão em intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. Na mesma expressão, a entidade de `Natural Language Processing` é keyPhrase. Deve ser uma entidade **Tarefa** em vez disso. Selecione `Natural Language Processing` e, em seguida, selecione a entidade **Tarefa** na lista.
-
-    [![Expressões com ponto final de captura de ecrã de revisão entidade numa expressão de etiquetagem](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. Na mesma linha, selecione a marca de verificação com um círculo à volta na coluna **Adicionar a intenção alinhada**. 
-
-    [![Captura de ecrã de finalização alinhamento de expressão na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Esta ação move a expressão de **Rever expressões de ponto final** para a intenção **GetJobInformation**. A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
+    Juntamente com a alinhar esta expressão corretamente, expressões com mais devem ser adicionados para o **GetJobInformation** intenção. Fica como um exercício para ser concluído por conta própria. Cada intenção, exceto para a intenção**None** (Nenhuma), deverá ter aproximadamente o mesmo número de expressões de exemplo. A intenção **None** (Nenhuma) deve ter 10% do total de expressões na aplicação. 
 
 1. Reveja as restantes expressões nesta intenção, identificando as expressões e corrigindo a **Intenção alinhada**, se as expressões estiverem incorretas.
-
-1. Quando todas as expressões estiverem corretas, selecione a caixa de verificação em cada linha e, em seguida, selecione **Adicionar seleção** para alinhar as expressões corretamente. 
-
-    [![Captura de ecrã de finalização restantes expressões com alinhados intenção](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. A lista já não deve ter essas expressões. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
 

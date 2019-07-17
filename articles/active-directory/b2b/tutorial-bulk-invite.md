@@ -1,5 +1,5 @@
 ---
-title: Tutorial para convidar utilizadores de colaboração B2B em massa – Azure Active Directory | Microsoft Docs
+title: Tutorial para em massa ao convidar utilizadores de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
 description: Neste tutorial, saberá como utilizar o PowerShell e um ficheiro CSV para enviar convites em massa a utilizadores externos da colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f91d51bda4c41a314c7cc1c2cc895e36bde0500
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d3bd02afa1fe1aaba6602201f839468a58673c29
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768213"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278007"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Em massa convidar utilizadores de colaboração B2B do Azure AD
 

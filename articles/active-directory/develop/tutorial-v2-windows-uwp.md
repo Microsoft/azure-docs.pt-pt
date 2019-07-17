@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ff2089e8abdde8e6a99de1be2be070fb457fa632
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784985"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276632"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 
@@ -60,8 +60,8 @@ Este guia cria um aplicativo que exibe um botão que consultas do Graph API, um 
 ### <a name="create-your-application"></a>Criar a sua aplicação
 
 1. No Visual Studio, selecione **arquivo** > **New** > **projeto**.
-2. Sob **modelos**, selecione **Visual c#**.
-3. Selecione **Aplicação em branco (Universal Windows)**.
+2. Sob **modelos**, selecione **Visual c#** .
+3. Selecione **Aplicação em branco (Universal Windows)** .
 4. Dê um nome da aplicação e selecione **OK**.
 5. Se lhe for pedido, selecione qualquer versão para **destino** e **mínimo** versões e selecione **OK**.
 
@@ -147,7 +147,7 @@ Esta secção mostra como utilizar a MSAL para obter um token para a Microsoft G
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,12 +329,12 @@ Agora precisa de registar a sua aplicação no Portal de registo de aplicação 
 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
 1. Selecione **novo registo**.
    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `UWP-App-calling-MSGraph`.
-   - Na **tipos de conta suportados** secção, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com)**.
+   - Na **tipos de conta suportados** secção, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com)** .
    - Selecione **Registar** para criar a aplicação.
 1. Na aplicação **descrição geral** página, encontre o **ID de aplicação (cliente)** valor e registe-a para utilizar mais tarde. Volte ao Visual Studio, abra **MainPage.xaml.cs**e substitua o valor do ID de cliente com o ID da aplicação que acabou de registar:
 1. Na lista de páginas da aplicação, selecione **Autenticação**.
    1. Na **URIs de redirecionamento** secção, na lista de URIs de redirecionamento:
-   1. Na **tipo** coluna select **cliente público (móvel e ambiente de trabalho)**.
+   1. Na **tipo** coluna select **cliente público (móvel e ambiente de trabalho)** .
    1. Introduza `urn:ietf:wg:oauth:2.0:oob` no **URI de REDIRECIONAMENTO** coluna.
 1. Selecione **Guardar**.
 1. Na lista de páginas da aplicação, selecione **permissões de API**

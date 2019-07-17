@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 844d2ca9c2aa0e6a79eb7abebbec986f0fd5c5bc
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a28dd94f32eac3cba3443761671b3c846e52798c
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604264"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277631"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-php"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST de imagem digitalizada e PHP
 
@@ -219,7 +219,7 @@ O JSON devolve uma resposta de êxito. O site de exemplo analisa e apresenta uma
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `HTTP_Request2` do PHP5. Para desinstalar o pacote, siga os seguintes passos:
+Quando já não estiver usando o projeto, elimine o ficheiro e desinstalar o PHP5 `HTTP_Request2` pacote. Para desinstalar o pacote, siga os seguintes passos:
 
 1. Abra a janela da linha de comandos como administrador.
 2. Execute o seguinte comando:
@@ -230,7 +230,7 @@ Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o 
 
 3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a API de imagem digitalizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto manuscrito e impresso. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

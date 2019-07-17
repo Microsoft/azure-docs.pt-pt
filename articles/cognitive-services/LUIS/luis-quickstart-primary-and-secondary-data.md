@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a03a1224451411617f38c8cecafbef008aa08916
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66124181"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276216"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
 
@@ -31,7 +31,7 @@ A entidade simples deteta um único conceito de dados contido em palavras ou exp
 > * Aplicação de exemplo de importação
 > * Adicionar entidade simple 
 > * Adicionar a lista de frase para impulsionar o sinal de palavras
-> * Treinar 
+> * Preparar 
 > * Publicar 
 > * Obter as intenções e as entidades do ponto final
 
@@ -229,7 +229,7 @@ Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
 1. Selecione **Create new phrase list** (Criar nova lista de expressões). 
 
-1. Atribua à nova lista de expressões o nome `JobNames` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Values** (Valores). Selecione Enter. 
+1. Atribua à nova lista de expressões o nome `JobNames` e copie a lista de jobs-phrase-list.csv para a caixa de texto **Values** (Valores).
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     Certifique-se de manter os **estes valores são intercambiáveis** verificado uma vez que estes valores devem todos ser tratados como sinónimos para as tarefas. Saiba mais sobre intercambiáveis e noninterchangeable [frase conceitos de lista](luis-concept-feature.md#how-to-use-phrase-lists).
 
-1. Selecione **Save** (Guardar) para ativar a lista de expressões.
+1. Selecione **feito** para ativar a lista de frase.
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up com palavras na caixa de valores de lista de frase")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
