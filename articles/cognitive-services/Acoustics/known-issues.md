@@ -1,7 +1,7 @@
 ---
-title: Problemas conhecidos com o plug-in do projeto Acoustics
+title: Problemas conhecidos com o plugin acústicos do projeto
 titlesuffix: Azure Cognitive Services
-description: Poderá encontrar os seguintes problemas conhecidos ao utilizar a pré-visualização do Designer para Acoustics do projeto.
+description: Você pode encontrar os seguintes problemas conhecidos ao usar a visualização do designer para acústica do projeto.
 services: cognitive-services
 author: kylestorck
 manager: nitinme
@@ -9,40 +9,40 @@ ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylesto
-ms.openlocfilehash: e425575c6529ac4638fc963915362e0ec03f1117
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.author: kylsto
+ms.openlocfilehash: 53df981564eb177da66b86022ecfc80b25f1c763
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849916"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296540"
 ---
-# <a name="project-acoustics-known-issues"></a>Problemas conhecidos do projeto Acoustics
-Poderá encontrar os seguintes problemas conhecidos ao utilizar a pré-visualização do Designer para Acoustics do projeto.
+# <a name="project-acoustics-known-issues"></a>Problemas conhecidos do projeto acústicos
+Você pode encontrar os seguintes problemas conhecidos ao usar a visualização do designer para acústica do projeto.
 
-## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Parâmetros acústicos são perdidos quando mudar o nome de uma cena
+## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Os parâmetros acústicos são perdidos quando você renomeia uma cena
 
-Se renomear uma cena, todos os parâmetros acústicos que pertencem a essa cena não automaticamente transferir para a cena nova. Ainda existam no ficheiro de elemento antigo no entanto. Procure o **SceneName_AcousticParameters.asset** dentro do ficheiro a **Editor** diretório junto ao seu ficheiro de cena. Mudar o nome do ficheiro para refletir o novo nome de cena.
+Se você renomear uma cena, todos os parâmetros acústicos que pertencem a essa cena não serão transferidos automaticamente para a nova cena. No entanto, eles ainda existirão no arquivo de ativo antigo. Procure o arquivo **SceneName_AcousticParameters. Asset** dentro do diretório do **Editor** ao lado do seu arquivo de cena. Renomeie o arquivo para refletir o novo nome da cena.
 
-## <a name="unity-crashes-when-closing-project"></a>Unity é interrompida ao fechar o projeto
+## <a name="unity-crashes-when-closing-project"></a>O Unity falha ao fechar o projeto
 
-Nas versões mais recentes do Unity (2018.2 +), há um bug conhecido onde Unity falhará ao fechar seu projeto. Isso é controlado [nesta edição do Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
+Nas versões mais recentes do Unity (2018.2 +), há um bug conhecido em que o Unity falhará quando você fechar o projeto. Isso é acompanhado por [esse problema do Unity](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
-## <a name="deploying-to-android-from-some-unity-versions"></a>Implementar para o Android a partir de algumas versões do Unity
+## <a name="deploying-to-android-from-some-unity-versions"></a>Implantando no Android de algumas versões do Unity
 
-Algumas versões do Unity tem um bug com a implantação de plug-ins de áudio para o Android. Certifique-se de que não está a utilizar uma versão afetada por [este bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
+Algumas versões do Unity têm um bug com a implantação de plug-ins de áudio no Android. Verifique se você não está usando uma versão afetada por [esse bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
 
-## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Recebo uma mensagem de erro que "não foi possível localizar o ficheiro de metadados System.Security.dll'
+## <a name="i-get-an-error-that-could-not-find-metadata-file-systemsecuritydll"></a>Recebo um erro que ' não pôde localizar o arquivo de metadados System. Security. dll '
 
-Certifique-se de que a versão de tempo de execução de scripts nas definições de Player está definida como **.NET 4.x equivalente**e reinicie o Unity.
+Verifique se a versão do tempo de execução de script no player está definida como **.NET 4. x equivalente**e reinicie o Unity.
 
-## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Estou a ter problemas de autenticação ao ligar ao Azure
+## <a name="im-having-authentication-problems-when-connecting-to-azure"></a>Estou tendo problemas de autenticação ao se conectar ao Azure
 
-Verificar novamente já utilizou as credenciais corretas para a sua conta do Azure, que a sua conta suporta o tipo de nó solicitado na criar e que o relógio do seu sistema está correta.
+Verifique se você usou as credenciais corretas para sua conta do Azure, se sua conta dá suporte ao tipo de nó solicitado no torta e se o relógio do sistema está correto.
 
-## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>A cancelar uma criar deixa o separador de criar no estado de "eliminação"
-Projeto Acoustics limpará todos os recursos do Azure para uma tarefa na conclusão com êxito ou a um cancelamento. Esta ação pode demorar até 5 minutos.
+## <a name="canceling-a-bake-leaves-the-bake-tab-in-deleting-state"></a>Cancelar um distorta deixa a guia de distorta no estado "excluindo"
+Os acústicos do projeto limparão todos os recursos do Azure para um trabalho após a conclusão ou cancelamento bem-sucedido. Isso pode levar até 5 minutos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Experimente o [Unity](unity-quickstart.md) ou [Unreal](unreal-quickstart.md) conteúdo de exemplo
+* Experimente o [Unity](unity-quickstart.md) ou o conteúdo de exemplo não [real](unreal-quickstart.md)
 

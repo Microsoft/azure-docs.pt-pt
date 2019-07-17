@@ -1,56 +1,56 @@
 ---
-title: Utilizar o Kubernetes no local
+title: Usar com kubernetes e Helm
 titleSuffix: Azure Cognitive Services
-description: Com o Kubernetes e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local.
+description: Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/10/2019
+ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: 33d9de956a6d43145fc68f4ec46b09b8e8bf0188
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: ace519d9be5945754fb79dc4c6fbb244c665d98b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786242"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302614"
 ---
-# <a name="use-kubernetes-on-premises"></a>Utilizar o Kubernetes no local
+# <a name="use-with-kubernetes-and-helm"></a>Usar com kubernetes e Helm
 
-Com o Kubernetes e o Helm para definir as imagens de contentor de voz em texto e texto para voz, vamos criar um pacote do Kubernetes. Este pacote será implantado para Kubernetes cluster no local. Por fim, vamos explorar como testar os serviços implementados e várias opções de configuração.
+Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados e várias opções de configuração. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar contêineres de serviço de fala](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de cumprir os seguintes pré-requisitos antes de utilizar a voz contentores no local:
+Os seguintes pré-requisitos antes de usar os contêineres de fala locais:
 
 |Necessário|Objetivo|
 |--|--|
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
-| Acesso ao registo de contentor | Para Kubernetes extrair as imagens do docker para o cluster, ele será necessário acesso ao registo de contentor. Precisa [pedir acesso ao registo de contentor][speech-preview-access] primeiro. |
-| CLI do Kubernetes | O [CLI do Kubernetes][kubernetes-cli] é necessária para gerir as credenciais partilhadas do container registry. Kubernetes é também necessária antes da Helm, que é o Gestor de pacotes do Kubernetes. |
-| Helm CLI | Como parte da [Helm CLI][helm-install] install, you'll also need to initialize Helm which will install [Tiller][tiller-install]. |
-|Recursos de voz |Para utilizar estes contentores, tem de ter:<br><br>R _voz_ recursos do Azure para obter a chave de faturação associada e a faturação URI do ponto final. Ambos os valores estão disponíveis no portal do Azure **voz** páginas de descrição geral e as chaves e são necessários para iniciar o contentor.<br><br>**{API_KEY}** : chave de recurso<br><br>**{ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| Acesso ao registro de contêiner | Para que o kubernetes pegue as imagens do Docker no cluster, ele precisará de acesso ao registro de contêiner. Você precisa [solicitar o acesso ao registro de contêiner][speech-preview-access] primeiro. |
+| CLI do kubernetes | A [CLI do kubernetes][kubernetes-cli] é necessária para gerenciar as credenciais compartilhadas do registro de contêiner. O kubernetes também é necessário antes de Helm, que é o Gerenciador de pacotes do kubernetes. |
+| CLI do Helm | Como parte da [CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]do Helm. |
+|Recurso de fala |Para usar esses contêineres, você deve ter:<br><br>Um recurso do Azure de _fala_ para obter a chave de cobrança associada e o URI do ponto de extremidade de cobrança. Ambos os valores estão disponíveis nas páginas de visão geral de **fala** e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{Api_key}** : chave de recurso<br><br>**{ENDPOINT_URI}** : o exemplo de URI do ponto de extremidade é:`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
-## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador anfitrião recomendado
+## <a name="the-recommended-host-computer-configuration"></a>A configuração do computador host recomendado
 
-Consulte a [computador de anfitrião de contentor do serviço de voz][speech-container-host-computer] detalhes como referência. Isso *gráfico helm* calcula automaticamente os requisitos de CPU e memória com base no número descodifica (pedidos simultâneos) que o utilizador Especifica. Além disso, será ajustado com base no se otimizações para entrada de áudio/texto estão configuradas como `enabled`. As predefinições do gráfico helm para dois pedidos em simultâneo e a otimização de Desativação.
+Consulte os detalhes do [computador host do contêiner do serviço de fala][speech-container-host-computer] como uma referência. Este *gráfico de Helm* calcula automaticamente os requisitos de CPU e memória com base em quantos decodificações (solicitações simultâneas) que o usuário especifica. Além disso, ele se ajustará com base em se as otimizações de entrada de áudio `enabled`/texto são configuradas como. O gráfico Helm usa como padrão duas solicitações simultâneas e desabilitando a otimização.
 
-| Serviço | CPU / contentor | Memória / contentor |
+| Serviço | CPU/contêiner | Memória/contêiner |
 |--|--|--|
-| **Conversão de voz em texto** | um Decodificador requer um mínimo de 1,150 milinúcleos. Se o `optimizedForAudioFile` é ativado, então 1,950 milinúcleos são necessários. (predefinição: dois decodificadores) | Necessário: 2 GB<br>Limitado:  4GB |
-| **Voz** | um pedido simultâneo requer um mínimo de 500 milinúcleos. Se o `optimizeForTurboMode` é ativado, então 1.000 milinúcleos são necessários. (predefinição: duas solicitações simultâneas) | Necessário: 1 GB<br> Limitado: 2 GB |
+| **Conversão de fala em texto** | um decodificador requer um mínimo de 1.150 milicores. Se o `optimizedForAudioFile` estiver habilitado, 1.950 milicores serão necessários. (padrão: dois decodificadores) | Necessário: 2 GB<br>Certo  4GB |
+| **Conversão de texto em fala** | uma solicitação simultânea requer um mínimo de 500 milicores. Se o `optimizeForTurboMode` estiver habilitado, 1.000 milicores serão necessários. (padrão: duas solicitações simultâneas) | Necessário: 1 GB<br> Certo 2 GB |
 
-## <a name="connect-to-the-kubernetes-cluster"></a>Ligue ao cluster do Kubernetes
+## <a name="connect-to-the-kubernetes-cluster"></a>Conectar-se ao cluster kubernetes
 
-Espera-se que o computador anfitrião tem um cluster de Kubernetes disponível. Veja este tutorial sobre [implementar um cluster de Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual sobre como implementar um cluster do Kubernetes num computador anfitrião.
+Espera-se que o computador host tenha um cluster kubernetes disponível. Consulte este tutorial sobre como [implantar um cluster kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para obter um entendimento conceitual de como implantar um cluster kubernetes em um computador host.
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar as credenciais do Docker com o cluster de Kubernetes
+### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Compartilhando as credenciais do Docker com o cluster kubernetes
 
-Para permitir que o cluster de Kubernetes `docker pull` as imagens de configurado do `containerpreview.azurecr.io` registo de contentor, terá de transferir as credenciais de docker para o cluster. Executar o [ `kubectl create` ][kubectl-create] comando abaixo para criar um *segredo de docker-registry* com base nas credenciais fornecidas pelo pré-requisito de acesso de registo de contentor.
+Para permitir que o cluster kubernetes `docker pull` para as imagens configuradas `containerpreview.azurecr.io` do registro de contêiner, você precisa transferir as credenciais do Docker para o cluster. Execute o [`kubectl create`][kubectl-create] comando a seguir para criar um *segredo do registro do Docker* com base nas credenciais fornecidas do pré-requisito de acesso ao registro de contêiner.
 
-A partir da sua interface de linha de comandos de preferência, execute o seguinte comando. Certifique-se de que substitua a `<username>`, `<password>`, e `<email-address>` com as credenciais de registo de contentor.
+Na sua interface de linha de comando de escolha, execute o comando a seguir. Certifique-se de substituir `<username>`o `<password>`, e `<email-address>` pelas credenciais de registro de contêiner.
 
 ```console
 kubectl create secret docker-registry containerpreview \
@@ -61,20 +61,20 @@ kubectl create secret docker-registry containerpreview \
 ```
 
 > [!NOTE]
-> Se já tiver acesso para o `containerpreview.azurecr.io` registo de contentor, pode criar um segredo do Kubernetes com o sinalizador genérico em vez disso. Considere o seguinte comando executado em relação a sua configuração de Docker JSON.
+> Se você já tiver acesso ao `containerpreview.azurecr.io` registro de contêiner, poderá criar um segredo kubernetes usando o sinalizador genérico em vez disso. Considere o seguinte comando que é executado em seu JSON de configuração do Docker.
 > ```console
 >  kubectl create secret generic containerpreview \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
 
-O resultado seguinte é impresso no console quando o segredo foi criado com êxito.
+A saída a seguir será impressa no console quando o segredo tiver sido criado com êxito.
 
 ```console
 secret "containerpreview" created
 ```
 
-Para verificar que o segredo foi criado, execute o [ `kubectl get` ][kubectl-get] com o `secrets` sinalizador.
+Para verificar se o segredo foi criado, execute o [`kubectl get`][kubectl-get] com o `secrets` sinalizador.
 
 ```console
 kuberctl get secrets
@@ -87,15 +87,15 @@ NAME                  TYPE                                  DATA      AGE
 containerpreview      kubernetes.io/dockerconfigjson        1         30s
 ```
 
-## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores de gráfico Helm para implementação
+## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores do gráfico Helm para implantação
 
-Visite o [Microsoft Helm Hub][ms-helm-hub] para todos os gráficos do helm disponíveis publicamente oferecidos pela Microsoft. Do Hub de Helm Microsoft, encontrará a **gráfico de locais de voz dos serviços cognitivos**. O **cognitivos serviços de voz no local** é o gráfico, vamos instalar, mas, primeiro tem de criar um `config-values.yaml` ficheiro por configurações explícitas. Vamos começar por adicionar o repositório da Microsoft para nossa instância do Helm.
+Visite o [Hub do Microsoft Helm][ms-helm-hub] para todos os gráficos de Helm publicamente disponíveis oferecidos pela Microsoft. No Hub do Microsoft Helm, você encontrará o **gráfico de fala local dos serviços cognitivas**. A **fala local dos serviços cognitivas** é o gráfico que iremos instalar, mas primeiro devemos criar um `config-values.yaml` arquivo com configurações explícitas. Vamos começar adicionando o repositório da Microsoft à nossa instância do Helm.
 
 ```console
 helm repo add microsoft https://microsoft.github.io/charts/repo
 ```
 
-Em seguida, vamos configurar nossos valores de gráfico do Helm. Copie e cole o seguinte YAML para um ficheiro denominado `config-values.yaml`. Para obter mais informações sobre como personalizar o **cognitivos serviços de voz no local gráfico Helm**, consulte [personalizar gráficos helm](#customize-helm-charts). Substitua a `billing` e `apikey` valores pelos seus próprios.
+Em seguida, configuraremos os valores do gráfico Helm. Copie e cole o YAML a seguir em um arquivo `config-values.yaml`chamado. Para obter mais informações sobre como personalizar o **gráfico Helm de fala no local dos serviços cognitivas**, consulte [personalizar gráficos do Helm](#customize-helm-charts). Substitua os `billing` valores `apikey` e pelos seus próprios.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -134,19 +134,19 @@ textToSpeech:
 ```
 
 > [!IMPORTANT]
-> Se o `billing` e `apikey` valores não são fornecidos, os serviços irão expirar após 15 minutos. Da mesma forma, a verificação irá falhar, os serviços não estará disponíveis.
+> Se os `billing` valores `apikey` e não forem fornecidos, os serviços expirarão após 15 minutos. Da mesma forma, a verificação falhará, pois os serviços não estarão disponíveis.
 
-### <a name="the-kubernetes-package-helm-chart"></a>O pacote do Kubernetes (gráfico Helm)
+### <a name="the-kubernetes-package-helm-chart"></a>O pacote kubernetes (gráfico Helm)
 
-O *gráfico Helm* contém a configuração dos quais imagens do docker de onde o `containerpreview.azurecr.io` registo de contentor.
+O *gráfico Helm* contém a configuração da imagem (s) do Docker a ser extraída `containerpreview.azurecr.io` do registro de contêiner.
 
-> R [gráfico Helm][helm-charts] é uma coleção de arquivos que descrevem um conjunto relacionado de recursos do Kubernetes. Um único gráfico pode ser utilizado para implementar algo simples, como um pod memcached, ou algo complexo, como uma pilha de aplicação web completa com HTTP servidores, bases de dados, caches e assim por diante.
+> Um [gráfico do Helm][helm-charts] é uma coleção de arquivos que descrevem um conjunto relacionado de recursos do kubernetes. Um único gráfico pode ser usado para implantar algo simples, como um pod memcached, ou algo complexo, como uma pilha completa do aplicativo Web com servidores HTTP, bancos de dados, caches e assim por diante.
 
-Fornecido *executar Helm gráficos* extrair as imagens do docker do serviço de voz, voz e os serviços de voz em texto do `containerpreview.azurecr.io` registo de contentor.
+Os *gráficos Helm* fornecidos puxam as imagens do Docker do serviço de fala, conversão de texto em fala e os serviços de fala para texto do `containerpreview.azurecr.io` registro de contêiner.
 
-## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalar o gráfico do Helm no cluster de Kubernetes
+## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instalar o gráfico Helm no cluster kubernetes
 
-Para instalar o *gráfico helm* vamos precisar de executar o [ `helm install` ][helm-install-cmd] comando, substituindo o `<config-values.yaml>` com o argumento de nome de ficheiro e caminho apropriado. O `microsoft/cognitive-services-speech-onpremise` gráfico do Helm referenciado abaixo está disponível na [aqui para o Microsoft Helm Hub][ms-helm-hub-speech-chart].
+Para instalar o *gráfico do Helm* , precisaremos executar o [`helm install`][helm-install-cmd] comando, substituindo `<config-values.yaml>` o pelo caminho apropriado e o argumento do nome do arquivo. O `microsoft/cognitive-services-speech-onpremise` gráfico de Helm referenciado abaixo está disponível no [Hub do Microsoft Helm aqui][ms-helm-hub-speech-chart].
 
 ```console
 helm install microsoft/cognitive-services-speech-onpremise \
@@ -155,7 +155,7 @@ helm install microsoft/cognitive-services-speech-onpremise \
     --name onprem-speech
 ```
 
-Aqui está uma saída de exemplo, pode esperar para ver a partir de uma execução concluída a instalação:
+Aqui está um exemplo de saída que você pode esperar ver em uma execução de instalação bem-sucedida:
 
 ```console
 NAME:   onprem-speech
@@ -197,13 +197,13 @@ cognitive-services-speech-onpremise has been installed!
 Release is named onprem-speech
 ```
 
-A implementação de Kubernetes pode assumir a vários minutos a concluir. Para confirmar que o pods e serviços estão corretamente implementada e disponível, execute o seguinte comando:
+A implantação do kubernetes pode levar mais de alguns minutos para ser concluída. Para confirmar se os pods e os serviços estão adequadamente implantados e disponíveis, execute o seguinte comando:
 
 ```console
 kubectl get all
 ```
 
-Deve esperar ver algo semelhante à seguinte saída:
+Você deve esperar ver algo semelhante à seguinte saída:
 
 ```console
 NAME                                  READY     STATUS    RESTARTS   AGE
@@ -230,18 +230,18 @@ horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speec
 horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
 ```
 
-### <a name="verify-helm-deployment-with-helm-tests"></a>Verificar a implementação de Helm com testes Helm
+### <a name="verify-helm-deployment-with-helm-tests"></a>Verificar a implantação do Helm com testes do Helm
 
-Definem os gráficos do Helm instalados *executar Helm testes*, que servem como uma conveniência para verificação. Esses testes validam a preparação para o serviço. Para verificar ambos **voz em texto** e **voz** serviços, executaremos o [teste Helm][helm-test] comando.
+Os gráficos do Helm instalados definem *testes Helm*, que servem como uma conveniência para a verificação. Esses testes validam a prontidão do serviço. Para verificar os serviços de **conversão de fala em texto** e de **texto em fala** , executaremos o comando de [teste Helm][helm-test] .
 
 ```console
 helm test onprem-speech
 ```
 
 > [!IMPORTANT]
-> Esses testes irão falhar se não for o estado POD `Running` ou se a implementação não está listada no `AVAILABLE` coluna. Seja paciente como isto pode demorar mais de dez minutos para concluir.
+> Esses testes falharão se o status do Pod não `Running` for ou se a implantação não estiver listada `AVAILABLE` na coluna. Seja paciente, pois isso pode levar mais de dez minutos para ser concluído.
 
-Esses testes produzirá vários resultados de estado:
+Esses testes produzirão vários resultados de status:
 
 ```console
 RUNNING: speech-to-text-readiness-test
@@ -250,11 +250,11 @@ RUNNING: text-to-speech-readiness-test
 PASSED: text-to-speech-readiness-test
 ```
 
-Como alternativa à execução do *executar helm testes*, que pode recolher o *IP externo* endereços e portas correspondentes do `kubectl get all` comando. Utilizar o IP e a porta, abra um browser e navegue para `http://<external-ip>:<port>:/swagger/index.html` para ver a API do swagger página (s).
+Como alternativa à execução dos *testes de Helm*, você pode coletar os endereços *IP externos* e as `kubectl get all` portas correspondentes do comando. Usando o IP e a porta, abra um navegador da Web e `http://<external-ip>:<port>:/swagger/index.html` navegue até para exibir a página (s) Swagger de API.
 
-## <a name="customize-helm-charts"></a>Personalizar gráficos Helm
+## <a name="customize-helm-charts"></a>Personalizar gráficos do Helm
 
-Gráficos Helm são hierárquicos. Estar hierárquica permite a herança de gráfico, ele também atende ao conceito de especificidade, onde as definições que são mais específicas substituem regras herdadas.
+Os gráficos Helm são hierárquicos. Ser hierárquico permite a herança de gráfico, ele também atende ao conceito de especificidade, em que as configurações mais específicas substituem as regras herdadas.
 
 [!INCLUDE [Speech umbrella-helm-chart-config](includes/speech-umbrella-helm-chart-config.md)]
 
@@ -264,10 +264,10 @@ Gráficos Helm são hierárquicos. Estar hierárquica permite a herança de grá
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais detalhes sobre como instalar aplicações com Helm no Azure Kubernetes Service (AKS), [visite aqui][installing-helm-apps-in-aks].
+Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Contentores de serviços cognitivos][cog-svcs-containers]
+> [Contêineres de serviços cognitivas][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

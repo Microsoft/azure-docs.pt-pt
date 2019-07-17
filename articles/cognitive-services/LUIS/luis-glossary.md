@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88d7de69158a54995106d45683094c9b976896b
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523502"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302515"
 ---
-# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão de linguagem de vocabulário comum e conceitos
+# <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão da linguagem de vocabulário e conceitos comuns
 A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.
 
 ## <a name="active-version"></a>Versão do Active Directory
@@ -96,11 +96,11 @@ Um ponto de extremidade de exemplo é semelhante a:
 
 Na [testes de batch](luis-interactive-test.md#batch-testing), uma medida de precisão do teste.
 
-## <a name="false-negative"></a>Falso negativo (TN)
+## <a name="false-negative"></a>Falso negativo (FN)
 
 Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a ausência da intenção/entidade de destino.
 
-## <a name="false-positive"></a>Falso positivo (TP)
+## <a name="false-positive"></a>Falso positivo (FP)
 
 Na [testes de batch](luis-interactive-test.md#batch-testing), os pontos de dados representam expressões em que a aplicação previsto incorretamente a existência da intenção/entidade de destino.
 

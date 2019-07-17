@@ -67,6 +67,8 @@
               href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
             - name: Azure Databricks
               href: billing-prepay-databricks-reserved-capacity.md
+            - name: Serviço de Aplicações
+              href: billing-prepay-app-service-isolated-stamp.md
             - name: Planos de software do Azure
               href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
         - name: Como é aplicado o desconto
@@ -81,6 +83,8 @@
               href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
             - name: Azure Databricks
               href: billing-reservation-discount-databricks.md
+            - name: Serviço de Aplicações
+              href: billing-reservation-discount-app-service-isolated-stamp.md
             - name: Planos de software do Azure
               href: billing-understand-suse-reservation-charges.md
         - name: Custos de software não incluídos

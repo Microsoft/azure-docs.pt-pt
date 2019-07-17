@@ -1,7 +1,7 @@
 ---
-title: Suporte de idiomas - API de análise de texto
+title: Suporte ao idioma-API de Análise de Texto
 titleSuffix: Azure Cognitive Services
-description: 'Uma lista de idiomas suportados pela API de análise de texto. Este artigo explica que idiomas são suportados para cada operação: análise de sentimentos, extração de expressões-chave, deteção de idioma e reconhecimento de entidades.'
+description: 'Uma lista de idiomas naturais com suporte pelo API de Análise de Texto. Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,70 +10,70 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 5e4f231db781b96fe204802555b56238b9e27e52
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 96539a59bd22644eaedb88886bc5b9facb4ca1c1
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442674"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302102"
 ---
-# <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte de idioma e região para a API de análise de texto
+# <a name="language-and-region-support-for-the-text-analytics-api"></a>Suporte a idiomas e regiões para o API de Análise de Texto
 
-Este artigo explica que idiomas são suportados para cada operação: análise de sentimentos, extração de expressões-chave, deteção de idioma e o reconhecimento de entidades.
+Este artigo explica quais idiomas têm suporte para cada operação: análise de sentimentos, extração de frases-chave, detecção de idioma e reconhecimento de entidade nomeada.
 
 ## <a name="language-detection"></a>Deteção de Idioma
 
-A API de análise de texto pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural.  Deteção de idioma devolve "script" de um idioma. Por exemplo, para a frase "Tenho um cachorro" irá devolver `en` em vez de `en-US`. Caso apenas especial é chinês, onde irá devolver a capacidade de deteção de idioma `zh_CHS` ou `zh_CHT` se ele pode determinar o script tendo em conta o texto fornecido. Em situações em que um script específico não é possível identificar de um documento do chinês, irá devolver simplesmente `zh`.
+O API de Análise de Texto pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais.  Detecção de Idioma retorna o "script" de um idioma. Por exemplo, para a frase "Eu tenho um cachorro", ela retornará `en` em vez `en-US`de. O único caso especial é chinês, em que o recurso de detecção de `zh_CHS` idioma `zh_CHT` retornará ou se puder determinar o script dado ao texto fornecido. Em situações em que um script específico não pode ser identificado para um documento chinês, ele retornará `zh`simplesmente.
 
-Não publicamos a lista exata de idiomas para esta funcionalidade, mas ele pode detectar uma grande variedade de linguagens, variantes, dialetos e alguns idiomas regionais/cultural. 
+Não publicamos a lista exata de idiomas para esse recurso, mas ele pode detectar uma ampla gama de linguagens, variantes, dialetos e alguns idiomas regionais/culturais. 
 
-Se tiver conteúdo expressado numa linguagem com menos frequência utilizada, pode tentar a deteção de idioma para ver se ele retorna um código. A resposta para idiomas que não puderem ser detetadas está `unknown`.
+Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá tentar Detecção de Idioma para ver se ele retorna um código. A resposta para idiomas que não podem ser detectados é `unknown`.
 
-## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Análise de sentimentos, extração de expressões-chave e o reconhecimento de entidades
+## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Reconhecimento de entidade Análise de Sentimento, Extração de Frases-chave e nomeada
 
-Para a análise de sentimentos, extração de expressões-chave e reconhecimento de entidades, a lista de idiomas suportados é mais seletiva conforme os analisadores são refinados para acomodar as regras de idiomas adicionais. Suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) está limitado a idiomas seguintes: 
+Para análise de sentimentos, extração de frases-chave e reconhecimento de entidade, a lista de idiomas com suporte é mais seletiva, pois os analisadores são refinados para acomodar as regras linguísticas de idiomas adicionais. No momento, o suporte para o conjunto completo de [tipos de entidade](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) está limitado aos seguintes idiomas: 
 * Português
-* Chinês simplificado
+* Chinês-simplificado
 * Francês
 * Alemão
 * Espanhol
 
-Apenas os `Person`, `Location` e `Organization` entidades nomeadas são devolvidas para os outros idiomas.
+Somente as `Person` `Location` entidades e`Organization` nomeadas são retornadas para os outros idiomas.
 
-## <a name="language-list-and-status"></a>Lista de idioma e o Estado
+## <a name="language-list-and-status"></a>Lista de idiomas e status
 
-Suporte de idiomas é inicialmente lançado em pré-visualização, graduando para disponibilidade geral (GA) do Estado, independentemente uns dos outros e do serviço de análise de texto geral. É possível para idiomas permaneça na pré-visualização, mesmo durante as transições de API de análise de texto para disponibilidade geral.
+O suporte a idiomas é inicialmente distribuído na visualização, graduando para o status de GA (disponibilidade geral), independentemente uns dos outros e do serviço de Análise de Texto geral. É possível que as linguagens permaneçam em visualização, mesmo que API de Análise de Texto transições para disponibilidade geral.
 
 | Idioma    | Código do idioma | Sentimento | Frases-chave | Reconhecimento de Entidades Nomeadas |   Notas  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Árabe      | `ar`          |           |             | ✔ \*                     | |
 | Checo       | `cs`          |           |             | ✔ \*                     | |
-| Chinês simplificado | `zh-CN`|           |             | ✔ \*        |    |
+| Chinês-simplificado | `zh-CN`|           |             | ✔ \        |    |
 | Dinamarquês      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Neerlandês       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | Português     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finlandês     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Francês      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
-| Alemão      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
+| Francês      | `fr`          | ✔        | ✔           |  ✔ \           |     |
+| Alemão      | `de`          | ✔ \*     | ✔           |  ✔ \          |     |
 | Grego       | `el`          | ✔ \*     |             |            |     |
 | Húngaro   | `hu`          |           |             |  ✔ \*          |     | 
 | Italiano     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Japonês    | `ja`          |          | ✔           |  ✔ \*          |     |
 | Coreano      | `ko`          |          | ✔           |  ✔ \*          |     |
-| Norueguês (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
+| Norueguês (bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polaco      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Português (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` também aceites|
+| Português (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt`também aceito|
 | Português (Brasil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russo     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Espanhol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
 | Sueco     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turco     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* Suporte de idiomas está em pré-visualização
+\*O suporte ao idioma está em versão prévia
 
-\*\* [Com o nome de entidades](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e [ligação de entidades](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para este idioma.    
+\*\*O [reconhecimento de entidade nomeada](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) e a [vinculação de entidade](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) estão disponíveis para esse idioma.    
 
 ## <a name="see-also"></a>Consulte também
 
-[Página de documentação dos serviços cognitiva](https://docs.microsoft.com/azure/cognitive-services/)   
+[Página de documentação de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/)   
 [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
