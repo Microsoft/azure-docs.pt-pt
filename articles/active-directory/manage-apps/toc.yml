@@ -81,20 +81,6 @@
           href: tenant-restrictions.md
         - name: Configurar a encriptação de tokens SAML (Pré-visualização)
           href: howto-saml-token-encryption.md
-    - name: Início de sessão único
-      items:
-        - name: O que é o início de Sessão único
-          href: what-is-single-sign-on.md
-        - name: Planear uma implementação de início de sessão único
-          href: plan-sso-deployment.md
-        - name: Ativar o início de sessão único na sua aplicação multi-inquilino
-          href: isv-sso-content.md
-        - name: Escolher o protocolo de federação de SSO certo
-          href: isv-choose-multi-tenant-federation.md
-        - name: Criar um inquilino do Azure para a sua aplicação multi-inquilino
-          href: isv-tenant-multi-tenant-app.md
-        - name: Criar e publicar a documentação do SSO para a sua aplicação
-          href: isv-create-sso-documentation.md
     - name: Portais de utilizador final
       href: end-user-experiences.md
 - name: Guias de procedimentos
