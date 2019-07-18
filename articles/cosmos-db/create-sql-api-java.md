@@ -8,25 +8,24 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: c97b974919c5aec4c902867604d207cda11e8594
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: d277ef51fd7f39ffab7ed4ace8848c682b28c383
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754306"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68001231"
 ---
-# <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de Java utilizando a conta do Azure Cosmos DB SQL API
+# <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Compilar um aplicativo Java usando Azure Cosmos DB conta da API do SQL
 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (pré-visualização)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Este início rápido mostra como criar e gerir recursos de uma conta de [API SQL do Azure Cosmos DB](sql-api-introduction.md) com uma aplicação de Java. Primeiro, crie uma conta de API SQL do Azure Cosmos DB com o portal do Azure, crie uma aplicação de Java com o [SDK de Java do SQL](sql-api-sdk-async-java.md), adicione recursos à sua conta do Cosmos DB com a aplicação de Java. As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Depois de concluir este início rápido, estará familiarizado com a criação e modificação de bancos de dados do Cosmos DB, contentores na IU ou programaticamente, o que for sua preferência.
+Este início rápido mostra como criar e gerir recursos de uma conta de [API SQL do Azure Cosmos DB](sql-api-introduction.md) com uma aplicação de Java. Primeiro, crie uma conta de API SQL do Azure Cosmos DB com o portal do Azure, crie uma aplicação de Java com o [SDK de Java do SQL](sql-api-sdk-async-java.md), adicione recursos à sua conta do Cosmos DB com a aplicação de Java. As instruções deste guia de início rápido podem ser seguidas em qualquer sistema operativo capaz de executar Java. Depois de concluir este guia de início rápido, você estará familiarizado com a criação e modificação de bancos de dados Cosmos DB, contêineres na interface do usuário ou programaticamente, o que for sua preferência.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +34,7 @@ Este início rápido mostra como criar e gerir recursos de uma conta de [API SQL
 
 Além disso: 
 
-* [Kit de desenvolvimento Java (JDK) versão 8](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) versão 8](https://aka.ms/azure-jdks)
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário [Maven](https://maven.apache.org/)
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
@@ -48,7 +47,7 @@ Antes de poder criar uma base de dados de documentos, tem de criar uma conta de 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Adicionar um contentor
+## <a name="add-a-container"></a>Adicionar um contêiner
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -75,7 +74,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação da SQL API a pa
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar para [Executar a aplicação](#run-the-app). 
 
-* `AsyncDocumentClient` inicialização. O [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) oferece representação lógica do lado do cliente para o serviço de base de dados do Cosmos do Azure. Este cliente serve para configurar e executar pedidos contra o serviço.
+* `AsyncDocumentClient` inicialização. O [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) fornece a representação lógica do lado do cliente para o serviço de banco de dados Cosmos do Azure. Este cliente serve para configurar e executar pedidos contra o serviço.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -204,7 +203,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu como criar uma conta do Cosmos do Azure, base de dados do documento e contentor com o Data Explorer e executar uma aplicação para fazer o mesmo programaticamente. Agora, pode importar dados adicionais para o contentor do Cosmos do Azure. 
+Neste guia de início rápido, você aprendeu como criar uma conta do Azure Cosmos, um banco de dados de documento e um contêiner usando o Data Explorer e executar um aplicativo para fazer a mesma coisa programaticamente. Agora você pode importar dados adicionais para o contêiner Cosmos do Azure. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

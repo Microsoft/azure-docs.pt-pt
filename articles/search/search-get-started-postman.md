@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Criar, carregar e consultar índices com o Postman e APIs REST - Azure Search'
-description: Saiba como chamar as APIs de REST de pesquisa do Azure com o Postman e dados de exemplo e definições.
+title: 'Início rápido: Criar, carregar e consultar índices usando o postmaster e as APIs REST-Azure Search'
+description: Saiba como chamar as APIs REST do Azure Search usando o post e definições e dados de exemplo.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 015dd3631322978d6416041a3eea8390a72b0c17
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 5a61f5476551d785f2db0ef52dff45554302fd07
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840222"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849795"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: Criar um índice da Azure Search no Postman com REST APIs
+# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search no postmaster usando APIs REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -26,74 +26,74 @@ ms.locfileid: "67840222"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uma das formas mais simples de explorar a [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice) está a utilizar o Postman ou web outra ferramenta de teste para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
+Uma das maneiras mais fáceis de explorar as [APIs REST Azure Search](https://docs.microsoft.com/rest/api/searchservice) está usando o postmaster ou outra ferramenta de teste da Web para formular solicitações HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
-Este artigo explica como formular pedidos de forma interativa. Em alternativa, pode [transferir e importar uma coleção do Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) utilizar pedidos predefinidos.
+Este artigo explica como formular solicitações interativamente. Como alternativa, você pode [baixar e importar uma coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para usar solicitações predefinidas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os seguintes serviços e ferramentas são utilizadas neste início rápido. 
+Os seguintes serviços e ferramentas são necessários para este guia de início rápido. 
 
-+ [Aplicação de ambiente de trabalho postman](https://www.getpostman.com/) é utilizado para enviar pedidos para o Azure Search.
++ O [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) é usado para enviar solicitações para Azure Search.
 
-+ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
++ [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido. 
 
-## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
+## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
 As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
 
-1. [Inicie sessão no portal do Azure](https://portal.azure.com/)e no seu serviço de pesquisa **descrição geral** página, obter o URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
+1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Na **configurações** > **chaves**, obter uma chave de administrador para todos os direitos no serviço. Existem duas chaves de administração intercambiáveis, fornecidas para a continuidade do negócio, caso seja necessário fazer o rollover um. Pode utilizar tanto a chave primária ou secundária em pedidos para adicionar, modificar e eliminar objetos.
+1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter uma chave de acesso e de ponto final HTTP](media/search-get-started-postman/get-url-key.png "obter uma chave de acesso e de ponto final HTTP")
+![Obter um ponto de extremidade http e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade http e uma chave de acesso")
 
-Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
+Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="connect-to-azure-search"></a>Ligar ao Azure Search
+## <a name="connect-to-azure-search"></a>Conectar-se ao Azure Search
 
-Nesta secção, utilize a sua ferramenta de web à escolha para configurar ligações para o Azure Search. Cada ferramenta mantém as informações de cabeçalho de pedido para a sessão, o que significa que apenas tem de introduzir a chave de api e Content-Type única.
+Nesta seção, use a ferramenta da Web de sua escolha para configurar conexões com Azure Search. Cada ferramenta mantém informações de cabeçalho de solicitação para a sessão, o que significa que você só precisa inserir a chave de API e o tipo de conteúdo uma vez.
 
-Para qualquer uma das ferramentas, precisa de escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de final do URL e, para algumas tarefas, forneça JSON no corpo do pedido. Substitua o nome do serviço de pesquisa (seu-pesquisa-SERVICE-NAME) com um valor válido. Adicionar `$select=name` para devolver apenas o nome de cada índice. 
+Para qualquer ferramenta, você precisa escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de extremidade de URL e, para algumas tarefas, fornecer JSON no corpo da solicitação. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicionar `$select=name` para retornar apenas o nome de cada índice. 
 
     https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
 
-Tenha em atenção o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e o [versão de api](search-api-versions.md). A api-version é uma cadeia de caracteres em minúsculas, necessária especificada como `?api-version=2019-05-06` para a versão atual. Versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
+Observe o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e a versão de [API](search-api-versions.md). A versão de API é uma cadeia de caracteres obrigatória e em minúsculas especificada como `?api-version=2019-05-06` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
 
-Composição do cabeçalho do pedido inclui dois elementos, tipo de conteúdo, além da chave de api, utilizado para autenticar para o Azure Search. Substitua a chave de API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) com um valor válido. 
+A composição de cabeçalho de solicitação inclui dois elementos, tipo de conteúdo, mais a chave de API usada para autenticar para Azure Search. Substitua a chave de API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-No Postman, formule um pedido parecido com a seguinte captura de ecrã. Escolher **Obtenha** como o verbo, forneça o URL e clique em **enviar**. Este comando liga ao Azure Search, lê a coleção de índices e retorna o código de estado HTTP 200 numa ligação com êxito. Se o seu serviço já foi de índices, a resposta também irão incluir definições de índice.
+No postmaster, formule uma solicitação semelhante à captura de tela a seguir. Escolha **obter** como o verbo, forneça a URL e clique em **Enviar**. Esse comando conecta-se a Azure Search, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
-![URL de pedido do postman e cabeçalho](media/search-get-started-postman/postman-url.png "URL de pedido do Postman e cabeçalho")
+![URL e cabeçalho da solicitação do postmaster](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do postmaster")
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-No Azure Search, normalmente, crie o índice antes de carregá-lo com dados. O [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é utilizado para esta tarefa. 
+Em Azure Search, geralmente você cria o índice antes de carregá-lo com os dados. A [API REST criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é usada para esta tarefa. 
 
-O URL é expandido para incluir o `hotels` nome do índice.
+A URL é estendida para incluir `hotels` o nome do índice.
 
-Para fazer isso no Postman:
+Para fazer isso no postmaster:
 
-1. Altere o verbo para **colocar**.
+1. Altere o verbo para **Put**.
 
-2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
 
-3. Fornece a definição de índice (código de prontas para a cópia é apresentado abaixo) no corpo do pedido.
+3. Forneça a definição de índice (o código pronto para cópia é fornecido abaixo) no corpo da solicitação.
 
 4. Clique em **enviar**.
 
-![Documento de índice JSON no corpo do pedido](media/search-get-started-postman/postman-request.png "documento JSON de indexação no corpo do pedido")
+![Indexar documento JSON no corpo da solicitação](media/search-get-started-postman/postman-request.png "Indexar documento JSON no corpo da solicitação")
 
 ### <a name="index-definition"></a>Definição do índice
 
-A coleção de campos define a estrutura do documento. Cada documento tem de ter estes campos e cada campo tem de ter um tipo de dados. Os campos de cadeia são utilizados em pesquisas em texto completo, pelo que pode transmitir os dados numéricos como cadeias se quiser que esse conteúdo seja pesquisável.
+A coleção Fields define a estrutura do documento. Cada documento deve ter esses campos, e cada campo deve ter um tipo de dados. Os campos de cadeia são utilizados em pesquisas em texto completo, pelo que pode transmitir os dados numéricos como cadeias se quiser que esse conteúdo seja pesquisável.
 
-Os atributos no campo determinam a ação permitida. As APIs REST permitem muitas ações, por predefinição. Por exemplo, todas as cadeias são pesquisáveis, recuperáveis, filtráveis e facetáveis por predefinição. Muitas vezes, só tem de definir atributos quando tem de desativar um comportamento.
+Os atributos no campo determinam a ação permitida. As APIs REST permitem muitas ações, por predefinição. Por exemplo, todas as cadeias são pesquisáveis, recuperáveis, filtráveis e facetáveis por predefinição. Geralmente, você só precisa definir atributos quando precisa desativar um comportamento.
 
 ```json
 {
@@ -125,25 +125,25 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 > [!TIP]
 > Se obtiver HTTP 504, certifique-se de que o URL especifica HTTPS. Se vir HTTP 400 ou 404, verifique o corpo do pedido para verificar que não ocorreram erros ao copiar-colar. Um HTTP 403 normalmente indica um problema com a chave de API (uma chave inválida ou um problema de sintaxe com a forma como a chave de API é especificada).
 
-## <a name="2---load-documents"></a>2 - carregar documentos
+## <a name="2---load-documents"></a>2-carregar documentos
 
-A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. O [adicionar, atualizar ou eliminar API de REST de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é utilizado para esta tarefa. 
+A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. A [API REST adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para esta tarefa. 
 
-O URL é expandido para incluir o `docs` coleções e `index` operação.
+A URL é estendida para incluir `docs` as coleções `index` e a operação.
 
-Para fazer isso no Postman:
+Para fazer isso no postmaster:
 
 1. Altere o verbo para **POST**.
 
-2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
+2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
 
-3. Forneça os documentos JSON (código preparado para cópia vem a seguir) no corpo do pedido.
+3. Forneça os documentos JSON (o código pronto para cópia está abaixo) no corpo da solicitação.
 
 4. Clique em **enviar**.
 
-![Documentos JSON no corpo do pedido](media/search-get-started-postman/postman-docs.png "documentos JSON no corpo do pedido")
+![Documentos JSON no corpo da solicitação](media/search-get-started-postman/postman-docs.png "Documentos JSON no corpo da solicitação")
 
-### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON para carregar para o índice
+### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON a serem carregados no índice
 
 O Corpo do Pedido contém quatro documentos que devem ser adicionados ao índice dos hotéis.
 
@@ -230,7 +230,7 @@ O Corpo do Pedido contém quatro documentos que devem ser adicionados ao índice
 }
 ```
 
-Em alguns segundos, deverá ver uma resposta HTTP 201 na lista de sessão. Isto indica que os documentos foram criados com êxito. 
+Em alguns segundos, você deverá ver uma resposta HTTP 201 na lista de sessões. Isto indica que os documentos foram criados com êxito. 
 
 Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404, tem um erro de sintaxe no cabeçalho ou no corpo do pedido. Confirme que alterou o ponto final, de modo a incluir `/docs/index`.
 
@@ -240,25 +240,25 @@ Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Agora que um índice e os documentos são carregados, pode emitir consultas contra eles usando [API REST do Search documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Agora que um índice e documentos são carregados, você pode emitir consultas para eles usando a [API REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-O URL é expandido para incluir uma expressão de consulta, especificada com o operador de pesquisa.
+A URL é estendida para incluir uma expressão de consulta, especificada usando o operador de pesquisa.
 
-Para fazer isso no Postman:
+Para fazer isso no postmaster:
 
-1. Altere o verbo para **obter**.
+1. Altere o verbo para **Get**.
 
-2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
+2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
 
 3. Clique em **enviar**.
 
-Esta consulta está vazio e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e resposta devem ser semelhantes à seguinte captura de ecrã do Postman depois de clicar em **enviar**. O código de estado deve ser 200.
+Essa consulta é um vazio e retorna uma contagem dos documentos nos resultados da pesquisa. A solicitação e a resposta devem ser semelhantes à captura de tela a seguir para o postmaster depois que você clicar em **Enviar**. O código de estado deve ser 200.
 
- ![OBTER com a cadeia de pesquisa no URL](media/search-get-started-postman/postman-query.png "obter com a cadeia de pesquisa no URL")
+ ![Obter com a cadeia de caracteres de pesquisa na URL](media/search-get-started-postman/postman-query.png "Obter com a cadeia de caracteres de pesquisa na URL")
 
-Experimente alguns outros exemplos de consulta para ter uma noção do que a sintaxe. Pode fazer uma pesquisa de cadeia de caracteres, consultas de $filter textuais, limitar o conjunto de resultados, o escopo a pesquisa a campos específicos e muito mais.
+Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Você pode fazer uma pesquisa de cadeia de caracteres, textualmente $filter consultas, limitar o conjunto de resultados, definir o escopo da pesquisa para campos específicos e muito mais.
 
-Troca o atual URL com aqueles abaixo, clicar **enviar** cada vez para ver os resultados.
+Troque a URL atual pelos itens abaixo, clicando em **Enviar** cada vez para exibir os resultados.
 
 ```
 # Query example 1 - Search on restaurant and wifi
@@ -276,29 +276,29 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
 ```
 
-## <a name="get-index-properties"></a>Obter as propriedades do índice
-Também pode utilizar [obter estatísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) consultar contagens de documentos e tamanho de índice: 
+## <a name="get-index-properties"></a>Obter propriedades do índice
+Você também pode usar [obter estatísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar contagens de documentos e tamanho do índice: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06`
 ```
 
-Adicionar `/stats` ao seu URL retorna informações de índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
+Adicionar `/stats` à sua URL retorna informações de índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
 
- ![Obtenha informações de índice](media/search-get-started-postman/postman-system-query.png "obter informações de índice")
+ ![Obter informações de índice](media/search-get-started-postman/postman-system-query.png "Obter informações de índice")
 
-Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separa o caminho do URL da cadeia de consulta, ao passo que & separa cada ' name = value' par na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
+Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separa o caminho da URL da cadeia de caracteres de consulta, enquanto & separa cada par de ' nome = valor ' na cadeia de caracteres de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
 ## <a name="clean-up"></a>Limpeza
 
-Quando está trabalhando na sua própria subscrição, é uma boa idéia no final de um projeto para identificar se ainda precisa que os recursos que criou. Pode executar esquerda de recursos custa dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Quando você está trabalhando em sua própria assinatura, é uma boa ideia no final de um projeto identificar se você ainda precisa dos recursos que criou. Os recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir o conjunto inteiro de recursos.
 
-Pode localizar e gerir recursos no portal, utilizando o **todos os recursos** ou **grupos de recursos** ligação no painel de navegação à esquerda.
+Você pode encontrar e gerenciar recursos no portal, usando o link **todos os recursos** ou **grupos de recursos** no painel de navegação esquerdo.
 
-Se estiver a utilizar um serviço gratuito, lembre-se de que está limitado a três índices, indexadores e origens de dados. Pode eliminar os itens individuais no portal para se manter sob o limite. 
+Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para o próximo passo, consulte a seguinte hiperligação:
+Os clientes REST são indispensáveis para explorações improvisadas, mas agora que já sabe como é que as APIs REST funcionam, pode avançar com código. Para a próxima etapa, consulte o seguinte link:
 
-+ [Quickstart: Criar um índice com o .NET SDK](search-get-started-dotnet.md)
++ [Quickstart: Criar um índice usando o SDK do .NET](search-get-started-dotnet.md)

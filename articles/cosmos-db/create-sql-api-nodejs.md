@@ -1,5 +1,5 @@
 ---
-title: 'o Azure Cosmos DB: Criar uma aplicação de node. js com o SDK de JavaScript para gerir os dados do Azure Cosmos DB SQL API'
+title: 'o Azure Cosmos DB: Criar um aplicativo node. js usando o SDK do JavaScript para gerenciar Azure Cosmos DB dados da API do SQL'
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 author: deborahc
 ms.service: cosmos-db
@@ -8,18 +8,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: dech
-ms.openlocfilehash: ec6f676933f5c275c49fa4da1af0e1c3084dab89
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 19312e6c6aa71a81c3339e7d40de582490c4ffff
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754577"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986333"
 ---
-# <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de node. js com a conta do Azure Cosmos DB SQL API
+# <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Compilar um aplicativo node. js usando Azure Cosmos DB conta da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (pré-visualização)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -43,7 +42,7 @@ Este início rápido demonstra como criar uma conta [API SQL](sql-api-introducti
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Adicionar um contentor
+## <a name="add-a-container"></a>Adicionar um contêiner
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -133,7 +132,7 @@ Os seguintes fragmentos são retirados do ficheiro **app.js**.
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. Na [portal do Azure](https://portal.azure.com/), na sua conta do Cosmos do Azure, no painel de navegação esquerdo clique **chaves**e, em seguida, clique em **chaves de leitura-escrita**. Vai utilizar os botões de copiar no lado direito do ecrã para copiar o URI e a Chave Primária para o ficheiro `config.js` no próximo passo.
+1. Na [portal do Azure](https://portal.azure.com/), em sua conta do Azure Cosmos, no painel de navegação esquerdo, clique em **chaves**e, em seguida, clique em **chaves de leitura/gravação**. Vai utilizar os botões de copiar no lado direito do ecrã para copiar o URI e a Chave Primária para o ficheiro `config.js` no próximo passo.
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
@@ -162,9 +161,9 @@ Agora, pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, aprendeu como criar uma conta do Cosmos do Azure, criar um contentor com o Data Explorer e executar uma aplicação. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
+Neste guia de início rápido, você aprendeu como criar uma conta do Azure Cosmos, criar um contêiner usando o Data Explorer e executar um aplicativo. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).
