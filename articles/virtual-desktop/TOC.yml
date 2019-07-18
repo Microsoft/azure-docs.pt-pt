@@ -84,3 +84,5 @@
   items:
     - name: Grupo de suporte da Comunidade Técnica
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: Fórum do UserVoice
+      href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'
