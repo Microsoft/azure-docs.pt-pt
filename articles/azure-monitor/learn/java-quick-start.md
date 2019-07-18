@@ -1,22 +1,22 @@
 ---
 title: Início rápido com o Azure Application Insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente uma aplicação Web Java para monitorização com o Application Insights
+description: Fornece instruções para configurar rapidamente um aplicativo Web Java para monitoramento com Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fc47b00bb266bb57ecffbb522667ca67ac7c8c97
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: ef3c7668f1fb462b2d6a91cc90746437e74df51d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656748"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67989892"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Java
 
@@ -36,7 +36,7 @@ Se não tiver um Projeto Web Dinâmico Java, pode criar um com o [Início rápid
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Se preferir o Spring framework, experimente o [configurar uma aplicação do inicializador de Spring Boot para usar o Guia do Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Se você preferir o Spring Framework, experimente o [guia configurar um aplicativo inicializador do Spring boot para usar Application insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -50,11 +50,9 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Adicionar um Recurso do Application Insights](./media/java-quick-start/1createresourseappinsights.png)
 
-   ![Adicionar um Recurso do Application Insights](./media/java-quick-start/2createjavaapp.png)
-
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        | Value           | Descrição  |
+    | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
@@ -84,14 +82,14 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Menu de Configuração do Azure no Eclipse](./media/java-quick-start/0007-j.png)
 
-5. Depois de configurar o plug-in do Application Insights terá [publicar/voltar a publicá](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app) seu aplicativo novamente, antes ele poderá começar a enviar telemetria.
+5. Depois de configurar o plug-in Application Insights você precisa [publicar/republicar](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#deploy-the-app) seu aplicativo novamente, antes de poder começar a enviar telemetria.
 
 > [!NOTE]
 > O Application Insights SDK para Java é capaz de capturar e visualizar métricas dinâmicas, mas, quando ativa primeiro a recolha de dados telemétricos, pode demorar alguns minutos até que os dados comecem a aparecer no portal. Se esta aplicação for uma aplicação de teste de tráfego reduzido, tenha em atenção que a maioria das métricas só é capturada quando existem operações ou pedidos ativos.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Iniciar a monitorização no portal do Azure
 
-1. Agora, pode reabrir o Application Insights **descrição geral** página no portal do Azure para ver os detalhes sobre a sua aplicação em execução.
+1. Agora você pode reabrir a página de **visão geral** Application Insights no portal do Azure para exibir detalhes sobre seu aplicativo em execução no momento.
 
    ![Menu de Descrição Geral do Application Insights](./media/java-quick-start/3overview.png)
 
@@ -99,7 +97,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapeamento de Aplicações](./media/java-quick-start/4appmap.png)
 
-3.  Clique nas **análise da aplicação** ícone ![ícone do mapa da aplicação](./media/java-quick-start/006.png) **ver na análise**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3.  Clique no ícone de **análise** de ![aplicativo ícones mapa](./media/java-quick-start/006.png) **de aplicativo exibir no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/java-quick-start/5analytics.png)
 
@@ -137,12 +135,12 @@ Para saber mais sobre a monitorização de Java, veja a [documentação adiciona
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.
+Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

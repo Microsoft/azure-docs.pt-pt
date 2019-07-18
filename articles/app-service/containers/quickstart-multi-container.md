@@ -1,7 +1,7 @@
 ---
-title: Criar aplicação de vários contentor com o Docker Compose - serviço de aplicações do Azure
+title: Criar aplicativo de vários contêineres usando o serviço de Azure App de Docker Compose
 description: Implemente a sua primeira aplicação com vários contentores na Aplicação Web para Contentores do Azure em minutos
-keywords: serviço de aplicações do Azure, aplicação web, linux, docker, compor, multicontainer, com vários contentores, aplicação web para contentores, vários contentores, contentores, wordpress, BD do azure para mysql, base de dados de produção com contentores
+keywords: serviço de aplicativo do Azure, aplicativo Web, Linux, Docker, compor, multirecipiente, vários contêineres, aplicativo Web para contêineres, vários contêineres, contêiner, WordPress, BD do Azure para MySQL, banco de dados de produção com contêineres
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 543ba3ee4e72c5d31708e9b4983e7889421940ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fce819e84d5c532777ffee91ed4e75a0b65dec9b
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396928"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853692"
 ---
-# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar uma aplicação de vários contentores (pré-visualização) com uma configuração de Docker Compose
+# <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Criar um aplicativo de vários contêineres (versão prévia) usando uma configuração de Docker Compose
 
 A [Aplicação Web para Contentores](app-service-linux-intro.md) proporciona uma forma flexível de utilizar imagens do Docker. Este início rápido mostra como implementar uma aplicação com vários contentores na Aplicação Web para Contentores no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) com uma configuração do Docker Compose.
 
@@ -102,7 +102,7 @@ Quando o plano do Serviço de Aplicações tiver sido criado, a CLI do Azure mos
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _\<app_name>_ por um nome de aplicação único.
+No seu terminal do Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir  _\<app_name >_ por um nome de aplicativo exclusivo (os `a-z`caracteres válidos são `-`, `0-9`e).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -135,13 +135,13 @@ Navegue para a aplicação implementada em (`http://<app_name>.azurewebsites.net
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicação do WordPress com vários contentores](tutorial-multi-container-app.md)
+> [Tutorial: Aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
-> [Configurar um contentor personalizado](configure-custom-container.md)
+> [Configurar um contêiner personalizado](configure-custom-container.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

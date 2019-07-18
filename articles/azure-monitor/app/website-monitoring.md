@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ece51892522721f7be3cdcadbb3b79705c9f83e4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 9845329d30da40243751c00f7c0fa62fdcfe5a0d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66384100"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990098"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
 Com o Azure Monitor Application Insights, pode monitorizar facilmente o seu site quanto à disponibilidade, ao desempenho e à utilização. Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique. O Application Insights fornece monitorização do lado do servidor, bem como capacidades de monitorização do lado do cliente/browser.
 
-Este guia de introdução orienta no processo de adicionar o [SDK do Application Insights JavaScript de código-fonte aberto](https://github.com/Microsoft/ApplicationInsights-JS) que permite que compreender a experiência do lado do cliente/browser para os visitantes ao seu Web site.
+Este guia de início rápido orienta você pela adição do [SDK do JavaScript Application insights](https://github.com/Microsoft/ApplicationInsights-JS) software livre, que permite entender a experiência do cliente/navegador para os visitantes do seu site.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,14 +41,16 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Selecione **Criar um recurso** > **Ferramentas de gestão**  > **Application Insights**.
 
+   > [!NOTE]
+   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o artigo [criar um recurso de Application insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
+
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
     | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
-   | **Tipo de Aplicação** | Aplicação Geral | Tipo de aplicação que está a monitorizar |
+   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Localização** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 

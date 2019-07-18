@@ -1,5 +1,5 @@
 ---
-title: Criar aplicação Docker/Go no Linux - serviço de aplicações do Azure
+title: Criar um aplicativo Docker/go no serviço Linux-Azure App
 description: Como implementar uma imagem de Docker a executar uma aplicação Go para uma Aplicação Web para Contentores.
 keywords: serviço de aplicações do azure, aplicação web, go, docker, contentor
 services: app-service
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117752"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854007"
 ---
-# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Executar um contentor de Linux personalizado no App Service do Azure
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Executar um contêiner personalizado do Linux no serviço Azure App
 
 [O Serviço de Aplicações (Linux)](app-service-linux-intro.md) dispõe de pilhas de aplicação predefinidas no Linux, com suporte para linguagens como .NET, PHP, Node.js, etc. Também pode utilizar uma imagem personalizada do Docker para executar a aplicação Web numa pilha de aplicação que ainda não esteja definida no Azure. Este início rápido mostra como criar uma aplicação Web e implementar uma imagem Go a partir do Hub do Docker. Irá criar a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -35,7 +35,7 @@ ms.locfileid: "62117752"
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
 
-Crie uma [aplicação Web](../overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir `<app name>` por um nome de aplicação globalmente único.
+Crie uma [aplicação Web](../overview.md) no plano do `myAppServicePlan`Serviço de Aplicações com o comando[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de `<app name>` substituir por um nome de aplicativo exclusivo globalmente (os `a-z`caracteres `0-9`válidos são `-`, e).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart
@@ -75,10 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implemente a partir do repositório de contentor privado](tutorial-custom-docker-image.md)
+> [Tutorial: Implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Configurar um contentor personalizado](configure-custom-container.md)
+> [Configurar um contêiner personalizado](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicação do WordPress com vários contentores](tutorial-multi-container-app.md)
+> [Tutorial: Aplicativo WordPress com vários contêineres](tutorial-multi-container-app.md)

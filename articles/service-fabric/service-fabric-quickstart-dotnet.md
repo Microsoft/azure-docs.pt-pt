@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: azure-vs
-ms.date: 03/26/2018
+ms.date: 06/26/2019
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7c0f19d6680eef7492faaaab0d45e0c70011f01
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 02c77d1a34a4dec8732b5fa2edb4d7a55e079c28
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428072"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225202"
 ---
-# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação de reliable services .NET para o Service Fabric
+# <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo do .NET Reliable Services para Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores dimensionáveis e fiáveis.
 
@@ -33,7 +33,7 @@ Este início rápido mostra como implementar a sua primeira aplicação .NET no 
 Com esta aplicação, vai aprender a:
 
 * Criar uma aplicação com .NET e o Service Fabric
-* Utilizar o ASP.NET core como um front-end da web
+* Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
 * Aumentar horizontalmente a aplicação em vários nós
@@ -43,7 +43,7 @@ Com esta aplicação, vai aprender a:
 
 Para concluir este guia de início rápido:
 
-1. [Instalar o Visual Studio 2019](https://www.visualstudio.com/) com o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
+1. [Instale o Visual Studio 2019](https://www.visualstudio.com/) com as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
 2. [Instalar o Git](https://git-scm.com/)
 3. [Instale o SDK do Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Execute o comando seguinte para permitir que o Visual Studio implemente no cluster do Service Fabric local:
@@ -54,11 +54,11 @@ Para concluir este guia de início rápido:
     
 ## <a name="build-a-cluster"></a>Compilar um cluster
 
-Depois de instalar o tempo de execução, SDKs, ferramentas do Visual Studio, Docker e ter em execução do Docker, crie um cluster de desenvolvimento local de cinco nós.
+Depois de instalar o tempo de execução, os SDKs, as ferramentas do Visual Studio, o Docker e o Docker em execução, crie um cluster de desenvolvimento local de cinco nós.
 
 > [!Note]
-> O motivo para ter o Docker em execução quando criar o cluster é para que o cluster ser criado com funcionalidades de contentor ativadas. Se o Docker não está em execução, terá de recriar o cluster de ativação de funcionalidades de contentor.
-> Embora desnecessário para este início rápido específico, a instrução para ter o Docker em execução quando criar o cluster é incluída como uma prática recomendada.
+> O motivo para que o Docker seja executado quando você cria o cluster é para que o cluster seja criado com os recursos de contêiner habilitados. Se o Docker não estiver em execução, você precisará recriar o cluster para habilitar os recursos do contêiner.
+> Embora seja desnecessário para esse início rápido específico, a instrução para que o Docker em execução quando você cria o cluster está incluída como uma prática recomendada.
 > Teste se o Docker está em execução ao abrir uma janela de terminal e ao executar `docker ps` para ver se ocorre um erro. Se a resposta não indicar um erro, o Docker está a ser executado e está pronto para compilar um cluster.
 
 1. Abra uma nova janela do PowerShell elevada como administrador.
@@ -67,7 +67,7 @@ Depois de instalar o tempo de execução, SDKs, ferramentas do Visual Studio, Do
    ```powershell
    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
    ```
-3. Execute o seguinte comando para iniciar a ferramenta de Gestor de local cluster:
+3. Execute o seguinte comando para iniciar a ferramenta Gerenciador de cluster local:
 
    ```powershell
    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
@@ -87,18 +87,18 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="run-the-application-locally"></a>Executar a aplicação localmente
 
-Clique com o botão direito do rato no ícone do Visual Studio, no Menu Iniciar, e escolha **Executar como administrador**. Para anexar o depurador aos seus serviços, terá de executar o Visual Studio como administrador.
+Clique com o botão direito do rato no ícone do Visual Studio, no Menu Iniciar, e escolha **Executar como administrador**. Para anexar o depurador aos seus serviços, você precisa executar o Visual Studio como administrador.
 
 Abra a solução **Voting.sln** do Visual Studio no repositório que clonou.
 
-Por predefinição, a aplicação de votação escuta na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se alterar a porta da aplicação, substitua o novo valor de porta de aplicação por "8080" ao longo deste artigo.
+Por padrão, o aplicativo de votação escuta na porta 8080.  A porta da aplicação está definida no ficheiro */VotingWeb/PackageRoot/ServiceManifest.xml*.  Pode atualizar o atributo **Port** do elemento **Endpoint** para alterá-la.  Para implementar e executar a aplicação localmente, a porta da aplicação tem de estar aberta e disponível no seu computador.  Se você alterar a porta do aplicativo, substitua o novo valor de porta do aplicativo por "8080" em todo este artigo.
 
 Para implementar a aplicação, prima **F5**.
 
 > [!NOTE]
-> Na janela de saída do Visual Studio, verá a mensagem "O URL da aplicação não está definido ou não é um URL de HTTP/HTTPS para que o navegador não será aberto para a aplicação".  Esta mensagem não indica um erro, mas sim que o browser não se vai abrir automaticamente.
+> Na janela saída do Visual Studio, você verá a mensagem "a URL do aplicativo não está definida ou não é uma URL HTTP/HTTPS, de modo que o navegador não será aberto no aplicativo".  Esta mensagem não indica um erro, mas sim que o browser não se vai abrir automaticamente.
 
-Quando a implementação estiver concluída, inicie um browser e abra `http://localhost:8080` para ver a web front-end da aplicação.
+Quando a implantação for concluída, inicie um navegador e abra `http://localhost:8080` para exibir o front-end da Web do aplicativo.
 
 ![Front-end da aplicação](./media/service-fabric-quickstart-dotnet/application-screenshot-new.png)
 
@@ -113,7 +113,7 @@ A aplicação de votação é composta por dois serviços:
 
 ![Diagrama da aplicação](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
-Quando vota na aplicação, ocorrem os seguintes eventos:
+Quando você votar no aplicativo, ocorrerão os seguintes eventos:
 
 1. Um JavaScript envia o pedido de voto para a API Web no serviço de front-end Web como pedido HTTP PUT.
 
@@ -123,7 +123,7 @@ Quando vota na aplicação, ocorrem os seguintes eventos:
 
 ## <a name="debug-in-visual-studio"></a>Depurar no Visual Studio
 
-A aplicação deve estar em execução OK, mas pode utilizar o depurador para ver como as partes das chaves do trabalho de aplicação. Ao depurar o aplicativo no Visual Studio, que está a utilizar um cluster de desenvolvimento do Service Fabric local. Pode ajustar a sua experiência de depuração para o seu cenário. Nesta aplicação, os dados são armazenados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
+A aplicação deve estar em execução OK, mas pode utilizar o depurador para ver como as partes das chaves do trabalho de aplicação. Ao depurar o aplicativo no Visual Studio, você está usando um cluster de desenvolvimento Service Fabric local. Você pode ajustar sua experiência de depuração ao seu cenário. Nesta aplicação, os dados são armazenados no serviço de back-end através de um dicionário fiável. O Visual Studio remove a aplicação por predefinição, quando para o depurador. Remover a aplicação faz com que os dados no serviço de back-end sejam também removidos. Para persistir os dados entre as sessões de depuração, pode alterar o **Modo de Depuração da Aplicação** como propriedade no projeto **Voting** no Visual Studio.
 
 Para ver o que acontece no código, conclua os passos seguintes:
 
@@ -132,7 +132,7 @@ Para ver o que acontece no código, conclua os passos seguintes:
 2. Abra o ficheiro **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 54).
 
 3. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
-   * Este passo é onde o JavaScript no browser envia um pedido para o controlador da API web no serviço de front-end.
+   * Esta etapa é onde o JavaScript no navegador envia uma solicitação ao controlador da API Web no serviço de front-end.
 
      ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
@@ -142,7 +142,7 @@ Para ver o que acontece no código, conclua os passos seguintes:
 
 4. Prima **F5** para continuar
    - Se lhe for pedido pelo browser, conceda permissões para o Modo de Depuração de leitura e execução ao grupo ServiceFabricAllowedUsers.
-   - Está agora no ponto de interrupção no serviço de back-end.
+   - Agora você está no ponto de interrupção no serviço de back-end.
 
      ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
@@ -167,9 +167,9 @@ Para atualizar a aplicação, faça o seguinte:
 6. Altere a versão do elemento **Code** em **VotingWebPkg** para "2.0.0", por exemplo, e clique em **Save** (Guardar).
 
     ![Caixa de Diálogo Alterar Versão](./media/service-fabric-quickstart-dotnet/change-version.png)
-7. Na **publicar a aplicação do Service Fabric** caixa de diálogo, verifique o **atualizar a caixa de verificação de aplicação**.
-8.  Alteração **perfil de destino** ao **PublishProfiles\Local.5Node.xml** e certifique-se de que **ponto final de ligação** está definido como **Local Cluster**. 
-9. Selecione **atualizar a aplicação**.
+7. No diálogo **publicar Service Fabric aplicativo** , marque a **caixa de seleção atualizar o aplicativo**.
+8.  Altere **o perfil de destino** para **PublishProfiles\Local.5Node.xml** e verifique se o ponto de extremidade de **conexão** está definido como **cluster local**. 
+9. Selecione **atualizar o aplicativo**.
 
     ![Caixa de Diálogo Publicar Definição Atualizar](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
@@ -177,7 +177,7 @@ Para atualizar a aplicação, faça o seguinte:
 
     Pode continuar a utilizar a aplicação enquanto a atualização estiver em execução. Uma vez que tem duas instâncias do serviço em execução no cluster, alguns dos seus pedidos poderão receber uma versão atualizada da aplicação e outros continuar a versão antiga.
 
-11. Abra o browser e navegue para o endereço de cluster na porta 19080. Por exemplo, `http://localhost:19080/`.
+11. Abra o navegador e navegue até o endereço do cluster na porta 19080. Por exemplo, `http://localhost:19080/`.
 12. Clique no nó **Applications** (Aplicações) na vista de árvore e em **Upgrades in Progress** (Atualizações em Curso), no painel do lado direito. Pode ver de que forma é que a atualização é aplicada nos domínios de atualização do seu cluster e confirmar que cada domínio está em bom estado de funcionamento antes de avançar para o seguinte. Após o estado de funcionamento de um domínio ter sido verificado, o domínio de atualização aparece a verde na barra de progresso.
     ![Vista Atualizar no Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
@@ -188,7 +188,7 @@ Para atualizar a aplicação, faça o seguinte:
 Neste início rápido, aprendeu a:
 
 * Criar uma aplicação com .NET e o Service Fabric
-* Utilizar o ASP.NET core como um front-end da web
+* Usar o ASP.NET Core como um front-end da Web
 * Armazenar dados da aplicação num serviço com estado
 * Depurar a sua aplicação localmente
 * Aumentar horizontalmente a aplicação em vários nós
