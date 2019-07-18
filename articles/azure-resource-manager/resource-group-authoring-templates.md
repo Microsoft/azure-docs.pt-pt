@@ -42,7 +42,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 | contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
 | apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API para esse tipo de recurso que está definido no perfil.<br><br>A propriedade de perfil de API é especialmente útil quando implementar um modelo para ambientes diferentes, como o Azure Stack e o global Azure. Utilize a versão de perfil de API para se certificar de que o modelo utiliza automaticamente as versões que são suportadas nos dois ambientes. Para obter uma lista de versões de perfil de API atuais e os recursos definidos no perfil de versões de API, consulte [perfil de API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
-| [Variáveis](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
+| [variables](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
 | [functions](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
 | [resources](#resources) |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
 | [outputs](#outputs) |Não |Valores que são devolvidos após a implementação. |
@@ -130,7 +130,7 @@ As propriedades disponíveis para um parâmetro são:
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| type |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
 | defaultValue |Não |Valor predefinido para o parâmetro, se não for fornecido nenhum valor para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que o valor correto é fornecido. |
 | minValue |Não |O valor mínimo para os parâmetros de tipo int, este valor é inclusivo. |
