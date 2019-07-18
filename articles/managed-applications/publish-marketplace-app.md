@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 07/15/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 16b653d1018c0c9c090f027ebcd01468af0eefd8
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234719"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305620"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -27,9 +27,9 @@ Este artigo explica como pode publicar uma aplicação no marketplace e torná-l
 
 Para concluir este artigo, pecisa de ter o ficheiro .zip para a definição da aplicação gerida. Para obter mais informações, veja [Criar uma aplicação do catálogo de serviços](publish-service-catalog-app.md).
 
-Além disso, existem vários pré-requisitos empresariais. São:
+Há vários pré-requisitos de negócios. São:
 
-* A sua empresa ou respetiva subsidiária têm de estar localizada num país/região em que as vendas são suportadas pelo marketplace.
+* Sua empresa ou subsidiária deve estar localizada em um país/região em que as vendas têm suporte no Marketplace.
 * O produto tem de estar licenciado de forma a ser compatível com os modelos de faturação suportados pelo marketplace.
 * Disponibilizar suporte técnico para os clientes de forma comercialmente razoável. O suporte pode ser gratuito, pago ou através da comunidade.
 * Licencie o software e quaisquer dependências de software de terceiros.
@@ -37,14 +37,7 @@ Além disso, existem vários pré-requisitos empresariais. São:
 * Aceite os termos das Políticas de Participação e do Contrato de Publicação do Azure Marketplace.
 * Aceite cumprir Termos de Utilização, a Declaração de Privacidade da Microsoft e o Contrato do Programa Microsoft Azure Certified.
 
-## <a name="become-a-publisher"></a>Tornar-se um editor
-
-Para se tornar um editor no Azure Marketplace, tem de:
-
-1. Criar um ID da Microsoft - Crie a sua conta Microsoft com um endereço de e-mail que pertença ao domínio da sua empresa, mas não a um único indivíduo. Este endereço de e-mail é utilizado para o Centro para Programadores da Microsoft e o Cloud Partner Portal. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
-1. Submeter [formulário de nomeação do Azure Marketplace](https://aka.ms/ampnomination) – para **solução que pretende publicar?** selecionar **Managed Application**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
-1. Registar no [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft valida que a sua organização é uma entidade legal válida com um ID de imposto sobre válido para o país/região na qual está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
-1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) – No perfil do editor, associe a sua conta do Centro para Programadores ao Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+Você também deve ter uma conta do Marketplace. Para criar uma conta, consulte [como criar uma conta do Marketplace comercial no Partner Center](..//marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
 
@@ -64,9 +57,9 @@ A oferta de uma aplicação gerida corresponde a uma classe de oferta de produto
 
 Os campos do formulário **Definições da Oferta** são:
 
-* **ID da oferta**: Este identificador exclusivo identifica a oferta de um perfil do publicador. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen. Está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado.
-* **ID de publicador**: Utilize esta lista pendente para escolher o perfil do publicador que pretende publicar esta oferta em. Depois da publicação de uma oferta, este campo fica bloqueado.
-* **Nome**: Este nome a apresentar para a sua oferta será exibido no Marketplace e no portal. Pode ter um máximo de 50 carateres. Inclua um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como está comercializado. Se estiver a comercializar esta oferta no seu próprio site, certifique-se de que o nome é exatamente como aparece no seu site.
+* **ID da oferta**: Esse identificador exclusivo identifica a oferta em um perfil do Publicador. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. Apenas pode ser constituído por carateres alfanuméricos em minúsculas ou hífenes (-). O ID não pode terminar com um hífen. Está limitado a um máximo de 50 carateres. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **ID**do Publicador: Use essa lista suspensa para escolher o perfil de editor no qual você deseja publicar essa oferta. Depois da publicação de uma oferta, este campo fica bloqueado.
+* **Nome**: Esse nome de exibição para sua oferta é exibido no Marketplace e no Portal. Pode ter um máximo de 50 carateres. Inclua um nome de marca reconhecível para o produto. Não inclua o nome da sua empresa aqui, a menos que seja como está comercializado. Se estiver a comercializar esta oferta no seu próprio site, certifique-se de que o nome é exatamente como aparece no seu site.
 
 Quando terminar, selecione **Guardar** para guardar o seu progresso.
 
@@ -90,28 +83,28 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
 
    Preencha os seguintes campos:
 
-   * **Título**: Introduza um título para este SKU. Este título é apresentado na galeria deste item.
-   * **Resumo**: Introduza um breve resumo para este SKU. Este texto é apresentado abaixo do título.
-   * **Descrição**: Introduza uma descrição detalhada sobre o SKU.
-   * **Tipo de SKU**: Os valores permitidos são *Managed Application* e *modelos de soluções*. Neste caso, selecione *Aplicação Gerida*.
-   * **Disponibilidade de país/região**: Selecione os países/regiões em que a aplicação gerida está disponível.
-   * **Preços**: Forneça um preço para a gestão da aplicação. Selecione os países/regiões disponíveis antes de definir o preço.
+   * **Título**: Insira um título para esta SKU. Este título é apresentado na galeria deste item.
+   * **Resumo**: Insira um breve resumo para esta SKU. Este texto é apresentado abaixo do título.
+   * **Descrição**: Insira uma descrição detalhada sobre a SKU.
+   * **Tipo de SKU**: Os valores permitidos são *aplicativo gerenciado* e *modelos de solução*. Neste caso, selecione *Aplicação Gerida*.
+   * **Disponibilidade de país/região**: Selecione os países/regiões onde o aplicativo gerenciado está disponível.
+   * **Preço**: Forneça um preço para o gerenciamento do aplicativo. Selecione os países/regiões disponíveis antes de definir o preço.
 
 1. Adicione um novo pacote. Preencha a secção **Detalhes do Pacote** no seguinte formulário:
 
    Preencha os seguintes campos:
 
-   * **Versão**: Introduza uma versão para o pacote que carrega. Deverá estar no formato `{number}.{number}.{number}{number}`.
-   * **Ficheiro de pacote (. zip)** : Este pacote contém ficheiros necessários dois compactados num pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
-   * **ID do inquilino**: O ID de inquilino para a conta para obter acesso.
-   * **Ativar o acesso JIT**: Selecione **Sim** para ativar [controlo de acesso just-in-time](request-just-in-time-access.md) para a conta. Quando ativada, solicitar o acesso à conta do consumidor durante um período de tempo especificado. Para exigir que os consumidores do seu aplicativo gerenciado concedem o acesso permanente de conta, selecione **não**.
-   * **Personalizar ações de cliente permitidas?** : Selecione **Sim** para especificar quais ações os consumidores podem executar nos recursos gerenciados.
-   * **Permitidas ações de cliente**: Se selecionou **Sim** para a configuração anterior, pode especificar quais ações são permitidas para os consumidores utilizando [negar atribuições para recursos do Azure](../role-based-access-control/deny-assignments.md).
+   * **Versão**: Insira uma versão para o pacote que você carregar. Deverá estar no formato `{number}.{number}.{number}{number}`.
+   * **Arquivo de pacote (. zip)** : Este pacote contém dois arquivos necessários compactados em um pacote. zip. Um ficheiro é um modelo do Resource Manager que define os recursos a implementar para a aplicação gerida. O outro ficheiro define a [interface de utilizador](create-uidefinition-overview.md) para os consumidores implementarem a aplicação gerida através do portal. Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+   * **ID do locatário**: A ID de locatário da conta para obter acesso.
+   * **Habilitar o acesso JIT**: Selecione **Sim** para habilitar o [controle de acesso just-in-time](request-just-in-time-access.md) para a conta. Quando habilitado, você solicita acesso à conta do consumidor por um período de tempo especificado. Para exigir que os consumidores do seu aplicativo gerenciado conceda à sua conta acesso permanente, selecione **não**.
+   * **Personalizar ações de clientes permitidas?** : Selecione **Sim** para especificar quais ações os consumidores podem executar nos recursos gerenciados.
+   * **Ações de cliente permitidas**: Se você selecionar **Sim** para a configuração anterior, poderá especificar quais ações são permitidas aos consumidores usando [atribuições de negação para recursos do Azure](../role-based-access-control/deny-assignments.md).
 
-     Para ações disponíveis, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Por exemplo, para permitir os consumidores para reiniciar as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` para as ações permitidas. O `*/read` ação automaticamente é permitida para que precise incluir essa definição.
-   * **PrincipalId**: Esta propriedade é o identificador do Azure Active Directory (Azure AD) de um utilizador, o grupo de utilizadores ou a aplicação que é concedida acesso aos recursos na subscrição do cliente. A Definição de Função descreve as permissões.
-   * **Definição de função**: Esta propriedade é uma lista de todos os as controlo de acesso baseado em funções (RBAC) funções incorporadas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
-   * **Definições de política**: Aplicar uma [do Azure Policy](../governance/policy/overview.md) para seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implementadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../governance/policy/samples/index.md).
+     Para as ações disponíveis, consulte [Azure Resource Manager operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md). Por exemplo, para permitir que os consumidores reiniciem máquinas `Microsoft.Compute/virtualMachines/restart/action` virtuais, adicione as ações permitidas. A `*/read` ação é permitida automaticamente para que você não precise incluir essa configuração.
+   * **PrincipalId**: Essa propriedade é o identificador Azure Active Directory (Azure AD) de um usuário, grupo de usuários ou aplicativo que recebe acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
+   * **Definição de função**: Esta propriedade é uma lista de todas as funções de RBAC (controle de acesso baseado em função) internas fornecidas pelo Azure AD. Pode selecionar a função mais adequada a utilizar para gerir os recursos em nome do cliente.
+   * **Configurações de política**: Aplique um [Azure Policy](../governance/policy/overview.md) ao seu aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. De entre as opções disponíveis, selecione as políticas a aplicar. Para **Parâmetros de Política**, forneça uma cadeia de carateres JSON com os valores parâmetro. Para definições de política e o formato de valores de parâmetros, consulte [Exemplos de Política do Azure](../governance/policy/samples/index.md).
 
 Pode adicionar várias autorizações. Recomendamos que crie um grupo de utilizadores do AD e especifique o respetivo ID em **PrincipalId**. Desta forma, pode adicionar mais utilizadores ao grupo de utilizadores sem a necessidade de atualizar o SKU.
 
@@ -123,7 +116,7 @@ O formulário do Marketplace pede campos que aparecem no [Azure Marketplace](htt
 
 ### <a name="preview-subscription-ids"></a>Pré-visualizar IDs de subscrição
 
-Introduza uma lista de IDs de subscrição do Azure que possa aceder à oferta depois da sua publicação. Pode utilizar estas subscrições permitidas para testar a oferta pré-visualizada antes de publicá-la. Pode compilar uma lista de permissões de até 100 subscrições no portal de parceiros.
+Introduza uma lista de IDs de subscrição do Azure que possa aceder à oferta depois da sua publicação. Pode utilizar estas subscrições permitidas para testar a oferta pré-visualizada antes de publicá-la. Você pode compilar uma lista de permissões de até 100 assinaturas no portal de parceiros.
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 
@@ -182,7 +175,7 @@ Preencha o formulário de **Suporte** com contactos de suporte da sua empresa. E
 
 Depois de preencher todas as secções, selecione **Publicar** para iniciar o processo que disponibiliza a oferta aos clientes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar e publicar uma aplicação gerida do Catálogo de Serviços](publish-service-catalog-app.md).

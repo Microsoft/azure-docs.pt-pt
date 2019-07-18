@@ -14,60 +14,60 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428317"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304245"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder a eventos do Azure Service Bus recebidos através do Azure Event Grid com as funções do Azure e Azure Logic Apps
-Neste tutorial, saiba como responder a eventos do Azure Service Bus que são recebidos através do Azure Event Grid com as funções do Azure e Azure Logic Apps. Terá de efetuar os seguintes passos:
+# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder aos eventos do barramento de serviço do Azure recebidos por meio da grade de eventos do Azure usando Azure Functions e aplicativos lógicos do Azure
+Neste tutorial, você aprenderá a responder aos eventos do barramento de serviço do Azure que são recebidos por meio da grade de eventos do Azure usando o Azure Functions e os aplicativos lógicos do Azure. Você executará as seguintes etapas:
  
-- Crie uma função do Azure de teste para depurar e ver o fluxo inicial de eventos do Event Grid.
-- Crie uma função do Azure para receber e processar mensagens do Service bus do Azure com base em eventos do Event Grid.
-- Criar uma aplicação lógica para responder a eventos do Event Grid
+- Crie um teste do Azure function para depurar e exibir o fluxo inicial de eventos da grade de eventos.
+- Crie uma função do Azure para receber e processar mensagens do barramento de serviço do Azure com base em eventos de grade de eventos.
+- Criar um aplicativo lógico para responder a eventos da grade de eventos
 
-Depois de criar o Service Bus, Event Grid, as funções do Azure e os artefactos de aplicações lógicas, executar as seguintes ações: 
+Depois de criar os artefatos do barramento de serviço, da grade de eventos, do Azure Functions e dos aplicativos lógicos, você executa as seguintes ações: 
 
-1. Envie mensagens para um tópico do Service Bus. 
-2. Certifique-se de que as subscrições para o tópico receberam essas mensagens
-3. Certifique-se de que a função ou aplicação lógica que subscrito para o evento recebeu o evento. 
+1. Enviar mensagens para um tópico do barramento de serviço. 
+2. Verifique se as assinaturas para o tópico receberam essas mensagens
+3. Verifique se a função ou o aplicativo lógico que assinou o evento recebeu o evento. 
 
 ## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
-Siga as instruções neste tutorial: [Quickstart: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para efetuar as seguintes tarefas:
+Siga as instruções neste tutorial: [Quickstart: Use o portal do Azure para criar um tópico e assinaturas do barramento de serviço para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para realizar as seguintes tarefas:
 
-- Criar uma **premium** espaço de nomes do Service Bus. 
-- Obter a cadeia de ligação. 
-- Crie um tópico do Service Bus.
-- Crie duas subscrições para o tópico. 
+- Crie um namespace do barramento de serviço **Premium** . 
+- Obter a cadeia de conexão. 
+- Criar um tópico do barramento de serviço.
+- Crie duas assinaturas para o tópico. 
 
 ## <a name="prepare-a-sample-application-to-send-messages"></a>Preparar um aplicativo de exemplo para enviar mensagens
-Pode utilizar qualquer método para enviar uma mensagem para o tópico do Service Bus. O código de exemplo no final deste procedimento pressupõe que esteja usando o Visual Studio 2017.
+Pode utilizar qualquer método para enviar uma mensagem para o tópico do Service Bus. O código de exemplo no final deste procedimento pressupõe que você esteja usando o Visual Studio 2017.
 
 1. Clone [o repositório azure-service-bus do GitHub](https://github.com/Azure/azure-service-bus/).
 2. No Visual Studio, aceda à pasta *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* e abra o ficheiro *SBEventGridIntegration.sln*.
 3. Aceda ao projeto **MessageSender** e selecione **Program.cs**.
-4. Preencha o nome do tópico do Service Bus e a cadeia de ligação que obteve no passo anterior:
+4. Preencha o nome do tópico do barramento de serviço e a cadeia de conexão obtida da etapa anterior:
 
     ```CSharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
-5. Crie e execute o programa para enviar mensagens de teste para o tópico do Service Bus. 
+5. Compile e execute o programa para enviar mensagens de teste para o tópico do barramento de serviço. 
 
 ## <a name="set-up-a-test-function-on-azure"></a>Configurar uma função de teste no Azure 
-Antes de trabalhar em todo o cenário, configure a, pelo menos, uma pequena função de teste, que pode utilizar para depurar e observar os eventos que estão a fluir. Siga as instruções no [criar a primeira função no portal do Azure](../azure-functions/functions-create-first-azure-function.md) artigo para fazer as seguintes tarefas: 
+Antes de trabalhar em todo o cenário, configure pelo menos uma função de teste pequena, que pode ser usada para depurar e observar os eventos que estão fluindo. Siga as instruções em [criar sua primeira função no artigo portal do Azure](../azure-functions/functions-create-first-azure-function.md) para executar as seguintes tarefas: 
 
-1. Crie uma aplicação de funções.
-2. Crie uma função acionada por HTTP. 
+1. Crie um aplicativo de funções.
+2. Crie uma função disparada por HTTP. 
 
-Em seguida, siga os passos abaixo: 
+Em seguida, execute as seguintes etapas: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[As funções do Azure V2](#tab/v2)
+# <a name="azure-functions-v2tabv2"></a>[Azure Functions v2](#tab/v2)
 
-1. Expanda **funções** na árvore de ver e selecionar a sua função. Substitua o código para a função com o código a seguir: 
+1. Expanda **funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -117,19 +117,19 @@ Em seguida, siga os passos abaixo:
     ```
 2. Selecione **Guardar e executar**.
 
-    ![Saída da aplicação de função](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
-3. Selecione **obter URL de função** e anote o URL. 
+    ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+3. Selecione **obter URL da função** e anote a URL. 
 
-    ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Obter URL da função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[As funções do Azure V1](#tab/v1)
+# <a name="azure-functions-v1tabv1"></a>[Azure Functions v1](#tab/v1)
 
-1. Configurar a função a utilizar **V1** versão: 
-    1. Selecione a sua aplicação de função na vista de árvore e selecione **as definições da aplicação de função**. 
+1. Configure a função para usar a versão **v1** : 
+    1. Selecione seu aplicativo de funções no modo de exibição de árvore e selecione **configurações do aplicativo de funções**. 
 
         ![Definições da Aplicação de funções]()./media/service-bus-to-event-grid-integration-example/function-app-settings.png)
-    2. Selecione **~ 1** para **versão de Runtime**. 
-2. Expanda **funções** na árvore de ver e selecionar a sua função. Substitua o código para a função com o código a seguir: 
+    2. Selecione **~ 1** para a **versão de tempo de execução**. 
+2. Expanda **funções** no modo de exibição de árvore e selecione sua função. Substitua o código da função pelo código a seguir: 
 
     ```CSharp
     #r "Newtonsoft.Json"
@@ -176,141 +176,141 @@ Em seguida, siga os passos abaixo:
     ```
 4. Selecione **Guardar e executar**.
 
-    ![Saída da aplicação de função](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
-4. Selecione **obter URL de função** e anote o URL. 
+    ![Saída do aplicativo de funções](./media/service-bus-to-event-grid-integration-example/function-run-output.png)
+4. Selecione **obter URL da função** e anote a URL. 
 
-    ![Obter URL de função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
+    ![Obter URL da função](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
 ---
 
 ## <a name="connect-the-function-and-namespace-via-event-grid"></a>Ligar a função e o espaço de nomes através do Event Grid
-Nesta secção, vai ligar a função e o espaço de nomes do Service Bus com o portal do Azure. 
+Nesta seção, você une a função e o namespace do barramento de serviço usando o portal do Azure. 
 
-Para criar uma subscrição do Azure Event Grid, siga estes passos:
+Para criar uma assinatura da grade de eventos do Azure, siga estas etapas:
 
-1. No portal do Azure, aceda ao seu espaço de nomes e, em seguida, no painel esquerdo, selecione **eventos**. É aberta a janela do espaço de nomes, com duas subscrições do Event Grid no painel direito. 
+1. No portal do Azure, vá para o namespace e, no painel esquerdo, selecione **eventos**. É aberta a janela do espaço de nomes, com duas subscrições do Event Grid no painel direito. 
     
-    ![Service Bus - página de eventos](./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png)
-2. Selecione **+ subscrição de evento** na barra de ferramentas. 
-3. Sobre o **criar subscrição de evento** página, efetue os seguintes passos:
-    1. Introduza um **nome** para a subscrição. 
-    2. Selecione **Hook de Web** para **tipo de ponto final**. 
+    ![Barramento de serviço – página eventos](./media/service-bus-to-event-grid-integration-example/service-bus-events-page.png)
+2. Selecione **+ assinatura de evento** na barra de ferramentas. 
+3. Na página **criar assinatura de evento** , execute as seguintes etapas:
+    1. Insira um **nome** para a assinatura. 
+    2. Selecione o **gancho da Web** para o **tipo de ponto de extremidade**. 
 
-        ![Service Bus - subscrição do Event Grid](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
-    3. Escolheu **selecione um ponto final**, cole o URL da função e, em seguida, selecione **confirmar seleção**. 
+        ![Barramento de serviço-assinatura de grade de eventos](./media/service-bus-to-event-grid-integration-example/event-grid-subscription-page.png)
+    3. Escolha **selecionar um ponto de extremidade**, Cole a URL da função e, em seguida, selecione **confirmar seleção**. 
 
-        ![Função – selecione o ponto final](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
-    4. Mude para o **filtros** separador, introduza o nome da **primeira assinatura** para o tópico do Service Bus que criou anteriormente e, em seguida, selecione o **criar** botão. 
+        ![Função – selecione o ponto de extremidade](./media/service-bus-to-event-grid-integration-example/function-select-endpoint.png)
+    4. Alterne para a guia **filtros** , insira o nome da **primeira assinatura** para o tópico do barramento de serviço criado anteriormente e, em seguida, selecione o botão **criar** . 
 
-        ![Filtro de subscrição de evento](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
-4. Confirme que vê a subscrição de evento na lista.
+        ![Filtro de assinatura de evento](./media/service-bus-to-event-grid-integration-example/event-subscription-filter.png)
+4. Confirme que você vê a inscrição de evento na lista.
 
-    ![Subscrição de evento na lista](./media/service-bus-to-event-grid-integration-example/event-subscription-in-list.png)
+    ![Assinatura de evento na lista](./media/service-bus-to-event-grid-integration-example/event-subscription-in-list.png)
 
-## <a name="send-messages-to-the-service-bus-topic"></a>Enviar mensagens para o tópico do Service Bus
-1. Executar o .NET C# aplicativo, que envia mensagens para o tópico do Service Bus. 
+## <a name="send-messages-to-the-service-bus-topic"></a>Enviar mensagens para o tópico do barramento de serviço
+1. Execute o aplicativo C# .net, que envia mensagens para o tópico do barramento de serviço. 
 
-    ![Resultado da aplicação de consola](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
-1. Na página para a sua aplicação de função do Azure, expanda **funções**, expanda seu **função**e selecione **Monitor**. 
+    ![Saída do aplicativo de console](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
+1. Na página do seu aplicativo de funções do Azure, expanda **funções**, expanda sua **função**e selecione **Monitor**. 
 
-    ![Monitor de função](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
+    ![Função monitor](./media/service-bus-to-event-grid-integration-example/function-monitor.png)
 
 ## <a name="receive-messages-by-using-azure-functions"></a>Receber mensagens através das Funções do Azure
 Na secção anterior, observou um cenário simples de teste e depuração e garantiu que os eventos estão a fluir. 
 
 Nesta secção, saiba como receber e processar mensagens depois de receber um evento.
 
-### <a name="publish-a-function-from-visual-studio"></a>Publicar uma função a partir do Visual Studio
-1. Na mesma solução do Visual Studio (**SBEventGridIntegration**) que aberto, selecione **ReceiveMessagesOnEvent.cs** no **SBEventGridIntegration** projeto. 
-2. Introduza a cadeia de ligação do Service Bus no código a seguir:
+### <a name="publish-a-function-from-visual-studio"></a>Publicar uma função do Visual Studio
+1. Na mesma solução do Visual Studio (**SBEventGridIntegration**) que você abriu, selecione **ReceiveMessagesOnEvent.cs** no projeto **SBEventGridIntegration** . 
+2. Insira a cadeia de conexão do barramento de serviço no código a seguir:
 
     ```Csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     ```
-3. Transfira o **perfil de publicação** para a função:
-    1. Selecione a sua aplicação de função. 
-    2. Selecione o **descrição geral** separador se ainda não estiver selecionada. 
+3. Baixe o **perfil de publicação** para a função:
+    1. Selecione seu aplicativo de funções. 
+    2. Selecione a guia **visão geral** se ela ainda não estiver selecionada. 
     3. Selecione **obter perfil de publicação** na barra de ferramentas. 
 
-        ![Obter perfil para a função de publicação](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
-    4. Guarde o ficheiro para pasta do seu projeto. 
+        ![Obter o perfil de publicação para a função](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
+    4. Salve o arquivo na pasta do projeto. 
 4. No Visual Studio, clique com o botão direito do rato em **SBEventGridIntegration** e, em seguida, selecione **Publicar**. 
-5. Selecione *começar** no **Publish** página. 
-6. Sobre o **escolher um destino da publicação** página, siga os passos abaixo, selecione **importar perfil**. 
+5. Selecione **Iniciar** na página **publicar** . 
+6. Na página **escolher um destino de publicação** , siga as etapas a seguir, selecione **importar perfil**. 
 
-    ![Visual Studio – botão Importar perfil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
-7. Selecione o **publicar o ficheiro de perfil** transferiu anteriormente. 
-8. Selecione **Publish** sobre o **publicar** página. 
+    ![Visual Studio – botão importar perfil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
+7. Selecione o **arquivo de perfil de publicação** que você baixou anteriormente. 
+8. Selecione **publicar** na página **publicar** . 
 
     ![Visual Studio – publicar](./media/service-bus-to-event-grid-integration-example/select-publish.png)
-9. Confirme que vê a nova função do Azure **ReceiveMessagesOnEvent**. Se for necessário, atualize a página. 
+9. Confirme que você vê a nova função do Azure **ReceiveMessagesOnEvent**. Atualize a página, se necessário. 
 
-    ![Confirme que a nova função é criada](./media/service-bus-to-event-grid-integration-example/function-receive-messages.png)
-10. Obter o URL para a nova função e tome nota do mesmo. 
+    ![Confirmar que a nova função foi criada](./media/service-bus-to-event-grid-integration-example/function-receive-messages.png)
+10. Obtenha a URL para a nova função e anote-a. 
 
-### <a name="event-grid-subscription"></a>Subscrição do Event Grid
+### <a name="event-grid-subscription"></a>Assinatura da grade de eventos
 
-1. Elimine a subscrição do Event Grid existente:
-    1. Sobre o **espaço de nomes do Service Bus** página, selecione **eventos** no menu da esquerda. 
-    2. Selecione a subscrição de evento existente. 
-    3. Sobre o **subscrição de evento** página, selecione **eliminar**.
-2. Siga as instruções no [ligar a função e o espaço de nomes através do Event Grid](#connect-the-function-and-namespace-via-event-grid) secção para criar uma subscrição do Event Grid com o novo URL da função.
-3. Siga as instruções na [enviar mensagens para o tópico do Service Bus](#send-messages-to-the-service-bus-topic) secção para enviar mensagens para o tópico e monitorizar a função. 
+1. Exclua a assinatura da grade de eventos existente:
+    1. Na página **namespace do barramento de serviço** , selecione **eventos** no menu à esquerda. 
+    2. Selecione a assinatura de evento existente. 
+    3. Na página **assinatura de evento** , selecione **excluir**.
+2. Siga as instruções na seção [conectar a função e o namespace por meio da grade de eventos](#connect-the-function-and-namespace-via-event-grid) para criar uma assinatura de grade de eventos usando a nova URL da função.
+3. Siga a instrução na seção [enviar mensagens para o tópico do barramento de serviço](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tópico e monitorar a função. 
 
 ## <a name="receive-messages-by-using-logic-apps"></a>Receber mensagens através do Logic Apps
-Ligar uma aplicação lógica com o Azure Service Bus e Azure Event Grid através dos seguintes passos:
+Conecte um aplicativo lógico com o barramento de serviço do Azure e a grade de eventos do Azure seguindo estas etapas:
 
-1. Crie uma aplicação lógica no portal do Azure.
-    1. Selecione **+ criar um recurso**, selecione **integração**e, em seguida, selecione **aplicação lógica**. 
-    2. Sobre o **aplicação lógica - criar** página, introduza um **nome** para a aplicação lógica.
+1. Crie um aplicativo lógico no portal do Azure.
+    1. Selecione **+ criar um recurso**, selecione **integração**e, em seguida, selecione **aplicativo lógico**. 
+    2. Na página **aplicativo lógico – criar** , insira um **nome** para o aplicativo lógico.
     3. Selecione a sua **subscrição** do Azure. 
-    4. Selecione **utilizar existente** para o **grupo de recursos**e selecione o grupo de recursos que utilizou para outros recursos (como a função do Azure, o espaço de nomes do Service Bus) que criou anteriormente. 
-    5. Selecione o **localização** para a aplicação lógica. 
-    6. Selecione **criar** para criar a aplicação lógica. 
-2. Sobre o **estruturador de aplicações lógicas** página, selecione **aplicação lógica em branco** sob **modelos**. 
-3. No estruturador, siga os passos abaixo:
-    1. Procure **Event Grid**. 
-    2. Selecione **quando um evento de recurso ocorre (pré-visualização) - Azure Event Grid**. 
+    4. Selecione **usar existente** para o **grupo de recursos**e selecione o grupo de recursos que você usou para outros recursos (como Azure Function, namespace do barramento de serviço) que você criou anteriormente. 
+    5. Selecione o **local** para o aplicativo lógico. 
+    6. Selecione **criar** para criar o aplicativo lógico. 
+2. Na página **Designer de aplicativos lógicos** , selecione **aplicativo lógico em branco** em **modelos**. 
+3. No designer, execute as seguintes etapas:
+    1. Pesquise a **grade de eventos**. 
+    2. Selecione **quando ocorre um evento de recurso (visualização) – grade de eventos do Azure**. 
 
-        ![Estruturador de aplicações lógicas - selecionar acionador do Event Grid](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
-4. Selecione **iniciar sessão**, introduza as credenciais do Azure e selecione **permitir acesso**. 
-5. Sobre o **quando ocorre um evento de recurso** página, efetue os seguintes passos:
+        ![Designer de aplicativos lógicos-selecionar gatilho de grade de eventos](./media/service-bus-to-event-grid-integration-example/logic-apps-event-grid-trigger.png)
+4. Selecione **entrar**, insira suas credenciais do Azure e selecione **permitir acesso**. 
+5. Na página **quando um evento de recurso ocorre** , execute as seguintes etapas:
     1. Selecione a sua subscrição do Azure. 
-    2. Para **tipo de recurso**, selecione **Microsoft.ServiceBus.Namespaces**. 
-    3. Para **nome do recurso**, selecione o seu espaço de nomes do Service Bus. 
-    4. Selecione **adicione o novo parâmetro**e selecione **filtro de sufixo**. 
-    5. Para **filtro de sufixo**, introduza o nome da sua subscrição de tópico do Service Bus segundo. 
-        ![Estruturador de aplicações lógicas - configurar eventos](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
-6. Selecione **+ novo passo** no designer, e siga os passos abaixo:
-    1. Procure **Service Bus**.
-    2. Selecione **do Service Bus** na lista. 
-    3. Selecione para **obter mensagens** no **ações** lista. 
-    4. Selecione **obter mensagens de uma subscrição de tópico (bloqueio de pré-visualização)** . 
+    2. Para **tipo de recurso**, selecione **Microsoft. ServiceBus. Namespaces**. 
+    3. Para **nome do recurso**, selecione o namespace do barramento de serviço. 
+    4. Selecione **Adicionar novo parâmetro**e selecione **filtro de sufixo**. 
+    5. Para **filtro de sufixo**, insira o nome da segunda assinatura de tópico do barramento de serviço. 
+        ![Designer de aplicativos lógicos – configurar evento](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
+6. Selecione **+ nova etapa** no designer e execute as seguintes etapas:
+    1. Pesquise pelo **barramento de serviço**.
+    2. Selecione **barramento de serviço** na lista. 
+    3. Selecione para **obter mensagens** na lista de **ações** . 
+    4. Selecione **obter mensagens de uma assinatura de tópico (Peek-Lock)** . 
 
-        ![Estruturador de aplicações lógicas - ação de mensagens de get](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
-    5. Introduza um **nome da ligação**. Por exemplo: **Obter mensagens de subscrição de tópico**e selecione o espaço de nomes do Service Bus. 
+        ![Designer de aplicativos lógicos – ação obter mensagens](./media/service-bus-to-event-grid-integration-example/service-bus-get-messages-step.png)
+    5. Insira um **nome para a conexão**. Por exemplo: **Obtenha mensagens da assinatura do tópico**e selecione o namespace do barramento de serviço. 
 
-        ![Estruturador de aplicações lógicas - selecione o espaço de nomes do Service Bus](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
+        ![Designer de aplicativos lógicos – selecione o namespace do barramento de serviço](./media/service-bus-to-event-grid-integration-example/logic-apps-select-namespace.png) 
     6. Selecione **RootManageSharedAccessKey**.
 
-        ![Estruturador de aplicações lógicas - selecione a chave de acesso partilhado](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
+        ![Designer de aplicativos lógicos – selecione a chave de acesso compartilhado](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     7. Selecione **Criar**. 
-    8. Selecione o seu tópico e uma subscrição. 
+    8. Selecione seu tópico e assinatura. 
     
-        ![Estruturador de aplicações lógicas - selecione o seu tópico do Service Bus e subscrição](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
-7. Selecione **+ novo passo**, e siga os passos abaixo: 
+        ![Designer de aplicativos lógicos-selecione o tópico e a assinatura do barramento de serviço](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+7. Selecione **+ nova etapa**e execute as seguintes etapas: 
     1. Selecione **Service Bus**.
-    2. Selecione **concluir a mensagem numa subscrição de tópico** na lista de ações. 
-    3. Selecione o Service Bus **tópico**.
-    4. Selecione a segunda **subscrição** para o tópico.
-    5. Para **token de bloqueio da mensagem**, selecione **Token de bloqueio** partir os **conteúdo dinâmico**. 
+    2. Selecione **concluir a mensagem em uma assinatura de tópico** na lista de ações. 
+    3. Selecione o **tópico**do barramento de serviço.
+    4. Selecione a segunda **assinatura** para o tópico.
+    5. Para **token de bloqueio da mensagem**, selecione **Bloquear token** do **conteúdo dinâmico**. 
 
-        ![Estruturador de aplicações lógicas - selecione o seu tópico do Service Bus e subscrição](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
-8. Selecione **guardar** na barra de ferramentas no Designer de aplicações lógicas para guardar a aplicação lógica. 
-9. Siga as instruções na [enviar mensagens para o tópico do Service Bus](#send-messages-to-the-service-bus-topic) secção para enviar mensagens para o tópico. 
-10. Mude para o **descrição geral** página da sua aplicação lógica. Pode ver a aplicação lógica é executado **histórico de execuções** para as mensagens enviadas.
+        ![Designer de aplicativos lógicos-selecione o tópico e a assinatura do barramento de serviço](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
+8. Selecione **salvar** na barra de ferramentas no designer de aplicativos lógicos para salvar o aplicativo lógico. 
+9. Siga a instrução na seção [enviar mensagens para o tópico do barramento de serviço](#send-messages-to-the-service-bus-topic) para enviar mensagens para o tópico. 
+10. Alterne para a página **visão geral** do seu aplicativo lógico. Você vê que o aplicativo lógico é executado no **histórico** de execuções das mensagens enviadas.
 
-    ![Estruturador de aplicações lógicas - execuções da aplicação lógica](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
+    ![Designer de aplicativos lógicos-execuções de aplicativo lógico](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
