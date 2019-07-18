@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Descrição geral das funcionalidades, da arquitetura e da implementação do Balanceador de Carga do Azure. Saiba como o Balanceador de Carga funciona e como tirar partido do mesmo na cloud.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
-ms.author: kumud
-ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: fb7c0c31ad91bfdb6ea360c1909a216f0779ebde
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734903"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274624"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -29,7 +29,7 @@ O Balanceador de Carga distribui os fluxos de entrada novos que chegam ao front-
 
 Além disso, um balanceador de carga público pode fornecer ligações de saída para as máquinas virtuais (VMs) que estejam dentro da sua rede virtual, ao traduzir os respetivos endereços IP em endereços IP públicos.
 
-O Balanceador de carga do Azure está disponível em dois SKUs: Basic e Standard. Há diferenças em termos de dimensionamento, funcionalidades e preços. Qualquer cenário possível no Balanceador de Carga Básico também pode ser criado com o Balanceador de Carga Standard, embora as abordagens possam ser ligeiramente diferentes. À medida que fica a conhecer o Balanceador de Carga, é importante que se familiarize com os conceitos básicos e as diferenças específicas de cada SKU.
+Azure Load Balancer está disponível em duas SKUs: Basic e Standard. Há diferenças em termos de dimensionamento, funcionalidades e preços. Qualquer cenário possível no Balanceador de Carga Básico também pode ser criado com o Balanceador de Carga Standard, embora as abordagens possam ser ligeiramente diferentes. À medida que fica a conhecer o Balanceador de Carga, é importante que se familiarize com os conceitos básicos e as diferenças específicas de cada SKU.
 
 ## <a name="why-use-load-balancer"></a>Porquê utilizar o Balanceador de Carga 
 
@@ -64,11 +64,11 @@ O Balanceador de Carga proporciona as seguintes capacidades básicas para as apl
 
     ![Distribuição baseada em hashes](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Figura: Distribuição baseada em hash*
+    *Figuras Distribuição baseada em hash*
 
 * **Encaminhamento de portas**
 
-    Com o Balanceador de Carga, pode criar uma regra NAT de entrada para fazer o encaminhamento de portas do tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Esse encaminhamento também pode ser obtido pela mesma distribuição baseada em hashes como balanceamento de carga. Os cenários comuns para esta capacidade são as sessões protocolo RDP (Remote Desktop Protocol) ou Secure Shell (SSH) em instâncias de VMs individuais dentro da Rede Virtual do Azure. Pode mapear vários pontos finais internos para as diversas portas no mesmo endereço IP do front-end. Pode usar os endereços IP de front-end para administrar remotamente as suas VMs através da internet sem a necessidade de uma jumpbox adicionais.
+    Com o Balanceador de Carga, pode criar uma regra NAT de entrada para fazer o encaminhamento de portas do tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Esse encaminhamento também pode ser obtido pela mesma distribuição baseada em hashes como balanceamento de carga. Os cenários comuns para esta capacidade são as sessões protocolo RDP (Remote Desktop Protocol) ou Secure Shell (SSH) em instâncias de VMs individuais dentro da Rede Virtual do Azure. Pode mapear vários pontos finais internos para as diversas portas no mesmo endereço IP do front-end. Você pode usar os endereços IP de front-end para administrar remotamente suas VMs pela Internet sem a necessidade de uma caixa de salto adicional.
 
 * **Independente de aplicações e transparente**
 
@@ -88,7 +88,7 @@ O Balanceador de Carga proporciona as seguintes capacidades básicas para as apl
      
     O Balanceador de Carga disponibiliza [diferentes tipos de sondas de estado de funcionamento](load-balancer-custom-probe-overview.md#types) para os pontos finais TCP, HTTP e HTTPS.
 
-    Além disso, ao utilizar os serviços de nuvem de clássico, é permitido um tipo adicional:  [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Este deve ser encarado como uma sonda de estado de funcionamento de último recurso e não é recomendado caso as outras opções sejam viáveis.
+    Além disso, ao usar os serviços de nuvem clássicos, é permitido um tipo adicional:  [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Este deve ser encarado como uma sonda de estado de funcionamento de último recurso e não é recomendado caso as outras opções sejam viáveis.
     
 * **Ligações de saída (SNAT)**
 
@@ -131,7 +131,7 @@ A figura abaixo mostra um ponto final com carga balanceada para tráfego da Web 
 
 ![Exemplo de balanceador de carga público](./media/load-balancer-overview/IC727496.png)
 
-*Figura: Balanceamento de tráfego da web utilizando um balanceador de carga público*
+*Figuras Balanceamento de carga de tráfego da Web usando um Load Balancer público*
 
 Quando os clientes de Internet enviam pedidos de páginas Web para o endereço IP público de uma aplicação Web na porta TCP 80, o Balanceador de Carga do Azure distribui-os entre as três VMs no conjunto com carga balanceada. Para obter mais informações sobre os algoritmos do Balanceador de Carga, veja a secção [Funcionalidade do Balanceador de Carga](load-balancer-overview.md##fundamental-load-balancer-features) deste artigo.
 
@@ -139,25 +139,25 @@ Por predefinição, o Balanceador de Carga do Azure distribui o tráfego de rede
 
 ### <a name = "internalloadbalancer"></a> Balanceador de Carga Interno
 
-Os balanceadores de carga internos direcionam o tráfego apenas para recursos que estejam dentro de uma rede virtual ou que acedam à infraestrutura do Azure através de uma VPN. Neste aspeto, estes balanceadores de carga são diferentes dos públicos. A infraestrutura do Azure limita o acesso aos endereços IP do front-end com carga balanceada de uma rede virtual. endereços IP de front-end e redes virtuais são expostas nunca diretamente para um ponto de extremidade de internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
+Os balanceadores de carga internos direcionam o tráfego apenas para recursos que estejam dentro de uma rede virtual ou que acedam à infraestrutura do Azure através de uma VPN. Neste aspeto, estes balanceadores de carga são diferentes dos públicos. A infraestrutura do Azure limita o acesso aos endereços IP do front-end com carga balanceada de uma rede virtual. Os endereços IP de front-end e as redes virtuais nunca são expostos diretamente a um ponto de extremidade de Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
 
 Os balanceadores de carga internos permitem os seguintes tipos de balanceador de carga:
 
-* **Dentro de uma rede virtual**: Balanceamento de carga de VMs na rede virtual para um conjunto de VMs que residam na mesma rede virtual.
-* **Para uma rede virtual em vários locais**: Balanceamento de carga de computadores no local para um conjunto de VMs que residam na mesma rede virtual. 
-* **Para aplicações de várias camadas**: O balanceamento de carga para aplicações de várias camadas de acesso à internet em que os escalões de back-end não são destinados à internet. As camadas do back-end requerem o balanceamento de carga do tráfego da camada acessível pela Internet (veja a figura abaixo).
-* **Para aplicações de linha de negócio**: Balanceamento de carga para aplicativos de linha de negócio que estão alojados no Azure sem hardware de Balanceador de carga adicional ou software. Este cenário inclui servidores no local que estão no conjunto de computadores cujo tráfego tem a carga balanceada.
+* **Em uma rede virtual**: Balanceamento de carga de VMs na rede virtual para um conjunto de VMs que residem na mesma rede virtual.
+* **Para uma rede virtual entre locais**: Balanceamento de carga de computadores locais para um conjunto de VMs que residem na mesma rede virtual. 
+* **Para aplicativos de várias camadas**: Balanceamento de carga para aplicativos de várias camadas voltados para a Internet em que as camadas de back-end não são voltadas para a Internet. As camadas do back-end requerem o balanceamento de carga do tráfego da camada acessível pela Internet (veja a figura abaixo).
+* **Para aplicativos de linha de negócios**: Balanceamento de carga para aplicativos de linha de negócios hospedados no Azure sem hardware ou software do balanceador de carga adicional. Este cenário inclui servidores no local que estão no conjunto de computadores cujo tráfego tem a carga balanceada.
 
 ![Exemplo de Balanceador de Carga Interno](./media/load-balancer-overview/IC744147.png)
 
-*Figura: Balanceamento de carga aplicações de várias camadas, com Balanceador de carga públicos e internos*
+*Figuras Balanceamento de carga de aplicativos de várias camadas usando Load Balancer públicos e internos*
 
 ## <a name="pricing"></a>Preços
 
-Utilização de Balanceador de carga Standard é cobrada.
+O uso de Standard Load Balancer é cobrado.
 
-- Número de configurado regras de balanceamento de carga e de saída (regras NAT de entrada não contam para o número total de regras)
-- Quantidade de dados processados entrada e saída irrespective de regra. 
+- Número de regras de balanceamento de carga e de saída configuradas (as regras de NAT de entrada não são contadas em relação ao número total de regras)
+- Quantidade de dados processados de entrada e saída, independentemente da regra. 
 
 Para obter as informações de preços do Balanceador de Carga Standard, aceda à página [Preços de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

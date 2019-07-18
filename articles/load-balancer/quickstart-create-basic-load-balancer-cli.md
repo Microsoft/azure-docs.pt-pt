@@ -1,10 +1,10 @@
 ---
-title: 'Início rápido: Criar um balanceador de carga básico - CLI do Azure'
+title: 'Início rápido: Criar um Load Balancer básico-CLI do Azure'
 titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um balanceador de carga público com a CLI do Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: kumud
-ms.openlocfilehash: 698714990b9b34567d918d3b8c536bc3e39d66b8
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.author: allensu
+ms.openlocfilehash: 67d137039778b7ec8d5e65acb017b84ad6df5cb2
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257702"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274230"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um balanceador de carga para balancear carga de VMs com CLI do Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um balanceador de carga para balancear a carga de VMs usando CLI do Azure
 
-Este guia de introdução mostra-lhe como criar um balanceador de carga do Azure para carregar balancear o tráfego de internet entre máquinas virtuais no Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
+Este guia de início rápido mostra como criar um Azure Load Balancer para balancear a carga do tráfego de Internet entre máquinas virtuais no Azure. Para testar o balanceador de carga, implemente duas máquinas virtuais (VMs) com o servidor Ubuntu e faça o balanceamento de carga de uma aplicação Web entre as mesmas.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -146,7 +146,7 @@ Crie uma regra do grupo de segurança de rede para permitir ligações de entrad
 ```
 ### <a name="create-nics"></a>Criar NICs
 
-Crie duas interfaces de rede com [nic da rede de az criar](/cli/azure/network/nic#az-network-nic-create) e associá-las com o endereço IP público e o grupo de segurança de rede. 
+Crie duas interfaces de rede com [AZ Network NIC Create](/cli/azure/network/nic#az-network-nic-create) e associe-as com o endereço IP público e o grupo de segurança de rede. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

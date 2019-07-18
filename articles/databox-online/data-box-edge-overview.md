@@ -1,52 +1,41 @@
 ---
 title: Descrição geral do Microsoft Azure Data Box Edge | Microsoft Docs
-description: Descreve o Azure Data Box Edge, uma solução de armazenamento que utiliza um dispositivo físico para a transferência baseada em rede para o Azure.
+description: Descreve Azure Data Box Edge, uma solução de armazenamento que usa um dispositivo físico para transferência baseada em rede para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 07/09/2019
+ms.date: 07/17/2019
 ms.author: alkohli
-ms.openlocfilehash: bc6b9662a5d67f6ed315c33444bcb061115fe6d4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 69580f956b603423ef302353953a45ad5d00391e
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701484"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305428"
 ---
 # <a name="what-is-azure-data-box-edge"></a>O que é o Azure Data Box Edge? 
 
-O Azure Data Box Edge é uma solução de armazenamento que permite processar dados e enviá-los através de uma rede para o Azure. Este artigo fornece uma descrição geral da solução Data Box Edge, os benefícios, as principais funções e os cenários nos quais pode implementar este dispositivo. 
+O Azure Data Box Edge é um dispositivo de computação de ponta ativado por IA com funções de transferência de dados de rede. Este artigo fornece uma descrição geral da solução Data Box Edge, os benefícios, as principais funções e os cenários nos quais pode implementar este dispositivo. 
 
-O Data Box Edge utiliza um dispositivo físico fornecido pela Microsoft para acelerar a transferência segura de dados. O dispositivo físico reside no local e escreve dados no mesmo com os protocolos NFS e SMB. 
-
-O Data Box Edge possui todas as funções de gateway do Data Box Gateway. Além disso, o Data Box está equipado com funções de computação de ponta ativadas por IA, que ajudam a analisar, processar ou filtrar dados à medida que são movidos para um blob de blocos, blob de páginas ou Ficheiros do Azure.  
+Data Box Edge é uma solução de hardware como serviço. A Microsoft envia a você um dispositivo gerenciado por nuvem com uma FPGA (matriz de porta programável) de campo interno que habilita o ia-inferência acelerado e tem todos os recursos de um gateway de armazenamento. 
 
 ## <a name="use-cases"></a>Casos de utilização
 
-O Azure Data Box Edge é um dispositivo de computação de ponta ativado por IA com funções de transferência de dados de rede. Eis os vários cenários em que o Data Box Edge pode ser utilizado para transferência de dados.
+Aqui estão os vários cenários em que Data Box Edge pode ser usado para inferências rápidos de Machine Learning (ML) na borda e pré-processamento de dados antes de enviá-los para o Azure.
 
-- **Pré- processar os dados** - analisar os dados no local ou dispositivos IoT para obter rapidamente o resultado, permanecendo perto de onde os dados são gerados. O Data Box Edge transfere o conjunto de dados completo para a cloud, para um processamento mais avançado ou análise mais aprofundada.  O pré-processamento pode ser utilizado para: 
+- **Inferência com Azure Machine Learning** com data Box Edge, você pode executar modelos de ml para obter resultados rápidos que podem ser afetados antes que os dados sejam enviados para a nuvem. O conjunto de dados completo pode, opcionalmente, ser transferido para continuar a treinar novamente e aprimorar seus modelos de ML. Para obter mais informações sobre como usar os modelos acelerados de hardware do Azure ML no dispositivo Data Box Edge, consulte [implantar modelos de hardware acelerado do Azure ml no data Box Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+
+- **Pré-processar** dados – Transforme dados antes de enviá-los para o Azure para criar um DataSet mais acionável. O pré-processamento pode ser utilizado para: 
 
     - Agregar dados.
-    - Modificar dados, por exemplo, para remover Informação Pessoal (PII).
-    - Dividir os dados em subconjuntos e transferir os dados necessários para análises mais profundas na cloud.
+    - Modifique os dados, por exemplo, para remover dados pessoais.
+    - Subconjunto dados para otimizar o armazenamento e a largura de banda ou para análise posterior.
     - Analisar e reagir a eventos de IoT. 
-
-- **Inferir o Azure Machine Learning** - com o Data Box Edge, pode executar modelos de Machine Learning (ML) para obter resultados rápidos que podem ser analisados antes de os dados serem enviados para a cloud. O conjunto completo de dados podem ser transferido para continuar para voltar a preparar e melhorar os seus modelos de ML. Para obter mais informações sobre como utilizar o hardware do Azure ML acelerados modelos num dispositivo de limite de caixa de dados, consulte [modelos com aceleração por hardware de implementar o Azure ML no limite da caixa de dados](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Transferir dados através de rede para o Azure** - utilize o Data Box Edge para transferir dados fácil e rapidamente para o Azure, para permitir mais computação e análise ou para arquivo. 
 
-## <a name="benefits"></a>Benefícios
-
-O Data Box Edge possui os benefícios seguintes:
-
-- **Transferência de dados fácil** - torna fácil mover os dados de e para o armazenamento do Azure, sendo tão fácil como trabalhar numa partilha de rede local.  
-- **Elevado desempenho** - permite transferências de elevado desempenho de e para o Azure. 
-- **Acesso rápido** - coloca em cache os ficheiros mais recentes para um acesso rápido aos ficheiros no local.  
-- **Utilização de largura de banda limitada** - os dados podem ser escritos no Azure, mesmo quando a rede é limitada, para limitar a utilização durante o horário de pico.  
-- **Transformar dados** - permite a análise, o processamento ou a filtragem dos dados à medida que são movidos para o Azure.
 
 ## <a name="key-capabilities"></a>Principais capacidades
 
@@ -54,15 +43,16 @@ O Data Box Edge possui as seguintes funções:
 
 |Funcionalidade |Descrição  |
 |---------|---------|
-|Elevado desempenho     | Transferência de dados e largura de banda totalmente automatizadas e altamente otimizadas.|
-|Protocolos suportados     | Suporte para protocolos SMB e NFS standard de ingestão de dados. <br> Para obter mais informações sobre as versões suportadas, aceda a [Requisitos de sistema do Data Box Edge](data-box-edge-system-requirements.md).|
+|Inferência de ia acelerado| Habilitado pelo FPGA interno.|
 |Computação       |Permite a análise, o processamento e a filtragem de dados.|
-|Acesso a dados     | Direcione o acesso aos dados de Blobs de Armazenamento do Azure e Ficheiros do Azure através de APIs da cloud para processamento adicional de dados na cloud.|
-|Acesso rápido     | Cache local no dispositivo para um acesso rápido aos ficheiros utilizados mais recentemente.|
+|Elevado desempenho | Computação de alto desempenho e transferências de dados.|
+|Acesso a dados     | Direcione o acesso aos dados de Blobs de Armazenamento do Azure e Ficheiros do Azure através de APIs da cloud para processamento adicional de dados na cloud. O cache local no dispositivo é usado para acesso rápido aos arquivos usados mais recentemente.|
+|Gerenciado na nuvem     |O dispositivo e o serviço são gerenciados por meio do portal do Azure.  |
 |Carregamento offline     | O modo desligado suporta cenários de carregamento offline.|
+|Protocolos suportados     | Suporte para protocolos SMB e NFS standard de ingestão de dados. <br> Para obter mais informações sobre as versões suportadas, aceda a [Requisitos de sistema do Data Box Edge](data-box-edge-system-requirements.md).|
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
-|Encriptação    | Suporte de BitLocker para encriptar localmente os dados e proteger a transferência de dados para a cloud através de *https*.       |
-|Resiliência     | Resiliência de rede incorporada.        |
+|Encriptação    | Suporte de BitLocker para encriptar localmente os dados e proteger a transferência de dados para a cloud através de *https*.|
+|Limitação de largura de banda| Limitação para limitar o uso de largura de banda durante horários de pico.|
 
 
 ## <a name="components"></a>Componentes
@@ -75,7 +65,7 @@ A solução Data Box Edge inclui o recurso Data Box Edge, o dispositivo físico 
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    Para obter mais informações, aceda a [criar um pedido para o seu dispositivo do Edge de caixa de dados](data-box-edge-deploy-prep.md#create-a-new-resource).
+    Para obter mais informações, vá para [criar um pedido para seu dispositivo de data Box Edge](data-box-edge-deploy-prep.md#create-a-new-resource).
 
 * **IU da Web local do Data Box** - utilize a IU da Web local para executar diagnósticos, encerrar e reiniciar o dispositivo Data Box Edge, ver registos de cópias e entrar em contacto com o Suporte da Microsoft para fazer um pedido de serviço.
 
@@ -88,9 +78,9 @@ A solução Data Box Edge inclui o recurso Data Box Edge, o dispositivo físico 
 
 O dispositivo físico Data Box Edge, o recurso do Azure e a conta de armazenamento de destino para a qual transfere dados não têm de estar todos na mesma região.
 
-- **Disponibilidade de recursos** – para uma lista de todas as regiões onde o recurso de borda de caixa de dados está disponível, aceda a [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Edge de caixa de dados também podem ser implementada na Cloud do Azure Government. Para obter mais informações, consulte [o que é o Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidade de recursos** -para obter uma lista de todas as regiões em que o recurso Data Box Edge está disponível, vá para [produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Edge também pode ser implantado na nuvem do Azure governamental. Para obter mais informações, consulte [o que é o Azure governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
-- **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. As regiões onde as contas de armazenamento armazenam dados de borda de caixa de dados devem estar localizadas próximo de onde estiver o dispositivo para um desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento. 
+- **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure. As regiões nas quais as contas de armazenamento armazenam dados Data Box Edge devem estar localizadas perto de onde o dispositivo está localizado para obter o desempenho ideal. Uma conta de armazenamento localizada longe do dispositivo resulta em latências longas e desempenho mais lento. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

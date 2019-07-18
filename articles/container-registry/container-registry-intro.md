@@ -1,27 +1,28 @@
 ---
-title: Registos de contentores privado do Docker no Azure - descrição geral
+title: Registros de contêiner do Docker privado no Azure-visão geral
 description: Introdução ao serviço de Registo de Contentores do Azure, que proporciona registos do Docker baseado na cloud, geridos e privados.
 services: container-registry
 author: stevelas
+manager: gwallace
 ms.service: container-registry
 ms.topic: overview
 ms.date: 06/28/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8b4b5fc3ec15d921ff5580aff4d0202be1d38b9
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 8b20c54d2151afae227a085dd66a0d31f2b85305
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797902"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310660"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
-O Azure Container Registry é um serviço de registo de Docker gerido e privado com base no código-fonte aberto Docker Registry 2.0. Criar e manter registos de contentor do Azure para armazenar e gerir as imagens de contentor privadas do Docker.
+O registro de contêiner do Azure é um serviço gerenciado e privado do registro do Docker com base no registro do Docker 2,0 de código aberto. Crie e mantenha registros de contêiner do Azure para armazenar e gerenciar suas imagens privadas de contêiner do Docker.
 
-Utilizar registos de contentores do Azure com os seus atuais de desenvolvimento e pipelines de implantação ou utilizar tarefas de registo de contentor do Azure para criar imagens de contentor no Azure. Crie a pedido, ou totalmente automatizar compilações com acionadores como consolidações de código-fonte e atualizações da imagem de base.
+Use registros de contêiner do Azure com seus pipelines de desenvolvimento e implantação de contêiner existentes ou use tarefas de registro de contêiner do Azure para criar imagens de contêiner no Azure. Crie sob demanda ou Automatize totalmente compilações com gatilhos, como confirmações de código-fonte e atualizações de imagem de base.
 
-Para obter mais informações sobre os conceitos do Docker e do Registro, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/) e [sobre os registos, imagens e repositórios](container-registry-concepts.md).
+Para obter mais informações sobre os conceitos do Docker e do registro, consulte a [visão geral](https://docs.docker.com/engine/docker-overview/) do Docker e [sobre registros, repositórios e imagens](container-registry-concepts.md).
 
 ## <a name="use-cases"></a>Casos de utilização
 
@@ -30,26 +31,26 @@ Extrair imagens de um registo de contentores do Azure para vários destinos de i
 * **Sistemas de orquestração dimensionáveis** que gerem aplicações em contentores através de clusters de anfitriões, incluindo [Kubernetes](https://kubernetes.io/docs/), [CD/SO](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
 * **Serviços do Azure** que suportam a criação e a execução de aplicações em escala, incluindo o [Azure Kubernetes Service (AKS)](../aks/index.yml), o [Serviço de Aplicações](../app-service/index.yml), o [Batch](../batch/index.yml), o [Service Fabric](/azure/service-fabric/) e outros.
 
-Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, podem segmentar um registo de contentor a partir de uma ferramenta de integração e entrega contínua, como [Pipelines do Azure](/azure/devops/pipelines/get-started/what-is-azure-pipelines.md) ou [Jenkins](https://jenkins.io/).
+Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, direcione um registro de contêiner de uma ferramenta de integração e entrega contínua, como [Azure pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) ou [Jenkins](https://jenkins.io/).
 
-Configurar tarefas de ACR para reconstruir automaticamente as imagens do aplicativo quando suas imagens bases são atualizadas ou automatizar compilações de imagem quando a sua equipa consolida código para um repositório de Git. Crie tarefas de vários passos para automatizar a criação, teste e aplicação de patches de várias imagens de contentor em paralelo na cloud.
+Configure tarefas ACR para recriar automaticamente imagens de aplicativos quando suas imagens base forem atualizadas ou automatizar compilações de imagem quando sua equipe confirmar o código para um repositório git. Crie tarefas de várias etapas para automatizar a criação, o teste e a aplicação de patches de várias imagens de contêiner em paralelo na nuvem.
 
-O Azure disponibiliza ferramentas que inclui a Interface de linha de comandos do Azure, o portal do Azure e o suporte de API para gerir os registos de contentores do Azure. Opcionalmente, instale o [extensão Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e o [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensão para trabalhar com os registos de contentores do Azure. Extrair e enviar imagens para um Azure container registry ou executar tarefas de ACR, tudo no Visual Studio Code.
+O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure, portal do Azure e suporte de API para gerenciar seus registros de contêiner do Azure. Opcionalmente, instale a [extensão do Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e a extensão de [conta do Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabalhar com seus registros de contêiner do Azure. Efetuar pull e enviar imagens por push para um registro de contêiner do Azure ou executar tarefas de ACR, tudo no Visual Studio Code.
 
 ## <a name="key-features"></a>Principais funcionalidades
 
-* **SKUs de registo** -criar um ou mais registos de contentores na sua subscrição do Azure. Os registos estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada um deles suporta a integração de webhook, autenticação de registo no Azure Active Directory e a funcionalidade de eliminação. Tire partido do armazenamento local e perto da rede das imagens do seu contentor ao criar um registo na mesma localização do Azure das suas implementações. Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) de registos Premium para replicação avançada e cenários de distribuição de imagens de contentor. 
+* **SKUs do registro** -crie um ou mais registros de contêiner em sua assinatura do Azure. Os registros estão disponíveis em três SKUs: [Básico, Standard e Premium](container-registry-skus.md), cada um deles dá suporte à integração de webhook, à autenticação de registro com o Azure Active Directory e à funcionalidade de exclusão. Tire partido do armazenamento local e perto da rede das imagens do seu contentor ao criar um registo na mesma localização do Azure das suas implementações. Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) de registos Premium para replicação avançada e cenários de distribuição de imagens de contentor. 
 
-  [Controlar o acesso](container-registry-authentication.md) para um registo de contentor com uma identidade do Azure, um Azure Active Directory com cópia de segurança [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md), ou uma conta de administrador fornecida. Iniciar sessão no registo com a CLI do Azure ou o padrão `docker login` comando.
+  Você [controla o acesso](container-registry-authentication.md) a um registro de contêiner usando uma identidade do Azure, uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md)com suporte Azure Active Directory ou uma conta de administrador fornecida. Faça logon no registro usando o CLI do Azure ou o comando padrão `docker login` .
 
-* **Imagens e artefatos suportados** -agrupados num repositório, cada imagem é um instantâneo só de leitura de um contentor compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Para além das imagens de contentor do Docker, registo de contentor do Azure armazena [relacionados com formatos de conteúdo](container-registry-image-formats.md) como [executar Helm gráficos](container-registry-helm-repos.md) e imagens criadas para o [imagem da iniciativa de contentor aberto (OCI) Especificação de formato](https://github.com/opencontainers/image-spec/blob/master/spec.md).
+* **Imagens e artefatos com suporte** – agrupados em um repositório, cada imagem é um instantâneo somente leitura de um contêiner compatível com o Docker. O registo de contentores do Azure pode incluir imagens do Windows e do Linux. O utilizador controla os nomes de todas as implementações de contentores. Utilize os [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para enviar imagens para um repositório ou extrair imagens de um repositório. Além das imagens de contêiner do Docker, o registro de contêiner do Azure armazena [formatos de conteúdo relacionados](container-registry-image-formats.md) , como [gráficos Helm](container-registry-helm-repos.md) e imagens criadas para a [especificação de formato de imagem de OCI (Open container Initiative)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
-* **Tarefas de registo de contentor do Azure** -utilize [tarefas de registo de contentor do Azure](container-registry-tasks-overview.md) (tarefas de ACR) para simplificar a criação, teste, enviar e implantar as imagens no Azure. Por exemplo, utilizar tarefas do ACR para estender seu interna-ciclo de desenvolvimento para a cloud ao descarregar `docker build` operações para o Azure. Configure tarefas de compilação para automatizar o SO do contentor e o pipeline de aplicação de patches de arquitetura e compilar imagens automaticamente quando a sua equipa consolidar código para o controlo de origem.
+* **Tarefas do registro de contêiner do Azure** – use [as tarefas do registro de contêiner do Azure](container-registry-tasks-overview.md) (tarefas ACR) para simplificar a criação, o teste, o envio e a implantação de imagens no Azure. Por exemplo, use tarefas ACR para estender seu loop interno de desenvolvimento para a nuvem descarregando `docker build` operações no Azure. Configure tarefas de compilação para automatizar o SO do contentor e o pipeline de aplicação de patches de arquitetura e compilar imagens automaticamente quando a sua equipa consolidar código para o controlo de origem.
 
-  [Tarefas de vários passos](container-registry-tasks-overview.md#multi-step-tasks) fornecer a definição de tarefa com base no passo e execução para criação, teste e aplicar patches em imagens de contentor na cloud. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
+  [As tarefas de várias etapas](container-registry-tasks-overview.md#multi-step-tasks) fornecem uma definição de tarefa baseada em etapas e execução para criar, testar e aplicar patches em imagens de contêiner na nuvem. Os passos das tarefas definem a compilação individual da imagem de contentor e as operações push. Também podem definir a execução de um ou mais contentores, com cada passo a utilizar o contentor como o seu ambiente de execução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Create a container registry using the Azure portal (Criar um registo de contentores com o portal do Azure)](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI (Criar um registo de contentores com a CLI do Azure)](container-registry-get-started-azure-cli.md)
-* [Automatizar compilações de contentor e a manutenção com tarefas do ACR](container-registry-tasks-overview.md)
+* [Automatizar compilações de contêiner e manutenção com tarefas ACR](container-registry-tasks-overview.md)
