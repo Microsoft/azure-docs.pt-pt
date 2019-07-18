@@ -64,7 +64,7 @@ Por predefinição, o SDK utiliza o [DefaultEndpointRouter](https://github.com/A
 
 2. Roteamento de mensagens de servidor
 
-    Quando * enviar mensagem para um específico * * ligação *** e a ligação de destino é encaminhado para o servidor atual, a mensagem vai diretamente para esse ponto de extremidade conectado. Caso contrário, as mensagens são difundiu para cada ponto de final do Azure SignalR.
+    Quando *enviar mensagem para um específico **ligação*** e a ligação de destino é encaminhado para o servidor atual, a mensagem vai diretamente para esse ponto de extremidade conectado. Caso contrário, as mensagens são difundiu para cada ponto de final do Azure SignalR.
 
 #### <a name="customize-routing-algorithm"></a>Personalizar o algoritmo de encaminhamento
 Pode criar seu próprio router quando tem conhecimento especial para identificar as mensagens devem ir para os pontos de extremidade.
