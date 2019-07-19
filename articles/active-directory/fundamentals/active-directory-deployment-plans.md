@@ -12,12 +12,12 @@ ms.date: 02/08/2019
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f59cae87af5f29d900159639798f9cd031f3d765
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 7f695d9f0240f8c27ea0bedba7e532d37a177752
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302376"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304747"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planos de implementação do Azure Active Directory
 Está à procura de orientações completas para implementar algumas das capacidades do Azure Active Directory (Azure AD)? Os planos de implementação que se seguem orientam-no ao longo do valor comercial, das considerações de planeamento, de design e dos procedimentos operacionais necessários para implementar algumas das capacidades mais comuns do Azure AD. 
@@ -28,28 +28,28 @@ Gostaríamos muito de saber a sua opinião sobre os documentos. Responda a este 
 
 ## <a name="include-the-right-stakeholders"></a>Incluir os participantes certos
 
-Ao iniciar a sua implantação de planejamento para uma nova capacidade, é importante incluir as principais partes interessadas na sua organização. Recomendamos que identifica e documentar a pessoa ou pessoas que atender a cada uma das seguintes funções e trabalham com eles para determinar seu envolvimento no projeto.  
+Ao iniciar o planejamento da implantação para um novo recurso, é importante incluir os principais acionistas em sua organização. Recomendamos que você identifique e documente a pessoa ou as pessoas que atendem a cada uma das funções a seguir e trabalhe com elas para determinar seu envolvimento no projeto.  
 
-As funções poderão incluir o seguinte 
+As funções podem incluir o seguinte 
 
-|Função |Descrição |
+|Role |Descrição |
 |-|-|
-|Utilizador final|Um grupo representativo de usuários para o qual o recurso será implementado. Muitas vezes pré-visualizações as alterações num programa piloto.
-|Gerente de suporte de TI|IT organização representante de suporte que pode fornecer comentários sobre o suporte para esta alteração de uma perspectiva de suporte técnico.  
-|Administrador Global, Arquiteto de identidade ou do Azure|Representante de equipa de gestão de identidade responsável por definir como esta alteração é alinhada com a infraestrutura de gestão de identidade de núcleos na sua organização.|
-|Proprietário da empresa de aplicações |O proprietário da empresa global das aplicações afetadas, que podem incluir a gerir o acesso.  Também pode fornecer informações sobre a experiência de utilizador e a utilidade dessa mudança do ponto de vista do utilizador final.
-|Proprietário de segurança|Um representante da equipa de segurança que possam assinar que o plano irá cumprir os requisitos de segurança da sua organização.|
-|Gestor de conformidade|A pessoa na sua organização responsável por assegurar a conformidade com a empresa, setor ou requisitos governamentais.|
+|Usuário final|Um grupo representativo de usuários para os quais a funcionalidade será implementada. Geralmente, visualiza as alterações em um programa piloto.
+|Gerente de suporte de ti|O departamento de ti oferece suporte à organização que pode fornecer informações sobre a compatibilidade dessa mudança de uma perspectiva de assistência técnica.  
+|Arquiteto de identidade ou administrador global do Azure|Representante da equipe de gerenciamento de identidades responsável pela definição de como essa alteração é alinhada com a infra-estrutura principal de gerenciamento de identidades em sua organização.|
+|Proprietário da empresa do aplicativo |O proprietário geral da empresa dos aplicativos afetados, que podem incluir o gerenciamento de acesso.  Também pode fornecer informações sobre a experiência do usuário e a utilidade dessa alteração da perspectiva de um usuário final.
+|Proprietário da segurança|Um representante da equipe de segurança que pode se desconectar que o plano atenderá aos requisitos de segurança de sua organização.|
+|Gerente de conformidade|A pessoa na sua organização responsável por garantir a conformidade com requisitos corporativos, industriais ou governamentais.|
 
-**Níveis de envolvimento poderão incluir:**
+**Os níveis de envolvimento podem incluir:**
 
-- **R**esponsible para implementar o plano do projeto e os resultados 
+- **R**esponsible para implementar o plano e o resultado do projeto 
 
-- **A**pproval do plano do projeto e os resultados 
+- **Um**pproval do plano e do resultado do projeto 
 
-- **C**ontributor para o plano do projeto e os resultados 
+- **C**para o plano e o resultado do projeto 
 
-- **Eu**nformed do plano do projeto e os resultados
+- **Eu**nformed o plano e o resultado do projeto
  
 ## <a name="deployment-plans"></a>Planos de implantação
 
@@ -58,10 +58,10 @@ As funções poderão incluir o seguinte
 |Cenário |Descrição |
 |-|-|
 |[Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)|A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.|
-|[Acesso condicional](https://aka.ms/deploymentplans/ca)|Com acesso condicional, é possível implementar as decisões de controlo de acesso automatizada para o que pode aceder às suas aplicações na cloud, com base em condições.|
-|[Reposição personalizada de palavras-passe](https://aka.ms/SSPRDPDownload)|A reposição personalizada de palavras-passe ajuda os utilizadores a repor as respetivas palavras-passe, sem qualquer intervenção do administrador, quando e onde precisarem.|
-|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|O Azure AD Privileged Identity Management (PIM) ajuda-o a gerir as funções administrativas com privilégios no Azure AD, recursos do Azure e outros serviços Online da Microsoft. PIM fornece soluções, como acesso just-in-time, fluxos de trabalho de aprovação de solicitação e acesso totalmente integrado a revisões para que possa identificar, descobrir e impedir que atividades maliciosas de funções com privilégios em tempo real.|
-|[Início de sessão único](https://aka.ms/SSODPDownload)|O início de sessão único ajuda-o a aceder a todos os recursos e aplicações de que precisa para trabalhar ao iniciar sessão só uma vez e com uma única conta de utilizador. Depois de iniciar sessão, pode utilizar o Microsoft Office, o SalesForce ou o Box sem ter de se autenticar (por exemplo, introduzir uma palavra-passe) uma segunda vez.|
+|[Acesso condicional](https://aka.ms/deploymentplans/ca)|Com o acesso condicional, você pode implementar decisões de controle de acesso automatizadas para quem pode acessar seus aplicativos de nuvem, com base em condições.|
+|[Reposição personalizada de palavras-passe](https://aka.ms/deploymentplans/sspr)|A reposição personalizada de palavras-passe ajuda os utilizadores a repor as respetivas palavras-passe, sem qualquer intervenção do administrador, quando e onde precisarem.|
+|[Privileged Identity Management](https://aka.ms/deploymentplans/pim)|Azure AD Privileged Identity Management (PIM) ajuda a gerenciar funções administrativas privilegiadas no Azure AD, recursos do Azure e outros serviços online da Microsoft. O PIM fornece soluções como acesso just-in-time, fluxos de trabalho de aprovação de solicitação e revisões de acesso totalmente integradas para que você possa identificar, descobrir e impedir atividades mal-intencionadas de funções privilegiadas em tempo real.|
+|[Início de sessão único](https://aka.ms/deploymentplans/sso)|O início de sessão único ajuda-o a aceder a todos os recursos e aplicações de que precisa para trabalhar ao iniciar sessão só uma vez e com uma única conta de utilizador. Depois de iniciar sessão, pode utilizar o Microsoft Office, o SalesForce ou o Box sem ter de se autenticar (por exemplo, introduzir uma palavra-passe) uma segunda vez.|
 |[SSO totalmente integrado](https://aka.ms/SeamlessSSODPDownload)|O Início de Sessão Único Totalmente Integrado do Azure Active Directory (SSO Totalmente Integrado do Azure AD) inicia sessão automaticamente pelos utilizadores quando estão a utilizar os dispositivos da empresa ligados à sua rede empresarial. Depois de ativar esta funcionalidade, os utilizadores não precisam de introduzir as palavras-passe para iniciar sessão no Azure AD e, por norma, nem sequer têm de introduzir os nomes de utilizador. Esta funcionalidade dá aos utilizadores acesso fácil às aplicações baseadas na cloud sem serem precisos componentes no local adicionais.|
 |[Painel de Acesso](https://aka.ms/AccessPanelDPDownload)|Proporcionar aos usuários um hub simple para detetar e aceder a todos os seus aplicativos. Ativá-los para serem mais produtivos com capacidades self-service, como a capacidade de solicitar acesso a aplicações de novas e grupos, ou gerir o acesso a estes recursos em nome de outros.|
 |[ADFS para Sincronização Hash de Palavras-passe](https://aka.ms/deploymentplans/adfs2phs)|Com a Sincronização Hash de Palavras-passe, são sincronizados hashes das palavras-passe dos utilizadores do Active Directory no local com o Azure AD, o que permite que este último autentique os utilizadores sem interagir com o Active Directory no local.|

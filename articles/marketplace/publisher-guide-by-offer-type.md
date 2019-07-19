@@ -1,5 +1,5 @@
 ---
-title: Determinar sua publicação opção no Azure Marketplace | O Azure Marketplace
+title: Determinar sua opção de publicação no Azure Marketplace | Azure Marketplace
 description: Este artigo descreve os critérios de qualificação e, de publicação de requisitos de parceiros, que tentar entender como publicar aplicações no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
@@ -7,44 +7,44 @@ manager: pabutler
 ms.service: marketplace
 ms.topic: article
 ms.date: 11/13/2018
-ms.author: qianw211
-ms.openlocfilehash: 7a6a4c1366f23336072e00d1af59bbaa4bd5c7a4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: pabutler
+ms.openlocfilehash: 4864e2c040ad6771ad187269de43d5978fc6324f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442055"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876063"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guia de publicação por tipo de oferta
 
-Uma vez que [decidir qual uma opção de publicação](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), está pronto para selecionar o tipo de oferta que será utilizado para apresentar a sua oferta. 
+Depois de [decidir sobre uma opção de publicação](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), você estará pronto para selecionar o tipo de oferta que será usado para apresentar sua oferta. 
 
- O *tipo de oferta* define a estrutura de oferta, que inclui os metadados, artefactos e outros conteúdos utilizado para apresentar a oferta no marketplace.
+ O *tipo de oferta* define a estrutura da oferta, que inclui os metadados, os artefatos e outros conteúdos usados para apresentar a oferta no Marketplace.
 
-Antes de poder criar uma oferta, tem de escolher um tipo de oferta. O tipo de oferta irão corresponder ao tipo de solução, aplicação, ou oferta de serviço que pretende publicar, bem como o alinhamento de produtos e serviços Microsoft. 
+Para poder criar uma oferta, você deve escolher um tipo de oferta. O tipo de oferta corresponderá ao tipo de solução, aplicativo ou oferta de serviço que você deseja publicar, bem como seu alinhamento aos produtos e serviços da Microsoft. 
 
-Um tipo de oferta único pode ser configurado de forma diferente para ativar as diferentes opções de publicação, chamadas de ação, preços ou aprovisionamento. A opção de publicação e a configuração do tipo de oferta também se alinham com os requisitos técnicos e de elegibilidade de oferta. 
+Um único tipo de oferta pode ser configurado de forma diferente para habilitar diferentes opções de publicação, chamadas para ação, provisionamento ou preços. A opção de publicação e a configuração do tipo de oferta também se alinham à qualificação da oferta e aos requisitos técnicos. 
 
-Certifique-se de que reveja loja e os requisitos de elegibilidade de tipo e os requisitos técnicos de publicação da oferta antes de criar a sua oferta.
+Certifique-se de examinar os requisitos de qualificação de tipo de vitrine e oferta e os requisitos de publicação técnica antes de criar sua oferta.
 
 ## <a name="list-of-offer-types"></a>Lista de tipos de oferta
 
-Tipos de oferta do Azure Marketplace estão listados na tabela abaixo.
+Os tipos de oferta do Azure Marketplace são listados na tabela a seguir.
 
 | **Tipo de oferta**    | **Descrição**  |
 | :------------------- | :-------------------|
-| [**Máquinas virtuais**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Utilize o tipo de oferta de máquina virtual ao implementar uma aplicação virtual para a subscrição associada do seu cliente. |
-| [**Modelos de soluções**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Utilize o tipo de oferta do modelo de solução, quando necessita de sua solução de automatização de implementação e configuração adicional para além de uma VM simple. |
-| [**Aplicações geridas**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Utilizar a aplicação do Azure: geridos o tipo de oferta de aplicação quando as condições seguintes são necessárias: <br> <ul> <li> Implementar a uma solução baseada na subscrição para o seu cliente através de uma VM ou uma solução baseada em IaaS inteira. </li> <li>Ou seu cliente requerem que a solução é gerida por um parceiro. </li> <ul> |
-| [**Aplicações SaaS**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Utilize o tipo de oferta de aplicação SaaS para ativar o seu cliente comprar a sua solução baseada em SaaS, técnica como uma subscrição. |
-| [**Ofertas de contentor**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Utilize o tipo de oferta de contentor quando a sua solução é uma imagem de contentor do Docker aprovisionada como um serviço de contentor do Azure com base no Kubernetes. |
-| [**Módulos do IoT Edge da Microsoft**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Módulos do IoT Edge do Azure são as unidades de computação mais pequenas, geridas pelo IoT Edge e podem conter serviços da Microsoft (por exemplo, o Azure Stream Analytics), serviços de terceiros 3rd ou seu próprio código específico da solução. |
-| [**Serviços de consultoria**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Serviços de consultoria ajudam a ligar-se os clientes com os serviços para suportar e expandir a sua utilização dos serviços do Azure, Dynamics 365 ou um conjunto de energia.|
+| [**Máquinas virtuais**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use o tipo de oferta de máquina virtual ao implantar um dispositivo virtual na assinatura associada ao cliente. |
+| [**Modelos de solução**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use o tipo de oferta de modelo de solução quando sua solução exigir implantação adicional e automação de configuração além de uma VM simples. |
+| [**Aplicativos gerenciados**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Use o tipo de oferta aplicativo do Azure: aplicativo gerenciado quando as seguintes condições forem necessárias: <br> <ul> <li> Você implanta uma solução baseada em assinatura para seu cliente usando uma VM ou uma solução inteira baseada em IaaS. </li> <li>Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. </li> <ul> |
+| [**Aplicativos SaaS**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Use o tipo de oferta de aplicativo SaaS para permitir que seu cliente compre sua solução técnica baseada em SaaS como uma assinatura. |
+| [**Ofertas de contêiner**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Use o tipo de oferta de contêiner quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes. |
+| [**Módulos do Microsoft Edge da IoT**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Os módulos de Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como Azure Stream Analytics), serviços de terceiros ou seu próprio código específico da solução. |
+| [**Serviços de consultoria**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Os serviços de consultoria ajudam a conectar clientes com serviços para dar suporte e estender o uso dos serviços Azure, Dynamics 365 ou Power Suite.|
 
 
-Por fim, veja [ **requisitos do Azure AD** ](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) por opções de listagem e oferecem tipos para obter mais informações sobre os requisitos de início de sessão únicos.
+Por fim, consulte [**requisitos do Azure ad**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) listando opções e tipos de oferta para obter mais informações sobre os requisitos de logon único.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 *   Reveja os requisitos de elegibilidade nas opções de publicação pela secção de tipo de oferta para finalizar a seleção e a configuração da sua oferta.
 *   Consulte os padrões de publicação, a loja para obter exemplos sobre como sua solução é mapeada para um tipo de oferta e a configuração.

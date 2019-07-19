@@ -1,40 +1,43 @@
 ---
-title: Mapeamento de transformação de selecione de fluxo de dados de fábrica de dados do Azure
-description: Mapeamento de transformação de selecione de fluxo de dados de fábrica de dados do Azure
+title: Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
+description: Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: bc83b41067d587adce41658a2c4b3d68969750ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15c74637a2dc42ec44f582878b5505d94637cd7b
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364490"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314191"
 ---
-# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Mapeamento de transformação de selecione de fluxo de dados de fábrica de dados do Azure
-
+# <a name="azure-data-factory-mapping-data-flow-select-transformation"></a>Fluxo de dados de mapeamento de Azure Data Factory selecionar transformação
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Usar essa transformação para seletividade de coluna (reduzir o número de colunas) ou para colunas de alias e nomes de fluxo.
+Use essa transformação para a seletividade da coluna (reduzindo o número de colunas), colunas de alias e nomes de fluxo e reordenar colunas.
 
-A transformação selecione permite-lhe para alias de um fluxo de todo ou colunas desse fluxo, atribuir nomes diferentes (aliases) e, em seguida, fazer referência a esses nomes de novo mais tarde no seu fluxo de dados. Essa transformação é útil para cenários de associação automática. A forma de implementar a associação automática de mensagens em fila no fluxo de dados do ADF é dar um fluxo, ramo-lo com "Novo ramo", em seguida, imediatamente depois disso, adicione uma transformação "Select". Esse fluxo terá um novo nome, que pode utilizar para associar novamente para o fluxo original, criando uma associação automática:
+## <a name="how-to-use-select-transformation"></a>Como usar a transformação selecionar
+A transformação selecionar permite que você faça o alias de um fluxo inteiro ou colunas nesse fluxo, atribua nomes diferentes (aliases) e, em seguida, referencie esses novos nomes posteriormente no fluxo de dados. Essa transformação é útil para cenários de auto-associação. A maneira de implementar uma autojunção no fluxo de dados do ADF é pegar um fluxo, ramificar a ti com "nova ramificação" e, imediatamente depois, adicionar uma transformação "Select". Esse fluxo agora terá um novo nome que você pode usar para ingressar novamente no fluxo original, criando uma auto-associação:
 
-![Associação automática](media/data-flow/selfjoin.png "associação automática")
+![] Auto-associação (media/data-flow/selfjoin.png "") Auto-associação
 
-No diagrama acima, a transformação selecione é na parte superior. Este é o aliasing o fluxo original a "OrigSourceBatting". A transformação de associação de higlighted abaixo dela, pode ver que utilizamos esta sequência de alias Selecione como a associação a um direita, permitindo-nos fazer referência a mesma chave no lado esquerdo & no lado direito da associação interna.
+No diagrama acima, a transformação selecionar está na parte superior. Este é um alias do fluxo original para "OrigSourceBatting". Na transformação junção realçada abaixo dela, você pode ver que usamos essa transmissão de alias Select como a junção à direita, permitindo que possamos fazer referência à mesma chave tanto no lado esquerdo & direito da junção interna.
 
-Selecione também pode ser utilizado como uma forma anule a seleção colunas a partir do seu fluxo de dados. Por exemplo, se tiver 6 colunas definidas no seu coletor, mas pretender escolher um 3 específico para transformar e, em seguida, fluir para o sink, pode selecionar apenas os 3 usando a transformação selecione.
+Select também pode ser usado como uma forma de selecionar colunas de seu fluxo de dados. Por exemplo, se você tiver 6 colunas definidas em seu coletor, mas quiser apenas escolher um 3 específico para transformar e, em seguida, fluir para o coletor, poderá selecionar apenas os 3 usando a transformação selecionar.
 
 > [!NOTE]
-> Deve optar por desativar "Selecionar tudo" para selecionar apenas as colunas específicas
+> Você deve desativar "selecionar tudo" para escolher apenas colunas específicas
 
-Opções
+![Selecionar transformação](media/data-flow/select001.png "Selecionar alias")
 
-A definição de "Select" predefinida é incluir todas as colunas de entrada e manter esses nomes originais. Pode alias o fluxo ao definir o nome da transformação selecione.
+## <a name="options"></a>Opções
+* A configuração padrão para "selecionar" é incluir todas as colunas de entrada e manter esses nomes originais. Você pode definir o alias do fluxo definindo o nome da transformação selecionar.
+* Para alias de colunas individuais, desmarque "selecionar tudo" e use o mapeamento de coluna na parte inferior.
+* Escolha ignorar duplicatas para eliminar colunas duplicadas dos metadados de entrada ou saída.
 
-Para colunas individuais de alias, desmarque "Selecionar tudo" e utilizar o mapeamento de colunas na parte inferior.
+![Ignorar duplicatas](media/data-flow/select-skip-dup.png "Ignorar duplicatas")
 
-![Selecione a transformação](media/data-flow/select001.png "selecione Alias")
+## <a name="next-steps"></a>Passos seguintes
+* Depois de usar Select para renomear, reordenar e alias de colunas, use a [transformação do coletor](data-flow-sink.md) para colocar seus dados em um repositório de dados.

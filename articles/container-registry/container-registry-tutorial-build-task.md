@@ -1,25 +1,26 @@
 ---
-title: Tutorial - automatizar compilações de imagem de contentor - tarefas de registo de contentor do Azure
-description: Neste tutorial, saiba como configurar uma tarefa de registo de contentor do Azure para acionar automaticamente compilações de imagem de contentor na cloud ao consolidar o código-fonte para um repositório de Git.
+title: Tutorial-automatizar compilações de imagem de contêiner-tarefas de registro de contêiner do Azure
+description: Neste tutorial, você aprenderá a configurar uma tarefa de registro de contêiner do Azure para disparar automaticamente as compilações de imagem de contêiner na nuvem quando você confirmar o código-fonte em um repositório git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7a9a1e3d3c92f43d19a75e7cd0e10b3fd395a9b5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea3f4f295da747b3a53956c0888797a5f8607d6e
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544937"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310480"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagem de contentor na cloud ao consolidar o código-fonte
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatizar compilações de imagem de contêiner na nuvem quando você confirma o código-fonte
 
-Com um [tarefas rápidas](container-registry-tutorial-quick-task.md), tarefas de ACR suporta Docker automatizado, baseia-se a imagem de contentor na cloud ao consolidar o código-fonte para um repositório de Git.
+Além de uma [tarefa rápida](container-registry-tutorial-quick-task.md), as tarefas ACR dão suporte a compilações automatizadas de imagem de contêiner do Docker na nuvem quando você confirma o código-fonte para um repositório git.
 
-Neste tutorial, o sua tarefa ACR cria e envia uma imagem de contentor único especificada no Dockerfile ao consolidar o código-fonte para um repositório de Git. Para criar uma [tarefas de vários passos](container-registry-tasks-multi-step.md) que utiliza um ficheiro YAML para definir os passos para criar, emitir e, opcionalmente, vários contentores em consolidação de código de teste, consulte [Tutorial: Executar um fluxo de trabalho do contentor de vários passos na cloud ao consolidar o código-fonte](container-registry-tutorial-multistep-task.md). Para uma descrição geral das tarefas de ACR, consulte [automatizar o sistema operacional e a aplicação de patches de estrutura com tarefas do ACR](container-registry-tasks-overview.md)
+Neste tutorial, a tarefa ACR cria e envia uma única imagem de contêiner especificada em um Dockerfile quando você confirma o código-fonte para um repositório git. Para criar uma [tarefa de várias etapas](container-registry-tasks-multi-step.md) que usa um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres na [confirmação do código, consulte o tutorial: Execute um fluxo de trabalho de contêiner de várias etapas na nuvem ao confirmar o](container-registry-tutorial-multistep-task.md)código-fonte. Para obter uma visão geral das tarefas de ACR, consulte automatizar o [sistema operacional e a aplicação de patch de estrutura com tarefas ACR](container-registry-tasks-overview.md)
 
 Neste tutorial:
 
@@ -33,7 +34,7 @@ Este tutorial parte do princípio de que já concluiu os passos no [tutorial ant
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se desejar utilizar a CLI do Azure localmente, tem de ter a versão **2.0.46** ou posterior da CLI do Azure instalada e de ter sessão iniciada com [az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
+Se você quiser usar o CLI do Azure localmente, deverá ter CLI do Azure versão **2.0.46** ou posterior instalada e conectada com [AZ login][az-login]. Executar `az --version` para localizar a versão. Se você precisar instalar ou atualizar a CLI, consulte [instalar CLI do Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -41,7 +42,7 @@ Se desejar utilizar a CLI do Azure localmente, tem de ter a versão **2.0.46** o
 
 Agora que concluiu os passos necessários para ativar o ACR Tasks para ler o estado de consolidação e criar webhooks num repositório, pode criar uma tarefa de compilação que acione uma compilação da imagem do contentor nas consolidações para o repositório.
 
-Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se não preencher estas variáveis de ambiente, tem de substituir manualmente cada valor onde quer que aparece nos comandos de exemplo.
+Em primeiro lugar, preencha estas variáveis de ambiente da shell com os valores adequados para o seu ambiente. Este passo não é estritamente necessário, mas facilita um pouco a execução dos comandos da CLI do Azure com várias linhas neste tutorial. Se você não preencher essas variáveis de ambiente, será necessário substituir manualmente cada valor sempre que ele aparecer nos comandos de exemplo.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>        # The name of your Azure container registry
@@ -49,7 +50,7 @@ GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Agora, crie a tarefa executando o seguinte [az acr tarefa criar] [ az-acr-task-create] comando:
+Agora, crie a tarefa executando o seguinte comando [AZ ACR Task Create][az-acr-task-create] :
 
 ```azurecli-interactive
 az acr task create \
@@ -63,11 +64,11 @@ az acr task create \
 ```
 
 > [!IMPORTANT]
-> Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o comando [az acr task][az-acr-task].
+> Se você tiver criado previamente tarefas durante a visualização com `az acr build-task` o comando, essas tarefas precisarão ser recriadas usando o comando [AZ ACR Task][az-acr-task] .
 
-Esta tarefa especifica que sempre que um código é consolidado no ramo *principal* do repositório especificado por `--context`, o ACR Tasks compilará a imagem do contentor do código nesse ramo. O Dockerfile especificado pelo `--file` do repositório de raiz é utilizada para criar a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão da etiqueta da imagem, o que garante que a imagem compilada está correlacionada com uma compilação específica e é etiquetada de forma exclusiva.
+Esta tarefa especifica que sempre que um código é consolidado no ramo *principal* do repositório especificado por `--context`, o ACR Tasks compilará a imagem do contentor do código nesse ramo. O Dockerfile especificado pelo `--file` da raiz do repositório é usado para criar a imagem. O argumento `--image` especifica um valor com parâmetros de `{{.Run.ID}}` para a parte da versão da etiqueta da imagem, o que garante que a imagem compilada está correlacionada com uma compilação específica e é etiquetada de forma exclusiva.
 
-O resultado de um comando [az acr task create][az-acr-task-create] com êxito é semelhante ao seguinte:
+A saída de um comando de [criação de tarefa AZ ACR][az-acr-task-create] com êxito é semelhante ao seguinte:
 
 ```console
 {
@@ -128,7 +129,7 @@ O resultado de um comando [az acr task create][az-acr-task-create] com êxito é
 
 ## <a name="test-the-build-task"></a>Testar a tarefa de compilação
 
-Tem agora uma tarefa que define a sua compilação. Para testar o pipeline da compilação, acione manualmente uma compilação ao executar o comando[az acr build-task run][az-acr-task-run]:
+Tem agora uma tarefa que define a sua compilação. Para testar o pipeline de compilação, dispare uma compilação manualmente executando o comando [AZ ACR Task execute][az-acr-task-run] :
 
 ```azurecli-interactive
 az acr task run --registry $ACR_NAME --name taskhelloworld
@@ -208,7 +209,7 @@ Run ID: da2 was successful after 27s
 
 Agora que testou a tarefa através de uma execução manual, acione-a automaticamente com uma alteração do código de origem.
 
-Em primeiro lugar, confirme que está no diretório que contém o clone local do [repositório][sample-repo]:
+Primeiro, verifique se você está no diretório que contém o clone local do [repositório][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node
@@ -251,7 +252,7 @@ Run ID: da4 was successful after 38s
 
 ## <a name="list-builds"></a>Listar as compilações
 
-Para ver uma lista das execuções de tarefas que o ACR Tasks concluiu para o seu registo, execute o comando [az acr task list-runs][az-acr-task-list-runs]:
+Para ver uma lista de tarefas executadas que as tarefas ACR foram concluídas para o registro, execute o comando [AZ ACR Task List-executes][az-acr-task-list-runs] :
 
 ```azurecli-interactive
 az acr task list-runs --registry $ACR_NAME --output table

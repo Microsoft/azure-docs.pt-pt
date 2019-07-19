@@ -1,123 +1,123 @@
 ---
-title: Carregar imagens para a aplicação Azure IoT Central | Documentos da Microsoft
-description: Como um construtor, saiba como preparar e carregar imagens para a aplicação Azure IoT Central.
+title: Carregar imagens para o aplicativo de IoT Central do Azure | Microsoft Docs
+description: Como um construtor, saiba como preparar e carregar imagens para seu aplicativo de IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 255033f03acd40580fb4d4a92b0aa9b3e16969f3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236477"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850169"
 ---
-# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
+# <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para seu aplicativo de IoT Central do Azure
 
-Este artigo descreve como, como um construtor, pode personalizar a aplicação Azure IoT Central através do carregamento de imagens personalizadas. Por exemplo, pode personalizar um dashboard do dispositivo com uma imagem do dispositivo.
+Este artigo descreve como, como um construtor, você pode personalizar seu aplicativo de IoT Central do Azure carregando imagens personalizadas. Por exemplo, você pode personalizar um painel de dispositivos com uma imagem do dispositivo.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-1. Uma aplicação do Azure IoT Central. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
-1. Uma ferramenta para dimensionamento e redimensionamento de ficheiros de imagens.
+1. Um aplicativo IoT Central do Azure. Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+1. Uma ferramenta para dimensionar e redimensionar arquivos de imagens.
 
-## <a name="choose-where-to-use-custom-images"></a>Escolha onde pretende utilizar imagens personalizadas
+## <a name="choose-where-to-use-custom-images"></a>Escolher onde usar imagens personalizadas
 
-Pode adicionar imagens personalizadas para as seguintes localizações num aplicativo do Azure IoT Central:
+Você pode adicionar imagens personalizadas aos seguintes locais em um aplicativo de IoT Central do Azure:
 
-* O **meus aplicativos** página
+* A página **meus aplicativos**
 
-    ![Imagem na página do Gestor de aplicações](media/howto-prepare-images/applicationmanager.png)
+    ![Imagem na página do Gerenciador de aplicativos](media/howto-prepare-images/applicationmanager.png)
 
-* O dashboard de aplicações
+* O painel do aplicativo
 
-    ![Imagem no dashboard de aplicações](media/howto-prepare-images/homepage.png)
+    ![Imagem no painel do aplicativo](media/howto-prepare-images/homepage.png)
 
 * Um modelo de dispositivo
 
     ![Imagem no modelo de dispositivo](media/howto-prepare-images/devicetemplate.png)
 
-* Um mosaico num dashboard do dispositivo
+* Um bloco em um painel do dispositivo
 
-    ![Imagem no mosaico do dispositivo](media/howto-prepare-images/devicetile.png)
+    ![Imagem no bloco do dispositivo](media/howto-prepare-images/devicetile.png)
 
-* Um mosaico num dashboard dispositivos conjunto
+* Um bloco em um painel de conjunto de dispositivos
 
-    ![Imagem no mosaico do conjunto de dispositivo](media/howto-prepare-images/devicesettile.png)
+    ![Imagem no bloco de conjunto de dispositivos](media/howto-prepare-images/devicesettile.png)
 
 ## <a name="prepare-the-images"></a>Preparar as imagens
 
-Em todas as localizações de quatro, pode usar imagens PNG, GIF ou JPEG.
+Em todos os quatro locais, você pode usar as imagens PNG, GIF ou JPEG.
 
-A tabela seguinte resume os tamanhos de imagem, que pode usar:
+A tabela a seguir resume os tamanhos de imagem que você pode usar:
 
 | Location | Tamanhos |
 | -------- | ------ |
-| Gestor de aplicações | 268x160 px |
-| Modelo de dispositivo | 64x64 px |
-| Mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
+| Gerenciador de aplicativos | 268x160 px |
+| Modelo de dispositivo | 64 x 64 px |
+| Blocos de painel | O bloco de tamanho menor é 200 x 200 px, blocos maiores podem ser múltiplos quadrados ou retangulares de blocos pequenos. Por exemplo, 200x400 px, 400x200 PX ou 400x400 px |
 
-Para uma melhor visualização no aplicativo, deve criar imagens que correspondem às dimensões mostradas na tabela anterior.
+Para obter a melhor exibição no aplicativo, você deve criar imagens que correspondam às dimensões mostradas na tabela anterior.
 
 ## <a name="upload-the-images"></a>Carregar as imagens
 
-As secções seguintes descrevem como carregar as imagens em diferentes locais:
+As seções a seguir descrevem como carregar as imagens em locais diferentes:
 
-### <a name="application-manager"></a>Gestor de aplicações
+### <a name="application-manager"></a>Gerenciador de aplicativos
 
-Para carregar uma imagem a utilizar no **meus aplicativos** página, navegue para o **as definições da aplicação** página no **administração** secção. Tem de ser um administrador para concluir essa tarefa:
+Para carregar uma imagem a ser usada na página **meus aplicativos** , navegue até a página **configurações do aplicativo** na seção **Administração** . Você deve ser um administrador para concluir esta tarefa:
 
-![Carregar a imagem de aplicação](media/howto-prepare-images/uploadapplicationmanager.png)
+![Carregar imagem do aplicativo](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Selecione o **imagem de aplicativo** mosaico para carregar uma imagem (268 x 160 px) do seu computador local.
+Selecione o bloco **imagem do aplicativo** para carregar uma imagem (268x160 px) do computador local.
 
 ### <a name="application-dashboard"></a>Dashboard de aplicações
 
-Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** página da sua aplicação e selecione **editar**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem no painel do aplicativo, navegue até a página **painel** do seu aplicativo e selecione **Editar**. Você deve ser um construtor para concluir esta tarefa:
 
-![Carregar a imagem do dashboard](media/howto-prepare-images/uploadhomepage.png)
+![Carregar imagem do painel](media/howto-prepare-images/uploadhomepage.png)
 
-Sob **configurar a imagem**, selecione a **imagem** mosaico para carregar uma imagem do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em **Configurar imagem**, selecione o bloco **imagem** para carregar uma imagem do computador local. O bloco de tamanho menor é 200 x 200 px, blocos maiores podem ser múltiplos quadrados ou retangulares de blocos pequenos. Por exemplo, 200x400 px, 400x200 PX ou 400x400 px.
 
-**Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Selecione **feito** quando terminar.
+**Salve** a imagem carregada. Você pode redimensioná-lo enquanto estiver no modo de edição. Selecione **concluído** quando terminar.
 
 ### <a name="device-template"></a>Modelo de dispositivo
 
-Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de dispositivos** e escolha o modelo de dispositivo. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem em um modelo de dispositivo, navegue até **modelos de dispositivo** e escolha o modelo de dispositivo. Você deve ser um construtor para concluir esta tarefa:
 
-![Carregar a imagem de modelo do dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
+![Carregar imagem de modelo de dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Selecione o mosaico de imagem para carregar uma imagem (64 x 64 px) do seu computador local.
+Selecione o bloco imagem para carregar uma imagem (64 x 64 px) do computador local.
 
 ### <a name="device-dashboard"></a>Dashboard do dispositivo
 
-Para carregar uma imagem num dashboard do dispositivo, navegue até **modelos de dispositivos** e escolha o modelo de dispositivo. Em seguida, escolha o **Dashboard** separador. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem em um painel do dispositivo, navegue até **modelos de dispositivo** e escolha o modelo de dispositivo. Em seguida, escolha a guia **painel** . Você deve ser um construtor para concluir esta tarefa:
 
-![Carregar a imagem do dashboard de dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
+![Carregar imagem do painel do dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Sob **configurar a imagem**, selecione a **imagem** mosaico e, em seguida, escolha o ficheiro para carregar a partir do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em **Configurar imagem**, selecione o bloco **imagem** e, em seguida, escolha o arquivo a ser carregado em seu computador local. O bloco de tamanho menor é 200 x 200 px, blocos maiores podem ser múltiplos quadrados ou retangulares de blocos pequenos. Por exemplo, 200x400 px, 400x200 PX ou 400x400 px.
 
-**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
+**Salve** a imagem carregada. Você pode redimensioná-lo e reposicioná-lo enquanto estiver no modo de edição. Selecione **concluído** quando terminar.
 
-### <a name="device-set-dashboard"></a>Dashboard de conjunto de dispositivos
+### <a name="device-set-dashboard"></a>Painel do conjunto de dispositivos
 
-Para carregar uma imagem num dashboard dispositivos conjunto, navegue até **conjuntos de dispositivo** e escolha o conjunto de dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** página e selecione **editar**:
+Para carregar uma imagem em um painel de conjunto de dispositivos, navegue até **conjuntos de dispositivos** e escolha o conjunto de dispositivos e, em seguida, um dispositivo. Em seguida, escolha a página **painel** e selecione **Editar**:
 
-![Carregar a imagem do dashboard de conjunto de dispositivo](media/howto-prepare-images/uploaddevicesetdashboard.png)
+![Carregar imagem do painel do conjunto de dispositivos](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Sob **configurar a imagem**, selecione a **imagem** mosaico para carregar uma imagem do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em **Configurar imagem**, selecione o bloco **imagem** para carregar uma imagem do computador local. O bloco de tamanho menor é 200 x 200 px, blocos maiores podem ser múltiplos quadrados ou retangulares de blocos pequenos. Por exemplo, 200x400 px, 400x200 PX ou 400x400 px.
 
-**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
+**Salve** a imagem carregada. Você pode redimensioná-lo e reposicioná-lo enquanto estiver no modo de edição. Selecione **concluído** quando terminar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como preparar e carregar imagens para a aplicação Azure IoT Central, aqui estão os passos sugeridos seguintes:
+Agora que você aprendeu como preparar e carregar imagens para seu aplicativo IoT Central do Azure, aqui estão as próximas etapas sugeridas:
 
-* [Personalizar o Azure IoT Central da interface do Usuário](./howto-customize-ui.md)
-* [Configurar o dashboard de aplicações](./howto-configure-homepage.md)
-* [Gerir dispositivos na sua aplicação do Azure IoT Central](howto-manage-devices.md)
+* [Personalizar a interface do usuário do IoT Central do Azure](./howto-customize-ui.md)
+* [Configurar o painel do aplicativo](./howto-configure-homepage.md)
+* [Gerenciar dispositivos em seu aplicativo de IoT Central do Azure](howto-manage-devices.md)

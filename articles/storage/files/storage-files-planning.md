@@ -1,6 +1,6 @@
 ---
-title: Planear uma implementação de ficheiros do Azure | Documentos da Microsoft
-description: Saiba o que considerar quando planear uma implementação de ficheiros do Azure.
+title: Planejando uma implantação de arquivos do Azure | Microsoft Docs
+description: Saiba o que deve ser considerado ao planejar uma implantação de arquivos do Azure.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,159 +8,159 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 28487397cbfe70a64b3c403039d7f38270e04dca
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: aba41d62df49a40d9fc3686684b39b71e1363453
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827065"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296045"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Porque os ficheiros do Azure totalmente gerido, implantá-lo em cenários de produção é muito mais fácil do que implementar e gerir um servidor de ficheiros ou um dispositivo. Este artigo aborda os tópicos a ter em consideração quando implementar uma partilha de ficheiros do Azure para utilização em produção na sua organização.
+[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Como os arquivos do Azure são totalmente gerenciados, implantá-los em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de arquivos do Azure para uso em produção em sua organização.
 
-## <a name="management-concepts"></a>Conceitos de gestão
+## <a name="management-concepts"></a>Conceitos de gerenciamento
 
- O diagrama seguinte ilustra as construções de gestão de ficheiros do Azure:
+ O diagrama a seguir ilustra as construções de gerenciamento de arquivos do Azure:
 
 ![Estrutura de Ficheiros](./media/storage-files-introduction/files-concepts.png)
 
-* **Conta de armazenamento**: Todos os acessos ao armazenamento do Azure é feito através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
+* **Conta de armazenamento**: Todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
 
-* **Partilha**: Uma partilha de armazenamento de ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de partilhas e uma partilha pode armazenar um número ilimitado de ficheiros, até a capacidade de total de 5 TiB de partilha de ficheiros.
+* **Compartilhamento**: Um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total de 5 TiB do compartilhamento de arquivos.
 
 * **Diretório**: Uma hierarquia opcional de diretórios.
 
-* **Ficheiro**: Um ficheiro na partilha. Um ficheiro pode ter até 1 TiB de tamanho.
+* **Arquivo**: Um arquivo no compartilhamento. Um arquivo pode ter até 1 TiB de tamanho.
 
-* **Formato de URL**: Para os pedidos para uma partilha de ficheiros do Azure feitas com o protocolo de REST de ficheiros, os ficheiros são endereçáveis através do formato de URL seguinte:
+* **Formato da URL**: Para solicitações a um compartilhamento de arquivos do Azure feitas com o protocolo REST de arquivo, os arquivos são endereçáveis usando o seguinte formato de URL:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
     ```
 
-## <a name="data-access-method"></a>Método de acesso de dados
+## <a name="data-access-method"></a>Método de acesso a dados
 
-Ficheiros do Azure oferecem duas, incorporados e convenientes de acesso a dados métodos que pode utilizar em separado, ou em combinação entre si, para aceder aos seus dados:
+Os arquivos do Azure oferecem dois métodos de acesso a dados internos e convenientes que você pode usar separadamente, ou em combinação entre si, para acessar seus dados:
 
-1. **Cloud acesso direto**: Qualquer partilha de ficheiros do Azure pode ser montada por [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), e/ou [Linux](storage-how-to-use-files-linux.md) com o protocolo de bloco de mensagem de servidor (SMB) padrão do setor ou através da API de REST de ficheiros. Com o SMB, leituras e escritas de ficheiros na partilha são feitas diretamente na partilha de ficheiros no Azure. Para montar por uma VM no Azure, o cliente SMB no SO tem de suportar, pelo menos, SMB 2.1. Montar no local, como na estação de trabalho de um utilizador, o cliente do SMB suportado pela estação de trabalho tem de suportar, pelo menos, SMB 3.0 (com criptografia). Além de SMB, novos aplicativos ou serviços podem aceder diretamente a partilha de ficheiros através de REST de ficheiros, que fornece uma interface de programação de aplicativo de fácil e escalonável para o desenvolvimento de software.
-2. **Azure File Sync**: Com o Azure File Sync, as partilhas podem ser replicadas para servidores do Windows no local ou no Azure. Os utilizadores seriam aceder a partilha de ficheiros através do Windows Server, tal como através de uma partilha SMB ou NFS. Isto é útil para cenários em que dados serão acedidos e modificados distantes de um datacenter do Azure, tal como num cenário de filiais. Dados podem ser replicados entre vários pontos de extremidade do Windows Server, tal como entre várias filiais. Por fim, dados podem ser colocado em camadas para ficheiros do Azure, que todos os dados são continua acessível através do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, dados de forma totalmente integrada são recuperados quando aberto pelo seu utilizador.
+1. **Acesso direto à nuvem**: Qualquer compartilhamento de arquivos do Azure pode ser montado pelo [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)e/ou [Linux](storage-how-to-use-files-linux.md) com o protocolo SMB padrão do setor ou por meio da API REST do arquivo. Com o SMB, leituras e gravações em arquivos no compartilhamento são feitas diretamente no compartilhamento de arquivos no Azure. Para montar por uma VM no Azure, o cliente SMB no sistema operacional deve dar suporte a pelo menos SMB 2,1. Para montar localmente, como na estação de trabalho de um usuário, o cliente SMB com suporte da estação de trabalho deve dar suporte a pelo menos SMB 3,0 (com criptografia). Além do SMB, novos aplicativos ou serviços podem acessar diretamente o compartilhamento de arquivos por meio de REST de arquivo, que fornece uma interface de programação de aplicativo fácil e escalonável para desenvolvimento de software.
+2. **Sincronização de arquivos do Azure**: Com o Sincronização de Arquivos do Azure, os compartilhamentos podem ser replicados para servidores Windows locais ou no Azure. Os usuários acessarão o compartilhamento de arquivos por meio do Windows Server, por exemplo, por meio de um compartilhamento SMB ou NFS. Isso é útil para cenários em que os dados serão acessados e modificados longe de um datacenter do Azure, como em um cenário de filial. Os dados podem ser replicados entre vários pontos de extremidade do Windows Server, como entre várias filiais. Por fim, os dados podem estar em camadas para os arquivos do Azure, de modo que todos os dados ainda sejam acessíveis por meio do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, os dados são rechamados diretamente quando abertos pelo usuário.
 
-A tabela a seguir ilustra como os utilizadores e as aplicações podem aceder a partilha de ficheiros do Azure:
+A tabela a seguir ilustra como os usuários e aplicativos podem acessar o compartilhamento de arquivos do Azure:
 
-| | Acesso direto à cloud | Azure File Sync |
+| | Acesso direto à nuvem | Azure File Sync |
 |------------------------|------------|-----------------|
-| Quais protocolos precisar de utilizar? | Os ficheiros do Azure suporta o SMB 2.1 e API REST de ficheiros SMB 3.0. | Aceder à sua partilha de ficheiros do Azure através de qualquer protocolo suportado no Windows Server (SMB, NFS, FTPS, etc.) |  
-| Onde está a executar a sua carga de trabalho? | **No Azure**: Os ficheiros do Azure oferece acesso direto aos seus dados. | **No local com rede lenta**: Clientes Windows, Linux e macOS podem montar uma partilha de ficheiros do Windows no local como um cache rápido da sua partilha de ficheiros do Azure. |
-| O nível de ACLs precisa? | Nível de partilha e o ficheiro. | Nível de partilha de ficheiros e utilizador. |
+| Quais protocolos você precisa usar? | Os arquivos do Azure dão suporte a SMB 2,1, SMB 3,0 e API REST de arquivo. | Acesse o compartilhamento de arquivos do Azure por meio de qualquer protocolo com suporte no Windows Server (SMB, NFS, FTPS, etc.) |  
+| Onde você está executando sua carga de trabalho? | **No Azure**: Os arquivos do Azure oferecem acesso direto aos seus dados. | **Local com rede lenta**: Os clientes Windows, Linux e macOS podem montar um compartilhamento de arquivos local do Windows como um cache rápido do seu compartilhamento de arquivos do Azure. |
+| De que nível de ACLs você precisa? | Nível de compartilhamento e arquivo. | Compartilhamento, arquivo e nível de usuário. |
 
 ## <a name="data-security"></a>Segurança de dados
 
-Os ficheiros do Azure tem várias opções incorporadas para garantir a segurança de dados:
+Os arquivos do Azure têm várias opções internas para garantir a segurança dos dados:
 
-* Suporte para a encriptação em ambos os protocolos de over-the-wire: Encriptação SMB 3.0 e REST de ficheiros através de HTTPS. Por predefinição: 
-    * Os clientes que suportam encriptação SMB 3.0 enviar e recebem dados através de um canal criptografado.
-    * Clientes que não suportem SMB 3.0 com a encriptação podem comunicar intra-datacenter através de SMB 2.1 ou SMB 3.0 sem encriptação. Os clientes do SMB não são permitidos para comunicar o Centro de dados inter através de SMB 2.1 ou SMB 3.0 sem encriptação.
-    * Os clientes podem comunicar através do REST de ficheiros com HTTP ou HTTPS.
-* Encriptação em repouso ([encriptação do serviço de armazenamento do Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Encriptação de serviço de armazenamento (SSE) está ativado para todas as contas de armazenamento. Dados Inativos são encriptados com chaves geridas pelo totalmente. Encriptação em repouso não aumentar os custos de armazenamento ou reduzir o desempenho. 
-* Requisito opcional de dados encriptados em trânsito: quando selecionada, ficheiros do Azure rejeita o acesso os dados através de canais não encriptadas. Especificamente, são permitidas apenas HTTPS e SMB 3.0 com ligações de encriptação.
+* Suporte para criptografia em ambos os protocolos por transmissão: Criptografia SMB 3,0 e REST de arquivo por HTTPS. Por padrão: 
+    * Os clientes que dão suporte à criptografia SMB 3,0 enviam e recebem dados por um canal criptografado.
+    * Os clientes que não dão suporte a SMB 3,0 com criptografia podem se comunicar dentro do datacenter sobre SMB 2,1 ou SMB 3,0 sem criptografia. Os clientes SMB não têm permissão para comunicar entre datacenters via SMB 2,1 ou SMB 3,0 sem criptografia.
+    * Os clientes podem se comunicar sobre o REST de arquivo com HTTP ou HTTPS.
+* Criptografia em repouso ([Azure criptografia do serviço de armazenamento](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): O Criptografia do Serviço de Armazenamento (SSE) está habilitado para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. A criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
+* Requisito opcional de dados criptografados em trânsito: quando selecionado, os arquivos do Azure rejeitam o acesso aos dados por canais não criptografados. Especificamente, somente HTTPS e SMB 3,0 com conexões de criptografia são permitidos.
 
     > [!Important]  
-    > Exigir que a transferência segura de dados fará com que os clientes SMB antigos não capazes de comunicar com o SMB 3.0 com a encriptação efetuar a ativação. Para obter mais informações, consulte [montar no Windows](storage-how-to-use-files-windows.md), [montar no Linux](storage-how-to-use-files-linux.md), e [montar em macOS](storage-how-to-use-files-mac.md).
+    > Exigir a transferência segura de dados fará com que clientes SMB mais antigos não sejam capazes de se comunicar com o SMB 3,0 com criptografia para falhar. Para obter mais informações, consulte [montar no Windows](storage-how-to-use-files-windows.md), [montar no Linux](storage-how-to-use-files-linux.md)e [montar no MacOS](storage-how-to-use-files-mac.md).
 
-Para segurança máxima, é altamente recomendável sempre ativar ambas as encriptação inativa e ativar a encriptação de dados em trânsito, sempre que estiver a utilizar clientes modernos para aceder aos seus dados. Por exemplo, se precisa montar uma partilha numa VM Windows Server 2008 R2, que só suporta o SMB 2.1, terá de permitir o tráfego não criptografado para a sua conta de armazenamento, uma vez que o SMB 2.1 não suporta a encriptação.
+Para obter segurança máxima, é altamente recomendável sempre habilitar a criptografia em repouso e habilitar a criptografia de dados em trânsito sempre que você estiver usando clientes modernos para acessar seus dados. Por exemplo, se você precisar montar um compartilhamento em uma VM do Windows Server 2008 R2, que dá suporte apenas ao SMB 2,1, será necessário permitir o tráfego não criptografado para sua conta de armazenamento, pois o SMB 2,1 não oferece suporte à criptografia.
 
-Se estiver a utilizar o Azure File Sync para aceder a partilha de ficheiros do Azure, sempre Utilizamos HTTPS e SMB 3.0 com a encriptação para sincronizar os dados para os seus servidores do Windows, independentemente de se necessita de encriptação de dados em repouso.
+Se você estiver usando Sincronização de Arquivos do Azure para acessar o compartilhamento de arquivos do Azure, sempre usaremos HTTPS e SMB 3,0 com criptografia para sincronizar seus dados com os servidores do Windows, independentemente de você precisar de criptografia de dados em repouso.
 
-## <a name="file-share-performance-tiers"></a>Escalões de desempenho de partilha de ficheiros
+## <a name="file-share-performance-tiers"></a>Níveis de desempenho de compartilhamento de arquivos
 
-Os ficheiros do Azure oferece dois escalões de desempenho: standard e premium.
+Os arquivos do Azure oferecem dois níveis de desempenho: Standard e Premium.
 
-### <a name="standard-file-shares"></a>Partilhas de ficheiros padrão
+### <a name="standard-file-shares"></a>Compartilhamentos de arquivos padrão
 
-Partilhas de ficheiros padrão são apoiadas por unidades de disco rígido (HDDs). Partilhas de ficheiros padrão fornecem desempenho fiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como partilhas de ficheiros para fins gerais e ambientes de desenvolvimento/teste. Partilhas de ficheiros padrão só estão disponíveis num modelo de faturação pay as you go.
+Os compartilhamentos de arquivos padrão são apoiados por HDDs (unidades de disco rígido). Os compartilhamentos de arquivos padrão fornecem um desempenho confiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como compartilhamentos de arquivos de uso geral e ambientes de desenvolvimento/teste. Os compartilhamentos de arquivos padrão só estão disponíveis em um modelo de cobrança pago conforme o uso.
 
-Partilhas de ficheiros padrão até 5 TiB de tamanho estão disponíveis como uma oferta de disponibilidade geral. Embora a maior partilhas de ficheiros, que são quaisquer partilhas de maiores do que 5 TiB, até um máximo de 100 TiB, estão atualmente disponíveis como uma oferta de pré-visualização.
-
-> [!IMPORTANT]
-> Consulte a [integração com as partilhas de ficheiros maiores (escalão standard)](#onboard-to-larger-file-shares-standard-tier) secção para obter passos para carregar, bem como o âmbito e as restrições de pré-visualização.
-
-### <a name="premium-file-shares"></a>Partilhas de ficheiros de Premium
-
-Partilhas de ficheiros de Premium são apoiadas por unidades de estado sólido (SSDs). Partilhas de ficheiros de Premium fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, o alojamento de web sites e ambientes de desenvolvimento. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
-
-Cópia de segurança do Azure está disponível para partilhas de ficheiros de premium e o serviço Kubernetes do Azure suporta partilhas de ficheiros de premium na versão 1.13 e acima.
-
-Se gostaria de saber como criar uma partilha de ficheiros de premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de ficheiros do Azure premium](storage-how-to-create-premium-fileshare.md).
-
-Atualmente, não é possível converter diretamente entre uma partilha de ficheiros e uma partilha de ficheiros de premium. Se gostaria de mudar para o escalão, tem de criar uma nova partilha de ficheiros nesse escalão e copiar os dados manualmente a partilha original de para a nova partilha que criou. Pode fazê-lo a utilizar as ferramentas de cópia de ficheiros do Azure suportada, tal como Robocopy ou AzCopy.
+Os compartilhamentos de arquivos padrão de até 5 TiB de tamanho estão disponíveis como uma oferta GA. Enquanto os compartilhamentos de arquivos maiores, que são compartilhamentos maiores que 5 TiB, até um máximo de 100 TiB, estão disponíveis atualmente como uma oferta de visualização.
 
 > [!IMPORTANT]
-> Partilhas de ficheiros de Premium só estão disponíveis com o LRS e estão disponíveis na maioria das regiões que oferecem as contas de armazenamento. Para saber se as partilhas de ficheiros do premium estão atualmente disponíveis na sua região, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página para o Azure.
+> Consulte a seção [carregar para compartilhamentos de arquivos maiores (camada Standard)](#onboard-to-larger-file-shares-standard-tier) para obter as etapas para carregar, bem como o escopo e as restrições da versão prévia.
 
-### <a name="provisioned-shares"></a>Partilhas aprovisionadas
+### <a name="premium-file-shares"></a>Compartilhamentos de arquivos Premium
 
-Partilhas de ficheiros Premium são aprovisionadas com base numa proporção de GiB/IOPS/débito fixa. Para cada GiB aprovisionado, a partilha será emitida um IOPS e o débito de MiB/s de 0,1 até aos limites máximos por partilha. O mínimo de aprovisionamento são 100 GiB com o mínimo de IOPS/débito.
+Os compartilhamentos de arquivos Premium são apoiados por SSDs (unidades de estado sólido). Os compartilhamentos de arquivos Premium fornecem alto desempenho e baixa latência consistentes em milissegundos de dígito único para a maioria das operações de e/s, para cargas de trabalho com uso intensivo de e/s. Isso os torna adequados para uma ampla variedade de cargas de trabalho, como bancos de dados, Hospedagem de site e ambientes de desenvolvimento. Os compartilhamentos de arquivos premium estão disponíveis apenas em um modelo de cobrança provisionado. Os compartilhamentos de arquivos Premium usam um modelo de implantação separado dos compartilhamentos de arquivos padrão.
 
-Na base de melhor esforço, todas as partilhas podem ultrapassar os limites até três IOPS por GiB de armazenamento aprovisionado durante 60 minutos ou mais consoante o tamanho da partilha. Novas partilhas de começam com o crédito de rajada completo com base na capacidade aprovisionada.
+O backup do Azure está disponível para compartilhamentos de arquivos Premium e o serviço kubernetes do Azure dá suporte a compartilhamentos de arquivos Premium na versão 1,13 e superior.
 
-Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GiB e assim por diante.
+Se você quiser saber como criar um compartilhamento de arquivos premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de arquivos premium do Azure](storage-how-to-create-premium-fileshare.md).
+
+No momento, não é possível converter diretamente entre um compartilhamento de arquivos padrão e um compartilhamento de arquivos premium. Se desejar alternar para qualquer camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. Você pode fazer isso usando qualquer uma das ferramentas de cópia com suporte do Azure files, como Robocopy ou AzCopy.
+
+> [!IMPORTANT]
+> Os compartilhamentos de arquivos Premium só estão disponíveis com LRS e estão disponíveis na maioria das regiões que oferecem contas de armazenamento. Para descobrir se os compartilhamentos de arquivos premium estão disponíveis atualmente em sua região, confira a página [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para o Azure.
+
+### <a name="provisioned-shares"></a>Compartilhamentos provisionados
+
+Os compartilhamentos de arquivos Premium são provisionados com base em uma taxa fixa de GiB/IOPS/taxa de transferência. Para cada GiB provisionado, o compartilhamento emitirá uma taxa de transferência de IOPS e 0,1 MiB/s até os limites máximos por compartilhamento. O provisionamento mínimo permitido é de 100 GiB com IOPS/taxa de transferência mín.
+
+Em uma base de melhor esforço, todos os compartilhamentos podem disparar até três IOPS por GiB de armazenamento provisionado por 60 minutos ou mais, dependendo do tamanho do compartilhamento. Novos compartilhamentos começam com o crédito intermitente completo com base na capacidade provisionada.
+
+Os compartilhamentos devem ser provisionados em incrementos de 1 GiB. O tamanho mínimo é 100 GiB, o próximo tamanho é 101 GiB e assim por diante.
 
 > [!TIP]
-> Linha de base de IOPS = 1 * aprovisionado GiB. (Até um máximo de 100 000 IOPS).
+> IOPS de linha de base = 1 * GiB provisionado. (Até um máximo de 100.000 IOPS).
 >
-> Limite de rajada = 3 * IOPS da linha de base. (Até um máximo de 100 000 IOPS).
+> Limite de intermitência = 3 * IOPS de linha de base. (Até um máximo de 100.000 IOPS).
 >
-> taxa de saída = 60 MiB/s + 0.06 * aprovisionado GiB
+> taxa de egresso = 60 MiB/s + 0, 6 * provisionamento GiB
 >
-> taxa de entrada = 40 MiB/s + 0.04 * aprovisionado GiB
+> taxa de entrada = 40 MiB/s + 0, 4 * provisionamento GiB
 
-Tamanho da partilha pode ser aumentado em qualquer altura, mas pode ser reduzido apenas após 24 horas desde o último aumento. Após uma espera de 24 horas, sem um aumento de tamanho, pode diminuir o tamanho da partilha de quantas vezes desejar, até que aumentá-la novamente. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de alguns minutos após a alteração de tamanho.
+O tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser reduzido somente após 24 horas desde o último aumento. Depois de aguardar 24 horas sem um aumento de tamanho, você pode diminuir o tamanho do compartilhamento quantas vezes desejar, até aumentá-lo novamente. As alterações de escala de taxa de transferência/IOPS entrarão em vigor em alguns minutos após a alteração do tamanho.
 
-É possível diminuir o tamanho da partilha aprovisionado do abaixo sua GiB utilizado. Se fizer isso, não perderá dados mas, ainda será cobrado para o tamanho utilizado e receber o desempenho (linha de base de IOPS, débito e IOPS de rajada) da partilha aprovisionado, não o tamanho utilizado.
+É possível diminuir o tamanho do compartilhamento provisionado abaixo do GiB usado. Se você fizer isso, não perderá dados, mas ainda será cobrado pelo tamanho usado e receberá o desempenho (IOPS de linha de base, taxa de transferência e IOPS de intermitência) do compartilhamento provisionado, não o tamanho usado.
 
-A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de partilha aprovisionado:
+A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de compartilhamento provisionados:
 
-|Capacidade (GiB) | IOPS de linha de base | Períodos de rajada de IOPS | Saída (MiB/s) | Entrada (MiB/s) |
+|Capacidade (GiB) | IOPS de linha de base | IOPS de intermitência | Saída (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
-|500         | 500     | Até 1500   | 90   | 60   |
-|1,024       | 1,024   | Até 3,072   | 122   | 81   |
-|5,120       | 5,120   | Até 15.360  | 368   | 245   |
-|10,240      | 10,240  | Até 30,720  | 675 | 450   |
-|33,792      | 33,792  | Até 100 000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Até 100 000 | 3,132 | 2,088   |
-|102,400     | 100,000 | Até 100 000 | 6,204 | 4,136   |
+|500         | 500     | Até 1.500   | 90   | 60   |
+|1,024       | 1,024   | Até 3.072   | 122   | 81   |
+|5\.120       | 5\.120   | Até 15.360  | 368   | 245   |
+|10.240      | 10.240  | Até 30.720  | 675 | 450   |
+|33.792      | 33.792  | Até 100.000 | 2\.088 | 1\.392   |
+|51.200      | 51.200  | Até 100.000 | 3\.132 | 2\.088   |
+|102.400     | 100,000 | Até 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
-> Desempenho de partilhas de ficheiros é sujeitas a limites de rede de máquina, largura de banda disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Para alcançar um dimensionamento máximo de desempenho, distribuir a carga por várias VMs. Veja [guia de resolução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas de desempenho comuns e soluções alternativas.
+> O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
 
-### <a name="bursting"></a>Extrapolação
+### <a name="bursting"></a>Bursting
 
-Partilhas de ficheiros de Premium podem ultrapassar os limites seu IOPS até um fator de três. Extrapolação é automatizado e funciona com base num sistema de crédito. Funciona numa base de melhor esforço e o limite de rajada de segurança não é uma garantia, podem períodos de rajada de partilhas de ficheiros *até* o limite.
+Os compartilhamentos de arquivos Premium podem aumentar seu IOPS até um fator de três. A intermitência é automatizada e opera com base em um sistema de crédito. A intermitência funciona em uma base de melhor esforço e o limite de intermitência não é uma garantia, os compartilhamentos de arquivos podem *aumentar até* o limite.
 
-Créditos acumular-se num bucket de rajada sempre que o tráfego para a partilha de ficheiros está abaixo da linha de base IOPS. Por exemplo, uma partilha de GiB 100 tem a linha de base de 100 IOPS. Se o tráfego real na partilha foi 40 IOPS para um intervalo de 1 segundo específico, o IOPS de não utilizado 60 é creditado um bucket de rajada. Estes créditos, em seguida, serão utilizados mais tarde quando operações iria exceder a linha de base IOPs.
+Os créditos se acumulam em um Bucket de intermitência sempre que o tráfego para o compartilhamento de arquivos está abaixo do IOPS de linha de base. Por exemplo, um compartilhamento de GiB 100 tem 100 IOPS de linha de base. Se o tráfego real no compartilhamento era de 40 IOPS para um intervalo específico de 1 segundo, o IOPS de 60 não utilizado será creditado em um Bucket de intermitência. Esses créditos serão então usados mais tarde, quando as operações excederem o IOPs de linha de base.
 
 > [!TIP]
-> Tamanho do registo de rajada = IOPS de linha de base * 2 * 3600.
+> Tamanho do Bucket de intermitência = IOPS de linha de base * 2 * 3600.
 
-Sempre que uma partilha excede a linha de base IOPS e tem créditos num bucket de rajada, irá expandir. Partilhas podem continuar a expandir, desde que os créditos são restantes, embora partilhas menores do que 50 TiB apenas permanecerá atingiu o limite de rajada para até uma hora. Partilhas de maiores do que 50 TiB tecnicamente podem exceder este limite de uma hora, se a duas horas, mas isso é com base no número de créditos de rajada acumulados. Cada e/s para além de linha de base de IOPS consome uma unidade de crédito e assim que todos os créditos são consumidos a partilha irá devolver a linha de base IOPS.
+Sempre que um compartilhamento exceder o IOPS de linha de base e tiver créditos em um Bucket de intermitência, ele será rompido. Os compartilhamentos podem continuar a aumentar, contanto que os créditos permaneçam, embora os compartilhamentos menores que 50 TiB permanecerão apenas no limite de intermitência de até uma hora. Compartilhamentos maiores que 50 TiB podem, tecnicamente, exceder esse limite de hora, até duas horas, mas isso se baseia no número de créditos de intermitência acumulados. Cada e/s além do IOPS de linha de base consome um crédito e quando todos os créditos são consumidos, o compartilhamento retornaria ao IOPS de linha de base
 
-Os créditos de partilha têm três Estados:
+Os créditos de compartilhamento têm três Estados:
 
-- A acumular, quando a partilha de ficheiros está a utilizar menos do que a linha de base IOPS.
-- Recusar, quando a partilha de ficheiros é bursting.
-- IOPS restantes constante, quando existem sem créditos ou de uma linha de base estão em utilização.
+- A acumulação, quando o compartilhamento de arquivos está usando menos do que o IOPS de linha de base.
+- Recusando, quando o compartilhamento de arquivos estiver intermitente.
+- Constante restante, quando não há créditos ou IOPS de linha de base em uso.
 
-Novo início de partilhas de ficheiros com o número total de créditos no respetivo registo de rajada. Os créditos de rajada não irão ser acumulados se a partilha de IOPS são inferiores a linha de base de IOPS devido à limitação pelo servidor.
+Novos compartilhamentos de arquivos começam com o número total de créditos em seu Bucket de intermitência. Os créditos de intermitência não serão acumulados se o IOPS de compartilhamento cair abaixo do IOPS de linha de base devido à limitação pelo servidor.
 
-## <a name="file-share-redundancy"></a>Redundância de partilha de ficheiros
+## <a name="file-share-redundancy"></a>Redundância de compartilhamento de arquivos
 
-Partilhas de padrão de ficheiros do Azure suportam três opções de redundância de dados: armazenamento localmente redundante (LRS), o armazenamento com redundância de zona (ZRS) e o armazenamento georredundante (GRS).
+Os compartilhamentos padrão do Azure files dão suporte a três opções de redundância de dados: LRS (armazenamento com redundância local), ZRS (armazenamento com redundância de zona) e GRS (armazenamento com redundância geográfica).
 
-As partilhas de premium de ficheiros do Azure só suportam o armazenamento localmente redundante (LRS).
+Os compartilhamentos Premium dos arquivos do Azure oferecem suporte apenas ao LRS (armazenamento com redundância local).
 
-As secções seguintes descrevem as diferenças entre as opções de redundância diferentes:
+As seções a seguir descrevem as diferenças entre as diferentes opções de redundância:
 
 ### <a name="locally-redundant-storage"></a>Armazenamento localmente redundante
 
@@ -173,92 +173,94 @@ As secções seguintes descrevem as diferenças entre as opções de redundânci
 ### <a name="geo-redundant-storage"></a>Armazenamento georredundante
 
 > [!Warning]  
-> Se estiver a utilizar a partilha de ficheiros do Azure como um ponto final da cloud numa conta de armazenamento GRS, não deve iniciar a ativação pós-falha de conta de armazenamento. Se o fizer, sincronização causa para parar o trabalho e Maio também causará perda de dados inesperado no caso de ficheiros recentemente em camadas. No caso de perda de uma região do Azure, a Microsoft irá acionar a ativação pós-falha a conta de armazenamento de forma que seja compatível com o Azure File Sync.
+> Se você estiver usando o compartilhamento de arquivos do Azure como um ponto de extremidade de nuvem em uma conta de armazenamento GRS, não deverá iniciar o failover da conta de armazenamento. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas. No caso de perda de uma região do Azure, a Microsoft disparará o failover da conta de armazenamento de forma que seja compatível com Sincronização de Arquivos do Azure.
 
-Armazenamento georredundante (GRS) foi concebido para proporcionar, pelo menos, 99,99999999999999% (16 9 s) a durabilidade dos objetos ao longo de um determinado ano ao replicar os seus dados para uma região secundária que está situada a centenas de quilómetros de distância da região primária. Se a sua conta de armazenamento tiver GRS ativada, em seguida, seus dados são duráveis mesmo em caso de uma falha regional completa ou um desastre no qual a região primária não é recuperável.
+O GRS (armazenamento com redundância geográfica) foi projetado para fornecer pelo menos a durabilidade da 99.99999999999999% (16 9) de objetos em um determinado ano, replicando seus dados para uma região secundária que está a centenas de quilômetros de distância da região primária. Se sua conta de armazenamento tiver o GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região primária não seja recuperável.
 
-Se optar por armazenamento georredundante com acesso de leitura (RA-GRS), deve saber que ficheiros do Azure não oferece suporte a armazenamento georredundante com acesso de leitura (RA-GRS) em qualquer região neste momento. Partilhas de ficheiros na conta de armazenamento RA-GRS funcionam como fariam em contas GRS e são cobrados aos preço do GRS.
+Se você optar pelo armazenamento com redundância geográfica com acesso de leitura (RA-GRS), deverá saber que o arquivo do Azure não oferece suporte ao armazenamento com redundância geográfica com acesso de leitura (RA-GRS) em qualquer região no momento. Os compartilhamentos de arquivos na conta de armazenamento RA-GRS funcionam como no GRS contas e são cobrados preços GRS.
 
-GRS replica os dados para outro centro de dados numa região secundária, mas que os dados estão disponíveis para ser só de leitura se a Microsoft iniciará uma ativação pós-falha dos principais para a região secundária.
+O GRS Replica seus dados para outro data center em uma região secundária, mas esses dados estarão disponíveis para serem lidos somente se a Microsoft iniciar um failover da região primária para a secundária.
 
-Para uma conta de armazenamento com GRS ativada, todos os dados pela primeira vez é replicado com armazenamento localmente redundante (LRS). Uma atualização em primeiro lugar tem o compromisso para a localização primária e replicados utiliza o LRS. A atualização, em seguida, é replicada de forma assíncrona para a região secundária com GRS. Quando os dados são escritos para a localização secundária, também são replicado dentro desse local utiliza o LRS.
+Para uma conta de armazenamento com GRS habilitado, todos os dados são replicados primeiro com LRS (armazenamento com redundância local). Uma atualização é confirmada primeiro no local principal e replicada usando LRS. Em seguida, a atualização é replicada assincronamente para a região secundária usando GRS. Quando os dados são gravados no local secundário, eles também são replicados nesse local usando LRS.
 
-Regiões primárias e secundárias gerir réplicas em domínios de falha e domínios dentro de uma unidade de escala de armazenamento de atualização. A unidade de escala de armazenamento é a unidade de replicação básica no Centro de dados. A replicação a este nível é fornecida pela LRS; Para obter mais informações, consulte [armazenamento localmente redundante (LRS): Redundância de dados de baixo custo do armazenamento do Azure](../common/storage-redundancy-lrs.md).
+As regiões primária e secundária gerenciam réplicas em domínios de falha e domínios de atualização separados em uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica no datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, [consulte LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento](../common/storage-redundancy-lrs.md)do Azure.
 
-Tenha em consideração esses pontos ao decidir que opção de replicação a utilizar:
+Tenha esses pontos em mente ao decidir qual opção de replicação usar:
 
-* Armazenamento com redundância de zona (ZRS) fornece elevada disponibilidade com a replicação síncrona e pode ser uma opção melhor para alguns cenários que o GRS. Para obter mais informações sobre ZRS, veja [ZRS](../common/storage-redundancy-zrs.md).
-* Replicação assíncrona envolve um atraso a partir do momento em que dados são escritos para a região primária, quando ele é replicado para a região secundária. Em caso de desastre regional, as alterações que ainda não tiverem sido replicadas para a região secundária podem ser perdidas se esses dados não podem ser recuperados da região primária.
-* Com a GRS, a réplica não está disponível para leitura ou acesso de escrita, a menos que a Microsoft inicie uma ativação pós-falha para a região secundária. No caso de uma ativação pós-falha, vai ter de leitura e escrita acesso a esses dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações sobre a recuperação após desastre](../common/storage-disaster-recovery-guidance.md).
+* O ZRS (armazenamento com redundância de zona) fornece alta disponibilidade com replicação síncrona e pode ser uma opção melhor para alguns cenários do que GRS. Para obter mais informações sobre o ZRS, consulte [ZRS](../common/storage-redundancy-zrs.md).
+* A replicação assíncrona envolve um atraso desde o momento em que os dados são gravados na região primária, até quando eles são replicados para a região secundária. No caso de um desastre regional, as alterações que ainda não foram replicadas para a região secundária poderão ser perdidas se esses dados não puderem ser recuperados da região primária.
+* Com o GRS, a réplica não está disponível para acesso de leitura ou gravação, a menos que a Microsoft inicie um failover para a região secundária. No caso de um failover, você terá acesso de leitura e gravação a esses dados após a conclusão do failover. Para obter mais informações, consulte [diretrizes de recuperação de desastre](../common/storage-disaster-recovery-guidance.md).
 
-## <a name="onboard-to-larger-file-shares-standard-tier"></a>Partilhas de ficheiros de inclusão para maior (escalão standard)
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Integração com compartilhamentos de arquivos maiores (camada Standard)
 
-Esta secção aplica-se apenas às partilhas de ficheiros padrão. Todas as partilhas de ficheiros de premium estão disponíveis com 100 TiB como uma oferta de disponibilidade geral.
+Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos os compartilhamentos de arquivos premium estão disponíveis com 100 TiB como uma oferta GA.
 
 ### <a name="restrictions"></a>Restrições
 
-- Exige que crie uma nova conta de armazenamento de fins gerais (não é possível expandir as contas de armazenamento existentes).
-- LRS para conversão de conta GRS não será possível em qualquer conta de armazenamento nova criada depois da subscrição é aceite para a pré-visualização de partilhas de ficheiros maior.
+- Os [termos](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de visualização do Azure se aplicam a compartilhamentos de arquivos grandes enquanto estão em visualização, incluindo quando usados com sincronização de arquivos do Azure implantações.
+- Exige que você crie uma nova conta de armazenamento de uso geral (não é possível expandir as contas de armazenamento existentes).
+- A conversão de conta de LRS/ZRS para GRS não será possível em nenhuma nova conta de armazenamento criada depois que a assinatura for aceita para a versão prévia de compartilhamentos de arquivo maior.
+
 
 ### <a name="regional-availability"></a>Disponibilidade regional
 
-Partilhas de ficheiros Standard estão disponíveis em todas as regiões até 5 TiB. Em determinadas regiões, está disponível com um limite de TiB 100, essas regiões estão listados na tabela a seguir:
+Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, ele está disponível com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
 
-|Região  |Redundância suportada  |Suporta contas de armazenamento existentes  |
+|Região  |Redundância com suporte  |Dá suporte a contas de armazenamento existentes  |
 |---------|---------|---------|
-|Região do Sudeste asiático     |LRS|Não         |
+|Sudeste da Ásia     |LRS|Não         |
 |Europa Ocidental     |LRS|Não         |
 |EUA Oeste 2     |LRS, ZRS|Não         |
 
-Para nos ajudar a atribuir prioridades a novas regiões e funcionalidades, preencha este [pesquisa](https://aka.ms/azurefilesatscalesurvey).
+Para nos ajudar a priorizar novas regiões e recursos, preencha esta [pesquisa](https://aka.ms/azurefilesatscalesurvey).
 
-### <a name="steps-to-onboard"></a>Passos para carregar
+### <a name="steps-to-onboard"></a>Etapas para carregar
 
-Para inscrever a sua subscrição para a pré-visualização de partilhas de ficheiros maior, terá de utilizar o Azure PowerShell. Pode utilizar [Azure Cloud Shell](https://shell.azure.com/) ou instale o [módulo do PowerShell do Azure localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para executar os seguintes comandos do PowerShell:
+Para registrar sua assinatura na versão prévia de compartilhamentos de arquivos maiores, você precisa usar Azure PowerShell. Você pode usar [Azure cloud Shell](https://shell.azure.com/) ou instalar o [módulo Azure PowerShell localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para executar os seguintes comandos do PowerShell:
 
-Em primeiro lugar, certifique-se de está selecionada a subscrição que pretende inscrever na pré-visualização:
+Primeiro, verifique se a assinatura que você deseja registrar na visualização está selecionada:
 
 ```powershell
 $context = Get-AzSubscription -SubscriptionId ...
 Set-AzContext $context
 ```
 
-Em seguida, inscrever na pré-visualização com os comandos seguintes:
+Em seguida, registre-se na versão prévia usando os seguintes comandos:
 
 ```powershell
 Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
-A sua subscrição seja aprovada automaticamente assim que os dois comandos são executados.
+Sua assinatura será aprovada automaticamente depois que os dois comandos forem executados.
 
-Para verificar o seu estado de registo, pode executar o seguinte comando:
+Para verificar o status do registro, você pode executar o seguinte comando:
 
 ```powershell
 Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
 ```
 
-Poderá demorar até 15 minutos para seu estado seja atualizado para **registado**. Depois de seu status é **registado**, deverá conseguir utilizar a funcionalidade.
+Pode levar até 15 minutos para que o status seja atualizado para **registrado**. Depois que seu status for **registrado**, você poderá usar o recurso.
 
-### <a name="use-larger-file-shares"></a>Utilizar partilhas de ficheiros grandes
+### <a name="use-larger-file-shares"></a>Usar compartilhamentos de arquivos maiores
 
-Para começar a utilizar partilhas de ficheiros maiores, crie uma nova conta de armazenamento v2 de fins gerais e uma nova partilha de ficheiros.
+Para começar a usar compartilhamentos de arquivos maiores, crie uma nova conta de armazenamento de uso geral V2 e um novo compartilhamento de arquivos.
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
-Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB (TiB 100 em pré-visualização). Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure.
+Hoje, o tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB (100 TiB em versão prévia). Devido a essa limitação atual, você deve considerar o crescimento de dados esperado ao implantar um compartilhamento de arquivos do Azure.
 
-É possível sincronizar as partilhas de ficheiros do Azure vários para um único servidor de ficheiros do Windows com o Azure File Sync. Isto permite-lhe garantir que as partilhas de ficheiros de grande, mais antigos que podem ter no local podem ser colocadas em Azure File Sync. Para obter mais informações, consulte [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md).
+É possível sincronizar vários compartilhamentos de arquivos do Azure com um único servidor de arquivos do Windows com o Sincronização de Arquivos do Azure. Isso permite que você garanta que os compartilhamentos de arquivos grandes e antigos que você pode ter no local possam ser colocados em Sincronização de Arquivos do Azure. Para obter mais informações, consulte [planejando uma implantação de sincronização de arquivos do Azure](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Método de transferência de dados
 
-Existem muitas opções fácil em massa de transferência de dados a partir de um ficheiro existente partilharem, tais como uma partilha de ficheiros no local, para ficheiros do Azure. Algumas aplicações populares incluem (lista parcial):
+Há muitas opções fáceis para transferir dados em massa de um compartilhamento de arquivos existente, como um compartilhamento de arquivos local, em arquivos do Azure. Alguns daqueles populares incluem (lista não exaustiva):
 
-* **Azure File Sync**: Como parte da primeira sincronização entre uma partilha de ficheiros do Azure (uma "ponto final da Cloud") e um espaço de nomes de diretório Windows (um "servidor de ponto final"), o Azure File Sync irá replicar todos os dados da partilha de ficheiros existentes para ficheiros do Azure.
-* **[Importar/exportar do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : O serviço importar/exportar do Azure permite-lhe transferir de forma segura grandes quantidades de dados para uma partilha de ficheiros do Azure envie unidades de disco rígido num Datacenter do Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : O Robocopy é uma ferramenta de cópia bem conhecido que acompanha o Windows e Windows Server. Robocopy pode ser utilizado para transferir dados para ficheiros do Azure ao montar a partilha de ficheiros localmente e, em seguida, utilizar a localização de montado como o destino no comando Robocopy.
-* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : O AzCopy é um utilitário de linha de comandos concebido para copiar dados de e para ficheiros do Azure, bem como armazenamento de Blobs do Azure, utilizando os comandos simples com um desempenho ideal.
+* **Sincronização de arquivos do Azure**: Como parte de uma primeira sincronização entre um compartilhamento de arquivos do Azure (um "ponto de extremidade de nuvem") e um namespace de diretório do Windows (um "ponto de extremidade do servidor"), Sincronização de Arquivos do Azure replicará todos os dados do compartilhamento de arquivos existente para os arquivos do Azure.
+* **[Importação/exportação do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : O serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados em um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Planear uma implementação de sincronização de ficheiros do Azure](storage-sync-files-planning.md)
-* [Implementar os ficheiros do Azure](storage-files-deployment-guide.md)
-* [Implementar a sincronização de ficheiros do Azure](storage-sync-files-deployment-guide.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
+* [Implantando arquivos do Azure](storage-files-deployment-guide.md)
+* [Implantando Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)

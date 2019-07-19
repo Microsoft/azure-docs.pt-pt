@@ -1,19 +1,20 @@
 ---
-title: Tutorial - criar um registo georreplicado do Docker no Azure
+title: Tutorial-criar um registro do Docker replicado geograficamente no Azure
 description: Criar um registo de contentor do Azure, configurar a georreplicação, preparar uma imagem do Docker e implementá-la para o registo. Parte um de uma série com três partes.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870450"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309575"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um registo de contentor georreplicado do Azure
 
@@ -49,8 +50,8 @@ Selecione **Criar um recurso** > **Contentores** > **Azure Container Registry**.
 
 Configure o seu novo registo com as seguintes definições:
 
-* **Nome do registo**: Crie um nome de registo que seja globalmente exclusivo no Azure e contém 5 a 50 carateres de alfanuméricos
-* **Grupo de recursos**: **Criar um novo** > `myResourceGroup`
+* **Nome do registro**: Criar um nome de registro que seja globalmente exclusivo no Azure e que contenha 5-50 caracteres alfanuméricos
+* **Grupo de recursos**: **Criar novo** > `myResourceGroup`
 * **Localização**: `West US`
 * **Utilizador administrador**: `Enable` (necessário para a Aplicação Web para Contentores, para solicitar imagens)
 * **SKU**: `Premium` (necessário para a georreplicação)
@@ -99,7 +100,7 @@ O comando devolver `Login Succeeded` quando concluído.
 
 ## <a name="get-application-code"></a>Obter o código da aplicação
 
-O exemplo neste tutorial inclui uma pequena aplicação Web criada com o [ASP.NET Core][aspnet-core]. A aplicação serve uma página HTML que mostra a região da qual a imagem foi implementada pelo Azure Container Registry.
+O exemplo neste tutorial inclui uma pequena aplicação web criada com [ASP.NET Core][aspnet-core]. A aplicação serve uma página HTML que mostra a região da qual a imagem foi implementada pelo Azure Container Registry.
 
 ![Tutorial de aplicação mostrada no browser][tut-app-01]
 
@@ -110,13 +111,13 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-Se não tiver o `git` instalado, poderá [transferir o arquivo ZIP][acr-helloworld-zip] diretamente do GitHub.
+Se você não tiver `git` instalado, poderá [baixar o arquivo zip][acr-helloworld-zip] diretamente do github.
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 
-O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Inicia a partir de uma imagem oficial [aspnetcore][dockerhub-aspnetcore], copia os ficheiros da aplicação para o contentor, instala as dependências, compila a saída com a imagem oficial [aspnetcore-build][dockerhub-aspnetcore-build] e, por fim, cria uma imagem aspnetcore otimizada.
+O Dockerfile incluído nos exemplos mostra como é que o contentor é criado. Ele começa com uma imagem [aspnetcore][dockerhub-aspnetcore] image, copies the application files into the container, installs dependencies, compiles the output using the official [aspnetcore-build][dockerhub-aspnetcore-build] oficial e, por fim, cria uma imagem aspnetcore otimizada.
 
-O [Dockerfile][dockerfile] está localizado em `./AcrHelloworld/Dockerfile` na origem clonada.
+O [Dockerfile][dockerfile] está localizado `./AcrHelloworld/Dockerfile` em na fonte clonada.
 
 ```Dockerfile
 FROM microsoft/aspnetcore:2.0 AS base

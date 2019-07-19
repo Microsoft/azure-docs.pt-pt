@@ -1,21 +1,22 @@
 ---
-title: Tutorial - criar imagens de contentor na cloud - Azure Container Registry tarefas
+title: Tutorial – criar imagens de contêiner na nuvem – tarefas de registro de contêiner do Azure
 description: Neste tutorial, vai aprender a compilar uma imagem do contentor de Docker no Azure com o Azure Container Registry Tasks (ACR Tasks) e, em seguida, implementá-la no Azure Container Instances.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9e84210427612143bffe33efe4a5da5364b7a22
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66152151"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310444"
 ---
-# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure
+# <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Criar e implantar imagens de contêiner na nuvem com tarefas de registro de contêiner do Azure
 
 O **ACR Tasks** é um conjunto de funcionalidades no Azure Container Registry que fornece compilações de imagens do contentor de Docker simplificadas e eficientes no Azure. Neste artigo, vai aprender a utilizar a funcionalidade *tarefa rápida*  do ACR Tasks.
 
@@ -30,11 +31,11 @@ Neste tutorial, a primeira parte de uma série:
 > * Compilar uma imagem do contentor no Azure
 > * Implementar um contentor no Azure Container Instances
 
-Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base. Também pode executar tarefas de ACR [tarefas de vários passos](container-registry-tasks-multi-step.md), com um ficheiro YAML para definir os passos para criar, emitir e, opcionalmente, pode testar vários contentores.
+Nos tutoriais subsequentes, vai aprender a utilizar o ACR Tasks para obter compilações automatizadas de imagens do contentor após a consolidação do código e a atualização da imagem de base. As tarefas ACR também podem executar [tarefas de várias etapas](container-registry-tasks-multi-step.md), usando um arquivo YAML para definir etapas para compilar, enviar por push e, opcionalmente, testar vários contêineres.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se deseja utilizar a CLI do Azure localmente, tem de ter a versão **2.0.46** ou posterior da CLI do Azure instalada e de ter sessão iniciada com [az][az-login]. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
+Se você quiser usar o CLI do Azure localmente, deverá ter CLI do Azure versão **2.0.46** ou posterior instalada e conectada com [AZ login][az-login]. Executar `az --version` para localizar a versão. Se você precisar instalar ou atualizar a CLI, consulte [instalar CLI do Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,13 +90,13 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Agora que tem um registo, utilize o ACR Tasks para compilar uma imagem do contentor a partir do código de exemplo. Execute o comando [az acr build][az-acr-build] para realizar uma *tarefa rápida*:
+Agora que tem um registo, utilize o ACR Tasks para compilar uma imagem do contentor a partir do código de exemplo. Execute o comando [AZ ACR Build][az-acr-build] para executar uma *tarefa rápida*:
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
 ```
 
-O resultado do comando [az acr build][az-acr-build] é semelhante ao seguinte. Pode ver o carregamento do código de origem (o “contexto”) para o Azure e os detalhes da operação `docker build` que o ACR Tasks executa na cloud. Uma vez que o ACR Tasks utiliza `docker build` para compilar as suas imagens, não são necessárias alterações ao Dockerfiles para começar a utilizar imediatamente o ACR Tasks.
+A saída do comando [AZ ACR Build][az-acr-build] é semelhante ao seguinte. Pode ver o carregamento do código de origem (o “contexto”) para o Azure e os detalhes da operação `docker build` que o ACR Tasks executa na cloud. Uma vez que o ACR Tasks utiliza `docker build` para compilar as suas imagens, não são necessárias alterações ao Dockerfiles para começar a utilizar imediatamente o ACR Tasks.
 
 ```console
 $ az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -175,7 +176,7 @@ Nesta secção, vai criar um Azure Key Vault e um principal de serviço e, em se
 
 ### <a name="configure-registry-authentication"></a>Configurar a autenticação do registo
 
-Todos os cenários de produção devem utilizar [principais de serviço][service-principal-auth] para aceder aos registos de contentor do Azure. Os principais de serviço permitem-lhe ter controlo de acesso baseado em funções sobre as imagens de contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
+Todos os cenários de produção devem usar [entidades de serviço][service-principal-auth] para acessar um registro de contêiner do Azure. Os principais de serviço permitem-lhe ter controlo de acesso baseado em funções sobre as imagens de contentor. Por exemplo, pode configurar um principal de serviço com acesso a um registo apenas por pedido.
 
 #### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
@@ -191,7 +192,7 @@ az keyvault create --resource-group $RES_GROUP --name $AKV_NAME
 
 Agora tem de criar um principal de serviço e armazenar as credenciais no cofre de chaves.
 
-Utilize o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar o principal de serviço e [az keyvault secret set][az-keyvault-secret-set] para armazenar a **palavra-passe** do principal de serviço no cofre:
+Use o [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] command to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre:
 
 ```azurecli-interactive
 # Create service principal, store its password in AKV (the registry *password*)
@@ -206,7 +207,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-O `--role` argumento no comando anterior configura o principal de serviço com o *acrpull* função, que concede-pull-only acesso ao registo. Para conceder ambos enviar e extrair o acesso, altere a `--role` argumento *acrpush*.
+O `--role` argumento no comando anterior configura a entidade de serviço com a função *acrpull* , que concede acesso somente pull ao registro. Para conceder acesso de push e pull, altere o `--role` argumento para *acrpush*.
 
 Em seguida, armazene o *appId* do principal de serviço no cofre, que é o **nome de utilizador** que passa para o Azure Container Registry para autenticação:
 
@@ -220,8 +221,8 @@ az keyvault secret set \
 
 Acabou de criar um Azure Key Vault e de armazenar dois segredos nele:
 
-* `$ACR_NAME-pull-usr`: O ID de principal de serviço, para utilização como o registo de contentor **nome de utilizador**.
-* `$ACR_NAME-pull-pwd`: A senha de principal de serviço, para utilização como o registo de contentor **palavra-passe**.
+* `$ACR_NAME-pull-usr`: A ID da entidade de serviço, para uso como o **nome de usuário**do registro de contêiner.
+* `$ACR_NAME-pull-pwd`: A senha da entidade de serviço, para uso como a **senha**do registro de contêiner.
 
 Agora, pode referenciar estes segredos por nome quando você ou as suas aplicações e serviços solicitarem imagens do registo.
 
@@ -229,7 +230,7 @@ Agora, pode referenciar estes segredos por nome quando você ou as suas aplicaç
 
 Agora que as credenciais do principal de serviço estão armazenadas como segredos no Azure Key Vault, as aplicações e os serviços podem utilizá-las para aceder ao registo privado.
 
-Execute o comando seguinte [az container create][az-container-create] para implementar uma instância de contentor. O comando utiliza as credenciais do principal de serviço armazenadas no Azure Key Vault para autenticar no registo de contentor.
+Execute o comando [AZ container Create][az-container-create] a seguir para implantar uma instância de contêiner. O comando utiliza as credenciais do principal de serviço armazenadas no Azure Key Vault para autenticar no registo de contentor.
 
 ```azurecli-interactive
 az container create \
@@ -266,7 +267,7 @@ Tome nota do FQDN do contentor, vai utilizá-lo na próxima secção.
 
 ### <a name="verify-the-deployment"></a>Verificar a implementação
 
-Para ver o processo de arranque do contentor, utilize o comando [az container attach][az-container-attach]:
+Para assistir ao processo de inicialização do contêiner, use o comando [AZ container Attach][az-container-attach] :
 
 ```azurecli-interactive
 az container attach --resource-group $RES_GROUP --name acr-tasks
@@ -294,7 +295,7 @@ Para desanexar a consola do contentor, prima `Control+C`.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pare a instância de contentor com o comando [az container delete][az-container-delete]:
+Pare a instância de contêiner com o comando [AZ container Delete][az-container-delete] :
 
 ```azurecli-interactive
 az container delete --resource-group $RES_GROUP --name acr-tasks

@@ -1,36 +1,36 @@
 ---
-title: Cópia de segurança do Azure para SQL Server em execução na VM do Azure
-description: Como registar o servidor de SQL de cópia de segurança do Azure em execução na VM do Azure
+title: Backup do Azure para SQL Server em execução na VM do Azure
+description: Como registrar o backup do Azure SQL Server em execução na VM do Azure
 services: backup
 author: swatisachdeva
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: swatisachdeva
-ms.openlocfilehash: 8710242e04156c8af6e5882a3cb4d42cc31e3677
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: vijayts
+ms.openlocfilehash: 25f23078af67b2f80f39faab975cbec54721c560
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607614"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871906"
 ---
-# <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Cópia de segurança do Azure para SQL Server em execução na VM do Azure
+# <a name="azure-backup-for-sql-server-running-in-azure-vm"></a>Backup do Azure para SQL Server em execução na VM do Azure
 
-Cópia de segurança do Azure, entre outras ofertas fornece suporte para criar cópias de segurança de cargas de trabalho como o SQL Server em execução em VMs do Azure. Uma vez que o aplicativo de SQL está em execução dentro de uma VM do Azure, o serviço de cópia de segurança tem permissão para aceder à aplicação e obter os detalhes necessários.
-Para tal, o Azure Backup instala o **AzureBackupWindowsWorkload** extensão na VM, na qual o SQL Server está em execução, durante o processo de registo disparado pelo usuário.
+O backup do Azure, entre outras ofertas, oferece suporte ao backup de cargas de trabalho, como SQL Server em execução em VMs do Azure. Como o aplicativo SQL está sendo executado em uma VM do Azure, o serviço de backup precisa de permissão para acessar o aplicativo e buscar os detalhes necessários.
+Para fazer isso, o backup do Azure instala a extensão **AzureBackupWindowsWorkload** na VM, na qual o SQL Server está em execução, durante o processo de registro disparado pelo usuário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para obter a lista de cenários suportados, consulte a [matriz de Suportabilidade](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) suportadas pelo Azure Backup.
+Para obter a lista de cenários com suporte, consulte a [matriz de suporte](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support) com suporte do backup do Azure.
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
-Cópia de segurança do Azure suporta etiquetas de NSG, implementar um servidor proxy ou listados intervalos IP; Para obter detalhes sobre cada um dos métodos, consulte [artigo](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
+O backup do Azure dá suporte a marcas NSG, implantando um servidor proxy ou intervalos de IP listados; para obter detalhes sobre cada um dos métodos, consulte este [artigo](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-Os valores de esquema e a propriedade de extensão são os valores de configuração (definições de tempo de execução) que o serviço consiste na passagem para a API de CRP. Estes valores de configuração são utilizados durante o registo e a atualização. **AzureBackupWindowsWorkload** extensão também utilizam este esquema. O esquema previamente é definido; pode ser adicionado um novo parâmetro no campo objectStr
+O esquema de extensão e os valores de propriedade são os valores de configuração (configurações de tempo de execução) que o serviço está passando para a API do CRP. Esses valores de configuração são usados durante o registro e a atualização. A extensão **AzureBackupWindowsWorkload** também usa esse esquema. O esquema é predefinido; um novo parâmetro pode ser adicionado no campo objectStr
 
   ```json
       "runtimeSettings": [{
@@ -53,7 +53,7 @@ Os valores de esquema e a propriedade de extensão são os valores de configura�
       }
   ```
 
-O JSON seguinte mostra o esquema para a extensão de WorkloadBackup.  
+O JSON a seguir mostra o esquema para a extensão WorkloadBackup.  
 
   ```json
   {
@@ -87,34 +87,34 @@ O JSON seguinte mostra o esquema para a extensão de WorkloadBackup.
 
 Nome | Valor/exemplo | Tipo de dados
  --- | --- | ---
-Localidade | en-us  |  cadeia
+localidade | en-US  |  Cadeia de caracteres
 taskId | "1c0ae461-9d3b-418c-a505-bb31dfe2095d"  | Cadeia de caracteres
-objectStr <br/> (publicSettings)  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5O DI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = = " | cadeia
+objectStr <br/> PublicSettings  | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5O DI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = = " | cadeia
 commandStartTimeUTCTicks | "636967192566036845"  | cadeia
 vmType  | "microsoft.compute/virtualmachines"  | Cadeia de caracteres
-objectStr <br/> (protectedSettings) | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5O DI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = = " | Cadeia de caracteres
+objectStr <br/> ProtectedSettings | "eyJjb250YWluZXJQcm9wZXJ0aWVzIjp7IkNvbnRhaW5lcklEIjoiMzVjMjQxYTItOGRjNy00ZGE5LWI4NTMtMjdjYTJhNDZlM2ZkIiwiSWRNZ210Q29udGFpbmVySWQiOjM0NTY3ODg5LCJSZXNvdXJjZUlkIjoiMDU5NWIwOGEtYzI4Zi00ZmFlLWE5ODItOTkwOWMyMGVjNjVhIiwiU3Vic2NyaXB0aW9uSWQiOiJkNGEzOTliNy1iYjAyLTQ2MWMtODdmYS1jNTM5O DI3ZTgzNTQiLCJVbmlxdWVDb250YWluZXJOYW1lIjoiODM4MDZjODUtNTQ4OS00NmNhLWEyZTctNWMzNzNhYjg3OTcyIn0sInN0YW1wTGlzdCI6W3siU2VydmljZU5hbWUiOjUsIlNlcnZpY2VTdGFtcFVybCI6Imh0dHA6XC9cL015V0xGYWJTdmMuY29tIn1dfQ = = " | Cadeia de caracteres
 logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | Cadeia de caracteres
 statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | cadeia
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Recomendamos adicionar a extensão de AzureBackupWindowsWorkload a uma máquina virtual é ao ativar a cópia de segurança do SQL Server na máquina virtual. Isso pode ser alcançado através da [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) concebido para automatizar a cópia de segurança numa VM do SQL Server.
+Recomendamos adicionar a extensão AzureBackupWindowsWorkload a uma máquina virtual, habilitando SQL Server backup na máquina virtual. Isso pode ser obtido por meio do [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) projetado para automatizar o backup em uma VM SQL Server.
 
 
-## <a name="powershell-deployment"></a>Implementação do PowerShell
+## <a name="powershell-deployment"></a>Implantação do PowerShell
 
-Tem de "Registar" a VM do Azure que contém a aplicação de SQL com um cofre dos serviços de recuperação. Durante o registo, a extensão de AzureBackupWindowsWorkload é instalada na VM. Uso [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) cmdlet para registar a VM.
+Você precisa ' Registrar ' a VM do Azure que contém o aplicativo SQL com um cofre dos serviços de recuperação. Durante o registro, a extensão AzureBackupWindowsWorkload é instalada na VM. Use o cmdlet [Register-AzRecoveryServicesBackupContainerPS](https://docs.microsoft.com/powershell/module/az.recoveryservices/Register-AzRecoveryServicesBackupContainer?view=azps-1.5.0) para registrar a VM.
  
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
 Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID -Force
 ```
  
-O comando irá devolver uma **contentor de cópia de segurança** isso recursos e o estado será **registado**.
+O comando retornará um **contêiner de backup** desse recurso e o status será **registrado**.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Saiba mais](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) sobre a cópia de segurança de VM do Azure SQL Server diretrizes de resolução de problemas
-- [Perguntas comuns](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) sobre como fazer backup de bancos de dados do SQL Server que execute em máquinas virtuais do Azure (VMs) e que utilizam o serviço de cópia de segurança do Azure.
+- [Saiba mais](https://docs.microsoft.com/azure/backup/backup-sql-server-azure-troubleshoot) sobre as diretrizes de solução de problemas de backup de VM do Azure SQL Server
+- [Perguntas comuns](https://docs.microsoft.com/azure/backup/faq-backup-sql-server) sobre como fazer backup de bancos de dados SQL Server executados em VMS (máquinas virtuais) do Azure e que usam o serviço de backup do Azure.

@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: sdgilley
-ms.author: sgilleye
+ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d38a5066304a11ff2cd53a0168e51a0d74fda555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d9475b49b3ef8a2e672e1ce505a7d94d19cb14f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751488"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875331"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Os seus dados estão prontos para a ciência de dados?
-## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Ciência de dados para a série de iniciantes
+## <a name="video-2-data-science-for-beginners-series"></a>Vídeo 2: Série de ciência de dados para iniciantes
 Saiba como avaliar os seus dados para se certificar de que cumpre os critérios básicos para estar preparado para ciência de dados.
 
 Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista de vídeos](#other-videos-in-this-series)
@@ -31,13 +31,13 @@ Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista d
 ## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
 *Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [Respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 1: [As cinco perguntas que a ciência de dados responde](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos e 14 segundos)*
 * Vídeo 2: Os seus dados estão prontos para a ciência de dados?
-* Vídeo 3: [Faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
-* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
-* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 seg)*
+* Vídeo 3: [Faça uma pergunta que você possa responder com os dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 minutos e 17 segundos)*
+* Vídeo 4: [Prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 s)*
+* Vídeo 5: [Copiar o trabalho de outras pessoas para fazer ciência de dados](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos e 18 segundos)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcrição: Os seus dados estão prontos para a ciência de dados?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>Transcriçõe Os seus dados estão prontos para a ciência de dados?
 Bem-vindo ao "São os seus dados prontos para ciência de dados?" o segundo vídeo da série *ciência de dados para principiantes*.  
 
 Antes de ciência de dados pode fornecer-lhe as respostas que pretende, terá de atribuir-lhe alguns materiais de raw de alta qualidade para trabalhar com. Como fazer uma pizza, melhor os ingredientes que iniciar com melhor o produto final. 
@@ -100,7 +100,7 @@ Quando tem muito pouco suficiente traços, apenas verá suficiente para tomar al
 
 Com dados que são precisas e relevantes, conectada e suficiente, tem todos os ingredientes necessários para fazer alguma ciência de dados de alta qualidade.
 
-Não se esqueça de conferir aos outros quatro vídeos *ciência de dados para principiantes* do Microsoft Azure Machine Learning Studio.
+Certifique-se de conferir os outros quatro vídeos em *ciência de dados para iniciantes* de Microsoft Azure Machine Learning Studio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Tente uma primeira experimentação de ciência de dados com o Machine Learning Studio](create-experiment.md)

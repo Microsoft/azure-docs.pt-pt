@@ -1,51 +1,54 @@
 ---
-title: Aumentar verticalmente um cluster do Explorador de dados do Azure para acomodar a pedido de alteração
-description: Este artigo descreve os passos para aumentar verticalmente e reduzir verticalmente um cluster do Explorador de dados do Azure com base no pedido de alteração.
+title: Gerenciar o dimensionamento vertical do cluster (Scale up) no Azure Data Explorer para acomodar a demanda em alteração
+description: Este artigo descreve as etapas para escalar verticalmente e reduzir um cluster de Data Explorer do Azure com base na demanda em alteração.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/30/2019
-ms.openlocfilehash: dc9ca8bb592e699d19835efeafb91e81408ae297
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.date: 07/14/2019
+ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571533"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985482"
 ---
-# <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gerir o aumento vertical de cluster para acomodar a pedido de alteração
+# <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gerenciar o dimensionamento vertical do cluster (Scale up) no Azure Data Explorer para acomodar a demanda em alteração
 
-Existem dois fluxos de trabalho para dimensionar um cluster do Explorador de dados do Azure:
-1. [Dimensionamento horizontal](manage-cluster-horizontal-scaling.md), também conhecido como aumentar horizontalmente.
-2. Dimensionamento vertical, também denominado aumentar e reduzir verticalmente.
+O dimensionamento adequado de um cluster é essencial para o desempenho do Azure Data Explorer. Um tamanho de cluster estático pode levar à utilização ou utilização excessiva, e nenhuma delas é ideal.
 
-Este artigo mostra como gerir o dimensionamento vertical de cluster.
+Como a demanda em um cluster não pode ser prevista com precisão absoluta, uma abordagem melhor é *dimensionar* um cluster, adicionar e remover recursos de capacidade e CPU com alteração de demanda. 
 
-Dimensionar um cluster adequadamente é essencial para o desempenho do Explorador de dados do Azure. Mas a pedido num cluster não é possível prever com precisão absoluto. Um tamanho de cluster estático pode levar a subutilização ou utilização, nenhum dos quais é ideal. Uma abordagem melhor é *dimensionamento* um cluster, adicionar e remover a capacidade e recursos de CPU com o pedido de alteração. 
+Há dois fluxos de trabalho para dimensionar um cluster de Data Explorer do Azure:
 
-## <a name="steps-to-configure-vertical-scaling"></a>Passos para configurar o dimensionamento vertical
+* [Dimensionamento horizontal](manage-cluster-horizontal-scaling.md), também chamado de expansão e saída.
+* Dimensionamento vertical, também chamado de expansão e redução.
 
-1. Aceda ao seu cluster. Sob **configurações**, selecione **aumentar verticalmente**.
+Este artigo explica o fluxo de trabalho de dimensionamento vertical:
 
-    É-lhe apresentada uma lista de SKUs disponíveis. Por exemplo, na figura a seguir, apenas quatro SKUs estão disponíveis.
+## <a name="configure-vertical-scaling"></a>Configurar o dimensionamento vertical
+
+1. Na portal do Azure, vá para o recurso de cluster de Data Explorer do Azure. Em **configurações**, selecione **escalar verticalmente**.
+
+1. Na janela **escalar verticalmente** , você verá uma lista de SKUs disponíveis para o cluster. Por exemplo, na figura a seguir, somente quatro SKUs estão disponíveis.
 
     ![Aumentar verticalmente](media/manage-cluster-vertical-scaling/scale-up.png)
 
-    SKUs estão desativadas porque eles são o SKU atual, ou não estão disponíveis na região onde está localizado o cluster.
+    As SKUs estão desabilitadas porque são a SKU atual ou não estão disponíveis na região onde o cluster está localizado.
 
-1. Para alterar o SKU, selecione o SKU que pretende e escolha o **selecione** botão.
+1. Para alterar sua SKU, selecione uma nova SKU e clique em **selecionar**.
 
 > [!NOTE]
-> O processo de dimensionamento vertical pode demorar alguns minutos e, durante esse período o cluster será suspensa. Tenha em atenção que a reduzir verticalmente pode prejudicar o desempenho do seu cluster.
+> * O processo de dimensionamento vertical pode levar alguns minutos e, durante esse tempo, o cluster será suspenso. 
+> * Reduzir verticalmente pode prejudicar o desempenho do cluster.
+> * O preço é uma estimativa das máquinas virtuais do cluster e dos custos do serviço Data Explorer do Azure. Outros custos não são incluídos. Confira a página estimador de [custo](https://dataexplorer.azure.com/AzureDataExplorerCostEstimator.html) de data Explorer do Azure para obter uma estimativa e a [página de preços](https://azure.microsoft.com/pricing/details/data-explorer/) do Azure data Explorer para obter informações de preços completas.
 
-Agora que fez uma operação de aumentar ou reduzir verticalmente para o seu cluster do Explorador de dados do Azure.
-
-Se precisar de assistência com problemas de dimensionamento de clusters, [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
+Agora você configurou o dimensionamento vertical para o cluster de Data Explorer do Azure. Adicione outra regra para um dimensionamento horizontal. Se você precisar de assistência com problemas de dimensionamento de cluster, [abra uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Gerir o dimensionamento horizontal do cluster](manage-cluster-horizontal-scaling.md) para dinamicamente aumentar horizontalmente a contagem de instâncias com base nas métricas que especificar.
+* [Gerencie o dimensionamento horizontal do cluster](manage-cluster-horizontal-scaling.md) para expandir dinamicamente a contagem de instâncias com base nas métricas que você especificar.
 
-* Monitorize a utilização de recursos ao seguir este artigo: [Monitorizar o desempenho do Explorador de dados do Azure, estado de funcionamento e a utilização com métricas](using-metrics.md).
+* Monitore o uso de recursos seguindo este artigo: [Monitore o desempenho, a integridade e o uso do Azure data Explorer com métricas](using-metrics.md).
 

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Suspenso domínios | Documentos da Microsoft'
-description: A suspensão do domínio gerido e eliminação
+title: 'Azure Active Directory Domain Services: Domínios suspensos | Microsoft Docs'
+description: Suspensão e exclusão de domínio gerenciado
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,105 +15,106 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f50d16687632224a21d6ae294f4070485fb4eead
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 781a81589032c290cef7342e7210ee36f388b22a
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472510"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233990"
 ---
-# <a name="suspended-domains"></a>Domínios suspensos
-Quando o Azure Active Directory Domain Services (Azure AD DS) não consegue atender a um domínio gerido por um longo período de tempo, coloca o domínio gerido num estado suspenso. Este artigo explica por que os domínios geridos são suspensas e para saber como corrigir um domínio suspenso.
+# <a name="understand-the-suspended-states-for-an-azure-active-directory-domain-services-managed-domain"></a>Entender os Estados suspensos para um Azure Active Directory Domain Services domínio gerenciado
+
+Quando Azure Active Directory Domain Services (Azure AD DS) não é capaz de atender a um domínio gerenciado por um longo período de tempo, ele coloca o domínio gerenciado em um estado suspenso. Este artigo explica por que os domínios gerenciados são suspensos e como corrigir um domínio suspenso.
 
 
-## <a name="states-your-managed-domain-can-be-in"></a>Podem ter Estados de seu domínio gerido
+## <a name="states-your-managed-domain-can-be-in"></a>Estados em que seu domínio gerenciado pode estar
 
-![Linha cronológica de domínio suspenso](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+![Linha do tempo de domínio suspenso](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-O gráfico anterior descreve os possíveis Estados de um domínio gerido do Azure AD DS pode estar em.
+O gráfico anterior descreve os possíveis Estados em que um domínio gerenciado do Azure AD DS pode estar.
 
-### <a name="running-state"></a>"Estado"em execução
-Pertença a um domínio gerido, que está configurado corretamente e operacionais regularmente os **em execução** estado.
-
-**O que esperar**
-* Microsoft regularmente pode monitorizar o estado de funcionamento do seu domínio gerido.
-* Controladores de domínio para o seu domínio gerido estão corrigidos e atualizados regularmente.
-* Alterações do Azure Active Directory regularmente são sincronizadas com o seu domínio gerido.
-* Cópias de segurança regulares direcionadas para o seu domínio gerido.
-
-
-### <a name="needs-attention-state"></a>"Needs Attention" Estado
-Um domínio gerido está na **requer atenção** se um ou mais problemas exigem que um administrador que a ação de estado. A página de estado de funcionamento do seu domínio gerido apresenta uma lista de um ou mais alertas neste estado.
-
-Por exemplo, se tiver configurado um NSG restritivo da rede virtual, Microsoft poderá não conseguir atualizar e monitorizar o seu domínio gerido. Esta configuração inválida aciona um alerta que coloca o seu domínio gerido para o estado de "Requer atenção".
-
-Cada alerta tem um conjunto de passos de resolução. Alguns alertas são passageiros e são resolvidas automaticamente pelo serviço. Pode resolver alguns outras alertas ao seguir as instruções nos passos de resolução correspondente para esse alerta. Para alguns alertas críticos, terá de contactar o suporte da Microsoft para obter uma resolução.
-
-Para obter mais informações, consulte [como resolver problemas de alertas num domínio gerido](troubleshoot-alerts.md).
+### <a name="running-state"></a>Estado "em execução"
+Um domínio gerenciado que está configurado corretamente e operando regularmente está no estado **executando** .
 
 **O que esperar**
-
-Em alguns casos (por exemplo, se tiver uma configuração de rede inválido), os controladores de domínio para o seu domínio gerido poderão estar inacessíveis. Quando o seu domínio gerido está no estado "Requer atenção", a Microsoft não garante que ele irá ser monitorizado, corrigido, atualizou ou Backup regularmente.
-
-* O domínio gerido está em mau estado de funcionamento e monitorização de estado de funcionamento em curso poderá parar até que o alerta seja resolvido.
-* Controladores de domínio para o seu domínio gerido não podem ser corrigidos ou atualizados.
-* Alterações do Azure Active Directory não podem ser sincronizadas com o seu domínio gerido.
-* As cópias de segurança para o seu domínio gerido poderão ficar, se possível.
-* Se resolver alertas que estejam a afetar o seu domínio gerido, poderá restaurá-lo para o estado "Em execução".
-* Alertas críticos são acionados para os problemas de configuração em que a Microsoft é não é possível alcançar os controladores de domínio. Se tais alertas não são resolvidos no prazo de 15 dias, o seu domínio gerido é colocado no estado "Suspenso".
+* A Microsoft pode monitorar regularmente a integridade do seu domínio gerenciado.
+* Os controladores de domínio para seu domínio gerenciado são corrigidos e atualizados regularmente.
+* As alterações de Azure Active Directory são sincronizadas regularmente com seu domínio gerenciado.
+* Backups regulares são feitos para seu domínio gerenciado.
 
 
-### <a name="the-suspended-state"></a>O estado "Suspenso"
-Um domínio gerido é colocado **suspenso** estado pelos seguintes motivos:
+### <a name="needs-attention-state"></a>Estado "requer atenção"
+Um domínio gerenciado está no estado **precisa de atenção** se um ou mais problemas exigirem que um administrador tome uma providência. A página de integridade do seu domínio gerenciado lista um ou mais alertas neste estado.
 
-* Um ou mais alertas críticos ainda não foi resolvidos em 15 dias. Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso aos recursos necessários para o Azure AD DS.
-    * Por exemplo, o alerta [AADDS104: Erro de rede](alert-nsg.md) tem sido não resolvidos por mais de 15 dias no domínio gerido.
-* Existe um problema de faturação com a sua subscrição do Azure ou a sua subscrição do Azure expirou.
+Por exemplo, se você tiver configurado um NSG restritivo para sua rede virtual, a Microsoft talvez não consiga atualizar e monitorar seu domínio gerenciado. Essa configuração inválida dispara um alerta que coloca seu domínio gerenciado no estado "requer atenção".
 
-Domínios geridos são suspensas quando a Microsoft não consegue gerir, monitorizar, aplicar um patch ou criar cópias de segurança do domínio de forma contínua.
+Cada alerta tem um conjunto de etapas de resolução. Alguns alertas são transitórios e são resolvidos automaticamente pelo serviço. Você pode resolver alguns outros alertas seguindo as instruções nas etapas de resolução correspondentes para esse alerta. Para alguns alertas críticos, você precisa contatar o suporte da Microsoft para obter uma resolução.
+
+Para obter mais informações, consulte [como solucionar problemas de alertas em um domínio gerenciado](troubleshoot-alerts.md).
 
 **O que esperar**
-* Controladores de domínio para o seu domínio gerido são desconfiguradas e não estão acessíveis dentro da rede virtual.
-* Acesso de Secure LDAP para o domínio gerido através da internet (se estiver ativada) deixa de funcionar.
-* Observe falhas na autenticação para o domínio gerido, fazendo logon em máquinas de virtuais associados a um domínio ou ligar através de LDAP/LDAPS.
-* As cópias de segurança para o seu domínio gerido já não são feitas.
-* Interrompe a sincronização com o Azure AD.
 
-Depois de resolver o alerta, o seu domínio gerido vai para o estado "Suspenso". Em seguida, terá de contactar o suporte.
-Suporte poderá restaurar o seu domínio gerido, mas existe apenas se uma cópia de segurança que é inferior a 30 dias de antiguidade.
+Em alguns casos (por exemplo, se você tiver uma configuração de rede inválida), os controladores de domínio para seu domínio gerenciado podem estar inacessíveis. Quando seu domínio gerenciado está no estado "requer atenção", a Microsoft não pode garantir que ele será monitorado, corrigido, atualizado ou submetido a backup regularmente.
 
-Apenas o domínio gerido permanece num estado suspenso durante 15 dias. Para recuperar o seu domínio gerido, a Microsoft recomenda que resolva alertas críticos imediatamente.
+* Seu domínio gerenciado está em um estado não íntegro e o monitoramento de integridade contínuo pode parar até que o alerta seja resolvido.
+* Os controladores de domínio para seu domínio gerenciado não podem ser corrigidos ou atualizados.
+* As alterações de Azure Active Directory podem não ser sincronizadas com o domínio gerenciado.
+* Os backups para seu domínio gerenciado podem ser obtidos, se possível.
+* Se você resolver alertas que estão afetando seu domínio gerenciado, talvez seja possível restaurá-los para o estado "em execução".
+* Alertas críticos são disparados para problemas de configuração em que a Microsoft não consegue acessar seus controladores de domínio. Se esses alertas não forem resolvidos em 15 dias, o domínio gerenciado será colocado no estado "suspenso".
 
 
-### <a name="deleted-state"></a>Estado "Eliminado"
-É um domínio gerido, que permanece no estado "Suspenso" durante 15 dias **Deleted**.
+### <a name="the-suspended-state"></a>O estado "suspenso"
+Um domínio gerenciado é colocado no estado **suspenso** pelos seguintes motivos:
+
+* Um ou mais alertas críticos não foram resolvidos em 15 dias. Alertas críticos podem ser causados por uma configuração incorreta que bloqueia o acesso a recursos que são necessários para o Azure AD DS.
+    * Por exemplo, o alerta [AADDS104: O erro](alert-nsg.md) de rede não foi resolvido por mais de 15 dias no domínio gerenciado.
+* Há um problema de cobrança com sua assinatura do Azure ou sua assinatura do Azure expirou.
+
+Os domínios gerenciados são suspensos quando a Microsoft não consegue gerenciar, monitorar, aplicar patch ou fazer backup do domínio em uma base contínua.
 
 **O que esperar**
-* Todas as cópias de segurança para o domínio gerido e de recursos são eliminadas.
-* Não é possível restaurar o domínio gerido e tem de criar um novo domínio gerido para utilizar o Azure AD DS.
-* Depois de eliminado, não são faturadas para o domínio gerido.
+* Os controladores de domínio para seu domínio gerenciado são desprovisionados e não podem ser acessados dentro da rede virtual.
+* LDAP Seguro acesso ao domínio gerenciado pela Internet (se estiver habilitado) para de funcionar.
+* Você percebe falhas na autenticação do domínio gerenciado, no logon em máquinas virtuais ingressadas no domínio ou na conexão por LDAP/LDAPs.
+* Os backups de seu domínio gerenciado não são mais utilizados.
+* A sincronização com o Azure AD é interrompida.
+
+Depois de resolver o alerta, o domínio gerenciado entra no estado "suspenso". Em seguida, você precisa entrar em contato com o suporte.
+O suporte pode restaurar seu domínio gerenciado, mas somente se um backup com menos de 30 dias existir.
+
+O domínio gerenciado permanece apenas em um estado suspenso por 15 dias. Para recuperar o domínio gerenciado, a Microsoft recomenda que você resolva alertas críticos imediatamente.
 
 
-## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Como sabe se o seu domínio gerido está suspenso?
-Verá uma [alerta](troubleshoot-alerts.md) na página de estado de funcionamento do Azure AD DS no portal do Azure, que declara que o domínio está suspensa. O estado do domínio também mostra "Suspenso".
+### <a name="deleted-state"></a>Estado "excluído"
+Um domínio gerenciado que permanece no estado "suspenso" por 15 dias é **excluído**.
+
+**O que esperar**
+* Todos os recursos e backups para o domínio gerenciado são excluídos.
+* Você não pode restaurar o domínio gerenciado e precisa criar um novo domínio gerenciado para usar o Azure AD DS.
+* Depois de excluída, você não será cobrado pelo domínio gerenciado.
+
+
+## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Como saber se o domínio gerenciado está suspenso?
+Você verá um [alerta](troubleshoot-alerts.md) na página do Azure AD DS Health no portal do Azure que declara que o domínio está suspenso. O estado do domínio também mostra "suspenso".
 
 
 ## <a name="restore-a-suspended-domain"></a>Restaurar um domínio suspenso
-Para restaurar um domínio que está no estado "Suspenso", siga os passos seguintes:
+Para restaurar um domínio que está no estado "suspenso", execute as seguintes etapas:
 
-1. Vá para o [página do Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
-2. Selecione o domínio gerido.
-3. No painel esquerdo, selecione **estado de funcionamento**.
-4. Selecione o alerta. O ID do alerta será AADDS503 ou AADDS504, dependendo da causa de suspensão.
-5. Selecione a ligação de resolução que é fornecida no alerta. Em seguida, siga os passos para resolver o alerta.
+1. Vá para a [página de Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
+2. Selecione o domínio gerenciado.
+3. No painel esquerdo, selecione **integridade**.
+4. Selecione o alerta. A ID do alerta será AADDS503 ou AADDS504, dependendo da causa da suspensão.
+5. Selecione o link de resolução fornecido no alerta. Em seguida, siga as etapas para resolver o alerta.
 
-Só pode ser restaurado o seu domínio gerido para a data da última cópia de segurança. A data da última cópia de segurança é apresentada na página de estado de funcionamento do seu domínio gerido. Quaisquer alterações que ocorreram após a não ser restaurada a última cópia de segurança. As cópias de segurança para um domínio gerido são armazenadas durante 30 dias. Cópias de segurança que têm mais de 30 dias são eliminadas.
+Seu domínio gerenciado só pode ser restaurado até a data do último backup. A data do último backup é exibida na página integridade do seu domínio gerenciado. Quaisquer alterações ocorridas após o último backup não serão restauradas. Os backups de um domínio gerenciado são armazenados por até 30 dias. Os backups com mais de 30 dias são excluídos.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Resolver alertas para o seu domínio gerido](troubleshoot-alerts.md)
-- [Leia mais sobre o Azure Active Directory Domain Services](overview.md)
-- [Contacte a equipa de produto](contact-us.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Resolver alertas para seu domínio gerenciado](troubleshoot-alerts.md)
+- [Leia mais sobre Azure Active Directory Domain Services](overview.md)
+- [Contate a equipe do produto](contact-us.md)
 
 ## <a name="contact-us"></a>Contacte-nos
-Contacte a equipa de produto do Azure Active Directory Domain Services para [partilhar comentários ou para o suporte](contact-us.md).
+Entre em contato com a equipe de produto Azure Active Directory Domain Services para [compartilhar comentários ou para obter suporte](contact-us.md).

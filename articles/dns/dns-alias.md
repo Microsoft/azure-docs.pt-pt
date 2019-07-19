@@ -1,80 +1,82 @@
 ---
-title: Registos descrição geral de alias de DNS do Azure
-description: Descrição geral do suporte para registos de alias no DNS do Azure de Microsoft.
+title: Visão geral dos registros de alias do DNS do Azure
+description: Visão geral do suporte para registros de alias no DNS Microsoft Azure.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 6/7/2019
+ms.date: 07/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5dfc00b1193117c22ba1c763bb0e75d9c4712222
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275737"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314474"
 ---
-# <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
+# <a name="azure-dns-alias-records-overview"></a>Visão geral dos registros de alias do DNS do Azure
 
-Registos de alias de DNS do Azure são qualificações num conjunto de registos de DNS. Eles podem fazer referência a outros recursos do Azure a partir de sua zona DNS. Por exemplo, pode criar um conjunto de registos de alias que faz referência a um endereço IP público do Azure em vez de um registo. Os pontos do conjunto de registos alias para um IP público do Azure endereços dinamicamente a instância de serviço. Como resultado, o conjunto de registos de alias perfeitamente atualiza automaticamente durante a resolução de DNS.
+Os registros de alias do DNS do Azure são qualificações em um conjunto de registros DNS. Eles podem fazer referência a outros recursos do Azure de dentro de sua zona DNS. Por exemplo, você pode criar um conjunto de registros de alias que faça referência a um endereço IP público do Azure em vez de um registro A. Seu conjunto de registros de alias aponta para uma instância de serviço de endereço IP público do Azure dinamicamente. Como resultado, o conjunto de registros de alias é totalmente atualizado durante a resolução DNS.
 
-Um conjunto de registos de alias é suportado para os seguintes tipos de registos numa zona de DNS do Azure: 
+Um conjunto de registros de alias tem suporte para os seguintes tipos de registro em uma zona DNS do Azure: 
 
 - A
 - AAAA
 - CNAME
 
 > [!NOTE]
-> Se pretende usar um registo de alias para os tipos de registos A ou AAAA para apontar para um [perfil do Gestor de tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) deve certificar-se de que o perfil do Gestor de tráfego tem apenas [pontos finais externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Tem de fornecer o endereço IPv4 ou IPv6 para pontos finais externos no Gestor de tráfego. Não é possível utilizar nomes de domínio completamente qualificado (FQDN) em pontos de extremidade. O ideal é que utilize endereços IP estáticos.
+> Se você pretende usar um registro de alias para os tipos de registro a ou AAAA para apontar para um [perfil do Gerenciador de tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) , verifique se o perfil do Gerenciador de tráfego tem apenas [pontos de extremidade externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Você deve fornecer o endereço IPv4 ou IPv6 para pontos de extremidade externos no Gerenciador de tráfego. Você não pode usar nomes de domínio totalmente qualificados (FQDNs) em pontos de extremidade. Idealmente, use endereços IP estáticos.
 
 ## <a name="capabilities"></a>Capacidades
 
-- **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público. O registo DNS de conjunto de alterações automaticamente se o endereço IP público, altera ou é eliminada. Os registos que apontam para endereços IP incorretos dangling DNS são evitados.
+- **Aponte para um recurso IP público de um conjunto de registros DNS A/AAAA.** Você pode criar um conjunto de registros A/AAAA e torná-lo um conjunto de registros de alias para apontar para um recurso de IP público. O conjunto de registros DNS será alterado automaticamente se o endereço IP público for alterado ou excluído. Os registros DNS pendente que apontam para endereços IP incorretos são evitados.
 
-- **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode criar um A/AAAA ou registo CNAME defina e utilize registos de alias para apontar para um perfil do Gestor de tráfego. É especialmente útil quando precisa encaminhar o tráfego no apex de zona, como os registos CNAME tradicionais não são suportados para um vértice da zona. Por exemplo, digamos que seu perfil do Gestor de tráfego é myprofile.trafficmanager.net e sua zona DNS da empresa for contoso.com. Pode criar um conjunto de registos de alias do tipo A/AAAA para contoso.com (o vértice da zona) e aponte para myprofile.trafficmanager.net.
-- **Aponte para um ponto de extremidade de rede de entrega conteúdo (CDN)** . Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure.
-- **Aponte para outro conjunto de registos de DNS na mesma zona.** Os registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, um conjunto de registos CNAME de DNS pode ser um alias para outro conjunto de registos CNAME. Essa disposição é útil se desejar alguns conjuntos de registos para ser aliases e alguns não aliases.
+   Há um limite atual de 20 conjuntos de registros de alias por recurso.
+
+- **Aponte para um perfil do Gerenciador de tráfego de um conjunto de registros DNS A/AAAA/CNAME.** Você pode criar um conjunto de registros A/AAAA ou CNAME e usar registros de alias para apontar para um perfil do Gerenciador de tráfego. Ele é especialmente útil quando você precisa rotear o tráfego em um Apex de zona, já que os registros CNAME tradicionais não têm suporte para um Apex de zona. Por exemplo, digamos que seu perfil do Gerenciador de tráfego é myprofile.trafficmanager.net e sua zona DNS de negócios é contoso.com. Você pode criar um conjunto de registros de alias do tipo A/AAAA para contoso.com (o Apex da zona) e apontar para myprofile.trafficmanager.net.
+- **Aponte para um ponto de extremidade da CDN (rede de distribuição de conteúdo) do Azure**. Isso é útil quando você cria sites estáticos usando o armazenamento do Azure e a CDN do Azure.
+- **Aponte para outro conjunto de registros DNS dentro da mesma zona.** Os registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, um conjunto de registros DNS CNAME pode ser um alias para outro conjunto de registros CNAME. Essa organização será útil se você quiser que alguns conjuntos de registros sejam aliases e alguns não aliases.
 
 ## <a name="scenarios"></a>Cenários
 
-Existem alguns cenários comuns para os registos de Alias.
+Há alguns cenários comuns para registros de alias.
 
-### <a name="prevent-dangling-dns-records"></a>Impedir dangling registos DNS
+### <a name="prevent-dangling-dns-records"></a>Impedir registros DNS pendente
 
-Um problema comum com registos DNS tradicionais é dangling registos. Por exemplo, registos DNS que não tenham sido atualizados para refletir as alterações para endereços IP. O problema ocorre especialmente com A/AAAA ou CNAME tipos de registos.
+Um problema comum com registros DNS tradicionais são os registros de pendente. Por exemplo, os registros DNS que não foram atualizados para refletir alterações em endereços IP. O problema ocorre especialmente com os tipos de registro A/AAAA ou CNAME.
 
-Com um registo de zona DNS tradicional, se o IP de destino ou CNAME já não existir, o registo DNS associado ao mesmo têm de ser manualmente atualizado. Em algumas organizações, uma atualização manual não poderá ocorrer no tempo devido a problemas de processo ou a separação de funções e níveis de permissão associada. Por exemplo, uma função pode ter a autoridade para eliminar um CNAME ou endereço IP que pertence a uma aplicação. Mas não tem autoridade suficiente para atualizar o registo DNS que aponta para esses destinos. Um atraso na atualização do registo DNS pode potencialmente causar uma falha para os utilizadores.
+Com um registro de zona DNS tradicional, se o IP de destino ou CNAME não existir mais, o registro DNS associado a ele deverá ser atualizado manualmente. Em algumas organizações, uma atualização manual pode não ocorrer em tempo devido a problemas de processo ou à separação de funções e níveis de permissão associados. Por exemplo, uma função pode ter autoridade para excluir um CNAME ou endereço IP que pertence a um aplicativo. Mas não tem autoridade suficiente para atualizar o registro DNS que aponta para esses destinos. Um atraso na atualização do registro DNS pode potencialmente causar uma interrupção para os usuários.
 
-Registos de alias impedem dangling referências com a União totalmente o ciclo de vida de um registo DNS com um recurso do Azure. Por exemplo, considere um registo DNS que é qualificado como um registo de alias para apontar para um endereço IP público ou um perfil do Gestor de tráfego. Se eliminar esses recursos subjacentes, o registo de alias DNS se torna um conjunto de registos vazio. Já não referencia o recurso foi eliminado.
+Os registros de alias impedem referências pendente acoplando rigidamente o ciclo de vida de um registro DNS com um recurso do Azure. Por exemplo, considere um registro DNS qualificado como um registro de alias para apontar para um endereço IP público ou um perfil do Gerenciador de tráfego. Se você excluir esses recursos subjacentes, o registro de alias de DNS se tornará um conjunto de registros vazio. Ele não faz mais referência ao recurso excluído.
 
-### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Atualizar o conjunto de registos DNS automaticamente quando são alterados endereços IP da aplicação
+### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Atualizar o registro DNS-definido automaticamente quando os endereços IP do aplicativo são alterados
 
-Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a máquina virtual subjacente é reiniciada. Um registo de alias, em seguida, atualiza automaticamente quando o endereço IP é alterado para o recurso IP público subjacente. Isso evita potenciais riscos de segurança de direcionar os utilizadores para outro aplicativo que lhe foi atribuído o endereço IP público antigo.
+Esse cenário é semelhante ao anterior. Talvez um aplicativo seja movido ou a máquina virtual subjacente seja reiniciada. Um registro de alias é atualizado automaticamente quando o endereço IP é alterado para o recurso IP público subjacente. Isso evita possíveis riscos de segurança de direcionar os usuários para outro aplicativo que tenha sido atribuído ao endereço IP público antigo.
 
-### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Alojar aplicações com balanceamento de carga no vértice da zona
+### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Hospedar aplicativos com balanceamento de carga no Apex da zona
 
-O protocolo DNS impede a atribuição de registos CNAME no vértice da zona. Por exemplo, se o seu domínio é contoso.com; Pode criar registos CNAME para somelabel.contoso.com; mas não é possível criar o CNAME para contoso.com em si.
-Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). Uma vez que a utilização de um perfil do Gestor de tráfego requer a criação de um registo CNAME, não é possível apontar para o perfil do Gestor de tráfego do vértice da zona.
+O protocolo DNS impede a atribuição de registros CNAME no Apex da zona. Por exemplo, se seu domínio for contoso.com; Você pode criar registros CNAME para somelabel.contoso.com; Mas você não pode criar CNAME para contoso.com em si.
+Essa restrição apresenta um problema para proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás [do Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). Como o uso de um perfil do Gerenciador de tráfego requer a criação de um registro CNAME, não é possível apontar para o perfil do Gerenciador de tráfego do Apex da zona.
 
-Esse problema foi resolvido com registos de alias. Ao contrário de registos CNAME, os registos de alias são criados no vértice da zona e proprietários de aplicativos podem utilizá-lo para apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários dos aplicativos de apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS.
+Esse problema é resolvido usando registros de alias. Ao contrário dos registros CNAME, os registros de alias são criados no Apex da zona e os proprietários do aplicativo podem usá-lo para apontar o registro de Apex de zona para um perfil do Gerenciador de tráfego que tem pontos de extremidade externos. Os proprietários do aplicativo apontam para o mesmo perfil do Gerenciador de tráfego usado para qualquer outro domínio dentro de sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil de Gestor de tráfego. Para saber mais sobre como utilizar os registos de alias com perfis do Gestor de tráfego do Azure, veja a secção de passos seguinte.
+Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Para saber mais sobre como usar registros de alias com perfis do Gerenciador de tráfego do Azure, consulte a seção próximas etapas.
 
-### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Aponte o vértice da zona para pontos finais da CDN do Azure
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Apontador da zona de ponto para pontos de extremidade da CDN do Azure
 
-Tal como um perfil do Gestor de tráfego, também pode utilizar os registos de alias para apontar o vértice da zona DNS para pontos finais da CDN do Azure. Isto é útil quando criar os Web sites estáticos com o armazenamento do Azure e CDN do Azure. Em seguida, pode aceder ao site sem "www" para o seu nome DNS de prefixação.
+Assim como um perfil do Gerenciador de tráfego, você também pode usar registros de alias para apontar o Apex da zona DNS para pontos de extremidade da CDN do Azure. Isso é útil quando você cria sites estáticos usando o armazenamento do Azure e a CDN do Azure. Em seguida, você pode acessar o site sem ter prependência "www" para seu nome DNS.
 
-Por exemplo, se o seu Web site estático com o nome www.contoso.com, os utilizadores podem aceder a seu site usando o contoso.com sem que seja necessário preceder www para o nome DNS.
+Por exemplo, se seu site estático for denominado www.contoso.com, os usuários poderão acessar seu site usando o contoso.com sem a necessidade de colocar www no nome DNS.
 
-Conforme descrito anteriormente, não são suportados registos CNAME no vértice da zona. Assim, não é possível utilizar um registo CNAME para apontar o contoso.com para o ponto final da CDN. Em vez disso, pode utilizar um registo de alias para apontar diretamente o vértice da zona para um ponto final da CDN.
+Conforme descrito anteriormente, os registros CNAME não têm suporte no Apex da zona. Portanto, você não pode usar um registro CNAME para apontar contoso.com para o ponto de extremidade da CDN. Em vez disso, você pode usar um registro de alias para apontar a zona Apex para um ponto de extremidade CDN diretamente.
 
 > [!NOTE]
-> Apontar um vértice da zona para pontos finais da CDN para a CDN do Azure da Akamai não é atualmente suportada.
+> Atualmente, não há suporte para a indicação de um Apex de zona para pontos de extremidade CDN para a CDN do Azure da Akamai.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre os registos de alias, veja os artigos seguintes:
+Para saber mais sobre os registros de alias, consulte os seguintes artigos:
 
-- [Tutorial: Configurar um registo de alias para fazer referência a um endereço IP público do Azure](tutorial-alias-pip.md)
-- [Tutorial: Configurar um registo de alias para oferecer suporte a nomes de domínio com o Gestor de tráfego do vértice](tutorial-alias-tm.md)
+- [Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
+- [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio Apex com o Gerenciador de tráfego](tutorial-alias-tm.md)
 - [FAQ sobre DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

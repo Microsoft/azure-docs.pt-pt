@@ -3,16 +3,17 @@ title: Melhores práticas no Azure Container Registry
 description: Saiba como utilizar o registo de contentor do Azure de forma eficiente, ao seguir estas melhores práticas.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787365"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309759"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
@@ -46,15 +47,15 @@ contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
 
 ## <a name="dedicated-resource-group"></a>Grupo de recursos dedicado
 
-Como os registos de contentores são recursos que são utilizados em vários anfitriões de contentor, um registo deve residir no seu próprio grupo de recursos.
+Como os registros de contêiner são recursos que são usados em vários hosts de contêiner, um registro deve residir em seu próprio grupo de recursos.
 
 Embora possa experimentar um tipo de anfitrião específico, como o Azure Container Instances, irá provavelmente eliminar a instância do contentor quando tiver terminado. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Ao autenticar com um registo de contentor do Azure, existem dois cenários principais: autenticação individual e autenticação de serviço (ou "sem interface"). A tabela seguinte apresenta uma breve descrição geral destes cenários e o método de autenticação recomendado para cada um.
 
-| Tipo | Cenário de exemplo | Método recomendado |
+| Type | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Principal de serviço](container-registry-authentication.md#service-principal) |
@@ -63,9 +64,9 @@ Para obter informações aprofundadas sobre a autenticação do Azure Container 
 
 ## <a name="manage-registry-size"></a>Gerir o tamanho do registo
 
-As restrições de armazenamento de cada [SKU do container registry] [ container-registry-skus] são destinadas para alinhar com um cenário típico: **Básica** para começar a trabalhar, **padrão** para a maioria das aplicações de produção, e **Premium** para um desempenho de hiper escala e [georreplicação][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+As restrições de armazenamento de cada [SKU de registro de contêiner][container-registry-skus] devem se alinhar com um cenário típico: **Básico** para introdução, **Standard** para a maioria dos aplicativos de produção e **Premium** para desempenho de hiperescala e [replicação geográfica][container-registry-geo-replication]. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
-Utilize o comando da CLI do Azure [az acr show-utilização] [ az-acr-show-usage] para apresentar o tamanho atual do seu registo:
+Use o comando CLI do Azure [AZ ACR show-Usage][az-acr-show-usage] para exibir o tamanho atual do registro:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
@@ -75,15 +76,15 @@ Size      536870912000  185444288        Bytes
 Webhooks  100                            Count
 ```
 
-Também pode encontrar o armazenamento atual utilizado na **descrição geral** do seu registo no portal do Azure:
+Você também pode encontrar o armazenamento atual usado na **visão geral** do registro no portal do Azure:
 
 ![Informações de utilização do registo no portal do Azure][registry-overview-quotas]
 
-### <a name="delete-image-data"></a>Eliminar dados de imagem
+### <a name="delete-image-data"></a>Excluir dados de imagem
 
-O Azure Container Registry suporta vários métodos para eliminar dados de imagem do seu registo de contentor. Pode eliminar imagens por etiqueta ou digest do manifesto ou eliminar um repositório de todo.
+O registro de contêiner do Azure dá suporte a vários métodos para excluir dados de imagem do registro de contêiner. Você pode excluir imagens por marca ou resumo do manifesto ou excluir um repositório inteiro.
 
-Para obter detalhes sobre como eliminar dados de imagem a partir do registo, incluindo não marcado (por vezes, denominado "dangling" ou "órfão") imagens, consulte [eliminar imagens de contentor no Azure Container Registry](container-registry-delete.md).
+Para obter detalhes sobre como excluir dados de imagem do registro, incluindo imagens não marcadas (às vezes chamadas de "pendente" ou "órfãos"), consulte [Excluir imagens de contêiner no registro de contêiner do Azure](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

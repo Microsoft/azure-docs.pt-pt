@@ -1,75 +1,80 @@
 ---
-title: Mapeamento de desvios de esquema de fluxo de dados do Azure Data Factory
-description: Criar fluxos de dados resilientes no Azure Data Factory com os Descompassos de esquema
+title: Descompasso de esquema de fluxo de dados de mapeamento Azure Data Factory
+description: Criar fluxos de dados resilientes em Azure Data Factory com descompasso de esquema
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6fd610afc0a21a97a8544b9e4b173f207f5fb50f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722882"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314808"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Desvios de esquema de fluxo de dados de mapeamento
+# <a name="mapping-data-flow-schema-drift"></a>Mapeando descompasso de esquema de fluxo de dados
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-O conceito de desvios de esquema é o caso em que as origens de muitas vezes mudam de metadados. Campos, colunas, tipos, etc. podem ser adicionadas, removidas ou alterado em tempo real. Sem tratamento para desvios de esquema, o fluxo de dados se torne vulnerável a alterações nas alterações da origem de dados a montante. Quando alterar a entrada de colunas e campos, padrões ETL típicos falharem porque eles tendem a ser vinculado a esses nomes de origem.
+O conceito de descompasso de esquema é o caso em que suas fontes geralmente alteram os metadados. Campos, colunas, tipos, etc. podem ser adicionados, removidos ou alterados em tempo real. Sem lidar com descompasso de esquema, seu fluxo de dados se torna vulnerável a alterações nas alterações de fonte de dados upstream. Quando as colunas e os campos de entrada são alterados, os padrões de ETL típicos falham porque tendem a ser vinculados a esses nomes de origem.
 
-Para proteger contra os Descompassos de esquema, é importante ter os recursos numa ferramenta de fluxo de dados para permitir que, como engenheiro de dados, para:
+Para se proteger contra descompasso de esquema, é importante ter as instalações em uma ferramenta de fluxo de dados para permitir que você, como engenheiro de dados,:
 
-* Definir origens com nomes de campo mutáveis, tipos de dados, valores e tamanhos
-* Definir parâmetros de transformação que podem trabalhar com padrões de dados em vez de embutidos em campos e valores
-* Definir as expressões que compreender os padrões para corresponder aos campos de entrada, em vez de usar campos nomeados
+* Definir fontes com nomes de campo mutáveis, tipos de dados, valores e tamanhos
+* Definir parâmetros de transformação que podem funcionar com padrões de dados em vez de valores e campos embutidos em código
+* Definir expressões que entendem padrões para corresponder campos de entrada, em vez de usar campos nomeados
 
-## <a name="how-to-implement-schema-drift"></a>Como implementar os descompassos de esquema
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Como implementar a descompasso de esquema em fluxos de dados de mapeamento do ADF
+O ADF nativamente dá suporte a esquemas flexíveis que mudam da execução para a execução para que você possa criar uma lógica de transformação de dados genérica sem a necessidade de recompilar os fluxos de dados.
 
-* Escolher "Permitir que os Descompassos de esquema" na sua transformação de origem
+* Escolha "permitir descompasso de esquema" em sua transformação de origem
 
 <img src="media/data-flow/schemadrift001.png" width="400">
 
-* Quando selecionar esta opção, todos os campos de entrada serão lido a partir da sua origem de cada execução de fluxo de dados e são passados para todo o fluxo para o Sink.
+* Quando você tiver selecionado essa opção, todos os campos de entrada serão lidos de sua origem em cada execução de fluxo de dados e serão passados por todo o fluxo para o coletor.
 
-* Certifique-se utilizar "Automaticamente-mapa" para mapear todos os novos campos na transformação de Sink para que todos os novos campos obterem escolhido para cima e foi colocados no seu destino.
+* Todas as colunas recentemente detectadas (colunas descompassos) chegarão como tipo de dados de cadeia de caracteres por padrão. Em sua transformação de origem, escolha "inferir tipos de coluna desfeitas" se desejar que o ADF inferir automaticamente os tipos de dados da origem.
+
+* Certifique-se de usar "mapa automático" para mapear todos os novos campos na transformação do coletor para que todos os novos campos sejam selecionados e descarregou em seu destino e defina "permitir descompasso de esquema" no coletor também.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Tudo o que irá funcionar quando novos campos são introduzidos nesse cenário com um simples origem -> Sink (também conhecido como copiar) mapeamento.
+* Tudo funcionará quando novos campos forem introduzidos nesse cenário com um mapeamento simples do coletor de > de origem (cópia).
 
-* Para adicionar transformações no fluxo de trabalho que processa os descompassos de esquema, pode utilizar a correspondência de padrões de acordo com colunas por nome, tipo e valor.
+* Para adicionar transformações nesse fluxo de trabalho que lida com descompasso de esquema, você pode usar a correspondência de padrões para corresponder colunas por nome, tipo e valor.
 
-* Clique em "Adicionar coluna padrão" na coluna derivada ou transformação de agregação se pretender criar uma transformação que entende "Descompassos de esquema".
+* Clique em "Adicionar padrão de coluna" na coluna derivada ou transformação agregada se desejar criar uma transformação que entenda "descompasso de esquema".
 
 <img src="media/data-flow/columnpattern.png" width="400">
 
 > [!NOTE]
-> Terá de tomar uma decisão de arquitetura do fluxo de dados para aceitar os descompassos de esquema em todo o fluxo. Ao fazê-lo, pode proteger contra alterações de esquema das origens. No entanto, perderá vinculação inicial de suas colunas e tipos em todo o fluxo de dados. O Azure Data Factory processa fluxos de desvios de esquema como fluxos de ligação tardia, portanto, quando cria as transformações, os nomes das colunas não estarão disponíveis para si nas exibições do esquema em todo o fluxo.
+> Você precisa tomar uma decisão arquitetônica em seu fluxo de dados para aceitar descompasso de esquema em todo o fluxo. Ao fazer isso, você pode proteger contra alterações de esquema das fontes. No entanto, você perderá a ligação antecipada de suas colunas e tipos em todo o fluxo de dados. Azure Data Factory trata os fluxos de descompasso de esquema como fluxos de ligação tardia, portanto, quando você cria suas transformações, os nomes de coluna não estarão disponíveis para você nas exibições de esquema em todo o fluxo.
 
 <img src="media/data-flow/taxidrift1.png" width="400">
 
-O exemplo de demonstração de táxis de fluxo de dados, é um exemplo Descompassos de esquema no fluxo de dados na parte inferior, com a origem de TripFare. Na transformação de agregação, tenha em atenção que estamos usando o design de "padrão da coluna" para os campos de agregação. Em vez de colunas específicas de nomenclatura ou se está à procura de colunas por posição, partimos do princípio de que os dados podem alterar e poderão não aparecer na mesma ordem entre as execuções.
+No fluxo de dados de exemplo de demonstração de táxi, há uma descompasso de esquema de exemplo no fluxo de dados inferior com a origem TripFare. Na transformação Agregação, observe que estamos usando o design "padrão de coluna" para os campos de agregação. Em vez de nomear colunas específicas ou procurar colunas por posição, presumimos que os dados possam ser alterados e não apareçam na mesma ordem entre as execuções.
 
-Neste exemplo de fluxo de dados do Azure Data Factory descompassos de esquema manipulação, criamos e agregação de que verifica a existência de colunas do tipo "double", sabendo que o domínio de dados contém os preços para cada viagem. Em seguida, podemos executar um cálculo de matemática agregado em todos os campos duplos na fonte, independentemente de onde a coluna que chegam e independentemente da coluna de nomenclatura.
+Neste exemplo de Azure Data Factory tratamento de descompasso de esquema de fluxo de dados, criamos e agregamos que examinam as colunas do tipo ' Double ', sabendo que o domínio de dados contém preços para cada viagem. Em seguida, podemos executar um cálculo de matemática agregado em todos os campos duplos na origem, independentemente de onde a coluna chega e independentemente da nomenclatura da coluna.
 
-A sintaxe de fluxo de dados do Azure Data Factory utiliza $$ para representar cada coluna correspondente do seu padrão de correspondência. Também pode comparar nos nomes das colunas através da pesquisa de cadeia de caracteres complexas e funções de expressão regular. Neste caso, vamos criar um novo nome de campo agregado com base em cada correspondência de um tipo 'double' da coluna e acrescentar o texto ```_total``` para cada um desses nomes de correspondência: 
+A sintaxe de fluxo de dados Azure Data Factory usa $ $ para representar cada coluna correspondente do seu padrão correspondente. Você também pode corresponder a nomes de coluna usando funções de expressão regular e de pesquisa de cadeia de caracteres complexa. Nesse caso, vamos criar um novo nome de campo agregado com base em cada correspondência de um tipo "Double" de coluna e acrescentar o texto ```_total``` a cada um desses nomes correspondentes: 
 
 ```concat($$, '_total')```
 
-Em seguida, iremos arredondar e somar os valores para cada uma dessas colunas correspondentes:
+Em seguida, arredondaremos e somaremos os valores para cada uma das colunas correspondentes:
 
 ```round(sum ($$))```
 
-Pode testar este horizontalmente com o exemplo de fluxo de dados do Azure Data Factory "Demonstração de táxis". Alterne a sessão de depuração com o botão de alternar da depuração no topo da superfície de design do fluxo de dados para que pode ver os resultados interativamente:
+Você pode testá-lo com o Azure Data Factory exemplo de fluxo de dados "demonstração de táxi". Alterne para a sessão de depuração usando a alternância de depuração na parte superior da superfície de design do fluxo de dados para que você possa ver os resultados interativamente:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
-## <a name="access-new-columns-downstream"></a>Acesso novas colunas downstream
+## <a name="access-new-columns-downstream"></a>Acessar novas colunas downstream
+Quando você gera novas colunas com padrões de coluna, você pode acessar essas novas colunas posteriormente em suas transformações de fluxo de dados com estes métodos:
 
-Ao gerar novas colunas com padrões de coluna, pode acessar essas novas colunas mais à frente nas transformações de fluxo de dados usando a função de expressão "byName".
+* Use "byPosition" para identificar as novas colunas por número de posição.
+* Use "byName" para identificar as novas colunas por seu nome.
+* Em padrões de coluna, use "Name", "Stream", "position" ou "Type" ou qualquer combinação deles para corresponder a novas colunas.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) encontrará recursos adicionais para padrões de coluna e desvios de esquema, incluindo "byName" e "byPosition".
+Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) , você encontrará recursos adicionais para padrões de coluna e descompasso de esquema, incluindo "byName" e "byPosition".

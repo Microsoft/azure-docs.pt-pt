@@ -1,21 +1,22 @@
 ---
-title: Tutorial - implementar a aplicação a partir do registo georreplicado de Docker no Azure
-description: Implemente uma aplicação web baseado em Linux para duas diferentes regiões do Azure com uma imagem de contentor a partir de um registo de contentor do Azure georreplicado. Parte dois de uma série com três partes.
+title: Tutorial – implantar o aplicativo do registro do Docker replicado geograficamente no Azure
+description: Implante um aplicativo Web baseado em Linux em duas regiões diferentes do Azure usando uma imagem de contêiner de um registro de contêiner do Azure com replicação geográfica. Parte dois de uma série com três partes.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a3ffcc75ac37dac1284d0ffb5af234fd2f376cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508261"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310467"
 ---
-# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implementar uma aplicação web a partir de um registo de contentor do Azure georreplicado
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Tutorial: Implantar um aplicativo Web de um registro de contêiner do Azure com replicação geográfica
 
 Esta é a parte dois de um tutorial de três partes. Na [parte um](container-registry-tutorial-prepare-registry.md), foi criado um registo de contentor privado e georreplicado, e foi criada uma imagem de contentor da origem e publicada no registo. Neste artigo, irá tirar partido da proximidade da rede do registo georreplicado ao implementar o contentor em instâncias de Aplicações Web em duas regiões diferentes do Azure. Em seguida, cada instância extrai a imagem de contentor do registo mais próximo.
 

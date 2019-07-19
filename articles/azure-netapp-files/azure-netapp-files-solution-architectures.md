@@ -1,6 +1,6 @@
 ---
-title: Arquiteturas de solução com o NetApp serviço ficheiros do Azure | Documentos da Microsoft
-description: Fornece referências para as melhores práticas para arquiteturas de solução com o NetApp serviço ficheiros do Azure.
+title: Arquiteturas de solução usando Azure NetApp Files | Microsoft Docs
+description: Fornece referências a práticas recomendadas para arquiteturas de solução usando Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: b-juche
-ms.openlocfilehash: 89d6bd183d8cfc47915936e536f5ab9bf0ac258a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d4682ed375453cee4e5aa107d69c288e66cd11a7
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454129"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867408"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
-Este artigo fornece referências para as melhores práticas que podem ajudá-lo a compreender as arquiteturas de solução para usar arquivos de NetApp do Azure.  
+Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
 
-## <a name="solutions-for-oracle-database"></a>Soluções para a base de dados Oracle
+## <a name="solutions-for-oracle-database"></a>Soluções para banco de dados Oracle
 
-* [Oracle no Azure melhor prática guia de implementação a utilizar ficheiros do Azure NetApp](https://www.netapp.com/us/media/tr-4780.pdf)
-* [As imagens VM do Oracle e a respetiva implementação no Microsoft Azure: Opções de configuração de armazenamento partilhado](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
+* [Guia de práticas recomendadas de implantação do Oracle no Azure usando o Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
+* [Imagens de VM Oracle e sua implantação no Microsoft Azure: Opções de configuração de armazenamento compartilhado](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 
-## <a name="solutions-for-sap-applications"></a>Soluções para aplicações SAP
+## <a name="solutions-for-sap-applications"></a>Soluções para aplicativos SAP
 
-* [Aplicações de SAP no Microsoft Azure utilizando o serviço ficheiros do Azure NetApp](https://www.netapp.com/us/media/tr-4746.pdf)
-* [Elevada disponibilidade para SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com o NetApp serviço ficheiros do Azure para aplicações SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* [Aplicativos SAP em Microsoft Azure usando Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
+* [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
+* [Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver em Red Hat Enterprise Linux com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-## <a name="talon-solutions"></a>Soluções de talon 
+## <a name="talon-solutions"></a>Soluções de Talon 
 
-[Partilha com o serviço ficheiros do Azure NetApp e Talon FAST™ de ficheiros de enterprise e distribuída globalmente](https://www.talonstorage.com/products/azure-netapp-files)
+[Compartilhamento de arquivos corporativo distribuído globalmente com o Azure NetApp Files e o Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)

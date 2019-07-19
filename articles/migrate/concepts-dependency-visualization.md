@@ -1,80 +1,90 @@
 ---
-title: Visualização de dependências no Azure Migrate | Documentos da Microsoft
-description: Fornece uma visão geral dos cálculos de avaliação no serviço Azure Migrate.
+title: Visualização de dependência em migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral dos cálculos de avaliação no serviço de avaliação do servidor nas migrações para Azure
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: raynew
-ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/18/2019
+ms.author: hamusa
+ms.openlocfilehash: 8934306efadc4ec732afbb658c081ada30f232cd
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201566"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312209"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
-O [do Azure Migrate](migrate-overview.md) serviços avalia os grupos de máquinas no local para migração para o Azure. Pode utilizar a funcionalidade de visualização de dependência no Azure Migrate para criar grupos. Este artigo fornece informações sobre esta funcionalidade.
+Azure Migrate: A avaliação do servidor avalia grupos de computadores locais para migração para o Azure. Você pode usar a funcionalidade de visualização de dependência na avaliação do servidor para criar grupos. Este artigo fornece informações sobre esse recurso.
 
 > [!NOTE]
-> A funcionalidade de visualização de dependência não está disponível no Azure Government.
+> A funcionalidade de visualização de dependência não está disponível no Azure governamental.
 
 ## <a name="overview"></a>Descrição geral
 
-Visualização de dependências no Azure Migrate permite-lhe criar grupos de confiança elevada para avaliações de migração. Usando a visualização de dependências, pode ver as dependências de rede de máquinas e identificar máquinas relacionadas que precisavam de ser migradas em conjunto para o Azure. Esta funcionalidade é útil em cenários em que não está totalmente ciente das máquinas que constituem a sua aplicação e tem de ser migradas em conjunto para o Azure.
+A visualização de dependência na avaliação do servidor permite que você crie grupos de alta confiança para avaliações de migração. Usando a visualização de dependência, você pode exibir as dependências de rede de computadores e identificar os computadores relacionados que precisam ser migrados juntos para o Azure. Essa funcionalidade é útil em cenários em que você não está totalmente ciente dos computadores que constituem seu aplicativo e precisam ser migrados juntos para o Azure.
+
+## <a name="before-you-start"></a>Antes de começar
+
+- Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
+- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a migração do Azure: Ferramenta de avaliação do servidor.
+- Verifique se você descobriu seus computadores nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do servidor. [Saiba mais](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) solução em [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
-- Para aproveitar a visualização de dependências, precisa associar área de trabalho do Log Analytics, nova ou existente, com um projeto do Azure Migrate.
-- Só pode criar ou anexar uma área de trabalho na mesma subscrição em que é criado o projeto de migração.
-- Para anexar uma área de trabalho do Log Analytics a um projeto, aceda a **Essentials** secção do projeto **descrição geral** página e clique em **requer configuração**
+As migrações para Azure usam a solução [mapa do serviço](../operations-management-suite/operations-management-suite-service-map.md) em [logs de Azure monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
+- Para aproveitar a visualização de dependência, você precisa associar um espaço de trabalho Log Analytics, novo ou existente, a um projeto de migrações para Azure.
+- Você só pode criar ou anexar um espaço de trabalho na mesma assinatura em que o projeto de migrações para Azure é criado.
+- Para anexar um espaço de trabalho Log Analytics a um projeto:
+    1. Na guia **servidores** , em **migrações para Azure: Bloco avaliação** do servidor, clique em **visão geral**.
+    2. Em **visão geral**, clique na seta para baixo para expandir o **Essentials**.
+    3. No **espaço de trabalho do OMS**, clique em **requer configuração**.
+    4. Em **Configurar espaço de trabalho**, especifique se deseja criar um novo espaço de trabalho ou usar um existente:
+    
+    ![Adicionar espaço de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    ![Associar área de trabalho do Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
-
-- Ao associar uma área de trabalho, obterá a opção para criar uma nova área de trabalho ou anexar um já existente:
-  - Quando cria uma nova área de trabalho, tem de especificar um nome para a área de trabalho. A área de trabalho, em seguida, é criada numa região na mesma [geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) como o projeto de migração.
-  - Quando anexa uma área de trabalho existente, pode escolher entre todas as áreas de trabalho disponíveis na mesma subscrição que o projeto de migração. Tenha em atenção que apenas essas áreas de trabalho estão listadas que foram criados numa região onde [mapa de serviço é suportado](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder ligar uma área de trabalho, certifique-se de que tem acesso de "Reader" para a área de trabalho.
+- Ao associar um espaço de trabalho, você terá a opção de criar um novo espaço de trabalho ou anexar um existente:
+  - Ao criar um novo espaço de trabalho, você precisa especificar um nome para o espaço de trabalho. Em seguida, o espaço de trabalho é criado em uma região na mesma [Geografia do Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que o projeto de migração.
+  - Ao anexar um espaço de trabalho existente, você pode escolher entre todos os espaços de trabalho disponíveis na mesma assinatura que o projeto de migração. Observe que somente os espaços de trabalho são listados, que foram criados em uma região onde [mapa do serviço tem suporte](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions). Para poder anexar um espaço de trabalho, verifique se você tem acesso de ' leitor ' ao espaço de trabalho.
 
   > [!NOTE]
-  > Depois de ter anexada uma área de trabalho para um projeto, não é possível alterá-lo mais tarde.
+  > Depois de anexar um espaço de trabalho a um projeto, você não poderá alterá-lo mais tarde.
 
-- O espaço de trabalho associado é marcado com a chave **projeto de migração**e o valor **nome do projeto**, que pode usar para pesquisar no portal do Azure.
-- Para navegar para a área de trabalho associada ao projeto, pode aceder à **Essentials** secção do projeto **descrição geral** página e aceder a área de trabalho
+- O espaço de trabalho associado é marcado com o **projeto de migração**de chave e o nome do **projeto**de valor, que você pode usar para pesquisar na portal do Azure.
+- Para navegar até o espaço de trabalho associado ao projeto, você pode ir para a seção **Essentials** da página **visão geral** do projeto e acessar o espaço de trabalho
 
-    ![Navegue até a área de trabalho do Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
+    ![Navegar Log Analytics espaço de trabalho](./media/concepts-dependency-visualization/oms-workspace.png)
 
-Para utilizar a visualização de dependência, terá de transferir e instalar agentes em cada máquina no local que pretende analisar.  
+Para usar a visualização de dependência, você precisa baixar e instalar agentes em cada computador local que você deseja analisar.  
 
-- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) tem de ser instalado em cada máquina.
-- O [agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) tem de ser instalado em cada máquina.
-- Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar o gateway de Log Analytics nos mesmos.
+- [O MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) precisa ser instalado em cada computador. [Saiba mais](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) sobre como instalar o agente do MMA.
+- O [agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) precisa ser instalado em cada computador. [Saiba mais](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) sobre como instalar o Dependency Agent.
+- Além disso, se você tiver computadores sem conectividade com a Internet, será necessário baixar e instalar Log Analytics gateway neles.
 
-Não precisa destes agentes nas máquinas que pretende avaliar a menos que está usando a visualização de dependência.
+Você não precisa desses agentes em computadores que deseja avaliar, a menos que esteja usando a visualização de dependência.
 
-## <a name="do-i-need-to-pay-for-it"></a>É necessário para pagá-la?
+## <a name="do-i-need-to-pay-for-it"></a>Preciso pagar por ele?
 
-O Azure Migrate está disponível sem custos adicionais. Utilização da funcionalidade de visualização de dependência no Azure Migrate requer o mapa de serviço e necessita que associe uma área de trabalho do Log Analytics, nova ou existente, com o projeto do Azure Migrate. A funcionalidade de visualização de dependência no Azure Migrate é gratuita durante os primeiros 180 dias no Azure Migrate.
+O recurso de visualização de dependência está disponível sem custo adicional. O uso do recurso de visualização de dependência na avaliação do servidor requer Mapa do Serviço e exige que você associe um espaço de trabalho Log Analytics, novo ou existente, ao projeto migrações para Azure. A funcionalidade de visualização de dependência na avaliação do servidor é gratuita para os primeiros 180 dias.
 
-1. Utilização de quaisquer soluções que não seja o mapa de serviço dentro desta área de trabalho do Log Analytics incorre [padrão do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) encargos.
-2. Para suportar cenários de migração sem custos adicionais, a solução mapa de serviço não será cobrado qualquer custo para os primeiros 180 dias a partir do dia de associação de área de trabalho do Log Analytics com o projeto do Azure Migrate. Após 180 dias, serão aplicadas tarifas padrão do Log Analytics.
+1. O uso de qualquer solução que não Mapa do Serviço nesse espaço de trabalho Log Analytics incorrerá em encargos de [log Analytics padrão](https://azure.microsoft.com/pricing/details/log-analytics/) .
+2. Para dar suporte a cenários de migração sem custo adicional, a solução Mapa do Serviço não incorrerá em nenhum encargo pelos primeiros 180 dias a partir do dia da associação do espaço de trabalho Log Analytics com o projeto de migrações para Azure. Após 180 dias, os encargos de Log Analytics padrão serão aplicados.
 
-Quando registra agentes à área de trabalho, utilize o ID e a chave fornecida pelo projeto na página de passos de agente de instalação.
+Quando você registra agentes no espaço de trabalho, use a ID e a chave fornecida pelo projeto na página de etapas do agente de instalação.
 
-Quando o projeto do Azure Migrate é eliminado, a área de trabalho não é eliminada, juntamente com ele. Publicar a eliminação do projeto e a utilização de mapa de serviço não serão gratuita para cada nó será cobrada de acordo com o escalão pago de área de trabalho do Log Analytics.
+Quando o projeto de migrações para Azure é excluído, o espaço de trabalho não é excluído junto com ele. Poste a exclusão do projeto, o uso de Mapa do Serviço não será gratuito e cada nó será cobrado de acordo com a camada paga do espaço de trabalho Log Analytics.
 
 > [!NOTE]
-> A funcionalidade de visualização de dependência utiliza o mapa de serviço por meio de uma área de trabalho do Log Analytics. Desde a 28 de Fevereiro de 2018, com o anúncio da disponibilidade geral do Azure Migrate, a funcionalidade agora está disponível sem custos adicionais. Terá de criar um novo projeto para que utilize a área de trabalho de utilização gratuita. Áreas de trabalho existentes antes da disponibilidade geral são ainda faturáveis, por conseguinte, recomendamos que mover para um novo projeto.
+> O recurso de visualização de dependência usa Mapa do Serviço por meio de um espaço de trabalho Log Analytics. Desde 28 de fevereiro de 2018, com o anúncio da disponibilidade geral de migrações para Azure, o recurso agora está disponível sem custo adicional. Você precisará criar um novo projeto para fazer uso do espaço de trabalho de uso gratuito. Os espaços de trabalho existentes antes da disponibilidade geral ainda são passíveis de cobrança, portanto, recomendamos que você mova para um novo projeto.
 
 Saiba mais sobre os preços do Azure Migrate [aqui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
-## <a name="how-do-i-manage-the-workspace"></a>Como posso gerir a área de trabalho?
+## <a name="how-do-i-manage-the-workspace"></a>Como fazer gerenciar o espaço de trabalho?
 
-Pode utilizar a área de trabalho do Log Analytics fora do Azure Migrate. Não é eliminado se eliminar o projeto de migração no qual foi criado. Se já não precisar de área de trabalho, [eliminá-lo](../azure-monitor/platform/manage-access.md) manualmente.
+Você pode usar o espaço de trabalho Log Analytics fora das migrações para Azure. Ele não será excluído se você excluir o projeto de migrações para Azure no qual ele foi criado. Se você não precisar mais do espaço de trabalho, [exclua-](../azure-monitor/platform/manage-access.md) o manualmente.
 
-Não elimine a área de trabalho criada pelo Azure Migrate, a menos que excluir o projeto de migração. Se o fizer, a funcionalidade de visualização de dependência não funcionará conforme esperado.
+Não exclua o espaço de trabalho criado pela migração do Azure, a menos que você exclua o projeto de migrações para Azure. Se você fizer isso, a funcionalidade de visualização de dependência não funcionará conforme o esperado.
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Agrupar máquinas através de dependências de máquina](how-to-create-group-machine-dependencies.md)
-- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.
+## <a name="next-steps"></a>Passos seguintes
+- [Agrupar computadores usando dependências de máquina](how-to-create-group-machine-dependencies.md)
+- [Saiba mais](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) sobre as perguntas frequentes sobre a visualização de dependência.

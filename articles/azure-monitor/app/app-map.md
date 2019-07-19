@@ -1,6 +1,6 @@
 ---
-title: Mapa da aplicação no Application Insights do Azure | Documentos da Microsoft
-description: Monitorizar topologias de aplicativo complexo com o mapa da aplicação
+title: Mapa de aplicativos no Aplicativo Azure insights | Microsoft Docs
+description: Monitorar topologias de aplicativo complexas com o mapa do aplicativo
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: d69825b947af69a86525a996ed8709472846d9fe
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 73cf6fd1c20f2e4208d1f7c28a756f28a2fad839
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795665"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302579"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Mapa da aplicação: Faça a triagem de aplicações distribuídas
+# <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: Triagem de aplicativos distribuídos
 
-Mapa da aplicação ajuda-o a afunilamentos de desempenho spot ou hotspots de falha em todos os componentes da aplicação distribuída. Cada nó no mapa representa um componente da aplicação ou as respetivas dependências; e tem o estado de funcionamento KPI e estado de alerta. Pode clicar a partir de qualquer componente para diagnósticos mais detalhados, como eventos do Application Insights. Se a sua aplicação utilizar serviços do Azure, também pode clicar sucessivamente para diagnóstico do Azure, tais como as recomendações do Assistente de base de dados SQL.
+O mapa do aplicativo ajuda a identificar gargalos de desempenho ou pontos de interativações de falha em todos os componentes do seu aplicativo distribuído. Cada nó no mapa representa um componente de aplicativo ou suas dependências; e tem KPI de integridade e status de alertas. Você pode clicar em qualquer componente para diagnóstico mais detalhado, como Application Insights eventos. Se seu aplicativo usa os serviços do Azure, você também pode clicar no diagnóstico do Azure, como Assistente do Banco de Dados SQL recomendações.
 
 ## <a name="what-is-a-component"></a>O que é um componente?
 
-Os componentes são partes implementáveis independentemente do aplicativo/microsserviços distribuídos. As equipes de operações e os desenvolvedores têm visibilidade de nível de código ou de acesso à telemetria gerado por estes componentes da aplicação. 
+Os componentes são partes implantáveis independentemente do seu aplicativo distribuído/de microserviços. Os desenvolvedores e as equipes de operações têm visibilidade de nível de código ou acesso à telemetria gerada por esses componentes de aplicativos. 
 
-* Componentes são diferentes de "observadas" dependências externas, como SQL, etc. de EventHub que sua equipe/organização não pode ter acesso ao (código ou telemetria).
-* Componentes são executados em qualquer número de instâncias de função/servidor/contentor.
-* Componentes podem ser separadas chaves de instrumentação do Application Insights (mesmo que as subscrições são diferentes) ou de diferentes funções de relatório para uma única chave de instrumentação do Application Insights. A experiência de mapa de pré-visualização mostra os componentes independentemente da forma como eles são configurados.
+* Os componentes são diferentes das dependências externas "observadas", como SQL, EventHub, etc. às quais sua equipe/organização pode não ter acesso (código ou telemetria).
+* Os componentes são executados em qualquer número de instâncias de servidor/função/contêiner.
+* Os componentes podem ser separados Application Insights chaves de instrumentação (mesmo se as assinaturas forem diferentes) ou diferentes funções subordinadas a uma única chave de instrumentação de Application Insights. A experiência do mapa de visualização mostra os componentes independentemente de como eles são configurados.
 
-## <a name="composite-application-map"></a>Mapa de aplicativo composto
+## <a name="composite-application-map"></a>Mapa do aplicativo composto
 
-Pode ver a topologia de completo da aplicação através de vários níveis dos componentes de aplicativos relacionados. Componentes podem ser diferentes recursos do Application Insights, ou funções diferentes num único recurso. O mapa da aplicação localiza os componentes seguintes chamadas de dependência HTTP feitas entre servidores com o Application Insights SDK instalado. 
+Você pode ver a topologia de aplicativo completa em vários níveis de componentes de aplicativos relacionados. Os componentes podem ser diferentes Application Insights recursos ou funções diferentes em um único recurso. O mapa do aplicativo localiza componentes seguindo as chamadas de dependência HTTP feitas entre servidores com o SDK do Application Insights instalado. 
 
-Esta experiência é iniciado com a deteção de progressiva dos componentes. Quando carrega o mapa de aplicativo em primeiro lugar, um conjunto de consultas é acionado para detetar os componentes relacionados com este componente. Um botão no canto superior esquerdo será atualizado com o número de componentes na sua aplicação à medida que são detetados. 
+Essa experiência começa com a descoberta progressiva dos componentes. Quando você carrega o mapa do aplicativo pela primeira vez, um conjunto de consultas é disparado para descobrir os componentes relacionados a esse componente. Um botão no canto superior esquerdo será atualizado com o número de componentes em seu aplicativo à medida que eles forem descobertos. 
 
-Ao clicar em "Componentes de mapa de atualização", o mapa é atualizado com todos os componentes detetados até que ponto. Dependendo da complexidade da sua aplicação, isto pode demorar um minuto para carregar.
+Ao clicar em "atualizar componentes do mapa", o mapa é atualizado com todos os componentes descobertos até esse ponto. Dependendo da complexidade do seu aplicativo, isso pode levar um minuto para ser carregado.
 
-Se todos os componentes são funções dentro de um único recurso do Application Insights, em seguida, este passo de deteção não é necessário. O carregamento inicial para esse aplicativo terá todos os seus componentes.
+Se todos os componentes forem funções dentro de um único recurso de Application Insights, essa etapa de descoberta não será necessária. A carga inicial para esse aplicativo terá todos os seus componentes.
 
-![Captura de ecrã de mapa de aplicativo](media/app-map/app-map-001.png)
+![Captura de tela do mapa do aplicativo](media/app-map/app-map-001.png)
 
-Um dos principais objetivos com esta experiência é conseguir visualizar topologias complexas com centenas de componentes.
+Um dos principais objetivos dessa experiência é poder visualizar topologias complexas com centenas de componentes.
 
-Clique em qualquer componente para ver informações relacionadas e vá para o desempenho e a experiência de triagem de falha desse componente.
+Clique em qualquer componente para ver as informações relacionadas e vá para a experiência de triagem de desempenho e falha para esse componente.
 
-![Lista de opções](media/app-map/application-map-002.png)
+![Menu](media/app-map/application-map-002.png)
 
 ### <a name="investigate-failures"></a>Investigar falhas
 
-Selecione **investigar falhas** para iniciar o painel de falhas.
+Selecione **investigar falhas** para iniciar o painel falhas.
 
-![Captura de ecrã do botão de falhas de investigar](media/app-map/investigate-failures.png)
+![Captura de tela do botão investigar falhas](media/app-map/investigate-failures.png)
 
-![Captura de ecrã da experiência de falhas](media/app-map/failures.png)
+![Captura de tela da experiência de falhas](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Investigue o desempenho
+### <a name="investigate-performance"></a>Investigar o desempenho
 
-Para resolver problemas de desempenho, selecione **investigar desempenho**.
+Para solucionar problemas de desempenho, selecione **investigar desempenho**.
 
-![Captura de ecrã do botão de desempenho de investigar](media/app-map/investigate-performance.png)
+![Captura de tela do botão investigar desempenho](media/app-map/investigate-performance.png)
 
-![Captura de ecrã da experiência de desempenho](media/app-map/performance.png)
+![Captura de tela da experiência de desempenho](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Ir para os detalhes
+### <a name="go-to-details"></a>Ir para detalhes
 
-Selecione **vá para detalhes** para explorar a experiência de transação de ponto-a-ponto, o que pode oferecer exibições até o nível de pilha de chamada.
+Selecione **ir para detalhes** para explorar a experiência de transação de ponta a ponta, que pode oferecer exibições até o nível da pilha de chamadas.
 
-![Captura de ecrã do botão go-detalhes](media/app-map/go-to-details.png)
+![Captura de tela do botão ir para detalhes](media/app-map/go-to-details.png)
 
-![Captura de ecrã de detalhes da transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
+![Captura de tela de detalhes de transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Ver na análise
+### <a name="view-in-analytics"></a>Exibir no Analytics
 
-Para consultar e investigar ainda mais os seus dados de aplicações, clique em **ver na análise**.
+Para consultar e investigar ainda mais os dados de aplicativos, clique em **Exibir na análise**.
 
-![Captura de ecrã da vista no botão análise](media/app-map/view-in-analytics.png)
+![Captura de tela da exibição no botão de análise](media/app-map/view-in-analytics.png)
 
-![Captura de ecrã da experiência de análise](media/app-map/analytics.png)
+![Captura de tela da experiência de análise](media/app-map/analytics.png)
 
 ### <a name="alerts"></a>Alertas
 
-Para ver alertas ativos e as regras subjacentes que fazem com que os alertas ser acionado, selecione **alertas**.
+Para exibir alertas ativos e as regras subjacentes que fazem com que os alertas sejam disparados, selecione **alertas**.
 
-![Captura de ecrã do botão de alertas](media/app-map/alerts.png)
+![Captura de tela do botão alertas](media/app-map/alerts.png)
 
-![Captura de ecrã da experiência de análise](media/app-map/alerts-view.png)
+![Captura de tela da experiência de análise](media/app-map/alerts-view.png)
 
-## <a name="set-cloud-role-name"></a>Nome de função do conjunto de cloud
+## <a name="set-cloud-role-name"></a>Definir nome da função de nuvem
 
-Mapa da aplicação utiliza a **nome da função na nuvem** propriedade para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente a propriedade de nome de função na nuvem para a telemetria emitida por componentes. Por exemplo, o SDK irá adicionar um nome do web site ou o nome do serviço de função para a propriedade de nome de função na nuvem. No entanto, há casos em que poderá pretender substituir o valor predefinido. Para substituir o nome da função na nuvem e alterar o que é apresentado no mapa de aplicativo:
+O mapa do aplicativo usa a propriedade **nome da função de nuvem** para identificar os componentes no mapa. O SDK do Application Insights adiciona automaticamente a propriedade nome da função de nuvem à telemetria emitida pelos componentes. Por exemplo, o SDK adicionará um nome de site ou nome de função de serviço à propriedade de nome da função de nuvem. No entanto, há casos em que você talvez queira substituir o valor padrão. Para substituir o nome da função de nuvem e alterar o que é exibido no mapa do aplicativo:
 
-### <a name="netnet-core"></a>.NET/.NET core
+### <a name="netnet-core"></a>.NET/.NET Core
 
-**Escreva TelemetryInitializer personalizada, conforme mostrado a seguir.**
+**Escreva personalizada telemetryinitializer personalizado como abaixo.**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -119,9 +119,9 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Aplicações do ASP.NET: Inicializador de carga para o Active Directory TelemetryConfiguration**
+**Aplicativos ASP.NET: Carregar inicializador para o TelemetryConfiguration ativo**
 
-In ApplicationInsights.config :
+Em ApplicationInsights. config:
 
 ```xml
     <ApplicationInsights>
@@ -133,7 +133,7 @@ In ApplicationInsights.config :
     </ApplicationInsights>
 ```
 
-É um método alternativo para aplicações Web do ASP.NET instanciar o inicializador no código, por exemplo, no Global.aspx.cs:
+Um método alternativo para aplicativos Web ASP.NET é instanciar o inicializador no código, por exemplo, em Global.aspx.cs:
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -147,11 +147,11 @@ In ApplicationInsights.config :
 ```
 
 > [!NOTE]
-> Adicionar inicializador usando `ApplicationInsights.config` ou utilizar `TelemetryConfiguration.Active` não é válido para aplicativos do ASP.NET Core. 
+> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core. 
 
-**Aplicações do ASP.NET Core: Inicializador de carga para o TelemetryConfiguration**
+**ASP.NET Core aplicativos: Carregar inicializador para o TelemetryConfiguration**
 
-Para [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) aplicativos, adicionar um novo `TelemetryInitializer` é feito adicionando-o para o contêiner de Injeção de dependência, conforme mostrado abaixo. Isso é feito `ConfigureServices` método de sua `Startup.cs` classe.
+Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método da sua `Startup.cs` classe.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -185,36 +185,36 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
-Se utilizar o Spring Boot com o arranque de Spring Boot do Application Insights, a única alteração necessária é definir seu nome personalizado para o aplicativo no arquivo Application.
+Se você usar o Spring boot com o iniciador do Spring boot Application Insights, a única alteração necessária será definir seu nome personalizado para o aplicativo no arquivo Application. Properties.
 
 `spring.application.name=<name-of-app>`
 
-O starter Spring Boot atribuirá automaticamente o nome da função na nuvem para o valor introduzido para a propriedade spring.application.name.
+O iniciador do Spring boot atribuirá automaticamente o nome da função de nuvem ao valor inserido para a propriedade spring.application.name.
 
-Para obter mais informações sobre Java correlação e como configurar a função na nuvem nome para Check-out de aplicativos de não-SpringBoot isso [secção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) no correlação.
+Para obter mais informações sobre a correlação de Java e como configurar o nome da função de nuvem para aplicativos não SpringBoot, faça check-in desta [seção](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) na correlação.
 
-### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/browser
+### <a name="clientbrowser-side-javascript"></a>JavaScript do lado do cliente/navegador
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });
 });
 ```
 
-### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nome de função de cloud de compreensão dentro do contexto do mapa da aplicação
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Noções básicas sobre o nome da função de nuvem no contexto do mapa do aplicativo
 
-Com relação às General como pensar sobre **nome da função na nuvem**, pode ser útil ver um mapa da aplicação que tenha vários nomes de funções de cloud presentes:
+No que diz respeito a como pensar sobre o **nome da função de nuvem**, pode ser útil examinar um mapa de aplicativo que tem vários nomes de função de nuvem presentes:
 
-![Captura de ecrã de mapa de aplicativo](media/app-map/cloud-rolename.png)
+![Captura de tela do mapa do aplicativo](media/app-map/cloud-rolename.png)
 
-No mapa de aplicativo, acima de cada um dos nomes na caixas verdes é, por exemplo, valores de nome de função para diferentes aspetos desta aplicação distribuída específico na cloud. Portanto, para esta aplicação respetivas funções consistem: `Authentication`, `acmefrontend`, `Inventory Management`, um `Payment Processing Worker Role`. 
+No mapa do aplicativo acima, cada um dos nomes em caixas verdes são valores de nome de função de nuvem para diferentes aspectos desse aplicativo distribuído específico. Portanto, para esse aplicativo, suas funções consistem `acmefrontend`em `Inventory Management`: `Authentication`, `Payment Processing Worker Role`,, a. 
 
-No caso desta aplicação cada um desses nomes de função na nuvem também representa um recurso do Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Uma vez que o proprietário desta aplicação tem acesso a cada um desses quatro recursos diferentes do Application Insights, o mapa da aplicação é capaz de reunir um mapa das relações subjacentes.
+No caso desse aplicativo, cada um desses nomes de função de nuvem também representa um recurso de Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Como o proprietário deste aplicativo tem acesso a cada um desses quatro recursos de Application Insights diferentes, o mapa de aplicativos é capaz de reunir um mapa das relações subjacentes.
 
-Para o [oficiais definições](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+Para as [definições oficiais](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
 ```
    [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
@@ -226,50 +226,50 @@ Para o [oficiais definições](https://github.com/Microsoft/ApplicationInsights-
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Em alternativa, **instância de função na nuvem** pode ser útil para cenários em que **nome da função na nuvem** informa o problema está algures na web front-end, mas poderá estar a executar a web front-end em vários com balanceamento de carga servidores então, ser capaz de fazer uma busca numa camada mais aprofundada através de consultas de Kusto e saber se o problema está a afetar a todas as web front-end servidores/instâncias, ou apenas um pode ser extremamente importante.
+Como alternativa, a **instância de função de nuvem** pode ser útil para cenários em que o nome da função de **nuvem** informa que o problema está em algum lugar no front-end da Web, mas você pode estar executando seu front-end da Web em vários servidores com balanceamento de carga, para que possa Aprofunde-se em uma camada mais profunda por meio de consultas de Kusto e saiba se o problema está afetando todos os servidores/instâncias de front-end da Web ou se apenas um pode ser extremamente importante.
 
-Um cenário em que escolherá para substituir o valor para a instância de função na nuvem é possível se a aplicação é executada num ambiente em contentores onde saber apenas o servidor individual pode não ser informações suficientes para localizar um problema específico.
+Um cenário em que você talvez queira substituir o valor para a instância de função de nuvem poderia ser se seu aplicativo estiver sendo executado em um ambiente em contêineres, onde apenas saber se o servidor individual pode não ser informações suficientes para localizar um determinado problema.
 
-Para obter mais informações sobre como substituir a propriedade de nome de função na nuvem com inicializadores de telemetria, consulte [adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores [de telemetria, consulte Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se estiver a ter problemas ao mapa da aplicação a funcionar conforme esperado, experimente estes passos:
+Se você estiver tendo problemas para obter o mapa do aplicativo funcionar conforme o esperado, tente estas etapas:
 
 ### <a name="general"></a>Geral
 
 1. Confirme que está a utilizar um SDK suportado oficialmente. Os SDKs não suportados/da comunidade poderão não suportar a correlação.
 
-    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista dos SDKs suportados.
+    Consulte este [artigo](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) para obter uma lista de SDKs com suporte.
 
 2. Atualize todos os componentes para a versão mais recente do SDK.
 
-3. Se estiver a utilizar as funções do Azure com o C#, atualize para o [V2 funções](https://docs.microsoft.com/azure/azure-functions/functions-versions).
+3. Se você estiver usando Azure Functions com C#, atualize para o [Functions v2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirme [nome da função na nuvem](#set-cloud-role-name) está configurado corretamente.
+4. Confirme se o [nome da função de nuvem](#set-cloud-role-name) está configurado corretamente.
 
 5. Se tiver uma dependência em falta, certifique-se de que a mesma está na lista de [dependências recolhidas automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se não, pode acompanhá-la manualmente com uma [chamada de dependência de acompanhamento](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
-### <a name="too-many-nodes-on-the-map"></a>Muitos de nós no mapa
+### <a name="too-many-nodes-on-the-map"></a>Muitos nós no mapa
 
-Mapa da aplicação constrói um nó de aplicação para cada nome de função de cloud única presente na sua telemetria de pedido e um nó de dependência para cada combinação exclusiva de tipo, o destino e o nome da função na nuvem na sua telemetria de dependência. Se existirem mais de 10.000 nós na sua telemetria, o mapa da aplicação não poderá obter todos os nós e ligações, por isso, o mapa será incompleto. Se isto acontecer, será apresentada uma mensagem de aviso quando visualizar o mapa.
+O mapa de aplicativos constrói um nó de aplicativo para cada nome de função de nuvem exclusivo presente na telemetria de solicitação e um nó de dependência para cada combinação exclusiva de tipo, destino e nome da função de nuvem em sua telemetria de dependência. Se houver mais de 10.000 nós em sua telemetria, o mapa do aplicativo não poderá buscar todos os nós e links, de modo que o mapa estará incompleto. Se isso acontecer, uma mensagem de aviso será exibida ao exibir o mapa.
 
-Além disso, o mapa da aplicação só suporta até 1000 nós sem grupo separados compostos de uma só vez. Mapa da aplicação reduz a complexidade visual ao agrupar as dependências que têm o mesmo tipo e os autores de chamadas, mas se sua telemetria tem demasiados nomes de função de cloud única ou muitos tipos de dependência, esse agrupamento insuficiente, e o mapa será possível composição.
+Além disso, o mapa de aplicativos dá suporte apenas a até 1000 nós desagrupados separados ao mesmo tempo. O mapa do aplicativo reduz a complexidade visual agrupando dependências que têm o mesmo tipo e chamadores, mas se a telemetria tiver muitos nomes de função de nuvem exclusivos ou um número excessivo de tipos de dependência, esse agrupamento será insuficiente e o mapa não poderá aplicar.
 
-Para corrigir este problema, terá de alterar a instrumentação para configurar corretamente o nome da função na nuvem, tipo de dependência e os campos de destino de dependência.
+Para corrigir isso, você precisará alterar sua instrumentação para definir corretamente o nome da função de nuvem, o tipo de dependência e os campos de destino de dependência.
 
-* Destino de dependência deve representar o nome lógico de uma dependência. Em muitos casos, é equivalente ao servidor ou o nome de recurso da dependência. Por exemplo, no caso de dependências HTTP está definido para o nome do anfitrião. Não deve conter IDs exclusivos ou parâmetros que alterar-se de uma solicitação para outra.
+* O destino de dependência deve representar o nome lógico de uma dependência. Em muitos casos, é equivalente ao nome do servidor ou do recurso da dependência. Por exemplo, no caso de dependências HTTP, ele é definido como o nome do host. Ele não deve conter IDs ou parâmetros exclusivos que se alteram de uma solicitação para outra.
 
-* Tipo de dependência deve representar o tipo de lógico de uma dependência. Por exemplo, HTTP, de SQL ou de Blobs do Azure são tipos de dependência típico. Não deve conter IDs exclusivos.
+* O tipo de dependência deve representar o tipo lógico de uma dependência. Por exemplo, HTTP, SQL ou BLOB do Azure são tipos de dependência típicos. Ele não deve conter IDs exclusivas.
 
-* A finalidade do nome da função na nuvem está descrita com o [acima secção](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
+* A finalidade do nome da função de nuvem é descrita na [seção acima](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentários do portal
 
-Para enviar comentários, utilize a opção de comentários.
+Para fornecer comentários, use a opção comentários.
 
-![Imagem de MapLink-1](./media/app-map/14-updated.png)
+![MapLink-1 imagem](./media/app-map/14-updated.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Correlação de compreensão](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* [Entendendo a correlação](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

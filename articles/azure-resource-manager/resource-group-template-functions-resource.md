@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 07/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b65c7a9b6d4f025c574c2dddace6fa45b77398c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835776"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311690"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -33,7 +33,7 @@ Para obter valores de parâmetros, variáveis ou a implementação atual, veja [
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-A sintaxe para essa função varia consoante o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso que oferece suporte a uma operação de lista. Tem de começar com o nome da operação `list`. Alguns usos comuns são `listKeys` e `listSecrets`. 
+A sintaxe dessa função varia de acordo com o nome das operações de lista. Cada implementação retorna valores para o tipo de recurso que oferece suporte a uma operação de lista. O nome da operação deve começar `list`com. Alguns usos comuns são `listKeys` e. `listSecrets` 
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -41,16 +41,16 @@ A sintaxe para essa função varia consoante o nome das operações de lista. Ca
 |:--- |:--- |:--- |:--- |
 | resourceName ou resourceIdentifier |Sim |cadeia |Identificador exclusivo para o recurso. |
 | apiVersion |Sim |cadeia |Versão de API do Estado de runtime do recurso. Normalmente, no formato, **dd-mm-aaaa**. |
-| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para as funções que suportam a receção de um objeto com valores de parâmetros, tal como **listAccountSas** numa conta de armazenamento. Um exemplo de transmitir os valores de função é mostrado neste artigo. | 
+| functionValues |Não |objeto | Um objeto que tem valores para a função. Fornecer apenas este objeto para as funções que suportam a receção de um objeto com valores de parâmetros, tal como **listAccountSas** numa conta de armazenamento. Um exemplo de passagem de valores de função é mostrado neste artigo. | 
 
 ### <a name="implementations"></a>Implementações
 
-As utilizações possíveis da lista * são mostradas na tabela seguinte.
+Os usos possíveis da lista * são mostrados na tabela a seguir.
 
 | Tipo de recurso | Nome da função |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.AppConfiguration/configurationStores | listKeys |
+| Microsoft.AppConfiguration/configurationStores | ListKeys |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -92,11 +92,11 @@ As utilizações possíveis da lista * são mostradas na tabela seguinte.
 | Microsoft.ImportExport/jobs | [listBitLockerKeys](/rest/api/storageimportexport/bitlockerkeys/list) |
 | Microsoft.LabServices/users | [ListEnvironments](/rest/api/labservices/globalusers/listenvironments) |
 | Microsoft.LabServices/users | [ListLabs](/rest/api/labservices/globalusers/listlabs) |
-| Microsoft.Logic/integrationAccounts/agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
-| Microsoft.Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
+| Microsoft. Logic/integrationAccounts/Agreements | [listContentCallbackUrl](/rest/api/logic/agreements/listcontentcallbackurl) |
+| Microsoft. Logic/integrationAccounts/assemblies | [listContentCallbackUrl](/rest/api/logic/integrationaccountassemblies/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listCallbackUrl](/rest/api/logic/integrationaccounts/getcallbackurl) |
 | Microsoft.Logic/integrationAccounts | [listKeyVaultKeys](/rest/api/logic/integrationaccounts/listkeyvaultkeys) |
-| Microsoft.Logic/integrationAccounts/maps | [listContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
+| Microsoft. Logic/integrationAccounts/Maps | [listContentCallbackUrl](/rest/api/logic/maps/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/partners | [listContentCallbackUrl](/rest/api/logic/partners/listcontentcallbackurl) |
 | Microsoft.Logic/integrationAccounts/schemas | [listContentCallbackUrl](/rest/api/logic/schemas/listcontentcallbackurl) |
 | Microsoft.Logic/workflows | [listCallbackUrl](/rest/api/logic/workflows/listcallbackurl) |
@@ -148,7 +148,7 @@ As utilizações possíveis da lista * são mostradas na tabela seguinte.
 Para determinar que tipos de recursos tem uma operação de lista, tem as seguintes opções:
 
 * Ver os [operações de REST API](/rest/api/) para um fornecedor de recursos e procure para operações de lista. Por exemplo, contas de armazenamento têm o [listKeys operação](/rest/api/storagerp/storageaccounts).
-* Utilize o [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) cmdlet do PowerShell. O exemplo seguinte obtém todas as operações de lista para contas de armazenamento:
+* Use o cmdlet do PowerShell [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) . O exemplo seguinte obtém todas as operações de lista para contas de armazenamento:
 
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
@@ -161,7 +161,7 @@ Para determinar que tipos de recursos tem uma operação de lista, tem as seguin
 
 ### <a name="return-value"></a>Valor de retorno
 
-O objeto devolvido varia consoante a função de lista que utilizar. Por exemplo, o listKeys para uma conta de armazenamento retorna o seguinte formato:
+O objeto retornado varia de acordo com a função de lista que você usa. Por exemplo, o listKeys para uma conta de armazenamento retorna o seguinte formato:
 
 ```json
 {
@@ -184,15 +184,15 @@ Outras funções de lista têm formatos de retornados diferentes. Para ver o for
 
 ### <a name="remarks"></a>Observações
 
-Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Quando utilizar uma função de lista no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
+Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Ao usar uma função de lista no mesmo modelo que implanta o recurso referenciado, use o nome do recurso.
 
-Se utilizar um **lista** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se o **lista** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso está a ser implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma lista com um recurso condicionalmente implementado.
+Se você usar uma função de **lista** em um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado. Você receberá um erro se a função de **lista** se referir a um recurso que não existe. Use a função **If** para garantir que a função só seja avaliada quando o recurso estiver sendo implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e List com um recurso implantado condicionalmente.
 
 ### <a name="example"></a>Exemplo
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) mostra como devolver as chaves primária e secundárias da conta de armazenamento na secção de saídas. Ele também retorna um token SAS para a conta de armazenamento. 
 
-Para obter o token SAS, passe um objeto para a hora de expiração. A hora de expiração tem de ser no futuro. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras.
+Para obter o token SAS, passe um objeto para a hora de expiração. O tempo de expiração deve estar no futuro. Este exemplo destina-se para mostrar como utilizar as funções de lista. Normalmente, poderia usar o token SAS num valor de recursos em vez de retorná-lo como um valor de saída. Valores de saída são armazenados no histórico de implementação e não são seguras.
 
 ```json
 {
@@ -354,11 +354,13 @@ Cada tipo de recurso devolve as propriedades diferentes para a função de refer
 
 A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência um recurso anteriormente implementado, forneça o ID de recurso e uma versão de API para o recurso. É possível determinar as versões de API válidas para o seu recurso no [referência de modelo](/azure/templates/).
 
-A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando utilizado com [iteração da propriedade](resource-group-create-multiple.md#property-iteration), pode usar a função de referência para `input` porque a expressão é atribuída à propriedade de recursos. Não é possível utilizá-lo com `count` porque a contagem tem de ser determinada antes da função de referência for resolvida.
+A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando usado com a iteração de [Propriedade](resource-group-create-multiple.md#property-iteration), você pode usar a `input` função de referência para o porque a expressão é atribuída à propriedade de recurso. Você não pode usá- `count` lo com o porque a contagem deve ser determinada antes que a função de referência seja resolvida.
+
+Você não pode usar a função de referência nas saídas de um [modelo aninhado](resource-group-linked-templates.md#nested-template) para retornar um recurso que você implantou no modelo aninhado. Em vez disso, use um [modelo vinculado](resource-group-linked-templates.md#external-template-and-external-parameters).
 
 Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
 
-Se utilizar o **referência** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado.  Obter um erro se o **referência** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso está a ser implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
+Se você usar a função de **referência** em um recurso que é implantado condicionalmente, a função será avaliada mesmo que o recurso não seja implantado.  Você receberá um erro se a função de **referência** se referir a um recurso que não existe. Use a função **If** para garantir que a função só seja avaliada quando o recurso estiver sendo implantado. Consulte a [função If](resource-group-template-functions-logical.md#if) para obter um modelo de exemplo que usa If e Reference com um recurso implantado condicionalmente.
 
 Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que retorna o objeto na secção de saídas. Se tiver um recurso existente desse tipo, o seu modelo retorna o objeto sem ter de implementar todos os novos recursos. 
 
@@ -548,7 +550,7 @@ O objeto devolvido é no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-O `resourceGroup()` função não é possível utilizar um modelo que é [implementadas ao nível da subscrição](deploy-to-subscription.md). Só pode ser utilizada em modelos que são implementados para um grupo de recursos.
+A `resourceGroup()` função não pode ser usada em um modelo implantado [no nível da assinatura](deploy-to-subscription.md). Ele só pode ser usado em modelos implantados em um grupo de recursos.
 
 Uma utilização comum da função resourceGroup é criar recursos na mesma localização que o grupo de recursos. O exemplo seguinte utiliza a localização do grupo de recursos para atribuir a localização para um web site.
 
@@ -563,6 +565,8 @@ Uma utilização comum da função resourceGroup é criar recursos na mesma loca
    }
 ]
 ```
+
+Você também pode usar a função resourcegroup para aplicar marcas do grupo de recursos a um recurso. Para obter mais informações, consulte [aplicar marcas do grupo de recursos](resource-group-using-tags.md#apply-tags-from-resource-group).
 
 ### <a name="example"></a>Exemplo
 
@@ -621,7 +625,7 @@ O identificador é devolvido no seguinte formato:
 
 ### <a name="remarks"></a>Observações
 
-Quando utilizado com um [implementação de nível de assinatura](deploy-to-subscription.md), o `resourceId()` função só é possível obter o ID de recursos implementados nesse nível. Por exemplo, pode obter o ID de uma definição de política ou a definição de função, mas não o ID de uma conta de armazenamento. Para implementações de um grupo de recursos, o oposto é verdadeiro. Não é possível obter o ID de recurso de recursos implementados ao nível da subscrição.
+Quando usado com uma [implantação em nível de assinatura](deploy-to-subscription.md), `resourceId()` a função só pode recuperar a ID dos recursos implantados nesse nível. Por exemplo, você pode obter a ID de uma definição de política ou definição de função, mas não a ID de uma conta de armazenamento. Para implantações em um grupo de recursos, o oposto é true. Você não pode obter a ID de recurso dos recursos implantados no nível da assinatura.
 
 Os valores de parâmetro que especifica dependem se o recurso é o mesmo grupo de recursos e subscrição como a implementação atual. Para obter o ID de recurso para uma conta de armazenamento na mesma subscrição e grupo de recursos, utilize:
 
@@ -647,7 +651,7 @@ Para obter o ID de recurso para uma base de dados no grupo de recursos diferente
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-Para obter o ID de recurso de um recurso de nível de assinatura durante a implementação no âmbito da subscrição, utilize:
+Para obter a ID de recurso de um recurso de nível de assinatura ao implantar no escopo da assinatura, use:
 
 ```json
 "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"

@@ -1,51 +1,51 @@
 ---
-title: Carregamento de tutorial do armazenamento do Azure Data Lake para o armazém de dados SQL do Azure | Documentos da Microsoft
-description: Utilize tabelas externas do PolyBase para carregar dados do armazenamento do Azure Data Lake para o Azure SQL Data Warehouse.
+title: Carga do tutorial de Azure Data Lake Storage para SQL Data Warehouse do Azure | Microsoft Docs
+description: Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c69382ee0bec5586fc247cd0e568f5f48f0eda08
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: cbf642b47e4233cec2e2d860288b3bb35b419cf2
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67588588"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304170"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carregar dados do armazenamento do Azure Data Lake para o SQL Data Warehouse
-Utilize tabelas externas do PolyBase para carregar dados do armazenamento do Azure Data Lake para o Azure SQL Data Warehouse. Embora seja possível executar consultas ad hoc em dados armazenados no armazenamento do Data Lake, recomendamos que importar os dados para o SQL Data Warehouse para um melhor desempenho.
+# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Carregar dados de Azure Data Lake Storage para SQL Data Warehouse
+Use tabelas externas do polybase para carregar dados de Azure Data Lake Storage para o SQL Data Warehouse do Azure. Embora seja possível executar consultas ad hoc em dados armazenados no Data Lake Storage, é recomendável importar os dados para o SQL Data Warehouse para obter o melhor desempenho.
 
 > [!div class="checklist"]
-> * Crie objetos de base de dados necessários para carregar a partir do armazenamento do Data Lake.
-> * Ligar a um diretório de armazenamento do Data Lake.
-> * Carregar dados para o Azure SQL Data Warehouse.
+> * Crie objetos de banco de dados necessários para carregar de Data Lake Storage.
+> * Conecte-se a um diretório Data Lake Storage.
+> * Carregar dados no Azure SQL Data Warehouse.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de começar este tutorial, transfira e instale a versão mais recente do [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-Para executar este tutorial, terá de:
+Para executar este tutorial, você precisa de:
 
-* Aplicação do Active Directory do Azure a utilizar para autenticação serviço a serviço se estiver fazendo o carregamento de geração 1. Para criar, siga [autenticação do Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory aplicativo a ser usado para autenticação serviço a serviço se você estiver carregando de Gen1. Para criar, siga a [autenticação do Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> Se está a carregar Gen1 de armazenamento do Azure Data Lake, terá do ID de cliente, a chave e o OAuth2.0 valor do ponto final do Token da sua aplicação do Active Directory para ligar à sua conta de armazenamento do SQL Data Warehouse. Detalhes de como obter estes valores são no link acima. Para o registo de aplicação do Azure Active Directory, utilize o ID da aplicação como o ID de cliente.
+> Se estiver carregando de Azure Data Lake armazenamento Gen1, você precisará da ID do cliente, da chave e do valor do ponto de extremidade do token OAuth 2.0 do seu aplicativo Active Directory para se conectar à sua conta de armazenamento de SQL Data Warehouse. Detalhes sobre como obter esses valores estão no link acima. Para Azure Active Directory registro de aplicativo, use a ID do aplicativo como a ID do cliente.
 > 
 
-* Um armazém de dados SQL do Azure. Ver [criar e a consulta e Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* Um SQL Data Warehouse do Azure. Consulte [criar e consultar e SQL data warehouse do Azure](create-data-warehouse-portal.md).
 
-* Uma conta de armazenamento do Data Lake. Ver [introdução ao armazenamento do Azure Data Lake](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Uma conta de Data Lake Storage. Consulte [introdução ao Azure data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Criar uma credencial
-Para aceder à sua conta de armazenamento do Data Lake, terá de criar uma chave mestra de base de dados para encriptar o segredo da credencial utilizado no próximo passo. Em seguida, cria uma credencial com âmbito de base de dados. Para a geração 1, a credencial com âmbito de base de dados armazena as credenciais de principal de serviço definidas no AAD. Tem de utilizar a chave de conta de armazenamento na credencial com âmbito de base de dados de geração 2. 
+Para acessar sua conta de Data Lake Storage, você precisará criar uma chave mestra de banco de dados para criptografar seu segredo de credencial usado na próxima etapa. Em seguida, você cria uma credencial no escopo do banco de dados. Para Gen1, a credencial no escopo do banco de dados armazena as credenciais da entidade de serviço configuradas no AAD. Você deve usar a chave da conta de armazenamento na credencial no escopo do banco de dados para Gen2. 
 
-Para ligar ao Data Lake Storage Gen1, deve **primeiro** criar uma aplicação do Active Directory do Azure, crie uma chave de acesso e conceder o acesso de aplicação para o recurso de geração 1 de armazenamento do Data Lake. Para obter instruções, consulte [autenticar ao Azure Data Lake armazenamento Gen1 usando o Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Para se conectar ao Data Lake Storage Gen1, você deve **primeiro** criar um aplicativo de Azure Active Directory, criar uma chave de acesso e conceder ao aplicativo acesso ao recurso de data Lake Storage Gen1. Para obter instruções, consulte [autenticar para Azure data Lake Storage Gen1 usando Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -85,8 +85,8 @@ WITH
 ;
 ```
 
-## <a name="create-the-external-data-source"></a>Criar origem de dados externa
-Utilize esta opção [criar origem de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql) comando para a localização dos dados do arquivo. 
+## <a name="create-the-external-data-source"></a>Criar a fonte de dados externa
+Use este comando [criar fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql) para armazenar o local dos dados. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -109,14 +109,14 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfss://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
     CREDENTIAL = ADLSCredential
 );
 ```
 
-## <a name="configure-data-format"></a>Configurar o formato de dados
-Para importar os dados do armazenamento do Data Lake, terá de especificar o formato de ficheiro externo. Este objeto define como os ficheiros são escritos no armazenamento do Data Lake.
-Para obter a lista completa, examinar a nossa documentação de T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
+## <a name="configure-data-format"></a>Configurar formato de dados
+Para importar os dados de Data Lake Storage, você precisa especificar o formato de arquivo externo. Esse objeto define como os arquivos são gravados em Data Lake Storage.
+Para obter a lista completa, consulte nossa documentação do T-SQL [criar formato de arquivo externo](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
 -- D: Create an external file format
@@ -137,7 +137,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>Criar as tabelas externas
-Agora que especificar o formato de origem e de arquivo de dados, está pronto para criar as tabelas externas. Tabelas externas são como interagir com dados externos. O parâmetro de localização pode especificar um ficheiro ou diretório. Se de que especifica um diretório, serão carregados todos os ficheiros dentro do diretório.
+Agora que você especificou a fonte de dados e o formato de arquivo, você está pronto para criar as tabelas externas. As tabelas externas são como você interage com os dados externos. O parâmetro Location pode especificar um arquivo ou um diretório. Se ele especificar um diretório, todos os arquivos dentro do diretório serão carregados.
 
 ```sql
 -- D: Create an External Table
@@ -165,22 +165,22 @@ WITH
 
 ```
 
-## <a name="external-table-considerations"></a>Considerações de tabela externa
-É fácil criar uma tabela externa, mas existem algumas nuances que têm de ser discutido.
+## <a name="external-table-considerations"></a>Considerações sobre a tabela externa
+A criação de uma tabela externa é fácil, mas há algumas nuances que precisam ser discutidas.
 
-Tabelas externas tem rigidez de tipos. Isso significa que cada linha dos dados a ser ingeridos deve satisfazer a definição de esquema de tabela.
-Se uma linha não coincide com a definição de esquema, a linha é rejeitada da carga.
+As tabelas externas são fortemente tipadas. Isso significa que cada linha dos dados que estão sendo ingeridos deve satisfazer a definição de esquema de tabela.
+Se uma linha não corresponder à definição de esquema, a linha será rejeitada da carga.
 
-As opções de REJECT_TYPE e REJECT_VALUE permitem-lhe definir o número de linhas ou porcentagem dos dados tem de estar presente na tabela final. Durante o carregamento, se o valor de rejeitar for atingido, a carga falha. A causa mais comum de linhas rejeitadas é um erro de correspondência de definição de esquema. Por exemplo, se uma coluna incorretamente é dado o esquema de int quando os dados no arquivo são uma cadeia de caracteres, cada linha irá falhar ao carregar.
+As opções REJECT_TYPE e REJECT_VALUE permitem que você defina quantas linhas ou qual porcentagem dos dados devem estar presentes na tabela final. Durante o carregamento, se o valor de rejeição for atingido, o carregamento falhará. A causa mais comum de linhas rejeitadas é uma incompatibilidade de definição de esquema. Por exemplo, se uma coluna tiver dado incorretamente o esquema de int quando os dados no arquivo forem uma cadeia de caracteres, todas as linhas não serão carregadas.
 
-Geração 1 de armazenamento do Data Lake utiliza o controlo de acesso baseado em ' (RBAC) da função para controlar o acesso aos dados. Isso significa que o Principal de serviço deve ter permissões de leitura para os diretórios definidos no parâmetro de localização e os filhos do diretório final e ficheiros. Isto permite que o PolyBase para autenticar e carregar dados. 
+O Data Lake Storage Gen1 usa o RBAC (controle de acesso baseado em função) para controlar o acesso aos dados. Isso significa que a entidade de serviço deve ter permissões de leitura para os diretórios definidos no parâmetro Location e para os filhos do diretório final e dos arquivos. Isso permite que o polybase autentique e carregue esses dados. 
 
 ## <a name="load-the-data"></a>Carregar os dados
-Para carregar dados do armazenamento do Data Lake, utilize o [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instrução. 
+Para carregar dados de Data Lake Storage use a instrução [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) . 
 
-CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se selecionar todas as colunas de uma tabela externa, a nova tabela é uma réplica das colunas e tipos de dados em tabela externa.
+CTAS cria uma nova tabela e a popula com os resultados de uma instrução SELECT. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados que os resultados da instrução SELECT. Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.
 
-Neste exemplo, estamos a criar uma tabela distribuída por hash chamada DimProduct a partir do nosso DimProduct_external de tabela externa.
+Neste exemplo, estamos criando uma tabela distribuída de hash chamada DimProduct da nossa tabela externa DimProduct_external.
 
 ```sql
 
@@ -192,10 +192,10 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 ```
 
 
-## <a name="optimize-columnstore-compression"></a>Otimizar a compressão columnstore
-Por predefinição, o SQL Data Warehouse armazena a tabela como um índice columnstore em cluster. Após a conclusão de uma carga, algumas das linhas de dados não podem ser comprimidas para o columnstore.  Há uma série de motivos por que isso pode acontecer. Para obter mais informações, consulte [Gerir índices columnstore](sql-data-warehouse-tables-index.md).
+## <a name="optimize-columnstore-compression"></a>Otimizar a compactação columnstore
+Por padrão, o SQL Data Warehouse armazena a tabela como um índice columnstore clusterizado. Após a conclusão de uma carga, algumas das linhas de dados podem não ser compactadas no columnstore.  Há uma variedade de motivos pelos quais isso pode acontecer. Para saber mais, consulte [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
-Para otimizar o desempenho de consulta e compressão de columnstore depois de uma carga, reconstrua a tabela para forçar o índice columnstore para comprimir todas as linhas.
+Para otimizar o desempenho da consulta e a compactação columnstore após uma carga, recompile a tabela para forçar o índice columnstore a compactar todas as linhas.
 
 ```sql
 
@@ -203,30 +203,30 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-## <a name="optimize-statistics"></a>Otimizar as estatísticas
-É melhor criar estatísticas de coluna única imediatamente após uma carga. Existem algumas opções para estatísticas. Por exemplo, se criar estatísticas de coluna única em cada coluna poderá demorar muito tempo a recriar todas as estatísticas. Se souber que determinados colunas não vão ser em predicados de consulta, pode ignorar criar estatísticas nessas colunas.
+## <a name="optimize-statistics"></a>Otimizar estatísticas
+É melhor criar estatísticas de coluna única imediatamente após um carregamento. Há algumas opções para estatísticas. Por exemplo, se você criar estatísticas de coluna única em cada coluna, pode levar muito tempo para recompilar todas as estatísticas. Se você souber que determinadas colunas não serão em predicados de consulta, você poderá ignorar a criação de estatísticas nessas colunas.
 
-Se optar por criar estatísticas de coluna única em cada coluna de cada tabela, pode utilizar o exemplo de código do procedimento armazenado `prc_sqldw_create_stats` no [estatísticas](sql-data-warehouse-tables-statistics.md) artigo.
+Se você decidir criar estatísticas de coluna única em cada coluna de cada tabela, poderá usar o exemplo `prc_sqldw_create_stats` de código de procedimento armazenado no artigo [estatísticas](sql-data-warehouse-tables-statistics.md) .
 
-O exemplo seguinte é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna junção das tabelas de fatos. Pode sempre adicionar estatísticas única ou várias colunas de outras colunas da tabela de fatos mais tarde.
+O exemplo a seguir é um bom ponto de partida para a criação de estatísticas. Ele cria estatísticas de coluna única em cada coluna na tabela de dimensões e em cada coluna de junção nas tabelas de fatos. Você sempre pode adicionar estatísticas de coluna única ou de várias colunas a outras colunas da tabela de fatos posteriormente.
 
-## <a name="achievement-unlocked"></a>Medalha desbloqueada!
-Carregou com êxito dados para o Azure SQL Data Warehouse. Parabéns!
+## <a name="achievement-unlocked"></a>Realização desbloqueada!
+Você carregou com êxito os dados no Azure SQL Data Warehouse. Ótimo trabalho!
 
 ## <a name="next-steps"></a>Passos Seguintes 
-Neste tutorial, criou tabelas externas para definir a estrutura dos dados armazenados no Data Lake Storage Gen1 e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados. 
+Neste tutorial, você criou tabelas externas para definir a estrutura de dados armazenados em Data Lake Storage Gen1 e, em seguida, usou a instrução CREATE TABLE do polybase como SELECT para carregar dados em seu data warehouse. 
 
 Fez tudo isto:
 > [!div class="checklist"]
-> * Objetos de base de dados criada necessários para carregar a partir de geração 1 de armazenamento do Data Lake.
-> * Ligado a um diretório de geração 1 de armazenamento do Data Lake.
-> * Dados carregados para o Azure SQL Data Warehouse.
+> * Foram criados objetos de banco de dados necessários para carregar de Data Lake Storage Gen1.
+> * Conectado a um Data Lake Storage Gen1 Directory.
+> * Dados carregados no Azure SQL Data Warehouse.
 > 
 
-O carregamento de dados é a primeira etapa para desenvolver uma solução de armazém de dados com o SQL Data Warehouse. Confira nossos recursos de desenvolvimento.
+Carregar dados é a primeira etapa para desenvolver uma solução de data warehouse usando SQL Data Warehouse. Confira nossos recursos de desenvolvimento.
 
 > [!div class="nextstepaction"]
->[Saiba como desenvolver tabelas no armazém de dados SQL](sql-data-warehouse-tables-overview.md)
+>[Saiba como desenvolver tabelas no SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
 
 
 

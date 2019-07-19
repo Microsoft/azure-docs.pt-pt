@@ -1,76 +1,79 @@
 ---
-title: Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão no Gateway de aplicação do Azure - portal do Azure
-description: Este artigo fornece informações sobre limites de tamanho de pedido de firewall de aplicação web e configuração no Gateway de aplicação com o portal do Azure apresenta uma lista de exclusão.
+title: Limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão no gateway Aplicativo Azure-portal do Azure
+description: Este artigo fornece informações sobre limites de tamanho de solicitação de firewall do aplicativo Web e a configuração de listas de exclusão no gateway de aplicativo com o portal do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 272c6d2de23b1e89caef3f9bee20a96c5c196cde
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: MT
+ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275188"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304308"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão
 
-A firewall de aplicações do Gateway de aplicação Azure web (WAF) fornece proteção para aplicativos web. Este artigo descreve os limites de tamanho do pedido de WAF e configuração de listas de exclusão.
+O WAF (firewall do aplicativo Web) Aplicativo Azure Gateway fornece proteção para aplicativos Web. Este artigo descreve os limites de tamanho de solicitação WAF e a configuração de listas de exclusão.
 
-## <a name="waf-request-size-limits"></a>Limites de tamanho do pedido de WAF
+## <a name="waf-request-size-limits"></a>Limites de tamanho de solicitação do WAF
 
-![Limites de tamanho do pedido](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+![Limites de tamanho da solicitação](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-Firewall de aplicações Web permite-lhe configurar limites de tamanho do pedido dentro inferiores e superiores. As seguintes configurações de limites de dois tamanho estão disponíveis:
+O Firewall do aplicativo Web permite configurar limites de tamanho de solicitação em limites inferiores e superiores. As seguintes configurações de limites de tamanho estão disponíveis:
 
-- O campo de tamanho do corpo de pedido máximo é especificado em quilobytes e controles carrega de limite de tamanho pedido geral, excluindo todos os ficheiros. Este campo pode variar de 1 KB mínimo ao valor máximo de 128 KB. O valor predefinido para o tamanho do corpo de pedido é 128 KB.
-- O campo de limite de carregamento do ficheiro é especificado em MB e rege o tamanho de carregamento de ficheiro máximo permitido. Este campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB para instâncias grandes SKU enquanto médio SKU tem um máximo de 100 MB. O valor predefinido para o limite de carregamento de ficheiro é 100 MB.
+- O campo tamanho máximo do corpo da solicitação é especificado em quilobytes e controla o limite de tamanho de solicitação geral, excluindo todos os carregamentos de arquivo. Esse campo pode variar de um mínimo de 1 KB para o valor máximo de 128 KB. O valor padrão para o tamanho do corpo da solicitação é 128 KB.
+- O campo limite de carregamento de arquivo é especificado em MB e controla o tamanho máximo de upload de arquivo permitido. Esse campo pode ter um valor mínimo de 1 MB e um máximo de 500 MB para instâncias de SKU grande enquanto a SKU média tem um máximo de 100 MB. O valor padrão para o limite de upload de arquivo é 100 MB.
 
-WAF também oferece um botão configurável para ativar ou desativar à inspeção de corpo de pedido. Por predefinição, a inspeção de corpo de pedido é ativada. Se a inspeção de corpo do pedido estiver desativada, o WAF não avalie o conteúdo do corpo de mensagem HTTP. Nesses casos, o WAF continua para impor as regras de WAF em cabeçalhos, cookies e URI. Se a inspeção de corpo do pedido estiver desativada, o campo de tamanho do corpo de pedido máximo não é aplicável e não é possível definir. Desativar a inspeção de corpo de pedido permite que as mensagens maior do que 128 KB sejam enviados para o WAF, mas o corpo da mensagem não é inspecionado relativamente a vulnerabilidades.
+O WAF também oferece um botão configurável para ativar ou desativar a inspeção do corpo da solicitação. Por padrão, a inspeção do corpo da solicitação está habilitada. Se a inspeção do corpo da solicitação for desativada, WAF não avaliará o conteúdo do corpo da mensagem HTTP. Nesses casos, o WAF continua a impor regras de WAF em cabeçalhos, cookies e URI. Se a inspeção do corpo da solicitação estiver desativada, o campo tamanho máximo do corpo da solicitação não será aplicável e não poderá ser definido. A desativação da inspeção do corpo da solicitação permite que as mensagens com mais de 128 KB sejam enviadas para WAF, mas o corpo da mensagem não é inspecionado quanto a vulnerabilidades.
 
-## <a name="waf-exclusion-lists"></a>Listas de exclusão de WAF
+## <a name="waf-exclusion-lists"></a>Listas de exclusão do WAF
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-Listas de exclusão de WAF permitem que omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe. Esses atributos são suscetíveis a conter os carateres especiais que podem disparar um falso positivo das regras WAF. Assim que um atributo é adicionado à lista de exclusão de WAF, não é considerada por qualquer regra de WAF configurada e Active Directory. Listas de exclusão são globais em escopo.
+As listas de exclusão do WAF permitem omitir determinados atributos de solicitação de uma avaliação do WAF. Um exemplo comum é Active Directory tokens inseridos que são usados para campos de autenticação ou senha. Esses atributos são propensos a conter caracteres especiais que podem disparar um falso positivo das regras de WAF. Depois que um atributo é adicionado à lista de exclusão WAF, ele não é considerado por nenhuma regra WAF configurada e ativa. As listas de exclusão são globais no escopo.
 
-Os seguintes atributos podem ser adicionados às listas de exclusão. Os valores do campo escolhido não são avaliados em relação a regras de WAF. A exclusão lista remove inspeção de valor do campo.
+Os atributos a seguir podem ser adicionados às listas de exclusão por nome. Os valores do campo escolhido não são avaliados em relação às regras WAF, mas seus nomes ainda são (Veja o exemplo 1 abaixo, o valor do cabeçalho User-Agent é excluído da avaliação WAF). As listas de exclusão removem a inspeção do valor do campo.
 
-* Cabeçalhos de pedido
-* Pedido de Cookies
-* O nome de atributo de pedido (argumenty) pode ser adicionado como um elemento de exclusão, tais como:
+* Cabeçalhos de solicitação
+* Solicitar cookies
+* O nome do atributo de solicitação (args) pode ser adicionado como um elemento de exclusão, como:
 
    * Nome do campo de formulário
    * Entidade XML
    * Entidade JSON
    * Argumentos de cadeia de caracteres de consulta de URL
 
-Pode especificar um cabeçalho de pedido exato, o corpo, o cookie ou correspondência de atributo de cadeia de consulta.  Ou, opcionalmente, pode especificar correspondências parciais. A exclusão está sempre um campo de cabeçalho, nunca no seu valor. Regras de exclusão são globais em escopo e aplicam-se a todas as páginas e todas as regras.
+Você pode especificar um cabeçalho de solicitação exato, um corpo, um cookie ou uma correspondência de atributo de cadeia de caracteres de consulta.  Ou, opcionalmente, você pode especificar correspondências parciais. As regras de exclusão são globais no escopo e se aplicam a todas as páginas e todas as regras.
 
-Seguem-se os operadores de critérios de correspondência suportados:
+A seguir estão os operadores de critérios de correspondência com suporte:
 
-- **É igual a**:  Este operador é utilizado para uma correspondência exata. Por exemplo, para a seleção de um cabeçalho denominado **bearerToken**, utilize o operador equals com o Seletor de definido como **bearerToken**.
-- **Começa com**: Este operador corresponde a todos os campos que começam com o valor de Seletor especificado.
-- **Termina com**:  Este operador corresponde a todos os campos de solicitação que terminam com o valor de Seletor especificado.
-- **Contém**: Este operador corresponde a todos os campos de solicitação que contêm o valor de Seletor especificado.
-- **Igual a qualquer**: Este operador corresponde a todos os campos de pedido. * será o valor de Seletor.
+- **É igual a**:  Esse operador é usado para uma correspondência exata. Por exemplo, para selecionar um cabeçalho chamado **bearerToken**, use o operador Equals com o seletor definido como **bearerToken**.
+- **Começa com**: Esse operador corresponde a todos os campos que começam com o valor de seletor especificado.
+- **Termina com**:  Esse operador corresponde a todos os campos de solicitação que terminam com o valor de seletor especificado.
+- **Contém**: Esse operador corresponde a todos os campos de solicitação que contêm o valor de seletor especificado.
+- **É igual a qualquer**: Esse operador corresponde a todos os campos de solicitação. * será o valor do seletor.
 
-Em todos os casos, a correspondência é sensível a maiúsculas e expressões regulares não são permitidos como seletores.
+Em todas as ocorrências correspondentes, não diferencia maiúsculas de minúsculas e a expressão regular não são permitidas como seletores.
+
+> [!NOTE]
+> Para obter mais informações e ajuda para solução de problemas, consulte [solução de problemas do WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Exemplos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Os exemplos seguintes demonstram a utilização de exclusões.
+Os exemplos a seguir demonstram o uso de exclusões.
 
 ### <a name="example-1"></a>Exemplo 1
 
-Neste exemplo, pretende excluir o cabeçalho do agente do usuário. O cabeçalho do pedido de agente do usuário contém uma cadeia de caracteres características que permite que os pontos de protocolo de rede identificar o tipo de aplicação, o sistema operativo, o fabricante de software ou a versão do software do agente do utilizador requerente do software. Para obter mais informações, consulte [agente do usuário](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+Neste exemplo, você deseja excluir o cabeçalho do agente do usuário. O cabeçalho de solicitação do agente de usuário contém uma cadeia de caracteres característica que permite que os pares de protocolo de rede identifiquem o tipo de aplicativo, sistema operacional, fornecedor de software ou a versão de software do agente de usuário de software solicitante. Para obter mais informações, consulte [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
 
-Podem existir diversas razões para desativar a avaliar este cabeçalho. Pode haver uma cadeia de caracteres que o WAF vê e de que ele é malicioso. Por exemplo, o ataque clássico de SQL "x = x" numa cadeia de caracteres. Em alguns casos, isso pode ser tráfego legítimo. Por isso, poderá ter de excluir esse cabeçalho da versão de avaliação de WAF.
+Pode haver vários motivos para desabilitar a avaliação desse cabeçalho. Pode haver uma cadeia de caracteres que o WAF vê e supõe que seja mal-intencionado. Por exemplo, o ataque SQL clássico "x = x" em uma cadeia de caracteres. Em alguns casos, isso pode ser um tráfego legítimo. Portanto, talvez seja necessário excluir esse cabeçalho da avaliação do WAF.
 
-O seguinte cmdlet do PowerShell do Azure exclui o cabeçalho do agente do usuário da versão de avaliação:
+O cmdlet a seguir Azure PowerShell exclui o cabeçalho do agente do usuário da avaliação:
 
 ```azurepowershell
 $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -81,9 +84,9 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
 
 ### <a name="example-2"></a>Exemplo 2
 
-Neste exemplo exclui o valor de *utilizador* parâmetro que é passado no pedido via a URL. Por exemplo, que é comum no seu ambiente para o campo de utilizador conter uma cadeia de caracteres que considera a WAF como conteúdo mal-intencionado, então ela é bloqueada-lo.  Pode excluir o parâmetro de utilizador em vez disso, para que o WAF não avaliar nada no campo.
+Este exemplo exclui o valor no parâmetro *User* que é passado na solicitação por meio da URL. Por exemplo, digamos que seja comum em seu ambiente para o campo de usuário conter uma cadeia de caracteres que o WAF exibe como conteúdo mal-intencionado, para que ele o bloqueie.  Você pode excluir o parâmetro de usuário nesse caso para que o WAF não avalie nada no campo.
 
-O seguinte cmdlet do PowerShell do Azure exclui o parâmetro de utilizador da versão de avaliação:
+O cmdlet a seguir Azure PowerShell exclui o parâmetro do usuário da avaliação:
 
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
@@ -91,8 +94,8 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "user"
 ```
-Então, se o URL **http://www.contoso.com/?user=fdafdasfda** é passado para o WAF, ele não avalie a cadeia de caracteres **fdafdasfda**.
+Portanto, se a **http://www.contoso.com/?user=fdafdasfda** URL for passada para o WAF, ela não avaliará a cadeia de caracteres **fdafdasfda**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de configurar as definições de WAF, pode aprender a ver os registos da WAF. Para obter mais informações, consulte [diagnóstico do Gateway de aplicação](application-gateway-diagnostics.md#diagnostic-logging).
+Depois de definir as configurações do WAF, você pode aprender a exibir os logs do WAF. Para obter mais informações, consulte [diagnóstico do gateway de aplicativo](application-gateway-diagnostics.md#diagnostic-logging).
