@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga público com o IPv6 com a CLI do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
-ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516687"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274962"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Criar um balanceador de carga público com o IPv6 com a CLI do Azure
 
@@ -46,11 +46,11 @@ Os passos seguintes mostram como criar um balanceador de carga público com CLI 
 
 Para implementar um balanceador de carga, crie e configure os seguintes objetos:
 
-* **Configuração de IP Front-end**: Contém os endereços IP públicos para tráfego de rede recebido.
-* **Conjunto de endereços de back-end**: Contém interfaces de rede (NICs) para as máquinas virtuais receber o tráfego de rede do Balanceador de carga.
-* **Regras de balanceamento de carga**: Contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no conjunto de endereços de back-end.
-* **Regras NAT de entrada**: Contém regras de tradução (NAT) de endereços de rede que mapeiam uma porta pública no balanceador de carga para uma porta de uma máquina virtual específica no conjunto de endereços de back-end.
-* **Sondas**: Contém sondas de estado de funcionamento que são utilizadas para verificar a disponibilidade de instâncias de máquina virtual no conjunto de endereços de back-end.
+* **Configuração de IP de front-end**: Contém endereços IP públicos para o tráfego de rede de entrada.
+* **Pool de endereços de back-end**: Contém NICs (interfaces de rede) para que as máquinas virtuais recebam o tráfego de rede do balanceador de carga.
+* **Regras de balanceamento de carga**: Contém regras que mapeiam uma porta pública no balanceador de carga para uma porta no pool de endereços de back-end.
+* **Regras de NAT de entrada**: Contém regras de conversão de endereços de rede (NAT) que mapeiam uma porta pública no balanceador de carga para uma porta para uma máquina virtual específica no pool de endereços de back-end.
+* **Investigações**: Contém investigações de integridade que são usadas para verificar a disponibilidade de instâncias de máquina virtual no pool de endereços de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configurar a CLI do Azure
 

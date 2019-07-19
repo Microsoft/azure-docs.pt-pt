@@ -1,6 +1,6 @@
 ---
-title: O Azure Service Bus perguntas mais frequentes (FAQ) | Documentos da Microsoft
-description: Responde a algumas perguntas mais frequentes sobre o Azure Service Bus.
+title: Perguntas frequentes (FAQ) sobre o barramento de serviço do Azure | Microsoft Docs
+description: Responde a algumas perguntas frequentes sobre o barramento de serviço do Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,145 +9,145 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 26609e7b21af8804a4b43039c84c04597035721c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706216"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278346"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
-Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Service Bus. Também pode visitar o [FAQs do suporte do Azure](https://azure.microsoft.com/support/faq/) para gerais informações de preços e de suporte do Azure.
+Este artigo aborda algumas perguntas frequentes sobre Barramento de Serviço do Microsoft Azure. Você também pode visitar as [perguntas frequentes](https://azure.microsoft.com/support/faq/) sobre o suporte do Azure para obter informações gerais sobre preços e suporte do Azure.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Azure Service Bus
+## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o barramento de serviço do Azure
 ### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
-[O Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de cloud de mensagens assíncronas que lhe permite enviar dados entre sistemas desacoplados. A Microsoft oferece esse recurso como um serviço, o que significa que não é necessário alojar o seu próprio hardware usá-lo.
+O [barramento de serviço do Azure](service-bus-messaging-overview.md) é uma plataforma de nuvem de mensagens assíncronas que permite que você envie dados entre sistemas separados. A Microsoft oferece esse recurso como um serviço, o que significa que você não precisa hospedar seu próprio hardware para usá-lo.
 
-### <a name="what-is-a-service-bus-namespace"></a>O que é um espaço de nomes do Service Bus?
-R [espaço de nomes](service-bus-create-namespace-portal.md) fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação. Criar um espaço de nomes, é necessário utilizar o Service Bus e é uma das primeiras etapas na introdução.
+### <a name="what-is-a-service-bus-namespace"></a>O que é um namespace do barramento de serviço?
+Um [namespace](service-bus-create-namespace-portal.md) fornece um contêiner de escopo para endereçar recursos do barramento de serviço dentro de seu aplicativo. A criação de um namespace é necessária para usar o barramento de serviço e é uma das primeiras etapas na introdução.
 
-### <a name="what-is-an-azure-service-bus-queue"></a>O que é uma fila do Service bus do Azure?
-R [fila do Service Bus](service-bus-queues-topics-subscriptions.md) é uma entidade na qual as mensagens são armazenadas. As filas são úteis quando tiver várias aplicações ou várias partes de uma aplicação distribuída que precisam de comunicar entre si. A fila é semelhante a um centro de distribuição em que vários produtos (mensagens) sejam recebidos e enviados, em seguida, a partir dessa localização.
+### <a name="what-is-an-azure-service-bus-queue"></a>O que é uma fila do barramento de serviço do Azure?
+Uma [fila do barramento de serviço](service-bus-queues-topics-subscriptions.md) é uma entidade na qual as mensagens são armazenadas. As filas são úteis quando você tem vários aplicativos ou várias partes de um aplicativo distribuído que precisam se comunicar entre si. A fila é semelhante a um centro de distribuição no sentido de que vários produtos (mensagens) são recebidos e enviados desse local.
 
-### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>Quais são os tópicos de Service bus do Azure e as subscrições?
-Um tópico pode ser visualizado como uma fila e ao utilizar várias subscrições, torna-se um modelo de mensagens mais avançado; essencialmente, uma ferramenta de comunicação de um-para-muitos. Esse modelo de publicação/subscrição (ou *pub/sub*) permite que uma aplicação que envia uma mensagem para um tópico com várias subscrições ter essa mensagem recebida por vários aplicativos.
+### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>O que são os tópicos e as assinaturas do barramento de serviço do Azure?
+Um tópico pode ser visualizado como uma fila e, ao usar várias assinaturas, torna-se um modelo de mensagens mais avançado; essencialmente, uma ferramenta de comunicação um-para-muitos. Esse modelo de publicação/assinatura (ou *pub/sub*) permite que um aplicativo que envia uma mensagem a um tópico com várias assinaturas tenha essa mensagem recebida por vários aplicativos.
 
-### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade com partições?
-Uma fila convencional ou um tópico é manipulado por um mediador de mensagem única e armazenado num arquivo de mensagens. Suportado apenas nas Basic e Standard mensagens camadas, uma [particionada fila ou tópico](service-bus-partitioning.md) é manipulado por vários mediadores de mensagens e armazenados em vários arquivos de mensagens. Esta funcionalidade significa que o débito total de uma fila particionada ou um tópico já não está limitado pelo desempenho de um mediador de mensagem única ou arquivo de mensagens. Além disso, uma indisponibilidade temporária de um arquivo de mensagens não processa uma particionada fila ou tópico indisponível.
+### <a name="what-is-a-partitioned-entity"></a>O que é uma entidade particionada?
+Uma fila ou um tópico convencional é tratado por um único agente de mensagem e armazenado em um repositório de mensagens. Com suporte apenas nas camadas de sistema de mensagens básica e Standard, uma [fila ou um tópico particionado](service-bus-partitioning.md) é manipulado por vários agentes de mensagens e armazenados em vários repositórios de mensagens. Esse recurso significa que a taxa de transferência geral de uma fila ou tópico particionado não é mais limitada pelo desempenho de um único agente de mensagens ou repositório de mensagens. Além disso, uma interrupção temporária de um repositório de mensagens não processa uma fila ou tópico particionado não está disponível.
 
-Não é garantida a ordenação quando utilizar entidades particionadas. No caso de uma partição não estiver disponível, ainda pode enviar e receber mensagens de outras partições.
+A ordenação não é garantida ao usar entidades particionadas. Caso uma partição não esteja disponível, você ainda poderá enviar e receber mensagens de outras partições.
 
- Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+ Não há mais suporte para entidades particionadas no [SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso abrir na firewall? 
-Pode utilizar os seguintes protocolos com o Azure Service Bus para enviar e receber mensagens:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
+Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
-- Avançadas Message Queuing Protocol (AMQP)
-- (SBMP) do protocolo de mensagens do Service Bus
+- Advanced Message Queuing Protocol (AMQP)
+- Protocolo de mensagens do barramento de serviço (SBMP)
 - HTTP
 
-Veja a seguinte tabela para as portas de saída que é necessário abrir para utilizar estes protocolos para comunicar com os Hubs de eventos do Azure. 
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
 | Protocol | Portas | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP é necessário à lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões para as suas ligações, siga estes passos:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
-1. Execute o seguinte comando numa linha de comandos: 
+1. Execute o seguinte comando em um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP devolvido na `Non-authoritative answer`. Este endereço IP é estático. O único ponto no tempo que ele seria alterado é se restaurar o espaço de nomes para um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
 
-Se utilizar a redundância de zona para o espaço de nomes, precisa fazer algumas etapas adicionais: 
+Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
-1. Em primeiro lugar, execute nslookup no espaço de nomes.
+1. Primeiro, execute nslookup no namespace.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na **resposta não autoritativa** seção, que se encontra dos seguintes formatos: 
+2. Anote o nome na seção de **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todos os três instâncias em execução em três zonas de disponibilidade, 
+3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 
 ## <a name="best-practices"></a>Melhores práticas
-### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas práticas recomendadas do Azure Service Bus?
-Ver [melhores práticas para melhoramentos do desempenho através do Service Bus][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho quando troca de mensagens.
+### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do barramento de serviço do Azure?
+Consulte [práticas recomendadas para melhorias de desempenho usando o barramento de serviço][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho ao trocar mensagens.
 
-### <a name="what-should-i-know-before-creating-entities"></a>O que deve saber antes de criar entidades?
-As seguintes propriedades de uma fila e tópico são imutáveis. Considere esta limitação quando Aprovisiona suas entidades, como estas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
+### <a name="what-should-i-know-before-creating-entities"></a>O que devo saber antes de criar entidades?
+As propriedades a seguir de uma fila e um tópico são imutáveis. Considere essa limitação ao provisionar suas entidades, pois essas propriedades não podem ser modificadas sem a criação de uma nova entidade de substituição.
 
 * Criação de partições
 * Sessões
 * Deteção de duplicados
-* Express entidade
+* Entidade expressa
 
 ## <a name="pricing"></a>Preços
-Esta secção responde a algumas perguntas mais frequentes sobre a estrutura de preços do Service Bus.
+Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços do barramento de serviço.
 
-O [do Service Bus preços e faturação](https://azure.microsoft.com/pricing/details/service-bus/) artigo explica os medidores de faturação no Service Bus. Para obter informações específicas sobre as opções de preços do Service Bus, consulte [os detalhes dos preços do Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+O artigo [preços e cobrança do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/) explica os medidores de cobrança no barramento de serviço. Para obter informações específicas sobre as opções de preços do barramento de serviço, consulte [detalhes de preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Também pode visitar o [FAQ do suporte do Azure](https://azure.microsoft.com/support/faq/) para o Azure geral informações sobre preços. 
+Você também pode visitar as [perguntas frequentes](https://azure.microsoft.com/support/faq/) sobre o suporte do Azure para obter informações gerais sobre preços do Azure. 
 
-### <a name="how-do-you-charge-for-service-bus"></a>Como é cobrado do Service Bus?
-Para obter informações completas sobre os preços do Service Bus, consulte [os detalhes dos preços do Service Bus][Pricing overview]. Além dos preços indicados, é cobrado associados às transferências de dados de saída fora do Centro de dados na qual seu aplicativo é aprovisionado.
+### <a name="how-do-you-charge-for-service-bus"></a>Como você cobra pelo barramento de serviço?
+Para obter informações completas sobre os preços do barramento de serviço, consulte [detalhes de preços do barramento de serviço][Pricing overview]. Além dos preços indicados, você será cobrado pelas transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>O uso do Service Bus está sujeito a transferência de dados? O que não é?
-Qualquer transferência de dados dentro de uma determinada região do Azure é fornecida sem custos, assim como qualquer transferência de dados de entrada. Transferência de dados fora de uma região está sujeito a custos de saída, que podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/bandwidth/).
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>Qual o uso do barramento de serviço está sujeito à transferência de dados? O que não é?
+Qualquer transferência de dados dentro de uma determinada região do Azure é fornecida gratuitamente, bem como qualquer transferência de dados de entrada. A transferência de dados fora de uma região está sujeita a encargos de saída, que podem ser encontrados [aqui](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-### <a name="does-service-bus-charge-for-storage"></a>Do Service Bus cobra armazenamento?
-Não, o Service Bus não cobra para armazenamento. No entanto, existe uma quota de limitar a quantidade máxima de dados que podem ser mantidos por fila/tópico. Consulte as FAQ seguintes.
+### <a name="does-service-bus-charge-for-storage"></a>O barramento de serviço cobra pelo armazenamento?
+Não, o barramento de serviço não cobra pelo armazenamento. No entanto, há uma cota que limita a quantidade máxima de dados que podem persistir por fila/tópico. Consulte as próximas perguntas frequentes.
 
 ## <a name="quotas"></a>Quotas
 
-Para obter uma lista de quotas e limites do Service Bus, consulte a [descrição geral de quotas do Service Bus][Quotas overview].
+Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral][Quotas overview]das cotas do barramento de serviço.
 
-### <a name="does-service-bus-have-any-usage-quotas"></a>O Service Bus tem quaisquer quotas de utilização?
-Por predefinição, para qualquer cloud service Microsoft define uma quota de utilização mensal agregado que é calculada em todas as subscrições de um cliente. Se precisar de mais do que estes limites, pode contactar o suporte ao cliente em qualquer altura para avaliar as suas necessidades e ajustar estes limites em conformidade. Para o Service Bus, a quota de utilização de agregação é de 5 mil milhões de mensagens por mês.
+### <a name="does-service-bus-have-any-usage-quotas"></a>O barramento de serviço tem cotas de uso?
+Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregada que é calculada em todas as assinaturas de um cliente. Se precisar de mais do que esses limites, você poderá entrar em contato com o atendimento ao cliente a qualquer momento para entender suas necessidades e ajustar esses limites adequadamente. Para o barramento de serviço, a cota de uso agregado é 5.000.000.000 mensagens por mês.
 
-Embora a Microsoft se reserva o direito de desativar uma conta de cliente que foi excedido o respetivas quotas de utilização num determinado mês, as notificações de email são enviadas e várias tentativas são feitas em contato com um cliente antes de efetuar qualquer ação. Os clientes que exceda destas quotas são ainda responsáveis pelos custos que excederem as quotas.
+Enquanto a Microsoft se reserva o direito de desabilitar uma conta de cliente que excedeu suas cotas de uso em um determinado mês, as notificações por email são enviadas e várias tentativas são feitas para entrar em contato com um cliente antes de realizar qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis pelos encargos que excederem as cotas.
 
-Tal como acontece com outros serviços no Azure, do Service Bus impõe um conjunto de quotas específicos para garantir que existe uma utilização razoável de recursos. Pode encontrar mais detalhes sobre estas quotas no [descrição geral de quotas do Service Bus][Quotas overview].
+Assim como ocorre com outros serviços no Azure, o barramento de serviço impõe um conjunto de cotas específicas para garantir que haja um uso justo de recursos. Você pode encontrar mais detalhes sobre essas cotas na [visão geral cotas do barramento de serviço][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens de tamanho > 1 MB?
-Serviços de mensagens do Service Bus (filas e tópicos/subscrições) permitem que a aplicação para enviar mensagens de tamanho de até 256 KB (escalão standard) ou 1 MB (o escalão premium). Se estiver lidando com mensagens de tamanho superior a 1 MB, usar o padrão de verificação de afirmação descrito em [nesta mensagem de blogue](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+Os serviços de mensagens do barramento de serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens de tamanho até 256 KB (camada Standard) ou 1 MB (camada Premium). Se você estiver lidando com mensagens de tamanho maior que 1 MB, use o padrão de verificação de declaração descrito nesta postagem no [blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que motivo não consigo criar um espaço de nomes depois excluí-lo a partir de outra subscrição? 
-Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro horas antes de recriá-lo com o mesmo nome noutra subscrição. Caso contrário, poderá receber a seguinte mensagem de erro: `Namespace already exists`. 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não consigo criar um namespace depois de excluí-lo de outra assinatura? 
+Quando você exclui um namespace de uma assinatura, aguarde 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, você pode receber a seguinte mensagem de `Namespace already exists`erro:. 
 
-### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelo APIs de barramento de serviço do Azure e respetivas ações sugeridas?
-Para obter uma lista de possíveis exceções do Service Bus, consulte [descrição geral de exceções][Exceptions overview].
+### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do barramento de serviço do Azure e suas ações sugeridas?
+Para obter uma lista de possíveis exceções do barramento de serviço, consulte [visão geral de exceções][Exceptions overview].
 
-### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma assinatura de acesso partilhado e que idiomas suportam gerar uma assinatura?
-Assinaturas de acesso partilhado são um mecanismo de autenticação com base nos hashes de seguros de SHA-256 ou URIs. Para obter informações sobre como gerar seus próprios assinaturas no node. js, PHP, Java e C\#, consulte a [assinaturas de acesso partilhado][Shared Access Signatures] artigo.
+### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas dão suporte à geração de uma assinatura?
+As assinaturas de acesso compartilhado são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Java, Python e C#, consulte o artigo [assinaturas de acesso compartilhado][Shared Access Signatures] .
 
-## <a name="subscription-and-namespace-management"></a>Gestão de subscrição e o espaço de nomes
-### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um espaço de nomes para outra subscrição do Azure?
+## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinatura e namespace
+### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como fazer migrar um namespace para outra assinatura do Azure?
 
-Pode mover um espaço de nomes de uma subscrição do Azure para outra, através da [portal do Azure](https://portal.azure.com) ou comandos do PowerShell. Para executar a operação, o espaço de nomes já deve estar ativo. Utilizador que executa os comandos tem de ser um administrador em subscrições de origem e de destino.
+Você pode mover um namespace de uma assinatura do Azure para outra, usando os comandos [portal do Azure](https://portal.azure.com) ou PowerShell. Para executar a operação, o namespace já deve estar ativo. O usuário que executa os comandos deve ser um administrador nas assinaturas de origem e de destino.
 
 #### <a name="portal"></a>Portal
 
-Para utilizar o portal do Azure para migrar os espaços de nomes do Service Bus para outra subscrição, siga as indicações [aqui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Para usar o portal do Azure para migrar namespaces do barramento de serviço para outra assinatura, siga as instruções [aqui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
-A seguinte sequência de comandos do PowerShell move um espaço de nomes de uma subscrição do Azure para outra. Para executar esta operação, o espaço de nomes já deve estar ativo e o utilizador que executa os comandos do PowerShell tem de ser um administrador em subscrições de origem e de destino.
+A sequência de comandos do PowerShell a seguir move um namespace de uma assinatura do Azure para outra. Para executar essa operação, o namespace já deve estar ativo e o usuário que está executando os comandos do PowerShell deve ser um administrador nas assinaturas de origem e de destino.
 
 ```powershell
 # Create a new resource group in target subscription
@@ -161,11 +161,11 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o Service Bus, consulte os artigos seguintes:
+Para saber mais sobre o barramento de serviço, confira os seguintes artigos:
 
-* [Introdução ao Azure Service Bus Premium (mensagem de blogue)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introdução ao Azure Premium do Service Bus) (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Descrição geral do Service Bus](service-bus-messaging-overview.md)
+* [Apresentando o barramento de serviço Premium do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Apresentando o channel9 (barramento de serviço Premium) do Azure](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+* [Visão geral do barramento de serviço](service-bus-messaging-overview.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: service-bus-performance-improvements.md

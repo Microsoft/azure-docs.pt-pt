@@ -1,7 +1,7 @@
 ---
-title: Exemplo do script da CLI do Azure - configurar IPv6 os pontos finais de rede virtual (pré-visualização)
+title: CLI do Azure amostra de script – configurar pontos de extremidade de rede virtual IPv6 (versão prévia)
 titlesuffix: Azure Virtual Network
-description: Ativar pontos finais IPv6 com a CLI do Azure numa rede Virtual do Azure
+description: Habilitar pontos de extremidade IPv6 usando o CLI do Azure na rede virtual do Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -12,33 +12,35 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: a1c8f151a4c6459064d92ff2efb44fa8b74f8fc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "63761458"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248889"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos finais IPv6 no exemplo de script de rede virtual (pré-visualização)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Configurar pontos de extremidade IPv6 na amostra de script de rede virtual (versão prévia)
 
-Este artigo mostra-lhe como implementar uma aplicação de pilha dupla (IPv4 + IPv6) no Azure, que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um balanceador de carga com configurações de front-end dupla (IPv4 + IPv6), as VMs com NICs que têm uma configuração de IP dupla, regras do grupo de segurança de rede duplos e IPs públicos duplo.
+Este artigo mostra como implantar um aplicativo de pilha dupla (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com uma sub-rede de pilha dupla, um balanceador de carga com configurações de front-end dual (IPv4 + IPv6), VMs com NICs que têm uma configuração de IP dupla, regras de grupo de segurança de rede duplas e IPs públicos duplos.
 
 Pode executar o script a partir do [Azure Cloud Shell](https://shell.azure.com/bash) ou a partir de uma instalação local da CLI do Azure. Se utilizar a CLI localmente, este script requer que esteja a executar a versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar localmente a CLI, também terá de executar o `az login` para criar uma ligação com o Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para utilizar o IPv6 para recursos de rede virtual do Azure, tem de configurar apenas uma vez a sua subscrição da seguinte forma:
+Para usar o recurso IPv6 para rede virtual do Azure, você deve configurar sua assinatura somente uma vez da seguinte maneira:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-Demora até 30 minutos para o registo de funcionalidade concluir. Pode verificar o estado de registo ao executar o seguinte comando da CLI do Azure:
+Demora até 30 minutos para que o registro do recurso seja concluído. Você pode verificar o status do Registro executando o seguinte comando de CLI do Azure:
 
 ```azurelci
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
+az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-Após o registo estiver concluído, execute o seguinte comando:
+Após a conclusão do registro, execute o seguinte comando:
 
 ```azurelci
 az provider register --namespace Microsoft.Network

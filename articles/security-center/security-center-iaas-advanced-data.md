@@ -1,6 +1,6 @@
 ---
-title: Segurança de dados de avançada para IaaS no Centro de segurança do Azure | Documentos da Microsoft
-description: " Saiba como ativar a segurança de dados avançados para IaaS no Centro de segurança do Azure. "
+title: Segurança de dados avançada para IaaS na central de segurança do Azure | Microsoft Docs
+description: " Saiba como habilitar a segurança de dados avançada para IaaS na central de segurança do Azure. "
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,156 +13,156 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: monhaber
-ms.openlocfilehash: ed94b92a34e2989c9f2226c344ac4d34a279eeac
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.author: v-mohabe
+ms.openlocfilehash: 0b83575baa2221f0b502abbf919654492c7ab6cf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551846"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295762"
 ---
-# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Segurança de dados avançados para servidores do SQL Server em máquinas virtuais do Azure (pré-visualização pública)
-Segurança de dados avançados para servidores do SQL Server em máquinas de virtuais do Azure é um pacote unificado para funções de segurança avançadas do SQL. Ele atualmente (em pré-visualização pública) inclui uma funcionalidade para analisar e mitigar potenciais vulnerabilidades de base de dados e detetar atividades anómalas que poderá indicar uma ameaça à sua base de dados. 
+# <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-public-preview"></a>Segurança de dados avançada para servidores SQL em máquinas virtuais do Azure (visualização pública)
+A segurança de dados avançada para servidores SQL em máquinas virtuais do Azure é um pacote unificado para recursos avançados de segurança do SQL. Atualmente, ele (em visualização pública) inclui a funcionalidade de identificando e a redução de vulnerabilidades de banco de dados potenciais e a detecção de atividades anormais que podem indicar uma ameaça ao seu banco de dados. 
 
-Este recurso para servidores SQL de VMs do Azure de segurança baseia-se com a mesma tecnologia fundamental utilizada na [pacote de segurança de dados avançada do Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
+Esta oferta de segurança para SQL Servers de VMs do Azure baseia-se na mesma tecnologia fundamental usada no [pacote de segurança de dados avançado do banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
 ## <a name="overview"></a>Descrição geral
 
-Segurança de dados avançada fornece um conjunto de capacidades avançadas de segurança SQL, que consiste de avaliação de vulnerabilidade e proteção avançada contra ameaças.
+A segurança avançada de dados fornece um conjunto de recursos avançados de segurança do SQL, que consistem em avaliação de vulnerabilidades e proteção avançada contra ameaças.
 
-* [Avaliação de vulnerabilidade](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) é fácil de configurar o serviço que pode detetar, controlar e ajudá-lo a remediar potenciais vulnerabilidades das bases de dados. Ele fornece visibilidade sobre o estado da segurança e inclui os passos para resolver problemas de segurança e melhorar seu fortifications de base de dados.
-* [Proteção avançada contra ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração do SQL server. Continuamente monitoriza a sua base de dados para atividades suspeitas e fornece alertas de segurança orientadas por ações nos padrões de acesso de base de dados anómalas. Estes alertas indique os detalhes de atividade suspeita e as ações recomendadas para investigar e mitigar a ameaça.
+* A [avaliação](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) de vulnerabilidades é um serviço fácil de configurar que pode descobrir, acompanhar e ajudá-lo a corrigir possíveis vulnerabilidades no banco de dados. Ele fornece visibilidade sobre seu estado de segurança e inclui as etapas para resolver problemas de segurança e aprimorar seu banco de dados fortifications.
+* A [proteção avançada contra ameaças](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar o SQL Server. Ele monitora continuamente seu banco de dados em busca de atividades suspeitas e fornece alertas de segurança orientados a ações em padrões de acesso de banco de dados anormais. Esses alertas fornecem os detalhes da atividade suspeita e as ações recomendadas para investigar e atenuar a ameaça.
 
-## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Comece com segurança avançada de dados SQL em VMs do Azure
+## <a name="get-started-with-advanced-data-security-for-sql-on-azure-vms"></a>Introdução à segurança de dados avançada para SQL em VMs do Azure
 
-Os seguintes passos ajudá-lo com segurança avançada de dados para SQL em pré-visualização pública de VMs do Azure.
+As etapas a seguir o ajudarão a começar a usar a segurança de dados avançada para SQL na visualização pública de VMs do Azure.
 
-### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurar a segurança avançada de dados para SQL em VMs do Azure
+### <a name="set-up-advanced-data-security-for-sql-on-azure-vms"></a>Configurar a segurança de dados avançada para SQL em VMs do Azure
 
-**Antes de começar**: Precisa de uma área de trabalho do Log Analytics para armazenar os registos de segurança a ser analisados. Se não tiver um, então, pode criá-lo facilmente, conforme explicado [criar uma área de trabalho do Log Analytics no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+**Antes de começar**: Você precisa de um espaço de trabalho Log Analytics para armazenar os logs de segurança que estão sendo analisados. Se você não tiver um, poderá criar um facilmente, conforme explicado em [criar um log Analytics espaço de trabalho no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-1. Ligue-se a VM que aloja o SQL server para a área de trabalho do Log Analytics. Para obter instruções, consulte [computadores Windows ligar para o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+1. Conecte a VM que hospeda o SQL Server ao espaço de trabalho Log Analytics. Para obter instruções, consulte [conectar computadores Windows ao Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
-1. Do Azure Marketplace, vá para o [solução de segurança de dados avançada SQL](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
-(Pode encontrá-lo usando a opção de pesquisa de mercado, como ver na imagem seguinte.) O **segurança de dados avançada SQL** é aberta a página.
+1. No Azure Marketplace, vá para a [solução de segurança de dados do SQL Advanced](https://ms.portal.azure.com/#create/Microsoft.SQLAdvancedDataSecurity).
+(Você pode encontrá-lo usando a opção de pesquisa do Marketplace, como Veja na imagem a seguir.) A página **SQL Advanced Data Security** é aberta.
 
-    ![Segurança de dados avançados para IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
+    ![Segurança de dados avançada para IaaS](./media/security-center-advanced-iaas-data/sql-advanced-data-security.png)
 
-1. Clique em **Criar**. As áreas de trabalho são apresentadas.
+1. Clique em **Criar**. Os locais de trabalho são exibidos.
 
-    ![Criar segurança de dados avançada](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
+    ![Criação de segurança de dados avançada](./media/security-center-advanced-iaas-data/sql-advanced-data-create.png)
 
-1. Selecione a área de trabalho para utilizar e clique em **criar**.
+1. Selecione o espaço de trabalho a ser usado e clique em **criar**.
 
    ![Selecionar área de trabalho](./media/security-center-advanced-iaas-data/sql-workspace.png)
 
-1. Reinicie o [servidor SQL da VM](https://docs.microsoft.com/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
+1. Reinicie o [SQL Server da VM](https://docs.microsoft.com/sql/database-engine/configure-windows/start-stop-pause-resume-restart-sql-server-services?view=sql-server-2017).
 
 
-## <a name="explore-and-investigate-security-alerts"></a>Explore e investigar alertas de segurança
+## <a name="explore-and-investigate-security-alerts"></a>Explorar e investigar alertas de segurança
 
-Pode ver e gerir os alertas de segurança atual.
+Você pode exibir e gerenciar seus alertas de segurança atuais.
 
-1. Clique em **Centro de segurança** > **alertas de segurança**e clique num alerta.
+1. Clique em**alertas de segurança**da **central** > de segurança e clique em um alerta.
 
-    ![Encontrar alerta](./media/security-center-advanced-iaas-data/find-alert.png)
+    ![Localizar alerta](./media/security-center-advanced-iaas-data/find-alert.png)
 
-1. Partir do **recurso atacado** coluna, clique num recurso que tenha sido atacado.
+1. Na coluna **recurso atacado** , clique em um recurso que foi atacado.
 
-1. Para ver detalhes do alerta e ações para investigar a ameaça atual e abordar ameaças futuras, desloque para baixo a **informações gerais** página e, no **passos de remediação** secção, clique nas  **PASSOS de investigação** ligação.
+1. Para exibir detalhes e ações de alerta para investigar a ameaça atual e tratar futuras ameaças, role para baixo na página **informações gerais** e, na seção **etapas de correção** , clique no link **etapas de investigação** .
 
-    ![Passos de remediação](./media/security-center-advanced-iaas-data/remediation-steps.png)
+    ![Etapas de correção](./media/security-center-advanced-iaas-data/remediation-steps.png)
 
-1. Para ver os registos que estão associados com o acionamento do alerta, aceda a **áreas de trabalho de análise de registo** e siga os passos abaixo:
+1. Para exibir os logs associados ao disparo do alerta, vá para **espaços de trabalho do log Analytics** e execute as seguintes etapas:
 
      > [!NOTE]
-     > Se **áreas de trabalho de análise de registo** não aparecer no menu à esquerda, clique em **todos os serviços**e procure **áreas de trabalho de análise de registo**.
+     > Se os **espaços de trabalho do log Analytics** não aparecerem no menu à esquerda, clique em **todos os serviços**e pesquise os **espaços de trabalho do log Analytics**.
 
-    1. Certifique-se de que as colunas são apresentados os **escalão de preço** e **WorkspaceID** colunas. (**Áreas de trabalho de análise de registo** > **editar colunas**, adicionar **escalão de preço** e **WorkspaceID**.)
+    1. Verifique se as colunas estão exibindo o **tipo de preço** e as colunas **workspaceid** . (Os**espaços de trabalho** > do log Analytics editam**colunas**, adicionam **tipo de preço** e **workspaceid**.)
 
      ![Editar colunas](./media/security-center-advanced-iaas-data/edit-columns.png)
 
-    1. Clique na área de trabalho que tem os registos de alerta.
+    1. Clique no espaço de trabalho que tem os logs de alerta.
 
-    1. Sob o **gerais** menu, clique em **registos**
+    1. No menu **geral** , clique em **logs**
 
-    1. Clique junto aos olhos **SQLAdvancedThreatProtection** tabela. Os registos são listados.
+    1. Clique nos olhos ao lado da tabela **SQLAdvancedThreatProtection** . Os logs são listados.
 
-     ![Ver registos](./media/security-center-advanced-iaas-data/view-logs.png)
+     ![Exibir logs](./media/security-center-advanced-iaas-data/view-logs.png)
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>Configurar notificações por E-Mail para alertas do ATP 
+## <a name="set-up-email-notification-for-atp-alerts"></a>Configurar notificação por email para alertas ATP 
 
-Pode definir uma lista de destinatários para receber uma notificação por e-mail quando são gerados alertas ASC. O e-mail contém uma ligação direta para o alerta no Centro de segurança do Azure com todos os detalhes relevantes. 
+Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas de ASC são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. 
 
-1. Aceda a **Centro de segurança** > **preços & definições** e clique na subscrição relevante
+1. Vá para a **central** > de segurança**preços & configurações** e clique na assinatura relevante
 
-    ![Definições de subscrição](./media/security-center-advanced-iaas-data/subscription-settings.png)
+    ![Configurações de assinatura](./media/security-center-advanced-iaas-data/subscription-settings.png)
 
-1. Do **configurações** menu clique **notificações por E-Mail**. 
-1. Na **endereço de E-Mail** texto, introduza os endereços de e-mail para receber as notificações. Pode introduzir mais do que um endereço de correio eletrónico, separando os endereços de e-mail com uma vírgula (,).  Por exemplo admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com
+1. No menu **configurações** , clique em **notificações de email**. 
+1. Na caixa de texto **endereço de email** , insira os endereços de email para receber as notificações. Você pode inserir mais de um endereço de email separando os endereços de email com uma vírgula (,).  Por exemplo admin1@mycompany.com,admin2@mycompany.comadmin3@mycompany.com
 
       ![Definições de E-mail](./media/security-center-advanced-iaas-data/email-settings.png)
 
-1. Na **notificação por E-Mail** definições, definir as seguintes opções:
+1. Nas configurações de **notificação de email** , defina as seguintes opções:
   
-    * **Enviar notificação por e-mail para alertas de gravidade elevada**: Em vez de enviar e-mails para todos os alertas, envie apenas para alertas de gravidade elevada.
-    * **Também enviar notificações por e-mail para proprietários de subscrições**:  Envie notificações para os proprietários de subscrições demasiado.
+    * **Enviar notificação por email para alertas de alta gravidade**: Em vez de enviar emails para todos os alertas, envie somente para alertas de alta gravidade.
+    * **Também enviar notificações por email aos proprietários da assinatura**:  Envie notificações também para os proprietários de assinaturas.
 
-1. Na parte superior dos **notificações por E-Mail** ecrã, clique em **guardar**.
+1. Na parte superior da tela de **notificações de email** , clique em **salvar**.
 
   > [!NOTE]
-  > Certifique-se de que clique em **salvar** antes de fechar a janela ou no novo **notificação por E-Mail** definições não serão guardadas.
+  > Certifique-se de clicar em **salvar** antes de fechar a janela, ou as novas configurações de **notificação de email** não serão salvas.
 
-## <a name="explore-vulnerability-assessment-reports"></a>Explore os relatórios de avaliação de vulnerabilidade
+## <a name="explore-vulnerability-assessment-reports"></a>Explorar relatórios de avaliação de vulnerabilidade
 
-O dashboard de avaliação de vulnerabilidade fornece uma visão geral dos seus resultados de avaliação em todas as suas bases de dados. Pode ver a distribuição de bases de dados de acordo com a versão do SQL Server, juntamente com um resumo de falha versus passando bases de dados e um resumo geral de verificações de acordo com a distribuição do risco de falha.
+O painel de avaliação de vulnerabilidade fornece uma visão geral dos resultados da avaliação em todos os seus bancos de dados. Você pode exibir a distribuição de bancos de dados de acordo com a versão SQL Server, juntamente com um resumo de falhas em vez de passar bancos de dados e um resumo geral das verificações com falha de acordo com a distribuição de risco.
 
-Pode ver os resultados da avaliação de vulnerabilidade e os relatórios diretamente a partir do Log Analytics.
+Você pode exibir os resultados e relatórios da avaliação de vulnerabilidade diretamente do Log Analytics.
 
-1. Navegue até à sua área de trabalho do Log Analytics com a solução de segurança de dados avançada.
-1. Navegue para **soluções** e selecione o **avaliação de vulnerabilidades do SQL** solução.
-1. Na **resumo** painel, clique em **Ver resumo** e selecione seu **relatório de avaliação de vulnerabilidade de SQL**.
+1. Navegue até seu espaço de trabalho do Log Analytics com a solução de segurança de dados avançada.
+1. Navegue até **soluções** e selecione a solução de **avaliação de vulnerabilidade do SQL** .
+1. No painel **Resumo** , clique em **Exibir Resumo** e selecione o **relatório de avaliação de vulnerabilidade do SQL**.
 
-    ![Relatório de avaliação do SQL](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+    ![Relatório de Avaliação do SQL](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
 
-    Carrega o dashboard de relatório. Certifique-se a janela de tempo é definida para, pelo menos, o **últimos 7 dias** , uma vez que as verificações de avaliação de vulnerabilidade são executadas nas suas bases de dados com base numa agenda fixa de uma vez por 7 dias.
+    O painel de relatório é carregado. Verifique se a janela de tempo está definida para pelo menos **7 dias** desde que as verificações de avaliação de vulnerabilidade sejam executadas em seus bancos de dados em um agendamento fixo de uma vez por 7 dias.
 
     ![Definir os últimos 7 dias](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
 
-1. Para desagregar para obter mais detalhes, clique em qualquer um dos elementos do dashboard. Por exemplo:
+1. Para fazer uma busca detalhada para obter mais detalhes, clique em qualquer um dos elementos do painel. Por exemplo:
 
-   1. Clique numa verificação de vulnerabilidades no **falhada verifica resumo** secção para ver uma tabela de Log Analytics com os resultados para esta verificação nas bases de dados. Aqueles que têm os resultados são listados primeiro.
+   1. Clique em uma verificação de vulnerabilidade na seção **Resumo de verificações com falha** para exibir uma tabela de log Analytics com os resultados dessa verificação em todos os bancos de dados. Os que têm resultados são listados primeiro.
 
-   1. Em seguida, clicar para ver os detalhes de cada vulnerabilidade, incluindo a descrição da vulnerabilidade e o impacto, o estado, o risco associado e os resultados reais nesta base de dados. Também pode ver a consulta real que foi executada para efetuar esta verificação e informações de remediação para resolver esta vulnerabilidade.
+   1. Em seguida, clique para exibir detalhes de cada vulnerabilidade, incluindo a descrição e o impacto da vulnerabilidade, o status, o risco associado e os resultados reais neste banco de dados. Você também pode ver a consulta real que foi executada para executar essa verificação e informações de correção para resolver essa vulnerabilidade.
 
     ![Selecionar área de trabalho](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
 
     ![Selecionar área de trabalho](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
 
-1. Pode executar consultas do Log Analytics nos seus dados de resultados de avaliação de vulnerabilidades, a segmentação e decomposição de dados, de acordo com suas necessidades.
+1. Você pode executar qualquer consulta de Log Analytics em seus dados de resultados da avaliação de vulnerabilidade, para dividir e refinar os dados de acordo com suas necessidades.
 
-## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Proteção avançada contra ameaças para servidores SQL sobre alertas de VMs do Azure
-Os alertas são gerados pelas tentativas invulgares e potencialmente prejudiciais de acesso ou exploração servidores SQL. Esses eventos podem disparar os seguintes alertas:
+## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Proteção avançada contra ameaças para servidores SQL em alertas de VMs do Azure
+Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar servidores SQL. Esses eventos podem disparar os seguintes alertas:
 
-### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Alertas de padrão de acesso anómalos (suportadas em pré-visualização pública)
+### <a name="anomalous-access-pattern-alerts-supported-in-public-preview"></a>Alertas de padrão de acesso anormal (com suporte na visualização pública)
 
-* **Acesso a partir de uma localização invulgar:** Este alerta é acionado quando ocorre uma alteração no padrão de acesso ao SQL server, em que alguém iniciou sessão para o SQL server a partir de uma localização geográfica invulgar. Causas possíveis:
-     * Um empregam malicioso atacante ou anterior acedeu seu SQL Server.
-     * Um usuário legítimo acedeu seu SQL Server a partir de uma localização nova.
-* **Acesso a partir de uma aplicação potencialmente prejudicial**: seu alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder a base de dados. Causas possíveis:
-     * Um atacante a tentar violar o seu SQL através de ferramentas de ataque comuns.
-     * Uma legítima testes de penetração em ação.
-* **Acesso a partir de principal invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso ao SQL server, onde alguém fez logon no SQL server utilizar um principal invulgar (utilizador SQL). Causas possíveis:
-     * Um empregam malicioso atacante ou anterior acedeu seu SQL Server. 
-     * Um usuário legítimo acedeu do SQL Server com um novo principal.
-* **Credenciais SQL de força bruta**: Este alerta é acionado quando existe um número anormalmente elevado de inícios de sessão falhados com credenciais diferentes. Causas possíveis:
-     * Um atacante a tentar violar o seu SQL através de força bruta.
-     * Uma legítima testes de penetração em ação.
+* **Acesso de local incomum:** Esse alerta é disparado quando há uma alteração no padrão de acesso para o SQL Server, em que alguém fez logon no SQL Server a partir de uma localização geográfica incomum. Possíveis causas:
+     * Um invasor ou um antigo emprego mal-intencionado acessou seu SQL Server.
+     * Um usuário legítimo acessou seu SQL Server de um novo local.
+* **Acesso de um aplicativo potencialmente prejudicial**: seu alerta é disparado quando um aplicativo potencialmente prejudicial é usado para acessar o banco de dados. Possíveis causas:
+     * Um invasor tentando violar o SQL usando as ferramentas de ataque comuns.
+     * Um teste de penetração legítimo em ação.
+* **Acesso de entidade de segurança não familiar**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o SQL Server, em que alguém fez logon no SQL Server usando uma entidade de segurança incomum (usuário do SQL). Possíveis causas:
+     * Um invasor ou um antigo emprego mal-intencionado acessou seu SQL Server. 
+     * Um usuário legítimo acessou seu SQL Server de com uma nova entidade de segurança.
+* **Credenciais SQL de força bruta**: Esse alerta é disparado quando há um grande número anormal de logons com falha com credenciais diferentes. Possíveis causas:
+     * Um invasor tentando violar o SQL usando a força bruta.
+     * Um teste de penetração legítimo em ação.
 
-### <a name="potential-sql-injection-attacks-coming"></a>Potenciais ataques de Injeção de SQL (trazer)
+### <a name="potential-sql-injection-attacks-coming"></a>Possíveis ataques de injeção de SQL (chegando)
 
-* **Vulnerabilidade a injeção de SQL**: Este alerta é acionado quando uma aplicação gera uma instrução SQL defeituosa na base de dados. Este alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Causas possíveis:
+* **Vulnerabilidade à injeção de SQL**: Esse alerta é disparado quando um aplicativo gera uma instrução SQL com falha no banco de dados. Este alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL. Possíveis causas:
      * Um defeito no código da aplicação que constitui a instrução SQL defeituosa
      * O código de aplicação ou os procedimentos armazenados não saneiam a entrada de utilizador ao criar a instrução SQL defeituosa, o que pode ser explorado para Injeção SQL
-* **Potencial injeção de SQL**: Este alerta é acionado quando uma exploração ativa ocorre contra uma vulnerabilidade de aplicação identificada a injeção de SQL. Significa que o atacante está a tentar injetar instruções SQL maliciosas através dos procedimentos armazenados ou código de aplicação com vulnerabilidade.
+* **Possível injeção de SQL**: Esse alerta é disparado quando uma exploração ativa ocorre contra uma vulnerabilidade de aplicativo identificada para injeção de SQL. Significa que o atacante está a tentar injetar instruções SQL maliciosas através dos procedimentos armazenados ou código de aplicação com vulnerabilidade.

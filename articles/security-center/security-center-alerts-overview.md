@@ -1,6 +1,6 @@
 ---
-title: Alertas de segurança no Centro de segurança do Azure | Documentos da Microsoft
-description: Este tópico explica o que são alertas de segurança e os diferentes tipos disponíveis no Centro de segurança do Azure.
+title: Alertas de segurança na central de segurança do Azure | Microsoft Docs
+description: Este tópico explica o que são alertas de segurança e os diferentes tipos disponíveis na central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,70 +13,70 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 06f41bbfd97d5deb59e7bfd08615b2f28e256070
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 91dd397095718b3b43e41767af422801fd50b7f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571676"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295688"
 ---
-# <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de segurança do Azure
+# <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na central de segurança do Azure
 
-Este artigo apresenta os diferentes tipos de alertas de segurança disponíveis no Centro de segurança do Azure (ASC). Há uma variedade de alertas para muitos tipos de recursos diferente. ASC gera alertas para ambos os recursos implementados no Azure e implementar recursos no local e híbrido ambientes na cloud. 
+Este artigo apresenta os diferentes tipos de alertas de segurança disponíveis na central de segurança do Azure (ASC). Há uma variedade de alertas para os vários tipos de recursos diferentes. O ASC gera alertas para os recursos implantados no Azure e os recursos implantados em ambientes de nuvem híbrida e locais. 
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 
-Os alertas são notificações de centro de segurança gera quando detetar ameaças nos seus recursos. Ele dá prioridade e apresenta uma lista de alertas, juntamente com as informações necessárias para investigar rapidamente o problema. Centro de segurança também fornece recomendações sobre como pode remediar um ataque.
+Alertas são as notificações que a central de segurança gera quando detecta ameaças em seus recursos. Ele prioriza e lista os alertas junto com as informações necessárias para que você investigue rapidamente o problema. A central de segurança também fornece recomendações sobre como você pode corrigir um ataque.
 
-## <a name="how-does-security-center-detect-threats"></a>Como é que o Centro de segurança detetar ameaças?
+## <a name="how-does-security-center-detect-threats"></a>Como a central de segurança detecta ameaças?
 
-Para detetar ameaças reais e reduzir os falsos positivos, o Centro de segurança recolhe, analisa e integra-se os dados de registo de recursos do Azure, a rede e soluções de parceiros ligadas, como firewall e soluções de proteção de ponto final. Centro de segurança analisa esta informação, muitas vezes correlacionando informações de várias origens, para identificar ameaças.
+Para detectar ameaças reais e reduzir falsos positivos, a central de segurança coleta, analisa e integra dados de log de seus recursos do Azure, da rede e das soluções de parceiros conectadas, como soluções de firewall e Endpoint Protection. A central de segurança analisa essas informações, geralmente correlacionando informações de várias fontes, para identificar ameaças.
 
-ASC monitoriza os recursos, se implementada no Azure ou implementado em outros locais e híbridas ambientes na cloud. Para obter mais informações sobre a detetar e responder a ameaças, consulte o artigo [como o Centro de segurança Deteta e responde às ameaças](security-center-detection-capabilities.md#asc-detects).
+O ASC monitora os recursos se implantados no Azure ou implantados em outros ambientes de nuvem híbrida e locais. Para saber mais sobre como detectar e responder a ameaças, consulte [como a central de segurança detecta e responde a ameaças](security-center-detection-capabilities.md#asc-detects).
 
 ## <a name="security-alert-types"></a>Tipos de alertas de segurança
 
-Os tópicos seguintes guiá-lo através de alertas do ASC diferentes, de acordo com os tipos de recursos:
+Os tópicos a seguir orientam você pelos diferentes alertas ASC de acordo com os tipos de recursos:
 
-* [Alertas de VMs de IaaS e servidores](security-center-alerts-iaas.md)
-* [Alertas de computação nativa](security-center-alerts-compute.md)
+* [Alertas de servidores & de VMs IaaS](security-center-alerts-iaas.md)
+* [Alertas de computação nativos](security-center-alerts-compute.md)
 * [Alertas de serviços de dados](security-center-alerts-data-services.md)
 
-Os tópicos seguintes explicam como o Centro de segurança utiliza a telemetria de diferente que recolhe a integração com a infraestrutura do Azure para aplicar as camadas de proteção adicional para recursos implementados no Azure:
+Os tópicos a seguir explicam como a central de segurança aproveita a telemetria diferente que coleta a integração com a infraestrutura do Azure para aplicar camadas de proteção adicionais para recursos implantados no Azure:
 
-* [Alertas de camada de serviço](security-center-alerts-service-layer.md)
-* [Integração com produtos de segurança do Azure](security-center-alerts-integration.md)
+* [Alertas da camada de serviço](security-center-alerts-service-layer.md)
+* [Integração com os produtos de segurança do Azure](security-center-alerts-integration.md)
 
-## <a name="what-are-alert-incidents"></a>Quais são os incidentes de alertas?
+## <a name="what-are-alert-incidents"></a>O que são incidentes de alerta?
 
-Um incidente de segurança é uma coleção de alertas relacionados, em vez de listar cada alerta individualmente. Centro de segurança utiliza fusion correlacionar alertas diferentes e sinais de baixa fidelidade em incidentes de segurança.
+Um incidente de segurança é uma coleção de alertas relacionados, em vez de listar cada alerta individualmente. A central de segurança usa a fusão para correlacionar diferentes alertas e sinais de baixa fidelidade em incidentes de segurança.
 
-Utilizar a incidentes, o Centro de segurança fornece uma vista única de uma campanha de ataque e todos os alertas relacionados. Esta vista permite-lhe compreender rapidamente quais ações realizadas pelo atacante e que recursos foram afetados. Para obter mais informações, consulte [correlação de alertas inteligentes de Cloud](security-center-alerts-cloud-smart.md).
+Usando incidentes, a central de segurança fornece uma única exibição de uma campanha de ataque e todos os alertas relacionados. Essa exibição permite que você entenda rapidamente quais ações foram tomadas pelo invasor e quais recursos foram afetados. Para obter mais informações, consulte [correlação de alertas inteligentes na nuvem](security-center-alerts-cloud-smart.md).
 
-## <a name="get-started-with-alerts"></a>Comece com alertas
+## <a name="get-started-with-alerts"></a>Introdução aos alertas
 
-Consulte os tópicos seguintes, deve saber mais sobre os recursos monitorizados pelo ASC e para obter diretrizes sobre como responder a alertas apresentados pelo ASC.
+Consulte os tópicos a seguir para entender mais sobre os recursos monitorados pelo ASC e para obter diretrizes sobre como responder aos alertas apresentados pelo ASC.
 
-* Para ver quais plataformas e funcionalidades que estão protegidas pelo ASC, consulte [plataformas e funcionalidades suportadas pelo centro de segurança do Azure](security-center-os-coverage.md).  
-* Para compreender quais são os incidentes de segurança e como o ASC responde aos mesmos, consulte [como lidar com incidentes de segurança no Centro de segurança do Azure](security-center-incident.md). 
-* Para saber como gerir alertas recebidos, veja [gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md).
-* Para obter informações de sessão no como validar se o Centro de segurança está configurado corretamente e estimular um alerta de teste, consulte [validação de alertas no Centro de segurança do Azure](security-center-alert-validation.md).  
+* Para ver quais plataformas e recursos são protegidos por ASC, consulte [plataformas e recursos com suporte na central de segurança do Azure](security-center-os-coverage.md).  
+* Para entender o que são incidentes de segurança e como o ASC responde a eles, consulte [como lidar com incidentes de segurança na central de segurança do Azure](security-center-incident.md). 
+* Para saber como gerenciar os alertas recebidos, consulte Gerenciando [e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md).
+* Para obter informações sobre como validar se a central de segurança está configurada corretamente e para estimular um alerta de teste, consulte [validação de alertas na central de segurança do Azure](security-center-alert-validation.md).  
 
 
-## <a name="upgrade-to-standard-for-advanced-detections"></a>Atualizar para Standard para as deteções avançadas
+## <a name="upgrade-to-standard-for-advanced-detections"></a>Atualizar para Standard para detecções avançadas
 
 Para configurar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. 
 
-1. No menu do Centro de segurança, selecione **política de segurança**.
-2. Para as subscrições que pretende mover para o escalão Standard, clique em **editar as definições de**. 
-3. Na página Definições, selecione **escalão de preço**. 
-   Está disponível uma avaliação gratuita durante um mês. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+1. No menu central de segurança, selecione **política de segurança**.
+2. Para as assinaturas que você deseja mover para a camada Standard, clique em **Editar configurações**. 
+3. Na página configurações, selecione **tipo de preço**. 
+   Uma avaliação gratuita está disponível por um mês. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu o que são alertas de segurança e os diferentes tipos de alertas disponíveis no Centro de segurança. Para obter mais informações, consulte os seguintes tópicos:
+Neste artigo, você aprendeu o que são alertas de segurança e os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, consulte os seguintes tópicos:
 
 * [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
-* [FAQ do Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
+* [Perguntas frequentes da central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq): Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
 

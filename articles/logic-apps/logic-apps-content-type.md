@@ -1,38 +1,37 @@
 ---
-title: Lidar com tipos de conteúdo - Azure Logic Apps | Documentos da Microsoft
-description: Saiba como os identificadores de aplicações lógicas tipos de conteúdo em tempo de design e tempo de execução
+title: Manipular tipos de conteúdo-aplicativos lógicos do Azure
+description: Saiba como os aplicativos lógicos lidam com tipos de conteúdo em tempo de design e tempo de execução
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685772"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868917"
 ---
-# <a name="handle-content-types-in-azure-logic-apps"></a>Lidar com tipos de conteúdo no Azure Logic Apps
+# <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em aplicativos lógicos do Azure
 
-Vários tipos de conteúdos podem fluir por meio de uma aplicação lógica, por exemplo, JSON, XML, arquivos simples e dados binários. Embora o Logic Apps suporta todos os tipos de conteúdo, alguns tem suporte nativo e não requerem conversão ou conversão nas suas aplicações lógicas. Outros tipos poderão exigir uma conversão ou conversão conforme necessário. Este artigo descreve como as aplicações lógicas processam os tipos de conteúdo e como pode corretamente converter ou converter esses tipos quando necessário.
+Vários tipos de conteúdo podem fluir por meio de um aplicativo lógico, por exemplo, JSON, XML, arquivos simples e dados binários. Embora os aplicativos lógicos ofereçam suporte a todos os tipos de conteúdo, alguns têm suporte nativo e não exigem a conversão ou converter em seus aplicativos lógicos. Outros tipos podem exigir elenco ou conversão, conforme necessário. Este artigo descreve como os aplicativos lógicos tratam tipos de conteúdo e como é possível converter ou converter corretamente esses tipos quando necessário.
 
-Para determinar a forma adequada para lidar com tipos de conteúdo, o Logic Apps se baseia no `Content-Type` chama o valor de cabeçalho HTTP, por exemplo:
+Para determinar a maneira apropriada de lidar com tipos de conteúdo, os aplicativos lógicos `Content-Type` dependem do valor do cabeçalho em chamadas http, por exemplo:
 
-* [aplicação/json](#application-json) (tipo nativo)
-* [text/plain](#text-plain) (tipo nativo)
-* [aplicação/xml e application/octet-stream](#application-xml-octet-stream)
+* [aplicativo/JSON](#application-json) (tipo nativo)
+* [texto/sem formatação](#text-plain) (tipo nativo)
+* [Application/XML e application/octet-stream](#application-xml-octet-stream)
 * [Outros tipos de conteúdo](#other-content-types)
 
 <a name="application-json"></a>
 
 ## <a name="applicationjson"></a>application/json
 
-O Logic Apps armazena e manipula a qualquer pedido com o *application/json* tipo como um objeto JavaScript Notation (JSON) de conteúdo. Por predefinição, pode analisar o conteúdo JSON, sem qualquer conversão. Para analisar um pedido com um cabeçalho com o tipo de conteúdo "application/json", pode usar uma expressão. Este exemplo retorna o valor `dog` partir o `animal-type` matriz sem a conversão: 
+Os aplicativos lógicos armazenam e tratam qualquer solicitação com o tipo de conteúdo *Application/JSON* como um objeto JSON (JavaScript Notation). Por padrão, você pode analisar o conteúdo JSON sem qualquer conversão. Para analisar uma solicitação que tem um cabeçalho com o tipo de conteúdo "Application/JSON", você pode usar uma expressão. Este exemplo retorna o valor `dog` `animal-type` da matriz sem conversão: 
  
 `@body('myAction')['animal-type'][0]` 
   
@@ -45,33 +44,33 @@ O Logic Apps armazena e manipula a qualquer pedido com o *application/json* tipo
   }
   ```
 
-Se estiver trabalhando com dados JSON que não especifica um cabeçalho, poderá lançá manualmente esses dados em JSON utilizando o [json() função](../logic-apps/workflow-definition-language-functions-reference.md#json), por exemplo: 
+Se você estiver trabalhando com dados JSON que não especificam um cabeçalho, poderá converter manualmente esses dados para JSON usando a [função JSON ()](../logic-apps/workflow-definition-language-functions-reference.md#json), por exemplo: 
   
 `@json(triggerBody())['animal-type']`
 
-### <a name="create-tokens-for-json-properties"></a>Criar tokens para as propriedades JSON
+### <a name="create-tokens-for-json-properties"></a>Criar tokens para propriedades JSON
 
-O Logic Apps fornece a capacidade para gerar tokens amigáveis que representam as propriedades no conteúdo JSON, para que possa referenciar e usar essas propriedades mais facilmente no fluxo de trabalho da sua aplicação lógica.
+Os aplicativos lógicos fornecem a capacidade de gerar tokens amigáveis para o usuário que representam as propriedades no conteúdo JSON para que você possa referenciar e usar essas propriedades com mais facilidade no fluxo de trabalho do aplicativo lógico.
 
-* **Acionador de pedido**
+* **Gatilho de solicitação**
 
-  Quando utiliza este acionador no Estruturador da aplicação lógica, pode fornecer um esquema JSON que descreve o payload que espera de receber. 
-  O designer analisa o conteúdo JSON ao utilizar esse esquema e gera tokens amigáveis que representam as propriedades no seu conteúdo JSON. 
-  Pode, em seguida, facilmente referenciar e usar essas propriedades durante todo o fluxo de trabalho da sua aplicação lógica. 
+  Ao usar esse gatilho no designer de aplicativo lógico, você pode fornecer um esquema JSON que descreve a carga que você espera receber. 
+  O designer analisa o conteúdo JSON usando esse esquema e gera tokens amigáveis para o usuário que representam as propriedades no seu conteúdo JSON. 
+  Você pode facilmente referenciar e usar essas propriedades em todo o fluxo de trabalho do aplicativo lógico. 
   
-  Se não tiver um esquema, pode gerar o esquema. 
+  Se você não tiver um esquema, poderá gerar o esquema. 
   
-  1. No acionador do pedido, selecione **utilizar payload de amostra para gerar esquema**.  
+  1. No gatilho de solicitação, selecione **usar conteúdo de exemplo para gerar o esquema**.  
   
-  2. Sob **introduza ou cole um payload JSON de exemplo**, forneça um payload de exemplo e, em seguida, escolha **feito**. Por exemplo: 
+  2. Em **Inserir ou colar um exemplo de carga JSON**, forneça uma carga de exemplo e, em seguida, escolha **concluído**. Por exemplo: 
 
-     ![Fornecer o payload JSON de exemplo](./media/logic-apps-content-type/request-trigger.png)
+     ![Fornecer conteúdo JSON de exemplo](./media/logic-apps-content-type/request-trigger.png)
 
-     O esquema gerado é apresentada no seu acionador.
+     O esquema gerado agora aparece em seu gatilho.
 
-     ![Fornecer o payload JSON de exemplo](./media/logic-apps-content-type/generated-schema.png)
+     ![Fornecer conteúdo JSON de exemplo](./media/logic-apps-content-type/generated-schema.png)
 
-     Segue-se a definição subjacente para o acionador de pedido no editor de vista de código:
+     Aqui está a definição subjacente para o seu gatilho de solicitação no editor de exibição de código:
 
      ```json
      "triggers": { 
@@ -103,71 +102,72 @@ O Logic Apps fornece a capacidade para gerar tokens amigáveis que representam a
      }
      ```
 
-  3. No seu pedido, certifique-se de incluir um `Content-Type` cabeçalho e defina o valor do cabeçalho para `application/json`.
+  3. Em sua solicitação, certifique-se de incluir `Content-Type` um cabeçalho e definir o valor do cabeçalho `application/json`como.
 
-* **Analisar a ação de JSON**
+* **Analisar ação JSON**
 
-  Quando utiliza esta ação no Estruturador da aplicação lógica, pode analisar a saída JSON e gerar tokens amigáveis que representam as propriedades no seu conteúdo JSON. 
-  Pode, em seguida, facilmente referenciar e usar essas propriedades durante todo o fluxo de trabalho da sua aplicação lógica. Assim como o acionador de pedido, pode fornecer ou gerar um esquema JSON que descreve o conteúdo JSON que pretende analisar. 
-  Dessa forma, mais facilmente podem consumir dados do Azure Service Bus do Azure Cosmos DB e assim por diante.
+  Ao usar essa ação no designer de aplicativo lógico, você pode analisar a saída JSON e gerar tokens amigáveis para o usuário que representam as propriedades no seu conteúdo JSON. 
+  Você pode facilmente referenciar e usar essas propriedades em todo o fluxo de trabalho do aplicativo lógico. Semelhante ao gatilho de solicitação, você pode fornecer ou gerar um esquema JSON que descreve o conteúdo JSON que você deseja analisar. 
+  Dessa forma, você pode consumir com mais facilidade os dados do barramento de serviço do Azure, Azure Cosmos DB e assim por diante.
 
   ![Analisar JSON](./media/logic-apps-content-type/parse-json.png)
 
 <a name="text-plain"></a>
 
-## <a name="textplain"></a>text/plain
+## <a name="textplain"></a>texto/sem formatação
 
-Quando a aplicação lógica recebe as mensagens HTTP com o `Content-Type` cabeçalho definido como `text/plain`, a aplicação lógica armazena essas mensagens no formato não processado. Se incluir essas mensagens em ações subsequentes sem transmissão, pedidos sair com o `Content-Type` cabeçalho definido como `text/plain`. 
+Quando seu aplicativo lógico recebe mensagens HTTP que têm o `Content-Type` cabeçalho definido como `text/plain`, seu aplicativo lógico armazena essas mensagens em formato bruto. Se você incluir essas mensagens em ações subsequentes sem conversão, as solicitações passarão `Content-Type` com o cabeçalho `text/plain`definido como. 
 
-Por exemplo, quando está trabalhando com um arquivo simples, poderá receber um pedido HTTP com o `Content-Type` cabeçalho definido como `text/plain` tipo de conteúdo:
+Por exemplo, quando você estiver trabalhando com um arquivo simples, poderá receber uma solicitação HTTP com o `Content-Type` cabeçalho definido como `text/plain` tipo de conteúdo:
 
 `Date,Name,Address`</br>
 `Oct-1,Frank,123 Ave`
 
-Se, em seguida, envia esta solicitação numa ação posterior como o corpo de pedido de outro, por exemplo, `@body('flatfile')`, essa segunda solicitação também tem uma `Content-Type` cabeçalho que está definido como `text/plain`. Se estiver trabalhando com dados que é o texto simples, mas não especificou um cabeçalho, poderá lançá manualmente esses dados para o texto ao utilizar o [String () função](../logic-apps/workflow-definition-language-functions-reference.md#string) como esta expressão: 
+Se você enviar essa solicitação em uma ação posterior como o corpo de outra solicitação, por exemplo `@body('flatfile')`, essa segunda solicitação também terá um `Content-Type` cabeçalho definido como `text/plain`. Se você estiver trabalhando com dados com texto sem formatação, mas não tiver especificado um cabeçalho, poderá converter manualmente esses dados em texto usando a [função String ()](../logic-apps/workflow-definition-language-functions-reference.md#string) , como esta expressão: 
 
 `@string(triggerBody())`
 
 <a name="application-xml-octet-stream"></a>
 
-## <a name="applicationxml-and-applicationoctet-stream"></a>aplicação/xml e application/octet-stream
+## <a name="applicationxml-and-applicationoctet-stream"></a>Application/XML e application/octet-stream
 
-O Logic Apps preserva sempre o `Content-Type` no pedido HTTP ou numa resposta recebida. Então, se a sua aplicação lógica recebe o conteúdo com `Content-Type` definido como `application/octet-stream`, e incluir que conteúdo numa ação posterior sem transmissão, o pedido de saída também tem `Content-Type` definido como `application/octet-stream`. Dessa forma, Logic Apps pode garantir que dados não é perdidos ao mover o fluxo de trabalho. No entanto, o estado da ação, ou entradas e saídas, são armazenados num objeto JSON, enquanto o estado passa pelo fluxo de trabalho. 
+Os aplicativos lógicos sempre preservam `Content-Type` o em uma solicitação ou resposta http recebida. Portanto, se o aplicativo lógico receber conteúdo `Content-Type` com definido `application/octet-stream`como e você incluir esse conteúdo em uma ação posterior sem conversão, a solicitação de saída também terá `Content-Type` definido como `application/octet-stream`. Dessa forma, os aplicativos lógicos podem garantir que os dados não sejam perdidos durante a movimentação do fluxo de trabalho. No entanto, o estado de ação, ou entradas e saídas, é armazenado em um objeto JSON enquanto o estado se move pelo fluxo de trabalho. 
 
 ## <a name="converter-functions"></a>Funções de conversor
 
-Para preservar alguns tipos de dados, o Logic Apps converte o conteúdo numa cadeia com codificação base64 binário com metadados apropriado que preserva a ambos os `$content` payload e o `$content-type`, que são automaticamente convertido. 
+Para preservar alguns tipos de dados, os aplicativos lógicos convertem o conteúdo em uma cadeia de caracteres binária codificada em base64 com `$content` metadados apropriados que `$content-type`preservam a carga e a, que são automaticamente convertidas. 
 
-Esta lista descreve como o Logic Apps converte conteúdo quando usar esses [funções](../logic-apps/workflow-definition-language-functions-reference.md):
+Esta lista descreve como os aplicativos lógicos convertem o conteúdo quando você usa essas [funções](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Conversões de dados para `application/json`
-* `xml()`: Conversões de dados para `application/xml`
-* `binary()`: Conversões de dados para `application/octet-stream`
-* `string()`: Conversões de dados para `text/plain`
-* `base64()`: Converte o conteúdo numa cadeia de base64
-* `base64toString()`: Converte uma cadeia codificada em base64 `text/plain`
-* `base64toBinary()`: Converte uma cadeia codificada em base64 `application/octet-stream`
-* `encodeDataUri()`: Codifica uma cadeia de caracteres como uma matriz de bytes de URI de dados
-* `decodeDataUri()`: Descodifica um `dataUri` numa matriz de bytes
+* `json()`: Converte dados em`application/json`
+* `xml()`: Converte dados em`application/xml`
+* `binary()`: Converte dados em`application/octet-stream`
+* `string()`: Converte dados em`text/plain`
+* `base64()`: Converte o conteúdo em uma cadeia de caracteres codificada em base64
+* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em`text/plain`
+* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em`application/octet-stream`
+* `dataUri()`: Converte uma cadeia de caracteres em um URI de dados
+* `dataUriToBinary()`: Converte um URI de dados em uma cadeia de caracteres binária
+* `dataUriToString()`: Converte um URI de dados em uma cadeia de caracteres
 
-Por exemplo, se receber um pedido HTTP onde `Content-Type` definido como `application/xml`, por exemplo, este conteúdo:
+Por exemplo, se você receber uma solicitação HTTP onde `Content-Type` `application/xml`definido como, como este conteúdo:
 
 ```html
 <?xml version="1.0" encoding="UTF-8" ?>
 <CustomerName>Frank</CustomerName>
 ```
 
-Pode converter este conteúdo utilizando o `@xml(triggerBody())` expressão com o `xml()` e `triggerBody()` funciona e, em seguida, utilizar esse conteúdo mais tarde. Em alternativa, pode utilizar o `@xpath(xml(triggerBody()), '/CustomerName')` expressão com o `xpath()` e `xml()` funções. 
+Você pode converter esse conteúdo usando a `@xml(triggerBody())` expressão com as `xml()` funções e `triggerBody()` e, em seguida, usar esse conteúdo posteriormente. Ou, você pode usar a `@xpath(xml(triggerBody()), '/CustomerName')` expressão com as `xpath()` funções `xml()` e. 
 
 ## <a name="other-content-types"></a>Outros tipos de conteúdo
 
-O Logic Apps funciona com e suporta outros tipos de conteúdo, mas poderão necessitar de obter manualmente o corpo da mensagem ao decodificar o `$content` variável.
+Os aplicativos lógicos funcionam com o e dão suporte a outros tipos de conteúdo, mas podem exigir que você obtenha manualmente o `$content` corpo da mensagem decodificando a variável.
 
-Por exemplo, suponha que a aplicação lógica é acionada por um pedido com o `application/x-www-url-formencoded` tipo de conteúdo. Para preservar a todos os dados, o `$content` variável no corpo do pedido tem uma carga que é codificada como uma cadeia base64:
+Por exemplo, suponha que seu aplicativo lógico é disparado por uma `application/x-www-url-formencoded` solicitação com o tipo de conteúdo. Para preservar todos os dados, a `$content` variável no corpo da solicitação tem uma carga que é codificada como uma cadeia de caracteres Base64:
 
 `CustomerName=Frank&Address=123+Avenue`
 
-Uma vez que o pedido não é texto sem formatação ou JSON, o pedido é armazenado na ação da seguinte forma:
+Como a solicitação não é texto sem formatação ou JSON, a solicitação é armazenada na ação da seguinte maneira:
 
 ```json
 "body": {
@@ -176,15 +176,15 @@ Uma vez que o pedido não é texto sem formatação ou JSON, o pedido é armazen
 }
 ```
 
-O Logic Apps fornece funções nativas para manipulação de dados do formulário, por exemplo: 
+Os aplicativos lógicos fornecem funções nativas para manipular dados de formulário, por exemplo: 
 
 * [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
 * [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
 * [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
 * [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
 
-Em alternativa, pode aceder manualmente os dados utilizando uma expressão, como neste exemplo:
+Ou, você pode acessar manualmente os dados usando uma expressão como este exemplo:
 
 `@string(body('formdataAction'))` 
 
-Se quisesse que o pedido de saída para ter o mesmo `application/x-www-url-formencoded` cabeçalho de tipo de conteúdo, pode adicionar o pedido para o corpo da ação sem qualquer conversão utilizando uma expressão como `@body('formdataAction')`. No entanto, este método só funciona quando o corpo é o único parâmetro no `body` entrada. Se tentar usar a `@body('formdataAction')` expressão numa `application/json` solicitar, obter um erro de tempo de execução, uma vez que o corpo é enviado codificado.
+Se desejar que a solicitação de saída tenha o mesmo `application/x-www-url-formencoded` cabeçalho de tipo de conteúdo, você poderá adicionar a solicitação ao corpo da ação sem qualquer conversão usando uma expressão `@body('formdataAction')`como. No entanto, esse método só funciona quando o corpo é o único parâmetro `body` na entrada. Se você tentar usar a `@body('formdataAction')` expressão em uma `application/json` solicitação, obterá um erro de tempo de execução porque o corpo será enviado codificado.

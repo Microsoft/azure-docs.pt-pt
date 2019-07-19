@@ -245,16 +245,20 @@
     - name: REST
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-overview.md
     - name: Modelo do Resource Manager
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/allversions'
+      displayName: ARM
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
 - name: Recursos
   items:
     - name: Modelos de autor
+      displayName: ARM
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Mapa do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modelos da comunidade
+      displayName: ARM
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/#Linux'

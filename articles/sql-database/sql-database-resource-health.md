@@ -12,18 +12,18 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61483068"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854370"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
 ## <a name="overview"></a>Descrição geral
 
-[Estado de funcionamento do recurso](../service-health/resource-health-overview.md#getting-started) para a base de dados SQL ajuda-o a diagnosticar e obter suporte quando um problema do Azure afeta os seus recursos do SQL. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. O estado de funcionamento dos recursos fornece suporte técnico quando precisa de ajuda para resolver problemas relacionados com o serviço do Azure.
+[Estado de funcionamento do recurso](../service-health/resource-health-overview.md#get-started) para a base de dados SQL ajuda-o a diagnosticar e obter suporte quando um problema do Azure afeta os seus recursos do SQL. Este serviço informa-o do estado de funcionamento atual e antigo dos seus recursos e ajuda-o a mitigar problemas. O estado de funcionamento dos recursos fornece suporte técnico quando precisa de ajuda para resolver problemas relacionados com o serviço do Azure.
 
 ![Descrição geral](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 

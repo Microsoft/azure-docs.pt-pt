@@ -1,6 +1,6 @@
 ---
-title: Planear a manutenção do Azure eventos - SQL Database do Azure | Documentos da Microsoft
-description: Aprenda a preparar para eventos de manutenção planeada para a base de dados do SQL do Azure.
+title: Planejando eventos de manutenção do Azure – banco de dados SQL do Azure | Microsoft Docs
+description: Saiba como se preparar para eventos de manutenção planejada para o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,39 +12,39 @@ ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 235d29c876616948516bbe4309ddd630bc3f6dca
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584612"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852594"
 ---
-# <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planejamento para eventos de manutenção do Azure na base de dados do Azure SQL
+# <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planejando eventos de manutenção do Azure no banco de dados SQL do Azure
 
-Aprenda a preparar para eventos de manutenção planeada na sua base de dados SQL do Azure.
+Saiba como preparar-se para eventos de manutenção planejada no seu banco de dados SQL do Azure.
 
-## <a name="what-is-a-planned-maintenance-event"></a>O que é um evento de manutenção planeada
+## <a name="what-is-a-planned-maintenance-event"></a>O que é um evento de manutenção planejada
 
-Para cada base de dados, a BD SQL do Azure mantém um quórum de réplicas de base de dados em que uma réplica é o principal. AT sempre uma réplica primária tem de ser de manutenção online e, pelo menos uma réplica secundária tem de ser bom estado de funcionamento. Durante a manutenção planeada, os membros do quórum da base de dados passará um offline de cada vez, com a intenção de que existe uma responder a réplica primária e pelo menos uma réplica secundária online para garantir que nenhum tempo de inatividade do cliente. Quando a réplica primária tem de ser colocados offline, ocorrerá um processo de reconfiguração/ativação pós-falha no qual uma réplica secundária irá tornar-se a nova principal.  
+Para cada banco de dados, o BD SQL do Azure mantém um quorum de réplicas de banco de dados em que uma réplica é a primária. Em todos os momentos, uma réplica primária deve estar em manutenção online e pelo menos uma réplica secundária deve estar íntegra. Durante a manutenção planejada, os membros do quorum de banco de dados ficarão offline um de cada vez, com a intenção de que haja uma réplica primária de resposta e pelo menos uma réplica secundária online para garantir que não haja tempo de inatividade do cliente. Quando a réplica primária precisar ser colocada offline, ocorrerá um processo de reconfiguração/failover no qual uma réplica secundária se tornará a nova primária.  
 
-## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planeada
+## <a name="what-to-expect-during-a-planned-maintenance-event"></a>O que esperar durante um evento de manutenção planejada
 
-Reconfigurações/ativações pós-falha geralmente concluída no prazo de 30 segundos – a média é de 8 segundos. Se ainda estiver ligado, seu aplicativo deve voltar a ligar a nova réplica primária a cópia de bom estado de funcionamento da base de dados. Se uma nova tentativa de conexão, enquanto a base de dados está numa reconfiguração antes da nova réplica primária está online, receberá o erro 40613 (base de dados indisponível): "Base de dados"{databasename}"no servidor"{servername}"não está atualmente disponível. Tente novamente a ligação mais tarde. ". Se a sua base de dados tiver uma consulta de execução longa, esta consulta será interrompida durante uma reconfiguração e terá de ser reiniciado.
+Reconfigurações/failovers geralmente são concluídos em 30 segundos – a média é de 8 segundos. Se já estiver conectado, seu aplicativo deverá se reconectar à cópia íntegra nova réplica primária do banco de dados. Se uma nova conexão for tentada enquanto o banco de dados estiver passando por uma reconfiguração antes que a nova réplica primária esteja online, você receberá o erro 40613 (banco de dados indisponível): "O banco de dados ' {DatabaseName} ' no servidor ' {servername} ' não está disponível no momento. Repita a conexão mais tarde. ". Se o banco de dados tiver uma consulta de execução longa, essa consulta será interrompida durante uma reconfiguração e precisará ser reiniciada.
 
 ## <a name="retry-logic"></a>Lógica de repetição
 
-Qualquer aplicativo de produção do cliente que se liga a um serviço de base de dados em nuvem deve implementar uma ligação robusta [lógica de repetição](sql-database-connectivity-issues.md#retry-logic-for-transient-errors). Isso ajudará a reduzir tais situações e deve geralmente o tornam os erros transparente para o utilizador final.
+Qualquer aplicativo de produção de cliente que se conecta a um serviço de banco de dados de nuvem deve implementar uma [lógica de repetição](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)de conexão robusta. Isso ajudará a mitigar essas situações e, em geral, deve tornar os erros transparentes para o usuário final.
 
 ## <a name="frequency"></a>Frequência
 
-Em média, a versão 1.7 eventos de manutenção planeada ocorrerem por mês.
+Em média, 1,7 eventos de manutenção planejada ocorrem a cada mês.
 
 ## <a name="resource-health"></a>Estado de Funcionamento de Recursos
 
-Verifique se a base de dados SQL está com falhas de início de sessão, o [Resource Health](../service-health/resource-health-overview.md#getting-started) janela no [portal do Azure](https://portal.azure.com) o status atual. A secção de histórico de estado de funcionamento contém o motivo de período de indisponibilidade para cada evento (quando disponível).
+Se o banco de dados SQL estiver apresentando falhas de logon, verifique a janela [Resource Health](../service-health/resource-health-overview.md#get-started) no [portal do Azure](https://portal.azure.com) para obter o status atual. A seção Histórico de integridade contém o motivo do tempo de inatividade para cada evento (quando disponível).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [Resource Health](sql-database-resource-health.md) para base de dados SQL
-- Para obter mais informações sobre a lógica de repetição, consulte [repetir a lógica para erros transitórios](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
+- Saiba mais sobre o [Resource Health](sql-database-resource-health.md) para o banco de dados SQL
+- Para obter mais informações sobre a lógica de repetição, consulte [lógica de repetição para erros transitórios](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)

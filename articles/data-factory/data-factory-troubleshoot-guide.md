@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas do Azure Data Factory | Documentos da Microsoft
-description: Resolução de problemas do Azure Data Factory. Documento comuns para externas todas as atividades de controlo.
+title: Solucionar problemas Azure Data Factory | Microsoft Docs
+description: Saiba como solucionar problemas de atividades de controle externo no Azure Data Factory.
 services: data-factory
 author: abnarain
 manager: craigg
@@ -9,156 +9,152 @@ ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: d220730bb2e93e32d00e56ed98f4962ad89eda5a
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: c76242c176ba4f4c9ffc0d6934f6b645743d77f4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626313"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234574"
 ---
-# <a name="troubleshooting-azure-data-factory"></a>Resolução de problemas do Azure Data Factory
-Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
+# <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas Azure Data Factory
 
-- [O Azure Databricks (bloco de notas, jars, python)](#azure-databricks)
-- [Azure Data Lake Analytics (U-SQL)](#azure-data-lake-analytics-u-sql)
-- [Funções do Azure](#azure-functions)
-- [Personalizado (o Azure Batch)](#custom-azure-batch)
-- [HDInsight (Spark, Hive, MapReduce, Pig, transmissão em fluxo Hadoop)](#hdinsight-spark-hive-mapreduce-pig-hadoop-streaming)
-- [Atividade Web](#web-activity)
-
-
+Este artigo explora métodos comuns de solução de problemas para atividades de controle externo no Azure Data Factory.
 
 ## <a name="azure-databricks"></a>Azure Databricks
-| Código de Erro | Mensagem de Erro                                          | Descrição do Problema                             | Correção possível / ação recomendada                            |
+
+| Código de erro | Mensagem de erro                                          | Descrição                             | Recomendação                             |
 | -------------- | ----------------------------------------------------- | --------------------------------------------------------------| :----------------------------------------------------------- |
-| 3200           | Erro 403                                                    | Token de acesso do Databricks expirou.                         | Por predefinição, o token de acesso do Databricks é válido durante 90 dias.  Crie um novo token e atualizar o serviço ligado. |
-| 3201           | Campo obrigatório em falta: settings.task.notebook_task.notebook_path | Má criação: Caminho do notebook não está especificado corretamente. | Especifique o caminho do notebook na atividade do Databricks. |
-| 3201           | Cluster... não existe                                 | Erro de criação: Cluster do Databricks não existe ou foi eliminado. | Verifique se o cluster do Databricks existe. |
-| 3201           | URI de ficheiro de python inválido:... Visite o guia de utilizador do Databricks para esquemas URI suportados. | Má de criação                                                | Especifique os caminhos absolutos para esquemas de endereçamento de área de trabalho, ou "dbfs:/folder/subfolder/foo.py" para ficheiros armazenados em DBFS. |
-| 3201           | {0}   O LinkedService deve ter domínio e accessToken como propriedades necessárias | Má de criação                                                | Verifique [associado à definição de serviço](compute-linked-services.md#azure-databricks-linked-service). |
-| 3201           | {0}   O LinkedService deve especificar o Id de cluster existente ou novas informações de criação de cluster | Má de criação                                                | Verifique [associado à definição de serviço](compute-linked-services.md#azure-databricks-linked-service). |
-| 3201           | Tipo de nó Standard_D16S_v3 não é suportado. Tipos de nó suportados:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_ NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2 | Má de criação                                                | Consulte a mensagem de erro                                          |
-| 3201           | Notebook_path inválido:... Atualmente são suportados apenas caminhos absolutos. Caminhos tem de começar por "/". | Má de criação                                                | Consulte a mensagem de erro                                          |
-| 3202           | Já havia 1000 tarefas criadas no passado 3600 segundos, que excede o limite de taxa:   criações de tarefa de 1000 por 3600 segundos. | Databricks demasiados é executado numa hora.                         | Verifique todos os pipelines que utilizam esta área de trabalho do Databricks para a taxa de criação da tarefa.  Se pipelines iniciados demasiados Databricks execuções em forma agregada, migre alguns pipelines para uma nova área de trabalho. |
-| 3202           | Não foi possível analisar o objeto de solicitação: Esperado 'key' e 'value' a definir para base_parameters de campo de mapa JSON, nos "chave:""..." em vez disso. | Erro de criação: Nenhum valor fornecido para o parâmetro         | Inspecione o json do pipeline e certifique-se de que todos os parâmetros no bloco de notas baseParameters tem um valor não vazio especificado. |
-| 3202           | Utilizador: SimpleUserContext {userId =..., nome =user@company.com, orgId =...} não tem autorização para aceder ao cluster | Utilizador que gerou o token de acesso não tem permissão para aceder ao cluster do Databricks especificado no serviço ligado. | Certifique-se de que o utilizador tem as permissões necessárias na área de trabalho.   |
-| 3203           | O cluster está no estado de Terminated, não está disponível para receber as tarefas. . Corrija o cluster ou tente novamente mais tarde. | Cluster foi terminado.    Para o cluster interativo, isso pode ser uma condição de corrida. | Melhor maneira de evitar isso é usar clusters de tarefa.             |
-| 3204           | Falha na execução de tarefa. Pode existir qualquer número de mensagens de erro, de estado de cluster inesperado a mensagem de específicos da atividade.  Mais comum não é nenhuma mensagem de erro. | N/A                                                          | N/A                                                          |
+| 3200           | Erro 403.                                                    | O token de acesso do databricks expirou.                         | Por padrão, o token de acesso do databricks é válido por 90 dias.  Crie um novo token e atualize o serviço vinculado. |
+| 3201           | Campo obrigatório ausente: Settings. Task. notebook_task. notebook_path | Criação inadequada: Caminho do bloco de anotações não especificado corretamente. | Especifique o caminho do bloco de anotações na atividade databricks. |
+| 3201           | Cluster... Não existe.                                 | Erro de criação: O cluster do databricks não existe ou foi excluído. | Verifique se o cluster do databricks existe. |
+| 3201           | URI de arquivo Python inválido.... Visite o guia do usuário do databricks para obter os esquemas de URI com suporte. | Criação inadequada.                                                | Especifique caminhos absolutos para esquemas de endereçamento de espaço `dbfs:/folder/subfolder/foo.py` de trabalho ou para arquivos armazenados no sistema de arquivos do databricks. |
+| 3201           | {0}LinkedService deve ter Domain e accessToken como propriedades obrigatórias. | Criação inadequada.                                                | Verifique a [definição do serviço vinculado](compute-linked-services.md#azure-databricks-linked-service). |
+| 3201           | {0}LinkedService deve especificar uma ID de cluster existente ou novas informações de cluster para criação. | Criação inadequada.                                                | Verifique a [definição do serviço vinculado](compute-linked-services.md#azure-databricks-linked-service). |
+| 3201           | Não há suporte para o tipo de nó Standard_D16S_v3. Tipos de nó com suporte:   Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_ NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2. | Criação inadequada.                                                | Consulte a mensagem de erro.                                          |
+| 3201           | Notebook_path inválido:... No momento, há suporte apenas para caminhos absolutos. Os caminhos devem começar com '/'. | Criação inadequada.                                                | Consulte a mensagem de erro.                                          |
+| 3202           | Já havia 1000 trabalhos criados nos últimos 3600 segundos, excedendo o limite de taxa:   1000 criações de trabalho por 3600 segundos. | Muitos databricks são executados em uma hora.                         | Verifique todos os pipelines que usam este espaço de trabalho do databricks para sua taxa de criação de trabalho.  Se os pipelines inicializados em excesso de databricks forem executados na agregação, migre alguns pipelines para um novo espaço de trabalho. |
+| 3202           | Não foi possível analisar o objeto de solicitação: ' Key ' e ' value ' esperados para serem definidos para o campo de mapa JSON base_parameters, obteve ' Key: "..." ' Stead. | Erro de criação: Nenhum valor fornecido para o parâmetro.         | Inspecione o pipeline JSON e verifique se todos os parâmetros no notebook baseparameters especificam um valor não vazio. |
+| 3202           | Usuário: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` não está autorizado a acessar o cluster. | O usuário que gerou o token de acesso não tem permissão para acessar o cluster do databricks especificado no serviço vinculado. | Verifique se o usuário tem as permissões necessárias no espaço de trabalho.   |
+| 3203           | O cluster está em estado encerrado, não disponível para receber trabalhos. Corrija o cluster ou tente novamente mais tarde. | O cluster foi encerrado.    Para clusters interativos, isso pode ser uma condição de corrida. | A melhor maneira de evitar esse erro é usar clusters de trabalho.             |
+| 3204           | Falha na execução do trabalho.  | Mensagens de erro indicam vários problemas, como um estado de cluster inesperado ou uma atividade específica. Geralmente, nenhuma mensagem de erro é exibida.                                                          | N/A                                                          |
 
 
 
-## <a name="azure-data-lake-analytics-u-sql"></a>Azure Data Lake Analytics (U-SQL)
+## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 
-| Código de erro         | Mensagem de Erro                                                | Descrição do Problema                                          | Correção possível / ação recomendada                             |
+A tabela a seguir se aplica ao U-SQL.
+
+| Código de erro         | Mensagem de erro                                                | Descrição                                          | Recomendação                            |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2709                 | O token de acesso é do inquilino errado                    | Inquilino do AAD incorreto                                         | O Principal de serviço utilizada para aceder a ADLA pertence a outro inquilino do AAD. Crie o novo Principal de serviço no mesmo inquilino como conta ADLA. |
-| 2711,   2705,   2704 | Não é permitido. Falha na verificação de ACL. O recurso não existe ou o utilizador não está autorizado a efetuar a operação pedida<br/><br/>Utilizador não é capaz de aceder para datalake store  <br/><br/>Utilizador não tem autorização para o data lake analytics | O Principal de serviço ou o certificado fornecido não tem acesso para o ficheiro no armazenamento | Certifique-se de que o Principal de serviço ou certificado fornecem para tarefas ADLA tem acesso à conta do ADLA e o armazenamento do ADLS predefinido para o mesmo da pasta de raiz. |
-| 2711                 | Não é possível localizar a pasta ou ficheiro de "Do Azure Data Lake Store"       | O caminho para o ficheiro de u-SQL é o serviço ligado não tem acesso a credenciais ou de eram incorretas | Verifique se o caminho e as credenciais fornecidas no serviço ligado |
-| 2707                 | Não é possível resolver a conta de AzureDataLakeAnalytics. Verifique "AccountName" e "DataLakeAnalyticsUri". | A conta ADLA no serviço ligado está errada                  | Verifique se que a conta correta é fornecida             |
-| 2703                 | Id do erro: E_CQO_SYSTEM_INTERNAL_ERROR ou qualquer erro começa com "Id do erro:" | Erro for proveniente de ADLA                                    | Qualquer erro que parece que o exemplo significa que a tarefa foi submetido para ADLA e o script existe com falha. A investigação deve ser feita em ADLA. Se abrir o portal e navegue para a conta ADLA, procure a tarefa com o Id (não execução de pipeline) de execução da atividade ADF. A tarefa lá terão mais informações sobre o erro e irá ajudar a resolver problemas. Se a resolução não está clara, contacte a equipa de suporte do ADLA e indique o URL de tarefa, que inclui o nome da sua conta e o ID da tarefa. |
-| 2709                 | Nós não pode aceitar o seu trabalho neste momento. O número máximo de tarefas em fila para a sua conta é 200. | Limitação de ADLA                                           | Reduza o número de trabalhos submetidos para ADLA alterando o ADF acionadores e as definições de simultaneidade em atividades ou aumentar os limites em ADLA |
-| 2709                 | Esta tarefa foi rejeitada porque requer 24 UAS e esta conta tem uma política definida pelo administrador que impede que uma tarefa usando mais do que 5 UAS. | Limitação de ADLA                                           | Reduza o número de trabalhos submetidos para ADLA alterando o ADF acionadores e as definições de simultaneidade em atividades ou aumentar os limites em ADLA |
+| 2709                 | O token de acesso é do locatário incorreto.                    | Locatário incorreto do Azure Active Directory (AD do Azure).                                         | A entidade de serviço usada para acessar o Azure Data Lake Analytics pertence a outro locatário do Azure AD. Crie uma nova entidade de serviço no mesmo locatário que a conta de Data Lake Analytics. |
+| 2711,   2705,   2704 | Proibido. Falha na verificação da ACL. Ou o recurso não existe ou o usuário não está autorizado a executar a operação solicitada.<br/><br/>O usuário não consegue acessar Data Lake Store.  <br/><br/>O usuário não está autorizado a usar Data Lake Analytics. | A entidade de serviço ou o certificado não tem acesso ao arquivo no armazenamento. | Verifique se a entidade de serviço ou o certificado que o usuário fornece para Data Lake Analytics trabalhos tem acesso à conta de Data Lake Analytics e à instância de Data Lake Storage padrão da pasta raiz. |
+| 2711                 | Não é possível localizar o arquivo ou a pasta ' Azure Data Lake Store '.       | O caminho para o arquivo U-SQL está errado ou as credenciais do serviço vinculado não têm acesso. | Verifique o caminho e as credenciais fornecidas no serviço vinculado. |
+| 2707                 | Não é possível resolver a conta de AzureDataLakeAnalytics. Verifique ' AccountName ' e ' DataLakeAnalyticsUri '. | A conta de Data Lake Analytics no serviço vinculado está incorreta.                  | Verifique se a conta certa é fornecida.             |
+| 2703                 | ID do erro: E_CQO_SYSTEM_INTERNAL_ERROR (ou qualquer erro que comece com "ID do erro:"). | O erro é de Data Lake Analytics.                                    | Um erro como o exemplo significa que o trabalho foi enviado para Data Lake Analytics, e o script falhou. Investigue no Data Lake Analytics. No portal, vá para a conta de Data Lake Analytics e procure o trabalho usando a ID de execução de atividade de Data Factory (não a ID de execução de pipeline). O trabalho fornece mais informações sobre o erro e irá ajudá-lo a solucionar problemas. Se a resolução não estiver clara, entre em contato com a equipe de suporte do Data Lake Analytics e forneça a URL do trabalho, que inclui o nome da conta e a ID do trabalho. |
+| 2709                 | Não podemos aceitar seu trabalho neste momento. O número máximo de trabalhos em fila para sua conta é 200. | Esse erro é causado pela limitação no Data Lake Analytics.                                           | Reduza o número de trabalhos enviados para Data Lake Analytics alterando gatilhos de Data Factory e configurações de simultaneidade em atividades. Ou aumente os limites no Data Lake Analytics. |
+| 2709                 | Este trabalho foi rejeitado porque requer 24 AUs. A política definida pelo administrador da conta impede que um trabalho use mais de 5 AUs. | Esse erro é causado pela limitação no Data Lake Analytics.                                           | Reduza o número de trabalhos enviados para Data Lake Analytics alterando gatilhos de Data Factory e configurações de simultaneidade em atividades. Ou aumente os limites no Data Lake Analytics. |
 
 
 
 ## <a name="azure-functions"></a>Funções do Azure
 
-| Código de erro | Mensagem de Erro                           | Descrição                                                  | Correção possível / ação recomendada                           |
+| Código de erro | Mensagem de erro                           | Descrição                                                  | Recomendação                           |
 | ------------ | --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 3600         | Conteúdo da resposta não é um válido JObject | Isso significa que a função do Azure que foi chamada não devolveu um Payload de JSON na resposta. Actividade de função do Azure do ADF suporta apenas o conteúdo da resposta JSON. | Atualizar a função do Azure para devolver um Payload de JSON válido por exemplo, um C# função pode retornar (ActionResult) novo < OkObjectResult ("{`\"Id\":\"123\"`}"); |
-| 3600         | Invalid HttpMethod: ‘..’.               | Isso significa que o método Http especificado no payload de atividade não é suportado pela atividade de função do Azure. | Os métodos Http suportados são:  <br/>COLOCAR, PUBLICAR, OBTER, ELIMINAR, OPTIONS, HEAD, RASTREIO |
+| 3600         | O conteúdo da resposta não é um JObject válido. | A função do Azure que foi chamada não retornou uma carga JSON na resposta. A atividade de funções do Azure no Data Factory dá suporte apenas ao conteúdo de resposta JSON. | Atualize a função do Azure para retornar uma carga JSON válida. Por exemplo, uma C# função pode retornar `(ActionResult)new<OkObjectResult("{` \"a\"ID\":\"123`}");`. |
+| 3600         | HttpMethod inválido: '... '.               | O método HTTP especificado na carga da atividade não é suportado pela atividade da função do Azure. | Use um método HTTP com suporte, como PUT, POST, GET, DELETE, opções, HEAD ou TRACE. |
 
 
 
-## <a name="custom-azure-batch"></a>Personalizado (o Azure Batch)
-| Código de erro | Mensagem de Erro                                                | Descrição                                                  | Correção possível / ação recomendada                           |
+## <a name="custom"></a>Personalizar
+
+A tabela a seguir se aplica ao lote do Azure.
+
+| Código de erro | Mensagem de erro                                                | Descrição                                                  | Recomendação                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2500         | Pressione uma exceção inesperada e falha na execução.             | Não é possível iniciar o comando ou o programa devolveu um código de erro. | Verifique se existe o executável. Se o programa iniciado, verifique o stdout.txt e stderr. txt carregado para a conta de armazenamento. É uma boa prática para emitir os registos grandes em seu código para depuração. |
-| 2501         | Não pode aceder à conta de batch de utilizador, verifique as definições de conta do batch. | Batch acesso à chave ou um conjunto de nome incorreto fornecido.            | Tem de verificar o nome do conjunto e a chave de acesso do Batch no serviço ligado. |
-| 2502         | Pode não armazenamento com acesso de utilizador da conta, tenha definições de conta de armazenamento de verificação. | Incorreto conta nome ou o acesso de armazenamento fornecido.       | Tem de verificar a conta acesso e o nome de armazenamento no serviço ligado. |
-| 2504         | Operação de devolveu um código de estado inválido 'BadRequest'     | Demasiados ficheiros em folderPath se a atividade personalizada.  (O tamanho total dos resourceFiles não pode ser mais do que 32 768 carateres.) | Remova ficheiros desnecessários, ou zip-los e adicionar um comando de descompactar para extrair, por exemplo: powershell.exe - nologo - noprofile-comando "& {Add-Type - um 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory ($zipFile, $folder); }" ;  $folder\yourProgram.exe |
-| 2505         | Não é possível criar a assinatura de acesso partilhado, a menos que são utilizadas credenciais de chave da conta. | Atividades personalizadas suportam apenas contas de armazenamento que utilizar uma chave de acesso. | Consulte a descrição                                            |
-| 2507         | O caminho da pasta não existe ou está vazio:...            | Não existem ficheiros na conta de armazenamento no caminho especificado.       | FolderPath tem de conter os executáveis que pretende executar. |
-| 2508         | Lá está arquivos duplicados na pasta de recurso.               | Existem vários ficheiros, o mesmo nome em subpastas diferentes de folderPath. | Atividades personalizadas nivelamento de estrutura de pastas em folderPath.  Se a estrutura de pastas tem de ser preservados, os ficheiros zip e extraí-las no Azure Batch com um comando de descompactar, por exemplo: powershell.exe - nologo - noprofile-comando "& {Add-Type - um 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory ($zipFile, $folder); }" ;   $folder\yourProgram.exe |
-| 2509         | Url do batch... é inválido, tem de estar no formato de Uri.         | URLs de batch devem ser semelhantes ao https:\//mybatchaccount.eastus.batch.azure.com | Consulte a descrição                                            |
-| 2510         | Ocorreu um erro ao enviar o pedido.               | O URL de batch é inválido                                         | Verifique se o URL do batch.                                            |
+| 2500         | Clique em exceção inesperada e a execução falhou.             | Não é possível iniciar o comando ou o programa retornou um código de erro. | Verifique se o arquivo executável existe. Se o programa foi iniciado, certifique-se de que *stdout. txt* e *stderr. txt* foram carregados para a conta de armazenamento. É uma boa prática emitir logs de grandes em seu código para depuração. |
+| 2501         | Não é possível acessar a conta do lote do usuário; Verifique as configurações da conta do lote. | Chave de acesso do lote ou nome do pool incorreto.            | Verifique o nome do pool e a chave de acesso do lote no serviço vinculado. |
+| 2502         | Não é possível acessar a conta de armazenamento do usuário; Verifique as configurações da conta de armazenamento. | Nome da conta de armazenamento ou chave de acesso incorreto.       | Verifique o nome da conta de armazenamento e a chave de acesso no serviço vinculado. |
+| 2504         | A operação retornou um código de status inválido ' BadRequest '.     | Muitos arquivos no folderPath da atividade personalizada. O tamanho total de resourceFiles não pode ter mais de 32.768 caracteres. | Remover arquivos desnecessários. Ou compactá-los e adicionar um comando de descompactação para extraí-los. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;  $folder\yourProgram.exe` |
+| 2505         | Não é possível criar assinatura de acesso compartilhado, a menos que sejam usadas credenciais de chave de conta. | As atividades personalizadas dão suporte apenas a contas de armazenamento que usam uma tecla de acesso. | Consulte a descrição do erro.                                            |
+| 2507         | O caminho da pasta não existe ou está vazio:....            | Nenhum arquivo está na conta de armazenamento no caminho especificado.       | O caminho da pasta deve conter os arquivos executáveis que você deseja executar. |
+| 2508         | Há arquivos duplicados na pasta de recursos.               | Vários arquivos com o mesmo nome estão em subpastas diferentes de folderPath. | Estrutura de pastas achatada de atividades personalizadas em folderPath.  Se você precisar preservar a estrutura de pastas, compacte os arquivos e extraia-os no lote do Azure usando um comando unzip. Por exemplo, use`powershell.exe -nologo -noprofile   -command "& { Add-Type -A 'System.IO.Compression.FileSystem';   [IO.Compression.ZipFile]::ExtractToDirectory($zipFile, $folder); }" ;   $folder\yourProgram.exe` |
+| 2509         | URL do lote... é inválido; Ele deve estar no formato URI.         | As URLs do lote devem ser semelhantes a`https://mybatchaccount.eastus.batch.azure.com` | Consulte a descrição do erro.                                            |
+| 2510         | Ocorreu um erro ao enviar a solicitação.               | A URL do lote é inválida.                                         | Verifique a URL do lote.                                            |
 
-## <a name="hdinsight-spark-hive-mapreduce-pig-hadoop-streaming"></a>HDInsight (Spark, Hive, MapReduce, Pig, transmissão em fluxo Hadoop)
+## <a name="hdinsight"></a>HDInsight
 
-| Código de erro | Mensagem de Erro                                                | Descrição                                                  | Correção possível / ação recomendada                           |
+A tabela a seguir aplica-se ao Spark, Hive, MapReduce, Pig e streaming do Hadoop.
+
+| Código de erro | Mensagem de erro                                                | Descrição                                                  | Recomendação                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300,   2310 | Falha na submissão de tarefas do Hadoop. Erro: Não foi possível resolver o nome remoto. <br/><br/>O cluster não foi encontrado. | URI do cluster fornecido é inválido                              | Certifique-se de que o cluster não foi eliminado e o URI fornecido está correto. É possível abrir o URI em qualquer browser e deverá ver a IU do Ambari. Se o cluster estiver numa vNet, em seguida, o URI deve ser o URI privado e tente abri-lo a partir de uma VM que faz parte da mesma vNet. Obter mais informações para [rede Virtual no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
-| 2300         | Falha na submissão de tarefas do Hadoop. Tarefa:..., Cluster:... /. Erro: Uma tarefa foi cancelada. | A submissão da tarefa excedeu o tempo limite.                         | Isto pode ser o problema de conectividade geral do HDInsight ou o problema de conectividade de rede. Confirme que a IU do Ambari HDInsight está disponível através de qualquer browser e as suas credenciais ainda são válidas. Certifique-se de fazer isso a partir da VM/máquina onde o runtime de integração autoalojado está instalado se utilizar o ir autoalojado. Em seguida, tente novamente a submeter a tarefa a partir do ADF. Se continuar a falhar, contacte a equipa do ADF para obter suporte. |
-| 2300         | Não autorizado:   Nome de utilizador do Ambari ou a palavra-passe está incorreta  <br/><br/>Não autorizado:   Administrador de utilizador está bloqueada no Ambari   <br/><br/>403 - Proibido: Acesso negado | As credenciais fornecidas para o HDInsight estão incorretas ou estão expiradas | Corrija-os e volte a implementar o serviço ligado. Certificar-se de que as credenciais de trabalho no HDInsight pela primeira vez ao abrir o URI de cluster em qualquer browser e tentar iniciar sessão. Se não funcionam, pode repô-los a partir do Portal do Azure. |
-| 2300,   2310 | 502 - o servidor web recebeu uma resposta inválida enquanto funcionava como um servidor de gateway ou proxy       <br/>Gateway incorrecto | Erro está vindo do HDInsight                               | Este erro é proveniente de cluster do HDInsight. Consultar [solucionador de problemas do HDInsight](https://hdinsight.github.io/ambari/ambari-ui-502-error.html) com erros comuns.    <br/>Para clusters do Spark-lo pode também dever devido a [isso](https://hdinsight.github.io/spark/spark-thriftserver-errors.html). <br/><br/>[Hiperligação adicional](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502) |
-| 2300         | Falha na submissão de tarefas do Hadoop. Tarefa:..., Cluster:... Erro: {\"erro\":\"não é possível para responder ao pedido de tarefa de envio como templeton serviço está ocupado com demasiados pedidos de tarefa de envio. Aguarde algum tempo antes de repetir a operação. Consulte o templeton.parallellism.job.submit de configuração para configurar pedidos em simultâneo. \  <br/><br/>Falha na submissão de tarefas do Hadoop. Tarefa: 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: https:\//abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/.   Error: {\"error\":\"java.io.IOException:   org.apache.hadoop.yarn.exceptions.YarnException: Failed to submit   application_1561147195099_3730 to YARN :   org.apache.hadoop.security.AccessControlException: Fila root.joblauncher já tem 500 aplicativos, não é possível aceitar a submissão da aplicação: application_1561147195099_3730\ | Ao mesmo tempo, as tarefas demasiados estão a ser submetidas para HDInsight | Considere limitar o número de tarefas simultâneas que está a ser submetido para o HDI. Consulte a simultaneidade de atividade ADF se eles são enviados pela mesma atividade. Altere os acionadores, para que as execuções de pipeline em simultâneo são espalhadas ao longo do tempo. Consulte também a docs do HDInsight para ajustar o "templeton.parallellism.job.submit" como sugere o erro. |
-| 2303,   2347 | Falha na tarefa de Hadoop com o código de saída "5". Consulte "wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr" para obter mais detalhes.  <br/><br/>Falha na execução do Hive com o código de erro 'UserErrorHiveOdbcCommandExecutionFailure'.   Consulte "wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out" para obter mais detalhes | A tarefa foi submetida para o HDInsight, e não conseguiu no HDInsight | A tarefa foi submetida para o HDInsight com êxito. Falha no cluster. Volte abrir o trabalho na IU do Ambari do HDInsight e abra os registos existem ou abra o ficheiro de armazenamento dos pontos de mensagem de erro horizontalmente. Os detalhes do erro será nesse ficheiro. |
-| 2328         | Ocorreu um erro de servidor interno ao processar o pedido. Repita o pedido ou contacte o suporte | Acontece no HDInsight a pedido.                              | Este erro é proveniente de serviço do HDInsight quando o aprovisionamento do HDInsight falha. Contacte a equipa do HDInsight e disponibilizar-lhes o nome do cluster a pedido no. |
-| 2310         | java.lang.NullPointerException                               | Ocorreu um erro ao submeter a tarefa para o cluster do Spark      | Essa exceção é proveniente de HDInsight e é ocultar o problema real.   . Contacte a equipa do HDInsight para obter suporte e fornecê-los com o nome do cluster e o intervalo de tempo de execução de atividade. |
-|              | Todos os outros erros                                             |                                                              | Consulte a [solucionador de problemas do HDInsight](../hdinsight/hdinsight-troubleshoot-guide.md) e [FAQ do HDInsight](https://hdinsight.github.io/) |
+| 2300,   2310 | Falha no envio do trabalho do Hadoop. Erro: Não foi possível resolver o nome remoto. <br/><br/>O cluster não foi encontrado. | O URI de cluster fornecido é inválido.                              | Verifique se o cluster não foi excluído e se o URI fornecido está correto. Ao abrir o URI em um navegador, você deverá ver a interface do usuário do amAmbari. Se o cluster estiver em uma rede virtual, o URI deverá ser o URI privado. Para abri-lo, use uma VM que faça parte da mesma rede virtual. Para obter mais informações, consulte [conectar-se diretamente a serviços de Apache Hadoop](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
+| 2300         | Falha no envio do trabalho do Hadoop. Trabalho:..., cluster:.../. Erro: Uma tarefa foi cancelada. | O envio do trabalho atingiu o tempo limite.                         | O problema pode ser a conectividade geral do HDInsight ou a conectividade de rede. Primeiro, confirme se a interface do usuário do HDInsight Ambari está disponível em qualquer navegador. Confirme se suas credenciais ainda são válidas. Se você estiver usando o IR (tempo de execução integrado) auto-hospedado, certifique-se de fazer isso na VM ou computador em que o IR auto-hospedado está instalado. Em seguida, tente enviar o trabalho de Data Factory novamente. Se ainda falhar, contate a equipe de Data Factory para obter suporte. |
+| 2300         | Não autorizado   O nome de usuário ou a senha do Ambari está incorreto  <br/><br/>Não autorizado   O administrador do usuário está bloqueado no Ambari.   <br/><br/>403-Proibido: Acesso negado. | As credenciais do HDInsight estão incorretas ou expiradas. | Corrija as credenciais e reimplante o serviço vinculado. Primeiro, verifique se as credenciais funcionam no HDInsight abrindo o URI do cluster em qualquer navegador e tentando entrar. Se as credenciais não funcionarem, você poderá redefini-las do portal do Azure. |
+| 2300,   2310 | 502 – O servidor Web recebeu uma resposta inválida enquanto funcionava como um servidor de gateway ou proxy.       <br/>Gateway inadequado. | Este erro é do HDInsight.                               | Esse erro é do cluster HDInsight. Para obter mais informações, consulte [erro do Ambari UI 502](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502 erros ao se conectar ao servidor spark Thrift](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), [502 erros ao se conectar ao servidor Spark Thrift](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)e [solucionar erros de gateway inválidos no gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502). |
+| 2300         | Falha no envio do trabalho do Hadoop. Trabalho:..., cluster:... Erro: {\"Error\":\"não é possível atender à solicitação de envio do trabalho, pois o serviço Templeton está ocupado com muitas solicitações de trabalho de envio. Aguarde algum tempo antes de repetir a operação. Consulte a configuração Templeton. parallellism. Job. Submit para configurar solicitações simultâneas.  <br/><br/>Falha no envio do trabalho do Hadoop. Trabalho 161da5d4-6fa8-4ef4-a240-6b6428c5ae2f, Cluster: `https://abc-analytics-prod-hdi-hd-trax-prod01.azurehdinsight.net/`.   Erro: {\"erro\":\"Java. IO. IOException: org. Apache. Hadoop. yarn. Exceptions. YarnException: Falha ao enviar application_1561147195099_3730 para YARN: org. Apache. Hadoop. Security. AccessControlexception: A fila raiz. joblauncher já tem 500 aplicativos, não é possível aceitar o envio do aplicativo: application_1561147195099_3730 \ | Muitos trabalhos estão sendo enviados ao HDInsight ao mesmo tempo. | Considere limitar o número de trabalhos simultâneos enviados ao HDInsight. Consulte Data Factory a simultaneidade de atividade se os trabalhos estiverem sendo enviados pela mesma atividade. Altere os gatilhos para que as execuções de pipeline simultâneas sejam distribuídas com o passar do tempo. Consulte a documentação do HDInsight para `templeton.parallellism.job.submit` ajustar conforme o erro sugere. |
+| 2303,   2347 | O trabalho do Hadoop falhou com o código de saída ' 5 '. Consulte 'wasbs://adfjobs@adftrialrun.blob.core.windows.net/StreamingJobs/da4afc6d-7836-444e-bbd5-635fce315997/18_06_2019_05_36_05_050/stderr' para obter mais detalhes.  <br/><br/>Falha na execução do hive com o código de erro ' UserErrorHiveOdbcCommandExecutionFailure '.   Consulte 'wasbs://adfjobs@eclsupplychainblobd.blob.core.windows.net/HiveQueryJobs/16439742-edd5-4efe-adf6-9b8ff5770beb/18_06_2019_07_37_50_477/Status/hive.out' para obter mais detalhes. | O trabalho foi enviado para o HDInsight e falhou no HDInsight. | O trabalho foi enviado para o HDInsight com êxito. Ele falhou no cluster. Abra o trabalho e os logs na interface do usuário do HDInsight Ambari ou abra o arquivo do armazenamento, como sugere a mensagem de erro. O arquivo mostra os detalhes do erro. |
+| 2328         | Erro interno do servidor ao processar a solicitação. Repita a solicitação ou contate o suporte. | Esse erro ocorre no HDInsight sob demanda.                              | Esse erro é proveniente do serviço do HDInsight quando o provisionamento do HDInsight falha. Entre em contato com a equipe do HDInsight e forneça o nome do cluster sob demanda. |
+| 2310         | java.lang.NullPointerException                               | Esse erro ocorre quando o trabalho é enviado a um cluster Spark.      | Essa exceção é proveniente do HDInsight. Ele oculta o problema real. Entre em contato com a equipe do HDInsight para obter suporte. Forneça o nome do cluster e o intervalo de tempo de execução da atividade. |
+|              | Todos os outros erros                                             |                                                              | Consulte [solucionar problemas usando](../hdinsight/hdinsight-troubleshoot-guide.md) as [perguntas frequentes](https://hdinsight.github.io/)do hdinsight e do hdinsight. |
 
 
 
 ## <a name="web-activity"></a>Atividade Web
 
-| Código de erro | Mensagem de Erro                                                | Descrição                                                  | Correção possível / ação recomendada                           |
+| Código de erro | Mensagem de erro                                                | Descrição                                                  | Recomendação                          |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2108         | Invalid HttpMethod: ‘..’.                                    | Isso significa que o método Http especificado no payload de atividade não é suportado pela atividade Web. | Os métodos Http suportados são: <br/>COLOCAR, PUBLICAR, OBTER, ELIMINAR |
-| 2108         | Erro de servidor inválido 500                                     | Erro interno no ponto final                               | Verifique a funcionalidade na URL (com o Fiddler/Postman): [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | 401 não autorizado                                             | Autenticação válido em falta no pedido                      | Fornecer o método de autenticação válido (pode ter expirado token).   <br/><br/>Verifique a funcionalidade na URL (com o Fiddler/Postman): [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | 403 Proibido                                                | Permissões necessárias em falta                                 | Verifique as permissões de utilizador no recurso acedido.   <br/><br/>Verifique a funcionalidade na URL (com o Fiddler/Postman): [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Pedido incorreto 400                                              | Pedido de Http inválido                                         | Verifique o URL, verbo e corpo do pedido.   <br/><br/>Utilize o Fiddler/Postman para validar o pedido: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | 404 não encontrado                                                | Recurso não foi encontrado                                       | Utilize o Fiddler/Postman para validar o pedido: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Serviço indisponível                                          | O serviço está indisponível                                       | Utilize o Fiddler/Postman para validar o pedido: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Tipo de suporte não suportado                                       | Tipo de conteúdo sem correspondência com o corpo de atividade Web           | Especifique o Content-Type correto que corresponde ao formato de payload utilização Fiddler/Postman para validar o pedido: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | O recurso que estiver à procura para tiver sido removido, o nome alterado, ou está temporariamente indisponível. | O recurso não está disponível                                | Utilize o Fiddler/Postman para verificar o ponto final: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | Não é possível apresentar a página que procura porque está a ser utilizado um método inválido (verbo HTTP). | Método de atividade Web incorreto foi especificado no pedido   | Utilize o Fiddler/Postman para verificar o ponto final: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
-| 2108         | invalid_payload                                              | O corpo da atividade Web está incorreto                       | Utilize o Fiddler/Postman para verificar o ponto final: [Como utilizar o Fiddler para criar uma sessão HTTP](#how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application) |
+| 2108         | HttpMethod inválido: '... '.                                    | A atividade da Web não dá suporte ao método HTTP especificado na carga da atividade. | Os métodos HTTP com suporte são PUT, POST, GET e DELETE. |
+| 2108         | Erro de servidor inválido 500.                                     | Erro interno no ponto de extremidade.                               | Use o Fiddler ou o postmaster para verificar a funcionalidade na URL. |
+| 2108         | Não autorizado 401.                                             | Autenticação válida ausente na solicitação.                      | O token pode ter expirado. Forneça um método de autenticação válido. Use o Fiddler ou o postmaster para verificar a funcionalidade na URL. |
+| 2108         | Proibido 403.                                                | Permissões necessárias ausentes.                                 | Verifique as permissões de usuário no recurso acessado. Use o Fiddler ou o postmaster para verificar a funcionalidade na URL.  |
+| 2108         | Solicitação inadequada 400.                                              | Solicitação HTTP inválida.                                         | Verifique a URL, o verbo e o corpo da solicitação. Use o Fiddler ou o postmaster para validar a solicitação.  |
+| 2108         | Não encontrado 404.                                                | O recurso não foi encontrado.                                       | Use o Fiddler ou o postmaster para validar a solicitação.  |
+| 2108         | Serviço indisponível.                                          | O serviço não está disponível.                                       | Use o Fiddler ou o postmaster para validar a solicitação.  |
+| 2108         | Tipo de mídia sem suporte.                                       | O tipo de conteúdo não corresponde ao corpo da atividade da Web.           | Especifique o tipo de conteúdo que corresponde ao formato da carga. Use o Fiddler ou o postmaster para validar a solicitação. |
+| 2108         | O recurso que você está procurando foi removido, teve seu nome alterado ou está temporariamente indisponível. | O recurso não está disponível.                                | Use o Fiddler ou o postmaster para verificar o ponto de extremidade. |
+| 2108         | A página que você está procurando não pode ser exibida porque um método inválido (verbo HTTP) está sendo usado. | Um método de atividade da Web incorreto foi especificado na solicitação.   | Use o Fiddler ou o postmaster para verificar o ponto de extremidade. |
+| 2108         | invalid_payload                                              | O corpo da atividade da Web está incorreto.                       | Use o Fiddler ou o postmaster para verificar o ponto de extremidade. |
 
-#### <a name="how-to-use-fiddler-to-create-an-http-session-of-the-monitored-web-application"></a>Como utilizar o Fiddler para criar uma sessão HTTP do aplicativo web monitorizadas
+Para usar o Fiddler para criar uma sessão HTTP do aplicativo Web monitorado:
 
-1. Transferir e instalar [Fiddler](https://www.telerik.com/download/fiddler)
+1. Baixe, instale e abra o [Fiddler](https://www.telerik.com/download/fiddler).
 
-2. Se a sua aplicação web utiliza HTTPS:
+1. Se seu aplicativo Web usar HTTPS, vá para **ferramentas** > **Opções** > do Fiddler**https**. Selecione **capturar conexões HTTPS** e **descriptografar tráfego HTTPS**. 
+   
+   ![Opções do Fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
-   1. Abra o Fiddler
+1. Se seu aplicativo usar certificados SSL, adicione o certificado Fiddler ao seu dispositivo. Acesse **ferramentas** > **Fiddler opções** > **https** **ações** **Exportar certificado raiz para área de trabalho.**  >  > 
 
-   2. Aceda a **ferramentas > Opções de Fiddler** e selecione como mostrado na captura de ecrã abaixo. 
+1. Desative a captura indo para o**tráfego de captura**de **arquivo** > . Ou pressione **F12**.
 
-      ![Opções do fiddler](media/data-factory-troubleshoot-guide/fiddler-options.png)
+1. Limpe o cache do navegador para que todos os itens em cache sejam removidos e precisem ser baixados novamente.
 
-3. Se a sua aplicação utiliza certificados SSL, também tem de adicionar o certificado do Fiddler para o seu dispositivo.
+1. Criar uma solicitação: 
 
-4. Para adicionar o certificado do Fiddler para o seu dispositivo, aceda a **ferramentas** > **Fiddler opções** > **HTTPS**  >   **Ações** > **exportar o certificado de raiz para área de trabalho** para obter o certificado de Fiddler.
+   a. Selecione a guia **compositor** .
 
-5. Desative a captura para que o cache do navegador pode ser desmarcada para iniciar um novo rastreamento.
+   b. Defina o método e a URL HTTP.
 
-6. 1. Aceda a **arquivo** > **capturar tráfego** ou prima **F12**.
-   2. Limpe o cache do seu browser, para que todos os itens em cache são removidos e tem de ser novamente transferidos.
+   c. Adicione cabeçalhos e um corpo de solicitação, se necessário.
 
-7. Crie pedido: 
+   d. Selecione **Executar**.
 
-8. 1. Clique na guia Composer
-   2. Definir o método Http e o URL
-   3. Adicionar cabeçalhos e o corpo do pedido, se necessário
-   4. Clique em executar
+9. Ative a captura de tráfego novamente e conclua a transação problemática em sua página.
 
-9. Comece a capturar tráfego novamente e concluir a transação problemática na sua página.
+10. Vá para **arquivo** > **salvar** > **todas as sessões**.
 
-10. Depois de concluída, aceda a **arquivo** > **guardar** > **todas as sessões**.
+Para obter mais informações, consulte [introdução ao Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
-Obter mais informações sobre o Fiddler [aqui](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Passos Seguintes
+Para obter mais ajuda para solução de problemas, Experimente estes recursos:
 
-Para mais ajuda para encontrar a solução para o seu problema, aqui estão alguns outros recursos, que pode experimentar.
-
-*  [Blogues](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Pedidos de funcionalidades](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Blog de Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Data Factory solicitações de recursos](https://feedback.azure.com/forums/270578-data-factory)
+*  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
-*  [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter](https://twitter.com/hashtag/DataFactory)
+*  [Stack Overflow Fórum para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Informações do Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 
 
 

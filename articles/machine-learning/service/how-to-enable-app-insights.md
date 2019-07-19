@@ -1,7 +1,7 @@
 ---
-title: Configurar o Azure Application Insights para modelos de ML de monitor
+title: Configurar informações de Aplicativo Azure para monitorar modelos de ML
 titleSuffix: Azure Machine Learning service
-description: Monitorizar os serviços web implementados com o serviço Azure Machine Learning com o Azure Application Insights
+description: Monitorar serviços Web implantados com o serviço de Azure Machine Learning usando o Aplicativo Azure insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820126"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871773"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitorizar os seus modelos do Azure Machine Learning com o Application Insights
 
@@ -30,13 +30,13 @@ Neste artigo, saiba como configurar o Azure Application Insights para o seu serv
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+* Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
 * Trabalho do Azure Machine Learning, um diretório local que contém os seus scripts e o SDK do Azure Machine Learning para Python instalada. Para saber como obter estes pré-requisitos, veja [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md).
 * Um modelo de aprendizagem de máquina preparado para ser implementada para o Azure Kubernetes Service (AKS) ou instância de contentor do Azure (ACI). Se não tiver uma, veja a [modelo de classificação de imagem Train](tutorial-train-models-with-aml.md) tutorial.
 
 
-## <a name="use-sdk-to-configure"></a>Utilize o SDK para configurar 
+## <a name="use-sdk-to-configure"></a>Usar o SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Atualizar um serviço implementado
 1. Identifica o serviço na sua área de trabalho. O valor para `ws` é o nome da sua área de trabalho.
@@ -77,7 +77,7 @@ Para desativar o Application Insights, utilize o seguinte código:
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="use-portal-to-configure"></a>Utilize o portal para configurar
+## <a name="use-portal-to-configure"></a>Usar o portal para configurar
 
 Pode ativar e desativar o Application Insights no portal do Azure.
 
@@ -131,11 +131,11 @@ Para saber mais sobre como utilizar o Application Insights, veja [o que é o App
 
 ## <a name="example-notebook"></a>Bloco de notas de exemplo
 
-O [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) bloco de notas demonstra conceitos deste artigo. 
+O bloco de anotações [Enable-app-Revisions-in-Production-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) demonstra conceitos neste artigo. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 Também é possível recolher dados em seus modelos em produção. Leia o artigo [recolher dados para modelos em produção](how-to-enable-data-collection.md). 
 
-Leia também [Monitor do Azure para contentores](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Leia também [Azure monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

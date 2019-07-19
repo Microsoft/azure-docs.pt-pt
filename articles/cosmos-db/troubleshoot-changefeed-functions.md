@@ -1,101 +1,101 @@
 ---
-title: Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
-description: Problemas comuns e soluções alternativas e passos de diagnóstico, ao utilizar o acionador do Azure Cosmos DB com as funções do Azure
+title: Diagnosticar e solucionar problemas ao usar o gatilho de Azure Cosmos DB no Azure Functions
+description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Cosmos DB com Azure Functions
 author: ealsur
 ms.service: cosmos-db
 ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 09ea70ac302806b4cb0e97fde92dda4208e3d659
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734519"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250018"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Cosmos DB no Azure Functions
 
-Este artigo aborda problemas comuns e passos de diagnóstico, soluções alternativas ao utilizar o [acionador do Azure Cosmos DB](change-feed-functions.md) com as funções do Azure.
+Este artigo aborda problemas comuns, soluções alternativas e etapas de diagnóstico, quando você usa o [gatilho de Azure Cosmos DB](change-feed-functions.md) com Azure functions.
 
 ## <a name="dependencies"></a>Dependências
 
-O acionador do Azure Cosmos DB e os enlaces dependem os pacotes de extensão ao longo do tempo de execução de funções do Azure base. Tenha sempre esses pacotes atualizados, como eles podem incluir correções e novas funcionalidades que podem resolver problemas potenciais que podem ser encontrados:
+O gatilho Azure Cosmos DB e as associações dependem dos pacotes de extensão sobre o tempo de execução de Azure Functions base. Sempre mantenha esses pacotes atualizados, pois eles podem incluir correções e novos recursos que podem solucionar possíveis problemas encontrados:
 
-* Para a V2 de funções do Azure, consulte [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
-* Para a V1 de funções do Azure, consulte [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
+* Para Azure Functions v2, consulte [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
+* Para Azure Functions v1, consulte [Microsoft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 
-Este artigo irá sempre se referir a V2 de funções do Azure sempre que o tempo de execução é mencionado, a menos que explicitamente especificado.
+Este artigo sempre fará referência a Azure Functions v2 sempre que o tempo de execução for mencionado, a menos que seja especificado explicitamente.
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir o SDK do Azure Cosmos DB de forma independente
 
-É a principal funcionalidade do pacote de extensão fornecer suporte para o acionador do Azure Cosmos DB e enlaces. Ele também inclui a [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se pretender interagir com o Azure Cosmos DB através de programação sem utilizar o acionador e os enlaces.
+A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho de Azure Cosmos DB e associações. Ele também inclui o [SDK do .net Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com Azure Cosmos DB programaticamente sem usar o gatilho e as associações.
 
-Se pretende utilizar o SDK do Azure Cosmos DB, certifique-se de que não adicionar ao seu projeto outra referência de pacote de NuGet. Em vez disso, **permitir que a referência do SDK resolver por meio do pacote de extensão das funções do Azure**. Consumir o SDK do Azure Cosmos DB em separado do acionador e enlaces
+Se quiser usar o SDK do Azure Cosmos DB, certifique-se de não adicionar ao seu projeto outra referência de pacote NuGet. Em vez disso, **permita que a referência do SDK seja resolvida por meio do pacote de extensão do Azure Functions**. Consumir o SDK do Azure Cosmos DB separadamente do gatilho e das associações
 
-Além disso, se estiver a criar sua própria instância do manualmente os [cliente SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), deve seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão de Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este processo irá evitar potenciais problemas de socket em suas operações.
+Além disso, se você estiver criando manualmente sua própria instância do [cliente SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), deverá seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão singleton](../azure-functions/manage-connections.md#documentclient-code-example-c). Esse processo evitará os problemas de soquete em potencial em suas operações.
 
-## <a name="common-scenarios-and-workarounds"></a>Cenários e soluções alternativas comuns
+## <a name="common-scenarios-and-workarounds"></a>Cenários comuns e soluções alternativas
 
-### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Falha de função do Azure com a recolha de mensagem de erro não existe
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>A função do Azure falha com a coleta de mensagens de erro não existe
 
-Função do Azure falhar com mensagem de erro "de qualquer coleção de origem"coleção-name"(na base de dados"da base de dados-name") ou a coleção de concessão"coleção2-name"(na base de dados"base de dados2-name") não existe. Ambas as coleções têm de existir antes de inicia o serviço de escuta. Para criar automaticamente a coleção de concessão, definir 'CreateLeaseCollectionIfNotExists' como 'true' "
+A função do Azure falha com a mensagem de erro "a coleção de origem ' Collection-Name ' (no banco de dados ' Database-Name ') ou a coleção de concessão ' Collection2-Name ' (no banco de dados ' Database2-Name ') não existe. Ambas as coleções devem existir antes de o ouvinte ser iniciado. Para criar automaticamente a coleção de concessão, defina ' CreateLeaseCollectionIfNotExists ' como ' true ' "
 
-Isso significa que um ou ambos dos contentores do Azure Cosmos necessários para o acionador trabalhar, não existem ou não sejam encontram acessíveis para a função do Azure. **O próprio erro lhe dirá qual banco de dados do Cosmos do Azure e contentores é o acionador à procura de** com base na sua configuração.
+Isso significa que um ou ambos os contêineres Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O erro em si informará qual contêiner e banco de dados Cosmos do Azure é o gatilho procurando** com base em sua configuração.
 
-1. Verifique se o `ConnectionStringSetting` atributo e que ele **faz referência a uma definição de que existe na sua aplicação de funções do Azure**. O valor neste atributo não deve ser a cadeia de ligação em si, mas o nome da definição de configuração.
-2. Certifique-se de que o `databaseName` e `collectionName` existe na sua conta do Cosmos do Azure. Se estiver a utilizar a substituição automática de valor (usando `%settingName%` padrões), certifique-se de que o nome da definição de existe na sua aplicação de funções do Azure.
-3. Se não especificar um `LeaseCollectionName/leaseCollectionName`, a predefinição é "concessões". Certifique-se de que existe esse contentor. Opcionalmente, pode definir o `CreateLeaseCollectionIfNotExists` atributo no seu acionador para `true` para criar automaticamente.
-4. Verifique se sua [configuração da Firewall da conta do Azure Cosmos](how-to-configure-firewall.md) para ver se não encontra não está a bloquear a função do Azure.
+1. Verifique o `ConnectionStringSetting` atributo e se ele **faz referência a uma configuração existente no aplicativo de funções do Azure**. O valor nesse atributo não deve ser a própria cadeia de conexão, mas o nome do parâmetro de configuração.
+2. Verifique se o `databaseName` e `collectionName` o existem em sua conta do Azure Cosmos. Se você estiver usando a substituição automática de valor `%settingName%` (usando padrões), verifique se o nome da configuração existe em sua aplicativo de funções do Azure.
+3. Se você não especificar um `LeaseCollectionName/leaseCollectionName`, o padrão será "concessões". Verifique se esse contêiner existe. Opcionalmente, você pode definir `CreateLeaseCollectionIfNotExists` o atributo em seu gatilho `true` para para criá-lo automaticamente.
+4. Verifique a [configuração de firewall da sua conta do Azure Cosmos](how-to-configure-firewall.md) para ver se não está bloqueando a função do Azure.
 
-### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Função do Azure não consegue começar com "coleção de taxa de transferência partilhada deve ter uma chave de partição"
+### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Falha ao iniciar a função do Azure com "a coleção de produtividade compartilhada deve ter uma chave de partição"
 
-As versões anteriores da extensão do Azure Cosmos DB não oferecia suporte a utilizar um contentor de concessões que foi criado dentro de um [base de dados da taxa de transferência partilhada](./set-throughput.md#set-throughput-on-a-database). Para resolver este problema, atualize o [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) extensão para obter a versão mais recente.
+As versões anteriores da extensão de Azure Cosmos DB não tinham suporte usando um contêiner de concessões que foi criado em um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). Para resolver esse problema, atualize a extensão [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) para obter a versão mais recente.
 
-### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Função do Azure não consegue começar com "a coleção de concessão, se particionada, tem de ter igual a id de chave de partição."
+### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Falha na inicialização da função do Azure com "a coleção de concessão, se particionada, deve ter a chave de partição igual à ID".
 
-Este erro significa que o seu contentor de concessões atual está particionado, mas não é o caminho da chave de partição `/id`. Para resolver este problema, tem de recriar o contentor de concessões com `/id` como a chave de partição.
+Esse erro significa que o contêiner de concessões atuais está particionado, mas o caminho da chave de `/id`partição não é. Para resolver esse problema, você precisa recriar o contêiner de concessões com `/id` o como a chave de partição.
 
-### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Verá um "valor não pode ser nulo. Nome do parâmetro: o "nos seus registos de funções do Azure ao tentar executar o acionador
+### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>Você verá um "o valor não pode ser nulo. Nome do parâmetro: o "em seus logs de Azure Functions quando você tenta executar o gatilho
 
-Este problema surge se estiver a utilizar o portal do Azure e tentar selecionar o **executar** botão na tela quando inspecionar uma função do Azure que utiliza o acionador. O acionador não requer que selecione Run para começar, irá iniciar automaticamente quando a função do Azure é implementada. Se pretender verificar o fluxo de registo da função do Azure no portal do Azure, apenas vá para o seu contentor monitorizado e inserir alguns itens novos, verá automaticamente a execução do acionador.
+Esse problema será exibido se você estiver usando o portal do Azure e tentar selecionar o botão **executar** na tela ao inspecionar uma função do Azure que usa o gatilho. O gatilho não exige que você selecione executar para iniciar, ele será iniciado automaticamente quando a função do Azure for implantada. Se você quiser verificar o fluxo de log da função do Azure na portal do Azure, basta acessar o contêiner monitorado e inserir alguns novos itens, você verá automaticamente o gatilho em execução.
 
-### <a name="my-changes-take-too-long-be-received"></a>Minha opinião de alterações muito sejam recebidas
+### <a name="my-changes-take-too-long-be-received"></a>Minhas alterações demoram muito para serem recebidas
 
-Este cenário pode ter várias causas e todos eles devem ser verificados:
+Esse cenário pode ter várias causas e todas elas devem ser verificadas:
 
-1. Sua função do Azure é implementada na mesma região que a sua conta do Cosmos do Azure? Para a latência de rede não ideais, tanto a função do Azure e a sua conta do Cosmos do Azure devem ser colocalizados na mesma região do Azure.
-2. As alterações ocorrem no seu contentor do Azure Cosmos contínuo ou esporádico?
-Se for a última opção, pode haver algum atraso entre as alterações que está a ser armazenadas e a função do Azure pegou-los. Isto acontece porque internamente, quando o acionador verifica a existência de alterações no seu contentor do Cosmos do Azure e localiza nenhum pendente a ser lido, ele será em modo de suspensão durante um período configurável de tempo (5 segundos, por predefinição) antes de verificar a existência de novas alterações (evitar o alto consumo de RU). Pode configurar este tempo de suspensão por meio do `FeedPollDelay/feedPollDelay` definição [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do acionador (o valor deve ser em milissegundos).
-3. O contentor do Cosmos do Azure pode ser [taxa limitado](./request-units.md).
-4. Pode utilizar o `PreferredLocations` atributo no seu acionador para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem preferencial de ligação personalizada.
+1. Sua função do Azure está implantada na mesma região que sua conta do Azure Cosmos? Para uma latência de rede ideal, a função do Azure e sua conta do Azure Cosmos devem ser colocalizadas na mesma região do Azure.
+2. As alterações que ocorrem no contêiner Cosmos do Azure são contínuas ou esporádicas?
+Se for o último, pode haver algum atraso entre as alterações sendo armazenadas e a função do Azure que a seleciona. Isso ocorre porque, internamente, quando o gatilho verifica se há alterações no contêiner Cosmos do Azure e não localiza nenhum pendente para ser lido, ele será suspenso por uma quantidade configurável de tempo (5 segundos, por padrão) antes de verificar se há novas alterações (para evitar o alto consumo de RU). Você pode configurar esse tempo de suspensão por `FeedPollDelay/feedPollDelay` meio da configuração na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) do seu gatilho (espera-se que o valor esteja em milissegundos).
+3. O contêiner Cosmos do Azure pode ser [limitado por taxa](./request-units.md).
+4. Você pode usar o `PreferredLocations` atributo em seu gatilho para especificar uma lista separada por vírgulas de regiões do Azure para definir uma ordem de conexão preferencial personalizada.
 
-### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão em falta no meu acionador
+### <a name="some-changes-are-missing-in-my-trigger"></a>Algumas alterações estão ausentes no meu gatilho
 
-Se achar que algumas das alterações que ocorreram no seu contentor do Cosmos do Azure não são a ser aplicadas pela função do Azure, há uma etapa de investigação inicial que precisa ser feita.
+Se você descobrir que algumas das alterações que ocorreram em seu contêiner Cosmos do Azure não estão sendo coletadas pela função do Azure, há uma etapa de investigação inicial que precisa ocorrer.
 
-Quando a sua função do Azure recebe as alterações,, muitas vezes, processa e pode, opcionalmente, enviar o resultado para outro destino. Quando estiver a investigar alterações em falta, certifique-se de que **medida que as alterações que estão a ser recebidas no ponto de ingestão** (quando a função do Azure é iniciado), não no destino.
+Quando sua função do Azure recebe as alterações, ele geralmente as processa e, opcionalmente, envia o resultado para outro destino. Quando você estiver investigando alterações ausentes, certifique-se de **que você meça quais alterações estão sendo recebidas no ponto de ingestão** (quando a função do Azure é iniciada), não no destino.
 
-Se algumas alterações estão em falta no destino, isto pode significar que é algum erro ocorre durante a execução de função do Azure, depois das alterações foram recebidas.
+Se algumas alterações estiverem ausentes no destino, isso pode significar que o erro ocorre durante a execução da função do Azure depois que as alterações foram recebidas.
 
-Neste cenário, o melhor curso de ação é adicionar `try/catch blocks` em seu código e dentro os loops que poderão estar a processar as alterações, para detetar qualquer falha para um determinado subconjunto de itens e manipulá-las em conformidade (enviá-los para outro armazenamento para outra análise ou tente novamente). 
+Nesse cenário, o melhor curso de ação é adicionar `try/catch blocks` seu código e dentro dos loops que possam estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los adequadamente (enviá-los para outro armazenamento para mais análise ou tentar novamente). 
 
 > [!NOTE]
-> Acionador do Azure Cosmos DB, por predefinição, não repita um lote de alterações se Ocorreu uma exceção não processada durante a execução de seu código. Isso significa que o motivo que as alterações não chegou no destino é porque o que estão a falhar para processá-las.
+> Por padrão, o gatilho de Azure Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
-Se, achar que algumas alterações não foram recebidas em todos os pelo seu acionador, o cenário mais comum é que há **outra execução de função do Azure**. É possível que outra função do Azure implementadas no Azure ou uma função do Azure em execução localmente no computador de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo monitorizados e contentores da concessão), e esta função do Azure é aquele que rouba um subconjunto das alterações que esperaria que a função do Azure vai processar.
+Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure fosse processada.
 
-Além disso, o cenário pode ser validado, se sabe quantas instâncias de aplicação de funções do Azure tem em execução. Se inspecionar o contentor de concessões e contar o número de itens de concessão dentro, os valores distintos do `Owner` propriedade nos mesmos, deve ser igual ao número de instâncias da sua aplicação de função. Se existirem mais proprietários que as instâncias da aplicação de funções do Azure conhecidos, significa que estes proprietários extras são um "roubar" as alterações.
+Além disso, o cenário pode ser validado, se você souber quantas instâncias do Azure Aplicativo de funções você está executando. Se você inspecionar o contêiner de concessões e contar o número de itens de concessão no, os valores `Owner` distintos da propriedade neles devem ser iguais ao número de instâncias de seu aplicativo de funções. Se houver mais proprietários do que as instâncias conhecidas do Azure Aplicativo de funções, isso significa que esses proprietários extras são o "roubar" as alterações.
 
-Uma maneira fácil para resolver esta situação, é aplicar uma `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, em alternativa, testar com um novo contentor de concessões.
+Uma maneira fácil de solucionar essa situação é aplicar um `LeaseCollectionPrefix/leaseCollectionPrefix` à sua função com um valor novo/diferente ou, como alternativa, testar com um novo contêiner de concessões.
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Enlace só pode ser feito com IReadOnlyList<Document> ou JArray
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>A associação só pode ser feita com\<> de documento IReadOnlyList ou JArray
 
-Este erro ocorre se o seu projeto de funções do Azure (ou qualquer projeto referenciado) contém uma referência de NuGet manual para o SDK do Azure Cosmos DB com uma versão diferente daquele fornecido pelos [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
+Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenciado) contiver uma referência manual do NuGet para o SDK do Azure Cosmos DB com uma versão diferente daquela fornecida pela [extensão Azure Functions Cosmos DB](./troubleshoot-changefeed-functions.md#dependencies).
 
-Para resolver esta situação, remova a referência de NuGet manual que foi adicionada e deixar que a referência do SDK do Azure Cosmos DB resolver por meio do pacote de extensão do Azure funções Cosmos DB.
+Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ativar a monitorização para as suas funções do Azure](../azure-functions/functions-monitoring.md)
-* [Azure Cosmos DB .NET SDK de resolução de problemas](./troubleshoot-dot-net-sdk.md)
+* [Habilitar o monitoramento para seu Azure Functions](../azure-functions/functions-monitoring.md)
+* [Solução de problemas do SDK do .NET Azure Cosmos DB](./troubleshoot-dot-net-sdk.md)

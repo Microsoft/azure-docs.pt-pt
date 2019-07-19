@@ -1,78 +1,96 @@
 ---
-title: Trabalhar com o biblioteca de processador no Azure Cosmos DB do feed de alterações
-description: Biblioteca processador do feed usando a alteração do Azure Cosmos DB.
+title: Trabalhando com a biblioteca do processador do feed de alterações no Azure Cosmos DB
+description: Usando o Azure Cosmos DB biblioteca do processador do feed de alterações.
 author: rimman
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d0faeba5278e23990a72c9d2dd3d7e18510bdf80
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 42b7cd8a60e70ab75afc30910c46eb49f1f6d62a
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342045"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68000941"
 ---
-# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador de feed de alterações no Azure Cosmos DB 
+# <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 
-O [biblioteca processador do feed de alterações do Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md) ajuda-o a distribuir o processamento de eventos por vários consumidores. Esta biblioteca simplifica as alterações de leitura em partições e de vários threads trabalhando em paralelo.
+O processador do feed de alterações faz parte do [SDK do Azure Cosmos DB v3](https://github.com/Azure/azure-cosmos-dotnet-v3). Ele simplifica o processo de leitura do feed de alterações e distribui o processamento de eventos em vários consumidores com eficiência.
 
-O principal benefício da biblioteca de processador do feed de alterações é que não precisa de gerir cada partição e o token de continuação e não tem que consultar cada contentor manualmente.
+O principal benefício da biblioteca do processador do feed de alterações é seu comportamento tolerante a falhas que garante uma entrega "pelo menos uma vez" de todos os eventos no feed de alterações.
 
-A biblioteca de processador do feed de alterações simplifica as alterações de leitura em partições e de vários threads trabalhando em paralelo. Gere automaticamente as alterações de leitura por usando um mecanismo de concessão de partições. Como pode ver na imagem seguinte, se iniciar dois clientes que utilizam o biblioteca processador do feed de alterações, elas dividem o trabalho entre si. À medida que continua a aumentar o número de clientes, eles continuar dividindo o trabalho entre si.
+## <a name="components-of-the-change-feed-processor"></a>Componentes do processador do feed de alterações
 
-![Usar as alterações do Azure Cosmos DB biblioteca processador do feed](./media/change-feed-processor/change-feed-output.png)
+Há quatro componentes principais da implementação do processador do feed de alterações: 
 
-O cliente do esquerda foi iniciado primeiro e ele começou a monitorização de todas as partições, em seguida, o segundo cliente foi iniciado e, em seguida, a primeira desistir de algumas das concessões para segundo cliente. Esta é uma forma eficiente para distribuir trabalho entre computadores diferentes e clientes.
+1. **O contêiner monitorado:** O contêiner monitorado tem os dados dos quais o feed de alterações é gerado. Todas as inserções e atualizações do contêiner monitorado são refletidas no feed de alterações do contêiner.
 
-Se tiver duas funções de Azure sem servidor o mesmo contentor de monitorização e utilizar a concessão do mesmo, as duas funções poderão obter documentos diferentes consoante a forma como a biblioteca de processador decide processar as partições.
+1. **O contêiner de concessão:** O contêiner de concessão atua como um armazenamento de estado e coordena o processamento do feed de alterações entre vários trabalhadores. O contêiner de concessão pode ser armazenado na mesma conta que o contêiner monitorado ou em uma conta separada. 
 
-## <a name="implementing-the-change-feed-processor-library"></a>Implementar a alteração de biblioteca processador do feed
+1. **O host:** Um host é uma instância de aplicativo que usa o processador do feed de alterações para escutar alterações. Várias instâncias com a mesma configuração de concessão podem ser executadas em paralelo, mas cada instância deve ter um **nome de instância**diferente. 
 
-Existem quatro componentes principais de implementar o biblioteca processador do feed de alterações: 
+1. **O delegado:** O delegado é o código que define o que você, o desenvolvedor, deseja fazer com cada lote de alterações que o processador do feed de alterações lê. 
 
-1. **O contentor monitorizado:** O contentor monitorizado tem os dados a partir do qual o feed de alterações é gerado. Qualquer inserções e as alterações para o contentor monitorizado são refletidas no feed de alterações do contentor.
-
-1. **O contentor da concessão:** O contentor da concessão coordena o feed de alterações em várias funções de trabalho de processamento. Um contentor separado é utilizado para armazenar as concessões com uma concessão por partição. É vantajoso para armazenar este contentor de concessão numa conta diferente com a região de escrita mais perto de onde está a executar o processador do feed de alterações. Um objeto de concessão contém os seguintes atributos:
-
-   * Proprietário: Especifica o host que detém a concessão.
-
-   * Continuação: Especifica a posição (token de continuação) na alteração do feed para uma determinada partição.
-
-   * Timestamp: Hora da última concessão foi atualizada. o carimbo de hora pode ser usado para verificar se a concessão seja considerada expirada.
-
-1. **O anfitrião do processador:** Cada anfitrião determina quantas partições para processar com base no número de outro instâncias de anfitriões tem concessões ativas.
-
-   * Quando um anfitrião é iniciado, ele adquire concessões a balancear a carga de trabalho em todos os anfitriões. Um anfitrião renova periodicamente concessões, para que as concessões permanecem ativas.
-
-   * Leia ao token de continuação última para a concessão para cada um pontos de verificação do anfitrião. Para garantir a segurança de simultaneidade, um anfitrião verifica a ETag para cada atualização de concessão. Também são suportadas outras estratégias de ponto de verificação.
-
-   * Após o encerramento, um host libera concessões de todos os mas mantém as informações de continuação, para que ele pode continuá ler a partir do ponto de verificação armazenado mais tarde.
-
-   Atualmente, o número de anfitriões não pode ser superior ao número de partições (concessões).
-
-1. **Os consumidores:** Os consumidores, ou funções de trabalho, são os threads que executam o processamento de feed de alterações iniciado por cada anfitrião. Cada anfitrião do processador pode ter vários consumidores. Cada consumidor lê a alteração do feed da partição que está atribuída a e notifica o seu host de alterações e expirado concessões.
-
-Para compreender melhor como essas quatro elementos de feed de alterações trabalho de processador em conjunto, vamos examinar um exemplo no diagrama seguinte. A coleção monitorizada Armazena os documentos e "Cidade" como a chave de partição. Podemos ver que a partição azul contém documentos com o campo "Cidade" de "A E" e assim por diante. Existem dois anfitriões, cada uma com dois os consumidores de leitura de quatro partições em paralelo. As setas mostram os consumidores de leitura a partir de um ponto específico no feed de alterações. A primeira partição, a azul mais escura representa as alterações não lidas enquanto o azul claro representa as alterações de leitura já no feed de alterações. Os anfitriões usam a coleção de concessão para armazenar um valor de "continuação" para controlar a posição atual de leitura para cada consumidor.
+Para entender ainda mais como esses quatro elementos do processador do feed de alterações funcionam juntos, vejamos um exemplo no diagrama a seguir. O contêiner monitorado armazena documentos e usa ' City ' como a chave de partição. Vemos que os valores de chave de partição são distribuídos em intervalos que contêm itens. Há duas instâncias de host e o processador do feed de alterações está atribuindo diferentes intervalos de valores de chave de partição a cada instância para maximizar a distribuição de computação. Cada intervalo está sendo lido em paralelo e seu progresso é mantido separadamente de outros intervalos no contêiner de concessão.
 
 ![Exemplo de processador do feed de alterações](./media/change-feed-processor/changefeedprocessor.png)
 
-### <a name="change-feed-and-provisioned-throughput"></a>Feed de alterações e o débito aprovisionado
+## <a name="implementing-the-change-feed-processor"></a>Implementando o processador do feed de alterações
 
-É-lhe cobrada RUs consumidos, uma vez que o movimento de dados e para os contentores de Cosmos sempre consome RUs. É-lhe cobrada RUs consumidos ao contentor de concessão.
+O ponto de entrada é sempre o contêiner monitorado, de `Container` uma instância chamada `GetChangeFeedProcessorBuilder`:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+
+Onde o primeiro parâmetro é um nome distinto que descreve a meta desse processador e o segundo nome é a implementação de delegado que manipulará as alterações. 
+
+Um exemplo de um delegado seria:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+
+Por fim, você define um nome para essa instância `WithInstanceName` de processador com e qual é o contêiner com `WithLeaseContainer`o qual manter o estado de concessão.
+
+Chamar `Build` fornecerá a instância do processador que você pode iniciar chamando `StartAsync`.
+
+## <a name="processing-life-cycle"></a>Ciclo de vida de processamento
+
+O ciclo de vida normal de uma instância de host é:
+
+1. Leia o feed de alterações.
+1. Se não houver nenhuma alteração, suspensão por um período de tempo predefinido (personalizável `WithPollInterval` com no Construtor) e vá para #1.
+1. Se houver alterações, envie-as para o **delegado**.
+1. Quando o delegado concluir o processamento das alterações **com êxito**, atualize o repositório de concessão com o último ponto processado no tempo e vá para #1.
+
+## <a name="error-handling"></a>Processamento de erros
+
+O processador do feed de alterações é resiliente aos erros de código do usuário. Isso significa que, se sua implementação de representante tiver uma exceção sem tratamento (etapa #4), o processamento de threads que o lote específico de alterações será interrompido e um novo thread será criado. O novo thread verificará qual foi o último ponto no tempo em que o repositório de concessão tem para esse intervalo de valores de chave de partição e reiniciará de lá, enviando efetivamente o mesmo lote de alterações para o delegado. Esse comportamento continuará até que seu delegado processe as alterações corretamente e seja o motivo pelo qual o processador do feed de alterações tem uma garantia "pelo menos uma vez", porque se o código delegado for acionado, ele tentará novamente esse lote.
+
+## <a name="dynamic-scaling"></a>Dimensionamento dinâmico
+
+Conforme mencionado durante a introdução, o processador do feed de alterações pode distribuir a computação automaticamente em várias instâncias. Você pode implantar várias instâncias do seu aplicativo usando o processador do feed de alterações e tirar proveito dela, os únicos requisitos importantes são:
+
+1. Todas as instâncias devem ter a mesma configuração de contêiner de concessão.
+1. Todas as instâncias devem ter o mesmo nome de fluxo de trabalho.
+1. Cada instância precisa ter um nome de instância diferente (`WithInstanceName`).
+
+Se se aplicarem a essas três condições, o processador do feed de alterações usará um algoritmo de distribuição igual, distribuirá todas as concessões no contêiner de concessão em todas as instâncias em execução e paralelizará a computação. Uma concessão só pode pertencer a uma instância em um determinado momento, portanto, o número máximo de instâncias é igual ao número de concessões.
+
+As instâncias podem aumentar e diminuir, e o processador do feed de alterações ajustará dinamicamente a carga redistribuindo-se de acordo.
+
+## <a name="change-feed-and-provisioned-throughput"></a>Feed de alterações e taxa de transferência provisionada
+
+Você é cobrado por RUs consumido, uma vez que a movimentação de dados dentro e fora dos contêineres Cosmos sempre consome RUs. Você é cobrado por RUs consumido pelo contêiner de concessão.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Biblioteca de processador do feed de alterações do Azure Cosmos DB](sql-api-sdk-dotnet-changefeed.md)
-* [Pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Exemplos adicionais no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+* [SDK do Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Exemplos adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora, pode avançar para saber mais sobre a alteração do feed nos seguintes artigos:
 
-* [Descrição geral do feed de alterações](change-feed.md)
-* [Feed de alterações de formas para ler](read-change-feed.md)
+* [Visão geral do feed de alterações](change-feed.md)
+* [Maneiras de ler o feed de alterações](read-change-feed.md)
 * [Usando a alteração do feed com as funções do Azure](change-feed-functions.md)

@@ -1,73 +1,73 @@
 ---
-title: Eliminar um cofre de serviços de recuperação configurado para o serviço Azure Site Recovery
-description: Saiba como eliminar um cofre de serviços de recuperação configurado para o Azure Site Recovery
+title: Excluir um cofre dos serviços de recuperação configurado para o serviço de Azure Site Recovery
+description: Saiba como excluir um cofre dos serviços de recuperação configurado para Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rajanaki
+ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65412830"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876031"
 ---
-# <a name="delete-a-site-recovery-services-vault"></a>Eliminar um cofre dos serviços de recuperação de Site
+# <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre de serviços de Site Recovery
 
-As dependências que podem impedir que a eliminar um cofre do Azure Site Recovery. As ações que necessárias variam consoante o cenário de recuperação de sites. Para eliminar um cofre utilizado na cópia de segurança do Azure, veja [eliminar um cofre de cópia de segurança no Azure](../backup/backup-azure-delete-vault.md).
+As dependências podem impedir que você exclua um cofre de Azure Site Recovery. As ações que você precisa executar variam de acordo com o cenário de Site Recovery. Para excluir um cofre usado no backup do Azure, consulte [excluir um cofre de backup no Azure](../backup/backup-azure-delete-vault.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="delete-a-site-recovery-vault"></a>Eliminar um cofre de recuperação de sites 
-Para eliminar o cofre, siga os passos recomendados para o seu cenário.
+## <a name="delete-a-site-recovery-vault"></a>Excluir um cofre de Site Recovery 
+Para excluir o cofre, siga as etapas recomendadas para seu cenário.
 ### <a name="azure-vms-to-azure"></a>VMs do Azure para o Azure
 
-1. Elimine todas as VMs protegidas ao seguir os passos em [desative a proteção de um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
-2. Elimine o cofre.
+1. Exclua todas as VMs protegidas seguindo as etapas em [desabilitar a proteção para um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
+2. Exclua o cofre.
 
 ### <a name="vmware-vms-to-azure"></a>VMs do VMware para o Azure
 
-1. Elimine todas as VMs protegidas ao seguir os passos em [desative a proteção de um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
+1. Exclua todas as VMs protegidas seguindo as etapas em [desabilitar a proteção para um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 
-2. Eliminar todas as políticas de replicação ao seguir os passos em [eliminar uma política de replicação](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
+2. Exclua todas as políticas de replicação seguindo as etapas em [excluir uma política de replicação](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy).
 
-3. Eliminar referências ao vCenter ao seguir os passos em [eliminar um servidor vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
+3. Exclua as referências ao vCenter seguindo as etapas em [excluir um servidor vCenter](vmware-azure-manage-vcenter.md#delete-a-vcenter-server).
 
-4. Eliminar o servidor de configuração ao seguir os passos em [descontinuar um servidor de configuração](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
+4. Exclua o servidor de configuração seguindo as etapas em [desativar um servidor de configuração](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server).
 
-5. Elimine o cofre.
+5. Exclua o cofre.
 
 
 ### <a name="hyper-v-vms-with-vmm-to-azure"></a>VMs do Hyper-V (com VMM) para o Azure
-1. Elimine todas as VMs protegidas ao seguir os passos em[desative a proteção para uma VM de Hyper-V (com VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+1. Exclua todas as VMs protegidas seguindo as etapas em[desabilitar a proteção para uma VM do Hyper-V (com o VMM)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
-2. Desassociação e eliminar todas as políticas de replicação ao navegar para o Cofre -> **infraestrutura do Site Recovery** -> **para o System Center VMM** -> **replicação Políticas**
+2. Desassociar & excluir todas as políticas de replicação navegando até seu cofre-> **site Recovery infraestrutura** > para**políticas de replicação** **do System Center VMM** -> 
 
-3.  Eliminar referências aos servidores do VMM ao seguir os passos em [anular o registo de um ligado ao servidor do VMM](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.  Exclua as referências aos servidores VMM seguindo as etapas em [cancelar o registro de um servidor VMM conectado](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
-4.  Elimine o cofre.
+4.  Exclua o cofre.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>VMs de Hyper-V (sem o Virtual Machine Manager) para o Azure
-1. Elimine todas as VMs protegidas ao seguir os passos em [desative a proteção para uma máquina virtual de Hyper-V (Hyper-V para o Azure)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
+### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>VMs do Hyper-V (sem Virtual Machine Manager) para o Azure
+1. Exclua todas as VMs protegidas seguindo as etapas em [desabilitar a proteção para uma máquina virtual do Hyper-v (Hyper-v para o Azure)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure).
 
-2. Desassociação e eliminar todas as políticas de replicação ao navegar para o Cofre -> **infraestrutura do Site Recovery** -> **para Sites de Hyper-V** -> **políticas de replicação**
+2. Desassociar & excluir todas as políticas de -> replicação navegando até seu cofre-> **site Recovery infraestrutura** > **para sites do Hyper-V políticas de** **replicação**
 
-3. Eliminar referências para servidores Hyper-V ao seguir os passos em [anular o registo de um anfitrião Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Exclua as referências a servidores Hyper-V seguindo as etapas em [cancelar o registro de um host Hyper-v](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
-4. Elimine o site de Hyper-V.
+4. Exclua o site do Hyper-V.
 
-5. Elimine o cofre.
+5. Exclua o cofre.
 
 
-## <a name="use-powershell-to-force-delete-the-vault"></a>Utilize o PowerShell para forçar a eliminação do Cofre 
+## <a name="use-powershell-to-force-delete-the-vault"></a>Usar o PowerShell para forçar a exclusão do cofre 
 
 > [!Important]
-> Se estiver a testar o produto e não estão preocupados com perda de dados, utilize o método delete de imposição para remove rapidamente o Cofre e todas as respetivas dependências.
-> O comando do PowerShell elimina todos os conteúdos do cofre e é **não reversível**.
+> Se você estiver testando o produto e não estiver preocupado com a perda de dados, use o método de exclusão forçada para remover rapidamente o cofre e todas as suas dependências.
+> O comando do PowerShell exclui todo o conteúdo do cofre e **não**é reversível.
 
-Para eliminar o Cofre de recuperação de sites, mesmo se existirem itens protegidos, utilize estes comandos:
+Para excluir o cofre Site Recovery mesmo se houver itens protegidos, use estes comandos:
 
     Connect-AzAccount
 
@@ -77,4 +77,4 @@ Para eliminar o Cofre de recuperação de sites, mesmo se existirem itens proteg
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Saiba mais sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), e [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Saiba mais sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)e [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

@@ -1,10 +1,10 @@
 ---
-title: Descrição geral do IPv6 para o Balanceador de carga do Azure
+title: Visão geral do IPv6 para Azure Load Balancer
 titlesuffix: Azure Load Balancer
-description: Noções básicas sobre o suporte de IPv6 para o Azure Load Balancer e as VMs com balanceamento de carga.
+description: Noções básicas sobre o suporte a IPv6 para VMs com balanceamento de carga e Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,78 +13,78 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: kumud
-ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b276766d69c187e2268f5896f23e3bd435ed63c3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861962"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274828"
 ---
-# <a name="overview-of-ipv6-for-azure-load-balancer"></a>Descrição geral do IPv6 para o Balanceador de carga do Azure
+# <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para Azure Load Balancer
 
 
 >[!NOTE] 
->O Balanceador de carga do Azure suporta dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md).
+>Azure Load Balancer dá suporte a dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre Standard Load Balancer, consulte [Standard Load Balancer visão geral](load-balancer-standard-overview.md).
 
-Balanceadores de carga com acesso à Internet podem ser implementados com um endereço IPv6. Para além da conectividade IPv4, isso permite que as seguintes capacidades:
+Os balanceadores de carga voltados para a Internet podem ser implantados com um endereço IPv6. Além da conectividade IPv4, isso permite os seguintes recursos:
 
-* -A-ponto conectividade IPv6 nativa entre os clientes de Internet públicos e máquinas de virtuais (VMs) do Azure através do Balanceador de carga.
-* -A-ponto conectividade IPv6 nativa saída entre VMs e os clientes habilitados para Internet IPv6 públicos.
+* Conectividade IPv6 nativa de ponta a ponta entre clientes de Internet públicos e VMs (máquinas virtuais) do Azure por meio do balanceador de carga.
+* Conectividade de saída IPv6 nativa de ponta a ponta entre VMs e clientes habilitados para IPv6 de Internet pública.
 
-A imagem seguinte ilustra a funcionalidade de IPv6 para o Balanceador de carga do Azure.
+A imagem a seguir ilustra a funcionalidade IPv6 para Azure Load Balancer.
 
-![Balanceador de carga do Azure com o IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
+![Azure Load Balancer com IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
 
-Uma vez implantado, um cliente de IPv4 ou IPv6 ativado Internet pode comunicar com endereços IPv4 ou IPv6 públicos (ou os nomes de anfitrião) do Balanceador de carga com acesso à Internet do Azure. O Balanceador de carga encaminha os pacotes de IPv6 para os endereços IPv6 privados das VMs através de tradução de endereços de rede (NAT). O cliente de IPv6 Internet não é possível comunicar diretamente com o endereço IPv6 das VMs.
+Depois de implantado, um cliente de Internet habilitado para IPv4 ou IPv6 pode se comunicar com os endereços IPv4 ou IPv6 públicos (ou nomes de host) do Load Balancer voltado para a Internet do Azure. O balanceador de carga roteia os pacotes IPv6 para os endereços IPv6 privados das VMs usando a NAT (conversão de endereços de rede). O cliente de Internet IPv6 não pode se comunicar diretamente com o endereço IPv6 das VMs.
 
 ## <a name="features"></a>Funcionalidades
 
-Suporte de IPv6 nativo para as VMs implementadas através do Azure Resource Manager fornece:
+O suporte nativo a IPv6 para VMs implantadas por meio do Azure Resource Manager fornece:
 
-1. Serviços de IPv6 com balanceamento de carga para clientes de IPv6 na Internet
-2. Pontos finais de IPv4 e IPv6 nativo em VMs ("dual empilhada")
-3. Entrada e saída iniciadas por ligações de IPv6 nativas
-4. Protocolos suportados, como TCP, UDP e HTTP (S) ativar uma gama completa de arquiteturas de serviço
+1. Serviços IPv6 com balanceamento de carga para clientes IPv6 na Internet
+2. Pontos de extremidade IPv6 e IPv4 nativos em VMs ("pilha dupla")
+3. Conexões IPv6 nativas iniciadas de entrada e de saída
+4. Protocolos com suporte como TCP, UDP e HTTP (S) permitem uma gama completa de arquiteturas de serviço
 
 ## <a name="benefits"></a>Benefícios
 
-Esta funcionalidade permite que as seguintes grandes vantagens:
+Essa funcionalidade permite os seguintes benefícios principais:
 
-* Cumprir os regulamentos de administração pública que requerem que os novos aplicativos ser acessíveis aos clientes apenas de IPv6
-* Ativar mobile e Internet das coisas (IOT) os desenvolvedores a usar máquinas virtuais do Azure (IPv4 + IPv6) empilhadas a dupla para abordar o móveis de cada vez maior e mercados IOT
+* Conheça as normas governamentais que exigem que novos aplicativos sejam acessíveis para clientes somente IPv6
+* Habilite os desenvolvedores de IOT (Internet das coisas) para usar máquinas virtuais do Azure com pilha dupla (IPv4 + IPv6) para lidar com os crescentes mercados móveis & IOT
 
 ## <a name="details-and-limitations"></a>Detalhes e limitações
 
 Detalhes
 
-* O serviço de DNS do Azure contém tanto IPv4 e IPv6 AAAA registos de nomes e responde com ambos os registros do Balanceador de carga. O cliente escolhe qual o endereço (IPv4 ou IPv6) para comunicar com.
-* Quando uma VM inicia uma conexão a um dispositivo ligado à Internet IPv6 público, endereço IPv6 de origem da VM é o endereço de rede traduzido (NAT) para o endereço IPv6 público do Balanceador de carga.
-* VMs que executam o sistema operativo Linux tem de ser configuradas para receber um endereço de IPv6 IP através de DHCP. Muitas das imagens Linux na galeria do Azure já estão configuradas para oferecer suporte a IPv6 sem modificação. Para obter mais informações, consulte [configurar DHCPv6 para VMs do Linux](load-balancer-ipv6-for-linux.md)
-* Se optar por utilizar uma sonda de estado de funcionamento com o Balanceador de carga, crie uma sonda de IPv4 e utilizá-la com pontos finais de IPv4 e IPv6. Se o serviço na sua VM ficar inativo, pontos finais de IPv4 e IPv6 são retirados da rotação.
+* O serviço DNS do Azure contém registros de nome IPv4 A e IPv6 AAAA e responde com ambos os registros para o balanceador de carga. O cliente escolhe a qual endereço (IPv4 ou IPv6) se comunicará.
+* Quando uma VM inicia uma conexão com um dispositivo conectado à Internet IPv6 pública, o endereço IPv6 de origem da VM é convertido de endereço de rede (NAT) para o endereço IPv6 público do balanceador de carga.
+* As VMs que executam o sistema operacional Linux devem ser configuradas para receber um endereço IP IPv6 via DHCP. Muitas das imagens do Linux na galeria do Azure já estão configuradas para dar suporte ao IPv6 sem modificação. Para obter mais informações, consulte Configurando o [DHCPv6 para VMs Linux](load-balancer-ipv6-for-linux.md)
+* Se você optar por usar uma investigação de integridade com o balanceador de carga, crie uma investigação de IPv4 e use-a com os pontos de extremidade IPv4 e IPv6. Se o serviço em sua VM ficar inativo, os pontos de extremidade IPv4 e IPv6 serão retirados da rotação.
 
 Limitações
 
-* Não é possível adicionar regras de balanceamento de carga IPv6 no portal do Azure. As regras só podem ser criadas através do modelo, da CLI, o PowerShell.
-* Não pode atualizar VMs existentes para utilizar endereços IPv6. Tem de implementar novas VMs.
-* Um único endereço de IPv6 pode ser atribuído a uma única interface de rede em cada VM.
-* Os endereços IPv6 públicos não não possível atribuir a uma VM. Só podem ser atribuídos a um balanceador de carga.
-* Não é possível configurar a pesquisa reversa de DNS para os endereços IPv6 públicos.
-* As VMs com os endereços IPv6 não podem ser membros de um serviço Cloud do Azure. Eles podem ser ligados a uma rede Virtual do Azure (VNet) e se comunicar entre si através de seus endereços de IPv4.
-* Os endereços IPv6 privados podem ser implementados em VMs individuais num grupo de recursos, mas não podem ser implementados num grupo de recursos através de conjuntos de dimensionamento.
-* VMs do Azure não consegue ligar através de IPv6 para outras VMs, outros serviços do Azure ou os dispositivos no local. Apenas pode comunicar com o Balanceador de carga do Azure através de IPv6. No entanto, eles podem comunicar com estes outros recursos com o IPv4.
-* Proteção de grupo de segurança de rede (NSG) para IPv4 é suportada em implementações de pilha dupla (IPv4 + IPv6). Os NSGs não se aplicam aos pontos finais do IPv6.
-* O ponto final de IPv6 na VM não está exposto diretamente à internet. É por trás de um balanceador de carga. Apenas as portas especificadas nas regras do Balanceador de carga são acessíveis através de IPv6.
-* Alterar o parâmetro IdleTimeout para IPv6 é **atualmente não suportados**. A predefinição é de quatro minutos.
-* Alterar o parâmetro loadDistributionMethod para IPv6 é **atualmente não suportados**.
-* Reservado IPs de IPv6 (onde IPAllocationMethod = estático) são **atualmente não suportados**.
-* NAT64 (conversão de IPv6 para IPv4) não é suportada.
+* Não é possível adicionar regras de balanceamento de carga IPv6 no portal do Azure. As regras só podem ser criadas por meio do modelo, da CLI, do PowerShell.
+* Você não pode atualizar as VMs existentes para usar endereços IPv6. Você deve implantar novas VMs.
+* Um único endereço IPv6 pode ser atribuído a uma única interface de rede em cada VM.
+* Os endereços IPv6 públicos não podem ser atribuídos a uma VM. Eles só podem ser atribuídos a um balanceador de carga.
+* Você não pode configurar a pesquisa inversa de DNS para seus endereços IPv6 públicos.
+* As VMs com os endereços IPv6 não podem ser membros de um serviço de nuvem do Azure. Eles podem ser conectados a uma VNet (rede virtual) do Azure e se comunicarem entre si por meio de seus endereços IPv4.
+* Endereços IPv6 privados podem ser implantados em VMs individuais em um grupo de recursos, mas não podem ser implantados em um grupo de recursos por meio de conjuntos de dimensionamento.
+* As VMs do Azure não podem se conectar via IPv6 a outras VMs, outros serviços do Azure ou dispositivos locais. Eles só podem se comunicar com o Azure Load Balancer por IPv6. No entanto, eles podem se comunicar com esses outros recursos usando IPv4.
+* A proteção do NSG (grupo de segurança de rede) para IPv4 tem suporte em implantações de pilha dupla (IPv4 + IPv6). NSGs não se aplicam aos pontos de extremidade IPv6.
+* O ponto de extremidade IPv6 na VM não é exposto diretamente à Internet. Ele está atrás de um balanceador de carga. Somente as portas especificadas nas regras do balanceador de carga podem ser acessadas por IPv6.
+* **Não há suporte**para a alteração do parâmetro IdleTimeout para IPv6 no momento. O padrão é quatro minutos.
+* **Não há suporte**para a alteração do parâmetro LoadDistributionMethod para IPv6 no momento.
+* **Não há suporte para**IPS IPv4 reservados (em que IPAllocationMethod = static) no momento.
+* Não há suporte para NAT64 (tradução de IPv6 para IPv4).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como implementar um balanceador de carga com o IPv6.
+Saiba como implantar um balanceador de carga com IPv6.
 
 * [Disponibilidade do IPv6 por região](https://go.microsoft.com/fwlink/?linkid=828357)
-* [Implementar um balanceador de carga com o IPv6 com um modelo](load-balancer-ipv6-internet-template.md)
-* [Implementar um balanceador de carga com o IPv6 com o Azure PowerShell](load-balancer-ipv6-internet-ps.md)
-* [Implementar um balanceador de carga com o IPv6 com a CLI do Azure](load-balancer-ipv6-internet-cli.md)
+* [Implantar um balanceador de carga com IPv6 usando um modelo](load-balancer-ipv6-internet-template.md)
+* [Implantar um balanceador de carga com IPv6 usando o Azure PowerShell](load-balancer-ipv6-internet-ps.md)
+* [Implantar um balanceador de carga com IPv6 usando o CLI do Azure](load-balancer-ipv6-internet-cli.md)

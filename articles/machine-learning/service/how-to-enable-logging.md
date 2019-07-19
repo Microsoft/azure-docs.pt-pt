@@ -1,7 +1,7 @@
 ---
-title: Ative o registo no serviço Azure Machine Learning
+title: Habilitar o log no serviço Azure Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Saiba como ativar o registo no serviço Azure Machine Learning, utilizando os dois predefinido de pacote de registo do Python, bem como utilizar a funcionalidade específica do SDK.
+description: Saiba como habilitar o log no serviço de Azure Machine Learning usando o pacote de log do Python padrão, bem como usando a funcionalidade específica do SDK.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -9,29 +9,29 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
-ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/12/2019
+ms.openlocfilehash: f93fdcbea103259e493399ae479cf001c1ff68db
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60819276"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868813"
 ---
-# <a name="enable-logging-in-azure-machine-learning-service"></a>Ative o registo no serviço Azure Machine Learning
+# <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitar o log no serviço Azure Machine Learning
 
-O SDK de Python do Azure Machine Learning permite-lhe ativar o registo através do pacote de registo de Python padrão, bem como utilizar a funcionalidade de SDK específica para o registo local e o registo da sua área de trabalho no portal do. Registos de fornecem aos desenvolvedores as informações em tempo real sobre o estado da aplicação e podem ajudar a diagnosticar erros ou avisos. Neste artigo, vai aprender diferentes formas de ativar o registo nas seguintes áreas:
+O SDK do Python Azure Machine Learning permite habilitar o registro em log usando o pacote de log do Python padrão, bem como usar a funcionalidade específica do SDK para registro em log local e registro em log em seu espaço de trabalho no Portal. Os logs fornecem aos desenvolvedores informações em tempo real sobre o estado do aplicativo e podem ajudar no diagnóstico de erros ou avisos. Neste artigo, você aprende diferentes maneiras de habilitar o registro em log nas seguintes áreas:
 
 > [!div class="checklist"]
-> * Modelos de formação e destinos de computação
+> * Modelos de treinamento e destinos de computação
 > * Criação de imagens
-> * Modelos implementados
-> * Python `logging` definições
+> * Modelos implantados
+> * Configurações `logging` do Python
 
-[Criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md). Utilize o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações do SDK.
+[Crie um espaço de trabalho de serviço do Azure Machine Learning](setup-create-workspace.md). Use o [guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre o SDK.
 
-## <a name="training-models-and-compute-target-logging"></a>Modelos de treinamento e o registo de destino de computação
+## <a name="training-models-and-compute-target-logging"></a>Modelos de treinamento e log de destino de computação
 
-Existem várias formas de ativar o registo durante o processo de treinamento de modelo e os exemplos mostrados ilustrará padrões comuns de design. Pode registar facilmente dados relacionados com a execução para a área de trabalho na cloud utilizando o `start_logging` funcionar no `Experiment` classe.
+Há várias maneiras de habilitar o registro em log durante o processo de treinamento do modelo, e os exemplos mostrados ilustrarão os padrões de design comuns. Você pode facilmente registrar em log dados relacionados à execução em seu espaço de trabalho na nuvem `start_logging` usando a função `Experiment` na classe.
 
 ```python
 from azureml.core import Experiment
@@ -41,9 +41,9 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consulte a documentação de referência para o [executar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe para as funções de registo adicional.
+Consulte a documentação de referência para a classe [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) para funções de log adicionais.
 
-Para ativar o registo local do Estado da aplicação durante o curso de treinamento, utilize o `show_output` parâmetro. Ativar registo verboso permite-lhe ver os detalhes do processo de treinamento, bem como informações sobre todos os recursos remotos ou destinos de computação. Utilize o seguinte código para ativar o registo após a submissão de experimentação.
+Para habilitar o log local do estado do aplicativo durante o andamento do `show_output` treinamento, use o parâmetro. Habilitar o log detalhado permite que você veja detalhes do processo de treinamento, bem como informações sobre quaisquer destinos de computação ou recursos remotos. Use o código a seguir para habilitar o registro em log após o envio do teste.
 
 ```python
 from azureml.core import Experiment
@@ -52,13 +52,13 @@ experiment = Experiment(ws, experiment_name)
 run = experiment.submit(config=run_config_object, show_output=True)
 ```
 
-Também pode utilizar o mesmo parâmetro no `wait_for_completion` função na execução resultante.
+Você também pode usar o mesmo parâmetro na `wait_for_completion` função na execução resultante.
 
 ```python
 run.wait_for_completion(show_output=True)
 ```
 
-O SDK também suporta a utilização do pacote de registo de python padrão em determinados cenários para treinamento. O exemplo seguinte ativa um nível de registo do `INFO` num `AutoMLConfig` objeto.
+O SDK também dá suporte ao uso do pacote de log do Python padrão em determinados cenários para treinamento. O exemplo a seguir habilita um nível de `INFO` log de `AutoMLConfig` em um objeto.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -73,7 +73,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
                                    primary_metric="spearman_correlation")
 ```
 
-Também pode utilizar o `show_output` parâmetro ao criar um destino de computação persistente. Especificar o parâmetro no `wait_for_completion` função para ativar o registo durante a criação de destino de computação.
+Você também pode usar o `show_output` parâmetro ao criar um destino de computação persistente. Especifique o parâmetro na `wait_for_completion` função para habilitar o registro em log durante a criação do destino de computação.
 
 ```python
 from azureml.core.compute import ComputeTarget
@@ -82,24 +82,25 @@ compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_confi
 compute.wait_for_completion(show_output=True)
 ```
 
-## <a name="logging-during-image-creation"></a>Registro em log durante a criação de imagens
+## <a name="logging-during-image-creation"></a>Registro em log durante a criação da imagem
 
-Ativar o registo durante a criação de imagens permitirá que consulte os erros durante o processo de compilação. Definir o `show_output` param no `wait_for_deployment()` função.
+Habilitar o log durante a criação da imagem permitirá que você veja os erros durante o processo de compilação. Defina o `show_output` param `wait_for_deployment()` na função.
 
 ```python
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```
 
-## <a name="logging-for-deployed-models"></a>Registo para modelos implementados
+## <a name="logging-for-deployed-models"></a>Registro em log para modelos implantados
 
-Para obter os registos de um serviço web anteriormente implementada, o serviço de carregar e usar o `get_logs()` função. Os registos podem conter informações detalhadas sobre quaisquer erros que ocorreram durante a implementação.
+Para recuperar os logs de um serviço Web implantado anteriormente, carregue o serviço `get_logs()` e use a função. Os logs podem conter informações detalhadas sobre os erros ocorridos durante a implantação.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -109,17 +110,17 @@ service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
 ```
 
-Também pode iniciar personalizado de pilha rastreios do web Service ao ativar o Application Insights, que lhe permite tempos de pedido/resposta do monitor, taxas de falhas e exceções. Chamar o `update()` função num serviço web existente para ativar o Application Insights.
+Você também pode registrar rastreamentos de pilha personalizados para o serviço Web habilitando Application Insights, que permite monitorar tempos de solicitação/resposta, taxas de falha e exceções. Chame a `update()` função em um serviço Web existente para habilitar Application insights.
 
 ```python
 service.update(enable_app_insights=True)
 ```
 
-Consulte a [procedimentos](how-to-enable-app-insights.md) para obter mais informações sobre como trabalhar com o Application Insights no portal do Azure.
+Consulte o " [como](how-to-enable-app-insights.md) " para obter mais informações sobre como trabalhar com Application Insights no portal do Azure.
 
-## <a name="python-native-logging-settings"></a>Definições de registo nativo do Python
+## <a name="python-native-logging-settings"></a>Configurações de log nativo do Python
 
-Determinados registos no SDK podem conter um erro que indica ao definir o nível de registo para DEBUG. Para definir o nível de registo, adicione o seguinte código ao seu script.
+Determinados logs no SDK podem conter um erro que instrui você a definir o nível de log para depurar. Para definir o nível de log, adicione o código a seguir ao seu script.
 
 ```python
 import logging

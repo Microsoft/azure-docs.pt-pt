@@ -1,6 +1,6 @@
 ---
-title: Controlar o comportamento do utilizador com eventos no Application Insights do Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba como ativar registos de eventos no Application Insights do Azure AD B2C jornadas de utilizador ao utilizar políticas personalizadas (pré-visualização).
+title: Acompanhar o comportamento do usuário usando eventos em Application Insights de Azure Active Directory B2C | Microsoft Docs
+description: Saiba como habilitar logs de eventos em Application Insights de Azure AD B2C percursos do usuário usando políticas personalizadas (versão prévia).
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,55 +10,55 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0c2f9a2a3d431e2948c7d50541b576b23c3ece6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e18157c95dac0de90c50b4b7e8591e32c5b76aaf
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507545"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227239"
 ---
-# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Controlar o comportamento do utilizador no Azure Active Directory B2C com o Application Insights
+# <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Acompanhar o comportamento do usuário em Azure Active Directory B2C usando Application Insights
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Quando utiliza o Azure Active Directory (Azure AD) B2C, juntamente com o Azure Application Insights, pode entrar em detalhes sobre e personalizadas registos de eventos para o seu jornadas de utilizador. Neste artigo, vai aprender a:
+Ao usar o Azure Active Directory (Azure AD) B2C junto com o Aplicativo Azure insights, você pode obter logs de eventos detalhados e personalizados para os percursos do usuário. Neste artigo, vai aprender a:
 
-* Obtenha informações sobre o comportamento do utilizador.
-* Resolver problemas relacionados com as suas políticas no desenvolvimento ou em produção.
+* Obter informações sobre o comportamento do usuário.
+* Solucionar problemas de suas próprias políticas em desenvolvimento ou em produção.
 * Medir o desempenho.
-* Crie notificações do Application Insights.
+* Criar notificações de Application Insights.
 
 ## <a name="how-it-works"></a>Como funciona
 
-O Framework de experiência de identidade no Azure AD B2C inclui o provedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Enviar dados de eventos diretamente para o Application Insights utilizando a chave de instrumentação fornecida para o Azure AD B2C.
+A estrutura de experiência de identidade no Azure AD B2C inclui `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`o provedor. Ele envia dados de eventos diretamente para Application Insights usando a chave de instrumentação fornecida para Azure AD B2C.
 
-Um perfil técnico usa esse provedor para definir um evento do Azure AD B2C. O perfil Especifica o nome do evento, as afirmações que são registadas e a chave de instrumentação. Para publicar um evento, o perfil técnico, em seguida, é adicionado como um `orchestration step`, ou como um `validation technical profile` num percurso do utilizador personalizada.
+Um perfil técnico usa esse provedor para definir um evento de Azure AD B2C. O perfil especifica o nome do evento, as declarações que são registradas e a chave de instrumentação. Para postar um evento, o perfil técnico é adicionado como um `orchestration step`, ou como um `validation technical profile` percurso de usuário personalizado.
 
-O Application Insights pode unificar os eventos ao utilizar um ID de correlação para gravar uma sessão do utilizador. Application Insights disponibiliza o evento e a sessão dentro de segundos e apresenta muitos visualização, exportação e ferramentas analíticas.
+Application Insights pode unificar os eventos usando uma ID de correlação para registrar uma sessão de usuário. Application Insights torna o evento e a sessão disponíveis em segundos e apresenta muitas ferramentas analíticas, de exportação e de visualização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos na [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Este artigo pressupõe que está a utilizar o pacote de iniciante da política personalizada. Mas o pacote de iniciante não é necessário.
+Conclua as etapas em introdução [às políticas personalizadas](active-directory-b2c-get-started-custom.md). Este artigo pressupõe que você esteja usando o pacote de início de política personalizada. Mas o pacote inicial não é necessário.
 
 ## <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
-Quando estiver a utilizar o Application Insights com o Azure AD B2C, tudo o que precisa fazer é criar um recurso e obtenha a chave de instrumentação.
+Quando você estiver usando Application Insights com Azure AD B2C, tudo o que você precisa fazer é criar um recurso e obter a chave de instrumentação.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Certifique-se de que está a utilizar o diretório que contém a sua subscrição do Azure ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém a sua subscrição. Este inquilino não é o inquilino do Azure AD B2C.
-3. Escolher **criar um recurso** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **Application Insights**.
+2. Verifique se você está usando o diretório que contém sua assinatura do Azure clicando no **filtro diretório e assinatura** no menu superior e escolhendo o diretório que contém sua assinatura. Este locatário não é seu locatário Azure AD B2C.
+3. Escolha **criar um recurso** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Application insights**.
 4. Clique em **Criar**.
-5. Introduza um **nome** para o recurso.
-6. Para **tipo de aplicação**, selecione **aplicação web ASP.NET**.
-7. Para **grupo de recursos**, selecione um grupo existente ou introduza um nome para um novo grupo.
+5. Insira um **nome** para o recurso.
+6. Para **tipo de aplicativo**, selecione **ASP.NET aplicativo Web**.
+7. Para **grupo de recursos**, selecione um grupo existente ou insira um nome para um novo grupo.
 8. Clique em **Criar**.
-4. Depois de criar o recurso do Application Insights, abri-lo, expanda **Essentials**e copie a chave de instrumentação.
+4. Depois de criar o recurso Application Insights, abra-o, expanda **Essentials**e copie a chave de instrumentação.
 
-![Descrição geral do Application Insights e a chave de instrumentação](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
+![Visão geral de Application Insights e chave de instrumentação](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-insights.png)
 
 ## <a name="add-new-claimtype-definitions"></a>Adicionar novas definições de ClaimType
 
-Abra o *TrustFrameworkExtensions.xml* de ficheiros do pacote de iniciante e adicione os seguintes elementos para o [BuildingBlocks](buildingblocks.md) elemento:
+Abra o arquivo *TrustFrameworkExtensions. xml* do pacote inicial e adicione os seguintes elementos ao elemento [BuildingBlocks](buildingblocks.md) :
 
 ```xml
 <ClaimsSchema>
@@ -107,16 +107,16 @@ Abra o *TrustFrameworkExtensions.xml* de ficheiros do pacote de iniciante e adic
 
 ## <a name="add-new-technical-profiles"></a>Adicionar novos perfis técnicos
 
-Perfis técnicos podem ser considerados as funções na identidade experiência Framework do Azure AD B2C. Esta tabela define os perfis de técnicos que são utilizados para abrir uma sessão e publicar eventos.
+Os perfis técnicos podem ser considerados funções na estrutura de experiência de identidade do Azure AD B2C. Esta tabela define os perfis técnicos que são usados para abrir uma sessão e postar eventos.
 
 | Perfil técnico | Tarefa |
 | ----------------- | -----|
-| AzureInsights-Common | Cria um conjunto comum de parâmetros a serem incluídos em todos os perfis de técnicos de AzureInsights. | 
-| AzureInsights-SignInRequest | Cria um evento de início de sessão com um conjunto de declarações, quando recebido um pedido de início de sessão. | 
-| AzureInsights-UserSignup | Cria um evento de UserSignup quando o utilizador for acionada a opção Inscreva-se numa jornada de início de sessão-inscrição/início de sessão. | 
-| AzureInsights-SignInComplete | Regista a conclusão com êxito de uma autenticação quando um token tiver sido enviado para a aplicação da entidade confiadora de terceiros. | 
+| AzureInsights-Common | Cria um conjunto comum de parâmetros a serem incluídos em todos os perfis técnicos do umconjunto. | 
+| AzureInsights-SignInRequest | Cria um evento de entrada com um conjunto de declarações quando uma solicitação de entrada é recebida. | 
+| AzureInsights-UserSignup | Cria um evento usersignup quando o usuário aciona a opção de inscrição em uma jornada de inscrição/entrada. | 
+| AzureInsights-SignInComplete | Registra a conclusão com êxito de uma autenticação quando um token é enviado para o aplicativo de terceira parte confiável. | 
 
-Adicionar os perfis para o *TrustFrameworkExtensions.xml* ficheiro do pacote de iniciante. Adicionar estes elementos para o **ClaimsProviders** elemento:
+Adicione os perfis ao arquivo *TrustFrameworkExtensions. xml* do pacote inicial. Adicione esses elementos ao elemento **ClaimsProviders** :
 
 ```xml
 <ClaimsProvider>
@@ -166,11 +166,11 @@ Adicionar os perfis para o *TrustFrameworkExtensions.xml* ficheiro do pacote de 
 ```
 
 > [!IMPORTANT]
-> Alterar a chave de instrumentação no `ApplicationInsights-Common` perfil técnico para o GUID que fornece o recurso do Application Insights.
+> Altere a chave de instrumentação no `AzureInsights-Common` perfil técnico para o GUID que o recurso de Application insights fornece.
 
-## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Adicionar os perfis técnicos como etapas da orquestração
+## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Adicionar os perfis técnicos como etapas de orquestração
 
-Chamar `Azure-Insights-SignInRequest` como orquestração passo 2 para controlar o que foi recebido um pedido início de sessão-em/inscrever-se:
+Chame `Azure-Insights-SignInRequest` como etapa 2 da orquestração para acompanhar que uma solicitação de entrada/inscrição foi recebida:
 
 ```xml
 <!-- Track that we have received a sign in request -->
@@ -181,7 +181,7 @@ Chamar `Azure-Insights-SignInRequest` como orquestração passo 2 para controlar
 </OrchestrationStep>
 ```
 
-Imediatamente *antes de* a `SendClaims` orquestração passo, adicione um novo passo que chama `Azure-Insights-UserSignup`. Ele é acionado quando o usuário seleciona o botão inscrever-se numa jornada de início de sessão-inscrição/início de sessão.
+Imediatamente *antes* da `SendClaims` etapa de orquestração, adicione uma nova etapa que `Azure-Insights-UserSignup`chama. Ele é disparado quando o usuário seleciona o botão de inscrição em uma jornada de inscrição/entrada.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -203,7 +203,7 @@ Imediatamente *antes de* a `SendClaims` orquestração passo, adicione um novo p
 </OrchestrationStep>
 ```
 
-Imediatamente após a `SendClaims` passo de orquestração, chamada `Azure-Insights-SignInComplete`. Este passo mostra uma jornada concluída com êxito.
+Imediatamente após a `SendClaims` etapa de orquestração, `Azure-Insights-SignInComplete`chame. Esta etapa mostra uma jornada concluída com êxito.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
@@ -215,26 +215,26 @@ Imediatamente após a `SendClaims` passo de orquestração, chamada `Azure-Insig
 ```
 
 > [!IMPORTANT]
-> Renumber, depois de adicionar novos passos de orquestração, os passos sequencialmente sem ignorar qualquer inteiros de 1 a N.
+> Depois de adicionar as novas etapas de orquestração, renumere as etapas sequencialmente sem ignorar nenhum inteiro de 1 a N.
 
 
-## <a name="upload-your-file-run-the-policy-and-view-events"></a>Carregar o ficheiro, executar a política e ver eventos
+## <a name="upload-your-file-run-the-policy-and-view-events"></a>Carregar o arquivo, executar a política e exibir eventos
 
-Guardar e carregue o *TrustFrameworkExtensions.xml* ficheiro. Em seguida, chamar a política de terceiros entidade confiadora da aplicação ou utilize **executar agora** no portal do Azure. Em segundos, os seus eventos estão disponíveis no Application Insights.
+Salve e carregue o arquivo *TrustFrameworkExtensions. xml* . Em seguida, chame a política de terceira parte confiável do seu aplicativo ou use **executar agora** no portal do Azure. Em segundos, os eventos estão disponíveis no Application Insights.
 
-1. Abra o **Application Insights** recursos no seu inquilino do Azure Active Directory.
-2. Selecione **utilização** > **eventos**.
-3. Definir **durante** ao **última hora** e **por** para **3 minutos**.  Poderá ter de selecionar **atualizar** ver os resultados.
+1. Abra o recurso de **Application insights** no seu locatário Azure Active Directory.
+2. Selecione**eventos**de **uso** > .
+3. Defina **durante** para a **última hora** **e de** até **3 minutos**.  Talvez seja necessário selecionar **Atualizar** para exibir os resultados.
 
-![Application Insights-eventos de utilização Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
+![Application Insights uso-eventos Blase](./media/active-directory-b2c-custom-guide-eventlogger-appins/app-ins-graphic.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Adicione tipos de afirmação e eventos para o seu percurso do utilizador para se ajustar às suas necessidades. Pode usar [resolvedores de afirmação](claim-resolver-overview.md) ou qualquer cadeia de tipo de afirmação, adicione as afirmações, adicionando um **de solicitação de entrada** elemento para o evento do Application Insights ou para o perfil técnico AzureInsights comuns. 
+Adicione tipos de declaração e eventos à sua jornada de usuário para atender às suas necessidades. Você pode usar [resolvedores de declaração](claim-resolver-overview.md) ou qualquer tipo de declaração de cadeia de caracteres, adicionar as declarações adicionando um elemento de **declaração de entrada** ao evento Application insights ou ao perfil técnico umconjunto-comum. 
 
-- **ClaimTypeReferenceId** é a referência para um tipo de afirmação.
-- **PartnerClaimType** é o nome da propriedade que é apresentada no Azure Insights. Utilize a sintaxe de `{property:NAME}`, onde `NAME` é propriedade a ser adicionada ao evento. 
-- **DefaultValue** utilizar qualquer valor de cadeia ou o Resolvedor de afirmação. 
+- **ClaimTypeReferenceId** é a referência a um tipo de declaração.
+- **PartnerClaimType** é o nome da propriedade que aparece no Azure insights. Use a sintaxe de `{property:NAME}`, onde `NAME` é a propriedade que está sendo adicionada ao evento. 
+- **DefaultValue** use qualquer valor de cadeia de caracteres ou o resolvedor de declaração. 
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

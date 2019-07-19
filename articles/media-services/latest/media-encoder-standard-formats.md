@@ -1,6 +1,6 @@
 ---
-title: Codificador formatos e codecs standard - Azure
-description: Este tópico apresenta uma visão geral do codificador Standard formatos e codecs.
+title: Codecs e formatos de codificador padrão-Azure
+description: Este tópico fornece uma visão geral dos codecs e formatos de codificador padrão.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,96 +12,97 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: d4bbc83a101ba6b110ec97d5107ba3f79dd10843
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520018"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870944"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Codificador formatos e codecs standard
+# <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
 
-Este artigo contém uma lista do importar mais comuns e formatos de ficheiro de exportação que pode utilizar com o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar configurações predefinidas personalizadas usando **StandardEncoderPreset**, consulte [criar uma transformação com uma configuração predefinida personalizada](customize-encoder-presets-how-to.md).
+Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, consulte [criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
-## <a name="input-containerfile-formats"></a>Formatos de arquivo/contentor de entrada
+## <a name="input-containerfile-formats"></a>Formatos de contêiner/arquivo de entrada
 
-| Formatos de ficheiro (extensões de ficheiro) | Suportadas |
+| Formatos de arquivo (extensões de arquivo) | Suportadas |
 | --- | --- |
-| FLV (com codecs H.264 e AAC) (. flv) |Sim |
+| FLV (com codecs H. 264 e AAC) (. flv) |Sim |
 | MXF    (.mxf) |Sim |
-| GXF    (.gxf) |Sim |
-| MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
-| Windows Media Video (WMV)/ASF (.wmv, .asf) |Sim |
-| AVI (descomprimido 8 bits/10 bits) (. avi) |Sim |
+| GXF (. GXF) |Sim |
+| MPEG2-PS, MPEG2-TS, 3GP (. TS,. PS,. 3GP,. 3GPP,. mpg) |Sim |
+| Vídeo do Windows Media (WMV)/ASF (. wmv,. ASF) |Sim |
+| AVI (8 bits/descompactado não compactados) (. avi) |Sim |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Sim |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Sim |
+| [Gravação de vídeo digital da Microsoft (DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (. DVR-MS) |Sim |
 | Matroska/WebM (.mkv) |Sim |
 | WAVE/WAV (. wav) |Sim |
-| QuickTime (.mov) |Sim |
+| QuickTime (. mov) |Sim |
 
 > [!NOTE]
 > 
 > 
 
-### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contentores de entrada
+### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contêineres de entrada
 
-Codificador Standard suporta os seguintes formatos de áudio em contentores de entrada:
+O codificador padrão dá suporte à manutenção dos seguintes formatos de áudio em contêineres de entrada:
 
-* Arquivos de ficheiros do MXF, do GXF e do QuickTime que têm faixas de áudio com estéreo intercalado ou 5.1 amostras
+* Arquivos MXF, GXF e QuickTime, que têm faixas de áudio com amostras estéreo intercaladas ou 5,1
 
 ou
 
-* Arquivos de ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados
+* Arquivos MXF, GXF e QuickTime onde o áudio é transportado como faixas de PCM separadas, mas o mapeamento de canal (para estéreo ou 5,1) pode ser deduzido dos metadados do arquivo
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
 | Codecs de vídeo de entrada | Suportadas |
 | --- | --- |
-| AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra |4 de 8 bits: 2:0 e 4:2:2 |
-| Avid DNxHD (no MXF) |Sim |
-| DVCPro/DVCProHD (no MXF) |Sim |
-| Vídeo digital (DV) (em ficheiros AVI) |Sim |
+| AVC de 8 bits/10 bits, até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
+| Ávido DNxHD (em MXF) |Sim |
+| DVCPro/DVCProHD (em MXF) |Sim |
+| Vídeo digital (DV) (em arquivos AVI) |Sim |
 | JPEG 2000 |Sim |
-| MPEG-2 (até perfil 422 e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Até perfil 422 |
+| MPEG-2 (até 422 de perfil e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Até 422 perfil |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
 | Canopus HQ/HQX |Não |
 | MPEG-4 parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
-| YUV420 descomprimido ou mezanino |Sim |
+| YUV420 não compactado ou mezanino |Sim |
 | Apple ProRes 422 |Sim |
 | Apple ProRes 422 LT |Sim |
 | Apple ProRes 422 HQ |Sim |
-| Apple ProRes Proxy |Sim |
+| Proxy Apple ProRes |Sim |
 | Apple ProRes 4444 |Sim |
 | Apple ProRes 4444 XQ |Sim |
-| HEVC/H.265| Perfil de principal|
+| HEVC/H. 265| Perfil principal|
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
 | Codecs de áudio de entrada | Suportadas |
 | --- | --- |
-| AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
-| MPEG camada 2 |Sim |
-| MP3 (MPEG-1 camada de áudio 3) |Sim |
-| Windows Media Audio |Sim |
+| AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5,1) |Sim |
+| Camada 2 MPEG |Sim |
+| MP3 (MPEG-1 áudio camada 3) |Sim |
+| Áudio do Windows Media |Sim |
 | WAV/PCM |Sim |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
-| AMR (taxa multi adaptável) |Sim |
-| AES (SMPTE 331m e 302 M, AES3 2003) |Não |
+| AMR (várias taxas adaptáveis) |Sim |
+| AES (SMPTE 331M e 302M, AES3-2003) |Não |
 | Dolby® E |Não |
 | Dolby® Digital (AC3) |Não |
 | Dolby® Digital Plus (E-AC3) |Não |
 
-## <a name="output-formats-and-codecs"></a>E codecs de formatos de saída
-A tabela seguinte lista os codecs e formatos de arquivo que são suportados para exportação.
+## <a name="output-formats-and-codecs"></a>Formatos de saída e codecs
+A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.
 
 | Formato do Ficheiro | Codec de vídeo | Codec de áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
-| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(incluindo contêineres MP4 de múltiplas taxas de bits) |H. 264 (perfis altos, principais e de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MPEG2-TS |H. 264 (perfis altos, principais e de linha de base) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criar uma transformação com uma configuração predefinida personalizada](customize-encoder-presets-how-to.md)
+[Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md)

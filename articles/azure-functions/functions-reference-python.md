@@ -1,11 +1,11 @@
 ---
-title: Referência para programadores do Python para as funções do Azure
-description: Aprenda a desenvolver as funções com Python
+title: Referência do desenvolvedor do Python para Azure Functions
+description: Entenda como desenvolver funções com Python
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-keywords: Azure funções, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor, python
+keywords: Azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor, Python
 ms.service: azure-functions
 ms.devlang: python
 ms.topic: article
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 14594e95efe94fe38502dc6269627158c42a04be
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: ec42693fe42f35d728a4a5018776867f07403f81
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622358"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226861"
 ---
-# <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
+# <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor do Azure Functions Python
 
-Este artigo é uma introdução ao desenvolvimento das funções do Azure com o Python. O conteúdo abaixo pressupõe que já leu a [guia de programadores do funções do Azure](functions-reference.md).
+Este artigo é uma introdução ao desenvolvimento de Azure Functions usando o Python. O conteúdo abaixo pressupõe que você já tenha lido o [Guia do Azure Functions desenvolvedores](functions-reference.md).
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 ## <a name="programming-model"></a>Modelo de programação
 
-Uma função do Azure deve ser um método sem monitoração de estado no seu script de Python que processa as entradas e produz um resultado. Por predefinição, o tempo de execução espera que o método a ser implementado como um método global chamado `main()` no `__init__.py` ficheiro.
+Uma função do Azure deve ser um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método `main()` global chamado `__init__.py` no arquivo.
 
-Pode alterar a configuração predefinida, especificando o `scriptFile` e `entryPoint` propriedades no *Function* ficheiro. Por exemplo, o _Function_ abaixo indica o tempo de execução para utilizar o `customentry()` método na _main.py_ ficheiro, como o ponto de entrada para a função do Azure.
+Você pode alterar a configuração padrão especificando as `scriptFile` Propriedades e `entryPoint` no arquivo *Function. JSON* . Por exemplo, a _função. JSON_ a seguir informa o tempo de execução `customentry()` para usar o método no arquivo _Main.py_ , como o ponto de entrada para sua função do Azure.
 
 ```json
 {
@@ -40,7 +40,7 @@ Pode alterar a configuração predefinida, especificando o `scriptFile` e `entry
 }
 ```
 
-Dados a partir de acionadores e enlaces estão vinculados à função por meio dos atributos do método a utilizar o `name` propriedade definida no *Function* ficheiro. Por exemplo, o _Function_ abaixo descreve uma função simples acionada por um pedido HTTP com o nome `req`:
+Os dados de gatilhos e associações são associados à função por meio de atributos de `name` método usando a propriedade definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação `req`http denominada:
 
 ```json
 {
@@ -68,7 +68,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Opcionalmente, para aproveitar o intellisense e funcionalidades de conclusão automática de mensagens em fila fornecidas pelo seu editor de código, também pode declarar os tipos de atributo e tipo de retorno na função anotações de tipo de Python a utilizar. 
+Opcionalmente, para aproveitar o IntelliSense e os recursos de preenchimento automático fornecidos pelo editor de código, você também pode declarar os tipos de atributo e tipo de retorno na função usando anotações do tipo Python. 
 
 ```python
 import azure.functions
@@ -79,11 +79,11 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Utilize as anotações de Python incluídas nos [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) pacote para o enlace de entrada e saídas para seus métodos.
+Use as anotações do Python incluídas no pacote [Azure. Functions. *](/python/api/azure-functions/azure.functions?view=azure-python) para associar entradas e saídas aos seus métodos.
 
-## <a name="folder-structure"></a>estrutura de pastas
+## <a name="folder-structure"></a>Estrutura de pastas
 
-A estrutura de pastas para um projeto de funções de Python é semelhante ao seguinte:
+A estrutura de pastas para um projeto de funções do Python é semelhante ao seguinte:
 
 ```
  FunctionApp
@@ -100,19 +100,19 @@ A estrutura de pastas para um projeto de funções de Python é semelhante ao se
  | - requirements.txt
 ```
 
-Existe um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem seu próprio arquivo de código e o ficheiro de configuração de vinculação (Function). 
+Há um arquivo [host. JSON](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função tem seu próprio arquivo de código e arquivo de configuração de associação (Function. JSON). 
 
-Código compartilhado deve ser mantido numa pasta separada. Para referenciar os módulos na pasta SharedCode, pode usar a seguinte sintaxe:
+O código compartilhado deve ser mantido em uma pasta separada. Para fazer referência a módulos na pasta SharedCode, você pode usar a seguinte sintaxe:
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
-Quando implementar um projeto de função para a aplicação de funções no Azure, todo o conteúdo do *FunctionApp* pasta deve ser incluída no pacote, mas não a pasta em si.
+Ao implantar um projeto de função em seu aplicativo de funções no Azure, todo o conteúdo da pasta *FunctionApp* deve ser incluído no pacote, mas não na própria pasta.
 
-## <a name="triggers-and-inputs"></a>Acionadores e as entradas
+## <a name="triggers-and-inputs"></a>Gatilhos e entradas
 
-Entradas são divididas em duas categorias nas funções do Azure: a entrada de Acionador e entrada adicional. Embora eles sejam diferentes no `function.json` ficheiro, a utilização é idêntica no código de Python.  Cadeias de ligação ou segredos para origens de entrada e de Acionador de mapeiam a valores no `local.settings.json` ficheiro ao executar localmente e as definições da aplicação quando em execução no Azure. 
+As entradas são divididas em duas categorias no Azure Functions: disparar entrada e entrada adicional. Embora sejam diferentes no arquivo, `function.json` o uso é idêntico no código Python.  Cadeias de conexão ou segredos para fontes de entrada e gatilho são mapeados para valores no `local.settings.json` arquivo ao serem executados localmente e as configurações do aplicativo durante a execução no Azure. 
 
 Por exemplo, o código a seguir demonstra a diferença entre os dois:
 
@@ -162,16 +162,16 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando a função é invocada, o pedido HTTP é passado para a função como `req`. Uma entrada será recuperada de armazenamento de Blobs do Azure com base na _ID_ o URL de rota e disponibilizados tal como `obj` no corpo da função.  Aqui a conta de armazenamento especificado a cadeia de ligação se encontra no `AzureWebJobsStorage` que é a mesma conta de armazenamento utilizada pela aplicação de função.
+Quando a função é invocada, a solicitação HTTP é passada para a função `req`como. Uma entrada será recuperada do armazenamento de BLOBs do Azure com base na _ID_ na URL de rota e disponibilizada como `obj` no corpo da função.  Aqui, a conta de armazenamento especificada é a cadeia de `AzureWebJobsStorage` conexão encontrada em que é a mesma conta de armazenamento usada pelo aplicativo de funções.
 
 
 ## <a name="outputs"></a>outputs
 
-Saída pode ser expressas no valor de retorno e parâmetros de saída. Se existir apenas uma saída, recomendamos que utilize o valor de retorno. Para várias saídas, terá que usar parâmetros de saída.
+A saída pode ser expressa no valor de retorno e nos parâmetros de saída. Se houver apenas uma saída, recomendamos o uso do valor de retorno. Para várias saídas, você terá que usar parâmetros de saída.
 
-Para utilizar o valor de retorno de uma função como o valor de um enlace de saída, o `name` propriedade da ligação deve ser definida como `$return` no `function.json`.
+Para usar o valor de retorno de uma função como o valor de uma associação de saída `name` , a propriedade da associação deve ser definida `$return` como `function.json`in.
 
-Para produzir várias saídas, utilize o `set()` método fornecido pelo `azure.functions.Out` interface para atribuir um valor para o enlace. Por exemplo, a seguinte função pode enviar uma mensagem para uma fila e também devolver uma resposta HTTP.
+Para produzir várias saídas, use o `set()` método fornecido [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) pela interface para atribuir um valor à associação. Por exemplo, a função a seguir pode enviar uma mensagem por push a uma fila e também retornar uma resposta HTTP.
 
 ```json
 {
@@ -213,9 +213,9 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Registo
 
-Acesso ao agente de log de tempo de execução das funções do Azure está disponível por meio de uma raiz [ `logging` ](https://docs.python.org/3/library/logging.html#module-logging) manipulador na sua aplicação de função. Este agente de log está associado ao Application Insights e permite-lhe sinalizador avisos e erros encontrados durante a execução de função.
+O acesso ao agente de tempo de execução do Azure Functions está [`logging`](https://docs.python.org/3/library/logging.html#module-logging) disponível por meio de um manipulador raiz em seu aplicativo de funções. Esse agente está vinculado a Application Insights e permite sinalizar avisos e erros encontrados durante a execução da função.
 
-O exemplo seguinte regista uma mensagem de informações quando a função é invocada por meio de um acionador HTTP.
+O exemplo a seguir registra uma mensagem de informação quando a função é invocada por meio de um gatilho HTTP.
 
 ```python
 import logging
@@ -225,19 +225,19 @@ def main(req):
     logging.info('Python HTTP trigger function processed a request.')
 ```
 
-Métodos de registo adicionais estão disponíveis que permitem a escreve no console em diferentes níveis de rastreio:
+Há métodos de log adicionais disponíveis que permitem que você grave no console em diferentes níveis de rastreamento:
 
 | Método                 | Descrição                                |
 | ---------------------- | ------------------------------------------ |
-| o registo. **críticas (_mensagem_)**   | Escreve uma mensagem com o nível crítico em agente a raiz.  |
-| logging.**error(_message_)**   | Escreve uma mensagem com erro de nível no agente a raiz.    |
-| o registo. **aviso (_mensagem_)**    | Escreve uma mensagem com o nível aviso no agente a raiz.  |
-| logging.**info(_message_)**    | Escreve uma mensagem com o nível informações sobre o agente de log de raiz.  |
-| logging.**debug(_message_)** | Escreve uma mensagem com depuração nível no agente a raiz.  |
+| logout. **crítico (_mensagem_)**   | Grava uma mensagem com nível crítico no agente raiz.  |
+| logout. **erro (_mensagem_)**   | Grava uma mensagem com um erro de nível no agente raiz.    |
+| logout. **aviso (_mensagem_)**    | Grava uma mensagem com aviso de nível no agente raiz.  |
+| logout. **informações (_mensagem_)**    | Grava uma mensagem com informações de nível no agente raiz.  |
+| logout. **depurar (_mensagem_)** | Grava uma mensagem com depuração de nível no agente raiz.  |
 
 ## <a name="async"></a>Async
 
-Recomendamos que escreve sua função do Azure como um coroutine assíncrona utilizando o `async def` instrução.
+Recomendamos que você escreva sua função do Azure como uma corrotina assíncrona `async def` usando a instrução.
 
 ```python
 # Will be run with asyncio directly
@@ -247,7 +247,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Se a função Main () é síncrona (sem `async` qualificador) executamos automaticamente a função `asyncio` pool de threads.
+Se a função main () for síncrona (sem `async` qualificador), executaremos automaticamente a função `asyncio` em um pool de threads.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -259,7 +259,7 @@ def main():
 
 ## <a name="context"></a>Contexto
 
-Para obter o contexto de invocação de uma função durante a execução, inclua o `context` argumento em sua assinatura. 
+Para obter o contexto de invocação de uma função durante a execução, [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) inclua o argumento em sua assinatura. 
 
 Por exemplo:
 
@@ -272,20 +272,20 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-O **contexto** classe tem os seguintes métodos:
+A classe de [**contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes métodos:
 
 `function_directory`  
-O diretório em que a função está em execução.
+O diretório no qual a função está em execução.
 
 `function_name`  
 Nome da função.
 
 `invocation_id`  
-ID de invocação da função atual.
+ID da invocação de função atual.
 
 ## <a name="global-variables"></a>Variáveis globais
 
-Não é garantido que o estado da sua aplicação será mantido para execuções futuras. No entanto, o runtime das funções do Azure, muitas vezes, reutiliza o mesmo processo para várias execuções da mesma aplicação. Para colocar em cache os resultados de um cálculo complexo, declará-lo como uma variável global. 
+Não há garantia de que o estado do seu aplicativo será preservado para execuções futuras. No entanto, o tempo de execução de Azure Functions geralmente reutiliza o mesmo processo para várias execuções do mesmo aplicativo. Para armazenar em cache os resultados de uma computação cara, declare-o como uma variável global. 
 
 ```python
 CACHED_DATA = None
@@ -299,13 +299,13 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
-## <a name="python-version-and-package-management"></a>Gerenciamento de versão e o pacote do Python
+## <a name="python-version-and-package-management"></a>Versão do Python e gerenciamento de pacotes
 
-Atualmente, as funções do Azure só suporta a Python 3.6.x (oficial CPython distribuição).
+Atualmente, Azure Functions dá suporte apenas a Python 3.6. x (distribuição oficial do CPython).
 
-Ao desenvolver localmente com as ferramentas de núcleo de funções do Azure ou o Visual Studio Code, adicione os nomes e as versões dos pacotes necessários para o `requirements.txt` de ficheiros e instalá-los usando `pip`.
+Ao desenvolver localmente usando o Azure Functions Core Tools ou Visual Studio Code, adicione os nomes e as versões dos pacotes necessários ao `requirements.txt` arquivo e instale-os usando `pip`o.
 
-Por exemplo, pode ser utilizado o seguinte comando de ficheiro e o pip de requisitos para instalar o `requests` pacote a partir da PyPI.
+Por exemplo, o arquivo de requisitos e o comando Pip a seguir podem ser usados `requests` para instalar o pacote do PyPI.
 
 ```txt
 requests==2.19.1
@@ -315,30 +315,30 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-## <a name="publishing-to-azure"></a>Publicação no Azure
+## <a name="publishing-to-azure"></a>Publicando no Azure
 
-Quando estiver pronto para publicar, certifique-se de que todas as suas dependências estão listadas na *Requirements. txt* arquivo, o que está localizado na raiz do seu diretório do projeto. Se estiver a utilizar um pacote que necessita de um compilador e não suporta a instalação do manylinux compatível com rodas do PyPI, publicação para o Azure irá falhar com o seguinte erro: 
+Quando você estiver pronto para publicar, verifique se todas as suas dependências estão listadas no arquivo *requirements. txt* , que está localizado na raiz do diretório do projeto. Se você estiver usando um pacote que requer um compilador e não oferecer suporte à instalação de rodas compatíveis com manylinux do PyPI, a publicação no Azure falhará com o seguinte erro: 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
 The terminal process terminated with exit code: 1
 ```
 
-Para criar e configurar os binários necessários, automaticamente [instalar o Docker](https://docs.docker.com/install/) no seu computador local e execute o seguinte comando para publicar utilizando o [ferramentas de núcleo de funções do Azure](functions-run-local.md#v2) (func). Não se esqueça de substituir `<app name>` com o nome da sua aplicação de função no Azure. 
+Para criar e configurar automaticamente os binários necessários, [Instale](https://docs.docker.com/install/) o Docker no computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Lembre-se `<app name>` de substituir pelo nome do seu aplicativo de funções no Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
 ```
 
-Em segundo plano, as ferramentas de núcleo irá utilizar o docker para executar o [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) imagem como um contentor no seu computador local. Utilizar este ambiente, ele vai, em seguida, criar e instalar os módulos necessários da distribuição de origem, antes de empacotá-los para a implantação final para o Azure.
+Nos bastidores, as ferramentas principais usarão o Docker para executar a imagem [MCR.Microsoft.com/Azure-Functions/Python](https://hub.docker.com/r/microsoft/azure-functions/) como um contêiner em seu computador local. Usando esse ambiente, ele criará e instalará os módulos necessários da distribuição de origem, antes de compactá-los para implantação final no Azure.
 
-Para criar as suas dependências e publicar a utilizar um sistema de entrega contínua (CD), [usar Pipelines do Azure DevOps](https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops). 
+Para criar suas dependências e publicar usando um sistema de entrega contínua (CD), [use pipelines do Azure DevOps](functions-how-to-azure-devops.md). 
 
-## <a name="unit-testing"></a>Teste de unidade
+## <a name="unit-testing"></a>Testes de unidade
 
-As funções escritas no Python podem ser testadas como outro código de Python com estruturas de teste padrão. Para a maioria das ligações, é possível criar um objeto fictício de entrada através da criação de uma instância de uma classe adequada do `azure.functions` pacote. Uma vez que o [ `azure.functions` ](https://pypi.org/project/azure-functions/) pacote não está imediatamente disponível, certifique-se de que instalá-lo por meio de sua `requirements.txt` de ficheiros, tal como descrito na [gerenciamento de versão e o pacote do Python](#python-version-and-package-management) secção acima.
+As funções escritas em Python podem ser testadas como outros códigos Python usando estruturas de teste padrão. Para a maioria das associações, é possível criar um objeto de entrada fictício criando uma instância de uma classe apropriada do `azure.functions` pacote. Como o [`azure.functions`](https://pypi.org/project/azure-functions/) pacote não está disponível imediatamente, certifique-se de instalá-lo `requirements.txt` por meio do arquivo, conforme descrito na seção [versão e gerenciamento de pacotes do Python](#python-version-and-package-management) acima.
 
-Por exemplo, segue-se um teste de simulação de uma função acionada por HTTP:
+Por exemplo, a seguir está um teste fictício de uma função disparada por HTTP:
 
 ```json
 {
@@ -417,7 +417,7 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-Eis outro exemplo, com uma função acionada por fila:
+Aqui está outro exemplo, com uma função disparada por fila:
 
 ```python
 # myapp/__init__.py
@@ -452,17 +452,18 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
-## <a name="known-issues-and-faq"></a>Problemas conhecidos e FAQ
+## <a name="known-issues-and-faq"></a>Problemas conhecidos e perguntas frequentes
 
-Todos os pedidos de funcionalidades e problemas conhecidos são controlados usando [problemas do GitHub](https://github.com/Azure/azure-functions-python-worker/issues) lista. Se se deparar com um problema e não é possível localizar o problema no GitHub, abra um novo problema e incluir uma descrição detalhada do problema.
+Todos os problemas conhecidos e as solicitações de recursos são rastreados usando a lista de [problemas do GitHub](https://github.com/Azure/azure-functions-python-worker/issues) . Se você tiver um problema e não conseguir encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
+* [Documentação da API do pacote Azure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
-* [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
-* [Enlaces de armazenamento de BLOBs](functions-bindings-storage-blob.md)
-* [Enlaces de HTTP e Webhook](functions-bindings-http-webhook.md)
-* [Enlaces de armazenamento de filas](functions-bindings-storage-queue.md)
+* [Azure Functions gatilhos e associações](functions-triggers-bindings.md)
+* [Associações de armazenamento de BLOBs](functions-bindings-storage-blob.md)
+* [Associações HTTP e webhook](functions-bindings-http-webhook.md)
+* [Associações de armazenamento de filas](functions-bindings-storage-queue.md)
 * [Acionador de temporizador](functions-bindings-timer.md)

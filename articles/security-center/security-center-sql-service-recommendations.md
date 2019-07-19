@@ -1,6 +1,6 @@
 ---
-title: Proteger serviços de dados e armazenamento do Azure no Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento trata recomendações no Centro de segurança do Azure que o ajudam a proteger os seus dados e o serviço SQL do Azure e mantenha-se em conformidade com as políticas de segurança.
+title: Proteger os serviços de armazenamento e dados do Azure na central de segurança do Azure | Microsoft Docs
+description: Este documento aborda as recomendações na central de segurança do Azure que ajudam a proteger seus dados e o serviço SQL do Azure e manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,66 +13,66 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: monhaber
-ms.openlocfilehash: 2ac0e4ebaafb8b0c9c79e885cecbefc5a65c1823
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.author: v-mohabe
+ms.openlocfilehash: 9e48114d0d4159d40006710f9c8194dea0d775f8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275290"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295640"
 ---
-# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteger serviços de dados e armazenamento do Azure no Centro de segurança do Azure
-Este tópico mostra-lhe como ver e implementar recomendações de segurança para os recursos de dados e armazenamento. Foram encontrados estas recomendações do Centro de segurança do Azure ao analisar o estado de segurança dos seus recursos do Azure.
+# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Proteger os serviços de armazenamento e dados do Azure na central de segurança do Azure
+Este tópico mostra como exibir e implementar recomendações de segurança para dados e recursos de armazenamento. A central de segurança do Azure encontrou essas recomendações ao analisar o estado de segurança de seus recursos do Azure.
 
-## <a name="view-your-data-security-information"></a>Veja as suas informações de segurança de dados
+## <a name="view-your-data-security-information"></a>Exibir suas informações de segurança de dados
 
-1. Na **higiene de troca de segurança de recursos** secção, clique em **recursos de dados e armazenamento**.
+1. Na seção **higiene de segurança de recursos** , clique em **dados e recursos de armazenamento**.
 
-   ![Recursos de dados e armazenamento](./media/security-center-monitoring/click-data.png)
+   ![Recursos de armazenamento de & de dados](./media/security-center-monitoring/click-data.png)
 
-    O **segurança de dados** página abre-se com recomendações para os recursos de dados.
+    A página **segurança de dados** é aberta com recomendações para recursos de dados.
 
      ![Recursos de Dados](./media/security-center-monitoring/sql-overview.png)
 
-Nesta página, pode:
+Nessa página, você pode:
 
-* Clique nas **descrição geral** separador lista todas as recomendações de recursos de dados para ser resolvido. 
-* Clique em cada separador e ver as recomendações por tipo de recurso.
+* Clique na guia **visão geral** para listar todas as recomendações de recursos de dados a serem corrigidas. 
+* Clique em cada guia e exiba as recomendações por tipo de recurso.
 
     > [!NOTE]
     > Para obter mais informações sobre a encriptação de armazenamento, leia o artigo [Ativar a encriptação para a conta de armazenamento do Azure no Centro de Segurança do Azure](security-center-enable-encryption-for-storage-account.md).
 
 
-## <a name="remediate-a-recommendation-on-a-data-resource"></a>Remediar uma recomendação num recurso de dados
+## <a name="remediate-a-recommendation-on-a-data-resource"></a>Corrigir uma recomendação em um recurso de dados
 
-1. A partir de qualquer uma das guias de recursos, clique num recurso. A página de informações é aberta com as recomendações para ser resolvido.
+1. Em qualquer uma das guias de recurso, clique em um recurso. A página informações é aberta, listando as recomendações a serem corrigidas.
 
-    ![Informações de recursos](./media/security-center-monitoring/sql-recommendations.png)
+    ![Informações do recurso](./media/security-center-monitoring/sql-recommendations.png)
 
-2. Clique numa recomendação. Página de recomendações será aberta e exibirá os **passos de remediação** para implementar a recomendação.
+2. Clique em uma recomendação. A página recomendação é aberta e exibe as **etapas de correção** para implementar a recomendação.
 
-   ![Passos de remediação](./media/security-center-monitoring/remediate1.png)
+   ![Etapas de correção](./media/security-center-monitoring/remediate1.png)
 
-3. Clique em **agir**. É apresentada a página de definições de recursos.
+3. Clique em **executar ação**. A página Configurações de recurso é exibida.
 
-    ![Ativar recomendação](./media/security-center-monitoring/remediate2.png)
+    ![Habilitar recomendação](./media/security-center-monitoring/remediate2.png)
 
-4. Siga os **passos de remediação** e clique em **guardar**.
+4. Siga as **etapas de correção** e clique em **salvar**.
 
 ## <a name="data-and-storage-recommendations"></a>Recomendações de armazenamento e dados
 
 |Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
 |----|----|----|----|
-|Conta de armazenamento|20|Deve ser ativada para contas de armazenamento com transferência segura|Transferência segura é uma opção que força a sua conta de armazenamento para aceitar pedidos apenas a partir de ligações seguras (HTTPS). HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
-|Redis|20|Devem ser ativadas apenas ligações seguras para a Cache de Redis|Permitir apenas ligações através de SSL para o Azure Cache de Redis. Utilização de ligações seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
-|SQL|15|Deve ser ativada a encriptação de dados transparente nas bases de dados SQL|Ative a encriptação de dados transparente proteger dados em repouso e cumprir os requisitos de conformidade.|
-|SQL|15|Auditoria do SQL server deve ser ativada|Ative a auditoria para servidores SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.)|
-|O Data lake analytics|5|Os registos de diagnóstico no Data Lake Analytics devem ser ativados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
-|Arquivo do Data lake|5|Os registos de diagnóstico do Azure Data Lake Store devem ser ativados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
-|SQL|30|Vulnerabilidades nos seus bancos de dados do SQL devem ser resolvidas|Avaliação de vulnerabilidades do SQL analisa a sua base de dados para vulnerabilidades de segurança e expõe qualquer desvios das melhores práticas, como configurações incorretas, permissões excessivas e dados confidenciais não protegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o escritor de segurança da base de dados.|
-|SQL|20|Aprovisionar um administrador do Azure AD para o SQL server|Aprovisione um administrador do Azure AD para o servidor SQL para ativar a autenticação do Azure AD. Autenticação do Azure AD permite a gestão de permissões simplificado e o gerenciamento centralizado de identidades de utilizadores de base de dados e outros serviços Microsoft.|
-|Conta de armazenamento|15|Acesso a contas de armazenamento com firewall e as configurações de rede virtual deve ser restrito|Auditar o acesso de rede sem restrições nas definições de firewall da conta de armazenamento. Em vez disso, configure regras de rede para que apenas aplicativos de redes permitidas podem acessar a conta de armazenamento. Para permitir ligações de Internet específico ou de clientes no local, pode conceder acesso para o tráfego a partir de redes virtuais do Azure específicos ou para intervalos de endereços IP de Internet públicos.|
-|Conta de armazenamento|1|Contas de armazenamento devem ser migradas para novos recursos do Azure Resource Manager|Utilizar o novo Azure Resource Manager v2 para as suas contas de armazenamento para fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos e a autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança.|
+|Conta de armazenamento|20|A transferência segura para contas de armazenamento deve ser habilitada|Transferência segura é uma opção que força sua conta de armazenamento a aceitar solicitações somente de conexões seguras (HTTPS). O HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, como Man-in-the-Middle, espionagem e seqüestro de sessão.|
+|Redis|20|Somente conexões seguras para o cache Redis devem ser habilitadas|Habilite somente as conexões via SSL para o cache do Azure para Redis. O uso de conexões seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, como Man-in-the-Middle, espionagem e seqüestro de sessão.|
+|SQL|15|Transparent Data Encryption em bancos de dados SQL devem ser habilitadas|Habilite a Transparent Data Encryption para proteger dados em repouso e atender aos requisitos de conformidade.|
+|SQL|15|A auditoria do SQL Server deve ser habilitada|Habilite a auditoria para servidores SQL do Azure. (Somente serviço do Azure SQL. Não inclui o SQL em execução em suas máquinas virtuais.)|
+|Análise data Lake|5|Os logs de diagnóstico no Data Lake Analytics devem ser habilitados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Data Lake Store|5|Os logs de diagnóstico no Azure Data Lake Store devem ser habilitados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|SQL|30|Vulnerabilidades em seus bancos de dados SQL devem ser corrigidas|A avaliação de vulnerabilidade do SQL examina seu banco de dados quanto a vulnerabilidades de segurança e expõe quaisquer desvios das práticas recomendadas, como configurações incorretas, excesso de permissões e dados confidenciais não protegidos. A resolução das vulnerabilidades encontradas pode melhorar muito o estatura de segurança do banco de dados.|
+|SQL|20|Provisionar um administrador do Azure AD para o SQL Server|Provisione um administrador do Azure AD para o SQL Server para habilitar a autenticação do Azure AD. A autenticação do Azure AD permite o gerenciamento de permissões simplificado e o gerenciamento de identidade centralizado de usuários de banco de dados e outros serviços da Microsoft.|
+|Conta de armazenamento|15|O acesso a contas de armazenamento com firewall e configurações de rede virtual deve ser restrito|Auditar o acesso irrestrito à rede nas configurações de firewall da sua conta de armazenamento. Em vez disso, configure as regras de rede para que somente aplicativos de redes permitidas possam acessar a conta de armazenamento. Para permitir conexões de clientes locais ou da Internet específicos, você pode conceder acesso ao tráfego de redes virtuais específicas do Azure ou a intervalos de endereços IP de Internet públicos.|
+|Conta de armazenamento|1|As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager|Use o New Azure Resource Manager V2 para suas contas de armazenamento para fornecer aprimoramentos de segurança, como: controle de acesso mais forte (RBAC), melhor auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso ao cofre de chaves para segredos e autenticação baseada no Azure AD e suporte para marcas e grupos de recursos para facilitar o gerenciamento da segurança.|
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte os seguintes tópicos:
@@ -81,7 +81,7 @@ Para saber mais sobre as recomendações que se aplicam a outros tipos de recurs
 * [Proteger as aplicações no Centro de Segurança do Azure](security-center-application-recommendations.md)
 * [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
 
-Para saber mais sobre o Centro de segurança, consulte os seguintes tópicos:
+Para saber mais sobre a central de segurança, consulte os seguintes tópicos:
 
 * [Definir políticas de segurança no Centro de Segurança do Azure](tutorial-security-policy.md) – Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos do Azure.
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.

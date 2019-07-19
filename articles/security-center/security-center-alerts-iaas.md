@@ -1,6 +1,6 @@
 ---
-title: Deteção de VMs e servidores no Centro de segurança do Azure de ameaças | Documentos da Microsoft
-description: Este tópico apresenta as VM e o servidor de alertas disponíveis no Centro de segurança do Azure.
+title: Detecção de ameaças para VMs & servidores na central de segurança do Azure | Microsoft Docs
+description: Este tópico apresenta os alertas de VM e servidor disponíveis na central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,110 +13,110 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 5487b4f49f5dbf7b968cd45d40555c69b54c329a
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: f23865fc0a1943a5157e4ff8eb8de10a71ef0883
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571585"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295796"
 ---
-# <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Deteção de ameaças para VMs e servidores no Centro de segurança do Azure
+# <a name="threat-detection-for-vms--servers-in-azure-security-center"></a>Detecção de ameaças para VMs & servidores na central de segurança do Azure
 
-Este tópico apresenta os diferentes tipos de métodos de deteção e alertas disponíveis para VMs e servidores com os seguintes sistemas de operação. Para obter uma lista de versões suportadas, consulte [plataformas e funcionalidades suportadas pelo centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
+Este tópico apresenta os diferentes tipos de métodos de detecção e alertas disponíveis para VMs e servidores com os sistemas operacionais a seguir. Para obter uma lista de versões com suporte, consulte [plataformas e recursos com suporte na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
 
 * [Windows](#windows-machines)
 * [Linux](#linux-machines)
 
 ## Windows <a name="windows-machines"></a>
 
-Centro de segurança integra-se com serviços do Azure para monitorizar e proteger as suas máquinas com base em Windows.  Centro de segurança apresenta os alertas e as sugestões de remediação de todos estes serviços num formato de fácil de usar.
+A central de segurança se integra aos serviços do Azure para monitorar e proteger suas máquinas baseadas no Windows.  A central de segurança apresenta os alertas e as sugestões de correção de todos esses serviços em um formato fácil de usar.
 
-### Microsoft Server Defender ATP <a nanme="windows-atp"></a>
+### Microsoft Server defender ATP<a nanme="windows-atp"></a>
 
-Centro de segurança do Azure expande suas plataformas de proteção de carga de trabalho na Cloud com a integração com o Windows Defender avançadas de proteção contra ameaças (ATP). Isso fornece funcionalidades completas de ponto final de deteção e resposta (EDR).
+A central de segurança do Azure estende suas plataformas de proteção de carga de trabalho de nuvem integrando com a ATP (proteção avançada contra ameaças) do Windows Defender. Isso fornece recursos de EDR (detecção e resposta de ponto de extremidade) abrangentes.
 
 > [!NOTE]
-> Sensor de servidor do Windows Defender ATP é ativada automaticamente nos servidores do Windows que são carregadas para o Centro de segurança do Azure.
+> O sensor do Windows Server defender ATP é habilitado automaticamente em servidores Windows que são integrados à central de segurança do Azure.
 
-Quando o servidor do Windows Defender ATP Deteta uma ameaça, aciona um alerta. O alerta é apresentado no dashboard do Centro de segurança. No dashboard, pode dinamizar para a consola do Windows Defender ATP para efetuar uma investigação detalhada para descobrir o escopo da invasão. Para obter mais informações sobre o servidor do Windows Defender ATP, consulte [carregar servidores para o serviço do Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+Quando o Windows Server defender ATP detecta uma ameaça, ele dispara um alerta. O alerta é mostrado no painel da central de segurança. No painel, você pode dinamizar para o console do Windows Defender ATP para executar uma investigação detalhada para descobrir o escopo do ataque. Para obter mais informações sobre o Windows Server defender ATP, consulte [servidores integrados ao serviço do Windows Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-### Análise de despejo de falha de sistema <a nanme="windows-dump"></a>
+### Análise de despejo de memória<a nanme="windows-dump"></a>
 
 Quando o software falha, uma informação de falha de sistema captura uma parte da memória no momento da falha.
 
-Uma falha pode ter sido causada por software maligno ou conter malware. Para evitar a ser detectadas por produtos de segurança, várias formas de malware utilizam um ataque fileless, o que evita escrever no disco ou encriptar componentes de software escritos no disco. Este tipo de ataque é difícil de detetar com as abordagens tradicionais baseados em disco.
+Uma falha pode ter sido causada por malware ou conter malware. Para evitar ser detectado por produtos de segurança, várias formas de malware usam um ataque de arquivo, o que evita a gravação em disco ou a criptografia de componentes de software gravados no disco. Esse tipo de ataque é difícil de detectar usando abordagens tradicionais baseadas em disco.
 
-No entanto, esse tipo de ataque pode ser detetado através de análise de memória. Ao analisar a memória na informação de falha, o Centro de segurança pode detetar as técnicas de que ataque está a utilizar para explorar vulnerabilidades no software, aceder a dados confidenciais e persistir clandestinamente numa máquina afetada. Isso é feito com o Centro de segurança de back-end com impacto mínimo no desempenho aos anfitriões.
+No entanto, esse tipo de ataque pode ser detectado usando a análise de memória. Analisando a memória no despejo de falha, a central de segurança pode detectar as técnicas que o ataque está usando para explorar vulnerabilidades no software, acessar dados confidenciais e maneira furtiva manter em um computador comprometido. Isso é feito pelo back-end da central de segurança com impacto mínimo sobre o desempenho dos hosts.
 
 > [!div class="mx-tableFixed"]
 
 |Alerta|Descrição|
 |---|---|
-|**Injeção de código detetada**|A injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por software maligno para aceder a dados, enquanto se com êxito para impedir que está a ser encontrado e removido. <br/>Este alerta indica que está presente nas informações de falha de sistema um módulo injetado. Para diferenciar entre módulos maliciosos e não maliciosos injetados, o Centro de segurança verifica se o módulo injetado está em conformidade com um perfil de comportamento suspeito.|
-|**Segmento de código suspeito detetado**|Indica que foi alocado um segmento de código através de métodos não padrão, como injeção reflexiva e hollowing do processo. O alerta fornece características adicionais do segmento que foram processadas para fornecer contexto para os recursos e comportamentos do segmento reportado.|
-|**Shellcode detetado**|Shellcode é o payload executado depois de o software maligno explorar uma vulnerabilidade de software.<br/>Este alerta indica que a análise de despejo de falha de sistema detetou código executável que apresenta um comportamento normalmente tido por payloads maliciosos. Embora o software não malicioso também pode fazer esse comportamento, não é característico das práticas de desenvolvimento de normal software.|
+|**Injeção de código descoberta**|A injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por malware para acessar dados, enquanto se oculta com êxito para evitar que sejam encontradas e removidas. <br/>Este alerta indica que está presente nas informações de falha de sistema um módulo injetado. Para diferenciar entre módulos injetados mal-intencionados e não mal-intencionados, a central de segurança verifica se o módulo injetado está em conformidade com um perfil de comportamento suspeito.|
+|**Segmento de código suspeito descoberto**|Indica que um segmento de código foi alocado usando métodos não padrão, como injeção reflexiva e cancelamento de processo. O alerta fornece características adicionais do segmento de código que foram processados para fornecer contexto para os recursos e comportamentos do segmento de código relatado.|
+|**Shellcode descoberto**|Shellcode é o payload executado depois de o software maligno explorar uma vulnerabilidade de software.<br/>Esse alerta indica que a análise de despejo de memória detectou código executável que exibe o comportamento normalmente executado por cargas mal-intencionadas. Embora um software não mal-intencionado também possa executar esse comportamento, não é típico das práticas normais de desenvolvimento de software.|
 
-### Deteção de ataques fileless <a nanme="windows-fileless"></a>
+### Detecção de ataque de não-arquivo<a nanme="windows-fileless"></a>
 
-No Azure, podemos ver regularmente fileless ataques que visam pontos finais de nossos clientes.
+No Azure, vemos regularmente ataques de não-arquivo direcionados aos pontos de extremidade de nossos clientes.
 
-Para evitar a detecção, ataques fileless injetar payloads maliciosos na memória. Cargas de atacante persistem dentro da memória de processos comprometidos e realizar uma ampla gama de atividades maliciosas.
+Para evitar a detecção, os ataques de arquivo insuficiente injetam cargas mal-intencionadas na memória. As cargas de invasor persistem na memória de processos comprometidos e realizam uma ampla gama de atividades mal-intencionadas.
 
-Com a detecção de ataque fileless, técnicas de computação forense automatizada memória identificam ataque fileless Kits de ferramentas, técnicas e comportamentos. Periodicamente, esta solução analisa a sua máquina em tempo de execução e extrai informações diretamente da memória de processos críticos de segurança.
+Com a detecção de ataque sem arquivo, as técnicas forenses de memória automatizada identificam os kits de informática, técnicas e comportamentos de ataque sem arquivo. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória de processos críticos de segurança.
 
-Ele localiza evidências de exploração, a injeção de código e a execução de payloads maliciosos. Detecção de ataque fileless gera alertas de segurança detalhadas para acelerar a triagem de alerta, correlação e tempo de resposta de downstream. Essa abordagem complementa soluções EDR baseado em evento fornecendo maior cobertura de deteção.
+Ele encontra evidências de exploração, injeção de código e execução de cargas mal-intencionadas. A detecção de ataques de não-arquivo gera alertas de segurança detalhados para acelerar a triagem de alerta, correlação e tempo de resposta downstream. Essa abordagem complementa as soluções de EDR baseadas em eventos, fornecendo maior cobertura de detecção.
 
 > [!NOTE]
-> Pode simular alertas do Windows por transferência [Playbook de centro de segurança do Azure](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Alertas de segurança e siga as diretrizes fornecidas
+> Você pode simular alertas do Windows baixando o [guia estratégico da central de segurança do Azure](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef): Alertas de segurança e siga as diretrizes fornecidas
 
 > [!div class="mx-tableFixed"]
 
 |Alerta|Descrição|
 |---|---|
-|**Técnica de ataque fileless detetada**|A memória do processo especificado abaixo contém um Kit de ferramentas de ataque fileless: Meterpreter. Kits de ferramentas de ataque fileless normalmente não têm uma presença no sistema de arquivos, dificultando a deteção pelo antivírus tradicionais.|
+|**Técnica de ataque de não-arquivo detectada**|A memória do processo especificado abaixo contém um kit de ferramentas de ataque de não-arquivo: Meterpreter. Os kits de tarefas de ataque sem arquivo normalmente não têm uma presença no sistema de arquivos, dificultando a detecção por antivírus tradicional.|
 
 ### <a name="further-reading"></a>Leitura adicional
 
-Para obter exemplos e obter mais informações sobre a deteção do Centro de segurança:
+Para obter exemplos e mais informações sobre a detecção da central de segurança:
 
-* [Como o Centro de segurança do Azure automatiza a deteção de ataques informáticos](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
-* [Como o Centro de segurança do Azure Deteta vulnerabilidades usando ferramentas administrativas](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [Como a central de segurança do Azure automatiza a detecção de ataques cibernéticos](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [Como a central de segurança do Azure detecta vulnerabilidades usando ferramentas administrativas](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
 ## Linux <a name="linux-machines"></a>
 
-Recolhe o Centro de segurança de auditoria registos a partir de máquinas Linux utilizar **auditd**, um de Linux mais comuns de estruturas de auditoria. auditd tem a vantagem de ter existe há muito tempo e está a viver no kernel do principal. 
+A central de segurança coleta registros de auditoria de computadores Linux usando **auditoria**, uma das estruturas de auditoria do Linux mais comuns. auditado tem a vantagem de ter sido por muito tempo e viver no kernel principal. 
 
-### Alertas de auditd de Linux e integração do Microsoft Monitoring Agent (MMA) <a name="linux-auditd"></a>
+### MMA (alertas de auditoria do Linux e integração de Microsoft Monitoring Agent)<a name="linux-auditd"></a>
 
-O sistema de auditd consiste num subsistema de nível de kernel, que é responsável pela monitorização de chamadas de sistema, filtrá-los por um conjunto de regra fornecido e escrevendo mensagens para os mesmos para um soquete. Centro de segurança integra-se funcionalidades do pacote auditd dentro do Microsoft Monitoring Agent (MMA). Esta integração permite a recolha de eventos de auditd em todas as distribuições suportadas de Linux sem quaisquer pré-requisitos.  
+O sistema auditado consiste em um subsistema de nível de kernel, que é responsável por monitorar chamadas do sistema, filtrá-las por um determinado conjunto de regras e gravar mensagens para um soquete. A central de segurança integra as funcionalidades do pacote auditado dentro do Microsoft Monitoring Agent (MMA). Essa integração habilita a coleta de eventos auditados em todas as distribuições Linux com suporte sem nenhum pré-requisito.  
 
-dos registos de auditoria são recolhidos, enriquecidos e agregados em eventos com o agente MMA do Linux. Centro de segurança está trabalhando constantemente sobre a adição de nova análise, que tiram partido Linux sinaliza para detetar comportamentos maliciosos em cloud e máquinas do Linux no local. Semelhante às capacidades do Windows, estes dados analíticos abrangem várias processos suspeitos, tentativas de início de sessão duvidosa, carregamento de módulo de kernel e outras atividades que indicar uma máquina está sob ataque ou foi violada.  
+os registros auditados são coletados, aprimorados e agregados em eventos usando o agente MMA do Linux. A central de segurança está trabalhando constantemente para adicionar uma nova análise, que aproveita os sinais do Linux para detectar comportamentos mal-intencionados em máquinas Linux locais e na nuvem. Semelhante aos recursos do Windows, essas análises se estendem por processos suspeitos, tentativas de logon duvidosa, carregamento de módulo kernel e outras atividades, que indicam que um computador está sob ataque ou foi violado.  
 
-Seguem-se vários exemplos de análise, que demonstram como iremos abranger várias diferentes fases do ciclo de vida do ataque.
+Abaixo estão vários exemplos de análise, que demonstram como abrangemos diferentes estágios do ciclo de vida de ataque.
 
 > [!div class="mx-tableFixed"]
 
 |Alerta|Descrição|
 |---|---|
-|**Processo visto o acesso ao ficheiro de chaves autorizado de SSH, de forma invulgar**|Um arquivo de chaves autorizadas SSH tem sido acedido num método semelhante ao campanhas de software maligno conhecido. Este acesso pode indicar que um atacante está a tentar obter acesso persistente a uma máquina|
-|**Tentativa de persistência detetado**|Análise de dados do anfitrião detetou que foi instalado um script de inicialização para o modo de utilizador único. <br/>Uma vez que é raro que qualquer processo legítimo seria necessários para executar nesse modo, isto pode indicar que um atacante tenha adicionado um processo malicioso para todos os níveis de execução para garantir a persistência.|
-|**Manipulação de tarefas agendadas detetado**|Análise de dados do anfitrião detetou possível manipulação de tarefas agendadas. Os atacantes adicionar, muitas vezes, as tarefas agendadas para as máquinas que já comprometido para obter a persistência.|
-|**Modificação do ficheiro suspeito timestamp**|Análise de dados do anfitrião detetou uma modificação de timestamp suspeita. Os atacantes copiar, muitas vezes, carimbos de ficheiros legítimos existentes para novas ferramentas para evitar a detecção desses arquivos ignorados recentemente|
-|**Foi adicionado um novo utilizador ao grupo sudoers**|Análise de dados de anfitriões detetado que um utilizador foi adicionado ao grupo sudoers, o que permite que os membros executar comandos com privilégios elevados.|
-|**Exploração provável de DynoRoot vulnerabilidade no cliente de dhcp**|Análise de dados do anfitrião detetou a execução de um comando invulgar com o processo principal do dhclient script.|
-|**Módulo de kernel suspeito detetado**|Análise de dados de anfitrião detetou um ficheiro de objeto partilhado que está a ser carregado como um módulo de kernel. Isso poderia ser legítima atividade ou uma indicação de que uma das suas máquinas foi comprometida.|
-|**Processo associado a extração de moeda digital detetada**|Análise de dados do anfitrião detetou a execução de um processo normalmente associada a extração de moeda digital|
-|**Potenciais encaminhamento de porta para o endereço IP externo**|Análise de dados de anfitriões detetado o início da porta para um endereço IP externo de reencaminhamento.|
+|**Processo visto acessando o arquivo de chaves autorizadas SSH de maneira incomum**|Um arquivo de chaves autorizadas SSH foi acessado em um método semelhante a campanhas de malware conhecidas. Esse acesso pode indicar que um invasor está tentando obter acesso persistente a um computador|
+|**Tentativa de persistência detectada**|A análise de dados do host detectou que um script de inicialização para o modo de usuário único foi instalado. <br/>Como é raro que qualquer processo legítimo seja necessário para ser executado nesse modo, isso pode indicar que um invasor adicionou um processo mal-intencionado a cada nível de execução para garantir a persistência.|
+|**Manipulação de tarefas agendadas detectadas**|A análise de dados do host detectou uma possível manipulação de tarefas agendadas. Os invasores geralmente adicionam tarefas agendadas a computadores que estão comprometidos a obter persistência.|
+|**Modificação de carimbo de hora de arquivo suspeito**|A análise de dados do host detectou uma modificação suspeita de carimbo de hora Os invasores geralmente copiam carimbos de data/hora de arquivos legítimos existentes para novas ferramentas para evitar a detecção desses arquivos recentemente descartados|
+|**Um novo usuário foi adicionado ao grupo sudoers**|A análise de dados do host detectou que um usuário foi adicionado ao grupo sudoers, que permite que seus membros executem comandos com altos privilégios.|
+|**Provável exploração da vulnerabilidade do DynoRoot no cliente DHCP**|A análise de dados do host detectou a execução de um comando incomum com o processo pai do script dhclient.|
+|**Módulo de kernel suspeito detectado**|A análise de dados do host detectou um arquivo de objeto compartilhado sendo carregado como um módulo de kernel. Isso pode ser uma atividade legítima ou uma indicação de que uma de suas máquinas foi comprometida.|
+|**Processo associado à mineração de moeda digital detectado**|A análise de dados do host detectou a execução de um processo normalmente associado à mineração de moedas digitais|
+|**Potencial encaminhamento de porta para endereço IP externo**|A análise de dados do host detectou o início do encaminhamento de porta para um endereço IP externo.|
 
 > [!NOTE]
-> Pode simular alertas do Windows baixando [Playbook de centro de segurança do Azure: Alertas de segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) e siga as diretrizes fornecidas.
+> Você pode simular alertas do Windows [baixando o guia estratégico da central de segurança do Azure: Alertas](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef) de segurança e siga as diretrizes fornecidas.
 
 
 Para obter mais informações, veja estes artigos:  
 
-* [Centro de segurança do Azure de tirar partido para detetar quando o ataque de máquinas do Linux comprometido](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
+* [Aproveite a central de segurança do Azure para detectar quando os ataques de computadores Linux comprometidos](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-* [Centro de segurança do Azure pode detectar vulnerabilidades emergentes em Linux](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
+* [A central de segurança do Azure pode detectar vulnerabilidades emergentes no Linux](https://azure.microsoft.com/blog/azure-security-center-can-detect-emerging-vulnerabilities-in-linux/)
 
  

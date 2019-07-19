@@ -1,6 +1,6 @@
 ---
-title: 'Aplicações de SaaS: Azure base de dados SQL com redundância geográfica cópias de segurança para recuperação após desastre | Documentos da Microsoft'
-description: Saiba como utilizar cópias de segurança georredundante de base de dados do Azure SQL para recuperar de uma aplicação SaaS multi-inquilino em caso de interrupção
+title: 'Aplicativos SaaS: Backups com redundância geográfica do banco de dados SQL do Azure para recuperação de desastre | Microsoft Docs'
+description: Aprenda a usar backups com redundância geográfica do banco de dados SQL do Azure para recuperar um aplicativo SaaS multilocatário no caso de uma interrupção
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -8,374 +8,374 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6977f9f957aba2c01265f750f82847e16d299ee
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557074"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872043"
 ---
-# <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilizar o restauro geográfico para recuperar uma aplicação SaaS multi-inquilino de cópias de segurança da base de dados
+# <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 
-Este tutorial analisa um cenário de recuperação após desastre para uma aplicação SaaS multi-inquilino implementado com a base de dados por modelo de inquilino. Utilizar [georrestauro](sql-database-recovery-using-backups.md) para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante para uma região de recuperação alternativo. Depois da falha for resolvida, utilize [georreplicação](sql-database-geo-replication-overview.md) para repatriate bases de dados alterados para sua região original.
+Este tutorial explora um cenário de recuperação de desastres completo para um aplicativo SaaS multilocatário implementado com o modelo de banco de dados por locatário. Você usa a [restauração geográfica](sql-database-recovery-using-backups.md) para recuperar os bancos de dados de catálogo e locatário dos backups com redundância geográfica mantidos automaticamente em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](sql-database-geo-replication-overview.md) para repatriar bancos de dados alterados para sua região original.
 
-![Arquitetura de restauro geográfico](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Arquitetura de restauração geográfica](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
-Georrestauro encontra-se a solução de recuperação após desastre de custo mais baixo para a base de dados do Azure SQL. No entanto, o restauro a partir de cópias de segurança georredundante pode resultar na perda de dados de até uma hora. Pode demorar um tempo considerável, dependendo do tamanho dos bancos de dados. 
+A restauração geográfica é a solução de recuperação de desastres de menor custo para o banco de dados SQL do Azure. No entanto, a restauração de backups com redundância geográfica pode resultar em perda de dados de até uma hora. Pode levar um tempo considerável, dependendo do tamanho de cada banco de dados. 
 
 > [!NOTE]
-> Recupere aplicações com o RPO e RTO mais baixas possível através de georreplicação em vez do restauro geográfico.
+> Recupere aplicativos com o menor RPO e RTO possíveis usando a replicação geográfica em vez de uma restauração geográfica.
 
-Este tutorial explora o restauro e repatriation fluxos de trabalho. Saiba como:
+Este tutorial explora os fluxos de trabalho de restauração e repatriação. Saiba como:
 > [!div class="checklist"]
 > 
-> * Base de dados de sincronização e informações de configuração do conjunto elástico para o catálogo de inquilino.
-> * Configure um ambiente de imagem espelhada numa região de recuperação que inclui aplicativos, servidores e de agrupamentos.   
-> * Recupere bases de dados do catálogo e de inquilino, utilizando o restauro geográfico.
-> * Utilize a georreplicação para repatriate o catálogo de inquilino e bases de dados do inquilino foi alterado após a falha for resolvida.
-> * O catálogo de atualizações à medida que cada base de dados é restaurada (ou repatriated) para controlar a localização atual da cópia ativa do banco de dados de cada inquilino.
-> * Certifique-se de que o aplicativo e a base de dados de inquilino são sempre localizados conjuntamente na mesma região do Azure para reduzir a latência. 
+> * Sincronize o banco de dados e as informações de configuração do pool elástico no catálogo de locatários.
+> * Configure um ambiente de imagem espelho em uma região de recuperação que inclua aplicativos, servidores e pools.   
+> * Recupere bancos de dados de catálogo e locatário usando a restauração geográfica.
+> * Use a replicação geográfica para repatriar o catálogo de locatários e altere os bancos de dados de locatário depois que a interrupção for resolvida.
+> * Atualize o catálogo, pois cada banco de dados é restaurado (ou repatriado) para rastrear o local atual da cópia ativa do banco de dados de cada locatário.
+> * Verifique se o aplicativo e o banco de dados de locatário estão sempre colocalizados na mesma região do Azure para reduzir a latência. 
  
 
-Antes de começar este tutorial, conclua os seguintes pré-requisitos:
-* Implemente a base de dados de Wingtip Tickets SaaS por aplicação de inquilino. Para implementar em menos de cinco minutos, veja [implementar e explorar a base de dados de Wingtip Tickets SaaS por aplicação de inquilino](saas-dbpertenant-get-started-deploy.md). 
+Antes de iniciar este tutorial, conclua os seguintes pré-requisitos:
+* Implante o aplicativo de banco de dados por locatário SaaS Wingtip tickets. Para implantar em menos de cinco minutos, consulte [implantar e explorar o aplicativo de banco de dados por locatário SaaS Wingtip tickets](saas-dbpertenant-get-started-deploy.md). 
 * Instale o Azure PowerShell. Para obter detalhes, consulte [introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introdução ao padrão de recuperação do restauro geográfico
+## <a name="introduction-to-the-geo-restore-recovery-pattern"></a>Introdução ao padrão de recuperação de restauração geográfica
 
-Recuperação após desastre (DR) é uma consideração importante para muitos aplicativos, seja em motivos de conformidade ou de continuidade do negócio. Se houver uma interrupção de serviço prolongada, um plano de DR bem preparado pode minimizar interrupções nos negócios. Plano de DR da com base no restauro geográfico deve realizar várias metas:
- * Reserve capacidade tudo necessária na região de recuperação escolhido o mais rapidamente possível para garantir que está disponível para restaurar bancos de dados do inquilino.
- * Estabelece um ambiente de recuperação da imagem espelhada que reflete a configuração de agrupamento e a base de dados original. 
- * Permitir o cancelamento do processo de restauração em trânsito médio se a região original ficar online novamente.
- * Ative aprovisionamento rapidamente, para a nova integração de inquilino pode reiniciar o quanto antes do inquilino.
- * Ser otimizada para restaurar os inquilinos na ordem de prioridade.
- * Ser otimizada para obter inquilinos online logo que possível, fazendo passos em paralelo sempre que o prático.
- * Ser resiliente a falhas, reinicializável e idempotentes.
- * Repatriate bases de dados para suas regiões original com impacto mínimo para os inquilinos quando a indisponibilidade for resolvida.  
+A recuperação de desastres (DR) é uma consideração importante para muitos aplicativos, seja por motivos de conformidade ou continuidade de negócios. Se houver uma interrupção prolongada de serviço, um plano de DR bem preparado poderá minimizar a interrupção dos negócios. Um plano de DR baseado na restauração geográfica deve atingir várias metas:
+ * Reserve toda a capacidade necessária na região de recuperação escolhida o mais rapidamente possível para garantir que ela esteja disponível para restaurar bancos de dados de locatário.
+ * Estabeleça um ambiente de recuperação de imagem espelhada que reflita o pool original e a configuração do banco de dados. 
+ * Permitir cancelamento do processo de restauração em meados de vôo se a região original voltar a ficar online.
+ * Habilite o provisionamento de locatário rapidamente para que a nova integração de locatário possa ser reiniciada assim que possível.
+ * Ser otimizado para restaurar locatários em ordem de prioridade.
+ * Seja otimizado para obter locatários online assim que possível, seguindo as etapas em paralelo, onde for prático.
+ * Ser resiliente a falhas, reiniciáveis e idempotentes.
+ * Repatriar bancos de dados para sua região original com impacto mínimo sobre os locatários quando a interrupção for resolvida.  
 
 > [!NOTE]
-> O aplicativo é recuperado para a região emparelhada da região em que a aplicação é implementada. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
+> O aplicativo é recuperado para a região emparelhada da região em que o aplicativo é implantado. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
 
-Este tutorial utiliza recursos do Azure SQL Database e a plataforma do Azure para enfrentar esses desafios:
+Este tutorial usa recursos do banco de dados SQL do Azure e da plataforma Azure para resolver esses desafios:
 
-* [Modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar capacidade necessária todas as mais depressa possível. Modelos Azure Resource Manager são utilizados para Aprovisionar uma imagem espelhada dos servidores originais e conjuntos elásticos na região de recuperação. Um servidor separado e o agrupamento também são criados para o aprovisionamento de novos inquilinos.
-* [Biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de base de dados do inquilino. O catálogo expandido inclui informações de configuração de agrupamento e a base de dados atualizadas periodicamente.
-* [Recursos de recuperação de gestão de partições horizontais](sql-database-elastic-database-recovery-manager.md) de EDCL, para manter as entradas de localização de base de dados no catálogo durante a recuperação e repatriation.  
-* [O restauro geográfico](sql-database-disaster-recovery.md), para recuperar as bases de dados do catálogo e de inquilino de manter automaticamente cópias de segurança georredundante. 
-* [Operações assíncronas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), enviados por ordem de prioridade de inquilino, são colocados em fila para cada conjunto pelo sistema e processados em lotes para que o conjunto não está sobrecarregado. Estas operações podem ser canceladas antes ou durante a execução, se necessário.   
-* [Replicação geográfica](sql-database-geo-replication-overview.md), para repatriate bases de dados para a região original após a falha. Não existe nenhuma perda de dados e um impacto mínimo sobre o inquilino ao utilizar a georreplicação.
-* [Aliases DNS do SQL server](dns-alias-overview.md)para permitir que o processo de sincronização do catálogo para ligar ao catálogo do Active Directory, independentemente da respetiva localização.  
+* [Azure Resource Manager modelos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar toda a capacidade necessária o mais rápido possível. Os modelos de Azure Resource Manager são usados para provisionar uma imagem espelho dos servidores originais e pools elásticos na região de recuperação. Um servidor e pool separados também são criados para provisionar novos locatários.
+* [Biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md) (EDCL), para criar e manter um catálogo de banco de dados de locatário. O catálogo estendido inclui informações de configuração de pool e banco de dados atualizadas periodicamente.
+* [Recursos de recuperação de gerenciamento de fragmento](sql-database-elastic-database-recovery-manager.md) do EDCL, para manter entradas de local de banco de dados no catálogo durante a recuperação e repatriação.  
+* [Restauração geográfica](sql-database-disaster-recovery.md), para recuperar os bancos de dados de catálogo e locatário dos backups com redundância geográfica mantidos automaticamente. 
+* [As operações de restauração](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)assíncronas, enviadas na ordem de prioridade de locatário, são enfileiradas para cada pool pelo sistema e processadas em lotes para que o pool não seja sobrecarregado. Essas operações podem ser canceladas antes ou durante a execução, se necessário.   
+* [Replicação geográfica](sql-database-geo-replication-overview.md), para repatriar bancos de dados para a região original após a interrupção. Não há perda de dados e impacto mínimo sobre o locatário ao usar a replicação geográfica.
+* [Aliases de DNS do SQL Server](dns-alias-overview.md), para permitir que o processo de sincronização de catálogo se conecte ao catálogo ativo, independentemente de sua localização.  
 
-## <a name="get-the-disaster-recovery-scripts"></a>Obter scripts de recuperação de desastre
+## <a name="get-the-disaster-recovery-scripts"></a>Obter os scripts de recuperação de desastre
 
-Os scripts de DR utilizados neste tutorial estão disponíveis no [Wingtip Tickets SaaS base de dados por inquilino repositório do GitHub](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Veja a [orientações gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter os passos transferir e os scripts de gestão da Wingtip Tickets de desbloqueio.
+Os scripts de DR usados neste tutorial estão disponíveis no [repositório GitHub de banco de dados por locatário do Wingtip tickets SaaS](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts de gerenciamento Wingtip tickets.
 
 > [!IMPORTANT]
-> Como todos os scripts de gestão de Wingtip Tickets, os scripts de DR são qualidade de exemplo e não devem ser utilizados na produção.
+> Assim como todos os scripts de gerenciamento da Wingtip tickets, os scripts de DR são de amostra de qualidade e não devem ser usados na produção.
 
-## <a name="review-the-healthy-state-of-the-application"></a>Reveja o estado de funcionamento da aplicação
-Antes de começar o processo de recuperação, reveja o estado de bom estado de funcionamento normal do aplicativo.
+## <a name="review-the-healthy-state-of-the-application"></a>Examinar o estado de integridade do aplicativo
+Antes de iniciar o processo de recuperação, examine o estado de integridade normal do aplicativo.
 
-1. No seu navegador da web, abra o hub de eventos da Wingtip Tickets (http://events.wingtip-dpt.&lt ; usuário&gt;. trafficmanager.net, substitua &lt; utilizador&gt; com valor de utilizador da sua implementação).
+1. No navegador da Web, abra o Hub de eventos do Wingtip http://events.wingtip-dpt.&lt tickets&gt; (; User. &lt; trafficmanager.NET&gt; , substitua User pelo seu valor de usuário de implantação).
     
-   Desloque-se para a parte inferior da página e tenha em atenção o nome do servidor de catálogo e o local no rodapé. A localização é a região em que implementou a aplicação.    
+   Role até a parte inferior da página e observe o nome e o local do servidor de catálogo no rodapé. O local é a região na qual você implantou o aplicativo.    
 
    > [!TIP]
-   > Paire o rato sobre a localização para aumentar a exibição.
+   > Passe o mouse sobre o local para ampliar a tela.
 
-   ![Estado de bom estado de funcionamento de hub de eventos na região original](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
+   ![Estado íntegro do hub de eventos na região original](media/saas-dbpertenant-dr-geo-restore/events-hub-original-region.png)
 
-2. Selecione o inquilino de Contoso Concert Hall e abrir a página de eventos.
+2. Selecione o locatário contoso Concert Hall e abra sua página de evento.
 
-   No rodapé, observe o nome do servidor do inquilino. A localização é a mesma localização do servidor de catálogo.
+   No rodapé, observe o nome do servidor do locatário. O local é o mesmo que o local do servidor de catálogo.
 
-   ![Região original de contoso Concert Hall](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png) 
+   ![Região original da Contoso Concert Hall](media/saas-dbpertenant-dr-geo-restore/contoso-original-location.png) 
 
-3. Na [portal do Azure](https://portal.azure.com), reveja e abra o grupo de recursos em que implementou a aplicação.
+3. No [portal do Azure](https://portal.azure.com), examine e abra o grupo de recursos no qual você implantou o aplicativo.
 
-   Observe que os recursos e região na qual os componentes do serviço de aplicações e os servidores de base de dados SQL estão implementadas.
+   Observe os recursos e a região em que os componentes do serviço de aplicativo e os servidores de banco de dados SQL são implantados.
 
-## <a name="sync-the-tenant-configuration-into-the-catalog"></a>Sincronização da configuração do inquilino para o catálogo
+## <a name="sync-the-tenant-configuration-into-the-catalog"></a>Sincronizar a configuração do locatário no catálogo
 
-Nesta tarefa, iniciar um processo para sincronizar a configuração de servidores, conjuntos elásticos e bases de dados para o catálogo de inquilino. Estas informações são utilizadas mais tarde para configurar um ambiente de imagem espelhada na região de recuperação.
+Nesta tarefa, você inicia um processo para sincronizar a configuração dos servidores, pools elásticos e bancos de dados no catálogo de locatários. Essas informações são usadas posteriormente para configurar um ambiente de imagem espelho na região de recuperação.
 
 > [!IMPORTANT]
-> Para simplificar, o processo de sincronização e outra recuperação de longa execução e os processos de repatriation são implementados nestes exemplos de como tarefas do PowerShell locais ou sessões que são executados em seu início de sessão de utilizador do cliente. Os tokens de autenticação emitidos quando iniciar sessão expirarem após várias horas, e as tarefas, em seguida, irão falhar. Num cenário de produção, os processos de longa execução devem ser implementados como serviços do Azure fiáveis de algum tipo, um principal de serviço a ser executado. Ver [utilize o Azure PowerShell para criar um principal de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
+> Para simplificar, o processo de sincronização e outros processos de recuperação e repatriação de longa execução são implementados nesses exemplos como trabalhos locais do PowerShell ou sessões que são executadas no logon de usuário do cliente. Os tokens de autenticação emitidos quando você faz logon expiram após várias horas, e os trabalhos falharão. Em um cenário de produção, processos de execução longa devem ser implementados como serviços confiáveis do Azure de algum tipo, sendo executados sob uma entidade de serviço. Consulte [usar Azure PowerShell para criar uma entidade de serviço com um certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal). 
 
-1. No ISE do PowerShell, abra o ficheiro de Modules\UserConfig.psm1 ...\Learning. Substitua `<resourcegroup>` e `<user>` em linhas 10 e 11 com o valor que usou quando implementou a aplicação. Guarde o ficheiro.
+1. No ISE do PowerShell, abra o arquivo. ..\Learning Modules\UserConfig.psm1. Substitua `<resourcegroup>` e`<user>` nas linhas 10 e 11 pelo valor usado quando você implantou o aplicativo. Guarde o ficheiro.
 
-2. No ISE do PowerShell, abra o ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script.
+2. No ISE do PowerShell, abra o script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1.
 
-    Neste tutorial, executar cada um dos cenários em que este script do PowerShell, portanto, mantenha esse arquivo aberto.
+    Neste tutorial, você executará cada um dos cenários neste script do PowerShell, portanto, mantenha esse arquivo aberto.
 
 3. Defina o seguinte:
 
-    $DemoScenario = 1: Inicie uma tarefa em segundo plano que se sincroniza o servidor de inquilino e informações de configuração do conjunto para o catálogo.
+    $DemoScenario = 1: Inicie um trabalho em segundo plano que sincroniza informações de configuração do servidor de locatário e do pool no catálogo.
 
 4. Para executar o script de sincronização, selecione F5. 
 
-    Estas informações são utilizadas mais tarde para se certificar de que a recuperação cria uma imagem espelhada de servidores, conjuntos e bases de dados na região de recuperação.  
+    Essas informações são usadas posteriormente para garantir que a recuperação crie uma imagem espelhada dos servidores, pools e bancos de dados na região de recuperação.  
 
     ![Processo de sincronização](media/saas-dbpertenant-dr-geo-restore/sync-process.png)
 
-Deixe a janela do PowerShell em execução em segundo plano e continue com o resto deste tutorial.
+Deixe a janela do PowerShell em execução em segundo plano e continue com o restante deste tutorial.
 
 > [!NOTE]
-> O processo de sincronização liga-se para o catálogo por meio de um alias de DNS. O alias é modificado durante o restauro e repatriation para apontar para o catálogo do Active Directory. O processo de sincronização mantém o catálogo atualizados com a base de dados ou um conjunto de alterações de configuração feitas na região de recuperação. Durante a repatriation, estas alterações são aplicadas a recursos equivalentes na região original.
+> O processo de sincronização se conecta ao catálogo por meio de um alias DNS. O alias é modificado durante Restore e repatriação para apontar para o catálogo ativo. O processo de sincronização mantém o Catálogo atualizado com qualquer alteração de configuração de banco de dados ou pool feita na região de recuperação. Durante a repatriação, essas alterações são aplicadas aos recursos equivalentes na região original.
 
-## <a name="geo-restore-recovery-process-overview"></a>Visão geral do processo de recuperação georrestauro
+## <a name="geo-restore-recovery-process-overview"></a>Visão geral do processo de recuperação de restauração geográfica
 
-O processo de recuperação do restauro geográfico implementa a aplicação e restaura as bases de dados a partir de cópias de segurança para a região de recuperação.
+O processo de recuperação de restauração geográfica implanta o aplicativo e restaura bancos de dados de backups para a região de recuperação.
 
 O processo de recuperação faz o seguinte:
 
-1. Desativa o ponto de final do Gestor de tráfego do Azure para a aplicação web na região original. Desativar o ponto final impede os utilizadores estabeleçam uma ligação para a aplicação num estado inválido deve a região original ficar online durante a recuperação.
+1. Desabilita o ponto de extremidade do Gerenciador de tráfego do Azure para o aplicativo Web na região original. Desabilitar o ponto de extremidade impede que os usuários se conectem ao aplicativo em um estado inválido caso a região original fique online durante a recuperação.
 
-2. Aprovisiona uma recuperação do catálogo de servidor na região de recuperação, geo-restaura a base de dados do catálogo e atualiza o alias de activecatalog para apontar para o servidor de catálogo restaurada. Alterar o alias de catálogo garante que o processo de sincronização do catálogo sincroniza sempre ao catálogo do Active Directory.
+2. Provisiona um servidor de catálogo de recuperação na região de recuperação, restaura geograficamente o banco de dados de catálogo e atualiza o alias activecatalog para apontar para o servidor de catálogo restaurado. A alteração do alias do catálogo garante que o processo de sincronização do catálogo sempre seja sincronizado com o catálogo ativo.
 
-3. Marca todos os inquilinos existentes no catálogo de recuperação como offline para impedir o acesso às bases de dados do inquilino antes que eles sejam restaurados.
+3. Marca todos os locatários existentes no catálogo de recuperação como offline para impedir o acesso a bancos de dados de locatário antes de serem restaurados.
 
-4. Aprovisiona uma instância da aplicação na região de recuperação e configura-o para utilizar o catálogo de restaurada nessa região. Para manter a latência ao mínimo possível, a aplicação de exemplo foi concebida para sempre ligar a uma base de dados de inquilinos na mesma região.
+4. Provisiona uma instância do aplicativo na região de recuperação e a configura para usar o catálogo restaurado nessa região. Para manter a latência mínima, o aplicativo de exemplo é projetado para sempre se conectar a um banco de dados de locatário na mesma região.
 
-5. Aprovisiona um conjunto de servidor e elástico na qual novos inquilinos aprovisionados. Criar esses recursos garante que o aprovisionamento de novos clientes não interfere com a recuperação de inquilinos existentes.
+5. Provisiona um servidor e um pool elástico no qual novos locatários são provisionados. A criação desses recursos garante que o provisionamento de novos locatários não interfira na recuperação de locatários existentes.
 
-6. Atualiza o novo alias de inquilino para apontar para o servidor de bases de dados de inquilinos novos na região de recuperação. Alterar este alias garante que as bases de dados para quaisquer novos inquilinos aprovisionados na região de recuperação.
+6. Atualiza o novo alias de locatário para apontar para o servidor para novos bancos de dados de locatário na região de recuperação. A alteração desse alias garante que os bancos de dados para quaisquer novos locatários sejam provisionados na região de recuperação.
         
-7. Aprovisiona os servidores e conjuntos elásticos na região de recuperação para restaurar bancos de dados do inquilino. Estes servidores e os conjuntos são uma imagem espelhada da configuração na região original. Aprovisionamento conjuntos com antecedência reserva-se a capacidade necessária para restaurar todas as bases de dados.
+7. Provisiona servidores e pools elásticos na região de recuperação para restaurar bancos de dados de locatário. Esses servidores e pools são uma imagem espelhada da configuração na região original. O provisionamento de pools front-end reserva a capacidade necessária para restaurar todos os bancos de dados.
 
-    Uma falha numa região pode posicionar pressão significativo nos recursos disponíveis na região associada. Se contar com o restauro geográfico para DR, em seguida, reservar recursos rapidamente é recomendado. Considere georreplicação se for fundamental que um aplicativo é recuperado numa região específica. 
+    Uma interrupção em uma região pode posicionar uma pressão significativa nos recursos disponíveis na região emparelhada. Se você depender da restauração geográfica para DR, a reserva rápida de recursos é recomendada. Considere a replicação geográfica se for essencial que um aplicativo seja recuperado em uma região específica. 
 
-8. Permite que o ponto de final do Gestor de tráfego para a aplicação web na região de recuperação. Ativar este ponto final permite que o aplicativo aprovisionar novos inquilinos. Nesta fase, os inquilinos existentes estão ainda offline.
+8. Habilita o ponto de extremidade do Gerenciador de tráfego para o aplicativo Web na região de recuperação. Habilitar esse ponto de extremidade permite que o aplicativo provisione novos locatários. Neste estágio, os locatários existentes ainda estão offline.
 
-9. Envia lotes de pedidos de restauro de bases de dados por ordem de prioridade. 
+9. Envia lotes de solicitações para restaurar bancos de dados em ordem de prioridade. 
 
-    * Lotes são organizadas para que as bases de dados são restaurados em paralelo em todos os agrupamentos.  
+    * Os lotes são organizados para que os bancos de dados sejam restaurados em paralelo em todos os pools.  
 
-    * Pedidos de restauro são enviadas de forma assíncrona, para que sejam submetidos rapidamente e em fila para execução em cada agrupamento.
+    * As solicitações de restauração são enviadas de forma assíncrona para que sejam enviadas rapidamente e enfileiradas para execução em cada pool.
 
-    * Uma vez que os pedidos de restauro são processados em paralelo em todos os agrupamentos, é melhor distribuir inquilinos importantes em muitos conjuntos. 
+    * Como as solicitações de restauração são processadas em paralelo em todos os pools, é melhor distribuir locatários importantes entre vários pools. 
 
-10. Monitoriza o serviço de base de dados SQL para determinar quando são restaurados os bancos de dados. Depois de restaurar uma base de dados de inquilinos, está marcado online no catálogo e a uma soma de rowversion para a base de dados de inquilinos é registada. 
+10. Monitora o serviço do banco de dados SQL para determinar quando os bancos de dados são restaurados. Depois que um banco de dados de locatário é restaurado, ele é marcado como online no catálogo e uma soma de todas as versões para o banco de dados de locatário é registrada. 
 
-    * Bases de dados do inquilino podem ser acessados pela aplicação assim que estiver marcadas no catálogo online.
+    * Os bancos de dados de locatário podem ser acessados pelo aplicativo assim que são marcados online no catálogo.
 
-    * Uma soma dos valores de rowversion na base de dados de inquilino é armazenada no catálogo. Essa soma atua como uma impressão digital que permite que o processo de repatriation determinar se a base de dados foi atualizada na região de recuperação.       
+    * Uma soma de valores de multiversão no banco de dados de locatário é armazenada no catálogo. Essa soma funciona como uma impressão digital que permite que o processo repatriação determine se o banco de dados foi atualizado na região de recuperação.       
 
-## <a name="run-the-recovery-script"></a>Execute o script de recuperação
+## <a name="run-the-recovery-script"></a>Executar o script de recuperação
 
 > [!IMPORTANT]
-> Este tutorial restaura as bases de dados a partir de cópias de segurança georredundante. Embora estas cópias de segurança estão normalmente disponíveis dentro de 10 minutos, pode demorar até uma hora. O script faz uma pausa até que estejam disponíveis.
+> Este tutorial restaura os bancos de dados de backups com redundância geográfica. Embora esses backups estejam normalmente disponíveis em 10 minutos, pode levar até uma hora. O script pausa até que esteja disponível.
 
-Imagine que houver uma falha na região em que a aplicação é implementada e execute o script de recuperação:
+Imagine que haja uma interrupção na região em que o aplicativo é implantado e execute o script de recuperação:
 
-1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o valor seguinte:
+1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 2: Recupere a aplicação para uma região de recuperação através do restauro de cópias de segurança georredundante.
+    $DemoScenario = 2: Recupere o aplicativo em uma região de recuperação restaurando de backups com redundância geográfica.
 
 2. Para executar o script, selecione F5.  
 
-    * O script abre-se numa nova janela do PowerShell e, em seguida, inicia um conjunto de tarefas do PowerShell que são executadas em paralelo. Estas tarefas restaurar servidores, conjuntos e bases de dados para a região de recuperação.
+    * O script é aberto em uma nova janela do PowerShell e, em seguida, inicia um conjunto de trabalhos do PowerShell que são executados em paralelo. Esses trabalhos restauram servidores, pools e bancos de dados para a região de recuperação.
 
-    * A região de recuperação é a região emparelhada associado à região do Azure que implementou a aplicação. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * A região de recuperação é a região emparelhada associada à região do Azure na qual você implantou o aplicativo. Para obter mais informações, consulte [regiões emparelhadas do Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
-3. Monitorize o estado do processo de recuperação na janela do PowerShell.
+3. Monitore o status do processo de recuperação na janela do PowerShell.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
-> Para explorar o código para as tarefas de recuperação, reveja os scripts do PowerShell na pasta ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\RecoveryJobs.
+> Para explorar o código dos trabalhos de recuperação, examine os scripts do PowerShell na pasta. ..\Learning Modules\Business continuidade e Recovery\DR-RestoreFromBackup\RecoveryJobs de desastre.
 
-## <a name="review-the-application-state-during-recovery"></a>Reveja o estado da aplicação durante a recuperação
-Embora o ponto final da aplicação está desabilitado no Gestor de tráfego, o aplicativo não está disponível. O catálogo é restaurado e todos os inquilinos são marcadas como offline. O ponto final da aplicação na região de recuperação, em seguida, está ativado e o aplicativo esteja novamente online. Embora o aplicativo estiver disponível, os inquilinos aparecem como offline no hub de eventos até as bases de dados são restaurados. É importante projetar seu aplicativo para lidar com bases de dados do inquilino offline.
+## <a name="review-the-application-state-during-recovery"></a>Examinar o estado do aplicativo durante a recuperação
+Enquanto o ponto de extremidade do aplicativo está desabilitado no Gerenciador de tráfego, o aplicativo não está disponível. O catálogo é restaurado e todos os locatários são marcados como offline. O ponto de extremidade do aplicativo na região de recuperação é então habilitado e o aplicativo está novamente online. Embora o aplicativo esteja disponível, os locatários aparecem offline no Hub de eventos até que seus bancos de dados sejam restaurados. É importante projetar seu aplicativo para lidar com bancos de dados de locatário offline.
 
-* Depois que foi recuperado a base de dados do catálogo, mas antes dos inquilinos estão online novamente, atualize o hub de eventos da Wingtip Tickets no seu browser.
+* Depois que o banco de dados do catálogo for recuperado, mas antes que os locatários fiquem online novamente, atualize o Hub de eventos do Wingtip tickets em seu navegador da Web.
 
-  * No rodapé, tenha em atenção que agora tem o nome do servidor de catálogo sufixo - recuperação e está localizado na região de recuperação.
+  * No rodapé, observe que o nome do servidor de catálogo agora tem um sufixo-Recovery e está localizado na região de recuperação.
 
-  * Tenha em atenção que os inquilinos que ainda não foram restaurados estão marcados como offline e que não sejam selecionáveis.   
+  * Observe que os locatários que ainda não foram restaurados são marcados como offline e não são selecionáveis.   
  
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Se abrir a página de eventos de um inquilino diretamente enquanto o inquilino estiver offline, a página é apresentada uma notificação offline do inquilino. Por exemplo, se a Contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ; utilizador&gt;.trafficmanager.net/contosoconcerthall.
+  * Se você abrir a página de eventos de um locatário diretamente enquanto o locatário estiver offline, a página exibirá uma notificação offline do locatário. Por exemplo, se contoso Concert Hall estiver offline, tente abrir http://events.wingtip-dpt.&lt ; user&gt;. trafficmanager.net/contosoconcerthall.
 
     ![Processo de recuperação](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
-## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Aprovisionar um inquilino novo na região de recuperação
-Antes mesmo de restauração dos bancos de dados do inquilino, pode aprovisionar novos inquilinos na região de recuperação. Bases de dados do inquilino novo aprovisionados na região de recuperação são repatriated mais tarde com as bases de dados recuperadas.   
+## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Provisionar um novo locatário na região de recuperação
+Mesmo antes de os bancos de dados de locatário serem restaurados, você pode provisionar novos locatários na região de recuperação. Novos bancos de dados de locatário provisionados na região de recuperação são repatriado com os bancos de dados recuperados mais tarde.   
 
-1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina a propriedade seguinte:
+1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina a seguinte propriedade:
 
-    $DemoScenario = 3: Aprovisione um inquilino novo na região de recuperação.
+    $DemoScenario = 3: Provisione um novo locatário na região de recuperação.
 
 2. Para executar o script, selecione F5.
 
-3. Quando o aprovisionamento estiver concluído, é aberta a página de eventos de Hawthorn Hall no browser. 
+3. A página de eventos do Hawthorn Hall é aberta no navegador quando o provisionamento é concluído. 
 
-    Tenha em atenção que a base de dados Hawthorn Hall está localizado numa região de recuperação.
+    Observe que o banco de dados Hawthorn Hall está localizado na região de recuperação.
 
-    ![Hall hawthorn aprovisionados na região de recuperação](media/saas-dbpertenant-dr-geo-restore/hawthorn-hall-provisioned-in-recovery-region.png)
+    ![Hawthorn Hall provisionado na região de recuperação](media/saas-dbpertenant-dr-geo-restore/hawthorn-hall-provisioned-in-recovery-region.png)
 
-4. No browser, atualize a página de hub de eventos de Wingtip Tickets para ver que hawthorn Hall incluídas. 
+4. No navegador, atualize a página do hub de eventos do Wingtip tickets para ver o Hawthorn Hall incluído. 
 
-    Se aprovisionou Hawthorn Hall sem esperar por outros inquilinos restaurar, outros inquilinos podem ainda estar offline.
+    Se você provisionou o Hawthorn Hall sem esperar que os outros locatários restaurem, outros locatários ainda podem estar offline.
 
-## <a name="review-the-recovered-state-of-the-application"></a>Reveja o estado recuperado da aplicação
+## <a name="review-the-recovered-state-of-the-application"></a>Examine o estado recuperado do aplicativo
 
-Quando o processo de recuperação estiver concluída, a aplicação e todos os inquilinos estão totalmente funcionais na região de recuperação. 
+Quando o processo de recuperação é concluído, o aplicativo e todos os locatários são totalmente funcionais na região de recuperação. 
 
-1. Após a exibição na janela de consola do PowerShell indica que todos os inquilinos são recuperados, atualize o hub de eventos. 
+1. Depois que a exibição na janela do console do PowerShell indicar que todos os locatários são recuperados, atualize o Hub de eventos. 
 
-    Os inquilinos todos os aparecem online, incluindo o novo inquilino, Hawthorn Hall.
+    Os locatários aparecem online, incluindo o novo locatário, Hawthorn Hall.
 
-    ![recuperada e novos inquilinos no hub de eventos](media/saas-dbpertenant-dr-geo-restore/events-hub-with-hawthorn-hall.png)
+    ![Locatários recuperados e novos no Hub de eventos](media/saas-dbpertenant-dr-geo-restore/events-hub-with-hawthorn-hall.png)
 
-2. Clique em Contoso Concert Hall e abrir a página de eventos. 
+2. Clique em contoso Concert Hall e abra sua página de eventos. 
 
-    No rodapé, tenha em atenção que a base de dados está localizada no servidor de recuperação, localizado na região de recuperação.
+    No rodapé, observe que o banco de dados está localizado no servidor de recuperação localizado na região de recuperação.
 
     ![Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/contoso-recovery-location.png)
 
 3. Na [portal do Azure](https://portal.azure.com), abra a lista de grupos de recursos.  
 
-    Observe que o grupo de recursos que implementou, bem como o recurso de recuperação de grupo, com o - sufixo de recuperação. O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de recursos novos criados durante o período de inatividade. 
+    Observe o grupo de recursos que você implantou, além do grupo de recursos de recuperação, com o sufixo-Recovery. O grupo de recursos de recuperação contém todos os recursos criados durante o processo de recuperação, além de novos recursos criados durante a interrupção. 
 
-4. Abra o grupo de recursos de recuperação e tenha em atenção os seguintes itens:
+4. Abra o grupo de recursos de recuperação e observe os seguintes itens:
 
-   * As versões de recuperação dos servidores de catálogo e tenants1, com o - sufixo de recuperação. Os catálogo e de inquilino bancos de dados restaurados nestes servidores todos os tem os nomes utilizados na região original.
+   * As versões de recuperação dos servidores de catálogo e tenants1, com o sufixo-Recovery. Todos os bancos de dados de catálogo e locatário restaurados nesses servidores têm os nomes usados na região original.
 
-   * O tenants2-dpt -&lt;utilizador&gt;-servidor de SQL de recuperação. Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
+   * O SQL Server tenants2-&lt;DPT&gt;-User-Recovery. Esse servidor é usado para provisionar novos locatários durante a interrupção.
 
-   * O serviço de aplicações com o nome eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador&gt;, que é a instância de recuperação da aplicação de eventos.
+   * O serviço de aplicativo nomeado Events-Wingtip-&lt;DPT&gt;-&gt;recoveryregion-&lt;usuário, que é a instância de recuperação do aplicativo de eventos.
 
      ![Recursos da Contoso na região de recuperação](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
-5. Abra o tenants2-dpt -&lt;utilizador&gt;-servidor de SQL de recuperação. Tenha em atenção que contém o hawthornhall de base de dados e o conjunto elástico Pool1. A base de dados hawthornhall está configurado como uma base de dados elástica no conjunto elástico Pool1.
+5. Abra o SQL Server tenants2-&lt;DPT&gt;-User-Recovery. Observe que ele contém o banco de dados hawthornhall e o pool elástico Pool1. O banco de dados hawthornhall é configurado como um banco de dados elástico no pool elástico Pool1.
 
-## <a name="change-the-tenant-data"></a>Alterar os dados de inquilino 
-Nesta tarefa, atualizar uma das bases de dados inquilinas restaurada. As cópias de processo repatriation restaurar bases de dados que foram alterados para a região original. 
+## <a name="change-the-tenant-data"></a>Alterar os dados do locatário 
+Nesta tarefa, você atualiza um dos bancos de dados de locatário restaurados. O processo repatriação copia bancos de dados restaurados que foram alterados para a região original. 
 
-1. No seu browser, encontrar a lista de eventos para a Contoso Concert Hall, percorra os eventos e tenha em atenção o último evento, Strauss muito a sério.
+1. No navegador, encontre a lista de eventos para a sala de concerto da Contoso, percorra os eventos e observe o último evento, seriamente Strauss.
 
-2. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o valor seguinte:
+2. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina o seguinte valor:
 
-    $DemoScenario = 4: Elimine um evento de um inquilino na região de recuperação.
+    $DemoScenario = 4: Exclua um evento de um locatário na região de recuperação.
 
 3. Para executar o script, selecione F5.
 
-4. Atualize a página de eventos de Contoso Concert Hall (http://events.wingtip-dpt.&lt ; utilizador&gt;.trafficmanager.net/contosoconcerthall) e tenha em atenção que o evento seriamente Strauss está em falta.
+4. Atualize a página de eventos do contoso Concert http://events.wingtip-dpt.&lt Hall (&gt; ; User. trafficmanager.net/contosoconcerthall) e observe que o evento Strauss seriamente está faltando.
 
-Neste momento no tutorial, tiver recuperado o aplicativo, que está agora em execução na região de recuperação. Ter aprovisionado um novo inquilino na região de recuperação e modificar dados de um dos inquilinos restaurados.  
+Neste ponto do tutorial, você recuperou o aplicativo, que agora está em execução na região de recuperação. Você provisionou um novo locatário na região de recuperação e modificou dados de um dos locatários restaurados.  
 
 > [!NOTE]
-> Outros tutoriais no exemplo não foram concebidos para executar a aplicação num Estado de recuperação. Se quiser explorar outros tutoriais, certifique-se de que repatriate o aplicativo pela primeira vez.
+> Outros tutoriais no exemplo não são projetados para execução com o aplicativo no estado de recuperação. Se você quiser explorar outros tutoriais, certifique-se de repatriar o aplicativo primeiro.
 
-## <a name="repatriation-process-overview"></a>Visão geral do processo repatriation
+## <a name="repatriation-process-overview"></a>Visão geral do processo de repatriação
 
-O processo de repatriation reverte o aplicativo e respetivas bases de dados para a sua região original após uma falha for resolvida.
+O processo repatriação reverte o aplicativo e seus bancos de dados para sua região original após uma interrupção ser resolvida.
 
-![O restauro geográfico repatriation](media/saas-dbpertenant-dr-geo-restore/geo-restore-repatriation.png) 
+![Repatriação de restauração geográfica](media/saas-dbpertenant-dr-geo-restore/geo-restore-repatriation.png) 
 
 O processo:
 
-1. Para qualquer atividade de restauro em curso e cancela quaisquer pedidos de restauro de base de dados pendentes ou em trânsito.
+1. Interrompe qualquer atividade de restauração em andamento e cancela todas as solicitações de restauração de banco de dados pendentes ou em andamento.
 
-2. Reativa no original região inquilino bases de dados que não foram alterados desde a falha. Esses bancos de dados incluem os não ainda a recuperar e os recuperados mas não foram alteradas mais tarde. As bases de dados reactivated são exatamente como o último acessados pelos seus inquilinos.
+2. Reativa os bancos de dados de locatário da região original que não foram alterados desde a interrupção. Esses bancos de dados incluem aqueles ainda não recuperados e os recuperados, mas não alterados posteriormente. Os bancos de dados reativados são exatamente o último acessados por seus locatários.
 
-3. Aprovisiona uma imagem espelhada do agrupamento de servidor e elástico do novo inquilino na região original. Depois desta ação for concluída, o novo alias de inquilino é atualizado para apontar para este servidor. A atualizar o alias faz com que a inclusão de novo inquilino para ocorrer na região original em vez de região de recuperação.
+3. Provisiona uma imagem espelhada do servidor do novo locatário e do pool elástico na região original. Depois que essa ação for concluída, o novo alias do locatário será atualizado para apontar para esse servidor. A atualização do alias faz com que a integração do novo locatário ocorra na região original em vez da região de recuperação.
 
-3. Utiliza replicação geográfica para mover o catálogo para a região original a partir da região de recuperação.
+3. Usa a replicação geográfica para mover o catálogo para a região original da região de recuperação.
 
-4. Configuração do conjunto de atualizações na região original para que sejam consistentes com as alterações efetuadas na região de recuperação durante o período de inatividade.
+4. Atualiza a configuração do pool na região original para que ela seja consistente com as alterações feitas na região de recuperação durante a interrupção.
 
-5. Cria a servidores necessários e os conjuntos para alojar bases de dados novas criadas durante o período de inatividade.
+5. Cria os servidores e pools necessários para hospedar quaisquer bancos de dados novos criados durante a interrupção.
 
-6. Utiliza replicação geográfica para inquilino repatriate restaurada bases de dados que foram atualizadas de pós-restauro e todas as novas bases de dados inquilinas aprovisionados durante o período de inatividade. 
+6. Usa a replicação geográfica para repatriar bancos de dados de locatário restaurados que foram atualizados após a restauração e todos os novos bancos de dados de locatário provisionados durante a interrupção. 
 
 7. Limpa os recursos criados na região de recuperação durante o processo de restauração.
 
-Para limitar o número de bases de dados de inquilinos que têm de ser repatriated, os passos 1 a 3 são realizados imediatamente.  
+Para limitar o número de bancos de dados de locatário que precisam ser repatriado, as etapas 1 a 3 são feitas imediatamente.  
 
-Passo 4 é feito apenas se o catálogo na região de recuperação foi modificado durante o período de inatividade. O catálogo é atualizado se novos inquilinos forem criados ou se qualquer configuração de base de dados ou o conjunto for alterada na região de recuperação.
+A etapa 4 só será feita se o catálogo na região de recuperação tiver sido modificado durante a interrupção. O catálogo será atualizado se novos locatários forem criados ou se qualquer configuração de banco de dados ou pool for alterada na região de recuperação.
 
-É importante que o passo 7 faz com que a mínima interrupção para os inquilinos e não são perdidos dados. Para atingir esse objetivo, o processo utiliza a replicação geográfica.
+É importante que a etapa 7 cause interrupção mínima para locatários e nenhum dado seja perdido. Para atingir essa meta, o processo usa a replicação geográfica.
 
-Antes de cada base de dados é georreplicado, a base de dados correspondente na região original é eliminado. A base de dados na região de recuperação é, em seguida, georreplicado, criar uma réplica secundária na região original. Após a conclusão da replicação, o inquilino está marcado offline no catálogo, que quebra a todas as ligações à base de dados na região de recuperação. A base de dados é, em seguida, a ativação pós-falha, fazendo com que todas as pendentes de transações para processar no secundário. portanto, não existem dados é perdido. 
+Antes de cada banco de dados ser replicado geograficamente, o banco de dados correspondente na região original é excluído. Em seguida, o banco de dados na região de recuperação é replicado geograficamente, criando uma réplica secundária na região original. Após a conclusão da replicação, o locatário é marcado como offline no catálogo, o que interrompe todas as conexões com o banco de dados na região de recuperação. O banco de dados passará por failover, fazendo com que todas as transações pendentes sejam processadas no secundário, portanto, nenhum dado será perdido. 
 
-Na ativação pós-falha, as funções de base de dados são invertidas. O elemento secundário na região de original torna-se a base de dados de leitura / escrita primária e a base de dados na região de recuperação se torna uma secundária só de leitura. A entrada de inquilino no catálogo é atualizada para referenciar a base de dados na região original e o inquilino está marcada como online. Neste momento, repatriation da base de dados está concluída. 
+No failover, as funções de banco de dados são revertidas. O secundário na região original torna-se o banco de dados de leitura/gravação primário e o banco de dados na região de recuperação se torna um secundário somente leitura. A entrada do locatário no catálogo é atualizada para referenciar o banco de dados na região original e o locatário está marcado como online. Neste ponto, o repatriação do banco de dados foi concluído. 
 
-Aplicações devem ser escritas com a lógica de repetição para garantir que eles voltar a ligar automaticamente quando as ligações estão interrompidas. Quando utilizarem o catálogo para mediar o restabelecimento de ligação, se ligam à base de dados repatriated na região original. Embora os desligar breve, muitas vezes, não é percebido, pode optar por repatriate bases de dados fora do horário comercial.
+Os aplicativos devem ser escritos com a lógica de repetição para garantir que eles se reconectem automaticamente quando as conexões forem interrompidas. Quando eles usam o catálogo para o agente da reconexão, eles se conectam ao banco de dados repatriado na região original. Embora a breve desconexão geralmente não seja percebida, você pode optar por repatriar bancos de dados fora do horário comercial.
 
-Depois de uma base de dados é repatriated, a base de dados secundária numa região de recuperação pode ser eliminado. A base de dados na região original, em seguida, baseia-se novamente georrestauro para proteção de DR.
+Depois que um banco de dados é repatriado, o banco de dados secundário na região de recuperação pode ser excluído. O banco de dados na região original depende novamente da restauração geográfica para a proteção de DR.
 
-Passo 8, os recursos na região de recuperação, incluindo os servidores de recuperação e agrupamentos, são eliminados.
+Na etapa 8, os recursos na região de recuperação, incluindo os servidores e pools de recuperação, são excluídos.
 
-## <a name="run-the-repatriation-script"></a>Execute o script de repatriation
-Vamos imaginar que a indisponibilidade for resolvida e execute o script de repatriation.
+## <a name="run-the-repatriation-script"></a>Executar o script repatriação
+Vamos imaginar que a interrupção foi resolvida e execute o script repatriação.
 
-Se seguiu o tutorial, o script reativa imediatamente Fabrikam Jazz Club e Dogwood Dojo na região original porque eles são alterados. Em seguida, repatriates o novo inquilino, Hawthorn Hall e Contoso Concert Hall porque este foi modificado. O script também repatriates o catálogo, que foi atualizado quando Hawthorn Hall foi aprovisionado.
+Se você seguiu o tutorial, o script reativa imediatamente o Fabrikam Jazz Club e o Dogwood dojo na região original porque eles não são alterados. Em seguida, ele repatria o novo locatário, Hawthorn Hall e contoso Concert Hall, pois ele foi modificado. O script também repatria o catálogo, que foi atualizado quando o Hawthorn Hall foi provisionado.
   
-1. No ISE do PowerShell, no ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 script, certifique-se de que o processo de sincronização do catálogo ainda está em execução na sua instância do PowerShell. Se necessário, reinicie-o através da definição:
+1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, verifique se o processo de sincronização do catálogo ainda está em execução em sua instância do PowerShell. Se necessário, reinicie-o definindo:
 
-    $DemoScenario = 1: Inicie a sincronização de servidor de inquilino, o conjunto e informações de configuração de base de dados para o catálogo.
+    $DemoScenario = 1: Inicie a sincronização de informações de configuração do servidor de locatário, do pool e do banco de dados no catálogo.
 
     Para executar o script, selecione F5.
 
-2.  Em seguida, para iniciar o processo de repatriation, defina:
+2.  Em seguida, para iniciar o processo repatriação, defina:
 
-    $DemoScenario = 5: Repatriate a aplicação em sua região original.
+    $DemoScenario = 5: Repatriar o aplicativo em sua região original.
 
-    Para executar o script de recuperação numa nova janela do PowerShell, selecione F5. Repatriation demora vários minutos e pode ser monitorado na janela do PowerShell.
+    Para executar o script de recuperação em uma nova janela do PowerShell, selecione F5. O repatriação leva vários minutos e pode ser monitorado na janela do PowerShell.
 
-3. Enquanto estiver a executar o script, atualize a página de hub de eventos (http://events.wingtip-dpt.&lt ; utilizador&gt;. trafficmanager.net).
+3. Enquanto o script estiver em execução, atualize a página do Hub http://events.wingtip-dpt.&lt de eventos&gt; (; User. trafficmanager.net).
 
-    Tenha em atenção que todos os inquilinos estão online e acessíveis ao longo deste processo.
+    Observe que todos os locatários estão online e acessíveis durante esse processo.
 
-4. Selecione o Fabrikam Jazz Club para abri-lo. Se não modificar este inquilino, tenha em atenção no rodapé que o servidor já está a ser revertida para o servidor original.
+4. Selecione o Fabrikam Jazz Club para abri-lo. Se você não modificou esse locatário, observe no rodapé que o servidor já foi revertido para o servidor original.
 
-5. Abrir ou Atualize a página de eventos de Contoso Concert Hall. Observe, no rodapé, o que, inicialmente, a base de dados é ainda no servidor de - recuperação. 
+5. Abra ou atualize a página de eventos do contoso Concert Hall. Observe o rodapé que, inicialmente, o banco de dados ainda está no servidor de recuperação. 
 
-6. Atualize a página de eventos de Contoso Concert Hall, quando o processo de repatriation estar concluído e tenha em atenção que a base de dados está agora na sua região original.
+6. Atualize a página de eventos do contoso Concert Hall quando o processo repatriação for concluído e observe que o banco de dados agora está em sua região original.
 
-7. Atualize novamente o hub de eventos e abra Hawthorn Hall. Tenha em atenção que o seu banco de dados também está localizado na região original. 
+7. Atualize o Hub de eventos novamente e abra o Hawthorn Hall. Observe que seu banco de dados também está localizado na região original. 
 
-## <a name="clean-up-recovery-region-resources-after-repatriation"></a>Limpar os recursos de região de recuperação após repatriation
-Após a conclusão repatriation, é seguro eliminar os recursos na região de recuperação. 
+## <a name="clean-up-recovery-region-resources-after-repatriation"></a>Limpar recursos de região de recuperação após repatriação
+Após a conclusão do repatriação, é seguro excluir os recursos na região de recuperação. 
 
 > [!IMPORTANT]
-> Elimine estes recursos imediatamente para parar toda a faturação para eles.
+> Exclua esses recursos imediatamente para interromper toda a cobrança para eles.
 
-O processo de restauro cria todos os recursos de recuperação num grupo de recursos de recuperação. O processo de limpeza elimina este grupo de recursos e remove todas as referências aos recursos do catálogo. 
+O processo de restauração cria todos os recursos de recuperação em um grupo de recursos de recuperação. O processo de limpeza exclui esse grupo de recursos e remove todas as referências aos recursos do catálogo. 
 
-1. No ISE do PowerShell, no script ...\Learning Modules\Business continuidade e desastre Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
+1. No ISE do PowerShell, no script. ..\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1, defina:
     
-    $DemoScenario = 6: Elimine recursos obsoletos da região de recuperação.
+    $DemoScenario = 6: Exclua os recursos obsoletos da região de recuperação.
 
 2. Para executar o script, selecione F5.
 
-Depois de limpar os scripts, o aplicativo está de volta, quando começou. Neste momento, pode executar o script novamente ou experimentar outros tutoriais.
+Depois de limpar os scripts, o aplicativo volta de onde ele foi iniciado. Neste ponto, você pode executar o script novamente ou experimentar outros tutoriais.
 
-## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>Projetar o aplicativo para se certificar de que a aplicação e a base de dados localizadas conjuntamente 
-O aplicativo foi projetado para ligar sempre a partir de uma instância na mesma região que a base de dados do inquilino. Esta conceção reduz a latência entre a aplicação e a base de dados. Essa otimização assume que a interação de bancos de aplicação é chattier que a interação de aplicação do utilizador.  
+## <a name="designing-the-application-to-ensure-that-the-app-and-the-database-are-co-located"></a>Criando o aplicativo para garantir que o aplicativo e o banco de dados estejam colocalizados 
+O aplicativo é projetado para sempre se conectar de uma instância na mesma região que o banco de dados do locatário. Esse design reduz a latência entre o aplicativo e o banco de dados. Essa otimização pressupõe que a interação de aplicativo para banco de dados é chattier do que a interação entre o usuário e o aplicativo.  
 
-Bases de dados do inquilino podem estar distribuídos em recuperação e regiões originais durante algum tempo durante repatriation. Cada base de dados, o aplicativo procura a região na qual a base de dados está localizada, fazendo uma pesquisa de DNS no nome do servidor de inquilino. Na base de dados SQL, o nome do servidor é um alias. O nome do servidor de um alias contém o nome da região. Se o aplicativo não estiver na mesma região que a base de dados, será redirecionado para a instância na mesma região que o servidor de base de dados. Redirecionar para a instância na mesma região que a base de dados minimiza a latência entre a aplicação e a base de dados.  
+Os bancos de dados de locatário podem ser distribuídos em regiões de recuperação e originais por algum tempo durante o repatriação. Para cada banco de dados, o aplicativo pesquisa a região na qual o banco de dados está localizado fazendo uma pesquisa de DNS no nome do servidor de locatário. No banco de dados SQL, o nome do servidor é um alias. O nome do servidor com alias contém o nome da região. Se o aplicativo não estiver na mesma região que o banco de dados, ele redirecionará para a instância na mesma região que o servidor de banco de dados. O redirecionamento para a instância na mesma região que o banco de dados minimiza a latência entre o aplicativo e o banco de dados.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > 
-> * Utilize o catálogo de inquilino para conter as informações de configuração atualizados periodicamente, o que permite um ambiente de recuperação da imagem espelhada criar noutra região.
-> * Recupere bases de dados SQL do Azure para a região de recuperação com o restauro geográfico.
-> * Atualize o catálogo de inquilino para refletir as localizações de base de dados de inquilino restaurada. 
-> * Utilize um alias de DNS para que uma aplicação ligar ao catálogo de inquilino ao longo sem reconfiguração.
-> * Utilize a georreplicação para repatriate bases de dados recuperadas para sua região original após uma falha for resolvida.
+> * Use o catálogo de locatários para manter as informações de configuração atualizadas periodicamente, o que permite que um ambiente de recuperação de imagem espelhada seja criado em outra região.
+> * Recupere bancos de dados SQL do Azure para a região de recuperação usando a restauração geográfica.
+> * Atualize o catálogo de locatários para refletir locais de banco de dados de locatário restaurados. 
+> * Use um alias DNS para permitir que um aplicativo se conecte ao catálogo de locatários sem reconfiguração.
+> * Use a replicação geográfica para repatriarr bancos de dados recuperados para sua região original após uma interrupção ser resolvida.
 
-Experimente o [recuperação após desastre para uma aplicação SaaS multi-inquilino, utilizar a georreplicação de base de dados](saas-dbpertenant-dr-geo-replication.md) tutorial para saber como utilizar a georreplicação para reduzir drasticamente o tempo necessário para recuperar de uma aplicação multi-inquilino de larga escala.
+Experimente a [recuperação de desastre para um aplicativo SaaS multilocatário usando o tutorial de replicação geográfica de banco de dados](saas-dbpertenant-dr-geo-replication.md) para aprender a usar a replicação geográfica para reduzir drasticamente o tempo necessário para recuperar um aplicativo multilocatário de grande escala.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-[Tutoriais adicionais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+[TUTORIAIS adicionais que se baseiam no aplicativo SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

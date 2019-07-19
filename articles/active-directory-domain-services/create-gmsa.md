@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Crie uma conta de serviço geridas de grupo | Documentos da Microsoft'
-description: Administrar domínios geridos do Azure Active Directory Domain Services
+title: 'Azure Active Directory Domain Services: Criar uma conta de serviço gerenciado de grupo | Microsoft Docs'
+description: Saiba como criar uma conta de serviço gerenciado de grupo (gMSA) para uso com Azure Active Directory Domain Services domínios gerenciados
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 77924fdcef18bf7304f3d9f872559be4d3405971
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 404160c895a8d0a72921fe202adba82c3d069aaf
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473598"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234122"
 ---
-# <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma conta de serviço geridas de grupo (gMSA) num domínio gerido do Azure AD Domain Services
-Este artigo mostra-lhe como criar contas de serviço geridas num domínio gerido do Azure AD Domain Services.
+# <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma conta de serviço gerenciado de grupo (gMSA) em um domínio gerenciado Azure AD Domain Services
+Este artigo mostra como criar contas de serviço gerenciado em um Azure AD Domain Services domínio gerenciado.
 
-## <a name="managed-service-accounts"></a>Contas de serviço geridas
-Uma conta de serviço gerida autónoma (sMSA) é uma conta de domínio gerido que palavra-passe é gerida automaticamente. Isso simplifica a gestão do serviço (SPN) de nome principal e permite delegada gestão a outros administradores. Este tipo de conta de serviço geridas (MSA) foi introduzido no Windows Server 2008 R2 e Windows 7.
+## <a name="managed-service-accounts"></a>Contas de serviço gerenciado
+Uma conta de serviço gerenciado autônomo (sMSA) é uma conta de domínio gerenciado cuja senha é gerenciada automaticamente. Ele simplifica o gerenciamento de SPN (nome da entidade de serviço) e permite o gerenciamento delegado para outros administradores. Esse tipo de MSA (conta de serviço gerenciado) foi introduzido no Windows Server 2008 R2 e no Windows 7.
 
-A conta de serviço gerida de grupo (gMSA) fornece os mesmos benefícios para vários servidores no domínio. Todas as instâncias de um serviço alojado num farm de servidores tem de utilizar a mesma entidade de serviço para os protocolos de autenticação mútua para trabalhar. Quando uma gMSA é utilizada como principal de serviço, o sistema operativo Windows gere a senha da conta em vez de depender do administrador.
+A conta de serviço gerenciado por grupo (gMSA) fornece os mesmos benefícios para muitos servidores no domínio. Todas as instâncias de um serviço hospedados em um farm de servidores precisam usar a mesma entidade de serviço para que os protocolos de autenticação mútua funcionem. Quando um gMSA é usado como entidade de serviço, o sistema operacional Windows gerencia a senha da conta em vez de depender do administrador.
 
-**Obter mais informações:**
-- [Descrição geral das contas de serviço geridas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Guia de introdução contas de serviço geridas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+**Mais informações:**
+- [Visão geral de contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- [Introdução às contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 
-## <a name="using-service-accounts-in-azure-ad-domain-services"></a>Utilizar contas de serviço no Azure AD Domain services
-Domínios de geridos do Azure AD Domain Services são bloqueados e gerenciados pela Microsoft. Existem algumas considerações-chave ao utilizar contas de serviço com o Azure AD Domain Services.
+## <a name="using-service-accounts-in-azure-ad-domain-services"></a>Usando contas de serviço nos serviços de domínio do Azure AD
+Azure AD Domain Services domínios gerenciados são bloqueados e gerenciados pela Microsoft. Há algumas considerações importantes ao usar contas de serviço com Azure AD Domain Services.
 
-### <a name="create-service-accounts-within-custom-organizational-units-ou-on-the-managed-domain"></a>Crie contas de serviço no personalizado unidades organizacionais (UO) no domínio gerido
-Não é possível criar uma conta de serviço nas unidades organizacionais incorporadas "Utilizadores do aad DC" ou "Computadores do aad DC". [Criar uma UO personalizada](create-ou.md) no seu domínio gerido e, em seguida, crie contas de serviço no UO personalizada.
+### <a name="create-service-accounts-within-custom-organizational-units-ou-on-the-managed-domain"></a>Criar contas de serviço em unidades organizacionais (UO) personalizadas no domínio gerenciado
+Você não pode criar uma conta de serviço nas unidades organizacionais ' AADDC users ' ou ' AADDC Computers ' internas. [Crie uma UO personalizada](create-ou.md) em seu domínio gerenciado e, em seguida, crie contas de serviço dentro dessa UO personalizada.
 
-### <a name="the-key-distribution-services-kds-root-key-is-already-pre-created"></a>A chave de raiz de serviços de distribuição de chave (KDS) já foi previamente criada
-A chave de raiz de serviços de distribuição de chave (KDS) é previamente criada num domínio gerido do Azure AD Domain Services. Não precisa de criar uma raiz KDS da chave e não tem privilégios para fazer por isso, qualquer um. Optar por não pode ver a chave de raiz KDS no domínio gerido.
+### <a name="the-key-distribution-services-kds-root-key-is-already-pre-created"></a>A chave raiz dos serviços de distribuição de chaves (KDS) já foi criada previamente
+A chave raiz dos KDS (serviços de distribuição de chaves) é criada previamente em um domínio gerenciado Azure AD Domain Services. Você não precisa criar uma chave raiz KDS e não tem privilégios para fazer isso. Você também não pode exibir a chave raiz KDS no domínio gerenciado.
 
-## <a name="sample---create-a-gmsa-using-powershell"></a>Exemplo - criar uma gMSA com o PowerShell
-O exemplo a seguir mostra como criar uma UO personalizada com o PowerShell. Em seguida, pode criar uma gMSA no UO utilizando o ```-Path``` parâmetro para especificar a UO.
+## <a name="sample---create-a-gmsa-using-powershell"></a>Exemplo-criar um gMSA usando o PowerShell
+O exemplo a seguir mostra como criar uma UO personalizada usando o PowerShell. Em seguida, você pode criar um gMSA dentro dessa UO usando ```-Path``` o parâmetro para especificar a UO.
 
 ```powershell
 # Create a new custom OU on the managed domain
@@ -62,12 +62,12 @@ http/WebFarmSvc/contoso100.com, http/WebFarmSvc/contoso100  `
 -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```
 
-**Documentação de cmdlets do PowerShell:**
-- [New-ADOrganizationalUnit cmdlet](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit)
-- [Cmdlet de novo-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/New-ADServiceAccount)
+**Documentação do cmdlet do PowerShell:**
+- [Cmdlet New-ADOrganizationalUnit](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit)
+- [Cmdlet New-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/New-ADServiceAccount)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Criar uma UO personalizada num domínio gerido](create-ou.md)
-- [Descrição geral das contas de serviço geridas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
-- [Guia de introdução contas de serviço geridas de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+- [Criar uma UO personalizada em um domínio gerenciado](create-ou.md)
+- [Visão geral de contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- [Introdução às contas de serviço gerenciado de grupo](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)

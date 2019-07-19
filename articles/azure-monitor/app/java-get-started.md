@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: a453e82f47bb9eed25c8d5caf986bc854085e8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061214"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226832"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introdução ao Application Insights num projeto Web em Java
 
-O [Application Insights](https://azure.microsoft.com/services/application-insights/) é um serviço de análise extensível para programadores Web que os ajudam a compreender o desempenho e a utilização da aplicação em direto. Utilize-o para [automaticamente os pedidos de instrumento, dependências de controle e recolher contadores de desempenho](auto-collect-dependencies.md#java), diagnosticar problemas de desempenho e exceções, e [escrever código] [ api] para controlar o que os utilizadores fazem com a sua aplicação. 
+O [Application Insights](https://azure.microsoft.com/services/application-insights/) é um serviço de análise extensível para programadores Web que os ajudam a compreender o desempenho e a utilização da aplicação em direto. Use-o para [instrumentar automaticamente a solicitação, controlar as dependências e coletar contadores de desempenho](auto-collect-dependencies.md#java), diagnosticar problemas de desempenho e exceções e [escrever código][api] para controlar o que os usuários fazem com seu aplicativo. 
 
-![Captura de ecrã dos dados de exemplo de descrição geral](./media/java-get-started/overview-graphs.png)
+![Captura de tela de dados de exemplo de visão geral](./media/java-get-started/overview-graphs.png)
 
 O Application Insights suporta aplicações em Java em execução no Linux, Unix ou Windows.
 
@@ -91,7 +91,7 @@ Em seguida, atualize as dependências do projeto para obter os binários transfe
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Se estiver a utilizar o Eclipse para criar um projeto Web Dinâmico...
-Utilize o [Application Insights SDK para o Plug-in Java][eclipse]. Nota: Apesar de utilizar este plug-in irá ajudá-lo com uma execução do Application Insights mais rápida (partindo do princípio que não está a utilizar Maven/Gradle), não é um sistema de gestão de dependência. Como tal, atualizar o plug-in não atualizará automaticamente as bibliotecas do Application Insights no seu projeto.
+Use o [SDK do Application insights para o plug-in Java][eclipse]. Nota: Apesar de utilizar este plug-in irá ajudá-lo com uma execução do Application Insights mais rápida (partindo do princípio que não está a utilizar Maven/Gradle), não é um sistema de gestão de dependência. Como tal, atualizar o plug-in não atualizará automaticamente as bibliotecas do Application Insights no seu projeto.
 
 * *Fazer a compilação ou a soma de verificação dos erros de validação?* Tente utilizar uma versão específica, como: `version:'2.0.n'`. Pode encontrar a versão mais recente nas [notas de versão do SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) ou nos [artefactos Maven](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Para atualizar para um SDK novo* Atualize as dependências do seu projeto.
@@ -150,14 +150,14 @@ Opcionalmente, o ficheiro de configuração pode residir em qualquer localizaç�
 
 * A chave de instrumentação é enviada juntamente com todos os itens de telemetria e diz ao Application Insights para apresentá-la no seu recurso.
 * O componente de Pedido HTTP é opcional. Envia automaticamente telemetria sobre pedidos e tempos de resposta para o portal.
-* A correlação de eventos é uma adição ao componente de pedidos HTTP. Atribui um identificador a cada pedido recebido pelo servidor e adiciona este identificador como uma propriedade a todos os itens de telemetria como a propriedade "Operation.Id". Permite-lhe correlacionar a telemetria associada a cada pedido, definindo um filtro em [pesquisa de diagnóstico][diagnostic].
+* A correlação de eventos é uma adição ao componente de pedidos HTTP. Atribui um identificador a cada pedido recebido pelo servidor e adiciona este identificador como uma propriedade a todos os itens de telemetria como a propriedade "Operation.Id". Ele permite que você correlacione a telemetria associada a cada solicitação definindo um filtro na [pesquisa de diagnóstico][diagnostic].
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Maneiras alternativas de definir a chave de instrumentação
 O SDK do Application Insights procura a chave pela seguinte ordem:
 
 1. Propriedade de sistema: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
 2. Variável de ambiente: APPLICATION_INSIGHTS_IKEY
-3. Ficheiro de configuração: ApplicationInsights.xml
+3. Arquivo de configuração: ApplicationInsights.xml
 
 Também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
@@ -169,6 +169,8 @@ Também pode [defini-lo no código](../../azure-monitor/app/api-custom-events-me
         TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
     }
 ```
+
+Observe que as [métricas em tempo real](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) não dão suporte à leitura da chave de instrumentação do código.
 
 ## <a name="4-add-an-http-filter"></a>4. Adicionar um filtro HTTP
 O último passo da configuração permite que o componente de pedido HTTP registe cada pedido Web. (Não é necessário se pretender apenas a versão simples da API.)
@@ -304,13 +306,13 @@ Regresse ao seu recurso do Application Insights no [Portal do Microsoft Azure](h
 
 Os dados de pedidos HTTP aparecem no painel de descrição geral. (Se não aparecerem, aguarde alguns segundos e, em seguida, clique em Atualizar.)
 
-![Captura de ecrã dos dados de exemplo de descrição geral](./media/java-get-started/overview-graphs.png)
+![Captura de tela de dados de exemplo de visão geral](./media/java-get-started/overview-graphs.png)
 
 [Saiba mais sobre métricas.][metrics]
 
 Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 
-![Painel de falhas do Application Insights com gráficos](./media/java-get-started/006-barcharts.png)
+![Painel de falhas Application Insights com gráficos](./media/java-get-started/006-barcharts.png)
 
 > O Application Insights pressupõe que o formato de pedidos HTTP para aplicações MVC é: `VERB controller/action`. Por exemplo, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` e `GET Home/Product/sdf96vws` são agrupados em `GET Home/Product`. Este agrupamento permite agregações significativas de pedidos, como o número de pedidos e o tempo de execução médio dos pedidos.
 >
@@ -319,9 +321,9 @@ Clique em qualquer gráfico para ver métricas agregadas mais detalhadas.
 ### <a name="instance-data"></a>Dados de instâncias
 Clique num tipo de pedido específico para ver instâncias individuais.
 
-![Faça uma busca numa exibição de amostragem específicos](./media/java-get-started/007-instance.png)
+![Analisar uma exibição de exemplo específica](./media/java-get-started/007-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>Análise: Poderosa linguagem de consultas
+### <a name="analytics-powerful-query-language"></a>Analytics Linguagem de consulta avançada
 À medida que se acumulam mais dados, pode executar consultas para agregar dados e localizar instâncias individuais.  A [análise](../../azure-monitor/app/analytics.md) é uma ferramenta poderosa para compreender o desempenho e a utilização, e para fins de diagnóstico.
 
 ![Exemplo de Análise](./media/java-get-started/0025.png)
@@ -342,9 +344,9 @@ Agora publique a aplicação no servidor, permita que as pessoas a utilizem e ve
 
     (Este componente ativa os contadores de desempenho.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Configuração de serviço de aplicações do Azure (Spring Boot)
+## <a name="azure-app-service-config-spring-boot"></a>Configuração do serviço de Azure App (Spring boot)
 
-Aplicações do Spring Boot em execução no Windows exigirem configuração adicional para executar nos serviços de aplicações do Azure. Modificar **Web. config** e adicione o seguinte:
+Os aplicativos Spring boot em execução no Windows exigem configuração adicional para serem executados em serviços Azure Apps. Modifique **Web. config** e adicione o seguinte:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,28 +362,28 @@ Aplicações do Spring Boot em execução no Windows exigirem configuração adi
 ```
 
 ## <a name="exceptions-and-request-failures"></a>Exceções e falhas de pedido
-Exceções não processadas são automaticamente recolhidas.
+As exceções sem tratamento são coletadas automaticamente.
 
 Para recolher dados de outras exceções, tem duas opções:
 
-* [Inserir chamadas para trackException() no seu código][apiexceptions].
+* [Inserir chamadas para trackexception () em seu código][apiexceptions].
 * [Instalar o Agente Java no servidor](java-agent.md). Especifique os métodos que pretende ver.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorizar chamadas de método e dependências externas
 [Instale o Agente Java](java-agent.md) para registar métodos internos especificados e as chamadas efetuadas através de JDBC, com dados de temporização.
 
-## <a name="w3c-distributed-tracing"></a>Rastreio distribuído do W3C
+## <a name="w3c-distributed-tracing"></a>Rastreamento distribuído W3C
 
-O SDK de Java do Application Insights suporta agora [W3C distribuído rastreamento](https://w3c.github.io/trace-context/).
+O SDK do Java Application Insights agora dá suporte ao [rastreamento distribuído W3C](https://w3c.github.io/trace-context/).
 
-A configuração do SDK de entrada é explicada mais no nosso artigo sobre [correlação](correlation.md#w3c-distributed-tracing).
+A configuração do SDK de entrada é explicada com mais detalhes em nosso artigo sobre [correlação](correlation.md#w3c-distributed-tracing).
 
-Configuração do SDK de saída está definida no [IA Agent.xml](java-agent.md) ficheiro.
+A configuração do SDK de saída é definida no arquivo [ai-Agent. xml](java-agent.md) .
 
 ## <a name="performance-counters"></a>Contadores de desempenho
-Open **investigar**, **métricas**, para ver uma gama de contadores de desempenho.
+Abra **investigar**, **métricas**, para ver um intervalo de contadores de desempenho.
 
-![Captura de ecrã do painel de métricas com bytes privados do processo selecionado](./media/java-get-started/011-perf-counters.png)
+![Captura de tela do painel de métricas com bytes particulares de processo selecionados](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Personalizar a recolha do contador de desempenho
 Para desativar a recolha do conjunto padrão de contadores de desempenho, adicione o seguinte código ao nó de raiz do ficheiro ApplicationInsights.xml:
@@ -434,35 +436,11 @@ Cada [contador de desempenho do Windows](https://msdn.microsoft.com/library/wind
 ### <a name="unix-performance-counters"></a>Contadores de desempenho Unix
 * [Instale collectd com o plug-in do Application Insights](java-collectd.md) para obter uma ampla variedade de dados de sistema e de rede.
 
-## <a name="local-forwarder"></a>Reencaminhador local
-
-[Local reencaminhador](https://docs.microsoft.com/azure/application-insights/local-forwarder) é um agente que recolhe Application Insights ou [OpenCensus](https://opencensus.io/) telemetria a partir de uma variedade de SDKs e estruturas e a encaminha para o Application Insights. Ele é capaz de em execução no Windows e Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Se estiver a utilizar SpringBoot starter, adicione o seguinte ao ficheiro de configuração (Application):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Valores predefinidos são os mesmos para a configuração de SpringBoot Application e o applicationinsights. XML.
-
 ## <a name="get-user-and-session-data"></a>Obter dados de utilizador e de sessão
 OK, está a enviar telemetria a partir do seu servidor Web. Para obter a vista completa em 360 graus da sua aplicação, agora pode adicionar mais monitorização:
 
-* [Adicione a telemetria às suas páginas Web][usage] para monitorizar vistas de página e métricas de utilizador.
-* [Configure testes Web][availability] para certificar-se de que a aplicação permanece em direto e reativa.
+* [Adicione telemetria às suas páginas da Web][usage] para monitorar exibições de página e métricas de usuário.
+* [Configure testes da Web][availability] para garantir que seu aplicativo permaneça dinâmico e responsivo.
 
 ## <a name="capture-log-traces"></a>Capturar rastreios de registo
 Pode utilizar o Application Insights para examinar registos de Log4J, Logback ou outras arquiteturas de registo. Pode correlacionar os registos com pedidos HTTP e outra telemetria. [Saiba como][javalogs].
@@ -470,13 +448,13 @@ Pode utilizar o Application Insights para examinar registos de Log4J, Logback ou
 ## <a name="send-your-own-telemetry"></a>Enviar a sua própria telemetria
 Agora que instalou o SDK, pode utilizar a API para enviar a sua própria telemetria.
 
-* [Controle eventos personalizados e métricas][api] para saber o que os utilizadores estão a fazer com a sua aplicação.
-* [Pesquise eventos e registos][diagnostic] para ajudar a diagnosticar problemas.
+* [Acompanhe eventos e métricas personalizados][api] para saber o que os usuários estão fazendo com seu aplicativo.
+* [Pesquise eventos e logs][diagnostic] para ajudar a diagnosticar problemas.
 
 ## <a name="availability-web-tests"></a>Testes Web de disponibilidade
 O Application Insights pode testar o seu site em intervalos regulares para verificar se está a funcionar e a responder bem.
 
-[Saiba mais sobre como configurar testes web de disponibilidade.][availability]
+[Saiba mais sobre como configurar testes da Web de disponibilidade.][availability]
 
 ## <a name="questions-problems"></a>Tem dúvidas? Problemas?
 [Resolução de problemas de Java](java-troubleshoot.md)

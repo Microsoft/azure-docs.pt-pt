@@ -1,6 +1,6 @@
 ---
-title: Descrição geral dos modelos do Azure Data Factory | Documentos da Microsoft
-description: Saiba como utilizar um modelo predefinido para se familiarizar rapidamente com o Azure Data Factory.
+title: Visão geral dos modelos para Azure Data Factory | Microsoft Docs
+description: Saiba como usar um modelo predefinido para começar rapidamente com o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,80 +11,82 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786977"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234451"
 ---
 # <a name="templates"></a>Modelos
 
-Os modelos são predefinidas pipelines do Azure Data Factory que permitem que comece a trabalhar rapidamente com o Data Factory. Os modelos são úteis quando estiver familiarizado com o Data Factory e pretende começar a trabalhar rapidamente. Estes modelos reduzem o tempo de desenvolvimento para a criação de projetos de integração de dados, deste modo, melhorar produtividade do desenvolvedor.
+Os modelos são predefinidos Azure Data Factory pipelines que permitem que você comece rapidamente com Data Factory. Os modelos são úteis quando você é novo no Data Factory e deseja começar rapidamente. Esses modelos reduzem o tempo de desenvolvimento para a criação de projetos de integração de dados, aumentando assim a produtividade do desenvolvedor.
 
-## <a name="create-data-factory-pipelines-from-templates"></a>Criar pipelines do Data Factory a partir de modelos
+## <a name="create-data-factory-pipelines-from-templates"></a>Criar pipelines de Data Factory de modelos
 
-Pode começar a criar um pipeline do Data Factory a partir de um modelo a seguir duas formas:
+Você pode começar a criar um pipeline de Data Factory de um modelo das duas maneiras a seguir:
 
-1.  Selecione **criar o pipeline de modelo** na página de descrição geral para abrir a Galeria de modelos.
+1.  Selecione **criar pipeline de modelo** na página Visão geral para abrir a Galeria de modelos.
 
-    ![Abrir a Galeria de modelos a partir da página de descrição geral](media/solution-templates-introduction/templates-intro-image1.png)
+    ![Abra a Galeria de modelos na página Visão geral](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  No separador de autor no Explorador de recursos, selecione **+** , em seguida, **Pipeline de modelo** para abrir a Galeria de modelos.
+1.  Na guia autor do Gerenciador de recursos, selecione **+** e, em seguida, **pipeline de modelo** para abrir a Galeria de modelos.
 
-    ![Abra a Galeria de modelos da guia do autor](media/solution-templates-introduction/templates-intro-image2.png)
+    ![Abrir a Galeria de modelos na guia autor](media/solution-templates-introduction/templates-intro-image2.png)
 
 ## <a name="template-gallery"></a>Galeria de modelos
 
-![Galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
+![A Galeria de modelos](media/solution-templates-introduction/templates-intro-image3.png)
 
-### <a name="out-of-the-box-data-factory-templates"></a>Sem os modelos de fábrica de dados de caixa
+### <a name="out-of-the-box-data-factory-templates"></a>Modelos Data Factory prontos para uso
 
-O Data Factory utiliza modelos Azure Resource Manager para salvar os modelos de pipeline de fábrica de dados. Pode ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto utilizado para fora os modelos de fábrica de dados de caixa no [repositório do GitHub de fábrica de dados do Azure oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos, fornecidos pela Microsoft incluem, mas não estão limitados aos seguintes itens:
+Data Factory usa modelos de Azure Resource Manager para salvar data factory modelos de pipeline. Você pode ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto usado para modelos de Data Factory prontos, no [repositório do GitHub oficial Azure data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos fornecidos pela Microsoft incluem, mas não estão limitados aos seguintes itens:
 
--   Copie modelos:
+-   Copiar modelos:
 
-    -   [Cópia em massa da base de dados](solution-template-bulk-copy-with-control-table.md)
+    -   [Cópia em massa do banco de dados](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Copiar novos ficheiros ao LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Copiar novos arquivos por LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
-    -   [Copiar vários contêineres de arquivos entre arquivos baseados em ficheiros](solution-template-copy-files-multiple-containers.md)
+    -   [Copiar vários contêineres de arquivos entre repositórios baseados em arquivo](solution-template-copy-files-multiple-containers.md)
 
-    -   [Cópia do delta da base de dados](solution-template-delta-copy-with-control-table.md)
+    -   [Mover arquivos](solution-template-move-files.md)
 
-    -   Copiar a partir \<origem\> para \<destino\>
+    -   [Cópia Delta do banco de dados](solution-template-delta-copy-with-control-table.md)
 
-        -   Do Amazon S3 para o Azure Data Lake Store Ger 2
+    -   Copiar da \<origem\> para \<o destino\>
 
-        -   Da consulta grande do Google para o Azure Data Lake Store Ger 2
+        -   Do Amazon S3 para Azure Data Lake Store Gen 2
 
-        -   De HDF para o Azure Data Lake Store Ger 2
+        -   Do Google Big Query para Azure Data Lake Store Gen 2
 
-        -   De Netezza para o Azure Data Lake Store Ger 1
+        -   De HDF para Azure Data Lake Store Gen 2
 
-        -   Do SQL Server no local para a base de dados do Azure SQL
+        -   De Netezza para Azure Data Lake Store Gen 1
 
-        -   Do SQL Server no local ao Azure SQL Data Warehouse
+        -   De SQL Server local para o banco de dados SQL do Azure
 
-        -   Do Oracle no local ao Azure SQL Data Warehouse
+        -   De SQL Server local para o Azure SQL Data Warehouse
+
+        -   Do Oracle local para o Azure SQL Data Warehouse
 
 -   Modelos SSIS
 
-    -   Agendar o Runtime de integração Azure-SSIS executar pacotes SSIS
+    -   Agendar Integration Runtime do Azure-SSIS para executar pacotes do SSIS
 
 -   Transformar modelos
 
-    -   [ETL com o Azure Databricks](solution-template-databricks-notebook.md)
+    -   [ETL com Azure Databricks](solution-template-databricks-notebook.md)
 
 ### <a name="my-templates"></a>Meus modelos
 
-Também é possível salvar um pipeline como um modelo selecionando **guardar como modelo** no separador do Pipeline.
+Você também pode salvar um pipeline como um modelo selecionando **salvar como modelo** na guia pipeline.
 
-![Guardar um pipeline como um modelo](media/solution-templates-introduction/templates-intro-image4.png)
+![Salvar um pipeline como um modelo](media/solution-templates-introduction/templates-intro-image4.png)
 
-Pode ver pipelines guardados como modelos na **meus modelos** secção de Galeria de modelos. Também pode ver os mesmos no **modelos** secção no Explorador de recursos.
+Você pode exibir os pipelines salvos como modelos na seção **meus modelos** da Galeria de modelos. Você também pode vê-los na seção **modelos** no Gerenciador de recursos.
 
 ![Meus modelos](media/solution-templates-introduction/templates-intro-image5.png)
 
 > [!NOTE]
-> Para utilizar a funcionalidade de meus modelos, terá de ativar a integração de GIT. GIT de DevOps do Azure e do GitHub são suportados.
+> Para usar o recurso meus modelos, você precisa habilitar a integração do GIT. Há suporte para o Azure DevOps GIT e o GitHub.
