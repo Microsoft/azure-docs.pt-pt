@@ -1,6 +1,6 @@
 ---
-title: Criar um volume para o Azure NetApp Files | Microsoft Docs
-description: Descreve como criar um volume para o Azure NetApp Files.
+title: Criar um volume do NFS para Azure NetApp Files | Microsoft Docs
+description: Descreve como criar um volume do NFS para Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,42 +12,42 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 6/6/2019
+ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 657bacc153b5721d5a9f34792eaf4796cb477755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 06733103980086fad0975514ae3489c3652e428a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808873"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846734"
 ---
-# <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para o Azure NetApp Files
+# <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
-Cada conjunto de capacidade pode ter um máximo de 500 volumes. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Os ficheiros NetApp do Azure suporta volumes NFS e SMBv3. 
+O Azure NetApp Files dá suporte a volumes NFS e SMBv3. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto. Este artigo mostra como criar um volume do NFS. Se você quiser criar um volume SMB, consulte [criar um volume SMB para Azure NetApp files](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Antes de começar 
 Tem de ter um conjunto de capacidade já configurado.   
-[Configure um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
-Uma sub-rede tem de ser delegada a ficheiros do Azure NetApp.  
-[Delegar uma sub-rede para ficheiros do Azure NetApp](azure-netapp-files-delegate-subnet.md)
+[Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
+Uma sub-rede deve ser delegada para Azure NetApp Files.  
+[Delegar uma sub-rede a Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="create-an-nfs-volume"></a>Criar um volume NFS
+## <a name="create-an-nfs-volume"></a>Criar um volume do NFS
 
-1.  Clique nas **Volumes** painel a partir do painel de conjuntos de capacidade. 
+1.  Clique na folha **volumes** da folha pools de capacidade. 
 
-    ![Navegue para Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Navegar até volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
 2.  Clique em **+ Adicionar volume** para criar um volume.  
-    O criar que é apresentada uma janela de Volume.
+    A janela criar um volume é exibida.
 
-3.  Em criar uma janela de Volume, clique em **criar** e forneça informações para os seguintes campos:   
+3.  Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos:   
     * **Nome do volume**      
         Especifique o nome do volume que está a criar.   
 
-        Um nome de volume tem de ser exclusivo dentro de cada conjunto de capacidade. Tem de ser, pelo menos, três carateres de comprimento. Pode utilizar quaisquer carateres alfanuméricos.
+        Um nome de volume deve ser exclusivo em cada pool de capacidade. Deve ter pelo menos três caracteres de comprimento. Você pode usar qualquer caractere alfanumérico.
 
-    * **Conjunto de capacidade**  
-        Especifique o conjunto de capacidade onde pretende que o volume a ser criada.
+    * **Pool de capacidade**  
+        Especifique o pool de capacidade no qual você deseja que o volume seja criado.
 
     * **Quota**  
         Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
@@ -57,154 +57,39 @@ Uma sub-rede tem de ser delegada a ficheiros do Azure NetApp.
     * **Rede virtual**  
         Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
 
-        A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route.   
+        A vnet que você especificar deve ter uma sub-rede delegada para Azure NetApp Files. O serviço de Azure NetApp Files pode ser acessado somente da mesma vnet ou de uma vnet que está na mesma região que o volume por meio de emparelhamento vnet. Você também pode acessar o volume de sua rede local por meio da rota expressa.   
 
     * **Sub-rede**  
-        Especifique a sub-rede que pretende utilizar para o volume.  
-        A sub-rede que especificar tem de ser delegada a ficheiros do Azure NetApp. 
+        Especifique a sub-rede que você deseja usar para o volume.  
+        A sub-rede que você especificar deve ser delegada para Azure NetApp Files. 
         
-        Se não tiver delegado uma sub-rede, pode clicar **criar novo** no criar um Volume página. Em seguida, na página Criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para ficheiros de NetApp do Azure. Em cada Vnet, apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.   
+        Se você não tiver delegado uma sub-rede, poderá clicar em **criar nova** na página criar um volume. Em seguida, na página criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft. NetApp/volumes** para delegar a sub-rede para Azure NetApp files. Em cada vnet, somente uma sub-rede pode ser delegada para Azure NetApp Files.   
  
         ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Clique em **protocolo**, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
-    * Especifique a **caminho do ficheiro** que será utilizado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e aceder ao volume.
+4. Clique em **protocolo**e, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
+    * Especifique o **caminho do arquivo** que será usado para criar o caminho de exportação para o novo volume. O caminho de exportação é usado para montar e aceder ao volume.
 
         O nome de ficheiro pode conter apenas letras, números e hífenes ("-"). Tem de ter entre 16 e 40 carateres. 
 
-        O caminho do ficheiro tem de ser exclusivo dentro de cada subscrição e cada região. 
+        O caminho do arquivo deve ser exclusivo em cada assinatura e em cada região. 
 
-    * Opcionalmente, [configurar política de exportação para o volume NFS](azure-netapp-files-configure-export-policy.md)
+    * Opcionalmente, [Configure a política de exportação para o volume do NFS](azure-netapp-files-configure-export-policy.md)
 
     ![Especificar o protocolo NFS](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-5. Clique em **rever + criar** para rever os detalhes de volume.  Em seguida, clique em **criar** para criar o volume NFS.
+5. Clique em **examinar + criar** para examinar os detalhes do volume.  Em seguida, clique em **criar** para criar o volume do NFS.
 
-    O volume que criou é apresentada na página Volumes. 
+    O volume que você criou aparece na página volumes. 
  
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
 
-## <a name="create-an-smb-volume"></a>Criar um volume SMB
 
-Os ficheiros NetApp do Azure suporta SMBv3 volumes. Terá de criar ligações de Active Directory antes de adicionar um volume SMB. 
-
-### <a name="requirements-for-active-directory-connections"></a>Requisitos para ligações do Active Directory
-
- Seguem-se os requisitos para ligações do Active Directory: 
-
-* A conta de administrador que utiliza tem de ser capaz de criar contas de computador no caminho da unidade organizacional (UO) que irá especificar.  
-
-* As portas adequadas tem de estar abertas no servidor do Windows Active Directory (AD) aplicáveis.  
-    Seguem-se as portas necessárias: 
-
-    |     Serviço           |     Port     |     Protocol     |
-    |-----------------------|--------------|------------------|
-    |    Serviços Web do AD    |    9389      |    TCP           |
-    |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Resposta de eco    |
-    |    Kerberos           |    464       |    TCP           |
-    |    Kerberos           |    464       |    UDP           |
-    |    Kerberos           |    88        |    TCP           |
-    |    Kerberos           |    88        |    UDP           |
-    |    LDAP               |    389       |    TCP           |
-    |    LDAP               |    389       |    UDP           |
-    |    LDAP               |    3268      |    TCP           |
-    |    Nome NetBIOS       |    138       |    UDP           |
-    |    SAM/LSA            |    445       |    TCP           |
-    |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP seguro        |    636       |    TCP           |
-    |    LDAP seguro        |    3269      |    TCP           |
-    |    W32Time            |    123       |    UDP           |
-
-### <a name="create-an-active-directory-connection"></a>Crie uma ligação do Active Directory
-
-1. Na sua conta de NetApp, clique em **ligações do Active Directory**, em seguida, clique em **associar**.  
-
-    ![Ligações do Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
-
-2. Na janela de associação do Active Directory, forneça as seguintes informações:
-
-    * **DNS primário**  
-        Este é o DNS que é necessário para a associação a um domínio do Active Directory e as operações de autenticação do SMB. 
-    * **DNS secundário**   
-        Este é o servidor DNS secundário para garantir com redundância de serviços de nome. 
-    * **Domínio**  
-        Este é o nome de domínio de seu Active Directory Domain Services que pretende associar.
-    * **Prefixo do servidor (conta de computador) de SMB**  
-        Este é o prefixo de nomenclatura para a conta de computador no Active Directory que o serviço ficheiros do Azure NetApp irá utilizar para a criação de novas contas.
-
-        Por exemplo, se o padrão de nomenclatura que sua organização utiliza para servidores de ficheiros for NAS-01, NAS-02..., NAS 045, em seguida, deve introduzir "NAS" para o prefixo. 
-
-        O serviço irá criar contas de computador adicionais no Active Directory, conforme necessário.
-
-    * **Caminho de unidade organizacional**  
-        Este é o caminho LDAP para a unidade organizacional (UO) onde serão criadas contas de computador do servidor SMB. Ou seja, UO = segundo nível, UO = primeiro nível. 
-    * As credenciais, incluindo seus **nome de utilizador** e **palavra-passe**
-
-    ![Junte-se do Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
-
-3. Clique em **Associar**.  
-
-    A ligação do Active Directory que criou é apresentada.
-
-    ![Ligações do Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
-
-### <a name="add-an-smb-volume"></a>Adicionar um volume SMB
-
-1. Clique nas **Volumes** painel a partir do painel de conjuntos de capacidade. 
-
-    ![Navegue para Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
-
-2. Clique em **+ Adicionar volume** para criar um volume.  
-    O criar que é apresentada uma janela de Volume.
-
-3. Em criar uma janela de Volume, clique em **criar** e forneça informações para os seguintes campos:   
-    * **Nome do volume**      
-        Especifique o nome do volume que está a criar.   
-
-        Um nome de volume tem de ser exclusivo dentro de cada conjunto de capacidade. Tem de ser, pelo menos, três carateres de comprimento. Pode utilizar quaisquer carateres alfanuméricos.
-
-    * **Conjunto de capacidade**  
-        Especifique o conjunto de capacidade onde pretende que o volume a ser criada.
-
-    * **Quota**  
-        Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
-
-        O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
-
-    * **Rede virtual**  
-        Especifique a rede virtual do Azure (Vnet) a partir da qual pretende aceder ao volume.  
-
-        A Vnet que especificar tem de ter uma sub-rede de delegado ao serviço ficheiros do Azure NetApp. O serviço de ficheiros do Azure NetApp pode ser acedido apenas a partir da mesma Vnet ou de uma Vnet que está na mesma região que o volume através de Vnet peering. Também pode acessar o volume a partir da sua rede no local através de Express Route.   
-
-    * **Sub-rede**  
-        Especifique a sub-rede que pretende utilizar para o volume.  
-        A sub-rede que especificar tem de ser delegada a ficheiros do Azure NetApp. 
-        
-        Se não tiver delegado uma sub-rede, pode clicar **criar novo** no criar um Volume página. Em seguida, na página Criar sub-rede, especifique as informações de sub-rede e selecione **Microsoft.NetApp/volumes** para delegar a sub-rede para ficheiros de NetApp do Azure. Em cada Vnet, apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.   
- 
-        ![Criar um volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
-    
-        ![Criar sub-rede](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
-
-4. Clique em **protocolo** e conclua as seguintes informações:  
-    * Selecione **SMB** como o tipo de protocolo para o volume. 
-    * Selecione seu **do Active Directory** ligação na lista pendente.
-    * Especifique o nome do volume partilhado em **nome da partilha**.
-
-    ![Especifique o protocolo SMB](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
-
-5. Clique em **rever + criar** para rever os detalhes de volume.  Em seguida, clique em **criar** para criar o volume SMB.
-
-    O volume que criou é apresentada na página Volumes. 
- 
-    Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
-
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Montar ou desmontar um volume para máquinas virtuais Windows ou Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configurar a política de exportação para um volume NFS](azure-netapp-files-configure-export-policy.md)
-* [Saiba mais sobre a integração da rede virtual para serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Saiba mais sobre a integração de rede virtual para serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

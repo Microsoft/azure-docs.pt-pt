@@ -1,6 +1,6 @@
 ---
-title: Aplicação Web que chamadas de web APIs (a configuração do código) – plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação Web que chamadas de web APIs (configuração de código da aplicação)
+title: Aplicativo Web que chama APIs da Web (configuração de código) – plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -11,40 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c78a951258e3c279f96f44ceac469e4c38cf22c
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15c12aebccf34957db8442034ebbcd6ac7c107e1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785565"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276717"
 ---
-# <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicação Web que chamadas de web APIs - configuração de código
+# <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicativo Web que chama as APIs da Web-configuração de código
 
-Como visto na [cenário de utilizadores inicia sessão de aplicação Web](scenario-web-app-sign-user-overview.md), uma vez que iniciar sessão de utilizador é delegada para o abrir ID connect (OIDC) middleware, quer em termos de hook de segurança no processo de OIDC. A forma de fazer isso é diferente consoante a arquitetura que utilizou (aqui ASP.NET e ASP.NET Core), mas no final, irá subscrever a eventos de OIDC de middleware. O princípio é que:
+Como visto no cenário de usuários de entrada de [aplicativo Web](scenario-web-app-sign-user-overview.md), Considerando que o logon do usuário é delegado ao middleware do Open ID Connect (OIDC), você deseja conectar-se no processo OIDC. A maneira de fazer isso é diferente dependendo da estrutura usada (aqui ASP.NET e ASP.NET Core), mas, no final, você assinará os eventos do middleware OIDC. O princípio é que:
 
-- Vai permitir que ASP.NET ou ASP.NET core pedir um código de autorização. Ao fazê-lo neste ASP.NET/ASP.NET core permitirá ao utilizador iniciar sessão e dar consentimento,
-- Irá subscrever a receção do código de autorização pela aplicação Web.
-- Quando o código de autenticação é recebido, irá utilizar bibliotecas MSAL para resgatar o código e os tokens de acesso resultante e atualizar o arquivo de tokens na cache de token. A partir daí, o cache pode ser utilizado em outras partes do aplicativo para adquirir outros tokens silenciosamente.
+- Você permitirá que ASP.NET ou ASP.NET Core solicite um código de autorização. Ao fazer isso, o ASP.NET/ASP.NET Core permitirá que o usuário entre e consentisse,
+- Você assinará a recepção do código de autorização pelo aplicativo Web.
+- Quando o código de autenticação for recebido, você usará bibliotecas MSAL para resgatar o código e os tokens de acesso resultantes e o armazenamento de tokens de atualização no cache de token. A partir daí, o cache pode ser usado em outras partes do aplicativo para adquirir outros tokens silenciosamente.
 
-## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotecas de suporte a cenários de aplicação Web
+## <a name="libraries-supporting-web-app-scenarios"></a>Bibliotecas que dão suporte a cenários de aplicativos Web
 
-As bibliotecas que suportam o fluxo de código de autorização para aplicações Web são:
+As bibliotecas que dão suporte ao fluxo de código de autorização para aplicativos Web são:
 
 | Biblioteca MSAL | Descrição |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas suportadas são plataformas .NET Framework e .NET Core (não UWP, xamarin. IOS e xamarin. Android como essas plataformas são utilizados para criar aplicativos cliente público) |
-| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Desenvolvimento em curso - em pré-visualização pública |
-| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Desenvolvimento em curso - em pré-visualização pública |
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas com suporte são .NET Framework e plataformas .NET Core (não UWP, Xamarin. iOS e Xamarin. Android, pois essas plataformas são usadas para criar aplicativos cliente públicos) |
+| ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Desenvolvimento em andamento-em visualização pública |
+| ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Desenvolvimento em andamento-em visualização pública |
 
-## <a name="aspnet-core-configuration"></a>Configuração do ASP.NET Core
+## <a name="aspnet-core-configuration"></a>Configuração de ASP.NET Core
 
-No ASP.NET Core, as coisas acontecem no `Startup.cs` ficheiro. Desejará subscrever o `OnAuthorizationCodeReceived` abrir ID evento connect e desse evento, chame MSAL. Método do NET `AcquireTokenFromAuthorizationCode` que tem o efeito de armazenamento no cache de tokens, o token de acesso para os âmbitos de pedido e um token de atualização que será utilizado para atualizar o token de acesso quando está próximo de expiração ou para obter um token em nome do mesmo utilizador , mas para um recurso diferente.
+No ASP.NET Core, as coisas acontecem no `Startup.cs` arquivo. Você desejará assinar o `OnAuthorizationCodeReceived` evento Open ID Connect e, a partir desse evento, chame MSAL. O método `AcquireTokenFromAuthorizationCode` da rede que tem o efeito de armazenar no cache de token, o token de acesso para os escopos solicitados e um token de atualização que será usado para atualizar o token de acesso quando estiver perto da expiração ou para obter um token em nome do mesmo usuário , mas para um recurso diferente.
 
-Os comentários no código abaixo irão ajudá-lo a compreender alguns aspetos complicados de combinando MSAL.NET e ASP.NET Core. Todos os detalhes são fornecidos no [capítulo tutorial, incremental de Web do ASP.NET Core aplicação 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+Os comentários no código a seguir ajudarão você a entender alguns aspectos complicados de combinando MSAL.NET e ASP.NET Core. Os detalhes completos são fornecidos no [tutorial incremental do aplicativo Web ASP.NET Core, capítulo 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -88,7 +88,7 @@ Os comentários no código abaixo irão ajudá-lo a compreender alguns aspetos c
    };
 ```
 
-No ASP.NET Core, a criação da aplicação de cliente confidencial utiliza informações que estão no HttpContext. Este HttpContext sabe sobre o URL para a aplicação Web e o utilizador com sessão iniciada (num `ClaimsPrincipal`). Ele também usa a configuração do ASP.NET Core, que tem uma seção de "AzureAD" e que está vinculado ao `_applicationOptions` estrutura de dados. Por fim, o aplicativo precisa manter as caches de token.
+No ASP.NET Core, a criação do aplicativo cliente confidencial usa informações contidas no HttpContext. Este HttpContext conhece a URL para o aplicativo Web e o usuário conectado (em um `ClaimsPrincipal`). Ele também usa a configuração de ASP.NET Core, que tem uma seção "AzureAD" e que está associada à estrutura `_applicationOptions` de dados. Por fim, o aplicativo precisa manter os caches de token.
 
 ```CSharp
 /// <summary>
@@ -128,11 +128,11 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
 }
 ```
 
-`AcquireTokenByAuthorizationCode` realmente redeems o código de autorização pedido pelo ASP.NET e obtém os tokens que são adicionados à cache de token de utilizador MSAL.NET. A partir daí, eles são, em seguida, utilizada, os controladores do ASP.NET Core.
+`AcquireTokenByAuthorizationCode`realmente resgata o código de autorização solicitado por ASP.NET e obtém os tokens que são adicionados ao cache do token do usuário MSAL.NET. A partir daí, eles são usados, nos controladores de ASP.NET Core.
 
 ## <a name="aspnet-configuration"></a>Configuração do ASP.NET
 
-A forma como o ASP.NET manipula coisas é semelhante, exceto pelo fato da configuração de OpenIdConnect e a subscrição para o `OnAuthorizationCodeReceived` evento que acontece no `App_Start\Startup.Auth.cs` ficheiro. Encontrará conceitos similares, exceto pelo fato de aqui terá de especificar o RedirectUri no ficheiro de configuração, o que é um pouco menos eficiente:
+A maneira como o ASP.net lida com coisas é semelhante, exceto que a configuração de OpenIdConnect e a `OnAuthorizationCodeReceived` assinatura para o evento `App_Start\Startup.Auth.cs` ocorre no arquivo. Você encontrará conceitos semelhantes, exceto que aqui você precisará especificar o RedirectUri no arquivo de configuração, que é um pouco menos robusto:
 
 ```CSharp
 private void ConfigureAuth(IAppBuilder app)
@@ -180,18 +180,21 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache de Token de MSAL.NET para uma aplicação Web ASP.NET (núcleos)
+Finalmente, em vez de um segredo do cliente, o aplicativo cliente confidencial também pode provar sua identidade usando um certificado de cliente ou uma asserção de cliente.
+Usar declarações de cliente é um cenário avançado, detalhado em [asserções de cliente](msal-net-client-assertions.md)
 
-Em aplicações web (ou web APIs como na verdade), a implementação de cache de token é diferente do que as implementações de cache de tokens de aplicativos de Desktop (que são frequentemente [baseado em ficheiros](scenario-desktop-acquire-token.md#file-based-token-cache). Ele pode usar a sessão de ASP.NET/ASP.NET núcleos, ou uma cache de Redis, ou uma base de dados ou até mesmo armazenamento de Blobs do Azure. No código do trecho de código acima isso é o objeto do `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` chamada de método, que vincula um serviço de cache. Os detalhes sobre o que acontece aqui está além do escopo deste guia de cenário, mas são fornecidas ligações abaixo.
+### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>Cache de token MSAL.NET para um aplicativo Web ASP.NET (Core)
+
+Em aplicativos Web (ou APIs Web como uma questão de fato), a implementação de cache de token é diferente das implementações de cache de token de aplicativos de área de trabalho (que geralmente são [baseadas em arquivo](scenario-desktop-acquire-token.md#file-based-token-cache). Ele pode usar a sessão do ASP.NET/ASP.NET Core ou um cache Redis, ou um banco de dados, ou até mesmo o armazenamento de BLOBs do Azure. No trecho de código acima, esse é o objeto da `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` chamada de método, que associa um serviço de cache. Os detalhes do que acontece aqui estão além do escopo deste guia de cenário, mas os links são fornecidos abaixo.
 
 > [!IMPORTANT]
-> Uma coisa muito importante a observar é que para aplicações web e web APIs, deve haver uma cache de tokens por utilizador (por conta). Precisa serializar o cache de token para cada conta.
+> Uma coisa muito importante a ser observada é que, para aplicativos Web e APIs Web, deve haver um cache de token por usuário (por conta). Você precisa serializar o cache de token para cada conta.
 
-Exemplos de como utilizar caches de token para aplicações Web e web APIs estão disponíveis no [tutorial de aplicação ASP.NET Core Web](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) na fase [Cache de tokens de 2 de 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para as implementações têm uma olhada na seguinte pasta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) no [microsoft-authentication-extensões-para-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) biblioteca (no [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) pasta.
+Exemplos de como usar caches de token para aplicativos Web e APIs Web estão disponíveis no [tutorial ASP.NET Core aplicativo Web](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) no [cache de token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)da fase 2-2. Para implementações, observe a seguinte pasta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) na biblioteca [Microsoft-Authentication-Extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (na pasta [Microsoft. Identity. Client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste momento, quando o utilizador inicia sessão um token é armazenado na cache de token. Vamos ver como ela, em seguida, é usada em outras partes da aplicação Web.
+Neste ponto, quando o usuário entra em um token, ele é armazenado no cache de token. Vamos ver como ele é usado em outras partes do aplicativo Web.
 
 > [!div class="nextstepaction"]
-> [Inicie sessão na aplicação Web](scenario-web-app-call-api-sign-in.md)
+> [Entrar no aplicativo Web](scenario-web-app-call-api-sign-in.md)

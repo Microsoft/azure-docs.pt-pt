@@ -4,14 +4,14 @@ description: Descreve como utilizar modelos ligados num modelo Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5fe1bd2bf57fbec240ab242dd889014dde9578
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206434"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311709"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -24,7 +24,7 @@ Ao utilizar modelos ligados, criar um modelo principal que recebe os valores de 
 Para obter um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 
 > [!NOTE]
-> Para modelos ligados ou aninhados, só pode utilizar [Incremental](deployment-modes.md) modo de implementação.
+> Para modelos vinculados ou aninhados, você só pode usar o modo de implantação [incremental](deployment-modes.md) .
 >
 
 ## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
@@ -83,14 +83,14 @@ Para aninhar o modelo dentro do modelo principal, utilize o **modelo** proprieda
 > [!NOTE]
 > Para aninhados modelos, é possível utilizar parâmetros ou variáveis que estão definidas dentro do modelo aninhado. Pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor a partir do modelo principal, não o modelo aninhado. Esta restrição não é aplicável a modelos externos.
 >
-> Dois recursos definida dentro de um modelo aninhado e um recurso depende de outro, o valor da dependência é simplesmente o nome do recurso dependente:
+> Para dois recursos definidos dentro de um modelo aninhado e um recurso depende do outro, o valor da dependência é simplesmente o nome do recurso dependente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> Não é possível utilizar o `reference` função na secção de saídas de um modelo aninhado. Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
+> Você não pode usar `reference` a função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
 
 O modelo aninhado requer o [as mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
@@ -147,11 +147,11 @@ Transmita um valor a partir do modelo de principal para o modelo ligado, utilize
 ]
 ```
 
-## <a name="using-copy"></a>Através da cópia
+## <a name="using-copy"></a>Usando a cópia
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento de cópia no nível do **Microsoft.Resources/deployments** recursos.
+Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/** Implantations.
 
-O modelo de exemplo seguinte mostra como utilizar a cópia com um modelo aninhado.
+O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
 
 ```json
 "resources": [
@@ -508,7 +508,7 @@ O exemplo seguinte mostra como passar um token SAS quando ligar a um modelo:
 }
 ```
 
-No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro é definido no modelo. Não é um parâmetro no **New-AzResourceGroupDeployment** comando.
+No PowerShell, obter um token para o contentor e implementar modelos com os seguintes comandos. Tenha em atenção que o **containerSasToken** parâmetro é definido no modelo. Não é um parâmetro no comando **New-AzResourceGroupDeployment** .
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates

@@ -1,74 +1,75 @@
 ---
-title: Utilizar repositórios do Helm no Azure Container Registry
-description: Saiba como utilizar um repositório Helm com o Azure Container Registry para armazenar gráficos para as suas aplicações
+title: Usar repositórios do Helm no registro de contêiner do Azure
+description: Saiba como usar um repositório Helm com o registro de contêiner do Azure para armazenar gráficos para seus aplicativos
 services: container-registry
-author: iainfoulds
+author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: ba0e1386d67e920f1805d244f9042044bb462ec9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62109856"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309518"
 ---
-# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Utilizar o Azure Container Registry como um repositório Helm para seus gráficos de aplicação
+# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Usar o registro de contêiner do Azure como um repositório Helm para seus gráficos de aplicativo
 
-Para gerir e implementar aplicações para Kubernetes rapidamente, pode utilizar o [Gestor de pacotes do código-fonte aberto Helm][helm]. Com o Helm, os aplicativos são definidos como *gráficos* que são armazenados num repositório de gráficos do Helm. Estes gráficos definem configurações e as dependências e podem ser atualizados em todo o ciclo de vida do aplicativo. O Azure Container Registry pode ser utilizado como o host para repositórios de gráficos do Helm.
+Para gerenciar e implantar aplicativos rapidamente para o kubernetes, você pode usar o [Gerenciador de pacotes do Helm de código aberto][helm]. Com o Helm, os aplicativos são definidos como *gráficos* armazenados em um repositório de gráfico do Helm. Esses gráficos definem configurações e dependências e podem ter a versão em todo o ciclo de vida do aplicativo. O registro de contêiner do Azure pode ser usado como o host para repositórios de gráfico Helm.
 
-Com o Azure Container Registry, tem um privado e seguro gráfico repositório Helm, que pode ser integrado com pipelines de compilação ou outros serviços do Azure. Repositórios de gráficos do Helm no Azure Container Registry incluem funcionalidades de georreplicação para manter seus gráficos próximo de implementações e para a redundância. Só paga o armazenamento utilizado por gráficos e estão disponíveis em todos os escalões de preço do Azure Container Registry.
+Com o registro de contêiner do Azure, você tem um repositório de gráfico de Helm privado seguro, que pode ser integrado com pipelines de compilação ou outros serviços do Azure. Os repositórios de gráfico Helm no registro de contêiner do Azure incluem recursos de replicação geográfica para manter seus gráficos próximos às implantações e à redundância. Você paga apenas pelo armazenamento usado pelos gráficos e está disponível em todas as camadas de preço do registro de contêiner do Azure.
 
-Este artigo mostra-lhe como utilizar um repositório de gráficos do Helm armazenado no Azure Container Registry.
+Este artigo mostra como usar um repositório de gráfico de Helm armazenado no registro de contêiner do Azure.
 
 > [!IMPORTANT]
-> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir os passos neste artigo, devem ser cumpridos os seguintes pré-requisitos:
+Para concluir as etapas neste artigo, os pré-requisitos a seguir devem ser atendidos:
 
-- **O Azure Container Registry** -criar um registo de contentor na sua subscrição do Azure. Por exemplo, utilizar o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
-- **Versão de cliente do Helm 2.11.0 (não uma versão RC) ou posterior** – execução `helm version` para encontrar a versão atual. Também precisa de um servidor Helm (Tiller) inicializado dentro de um cluster de Kubernetes. Se for necessário, pode [criar um cluster do Azure Kubernetes Service][aks-quickstart]. Para obter mais informações sobre como instalar e atualizar o Helm, consulte [instalar o Helm][helm-install].
-- **CLI do Azure versão 2.0.46 ou posterior** – execução `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+- **Registro de contêiner do Azure** -crie um registro de contêiner em sua assinatura do Azure. Por exemplo, use o [portal do Azure](container-registry-get-started-portal.md) ou o [CLI do Azure](container-registry-get-started-azure-cli.md).
+- **Helm Client versão 2.11.0 (não é uma versão RC) ou posterior** - `helm version` execute para localizar a versão atual. Você também precisa de um servidor Helm (gaveta) inicializado em um cluster kubernetes. Se necessário, você. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]pode [criar um cluster do serviço kubernetes do Azure][aks-quickstart].
+- **CLI do Azure versão 2.0.46 ou posterior** -execute `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
-## <a name="add-a-repository-to-helm-client"></a>Adicionar um repositório para o cliente do Helm
+## <a name="add-a-repository-to-helm-client"></a>Adicionar um repositório ao cliente do Helm
 
-Um repositório Helm é um servidor HTTP, que pode armazenar gráficos do Helm. O Azure Container Registry pode fornecer esse armazenamento para gráficos Helm e gerir a definição do índice à medida que adiciona e remover gráficos para o repositório.
+Um repositório Helm é um servidor HTTP que pode armazenar gráficos Helm. O registro de contêiner do Azure pode fornecer esse armazenamento para gráficos Helm e gerenciar a definição de índice à medida que você adiciona e remove gráficos no repositório.
 
-Para adicionar o seu registo de contentor do Azure como um repositório de gráficos do Helm, utilize a CLI do Azure. Com esta abordagem, o cliente do Helm é atualizado com as credenciais para o repositório apoiadas pelo Azure Container Registry e URI. Não precisa de especificar manualmente as informações neste repositório, para que as credenciais não são expostas no histórico do comando, por exemplo.
+Para adicionar o registro de contêiner do Azure como um repositório de gráfico Helm, use o CLI do Azure. Com essa abordagem, o cliente Helm é atualizado com o URI e as credenciais para o repositório apoiado pelo registro de contêiner do Azure. Você não precisa especificar manualmente essas informações do repositório, portanto, as credenciais não são expostas no histórico de comandos, por exemplo.
 
-Se for necessário, inicie sessão para a CLI do Azure e siga as instruções:
+Se necessário, faça logon no CLI do Azure e siga os prompts:
 
 ```azurecli
 az login
 ```
 
-Configurar as predefinições da CLI do Azure com o nome do seu Azure Container Registry com o [az configure] [ az-configure] comando. No exemplo seguinte, substitua `<acrName>` com o nome do seu registo:
+Configure o CLI do Azure padrões com o nome do seu registro de contêiner do Azure usando o comando [AZ configure][az-configure] . No exemplo a seguir, substitua `<acrName>` pelo nome do registro:
 
 ```azurecli
 az configure --defaults acr=<acrName>
 ```
 
-Agora, adicione o repositório de gráfico do Helm de registo de contentor do Azure para o cliente de Helm utilizando o [adicione o repositório helm do az acr] [ az-acr-helm-repo-add] comando. Este comando obtém uma autenticação de token para o seu registo de contentor do Azure que é utilizado pelo cliente do Helm. O token de autenticação é válido durante uma hora. Semelhante à `docker login`, pode executar este comando em futuras sessões da CLI para autenticar o cliente do Helm com o seu repositório de gráfico do Helm de registo de contentor do Azure:
+Agora, adicione o repositório de gráficos Helm do registro de contêiner do Azure ao cliente Helm usando o comando [AZ ACR Helm Repository Add][az-acr-helm-repo-add] . Esse comando obtém um token de autenticação para o registro de contêiner do Azure que é usado pelo cliente Helm. O token de autenticação é válido por 1 hora. Semelhante ao `docker login`, você pode executar esse comando em sessões de CLI futuras para autenticar o cliente Helm com seu repositório de gráfico Helm do registro de contêiner do Azure:
 
 ```azurecli
 az acr helm repo add
 ```
 
-## <a name="add-a-chart-to-the-repository"></a>Adicionar um gráfico para o repositório
+## <a name="add-a-chart-to-the-repository"></a>Adicionar um gráfico ao repositório
 
-Neste artigo, vamos obter um gráfico Helm existente do Helm pública *estável* repositório. O *estável* repositório é um repositório organizado, público que inclui gráficos comum de aplicativo. Maintainers de pacote podem enviar seus gráficos para o *estável* repositório, da mesma forma que o Docker Hub fornece um registo público para imagens de contentor comuns. O gráfico transferido do público *estável* repositório, em seguida, pode ser enviado para o seu repositório privado do Azure Container Registry. Na maioria dos cenários, teria de criar e carregar seus próprios gráficos para os aplicativos desenvolvidos. Para obter mais informações sobre como criar seus próprios gráficos Helm, consulte [desenvolver gráficos Helm][develop-helm-charts].
+Para este artigo, vamos obter um gráfico de Helm existente do repositório *estável* Helm público. O repositório *estável* é um repositório público e organizado que inclui os gráficos de aplicativos comuns. Os mantenedores de pacote podem enviar seus gráficos para o repositório *estável* , da mesma forma que o Hub do Docker fornece um registro público para imagens de contêiner comuns. O gráfico baixado do repositório *estável* público pode ser enviado por push para seu repositório privado do registro de contêiner do Azure. Na maioria dos cenários, você criaria e carregaria seus próprios gráficos para os aplicativos que você desenvolve. Para obter mais informações sobre como criar seus próprios gráficos do Helm, consulte [desenvolvendo gráficos do Helm][develop-helm-charts].
 
-Em primeiro lugar, crie um diretório na *~/acr-helm*, em seguida, transfira o existente *stable/wordpress* gráfico:
+Primeiro, crie um diretório em *~/ACR-Helm*e baixe o gráfico *estável/WordPress* existente:
 
 ```console
 mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-Liste o gráfico transferido e tome nota da versão do Wordpress incluída no nome de ficheiro. O `helm fetch stable/wordpress` comando não especificou uma versão específica, por isso, o *mais recente* versão foi obtida. Todos os gráficos do Helm incluem um número de versão no nome de ficheiro que se segue a [SemVer 2] [ semver2] padrão. No exemplo seguinte, o gráfico de Wordpress é a versão *2.1.10*:
+Liste o gráfico baixado e anote a versão do WordPress incluída no nome do arquivo. O `helm fetch stable/wordpress` comando não especificou uma versão específica, portanto, a versão *mais recente* foi buscada. Todos os gráficos do Helm incluem um número de versão no nome de arquivo que segue o padrão [SemVer 2][semver2] . Na saída de exemplo a seguir, o gráfico do WordPress é a versão *2.1.10*:
 
 ```
 $ ls
@@ -76,13 +77,13 @@ $ ls
 wordpress-2.1.10.tgz
 ```
 
-Push agora o gráfico para o seu repositório de gráfico do Helm no Azure Container Registry com a CLI do Azure [push do az acr helm] [ az-acr-helm-push] comando. Especifique o nome do gráfico Helm transferido no passo anterior, tal como *wordpress 2.1.10.tgz*:
+Agora, envie o gráfico por push ao seu repositório de gráficos do Helm no registro de contêiner do Azure usando o comando CLI do Azure [AZ ACR Helm Push][az-acr-helm-push] . Especifique o nome do seu gráfico de Helm baixado na etapa anterior, como *WordPress-2.1.10. tgz*:
 
 ```azurecli
 az acr helm push wordpress-2.1.10.tgz
 ```
 
-Após alguns instantes, a CLI do Azure comunica que foi guardado o gráfico, conforme mostrado no seguinte exemplo:
+Após alguns instantes, a CLI do Azure relata que o gráfico foi salvo, conforme mostrado na seguinte saída de exemplo:
 
 ```
 $ az acr helm push wordpress-2.1.10.tgz
@@ -92,21 +93,21 @@ $ az acr helm push wordpress-2.1.10.tgz
 }
 ```
 
-## <a name="list-charts-in-the-repository"></a>Lista de gráficos no repositório
+## <a name="list-charts-in-the-repository"></a>Listar gráficos no repositório
 
-O cliente do Helm mantém uma cópia em cache local do conteúdo dos repositórios remotos. As alterações para um repositório remoto não atualizar automaticamente a lista de gráficos disponíveis conhecido localmente pelo cliente do Helm. Quando pesquisa gráficos em repositórios, o Helm utiliza é local em cache índice. Para utilizar o gráfico que carregou no passo anterior, o índice de repositório Helm local tem de ser atualizado. Pode reindexar os repositórios no cliente do Helm ou utilizar a CLI do Azure para atualizar o índice de repositório. Sempre que adicionar um gráfico para o seu repositório, este passo deve ser concluído:
+O cliente Helm mantém uma cópia armazenada em cache local do conteúdo de repositórios remotos. As alterações em um repositório remoto não atualizam automaticamente a lista de gráficos disponíveis conhecidos localmente pelo cliente do Helm. Quando você procura gráficos entre repositórios, o Helm usa o índice armazenado em cache local. Para usar o gráfico carregado na etapa anterior, o índice do repositório Helm local deve ser atualizado. Você pode reindexar os repositórios no cliente Helm ou usar o CLI do Azure para atualizar o índice do repositório. Cada vez que você adiciona um gráfico ao repositório, essa etapa deve ser concluída:
 
 ```azurecli
 az acr helm repo add
 ```
 
-Com um gráfico armazenado no seu repositório e o índice atualizado disponível localmente, pode utilizar os comandos de cliente do Helm regulares para pesquisar ou instalar. Para ver todos os gráficos no seu repositório, utilize `helm search <acrName>`. Fornece seu próprio nome de registo de contentor do Azure:
+Com um gráfico armazenado em seu repositório e o índice atualizado disponível localmente, você pode usar os comandos de cliente Helm regulares para pesquisar ou instalar. Para ver todos os gráficos em seu repositório, use `helm search <acrName>`. Forneça seu próprio nome de registro de contêiner do Azure:
 
 ```console
 helm search <acrName>
 ```
 
-O gráfico de Wordpress enviado no passo anterior está listado, conforme mostrado no seguinte exemplo:
+O gráfico do WordPress enviado por push na etapa anterior é listado, conforme mostrado na seguinte saída de exemplo:
 
 ```
 $ helm search myacrhelm
@@ -115,21 +116,21 @@ NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  2.1.10          4.9.8       Web publishing platform for building blogs and websites.
 ```
 
-Também pode listar os gráficos com a CLI do Azure, utilizando [lista de helm az acr][az-acr-helm-list]:
+Você também pode listar os gráficos com o CLI do Azure, usando [AZ ACR Helm List][az-acr-helm-list]:
 
 ```azurecli
 az acr helm list
 ```
 
-## <a name="show-information-for-a-helm-chart"></a>Mostrar informações para um gráfico do Helm
+## <a name="show-information-for-a-helm-chart"></a>Mostrar informações de um gráfico do Helm
 
-Para ver as informações de um gráfico específico no repositório, pode utilizar novamente o cliente regular do Helm. Para ver informações para o gráfico com o nome *wordpress*, utilize `helm inspect`.
+Para exibir informações de um gráfico específico no repositório, você pode usar novamente o cliente normal do Helm. Para ver as informações do gráfico chamado *WordPress*, use `helm inspect`.
 
 ```console
 helm inspect <acrName>/wordpress
 ```
 
-Quando não for fornecido nenhum número de versão, o *mais recente* é utilizada a versão. Helm devolve informações detalhadas sobre o gráfico, conforme mostrado no seguinte exemplo condensado:
+Quando nenhum número de versão é fornecido, a versão *mais recente* é usada. Helm retorna informações detalhadas sobre o gráfico, conforme mostrado na seguinte saída de exemplo condensada:
 
 ```
 $ helm inspect myacrhelm/wordpress
@@ -157,7 +158,7 @@ version: 2.1.10
 [...]
 ```
 
-Também pode mostrar as informações para um gráfico com a CLI do Azure [show do az acr helm] [ az-acr-helm-show] comando. Novamente, o *mais recente* for devolvida a versão de um gráfico por predefinição. Pode acrescentar `--version` para listar uma versão específica de um gráfico, como *2.1.10*:
+Você também pode mostrar as informações de um gráfico com o comando CLI do Azure [AZ ACR Helm show][az-acr-helm-show] . Novamente, a versão *mais recente* de um gráfico é retornada por padrão. Você pode acrescentar `--version` para listar uma versão específica de um gráfico, como *2.1.10*:
 
 ```azurecli
 az acr helm show wordpress
@@ -165,22 +166,22 @@ az acr helm show wordpress
 
 ## <a name="install-a-helm-chart-from-the-repository"></a>Instalar um gráfico do Helm do repositório
 
-O gráfico do Helm no seu repositório é instalado, especificando o nome do repositório e, em seguida, nome do gráfico. Utilize o cliente do Helm para instalar o Wordpress gráfico:
+O gráfico Helm em seu repositório é instalado especificando o nome do repositório e, em seguida, o nome do gráfico. Use o cliente Helm para instalar o gráfico do WordPress:
 
 ```console
 helm install <acrName>/wordpress
 ```
 
 > [!TIP]
-> Se enviar por push para o seu repositório de gráfico do Helm de registo de contentor do Azure e regressar mais tarde numa nova sessão da CLI, o seu cliente local do Helm tem um token de autenticação atualizado. Para obter um novo token de autenticação, utilize o [adicione o repositório helm do az acr] [ az-acr-helm-repo-add] comando.
+> Se você enviar por push para o repositório de gráficos Helm do registro de contêiner do Azure e retornar posteriormente em uma nova sessão da CLI, o cliente Helm local precisará de um token de autenticação atualizado. Para obter um novo token de autenticação, use o comando [AZ ACR Helm repositório Add][az-acr-helm-repo-add] .
 
-Os seguintes passos são concluídos durante o processo de instalação:
+As etapas a seguir são concluídas durante o processo de instalação:
 
-- O cliente do Helm procura o índice do repositório local.
-- O gráfico correspondente é transferido a partir do repositório do Azure Container Registry.
-- O gráfico é implementado com o Tiller no cluster do Kubernetes.
+- O cliente Helm pesquisa o índice do repositório local.
+- O gráfico correspondente é baixado do repositório do registro de contêiner do Azure.
+- O gráfico é implantado usando o gaveta no cluster kubernetes.
 
-O resultado de exemplo condensado seguinte mostra os recursos de Kubernetes implementados através do gráfico Helm:
+A seguinte saída de exemplo condensada mostra os recursos de kubernetes implantados por meio do gráfico Helm:
 
 ```
 $ helm install myacrhelm/wordpress
@@ -198,17 +199,17 @@ irreverent-jaguar-mariadb-0                   0/1    Pending  0         1s
 [...]
 ```
 
-## <a name="delete-a-helm-chart-from-the-repository"></a>Eliminar um gráfico do Helm do repositório
+## <a name="delete-a-helm-chart-from-the-repository"></a>Excluir um gráfico do Helm do repositório
 
-Para eliminar um gráfico a partir do repositório, utilize o [delete do az acr helm] [ az-acr-helm-delete] comando. Especifique o nome do gráfico, tal como *wordpress*e a versão para eliminar, tal como *2.1.10*.
+Para excluir um gráfico do repositório, use o comando [AZ ACR Helm Delete][az-acr-helm-delete] . Especifique o nome do gráfico, como *WordPress*, e a versão a ser excluída, como *2.1.10*.
 
 ```azurecli
 az acr helm delete wordpress --version 2.1.10
 ```
 
-Se pretender eliminar todas as versões do gráfico com nome, inclua o `--version` parâmetro.
+Se você quiser excluir todas as versões do gráfico nomeado, deixe o `--version` parâmetro.
 
-O gráfico continua a ser devolvido num `helm search <acrName>`. Novamente, o cliente do Helm não atualiza automaticamente a lista de gráficos disponíveis num repositório. Para atualizar o índice de repositório Helm cliente, utilize o [adicione o repositório helm do az acr] [ az-acr-helm-repo-add] novamente o comando:
+O gráfico continua a ser retornado no `helm search <acrName>`. Novamente, o cliente Helm não atualiza automaticamente a lista de gráficos disponíveis em um repositório. Para atualizar o índice do repositório de cliente Helm, use o comando [AZ ACR Helm do repositório Add][az-acr-helm-repo-add] novamente:
 
 ```azurecli
 az acr helm repo add
@@ -216,11 +217,11 @@ az acr helm repo add
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este artigo usou um gráfico Helm existente do público *estável* repositório. Para obter mais informações sobre como criar e implementar gráficos Helm, consulte [gráficos Helm desenvolvendo][develop-helm-charts].
+Este artigo usou um gráfico de Helm existente do repositório *estável* público. Para obter mais informações sobre como criar e implantar gráficos do Helm, consulte [desenvolvendo gráficos do Helm][develop-helm-charts].
 
-Gráficos Helm podem ser utilizados como parte do processo de compilação de contentor. Para obter mais informações, consulte [utilizar tarefas de registo de contentor do Azure][acr-tasks].
+Os gráficos do Helm podem ser usados como parte do processo de criação do contêiner. Para obter mais informações, consulte [usar tarefas do registro de contêiner do Azure][acr-tasks].
 
-Para obter mais informações sobre como utilizar e gerir o Azure Container Registry, veja a [melhores práticas][acr-bestpractices].
+Para obter mais informações sobre como usar e gerenciar o registro de contêiner do Azure, consulte as [práticas recomendadas][acr-bestpractices].
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/

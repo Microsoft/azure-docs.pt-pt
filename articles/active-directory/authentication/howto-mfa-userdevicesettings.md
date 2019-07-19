@@ -1,6 +1,6 @@
 ---
-title: Os administradores de gerir utilizadores e dispositivos - MFA do Azure - Azure Active Directory
-description: Como é que os administradores podem alterar as definições de utilizador, como forçar os utilizadores para repetir o processo de verificação de segurança.
+title: Administradores gerenciam usuários e dispositivos – Azure MFA-Azure Active Directory
+description: Como os administradores podem alterar as configurações do usuário, como forçar os usuários a fazer o processo de verificação novamente.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,38 +11,44 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3152dead04510078dd475b611afbfc30264e58f7
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298845"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297637"
 ---
-# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerir definições de utilizador com o Azure multi-factor Authentication na cloud
+# <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a autenticação multifator do Azure na nuvem
 
-Como administrador, pode gerir as seguintes definições de utilizador e dispositivo:
+Como administrador, você pode gerenciar as seguintes configurações de usuário e dispositivo:
 
-* Exigir que os utilizadores forneçam novamente os métodos de contacto
-* Eliminar palavras-passe de aplicação
-* Exigir a MFA em todos os dispositivos fidedignos
+* Exigir que os usuários forneçam métodos de contato novamente
+* Excluir senhas de aplicativo
+* Exigir MFA em todos os dispositivos confiáveis
 
-## <a name="require-users-to-provide-contact-methods-again"></a>Exigir que os utilizadores forneçam novamente os métodos de contacto
+## <a name="manage-authentication-methods"></a>Gerenciar métodos de autenticação
 
-Esta definição força o utilizador para concluir o processo de registo novamente. Aplicações não baseadas no browser continuam a funcionar se o utilizador tem as palavras-passe de aplicação para os mesmos.  Pode eliminar as palavras-passe de aplicação de utilizadores ao selecionar também **eliminar todas as senhas de aplicação existentes geradas pelos utilizadores selecionados**.
+Como um administrador atribuiu a função de administrador de autenticação, você pode exigir que os usuários redefinam sua senha, registrem-se novamente para MFA ou revogar sessões de MFA existentes de seu objeto de usuário.
 
-### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os utilizadores forneçam novamente os métodos de contacto
+![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+
+## <a name="require-users-to-provide-contact-methods-again"></a>Exigir que os usuários forneçam métodos de contato novamente
+
+Essa configuração força o usuário a concluir o processo de registro novamente. Aplicativos sem navegador continuam a funcionar se o usuário tem senhas de aplicativo para eles.  Você pode excluir as senhas de aplicativo dos usuários selecionando também **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
+
+### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os usuários forneçam métodos de contato novamente
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
-3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
-5. Selecione **gerir definições de utilizador**.
-6. Marque a caixa **exigir que os utilizadores selecionados forneçam novamente os métodos de contacto**.
-   ![Exigir que os utilizadores forneçam novamente os métodos de contacto](./media/howto-mfa-userdevicesettings/reproofup.png)
+2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
+5. Selecione **gerenciar configurações do usuário**.
+6. Marque a caixa **exigir que os usuários selecionados forneçam métodos de contato novamente**.
+   ![Exigir que os usuários forneçam métodos de contato novamente](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
-As organizações podem realizar essas etapas com o PowerShell com o seguinte como guia para limpar o `StrongAuthenticationMethods` atributo:
+As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para `StrongAuthenticationMethods` limpar o atributo:
 
 ```PowerShell
 $Upn = "theuser@domain.com"
@@ -50,43 +56,43 @@ $noMfaConfig = @()
 Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
 ```
 
-## <a name="delete-users-existing-app-passwords"></a>Eliminar utilizadores existentes de palavras-passe de aplicação
+## <a name="delete-users-existing-app-passwords"></a>Excluir senhas de aplicativo de usuários existentes
 
-Esta definição elimina todas as palavras-passe de aplicação que criou um utilizador. Aplicações não baseadas no browser que foram associadas estas palavras-passe de aplicação para de funcionar até que seja criada uma nova palavra-passe de aplicação.
+Essa configuração exclui todas as senhas de aplicativo que um usuário criou. Aplicativos sem navegador que estavam associados a essas senhas de aplicativo param de funcionar até que uma nova senha de aplicativo seja criada.
 
-### <a name="how-to-delete-users-existing-app-passwords"></a>Como eliminar os utilizadores existentes de palavras-passe de aplicação
+### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
-3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
-5. Selecione **gerir definições de utilizador**.
-6. Marque a caixa **eliminar todas as senhas de aplicação existentes geradas pelos utilizadores selecionados**.
-   ![Eliminar todas as senhas de aplicação existente](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
+5. Selecione **gerenciar configurações do usuário**.
+6. Marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
+   ![Excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
-## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Restaurar o MFA em todos os dispositivos memorizados para um utilizador
+## <a name="restore-mfa-on-all-remembered-devices-for-a-user"></a>Restaurar MFA em todos os dispositivos lembrados de um usuário
 
-Um dos recursos configuráveis do multi-factor Authentication é fornecer aos utilizadores a opção para marcar dispositivos como fidedigna. Para obter mais informações, consulte [definições de configurar o Azure multi-factor Authentication](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
+Um dos recursos configuráveis da autenticação multifator do Azure é dar aos usuários a opção de marcar dispositivos como confiáveis. Para obter mais informações, consulte [definir as configurações de autenticação multifator do Azure](howto-mfa-mfasettings.md#remember-multi-factor-authentication).
 
-Os utilizadores podem optar por verificação de dois passos para um número configurável de dias nos respetivos dispositivos regulares. Se uma conta for comprometida ou um dispositivo fidedigno é perdido, terá de ser capaz de remover o estado fidedigno e exigir a verificação novamente.
+Os usuários podem recusar a verificação em duas etapas para um número configurável de dias em seus dispositivos regulares. Se uma conta for comprometida ou um dispositivo confiável for perdido, você precisará ser capaz de remover o status confiável e exigir a verificação em duas etapas novamente.
 
-Quando selecionado, **restauro a autenticação multifator em todos os dispositivos memorizados** os utilizadores são necessários para efetuar a verificação de dois passos da próxima vez que iniciarem sessão, mesmo se eles marcado o respetivo dispositivo como fidedigna.
+Quando marcada, **restaure a autenticação multifator em todos os dispositivos lembrados** os usuários devem executar a verificação em duas etapas na próxima vez que entrarem, mesmo que tenham marcado seu dispositivo como confiável.
 
-### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um utilizador
+### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um usuário
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
-3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
-5. Selecione **gerir definições de utilizador**.
-6. Marque a caixa **restauro a autenticação multifator em todos os dispositivos memorizados**
-   ![restauro a autenticação multifator em todos os dispositivos memorizados](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
+5. Selecione **gerenciar configurações do usuário**.
+6. Marque a caixa para **restaurar a autenticação multifator em todos os dispositivos**
+   ![lembrados restaurar a autenticação multifator em todos os dispositivos lembrados](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Obter mais informações sobre como [definições de configurar o Azure multi-factor Authentication](howto-mfa-mfasettings.md)
-- Se os utilizadores precisam de ajuda, aponte-los em direção a [manual do utilizador de verificação de dois passos](../user-help/multi-factor-authentication-end-user.md)
+- Obter mais informações sobre como [definir as configurações de autenticação multifator do Azure](howto-mfa-mfasettings.md)
+- Se os usuários precisarem de ajuda, aponte [para o guia do usuário para verificação em duas etapas](../user-help/multi-factor-authentication-end-user.md)
