@@ -111,7 +111,7 @@ Para ilustrar o esquema de definição de dimensionamento automático, é utiliz
 | rule | scaleAction | A ação a tomar quando o metricTrigger da regra é acionada. |
 | scaleAction | direction | "Aumente" para aumentar horizontalmente, ou "Diminuir" para reduzir horizontalmente.|
 | scaleAction | value | Quanto para aumentar ou diminuir a capacidade do recurso. |
-| scaleAction | arrefecimento | A quantidade de tempo de espera após uma operação de dimensionamento antes de dimensionar novamente. Por exemplo, se **arrefecimento = "PT10M"** , dimensionamento automático não tentar Dimensionar novamente para mais de 10 minutos. O arrefecimento é permitir que as métricas estabilizar após a adição ou remoção de instâncias. |
+| scaleAction | cooldown | A quantidade de tempo de espera após uma operação de dimensionamento antes de dimensionar novamente. Por exemplo, se **arrefecimento = "PT10M"** , dimensionamento automático não tentar Dimensionar novamente para mais de 10 minutos. O arrefecimento é permitir que as métricas estabilizar após a adição ou remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
 

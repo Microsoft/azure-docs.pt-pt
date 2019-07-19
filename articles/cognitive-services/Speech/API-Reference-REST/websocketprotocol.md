@@ -153,7 +153,7 @@ Os seguintes cabeçalhos são necessários para todas as mensagens originadas de
 | Cabeçalho | Value |
 |----|----|
 | Path | O caminho de mensagem conforme especificado neste documento |
-| X-RequestId | UUID no formato de "não-dash" |
+| X-RequestId | UUID no formato de "no-dash" |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
@@ -253,7 +253,7 @@ Os seguintes cabeçalhos são necessários para todos os `audio` mensagens.
 | Cabeçalho         |  Value     |
 | ------------- | ---------------- |
 | Path | `audio` |
-| X-RequestId | UUID no formato de "não-dash" |
+| X-RequestId | UUID no formato de "no-dash" |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | O tipo de conteúdo de áudio. O tipo tem de ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
 
@@ -356,7 +356,7 @@ Durante o reconhecimento de fala, o serviço de voz periodicamente gera hipótes
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
 | Path | `speech.hypothesis` |
-| X-RequestId | UUID no formato de "não-dash" |
+| X-RequestId | UUID no formato de "no-dash" |
 | Content-Type | application/json |
 | Corpo | A estrutura JSON de hipótese de voz |
 
