@@ -62,8 +62,8 @@ Lógica de negócios de uma aplicação pode ser modelada como uma máquina de E
 | StartState | Nome do Estado inicial do fluxo de trabalho. | Sim | |
 | Propriedades | Coleção de [identificadores](#identifiers). Representa dados que podem ser lidas fora da cadeia ou visualizadas num usuário experiência de ferramenta. | Sim | |
 | Construtor | Define os parâmetros de entrada para a criação de uma instância do fluxo de trabalho. | Sim | |
-| Funções | Uma coleção de [funções](#functions) que pode ser executado no fluxo de trabalho. | Sim | |
-| Estados | Uma coleção de fluxo de trabalho [Estados](#states). | Sim | |
+| Functions | Uma coleção de [funções](#functions) que pode ser executado no fluxo de trabalho. | Sim | |
+| States | Uma coleção de fluxo de trabalho [Estados](#states). | Sim | |
 
 Por exemplo, veja [exemplo de ficheiro de configuração](#configuration-file-example).
 
