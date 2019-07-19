@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Tabela de API com Java – Azure Cosmos DB'
+title: 'Início rápido: API de Tabela com Java-Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a API de Tabela do Azure Cosmos DB para criar uma aplicação com o portal do Azure e Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 22d5aea119d71553afc02ee923fab5cf5ead5ce0
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 3610a5be356f306e4f92ea35d399a888f568d6d3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519051"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326183"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de API com Java e o Azure Cosmos DB tabela
+# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Início rápido: Criar um aplicativo API de Tabela com Java e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -35,7 +35,7 @@ O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distr
 
 Além disso: 
 
-* [Kit de desenvolvimento Java (JDK) 8](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) 8](https://aka.ms/azure-jdks)
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário [Maven](https://maven.apache.org/)
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
@@ -94,7 +94,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 5. Comente a linha um e anule os comentários da linha dois. As primeiras duas linhas devem agora ter este aspeto.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

@@ -1,6 +1,6 @@
 ---
-title: Alterar as definições de FabricTransport em atores do Azure Service Fabric | Documentos da Microsoft
-description: Saiba mais sobre como configurar definições de comunicação de atores do Azure Service Fabric.
+title: Alterar as configurações de FabricTransport no Azure Service Fabric atores | Microsoft Docs
+description: Saiba mais sobre como definir as configurações de comunicação do ator do Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
 author: suchiagicha
@@ -13,35 +13,35 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: b6cff24e5a7812a88673d80476819e51e6f5da35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: 4170f79e8eaca44260e81c85c1a3a7571720ec7f
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125073"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876118"
 ---
-# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar as definições de FabricTransport dos Reliable Actors
+# <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir configurações de FabricTransport para Reliable Actors
 
-Seguem-se as definições que pode configurar:
+Aqui estão as configurações que você pode configurar:
 - C#: [FabricTransportRemotingSettings](
 https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
-Pode modificar a configuração predefinida de FabricTransport seguintes formas.
+Você pode modificar a configuração padrão de FabricTransport das seguintes maneiras.
 
-## <a name="assembly-attribute"></a>Atributo de Assembly
+## <a name="assembly-attribute"></a>Atributo de assembly
 
-O [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) atributo tem de ser aplicadas no cliente de ator e assemblies de serviço de ator.
+O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) precisa ser aplicado nos assemblies do cliente do ator e do serviço de ator.
 
-O exemplo seguinte mostra como alterar o valor predefinido de definições de FabricTransport OperationTimeout:
+O exemplo a seguir mostra como alterar o valor padrão das configurações de OperationTimeout de FabricTransport:
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600)]
    ```
 
-   Segundo exemplo altera os valores de predefinição do FabricTransport MaxMessageSize e OperationTimeoutInSeconds.
+   O segundo exemplo altera os valores padrão de FabricTransport MaxMessageSize e OperationTimeoutInSeconds.
 
   ```csharp
     using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -50,17 +50,17 @@ O exemplo seguinte mostra como alterar o valor predefinido de definições de Fa
 
 ## <a name="config-package"></a>Pacote de configuração
 
-Pode utilizar um [pacote de configuração](service-fabric-application-and-service-manifests.md) para modificar a configuração predefinida.
+Você pode usar um [pacote de configuração](service-fabric-application-and-service-manifests.md) para modificar a configuração padrão.
 
 > [!IMPORTANT]
-> Em nós do Linux, certificados tem de ser formatada PEM. Para saber mais sobre localizar e configurar os certificados para Linux, veja [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
+> Em nós do Linux, os certificados devem ser formatados por PEM. Para saber mais sobre como localizar e configurar certificados para o Linux, consulte [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurar as definições de FabricTransport do serviço de ator
+### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Definir configurações de FabricTransport para o serviço de ator
 
-Adicione uma secção de TransportSettings em Settings XML.
+Adicione uma seção TransportSettings no arquivo Settings. xml.
 
-Por predefinição, o código de ator procura SectionName como "&lt;ActorName&gt;TransportSettings". Se não for encontrado, verifica a existência de SectionName como "TransportSettings".
+Por padrão, o código de ator procura SectionName como&lt;"&gt;atorname TransportSettings". Se isso não for encontrado, ele verificará SectionName como "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -77,9 +77,9 @@ Por predefinição, o código de ator procura SectionName como "&lt;ActorName&gt
    </Section>
   ```
 
-### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Configurar as definições de FabricTransport para o assembly de cliente de ator
+### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Definir configurações de FabricTransport para o assembly de cliente do ator
 
-Se o cliente não está em execução como parte de um serviço, pode criar um "&lt;nome do cliente Exe&gt;. Settings" ficheiro na mesma localização que o ficheiro de .exe do cliente. Em seguida, adicione uma seção de TransportSettings nesse ficheiro. SectionName deve ser "TransportSettings".
+Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um&lt;arquivo "Client&gt;exe Name. Settings. xml" no mesmo local que o arquivo client. exe. Em seguida, adicione uma seção TransportSettings nesse arquivo. SectionName deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
@@ -99,9 +99,9 @@ Se o cliente não está em execução como parte de um serviço, pode criar um "
   </Settings>
    ```
 
-* Configurar definições de FabricTransport de Ator seguro/cliente do serviço com certificado secundário.
-  Informações do certificado secundário podem ser adicionadas ao adicionar o parâmetro CertificateFindValuebySecondary.
-  Segue-se o exemplo para o serviço de escuta TransportSettings.
+* Definindo as configurações de FabricTransport para o serviço/cliente de ator seguro com o certificado secundário.
+  Informações de certificado secundário podem ser adicionadas adicionando o parâmetro CertificateFindValuebySecondary.
+  Abaixo está o exemplo para o ouvinte TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -115,7 +115,7 @@ Se o cliente não está em execução como parte de um serviço, pode criar um "
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-   Segue-se o exemplo para o TransportSettings de cliente.
+   Abaixo está o exemplo para o cliente TransportSettings.
 
   ```xml
   <Section Name="TransportSettings">
@@ -129,9 +129,9 @@ Se o cliente não está em execução como parte de um serviço, pode criar um "
   <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
   </Section>
    ```
-  * Configurar definições de FabricTransport para proteger o Ator/cliente do serviço com o nome do requerente.
-    Utilizador tem de fornecer findType como FindBySubjectName, adicione valores CertificateIssuerThumbprints e CertificateRemoteCommonNames.
-    Segue-se o exemplo para o serviço de escuta TransportSettings.
+  * Definindo as configurações de FabricTransport para proteger o serviço/cliente de ator usando o nome da entidade.
+    O usuário precisa fornecer FindType como FindBySubjectName, adicionar os valores CertificateIssuerThumbprints e CertificateRemoteCommonNames.
+    Abaixo está o exemplo para o ouvinte TransportSettings.
 
     ```xml
     <Section Name="TransportSettings">
@@ -145,7 +145,7 @@ Se o cliente não está em execução como parte de um serviço, pode criar um "
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
     ```
-    Segue-se o exemplo para o TransportSettings de cliente.
+    Abaixo está o exemplo para o cliente TransportSettings.
 
   ```xml
    <Section Name="TransportSettings">

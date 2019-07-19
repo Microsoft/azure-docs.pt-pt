@@ -4,7 +4,7 @@ description: Saiba como utilizar o serviço Azure Batch para cargas de trabalho 
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: 1dbd31b3c666857765b8b20a11d4d0c7ea8ea37b
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: c55b831903ed8dad124156013c8379536f676efa
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704767"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322790"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -30,7 +30,7 @@ Os programadores podem utilizar o Batch como um serviço de plataforma para cria
 
 Não existem custos adicionais para a utilização do Batch. Paga apenas pelos recursos subjacentes consumidos, como máquinas virtuais, armazenamento e rede.
 
-Para uma comparação entre o Batch e outras opções de solução HPC no Azure, veja [alto desempenho HPC (computação) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+Para obter uma comparação entre o lote e outras opções de solução de HPC no Azure, consulte [HPC (computação de alto desempenho) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Executar cargas de trabalho paralelas
 O Batch funciona bem com cargas de trabalho intrinsecamente paralelas (também conhecidas como constrangedoramente paralelas). As cargas de trabalho intrinsecamente paralelas são aquelas em que as aplicações podem ser executadas separadamente e cada instância concluiu parte do trabalho. Quando as aplicações estão em execução, podem aceder a alguns dados comuns, mas não comunicam com outras instâncias da aplicação. As cargas de trabalho intrinsecamente paralelas conseguem executar em grande escala, determinado pela quantidade de recursos de computação disponíveis para executar aplicações em simultâneo.

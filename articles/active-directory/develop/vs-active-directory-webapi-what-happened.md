@@ -1,9 +1,11 @@
 ---
-title: Alterações efetuadas a um projeto WebAPI quando ligar ao Azure AD
-description: Descreve o que acontece ao seu projeto WebAPI quando ligar ao Azure AD com o Visual Studio
+title: Alterações feitas em um projeto WebAPI quando você se conecta ao Azure AD
+description: Descreve o que acontece com seu projeto WebAPI quando você se conecta ao Azure AD usando o Visual Studio
 services: active-directory
 author: ghogen
 manager: douge
+ms.service: active-directory
+ms.subservice: develop
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -13,28 +15,28 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4946251cf72d7869ec5fc2f0fd844b9c06ac34
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a36ca4b194d8031b4a263a092ecb52be74cdd0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60353283"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324279"
 ---
-# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu ao meu projeto WebAPI (serviço ligado do Visual Studio do Azure Active Directory)
+# <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>O que aconteceu com meu projeto do WebAPI (Visual Studio Azure Active Directory serviço conectado)
 
 > [!div class="op_single_selector"]
 > - [Introdução](vs-active-directory-webapi-getting-started.md)
 > - [O que aconteceu](vs-active-directory-webapi-what-happened.md)
 
-Este artigo identifica as alterações exatas feitas aos projetos de ASP.NET WebAPI, aplicação de página única do ASP.NET e ASP.NET Azure API ao adicionar o [com o Visual Studio do serviço de ligado do Azure Active Directory](vs-active-directory-add-connected-service.md). Também se aplica aos projetos de serviço do ASP.NET do Azure Mobile no Visual Studio 2015.
+Este artigo identifica as alterações exatas feitas no ASP.NET WebAPI, ASP.NET aplicativo de página única e projetos de API do ASP.NET do Azure ao adicionar o [serviço conectado do Azure Active Directory usando o Visual Studio](vs-active-directory-add-connected-service.md). Também se aplica aos projetos do serviço móvel do ASP.NET Azure no Visual Studio 2015.
 
-Para obter informações sobre como trabalhar com o serviço ligado, consulte [introdução ao](vs-active-directory-webapi-getting-started.md).
+Para obter informações sobre como trabalhar com o serviço conectado, consulte [introdução](vs-active-directory-webapi-getting-started.md).
 
-## <a name="added-references"></a>Foi adicionadas referências
+## <a name="added-references"></a>Referências adicionadas
 
-Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referências de NuGet).
+Afeta as referências do arquivo de projeto *. NET `packages.config` ) e (referências do NuGet).
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -45,37 +47,37 @@ Afeta as referências *.NET do arquivo de projeto) e `packages.config` (referên
 | .NET; NuGet | Owin |
 | .NET; NuGet | System.IdentityModel.Tokens.Jwt |
 
-Referências adicionais, se tiver selecionado o **ler dados do diretório** opção:
+Referências adicionais se você selecionou a opção **ler dados do diretório** :
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
-| .NET        | EntityFramework.SqlServer (Visual Studio 2015 apenas) |
+| .NET        | EntityFramework. SqlServer (somente Visual Studio 2015) |
 | .NET; NuGet | Microsoft.Azure.ActiveDirectory.GraphClient |
 | .NET; NuGet | Microsoft.Data.Edm |
 | .NET; NuGet | Microsoft.Data.OData |
 | .NET; NuGet | Microsoft.Data.Services.Client |
 | .NET; NuGet | Microsoft.IdentityModel.Clients.ActiveDirectory |
-| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Visual Studio 2015 apenas) |
+| .NET        | Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms<br>(Somente Visual Studio 2015) |
 | .NET; NuGet | System.Spatial |
 
-As seguintes referências são removidas (ASP.NET 4 projetos apenas, como no Visual Studio 2015):
+As referências a seguir são removidas (apenas projetos ASP.NET 4, como no Visual Studio 2015):
 
-| Tipo | Referência |
+| Type | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |
 | .NET; NuGet | Microsoft.AspNet.Identity.Owin |
 
-## <a name="project-file-changes"></a>Alterações de ficheiros de projeto
+## <a name="project-file-changes"></a>Alterações de arquivo de projeto
 
-- Defina a propriedade `IISExpressSSLPort` para um número diferente.
-- Defina a propriedade `WebProject_DirectoryAccessLevelKey` como 0 ou 1, se tiver selecionado o **ler dados do diretório** opção.
-- Defina a propriedade `IISUrl` para `https://localhost:<port>/` onde `<port>` corresponde a `IISExpressSSLPort` valor.
+- Defina a propriedade `IISExpressSSLPort` como um número distinto.
+- Defina a propriedade `WebProject_DirectoryAccessLevelKey` como 0 ou 1 se você tiver selecionado a opção **ler dados do diretório** .
+- Defina a propriedade `IISUrl` como `https://localhost:<port>/` onde `<port>` corresponde ao `IISExpressSSLPort` valor.
 
-## <a name="webconfig-or-appconfig-changes"></a>alterações de Web. config ou App. config
+## <a name="webconfig-or-appconfig-changes"></a>alterações de Web. config ou app. config
 
-- Adicionadas as seguintes entradas de configuração:
+- Foram adicionadas as seguintes entradas de configuração:
 
     ```xml
     <appSettings>
@@ -85,33 +87,33 @@ As seguintes referências são removidas (ASP.NET 4 projetos apenas, como no Vis
     </appSettings>
     ```
 
-- Visual Studio 2017 apenas: Também adicionou a seguinte entrada em `<appSettings>`"
+- Somente Visual Studio 2017: Também foi adicionada a seguinte entrada `<appSettings>`em "
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
     ```
 
-- Adicionado `<dependentAssembly>` elementos sob o `<runtime><assemblyBinding>` nó para `System.IdentityModel.Tokens.Jwt`.
+- Elementos `<dependentAssembly>` adicionados sob o `<runtime><assemblyBinding>` nó para `System.IdentityModel.Tokens.Jwt`.
 
-- Se tiver selecionado o **ler dados do diretório** opção, adicionar a seguinte entrada de configuração em `<appSettings>`:
+- Se você selecionou a opção **ler dados do diretório** , adicionou a seguinte entrada `<appSettings>`de configuração em:
 
     ```xml
     <add key="ida:Password" value="<Your Azure AD app's new password>" />
     ```
 
-## <a name="code-changes-and-additions"></a>Alterações de código e adições
+## <a name="code-changes-and-additions"></a>Alterações e inclusões de código
 
-- Adicionado o `[Authorize]` atributo para `Controllers/ValueController.cs` e quaisquer outros controladores existentes.
+- Adicionou o `[Authorize]` atributo a `Controllers/ValueController.cs` e qualquer outro controlador existente.
 
-- Adicionado uma classe de startup da autenticação, `App_Start/Startup.Auth.cs`, que contém a lógica de arranque para a autenticação do Azure AD ou modificado-lo em conformidade. Se tiver selecionado o **ler dados do diretório** opção, este ficheiro também contém código para receber um código de OAuth e o exchange-lo para um token de acesso.
+- Adicionada uma classe `App_Start/Startup.Auth.cs`de inicialização de autenticação,, que contém a lógica de inicialização para a autenticação do Azure ad ou a modificou de acordo. Se você tiver selecionado a opção **ler dados do diretório** , esse arquivo também conterá o código para receber um código OAuth e o trocará por um token de acesso.
 
-- (Visual Studio 2015 com o ASP.NET 4 apenas aplicação) Removido `App_Start/IdentityConfig.cs` e adicionada `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, e `Providers/ApplicationAuthProvider.cs`.
+- (Somente o Visual Studio 2015 com o aplicativo ASP.NET 4) Removido `App_Start/IdentityConfig.cs` e adicionado `Controllers/AccountController.cs`, `Models/IdentityModel.cs`e .`Providers/ApplicationAuthProvider.cs`
 
-- Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` informações de contentor (Visual Studio 2015), que utiliza o Visual Studio para controlar a adição do serviço ligado.
+- Adicionado `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contendo informações que o Visual Studio usa para acompanhar a adição do serviço conectado.
 
-### <a name="file-backup-visual-studio-2015"></a>Cópia de segurança de ficheiros (Visual Studio 2015)
+### <a name="file-backup-visual-studio-2015"></a>Backup de arquivo (Visual Studio 2015)
 
-Ao adicionar o serviço ligado, Visual Studio 2015 efetua uma cópia de segurança de ficheiros alterados e removidos. Todos os arquivos afetados são guardados na pasta `Backup/AzureAD`. Visual Studio 2017 não cria cópias de segurança.
+Ao adicionar o serviço conectado, o Visual Studio 2015 faz backup dos arquivos alterados e removidos. Todos os arquivos afetados são salvos na pasta `Backup/AzureAD`. O Visual Studio 2017 não cria backups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -123,12 +125,12 @@ Ao adicionar o serviço ligado, Visual Studio 2015 efetua uma cópia de seguran�
 
 ## <a name="changes-on-azure"></a>Alterações no Azure
 
-- Criar uma aplicação do Azure AD no domínio selecionado ao adicionar o serviço ligado.
-- Atualizada da aplicação para incluir o **ler dados do diretório** permissão se essa opção tiver sido selecionada.
+- Um aplicativo do Azure AD foi criado no domínio que você selecionou ao adicionar o serviço conectado.
+- O aplicativo foi atualizado para incluir a permissão **ler dados do diretório** se essa opção tiver sido selecionada.
 
-[Saiba mais sobre o Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
+[Saiba mais sobre Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Cenários de autenticação do Azure Active Directory](authentication-scenarios.md)
-- [Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET](quickstart-v1-aspnet-webapp.md)
+- [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
+- [Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

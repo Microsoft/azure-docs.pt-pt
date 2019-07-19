@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 36e881fb9ba3ab81611b94a36ef0beed8748d5b1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705127"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302835"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
 
-Para cada subscrição do Azure e o inquilino, o Resource Manager permite até 12 000 pedidos por hora de leitura e pedidos por hora de escrita de 1200. Estes limites estão no âmbito para a entidade de segurança (utilizador ou aplicação) que torna os pedidos e o ID de subscrição ou ID de inquilino Se os pedidos provenientes de mais do que a entidade de segurança, o seu limite através da subscrição ou de inquilino for superior a 12 000 e 1200 por hora.
+Para cada subscrição do Azure e o inquilino, o Resource Manager permite até 12 000 pedidos por hora de leitura e pedidos por hora de escrita de 1200. Esses limites têm como escopo a entidade de segurança (usuário ou aplicativo) que faz as solicitações e a ID da assinatura ou a ID do locatário. Se suas solicitações vierem de mais de uma entidade de segurança, seu limite entre a assinatura ou o locatário será maior que 12.000 e 1.200 por hora.
 
-Pedidos são aplicados a sua subscrição ou o seu inquilino. Pedidos de subscrição são aqueles que envolvem a transmitir o seu ID de subscrição, como a obtenção de grupos de recursos na sua subscrição. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
+Pedidos são aplicados a sua subscrição ou o seu inquilino. As solicitações de assinatura são aquelas que envolvem a passagem da sua ID de assinatura, como a recuperação dos grupos de recursos em sua assinatura. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
 
 Estes limites se aplicam a cada instância do Azure Resource Manager. Existem várias instâncias em cada região do Azure e Azure Resource Manager é implementado para todas as regiões do Azure.  Para que, na prática, os limites são efetivamente muito mais do que estes limites, como utilizador pedidos são normalmente servidos por muitas instâncias diferentes.
 
-Se a sua aplicação ou script atingir estes limites, terá de limitar os seus pedidos. Este artigo mostra-lhe como determinar as solicitações restantes que tiver antes de atingir o limite e como responder quando atingiu o limite.
+Se a sua aplicação ou script atingir estes limites, terá de limitar os seus pedidos. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando atingir o limite.
 
 Quando atingir o limite, receberá o código de estado HTTP **429 demasiados pedidos**.
 
-Gráfico de recursos do Azure limita o número de pedidos para suas operações. Os passos neste artigo para determinar os pedidos restantes e como responder quando é atingido o limite também se aplicam ao gráfico de recursos. No entanto, o gráfico de recursos define sua própria taxa de limite e de reposição. Para obter mais informações, consulte [limitar no gráfico de recursos do Azure](../governance/resource-graph/overview.md#throttling).
+O grafo de recursos do Azure limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes e como responder quando o limite é atingido também se aplicam ao grafo de recursos. No entanto, o grafo de recursos define seu próprio limite e a taxa de redefinição. Para obter mais informações, consulte [limitação no grafo de recursos do Azure](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Pedidos restantes
-Pode determinar o número de pedidos restantes, examinando os cabeçalhos de resposta. Os pedidos de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. Escreva a pedidos de incluir um valor para o número de pedidos de escrita restantes. A tabela seguinte descreve os cabeçalhos de resposta, que pode examinar para esses valores:
+Pode determinar o número de pedidos restantes, examinando os cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. As solicitações de gravação incluem um valor para o número de solicitações de gravação restantes. A tabela seguinte descreve os cabeçalhos de resposta, que pode examinar para esses valores:
 
 | Cabeçalho de resposta | Descrição |
 | --- | --- |

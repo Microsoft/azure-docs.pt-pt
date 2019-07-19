@@ -1,10 +1,10 @@
 ---
-title: Criar um balanceador de carga com o front-end zonal - CLI do Azure
+title: Criar um Load Balancer com front-end zonal-CLI do Azure
 titlesuffix: Azure Load Balancer
-description: Saiba como criar um balanceador de carga Standard com o front-end zonal com a CLI do Azure
+description: Saiba como criar um Standard Load Balancer com front-end zonal usando CLI do Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -12,17 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3b89c11c11276781ec63367247601fccfd2fa858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 663567f6e3b078c1cb2afc60c3aaa9fcfb7af4dd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122210"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275248"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um balanceador de carga Standard com o front-end zonal com a CLI do Azure
+#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um Standard Load Balancer com front-end zonal usando CLI do Azure
 
-Este artigo mostra-se através da criação de um público [Balanceador de carga Standard](https://aka.ms/azureloadbalancerstandard) com um front-end zona. Ter um meio de front-end zonal qualquer fluxo de entrada ou saído é atendido por uma única zona de uma região. Pode criar um balanceador de carga com um front-end zonal utilizando um endereço IP público Standard zonal na respetiva configuração de front-end. Para compreender o funcionam das zonas de disponibilidade com o Balanceador de carga Standard, veja [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md). 
+Este artigo percorre a criação de um [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) público com um front-end zonal. Ter um front-end zonal significa que qualquer fluxo de entrada ou saída é servido por uma única zona em uma região. Você pode criar um balanceador de carga com um front-end zonal usando um endereço IP público padrão de zona em sua configuração de front-end. Para compreender o funcionam das zonas de disponibilidade com o Balanceador de carga Standard, veja [zonas de disponibilidade e o Balanceador de carga Standard](load-balancer-standard-availability-zones.md). 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -44,7 +44,7 @@ az group create --name myResourceGroupZLB --location westeurope
 
 ## <a name="create-a-public-standard-ip-address"></a>Criar um endereço IP público Standard
 
-Crie um endereço IP público Standard zonal com o seguinte comando:
+Crie um endereço IP público padrão de zona usando o seguinte comando:
 
 ```azurecli-interactive
 az network public-ip create --resource-group myResourceGroupZLB --name myPublicIPZonal --sku Standard --zone 1
@@ -52,7 +52,7 @@ az network public-ip create --resource-group myResourceGroupZLB --name myPublicI
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 
-Crie um balanceador de carga Standard público com o IP público Standard que criou no passo anterior com o seguinte comando:
+Crie um Standard Load Balancer público com o IP público padrão que você criou na etapa anterior usando o seguinte comando:
 
 ```azurecli-interactive
 az network lb create --resource-group myResourceGroupZLB --name myLoadBalancer --public-ip-address myPublicIPZonal --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard

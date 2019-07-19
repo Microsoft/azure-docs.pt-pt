@@ -1,6 +1,6 @@
 ---
-title: Integração do Centro de segurança com produtos de segurança do Azure | Documentos da Microsoft
-description: Este tópico apresenta os produtos de segurança do Azure que foram integrados com o Centro de segurança do Azure.
+title: Integração da central de segurança com os produtos de segurança do Azure | Microsoft Docs
+description: Este tópico apresenta os produtos de segurança do Azure que foram integrados à central de segurança do Azure.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -13,41 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 805c770f1a7e9bb4e0619b27ac937a2451421dc6
-ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
+ms.author: v-mohabe
+ms.openlocfilehash: 64a636cc4452de1ef4a2d0e94629e7d8e3a5878d
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571741"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295739"
 ---
-# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Integração do Centro de segurança com produtos de segurança do Azure no ASC
+# <a name="security-center-integration-with-azure-security-products-in-asc"></a>Integração da central de segurança com os produtos de segurança do Azure no ASC
 
-Centro de segurança oferece aos clientes com licenças Microsoft adicionais para integrar suas descobertas ao centro de segurança e visualizá-los de forma consolidada.
+A central de segurança oferece aos clientes licenças adicionais da Microsoft para integrar suas descobertas à central de segurança e exibi-las de maneira consolidada.
 
 * [Azure WAF](#azure-waf)
-* [Azure DDoS](#azure-ddos)
+* [DDoS do Azure](#azure-ddos)
 
 ## Azure WAF <a name="azure-waf"></a>
 
 O Gateway de Aplicação do Azure oferece uma firewall de aplicações Web (WAF) que fornece proteção centralizada para as suas aplicações Web contra exploits e vulnerabilidades comuns.
 
-Aplicativos Web são cada vez mais direcionados por ataques maliciosos que exploram vulnerabilidades conhecidas comuns. A WAF do Gateway de aplicação baseia-se no Core regra definido (CRS) 3.0 ou 2.2.9 do Open Web Application Security Project (OWASP). O WAF é atualizado automaticamente para proteger contra novas vulnerabilidades, com qualquer configuração adicional necessária. Alertas gerados por WAF são transmitidas ao centro de segurança. Para obter mais informações sobre os alertas gerados pelo WAF, veja este [artigo](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
+Os aplicativos Web são cada vez mais direcionados a ataques mal-intencionados que exploram vulnerabilidades comumente conhecidas. O WAF do gateway de aplicativo é baseado no CRS (Core Rule Set) 3,0 ou 2.2.9 do projeto de segurança de aplicativo Web aberto (OWASP). O WAF é atualizado automaticamente para proteger contra novas vulnerabilidades, sem a necessidade de configuração adicional. Os alertas gerados por WAF são transmitidos para a central de segurança. Para obter mais informações sobre os alertas gerados pelo WAF, consulte este [artigo](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911).
 
-## Azure DDoS <a name="azure-ddos"></a>
+## DDoS do Azure<a name="azure-ddos"></a>
 
-Ataques denial of service (DDoS) distribuídos são conhecidos por ser fácil de executar. Portanto, eles têm se tornado uma preocupação de segurança excelentes para os clientes que estão a mover seus aplicativos para a cloud. 
+Ataques de DDoS (negação de serviço distribuído) são conhecidos por serem fáceis de executar. Portanto, eles se tornaram um grande problema de segurança para os clientes que estão movendo seus aplicativos para a nuvem. 
 
-Um ataque de DDoS tenta esgotar os recursos de uma aplicação, tornando a aplicação indisponível para legitimar utilizadores. Ataques de DDoS podem direcionar qualquer ponto final que pode ser contatado através da Internet.
+Um ataque de DDoS tenta esgotar os recursos de uma aplicação, tornando a aplicação indisponível para legitimar utilizadores. Os ataques de DDoS podem ter como destino qualquer ponto de extremidade que possa ser acessado pela Internet.
 
-A proteção contra DDoS do Azure, juntamente com práticas recomendadas do design de aplicativo, fornecem uma linha de defesa contra ataques DDoS. A proteção contra DDoS do Azure fornece diferentes escalões de serviço. Para obter mais informações, consulte [descrição geral do Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+A proteção contra DDoS do Azure, combinada com as práticas recomendadas de design de aplicativo, fornece uma defesa contra ataques de DDoS. A proteção contra DDoS do Azure fornece diferentes camadas de serviço. Para obter mais informações, consulte [visão geral da proteção contra DDoS do Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
-Padrão de proteção de DDoS capazes de atenuar os seguintes tipos de ataques:
+A proteção contra DDoS Standard pode reduzir os seguintes tipos de ataques:
 
 > [!div class="mx-tableFixed"]
 
 |Alerta|Descrição|
 |---|---|
-|**Ataque volumetric detetado**|O objetivo deste ataque é inundar da camada de rede com uma quantidade substancial de tráfego aparentemente legítimo. Ele inclui inundações UDP, inundações de amplificação e outras inundações de pacote falsificado. Padrão de proteção de DDoS atenua esses potenciais ataques de gigabytes multi, absorver e limpeza, com o dimensionamento de rede global do Azure, automaticamente.|
-|**Ataque de protocolo detetado**|Esses ataques compor um destino inacessível, através da exploração de um ponto fraco na camada 3 e a pilha de protocolo 4 de camada. Ele inclui, ataques de inundação SYN, ataques de reflexão e outros ataques de protocolo. Padrão de proteção contra DDoS mitiga esses ataques, diferenciar entre o tráfego mal-intencionado e legítimo, ao interagir com o cliente e a bloquear tráfego malicioso.|
-|**Ataque de camada de recursos (aplicação) detetado**|Esses ataques pacotes de aplicação web, para interromper a transmissão de dados entre anfitriões de destino. Os ataques incluem HTTP violações de protocolo, SQL injeção, scripts entre sites e outros ataques de camada 7. Utilize a firewall de aplicações web do Gateway de aplicação do Azure, com DDoS Protection padrão, se proteger contra esses ataques. Também existem ofertas de firewall de aplicação web de terceiros disponíveis no Azure Marketplace.|
+|**Ataque de volumétricos detectado**|O objetivo desse ataque é inundar a camada de rede com uma quantidade significativa de tráfego aparentemente legítimo. Ele inclui inundações de UDP, inundações de amplificação e outras inundações de pacotes falsificados. A proteção contra DDoS Standard atenua esses ataques potenciais de vários gigabytes, exportando-os e Depurando-os, com a escala de rede global do Azure, automaticamente.|
+|**Ataque de protocolo detectado**|Esses ataques renderizam um destino inacessível, explorando um ponto fraco na camada 3 e na pilha de protocolos da camada 4. Ele inclui ataques de inundação SYN, ataques de reflexo e outros ataques de protocolo. A proteção contra DDoS Standard atenua esses ataques, diferenciando o tráfego mal-intencionado e legítimo, interagindo com o cliente e bloqueando o tráfego mal-intencionado.|
+|**Ataque de camada de recurso (aplicativo) detectado**|Esses ataques têm como alvo pacotes de aplicativos Web, para interromper a transmissão de dados entre hosts. Os ataques incluem violações de protocolo HTTP, injeção de SQL, script entre sites e outros ataques de camada 7. Use o Firewall do aplicativo Web Aplicativo Azure gateway, com proteção contra DDoS Standard, para se defender contra esses ataques. Também há ofertas de firewall de aplicativo Web de terceiros disponíveis no Azure Marketplace.|

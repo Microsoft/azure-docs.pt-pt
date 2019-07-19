@@ -1,6 +1,6 @@
 ---
-title: Armazenamento de disco do Azure geridos descrição geral do disco para VMs do Windows | Documentos da Microsoft
-description: Descrição geral do Azure os discos geridos, que processa as contas de armazenamento por si ao utilizar VMs do Windows Azure
+title: Visão geral de Armazenamento em Disco do Azure disco gerenciado para VMs do Windows | Microsoft Docs
+description: Visão geral dos Azure Managed disks, que manipula as contas de armazenamento para você ao usar VMs do Windows do Azure
 services: virtual-machines-windows,storage
 author: roygara
 ms.service: virtual-machines-windows
@@ -11,19 +11,19 @@ ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: fb1ee8556935b141dfee6a18c96ecafb476aa584
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 07/18/2019
 ms.locfileid: "64725810"
 ---
-# <a name="introduction-to-azure-managed-disks"></a>Introdução ao Azure para os discos geridos
+# <a name="introduction-to-azure-managed-disks"></a>Introdução aos Azure Managed disks
 
-Do Azure gerido disco é um disco rígido virtual (VHD). Pode considerá-lo como um disco físico num servidor no local, mas, virtualizados. Managed disks do Azure são armazenados como blobs de páginas, que são um objeto de armazenamento de e/s aleatório no Azure. Chamamos um disco gerido "gerido" porque é uma abstração sobre contas de armazenamento do Azure, contentores de BLOBs e blobs de páginas. Com discos geridos, tudo o que precisa fazer é aprovisionar o disco e Azure trata do resto.
+Um disco gerenciado do Azure é um VHD (disco rígido virtual). Você pode considerar isso como um disco físico em um servidor local, mas virtualizado. Os Azure Managed disks são armazenados como BLOBs de páginas, que são um objeto de armazenamento de e/s aleatório no Azure. Chamamos um disco gerenciado "Managed" porque ele é uma abstração em blobs de página, contêineres de BLOB e contas de armazenamento do Azure. Com os discos gerenciados, tudo o que você precisa fazer é provisionar o disco e o Azure cuida do restante.
 
-Quando seleciona a utilização do Azure geridos discos com cargas de trabalho, o Azure cria e gere o disco por si. Os tipos de discos disponíveis são Ultra unidades (SSD, Solid State) (pré-visualização), Premium SSD, Standard SSD e unidades de disco rígido Standard (HDD). Para obter mais informações sobre cada tipo de disco individual, veja [selecionar um tipo de disco para IaaS VMs](disks-types.md).
+Ao optar por usar o Azure Managed disks com suas cargas de trabalho, o Azure cria e gerencia o disco para você. Os tipos de discos disponíveis são unidades de estado sólido (SSD) (versão prévia), SSD Premium, SSD Standard e HDD (unidades de disco rígido) padrão. Para obter mais informações sobre cada tipo de disco individual, consulte [selecionar um tipo de disco para VMs IaaS](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 
 > [!div class="nextstepaction"]
-> [Selecione um tipo de disco para IaaS VMs](disks-types.md)
+> [Selecionar um tipo de disco para VMs IaaS](disks-types.md)

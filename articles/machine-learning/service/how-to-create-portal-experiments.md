@@ -1,246 +1,246 @@
 ---
-title: Criar e explorar experimentações no Portal
+title: Criar e explorar experimentos no portal
 titleSuffix: Azure Machine Learning service
-description: Saiba como criar e gerir automatizada experimentações de machine learning no portal
+description: Saiba como criar e gerenciar experiências automatizadas de aprendizado de máquina no portal
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: tsikiksr
+ms.author: cgronlun
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 714283628e1b2ac445d36d0b07fe299b589a1cf0
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 5eb3e94ff65e8a8b74f357a4cb8a517fd3837c5a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312807"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871818"
 ---
-# <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar e explorar automatizada experimentações de machine learning no portal do Azure (pré-visualização)
+# <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar e explorar experimentos automatizados de aprendizado de máquina na portal do Azure (versão prévia)
 
- Neste artigo, saiba como criar, executar e explore automatizada experimentações de machine learning no portal do Azure sem uma única linha de código. Aprendizagem automática automatiza o processo de selecionar o melhor algoritmo a utilizar para os seus dados específicos, para que pode gerar rapidamente um modelo de aprendizagem automática. [Saiba mais sobre a aprendizagem automática](concept-automated-ml.md).
+ Neste artigo, você aprenderá a criar, executar e explorar experiências automatizadas de aprendizado de máquina no portal do Azure sem uma única linha de código. O aprendizado de máquina automatizado automatiza o processo de seleção do melhor algoritmo a ser usado para seus dados específicos, para que você possa gerar um modelo de aprendizado de máquina rapidamente. [Saiba mais sobre o aprendizado de máquina automatizado](concept-automated-ml.md).
 
- Se preferir uma experiência mais baseada em código, também pode [configurar seu automatizada experimentações de machine learning em Python](how-to-configure-auto-train.md) com o [do Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Se você preferir uma experiência mais baseada em código, também poderá [configurar seus experimentos de aprendizado de máquina automatizados no Python](how-to-configure-auto-train.md) com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-* Uma área de trabalho de serviço do Azure Machine Learning. Ver [criar uma área de trabalho do serviço do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* Uma área de trabalho de serviço do Azure Machine Learning. Consulte [criar um Azure Machine Learning espaço de trabalho de serviço](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 ## <a name="get-started"></a>Introdução
 
-Navegue até ao painel do lado esquerdo da área de trabalho. Selecione automatizada Machine Learning na secção de criação de conteúdos (pré-visualização).
+Navegue até o painel esquerdo do seu espaço de trabalho. Selecione Machine Learning automatizado na seção criação (visualização).
 
-![Painel de navegação do portal do Azure](media/how-to-create-portal-experiments/nav-pane.png)
+![Painel de navegação portal do Azure](media/how-to-create-portal-experiments/nav-pane.png)
 
- Se esta for a primeira vez, fazer qualquer experimentações com o Machine Learning automatizada, verá o seguinte:
+ Se esta for a primeira vez que você faz qualquer experimento com Machine Learning automatizado, você verá o seguinte:
 
-![Página de destino de experiência de portal do Azure](media/how-to-create-portal-experiments/landing-page.png)
+![Página de aterrissagem do portal do Azure experimento](media/how-to-create-portal-experiments/landing-page.png)
 
-Caso contrário, irá ver o dashboard de aprendizado de máquina automatizada com uma visão geral de todos os seus automatizada experimentações de machine learning, incluindo aqueles criados com o SDK. Aqui pode filtrar e explore suas execuções por data, nome de experimentação e estado de execução.
+Caso contrário, você verá o painel automatizado do Machine Learning com uma visão geral de todos os seus experimentos de aprendizado de máquina automatizados, incluindo aqueles criados com o SDK. Aqui você pode filtrar e explorar suas execuções por data, nome do experimento e status de execução.
 
-![Dashboard de experiência de portal do Azure](media/how-to-create-portal-experiments/dashboard.png)
+![Painel do experimento do portal do Azure](media/how-to-create-portal-experiments/dashboard.png)
 
 ## <a name="create-an-experiment"></a>Criar uma experimentação
 
-Selecione o botão Criar experimentação para preencher o formulário seguinte.
+Selecione o botão criar experimento para preencher o formulário a seguir.
 
-![Criar o formulário da experimentação](media/how-to-create-portal-experiments/create-exp-name-compute.png)
+![Criar formulário de experimento](media/how-to-create-portal-experiments/create-exp-name-compute.png)
 
-1. Introduza o nome de experimentação.
+1. Insira seu nome de experimento.
 
-1. Selecione uma computação para a criação de perfis de dados e a tarefa de preparação. Uma lista de sua computações existentes está disponível na lista pendente. Para criar uma nova computação, siga as instruções no passo 3.
+1. Selecione uma computação para o trabalho de criação de perfil de dados e treinamento. Uma lista de suas computações existentes está disponível na lista suspensa. Para criar uma nova computação, siga as instruções na etapa 3.
 
-1. Selecione o criar um novo botão de computação para abrir o abaixo do painel e configurar o contexto de cálculo para esta fase experimental.
+1. Selecione o botão criar uma nova computação para abrir o painel abaixo e configure seu contexto de computação para este experimento.
 
-    ![Criar nova computação para experimentação](media/how-to-create-portal-experiments/create-new-compute.png)
+    ![Criar nova computação para experimento](media/how-to-create-portal-experiments/create-new-compute.png)
 
     Campo|Descrição
     ---|---
-    Nome de computação| Introduza um nome exclusivo que identifica o contexto de cálculo.
-    Tamanho da máquina virtual| Selecione o tamanho de máquina virtual para a computação.
-    Definições adicionais| *Nó de min*: Introduza o número mínimo de nós para a computação. O número mínimo de nós de computação AML é 0. Para ativar a criação de perfis de dados, tem de ter 1 ou mais nós. <br> *Nó de Max*: Introduza o número máximo de nós para a computação. A predefinição é 6 nós para um tipo de computação de AML.
+    Nome da computação| Insira um nome exclusivo que identifique o contexto de computação.
+    Tamanho da máquina virtual| Selecione o tamanho da máquina virtual para sua computação.
+    Configurações adicionais| *Nó mínimo*: Insira o número mínimo de nós para a computação. O número mínimo de nós para a computação AML é 0. Para habilitar a criação de perfil de dados, você deve ter um ou mais nós. <br> *Nó máximo*: Insira o número máximo de nós para sua computação. O padrão é 6 nós para uma computação AML.
 
-      Para iniciar a criação de sua nova computação, selecione **criar**. Esta ação pode demorar alguns minutos.
+      Para iniciar a criação de sua nova computação, selecione **criar**. Isso pode levar alguns minutos.
 
       >[!NOTE]
-      > O nome da sua computação indica se a computação que selecione/cria está *ativado a criação de perfis*. (Consulte 7b para obter mais detalhes sobre a criação de perfis de dados).
+      > Seu nome de computação indicará se a computação que você selecionou/criar está com a *criação de perfil habilitada*. (Consulte 7B para obter mais detalhes sobre a criação de perfil de dados).
 
-1. Selecione uma conta de armazenamento para os seus dados. Pré-visualização pública só suporta carregamentos de ficheiros locais e contas de armazenamento de Blobs do Azure.
+1. Selecione uma conta de armazenamento para seus dados. A visualização pública dá suporte apenas a carregamentos de arquivos locais e contas de armazenamento de BLOBs do Azure.
 
-1. Selecione um contentor de armazenamento.
+1. Selecione um contêiner de armazenamento.
 
-1. Selecione um ficheiro de dados a partir do seu contentor de armazenamento ou carregar um ficheiro do computador local para o contentor.
+1. Selecione um arquivo de dados do seu contêiner de armazenamento ou carregue um arquivo do seu computador local para o contêiner.
 
-    ![Selecione o ficheiro de dados para experimentação](media/how-to-create-portal-experiments/select-file.png)
+    ![Selecionar arquivo de dados para experimento](media/how-to-create-portal-experiments/select-file.png)
 
-1. Utilize os separadores de pré-visualização e o perfil de configuração do seus dados para esta fase experimental.
+1. Use as guias Visualizar e perfil para configurar ainda mais seus dados para este experimento.
 
-    1. No separador pré-visualização, indicar se os seus dados incluem cabeçalhos e selecione as funcionalidades (colunas) para a utilização de treinamento o **incluída** mudar botões em cada coluna de funcionalidade.
+    1. Na guia Visualização, indique se os dados incluem cabeçalhos e selecione os recursos (colunas) para treinamento usando os botões de opção **incluídos** em cada coluna de recurso.
 
-        ![Pré-visualização de dados](media/how-to-create-portal-experiments/data-preview.png)
+        ![Visualização de dados](media/how-to-create-portal-experiments/data-preview.png)
 
-    1. Na guia perfil, pode ver o [perfil de dados](#profile) por funcionalidade, bem como a distribuição, tipo e estatísticas de resumo (média, mediana, Máx. por minuto e assim por diante) de cada.
+    1. Na guia perfil, você pode exibir o [perfil de dados](#profile) por recurso, bem como a distribuição, o tipo e as estatísticas de resumo (Mean, Median, Max/min e assim por diante) de cada um.
 
-        ![Separador de perfil de dados](media/how-to-create-portal-experiments/data-profile.png)
+        ![Guia perfil de dados](media/how-to-create-portal-experiments/data-profile.png)
 
         >[!NOTE]
-        > A seguinte mensagem de erro será apresentada se for seu contexto de cálculo **não** ativado a criação de perfis: *A criação de perfis de dados só está disponível para os destinos de computação que já estão em execução*.
+        > A seguinte mensagem de erro será exibida se o contexto de computação **não** estiver com a criação de perfil habilitada: A *criação de perfil de dados só está disponível para destinos de computação que já estão em execução*.
 
-1. Selecione o tipo de tarefa de preparação: classificação, regressão ou de previsão.
+1. Selecione o tipo de trabalho de treinamento: classificação, regressão ou previsão.
 
-1. Selecione a coluna de destino. A coluna que gostaria de fazer as previsões no.
+1. Selecione a coluna de destino. A coluna na qual você gostaria de fazer as previsões.
 
-1. Para a previsão:
-    1. Selecione a coluna de hora: Esta coluna contém os dados de tempo para ser utilizado.
-    1. Selecione horizonte previsão: Indica o número de unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever o futuro. Quanto mais o modelo é necessário para prever o futuro, quanto menos precisas torna-se. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
+1. Para previsão:
+    1. Selecione a coluna de tempo: Esta coluna contém os dados de tempo a serem usados.
+    1. Selecione o horizonte de previsão: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) o modelo será capaz de prever para o futuro. Quanto mais o modelo for necessário para prever no futuro, menor será a sua precisão. [Saiba mais sobre previsão e previsão horizonte](how-to-auto-train-forecast.md).
 
-1. (Opcional) Definições avançadas: definições adicionais que pode utilizar para controlar melhor a tarefa de preparação.
+1. Adicional Configurações avançadas: configurações adicionais que você pode usar para controlar melhor o trabalho de treinamento.
 
     Definições avançadas|Descrição
     ------|------
-    Métrica primária| Métrica principal utilizada para o seu modelo de classificação. [Saiba mais sobre as métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Critérios de saída| Quando qualquer um desses critérios forem atendidos, a tarefa de preparação termina antes da conclusão completa. <br> *O tempo de tarefa (minutos) de treinamento*: Quanto para permitir que a tarefa de preparação executar.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) para testar a tarefa de preparação. A tarefa não será executada mais do que o número especificado de iterações. <br> *Métrica de pontuação limiar*:  Pontuação de métrica mínimo para todos os pipelines. Isto garante que se tiver uma métrica de destino definido que deseja alcançar, que não passar mais tempo na tarefa de treinamento que o necessário.
-    O pré-processamento| Selecione para ativar ou desativar o pré-processamento feito pela aprendizagem automática. O pré-processamento inclui a limpeza de dados automática, preparar e transformação para gerar recursos sintéticos. [Saiba mais sobre o processamento prévio de](#preprocess).
-    Validação| Selecione uma das opções de validação cruzada para utilizar a tarefa de preparação. [Saiba mais sobre cruzada validação](how-to-configure-auto-train.md).
-    Simultaneidade| Selecione os limites de vários núcleos para utilizar quando utilizar vários núcleo computação.
-    Algoritmo de bloqueados| Selecione algoritmos que pretende excluir da tarefa de preparação.
+    Métrica primária| Métrica principal usada para pontuar seu modelo. [Saiba mais sobre métricas de modelo](how-to-configure-auto-train.md#explore-model-metrics).
+    Critérios de saída| Quando qualquer um desses critérios é atendido, o trabalho de treinamento termina antes da conclusão completa. <br> *Tempo de trabalho de treinamento (minutos)* : Por quanto tempo permitir que o trabalho de treinamento seja executado.  <br> *Número máximo de iterações*: Número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais do que o número especificado de iterações. <br> *Limite de pontuação da métrica*:  Pontuação de métrica mínima para todos os pipelines. Isso garante que, se você tiver uma métrica de destino definida que deseja alcançar, não gaste mais tempo no trabalho de treinamento do que o necessário.
+    Pré-processamento| Selecione para habilitar ou desabilitar o pré-processamento feito pelo Machine Learning automatizado. O pré-processamento inclui a limpeza, preparação e transformação automáticas de dados para gerar recursos sintéticos. [Saiba mais sobre o pré-processamento](#preprocess).
+    Validação| Selecione uma das opções de validação cruzada para usar no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-auto-train.md).
+    Simultaneidade| Selecione os limites de vários núcleos que você gostaria de usar ao usar a computação de vários núcleos.
+    Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
 
-   ![Formulário de definições avançadas](media/how-to-create-portal-experiments/advanced-settings.png)
+   ![Formulário de configurações avançadas](media/how-to-create-portal-experiments/advanced-settings.png)
 
 > [!NOTE]
-> Para obter mais informações nos campos, clique a dica de ferramenta de informações.
+> Para obter mais informações sobre os campos, clique na dica da ferramenta informações.
 
 <a name="profile"></a>
 
-### <a name="data-profiling"></a>Dados de criação de perfis
+### <a name="data-profiling"></a>Criação de perfil de dados
 
-Pode obter uma ampla variedade de estatísticas de resumo em seu conjunto de dados para verificar se o seu conjunto de dados está preparado para o ML. Para colunas não numéricos, eles incluem estatísticas apenas básicas, como Mín, Máx e contagem de erros. Para colunas numéricas, também pode rever os momentos de estatísticos e quantiles estimado. Mais concretamente, inclui o nosso perfil de dados:
+Você pode obter uma grande variedade de estatísticas de resumo em seu conjunto de dados para verificar se o conjunto de dados está pronto para ML. Para colunas não numéricas, elas incluem apenas estatísticas básicas, como mín., máx. e contagem de erros. Para colunas numéricas, você também pode revisar seus momentos estatísticos e quantis estimados. Especificamente, nosso perfil de dados inclui:
 
-* **Funcionalidade**: nome da coluna que está a ser resumida.
+* **Recurso**: o nome da coluna que está sendo resumida.
 
-* **Perfil**: uma visualização em linha com base no tipo inferido. Por exemplo, cadeias de caracteres, booleanos e datas terá contagens de valores, enquanto casas decimais (numéricos) tem aproximadas histogramas. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
+* **Perfil**: uma visualização em linha com base no tipo inferido. Por exemplo, cadeias de caracteres, Boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você tenha uma compreensão rápida da distribuição dos dados.
 
-* **Distribuição do tipo**: uma contagem de valor na linha de tipos dentro de uma coluna. Nulls são seu próprio tipo, para que esta visualização é útil para a detecção de valores em falta ou ímpares.
+* **Distribuição de tipos**: uma contagem de valores em linha de tipos dentro de uma coluna. Os nulos são de seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
 
-* **Tipo de**: o tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, booleanos, datas e casas decimais.
+* **Tipo**: o tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, Boolianos, datas e decimais.
 
-* **Min**: o valor mínimo da coluna. As entradas em branco são apresentados para recursos cujo tipo não tem uma ordem inerente (por exemplo, booleanos).
+* **Min**: o valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (por exemplo, Boolianos).
 
-* **Máx.** : o valor máximo da coluna. Como "min", entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Max**: o valor máximo da coluna. Como as entradas em branco "min", aparecem para recursos com tipos irrelevantes.
 
-* **Contagem de**: o número total de entradas em falta e não em falta na coluna.
+* **Contagem**: o número total de entradas ausentes e não ausentes na coluna.
 
-* **Não tem em falta contagem**: o número de entradas na coluna que não estão em falta. Tenha em atenção que as cadeias vazias e erros são tratados como valores, para que eles não contribuem para a "contagem não em falta".
+* **Contagem ausente**: o número de entradas na coluna que não estão ausentes. Observe que as cadeias de caracteres vazias e os erros são tratados como valores, de modo que não irão contribuir para a "contagem não encontrada".
 
-* **Quantiles** (em intervalos de 0,1, 1, 5, 25, 50, 75, 95, 99 e 99,9%): os valores approximated em cada quantile para fornecer uma noção da distribuição dos dados. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Quantis** (às 0,1, 1, 5, 25, 50, 75, 95, 99 e 99,9% intervalos): os valores aproximados em cada Quantil para fornecer uma noção da distribuição dos dados. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-* **Significa**: a média aritmética da coluna. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Mean**: a média aritmética da coluna. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-* **Desvio padrão**: o desvio-padrão da coluna. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Desvio padrão**: o desvio padrão da coluna. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-* **Variância**: a variância da coluna. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Variância**: a variação da coluna. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-* **Assimetrias**: assimetrias da coluna. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Distorção**: a distorção da coluna. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
-* **Kurtosis**: kurtosis da coluna. As entradas em branco são apresentados para recursos com tipos irrelevantes.
+* **Curtose**: a curtose da coluna. Entradas em branco aparecem para recursos com tipos irrelevantes.
 
 <a name="preprocess"></a>
 
-### <a name="advanced-preprocessing"></a>Advanced pré-processamento
+### <a name="advanced-preprocessing"></a>Pré-processamento avançado
 
-Quando configurar as suas experimentações, pode ativar a definição avançada `Preprocess`. Ao fazê-lo por isso, significa que os seguintes passos de pré-processamento e featurization de dados são efetuados automaticamente.
+Ao configurar seus experimentos, você pode habilitar a configuração `Preprocess`avançada. Isso significa que as etapas de pré-processamento e personalização de dados a seguir são executadas automaticamente.
 
-|O pré-processamento&nbsp;passos| Descrição |
+|&nbsp;Etapas de pré-processamento| Descrição |
 | ------------- | ------------- |
-|Remova cardinalidade elevada ou nenhum recurso de variância|Remova estes de conjuntos de formação e validação, incluindo recursos com todos os valores em falta, mesmo valor em todas as linhas ou com uma cardinalidade muito elevada (por exemplo, hashes, IDs ou GUIDs).|
-|Impute valores em falta|De funcionalidades numéricas, impute com a média dos valores na coluna.<br/><br/>Para obter recursos categóricos, impute com o valor mais frequente.|
-|Gerar recursos adicionais|Para as funcionalidades de DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para as funcionalidades de texto: Frequência de prazo com base em unigrams, bi-grams e chamamos-caractere-grams.|
-|Transformar e codificar |Funcionalidades numérico com poucos valores exclusivos são transformadas em funcionalidades categóricas.<br/><br/>Um-hot codificação é executada para baixa cardinalidade categórica; para elevada cardinalidade, codificação de hash um acesso frequente.|
-|Incorporações|Featurizer de texto que converte vetores de tokens de texto em vetores de sentença usando um modelo com formação prévia. Vetor de incorporação de cada palavra num documento é agregado em conjunto para produzir um vetor de funcionalidade do documento.|
-|Codificações de destino|Para obter recursos categóricos, mapeia cada categoria com valor de destino média para problemas de regressão e a probabilidade de classe para cada classe de problemas de classificação. Com base na frequência de peso e k fases de validação cruzam é aplicada para reduzir ao longo do ajuste do mapeamento e ruído causado por categorias de dados dispersos.|
-|Codificação de destino de texto|Para introdução de texto, um modelo linear empilhado com matriz de palavras é utilizado para gerar a probabilidade de cada classe.|
-|Peso da evidência (WoE)|Calcula WoE como uma medida de correlação de colunas categóricas para a coluna de destino. Esta é calculada como o log da proporção de probabilidades de fora da classe na classe vs. Este passo produz uma coluna de funcionalidades numéricas por classe e remove a necessidade de explicitamente impute valores em falta e tratamento de exceção.|
-|Distância de cluster|Prepara um modelo de clustering de k-means em todas as colunas numéricas.  Saídas k novos recursos, um novo recurso numérico por cluster, que contém a distância de cada exemplo, para o centroide de cada cluster.|
+|Remova cardinalidade elevada ou nenhum recurso de variância|Descarte-os dos conjuntos de treinamento e validação, incluindo recursos com todos os valores ausentes, o mesmo valor em todas as linhas ou com cardinalidade extremamente alta (por exemplo, hashes, IDs ou GUIDs).|
+|Impute valores em falta|Para recursos numéricos, imputar com a média de valores na coluna.<br/><br/>Para recursos categóricos, imputar com o valor mais frequente.|
+|Gerar recursos adicionais|Para recursos de DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.<br/><br/>Para recursos de texto: A frequência do termo com base em unigrams, bi-grams e Tri-Character-grams.|
+|Transformar e codificar |Recursos numéricos com poucos valores exclusivos são transformados em recursos categóricos.<br/><br/>A codificação One-Hot é executada para uma baixa cardinalidade categórica; para alta cardinalidade, codificação One-Hot-hash.|
+|Incorporações de palavras|Texto featurizer que converte vetores de tokens de texto em vetores de sentença usando um modelo pré-treinado. O vetor de incorporação de cada palavra em um documento é agregado em conjunto para produzir um vetor de recurso de documento.|
+|Codificações de destino|Para recursos categóricos, o mapeia cada categoria com o valor de destino médio para problemas de regressão e a probabilidade de classe de cada classe para problemas de classificação. O peso baseado em frequência e a validação cruzada de k-fold são aplicados para reduzir o ajuste do mapeamento e do ruído causados por categorias de dados esparsas.|
+|Codificação de destino de texto|Para entrada de texto, um modelo linear empilhado com conjunto de palavras é usado para gerar a probabilidade de cada classe.|
+|Peso de evidência (WoE)|Calcula WoE como uma medida de correlação de colunas categóricas para a coluna de destino. Ele é calculado como o log da taxa de probabilidades de fora de classe vs in-Class. Esta etapa gera uma coluna de recurso numérico por classe e remove a necessidade de imputar explicitamente os valores ausentes e o tratamento de exceção.|
+|Distância do cluster|Treina um modelo de clustering k-means em todas as colunas numéricas.  Gera novos recursos e um novo recurso numérico por cluster, contendo a distância de cada amostra para o centróide de cada cluster.|
 
-## <a name="run-experiment-and-view-results"></a>Execute a experimentação e ver resultados
+## <a name="run-experiment-and-view-results"></a>Executar experimento e exibir resultados
 
-Para executar a experimentação, clique em Iniciar. A experimentação a preparar o processo demora alguns minutos.
+Para executar o experimento, clique em Iniciar. O processo de preparação do experimento leva alguns minutos.
 
-### <a name="view-experiment-details"></a>Ver detalhes de experimentação
+### <a name="view-experiment-details"></a>Exibir detalhes do experimento
 
-Depois de fazer a fase de preparação de experimentação, verá o ecrã de detalhes de execução. Isto dá-lhe uma lista completa dos modelos criados. Por predefinição, o modelo que pontua a mais alta com base nos seus parâmetros na parte superior da lista. Como a tarefa de preparação tenta horizontalmente mais modelos, eles são adicionados à sua lista de iteração e o gráfico. Utilize o gráfico de iteração para obter uma comparação rápida das métricas para os modelos de produzidos até agora.
+Depois que a fase de preparação do experimento for concluída, você verá a tela de detalhes da execução. Isso fornece uma lista completa dos modelos criados. Por padrão, o modelo que pontua o mais alto com base em seus parâmetros está na parte superior da lista. Como o trabalho de treinamento tenta mais modelos, eles são adicionados à lista de iterações e ao gráfico. Use o gráfico de iteração para obter uma comparação rápida das métricas para os modelos produzidos até agora.
 
-Tarefas de preparação pode demorar algum tempo para cada termine a execução de pipeline.
+Os trabalhos de treinamento podem levar algum tempo para que cada pipeline termine a execução.
 
-![Dashboard de detalhes da execução](media/how-to-create-portal-experiments/run-details.png)
+![Painel de detalhes de execução](media/how-to-create-portal-experiments/run-details.png)
 
-### <a name="view-training-run-details"></a>Treinamento de vista Detalhes da execução
+### <a name="view-training-run-details"></a>Exibir detalhes da execução de treinamento
 
-Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes de execução, como gráficos de métricas e distribuição de desempenho de treinamento. [Saiba mais sobre os gráficos](how-to-track-experiments.md#understanding-automated-ml-charts).
+Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes de execução de treinamento, como métricas de desempenho e gráficos de distribuição. [Saiba mais sobre gráficos](how-to-track-experiments.md#understanding-automated-ml-charts).
 
-![Detalhes de iteração](media/how-to-create-portal-experiments/iteration-details.png)
+![Detalhes da iteração](media/how-to-create-portal-experiments/iteration-details.png)
 
 ## <a name="deploy-model"></a>Implementar modelo
 
-Depois de ter o melhor modelo em mãos, é hora de implantá-lo como um serviço web para prever sobre novos dados.
+Quando você tem o melhor modelo em mãos, é hora de implantá-lo como um serviço Web para prever novos dados.
 
-ML automatizada ajuda-o com a implementação do modelo sem escrever código:
+O ML automatizado ajuda você a implantar o modelo sem escrever código:
 
-1. Tem algumas opções para a implementação. 
-    1. Se pretender implementar o melhor modelo com base nos critérios métrica definido para a experimentação, selecione **implementar o melhor modelo** partir a **executar detalhes** página.
+1. Você tem algumas opções de implantação. 
+    1. Se você quiser implantar o melhor modelo com base nos critérios de métrica definidos para o experimento, selecione **implantar melhor modelo** na página **executar detalhes** .
 
-        ![Implementar o botão de modelo](media/how-to-create-portal-experiments/deploy-model-button.png)
+        ![Botão implantar modelo](media/how-to-create-portal-experiments/deploy-model-button.png)
 
-    1. Se pretender implementar uma iteração do modelo específico, faça uma busca detalhada sobre o modelo para abrir a página de detalhes de execução específico e selecione **implementar modelo**.
+    1. Se você quiser implantar uma iteração de modelo específica, faça uma busca detalhada no modelo para abrir sua página de detalhes de execução específica e selecione **implantar modelo**.
 
-        ![Implementar o botão de modelo](media/how-to-create-portal-experiments/deploy-model-button2.png)
+        ![Botão implantar modelo](media/how-to-create-portal-experiments/deploy-model-button2.png)
 
-1. Primeira etapa é registrar o modelo para o serviço. Selecione "Registar o modelo de" e aguarde pela conclusão do processo de registo.
+1. A primeira etapa é registrar o modelo no serviço. Selecione "registrar modelo" e aguarde a conclusão do processo de registro.
 
-    ![Implementar o painel de modelo](media/how-to-create-portal-experiments/deploy-model-blade.png)
+    ![Folha implantar modelo](media/how-to-create-portal-experiments/deploy-model-blade.png)
 
-1. Assim que o modelo estiver registado, poderá transferir o script de classificação (scoring.py) e o script de ambiente (condaEnv.yml) a ser utilizado durante a implementação.
+1. Depois que o modelo for registrado, você poderá baixar o script de Pontuação (scoring.py) e o script de ambiente (condaEnv. yml) a ser usado durante a implantação.
 
-1. Quando o script de classificação e o script de ambiente são transferidos, vá para o **ativos** painel do painel de navegação esquerda e selecione **modelos**.
+1. Quando o script de Pontuação e o script do ambiente forem baixados, vá para a folha **ativos** do painel de navegação esquerdo e selecione **modelos**.
 
     ![Modelos de painel de navegação](media/how-to-create-portal-experiments/nav-pane-models.png)
 
-1. Selecione o modelo que registou e selecione "Criar a imagem".
+1. Selecione o modelo que você registrou e selecione "criar imagem".
 
-    Pode identificar o modelo, sua descrição, que incluirá o ID de execução, o número de iteração, no seguinte formato: *< Run_ID > _ < Iteration_number > _Model*
+    Você pode identificar o modelo por sua descrição, que incluirá a ID de execução, o número de iteração, no seguinte formato: *< Run_ID > _ < Iteration_number > _Model*
 
-    ![Modelos: Criar imagem](media/how-to-create-portal-experiments/model-create-image.png)
+    ![Modelos Criar imagem](media/how-to-create-portal-experiments/model-create-image.png)
 
-1. Introduza um nome para a imagem. 
-1. Selecione o **procurar** botão junto à caixa "Ficheiro de classificação" para carregar o ficheiro de classificação (scoring.py) que transferiu anteriormente.
+1. Insira um nome para a imagem. 
+1. Selecione o botão **procurar** ao lado da caixa "arquivo de Pontuação" para carregar o arquivo de pontuação (Scoring.py) que você baixou anteriormente.
 
-1. Selecione o **procurar** botão junto à caixa "Conda File" para carregar o ficheiro de ambiente (condaEnv.yml) que transferiu anteriormente.
+1. Selecione o botão **procurar** ao lado da caixa "arquivo Conda" para carregar o arquivo de ambiente (condaEnv. yml) que você baixou anteriormente.
 
-    Pode usar o seu script de classificação e o arquivo de conda, bem como carregar ficheiros adicionais. [Saiba mais sobre o script de classificação](how-to-deploy-and-where.md#script).
+    Você pode usar seu próprio script de Pontuação e arquivo Conda, bem como carregar arquivos adicionais. [Saiba mais sobre o script de Pontuação](how-to-deploy-and-where.md#script).
 
       >[!Important]
-      > Os nomes de ficheiros devem ser em 32 carateres e deve começar e terminar com carateres alfanuméricos. Pode incluir travessões, carateres de sublinhado, pontos e carateres de alfanuméricos entre. Não são permitidos espaços.
+      > Os nomes de arquivo devem ter menos de 32 caracteres e devem começar e terminar com alfanuméricos. Pode incluir traços, sublinhados, pontos e alfanuméricos entre. Não são permitidos espaços.
 
     ![Criar imagem](media/how-to-create-portal-experiments/create-image.png)
 
-1. Selecione o botão "Criar" para iniciar a criação de imagem. Esta ação irá demorar alguns minutos a concluir, assim que estiver pronto, verá uma mensagem na barra superior.
-1. Aceda ao separador "Imagens", selecione a caixa de verificação junto a imagem que pretende implementar e selecione "Criar a implementação". [Saiba mais sobre implementações](how-to-deploy-and-where.md).
+1. Selecione o botão "criar" para iniciar a criação da imagem. Isso levará alguns minutos para ser concluído, uma vez que você verá uma mensagem na barra superior.
+1. Vá para a guia "imagens", marque a caixa de seleção ao lado da imagem que você deseja implantar e selecione "criar implantação". [Saiba mais sobre](how-to-deploy-and-where.md)implantações.
 
-    Existem 2 opções para a implantação.
-     + Instância de contentor do Azure (ACI) - Isto é utilizado mais para fins de teste de finalidade em vez de implementação operacional em escala. Lembre-se de que preencha os valores para, pelo menos, um núcleo para _capacidade de reserva de CPU_e, pelo menos, um gigabyte (GB) para _capacidade de reserva de memória_
-     + Serviço Kubernetes do Azure (AKS)) – esta opção é para implementação em escala. Terá de ter uma computação com base do AKS pronta.
+    Há duas opções de implantação.
+     + ACI (instância de contêiner do Azure)-isso é usado mais para testar a finalidade em vez da implantação operacional em escala. Certifique-se de preencher os valores de pelo menos um núcleo para a _capacidade de reserva de CPU_e pelo menos um gigabyte (GB) para a capacidade de reserva de _memória_
+     + AKS (serviço kubernetes do Azure)) – esta opção é para implantação em escala. Você precisará ter uma computação com base em AKS pronta.
 
-     ![Imagens: Criar implementação](media/how-to-create-portal-experiments/images-create-deployment.png)
+     ![Imagens Criar implementação](media/how-to-create-portal-experiments/images-create-deployment.png)
 
-1. Quando terminar, selecione **Criar**. Implementação do modelo, pode demorar alguns minutos para cada termine a execução de pipeline.
+1. Quando terminar, selecione **Criar**. A implantação do modelo pode levar vários minutos para que cada pipeline termine a execução.
 
-1. Já está! Tem um serviço web operacionais para gerar as previsões de indisponibilidade.
+1. Já está! Você tem um serviço Web operacional para gerar previsões.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Saiba mais sobre a aprendizagem automática](concept-automated-ml.md) e Azure Machine Learning.
-* [Saiba como consumir um serviço web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [Saiba mais sobre o aprendizado de máquina](concept-automated-ml.md) e a Azure Machine Learning automatizados.
+* [Saiba como consumir um serviço Web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

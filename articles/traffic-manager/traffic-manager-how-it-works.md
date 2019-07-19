@@ -1,6 +1,6 @@
 ---
-title: Como funciona o Gestor de tráfego do Azure | Documentos da Microsoft
-description: Este artigo ajuda-o a compreender como o Gestor de tráfego encaminha o tráfego de elevado desempenho e disponibilidade das suas aplicações web
+title: Como funciona o Gerenciador de tráfego do Azure | Microsoft Docs
+description: Este artigo o ajudará a entender como o Traffic Manager roteia o tráfego para alto desempenho e disponibilidade de seus aplicativos Web
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -12,69 +12,92 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071193"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312138"
 ---
-# <a name="how-traffic-manager-works"></a>Como funciona o Gestor de tráfego
+# <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
-O Gestor de tráfego do Azure permite-lhe controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
+O Gerenciador de tráfego do Azure permite controlar a distribuição de tráfego entre os pontos de extremidade do aplicativo. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure.
 
-Gestor de tráfego oferece duas vantagens principais:
+O Gerenciador de tráfego fornece dois benefícios principais:
 
-- Distribuição de tráfego de acordo com um dos vários [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md)
-- [Monitorização contínua do Estado de funcionamento do ponto de extremidade](traffic-manager-monitoring.md) e ativação pós-falha automática quando a ativação de pontos finais
+- Distribuição de tráfego de acordo com um dos vários [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)
+- [Monitoramento contínuo da integridade do ponto de extremidade](traffic-manager-monitoring.md) e failover automático quando os pontos de extremidade falharem
 
-Quando um cliente tenta estabelecer ligação a um serviço, primeiro ele deverá resolver o nome DNS do serviço para um endereço IP. O cliente liga-se, em seguida, a esse endereço IP para aceder ao serviço.
+Quando um cliente tenta se conectar a um serviço, ele deve primeiro resolver o nome DNS do serviço para um endereço IP. Em seguida, o cliente se conecta a esse endereço IP para acessar o serviço.
 
-**O ponto mais importante para compreender é que o Gestor de tráfego funciona ao nível do DNS.**  O Gestor de tráfego utiliza o DNS para direcionar clientes para pontos finais de serviço específico com base em regras do método de encaminhamento de tráfego. Os clientes ligam ao ponto de extremidade selecionado **diretamente**. O Gestor de tráfego não é um proxy ou de um gateway. O Gestor de tráfego não vê o tráfego que passa entre o cliente e o serviço.
+**O ponto mais importante a entender é que o Gerenciador de tráfego funciona no nível do DNS.**  O Gerenciador de tráfego usa o DNS para direcionar clientes para pontos de extremidade de serviço específicos com base nas regras do método de roteamento de tráfego. Os clientes se conectam **diretamente**ao ponto de extremidade selecionado. O Gerenciador de tráfego não é um proxy ou um gateway. O Gerenciador de tráfego não vê o tráfego que passa entre o cliente e o serviço.
 
-## <a name="traffic-manager-example"></a>Exemplo de Gestor de tráfego
+## <a name="traffic-manager-example"></a>Exemplo do Gerenciador de tráfego
 
-Contoso Corp desenvolveram um novo portal de parceiros. O URL para este portal é https://partners.contoso.com/login.aspx. O aplicativo é hospedado em três regiões do Azure. Para melhorar a disponibilidade e maximizar o desempenho global, utilizam o Gestor de tráfego para distribuir o tráfego de cliente para o ponto de extremidade disponível mais próximo.
+A Contoso Corp desenvolveu um novo portal de parceiros. A URL para este portal é https://partners.contoso.com/login.aspx. O aplicativo é hospedado em três regiões do Azure. Para melhorar a disponibilidade e maximizar o desempenho global, elas usam o Gerenciador de tráfego para distribuir o tráfego do cliente para o ponto de extremidade mais próximo disponível.
 
-Para obter esta configuração, eles concluírem os seguintes passos:
+Para obter essa configuração, eles concluem as seguintes etapas:
 
-1. Implemente três instâncias do seu serviço. Os nomes DNS estas implementações são "contoso-us.cloudapp .net", "contoso-eu.cloudapp .net" e "contoso-asia.cloudapp .net".
-1. Criar um perfil do Gestor de tráfego, com o nome "contoso.trafficmanager.net" e configurá-lo para usar o método de encaminhamento de tráfego de "Desempenho" em três pontos de extremidade.
-1. Configure o respetivo nome de domínio personalizado, "partners.contoso.com", para apontar para 'contoso.trafficmanager.net", com um registo CNAME de DNS.
+1. Implante três instâncias de seu serviço. Os nomes DNS dessas implantações são ' contoso-us.cloudapp.net ', ' contoso-eu.cloudapp.net ' e ' contoso-asia.cloudapp.net '.
+1. Crie um perfil do Gerenciador de tráfego, chamado ' contoso.trafficmanager.net ', e configure-o para usar o método de roteamento de tráfego de ' desempenho ' nos três pontos de extremidade.
+1. Configure seu nome de domínio intuitivo, ' partners.contoso.com ', para apontar para ' contoso.trafficmanager.net ', usando um registro DNS CNAME.
 
-![Configuração de DNS do Gestor de tráfego][1]
+![Configuração de DNS do Gerenciador de tráfego][1]
 
 > [!NOTE]
-> Quando utilizar um domínio personalizado com o Gestor de tráfego do Azure, tem de utilizar um CNAME para apontar o seu nome de domínio personalizado para o seu nome de domínio do Gestor de tráfego. Normas DNS não permitem-lhe criar um CNAME no "apex" (ou raiz) de um domínio. Portanto, não é possível criar um CNAME para "contoso.com" (por vezes denominado um domínio de "sem" www ""). Só pode criar um CNAME para um domínio em "contoso.com", por exemplo, "www.contoso.com". Para contornar esta limitação, recomendamos que aloja o seu domínio DNS no [DNS do Azure](../dns/dns-overview.md) e a utilizar [registos de Alias](../dns/tutorial-alias-tm.md) para apontar para o perfil do traffic manager. Em alternativa, pode utilizar um redirecionamento HTTP simple para pedidos diretos para "contoso.com" para um nome alternativo, como "www.contoso.com".
+> Ao usar um domínio intuitivo com o Gerenciador de tráfego do Azure, você deve usar um CNAME para apontar o nome de domínio do intuitivo para o nome de domínio do Traffic Manager. Os padrões de DNS não permitem que você crie um CNAME no ' Apex ' (ou raiz) de um domínio. Portanto, você não pode criar um CNAME para ' contoso.com ' (às vezes chamado de domínio ' naked '). Você só pode criar um CNAME para um domínio em ' contoso.com ', como ' www.contoso.com '. Para contornar essa limitação, é recomendável hospedar seu domínio DNS no [DNS do Azure](../dns/dns-overview.md) e usar [registros de alias](../dns/tutorial-alias-tm.md) para apontar para o perfil do Gerenciador de tráfego. Como alternativa, você pode usar um redirecionamento HTTP simples para direcionar solicitações para ' contoso.com ' para um nome alternativo, como ' www.contoso.com '.
 
-### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes estabelecem ligação com o Gestor de tráfego
+### <a name="how-clients-connect-using-traffic-manager"></a>Como os clientes se conectam usando o Gerenciador de tráfego
 
-Continuando do exemplo anterior, quando um cliente solicita a página https://partners.contoso.com/login.aspx, o cliente executa os seguintes passos para resolver o DNS do nome e estabelecer uma ligação:
+Continuando do exemplo anterior, quando um cliente solicita a página https://partners.contoso.com/login.aspx, o cliente executa as seguintes etapas para resolver o nome DNS e estabelecer uma conexão:
 
-![Estabelecimento da conexão com o Gestor de tráfego][2]
+![Estabelecimento de conexão usando o Gerenciador de tráfego][2]
 
-1. O cliente envia uma consulta DNS ao serviço DNS recursivo configurado para resolver o nome "partners.contoso.com". Um serviço DNS recursivo, às vezes chamado de serviço de 'local DNS', não aloja domínios DNS diretamente. Em vez disso, o cliente off-loads o trabalho de entrar em contato com os vários serviços DNS autoritativos através da Internet necessária para resolver um nome DNS.
-2. Para resolver o nome DNS, o serviço DNS recursivo localiza os servidores de nomes para o domínio "contoso.com". Em seguida, contacta os servidores de nomes para pedir o registo DNS "partners.contoso.com". Os servidores DNS de contoso.com devolvem o registo CNAME que aponta para contoso.trafficmanager.net.
-3. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio de 'trafficmanager.net', que são fornecidas pelo serviço Gestor de tráfego do Azure. Em seguida, envia um pedido para o registo DNS 'contoso.trafficmanager.net' para esses servidores DNS.
-4. Os servidores de nomes do Gestor de tráfego receberem o pedido. Eles escolherem um ponto de extremidade com base em:
+1. O cliente envia uma consulta DNS para seu serviço DNS recursivo configurado para resolver o nome ' partners.contoso.com '. Um serviço DNS recursivo, às vezes chamado de serviço "DNS local", não hospeda domínios DNS diretamente. Em vez disso, o cliente não carrega o trabalho de entrar em contato com os vários serviços DNS autoritativos na Internet necessários para resolver um nome DNS.
+2. Para resolver o nome DNS, o serviço DNS recursivo localiza os servidores de nomes para o domínio ' contoso.com '. Em seguida, ele contata os servidores de nomes para solicitar o registro DNS ' partners.contoso.com '. Os servidores DNS contoso.com retornam o registro CNAME que aponta para contoso.trafficmanager.net.
+3. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio ' trafficmanager.net ', que são fornecidos pelo serviço do Gerenciador de tráfego do Azure. Em seguida, ele envia uma solicitação para o registro DNS ' contoso.trafficmanager.net ' para esses servidores DNS.
+4. Os servidores de nome do Gerenciador de tráfego recebem a solicitação. Eles escolhem um ponto de extremidade com base em:
 
-    - O estado configurado de cada ponto de extremidade (pontos de extremidade desativados não são devolvidos)
-    - Verifica o estado de funcionamento atual de cada ponto de extremidade, conforme determinado pelo Estado de funcionamento do Gestor de tráfego. Para obter mais informações, consulte [monitorização de ponto final do Gestor de tráfego](traffic-manager-monitoring.md).
-    - O método de encaminhamento de tráfego escolhido. Para obter mais informações, consulte [métodos de encaminhamento do Gestor de tráfego](traffic-manager-routing-methods.md).
+    - O estado configurado de cada ponto de extremidade (pontos de extremidades desabilitados não são retornados)
+    - A integridade atual de cada ponto de extremidade, conforme determinado pelas verificações de integridade do Gerenciador de tráfego. Para obter mais informações, consulte [monitoramento de ponto de extremidade do Traffic Manager](traffic-manager-monitoring.md).
+    - O método de roteamento de tráfego escolhido. Para obter mais informações, consulte [métodos de roteamento do Traffic Manager](traffic-manager-routing-methods.md).
 
-5. O ponto de final escolhido é retornado como outro registo de CNAME no DNS. Neste caso, informe-nos suponha que contoso-us.cloudapp.net é devolvido.
-6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio de "cloudapp.net". Contacta os servidores de nomes para pedir o '.net contoso us.cloudapp"registo de DNS. Um registo DNS "A" que contém o endereço IP do ponto de extremidade de serviço baseadas nos E.U.A. é devolvido.
-7. O serviço DNS recursivo consolida os resultados e devolve uma única resposta DNS para o cliente.
-8. O cliente recebe os resultados DNS e liga-se para o endereço IP indicado. O cliente liga-se para o ponto final de serviço de aplicações diretamente, não através do Gestor de tráfego. Uma vez que é um ponto final HTTPS, o cliente executa o handshake SSL/TLS necessário e, em seguida, faz um pedido HTTP GET para o ' / login. aspx ' página.
+5. O ponto de extremidade escolhido é retornado como outro registro DNS CNAME. Nesse caso, vamos supor que contoso-us.cloudapp.net seja retornado.
+6. Em seguida, o serviço DNS recursivo localiza os servidores de nomes para o domínio ' cloudapp.net '. Ele contata os servidores de nomes para solicitar o registro DNS ' contoso-us.cloudapp.net '. Um registro de DNS ' A ' contendo o endereço IP do ponto de extremidade de serviço baseado nos EUA é retornado.
+7. O serviço DNS recursivo consolida os resultados e retorna uma única resposta DNS para o cliente.
+8. O cliente recebe os resultados de DNS e se conecta ao endereço IP fornecido. O cliente se conecta diretamente ao ponto de extremidade do serviço de aplicativo, não ao Gerenciador de tráfego. Como é um ponto de extremidade HTTPS, o cliente executa o handshake SSL/TLS necessário e, em seguida, faz uma solicitação HTTP GET para a página '/login.aspx '.
 
-O serviço DNS recursivo armazena em cache as respostas DNS que recebe. O resolvedor DNS no dispositivo cliente também coloca em cache o resultado. Colocação em cache permite que as consultas DNS subsequentes que têm de ser respondidas mais rapidamente ao utilizar os dados da cache em vez de consultar outros servidores de nomes. A duração da cache é determinada pela propriedade (TTL) "time-to-live" de cada registo DNS. Valores menores resultam em mais rápida expiração do cache e, portanto, mais viagens para os servidores de nomes do Gestor de tráfego. Valores de mais tempo significam que pode demorar mais tempo para direcionar o tráfego para fora de um ponto de extremidade com falha. Gestor de tráfego permite-lhe configurar o valor de TTL utilizado nas respostas de DNS do Gestor de tráfego para ser tão elevada como 2,147,483,647 segundos e como tão baixo como 0 segundos (em conformidade com o intervalo de máximo [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)), permitindo-lhe escolher o valor mais equilibra as necessidades da sua aplicação.
+O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolvedor de DNS no dispositivo cliente também armazena em cache o resultado. O cache permite que as consultas DNS subsequentes sejam respondidas mais rapidamente usando dados do cache em vez de consultar outros servidores de nomes. A duração do cache é determinada pela propriedade TTL (time-to-Live) de cada registro DNS. Valores menores resultam em expiração de cache mais rápida e, portanto, mais viagens de ida e volta aos servidores de nome do Gerenciador de tráfego. Valores mais longos significam que pode levar mais tempo para direcionar o tráfego para longe de um ponto de extremidade com falha. O Gerenciador de tráfego permite configurar o TTL usado nas respostas de DNS do Gerenciador de tráfego para que seja tão baixo quanto 0 segundos e tão alto quanto 2.147.483.647 segundos (o intervalo máximo em conformidade com [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), permitindo que você escolha o valor que melhor equilibra as necessidades de seu aplicativo.
 
+## <a name="faqs"></a>FAQs
+
+* [Qual endereço IP o Gerenciador de tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [Quais tipos de tráfego podem ser roteados usando o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [Por que estou vendo um erro HTTP ao usar o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [Qual é o impacto no desempenho do uso do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [Quais protocolos de aplicativo posso usar com o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [O Gerenciador de tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [O que é o TTL do DNS e como ele afeta meus usuários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [O quão alto ou baixo posso definir o TTL das respostas do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [Como posso entender o volume de consultas que estão chegando ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o Gestor de tráfego [ativação pós-falha automática e monitorização do ponto de extremidade](traffic-manager-monitoring.md).
+Saiba mais sobre o [monitoramento de ponto de extremidade](traffic-manager-monitoring.md)do Traffic Manager e o failover automático.
 
-Saiba mais sobre o Gestor de tráfego [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md).
+Saiba mais sobre os [métodos de roteamento de tráfego](traffic-manager-routing-methods.md)do Traffic Manager.
 
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png

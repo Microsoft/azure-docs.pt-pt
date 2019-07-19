@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga do Azure com a REST API.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,17 +12,17 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
-ms.author: kumud
-ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884984"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275550"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Criar um balanceador de carga básico do Azure com a REST API
 
-Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Balanceador de carga está disponível em dois SKUs: Basic e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](load-balancer-overview.md#skus).
+Um balanceador de carga do Azure distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para as instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. O Load Balancer está disponível em duas SKUs: Basic e Standard. Compreender a diferença entre as duas versões SKU, [comparações de SKU do Balanceador de carga](load-balancer-overview.md#skus).
  
 Nesta explicação de procedimento mostra como criar um balanceador de carga básico do Azure, utilizando [API REST do Azure](/rest/api/azure/) para ajudar a solicitação de entrada do balanceamento de carga em várias VMs dentro de uma rede virtual do Azure. Estão disponíveis na documentação de referência completa e exemplos adicionais do [referência de REST de Balanceador de carga do Azure](/rest/api/load-balancer/).
  
@@ -51,7 +51,7 @@ O único parâmetro exigido é `location`. Se não definir o *SKU* versão, um b
 | localização | string | Localização do recurso. Obter uma lista atual de localizações com o [lista de localizações](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) operação. |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemplo: Criar e atualizar um balanceador de carga básico
+## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemplo: Criar e atualizar um Load Balancer básico
 
 Neste exemplo, primeiro crie um balanceador de carga básico, juntamente com os respetivos recursos. Em seguida, configure os recursos do Balanceador de carga que incluem uma configuração de IP de front-end, um conjunto de endereços de back-end, uma regra, uma sonda de estado de funcionamento e regras NAT de entrada de balanceamento de carga.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879111"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226103"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -27,9 +27,9 @@ Geração de armazenamento 1 do Azure Data Lake implementa um modelo de controle
 
 Existem dois tipos de listas de controlo de acesso (ACLs) – **ACLs de Acesso** e **ACLs Predefinidas**.
 
-* **ACLs de acesso**: Controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
+* **ACLs de acesso**: Eles controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
 
-* **ACLs predefinidas**: Um "modelo" de ACLs associado uma pasta que determinam as ACLs de acesso para todos os itens subordinados que são criados nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
+* **ACLs padrão**: Um "modelo" de ACLs associadas a uma pasta que determinam as ACLs de acesso para qualquer item filho criado nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
 
 
 Tanto as ACLs de Acesso como as ACLs Predefinidas têm a mesma estrutura.
@@ -133,7 +133,7 @@ Como não há nenhum "grupo principal" associado a utilizadores na geração 1 d
 **Atribuir o grupo proprietário para um novo ficheiro ou pasta**
 
 * **Caso 1**: A pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
-* **Caso 2** (todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta principal.
+* **Caso 2** (A cada outro caso): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 **Alterar o grupo proprietário**
 
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ Quando um novo ficheiro ou pasta são criados numa pasta existente, a ACL Predef
 
 ### <a name="umask"></a>umask
 
-Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um pouco de 9 um valor de 9 bits na pastas principais, que contém um valor RWX para **utilizador proprietário**, **grupo proprietário**, e **outros**.
+Ao criar um ficheiro ou pasta, a umask é utilizada para modificar a forma como as ACLs padrão são definidas no item subordinado. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
 
-A umask para o Azure Data Lake Storage Gen1 uma constante de valor ou seja definido como 007. Este valor se traduz em
+O umask para Azure Data Lake Storage Gen1 é um valor constante definido como 007. Este valor se traduz em
 
 | componente de umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|

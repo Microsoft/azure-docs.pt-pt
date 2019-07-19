@@ -1,95 +1,95 @@
 ---
-title: PowerShell-área de Trabalho Virtual de Windows - Azure
-description: Como resolver problemas com o PowerShell, quando configurar um ambiente de inquilino de área de Trabalho Virtual do Windows.
+title: Windows desktop virtual PowerShell-Azure
+description: Como solucionar problemas com o PowerShell ao configurar um ambiente de locatário de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 06b955365ffc7c0a1dff93db95932d8696293e9f
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 41c3c25962d5cb0d608a226ed77408460446bfa5
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605252"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248199"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
-Utilize este artigo para resolver erros e problemas ao utilizar o PowerShell com a área de Trabalho Virtual do Windows. Para obter mais informações sobre o PowerShell de serviços de ambiente de trabalho remoto, consulte [Windows Powershell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
+Use este artigo para resolver erros e problemas ao usar o PowerShell com a área de trabalho virtual do Windows. Para obter mais informações sobre Serviços de Área de Trabalho Remota PowerShell, consulte [Windows Virtual Desktop PowerShell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/).
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Estamos atualmente não estão a demorar incidentes de suporte, enquanto a área de Trabalho Virtual do Windows está em pré-visualização. Visite o [Comunidade tecnológica da área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de Trabalho Virtual do Windows com a equipe do produto e membros da Comunidade de Active Directory.
+No momento, não estamos adotando casos de suporte enquanto a área de trabalho virtual do Windows está em versão prévia. Visite a [comunidade técnica de área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para discutir o serviço de área de trabalho virtual do Windows com a equipe de produto e os membros ativos da Comunidade.
 
-## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>Comandos do PowerShell utilizados durante a configuração de área de Trabalho Virtual do Windows
+## <a name="powershell-commands-used-during-windows-virtual-desktop-setup"></a>Comandos do PowerShell usados durante a instalação da área de trabalho virtual do Windows
 
-Esta secção lista os comandos do PowerShell que são normalmente usados ao configurar a área de Trabalho Virtual do Windows e fornece formas de resolver os problemas que possam ocorrer ao mesmo tempo a utilizá-los.
+Esta seção lista os comandos do PowerShell que normalmente são usados durante a configuração da área de trabalho virtual do Windows e fornece maneiras de resolver problemas que podem ocorrer ao usá-los.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Erro: Comando RdsAppGroupUser adicionar – o UserPrincipalName especificado já está atribuído a um grupo de aplicações do RemoteApp no conjunto de anfitrião especificado
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Erro: Comando Add-RdsAppGroupUser--o UserPrincipalName especificado já está atribuído a um grupo de aplicativos do RemoteApp no pool de hosts especificado
 
 ```Powershell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Causa:** O nome de utilizador utilizada foi já atribuído a um grupo de aplicação de um tipo diferente. Os utilizadores não não possível atribuir a ambos os um grupo de aplicação de ambiente de trabalho e remoto remoto sob o mesmo pool de host de sessão.
+**Faz** O nome de usuário usado já foi atribuído a um grupo de aplicativos de um tipo diferente. Os usuários não podem ser atribuídos a uma área de trabalho remota e a um grupo de aplicativos remotos no mesmo pool de hosts de sessão.
 
-**CORREÇÃO:** Se o utilizador tem de aplicativos remotos e o ambiente de trabalho remoto, criar conjuntos de outro anfitrião ou conceder acesso de utilizador para o ambiente de trabalho remoto, o que irá permitir a utilização de qualquer aplicativo sobre o anfitrião de sessões de VM.
+**Soluciona** Se o usuário precisar de aplicativos remotos e da área de trabalho remota, crie pools de hosts diferentes ou conceda acesso de usuário à área de trabalho remota, o que permitirá o uso de qualquer aplicativo na VM host da sessão.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Erro: Comando RdsAppGroupUser adicionar – o UserPrincipalName especificado não existe no Azure Active Directory associado ao inquilino de ambiente de trabalho remoto
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Erro: Comando Add-RdsAppGroupUser--o UserPrincipalName especificado não existe no Azure Active Directory associado ao locatário Área de Trabalho Remota
 
 ```PowerShell
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
 ```
 
-**Causa:** Não é possível localizar o utilizador especificado pelo - UserPrincipalName no Azure Active Directory associado ao inquilino de área de Trabalho Virtual do Windows.
+**Faz** O usuário especificado pelo-UserPrincipalName não pode ser encontrado no Azure Active Directory vinculado ao locatário da área de trabalho virtual do Windows.
 
-**CORREÇÃO:** Certifique-se os itens na lista seguinte.
+**Soluciona** Confirme os itens na lista a seguir.
 
-- O utilizador está sincronizado com o Azure Active Directory.
-- O utilizador não está vinculado a empresa-consumidor (B2C) ou commerce do empresa-empresa (B2B).
-- O inquilino de área de Trabalho Virtual do Windows está associado ao Azure Active Directory correto.
+- O usuário está sincronizado com Azure Active Directory.
+- O usuário não está vinculado ao B2C (Business to Consumer) ou ao Business-to-Business (B2B) Commerce.
+- O locatário da área de trabalho virtual do Windows está vinculado ao Azure Active Directory correto.
 
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities – O utilizador não está autorizado para consultar o serviço de gestão
+### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities--o usuário não está autorizado a consultar o serviço de gerenciamento
 
 ```PowerShell
 Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 ```
 
-**Causa:** - TenantName parâmetro
+**Causa:** parâmetro-tenantname
 
-**CORREÇÃO:** Emitir Get-RdsDiagnosticActivities com - TenantName <TenantName>.
+**Soluciona** Emita Get-RdsDiagnosticActivities com-tenantname \<locatárioname >.
 
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities – o utilizador não está autorizado para consultar o serviço de gestão
+### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Get-RdsDiagnosticActivities--o usuário não está autorizado a consultar o serviço de gerenciamento
 
 ```PowerShell
 Get-RdsDiagnosticActivities -Deployment -username <username>
 ```
 
-**Causa:** Usando - opção de implantação.
+**Faz** Usando a opção-Deployment.
 
-**CORREÇÃO:** -opção de implantação pode ser utilizado apenas por administradores de implementação. Estes administradores normalmente são membros da Equipe do ambiente de trabalho serviços/Windows Virtual ambiente de trabalho remoto. Substitua a - opção de implantação com - TenantName <TenantName>.
+**Correção:** -a opção de implantação pode ser usada somente por administradores de implantação. Normalmente, esses administradores são membros da equipe de área de trabalho virtual Serviços de Área de Trabalho Remota/Windows. Substitua a opção-Deployment por-tenantname \<locatárioname >.
 
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: Novo-RdsRoleAssignment – o utilizador não está autorizado para consultar o serviço de gestão
+### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Erro: New-RdsRoleAssignment--o usuário não está autorizado a consultar o serviço de gerenciamento
 
-**Fazer com que 1:** A conta que está a ser utilizada não tem permissões de proprietário de serviços de ambiente de trabalho remoto no inquilino.
+**Causa 1:** A conta que está sendo usada não tem Serviços de Área de Trabalho Remota permissões de proprietário no locatário.
 
-**Corrigi 1:** Um utilizador com permissões de proprietário do Remote Desktop Services tem de executar a atribuição de função.
+**Correção 1:** Um usuário com Serviços de Área de Trabalho Remota permissões de proprietário precisa executar a atribuição de função.
 
-**Causa 2:** A conta que está a ser utilizada tem permissões de proprietário de serviços de ambiente de trabalho remoto, mas não faz parte do Azure Active Directory do inquilino ou não tem permissões para consultar o Azure Active Directory onde o utilizador está localizado.
+**Causa 2:** A conta que está sendo usada tem Serviços de Área de Trabalho Remota permissões de proprietário, mas não faz parte do Azure Active Directory do locatário ou não tem permissões para consultar a Azure Active Directory onde o usuário está localizado.
 
-**Corrigi 2:** Um utilizador com permissões do Active Directory tem de executar a atribuição de função.
+**Correção 2:** Um usuário com permissões de Active Directory precisa executar a atribuição de função.
 
 >[!Note]
->Novo RdsRoleAssignment não é possível atribuir permissões a um utilizador que não existe no Azure Active Directory (AD).
+>New-RdsRoleAssignment não pode conceder permissões a um usuário que não existe no Azure Active Directory (AD).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para uma descrição geral na área de Trabalho Virtual do Windows e as faixas de escalonamento de resolução de problemas, consulte [descrição geral, comentários e suporte de resolução de problemas](troubleshoot-set-up-overview.md).
-- Para resolver problemas ao criar um conjunto de inquilino e o anfitrião num ambiente de área de Trabalho Virtual do Windows, consulte [inquilino e o host a criação do agrupamento](troubleshoot-set-up-issues.md).
-- Para resolver problemas ao configurar uma máquina virtual (VM) na área de Trabalho Virtual do Windows, consulte [configuração de máquina virtual do anfitrião de sessão](troubleshoot-vm-configuration.md).
-- Para resolver problemas com ligações de cliente de área de Trabalho Virtual do Windows, consulte [ligações de cliente de ambiente de trabalho remoto](troubleshoot-client-connection.md).
-- Para saber mais sobre o serviço de pré-visualização, veja [ambiente de pré-visualização do Windows Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Para seguir um tutorial de resolução de problemas, consulte [Tutorial: Resolver problemas de implementações de modelo do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Para saber mais sobre a auditoria de ações, veja [auditar operações com o Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Para saber mais sobre as ações para determinar os erros durante a implementação, veja [ver as operações de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Para obter uma visão geral da solução de problemas da área de trabalho virtual do Windows e das faixas de escalonamento, consulte [visão geral da solução de problemas, comentários e suporte](troubleshoot-set-up-overview.md).
+- Para solucionar problemas ao criar um pool de locatários e de host em um ambiente de área de trabalho virtual do Windows, confira [criação de locatário e pool](troubleshoot-set-up-issues.md)de hosts.
+- Para solucionar problemas durante a configuração de uma VM (máquina virtual) na área de trabalho virtual do Windows, consulte [configuração de máquina virtual do host de sessão](troubleshoot-vm-configuration.md).
+- Para solucionar problemas com conexões de cliente de área de trabalho virtual do Windows, consulte [área de trabalho remota conexões de cliente](troubleshoot-client-connection.md).
+- Para saber mais sobre o serviço de visualização, consulte [ambiente do Windows Desktop Preview](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Para percorrer um tutorial de solução de problemas [, consulte o tutorial: Solucionar problemas de implantações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)de modelo do Resource Manager.
+- Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+- Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

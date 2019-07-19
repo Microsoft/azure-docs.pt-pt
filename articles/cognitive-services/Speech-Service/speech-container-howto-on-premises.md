@@ -1,5 +1,5 @@
 ---
-title: Usar com kubernetes e Helm
+title: Utilizar com o Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
 description: Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 7/16/2019
 ms.author: dapine
-ms.openlocfilehash: ace519d9be5945754fb79dc4c6fbb244c665d98b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: ba292a7d3bdf58ff78764bc2095fdf4a8c486070
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302614"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326210"
 ---
-# <a name="use-with-kubernetes-and-helm"></a>Usar com kubernetes e Helm
+# <a name="use-with-kubernetes-and-helm"></a>Utilizar com o Kubernetes e Helm
 
-Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados e várias opções de configuração. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar contêineres de serviço de fala](speech-container-howto.md).
+Uma opção para gerenciar seus contêineres de fala no local é usar kubernetes e Helm. Usando kubernetes e Helm para definir as imagens de contêiner de conversão de texto em texto e de Text para fala, criaremos um pacote kubernetes. Este pacote será implantado em um cluster kubernetes local. Por fim, exploraremos como testar os serviços implantados e várias opções de configuração. Para obter mais informações sobre como executar contêineres do Docker sem orquestração kubernetes, consulte [instalar e executar contêineres de serviço de fala](speech-container-howto.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -8,35 +8,43 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 43d0e7566102c882d4a2819237a795fdff425f75
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b366352d19b3f1e03e32e5fbddf0cb2816fa1ba3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446471"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320292"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
-Lista completa dos limites entre a ferramenta QnA Maker.
+
+Os limites de QnA Maker fornecidos abaixo são uma combinação dos [limites do tipo de preço Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity) e os [limites do tipo de preço do QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/). Você precisa saber os dois conjuntos de limites para entender quantas bases de dados de conhecimento você pode criar por recurso e o tamanho de cada base de dados de conhecimento.
 
 ## <a name="knowledge-bases"></a>Bases de dados de conhecimento
 
-* Número máximo de bases de dados de conhecimento com base em [limites do escalão de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+O número máximo de bases de dados de conhecimento baseia-se nos [limites da camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
 
 |**Escalão de pesquisa do Azure** | **Gratuito** | **Básica** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Número máximo de bases de dados de conhecimento publicados permitido|2|14|49|199|199|2,999|
+|Número máximo de bases de dados de conhecimento publicadas permitido|2|14|49|199|199|2,999|
 
- Por exemplo, se o seu escalão tem 15 índices permitidos, pode publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicado). O índice décimo quinto, `testkb`, é utilizado para todas as bases de dados de conhecimento para criação e teste. 
+ Por exemplo, se sua camada tiver 15 índices permitidos, você poderá publicar 14 bases de dados de conhecimento (1 índice por base de dados de conhecimento publicado). O índice décimo-quinto, `testkb`, é usado para todas as bases de dados de conhecimento para criação e teste. 
 
 ## <a name="extraction-limits"></a>Limites de extração
-* Número máximo de ficheiros que podem ser extraídos e o tamanho máximo do ficheiro: Consulte [preços QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Número máximo de ligações profunda que podem ser pesquisados para extração de QnAs de páginas HTML de perguntas frequentes: 20
+
+### <a name="maximum-number-of-files"></a>Número máximo de arquivos
+
+O número máximo de arquivos que podem ser extraídos e o tamanho máximo do arquivo baseia-se nos limites do seu **[QnA Maker tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** .
+
+### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de links profundos da URL
+
+O número máximo de links profundos que podem ser rastreados para extração de QnAs de uma página de URL é **20**.
 
 ## <a name="metadata-limits"></a>Limites de metadados
-* Número máximo de campos de metadados por base de dados de conhecimento, com base em [limites do escalão de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
+
+O número máximo de campos de metadados por base de dados de conhecimento baseia-se em seus **[limites de camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
 
 |**Escalão de pesquisa do Azure** | **Gratuito** | **Básica** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -44,33 +52,33 @@ Lista completa dos limites entre a ferramenta QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Limites de conteúdo de Base de dados de conhecimento
 Limites geral para o conteúdo na base de dados de conhecimento:
-* Comprimento do texto de resposta: 25,000
-* Comprimento do texto da pergunta: 1,000
+* Tamanho do texto de resposta: 25,000
+* Tamanho do texto da pergunta: 1,000
 * Comprimento do texto de chave/valor de metadados: 100
-* Carateres suportados para o nome de metadados: Letras do alfabeto, dígitos e _  
-* Carateres suportados para o valor de metadados: Tudo, exceto: e | 
-* Comprimento do nome de ficheiro: 200
+* Caracteres com suporte para o nome de metadados: Alfabetos, dígitos e _  
+* Caracteres com suporte para o valor de metadados: Todos, exceto: e | 
+* Comprimento do nome do arquivo: 200
 * Formatos de ficheiro suportados: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".
-* Número máximo de perguntas alternativos: 300
-* Número máximo de pares de perguntas respostas: Depende da [escalão do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhido. Um par de perguntas e respostas é mapeado para um documento no índice da Azure Search. 
+* Número máximo de perguntas alternativas: 300
+* Número máximo de pares de respostas de perguntas: Depende dos **[limites da camada de Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)** escolhidos. Um par de perguntas e respostas é um documento em seu índice de Azure Search. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Crie limites de chamada de base de dados de conhecimento:
 Estes representam os limites para cada criar ação de base de dados; ou seja, clicar *KB criar* ou chamar a API de CreateKnowledgeBase.
-* Número máximo de perguntas alternativos por resposta: 300
+* Número máximo de perguntas alternativas por resposta: 300
 * Número máximo de URLs: 10
-* Número máximo de ficheiros: 10
+* Número máximo de arquivos: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Atualizar limites de chamada de base de dados de conhecimento
 Estes representam os limites para cada ação de atualização; ou seja, clicar *guardar e treinar* ou chamar a API de UpdateKnowledgeBase.
 * Comprimento de cada nome de origem: 300
-* Número máximo de perguntas alternativos adicionados ou excluídos: 300
+* Número máximo de perguntas alternativas adicionadas ou excluídas: 300
 * Número máximo de campos de metadados adicionados ou excluídos: 10
-* Número máximo de URLs que podem ser atualizados: 5
+* Número máximo de URLs que podem ser atualizadas: 5
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba quando e como alterar os escalões de serviço:
+Saiba quando e como alterar as camadas de serviço:
 
-* [A ferramenta QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando tem de ter mais arquivos de origem ou documentos maiores em sua base de dados de conhecimento, para além do escalão atual, atualize o serviço QnA Maker escalão de preço.
-* [Serviço de aplicações](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Quando a sua base de dados de conhecimento precisa ser usado mais pedidos a partir da sua aplicação de cliente, atualize o escalão de preço do serviço de aplicações.
-* [O Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Quando planeia ter muitas bases de dados de conhecimento, atualize o serviço de Azure Search escalão de preço.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando você precisar ter mais arquivos de origem ou documentos maiores na sua base de dados de conhecimento, além da sua camada atual, atualize seu tipo de preço do QnA Maker Service.
+* [Serviço de aplicativo](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Quando sua base de dados de conhecimento precisar atender a mais solicitações de seu aplicativo cliente, atualize seu tipo de preço do serviço de aplicativo.
+* [Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Quando você planeja ter muitas bases de dados de conhecimento, atualize seu tipo de preço do Azure Search Service.

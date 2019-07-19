@@ -3,7 +3,7 @@ title: Executar uma carga de trabalho paralela – Azure Batch .NET
 description: Tutorial – Transcodificar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente .NET para o Batch
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595239"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321877"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch com a API .NET
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o lote do Azure usando a API do .NET
 
 Utilize o Azure Batch para executar trabalhos de lote de computação de alto desempenho (HPC) e paralelos em larga escala de forma eficaz no Azure. Este tutorial guia-o por um exemplo C# de execução de uma carga de trabalho paralela com o Batch. Obteve mais informações sobre um fluxo de trabalho de aplicações do Batch comum e como interagir programaticamente com recursos do Batch e de Armazenamento. Saiba como:
 
@@ -37,13 +37,13 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, macOS ou Windows.
+* [Visual Studio 2017 ou posterior](https://www.visualstudio.com/vs), ou [.NET Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) para Linux, MacOS ou Windows.
 
 * Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md).
 
-* [Windows versão de 64 bits do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, terá apenas o ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
+* [Windows versão de 64 bits do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, você só precisa do arquivo zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -153,7 +153,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-A aplicação cria um objeto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) para criar e gerir conjuntos, trabalhos e tarefas no serviço Batch. O cliente Batch no exemplo utiliza a autenticação de chave partilhada. Batch também suporta a autenticação via [do Azure Active Directory](batch-aad-auth.md) para autenticar utilizadores individuais ou uma aplicação autónoma.
+A aplicação cria um objeto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) para criar e gerir conjuntos, trabalhos e tarefas no serviço Batch. O cliente Batch no exemplo utiliza a autenticação de chave partilhada. O lote também dá suporte à autenticação por meio de [Azure Active Directory](batch-aad-auth.md) para autenticar usuários individuais ou um aplicativo autônomo.
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -175,8 +175,8 @@ Em seguida, os ficheiros são carregados para o contentor de entrada a partir da
 
 Estão envolvidos dois métodos em `Program.cs` no carregamento de ficheiros:
 
-* `UploadResourceFilesToContainerAsync`: Retorna uma coleção de objetos ResourceFile e chama internamente `UploadResourceFileToContainerAsync` para carregar cada ficheiro que é transmitido no `inputFilePaths` parâmetro.
-* `UploadResourceFileToContainerAsync`: Carrega cada ficheiro como um blob para o contentor de entrada. Depois de carregar o ficheiro, obtém uma assinatura de acesso partilhado (SAS) para o blob e devolve um objeto ResourceFile para a representar.
+* `UploadResourceFilesToContainerAsync`: Retorna uma coleção de objetos ResourceFile e chamadas `UploadResourceFileToContainerAsync` internas para carregar cada arquivo que é passado `inputFilePaths` no parâmetro.
+* `UploadResourceFileToContainerAsync`: Carrega cada arquivo como um blob para o contêiner de entrada. Depois de carregar o ficheiro, obtém uma assinatura de acesso partilhado (SAS) para o blob e devolve um objeto ResourceFile para a representar.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -248,7 +248,7 @@ await job.CommitAsync();
 
 O exemplo cria tarefas no trabalho com uma chamada para o método `AddTasksAsync`, que cria uma lista de objetos [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Cada `CloudTask` executa o ffmpeg para processar um objeto de entrada `ResourceFile` através de uma propriedade [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). O ffmpeg foi instalado anteriormente em cada nó quando o conjunto foi criado. Aqui, a linha de comandos executa o ffmpeg para converter cada ficheiro MP4 (vídeo) de entrada num ficheiro MP3 (áudio).
 
-O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa. Anteriormente no código de exemplo, um URL de assinatura de acesso partilhado (`outputContainerSasUrl`) foi obtido para fornecer acesso de escrita para o contentor de saída. Tenha em atenção as condições definidas no `outputFile` objeto. Um ficheiro de saída a partir de uma tarefa apenas é carregado para o contentor depois da tarefa foi concluída com êxito (`OutputFileUploadCondition.TaskSuccess`). Consulte o completo [exemplo de código](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) no GitHub para obter mais detalhes de implementação.
+O exemplo cria um objeto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) para o ficheiro MP3 depois de executar a linha de comandos. Os ficheiros de saída de cada tarefa (um, neste caso) são carregados para um contentor na conta de armazenamento associada através da propriedade [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) da tarefa. Anteriormente no exemplo de código, uma URL de assinatura de acesso`outputContainerSasUrl`compartilhado () foi obtida para fornecer acesso de gravação ao contêiner de saída. Observe as condições definidas no `outputFile` objeto. Um arquivo de saída de uma tarefa é carregado somente no contêiner depois que a tarefa for concluída com êxito`OutputFileUploadCondition.TaskSuccess`(). Consulte o [exemplo de código](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) completo no GitHub para obter mais detalhes de implementação.
 
 Em seguida, o exemplo adiciona tarefas ao trabalho com o método [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), o que as coloca em fila para serem executadas nos nós de computação.
 
@@ -318,7 +318,7 @@ Depois de executar as tarefas, a aplicação elimina automaticamente o contentor
 
 Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

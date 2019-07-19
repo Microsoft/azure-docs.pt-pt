@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: jeconnoc
-ms.openlocfilehash: be78fd35f7c4f5079b30e53c740bce91e515643a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871926"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326693"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 
@@ -42,7 +42,7 @@ Para decidir se a aplicação pode utilizar eficazmente os conjuntos de dimensio
 - O balanceamento de carga de camada 4 com conjuntos de dimensionamento compostos por vários grupos de colocação requer o [SKU Balanceador de Carga do Azure Standard](../load-balancer/load-balancer-standard-overview.md). O SKU Balanceador de Carga do Azure Standard oferece mais benefícios, como a capacidade de balancear a carga entre diversos conjuntos de dimensionamento. O SKU Standard também requer que os conjuntos de dimensionamento tenham um Grupo de Segurança de rede associado ao mesmo, caso contrário, os conjuntos NAT não funcionam corretamente. Se tiver de utilizar o SKU Balanceador de Carga do Azure Básico, confirme que o conjunto de dimensionamento está configurado para utilizar um único grupo de colocação, que é a predefinição.
 - O balanceamento de carga de camada 7 com o Gateway de Aplicação do Azure é suportado para todos os conjuntos de dimensionamento.
 - Um conjunto de dimensionamento é definido com uma única sub-rede - certifique-se de que a sub-rede tem um espaço de endereço suficientemente grande para todas as VMs necessárias. Por predefinição, um conjunto de dimensionamento aprovisiona em excesso (cria VMs adicionais no momento da implementação ou ao aumentar horizontalmente, o que não lhe é cobrado) para melhorar a fiabilidade e o desempenho da implementação. Permita um espaço de endereço 20% maior do que o número de VMs que planeia dimensionar.
-- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Veja esta ligação [Regiões do Azure e disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Os domínios de falha e os domínios de atualização só são consistentes dentro de um grupo de colocação. Esta arquitetura não altera a disponibilidade geral de um conjunto de dimensionamento, uma vez que as VMs são distribuídas por hardware físico distinto, mas tal não significa que, se precisar de garantir que duas VMs estão em hardware diferente, certifique-se de que estão em domínios de falha diferentes no mesmo grupo de colocação. Consulte estas [Opções de disponibilidade](/azure/virtual-machines/windows/availability)de link. 
 - O domínio de falha e o ID do grupo de colocação são apresentados na _vista de instância_ da VM do conjunto de dimensionamento. Pode ver a vista de instância da VM de um conjunto de dimensionamento no [Explorador de Recursos do Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Criar um conjunto de dimensionamento de grande escala

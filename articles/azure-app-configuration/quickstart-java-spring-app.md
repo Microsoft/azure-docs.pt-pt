@@ -1,6 +1,6 @@
 ---
-title: Início rápido para saber como utilizar a configuração de aplicações do Azure | Documentos da Microsoft
-description: Guia de introdução para utilizar a configuração de aplicações do Azure com aplicações de Java Spring.
+title: Início rápido para aprender a usar a configuração de Azure App | Microsoft Docs
+description: Um guia de início rápido para usar Azure App configuração com aplicativos Java Spring.
 services: azure-app-configuration
 documentationcenter: ''
 author: yidon
@@ -14,57 +14,55 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393557"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326472"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início rápido: Criar uma aplicação de Java Spring com a configuração de aplicações
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início rápido: Criar um aplicativo Spring Java com configuração Azure App
 
-Configuração de aplicações do Azure é um serviço de configuração gerida no Azure. Pode usá-lo facilmente armazenar e gerir todas as suas definições de aplicação num único local que é separada a partir do código. Este guia de introdução mostra-lhe como incorporar o serviço uma aplicação Java Spring.
-
-Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
+Neste guia de início rápido, você incorpora Azure App configuração em um aplicativo Spring Java para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer este início rápido, instale um suportados [Kit de desenvolvimento Java (JDK)](https://docs.microsoft.com/java/azure/jdk) com a versão 8 e [Apache Maven](https://maven.apache.org/) com a versão 3.0 ou superior.
+- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com suporte com a versão 8.
+- [Apache Maven](https://maven.apache.org/download.cgi) versão 3,0 ou superior.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="create-an-app-configuration-store"></a>Criar um arquivo de configuração de aplicação
+## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Explorador de configuração** >  **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
 
     | Chave | Value |
     |---|---|
     | /application/config.message | Olá |
 
-    Deixe **rótulo** e **tipo de conteúdo** branco por agora.
+    Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
 
-## <a name="create-a-spring-boot-app"></a>Criar uma aplicação Spring Boot aplicação
+## <a name="create-a-spring-boot-app"></a>Criar um aplicativo Spring boot
 
-Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo projeto de Spring Boot.
+Você usa o [Spring Initializr](https://start.spring.io/) para criar um novo projeto Spring boot.
 
 1. Navegue para <https://start.spring.io/>.
 
 2. Especifique as seguintes opções:
 
-   * Gerar um **Maven** do projeto com **Java**.
-   * Especifique um **Spring Boot** versão igual ou superior a 2.0.
-   * Especifique a **grupo** e **artefacto** nomes para a sua aplicação.
-   * Adicionar a **Web** dependência.
+   * Gere um projeto **Maven** com **Java**.
+   * Especifique uma versão do **Spring boot** que seja igual ou maior que 2,0.
+   * Especifique os nomes de **grupo** e **artefato** para seu aplicativo.
+   * Adicione a dependência **da Web** .
 
-3. Depois de especificar as opções anteriores, selecione **projeto gerar**. Quando lhe for pedido, transfira o projeto para um caminho no seu computador local.
+3. Depois de especificar as opções anteriores, selecione **gerar projeto**. Quando solicitado, baixe o projeto para um caminho no computador local.
 
-## <a name="connect-to-an-app-configuration-store"></a>Ligar a um arquivo de configuração de aplicação
+## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Depois de extrair os ficheiros no sistema local, a simple aplicação de Spring Boot está pronta para edição. Localize a *pom* ficheiro no diretório de raiz da sua aplicação.
+1. Depois de extrair os arquivos no sistema local, seu aplicativo Spring boot simples estará pronto para edição. Localize o arquivo *pom. xml* no diretório raiz do seu aplicativo.
 
-2. Abra o *pom. XML* ficheiro num editor de texto e adicione o starter Spring Cloud Azure Config à lista de `<dependencies>`:
+2. Abra o arquivo *pom. xml* em um editor de texto e adicione o iniciador de configuração do Spring Cloud do Azure à `<dependencies>`lista de:
 
     ```xml
     <dependency>
@@ -74,7 +72,7 @@ Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo proj
     </dependency>
     ```
 
-3. Crie um novo ficheiro de Java com o nome *MessageProperties.java* no diretório do pacote da sua aplicação. Adicione as seguintes linhas:
+3. Crie um novo arquivo Java chamado *MessageProperties. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
 
     ```java
     @ConfigurationProperties(prefix = "config")
@@ -91,7 +89,7 @@ Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo proj
     }
     ```
 
-4. Crie um novo ficheiro de Java com o nome *HelloController.java* no diretório do pacote da sua aplicação. Adicione as seguintes linhas:
+4. Crie um novo arquivo Java chamado *HelloController. java* no diretório do pacote do seu aplicativo. Adicione as seguintes linhas:
 
     ```java
     @RestController
@@ -109,7 +107,7 @@ Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo proj
     }
     ```
 
-5. Abra o ficheiro de Java do aplicativo principal e adicione `@EnableConfigurationProperties` para ativar esta funcionalidade.
+5. Abra o arquivo Java do aplicativo principal e adicione `@EnableConfigurationProperties` para habilitar esse recurso.
 
     ```java
     @SpringBootApplication
@@ -121,26 +119,26 @@ Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo proj
     }
     ```
 
-6. Crie um novo ficheiro designado `bootstrap.properties` sob o diretório de recursos da sua aplicação e adicione as seguintes linhas ao ficheiro. Substitua os valores de exemplo com as propriedades adequadas para seu armazenamento de configuração de aplicação.
+6. Crie um novo arquivo chamado `bootstrap.properties` no diretório de recursos do seu aplicativo e adicione as linhas a seguir ao arquivo. Substitua os valores de exemplo pelas propriedades apropriadas para seu repositório de configuração de aplicativo.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
+## <a name="build-and-run-the-app-locally"></a>Compilar e executar o aplicativo localmente
 
-1. Criar a sua aplicação de Spring Boot com o Maven e executá-lo, por exemplo:
+1. Crie seu aplicativo Spring boot com o Maven e execute-o, por exemplo:
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
-2. Depois da aplicação está em execução, utilize *curl* para testar seu aplicativo, por exemplo:
+2. Depois que o aplicativo estiver em execução, use a *rotação* para testar seu aplicativo, por exemplo:
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
-    Verá a mensagem que introduziu no arquivo de configuração de aplicação.
+    Você verá a mensagem inserida no repositório de configuração de aplicativo.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -148,9 +146,9 @@ Utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo proj
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um novo arquivo de configuração de aplicação e Use com uma aplicação Java Spring. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/).
+Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Spring Java. Para obter mais informações, consulte [Spring no Azure](https://docs.microsoft.com/java/azure/spring-framework/).
 
-Para saber mais sobre como utilizar a configuração de aplicações, avance para o próximo tutorial que demonstra a autenticação.
+Para saber mais sobre como usar a configuração de aplicativo, prossiga para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Integração de identidade gerida](./howto-integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Cassandra API com Java – Azure Cosmos DB'
+title: 'Início rápido: API do Cassandra com Java-Azure Cosmos DB'
 description: Este guia de introdução mostra como utilizar a Cassandra API do Azure Cosmos DB para criar uma aplicação de perfil com o portal do Azure e o Java
 ms.service: cosmos-db
 author: SnehaGunda
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c3bfcffacee7df8a5abf59676a1c47fa283dee7b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519027"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325468"
 ---
-# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação do Cassandra com o Java SDK e o Azure Cosmos DB
+# <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Início rápido: Compilar um aplicativo Cassandra com o SDK do Java e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -34,7 +34,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 
 Além disso, necessita:
 
-* [Kit de desenvolvimento Java (JDK) versão 8](https://aka.ms/azure-jdks)
+* [Java Development Kit (JDK) versão 8](https://aka.ms/azure-jdks)
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário [Maven](https://maven.apache.org/)
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
@@ -71,7 +71,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação do Cassandra a 
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em saber de que forma o código cria os recursos da base de dados, pode rever os fragmentos seguintes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). Estes fragmentos são retirados do ficheiro `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java`.  
+Este passo é opcional. Se estiver interessado em saber de que forma o código cria os recursos da base de dados, pode rever os fragmentos seguintes. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string). Esses trechos de código são todos obtidos do arquivo *src/main/java/com/Azure/cosmosdb/Cassandra/util/CassandraUtils. java* .  
 
 * As opções anfitrião de Cassandra, porta, nome de utilizador, palavra-passe e SSL estão definidas. As informações de cadeia de ligação provêm da página da cadeia de ligação no portal do Azure.
 
@@ -85,7 +85,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
     return cluster.connect();
     ```
 
-Os fragmentos seguintes são do ficheiro `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java`.
+Os trechos de código a seguir são do arquivo *src/main/java/com/Azure/cosmosdb/Cassandra/Repository/userrepository. java* .
 
 * Criar um keyspace novo.
 

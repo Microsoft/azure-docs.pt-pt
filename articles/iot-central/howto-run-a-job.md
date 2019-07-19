@@ -1,108 +1,108 @@
 ---
-title: Criar e executar tarefas na sua aplicação do Azure IoT Central | Documentos da Microsoft
-description: Tarefas do Azure IoT Central permitem funcionalidades de gestão de dispositivos em massa, como atualizar uma propriedade do dispositivo, definição ou executar um comando.
+title: Criar e executar trabalhos em seu aplicativo de IoT Central do Azure | Microsoft Docs
+description: Os trabalhos do Azure IoT Central permitem recursos de gerenciamento de dispositivos em massa, como a atualização de uma propriedade de dispositivo, a configuração ou a execução de um comando.
 ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/18/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 903b4f1ea1484aec827c4b2d54c8dd8a9dd69d8f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 298770b1b2da816ddef9154fafb20d7c6cb82df3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509537"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849031"
 ---
-# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
+# <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
 
-Pode utilizar o Microsoft Azure IoT Central para gerir os seus dispositivos ligados à escala da utilização de tarefas. As tarefas permitem em massa a atualizações para as propriedades dos dispositivos, definições e comandos. Este artigo explica como começar a utilizar as tarefas em seu próprio aplicativo.
+Você pode usar Microsoft Azure IoT Central para gerenciar seus dispositivos conectados em escala usando trabalhos. Os trabalhos permitem que você faça atualizações em massa nas propriedades, configurações e comandos do dispositivo. Este artigo explica como começar a usar trabalhos em seu próprio aplicativo.
 
-## <a name="create-and-run-a-job"></a>Criar e executar uma tarefa
+## <a name="create-and-run-a-job"></a>Criar e executar um trabalho
 
-Esta secção mostra-lhe como criar e executar uma tarefa. Ele mostra como aumentar a velocidade de ventoinha para várias máquinas de venda automática refrigerated.
+Esta seção mostra como criar e executar um trabalho. Ele mostra como aumentar a velocidade do ventilador para várias máquinas de vendas refrigeradas.
 
-1. Navegue até às tarefas no painel de navegação.
+1. Navegue até trabalhos no painel de navegação.
 
-1. Selecione **+ novo** para criar uma nova tarefa.
+1. Selecione **+ novo** para criar um novo trabalho.
 
-    ![Criar nova tarefa](./media/howto-run-a-job/createnewjob.png)
+    ![Criar novo trabalho](./media/howto-run-a-job/createnewjob.png)
 
-1. Introduza um nome e descrição para identificar a tarefa que está a criar.
+1. Insira um nome e uma descrição para identificar o trabalho que você está criando.
 
-1. Selecione o conjunto de dispositivo que pretende aplicar ao seu trabalho. Depois de definir a selecionar o dispositivo, verá no lado direito, preencha com os dispositivos no conjunto de dispositivos. Se selecionar um conjunto de dispositivo quebrada, sem dispositivos apresentam e verá uma mensagem que o seu conjunto de dispositivo foi interrompido.
+1. Selecione o conjunto de dispositivos ao qual você deseja que seu trabalho se aplique. Depois de selecionar o conjunto de dispositivos, você verá o lado direito popular com os dispositivos no conjunto de dispositivos. Se você selecionar um conjunto de dispositivos quebrado, nenhum dispositivo será exibido e você verá uma mensagem informando que seu conjunto de dispositivos está quebrado.
 
-1. Em seguida, selecione o tipo de tarefa para definir (uma definição, propriedade ou comando). Selecione **+** ao lado do tipo de tarefa selecionada e adicionar as suas operações.
+1. Em seguida, escolha o tipo de trabalho a ser definido (uma configuração, propriedade ou comando). Selecione **+** ao lado do tipo de trabalho selecionado e adicione suas operações.
 
-    ![Configurar tarefa](./media/howto-run-a-job/configurejob.png)
+    ![Configurar trabalho](./media/howto-run-a-job/configurejob.png)
 
-1. No lado direito, selecione os dispositivos que pretende executar a tarefa. Ao selecionar a caixa de verificação principal, todos os dispositivos são selecionados no conjunto de dispositivo inteiro. Ao selecionar a caixa de verificação junto **nome**, são selecionados todos os dispositivos na página atual.
+1. No lado direito, escolha os dispositivos nos quais você gostaria de executar o trabalho. Ao marcar a caixa de seleção superior, todos os dispositivos são selecionados em todo o conjunto de dispositivos. Ao marcar a caixa de seleção ao lado de **nome**, todos os dispositivos na página atual são selecionados.
 
-1. Depois de selecionar os seus dispositivos, escolha **execute** ou **guardar**. A tarefa é agora apresentado no principal **tarefas** página. Nesta vista, pode ver a tarefa em execução e o histórico de qualquer anteriormente executar tarefas. Seu trabalho em execução sempre é exibido na parte superior da lista. Seu trabalho guardado pode ser aberto novamente em qualquer altura para continuar a editar ou para executar.
+1. Depois de selecionar os dispositivos, escolha **executar** ou **salvar**. O trabalho agora aparece na página de **trabalhos** principais. Nessa exibição, você pode ver seu trabalho em execução no momento e o histórico de qualquer trabalho executado anteriormente. O trabalho em execução sempre aparece na parte superior da lista. Seu trabalho salvo pode ser aberto novamente a qualquer momento para continuar editando ou para ser executado.
 
-    ![Ver tarefa](./media/howto-run-a-job/viewjob.png)
+    ![Exibir trabalho](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
-    > Pode ver o histórico das suas tarefas de execução anterior até 30 dias.
+    > Você pode exibir o histórico de seus trabalhos executados anteriormente por até 30 dias.
 
-1. Para obter uma descrição geral do seu trabalho, selecione a tarefa para ver a partir da lista. Esta descrição geral contém os detalhes da tarefa, dispositivos e valores de estado do dispositivo. Esta descrição geral, pode também selecionar **detalhes da tarefa de transferência** para transferir um ficheiro. csv de detalhes do seu trabalho, incluindo os dispositivos e os respetivos valores de estado. Estas informações podem ser úteis para resolução de problemas.
+1. Para obter uma visão geral do seu trabalho, selecione o trabalho a ser exibido na lista. Esta visão geral contém os detalhes do trabalho, dispositivos e valores de status do dispositivo. Nesta visão geral, você também pode selecionar **baixar detalhes do trabalho** para baixar um arquivo. csv dos detalhes do seu trabalho, incluindo os dispositivos e seus valores de status. Essas informações podem ser úteis para a solução de problemas.
 
     ![Ver o estado do dispositivo](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>Parar uma tarefa em execução
+### <a name="stop-a-running-job"></a>Interromper um trabalho em execução
 
-Para parar uma tarefa em execução, selecione-o e escolha **parar** no painel. As alterações de estado de tarefa para refletir que a tarefa está parada.
+Para interromper um trabalho em execução, selecione-o e escolha **parar** no painel. O status do trabalho muda para refletir que o trabalho foi interrompido.
 
-   ![Parar tarefa](./media/howto-run-a-job/stopjob.png)
+   ![Parar trabalho](./media/howto-run-a-job/stopjob.png)
 
-### <a name="run-a-stopped-job"></a>Executar uma tarefa parada
+### <a name="run-a-stopped-job"></a>Executar um trabalho parado
 
-Para executar uma tarefa que está atualmente parada, selecione a tarefa de paragem. Escolher **executar** no painel. As alterações de estado de tarefa para refletir a tarefa está agora em execução novamente.
+Para executar um trabalho que está parado no momento, selecione o trabalho parado. Escolha **executar** no painel. O status do trabalho muda para refletir que o trabalho agora está em execução novamente.
 
-   ![Tarefa de retomada de forma](./media/howto-run-a-job/resumejob.png)
+   ![Trabalho retomado](./media/howto-run-a-job/resumejob.png)
 
-## <a name="copy-a-job"></a>Uma tarefa de cópia
+## <a name="copy-a-job"></a>Copiar um trabalho
 
-Para copiar uma tarefa existente que criou, selecione-a partir da página de tarefas principal e selecione **cópia**. É aberta uma nova cópia da configuração da tarefa para editar. Pode guardar ou executar a tarefa de novo. Se foram efetuadas quaisquer alterações ao seu conjunto de dispositivo selecionado, eles são refletidos nesta tarefa copiado para editar.
+Para copiar um trabalho existente que você criou, selecione-o na página principais trabalhos e selecione **copiar**. Uma nova cópia da configuração do trabalho é aberta para você editar. Você pode salvar ou executar o novo trabalho. Se forem feitas alterações no conjunto de dispositivos selecionado, elas serão refletidas nesse trabalho copiado para você editar.
 
-   ![Tarefa de cópia](./media/howto-run-a-job/copyjob.png)
+   ![Trabalho de cópia](./media/howto-run-a-job/copyjob.png)
 
-## <a name="view-the-job-status"></a>Ver o estado da tarefa
+## <a name="view-the-job-status"></a>Exibir o status do trabalho
 
-Depois de uma tarefa é criada, o **estado** atualizações de coluna com a mensagem de estado mais recente da tarefa. A tabela seguinte lista os valores de estado possíveis:
+Depois que um trabalho é criado, a coluna **status** é atualizada com a mensagem de status mais recente do trabalho. A tabela a seguir lista os valores de status possíveis:
 
-| Mensagem de estado       | Significado de estado                                          |
+| Mensagem de estado       | Significado do status                                          |
 | -------------------- | ------------------------------------------------------- |
-| Concluído            | Esta tarefa foi executada em todos os dispositivos.              |
-| Com Falhas               | Esta tarefa tem falha e não totalmente executado nos dispositivos.  |
-| Pendente              | Esta tarefa ainda não começou a executar em dispositivos.         |
-| A executar              | Esta tarefa está atualmente em execução em dispositivos.             |
-| Parada              | Esta tarefa foi parada manualmente por um utilizador.           |
+| Concluído            | Este trabalho foi executado em todos os dispositivos.              |
+| Com Falhas               | Este trabalho falhou e não foi executado completamente nos dispositivos.  |
+| Pendente              | Esse trabalho ainda não começou a ser executado em dispositivos.         |
+| A executar              | Este trabalho está sendo executado em dispositivos.             |
+| Parada              | Este trabalho foi interrompido manualmente por um usuário.           |
 
-A mensagem de estado é seguida por uma visão geral dos dispositivos no trabalho. A tabela seguinte lista os valores de estado do dispositivo possíveis:
+A mensagem de status é seguida por uma visão geral dos dispositivos no trabalho. A tabela a seguir lista os possíveis valores de status do dispositivo:
 
-| Mensagem de estado       | Significado de estado                                                     |
+| Mensagem de estado       | Significado do status                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Bem-sucedido            | O número de dispositivos que o trabalho executado com êxito no.       |
-| Com Falhas               | O número de dispositivos que não conseguiu executar a tarefa.       |
+| Bem-sucedido            | O número de dispositivos em que o trabalho foi executado com êxito.       |
+| Com Falhas               | O número de dispositivos nos quais o trabalho falhou ao ser executado.       |
 
-### <a name="view-the-device-status"></a>Ver o estado do dispositivo
+### <a name="view-the-device-status"></a>Exibir o status do dispositivo
 
-Para ver o estado do trabalho e todos os dispositivos afetados, selecione a tarefa. Para transferir um ficheiro. csv que inclui os detalhes da tarefa, incluindo a lista de dispositivos e os respetivos valores de estado, selecione **transferir os detalhes da tarefa**. Junto a cada nome de dispositivo, verá uma das seguintes mensagens de estado:
+Para exibir o status do trabalho e de todos os dispositivos afetados, selecione o trabalho. Para baixar um arquivo. csv que inclui os detalhes do trabalho, incluindo a lista de dispositivos e seus valores de status, selecione **baixar detalhes do trabalho**. Ao lado de cada nome de dispositivo, você verá uma das seguintes mensagens de status:
 
-| Mensagem de estado       | Significado de estado                                                                |
+| Mensagem de estado       | Significado do status                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |
-| Concluído            | A tarefa foi executada neste dispositivo.                                     |
-| Com Falhas               | A tarefa não conseguiu executar neste dispositivo. A mensagem de erro mostra mais informações.  |
-| Pendente              | A tarefa ainda não foi executado neste dispositivo.                                   |
+| Concluído            | O trabalho foi executado neste dispositivo.                                     |
+| Com Falhas               | O trabalho não pôde ser executado neste dispositivo. A mensagem de erro mostra mais informações.  |
+| Pendente              | O trabalho ainda não foi executado neste dispositivo.                                   |
 
 > [!NOTE]
-> Se um dispositivo tiver sido eliminado, não é possível selecionar o dispositivo e apresenta como excluído com o ID de dispositivo.
+> Se um dispositivo tiver sido excluído, você não poderá selecionar o dispositivo e ele será exibido como excluído com a ID do dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que já aprendeu a criar tarefas na sua aplicação do Azure IoT Central, seguem-se alguns passos seguintes:
+Agora que você aprendeu como criar trabalhos em seu aplicativo IoT Central do Azure, aqui estão algumas próximas etapas:
 
 - [Utilizar conjuntos de dispositivos](howto-use-device-sets.md)
 - [Gerir os seus dispositivos](howto-manage-devices.md)

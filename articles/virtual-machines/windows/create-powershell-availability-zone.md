@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 68b7db2664890f3175fcfb14e6970d79b68f693f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: fcb83b18267c1b4072ea02bdd4d30356f7f360ed
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719006"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849637"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o PowerShell
 
@@ -42,7 +42,7 @@ Connect-AzAccount
 ## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade de SKU de VM
 A disponibilidade de tamanhos de VM ou SKUs poderá variar consoante a região e zona. Para ajudar a planear a utilização das Zonas de Disponibilidade, pode listar os SKUs de VM disponíveis por região e zona do Azure. Esta capacidade garante que escolhe um tamanho de VM adequado e obtém a resiliência pretendida nas zonas. Para obter mais informações sobre os diferentes tipos e tamanhos de VM, veja [Descrição geral de Tamanhos de VM](sizes.md).
 
-Pode ver os SKUs de VM disponíveis com o [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) comando. O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
+Você pode exibir os SKUs de VM disponíveis com o comando [Get-AzComputeResourceSku](https://docs.microsoft.com/powershell/module/az.compute/get-azcomputeresourcesku) . O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
 
 ```powershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("eastus2")};
@@ -136,7 +136,7 @@ $vmConfig = New-AzVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
     -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Criar a máquina virtual com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Crie a máquina virtual com [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
 
 ```powershell
 New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
@@ -144,7 +144,7 @@ New-AzVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 
 ## <a name="confirm-zone-for-managed-disk"></a>Confirmar a zona do disco gerido
 
-Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM é criado na mesma zona de disponibilidade. Pode verificar isto com [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk):
+Criou o recurso de endereço IP da VM na mesma zona de disponibilidade que a VM. O recurso de disco gerido para a VM é criado na mesma zona de disponibilidade. Você pode verificar isso com [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk):
 
 ```powershell
 Get-AzDisk -ResourceGroupName myResourceGroup
@@ -178,4 +178,4 @@ Tags               : {}
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre [regiões e disponibilidade](regions-and-availability.md) para VMs do Azure.
+Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre a [disponibilidade](availability.md) de VMs do Azure.

@@ -1,5 +1,5 @@
 ---
-title: Plataforma de identidade do Microsoft ASP.NET web server guia de introdução | Azure
+title: Guia de início rápido do servidor Web ASP.NET da plataforma Microsoft Identity | Azure
 description: Saiba como implementar o Início de sessão com a Microsoft numa aplicação Web ASP.NET com o OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,6 +8,7 @@ manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,49 +17,49 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d813cea28d968ae7f14d55d47855b361141d6089
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 8c6ec16d50990b066f8b5c487c5c1f5452622eaf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565431"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321082"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode iniciar sessão em contas pessoais (hotmail.com, outlook.com, entre outras) e em contas escolares e profissionais a partir de qualquer instância do Azure Active Directory (Azure AD).
 
-![Mostra como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
+![Mostra como o aplicativo de exemplo gerado por este início rápido funciona](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
 > Tem duas opções para iniciar a aplicação de início rápido:
-> * [Express] [Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * Express [Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * Manual [Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre-se e automática configurar a sua aplicação e, em seguida, transferir o exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
 >
-> 1. Vá para a nova [portal do Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) painel.
+> 1. Vá para o novo painel de [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) .
 > 1. Introduza um nome para a sua aplicação e clique em **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registar e configurar manualmente o seu aplicativo e o código de exemplo
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para desenvolvedores [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página.
-> 1. Selecione **novo registo**.
+> 1. Navegue até a página da plataforma Microsoft Identity para desenvolvedores [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> 1. Selecione **novo registro**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
->      - Adicione `https://localhost:44368/` no **URI de redirecionamento**e clique em **registar**.
+>      - Adicione `https://localhost:44368/` no **URI**de redirecionamento e clique em **registrar**.
 Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a sua aplicação no portal do Azure
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar seu aplicativo no portal do Azure
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
@@ -66,16 +67,16 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
 
-#### <a name="step-2-download-your-project"></a>Passo 2: Transfira o seu projeto
+#### <a name="step-2-download-your-project"></a>Passo 2: Baixe seu projeto
 
-[Transferir a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Baixe a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar seu projeto do Visual Studio
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Dependendo da versão do Visual Studio, poderá ter de clique com o botão direito do rato no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **pacotes NuGet restaurar**
-1. Abra a consola do Gestor de pacotes (visualização -> Other Windows -> Package Manager Console) e executar `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
+1. Dependendo da versão do Visual Studio, talvez seja necessário clicar com o botão direito do mouse no `AppModelv2-WebApp-OpenIDConnect-DotNet` projeto e **restaurar os pacotes NuGet**
+1. Abra o console do Gerenciador de pacotes (View-> outro console do Windows-> Package Manager) e execute`Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
 
     ```xml
@@ -84,7 +85,7 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
     ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Este início rápido suporta Enter_the_Supported_Account_Info_Here. 
+> > Este guia de início rápido dá suporte a Enter_the_Supported_Account_Info_Here. 
 
 > [!div renderon="docs"]
 > Em que:
@@ -99,7 +100,7 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 
 ## <a name="more-information"></a>Mais informações
 
-Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Esta descrição geral pode ser útil para entender como o código funciona, os principais argumentos e também se pretende adicionar início de sessão para um aplicativo ASP.NET existente.
+Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Essa visão geral pode ser útil para entender como o código funciona, os argumentos principais e também se você deseja adicionar a entrada a um aplicativo ASP.NET existente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacotes NuGet de middleware OWIN
 
@@ -113,7 +114,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe de Arranque OWIN
 
-O middleware da OWIN utiliza um *classe de startup* que é executada quando o processo de hospedagem inicializa. Neste início rápido, o *startup.cs* localizado na pasta raiz do ficheiro. O código seguinte mostra o parâmetro utilizado por este início rápido:
+O middleware OWIN usa uma *classe de inicialização* que é executada quando o processo de hospedagem é inicializado. Neste guia de início rápido, o arquivo *Startup.cs* localizado na pasta raiz. O código seguinte mostra o parâmetro utilizado por este início rápido:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -154,7 +155,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente <https://login.microsoftonline.com/{tenant}/v2.0> para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
-> | `RedirectUri`  | URL onde os utilizadores são enviados após a autenticação contra o ponto de extremidade do Microsoft identity platform |
+> | `RedirectUri`  | URL em que os usuários são enviados após a autenticação no ponto de extremidade da plataforma de identidade da Microsoft |
 > | `PostLogoutRedirectUri`     | URL para onde os utilizadores são enviados depois de terminarem sessão |
 > | `Scope`     | A lista dos âmbitos que estão a ser solicitados, separados por espaços |
 > | `ResponseType`     | Pedido de que a resposta da autenticação contenha um token de ID |
@@ -163,8 +164,8 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Definição `ValidateIssuer = false` é uma simplificação para este início rápido. Em aplicativos reais terá de validar o emissor.
-> Veja os exemplos para compreender como fazê-lo.
+> A `ValidateIssuer = false` configuração é uma simplificação para este guia de início rápido. Em aplicativos reais, você precisa validar o emissor.
+> Consulte os exemplos para entender como fazer isso.
 
 ### <a name="initiate-an-authentication-challenge"></a>Iniciar um desafio de autenticação
 

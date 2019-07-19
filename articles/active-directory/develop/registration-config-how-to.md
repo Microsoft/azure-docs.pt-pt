@@ -7,7 +7,8 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b48e19df2ea1bbf7d09ee9a2108d0f34f01a4929
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
-ms.translationtype: HT
+ms.openlocfilehash: c6547266b92cbeee2754871d4cdca7a2de261fc8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277851"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325357"
 ---
 # <a name="how-to-configure-endpoints"></a>Como configurar pontos de extremidade
 

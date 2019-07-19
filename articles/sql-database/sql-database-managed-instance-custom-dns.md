@@ -1,6 +1,6 @@
 ---
-title: Base de dados SQL do Azure gerido no DNS do instância personalizado | Documentos da Microsoft
-description: Este tópico descreve opções de configuração para um DNS personalizado com uma instância de gerida de base de dados do Azure SQL.
+title: Instância Gerenciada do Banco de Dados SQL do Azure DNS personalizado | Microsoft Docs
+description: Este tópico descreve as opções de configuração para um DNS personalizado com um Instância Gerenciada do Banco de Dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,41 +11,28 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.openlocfilehash: 674c5d48dad5d3cfd138853d7ea38ae4a216c93d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700428"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309870"
 ---
-# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar um DNS personalizado para a base de dados SQL do Azure a instância gerida
+# <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurando um DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 
-Uma instância de gerida de base de dados do Azure SQL deve ser implementada numa do Azure [rede virtual (VNet)](../virtual-network/virtual-networks-overview.md). Existem alguns cenários (por exemplo, correio de db, servidores vinculados para as outras instâncias SQL no seu ambiente na nuvem ou híbrida) que requerem nomes de anfitrião privada para ser resolvido a partir da instância gerida. Neste caso, terá de configurar um DNS personalizado no Azure. Uma vez que a instância gerida utiliza o DNS do mesmo para seus funcionamentos, a configuração de DNS de rede virtual tem de ser compatível com a instância gerida.
+Um Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantado em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md)do Azure. Há alguns cenários (por exemplo, email de BD, servidores vinculados a outras instâncias do SQL em seu ambiente de nuvem ou híbrido) que exigem que nomes de hosts privados sejam resolvidos no Instância Gerenciada. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. 
 
-   > [!IMPORTANT]
-   > Utilize sempre a nomes de domínio completamente qualificado (FQDN) para os servidores de email, servidores do SQL Server e outros serviços, mesmo que estejam na sua zona DNS privada. Por exemplo usar `smtp.contoso.com` para o servidor de email porque simples `smtp` não será resolvido corretamente.
-
-Para fazer uma configuração DNS personalizada é compatível com a instância gerida, terá de:
-
-- Configurar o servidor DNS personalizado para que seja capaz de resolver os nomes de domínio público
-- Colocar o endereço de IP de DNS de resolução de recursiva do Azure 168.63.129.16 no final da lista DNS de rede virtual
-
-## <a name="setting-up-custom-dns-servers-configuration"></a>Configurar a configuração de servidores DNS personalizada
-
-1. No portal do Azure, encontre opções de DNS personalizados para a sua VNet.
-
-   ![opção de dns personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
-
-2. Mude para personalizado e introduza o seu endereço IP do servidor DNS personalizado, bem como o endereço IP de resoluções do Azure recursiva 168.63.129.16.
-
-   ![opção de dns personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
+Como Instância Gerenciada usa o mesmo DNS para seus trabalhos internos, você precisa configurar o servidor DNS personalizado para que ele possa resolver nomes de domínio públicos.
 
    > [!IMPORTANT]
-   > Não definir o resolvedor recursivo do Azure na lista de DNS pode fazer com que a instância gerida entrar num Estado com falhas quando os servidores DNS personalizados não estão disponíveis por algum motivo. Recuperar a partir de que o estado pode exigir a criação de nova instância numa VNet com as políticas de rede em conformidade, criar dados de nível de instância e restaurar as bases de dados. Definir o resolvedor recursivo do Azure como a última entrada na lista de DNS garante que, mesmo quando todos os servidores DNS personalizados falharem, os nomes de públicos ainda podem ser resolvidos.
+   > Sempre use nomes de domínio totalmente qualificados (FQDN) para servidores de email, SQL Servers e outros serviços, mesmo que estejam dentro de sua zona DNS privada. Por exemplo, `smtp.contoso.com` use para o servidor de `smtp` email porque Simple não será resolvido corretamente.
+
+   > [!IMPORTANT]
+   > A atualização de servidores DNS de rede virtual não afetará Instância Gerenciada imediatamente. Instância Gerenciada configuração do DNS será atualizada após a concessão do DHCP expirar ou após a upgarade da plataforma, o que ocorrer primeiro. **Os usuários são aconselhados a definir sua configuração de DNS de rede virtual antes de criar o primeiro Instância Gerenciada.**
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para uma descrição geral, consulte [o que é uma instância gerida](sql-database-managed-instance.md)
-- Para obter um tutorial que mostra como criar uma nova instância gerida, veja [criar uma instância gerida](sql-database-managed-instance-get-started.md).
-- Para obter informações sobre como configurar uma VNet para uma instância gerida, consulte [configuração de VNet para instâncias geridas](sql-database-managed-instance-connectivity-architecture.md)
+- Para obter uma visão geral, consulte [o que é um instância gerenciada](sql-database-managed-instance.md)
+- Para obter um tutorial mostrando como criar um novo Instância Gerenciada, consulte [criando um instância gerenciada](sql-database-managed-instance-get-started.md).
+- Para obter informações sobre como configurar uma VNet para um Instância Gerenciada, consulte [configuração de vnet para instâncias gerenciadas](sql-database-managed-instance-connectivity-architecture.md)

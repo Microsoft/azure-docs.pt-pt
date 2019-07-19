@@ -1,10 +1,10 @@
 ---
-title: Métricas, alertas e registos de diagnóstico - Azure Batch | Documentos da Microsoft
+title: Métricas, alertas e logs de diagnóstico – lote do Azure | Microsoft Docs
 description: Registar e analisar eventos de registo de diagnóstico para recursos da conta do Azure Batch como conjuntos e tarefas.
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242627"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323616"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -29,7 +29,7 @@ Este artigo explica como monitorizar uma conta do Batch utilizar funcionalidades
 
 ## <a name="batch-metrics"></a>Métricas de batch
 
-As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. Métricas de exemplo numa conta do Batch incluem: Eventos, a contagem de nós de baixa prioridade e a tarefa de criação de conjunto concluir eventos. 
+As métricas são dados de telemetria do Azure (também chamados de contadores de desempenho) emitidos por seus recursos do Azure que são consumidos pelo serviço do Azure Monitor. As métricas de exemplo em uma conta do lote incluem: Eventos de criação de pool, contagem de nós de baixa prioridade e eventos de tarefa concluída. 
 
 Consulte a [lista de métricas suportadas do Batch](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts).
 
@@ -37,7 +37,7 @@ As métricas são:
 
 * Ativado por predefinição em cada conta do Batch sem configuração adicional
 * Gerados a cada 1 minuto
-* Não persistente automaticamente, mas têm um histórico de sem interrupção de 30 dias. Pode manter as métricas de atividade como parte do registo de diagnósticos.
+* Não persistente automaticamente, mas têm um histórico de sem interrupção de 30 dias. Você pode manter as métricas de atividade como parte do log de diagnóstico.
 
 ### <a name="view-metrics"></a>Ver métricas
 
@@ -91,7 +91,7 @@ Outras opções de destino para os registos de diagnóstico:
 
 * Stream eventos de registo de diagnóstico do Batch para uma [Hub de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de eventos podem ingerir milhões de eventos por segundo, o que pode, em seguida, transformar e armazenar usando qualquer fornecedor de análises em tempo real. 
 
-* Enviar registos de diagnóstico [registos do Azure Monitor](../log-analytics/log-analytics-overview.md), onde pode analisá-los ou exportá-los para análise no Power BI ou no Excel.
+* Envie logs de diagnóstico para [Azure monitor logs](../log-analytics/log-analytics-overview.md), onde você pode analisá-los ou exportá-los para análise no Power bi ou no Excel.
 
 > [!NOTE]
 > Pode implicar custos adicionais para armazenar ou processar os dados de registo de diagnóstico com serviços do Azure. 
@@ -101,7 +101,7 @@ Outras opções de destino para os registos de diagnóstico:
 
 1. No portal, clique em **todos os serviços** > **contas do Batch**e, em seguida, clique no nome da sua conta do Batch.
 2. Sob **monitorização**, clique em **registos de diagnóstico** > **ativar diagnósticos**.
-3. Na **das definições de diagnóstico**, introduza um nome para a definição e escolha um destino de registo (conta de armazenamento existente, Hub de eventos ou registos do Azure Monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
+3. Em **configurações de diagnóstico**, insira um nome para a configuração e escolha um destino de log (conta de armazenamento existente, Hub de eventos ou logs de Azure monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
 
     Ao selecionar uma conta de armazenamento, se desejar, defina uma política de retenção. Se não especificar um número de dias de retenção, os dados são retidos durante o ciclo de vida da conta de armazenamento.
 

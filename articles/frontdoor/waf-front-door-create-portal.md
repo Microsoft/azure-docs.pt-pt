@@ -1,7 +1,7 @@
 ---
-title: Criar uma política de firewall de aplicações web para a porta da frente do Azure com o portal do Azure
+title: Criar uma política de firewall do aplicativo Web para a porta frontal do Azure usando o portal do Azure
 titlesuffix: Azure web application firewall
-description: Saiba como criar uma política de firewall (WAF) de aplicações web com o portal do Azure.
+description: Saiba como criar uma política de WAF (firewall do aplicativo Web) usando o portal do Azure.
 services: frontdoor
 documentationcenter: na
 author: KumudD
@@ -12,70 +12,71 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 15a80dac0e0601480e22ad960f2827f3d8f290c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: abaef0fb521d848134885a06591b0656c60c67e6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479050"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846377"
 ---
-# <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Criar uma política de WAF para a porta da frente do Azure com o portal do Azure
+# <a name="create-a-waf-policy-for-azure-front-door-by-using-the-azure-portal"></a>Criar uma política de WAF para a porta frontal do Azure usando o portal do Azure
 
-Este artigo descreve como criar uma política de firewall (WAF) de aplicações web do Azure básica e aplicá-la para um anfitrião de front-end na porta da frente do Azure.
+Este artigo descreve como criar uma política básica do WAF (firewall do aplicativo Web) do Azure e aplicá-la a um host front-end na porta frontal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Criar um perfil de porta de entrada ao seguir as instruções descritas em [início rápido: Criar um perfil de porta de entrada](quickstart-create-front-door.md). 
+Crie um perfil de porta frontal seguindo as instruções descritas [em início rápido: Crie um perfil](quickstart-create-front-door.md)de porta frontal. 
 
 ## <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-Em primeiro lugar, crie uma política de WAF básica com gerenciado predefinido regra definido (DSR) com o portal. 
+Primeiro, crie uma política de WAF básica com o DRS (conjunto de regras padrão) gerenciado usando o Portal. 
 
-1. No canto superior esquerdo do ecrã, selecione **criar um recurso**> procure **WAF**> selecione **firewall de aplicações Web (pré-visualização)** > selecione  **Criar**.
-2. Na **Noções básicas** separador da **criar uma política de WAF** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
+1. No canto superior esquerdo da tela, selecione **criar um recurso**> Pesquisar por **WAF**> selecione **Firewall do aplicativo Web (versão prévia)** > selecione **criar**.
+2. Na guia **noções básicas** da página **criar uma política de WAF** , insira ou selecione as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione revisar **+ criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Subscrição            |Selecione o nome de subscrição de porta de entrada.|
-    | Grupo de recursos          |Selecione o seu nome de grupo de recursos de porta de entrada.|
-    | Nome da política             |Introduza um nome exclusivo para a sua política de WAF.|
+    | Subscription            |Selecione o nome da assinatura do seu front door.|
+    | Resource group          |Selecione o nome do grupo de recursos da porta frontal.|
+    | Nome da política             |Insira um nome exclusivo para sua política de WAF.|
 
    ![Criar uma política de WAF](./media/waf-front-door-create-portal/basic.png)
 
-3. Na **associação** separador da **criar uma política de WAF** página, selecione **Adicionar anfitrião de front-end**, introduza as seguintes definições e, em seguida, selecione **adicionar**:
+3. Na guia **Associação** da página **criar uma política de WAF** , selecione **Adicionar host de front-end**, insira as seguintes configurações e, em seguida, selecione **Adicionar**:
 
     | Definição                 | Value                                              |
     | ---                     | ---                                                |
-    | Porta de entrada              | Selecione o nome do perfil de porta de entrada.|
-    | Anfitrião de front-end           | Selecione o nome do seu anfitrião de porta de entrada, em seguida, selecione **adicionar**.|
+    | Porta frontal              | Selecione o nome do perfil de porta frontal.|
+    | Host de front-end           | Selecione o nome do host de porta frontal e, em seguida, selecione **Adicionar**.|
     
     > [!NOTE]
-    > Se o anfitrião de front-end está associado a uma política de WAF, é mostrado como a cinzento. Tem primeiro de remover o anfitrião de front-end da política associada e, em seguida, volta a associar o anfitrião de front-end para uma nova política de WAF.
-1. Selecione **rever + criar**, em seguida, selecione **criar**.
+    > Se o host de front-end estiver associado a uma política de WAF, ele será mostrado como esmaecido. Você deve primeiro remover o host de front-end da política associada e, em seguida, associar novamente o host de front-end a uma nova política de WAF.
+1. Selecione **revisar + criar**e, em seguida, selecionar **criar**.
 
-## <a name="configure-waf-rules-optional"></a>Configurar regras de WAF (opcionais)
+## <a name="configure-waf-rules-optional"></a>Configurar regras do WAF (opcional)
 
 ### <a name="change-mode"></a>Alterar modo
 
-Quando cria uma política de WAF, com a WAF a predefinição policy está em **deteção** modo. Na **deteção** modo, WAF não bloqueia todos os pedidos, em vez disso, os pedidos de regras WAF de correspondência são registados registos WAF.
-Para ver o WAF em ação, pode alterar as definições do modo de **detecção** ao **prevenção**. Na **prevenção** modo, pedidos que as regras de correspondência definidos na predefinição regra definido (DRS) são bloqueadas e registadas registos WAF.
+Quando você cria uma política de WAF, a política de WAF padrão está no modo de **detecção** . No modo de **detecção** , o WAF não bloqueia nenhuma solicitação, em vez disso, as solicitações correspondentes às regras do WAF são registradas em logs do WAF.
+Para ver WAF em ação, você pode alterar as configurações de modo de **detecção** para **prevenção**. No modo de **prevenção** , as solicitações que correspondem às regras definidas no conjunto de regras padrão (DRS) são bloqueadas e registradas em logs do WAF.
 
- ![Modo de política de alteração WAF](./media/waf-front-door-create-portal/policy.png)
+ ![Alterar o modo de política WAF](./media/waf-front-door-create-portal/policy.png)
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
-Pode criar uma regra personalizada, selecionando **Adicionar regra personalizada** sob a **regras personalizadas** secção. Esta ação inicia a página de configuração de regra personalizada. Segue-se um exemplo de configuração de uma regra personalizada para bloquear um pedido se contiver a cadeia de consulta **blockme**.
+Você pode criar uma regra personalizada selecionando **Adicionar regra personalizada** na seção **regras personalizadas** . Isso inicia a página de configuração de regra personalizada. Abaixo está um exemplo de configuração de uma regra personalizada para bloquear uma solicitação se a cadeia de caracteres de consulta contiver **blockme**.
 
-![Modo de política de alteração WAF](./media/waf-front-door-create-portal/customquerystring2.png)
+![Alterar o modo de política WAF](./media/waf-front-door-create-portal/customquerystring2.png)
 
-### <a name="default-rule-set-drs"></a>Conjunto de regras padrão (DRS)
+### <a name="default-rule-set-drs"></a>DRS (conjunto de regras padrão)
 
-Função de conjunto de regras de padrão geridos pelo Azure está ativada por predefinição. Para desativar uma regra de individual dentro de um grupo de regras, expandir as regras dentro desse grupo de regra, selecione o **caixa de verificação** à frente de número de regra e selecione **desativar** no separador acima. Para alterar os tipos de ações para as regras individuais dentro da regra definida, selecione a caixa de verificação na frente do número de regra e, em seguida, selecione o **altere ação** separador acima.
+O conjunto de regras padrão gerenciadas pelo Azure é habilitado por padrão. Para desabilitar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, marque a **caixa de seleção** na frente do número da regra e selecione **desabilitar** na guia acima. Para alterar os tipos de ações para regras individuais dentro do conjunto de regras, marque a caixa de seleção na frente do número da regra e, em seguida, selecione a guia **ação de alteração** acima.
 
- ![Alterar o conjunto de regras WAF](./media/waf-front-door-create-portal/managed2.png)
+ ![Alterar conjunto de regras WAF](./media/waf-front-door-create-portal/managed2.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [firewall de aplicações web do Azure](waf-overview.md).
-- Saiba mais sobre [porta da frente do Azure](front-door-overview.md).
+- Saiba mais sobre o [Firewall do aplicativo Web do Azure](waf-overview.md).
+- Saiba mais sobre a [porta frontal do Azure](front-door-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Acesso a redes virtuais do Azure a partir do Azure Logic Apps com ambientes de serviço de integração (ISEs)
-description: Esta descrição geral descreve como ambientes de serviço de integração (ISEs) ajudam as aplicações lógicas, redes virtuais do Azure (VNETs) de acesso
+title: Acesso a redes virtuais do Azure de aplicativos lógicos do Azure com ambientes de serviço de integração (ISEs)
+description: Esta visão geral descreve como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,83 +8,104 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: f981452b06ec06f2be1b8fe0319cd49a678ccfe0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 07/19/2019
+ms.openlocfilehash: 3e14604955a64c7a146a947c5c320b42ea3ebcba
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441585"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325399"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
-Às vezes, o logic apps e as contas de integração precisam de acesso a recursos protegidos, como as máquinas virtuais (VMs) e outros sistemas ou serviços, que estão dentro de um [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar este acesso, pode [crie uma *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) onde pode executar as aplicações lógicas e criar a sua integração de contas.
+Às vezes, seus aplicativos lógicos e contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços, que estão dentro de uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, você pode [criar um *ambiente do serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) , no qual você pode executar seus aplicativos lógicos e criar suas contas de integração.
 
-Quando cria um ISE, o Azure implementa uma instância privada e isolada do serviço de aplicações lógicas em sua rede virtual do Azure. Esta instância privada utiliza recursos dedicados, como o armazenamento e é executado separadamente do serviço de aplicações lógicas "global" público. Separar a sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações, que também é conhecido como o [efeito de "vizinhos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Quando você cria um ISE, o Azure *injeta* esse ISE em sua rede virtual do Azure, que implanta uma instância privada e isolada do serviço de aplicativos lógicos em sua rede virtual do Azure. Essa instância privada usa recursos dedicados, como armazenamento, e é executada separadamente do serviço de aplicativos lógicos "globais" públicos. Separar sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto que outros locatários do Azure podem ter no desempenho de seus aplicativos, que também é conhecido como [efeito "vizinhos com ruído"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Depois de criar seu ISE, quando vai para criar a sua conta de integração ou da aplicação de lógica, pode selecionar o seu ISE como localização de lógica aplicação ou a integração da sua conta:
+Depois de criar o ISE, quando você for criar seu aplicativo lógico ou conta de integração, poderá selecionar o ISE como o seu aplicativo lógico ou o local da conta de integração:
 
-![Selecione o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
+![Selecione o ambiente do serviço de integração](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-A aplicação lógica agora pode aceder diretamente a sistemas que estão dentro ou ligado à sua rede virtual, utilizando qualquer um desses itens:
+Seu aplicativo lógico agora pode acessar diretamente os sistemas que estão dentro ou conectados à sua rede virtual usando qualquer um destes itens:
 
-* Uma **ISE**-rotulado como conector para esse sistema, como o SQL Server
-* R **Core**-o nome interno acionador ou ação, tal como o acionador HTTP ou a ação
+* Um conector com rótulo de **ISE**para esse sistema, como SQL Server
+* Um gatilho ou ação interna de rótulo de **núcleo**, como o gatilho ou a ação de http
 * Um conector personalizado
 
-Esta descrição geral descreve mais detalhes sobre como a um ISE fornece as logic apps e integração de contas de acesso direto à rede virtual do Azure e compara as diferenças entre uma ISE e o serviço de aplicações lógicas global.
+Esta visão geral descreve mais detalhes sobre como um ISE fornece aos seus aplicativos lógicos e contas de integração acesso direto à sua rede virtual do Azure e compara as diferenças entre um ISE e o serviço de aplicativos lógicos globais.
 
-> [!NOTE]
-> Aplicações lógicas, acionadores incorporados, ações incorporadas e conectores que executam no seu uso ISE um plano de preços diferente do plano de preços baseado no consumo. Para obter mais informações, consulte [preços de aplicações lógicas](../logic-apps/logic-apps-pricing.md). O ISE também aumentou limites sobre a duração de execução, retenção de armazenamento, débito, pedido HTTP e tempos limite de resposta, tamanhos de mensagem e pedidos de conector personalizado. Para obter mais informações, consulte [limites e configuração para o Azure Logic Apps](logic-apps-limits-and-config.md).
+> [!IMPORTANT]
+> Os aplicativos lógicos, os gatilhos internos, as ações internas e os conectores executados no ISE usam um plano de preços diferente do plano de preços baseado em consumo. Para saber como o preço e a cobrança funcionam para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter taxas de preços, consulte [preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md).
+>
+> O ISE também aumentou os limites de duração da execução, retenção de armazenamento, taxa de transferência, tempos limite de resposta e solicitação HTTP, tamanhos de mensagem e solicitações de conector personalizado. 
+> Para obter mais informações, consulte [limites e configuração para aplicativos lógicos do Azure](logic-apps-limits-and-config.md).
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-global"></a>Versus global em ambiente isolado
+## <a name="isolated-versus-global"></a>Isolado versus global
 
-Quando cria um ambiente de serviço integrado (ISE) no Azure, pode selecionar a rede virtual do Azure onde pretende *injetar* seu ISE. Azure, em seguida, injeta ou implementa uma instância privada do serviço de aplicações lógicas na sua rede virtual. Esta ação cria um ambiente isolado, onde pode criar e executar as aplicações lógicas em recursos dedicados. Quando criar a sua aplicação lógica, selecione seu ISE como a localização da sua aplicação, o que lhe dá o seu acesso direto da aplicação lógica à sua rede virtual e os recursos dessa rede.
+Ao criar um ambiente de serviço integrado (ISE) no Azure, você pode selecionar a rede virtual do Azure na qual deseja *injetar* o ISE. Em seguida, o Azure injeta ou implanta uma instância privada do serviço de aplicativos lógicos em sua rede virtual. Essa ação cria um ambiente isolado no qual você pode criar e executar seus aplicativos lógicos em recursos dedicados. Ao criar seu aplicativo lógico, você seleciona o ISE como o local do seu aplicativo, o que dá ao seu aplicativo lógico acesso direto à sua rede virtual e aos recursos nessa rede.
 
-Aplicações lógicas num ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicações lógicas global. Não só pode utilizar o mesmo acionadores incorporados, ações incorporadas e conectores do serviço de aplicações lógicas global, mas também pode utilizar conectores específicos do ISE. Por exemplo, eis alguns conectores padrão que oferecem versões que são executados num ISE:
+Os aplicativos lógicos em um ISE fornecem as mesmas experiências de usuário e recursos semelhantes que o serviço de aplicativos lógicos globais. Você não só pode usar os mesmos gatilhos internos, ações internas e conectores do serviço de aplicativos lógicos globais, mas também pode usar conectores específicos do ISE. Por exemplo, aqui estão alguns conectores padrão que oferecem versões que são executadas em um ISE:
 
-* Armazenamento de Blobs do Azure, armazenamento de ficheiros e armazenamento de tabelas
-* As filas do Azure, o Service bus do Azure, o Hubs de eventos do Azure e o IBM MQ
+* Armazenamento de BLOBs, armazenamento de arquivos e armazenamento de tabelas do Azure
+* Filas do Azure, barramento de serviço do Azure, hubs de eventos do Azure e IBM MQ
 * FTP e SFTP-SSH
-* SQL Server, o SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 e EDIFACT
 
-A diferença entre os conectores ISE e não ISE é nos locais onde executar os acionadores e ações:
+A diferença entre os conectores ISE e não ISE está nos locais onde os gatilhos e as ações são executados:
 
-* No seu ISE, incorporados acionadores e ações, como HTTP, são sempre executam no ISE do mesmo, como a aplicação lógica e apresentar os **Core** etiqueta.
+* No ISE, gatilhos e ações internas, como HTTP, sempre são executados no mesmo ISE que seu aplicativo lógico e exibem o rótulo **principal** .
 
-  ![Selecione "Principal" de acionadores incorporados e ações](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  ![Selecione gatilhos e ações internas de "núcleo"](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
 
-* Os conectores que são executados num ISE publicamente tenham alojado versões disponíveis no serviço de aplicações lógicas global. Para os conectores que oferecem duas versões, conectores com o **ISE** sempre rotular execução no ISE do mesmo que a sua aplicação lógica. Conectores sem o **ISE** etiqueta em execução no serviço de aplicações lógicas global.
+* Os conectores que são executados em um ISE têm versões hospedadas publicamente disponíveis no serviço de aplicativos lógicos globais. Para conectores que oferecem duas versões, os conectores com o rótulo do **ISE** sempre são executados no mesmo ISE que seu aplicativo lógico. Conectores sem o rótulo do **ISE** são executados no serviço de aplicativos lógicos globais.
 
   ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
-Um ISE também fornece limites aumentados para a duração de execução, retenção de armazenamento, débito, o pedido HTTP e tempos limite de resposta, tamanhos de mensagem e pedidos de conector personalizado. Para obter mais informações, consulte [limites e configuração para o Azure Logic Apps](logic-apps-limits-and-config.md).
+Um ISE também fornece limites maiores para duração da execução, retenção de armazenamento, taxa de transferência, tempos limite de resposta e solicitação HTTP, tamanhos de mensagem e solicitações de conector personalizado. Para obter mais informações, consulte [limites e configuração para aplicativos lógicos do Azure](logic-apps-limits-and-config.md).
 
-### <a name="access-to-on-premises-data-sources"></a>Acesso às origens de dados no local
+<a name="ise-level"></a>
 
-Para sistemas no local que estão ligados a uma rede virtual do Azure, injete um ISE nessa rede, para que as logic apps podem acessar diretamente desses sistemas, utilizando qualquer um destes itens:
+## <a name="ise-skus"></a>SKUs do ISE
 
-* Conector de versão do ISE para esse sistema, por exemplo, o SQL Server
-* Ação de HTTP
+Ao criar o ISE, você pode selecionar a SKU do desenvolvedor ou a SKU Premium. Estas são as diferenças entre estas SKUs:
+
+* **Programador**
+
+  Fornece um ISE de menor custo que você pode usar para experimentação, desenvolvimento e teste, mas não para teste de produção ou de desempenho. A SKU do desenvolvedor inclui gatilhos e ações internos, conectores padrão, conectores corporativos e uma única conta de integração de [camada gratuita](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) para um preço mensal fixo. No entanto, esse SKU não inclui nenhum SLA (contrato de nível de serviço), opções para escalar verticalmente a capacidade ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade.
+
+* **Premium**
+
+  Fornece um ISE que você pode usar para produção e inclui suporte a SLA, gatilhos e ações internos, conectores padrão, conectores corporativos, uma única conta de integração de [camada Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) , opções para escalar verticalmente a capacidade e redundância durante reciclagem de um preço mensal fixo.
+
+Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Para saber como o preço e a cobrança funcionam para o ISEs, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+
+<a name="on-premises"></a>
+
+## <a name="access-to-on-premises-data-sources"></a>Acesso a fontes de dados locais
+
+Para sistemas locais conectados a uma rede virtual do Azure, insira um ISE nessa rede para que seus aplicativos lógicos possam acessar diretamente esses sistemas usando qualquer um destes itens:
+
+* ISE-conector de versão para esse sistema, por exemplo, SQL Server
+* Ação HTTP
 * Conector personalizado
 
-  * Se tiver de conectores personalizados que exigem o gateway de dados no local e criou esses conectores fora um ISE, aplicações lógicas num ISE também podem utilizar os conectores.
+  * Se você tiver conectores personalizados que exigem o gateway de dados local e tiver criado esses conectores fora de um ISE, os aplicativos lógicos em um ISE também poderão usar esses conectores.
   
-  * Conectores personalizados criados num ISE não funcionam com o gateway de dados no local. No entanto, estes conectores podem aceder diretamente a origens de dados no local que estão ligadas à rede virtual que aloja o ISE. Então, aplicações lógicas num ISE é muito provável que não precisam o gateway de dados ao se comunicar com esses recursos.
+  * Os conectores personalizados criados em um ISE não funcionam com o gateway de dados local. No entanto, esses conectores podem acessar diretamente fontes de dados locais que estão conectadas à rede virtual que hospeda o ISE. Portanto, os aplicativos lógicos em um ISE provavelmente não precisam do gateway de dados ao se comunicar com esses recursos.
 
-Para sistemas no local que não estão ligados a uma rede virtual ou não tem conectores de versão do ISE, primeiro tem [configurar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md) antes de sua lógica de aplicações podem ligar a esses sistemas.
+Para sistemas locais que não estão conectados a uma rede virtual ou não têm conectores ISE-Version, primeiro você deve [Configurar o gateway de dados local](../logic-apps/logic-apps-gateway-install.md) antes que seus aplicativos lógicos possam se conectar a esses sistemas.
 
 <a name="create-integration-account-environment"></a>
 
-## <a name="integration-accounts-with-ise"></a>Contas de integração com o ISE
+## <a name="integration-accounts-with-ise"></a>Contas de integração com ISE
 
-Pode utilizar contas de integração com logic apps dentro de um ambiente de serviço de integração (ISE). No entanto, essas contas de integração tem de utilizar o *ISE mesmo* como as aplicações de lógica ligada. Aplicações lógicas num ISE podem referenciar apenas as contas de integração que estão no ISE do mesmo. Quando cria uma conta de integração, pode selecionar o ISE como a localização para a sua conta de integração.
+Você pode usar contas de integração com aplicativos lógicos dentro de um ambiente do serviço de integração (ISE). No entanto, essas contas de integração devem usar o *mesmo ISE* que os aplicativos lógicos vinculados. Os aplicativos lógicos em um ISE podem referenciar somente as contas de integração que estão no mesmo ISE. Ao criar uma conta de integração, você pode selecionar o ISE como o local para sua conta de integração. Para saber como o preço e a cobrança funcionam para contas de integração com um ISE, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como [ligar às redes virtuais do Azure a partir de aplicações lógicas isoladas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
-* Saiba mais sobre [rede Virtual do Azure](../virtual-network/virtual-networks-overview.md)
-* Saiba mais sobre [integração da rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md)
+* Saiba como [se conectar a redes virtuais do Azure de aplicativos lógicos isolados](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+* Saiba mais sobre a [rede virtual do Azure](../virtual-network/virtual-networks-overview.md)
+* Saiba mais sobre [a integração de rede virtual para serviços do Azure](../virtual-network/virtual-network-for-azure-services.md)

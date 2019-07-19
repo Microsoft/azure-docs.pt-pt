@@ -3,21 +3,21 @@ title: Executar uma carga de trabalho paralela – Azure Batch Python
 description: Tutorial – Processar ficheiros de multimédia em paralelo com o ffmpeg no Azure Batch através da biblioteca de cliente Python para o Batch
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 364599c6eb555d1ec72e84c998ae0c4e9a43929b
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 92d8c6fb1bfa1689475774bbc4f62cd9ab38268f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341605"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321839"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch com a API Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Executar uma carga de trabalho paralela com o lote do Azure usando a API do Python
 
 Utilize o Azure Batch para executar trabalhos de lote de computação de alto desempenho (HPC) e paralelos em larga escala de forma eficaz no Azure. Este tutorial guia-o por um exemplo Python de execução de uma carga de trabalho paralela com o Batch. Obteve mais informações sobre um fluxo de trabalho de aplicações do Batch comum e como interagir programaticamente com recursos do Batch e de Armazenamento. Saiba como:
 
@@ -165,7 +165,7 @@ input_files = [
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) objeto Especifica um [ImageReference](/python/api/azure.batch.models.imagereference) a uma imagem de Ubuntu Server 18.04 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
+Em seguida, o exemplo cria um conjunto de nós de computação na conta do Batch, com uma chamada para `create_pool`. Esta função definida utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) do Batch para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens da VM no Azure Marketplace, bem como imagens da VM personalizadas.
 
 O número de nós e o tamanho da VM são definidos através de constantes definidas. O Batch suporta nós dedicados e [nós de prioridade baixa](batch-low-pri-vms.md), e pode utilizar um ou ambos nos conjuntos. Os nós dedicados estão reservados para o conjunto. Os nós de prioridade baixa são disponibilizados a um preço reduzido a partir da capacidade excedente da VM no Azure. Os nós de prioridade baixa ficam indisponíveis se o Azure não tiver capacidade suficiente. Por predefinição, o exemplo cria um conjunto com apenas 5 nós de prioridade baixa no tamanho *Standard_A1_v2*. 
 
@@ -271,7 +271,7 @@ Depois de executar as tarefas, a aplicação elimina automaticamente o contentor
 
 Quando já não forem necessários, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

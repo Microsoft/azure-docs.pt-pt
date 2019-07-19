@@ -1,6 +1,6 @@
 ---
-title: Web atividade numa fábrica de dados do Azure | Documentos da Microsoft
-description: Saiba como pode utilizar a atividade da Web, uma das atividades de fluxo de controlo suportadas pelo Data Factory, para invocar um ponto final REST a partir de um pipeline.
+title: Atividade da Web no Azure Data Factory | Microsoft Docs
+description: Saiba como você pode usar a atividade da Web, uma das atividades de fluxo de controle com suporte pelo Data Factory, para invocar um ponto de extremidade REST de um pipeline.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764293"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325397"
 ---
-# <a name="web-activity-in-azure-data-factory"></a>Atividade Web no Azure Data Factory
+# <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade Web pode ser utilizada para chamar um ponto final REST personalizado a partir de um pipeline do Data Factory. Pode transmitir conjuntos de dados e serviços ligados aos quais a atividade tem acesso e que pode consumir.
+
+> [!NOTE]
+> A atividade da Web pode chamar apenas URLs expostas publicamente. Não há suporte para URLs que são hospedadas em uma rede virtual privada.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -63,36 +66,36 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade web | String | Sim
-type | Tem de ser definido como **WebActivity**. | String | Sim
-method | Método de REST API para o ponto de extremidade de destino. | cadeia de caracteres. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
-url | Ponto de extremidade de destino e o caminho | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final. | Sim
-Cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Sim, o cabeçalho Content-type é necessário. `"headers":{ "Content-Type":"application/json"}`
-Corpo | Representa o payload que é enviado para o ponto final.  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres). <br/><br/>Ver o esquema do payload de pedido no [esquema de payload de pedido](#request-payload-schema) secção. | É necessário para métodos POST/PUT.
-autenticação | Método de autenticação utilizado para chamar o ponto final. Tipos suportados são "Basic ou ClientCertificate." Para obter mais informações, consulte [autenticação](#authentication) secção. Se a autenticação não é necessária, exclua esta propriedade. | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não
-datasets | Lista de conjuntos de dados passados para o ponto final. | Matriz de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
-linkedServices | Lista de serviços ligados são transmitidos ao ponto final. | Matriz de referências de serviço ligado. Pode ser uma matriz vazia. | Sim
+name | Nome da atividade da Web | Cadeia | Sim
+type | Deve ser definido como **webactivity**. | Cadeia | Sim
+method | Método de API REST para o ponto de extremidade de destino. | Strings. <br/><br/>Tipos com suporte: "GET", "POST" E "PUT" | Sim
+url | Caminho e ponto de extremidade de destino | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade. | Sim
+Conector | Cabeçalhos que são enviados para a solicitação. Por exemplo, para definir o idioma e o tipo em uma solicitação `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`:. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Sim, o cabeçalho Content-Type é necessário. `"headers":{ "Content-Type":"application/json"}`
+Conteúdo | Representa a carga que é enviada para o ponto de extremidade.  | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres). <br/><br/>Consulte o esquema da carga de solicitação na seção [esquema de carga de solicitação](#request-payload-schema) . | Necessário para os métodos POST/PUT.
+autenticação | Método de autenticação usado para chamar o ponto de extremidade. Os tipos com suporte são "Basic ou ClientCertificate". Para obter mais informações, consulte a seção [autenticação](#authentication) . Se a autenticação não for necessária, exclua essa propriedade. | Cadeia de caracteres (ou expressão com ResultType de cadeia de caracteres) | Não
+datasets | Lista de conjuntos de valores passados para o ponto de extremidade. | Matriz de referências de DataSet. Pode ser uma matriz vazia. | Sim
+linkedServices | Lista de serviços vinculados passados para o ponto de extremidade. | Matriz de referências de serviço vinculado. Pode ser uma matriz vazia. | Sim
 
 > [!NOTE]
-> Pontos finais REST, que invoca a atividade web tem de devolver uma resposta do tipo JSON. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto final.
+> Os pontos de extremidade REST que a atividade da Web invoca deve retornar uma resposta do tipo JSON. A atividade atingirá o tempo limite em 1 minuto com um erro se não receber uma resposta do ponto de extremidade.
 
-A tabela seguinte mostra os requisitos para o conteúdo JSON:
+A tabela a seguir mostra os requisitos para conteúdo JSON:
 
 | Tipo de valor | Corpo do pedido | Corpo da resposta |
 |---|---|---|
 |Objeto JSON | Suportadas | Suportadas |
-|Matriz JSON | Suportadas <br/>(No momento, matrizes JSON não funcionam como resultado de um bug. Uma correção está em curso.) | Não suportado |
+|Matriz JSON | Suportadas <br/>(No momento, as matrizes JSON não funcionam como resultado de um bug. Uma correção está em andamento.) | Não suportado |
 | Valor JSON | Suportadas | Não suportado |
-| Tipo de não-JSON | Não suportado | Não suportado |
+| Tipo não JSON | Não suportado | Não suportado |
 ||||
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
-### <a name="none"></a>Nenhuma
-Se a autenticação não é necessária, não inclua a propriedade de "autenticação".
+### <a name="none"></a>Nenhum
+Se a autenticação não for necessária, não inclua a propriedade "Authentication".
 
 ### <a name="basic"></a>Básica
-Especifique o nome de utilizador e palavra-passe para utilizar com a autenticação básica.
+Especifique o nome de usuário e a senha a serem usados com a autenticação básica.
 
 ```json
 "authentication":{
@@ -102,8 +105,8 @@ Especifique o nome de utilizador e palavra-passe para utilizar com a autenticaç
 }
 ```
 
-### <a name="client-certificate"></a>Certificado de cliente
-Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-passe.
+### <a name="client-certificate"></a>Certificado do cliente
+Especifique o conteúdo codificado na Base64 de um arquivo PFX e a senha.
 
 ```json
 "authentication":{
@@ -115,7 +118,7 @@ Especifique o conteúdo codificado em base64 de um ficheiro PFX e a palavra-pass
 
 ### <a name="managed-identity"></a>Identidade Gerida
 
-Especifique o uri do recurso para o qual o token de acesso será será solicitado usando-a identidade gerida do data Factory. Para chamar a API de gestão de recursos do Azure, utilize `https://management.azure.com/`. Para obter mais informações sobre identidades geridas como funciona a ver o [geridos identidades para a página de descrição geral de recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Especifique o URI de recurso para o qual o token de acesso será solicitado usando a identidade gerenciada para o data factory. Para chamar a API de gerenciamento de recursos do `https://management.azure.com/`Azure, use. Para obter mais informações sobre como as identidades gerenciadas funcionam, consulte a [página Visão geral de identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ```json
 "authentication": {
@@ -124,8 +127,8 @@ Especifique o uri do recurso para o qual o token de acesso será será solicitad
 }
 ```
 
-## <a name="request-payload-schema"></a>Esquema do payload de pedido
-Quando utiliza o método POST/PUT, a propriedade body representa o payload que é enviado para o ponto final. Pode passar os serviços ligados e conjuntos de dados como parte da carga. Este é o esquema para o payload de:
+## <a name="request-payload-schema"></a>Esquema de carga de solicitação
+Quando você usa o método POST/PUT, a Propriedade Body representa a carga que é enviada para o ponto de extremidade. Você pode passar os serviços vinculados e conjuntos de valores como parte da carga. Aqui está o esquema para a carga:
 
 ```json
 {
@@ -148,7 +151,7 @@ Quando utiliza o método POST/PUT, a propriedade body representa o payload que �
 ```
 
 ## <a name="example"></a>Exemplo
-Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. Ele passa um serviço ligado SQL do Azure e um conjunto de dados SQL do Azure para o ponto final. O ponto final REST, utiliza a cadeia de ligação de SQL do Azure para ligar ao servidor SQL do Azure e devolve o nome da instância do SQL server.
+Neste exemplo, a atividade da Web no pipeline chama um ponto de extremidade REST. Ele passa um serviço vinculado do SQL do Azure e um conjunto de uma do Azure SQL para o ponto de extremidade. O ponto de extremidade REST usa a cadeia de conexão SQL do Azure para se conectar ao servidor SQL do Azure e retorna o nome da instância do SQL Server.
 
 ### <a name="pipeline-definition"></a>Definição de pipeline
 
@@ -202,7 +205,7 @@ Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. E
 
 ```
 
-### <a name="pipeline-parameter-values"></a>Valores de parâmetros do pipeline
+### <a name="pipeline-parameter-values"></a>Valores de parâmetro de pipeline
 
 ```json
 {
@@ -212,7 +215,7 @@ Neste exemplo, a atividade da web no pipeline chama um ponto de final de REST. E
 
 ```
 
-### <a name="web-service-endpoint-code"></a>Código de ponto final do serviço Web
+### <a name="web-service-endpoint-code"></a>Código do ponto de extremidade do serviço Web
 
 ```csharp
 
@@ -242,7 +245,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Consulte outras atividades de fluxo de controle suportadas pelo Data Factory:
+Consulte outras atividades de fluxo de controle com suporte pelo Data Factory:
 
 - [Atividade Executar Pipeline](control-flow-execute-pipeline-activity.md)
 - [Para cada atividade](control-flow-for-each-activity.md)

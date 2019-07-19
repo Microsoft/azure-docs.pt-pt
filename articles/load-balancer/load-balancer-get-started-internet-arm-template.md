@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga público no Resource Manager utilizando um modelo
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122218"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275280"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Criar um balanceador de carga público com um modelo
 
@@ -43,7 +43,7 @@ O modelo de exemplo disponível no repositório público utiliza um ficheiro de 
 Para implementar o modelo que transferiu com o PowerShell, siga os passos abaixo.
 
 1. Se nunca tiver utilizado o Azure PowerShell, veja [How to Install and Configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview) e siga as instruções até ao fim para iniciar sessão no Azure e selecionar a sua subscrição.
-2. Executar o **New-AzResourceGroupDeployment** cmdlet para criar um grupo de recursos com o modelo.
+2. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `
@@ -81,4 +81,4 @@ Para implementar o modelo com a CLI do Azure, siga os passos abaixo.
 
 [Configurar definições de tempo limite TCP inativo para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
 
-Para a sintaxe JSON e propriedades de um balanceador de carga num modelo, consulte [Network/loadbalancers](/azure/templates/microsoft.network/loadbalancers).
+Para obter a sintaxe JSON e as propriedades de um balanceador de carga em um modelo, consulte [Microsoft. Network/](/azure/templates/microsoft.network/loadbalancers)Load balancers.

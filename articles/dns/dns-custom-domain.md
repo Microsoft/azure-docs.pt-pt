@@ -1,169 +1,171 @@
 ---
-title: Integrar o DNS do Azure com os seus recursos do Azure
-description: Saiba como utilizar o DNS do Azure ao longo para fornecer o DNS para os seus recursos do Azure.
+title: Integrar o DNS do Azure com seus recursos do Azure
+description: Saiba como usar o DNS do Azure para fornecer o DNS para os recursos do Azure.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096249"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854164"
 ---
-# <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilizar o DNS do Azure para fornecer definições de domínio personalizado para um serviço do Azure
+# <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar o DNS do Azure para fornecer configurações de domínio personalizadas para um serviço do Azure
 
-O DNS do Azure fornece DNS para um domínio personalizado para qualquer um dos seus recursos do Azure que o suporte de domínios personalizados ou que têm um nome de domínio completamente qualificado (FQDN). Um exemplo é tiver uma aplicação web do Azure e pretende que os utilizadores para acessá-lo, qualquer um com contoso.com ou www\.contoso.com como um FQDN. Este artigo orienta-o por meio de configurar o serviço do Azure com o DNS do Azure para a utilização de domínios personalizados.
+O DNS do Azure fornece o DNS para um domínio personalizado para qualquer um dos seus recursos do Azure que dão suporte a domínios personalizados ou que têm um FQDN (nome de domínio totalmente qualificado). Um exemplo é que você tem um aplicativo Web do Azure e deseja que os usuários o acessem usando o contoso.com ou o contoso.com\.da Web como um FQDN. Este artigo orienta você pela configuração do serviço do Azure com o DNS do Azure para usar domínios personalizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o DNS do Azure para o seu domínio personalizado, primeiro tem de delegar o seu domínio ao DNS do Azure. Visite [delegar um domínio ao DNS do Azure](./dns-delegate-domain-azure-dns.md) para obter instruções sobre como configurar os servidores de nome para a delegação. Assim que o seu domínio é delegado à sua zona DNS do Azure, é possível configurar os registros DNS necessários.
+Para usar o DNS do Azure para seu domínio personalizado, primeiro você deve delegar seu domínio ao DNS do Azure. Visite [delegar um domínio ao DNS do Azure](./dns-delegate-domain-azure-dns.md) para obter instruções sobre como configurar seus servidores de nomes para delegação. Depois que o domínio for delegado à zona DNS do Azure, você poderá configurar os registros DNS necessários.
 
-Pode configurar um personalizado ou o domínio personalizado para [aplicações de funções do Azure](#azure-function-app), [endereços IP públicos](#public-ip-address), [serviço de aplicações (aplicações Web)](#app-service-web-apps), [doarmazenamentodeBLOBs](#blob-storage), e [CDN do Azure](#azure-cdn).
+Você pode configurar um domínio intuitivo ou personalizado para [aplicativos de funções do Azure](#azure-function-app), [endereços IP públicos](#public-ip-address), [serviço de aplicativo (aplicativos Web)](#app-service-web-apps), [armazenamento](#blob-storage)de BLOBs e [CDN do Azure](#azure-cdn).
 
-## <a name="azure-function-app"></a>Aplicação de funções do Azure
+## <a name="azure-function-app"></a>Aplicativo de funções do Azure
 
-Para configurar um domínio personalizado para aplicações de função do Azure, um registo CNAME é criado, bem como a configuração da aplicação de função em si.
+Para configurar um domínio personalizado para os aplicativos de funções do Azure, um registro CNAME é criado, bem como a configuração no próprio aplicativo de funções.
  
-Navegue para **aplicação de funções** e selecione a aplicação de função. Clique em **funcionalidades de plataforma** e, em **redes** clique **domínios personalizados**.
+Navegue até **aplicativo de funções** e selecione seu aplicativo de funções. Clique em **recursos de plataforma** e, em **rede** , clique em **domínios personalizados**.
 
-![Painel de aplicação de função](./media/dns-custom-domain/functionapp.png)
+![folha do aplicativo de funções](./media/dns-custom-domain/functionapp.png)
 
-Tenha em atenção o atual url no **domínios personalizados** painel, este endereço é utilizado como o alias para o registo DNS criado.
+Observe a URL atual na folha **domínios personalizados** , esse endereço é usado como o alias para o registro DNS criado.
 
-![Painel de domínio personalizado](./media/dns-custom-domain/functionshostname.png)
+![folha de domínio personalizado](./media/dns-custom-domain/functionshostname.png)
 
-Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
+Navegue até a zona DNS e clique em **+ conjunto de registros**. Preencha as seguintes informações na folha **Adicionar conjunto de registros** e clique em **OK** para criá-la.
 
 |Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Name     | myfunctionapp        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
-|TTL     | 1        | 1 é utilizado para 1 hora        |
-|Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
-|Alias     | adatumfunction.azurewebsites.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS adatumfunction.azurewebsites.net fornecido por predefinição para a aplicação de funções.        |
+|Nome     | myfunctionapp        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Usar um registro CNAME está usando um alias.        |
+|TTL     | 1        | 1 é usado por 1 hora        |
+|Unidade de TTL     | Horas        | As horas são usadas como medição de tempo         |
+|Alias     | adatumfunction.azurewebsites.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS adatumfunction.azurewebsites.net fornecido por padrão para o aplicativo de funções.        |
 
-Navegue de volta para a sua aplicação function app, clique em **funcionalidades de plataforma**e, em **redes** clique em **domínios personalizados**, em seguida em **nomes de anfitrião personalizado** clique em **+ Adicionar nome de anfitrião**.
+Navegue de volta para seu aplicativo de funções, clique em **recursos da plataforma**e, em **rede** , clique em **domínios personalizados**e, em **nomes de host personalizados** , clique em **+ adicionar nome do host**.
 
-Na **Adicionar nome de anfitrião** painel, introduza o registo CNAME no **nome do anfitrião** campo de texto e clique em **validar**. Se o registo for encontrado, o **Adicionar nome de anfitrião** botão aparece. Clique em **Adicionar nome de anfitrião** para adicionar o alias.
+Na folha **adicionar nome do host** , insira o registro CNAME no campo de texto **nome do host** e clique em **validar**. Se o registro for encontrado, o botão **adicionar nome de host** será exibido. Clique em **adicionar nome do host** para adicionar o alias.
 
-![Painel de nome de anfitrião de adicionar aplicações de funções](./media/dns-custom-domain/functionaddhostname.png)
+![folha de adicionar nome de host aos aplicativos de funções](./media/dns-custom-domain/functionaddhostname.png)
 
 ## <a name="public-ip-address"></a>Endereço IP público
 
-Para configurar um domínio personalizado para recursos, como o Gateway de aplicação, o Balanceador de carga, o serviço em nuvem, o VMs do Resource Manager de endereços de serviços que utilizam um IP público, e as VMs clássicas, um registo é usada.
+Para configurar um domínio personalizado para serviços que usam um recurso de endereço IP público, como gateway de aplicativo, Load Balancer, serviço de nuvem, VMs do Gerenciador de recursos e VMs clássicas, um registro A é usado.
 
-Navegue para **Networking** > **endereço IP público**, selecione o recurso de IP público e clique em **configuração**. Notate o endereço IP mostrado.
+Navegue até **rede** > **endereço IP público**, selecione o recurso IP público e clique em **configuração**. Notate o endereço IP mostrado.
 
-![painel do ip público](./media/dns-custom-domain/publicip.png)
+![folha IP público](./media/dns-custom-domain/publicip.png)
 
-Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
+Navegue até a zona DNS e clique em **+ conjunto de registros**. Preencha as seguintes informações na folha **Adicionar conjunto de registros** e clique em **OK** para criá-la.
 
 
-|Propriedade  |Value  |Descrição  |
+|Propriedade  |Valor  |Descrição  |
 |---------|---------|---------|
-|Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | A        | Utilize um registo, como o recurso é um endereço IP.        |
-|TTL     | 1        | 1 é utilizado para 1 hora        |
-|Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
+|Nome     | MyWebServer        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | A        | Use um registro A, pois o recurso é um endereço IP.        |
+|TTL     | 1        | 1 é usado por 1 hora        |
+|Unidade de TTL     | Horas        | As horas são usadas como medição de tempo         |
 |Endereço IP     | `<your ip address>`       | O endereço IP público.|
 
-![criar um registo](./media/dns-custom-domain/arecord.png)
+![criar um registro A](./media/dns-custom-domain/arecord.png)
 
-Depois de criar o registo, execute `nslookup` para validar o registo resolve o objetivo.
+Depois que o registro a é criado, `nslookup` execute para validar a resolução do registro.
 
-![pesquisa de dns de ip público](./media/dns-custom-domain/publicipnslookup.png)
+![pesquisa de DNS de IP público](./media/dns-custom-domain/publicipnslookup.png)
 
-## <a name="app-service-web-apps"></a>Serviço de aplicações (aplicações Web)
+## <a name="app-service-web-apps"></a>Serviço de aplicativo (aplicativos Web)
 
-As seguintes etapas guiarão por meio de configurar um domínio personalizado para uma aplicação de web do serviço de aplicações.
+As etapas a seguir o levarão para a configuração de um domínio personalizado para um aplicativo Web do serviço de aplicativo.
 
-Navegue para **serviço de aplicações** e selecione o recurso que está a configurar um nome de domínio personalizado e clique em **domínios personalizados**.
+Navegue até o **serviço de aplicativo** e selecione o recurso que você está configurando um nome de domínio personalizado e clique em **domínios personalizados**.
 
-Tenha em atenção o atual url no **domínios personalizados** painel, este endereço é utilizado como o alias para o registo DNS criado.
+Observe a URL atual na folha **domínios personalizados** , esse endereço é usado como o alias para o registro DNS criado.
 
-![Painel de domínios personalizados](./media/dns-custom-domain/url.png)
+![folha domínios personalizados](./media/dns-custom-domain/url.png)
 
-Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
+Navegue até a zona DNS e clique em **+ conjunto de registros**. Preencha as seguintes informações na folha **Adicionar conjunto de registros** e clique em **OK** para criá-la.
 
 
 |Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias. Se o recurso utilizado um endereço IP, seria usado um registo.        |
-|TTL     | 1        | 1 é utilizado para 1 hora        |
-|Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
-|Alias     | webserver.azurewebsites.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS webserver.azurewebsites.net fornecido por predefinição para a aplicação web.        |
+|Nome     | MyWebServer        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Usar um registro CNAME está usando um alias. Se o recurso tiver usado um endereço IP, um registro A será usado.        |
+|TTL     | 1        | 1 é usado por 1 hora        |
+|Unidade de TTL     | Horas        | As horas são usadas como medição de tempo         |
+|Alias     | webserver.azurewebsites.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS webserver.azurewebsites.net fornecido por padrão para o aplicativo Web.        |
 
 
-![Criar um registo CNAME](./media/dns-custom-domain/createcnamerecord.png)
+![criar um registro CNAME](./media/dns-custom-domain/createcnamerecord.png)
 
-Navegue de volta para o serviço de aplicações que está configurado para o nome de domínio personalizado. Clique em **domínios personalizados**, em seguida, clique em **os nomes de anfitrião**. Para adicionar o registo CNAME que criou, clique em **+ Adicionar nome de anfitrião**.
+Navegue de volta para o serviço de aplicativo que está configurado para o nome de domínio personalizado. Clique em **domínios personalizados**e em **nomes de host**. Para adicionar o registro CNAME que você criou, clique em **+ adicionar nome do host**.
 
 ![figura 1](./media/dns-custom-domain/figure1.png)
 
-Depois do processo estiver concluído, execute **nslookup** validar a resolução de nomes está a funcionar.
+Quando o processo for concluído, execute **nslookup** para validar que a resolução de nomes está funcionando.
 
 ![figura 1](./media/dns-custom-domain/finalnslookup.png)
 
-Para saber mais sobre o mapeamento de um domínio personalizado no serviço de aplicações, visite [mapear um nome DNS existente personalizado para aplicações Web do Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+Para saber mais sobre como mapear um domínio personalizado para o serviço de aplicativo, visite [mapear um nome DNS personalizado existente para aplicativos Web do Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Se precisar de comprar um domínio personalizado, visite [comprar um nome de domínio personalizado para aplicações Web do Azure](../app-service/manage-custom-dns-buy-domain.md) para saber mais sobre os domínios do serviço de aplicações.
+Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo para Azure app serviço](../app-service/manage-custom-dns-migrate-domain.md).
+
+Se precisar comprar um domínio personalizado, acesse [comprar um nome de domínio personalizado para aplicativos Web do Azure](../app-service/manage-custom-dns-buy-domain.md) para saber mais sobre domínios do serviço de aplicativo.
 
 ## <a name="blob-storage"></a>Armazenamento de blobs
 
-As seguintes etapas guiarão por meio de um registo CNAME para uma conta de armazenamento de Blobs com o método asverifiy a configurar. Esse método garante que não existe nenhum tempo de inatividade.
+As etapas a seguir o orientarão na configuração de um registro CNAME para uma conta de armazenamento de BLOBs usando o método asverify. Esse método garante que não haja nenhum tempo de inatividade.
 
-Navegue para **armazenamento** > **contas de armazenamento**, selecione a sua conta de armazenamento e clique em **Custom domain**. Notate o FQDN no passo 2, este valor é utilizado para criar o primeiro registo CNAME
+Navegue até **armazenamento** > **contas**de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Notate o FQDN na etapa 2, esse valor é usado para criar o primeiro registro CNAME
 
-![domínio personalizado de armazenamento de BLOBs](./media/dns-custom-domain/blobcustomdomain.png)
+![domínio personalizado do armazenamento de BLOBs](./media/dns-custom-domain/blobcustomdomain.png)
 
-Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
+Navegue até a zona DNS e clique em **+ conjunto de registros**. Preencha as seguintes informações na folha **Adicionar conjunto de registros** e clique em **OK** para criá-la.
 
 
 |Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Name     | asverify.mystorageaccount        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
-|TTL     | 1        | 1 é utilizado para 1 hora        |
-|Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
-|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por predefinição para a conta de armazenamento.        |
+|Nome     | asverify.mystorageaccount        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Usar um registro CNAME está usando um alias.        |
+|TTL     | 1        | 1 é usado por 1 hora        |
+|Unidade de TTL     | Horas        | As horas são usadas como medição de tempo         |
+|Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por padrão para a conta de armazenamento.        |
 
-Navegue de volta para a sua conta de armazenamento ao clicar em **armazenamento** > **contas de armazenamento**, selecione a sua conta de armazenamento e clique em **Custom domain**. Escreva o alias que criou sem o prefixo de asverifiy na caixa de texto, verificação * * Utilizar validação de CNAME indireta e clique em **guardar**. Uma vez concluído este passo, regresse à sua zona DNS e crie um registo CNAME sem o prefixo de asverifiy.  Após esse ponto, é seguro eliminar o registo CNAME com o prefixo de cdnverify.
+Navegue de volta para sua conta de armazenamento **clicando em** > **contas de armazenamento**de armazenamento, selecione sua conta de armazenamento e clique em **domínio personalizado**. Digite o alias que você criou sem o prefixo asverify na caixa de texto, marque * * usar validação de CNAME indireto e clique em **salvar**. Após a conclusão desta etapa, retorne à zona DNS e crie um registro CNAME sem o prefixo asverify.  Depois desse ponto, você é seguro excluir o registro CNAME com o prefixo cdnverify.
 
-![domínio personalizado de armazenamento de BLOBs](./media/dns-custom-domain/indirectvalidate.png)
+![domínio personalizado do armazenamento de BLOBs](./media/dns-custom-domain/indirectvalidate.png)
 
-Validar a resolução de DNS ao executar `nslookup`
+Validar a resolução de DNS executando`nslookup`
 
-Para saber mais sobre o mapeamento de um domínio personalizado para um ponto de extremidade de armazenamento de BLOBs, visite [configurar um nome de domínio personalizado para o ponto final de armazenamento de BLOBs](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
+Para saber mais sobre como mapear um domínio personalizado para um ponto de extremidade de armazenamento de BLOB, visite [configurar um nome de domínio personalizado para o ponto de extremidade de armazenamento de blob](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)
 
 ## <a name="azure-cdn"></a>CDN do Azure
 
-As seguintes etapas guiarão por meio de configurar um registo CNAME para um ponto final da CDN através do método cdnverify. Esse método garante que não existe nenhum tempo de inatividade.
+As etapas a seguir o orientarão na configuração de um registro CNAME para um ponto de extremidade CDN usando o método cdnverify. Esse método garante que não haja nenhum tempo de inatividade.
 
-Navegue para **Networking** > **perfis da CDN**, selecione o perfil de CDN.
+Navegue até **rede** > **perfis de CDN**, selecione seu perfil CDN.
 
-Selecione o ponto final que está a trabalhar e clique em **+ domínio personalizado**. Tenha em atenção a **nome de anfitrião do ponto de extremidade** como este valor é o registo que o registo CNAME aponta para.
+Selecione o ponto de extremidade com o qual você está trabalhando e clique em **+ domínio personalizado**. Observe o **nome do host do ponto de extremidade** como esse valor é o registro para o qual o registro CNAME aponta.
 
 ![Domínio personalizado da CDN](./media/dns-custom-domain/endpointcustomdomain.png)
 
-Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
+Navegue até a zona DNS e clique em **+ conjunto de registros**. Preencha as seguintes informações na folha **Adicionar conjunto de registros** e clique em **OK** para criá-la.
 
 |Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Name     | cdnverify.mycdnendpoint        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
-|TTL     | 1        | 1 é utilizado para 1 hora        |
-|Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
-|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS cdnverify.adatumcdnendpoint.azureedge.net fornecido por predefinição para a conta de armazenamento.        |
+|Nome     | cdnverify.mycdnendpoint        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Usar um registro CNAME está usando um alias.        |
+|TTL     | 1        | 1 é usado por 1 hora        |
+|Unidade de TTL     | Horas        | As horas são usadas como medição de tempo         |
+|Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS cdnverify.adatumcdnendpoint.azureedge.net fornecido por padrão para a conta de armazenamento.        |
 
-Navegue de volta para o ponto final de CDN ao clicar em **Networking** > **perfis da CDN**e selecione o perfil de CDN. Clique em **+ domínio personalizado** e introduza o seu alias de registo CNAME sem o prefixo de cdnverify e clique em **Add**.
+Navegue de volta para o ponto de extremidade da CDN clicando em **rede** > **perfis de CDN**e selecione seu perfil CDN. Clique em **+ domínio personalizado** e insira seu alias de registro CNAME sem o prefixo cdnverify e clique em **Adicionar**.
 
-Uma vez concluído este passo, regresse à sua zona DNS e crie um registo CNAME sem o prefixo de cdnverify.  Após esse ponto, é seguro eliminar o registo CNAME com o prefixo de cdnverify. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem o passo de registo intermediários visite [conteúdo de mapa do Azure CDN para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
+Após a conclusão desta etapa, retorne à zona DNS e crie um registro CNAME sem o prefixo cdnverify.  Depois desse ponto, você é seguro excluir o registro CNAME com o prefixo cdnverify. Para obter mais informações sobre a CDN e como configurar um domínio personalizado sem a etapa de registro intermediária, visite [mapear conteúdo da CDN do Azure para um domínio personalizado](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [configurar DNS inverso para os serviços alojados no Azure](dns-reverse-dns-for-azure-services.md).
+Saiba como [Configurar o DNS reverso para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

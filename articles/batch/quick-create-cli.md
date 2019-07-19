@@ -3,21 +3,21 @@ title: Início Rápido do Azure - Executar Tarefa do Batch - CLI
 description: Aprenda mais rapidamente a executar uma tarefa do Batch com a CLI do Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: df56fd00d5a5ff2f9e9000b39939d0f33b3737d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127497"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322501"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início rápido: Executar o seu primeiro trabalho do Batch com a CLI do Azure
+# <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início rápido: Executar seu primeiro trabalho em lotes com o CLI do Azure
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI do Azure para criar uma conta do Batch, um *conjunto* de nós de computação (máquinas virtuais) e uma *tarefa* que executa *tarefas* no conjunto. Cada tarefa de exemplo executa um comando básico num dos nós do conjunto. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 

@@ -1,9 +1,9 @@
 ---
-title: Evento de criação de conjunto do Batch do Azure | Documentos da Microsoft
-description: Evento de criação de referência para o conjunto do Batch.
+title: Evento de criação do pool do lote do Azure | Microsoft Docs
+description: Referência do evento de criação do pool do lote.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a86ce329a19272eb83c431af395b330f75111361
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776512"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323304"
 ---
 # <a name="pool-create-event"></a>Evento de criação de conjunto
 
- Este evento é emitido quando um conjunto tiver sido criado. O conteúdo do registo irá expor informações gerais sobre o conjunto. Tenha em atenção que, se o tamanho de destino do pool for maior que 0 nós de computação, um evento de início de redimensionamento de conjunto irá seguir imediatamente após este evento.
+ Esse evento é emitido após a criação de um pool. O conteúdo do log vai expor informações gerais sobre o pool. Observe que, se o tamanho de destino do pool for maior que 0 nós de computação, um evento de início de redimensionamento do pool será seguido imediatamente após esse evento.
 
- O exemplo seguinte mostra o corpo de um agrupamento de eventos para um conjunto criado usando a propriedade CloudServiceConfiguration de criar.
+ O exemplo a seguir mostra o corpo de um evento de criação de pool para um pool criado usando a propriedade CloudServiceConfiguration.
 
 ```
 {
@@ -47,54 +47,54 @@ ms.locfileid: "60776512"
 }
 ```
 
-|Elemento|Tipo|Notas|
+|Elemento|Type|Notas|
 |-------------|----------|-----------|
-|id|String|O id do conjunto.|
-|displayName|String|O nome a apresentar do conjunto.|
-|vmSize|String|O tamanho das máquinas virtuais no conjunto. Todas as máquinas virtuais num conjunto têm o mesmo tamanho. <br/><br/> Para informações sobre os tamanhos disponíveis das máquinas virtuais para serviços em nuvem pools (conjuntos criados com cloudServiceConfiguration), consulte [tamanhos para os serviços Cloud](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O batch suporta todos os tamanhos de VM dos serviços Cloud, exceto `ExtraSmall`.<br/><br/> Para obter informações sobre a VM disponível tamanhos de conjuntos utilizando imagens do mercado de máquinas virtuais (conjuntos criados com virtualMachineConfiguration) veja [tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [tamanhos para Virtual Máquinas](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
-|[cloudServiceConfiguration](#bk_csconf)|Tipo complexo|A configuração do serviço cloud para o conjunto.|
-|[virtualMachineConfiguration](#bk_vmconf)|Tipo complexo|A configuração de máquina virtual para o conjunto.|
-|[networkConfiguration](#bk_netconf)|Tipo complexo|A configuração de rede para o conjunto.|
-|resizeTimeout|Hora|O tempo limite da alocação de nós de computação para o conjunto especificado para a última operação de redimensionamento no conjunto.  (O tamanho inicial quando é criado o conjunto é contabilizado como um redimensionamento.)|
-|targetDedicated|Int32|O número de nós de computação que são pedidos para o conjunto.|
-|enableAutoScale|Booleano|Especifica se o tamanho do conjunto se ajusta automaticamente ao longo do tempo.|
-|enableInterNodeCommunication|Booleano|Especifica se o conjunto está configurado para comunicação direta entre nós.|
-|isAutoPool|Booleano|Especifica se o conjunto foi criado por meio de mecanismo de AutoPool de uma tarefa.|
-|maxTasksPerNode|Int32|O número máximo de tarefas que pode ser executado simultaneamente num único nó de computação no conjunto.|
-|vmFillType|String|Define como o serviço Batch distribui as tarefes entre nós de computação no conjunto. Valores válidos encontram-se distribuídas ou pacote.|
+|id|Cadeia|A ID do pool.|
+|displayName|Cadeia|O nome de exibição do pool.|
+|vmSize|Cadeia|O tamanho das máquinas virtuais no pool. Todas as máquinas virtuais em um pool têm o mesmo tamanho. <br/><br/> Para obter informações sobre os tamanhos disponíveis de máquinas virtuais para pools de serviços de nuvem (pools criados com cloudServiceConfiguration), consulte [tamanhos dos serviços de nuvem](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). O lote dá suporte a todos os tamanhos `ExtraSmall`de VM de serviços de nuvem exceto.<br/><br/> Para obter informações sobre tamanhos de VM disponíveis para pools usando imagens do Marketplace de máquinas virtuais (pools criados com virtualMachineConfiguration), consulte [tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) ou [tamanhos de máquinas virtuais](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). O Batch suporta todos os tamanhos de VM do Azure, exceto `STANDARD_A0` e os do armazenamento premium (séries `STANDARD_GS`, `STANDARD_DS` e `STANDARD_DSV2`).|
+|[cloudServiceConfiguration](#bk_csconf)|Tipo complexo|A configuração do serviço de nuvem para o pool.|
+|[virtualMachineConfiguration](#bk_vmconf)|Tipo complexo|A configuração da máquina virtual para o pool.|
+|[networkConfiguration](#bk_netconf)|Tipo complexo|A configuração de rede para o pool.|
+|resizeTimeout|Time|O tempo limite para a alocação de nós de computação para o pool especificado para a última operação de redimensionamento no pool.  (O dimensionamento inicial quando o pool é criado conta como um redimensionamento.)|
+|targetDedicated|Int32|O número de nós de computação que são solicitados para o pool.|
+|enableAutoScale|Bool|Especifica se o tamanho do pool se ajusta automaticamente ao longo do tempo.|
+|enableInterNodeCommunication|Bool|Especifica se o pool está configurado para comunicação direta entre nós.|
+|isAutoPool|Bool|Especifica se o pool foi criado por meio do mecanismo de autopool de um trabalho.|
+|maxTasksPerNode|Int32|O número máximo de tarefas que podem ser executadas simultaneamente em um único nó de computação no pool.|
+|vmFillType|Cadeia|Define como o serviço de lote distribui tarefas entre nós de computação no pool. Os valores válidos são spread ou Pack.|
 
-###  <a name="bk_csconf"></a> cloudServiceConfiguration
+###  <a name="bk_csconf"></a>cloudServiceConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|osFamily|String|A família de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> Os valores possíveis são:<br /><br /> **2** – 2 de família de SO, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – 3 de família de SO, equivalente para o Windows Server 2012.<br /><br /> **4** – 4 de família de SO, equivalente para o Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|targetOSVersion|String|A versão de SO convidado do Azure para ser instalado nas máquinas virtuais no conjunto.<br /><br /> O valor predefinido é **\*** que especifica a versão mais recente do sistema operativo para a família especificada.<br /><br /> Para outros valores permitidos, consulte [versões do SO convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|osFamily|Cadeia|A família do sistema operacional convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> Os valores possíveis são:<br /><br /> **2** – família de sistemas operacionais 2, equivalente ao Windows Server 2008 R2 SP1.<br /><br /> **3** – so família 3, equivalente ao Windows Server 2012.<br /><br /> **4** – so família 4, equivalente ao Windows Server 2012 R2.<br /><br /> Para obter mais informações, consulte [versões do sistema operacional convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|targetOSVersion|Cadeia|A versão do sistema operacional convidado do Azure a ser instalada nas máquinas virtuais no pool.<br /><br /> O valor padrão é **\*** que especifica a versão mais recente do sistema operacional para a família especificada.<br /><br /> Para outros valores permitidos, consulte [versões do sistema operacional convidado do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
-###  <a name="bk_vmconf"></a> virtualMachineConfiguration
+###  <a name="bk_vmconf"></a>virtualMachineConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|[imageReference](#bk_imgref)|Tipo complexo|Especifica informações sobre a plataforma ou imagem do Marketplace para utilizar.|
-|nodeAgentSKUId|String|O SKU do agente de nó do Batch aprovisionado no nó de computação.|
-|[windowsConfiguration](#bk_winconf)|Tipo complexo|Especifica as definições do sistema operativo Windows na máquina virtual. Esta propriedade não pode ser especificado se o imageReference está a referenciar uma imagem de SO Linux.|
+|[imageReference](#bk_imgref)|Tipo complexo|Especifica informações sobre a plataforma ou a imagem do Marketplace a ser usada.|
+|nodeAgentSKUId|Cadeia|A SKU do agente de nó do lote provisionada no nó de computação.|
+|[windowsConfiguration](#bk_winconf)|Tipo complexo|Especifica as configurações do sistema operacional Windows na máquina virtual. Essa propriedade não deve ser especificada se o imageReference estiver fazendo referência a uma imagem do SO Linux.|
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|publicador|String|O publicador da imagem.|
-|oferta|String|A oferta da imagem.|
-|SKU|String|O SKU da imagem.|
-|version|String|A versão da imagem.|
+|publisher|Cadeia|O editor da imagem.|
+|Proporcionar|Cadeia|A oferta da imagem.|
+|SKU|Cadeia|A SKU da imagem.|
+|version|Cadeia|A versão da imagem.|
 
-###  <a name="bk_winconf"></a> windowsConfiguration
+###  <a name="bk_winconf"></a>windowsConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|----------|-----------|
-|enableAutomaticUpdates|Boolean|Indica se a máquina virtual está ativada para as atualizações automáticas. Se esta propriedade não for especificada, o valor predefinido é verdadeiro.|
+|enableAutomaticUpdates|Booleano|Indica se a máquina virtual está habilitada para atualizações automáticas. Se essa propriedade não for especificada, o valor padrão será true.|
 
-###  <a name="bk_netconf"></a> networkConfiguration
+###  <a name="bk_netconf"></a>networkConfiguration
 
-|Nome do elemento|Tipo|Notas|
+|Nome do elemento|Type|Notas|
 |------------------|--------------|----------|
-|subnetId|String|Especifica o identificador de recurso da sub-rede na qual nós de computação do conjunto são criados.|
+|subnetId|Cadeia|Especifica o identificador de recurso da sub-rede na qual os nós de computação do pool são criados.|

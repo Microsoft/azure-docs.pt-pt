@@ -1,6 +1,6 @@
 ---
-title: Início rápido para criar uma aplicação de Python que utiliza o Azure Cache de Redis | Documentos da Microsoft
-description: Neste início rápido, vai aprender a criar uma aplicação de Python que utiliza o Azure Cache de Redis
+title: Início rápido para criar um aplicativo Python que usa o cache do Azure para Redis | Microsoft Docs
+description: Neste guia de início rápido, você aprende a criar um aplicativo Python que usa o cache do Azure para Redis
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -15,38 +15,32 @@ ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 73c14b3d3023dcca113589d63276216fcfdd17f1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 70a8e4cd694a90e83bf78e00a7c725a8c887b2eb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513452"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324079"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: Utilizar a Cache do Azure para Redis com Python
+# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: Usar o cache do Azure para Redis com Python
 
-
-## <a name="introduction"></a>Introdução
-
-Este início rápido mostra como ligar a uma Cache do Azure para Redis com Python para ler e escrever para uma cache. 
-
-![Teste de Python concluído](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo Python para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Ambiente Python 2 ou Python 3](https://www.python.org/downloads/) instalado com [pip](https://pypi.org/project/pip/). 
+- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Python 2 ou 3](https://www.python.org/downloads/)
 
-## <a name="create-an-azure-cache-for-redis-on-azure"></a>Criar uma Cache do Azure para Redis no Azure
+## <a name="create-an-azure-cache-for-redis-on-azure"></a>Criar um cache do Azure para Redis no Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 ## <a name="install-redis-py"></a>Instalar redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) é uma interface de Python para a Cache do Azure para Redis. Utilize a ferramenta de pacotes Python, *pip*, para instalar o pacote redis-py. 
+[Redis-py](https://github.com/andymccurdy/redis-py) é uma interface Python para o cache do Azure para Redis. Utilize a ferramenta de pacotes Python, *pip*, para instalar o pacote redis-py. 
 
-O exemplo seguinte utiliza *pip3* para Python3 instalar o pacote de redis-py no Windows 10 com um Visual Studio 2019 desenvolvedor prompt de comando executando com privilégios de administrador elevados.
+O exemplo a seguir usa *pip3* para Python3 para instalar o pacote Redis-py no Windows 10 usando um prompt de comando do desenvolvedor do Visual Studio 2019 executando com privilégios de administrador elevado.
 
 ```python
     pip3 install redis
@@ -57,7 +51,7 @@ O exemplo seguinte utiliza *pip3* para Python3 instalar o pacote de redis-py no 
 
 ## <a name="read-and-write-to-the-cache"></a>Ler e escrever na cache
 
-Execute o Python e teste-o com a cache a partir da linha de comandos. Substitua `<Your Host Name>` e `<Your Access Key>` com os valores para a sua Cache do Azure para Redis. 
+Execute o Python e teste-o com a cache a partir da linha de comandos. Substitua `<Your Host Name>` e`<Your Access Key>` pelos valores de seu cache do Azure para Redis. 
 
 ```python
 >>> import redis
@@ -70,13 +64,13 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> Para Redis versão é a 3.0 ou superior, a verificação de certificado SSL é aplicada. ssl_ca_certs tem de ser explicitamente definido quando se liga ao Redis. Em caso de Linux de RH, ssl_ca_certs podem ser encontradas no "/ etc/pki/tls/certs/ca-bundle.crt" módulo de certificado.
+> Para a versão Redis é 3,0 ou superior, a verificação de certificado SSL é imposta. ssl_ca_certs deve ser definido explicitamente ao se conectar ao Redis. No caso do RH Linux, ssl_ca_certs pode ser encontrado no módulo de certificado "/etc/PKI/TLS/certs/CA-Bundle.CRT".
 
 ## <a name="create-a-python-script"></a>Criar um script Python
 
 Crie um novo ficheiro de texto de script com o nome *PythonApplication1.py*.
 
-Adicione o seguinte script a *PythonApplication1.py* e guarde o ficheiro. Este script irá testar o acesso da cache. Substitua `<Your Host Name>` e `<Your Access Key>` com os valores para a sua Cache do Azure para Redis. 
+Adicione o seguinte script a *PythonApplication1.py* e guarde o ficheiro. Este script irá testar o acesso da cache. Substitua `<Your Host Name>` e`<Your Access Key>` pelos valores de seu cache do Azure para Redis. 
 
 ```python
 import redis
@@ -127,13 +121,10 @@ Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos.
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Crie uma aplicação de web ASP.NET simple que utiliza uma Cache do Azure para Redis.](./cache-web-app-howto.md)
-
-
+> [Crie um aplicativo Web ASP.NET simples que usa um cache do Azure para Redis.](./cache-web-app-howto.md)
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

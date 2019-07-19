@@ -1,42 +1,42 @@
 ---
-title: Gerir as suas preferências de aplicativo no IoT Central | Documentos da Microsoft
-description: Como gerir a sua aplicação e preferências pessoais no Centro de IoT
+title: Gerenciar suas preferências de aplicativo no IoT Central | Microsoft Docs
+description: Como gerenciar seu aplicativo e suas preferências pessoais no IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5c0dbcb1c1f483bd7499de08c9f1949adff415b
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236317"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850152"
 ---
-# <a name="manage-your-application-preferences"></a>Gerir as suas preferências de aplicação
+# <a name="manage-your-application-preferences"></a>Gerenciar suas preferências de aplicativo
 
 *Este artigo aplica-se a operadores, construtores e administradores.*
 
-Centro de IoT fornece a flexibilidade para personalizar as suas aplicações de acordo com as suas necessidades. Também fornecemos alguma flexibilidade numa base por utilizador para personalizar sua própria exibição. Este artigo descreve as várias opções de personalização que um utilizador pode aplicar ao seu perfil.
+IoT Central fornece a flexibilidade para personalizar seus aplicativos de acordo com suas necessidades. Também fornecemos alguma flexibilidade em uma base por usuário para personalizar sua própria exibição. Este artigo descreve as várias opções de personalização que um usuário pode aplicar ao seu perfil.
 
-## <a name="changing-language"></a>Alterar idioma
+## <a name="changing-language"></a>Alterando a linguagem
 
-Centro de IoT é suportado em vários idiomas. Pode mudar o seu idioma preferencial ao utilizar o **Seletor de idioma** no ícone das definições na barra de navegação superior. Assim que alterou o idioma, o IoT Central lembra a sua seleção e aplica-se ele em todas as suas aplicações. Personalização na aplicação que dessas imagens de dashboard não são localizadas.
+Há suporte para IoT Central em vários idiomas. Você pode alternar o idioma preferencial usando o seletor de **idioma** no ícone de configurações na barra de navegação superior. Depois de alterar seu idioma, IoT Central lembra sua seleção e a aplica em todos os seus aplicativos. A personalização dentro do aplicativo, tais imagens do painel, não estão localizadas.
 
-## <a name="changing-theme"></a>Alterar o tema
+## <a name="changing-theme"></a>Alterando o tema
 
-Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o padrão, pode alterar o tema, selecionando o ícone de definições na barra de navegação superior.
+Temos suporte para tema escuro e tema claro. Embora o tema claro seja o padrão, você pode alterar o tema selecionando o ícone de configurações na barra de navegação superior.
 
-![Seletor de temas do Centro de IoT](media/howto-manage-preferences/settings.png)
+![IoT Central seletor de tema](media/howto-manage-preferences/settings.png)
 
 > [!NOTE]
-> A opção de escolher entre temas claros e escuros não está disponível se o administrador tiver configurado um tema personalizado para a aplicação.
+> A opção de escolher entre temas claros e escuros não estará disponível se o administrador tiver configurado um tema personalizado para o aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que aprendeu como gerir o seu perfil no Azure IoT Central, este é o passo seguinte sugerido:
+Agora que você aprendeu como gerenciar seu perfil no Azure IoT Central, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
-> [Ativar/desativar de chat ao vivo](howto-show-hide-chat.md)
+> [Alternar chat ao vivo](howto-show-hide-chat.md)

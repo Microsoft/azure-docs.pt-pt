@@ -1,6 +1,6 @@
 ---
 title: 'Application Insights: linguagens, plataformas e integrações | Microsoft Docs'
-description: Linguagens, plataformas e integrações disponíveis para o Application Insights
+description: Linguagens, plataformas e integrações disponíveis para Application Insights
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,32 +13,36 @@ ms.topic: conceptual
 ms.date: 07/06/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 100f1f8875dd53f954e99c50f0bc5b9cd3fee31b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: db79f2b1d3857aac2f71d2e18a3949f068b746eb
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617807"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67990064"
 ---
-# <a name="languages---officially-supported-by-application-insights-team"></a>Linguagens – oficialmente suportadas pela equipa do Application Insights
+# <a name="languages---officially-supported-by-application-insights-team"></a>Idiomas-oficialmente suportados pela equipe de Application Insights
+
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Páginas Web JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
 
-## <a name="languages---community-supported"></a>Linguagens – com suporte da comunidade
+## <a name="community-sdks"></a>SDKs da Comunidade
 
-Há uma série de suporte na Comunidade SDKs do Application Insights, muitos dos quais foram originalmente criados pela Microsoft. Suportada na Comunidade SDKs não serão mantidos oficialmente pela Microsoft e não é possível fornecer suporte para qualquer SDK que não esteja na lista oficialmente suportada. Estes SDKs são considerados experimentais e não são recomendados para utilização em produção.
+Há uma série de SDKs de insights de Aplicativo Azure da Comunidade, muitos dos quais foram criados originalmente pela Microsoft. Os SDKs da Comunidade não são oficialmente mantidos pela Microsoft. Não é possível fornecer suporte para nenhum SDK que não esteja na lista oficialmente suportada. Esses SDKs são considerados experimentais e não são recomendados para uso em produção.
 
 ## <a name="platforms-and-frameworks"></a>Plataformas e estruturas
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>Instrumentação para aplicativos já implantados (sem código, baseados em agente)
+* [Conjuntos de dimensionamento de máquinas virtuais do Azure e VM do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
+* [Serviço de Aplicações do Azure](../../azure-monitor/app/azure-web-apps.md)
 * [ASP.NET – para aplicações que já estão em direto](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Serviços de nuvem do Azure](../../azure-monitor/app/cloudservices.md), incluindo funções Web e de trabalho
+* [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+### <a name="instrumentation-through-code-sdks"></a>Instrumentação por meio de código (SDKs)
+* [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [Núcleo do ASP.NET](../../azure-monitor/app/asp-net-core.md)
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
-* [Serviço de Aplicações do Azure](../../azure-monitor/app/azure-web-apps.md)
-* [Serviços Cloud do Azure](../../azure-monitor/app/cloudservices.md) (funções Web e de trabalho)
-* [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
@@ -52,6 +56,6 @@ Há uma série de suporte na Comunidade SDKs do Application Insights, muitos dos
 * [Plug-in do LogStash](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
-## <a name="export-and-data-analysis"></a>Análise de Dados e Exportação
+## <a name="export-and-data-analysis"></a>Análise de dados e exportação
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)

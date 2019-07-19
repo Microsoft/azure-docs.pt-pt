@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Como configurar o modo de distribuição de Balanceador de carga do Azure suportar a afinidade do IP de origem.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 98fdf76dc2e1cb8171e7b0b37216d5f5405a1e6a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122394"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275424"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configurar o modo de distribuição para o Balanceador de carga do Azure
 

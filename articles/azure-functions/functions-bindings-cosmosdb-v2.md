@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB enlaces para as funções 2.x
+title: Associações de Azure Cosmos DB para o Functions 2. x
 description: Compreenda como utilizar o Azure Cosmos DB acionadores e enlaces nas funções do Azure.
 services: functions
 documentationcenter: na
@@ -11,35 +11,35 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 1a505fc5ef09fe9842e72488843155af7c0888cb
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: b0f8b5efcf7e22a3f9d98d5c812ba4821a8b2124
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480804"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254772"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB associações para Azure Functions 2. x
 
-> [!div class="op_single_selector" title1="Selecione a versão do runtime das funções do Azure que está a utilizar: "]
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-bindings-cosmosdb.md)
 > * [Versão 2](functions-bindings-cosmosdb-v2.md)
 
-Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) enlaces no funções do Azure 2.x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
+Este artigo explica como trabalhar com associações de [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) no Azure Functions 2. x. Funções do Azure suporta acionaram, de entrada e saída enlaces para o Azure Cosmos DB.
 
 > [!NOTE]
-> Este artigo destina-se [versão das funções do Azure 2.x](functions-versions.md).  Para obter informações sobre como utilizar essas ligações nas funções 1.x, consulte [do Azure Cosmos DB enlaces das funções do Azure 1.x](functions-bindings-cosmosdb.md).
+> Este artigo é para [Azure Functions versão 2. x](functions-versions.md).  Para obter informações sobre como usar essas associações no functions 1. x, consulte [Azure Cosmos DB associações para Azure Functions 1. x](functions-bindings-cosmosdb.md).
 >
-> Este enlace foi originalmente denominado DocumentDB. Na versão de funções 2.x, o acionador, enlaces e pacote são todos com o nome do Cosmos DB.
+> Este enlace foi originalmente denominado DocumentDB. Nas funções versão 2. x, o gatilho, as associações e o pacote são todos nomeados Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>APIs compatíveis
+## <a name="supported-apis"></a>APIs com suporte
 
 [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
-As ligações do Azure Cosmos DB para a versão de funções 2.x são fornecidos na [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) pacote NuGet, versão 3.x. É de código-fonte para as ligações na [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) repositório do GitHub.
+As associações de Azure Cosmos DB para as funções versão 2. x são fornecidas no pacote NuGet [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB) , versão 3. x. É de código-fonte para as ligações na [azure-webjobs-sdk-extensões](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -57,7 +57,7 @@ Veja o exemplo de idioma específico:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-Ignorar os exemplos de Acionador
+Ignorar exemplos de gatilho
 
 ### <a name="trigger---c-example"></a>Acionador - exemplo do c#
 
@@ -93,7 +93,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Ignorar os exemplos de Acionador
+Ignorar exemplos de gatilho
 
 ### <a name="trigger---c-script-example"></a>Acionador - exemplo de script do c#
 
@@ -131,7 +131,7 @@ Aqui está o código de script do c#:
     }
 ```
 
-Ignorar os exemplos de Acionador
+Ignorar exemplos de gatilho
 
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
@@ -164,7 +164,7 @@ Eis o código JavaScript:
 
 ### <a name="trigger---java-example"></a>Acionador - exemplo de Java
 
-O exemplo seguinte mostra um acionador Cosmos DB ligando *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função está envolvida quando existem insere ou atualiza a coleção e a base de dados especificada.
+O exemplo a seguir mostra uma associação de gatilho Cosmos DB no arquivo *Function. JSON* e uma [função Java](functions-reference-java.md) que usa a associação. A função é envolvida quando há inserções ou atualizações no banco de dados e na coleção especificados.
 
 ```json
 {
@@ -196,14 +196,14 @@ Eis o código Java:
 ```
 
 
-Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@CosmosDBTrigger` anotação em parâmetros cujo valor virá do Cosmos DB.  Esta anotação pode ser utilizada com tipos nativos de Java, POJOs ou valores anuláveis usando opcional<T>.
+Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a `@CosmosDBTrigger` anotação em parâmetros cujo valor venha de Cosmos DB.  Esta anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando T\<> opcional.
 
 
-Ignorar os exemplos de Acionador
+Ignorar exemplos de gatilho
 
-### <a name="trigger---python-example"></a>Acionador - exemplo de Python
+### <a name="trigger---python-example"></a>Gatilho-exemplo de Python
 
-O exemplo seguinte mostra um acionador Cosmos DB ligando uma *Function* ficheiro e uma [função Python](functions-reference-python.md) que utiliza o enlace. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
+O exemplo a seguir mostra uma associação de gatilho Cosmos DB em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação. A função escreve as mensagens de registo quando os registos de Cosmos DB são modificados.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -220,7 +220,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
     import logging
@@ -232,7 +232,7 @@ Aqui está o código de Python:
             logging.info('First document Id modified: %s', documents[0]['id'])
 ```
 
-## <a name="trigger---c-attributes"></a>Acionador - c# atributos
+## <a name="trigger---c-attributes"></a>Gatilho- C# atributos
 
 Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) atributo.
 
@@ -274,9 +274,9 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**leaseAcquireInterval**| **leaseAcquireInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de disparar uma tarefa de computação se as partições são distribuídas uniformemente entre instâncias de host conhecidos. A predefinição é 13000 (13 segundos).
 |**leaseExpirationInterval**| **leaseExpirationInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo para o qual a concessão é criada numa concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, fará com que expire e propriedade da partição irá mudar para outra instância. A predefinição é 60000 (60 segundos).
 |**leaseRenewInterval**| **leaseRenewInterval**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo de renovação para todas as concessões para partições atualmente mantido por uma instância. A predefinição é 17000 (17 segundos).
-|**checkpointFrequency**| **checkpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. A predefinição é sempre após cada chamada de função.
+|**checkpointFrequency**| **checkpointFrequency**| (Opcional) Quando definida, ela define, em milissegundos, o intervalo entre pontos de verificação de concessão. O padrão é sempre após cada chamada de função.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (Opcional) Quando definida, personaliza a quantidade máxima de itens recebidas por chamada de função.
-|**startFromBeginning**| **StartFromBeginning**| (Opcional) Quando definido, ele instrui o acionador para começar a ler as alterações desde o início da história da coleção em vez da hora atual. Isso funciona apenas na primeira vez iniciada a acionador, tal como as execuções posteriores, os pontos de verificação já está armazenadas. Definir este tipo como `true` quando houver concessões criadas já não tem qualquer efeito.
+|**startFromBeginning**| **StartFromBeginning**| Adicional Quando definido, ele informa ao gatilho para começar a ler as alterações desde o início do histórico da coleção, em vez da hora atual. Isso só funciona na primeira vez que o gatilho é iniciado, como nas execuções subsequentes, os pontos de verificação já estão armazenados. Definir isso como `true` quando houver concessões já criadas não tem efeito.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -480,7 +480,7 @@ namespace CosmosDBSamplesV2
 
 A exemplo a seguir mostra um [função c#](functions-dotnet-class-library.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza encaminhar os dados para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
 
-O exemplo mostra como utilizar uma expressão de vinculação no `SqlQuery` parâmetro. Pode passar dados da rota para o `SqlQuery` parâmetro, como mostrado, mas, atualmente [não poder passar os valores de cadeia de caracteres de consulta](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
+O exemplo mostra como usar uma expressão de associação no `SqlQuery` parâmetro. Você pode passar os dados de rota `SqlQuery` para o parâmetro, como mostrado, mas atualmente [não é possível passar valores de cadeia de caracteres de consulta](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 
 ```cs
@@ -990,7 +990,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 ### <a name="input---javascript-examples"></a>Introdução - exemplos de JavaScript
 
-Esta secção contém os seguintes exemplos de leitura de um único documento, especificando um valor de ID de várias origens:
+Esta seção contém os exemplos a seguir que lêem um único documento especificando um valor de ID de várias fontes:
 
 * [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-javascript)
@@ -1196,9 +1196,9 @@ Eis o código JavaScript:
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-### <a name="input---python-examples"></a>Introdução - exemplos de Python
+### <a name="input---python-examples"></a>Exemplos de entrada-Python
 
-Esta secção contém os seguintes exemplos de leitura de um único documento, especificando um valor de ID de várias origens:
+Esta seção contém os exemplos a seguir que lêem um único documento especificando um valor de ID de várias fontes:
 
 * [Acionador de fila, procura de ID de JSON](#queue-trigger-look-up-id-from-json-python)
 * [Acionador HTTP, procura de ID da cadeia de consulta](#http-trigger-look-up-id-from-query-string-python)
@@ -1207,9 +1207,9 @@ Esta secção contém os seguintes exemplos de leitura de um único documento, e
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="queue-trigger-look-up-id-from-json-python"></a>Acionador de fila, procura de ID de JSON (Python)
+#### <a name="queue-trigger-look-up-id-from-json-python"></a>Gatilho de fila, Pesquisar ID de JSON (Python)
 
-O exemplo seguinte mostra um enlace de entrada do Cosmos DB num *Function* ficheiro e uma [função Python](functions-reference-python.md) que utiliza o enlace. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo a seguir mostra uma associação de entrada Cosmos DB em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação. A função lê um único documento e atualiza o valor de texto do documento.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -1238,7 +1238,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 
 O [configuração](#input---configuration) seção explica essas propriedades.
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
 import azure.functions as func
@@ -1253,9 +1253,9 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-query-string-python"></a>Acionador HTTP, procura de ID da cadeia de consulta (Python)
+#### <a name="http-trigger-look-up-id-from-query-string-python"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta (Python)
 
-A exemplo a seguir mostra um [função Python](functions-reference-python.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
 
 Aqui está o *Function* ficheiro:
 
@@ -1292,7 +1292,7 @@ Aqui está o *Function* ficheiro:
 }
 ```
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
 import logging
@@ -1311,9 +1311,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="http-trigger-look-up-id-from-route-data-python"></a>Acionador HTTP, procura de ID de dados da rota (Python)
+#### <a name="http-trigger-look-up-id-from-route-data-python"></a>Gatilho HTTP, Pesquisar ID de dados de rota (Python)
 
-A exemplo a seguir mostra um [função Python](functions-reference-python.md) que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
+O exemplo a seguir mostra uma [função Python](functions-reference-python.md) que recupera um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um `ToDoItem` documento da coleção e base de dados especificada.
 
 Aqui está o *Function* ficheiro:
 
@@ -1351,7 +1351,7 @@ Aqui está o *Function* ficheiro:
 }
 ```
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
 import logging
@@ -1369,9 +1369,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 [Ignorar exemplos de entrada](#input---attributes)
 
-#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>Acionador da fila, obter vários documentos, usando SqlQuery (Python)
+#### <a name="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>Gatilho de fila, obter vários documentos, usando SQLQuery (Python)
 
-O exemplo seguinte mostra um enlace de entrada do Azure Cosmos DB num *Function* ficheiro e uma [função Python](functions-reference-python.md) que utiliza o enlace. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
+O exemplo a seguir mostra uma associação de entrada Azure Cosmos DB em um arquivo *Function. JSON* e uma [função Python](functions-reference-python.md) que usa a associação. A função obtém vários documentos especificados por uma consulta SQL, com um acionador de fila para personalizar os parâmetros de consulta.
 
 O acionador de fila fornece um parâmetro `departmentId`. Uma mensagem de fila de `{ "departmentId" : "Finance" }` retornaria todos os registos para o departamento financeiro.
 
@@ -1391,7 +1391,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 
 O [configuração](#input---configuration) seção explica essas propriedades.
 
-Aqui está o código de Python:
+Este é o código Python:
 
 ```python
 import azure.functions as func
@@ -1452,15 +1452,15 @@ Este exemplo requer um `project.json` ficheiro que especifica o `FSharp.Interop.
 
 Para adicionar um `project.json` de ficheiros, consulte [ F# gestão de pacotes](functions-reference-fsharp.md#package).
 
-### <a name="input---java-examples"></a>Introdução - exemplos de Java
+### <a name="input---java-examples"></a>Entrada-exemplos de Java
 
 Esta secção contém os exemplos seguintes:
 
-* [Acionador HTTP, procura de ID da cadeia de consulta - parâmetro de cadeia de caracteres](#http-trigger-look-up-id-from-query-string---string-parameter-java)
-* [Acionador HTTP, procura de ID da cadeia de consulta - parâmetro POJO](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta-parâmetro de cadeia de caracteres](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta-parâmetro POJO](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
 * [Acionador HTTP, procura de ID de dados da rota](#http-trigger-look-up-id-from-route-data-java)
 * [Acionador HTTP, procura de ID de encaminhar os dados, usando SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
-* [HTTP acionar, obter vários documentos de dados da rota, utilizando SqlQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+* [Gatilho HTTP, obter vários documentos de dados de rota, usando SQLQuery](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
 
 Consulte os exemplos simples `ToDoItem` tipo:
 
@@ -1485,9 +1485,9 @@ public class ToDoItem {
 }
 ```
 
-#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>Acionador HTTP, procura de ID da cadeia de consulta - parâmetro de cadeia de caracteres (Java)
+#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta-parâmetro de cadeia de caracteres (Java)
 
-O exemplo seguinte mostra uma função de Java que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Esse identificador é utilizado para obter um documento a partir da base de dados especificada e a coleção, na forma de cadeia de caracteres.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a ser pesquisada. Essa ID é usada para recuperar um documento do banco de dados e da coleção especificados, na forma de cadeia de caracteres.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1529,11 +1529,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@CosmosDBInput` anotação nos parâmetros de função, cujo valor virá do Cosmos DB.  Esta anotação pode ser utilizada com tipos nativos de Java, POJOs ou valores anuláveis usando opcional<T>.
+Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a `@CosmosDBInput` anotação em parâmetros de função cujo valor venha de Cosmos DB.  Esta anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando T\<> opcional.
 
-#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Acionador HTTP, procura de ID da cadeia de consulta - parâmetro POJO (Java)
+#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Gatilho HTTP, Pesquisar ID da cadeia de caracteres de consulta-parâmetro POJO (Java)
 
-O exemplo seguinte mostra uma função de Java que obtém um único documento. A função é acionada por um pedido HTTP que utiliza uma cadeia de consulta para especificar o ID para procurar. Que ID é utilizado para obter um documento da coleção e base de dados especificada. O documento, em seguida, é convertido numa instância do ```ToDoItem``` POJO anteriormente criado e transmitido como argumento para a função.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é disparada por uma solicitação HTTP que usa uma cadeia de caracteres de consulta para especificar a ID a ser pesquisada. Essa ID é usada para recuperar um documento do banco de dados e da coleção especificados. O documento é então convertido em uma instância do ```ToDoItem``` POJO criado anteriormente e passado como um argumento para a função.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1573,9 +1573,9 @@ public class DocByIdFromQueryStringPojo {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-java"></a>Acionador HTTP, procura de ID de dados da rota (Java)
+#### <a name="http-trigger-look-up-id-from-route-data-java"></a>Gatilho HTTP, Pesquisar ID de dados de rota (Java)
 
-O exemplo seguinte mostra uma função de Java que obtém um único documento. A função é acionada por um pedido HTTP que utiliza um parâmetro de rotas para especificar o ID para procurar. Que ID é utilizado para obter um documento a partir da base de dados especificada e a coleção, retorná-la como um ```Optional<String>```.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é disparada por uma solicitação HTTP que usa um parâmetro de rota para especificar a ID a ser pesquisada. Essa ID é usada para recuperar um documento do banco de dados e da coleção especificados, retornando ```Optional<String>```-o como um.
 
 ```java
 public class DocByIdFromRoute {
@@ -1618,9 +1618,9 @@ public class DocByIdFromRoute {
 }
  ```
 
-#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>Acionador HTTP, procura de ID de encaminhar os dados, usando SqlQuery (Java)
+#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>Gatilho HTTP, Pesquisar ID de dados de rota, usando SQLQuery (Java)
 
-O exemplo seguinte mostra uma função de Java que obtém um único documento. A função é acionada por um pedido HTTP que utiliza um parâmetro de rotas para especificar o ID para procurar. Que ID é usado para recuperar um documento da base de dados especificada e a coleção, converter o resultado definido como um ```ToDoItem[]```, uma vez que muitos documentos podem ser devolvidos, consoante os critérios de consulta.
+O exemplo a seguir mostra uma função Java que recupera um único documento. A função é disparada por uma solicitação HTTP que usa um parâmetro de rota para especificar a ID a ser pesquisada. Essa ID é usada para recuperar um documento do banco de dados e da coleção especificados, convertendo o conjunto ```ToDoItem[]```de resultados em a, pois muitos documentos podem ser retornados, dependendo dos critérios de consulta.
 
 ```java
 public class DocByIdFromRouteSqlQuery {
@@ -1660,9 +1660,9 @@ public class DocByIdFromRouteSqlQuery {
 }
  ```
 
-#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP acionar, obter vários documentos de dados da rota, utilizando SqlQuery (Java)
+#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>Gatilho HTTP, obter vários documentos de dados de rota, usando SQLQuery (Java)
 
-O exemplo seguinte mostra uma função de Java que vários documentos. A função é acionada por um pedido HTTP que utiliza um parâmetro de rota ```desc``` para especificar a cadeia de caracteres para pesquisa na ```description``` campo. O termo de pesquisa é usado para recuperar uma coleção de documentos a partir da base de dados especificada e a coleção, converter o conjunto de resultados para um ```ToDoItem[]``` e passando-o como um argumento para a função.
+O exemplo a seguir mostra uma função Java que contém vários documentos. A função é disparada por uma solicitação HTTP que usa um ```desc``` parâmetro de rota para especificar a cadeia de caracteres ```description``` a ser pesquisada no campo. O termo de pesquisa é usado para recuperar uma coleção de documentos do banco de dados e da coleção especificados, convertendo o ```ToDoItem[]``` conjunto de resultados para a e passando-o como um argumento para a função.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1704,7 +1704,7 @@ public class DocsFromRouteSqlQuery {
 
 ## <a name="input---attributes"></a>Introdução - atributos
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) .
 
 Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que pode configurar, consulte [a seguinte secção de configuração](#input---configuration).
 
@@ -1730,7 +1730,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 No C# e F# funções, quando a função é encerrado com êxito, todas as alterações efetuadas ao documento de entrada por meio de entrada nomeada parâmetros são mantidos automaticamente.
 
-Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Veja o exemplo de JavaScript.
+Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte o exemplo de JavaScript.
 
 ## <a name="output"></a>Output
 
@@ -2114,17 +2114,17 @@ Este exemplo requer um `project.json` ficheiro que especifica o `FSharp.Interop.
 
 Para adicionar um `project.json` de ficheiros, consulte [ F# gestão de pacotes](functions-reference-fsharp.md#package).
 
-### <a name="output---java-examples"></a>Saída - exemplos de Java
+### <a name="output---java-examples"></a>Saída-exemplos de Java
 
-* [Acionador de fila, guarde a mensagem para o banco de dados pelo valor de retorno](#queue-trigger-save-message-to-database-via-return-value-java)
-* [Acionador HTTP, salvar um documento à base de dados por meio do valor de retorno](#http-trigger-save-one-document-to-database-via-return-value-java)
-* [Acionador HTTP, salvar um documento à base de dados por meio de OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
-* [Acionador HTTP, guardar vários documentos à base de dados por meio de OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+* [Gatilho de fila, salvar mensagem no banco de dados por meio do valor de retorno](#queue-trigger-save-message-to-database-via-return-value-java)
+* [Gatilho HTTP, salve um documento no banco de dados por meio do valor de retorno](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [Gatilho HTTP, salve um documento no banco de dados via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [Gatilho HTTP, salve vários documentos no banco de dados por meio de Saídabinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
 
 
-#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>Acionador de fila, guarde a mensagem para o banco de dados pelo valor de retorno (Java)
+#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>Gatilho de fila, salvar mensagem no banco de dados por meio de valor de retorno (Java)
 
-O exemplo seguinte mostra uma função de Java que adiciona um documento para uma base de dados com dados a partir de uma mensagem no armazenamento de filas.
+O exemplo a seguir mostra uma função Java que adiciona um documento a um banco de dados com um dado de uma mensagem no armazenamento de filas.
 
 ```java
 @FunctionName("getItem")
@@ -2142,9 +2142,9 @@ public String cosmosDbQueryById(
    }
 ```
 
-#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>Acionador HTTP, salvar um documento à base de dados por meio do valor de retorno (Java)
+#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>Gatilho HTTP, salve um documento no banco de dados por meio do valor de retorno (Java)
 
-O exemplo seguinte mostra uma função de Java cuja assinatura está anotada com ```@CosmosDBOutput``` e tem o valor de retorno do tipo ```String```. O documento JSON devolvido pela função será escrito automaticamente para a coleção do cosmos DB correspondente.
+O exemplo a seguir mostra uma função Java cuja assinatura é anotada ```@CosmosDBOutput``` e tem valor de retorno do ```String```tipo. O documento JSON retornado pela função será gravado automaticamente na coleção CosmosDB correspondente.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -2179,9 +2179,9 @@ O exemplo seguinte mostra uma função de Java cuja assinatura está anotada com
     }
 ```
 
-#### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>Acionador HTTP, salvar um documento à base de dados por meio de OutputBinding (Java)
+#### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>Gatilho HTTP, salve um documento no banco de dados via OutputType (Java)
 
-O exemplo seguinte mostra uma função de Java que escreve um documento do cosmos DB através de um ```OutputBinding<T>``` parâmetro de saída. Tenha em atenção que, nessa configuração, é o ```outputItem``` parâmetro tem de ser anotado com ```@CosmosDBOutput```, não a assinatura de função. Usando ```OutputBinding<T>``` permite que sua função tirar partido da associação ao escrever o documento no cosmos DB e também permite que retornando um valor diferente para o chamador de função, como um documento JSON ou XML.
+O exemplo a seguir mostra uma função Java que grava um documento para CosmosDB por ```OutputBinding<T>``` meio de um parâmetro de saída. Observe que, nessa configuração, é o ```outputItem``` parâmetro que precisa ser anotado ```@CosmosDBOutput```, não a assinatura da função. O ```OutputBinding<T>``` uso de permite que sua função Aproveite a associação para gravar o documento em CosmosDB enquanto também permite retornar um valor diferente para o chamador da função, como um documento JSON ou XML.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -2223,9 +2223,9 @@ O exemplo seguinte mostra uma função de Java que escreve um documento do cosmo
     }
 ```
 
-#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>Acionador HTTP, guardar vários documentos à base de dados por meio de OutputBinding (Java)
+#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>Gatilho HTTP, salvar vários documentos no banco de dados por meio de Saídabinding (Java)
 
-O exemplo seguinte mostra uma função de Java que escreve vários documentos para o cosmos DB através de um ```OutputBinding<T>``` parâmetro de saída. Tenha em atenção que, nessa configuração, é o ```outputItem``` parâmetro tem de ser anotado com ```@CosmosDBOutput```, não a assinatura de função. O parâmetro de saída ```outputItem``` tem uma lista de ```ToDoItem``` objetos como seu tipo de parâmetro de modelo. Usando ```OutputBinding<T>``` permite que sua função tirar partido da associação ao escrever os documentos no cosmos DB e também permite que retornando um valor diferente para o chamador de função, como um documento JSON ou XML.
+O exemplo a seguir mostra uma função Java que grava vários documentos em CosmosDB por ```OutputBinding<T>``` meio de um parâmetro de saída. Observe que, nessa configuração, é o ```outputItem``` parâmetro que precisa ser anotado ```@CosmosDBOutput```, não a assinatura da função. O parâmetro de saída ```outputItem``` , tem uma lista ```ToDoItem``` de objetos como seu tipo de parâmetro de modelo. O ```OutputBinding<T>``` uso de permite que sua função Aproveite a associação para gravar os documentos em CosmosDB enquanto também permite retornar um valor diferente para o chamador da função, como um documento JSON ou XML.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -2272,12 +2272,12 @@ O exemplo seguinte mostra uma função de Java que escreve vários documentos pa
     }
 ```
 
-Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@CosmosDBOutput` anotação sobre os parâmetros que serão escritos no Cosmos DB.  O tipo de parâmetro de anotação deve ser ```OutputBinding<T>```, em que T é um tipo de Java nativo ou um POJO.
+Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a `@CosmosDBOutput` anotação nos parâmetros que serão gravados em Cosmos DB.  O tipo de parâmetro Annotation deve ```OutputBinding<T>```ser, em que T é um tipo Java nativo ou um POJO.
 
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) atributo.
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) .
 
 Construtor do atributo pega o nome de base de dados e o nome da coleção. Para obter informações sobre essas configurações e outras propriedades que pode configurar, consulte [de saída - configuração](#output---configuration). Aqui está um `CosmosDB` exemplo de atributo numa assinatura do método:
 
@@ -2291,7 +2291,7 @@ Construtor do atributo pega o nome de base de dados e o nome da coleção. Para 
     }
 ```
 
-Para obter um exemplo completo, ver um resultado - C# exemplo.
+Para obter um exemplo completo, consulte saída C# -exemplo.
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -2347,9 +2347,9 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|GatewayMode|Gateway|O modo de ligação utilizado pela função, ao ligar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
-|Protocol|Https|O protocolo de ligação utilizado pela função quando a ligação ao serviço do Azure Cosmos DB.  Leitura [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
-|leasePrefix|n/d|Prefixo de concessão para utilizar em todas as funções num aplicativo.| 
+|GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço de Azure Cosmos DB. As opções `Direct` são e`Gateway`|
+|Protocol|Https|O protocolo de conexão usado pela função quando a conexão com o serviço de Azure Cosmos DB.  Leia [aqui para obter uma explicação dos dois modos](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.| 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

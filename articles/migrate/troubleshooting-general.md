@@ -1,336 +1,270 @@
 ---
-title: Resolver problemas do Azure Migrate | Documentos da Microsoft
-description: Fornece uma descrição geral dos problemas conhecidos no serviço Azure Migrate e dicas para erros comuns de resolução de problemas.
+title: Solucionar problemas de migrações para Azure | Microsoft Docs
+description: Fornece uma visão geral dos problemas conhecidos no serviço de migrações para Azure e dicas de solução de erros comuns.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/17/2019
 ms.author: raynew
-ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0e2a8f269a98babc17f36ceff209ee2f057e6911
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533203"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302316"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
-## <a name="troubleshoot-common-errors"></a>Resolver erros comuns
+As migrações para [Azure](migrate-services-overview.md) fornecem um hub de ferramentas da Microsoft para avaliação e migração, bem como ofertas de ISVs (fornecedores independentes de software) de terceiros. Este documento fornece ajuda sobre como solucionar erros com as migrações para Azure, migrações para Azure: Avaliação do servidor e migrações para Azure: Migração de servidor.
 
-[O Azure Migrate](migrate-overview.md) avalia as cargas de trabalho no local para migração para o Azure. Utilize este artigo para resolver os problemas quando implementar e utilizar o Azure Migrate.
+## <a name="azure-migrate-project-issues"></a>Problemas do projeto de migrações para Azure
 
-### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando o OVA que Deteta continuamente meu ambiente no local, mas as VMs que são eliminadas no meu ambiente no local ainda estão a ser mostradas no portal.
+### <a name="i-am-unable-to-find-my-existing-azure-migrate-project"></a>Não consigo encontrar meu projeto existente de migrações para Azure.
 
-A aplicação de deteção contínua recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+Há [duas versões](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) de migrações para Azure. Dependendo da versão na qual você criou o projeto, siga as etapas abaixo para localizar o projeto:
 
-- Adição de itens (VMs, discos, núcleos, etc.): Para refletir estas alterações no portal do Azure, pode parar a deteção na aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+1. Se você estiver procurando um projeto criado com a versão anterior (experiência antiga) das migrações para Azure, siga as etapas abaixo para localizar o projeto.
 
-   ![Parar a deteção](./media/troubleshooting-general/stop-discovery.png)
+    1. Vá para [portal do Azure](https://portal.azure.com), procure migrações para **Azure**.
+    2. No painel migrações para Azure, você verá uma faixa que fala sobre o acesso a projetos mais antigos. Você verá essa faixa somente se tiver criado um projeto com a experiência antiga. Clique na faixa.
 
-- Eliminação das VMs: Devido à forma como a aplicação foi concebida, a eliminação das VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+    ![Acessar projetos existentes](./media/troubleshooting-general/access-existing-projects.png)
 
-### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos do Azure Migrate e espaço de trabalho do Log Analytics associado
+    3. Agora, você verá a lista de projetos existentes criados com a versão anterior do migrações para Azure.
 
-Quando elimina um projeto do Azure Migrate, elimina o projeto de migração, juntamente com todos os grupos e avaliações. No entanto, se tiver ligado uma área de trabalho do Log Analytics ao projeto, ele não elimina automaticamente o espaço de trabalho do Log Analytics. Isto acontece porque a mesma área de trabalho do Log Analytics pode ser usada para vários casos de utilização. Se quiser eliminar a área de trabalho do Log Analytics também, terá de fazê-lo manualmente.
+2. Se você estiver procurando um projeto criado com a versão atual (nova experiência), siga as etapas abaixo para localizar o projeto.
 
-1. Navegue para a área de trabalho do Log Analytics ligada ao projeto.
-   a. Se ainda não eliminou o projeto de migração, pode encontrar o link para a área de trabalho da página de descrição geral do projeto na secção Essentials.
+    1. Vá para [portal do Azure](https://portal.azure.com), procure migrações para **Azure**.
+    2. No painel migrações para Azure, vá para a página **servidores** no painel esquerdo e selecione **alterar** no canto superior direito:
 
-   ![Área de trabalho LA](./media/troubleshooting-general/LA-workspace.png)
+    ![Alternar para um projeto atual de migrações para Azure](./media/troubleshooting-general/switch-project.png)
 
-   b. Caso tenha eliminado já o projeto de migração, clique em **grupos de recursos** no painel esquerdo no portal do Azure e vá para o grupo de recursos em que a área de trabalho foi criado e, em seguida, navegar para o mesmo.
-2. Siga as instruções [neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para eliminar a área de trabalho.
+    3. Selecione a **assinatura** apropriada e **migre o projeto**.
 
-### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação de projeto de migração com erro *pedidos devem conter cabeçalhos de identidade do utilizador*
+### <a name="i-am-unable-to-create-a-second-azure-migrate-project"></a>Não consigo criar um segundo projeto de migrações para Azure.
 
-Este problema pode ocorrer por utilizadores que não tem acesso ao inquilino do Azure Active Directory (Azure AD) da organização. Quando um utilizador é adicionado a um inquilino do Azure AD pela primeira vez, ele recebe um convite por e-mail para associar o inquilino. Os utilizadores precisam aceder ao e-mail e aceitar o convite seja adicionado com êxito para o inquilino. Se for não é possível ver a mensagem de e-mail, entrar em contacto para um utilizador que já tem acesso ao inquilino e peça-lhe para reenviar o convite ao utilizador através dos passos especificados [aqui](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
+Siga as etapas abaixo para criar um novo projeto de migrações para Azure.
 
-Quando é recebido o e-mail de convite, terá de abrir o e-mail e clique na ligação no e-mail para aceitar o convite. Depois de o fazer, tem de iniciar sessão fora do portal do Azure e o início de sessão novamente, atualizar o browser não funcionará. Em seguida, pode tentar criar o projeto de migração.
+1. Vá para [portal do Azure](https://portal.azure.com), procure migrações para **Azure**.
+2. No painel migrações para Azure, vá para a página **servidores** no painel esquerdo e selecione **alterar** no canto superior direito:
 
-### <a name="i-am-unable-to-export-the-assessment-report"></a>Eu sou não é possível exportar o relatório de avaliação
+   ![Alterar projeto de migrações para Azure](./media/troubleshooting-general/switch-project.png)
 
-Se não é possível exportar o relatório de avaliação a partir do portal, tente utilizar a abaixo da API REST para obter um URL de transferência para o relatório de avaliação.
+3. Para criar um novo projeto, selecione **clique aqui** , conforme mostrado na captura de tela abaixo:
 
-1. Instale *armclient* no seu computador (se não estiver já instalada):
+   ![Criar um segundo projeto de migrações para Azure](./media/troubleshooting-general/create-new-project.png)
 
-   a. Numa janela de linha de comandos de administrador, execute o seguinte comando: ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+### <a name="deletion-of-azure-migrate-projects-and-associated-log-analytics-workspace"></a>Exclusão de projetos de migrações para Azure e espaço de trabalho Log Analytics associado
 
-   b. Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```choco install armclient```
+Quando você exclui um projeto de migrações para Azure, ele exclui o projeto de migração junto com os metadados sobre computadores descobertos. No entanto, se você anexou um espaço de trabalho Log Analytics à ferramenta de avaliação do servidor, ele não excluirá automaticamente o espaço de trabalho Log Analytics. Isso ocorre porque o mesmo espaço de trabalho Log Analytics pode ser usado para vários casos de uso. Se você quiser excluir o espaço de trabalho Log Analytics também, será necessário fazer isso manualmente.
 
-2. Obter o URL de transferência para o relatório de avaliação com a API de REST de migrar do Azure
+1. Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
+     1. Se você ainda não tiver excluído o projeto de migração, poderá encontrar o link para o espaço de trabalho na página Visão geral da avaliação do servidor na seção Essentials.
 
-   a.    Numa janela do Windows PowerShell de administrador, execute o seguinte comando: ```armclient login```
+     ![Espaço de trabalho da LA](./media/troubleshooting-general/loganalytics-workspace.png)
 
-        This opens the Azure login pop-up where you need to sign in to Azure.
+     2. Se você já tiver excluído o projeto de migração, selecione **grupos de recursos** no painel esquerdo na portal do Azure. Vá para o grupo de recursos no qual o espaço de trabalho foi criado e navegue até ele.
+2. Siga as instruções [neste artigo](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) para excluir o espaço de trabalho.
 
-   b.    Na mesma janela do PowerShell, execute o seguinte comando para obter o URL de transferência para o relatório de avaliação (substitua os parâmetros do URI com os valores apropriados, a API de exemplo do pedido abaixo)
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Falha na criação do projeto de migração com solicitações de erro *devem conter cabeçalhos de identidade do usuário*
 
-       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+Esse problema pode ocorrer para usuários que não têm acesso ao locatário do Azure Active Directory (Azure AD) da organização. Quando um usuário é adicionado a um locatário do Azure AD pela primeira vez, ele recebe um convite por email para ingressar no locatário. Os usuários precisam acessar o email e aceitar o convite para ser adicionado com êxito ao locatário. Se não for possível ver o email, entre em contato com um usuário que já tenha acesso ao locatário e peça para reenviar o convite para você usando as etapas especificadas [aqui](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
 
-      Pedido de exemplo e a saída:
+Depois que o email de convite for recebido, você precisará abrir o email e clicar no link no email para aceitar o convite. Quando isso for feito, você precisará sair do portal do Azure e entrar novamente, a atualização do navegador não funcionará. Em seguida, você pode tentar criar o projeto de migração.
 
-      ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
-   esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
-   018_12_16_21/downloadUrl?api-version=2018-02-02
-   {
-   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-   "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+## <a name="appliance-issues"></a>Problemas de dispositivo
 
-3. Copie o URL da resposta e abra-o num browser para transferir o relatório de avaliação.
+### <a name="deployment-of-azure-migrate-appliance-for-vmware-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implantação do dispositivo de migração do Azure para VMware com o erro: O ficheiro de manifesto fornecido é inválido: Entrada de manifesto OVF inválida.
 
-4. Assim que o relatório é transferido, utilize o Excel para navegar para a pasta transferida e abra o ficheiro no Excel para vê-la.
+1. Verifique se o arquivo OVA do dispositivo de migração do Azure foi baixado corretamente verificando seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não for correspondente, baixe o arquivo OVA novamente e repita a implantação.
+2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se ainda falhar, tente usar um navegador da Web diferente.
+3. Se você estiver usando o cliente Web vSphere e tentar implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi seguindo as etapas abaixo:
+   - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) usando o cliente Web (*endereço IP do host*do https://< >/UI).
+   - Vá para**inventário** **doméstico** > .
+   - Clique em **arquivo** > **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
+4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
 
-### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Dados de desempenho de CPU, memória e discos são apresentados como zeros
+### <a name="appliance-is-not-able-to-connect-to-the-internet"></a>O dispositivo não é capaz de se conectar à Internet
 
-O Azure Migrate cria continuamente o perfil do ambiente no local para recolher os dados de desempenho das VMs no local. Se tiver acabado de iniciar a deteção do ambiente, tem de aguardar pelo menos um dia pela conclusão da recolha de dados de desempenho. Se uma avaliação for criada sem ter esperado um dia, as métricas de desempenho serão mostradas a zeros. Depois de aguardar um dia, pode criar uma avaliação nova ou atualizar a existente, através da opção “Recalculate” (“Recalcular”) no relatório da avaliação.
+Isso pode acontecer quando o computador que você está usando está atrás de um proxy. Certifique-se de fornecer as credenciais de autorização se o proxy precisar de uma.
+Se você estiver usando qualquer proxy de firewall baseado em URL para controlar a conectividade de saída, certifique-se de adicionar essas URLs necessárias a uma lista de permissões:
 
-### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Eu especifiquei uma geografia do Azure, ao criar um projeto de migração, como posso saber a região do Azure exata em que os metadados detetados seriam armazenados?
-
-Pode ir para o **Essentials** secção a **descrição geral** página do projeto para identificar o local exato onde os metadados são armazenados. A localização é selecionada aleatoriamente na geografia pelo Azure Migrate e não é possível modificá-lo. Se pretender criar um projeto em apenas uma região específica, pode utilizar as APIs REST para criar o projeto de migração e passar para a região desejada.
-
-   ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
-
-## <a name="collector-issues"></a>Problemas de recoletor
-
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Falha na implementação do Recoletor do Azure Migrate com o erro: O ficheiro de manifesto fornecido é inválido: Entrada do manifesto OVF inválida.
-
-1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte o [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
-2. Se ainda assim falhar e se estiver a utilizar o Cliente VMware vSphere para implementar o OVF, tente implementá-lo por meio do Cliente Web vSphere. Se continuar a falhar, tente utilizar outro navegador da web.
-3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5 ou 6.7, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
-   - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
-   - Aceda à página inicial > inventário
-   - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
-4. Se a implementação ainda falhar, contacte o suporte do Azure Migrate.
-
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>Não é possível selecionar o Azure na cloud na aplicação, irá falhar com o erro "Falha na selecção da cloud do Azure"
-
-Este é um problema conhecido e uma correção está disponível para o problema. Transfira o [mais recente atualização bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) para a aplicação e a aplicação de modo a aplicar a correção de atualização.
-
-### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Recoletor não é possível estabelecer ligação à internet
-
-Isto pode acontecer quando a máquina que está a utilizar está atrás de um proxy. Certifique-se de que fornecer as credenciais de autorização se o proxy precisar de um.
-Se estiver a utilizar qualquer proxy de firewall baseado em URL para controlar a conectividade de saída, certifique-se a lista aprovada que estes URLs necessários:
-
-**URL** | **Objetivo**  
+Cenário | Lista de URLs
 --- | ---
-*.portal.azure.com | Necessário para verificar a conectividade com o serviço do Azure e validar a sincronização de hora problemas.
-*.oneget.org | Necessário transferir o powershell com base vCenter PowerCLI módulo.
+Avaliação do servidor para VMware | [Aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
+Avaliação do servidor para Hyper-V | [Aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
+Migração de servidor para VMware (sem agente) | [Aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
+Migração de servidor para VMware (baseada em agente) | [Aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
+Migração de servidor para Hyper-V | [Aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
 
-**O recoletor não é possível ligar à internet devido a uma falha de validação de certificado**
-
-Isto pode acontecer se estiver a utilizar um proxy de interceção para ligar à Internet e se não tiver importado o certificado de proxy para a VM do recoletor. Pode importar o certificado de proxy a utilizar os passos detalhados [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector).
-
-**O recoletor não é possível ligar ao projeto com o ID de projeto e chave copiei do portal.**
-
-Certifique-se de ter copiado e colado as informações corretas. Para resolver problemas, instale o Microsoft Monitoring Agent (MMA) e verificar se o MMA consegue ligar ao projeto da seguinte forma:
-
-1. Na VM do recoletor, transfira o [MMA](https://go.microsoft.com/fwlink/?LinkId=828603).
-2. Para iniciar a instalação, clique duas vezes o ficheiro transferido.
-3. Na configuração, sobre o **bem-vindo** página, clique em **próxima**. Na página **Termos de Licenciamento**, clique em **Concordo** para aceitar a licença.
-4. Na **pasta de destino**, manter ou modificar a pasta de instalação predefinida > **próxima**.
-5. Na **opções de configuração do agente**, selecione **Azure Log Analytics** > **seguinte**.
-6. Clique em **adicionar** para adicionar uma nova área de trabalho do Log Analytics. Cole o ID de projeto e a chave que copiou. Clique depois em **Seguinte**.
-7. Certifique-se de que o agente pode ligar-se ao projeto. Se não for possível, verifique as definições. Se o agente pode ligar, mas o recoletor não é possível, contacte o suporte.
-
+Se você estiver usando um proxy de interceptação para se conectar à Internet, será necessário importar o certificado de proxy para a VM do dispositivo. Você pode importar o certificado de proxy usando as etapas detalhadas [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ### <a name="error-802-date-and-time-synchronization-error"></a>Erro 802: Erro de sincronização de data e hora
 
-O relógio do servidor pode ser fora de sincronização com a hora atual em mais de cinco minutos. Altere a hora de relógio no coletor de VM para corresponder a hora atual, da seguinte forma:
+O relógio do servidor pode estar fora de sincronia com a hora atual em mais de cinco minutos. Altere a hora do relógio na VM do coletor para corresponder à hora atual, da seguinte maneira:
 
-1. Abra uma linha de comandos de administrador na VM.
-2. Para verificar o fuso horário, execute w32tm /tz.
-3. Para sincronizar a hora, execute w32tm /resync.
+1. Abra um prompt de comando de administrador na VM.
+2. Para verificar o fuso horário, execute w32tm/TZ.
+3. Para sincronizar o tempo, execute w32tm/resync.
 
-### <a name="vmware-powercli-installation-failed"></a>Falha na instalação do VMware PowerCLI
-
-Recoletor do Azure Migrate transfere PowerCLI e instala-o em que a aplicação. Falha na instalação do PowerCLI pode ser devido a pontos de extremidade inacessíveis para o repositório do PowerCLI. Para resolver problemas, tente instalar manualmente o PowerCLI no coletor de VM a utilizar o passo seguinte:
-
-1. Abra o Windows PowerShell no modo de administrador
-2. Ir para o diretório C:\ProgramFiles\ProfilerService\VMWare\Scripts\
-3. Execute o script InstallPowerCLI.ps1
-
-### <a name="error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception"></a>Ocorreu um erro interno UnhandledException: System.IO.FileNotFoundException
-
-Este problema pode ocorrer devido a um problema com a instalação do VMware PowerCLI. Siga os passos abaixo para resolver o problema:
-
-1. Se não estiver conectado a versão mais recente da aplicação de recoletor [atualizar o Recoletor para a versão mais recente](https://aka.ms/migrate/col/checkforupdates) e verifique se o problema está resolvido.
-2. Se já tiver a versão mais recente do recoletor, siga os passos abaixo para fazer uma instalação limpa do PowerCLI:
-
-   a. Feche o navegador da web na aplicação.
-
-   b. Pare o serviço de "Recoletor do Azure Migrate" indo para o Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em parar.
-
-   c. Elimine todas as pastas a partir do VMware das seguintes localizações: C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program ficheiros (x86) \WindowsPowerShell\Modules
-
-   d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
-
-   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
-
-3. Se o procedimento acima não resolverem o problema, siga os passos um c acima e, em seguida, instale manualmente o PowerCLI na aplicação através dos seguintes passos:
-
-   a. Limpeza do wsu PowerCLI incompleta todos os ficheiros de instalação, seguindo os passos #a para #c no passo 2 de # acima.
-
-   b. Vá para Iniciar > executar > Open PowerShell(x86) do Windows no modo de administrador
-
-   c. Execute o comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo de "A" quando ele solicitar a confirmação)
-
-   d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
-
-   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
-
-4. Se não é possível transferir o módulo na aplicação devido a problemas de firewall, transfira e instale o módulo numa máquina que tem acesso à internet com os seguintes passos:
-
-    a. Limpeza do wsu PowerCLI incompleta todos os ficheiros de instalação, seguindo os passos #a para #c no passo 2 de # acima.
-
-    b. Vá para Iniciar > executar > Open PowerShell(x86) do Windows no modo de administrador
-
-    c. Execute o comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo de "A" quando ele solicitar a confirmação)
-
-    d. Copie todos os módulos começando com "VMware" de "C:\Program Files (x86) \WindowsPowerShell\Modules" para o mesmo local na VM do recoletor.
-
-    e. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
-
-    f. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
 Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: Não havia um ponto final preparado em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
 
-Verifique se estiver a executar a versão mais recente da aplicação recoletora, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
+Verifique se você está executando a versão mais recente do dispositivo coletor, caso contrário, atualize o dispositivo para a [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
-Se o problema ainda acontece na versão mais recente, é possível porque a máquina do recoletor não consegue resolver o nome do servidor vCenter especificado ou a porta especificada está errada. Por predefinição, que, se a porta não for especificada, o recoletor irá tentar ligar para o número da porta 443.
+Se o problema ainda ocorrer na versão mais recente, pode ser porque o computador coletor não pode resolver o nome de vCenter Server especificado ou a porta especificada está errada. Por padrão, se a porta não for especificada, o coletor tentará se conectar ao número da porta 443.
 
-1. Tente fazer ping ao Servername.com a partir da máquina do recoletor.
+1. Tente executar ping no Servername.com do computador coletor.
 2. Se o passo 1 falhar, tente ligar ao servidor do vCenter através do endereço IP.
 3. Identifique o número de porta correto para ligar ao vCenter.
 4. Por fim, verifique se o servidor do vCenter está em execução.
 
-### <a name="antivirus-exclusions"></a>Exclusões do antivírus
+## <a name="discovery-issues"></a>Problemas de descoberta
 
-Para proteger a aplicação do Azure Migrate, tem de impedir que as seguintes pastas na aplicação da verificação antivírus:
+### <a name="i-started-discovery-but-i-dont-see-the-discovered-vms-on-azure-portal-server-assessment-and-server-migrate-tiles-show-a-status-of-discovery-in-progress"></a>Comecei a descoberta, mas não vejo as VMs descobertas em portal do Azure. Os blocos avaliação do servidor e migrações do servidor mostram o status "descoberta em andamento"
+Depois de iniciar a descoberta do dispositivo, aguarde algum tempo para que os computadores descobertos apareçam no portal do Azure. Leva cerca de 15 minutos para uma descoberta do VMware e cerca de 2 minutos por host adicionado para uma descoberta do Hyper-V. Se você continuar a ver "descoberta em andamento" mesmo após esse período, clique em **Atualizar** na guia **servidores** . Isso deve mostrar a contagem dos servidores descobertos nos blocos avaliação do servidor e migração do servidor.
 
-- Pasta que tenha os binários do serviço do Azure Migrate. Exclua todas as subpastas.
-  %ProgramFiles%\ProfilerService  
-- Azure Migrate a aplicação Web. Exclua todas as subpastas.
-  %SystemDrive%\inetpub\wwwroot
-- Cache local para a base de dados e arquivos de log. Do Azure migrate precisa de serviço de acesso RW para esta pasta.
-  %SystemDrive%\Profiler
+
+### <a name="i-am-using-the-appliance-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando o dispositivo que descobre continuamente o meu ambiente local, mas as VMs que são excluídas no meu ambiente local ainda estão sendo mostradas no Portal.
+
+Leva até 30 minutos para que os dados de descoberta sejam coletados pelo dispositivo para refletir no Portal. Se você não vir informações atualizadas mesmo após 30 minutos, emita uma atualização dos dados usando as seguintes etapas:
+
+1. Em servidores > migrações para Azure: Avaliação do servidor, clique em **visão geral**.
+2. Em **gerenciar**, clique em **integridade do agente**
+3. Clique na opção para **atualizar o agente**. Você verá essa opção abaixo da lista de agentes.
+4. Aguarde a conclusão da operação de atualização. Verifique se você consegue ver informações atualizadas em suas VMs.
+
+### <a name="i-dont-the-latest-information-on-the-on-premise-vms-on-the-portal"></a>Não as informações mais recentes sobre as VMs locais no portal
+
+Leva até 30 minutos para que os dados de descoberta sejam coletados pelo dispositivo para refletir no Portal. Se você não vir informações atualizadas mesmo após 30 minutos, emita uma atualização dos dados usando as seguintes etapas:
+
+1. Em servidores > migrações para Azure: Avaliação do servidor, clique em **visão geral**.
+2. Em **gerenciar**, clique em **integridade do agente**
+3. Clique na opção para **atualizar o agente**. Você verá essa opção abaixo da lista de agentes.
+4. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas em suas VMs.
+
+### <a name="unable-to-connect-to-hosts-or-cluster-as-the-server-name-cannot-be-resolved-winrm-error-code-0x803381b9-error-id-50004"></a>Não é possível se conectar a host (s) ou cluster, pois o nome do servidor não pode ser resolvido. Código de erro WinRM: 0x803381B9 (ID do erro: 50004)
+Esse erro ocorre se o DNS que atende o dispositivo não puder resolver o cluster ou o nome do host fornecido. Se você vir esse erro no cluster, tente fornecer o nome de domínio totalmente qualificado do cluster. 
+
+Você também poderá ver esse erro para hosts em um cluster. Nesse caso, o dispositivo pode se conectar ao cluster. Mas o cluster retornou os nomes de host que não são nomes de domínio totalmente qualificados. 
+
+Para resolver esse erro, atualize o arquivo de hosts no dispositivo adicionando um mapeamento do endereço IP e nomes de host.
+1. Abra o bloco de notas como usuário administrador. Abra o arquivo C:\Windows\System32\Drivers\etc\hosts.
+2. Adicione o endereço IP e o nome do host em uma linha. Repita para cada host ou cluster em que você vê esse erro.
+3. Salve e feche o arquivo de hosts.
+4. Você pode verificar se o dispositivo pode se conectar aos hosts usando o aplicativo de gerenciamento de dispositivo. Após 30 minutos, você poderá ver as informações mais recentes sobre esses hosts no portal do Azure. 
+
+
+## <a name="assessment-issues"></a>Problemas de avaliação
+
+### <a name="azure-readiness-issues"></a>Problemas de preparação do Azure
+
+Problema | Remediação
+--- | ---
+Tipo de inicialização sem suporte | O Azure não oferece suporte a VMs com o tipo de inicialização EFI. Recomendamos que você converta o tipo de inicialização para BIOS antes de executar uma migração. <br/><br/>Você pode usar a migração de servidor de migrações para Azure para fazer a migração dessas VMs, pois ela converterá o tipo de inicialização da VM no BIOS durante a migração.
+Sistema operacional Windows com suporte condicional | O sistema operacional passou sua data de fim de suporte e precisa de um contrato de suporte personalizado (CSA) para [dar suporte no Azure](https://aka.ms/WSosstatement), considere atualizar o sistema operacional antes de migrar para o Azure.
+Sistema operacional Windows sem suporte | O Azure dá suporte apenas a [versões do sistema operacional Windows selecionadas](https://aka.ms/WSosstatement), considere atualizar o sistema operacional do computador antes de migrar para o Azure.
+Sistema operacional Linux endossado condicionalmente | O Azure endossa apenas [as versões selecionadas do sistema operacional Linux](../virtual-machines/linux/endorsed-distros.md), considere atualizar o sistema operacional do computador antes de migrar para o Azure.
+Sistema operacional Linux não endossado | O computador pode ser inicializado no Azure, mas nenhum suporte do sistema operacional é fornecido pelo Azure, considere atualizar o sistema operacional para uma [versão do Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure
+Sistema operacional desconhecido | O sistema operacional da VM foi especificado como ' Other ' no vCenter Server, devido a qual migrações para Azure não podem identificar a prontidão do Azure da VM. Verifique se o sistema operacional em execução dentro do computador tem [suporte](https://aka.ms/azureoslist) do Azure antes de migrar o computador.
+Bit de bits do sistema operacional sem suporte | As VMs com o sistema operacional de 32 bits podem ser inicializadas no Azure, mas é recomendável atualizar o sistema operacional da VM de 32 bits para 64-bit antes de migrar para o Azure.
+Requer assinatura do Visual Studio. | O computador tem um sistema operacional cliente Windows em execução dentro dele, que tem suporte apenas na assinatura do Visual Studio.
+VM não encontrada para o desempenho de armazenamento necessário. | O desempenho de armazenamento (IOPS/taxa de transferência) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
+VM não encontrada para o desempenho de rede necessário. | O desempenho de rede (entrada/saída) necessário para o computador excede o suporte de VM do Azure. Reduza os requisitos de rede para o computador.
+A VM não foi encontrada no local especificado. | Use um local de destino diferente antes da migração.
+Um ou mais discos inadequados. | Um ou mais discos anexados à VM não atendem aos requisitos do Azure. Para cada disco anexado à VM, verifique se o tamanho do disco é < 4 TB, caso contrário, reduza o tamanho do disco antes de migrar para o Azure. Verifique se o desempenho (IOPS/taxa de transferência) necessário para cada disco tem suporte dos [discos da máquina virtual gerenciada](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)pelo Azure.   
+Um ou mais adaptadores de rede inadequados. | Remova adaptadores de rede não utilizados do computador antes da migração.
+A contagem de discos excede o limite | Remova os discos não utilizados do computador antes da migração.
+O tamanho do disco excede o limite | O Azure dá suporte a discos com até 4 TB de tamanho. Reduza os discos para menos de 4 TB antes da migração.
+Disco não disponível no local especificado | Verifique se o disco está em seu local de destino antes de migrar.
+Disco não disponível para a redundância especificada | O disco deve usar o tipo de armazenamento de redundância definido nas configurações de avaliação (LRS por padrão).
+Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
+VM com núcleos necessários e memória não encontrada | O Azure não pôde obter um tipo de VM adequado. Reduza a memória e o número de núcleos do computador local antes de migrar.
+Não foi possível determinar a adequação da VM devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar a adequação para um ou mais discos devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+Não foi possível determinar a adequação para um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+
+### <a name="i-am-unable-to-specify-enterprise-agreement-ea-as-an-azure-offer-in-the-assessment-properties"></a>Não consigo especificar Enterprise Agreement (EA) como uma oferta do Azure nas propriedades de avaliação?
+Azure Migrate: Atualmente, a avaliação do servidor não oferece suporte a preços baseados em Enterprise Agreement (EA). A solução alternativa é usar ' pré-pago ' como a oferta do Azure e usar a propriedade ' Discount ' para especificar qualquer desconto personalizado que você receber. [Saiba mais sobre como você pode personalizar uma avaliação](https://aka.ms/migrate/selfhelp/eapricing).
+
+### <a name="why-does-server-assessment-mark-my-linux-vms-conditionally-ready-is-there-anything-i-need-to-do-to-fix-this"></a>Por que a avaliação do servidor marca minhas VMs Linux de forma condicional. Há algo que preciso fazer para corrigir isso?
+Há uma lacuna conhecida na avaliação do servidor em que não é possível detectar a versão secundária do SO Linux instalada nas VMs locais (por exemplo, para RHEL 6,10, atualmente a avaliação do servidor detecta apenas RHEL 6 como a versão do sistema operacional). Como o Azure endossa apenas versões específicas do Linux, as VMs do Linux estão atualmente marcadas como prontas para avaliação de servidor. Você pode garantir manualmente se o sistema operacional Linux em execução na VM local é endossado no Azure, revisando a [documentação de suporte do Linux do Azure.](https://aka.ms/migrate/selfhost/azureendorseddistros) Depois de verificar o distribuição endossado, você pode ignorar este aviso.
+
+### <a name="the-vm-sku-recommended-by-server-assessment-has-more-number-of-cores-and-a-larger-memory-size-than-what-is-allocated-on-premises-why-is-that-so"></a>A SKU de VM recomendada pela avaliação do servidor tem mais de núcleos e um tamanho de memória maior do que o que é alocado localmente. Por que isso?
+A recomendação de SKU de VM na avaliação do servidor depende das propriedades de avaliação. Você pode criar dois tipos de avaliações na avaliação do servidor, "baseado em desempenho" e avaliações "como locais". Para avaliações baseadas em desempenho, a avaliação do servidor considera os dados de utilização das VMs locais (CPU, memória, disco e utilização de rede) para determinar o SKU de VM de destino correto para suas VMs locais. Além disso, para o dimensionamento baseado em desempenho, o fator de conforto é levado em conta para identificar a utilização efetiva. Para o dimensionamento local, os dados de desempenho não são considerados e um SKU de destino é recomendado com base no que é alocado localmente.
+
+Por exemplo, digamos que haja uma VM local com 4 núcleos e 8 GB de memória com 50% de utilização da CPU e 50% de utilização da memória, e um fator de conforto de 1,3 seja especificado na avaliação. No entanto, se o critério de dimensionamento da avaliação for ' como local ', um SKU de VM do Azure com 4 núcleos e 8 GB de memória será recomendado, no entanto, se o critério de dimensionamento for baseado em desempenho, com base na utilização efetiva de CPU e memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% de 8 GB memória * 1,3 = 5,3-GB de memória), o SKU de VM mais barato de quatro núcleos (contagem de núcleos mais próximo com suporte) e o tamanho de memória de 8 GB (tamanho de memória mais próximo com suporte) seriam recomendados. [Saiba mais sobre como a avaliação do servidor executa o dimensionamento.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing)
+
+### <a name="the-disk-sku-recommended-by-server-assessment-has-a-bigger-size-than-what-is-allocated-on-premises-why-is-that-so"></a>O SKU de disco recomendado pela avaliação do servidor tem um tamanho maior do que o que é alocado localmente. Por que isso?
+O dimensionamento de disco na avaliação do servidor depende de duas propriedades de avaliação – critérios de dimensionamento e tipo de armazenamento. Se o critério de dimensionamento for "baseado em desempenho" e o tipo de armazenamento estiver definido como "automático", os valores de IOPS e taxa de transferência do disco serão considerados para identificar o tipo de disco de destino (HDD Standard, SSD Standard ou discos Premium). Um SKU de disco dentro do tipo de disco é recomendado considerando os requisitos de tamanho do disco local. Se o critério de dimensionamento for "baseado em desempenho" e o tipo de armazenamento for "Premium", um SKU de disco Premium no Azure será recomendado com base nos requisitos de IOPS, taxa de transferência e tamanho do disco local. A mesma lógica é usada para fazer o dimensionamento do disco quando o critério de dimensionamento for ' como local ', o dimensionamento e o tipo de armazenamento é ' HDD Standard ', ' SSD Standard ' ou ' Premium '.
+
+Por exemplo, se você tiver um disco local com memória de 32 GB, mas o IOPS agregado de leitura e gravação para o disco for de 800 IOPS, a avaliação do servidor recomendará um tipo de disco Premium (devido aos requisitos de IOPS mais altos) e, em seguida, recomendará uma SKU de disco, que pode dar suporte ao IOPS e tamanho necessários. A correspondência mais próxima neste exemplo seria P15 (256 GB, 1100 IOPS). Portanto, embora o tamanho exigido pelo disco local tenha 32 GB, a avaliação do servidor recomendava um disco com um tamanho maior devido ao requisito de IOPS alto do disco local.
+
+### <a name="is-the-os-license-cost-of-the-vm-included-in-the-compute-cost-estimated-by-server-assessment"></a>O custo de licença do sistema operacional da VM está incluído no custo de computação estimado pela avaliação do servidor?
+Atualmente, a avaliação do servidor só considera o custo de licença do sistema operacional para computadores Windows, o custo de licença do so para computadores Linux não é considerado atualmente. 
+
+### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Que impacto o histórico de desempenho e a utilização de percentil têm nas recomendações de tamanho?
+Essas propriedades só são aplicáveis para o dimensionamento "baseado em desempenho". A avaliação do servidor coleta continuamente dados de desempenho de computadores locais e usa-os para recomendar a SKU de máquina virtual e SKU de disco no Azure. Veja abaixo como os dados de desempenho são coletados pela avaliação do servidor:
+- O dispositivo de migração do Azure cria o perfil continuamente no ambiente local para coletar dados de utilização em tempo real a cada 20 segundos para VMs VMware e a cada 30 segundos para VMs do Hyper-V.
+- O dispositivo acumula os exemplos de 20/30 segundos para criar um único ponto de dados para cada 10 minutos. Para criar o ponto de dados único, o dispositivo seleciona o valor de pico de todos os exemplos de 20/30 segundos e o envia para o Azure.
+- Quando você cria uma avaliação na avaliação do servidor, com base no valor de duração do desempenho e do percentual do histórico de desempenho, o valor representativo de utilização é identificado. Por exemplo, se o histórico de desempenho for uma semana e a utilização do percentil for 95 º, as migrações para Azure classificarão todos os pontos de exemplo de 10 minutos da última semana em ordem crescente e, em seguida, selecionaremos o 95 º percentil como o valor representativo.
+O valor do 95 º percentil garante que você está ignorando as exceções, que podem ser incluídas se você escolher o 99 º percentil. Se você quiser escolher o pico de uso do período e não quiser perder as exceções, deverá selecionar 99 º percentil como a utilização do percentil.
 
 ## <a name="dependency-visualization-issues"></a>Problemas de visualização de dependência
 
-### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Eu não consigo encontrar a funcionalidade de visualização de dependência para projetos do Azure Government.
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>Não consigo encontrar a funcionalidade de visualização de dependência para projetos do Azure governamental.
 
-O Azure Migrate depende do mapa de serviço para a funcionalidade de visualização de dependência e uma vez que o mapa de serviço não está atualmente disponível no Azure Government, esta funcionalidade não está disponível no Azure Government.
+As migrações para Azure dependem Mapa do Serviço para a funcionalidade de visualização de dependência e como Mapa do Serviço não está disponível no Azure governamental no momento, essa funcionalidade não está disponível no Azure governamental.
 
-### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o Microsoft Monitoring Agent (MMA) e o agente de dependência em minhas VMs no local, mas as dependências são agora aparecer no portal do Azure Migrate.
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>Instalei o Microsoft Monitoring Agent (MMA) e o Dependency Agent em minhas VMs locais, mas as dependências agora aparecem no portal de migrações para Azure.
 
-Depois de instalar os agentes, do Azure Migrate, normalmente, demora 15 a 30 minutos para apresentar as dependências no portal. Se se esperou durante mais de 30 minutos, certifique-se de que o agente MMA é capaz de comunicar com a área de trabalho do OMS ao seguir os passos abaixo:
+Depois de instalar os agentes, as migrações para Azure normalmente leva 15-30 minutos para exibir as dependências no Portal. Se você tiver aguardado por mais de 30 minutos, verifique se o agente do MMA é capaz de se comunicar com o espaço de trabalho do OMS seguindo as etapas abaixo:
 
-Para a Windows VM:
-1. Aceda a **painel de controlo** e inicie **Microsoft Monitoring Agent**
-2. Vá para o **do Azure Log Analytics (OMS)** separador nas propriedades do MMA pop-up
-3. Certifique-se de que o **estado** para a área de trabalho é verde.
-4. Se o estado não for verde, tente remover a área de trabalho e adicionando-a novamente para o MMA.
-        ![Estado do MMA](./media/troubleshooting-general/mma-status.png)
+Para VM do Windows:
+1. Vá para o **painel de controle** e inicie o **Microsoft Monitoring Agent**.
+2. Vá para a guia **log Analytics do Azure (OMS)** no pop-up Propriedades de MMA.
+3. Verifique se o **status** do espaço de trabalho é verde.
+4. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
+        ![Status do MMA](./media/troubleshooting-general/mma-status.png)
 
-Para VM do Linux, certifique-se de que os comandos de instalação para o agente MMA e de dependência tinham sido concluída.
+Para a VM do Linux, verifique se os comandos de instalação do MMA e do agente de dependência foram bem-sucedidos.
 
-### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operativos suportados por MMA?
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quais são os sistemas operacionais com suporte do MMA?
 
-É a lista de sistemas de operativos do Windows suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
-É a lista de sistemas de operativos Linux suportados pelo MMA [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+A lista de sistemas operacionais Windows com suporte do MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+A lista de sistemas operacionais Linux com suporte do MMA está [aqui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
 
-### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operativos suportados pelo agente de dependência?
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quais são os sistemas operacionais com suporte do agente de dependência?
 
-A lista de sistemas de operativos do Windows suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-A lista dos sistemas de operativos Linux suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+A lista de sistemas operacionais Windows com suporte pelo agente de dependência está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+A lista de sistemas operacionais Linux com suporte do Dependency Agent está [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
-### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo me visualize as dependências no Azure Migrate para obter mais informações à duração de uma hora?
-O Azure Migrate permite que visualize as dependências de duração do até uma hora. Embora o Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora. No entanto, pode utilizar os registos do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) ao longo de um período mais longo.
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Não consigo visualizar dependências em migrações do Azure por mais de uma duração de hora?
+As migrações para Azure permitem que você visualize dependências por até uma duração de até uma hora. Embora a migração do Azure permita que você volte a uma data específica no histórico de até o último mês, a duração máxima para a qual você pode visualizar as dependências é de até 1 hora. Por exemplo, você pode usar a funcionalidade de duração de tempo no mapa de dependências para exibir dependências de ontem, mas só pode exibi-la para uma janela de uma hora. No entanto, você pode usar os logs de Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) por uma duração maior.
 
-### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo me visualize as dependências para grupos com mais de 10 VMs?
-Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm cópia de segurança para 10 VMs, se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Não consigo visualizar dependências de grupos com mais de 10 VMs?
+Você pode [Visualizar as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que têm até 10 VMS, se você tiver um grupo com mais de 10 VMS, recomendamos que você divida o grupo em grupos menores e visualize as dependências.
 
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Eu agentes instalados e usado a visualização de dependência para criar grupos. Agora após a ativação pós-falha, as máquinas mostram a ação de "Instalar o agente", em vez de "Dependências do modo de exibição"
-* Post planeada ou ativação pós-falha não planeada, no local máquinas estão desativadas e máquinas equivalentes são criadas no Azure. Estas máquinas adquirir um endereço MAC diferente. Eles podem adquirir um endereço IP diferente, com base em se o utilizador optou por manter o endereço IP no local ou não. Se forem diferentes endereços MAC e IP, o Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
-* Após a ativação pós-falha de teste, as máquinas no local mantêm ativadas conforme esperado. As máquinas equivalentes rotacionadas no Azure adquirir o endereço MAC diferente e podem adquirir o endereço IP diferente. A menos que os blocos de utilizador saída do Azure Monitor faz o tráfego destas máquinas, do Azure Migrate não associa as máquinas no local com quaisquer dados de dependência de mapa de serviço e pede ao utilizador para instalar agentes em vez de visualização de dependências.
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Instalei os agentes e usei a visualização de dependência para criar grupos. Agora, após o failover, os computadores mostram a ação "instalar agente" em vez de "Exibir dependências"
+* Após o failover planejado ou não planejado, as máquinas locais são desativadas e as máquinas equivalentes são giradas no Azure. Esses computadores adquirem um endereço MAC diferente. Eles podem adquirir um endereço IP diferente com base em se o usuário optou por manter o endereço IP local ou não. Se os endereços MAC e IP forem diferentes, as migrações para Azure não associarão os computadores locais a dados de dependência Mapa do Serviço e solicitarão que o usuário instale agentes em vez de exibir dependências.
+* Failover pós-teste, os computadores locais permanecem ligados conforme o esperado. As máquinas equivalentes giradas no Azure adquirem um endereço MAC diferente e podem adquirir um endereço IP diferente. A menos que o usuário bloqueie o tráfego de logs de Azure Monitor de saída desses computadores, as migrações para Azure não associam os computadores locais a qualquer Mapa do Serviço dados de dependência e solicitam que o usuário instale agentes em vez de exibir dependências.
 
-## <a name="troubleshoot-azure-readiness-issues"></a>Resolver problemas de preparação para o Azure
+## <a name="collect-azure-portal-logs"></a>Coletar logs de portal do Azure
 
-**Problema** | **Fix**
---- | ---
-Tipo de arranque não suportado | Azure não suporta VMs com o tipo de arranque EFI. Recomenda-se para converter o tipo de arranque BIOS antes de executar uma migração. <br/><br/>Pode usar [do Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-migrate-on-premises-to-azure) para fazer a migração dessas VMs, pois ele converterá o tipo de arranque da VM para BIOS durante a migração.
-SO de Windows condicionalmente suportado | O sistema operacional passou a sua data de fim de suporte e precisa de um personalizado suporta contrato (CSA) para [suportar no Azure](https://aka.ms/WSosstatement), considere atualizar o SO antes de migrar para o Azure.
-SO de Windows não suportado | O Azure suporta apenas [selecionadas de versões de SO Windows](https://aka.ms/WSosstatement), considere atualizar o SO da máquina antes de migrar para o Azure.
-SO Linux condicionalmente endossado | Azure endossa apenas [selecionadas de versões de SO Linux](../virtual-machines/linux/endorsed-distros.md), considere atualizar o SO da máquina antes de migrar para o Azure.
-SO Linux não endossado | A máquina pode arrancar no Azure, mas não existe suporte de SO é fornecida pelo Azure, considere atualizar o sistema operativo para uma [endorsed Linux versão](../virtual-machines/linux/endorsed-distros.md) antes de migrar para o Azure
-Sistema de operativo desconhecido | O sistema operativo da VM foi especificado como 'Outro' no vCenter Server, devido a que o Azure Migrate não é possível identificar a preparação para o Azure da VM. Certifique-se de que é o sistema operacional em execução no interior da máquina [suportado](https://aka.ms/azureoslist) pelo Azure antes de migrar a máquina.
-Número de bits de SO não suportado | VMs com o sistema operacional de 32 bits podem arrancar no Azure, mas recomenda-se para atualizar o SO da VM de 32 bits para 64 bits antes de migrar para o Azure.
-Requer subscrição do Visual Studio. | A máquina tem um sistema operacional em execução que de cliente do Windows é suportado apenas na subscrição do Visual Studio.
-VM não encontrada para o desempenho de armazenamento necessária. | O desempenho de armazenamento (IOPS/débito) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de armazenamento para a máquina antes da migração.
-Não foi encontrada para o desempenho de rede necessária uma VM. | O desempenho de rede (entrada/saída) necessário para a máquina excede o suporte de VM do Azure. Reduza os requisitos de rede para a máquina.
-VM não foi encontrada na localização especificada. | Utilize uma localização de destino diferente antes da migração.
-Um ou mais discos não são adequados. | Um ou mais discos ligados à VM não satisfaz os requisitos do Azure. Para cada disco anexado à VM, certifique-se de que o tamanho do disco é < 4 TB; caso contrário, reduzir o tamanho de disco antes de migrar para o Azure. Certifique-se de que o desempenho (IOPS/débito) necessário para cada disco é suportado pelo Azure [discos da máquina virtual geridos](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
-Um ou mais adaptadores de rede não são adequados. | Remova os adaptadores de rede não utilizadas da máquina antes da migração.
-Contagem do disco excede o limite | Remova os discos não utilizados do computador antes da migração.
-Tamanho do disco excede o limite | O Azure suporta discos com tamanho 4 TB. Reduzir discos para menos de 4 TB antes da migração.
-Disco indisponível na localização especificada | Certifique-se de que o disco está na localização do seu destino antes de migrar.
-Disco indisponível para a redundância especificada | O disco deve utilizar o tipo de redundância de armazenamento definido nas definições de avaliação (LRS, por predefinição).
-Não foi possível determinar a adequação do disco devido a um erro interno | Tente criar uma nova avaliação para o grupo.
-VM com necessários de núcleos e memória não encontrado | Azure não foi bem um tipo VM adequado. Reduza a memória e o número de núcleos da máquina no local antes de migrar.
-Não foi possível determinar a adequação da VM devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
-Não foi possível determinar a adequação de um ou mais discos devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
-Não foi possível determinar a adequação de um ou mais adaptadores de rede devido a um erro interno. | Tente criar uma nova avaliação para o grupo.
+**Como fazer coletar portal do Azure logs de tráfego de rede?**
 
-
-## <a name="collect-logs"></a>Recolher registos
-
-**Como recolher registos a na VM do recoletor?**
-
-Registo está ativado por predefinição. Os registos estão localizados da seguinte forma:
-
-- C:\Profiler\ProfilerEngineDB.sqlite
-- C:\Profiler\Service.log
-- C:\Profiler\WebApp.log
-
-Para recolher eventos de rastreio para Windows, faça o seguinte:
-
-1. Na VM do recoletor, abra uma janela de comando do PowerShell.
-2. Execute **Get-EventLog - LogName aplicação | export-csv eventlog.csv**.
-
-**Como posso recolher registos de tráfego de rede portal?**
-
-1. Abra o browser e navegue e inicie sessão [para o portal](https://portal.azure.com).
-2. Premir a tecla F12 para iniciar as ferramentas de desenvolvimento. Se for necessário, desmarque a definição **limpar as entradas na navegação**.
-3. Clique nas **rede** separador e comece a capturar o tráfego de rede:
-   - No Chrome, selecione **Preserve log**. A gravação deve iniciar automaticamente. Um círculo vermelho indica que o tráfego está sendo captura. Se não aparecer, clique no círculo preto para começar
-   - No Microsoft Edge/IE, gravação deve iniciar automaticamente. Se não, clique no botão verde play.
+1. Abra o navegador e navegue e entre no [portal](https://portal.azure.com).
+2. Pressione F12 para iniciar a Ferramentas para Desenvolvedores. Se necessário, desmarque a configuração **Limpar entradas na navegação**.
+3. Clique na guia **rede** e comece a capturar o tráfego de rede:
+   - No Chrome, selecione **preservar log**. A gravação deve ser iniciada automaticamente. Um círculo vermelho indica que o tráfego está sendo capturado. Se ele não aparecer, clique no círculo preto para iniciar.
+   - No Microsoft Edge/IE, a gravação deve ser iniciada automaticamente. Se não estiver, clique no botão verde Play.
 4. Tente reproduzir o erro.
-5. Depois de já se deparou com o erro durante a gravação, interromper a gravação e salvar uma cópia da atividade registada:
-   - No Chrome, com o botão direito e clique em **guardar como HAR com conteúdo**. Isso zips e exporta os registos como um ficheiro de .har.
-   - No Microsoft Edge/IE, clique nas **exportação capturado o tráfego** ícone. Isso zips e exporta o log.
-6. Navegue para o **consola** separador para verificar a existência de quaisquer avisos ou erros. Para guardar o registo da consola:
-   - No Chrome, com o botão direito em qualquer lugar no registo de consola. Selecione **guardar como**, para exportar e zip no registo.
-   - No Microsoft Edge/IE, com o botão direito sobre os erros e selecione **copie todos os**.
-7. Feche as ferramentas de programação.
-
-## <a name="collector-error-codes-and-recommended-actions"></a>Códigos de erro do recoletor e ações recomendadas
-
-| Código de Erro | Nome do erro   | Message   | Causas possíveis | Ação recomendada  |
-| --- | --- | --- | --- | --- |
-| 601       | CollectorExpired               | O recoletor expirou.                                                        | Recoletor expirado.                                                                                    | Transfira uma nova versão do recoletor e tente novamente.                                                                                      |
-| 751       | UnableToConnectToServer        | Não é possível ligar ao vCenter Server "% Name;" devido ao erro: % ErrorMessage;     | Verifique a mensagem de erro para obter mais detalhes.                                                             | Resolva o problema e tente novamente.                                                                                                           |
-| 752       | InvalidvCenterEndpoint         | O servidor "% Name;" não é um vCenter Server.                                  | Forneça detalhes do servidor de vCenter.                                                                       | Repita a operação com detalhes do servidor vCenter correto.                                                                                   |
-| 753       | InvalidLoginCredentials        | Não é possível ligar ao vCenter Server "% Name;" devido ao erro: % ErrorMessage; | Falha ao ligar ao vCenter Server devido a credenciais de início de sessão inválido.                             | Certifique-se de que as credenciais de início de sessão fornecidas estão corretas.                                                                                    |
-| 754       | NoPerfDataAvailable           | Dados de desempenho não está disponíveis.                                               | Verifique o nível de estatísticas no vCenter Server. Ele deve ser definido como 3 para dados de desempenho estejam disponíveis. | Alterar o nível de estatísticas para 3 (para 5 minutos, 30 minutos e a duração de 2 horas) e experimente aguardar pelo menos um dia.                   |
-| 756       | NullInstanceUUID               | Foi encontrada uma máquina com InstanceUUID nulo                                  | vCenter Server pode ter um objeto inapropriado.                                                      | Resolva o problema e tente novamente.                                                                                                           |
-| 757       | VMNotFound                     | Máquina virtual não foi encontrada                                                  | Máquina virtual podem ser eliminada: % VMID;                                                                | Certifique-se de que as máquinas virtuais selecionadas enquanto âmbito inventário do vCenter existe durante a deteção                                      |
-| 758       | GetPerfDataTimeout             | O pedido do VCenter excedeu o tempo limite. Mensagem % Message;                                  | as credenciais do vCenter Server estão incorretas                                                              | Verifique as credenciais do vCenter Server e certifique-se de que o vCenter Server está acessível. Repita a operação. Se o problema persistir, contacte o suporte. |
-| 759       | VmwareDllNotFound              | DLL de VIM não encontrado.                                                     | PowerCLI não está instalado corretamente.                                                                   | Verifique se o PowerCLI está corretamente instalado. Repita a operação. Se o problema persistir, contacte o suporte.                               |
-| 800       | ServiceError                   | O serviço do Recoletor de migrar do Azure não está em execução.                               | O serviço do Recoletor de migrar do Azure não está em execução.                                                       | Utilize o Services. msc para iniciar o serviço e repita a operação.                                                                             |
-| 801       | PowerCLIError                  | Falha na instalação do VMware PowerCLI.                                          | Falha na instalação do VMware PowerCLI.                                                                  | Repita a operação. Se o problema persistir, instale-o manualmente e repita a operação.                                                   |
-| 802       | TimeSyncError                  | A hora não está sincronizada com o servidor de horas da internet.                            | A hora não está sincronizada com o servidor de horas da internet.                                                    | Certifique-se de que a hora no computador está bem definida para o fuso horário do computador e repita a operação.                                 |
-| 702       | OMSInvalidProjectKey           | Chave de projeto inválida especificada.                                                | Chave de projeto inválida especificada.                                                                        | Repita a operação com a chave de projeto correto.                                                                                              |
-| 703       | OMSHttpRequestException        | Erro ao enviar o pedido. Mensagem % Message;                                | Verifique o ID do projeto e a chave e certifique-se de que ponto final está alcançável.                                       | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     |
-| 704       | OMSHttpRequestTimeoutException | Pedido HTTP excedeu o tempo limite. Mensagem % Message;                                     | Verifique o ID do projeto e a chave e certifique-se de que ponto final está alcançável.                                       | Repita a operação. Se o problema persistir, contacte o Suporte da Microsoft.                                                                     |
+5. Depois de encontrar o erro durante a gravação, interrompa a gravação e salve uma cópia da atividade gravada:
+   - No Chrome, clique com o botão direito do mouse e clique em **salvar como Har com conteúdo**. Isso compacta e exporta os logs como um arquivo. Har.
+   - No Microsoft Edge/IE, clique no ícone **Exportar tráfego capturado** . Isso compacta e exporta o log.
+6. Navegue até a guia **console** para verificar se há avisos ou erros. Para salvar o log do console:
+   - No Chrome, clique com o botão direito do mouse em qualquer lugar no log do console. Selecione **salvar como**, para exportar e compactar o log.
+   - No Microsoft Edge/IE, clique com o botão direito do mouse nos erros e selecione **copiar tudo**.
+7. Feche Ferramentas para Desenvolvedores.

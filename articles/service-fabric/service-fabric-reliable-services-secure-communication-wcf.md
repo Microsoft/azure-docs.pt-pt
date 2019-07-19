@@ -1,6 +1,6 @@
 ---
-title: Proteger a comunicação de serviço WCF com base no Azure Service Fabric | Documentos da Microsoft
-description: Aprenda a proteger as comunicações baseadas no WCF de reliable services que estão em execução num cluster do Azure Service Fabric.
+title: Proteger a comunicação de serviço baseada no WCF no Azure Service Fabric | Microsoft Docs
+description: Saiba como proteger as comunicações baseadas no WCF para Reliable Services que estão em execução em um cluster de Service Fabric do Azure.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: suchiagicha
-ms.openlocfilehash: 26d34f0473dec5e0767041df400b84887a0d1778
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: 4e41638472307f0f88e92413d98b669b27572f54
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725589"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67872114"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Proteger as comunicações baseadas no WCF para um serviço
-A segurança é um dos aspectos mais importantes de comunicação. A estrutura da aplicação de Reliable Services fornece algumas ferramentas que pode utilizar para melhorar a segurança e pilhas de comunicação pré-criados. Este artigo fala sobre como melhorar a segurança, quando estiver usando a comunicação remota do serviço.
+A segurança é um dos aspectos mais importantes da comunicação. A estrutura de aplicativo Reliable Services fornece algumas pilhas e ferramentas de comunicação predefinidas que você pode usar para aprimorar a segurança. Este artigo fala sobre como melhorar a segurança quando você estiver usando a comunicação remota do serviço.
 
-Estamos a utilizar existente [exemplo](service-fabric-reliable-services-communication-wcf.md) que explica como configurar uma pilha de comunicações baseadas no WCF do reliable services. Para ajudar a proteger um serviço, quando estiver usando uma pilha de comunicações baseadas no WCF, siga estes passos:
+Estamos usando um [exemplo](service-fabric-reliable-services-communication-wcf.md) existente que explica como configurar uma pilha de comunicação baseada no WCF para Reliable Services. Para ajudar a proteger um serviço quando você estiver usando uma pilha de comunicação baseada no WCF, siga estas etapas:
 
-1. Para o serviço, precisa para ajudar a proteger o serviço de escuta de comunicação do WCF (`WcfCommunicationListener`) que criou. Para fazer isso, modifique o `CreateServiceReplicaListeners` método.
+1. Para o serviço, você precisa ajudar a proteger o ouvinte de comunicação`WcfCommunicationListener`do WCF () que você cria. Para fazer isso, modifique o `CreateServiceReplicaListeners` método.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -63,7 +63,7 @@ Estamos a utilizar existente [exemplo](service-fabric-reliable-services-communic
         return b;
     }
     ```
-2. No cliente, o `WcfCommunicationClient` classe que foi criado no anterior [exemplo](service-fabric-reliable-services-communication-wcf.md) permanece inalterado. Mas precisa substituir os `CreateClientAsync` método de `WcfCommunicationClientFactory`:
+2. No cliente, a `WcfCommunicationClient` classe que foi criada no [exemplo](service-fabric-reliable-services-communication-wcf.md) anterior permanece inalterada. Mas você precisa substituir o `CreateClientAsync` método de: `WcfCommunicationClientFactory`
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -113,7 +113,7 @@ Estamos a utilizar existente [exemplo](service-fabric-reliable-services-communic
     }
     ```
 
-    Uso `SecureWcfCommunicationClientFactory` para criar um cliente de comunicação do WCF (`WcfCommunicationClient`). Utilize o cliente para invocar métodos de serviço.
+    Use `SecureWcfCommunicationClientFactory` para criar um cliente de comunicação WCF`WcfCommunicationClient`(). Use o cliente para invocar métodos de serviço.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();
@@ -129,4 +129,4 @@ Estamos a utilizar existente [exemplo](service-fabric-reliable-services-communic
         client => client.Channel.Add(2, 3)).Result;
     ```
 
-Como passo seguinte, leia [API da Web com o OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md).
+Como uma próxima etapa, leia [API da Web com OWIN em Reliable Services](service-fabric-reliable-services-communication-webapi.md).

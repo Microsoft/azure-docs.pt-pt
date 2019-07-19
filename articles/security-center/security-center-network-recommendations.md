@@ -1,6 +1,6 @@
 ---
-title: Proteger os seus recursos de rede no Centro de segurança do Azure | Documentos da Microsoft
-description: Este documento trata recomendações no Centro de segurança do Azure que o ajudam a proteger os seus recursos de rede do Azure e mantenha-se em conformidade com as políticas de segurança.
+title: Protegendo seus recursos de rede na central de segurança do Azure | Microsoft Docs
+description: Este documento aborda as recomendações na central de segurança do Azure que ajudam a proteger os recursos de rede do Azure e a manter a conformidade com as políticas de segurança.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,130 +14,140 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 6b3cef32cf79c2448d2e254e27c332e01ea83c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb91d6a9cdc56c88b424b7e0382f283c8b55dac9
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428376"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234317"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger os seus recursos de rede no Centro de segurança do Azure
-Centro de segurança do Azure analisa continuamente o estado de segurança dos seus recursos do Azure para práticas recomendadas de segurança de rede. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que o guiar ao longo do processo de configuração de controlos necessários para proteger e proteger os seus recursos.
+# <a name="protect-your-network-resources-in-azure-security-center"></a>Proteger seus recursos de rede na central de segurança do Azure
+A central de segurança do Azure analisa continuamente o estado de segurança de seus recursos do Azure para práticas recomendadas de segurança de rede. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria recomendações que orientam você pelo processo de configuração dos controles necessários para proteger e proteger seus recursos.
 
-Este artigo aborda recomendações que se aplicam aos recursos do Azure a partir de uma perspectiva de segurança de rede. Rede do Centro de recomendações em torno de firewalls de próxima geração, grupos de segurança de rede, as regras de tráfego de entrada excessivamente permissivo do acesso JIT da VM e muito mais. Para obter uma lista de recomendações de rede e ações de remediação, consulte [recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
+Este artigo aborda as recomendações que se aplicam aos recursos do Azure de uma perspectiva de segurança de rede. O centro de recomendações de rede em relação aos firewalls da próxima geração, grupos de segurança de rede, acesso à VM JIT por regras de tráfego de entrada excessivamente permissivos e muito mais. Para obter uma lista de recomendações de rede e ações de correção, consulte [Gerenciando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md).
 
 > [!NOTE]
-> O **redes** página permite-lhe mergulhar no seu estado de funcionamento de recursos do Azure de uma perspectiva de rede. O mapa de rede e adaptável controlos de rede estão disponíveis para o escalão standard do Centro de segurança do Azure apenas. [Se utilizar o escalão gratuito, pode clicar no botão para **exibir rede legado** e receba recomendações de recursos de rede](#legacy-networking).
+> A página **rede** permite aprofundar-se na integridade de recursos do Azure de uma perspectiva de rede. O mapa de rede e os controles de rede adaptáveis estão disponíveis somente para a camada Standard da central de segurança do Azure. [Se você usar a camada gratuita, poderá clicar no botão para **exibir a rede herdada** e receber recomendações de recursos de rede](#legacy-networking).
 >
 
-O **redes** página fornece uma descrição geral das seções profunda pode aprofundar para obter mais informações sobre o estado de funcionamento dos seus recursos de rede:
+A página **rede** fornece uma visão geral das seções que você pode aprofundar para obter mais informações sobre a integridade de seus recursos de rede:
 
-- Mapa de rede (apenas no escalão Standard de centro de segurança do Azure)
+- Mapa de rede (somente camada Standard da central de segurança do Azure)
 - Proteção de Rede Ajustável
 - Recomendações de segurança de rede.
-- Legado **redes** painel (o painel rede anterior) 
+- Folha de **rede** herdada (a folha rede anterior) 
  
-![Painel de sistema de rede](./media/security-center-network-recommendations/networking-pane.png)
+![Painel de rede](./media/security-center-network-recommendations/networking-pane.png)
 
 ## <a name="network-map"></a>Mapa de rede
-O mapa de rede interativo fornece uma visão gráfica sobreposições de segurança, fornecendo informações e recomendações para o sistema de proteção de seus recursos de rede. Usando o mapa pode ver a topologia de rede das cargas de trabalho do Azure, as ligações entre as máquinas virtuais e sub-redes e a capacidade de desagregar do mapa de recursos específicos e as recomendações para esses recursos.
+O mapa de rede interativo fornece uma exibição gráfica com sobreposições de segurança, fornecendo recomendações e ideias para proteger seus recursos de rede. Usando o mapa, você pode ver a topologia de rede de suas cargas de trabalho do Azure, conexões entre suas máquinas virtuais e sub-redes e a capacidade de fazer uma busca detalhada do mapa em recursos específicos e as recomendações para esses recursos.
 
 Para abrir o mapa de rede:
 
-1. No Centro de segurança, em higienização de segurança de recursos, selecione **redes**.
-2. Sob **mapa de rede** clique em **ver a topologia**.
+1. Na central de segurança, em higiene de segurança de recursos, selecione **rede**.
+2. Em **mapa de rede** , clique em **Ver topologia**.
  
-Apresenta a vista predefinida do mapa de topologia:
-- Assinaturas que selecionou no Azure. O map oferece suporte a várias subscrições.
-- As VMs, sub-redes e VNets do tipo de recurso do Resource Manager (Azure clássico recursos não são suportados)
-- VNets em modo de peering
-- Apenas os recursos que tenham [recomendações de rede](security-center-recommendations.md) com uma gravidade média ou alta  
-- Recursos com acesso à Internet
-- O mapa está otimizado para subscrições selecionadas no Azure. Se modificar a seleção, o mapa é recalculado e novamente otimizado com base em suas novas definições.  
+A exibição padrão do mapa de topologia exibe:
+
+- Assinaturas que você selecionou no Azure. O mapa dá suporte a várias assinaturas.
+- VMs, sub-redes e VNets do tipo de recurso do Resource Manager (não há suporte para recursos clássicos do Azure)
+- VNets emparelhados
+- Somente recursos que têm [recomendações de rede](security-center-recommendations.md) com severidade alta ou média  
+- Recursos voltados para a Internet
+- O mapa é otimizado para as assinaturas que você selecionou no Azure. Se você modificar sua seleção, o mapa será recalculado e reotimizado com base nas novas configurações.  
 
 ![Mapa de topologia de rede](./media/security-center-network-recommendations/network-map-info.png)
 
 ## <a name="understanding-the-network-map"></a>Noções básicas sobre o mapa de rede
 
-O mapa de rede pode apresentar-lhe os recursos do Azure num **topologia** modo de exibição e uma **tráfego** vista.
+O mapa de rede pode mostrar os recursos do Azure em uma exibição de **topologia** e uma exibição de **tráfego** .
 
-### <a name="the-topology-view"></a>A vista de topologia
+### <a name="the-topology-view"></a>A exibição de topologia
 
-Na **topologia** vista de mapa do funcionamento em rede, pode ver as seguintes informações sobre os recursos de rede:
-- O círculo interno, pode ver todas as Vnets nas suas subscrições selecionadas, o círculo seguinte representa todas as sub-redes, círculo exterior é todas as máquinas virtuais.
-- As linhas que conectam os recursos no mapa permitem-lhe saber quais recursos estão associados si e como é estruturada de rede do Azure. 
-- Utilize os indicadores de gravidade para obter rapidamente uma visão geral dos quais recursos têm abertas recomendações do Centro de segurança.
-- Pode clicar em qualquer um dos recursos para fazer busca detalhada nos-las e ver os detalhes desse recurso e as recomendações diretamente e no contexto da rede do mapa.  
-- Se existirem demasiados que recursos a ser apresentados no mapa, o Centro de segurança do Azure utiliza o seu algoritmo proprietário inteligente para seus recursos, destacando os recursos que estão no estado mais crítico e tem as recomendações de gravidade mais elevadas de cluster. 
+Na exibição **topologia** do mapa de rede, você pode exibir as seguintes informações sobre os recursos de rede:
 
-Uma vez que o mapa é interativo e dinâmica, cada nó é clicável e pode alterar o modo de exibição com base nos filtros:
+- No círculo interno, você pode ver todos os Vnets em suas assinaturas selecionadas, o próximo círculo é todas as sub-redes, o círculo externo é todas as máquinas virtuais.
+- As linhas que conectam os recursos no mapa permitem que você saiba quais recursos estão associados entre si e como sua rede do Azure é estruturada. 
+- Use os indicadores de severidade para obter rapidamente uma visão geral de quais recursos têm recomendações abertas na central de segurança.
+- Você pode clicar em qualquer um dos recursos para fazer uma busca detalhada deles e exibir os detalhes desse recurso e suas recomendações diretamente e no contexto do mapa de rede.  
+- Se houver muitos recursos sendo exibidos no mapa, a central de segurança do Azure usará seu algoritmo proprietário para o cluster inteligente seus recursos, destacando os recursos que estão no estado mais crítico e terá as recomendações de severidade mais altas. 
 
-1. Pode modificar o que vê no mapa de rede, ao usar os filtros na parte superior. Pode concentrar-se o mapa com base em:
-   -  **Estado de funcionamento de segurança**: Pode filtrar o mapa com base na gravidade (alta, média, baixa) de recursos do Azure.
-   - **Recomendações**: Pode selecionar quais os recursos que são apresentados com base no qual recomendações estão ativas na exceção esses recursos. Por exemplo, pode ver apenas os recursos para o qual o Centro de segurança recomenda que ativar grupos de segurança de rede.
-   - **Zonas de rede**: Por predefinição, o mapa apresenta apenas recursos com acesso de Internet, pode selecionar também VMs internas.
+Como o mapa é interativo e dinâmico, cada nó é clicável e o modo de exibição pode mudar com base nos filtros:
+
+1. Você pode modificar o que vê no mapa de rede usando os filtros na parte superior. Você pode concentrar o mapa com base em:
+
+   -  **Integridade da segurança**: Você pode filtrar o mapa com base na gravidade (alta, média, baixa) de seus recursos do Azure.
+   - **Recomendações**: Você pode selecionar quais recursos são exibidos com base nas recomendações que estão ativas nesses recursos. Por exemplo, você pode exibir apenas os recursos para os quais a central de segurança recomenda que você habilite grupos de segurança de rede.
+   - **Zonas de rede**: Por padrão, o mapa exibe apenas os recursos voltados para a Internet, você também pode selecionar VMs internas.
  
-2. Pode clicar em **repor** no canto superior esquerdo, em qualquer altura para retornar o mapa no estado predefinido.
+2. Você pode clicar em **Redefinir** no canto superior esquerdo a qualquer momento para retornar o mapa ao seu estado padrão.
 
-Para desagregar um recurso:
-1. Quando seleciona um recurso específico no mapa, o painel da direita é aberto e fornece informações gerais sobre o recurso, soluções de segurança ligadas se existirem e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso que selecionar. 
-2. Quando paira o rato sobre um nó no mapa, pode ver informações gerais sobre o recurso, incluindo a subscrição, o tipo de recurso e o grupo de recursos.
-3. Utilize a ligação para ampliar a dica de ferramenta e refocus mapa nesse nó específico. 
-4. Para refocus o mapa para fora de um nó específico, reduzir.
+Para fazer uma busca detalhada em um recurso:
 
-### <a name="the-traffic-view"></a>A vista de tráfego
+1. Quando você seleciona um recurso específico no mapa, o painel direito é aberto e fornece informações gerais sobre o recurso, soluções de segurança conectadas, se houver algum, e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso selecionado. 
+2. Ao passar o mouse sobre um nó no mapa, você pode exibir informações gerais sobre o recurso, incluindo assinatura, tipo de recurso e grupo de recursos.
+3. Use o link para ampliar a dica de ferramenta e refocar o mapa nesse nó específico. 
+4. Para refocar o mapa fora de um nó específico, reduza o zoom.
 
-O **tráfego** vista fornece-lhe um mapa de todo o tráfego possíveis entre os seus recursos. Esta opção fornece um mapa visual de todas as regras que configurou que define quais os recursos que podem comunicar com os quais. Isto permite-lhe ver a configuração existente dos grupos de segurança de rede, bem como para identificar rapidamente as configurações de risco possíveis dentro de suas cargas de trabalho.
+### <a name="the-traffic-view"></a>A exibição de tráfego
 
-### <a name="uncover-unwanted-connections"></a>Descobrir ligações indesejadas
+O modo de exibição de **tráfego** fornece um mapa de todo o tráfego possível entre seus recursos. Isso fornece um mapa visual de todas as regras que você configurou que definem quais recursos podem se comunicar com quem. Isso permite que você veja a configuração existente dos grupos de segurança de rede, bem como identifique rapidamente possíveis configurações arriscadas em suas cargas de trabalho.
 
-A força desta vista está em sua capacidade para mostrar estas ligações em conjunto com as vulnerabilidades que existe, pelo que pode utilizar este grupo representativo de dados para executar o sistema de proteção necessário nos seus recursos. 
+### <a name="uncover-unwanted-connections"></a>Descobrir conexões indesejadas
 
-Por exemplo, pode detetar duas máquinas que não ciente foi possível comunicar, permitindo-lhe para ajudar a isolar as cargas de trabalho e sub-redes.
+A força dessa exibição é a sua capacidade de mostrar essas conexões permitidas junto com as vulnerabilidades que existem, para que você possa usar essa seção cruzada de dados para executar a proteção necessária em seus recursos. 
+
+Por exemplo, você pode detectar que dois computadores que não estavam cientes pudessem se comunicar, permitindo que você Isole melhor as cargas de trabalho e sub-redes.
 
 ### <a name="investigate-resources"></a>Investigar recursos
 
-Para desagregar um recurso:
-1. Quando seleciona um recurso específico no mapa, o painel da direita é aberto e fornece informações gerais sobre o recurso, soluções de segurança ligadas se existirem e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso que selecionar. 
-2. Clique em **tráfego** para ver a lista de possíveis tráfego de saída e entrada do recurso - esta é uma lista abrangente de que consegue comunicar com o recurso e que este possa comunicar com e através das quais protocolos e portas. Por exemplo, quando seleciona uma VM, todas as VMs que consiga comunicar com são apresentados e ao selecionar uma sub-rede, todas as sub-redes que este possa comunicar com são apresentadas.
+Para fazer uma busca detalhada em um recurso:
 
-**Estes dados baseia-se na análise de grupos de segurança de rede, bem como algoritmos que analisam várias regras para compreender suas crossovers e interações de aprendizagem automática avançada.** 
+1. Quando você seleciona um recurso específico no mapa, o painel direito é aberto e fornece informações gerais sobre o recurso, soluções de segurança conectadas, se houver algum, e as recomendações relevantes para o recurso. É o mesmo tipo de comportamento para cada tipo de recurso selecionado. 
+2. Clique em **tráfego** para ver a lista de possíveis tráfegos de entrada e saída no recurso – esta é uma lista abrangente de quem pode se comunicar com o recurso e com quem ele pode se comunicar e por quais protocolos e portas. Por exemplo, quando você seleciona uma VM, todas as VMs com as quais ela pode se comunicar são mostradas e, quando você seleciona uma sub-rede, todas as sub-redes com as quais ela pode se comunicar são mostradas.
+
+**Esses dados se baseiam na análise dos grupos de segurança de rede, bem como nos algoritmos avançados de aprendizado de máquina que analisam várias regras para entender seus cruzamentos e interações.** 
 
 ![Mapa de tráfego de rede](./media/security-center-network-recommendations/network-map-traffic.png)
 
-## Sistema de rede legado <a name ="legacy-networking"></a>
+## Rede herdada<a name ="legacy-networking"></a>
 
-Se não tiver o escalão Standard do Centro de segurança, esta secção explica como ver recomendações gratuitas do funcionamento em rede.
+Se você não tiver a camada Standard da central de segurança, esta seção explicará como exibir as recomendações de rede gratuita.
 
-Para aceder a estas informações, no painel redes, clique em **exibir rede legado**. 
+Para acessar essas informações, na folha rede, clique em **Exibir rede herdada**. 
 
-![Sistema de rede legado](./media/security-center-network-recommendations/legacy-networking.png)
+![Rede herdada](./media/security-center-network-recommendations/legacy-networking.png)
 
 ### <a name="internet-facing-endpoints-section"></a>Secção pontos finais com acesso à Internet
-Na **pontos de extremidade de com acesso à Internet** seção, pode ver as máquinas virtuais que estão atualmente configuradas com um ponto final e o respetivo estado de acesso à Internet.
+Na seção **pontos de extremidade voltados** para a Internet, você pode ver as máquinas virtuais atualmente configuradas com um ponto de extremidade voltado para a Internet e seu status.
 
-Esta tabela tem o nome do ponto final, o endereço IP com acesso à Internet e o estado de gravidade atual do grupo de segurança de rede e as recomendações da NGFW. A tabela está ordenada por gravidade.
+Essa tabela tem o nome do ponto de extremidade, o endereço IP voltado para a Internet e o status de severidade atual do grupo de segurança de rede e as recomendações de NGFW. A tabela é classificada por severidade.
 
 ### <a name="networking-topology-section"></a>Secção Topologia de redes
-O **topologia de redes** secção tem uma vista hierárquica dos recursos.
+A seção **topologia de rede** tem uma exibição hierárquica dos recursos.
 
-Esta tabela está ordenada (máquinas virtuais e sub-redes) por gravidade.
+Essa tabela é classificada (máquinas virtuais e sub-redes) por severidade.
 
-Esta vista de topologia, o primeiro nível apresenta Vnets. O segundo apresenta tem sub-redes e o terceiro nível apresenta as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita mostra o estado atual das recomendações de grupo de segurança de rede para esses recursos.
+Nesse modo de exibição de topologia, o primeiro nível exibe Vnets. O segundo exibe as sub-redes e o terceiro nível exibe as máquinas virtuais que pertencem a essas sub-redes. A coluna da direita mostra o status atual das recomendações do grupo de segurança de rede para esses recursos.
 
-O terceiro nível apresenta as máquinas virtuais, que é semelhante ao que foi descrito anteriormente. Pode clicar em qualquer recurso para obter mais informações ou aplicar a configuração ou o controlo de segurança necessário.
+O terceiro nível exibe as máquinas virtuais, que é semelhante ao que é descrito anteriormente. Você pode clicar em qualquer recurso para saber mais ou aplicar a configuração ou o controle de segurança necessário.
 
 ## <a name="network-recommendations"></a>Recomendações de rede
 
-|Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
-|----|----|----|----|
-|Machine|40|Grupos de segurança de rede para máquinas virtuais devem ser ativados|Ative grupos de segurança de rede controlar o acesso de rede das suas máquinas virtuais.|
-|Subrede|35|Grupos de segurança de rede em nível de sub-rede deve ser ativados|Ative grupos de segurança de rede controlar o acesso de rede de recursos implementados nas suas sub-redes.|
-|Machine|30|Controlo de acesso de rede Just-In-Time deve ser aplicado em máquinas virtuais|Aplicam-se apenas no controlo de acesso VM de tempo permanentemente bloquear o acesso a portas selecionadas e permitir que os utilizadores autorizados para abri-los via o mesmo mecanismo e durante um período limitado de tempo.|
-|Machine|20|Restringir o acesso através da Internet destinada ao ponto final|Proteger os grupos de segurança de rede de sua Internet voltada para as VMs ao restringir o acesso de sua existente permitem regras.|
-|Machine|10|Adicionar uma firewall da próxima geração|Adicione uma solução de próxima geração Firewall (NGFW) para melhor proteger VMs de com acesso à internet.|
-|Machine|5|Encaminhar o tráfego através da firewall do gateway de rede apenas|Para concluir a implementação da sua solução de firewall próxima geração, o tráfego para VMs de com acesso à internet de protegido deve de ser encaminhado apenas através da solução de firewall de geração seguinte.|
-|VNet|5|Ativar a norma de proteção DDoS|Aplicativos com IPs públicos nestas redes virtuais não estão protegidos com o serviço de proteção contra DDOS padrão. Recomenda-se para ativá-la ativar a atenuação da rede volumetric e ataques de protocolo.|
+|Nome da recomendação|Descrição|Severity|Classificação de segurança|Tipo de recurso|
+|----|----|----|----|----|----|
+|Os grupos de segurança de rede no nível de sub-rede devem ser habilitados|Habilite grupos de segurança de rede para controlar o acesso à rede de recursos implantados em suas sub-redes.|Alta/média|30|Subnet|
+|As máquinas virtuais devem ser associadas a um grupo de segurança de rede|Habilite grupos de segurança de rede para controlar o acesso à rede de suas máquinas virtuais.|Alta/média|30|Máquina virtual|
+|O acesso deve ser restrito para grupos de segurança de rede permissivos com VMs voltadas para a Internet|Proteja os grupos de segurança de rede de suas VMs voltadas para a Internet restringindo o acesso de suas regras de permissão existentes.|Alta|20|Máquina virtual|
+|As regras para aplicativos Web em IaaS NSGs devem ser protegidas|Proteger o NSG (grupo de segurança de rede) de suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.|Alta|20|Máquina virtual|
+|O acesso aos serviços de aplicativos deve ser restrito|Restrinja o acesso aos serviços de aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.|Alta|10|Serviço de aplicações|
+|As portas de gerenciamento devem ser fechadas em suas máquinas virtuais|Proteger o grupo de segurança de rede de suas máquinas virtuais para restringir o acesso às portas de gerenciamento.|Alta|10|Máquina virtual|
+A proteção contra DDoS Standard deve ser habilitada|Proteja redes virtuais que contêm aplicativos com IPs públicos habilitando o padrão de serviço de proteção contra DDoS. A proteção contra DDoS permite a mitigação de ataques de volumétricos de rede e de protocolo.|Alta|10|Rede virtual|
+|O encaminhamento IP em sua máquina virtual deve ser desabilitado|Desabilite o encaminhamento de IP. Quando o encaminhamento de IP está habilitado na NIC de uma máquina virtual, o computador pode receber o tráfego endereçado a outros destinos. O encaminhamento de IP raramente é necessário (por exemplo, ao usar a VM como uma solução de virtualização de rede) e, portanto, isso deve ser revisado pela equipe de segurança de rede.|Médio|10|Máquina virtual|
+|Aplicação Web só deve estar acessível através de HTTPS|Habilite o acesso "somente HTTPS" para aplicativos Web. O uso de HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede.|Médio|20|Aplicação Web|
+|O controle de acesso à rede just-in-time deve ser aplicado em máquinas virtuais|Aplique o controle de acesso de máquina virtual (JIT) just-in-time para bloquear permanentemente o acesso às portas selecionadas e habilite os usuários autorizados a abri-los, por meio do JIT, apenas por uma quantidade limitada de tempo.|Alta|20|Máquina virtual|
+|Os aplicativos de funções só devem ser acessíveis via HTTPS|Habilite o acesso "somente HTTPS" para aplicativos de funções. O uso de HTTPS garante a autenticação do servidor/serviço e protege os dados em trânsito de ataques de interceptação de camada de rede.|Médio|20|Function app|
+|A transferência segura para contas de armazenamento deve ser habilitada|Habilite a transferência segura para contas de armazenamento. Transferência segura é uma opção que força sua conta de armazenamento a aceitar solicitações somente de conexões seguras (HTTPS). O uso de HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, como Man-in-the-Middle, espionagem e seqüestro de sessão.|Alta|20|Conta de armazenamento|
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:

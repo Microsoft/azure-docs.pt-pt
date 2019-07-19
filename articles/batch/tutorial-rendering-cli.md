@@ -3,20 +3,20 @@ title: Compor uma cena na cloud - Azure Batch
 description: Tutorial - como apresentar uma cena Autodesk 3DS Max com o Arnold, através do Serviço Batch Rendering e da Interface de Linha de Comandos do Azure
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0c87a6968e5c6fd0e587c240b0a5df0a73f9909b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66127315"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321643"
 ---
-# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Compor uma cena com o Azure Batch 
+# <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Renderizar uma cena com o lote do Azure 
 
 O Azure Batch fornece capacidades de composição à escala da cloud num modelo de faturação de pagamento por utilização. O Azure Batch suporta aplicações de composição, incluindo o Autodesk Maya, 3ds Max, Arnold e V-Ray. Este tutorial mostra-lhe os passos para compor uma pequena cena com o Batch, através da Interface de Linha de Comandos do Azure. Saiba como:
 

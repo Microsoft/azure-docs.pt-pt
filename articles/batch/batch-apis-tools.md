@@ -1,24 +1,24 @@
 ---
-title: APIs e ferramentas para programadores - Azure Batch | Documentos da Microsoft
+title: APIs e ferramentas para desenvolvedores – Azure batch | Microsoft Docs
 description: Saiba mais sobre as APIs e ferramentas disponíveis para o desenvolvimento de soluções com o serviço Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3eeb955d312e21f96f4b1029548c5e84b5e586ec
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721764"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323782"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
-Processamento de cargas de trabalho paralelas com o Azure Batch é geralmente realizado por meio de programação ao utilizar uma das APIs do Batch. A aplicação ou serviço de cliente pode utilizar APIs do Batch para comunicar com o serviço Batch. Com as APIs do Batch, pode criar e gerir conjuntos de nós de computação, máquinas virtuais ou serviços cloud. Pode, então, agendar tarefas para serem executadas nesses nós. 
+O processamento de cargas de trabalho paralelas com o lote do Azure normalmente é feito por meio de programação usando uma das APIs do lote. A aplicação ou serviço de cliente pode utilizar APIs do Batch para comunicar com o serviço Batch. Com as APIs do Batch, pode criar e gerir conjuntos de nós de computação, máquinas virtuais ou serviços cloud. Pode, então, agendar tarefas para serem executadas nesses nós. 
 
 Pode processar de forma eficaz cargas de trabalho em grande escala para a sua organização ou fornecer um front-end de serviço aos seus clientes para que eles possam executar tarefas — a pedido ou com base numa agenda — em um, centenas ou mesmo em milhares de nós. Também pode utilizar o Azure Batch como parte de um fluxo de trabalho maior, gerido por ferramentas como o [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
@@ -31,7 +31,7 @@ Pode processar de forma eficaz cargas de trabalho em grande escala para a sua or
 Quando desenvolver soluções do Batch, irá utilizar as seguintes contas na subscrição do Azure:
 
 * **Conta do Batch** - Os recursos do Azure Batch, incluindo conjuntos, nós de computação, trabalhos e tarefas, estão associados a uma [conta do Azure Batch](batch-api-basics.md#account). Quando a aplicação faz um pedido com o serviço do Batch, autentica o pedido com o nome de conta do Azure Batch, o URL da conta e uma tecla de acesso ou um token do Azure Active Directory. Pode [criar uma conta do Batch](batch-account-create-portal.md) no portal do Azure ou através de programação.
-* **Conta de armazenamento** - o Batch inclui suporte incorporado para trabalhar com ficheiros no [Armazenamento do Azure][azure_storage]. Quase todos os cenários do Batch utilizam o Armazenamento de blobs para testar os programas que as tarefas executam e os dados que processam, e para o armazenamento de dados de saída por elas gerados. Para obter opções de armazenamento no Batch, consulte a [descrição geral da funcionalidade do Batch](batch-api-basics.md#azure-storage-account).
+* **Conta de armazenamento** -o lote inclui suporte interno para trabalhar com arquivos no [armazenamento do Azure][azure_storage]. Quase todos os cenários do Batch utilizam o Armazenamento de blobs para testar os programas que as tarefas executam e os dados que processam, e para o armazenamento de dados de saída por elas gerados. Para obter opções de armazenamento no Batch, consulte a [descrição geral da funcionalidade do Batch](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>APIs de serviço do Batch
 
@@ -60,17 +60,17 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 
 Estas ferramentas da linha de comandos fornecem a mesma funcionalidade que o serviço de Batch e as APIs de Gestão do Batch: 
 
-* [Cmdlets do PowerShell do batch][batch_ps]: Os cmdlets do Azure Batch a [do Azure PowerShell](/powershell/azure/overview) módulo permitem-lhe gerir recursos do Batch com o PowerShell.
-* [CLI do Azure](/cli/azure): A CLI do Azure é um conjunto de ferramentas de várias plataformas que fornece comandos shell para interagir com vários serviços do Azure, incluindo o serviço Batch e o serviço de gestão do Batch. Consulte [Manage Batch resources with Azure CLI](batch-cli-get-started.md)(Gerir recursos do Batch com a CLI do Azure), para obter mais informações sobre como utilizar a CLI do Azure com o Batch.
+* [Cmdlets do PowerShell do lote][batch_ps]: Os cmdlets do lote do Azure no módulo [Azure PowerShell](/powershell/azure/overview) permitem que você gerencie recursos do lote com o PowerShell.
+* [CLI do Azure](/cli/azure): O CLI do Azure é um conjunto de ferramentas de plataforma cruzada que fornece comandos de Shell para interagir com muitos serviços do Azure, incluindo o serviço de lote e o serviço de gerenciamento de lote. Consulte [Manage Batch resources with Azure CLI](batch-cli-get-started.md)(Gerir recursos do Batch com a CLI do Azure), para obter mais informações sobre como utilizar a CLI do Azure com o Batch.
 
 ## <a name="other-tools-for-application-development"></a>Outras ferramentas para programação da aplicação
 
 Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e depurar as suas aplicações e serviços do Batch:
 
-* [Portal do Azure][portal]: Pode criar, monitorizar e eliminar conjuntos, trabalhos e tarefas no portal do Azure Batch. Pode ver as informações de estado para estes e outros recursos ao executar os trabalhos, e até mesmo transferir os ficheiros de nós de computação nos seus conjuntos. Por exemplo, pode transferir o `stderr.txt` de uma tarefa falhada, durante a resolução de problemas. Também pode transferir ficheiros de Ambiente de Trabalho Remoto (RDP) que pode utilizar para iniciar sessão em nós de computação.
-* [O Azure Batch Explorer][batch_labs]: Explorador do batch (anteriormente denominadas BatchLabs) é uma ferramenta de cliente autónoma gratuita e rica em funcionalidades, para ajudar a criar, depurar e monitorizar aplicações do Azure Batch. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
-* [O Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Shipyard de batch é uma ferramenta para ajudar a aprovisionar, executar e monitorizar cargas de trabalho HPC no Azure Batch e de processamento em lotes baseadas em contentores.
-* [Explorador de armazenamento do Azure][storage_explorer]: Embora não seja estritamente uma ferramenta do Azure Batch, o Explorador de armazenamento é outra ferramenta valiosa a ter enquanto estiver a desenvolver e depurar as soluções do Batch.
+* [Portal do Azure][portal]: Você pode criar, monitorar e excluir pools, trabalhos e tarefas do lote no portal do Azure. Pode ver as informações de estado para estes e outros recursos ao executar os trabalhos, e até mesmo transferir os ficheiros de nós de computação nos seus conjuntos. Por exemplo, pode transferir o `stderr.txt` de uma tarefa falhada, durante a resolução de problemas. Também pode transferir ficheiros de Ambiente de Trabalho Remoto (RDP) que pode utilizar para iniciar sessão em nós de computação.
+* [Azure batch Explorer][batch_labs]: Batch Explorer (anteriormente chamado de BatchLabs) é uma ferramenta de cliente autônoma, gratuita e com recursos avançados para ajudar a criar, depurar e monitorar aplicativos do lote do Azure. Transfira um [pacote de instalação](https://azure.github.io/BatchExplorer/) para Mac, Linux ou Windows.
+* [Shipyard do lote do Azure](https://github.com/Azure/batch-shipyard): O Shipyard do lote é uma ferramenta para ajudar a provisionar, executar e monitorar o processamento em lotes baseado em contêiner e cargas de trabalho do HPC no lote do Azure.
+* [Gerenciador de armazenamento do Azure][storage_explorer]: Embora não seja estritamente uma ferramenta de lote do Azure, a Gerenciador de Armazenamento é outra ferramenta valiosa a ter enquanto você está desenvolvendo e Depurando suas soluções de lote.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -81,7 +81,7 @@ Aqui estão algumas ferramentas adicionais que podem ser úteis para criar e dep
 
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * [Introdução à biblioteca do Azure Batch para .NET](tutorial-parallel-dotnet.md) para saber como utilizar C# e a biblioteca .NET do Batch para executar uma carga de trabalho simples utilizando um fluxo de trabalho Batch comum. Uma [versão do Python](tutorial-parallel-python.md) e um [tutorial do Node.js](batch-nodejs-get-started.md) também estão disponíveis.
-* Transfira as [amostras de código no GitHub][github_samples] para ver como tanto o C# como o Python pode interagir com o Batch para agendar e processar amostras de cargas de trabalho.
+* Baixe os [exemplos de código no GitHub][github_samples] para ver como C# o e o Python podem interagir com o lote para agendar e processar cargas de trabalho de exemplo.
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

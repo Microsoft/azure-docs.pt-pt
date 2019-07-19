@@ -1,5 +1,5 @@
 ---
-title: Elevada disponibilidade com o Apache Kafka - Azure HDInsight
+title: Alta disponibilidade com o Apache Kafka-HDInsight do Azure
 description: Saiba como garantir a elevada disponibilidade com o Apache Kafka no Azure HDInsight. Saiba como reequilibrar réplicas da partição no Kafka para que fiquem localizadas em domínios de falhas diferentes dentro da região do Azure que contém o HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,22 +8,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 70843c368b0446a7c0e09559fa759a3cd51912d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d570cdf32ccf0f7037fd772f71a4296904ba7921
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721230"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849083"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>Elevada disponibilidade dos seus dados com o Apache Kafka no HDInsight
 
-Saiba como configurar réplicas de partição para tópicos do Apache Kafka tirar partido da configuração de rack do hardware subjacente. Esta configuração garante a disponibilidade dos dados armazenados no Apache Kafka no HDInsight.
+Saiba como configurar réplicas de partição para tópicos Apache Kafka para aproveitar a configuração de rack de hardware subjacente. Esta configuração garante a disponibilidade dos dados armazenados no Apache Kafka no HDInsight.
 
-## <a name="fault-and-update-domains-with-apache-kafka"></a>Domínios de falha e atualização com o Apache Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>Domínios de falha e atualização com Apache Kafka
 
 Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. As máquinas virtuais e os discos geridos que implementam os nós num cluster HDInsight são distribuídos por esses domínios de falha. Esta arquitetura limita o possível impacto de falhas físicas de hardware.
 
-Cada região do Azure tem um número específico de domínios de falha. Para obter uma lista de domínios e o número de domínios de falha que contêm, consulte a documentação [Availability Sets](../../virtual-machines/windows/regions-and-availability.md#availability-sets) (Conjuntos de disponibilidade).
+Cada região do Azure tem um número específico de domínios de falha. Para obter uma lista de domínios e o número de domínios de falha que contêm, consulte a documentação [Availability Sets](../../virtual-machines/windows/availability.md#availability-sets) (Conjuntos de disponibilidade).
 
 > [!IMPORTANT]  
 > O Kafka não está ciente dos domínios de falha. Quando cria um tópico no Kafka, pode armazenar todas as réplicas da partição no mesmo domínio de falha. Para resolver este problema, o HDInsight disponibiliza a [ferramenta de reequilíbrio de partições do Kafka](https://github.com/hdinsight/hdinsight-kafka-tools).
@@ -43,15 +43,15 @@ Para garantir a maior disponibilidade dos seus dados do Kafka, deve reequilibrar
 
 Se tiver de utilizar uma região que contenha apenas dois domínios de falha, utilize um fator de replicação de 4 para distribuir as réplicas uniformemente entre os dois domínios de falha.
 
-Para obter um exemplo de criação de tópico e definição do fator de replicação, consulte a [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md) documento.
+Para obter um exemplo de como criar tópicos e definir o fator de replicação, consulte o documento [Iniciar com Apache Kafka no HDInsight](apache-kafka-get-started.md) .
 
 ## <a name="how-to-rebalance-partition-replicas"></a>Como reequilibrar as réplicas de partições
 
-Utilize o [ferramenta de reequilíbrio de partições do Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) para reequilibrar os tópicos selecionados. Esta ferramenta deve ser executada numa sessão SSH para o nó principal do cluster do Kafka.
+Use a [ferramenta de rebalanceamento de partição Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools) para reequilibrar os tópicos selecionados. Esta ferramenta deve ser executada numa sessão SSH para o nó principal do cluster do Kafka.
 
 Para obter mais informações sobre a ligação ao HDInsight através do SSH, consulte o documento [Utilizar o SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Escalabilidade do Apache Kafka no HDInsight](apache-kafka-scalability.md)
-* [Espelhamento com o Apache Kafka no HDInsight](apache-kafka-mirroring.md)
+* [Escalabilidade de Apache Kafka no HDInsight](apache-kafka-scalability.md)
+* [Espelhamento com Apache Kafka no HDInsight](apache-kafka-mirroring.md)

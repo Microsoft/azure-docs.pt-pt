@@ -1,58 +1,59 @@
 ---
 title: Monitorizar contentores no Azure Container Instances
-description: Como monitorizar o consumo dos recursos de computação, como CPU e memória por seus contentores no Azure Container Instances.
+description: Como monitorar o consumo de recursos de computação, como CPU e memória, por seus contêineres nas instâncias de contêiner do Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2019
 ms.author: danlep
-ms.openlocfilehash: 7b46ea0518038eeb908591b8438acc2a9095242c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c1208d8cbc795e53128df0ccf93e79dc427abad
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570941"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325843"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorizar recursos de contentores no Azure Container Instances
 
-[O Azure Monitor] [ azure-monitoring] fornece informações sobre os recursos de computação utilizados por suas instâncias de contentores. Estes dados de utilização de recursos ajudam-o a determinar as definições de recursos melhor para os grupos de contentor. Monitor do Azure também fornece métricas que controlam a atividade de rede nas instâncias de contentor.
+[Azure monitor][azure-monitoring] fornece informações sobre os recursos de computação usados pelas instâncias de contêineres. Esses dados de uso de recursos ajudam a determinar as melhores configurações de recursos para seus grupos de contêineres. O Azure Monitor também fornece métricas que controlam a atividade de rede em suas instâncias de contêiner.
 
-Este documento fornece detalhes sobre a coleta de métricas de Monitor do Azure para instâncias de contentor com o portal do Azure e a CLI do Azure.
+Este documento detalha a coleta de Azure Monitor métricas para instâncias de contêiner usando o portal do Azure e CLI do Azure.
 
 > [!IMPORTANT]
-> Métricas de Monitor do Azure no Azure Container Instances estão atualmente em pré-visualização e algumas [limitações aplicam-se](#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+> As métricas de Azure Monitor nas instâncias de contêiner do Azure estão atualmente em versão prévia e algumas [limitações se aplicam](#preview-limitations). As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
 
-## <a name="preview-limitations"></a>Limitações de pré-visualização
+## <a name="preview-limitations"></a>Limitações de visualização
 
-Neste momento, as métricas do Azure Monitor só estão disponíveis para contentores do Linux.
+Neste momento, Azure Monitor métricas só estão disponíveis para contêineres do Linux.
 
 ## <a name="available-metrics"></a>Métricas disponíveis
 
-O Azure Monitor proporciona as seguintes [métricas do Azure Container Instances][supported-metrics]. Estas métricas estão disponíveis para um grupo de contentor e contentores individuais.
+Azure Monitor fornece as seguintes [métricas para instâncias de contêiner do Azure][supported-metrics]. Essas métricas estão disponíveis para um grupo de contêineres e contêineres individuais.
 
-* **Utilização da CPU** - medido em **milinúcleos**. Um millicore é 1/1000th de um núcleo de CPU, pelo que 500 milinúcleos (ou 500 milhões) representa a 50% de utilização de um núcleo de CPU. Agregados como **utilização média** em todos os núcleos.
+* **Uso da CPU** -medido em **milicores**. Um millicore é 1/1000th de um núcleo de CPU; portanto, 500 milicores (ou 500 m) representa 50% de uso de um núcleo de CPU. Agregado como **uso médio** em todos os núcleos.
 
-* **Utilização da memória** - agregada como **médio de bytes**.
+* **Uso de memória** -agregado como **média de bytes**.
 
-* **Bytes recebidos por segundo de rede** e **rede Bytes transmitidos por segundo** - agregada como **médio de bytes por segundo**. 
+* **Bytes de rede recebidos por segundo** e **bytes de rede transmitidos por segundo** agregados como **média de bytes por segundo**. 
 
 ## <a name="get-metrics---azure-portal"></a>Obter métricas - Portal do Azure
 
-Quando é criado um grupo de contentores, estão disponíveis dados do Azure Monitor no portal do Azure. Para ver as métricas para um grupo de contentores, vá para o **descrição geral** página para o grupo de contentor. Aqui pode ver gráficos previamente criados para cada uma das métricas disponíveis.
+Quando é criado um grupo de contentores, estão disponíveis dados do Azure Monitor no portal do Azure. Para ver as métricas de um grupo de contêineres, vá para a página **visão geral** do grupo de contêineres. Aqui você pode ver gráficos pré-criados para cada uma das métricas disponíveis.
 
 ![dual-chart][dual-chart]
 
-Num grupo de contentor que contém vários contentores, utilize um [dimensão] [ monitor-dimension] para apresentar métricas por contentor. Para criar um gráfico com métricas de contentores individuais, execute os seguintes passos:
+Em um grupo de contêineres que contém vários contêineres, use uma [dimensão][monitor-dimension] para apresentar métricas por contêiner. Para criar um gráfico com métricas de contentores individuais, execute os seguintes passos:
 
-1. Na **descrição geral** página, selecione um dos gráficos de métricas, como **CPU**. 
-1. Selecione o **aplicam-se de que a divisão** botão e selecione **nome do contentor**.
+1. Na página **visão geral** , selecione um dos gráficos de métrica, como **CPU**. 
+1. Selecione o botão **aplicar divisão** e selecione nome do **contêiner**.
 
 ![dimensão][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obter métricas - CLI do Azure
 
-Métricas do container instances também podem ser coletadas com a CLI do Azure. Primeiro, obtenha o ID do grupo de contentores com o seguinte comando. Substitua `<resource-group>` pelo nome do grupo de recursos e `<container-group>` pelo nome do grupo de contentores.
+Métricas para instâncias de contêiner também podem ser coletadas usando o CLI do Azure. Primeiro, obtenha o ID do grupo de contentores com o seguinte comando. Substitua `<resource-group>` pelo nome do grupo de recursos e `<container-group>` pelo nome do grupo de contentores.
 
 
 ```console
@@ -80,7 +81,7 @@ Timestamp            Name       Average
 2019-04-23 23:10:00  CPU Usage  0.5
 ```
 
-Alterar o valor do `--metric` parâmetro no comando para obter outra [suportado métricas][supported-metrics]. Por exemplo, utilize o seguinte comando para obter **memória** métrica de utilização. 
+Altere o valor do `--metric` parâmetro no comando para obter outras métricas [com suporte][supported-metrics]. Por exemplo, use o comando a seguir para obter as métricas de uso de **memória** . 
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --output table
@@ -101,7 +102,7 @@ Timestamp            Name          Average
 2019-04-23 23:10:00  Memory Usage  8093696.0
 ```
 
-Para um grupo de vários contentor, o `containerName` dimensão pode ser adicionada para devolver as métricas por contentor.
+Para um grupo de vários contêineres, `containerName` a dimensão pode ser adicionada para retornar métricas por contêiner.
 
 ```console
 $ az monitor metrics list --resource $CONTAINER_GROUP --metric MemoryUsage --dimension containerName --output table
@@ -136,9 +137,9 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o Azure Monitor na [Descrição geral do Azure Monitor][azure-monitoring].
+Saiba mais sobre o monitoramento do Azure na [visão geral do monitoramento do Azure][azure-monitoring].
 
-Saiba como criar [alertas de métricas] [ metric-alert] para ser notificado quando uma métrica do Azure Container Instances ultrapassa um limiar.
+Saiba como criar [alertas de métrica][metric-alert] para ser notificado quando uma métrica para instâncias de contêiner do Azure cruzar um limite.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png

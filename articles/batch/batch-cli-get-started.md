@@ -4,7 +4,7 @@ description: Obtenha uma introdução rápida aos comandos do Batch na CLI do Az
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782570"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323724"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerir os recursos do Batch com a CLI do Azure
 
@@ -76,7 +76,7 @@ O comando `az login` devolve um token que pode utilizar para se autenticar, conf
 
 ![Iniciar sessão no Azure](./media/batch-cli-get-started/az-login.png)
 
-Os exemplos apresentados na secção de scripts do shell de exemplo também mostram como iniciar a sessão de CLI do Azure através do registo para o Azure de forma interativa. Quando tiver sessão iniciada, pode chamar comandos para trabalhar com recursos de gestão do Batch, incluindo contas do Batch, chaves, pacotes de aplicações e quotas.  
+Os exemplos listados na seção de scripts de Shell de exemplo também mostram como iniciar sua sessão de CLI do Azure fazendo logon no Azure interativamente. Quando tiver sessão iniciada, pode chamar comandos para trabalhar com recursos de gestão do Batch, incluindo contas do Batch, chaves, pacotes de aplicações e quotas.  
 
 ### <a name="log-in-to-your-batch-account"></a>Iniciar sessão na conta do Batch
 
@@ -110,7 +110,7 @@ Tem duas opções para se autenticar na conta do Batch:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-Os exemplos apresentados na secção de scripts do shell de exemplo mostram como iniciar sessão na sua conta do Batch com a CLI do Azure com os do Azure AD e a chave partilhada.
+Os exemplos listados na seção scripts de Shell de exemplo mostram como fazer logon em sua conta do lote com o CLI do Azure usando o Azure AD e a chave compartilhada.
 
 ## <a name="use-azure-batch-cli-extension-commands"></a>Utilizar comandos da extensão CLI do Azure Batch
 
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 Embora possa criar a maioria dos recursos do Batch apenas com as opções da linha de comandos, algumas funcionalidades exigem que especifique um ficheiro formatado como JSON que contenha os detalhes dos recursos. Por exemplo, tem de utilizar um ficheiro JSON se pretender especificar os ficheiros de recursos de uma tarefa de início.
 
-Para ver a sintaxe do JSON necessário para criar um recurso, veja a documentação [Batch REST API reference][rest_api] (Referência à API REST do Batch). Cada tópico “Adicionar *tipo de recurso*” na referência à API REST contém scripts JSON de exemplo para criar esse mesmo recurso. Pode utilizar estes scripts JSON como modelos para os ficheiros JSON que vão ser utilizados com a CLI do Azure. Por exemplo, para ver a sintaxe de JSON para a criação de conjuntos, veja [Add a pool to an account][rest_add_pool] (Adicionar um conjunto a uma conta).
+Para ver a sintaxe JSON necessária para criar um recurso, consulte a documentação de [referência da API REST do lote][rest_api] . Cada tópico “Adicionar *tipo de recurso*” na referência à API REST contém scripts JSON de exemplo para criar esse mesmo recurso. Pode utilizar estes scripts JSON como modelos para os ficheiros JSON que vão ser utilizados com a CLI do Azure. Por exemplo, para ver a sintaxe JSON para a criação do pool, consulte [Adicionar um pool a uma conta][rest_add_pool].
 
 Para obter um script de exemplo que especifica um ficheiro JSON, veja [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md) (Executar um trabalho e tarefas com o Batch).
 
@@ -168,7 +168,7 @@ As sugestões seguintes podem ajudá-lo a resolver problemas da CLI do Azure:
 
 * Utilize `-h` para obter o **texto da ajuda** de qualquer comando da CLI
 * Utilize `-v` e `-vv` para apresentar a saída de comandos **detalhadas**. Se o sinalizador `-vv` for incluído, a CLI do Azure apresenta os pedidos e as respostas REST propriamente ditos. Estes parâmetros são úteis para apresentar a saída de erro completa.
-* Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Pode, em seguida, copiar e modificar esta saída para utilizar num `--json-file` (consulte os ficheiros JSON no início deste artigo).
+* Pode ver a **saída de comandos como JSON** com a opção `--json`. Por exemplo, `az batch pool show pool001 --json` apresenta as propriedades de pool001 no formato JSON. Em seguida, você pode copiar e modificar essa saída para usar `--json-file` em um (consulte arquivos JSON anteriormente neste artigo).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## <a name="next-steps"></a>Passos Seguintes

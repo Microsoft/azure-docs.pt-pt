@@ -3,7 +3,7 @@ title: Início rápido da plataforma Microsoft Identity para iOS | Azure
 description: Saiba como conectar usuários e consultar Microsoft Graph em um aplicativo iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: brandwe
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a13142c6941ecc7bd2f96db923213dc9818afbb
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 99fb7fad3e36ecee62bee404268525d4319b4f48
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311771"
+ms.locfileid: "68324385"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS
 

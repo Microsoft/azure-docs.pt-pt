@@ -1,6 +1,6 @@
 ---
-title: Tarefa de configuração predefinida para o indexador de multimédia do Azure
-description: Este tópico apresenta uma visão geral das tarefas de configuração predefinida para o indexador de multimédia do Azure.
+title: Predefinição de tarefa para Azure Media Indexer
+description: Este tópico fornece uma visão geral da predefinição de tarefa para Azure Media Indexer.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -12,32 +12,31 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: adsolank
-ms.reviewer: juliako
-ms.openlocfilehash: 129694edacb390aa62c061941810b8c98be7e96c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: juliako
+ms.openlocfilehash: a9a47f970f0f934e0953bd5e2d6e5575758a9c1c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619153"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67873505"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de multimédia do Azure 
+# <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para Azure Media Indexer 
 
-O indexador de multimédia do Azure é um processador de multimédia que utilizar para efetuar as seguintes tarefas: tornar os arquivos de mídia e conteúdo pesquisável, gerar faixas de legenda codificadas fechadas e palavras-chave, indexar os arquivos de recurso que fazem parte do seu elemento.
+Azure Media Indexer é um processador de mídia que você usa para executar as seguintes tarefas: tornar os arquivos de mídia e o conteúdo pesquisáveis, gerar faixas e palavras-chave com legendas codificadas, indexar arquivos de ativo que fazem parte do seu ativo.
 
-Este tópico descreve a tarefa de configuração predefinida que tem de passar para a tarefa de indexação. Para obter um exemplo completo, consulte [indexe ficheiros multimédia com o indexador de multimédia do Azure](media-services-index-content.md).
+Este tópico descreve a predefinição de tarefa que você precisa passar para o trabalho de indexação. Para obter um exemplo completo, consulte [indexando arquivos de mídia com Azure Media indexer](media-services-index-content.md).
 
-## <a name="azure-media-indexer-configuration-xml"></a>XML de configuração do indexador de multimédia do Azure
+## <a name="azure-media-indexer-configuration-xml"></a>Azure Media Indexer XML de configuração
 
-A tabela seguinte explica os elementos e atributos da configuração do XML.
+A tabela a seguir explica os elementos e atributos do XML de configuração.
 
 |Nome|Requerer|Descrição|
 |---|---|---|
-|Input|true|Ficheiros de recurso que deseja indexar.<br/>O indexador de multimédia do Azure suporta os seguintes formatos de arquivo de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o nome de ficheiro (s) no **name** ou **lista** atributo do **entrada** elemento (conforme mostrado abaixo). Se não especificar qual arquivo de recurso para o índice, o ficheiro principal é escolhido. Não se for definido nenhum ficheiro de ativo primário, o primeiro arquivo no recurso de entrada é indexado.<br/><br/>Para especificar explicitamente o nome do arquivo de recurso, fazer:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de elemento ao mesmo tempo (até 10 ficheiros). Para efetuar este procedimento:<br/>-Criar um arquivo de texto (ficheiro de manifesto) e dê a ele uma extensão de .lst.<br/>-Adicione uma lista de todos os nomes de arquivo de recurso em seu elemento de entrada para este ficheiro de manifesto.<br/>-Adicione o ficheiro de manifesto (carregamento) ao elemento.<br/>-Especifique o nome do ficheiro de manifesto no atributo de lista da entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se adicionar mais do que 10 ficheiros para o arquivo de manifesto, a tarefa de indexação irá falhar com o código de erro de 2006.|
-|do IdP|false|Metadados para o ficheiro de ativo especificado (s).<br/>```<metadata key="..." value="..." />```<br/><br/>Pode fornecer valores para chaves predefinidas. <br/><br/>Atualmente, são suportadas as seguintes chaves:<br/><br/>**título** e **Descrição** - utilizado para atualizar o modelo de idioma para melhorar a precisão de reconhecimento de voz.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de utilizador** e **palavra-passe** - utilizado para autenticação quando o download de arquivos de internet através de http ou https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de utilizador e palavra-passe se aplicam a todos os URLs de multimédia no manifesto de entrada.|
-|elástica<br/><br/>Adicionado na versão 1.2. Atualmente, a única funcionalidade suportada é o reconhecimento de fala ("ASR").|false|A funcionalidade de reconhecimento de voz tem as seguintes chaves de definições:<br/><br/>Idioma:<br/>-A linguagem natural a ser reconhecida no ficheiro multimédia.<br/>-Inglês, espanhol<br/><br/>CaptionFormats:<br/>-uma lista delimitada por vírgulas de legenda a saída desejada formatos (se houver)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-Um sinalizador booleano que especifica se é ou não um ficheiro AIB necessário (para utilização com o SQL Server e o cliente IFilter indexador). Para obter mais informações, consulte usando arquivos de AIB com o indexador de multimédia do Azure e o SQL Server.<br/>-True; FALSO<br/><br/>GenerateKeywords:<br/>-Um sinalizador booleano que especifica se é ou não é necessário um ficheiro XML de palavra-chave.<br/>-True; FALSO.|
+|Input|true|Arquivo (s) de ativo que você deseja indexar.<br/>O Azure Media Indexer dá suporte aos seguintes formatos de arquivo de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Você pode especificar os nomes de arquivo no atributo **Name** ou **list** do elemento **Input** (como mostrado abaixo). Se você não especificar qual arquivo de ativo indexar, o arquivo primário será escolhido. Se nenhum arquivo de ativo principal for definido, o primeiro arquivo no ativo de entrada será indexado.<br/><br/>Para especificar explicitamente o nome do arquivo de ativo, faça:<br/>```<input name="TestFile.wmv" />```<br/><br/>Você também pode indexar vários arquivos de ativo de uma vez (até 10 arquivos). Para efetuar este procedimento:<br/>-Crie um arquivo de texto (arquivo de manifesto) e dê a ele uma extensão. lst.<br/>-Adicione uma lista de todos os nomes de arquivo de ativo em seu ativo de entrada para esse arquivo de manifesto.<br/>-Adicionar (carregar) o arquivo de manifesto ao ativo.<br/>-Especifique o nome do arquivo de manifesto no atributo de lista da entrada.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se você adicionar mais de 10 arquivos ao arquivo de manifesto, o trabalho de indexação falhará com o código de erro 2006.|
+|do IdP|false|Metadados para os arquivos de ativo especificados.<br/>```<metadata key="..." value="..." />```<br/><br/>Você pode fornecer valores para chaves predefinidas. <br/><br/>No momento, há suporte para as seguintes chaves:<br/><br/>**título** e **Descrição** – usado para atualizar o modelo de idioma para melhorar a precisão do reconhecimento de fala.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**nome de usuário** e **senha** – usados para autenticação ao baixar arquivos da Internet via http ou HTTPS.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>Os valores de nome de usuário e senha se aplicam a todas as URLs de mídia no manifesto de entrada.|
+|elástica<br/><br/>Adicionado na versão 1,2. Atualmente, o único recurso com suporte é o reconhecimento de fala ("ASR").|false|O recurso de reconhecimento de fala tem as seguintes chaves de configuração:<br/><br/>Idioma:<br/>-O idioma natural a ser reconhecido no arquivo multimídia.<br/>-Inglês, espanhol<br/><br/>CaptionFormats:<br/>-uma lista separada por ponto-e-vírgula dos formatos de legenda de saída desejados (se houver)<br/>- ttml;sami;webvtt<br/><br/><br/>GenerateAIB:<br/>-Um sinalizador booliano que especifica se um arquivo AIB é necessário (para uso com SQL Server e o IFilter do indexador do cliente). Para obter mais informações, consulte usando arquivos AIB com Azure Media Indexer e SQL Server.<br/>True For<br/><br/>GenerateKeywords:<br/>-Um sinalizador booliano que especifica se um arquivo XML de palavra-chave é necessário ou não.<br/>True For.|
 
-## <a name="azure-media-indexer-configuration-xml-example"></a>Exemplo do XML de configuração de indexador de multimédia do Azure
+## <a name="azure-media-indexer-configuration-xml-example"></a>Exemplo de XML de configuração Azure Media Indexer
 
 ``` 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -65,5 +64,5 @@ A tabela seguinte explica os elementos e atributos da configuração do XML.
   
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ver [indexe ficheiros multimédia com o indexador de multimédia do Azure](media-services-index-content.md).
+Consulte [indexando arquivos de mídia com Azure Media indexer](media-services-index-content.md).
 

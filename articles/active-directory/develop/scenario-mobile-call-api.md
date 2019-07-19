@@ -1,9 +1,9 @@
 ---
-title: Aplicação móvel que chamadas de web APIs - chamar uma API web | Plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação móvel que chama o web APIs (chamar uma API web)
+title: Aplicativo móvel que chama APIs da Web – chamando uma API da Web | Plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo móvel que chama APIs da Web (chamando uma API da Web)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,37 +16,37 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc8c21db0f42bbb6804c00e27e82f840d7038c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1408c06570babfd93c46fdfc7a3c6754000bcbc
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111180"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320859"
 ---
-# <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicação móvel que chama a APIs - web chamar uma API web
+# <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicativo móvel que chama APIs Web – chamar uma API da Web
 
-Depois da aplicação tem um utilizador com sessão iniciada e recebido tokens, MSAL expõe várias partes de informações sobre o utilizador, o ambiente do utilizador e os tokens emitidos. A aplicação pode utilizar estes valores para chamar uma API web ou exibir uma mensagem de boas-vindas ao usuário.
+Depois que seu aplicativo tiver entrado em um usuário e receber tokens, o MSAL expõe várias informações sobre o usuário, o ambiente do usuário e os tokens emitidos. Seu aplicativo pode usar esses valores para chamar uma API da Web ou exibir uma mensagem de boas-vindas para o usuário.
 
-Em primeiro lugar, vamos analisar o resultado MSAL. Em seguida, vamos ver como utilizar um token de acesso a partir da `AuthenticationResult` ou `result` para chamar uma API web protegida.
+Primeiro, veremos o resultado do MSAL. Em seguida, veremos como usar um token de acesso do `AuthenticationResult` ou `result` para chamar uma API Web protegida.
 
-## <a name="msal-result"></a>Resultado MSAL
-A MSAL fornece os seguintes valores: 
+## <a name="msal-result"></a>Resultado do MSAL
+MSAL fornece os seguintes valores: 
 
-- `AccessToken`: Utilizada para chamar as APIs de web protegida numa solicitação de portador de HTTP.
-- `IdToken`: Contém informações úteis sobre o utilizador com sessão iniciada, como o nome do utilizador, o inquilino principal e um identificador exclusivo para o armazenamento.
-- `ExpiresOn`: A hora de expiração do token. A MSAL processa a atualização automática para aplicações.
-- `TenantId`: O identificador do inquilino que o utilizador com sessão iniciado em com. Para os utilizadores convidados (Azure Active Directory B2B), este valor irá identificar o inquilino que o utilizador iniciou sessão com, não do usuário principal de inquilino.  
-- `Scopes`: Os âmbitos que foram concedidos com o seu token. Os âmbitos concedidos podem ser um subconjunto dos âmbitos que pediu.
+- `AccessToken`: Usado para chamar APIs Web protegidas em uma solicitação de portador HTTP.
+- `IdToken`: Contém informações úteis sobre o usuário conectado, como o nome do usuário, o locatário inicial e um identificador exclusivo para armazenamento.
+- `ExpiresOn`: A hora de expiração do token. MSAL lida com a atualização automática para aplicativos.
+- `TenantId`: O identificador do locatário com o qual o usuário se conectou. Para usuários convidados (Azure Active Directory B2B), esse valor identificará o locatário com o qual o usuário se conectou, não o locatário inicial do usuário.  
+- `Scopes`: Os escopos que foram concedidos com seu token. Os escopos concedidos podem ser um subconjunto dos escopos que você solicitou.
 
-A MSAL também fornece uma abstração para um `Account`. Um `Account` representa a atual conta do utilizador com sessão iniciada.
+O MSAL também fornece uma abstração para `Account`um. Um `Account` representa a conta conectada do usuário atual.
 
-- `HomeAccountIdentifier`: O identificador do inquilino principal do utilizador.
-- `UserName`: O nome do usuário preferencial do usuário. Isto pode estar vazio para os utilizadores do Azure Active Directory B2C.
-- `AccountIdentifier`: O identificador do utilizador com sessão iniciada. Este valor será o mesmo que o `HomeAccountIdentifier` valor na maioria dos casos, a menos que o utilizador é um convidado noutro inquilino.
+- `HomeAccountIdentifier`: O identificador do locatário inicial do usuário.
+- `UserName`: O nome de usuário preferencial do usuário. Isso pode estar vazio para Azure Active Directory B2C usuários.
+- `AccountIdentifier`: O identificador do usuário conectado. Esse valor será o mesmo que o `HomeAccountIdentifier` valor na maioria dos casos, a menos que o usuário seja um convidado em outro locatário.
 
 ## <a name="call-an-api"></a>Chamar uma API
 
-Depois de ter o token de acesso, é fácil chamar uma API web. A aplicação irá utilizar o token para construir uma solicitação HTTP e, em seguida, execute o pedido.
+Depois de ter o token de acesso, é fácil chamar uma API da Web. Seu aplicativo usará o token para construir uma solicitação HTTP e, em seguida, executará a solicitação.
 
 ### <a name="android"></a>Android
 
@@ -126,14 +126,14 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 }
 ```
 
-## <a name="making-several-api-requests"></a>Tornar vários pedidos de API
+## <a name="making-several-api-requests"></a>Fazendo várias solicitações de API
 
-Se precisa chamar a mesma API várias vezes, ou se tiver de chamar as APIs de vários, de ter em consideração o seguinte ao criar a sua aplicação:
+Se você precisar chamar a mesma API várias vezes ou se precisar chamar várias APIs, leve em consideração o seguinte ao compilar seu aplicativo:
 
-- **Consentimento incremental**: Plataforma de identidade da Microsoft permite que as aplicações obter o consentimento do utilizador que são necessárias permissões, em vez de contas no início. Sempre que a aplicação está pronta para chamar uma API, deve pedir a apenas os âmbitos que precisa de utilizar.
-- **Acesso condicional**: Em determinados cenários, poderá obter requisitos adicionais de acesso condicional ao fazer várias solicitações da API. Isto pode acontecer se a primeira solicitação tiver não existem políticas de acesso condicional aplicadas e a aplicação tenta aceder automaticamente uma nova API que precisa de acesso condicional. Para lidar com este cenário, certifique-se de que detetar erros dos pedidos silenciosas e estar preparado para fazer uma solicitação interativa.  Para obter mais informações, consulte [orientações para o acesso condicional](conditional-access-dev-guide.md).
+- **Consentimento incremental**: A plataforma de identidade da Microsoft permite que os aplicativos obtenham o consentimento do usuário conforme as permissões são necessárias, em vez de tudo no início. Cada vez que seu aplicativo está pronto para chamar uma API, ele deve solicitar somente os escopos que ele precisa para usar.
+- **Acesso condicional**: Em determinados cenários, você pode obter requisitos de acesso condicional adicionais ao fazer várias solicitações de API. Isso pode acontecer se a primeira solicitação não tiver nenhuma política de acesso condicional aplicada e seu aplicativo tentar acessar silenciosamente uma nova API que requer acesso condicional. Para lidar com esse cenário, não se esqueça de detectar erros de solicitações silenciosas e estar preparado para fazer uma solicitação interativa.  Para saber mais, consulte as [diretrizes para acesso condicional](conditional-access-dev-guide.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Mover para produção](scenario-mobile-production.md)

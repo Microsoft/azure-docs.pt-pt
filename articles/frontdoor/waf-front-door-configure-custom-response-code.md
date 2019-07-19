@@ -1,6 +1,6 @@
 ---
-title: Configurar uma resposta personalizada para o firewall de aplicação web na porta da frente do Azure
-description: Saiba como configurar um código de resposta personalizada e uma mensagem quando a firewall de aplicações web (WAF) bloquear um pedido.
+title: Configurar uma resposta personalizada para o Firewall do aplicativo Web na porta frontal do Azure
+description: Saiba como configurar um código de resposta personalizado e uma mensagem quando o WAF (firewall do aplicativo Web) bloqueia uma solicitação.
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -9,34 +9,35 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 146d17fe457751fb950f723c34826e43516e4e86
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 657dc3a43302d16bc403d790bf2c34c2d147dd6c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165379"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846359"
 ---
-# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurar uma resposta personalizada para o firewall de aplicação web do Azure
+# <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurar uma resposta personalizada para o Firewall do aplicativo Web do Azure
 
-Por predefinição, quando a firewall de aplicações web do Azure (WAF) porta da frente com o Azure bloqueia um pedido devido a uma regra correspondente, ele retorna um código de 403 status com **o pedido está bloqueado** mensagem. Este artigo descreve como configurar um código de estado de resposta personalizada e uma mensagem de resposta quando um pedido está bloqueado pela WAF.
+Por padrão, quando o WAF (firewall do aplicativo Web) do Azure com a porta frontal do Azure bloqueia uma solicitação devido a uma regra correspondente, ele retorna um código de status 403 com **a solicitação é** mensagem bloqueada. Este artigo descreve como configurar um código de status de resposta personalizado e uma mensagem de resposta quando uma solicitação é bloqueada pelo WAF.
 
 ## <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sessão com as credenciais do Azure e instale o módulo do PowerShell de Az.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar com suas credenciais do Azure e instalar o módulo AZ PowerShell.
 
-### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligar ao Azure com uma caixa de diálogo de início de sessão interativa
+### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Conectar-se ao Azure com uma caixa de diálogo interativa para entrar
 ```
 Connect-AzAccount
 Install-Module -Name Az
 ```
-Certifique-se de que tem a versão atual do PowerShellGet instalado. Execute o comando abaixo e reabra o PowerShell.
+Verifique se você tem a versão atual do PowerShellGet instalada. Execute o comando abaixo e reabra o PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
-### <a name="install-azfrontdoor-module"></a>Instalar o módulo de Az.FrontDoor 
+### <a name="install-azfrontdoor-module"></a>Instalar o módulo AZ. FrontDoor 
 
 ```
 Install-Module -Name Az.FrontDoor
@@ -44,7 +45,7 @@ Install-Module -Name Az.FrontDoor
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, alocar recursos relacionados a um grupo de recursos. Neste exemplo, crie um grupo de recursos, utilizando [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
+No Azure, você aloca recursos relacionados a um grupo de recursos. Neste exemplo, você cria um grupo de recursos usando [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupWAF
@@ -52,7 +53,7 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>Criar uma nova política de WAF com resposta personalizada 
 
-Segue-se um exemplo de como criar uma nova política de WAF com o código de estado de resposta personalizada definido como 405 e a mensagem para **estão a ser bloqueados.** usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Abaixo está um exemplo de como criar uma nova política WAF com o código de status de resposta personalizado definido como 405 e a mensagem para **você está bloqueada.** usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
@@ -65,7 +66,7 @@ New-AzFrontDoorWafPolicy `
 -CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
 ```
 
-Modificar o código de resposta personalizada ou definições de corpo de resposta de uma política de WAF existente, utilizando [AzFrontDoorFireWallPolicy atualização](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
+Modifique as configurações do código de resposta personalizado ou do corpo da resposta de uma política WAF existente, usando [Update-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
 
 ```azurepowershell
 # modify WAF response code
@@ -86,4 +87,4 @@ Update-AzFrontDoorFireWallPolicy `
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [porta de entrada](front-door-overview.md)
+- Saiba mais sobre a [porta frontal](front-door-overview.md)

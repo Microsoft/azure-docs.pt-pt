@@ -1,37 +1,47 @@
 ---
-title: Métricas de precisão no ML automatizada de treinamento
+title: Métricas de precisão de treinamento em ML automatizado
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre automatizado de machine learning métricas de precisão para cada uma das suas execuções.
+description: Saiba mais sobre as métricas de precisão de aprendizado de máquina automatizadas para cada uma de suas execuções.
 author: j-martens
 ms.author: jmartens
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 44dfa387b289afe4dc5f030cca0b13325c04e811
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.date: 07/16/2019
+ms.openlocfilehash: dc147fd0252b2b5ec4ce334d6c1c464d9cde8ef5
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313317"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297900"
 ---
-# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Avaliar a precisão de treinamento no ML automatizado com a métrica
+# <a name="evaluate-training-accuracy-in-automated-ml-with-metrics"></a>Avaliar a precisão de treinamento em ML automatizado com métricas
 
-Existem várias formas de visualizar as métricas de precisão de treinamento para cada iteração de execução.
+Neste artigo, você aprenderá sobre as diferentes métricas disponíveis para modelos de ml automatizados no Azure Machine Learning. 
 
-* Utilize [um widget do Jupyter](how-to-track-experiments.md#view-run-details)
-* Uso [a `get_metrics()` função](how-to-track-experiments.md#query-run-metrics) em qualquer `Run` objeto
-* Vista [as métricas de experimentação no portal do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+Há várias maneiras de exibir as métricas de precisão de treinamento para cada iteração de execução.
+* Usar [um widget Jupyter](how-to-track-experiments.md#view-run-details)
+* Usar [a `get_metrics()` função](how-to-track-experiments.md#query-run-metrics) em qualquer `Run` objeto
+* Exibir [as métricas de experimento no portal do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)
+
+## <a name="prerequisites"></a>Pré-requisitos
+ 
+* Uma subscrição do Azure. Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+ 
+* Crie um experimento de Machine Learning automatizado, seja com o SDK ou na portal do Azure.
+ 
+    * Usar o SDK para criar um modelo de [classificação](how-to-auto-train-remote.md) ou um [modelo](tutorial-auto-train-models.md) de regressão
+    * Use o [portal do Azure](how-to-create-portal-experiments.md) para criar um modelo de classificação ou regressão carregando os dados apropriados.
 
 ## <a name="classification-metrics"></a>Métricas de classificação
 
-As métricas seguintes são salvas em cada iteração de execução de uma tarefa de classificação.
+As métricas a seguir são salvas em cada iteração de execução para uma tarefa de classificação.
 
 |Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 AUC_Macro| AUC é a área sob a curva de característica do Recetor operacional. Macro é a média aritmética de AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "macro"|
-AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. Micro é computada globalmente ao combinar os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
+AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. O micro é calculado globalmente combinando os verdadeiros positivos e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
 AUC_Weighted  | AUC é a área sob a curva de característica do Recetor operacional. Ponderada é a média aritmética de classificação para cada classe, ponderada pelo número de instâncias verdadeiros em cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média = "ponderado"
 accuracy|A precisão é a porcentagem de etiquetas previstas que correspondam exatamente com as etiquetas verdadeiras. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhuma|
 average_precision_score_macro|Precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisions alcançados em cada limite, com o aumento de Lembre-se de que o limiar anterior utilizado como o peso. Macro é a média aritmética da pontuação média de precisão de cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média = "macro"|
@@ -53,7 +63,7 @@ weighted_accuracy|Precisão ponderada é precisão em que o peso para cada exemp
 
 ## <a name="regression-and-forecasting-metrics"></a>Regressão e métricas de previsão
 
-As métricas seguintes são salvas em cada iteração de execução para uma regressão ou a tarefa de previsão.
+As métricas a seguir são salvas em cada iteração de execução para uma tarefa de regressão ou de previsão.
 
 |Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
@@ -67,4 +77,8 @@ normalized_median_absolute_error|Erro de absoluto mediano normalizado é mediano
 root_mean_squared_error|Raiz significar um erro ao quadrado é a raiz quadrada da diferença ao quadrado esperada entre o destino e a predição|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhuma|
 normalized_root_mean_squared_error|Raiz normalizado significar um erro ao quadrado é raiz mean erros dividido pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divida por intervalo dos dados|
 root_mean_squared_log_error|Raiz significa de erro do registo ao quadrado é a raiz quadrada do erro logarítmica ao quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
-normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean normalizado raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
+normalized_root_mean_squared_log_error|O erro de log quadrado de raiz normalizada é o erro de log de quadrado médio raiz dividido pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Saiba mais sobre o [ml automatizado](concept-automated-ml.md) no Azure Machine Learning.

@@ -1,6 +1,6 @@
 ---
-title: REST API de pré-visualização para pré-visualização do Azure Search 2019-05-06-- o Azure Search
-description: Azure Search Service REST 2019 de versão de API-05-06-Preview inclui funcionalidades experimentais, como o arquivo de dados de conhecimento e as chaves de encriptação gerida pelo cliente.
+title: API REST de visualização para Azure Search 2019-05-06-Preview-Azure Search
+description: Azure Search API REST do serviço versão 2019-05-06-Preview inclui recursos experimentais, como repositório de conhecimento e chaves de criptografia gerenciadas pelo cliente.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -10,50 +10,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/02/2019
-ms.author: HeidiSteen
+ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d079c4e21352ced5fdcde44acaee66b79f6af9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523907"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876648"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Versão de api REST do serviço de pesquisa do Azure de 2019-05-06-pré-visualização
-Este artigo descreve o `api-version=2019-05-06-Preview` versão do serviço de Azure Search REST API, oferecendo funcionalidades experimentais não ainda em disponibilidade geral.
+# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>API REST do serviço de Azure Search-versão 2019-05-06-Preview
+Este artigo descreve a `api-version=2019-05-06-Preview` versão da API REST do serviço Azure Search, oferecendo recursos experimentais que ainda não estão disponíveis para o público em geral.
 
 > [!NOTE]
-> Funcionalidades de pré-visualização estão disponíveis para teste e experimentação com o objetivo de recolha de comentários e estão sujeitos a alterações. É altamente recomendável contra a utilização de APIs de pré-visualização em aplicações de produção.
+> Os recursos de visualização estão disponíveis para teste e experimentação com o objetivo de coletar comentários e estão sujeitos a alterações. Aconselhamos enfaticamente o uso de APIs de visualização em aplicativos de produção.
 
 
-## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-pré-visualização
+## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-Preview
 
-[**Arquivo de dados de conhecimento** ](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseada em IA. Além de um índice, agora pode manter estruturas de dados preenchida criadas durante a indexação no armazenamento do Azure. Controlar as estruturas físicas dos seus dados por meio de elementos num conjunto de capacidades, incluindo como dados são formatados, se os dados são armazenados no armazenamento de BLOBs ou de armazenamento de tabelas, e se existem várias exibições.
+A [**loja de conhecimento**](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. Além de um índice, agora você pode persistir estruturas de dados preenchidas criadas durante a indexação no armazenamento do Azure. Você controla as estruturas físicas de seus dados por meio de elementos em um configurador de habilidades, incluindo como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
 
-[**Chaves de encriptação gerida pelo cliente** ](search-security-manage-encryption-keys.md) para o lado do serviço de encriptação em repouso também é uma nova funcionalidade de pré-visualização. Para além do incorporada encriptação em repouso gerenciado pela Microsoft, pode aplicar uma camada adicional de onde está a única proprietária das chaves de encriptação.
+[**As chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso também são um novo recurso de visualização. Além da criptografia interna em repouso gerenciada pela Microsoft, você pode aplicar uma camada adicional de criptografia em que você é o único proprietário das chaves.
 
-## <a name="other-preview-features"></a>Outras funcionalidades de pré-visualização
+## <a name="other-preview-features"></a>Outros recursos de visualização
 
-Funcionalidades anunciadas em pré-visualizações anteriores ainda estão em pré-visualização pública. Se estiver chamando uma API com uma api-version anterior pré-visualização, pode continuar a utilizar essa versão ou mudar para `2019-05-06-Preview` sem alterações ao comportamento esperado.
+Os recursos anunciados em versões anteriores ainda estão em visualização pública. Se você estiver chamando uma API com uma versão prévia da API de visualização, poderá continuar a usar essa versão ou alternar para `2019-05-06-Preview` o sem alterações no comportamento esperado.
 
-+ [parâmetro de consulta de moreLikeThis](search-more-like-this.md) documentos que são relevantes para um documento específico. Esta funcionalidade está pré-visualizações anteriores. 
-* [A indexação de BLOBs CSV](search-howto-index-csv-blobs.md) cria um documento por linha, em vez de um documento por blob de texto.
-* [Suporte de API do MongoDB para o Cosmos DB indexadores](search-howto-index-cosmosdb.md) está em pré-visualização.
++ o [parâmetro de consulta moreLikeThis](search-more-like-this.md) localiza documentos que são relevantes para um documento específico. Este recurso está em versões anteriores. 
+* A indexação de [BLOBs CSV](search-howto-index-csv-blobs.md) cria um documento por linha, em oposição a um documento por blob de texto.
+* [Suporte à API do MongoDB para Cosmos DB indexadores](search-howto-index-cosmosdb.md) está em versão prévia.
 
 
-## <a name="how-to-call-a-preview-api"></a>Como chamar uma API de pré-visualização
+## <a name="how-to-call-a-preview-api"></a>Como chamar uma API de visualização
 
-Pré-visualizações mais antigas são ainda está operacionais, mas se tornem obsoletas ao longo do tempo. Se o seu código chamará `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview`, essas chamadas ainda são válidas. No entanto, apenas a versão de pré-visualização mais recente é atualizada com melhorias. 
+As visualizações mais antigas ainda são operacionais, mas tornam-se obsoletas ao longo do tempo. Se seu código chamar `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview`, essas chamadas ainda serão válidas. No entanto, somente a versão de visualização mais recente é atualizada com melhorias. 
 
-A sintaxe de exemplo seguinte ilustra uma chamada para a versão de API de pré-visualização.
+A sintaxe de exemplo a seguir ilustra uma chamada para a versão da API de visualização.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2019-05-06-Preview
 
-Serviço do Azure Search está disponível em várias versões. Para obter mais informações, consulte [versões de API](search-api-versions.md).
+Azure Search serviço está disponível em várias versões. Para obter mais informações, consulte [versões de API](search-api-versions.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja a documentação de referência da API de REST do serviço de pesquisa do Azure. Se tiver problemas, peça-nos para obter ajuda no [Stack Overflow](https://stackoverflow.com/) ou [contacte o suporte](https://azure.microsoft.com/support/community/?product=search).
+Examine a documentação de referência da API REST do serviço de Azure Search. Se você tiver problemas, peça ajuda no [StackOverflow](https://stackoverflow.com/) ou [entre em contato com o suporte](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/)

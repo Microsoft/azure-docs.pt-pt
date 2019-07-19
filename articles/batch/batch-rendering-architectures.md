@@ -1,64 +1,64 @@
 ---
-title: Arquiteturas de referência de composição do Azure - Batch do Azure
-description: Farm de composição de arquiteturas de utilização do Azure Batch e outros serviços do Azure para expandir no local disparando para a cloud
+title: Arquiteturas de referência de renderização do Azure – lote do Azure
+description: Arquiteturas para usar o lote do Azure e outros serviços do Azure para estender um farm de renderização local intermitentemente para a nuvem
 services: batch
 ms.service: batch
 author: davefellows
-manager: jeconnoc
+manager: gwallace
 ms.author: lahugh
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: ae4680c948ce8e1efd32207dc37821d61182f2d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa2d59b2a6d2dea72276ab38a5cb1ca7bfb579a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774190"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323115"
 ---
-# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para a composição do Azure
+# <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para renderização do Azure
 
-Este artigo mostra-diagramas de arquitetura de alto nível para cenários expandir ou "Expandir", no local compor farm para o Azure. Os exemplos mostram as diferentes opções para serviços de computação, rede e armazenamento do Azure.
+Este artigo mostra diagramas de arquitetura de alto nível para cenários para estender ou "disparo", um farm de renderização local para o Azure. Os exemplos mostram diferentes opções para serviços de computação, rede e armazenamento do Azure.
 
-## <a name="hybrid-with-nfs-or-cfs"></a>Híbrido com o NFS ou CFS
+## <a name="hybrid-with-nfs-or-cfs"></a>Híbrido com NFS ou CFS
 
-O diagrama seguinte mostra um cenário híbrido, que inclui os seguintes serviços do Azure:
+O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços do Azure:
 
-* **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
+* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - entrada e de ficheiros de saída: NFS ou CFS com VMs do Azure, sincronizadas com o armazenamento no local através do Azure File Sync ou RSync. Em alternativa: Avere vFXT para entrada ou saída ficheiros a partir de dispositivos no local do NFS.
+* Arquivos de entrada e saída de **armazenamento** : NFS ou CFS usando VMs do Azure, sincronizado com o armazenamento local por meio de Sincronização de Arquivos do Azure ou RSync. Como alternativa Avere vFXT os arquivos de entrada ou saída de dispositivos NAS locais usando o NFS.
 
-  ![Segurança - da cloud híbrida com o NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
+  ![Intermitência de nuvem-híbrido com NFS ou CFS](./media/batch-rendering-architectures/hybrid-nfs-cfs-avere.png)
 
 ## <a name="hybrid-with-blobfuse"></a>Híbrido com Blobfuse
 
-O diagrama seguinte mostra um cenário híbrido, que inclui os seguintes serviços do Azure:
+O diagrama a seguir mostra um cenário híbrido que inclui os seguintes serviços do Azure:
 
-* **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
+* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** - entrada e de ficheiros de saída: Armazenamento de BLOBs, montado para recursos através do Azure Blobfuse de computação.
+* Arquivos de entrada e saída de **armazenamento** : Armazenamento de BLOBs, montado em recursos de computação por meio do Azure Blobfuse.
 
-  ![Segurança - da cloud híbrida com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
+  ![Intermitência de nuvem-híbrido com Blobfuse](./media/batch-rendering-architectures/hybrid-blob-fuse.png)
 
-## <a name="hybrid-compute-and-storage"></a>Armazenamento e computação híbrido
+## <a name="hybrid-compute-and-storage"></a>Computação híbrida e armazenamento
 
-O diagrama seguinte mostra um cenário híbrido totalmente conectada para computação e armazenamento e inclui os seguintes serviços do Azure:
+O diagrama a seguir mostra um cenário híbrido totalmente conectado para computação e armazenamento e inclui os seguintes serviços do Azure:
 
-* **Computação** -conjunto do Azure Batch ou conjunto de dimensionamento de Máquina Virtual.
+* **Computação** -pool do lote do Azure ou conjunto de dimensionamento de máquinas virtuais.
 
-* **Rede** -no local: O Azure ExpressRoute ou VPN. Azure: VNet do Azure.
+* **Rede** -local: Azure ExpressRoute ou VPN. Azure: VNet do Azure.
 
-* **Armazenamento** -em vários locais: Avere vFXT. Arquivamento opcional de locais ficheiros através do Azure Data Box para armazenamento de BLOBs, ou no local Avere FXT para a aceleração de NAS.
+* **Armazenamento** -entre locais: Avere vFXT. Arquivamento opcional de arquivos locais por meio de Azure Data Box para armazenamento de BLOBs ou FXT avere local para aceleração de NAS.
 
-  ![Segurança - da cloud híbrida de computação e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
+  ![Intermitência de nuvem-computação híbrida e armazenamento](./media/batch-rendering-architectures/hybrid-compute-storage-avere.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como utilizar [renderizar gerentes](batch-rendering-render-managers.md) com o Azure Batch.
+* Saiba mais sobre como usar [os gerenciadores de renderização](batch-rendering-render-managers.md) com o lote do Azure.
 
-* Saiba mais sobre as opções para [composição no Azure](batch-rendering-service.md).
+* Saiba mais sobre as opções de [renderização no Azure](batch-rendering-service.md).

@@ -1,6 +1,6 @@
 ---
-title: Configurar uma regra de restrição de IP com uma regra de firewall de aplicação web do serviço de porta de entrada do Azure
-description: Saiba como configurar uma regra de firewall de aplicação web para restringir os endereços IP para um ponto de extremidade do serviço de porta de entrada do Azure existente.
+title: Configurar uma regra de restrição de IP com uma regra de firewall do aplicativo Web para o serviço de porta frontal do Azure
+description: Saiba como configurar uma regra de firewall do aplicativo Web para restringir os endereços IP para um ponto de extremidade de serviço do Azure front door existente.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -10,36 +10,37 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 73ef16aeb9a6014e98c0d40314bc174c6b5bf307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 611a52f43b5b0e076ae37df9df86479ec894c6f4
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808346"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849155"
 ---
-# <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurar uma regra de restrição de IP com um firewall de aplicações web do serviço de porta de entrada do Azure
-Este artigo mostra-lhe como configurar regras de restrição de IP num firewall de aplicações web (WAF) desde início do serviço do Azure com a CLI do Azure, Azure PowerShell ou um modelo Azure Resource Manager.
+# <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Configurar uma regra de restrição de IP com um firewall do aplicativo Web para o serviço de porta frontal do Azure
+Este artigo mostra como configurar regras de restrição de IP em um WAF (firewall do aplicativo Web) para o serviço de porta frontal do Azure usando o CLI do Azure, Azure PowerShell ou um modelo de Azure Resource Manager.
 
-Uma regra de controlo de acesso com base no endereço IP é uma regra personalizada da WAF que lhe permite controlar o acesso às suas aplicações web. Ele faz isso ao especificar uma lista de endereços IP ou intervalos de endereços IP no formato de encaminhamento de entre domínios Classless (CIDR).
+Uma regra de controle de acesso baseada em endereço IP é uma regra de WAF personalizada que permite controlar o acesso aos seus aplicativos Web. Ele faz isso especificando uma lista de endereços IP ou intervalos de endereços IP em formato CIDR (roteamento entre domínios sem classificação).
 
-Por predefinição, a sua aplicação web estiver acessível a partir da internet. Se pretender limitar o acesso aos clientes a partir de uma lista de endereços IP conhecidos ou intervalos de endereços IP, tem de criar duas regras de correspondência de IP. A primeira regra de correspondência de IP contém a lista de endereços IP como valores correspondentes e define a ação para **permitir**. O um segundo, com prioridade mais baixa, bloqueia todos os outros endereços IP utilizando o **todos os** operador e a definição da ação **bloco**. Após é aplicada uma regra de restrição de IP, pedidos provenientes de endereços fora desta lista de permissões recebem uma resposta de proibido 403.  
+Por padrão, seu aplicativo Web pode ser acessado pela Internet. Se você quiser limitar o acesso a clientes de uma lista de endereços IP conhecidos ou intervalos de endereços IP, você deve criar duas regras de correspondência de IP. A primeira regra de correspondência de IP contém a lista de endereços IP como valores correspondentes e define a ação a **permitir**. A segunda, com prioridade mais baixa, bloqueia todos os outros endereços IP usando o operador **All** e definindo a ação a ser **bloqueada**. Depois que uma regra de restrição de IP é aplicada, as solicitações originadas de endereços fora dessa lista de permissão recebem uma resposta de 403 Proibido.  
 
-## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Configurar uma diretiva de WAF com a CLI do Azure
+## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Configurar uma política de WAF com o CLI do Azure
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar a configurar uma política de restrição de IP, configurar o ambiente da CLI e criar um perfil de serviço de porta de entrada do Azure.
+Antes de começar a configurar uma política de restrição de IP, configure o ambiente da CLI e crie um perfil de serviço do Azure front door.
 
-#### <a name="set-up-the-azure-cli-environment"></a>Configurar o ambiente da CLI do Azure
-1. Instalar o [CLI do Azure](/cli/azure/install-azure-cli), ou utilize o Azure Cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. Tem a CLI do Azure pré-instalada e configurada para ser utilizada com a sua conta. Selecione o **experimente** botão nos comandos da CLI que siga e, em seguida, iniciar sessão na sua conta do Azure na sessão do Cloud Shell, que abre. Depois de iniciado a sessão, introduza `az extension add --name front-door` para adicionar a extensão de serviço de porta de entrada do Azure.
- 2. Se estiver a utilizar a CLI localmente no Bash, inicie sessão no Azure utilizando `az login`.
+#### <a name="set-up-the-azure-cli-environment"></a>Configurar o ambiente de CLI do Azure
+1. Instale o [CLI do Azure](/cli/azure/install-azure-cli)ou use Azure cloud Shell. O Azure Cloud Shell é um shell Bash gratuito que pode ser executado diretamente no portal do Azure. Tem a CLI do Azure pré-instalada e configurada para ser utilizada com a sua conta. Selecione o botão **experimentar** nos comandos da CLI que seguem e, em seguida, entre em sua conta do Azure na sessão de Cloud shell que é aberta. Depois que a sessão for iniciada, insira `az extension add --name front-door` para adicionar a extensão de serviço de porta frontal do Azure.
+ 2. Se você estiver usando a CLI localmente no bash, entre no Azure usando `az login`o.
 
-#### <a name="create-an-azure-front-door-service-profile"></a>Criar um perfil de serviço de porta de entrada do Azure
-Criar um perfil de serviço de porta de entrada do Azure ao seguir as instruções descritas em [início rápido: Criar uma porta de entrada para um aplicativo web global de elevada disponibilidade](quickstart-create-front-door.md).
+#### <a name="create-an-azure-front-door-service-profile"></a>Criar um perfil de serviço de porta frontal do Azure
+Crie um perfil de serviço do Azure front door seguindo as instruções descritas em [início rápido: Crie uma porta frontal para um aplicativo](quickstart-create-front-door.md)Web global altamente disponível.
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-Criar uma política de WAF com o [waf-política de rede de az criar](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) comando. No exemplo que segue, substitua o nome da política *IPAllowPolicyExampleCLI* com um nome exclusivo da política.
+Crie uma política de WAF usando o comando [AZ Network WAF-Policy Create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) . No exemplo a seguir, substitua o nome da política *IPAllowPolicyExampleCLI* por um nome de política exclusivo.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -47,15 +48,15 @@ az network waf-policy create \
   --subscription <subscription ID> \
   --name IPAllowPolicyExampleCLI
   ```
-### <a name="add-a-custom-ip-access-control-rule"></a>Adicionar uma regra de controlo de acesso IP personalizada
+### <a name="add-a-custom-ip-access-control-rule"></a>Adicionar uma regra de controle de acesso de IP personalizada
 
-Utilize o [personalizada-regra de política de waf de rede az criar](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) comando para adicionar uma IP acesso controlo regra personalizada para a política de WAF que acabou de criar.
+Use o comando [AZ Network WAF-Policy personalizada-Rule Create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) para adicionar uma regra de controle de acesso de IP personalizada para a política de WAF que você acabou de criar.
 
 Nos exemplos a seguir:
--  Substitua *IPAllowPolicyExampleCLI* com a sua política exclusiva criada anteriormente.
--  Substitua *ip-endereço-intervalo de-1*, *intervalo-2 de ip-endereço* com seu próprio intervalo.
+-  Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva criada anteriormente.
+-  Substitua *IP-address-Range-1*, *IP-address-Range-2* por seu próprio intervalo.
 
-Primeiro, crie o IP permitir regra para os endereços especificados.
+Primeiro, crie a regra de permissão de IP para os endereços especificados.
 
 ```azurecli
 az network waf-policy custom-rule create \
@@ -67,7 +68,7 @@ az network waf-policy custom-rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
 ```
-Em seguida, crie uma **bloquear todos** regra com prioridade mais baixa anterior **permitir** regra. Mais uma vez, substitua *IPAllowPolicyExampleCLI* no exemplo seguinte pelo seu exclusivo da política que criou anteriormente.
+Em seguida, crie uma regra **bloquear tudo** com prioridade mais baixa que a regra **permitir** anterior. Novamente, substitua *IPAllowPolicyExampleCLI* no exemplo a seguir pela sua política exclusiva que você criou anteriormente.
 
 ```azurecli
 az network waf-policy custom-rule create \
@@ -80,8 +81,8 @@ az network waf-policy custom-rule create \
   --policy-name IPAllowPolicyExampleCLI
 ```
     
-### <a name="find-the-id-of-a-waf-policy"></a>Localizar o ID de uma política de WAF 
-Encontrar o ID de uma política de WAF ao utilizar o [show de waf com as políticas de rede de az](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) comando. Substitua *IPAllowPolicyExampleCLI* no exemplo seguinte pelo seu exclusivo da política que criou anteriormente.
+### <a name="find-the-id-of-a-waf-policy"></a>Localizar a ID de uma política de WAF 
+Localize a ID de uma política WAF usando o comando [AZ Network WAF-Policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) . Substitua *IPAllowPolicyExampleCLI* no exemplo a seguir pela sua política exclusiva que você criou anteriormente.
 
    ```azurecli
    az network waf-policy show \
@@ -89,9 +90,9 @@ Encontrar o ID de uma política de WAF ao utilizar o [show de waf com as políti
      --name IPAllowPolicyExampleCLI
    ```
 
-### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Ligue uma política de WAF para um anfitrião de front-end do serviço de porta de entrada do Azure
+### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Vincular uma política de WAF a um host de front-end do serviço de porta frontal do Azure
 
-Definir o serviço de porta de entrada do Azure *WebApplicationFirewallPolicyLink* ID para o ID de política, utilizando o [atualização de front-door de rede de az](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) comando. Substitua *IPAllowPolicyExampleCLI* com a sua política exclusiva que criou anteriormente.
+Defina a ID de *WebApplicationFirewallPolicyLink* do serviço de porta frontal do Azure para a ID da política usando o comando [AZ Network front-door Update](/cli/azure/ext/front-door/network/front-door?view=azure-cli-latest#ext-front-door-az-network-front-door-update) . Substitua *IPAllowPolicyExampleCLI* pela sua política exclusiva que você criou anteriormente.
 
    ```azurecli
    az network front-door update \
@@ -99,57 +100,57 @@ Definir o serviço de porta de entrada do Azure *WebApplicationFirewallPolicyLin
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-Neste exemplo, é aplicada a política de WAF para **FrontendEndpoints [0]** . Pode associar a política de WAF para qualquer um dos seus front-ends.
+Neste exemplo, a política WAF é aplicada a **FrontendEndpoints [0]** . Você pode vincular a política WAF a qualquer um dos seus front-ends.
 > [!Note]
-> Tem de definir o **WebApplicationFirewallPolicyLink** propriedade apenas uma vez para ligar uma política de WAF a um front-end de serviço de porta de entrada do Azure. Atualizações à política subsequentes são automaticamente aplicadas no front-end.
+> Você precisa definir a propriedade **WebApplicationFirewallPolicyLink** apenas uma vez para vincular uma política de WAF a um front-end de serviço de porta frontal do Azure. As atualizações de política subsequentes são aplicadas automaticamente ao front-end.
 
-## <a name="configure-a-waf-policy-with-azure-powershell"></a>Configurar uma política de WAF com o Azure PowerShell
+## <a name="configure-a-waf-policy-with-azure-powershell"></a>Configurar uma política de WAF com Azure PowerShell
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de começar a configurar uma política de restrição de IP, como configurar o ambiente do PowerShell e criar um perfil de serviço de porta de entrada do Azure.
+Antes de começar a configurar uma política de restrição de IP, configure o ambiente do PowerShell e crie um perfil de serviço do Azure front door.
 
 #### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-O Azure PowerShell fornece um conjunto de cmdlets que utilizam o [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos para o gerenciamento de recursos do Azure.
+Azure PowerShell fornece um conjunto de cmdlets que usam o modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerenciar recursos do Azure.
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página para iniciar sessão no PowerShell, utilizando as credenciais do Azure e, em seguida, instale o módulo de Az.
+Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página para entrar no PowerShell usando suas credenciais do Azure e, em seguida, instale o módulo AZ.
 
-1. Ligar ao Azure com o comando seguinte e, em seguida, utilizar uma caixa de diálogo interativa para iniciar sessão.
+1. Conecte-se ao Azure usando o comando a seguir e, em seguida, use uma caixa de diálogo interativa para entrar.
     ```
     Connect-AzAccount
     ```
- 2. Antes de instalar um módulo de serviço de porta de entrada do Azure, certifique-se de que tem a versão atual do módulo PowerShellGet instalado. Execute o seguinte comando e, em seguida, reabra o PowerShell.
+ 2. Antes de instalar um módulo de serviço de porta frontal do Azure, verifique se você tem a versão atual do módulo PowerShellGet instalada. Execute o comando a seguir e reabra o PowerShell.
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber
     ``` 
 
-3. Instale o módulo de Az.FrontDoor utilizando o seguinte comando. 
+3. Instale o módulo AZ. FrontDoor usando o comando a seguir. 
     
     ```
     Install-Module -Name Az.FrontDoor
     ```
-### <a name="create-an-azure-front-door-service-profile"></a>Criar um perfil de serviço de porta de entrada do Azure
-Criar um perfil de serviço de porta de entrada do Azure ao seguir as instruções descritas em [início rápido: Criar uma porta de entrada para um aplicativo web global de elevada disponibilidade](quickstart-create-front-door.md).
+### <a name="create-an-azure-front-door-service-profile"></a>Criar um perfil de serviço de porta frontal do Azure
+Crie um perfil de serviço do Azure front door seguindo as instruções descritas em [início rápido: Crie uma porta frontal para um aplicativo](quickstart-create-front-door.md)Web global altamente disponível.
 
-### <a name="define-an-ip-match-condition"></a>Definir uma condição de correspondência do IP
-Utilize o [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) comando para definir uma condição de correspondência IP.
-No exemplo seguinte, substitua *ip-endereço-intervalo de-1*, *intervalo-2 de ip-endereço* com seu próprio intervalo.    
+### <a name="define-an-ip-match-condition"></a>Definir uma condição de correspondência de IP
+Use o comando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) para definir uma condição de correspondência de IP.
+No exemplo a seguir, substitua *IP-address-Range-1*, *IP-address-Range-2* por seu próprio intervalo.    
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 ```
-Criar um IP *corresponde à condição de todos os* regra ao utilizar o seguinte comando:
+Crie uma regra de condição de correspondência de IP com *todas as condições* usando o seguinte comando:
 ```powershell
 $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty Any        
   ```
     
-### <a name="create-a-custom-ip-allow-rule"></a>Criar um personalizado regra de permissão de IP
+### <a name="create-a-custom-ip-allow-rule"></a>Criar uma regra de permissão de IP personalizada
 
-Utilize o [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) comando para definir uma ação e defina uma prioridade. No exemplo a seguir, serão permitidos pedidos de cliente IPs que correspondam à lista.
+Use o comando [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) para definir uma ação e definir uma prioridade. No exemplo a seguir, serão permitidas solicitações de IPs de cliente que correspondam à lista.
 
 ```powershell
 $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -158,7 +159,7 @@ $IPAllowRule = New-AzFrontDoorCustomRuleObject `
 -MatchCondition $IPMatchCondition `
 -Action Allow -Priority 1
 ```
-Criar uma **bloquear todos** regra com prioridade mais baixa que o IP anterior **permitir** regra.
+Crie uma regra **bloquear tudo** com prioridade mais baixa que a regra de **permissão** de IP anterior.
 ```powershell
 $IPBlockAll = New-AzFrontDoorCustomRuleObject `
 -Name "IPDenyAll" `
@@ -169,7 +170,7 @@ $IPBlockAll = New-AzFrontDoorCustomRuleObject `
 ```
 
 ### <a name="configure-a-waf-policy"></a>Configurar uma política de WAF
-Encontrar o nome do grupo de recursos que contém o perfil de serviço de porta de entrada do Azure utilizando `Get-AzResourceGroup`. Em seguida, configure uma política de WAF com o IP **bloquear todos** regra utilizando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+Localize o nome do grupo de recursos que contém o perfil de serviço de porta frontal do `Get-AzResourceGroup`Azure usando. Em seguida, configure uma política WAF com a regra **bloquear todos os** IP usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
   $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
@@ -180,9 +181,9 @@ Encontrar o nome do grupo de recursos que contém o perfil de serviço de porta 
     -EnabledState Enabled
    ```
 
-### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Ligue uma política de WAF para um anfitrião de front-end do serviço de porta de entrada do Azure
+### <a name="link-a-waf-policy-to-an-azure-front-door-service-front-end-host"></a>Vincular uma política de WAF a um host de front-end do serviço de porta frontal do Azure
 
-Ligar um objeto de política de WAF a um front-end anfitrião e atualização serviço de porta de entrada do Azure das propriedades existentes. Em primeiro lugar, obtenha o objeto de serviço de porta de entrada do Azure, utilizando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Em seguida, configure as **WebApplicationFirewallPolicyLink** propriedade para o ID de recurso de *$IPAllowPolicyExamplePS*, criada no passo anterior, ao utilizar o [conjunto-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor)comando.
+Vincule um objeto de política WAF a um host front-end existente e atualize as propriedades do serviço de porta frontal do Azure. Primeiro, recupere o objeto de serviço de porta frontal do Azure usando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Em seguida, defina a propriedade **WebApplicationFirewallPolicyLink** para a ID de recurso de *$IPAllowPolicyExamplePS*, criada na etapa anterior, usando o comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) .
 
 ```powershell
   $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -193,13 +194,13 @@ Ligar um objeto de política de WAF a um front-end anfitrião e atualização se
 ```
 
 > [!NOTE]
-> Neste exemplo, é aplicada a política de WAF para **FrontendEndpoints [0]** . Pode associar uma política de WAF para qualquer um dos seus front-ends. Tem de definir o **WebApplicationFirewallPolicyLink** propriedade apenas uma vez para ligar uma política de WAF a um front-end de serviço de porta de entrada do Azure. Atualizações à política subsequentes são automaticamente aplicadas no front-end.
+> Neste exemplo, a política WAF é aplicada a **FrontendEndpoints [0]** . Você pode vincular uma política de WAF a qualquer um de seus front-ends. Você precisa definir a propriedade **WebApplicationFirewallPolicyLink** apenas uma vez para vincular uma política de WAF a um front-end de serviço de porta frontal do Azure. As atualizações de política subsequentes são aplicadas automaticamente ao front-end.
 
 
-## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configurar uma diretiva de WAF com um modelo do Resource Manager
-Para ver o modelo que cria uma política do serviço de porta de entrada do Azure e uma política de WAF com regras personalizadas de restrição de IP, aceda a [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
+## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Configurar uma política de WAF com um modelo do Resource Manager
+Para exibir o modelo que cria uma política de serviço do Azure front door e uma política de WAF com regras de restrição de IP personalizadas, vá para [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar um perfil de serviço do Azure desde início](quickstart-create-front-door.md).
+- Saiba como [criar um perfil de serviço de porta frontal do Azure](quickstart-create-front-door.md).

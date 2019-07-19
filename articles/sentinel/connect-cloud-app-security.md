@@ -1,6 +1,6 @@
 ---
-title: Ligar a dados do Cloud App Security para a pré-visualização de sentinela do Azure | Documentos da Microsoft
-description: Saiba como ligar a dados do Cloud App Security ao Azure sentinela.
+title: Conectar dados de Cloud App Security à visualização do Azure Sentinel | Microsoft Docs
+description: Saiba como conectar Cloud App Security dados ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4e75c9003103e267e864a98c7ee5c1bef2176bae
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 92de4120d73af70c5de013488344a15ba46513c7
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612411"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881092"
 ---
-# <a name="connect-data-from-microsoft-cloud-app-security"></a>Ligue os dados do Microsoft Cloud App Security 
+# <a name="connect-data-from-microsoft-cloud-app-security"></a>Conectar dados de Microsoft Cloud App Security 
 
 > [!IMPORTANT]
-> Sentinel do Azure está atualmente em pré-visualização pública.
+> O Azure Sentinel está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode transmitir em fluxo registos a partir [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) em Azure sentinela com um único clique. Esta ligação permite-lhe transmitir os alertas do Cloud App Security para o Azure sentinela. 
+Você pode transmitir logs de [Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) para o Azure Sentinel com um único clique. Essa conexão permite transmitir os alertas de Cloud App Security para o Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Utilizador com permissões de administrador de segurança ou de administrador global
+- Usuário com permissões de administrador global ou administrador de segurança
 
-## <a name="connect-to-cloud-app-security"></a>Ligar ao Cloud App Security
+## <a name="connect-to-cloud-app-security"></a>Conectar-se ao Cloud App Security
 
-Se já tiver o Cloud App Security, certificar-se de que é [ativada na sua rede](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
-Se o Cloud App Security é implementado e ingestão de seus dados, os dados de alertas podem facilmente ser transmitido em sentinela do Azure.
+Se você já tiver Cloud App Security, verifique se ele está [habilitado em sua rede](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
+Se Cloud App Security for implantado e ingerir seus dados, os dados de alerta poderão ser facilmente transmitidos para o Azure Sentinel.
 
 
-1. No Azure sentinela, selecione **conectores de dados** e, em seguida, clique nas **Cloud App Security** mosaico.
+1. No Azure Sentinel, selecione **conectores de dados** e, em seguida, clique no bloco **Cloud app Security** .
 
 2. Clique em **Ligar**.
 
-3. Para utilizar o esquema relevante no Log Analytics para os alertas do Cloud App Security, procure **SecurityAlert**.
+3. Para usar o esquema relevante em Log Analytics para os alertas de Cloud App Security, procure **SecurityAlert**.
 
 
-## <a name="next-steps"></a>Passos seguintes
-Neste documento, aprendeu a ligar o Microsoft Cloud App Security ao Azure sentinela. Para saber mais sobre sentinela do Azure, veja os artigos seguintes:
-- Saiba como [Obtenha visibilidade sobre os seus dados e a potenciais ameaças](quickstart-get-visibility.md).
-- Começar a utilizar [deteção de ameaças com Azure sentinela](tutorial-detect-threats.md).
+## <a name="next-steps"></a>Passos Seguintes
+Neste documento, você aprendeu a conectar Microsoft Cloud App Security ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
+- Saiba como [obter visibilidade de seus dados e ameaças potenciais](quickstart-get-visibility.md).
+- Comece [a detectar ameaças com o Azure Sentinel](tutorial-detect-threats.md).

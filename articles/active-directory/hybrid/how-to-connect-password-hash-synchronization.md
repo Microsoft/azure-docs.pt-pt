@@ -15,18 +15,18 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235141"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227376"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
 
 ## <a name="how-password-hash-synchronization-works"></a>Como funciona a sincronização de hash de palavra-passe
-O serviço de domínio do Active Directory armazena as palavras-passe na forma de uma representação de valor de hash, a palavra-passe de utilizador reais. Um valor de hash é um resultado de uma função de matemática unidirecional (a *algoritmo hash*). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. Não pode utilizar um hash de palavra-passe para iniciar sessão na sua rede no local.
+O serviço de domínio do Active Directory armazena as palavras-passe na forma de uma representação de valor de hash, a palavra-passe de utilizador reais. Um valor de hash é um resultado de uma função de matemática unidirecional (a *algoritmo hash*). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. 
 
 Para sincronizar a palavra-passe, a sincronização do Azure AD Connect extrai o hash de palavra-passe da instância do Active Directory no local. Processamento extra de segurança é aplicado para o hash de palavra-passe antes dos dados foram sincronizados para o serviço de autenticação do Azure Active Directory. Palavras-passe são sincronizadas numa base por utilizador e por ordem cronológica.
 

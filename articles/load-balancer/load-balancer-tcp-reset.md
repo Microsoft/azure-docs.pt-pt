@@ -1,10 +1,10 @@
 ---
-title: Reposição TCP do Balanceador de carga em inatividade no Azure
+title: Load Balancer redefinição de TCP on Idle no Azure
 titlesuffix: Azure Load Balancer
-description: Balanceador de carga com pacotes TCP RST bidirecional no tempo limite de inatividade
+description: Load Balancer com pacotes bidirecionais TCP RST no tempo limite de ociosidade
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,36 +12,36 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413849"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274164"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de carga com a reposição TCP em inatividade (pré-visualização pública)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer com a redefinição de TCP on Idle (visualização pública)
 
-Pode usar [Balanceador de carga Standard](load-balancer-standard-overview.md) para criar um comportamento mais previsível em termos de aplicação para os seus cenários ao ativar a reposição TCP inativo para uma determinada regra. Comportamento do Balanceador de carga predefinido é descartar silenciosamente fluxos quando é atingido o tempo limite de inatividade de um fluxo.  Ativar esta funcionalidade fará com que o Balanceador de carga enviar a bidirecional TCP redefine (pacotes de TCP RST) de mensagens em fila no tempo limite de inatividade.  Isso informará seus pontos de extremidade do aplicativo que a ligação foi excedido e já não é utilizável.  Pontos de extremidade imediatamente podem estabelecer uma nova ligação se for necessário.
+Você pode usar [Standard Load Balancer](load-balancer-standard-overview.md) para criar um comportamento de aplicativo mais previsível para seus cenários habilitando a redefinição de TCP em ociosidade para uma determinada regra. O comportamento padrão de Load Balancer é descartar os fluxos silenciosamente quando o tempo limite de ociosidade de um fluxo for atingido.  Habilitar esse recurso fará com que Load Balancer envie redefinições TCP bidirecionais (pacote TCP RST) no tempo limite de ociosidade.  Isso informará os pontos de extremidade do aplicativo que a conexão atingiu o tempo limite e não é mais utilizável.  Os pontos de extremidade podem estabelecer imediatamente uma nova conexão, se necessário.
 
-![Reposição de TCP de Balanceador de carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
+![Redefinição de TCP Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Balanceador de carga com reposição na funcionalidade de tempo limite de inatividade de TCP está disponível como pré-visualização pública neste momento. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+>Load Balancer com a funcionalidade de redefinição de TCP no tempo limite de ociosidade está disponível como visualização pública no momento. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
  
-Alterar este comportamento predefinido e ativar TCP redefine a enviar no tempo limite de inatividade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando ativado por regra, o Balanceador de carga irá enviar bidirecional (pacotes de TCP RST) de reposição de TCP para pontos finais de cliente e servidor no momento do tempo limite de inatividade para todos os fluxos correspondentes.
+Você altera esse comportamento padrão e habilita o envio de redefinições de TCP no tempo limite de ociosidade em regras de NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando habilitado por regra, Load Balancer enviará a redefinição TCP bidirecional (pacotes TCP RST) para os pontos de extremidade do cliente e do servidor no momento do tempo limite de ociosidade para todos os fluxos correspondentes.
 
-Pontos finais receber pacotes de TCP RST fechar o soquete correspondente imediatamente. Isso fornece uma notificação imediata para os pontos finais que ocorreu o lançamento da ligação e qualquer comunicação futura na mesma conexão TCP irá falhar.  Aplicativos podem remover ligações quando socket fecha e restabelecer as ligações conforme necessário, sem esperar pela conexão TCP, eventualmente, o tempo limite.
+Pontos de extremidade que recebem pacotes TCP RST fecham o soquete correspondente imediatamente. Isso fornece uma notificação imediata para os pontos de extremidade que o lançamento da conexão ocorreu e qualquer comunicação futura na mesma conexão TCP falhará.  Os aplicativos podem limpar as conexões quando o soquete fecha e restabelece as conexões, conforme necessário, sem esperar que a conexão TCP eventualmente expire.
 
-Para muitos cenários, isso pode reduzir a necessidade de TCP de envio (ou camada de aplicativo) keepalives para atualizar o tempo limite de inatividade de um fluxo. 
+Para muitos cenários, isso pode reduzir a necessidade de enviar keepalives de TCP (ou camada de aplicativo) para atualizar o tempo limite de ociosidade de um fluxo. 
 
-Se sua durações Inativas excederem os SLAs dos permitidos pela configuração ou a aplicação mostra um comportamento indesejado com TCP redefine ativado, ainda terá de utilizar TCP keepalives (ou keepalives de camada de aplicativo) para monitorizar o liveness das conexões TCP.  Além disso, também pode permanecer útil para quando a ligação é transmitidas por proxy em algum lugar no caminho, particularmente keepalives de camada de aplicativo keepalives.  
+Se suas durações ociosas excederem aquelas de permitidas pela configuração ou seu aplicativo mostrar um comportamento indesejável com redefinições TCP habilitadas, talvez você ainda precise usar as keepalives TCP (ou keepalives da camada de aplicativo) para monitorar a vida das conexões TCP.  Além disso, as keepalives também podem permanecer úteis quando a conexão é coficada em algum lugar no caminho, especialmente em keepalives da camada de aplicativo.  
 
-Examine cuidadosamente todo o cenário de ponta a ponta para decidir se se beneficiar da ativação TCP redefine, ajustar o tempo limite de inatividade, e se podem ser necessários passos adicionais para garantir o comportamento do aplicativo desejado.
+Examine cuidadosamente todo o cenário de ponta a ponta para decidir se você se beneficia com a habilitação de redefinições de TCP, o ajuste do tempo limite de ociosidade e se outras etapas podem ser necessárias para garantir o comportamento desejado do aplicativo.
 
-## <a name="enabling-tcp-reset-on-idle-timeout"></a>Ativar a reposição de TCP de mensagens em fila no tempo limite de inatividade
+## <a name="enabling-tcp-reset-on-idle-timeout"></a>Habilitando a redefinição de TCP no tempo limite ocioso
 
-Utilizar a versão 2018-01 07 de API, pode permitir o envio de bidirecional TCP redefine no tempo limite de inatividade numa base por regra:
+Usando a versão de API 2018-07-01, você pode habilitar o envio de redefinições TCP bidirecionais no tempo limite de ociosidade por regra:
 
 ```json
       "loadBalancingRules": [
@@ -67,16 +67,16 @@ Utilizar a versão 2018-01 07 de API, pode permitir o envio de bidirecional TCP 
       ]
 ```
 
-## <a name="regions"></a> Disponibilidade de região
+## <a name="regions"></a>Disponibilidade da região
 
 Disponível em todas as regiões.
 
 ## <a name="limitations"></a>Limitações
 
-- Não é possível utilizar o portal para configurar ou visualizar a reposição de TCP.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
-- TCP RST enviadas apenas durante a ligação de TCP no estado de estabelecido.
+- O portal não pode ser usado para configurar ou exibir a redefinição de TCP.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
+- TCP RST é enviado somente durante a conexão TCP no estado estabelecido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [Balanceador de carga Standard](load-balancer-standard-overview.md).
-- Saiba mais sobre [regras de saída](load-balancer-outbound-rules-overview.md).
+- Saiba mais sobre [as regras de saída](load-balancer-outbound-rules-overview.md).

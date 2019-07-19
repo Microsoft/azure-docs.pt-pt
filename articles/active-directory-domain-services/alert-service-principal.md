@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Resolução de problemas de Principal de serviço de configuração | Documentos da Microsoft'
-description: Resolução de problemas de Principal de serviço de configuração para o Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Solucionar problemas de entidades de serviço | Microsoft Docs'
+description: Solucionando problemas de configuração de entidade de serviço para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,93 +15,93 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 5b94fca6087da61fe10d6c80b3fe7cfb5798f2d3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473906"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234132"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválido para o seu domínio gerido
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>Solucionar problemas de configurações de entidade de serviço inválidas para Azure Active Directory Domain Services
 
-Este artigo ajuda-o a resolver erros de configuração relacionadas com o principal de serviço que fazer com a seguinte mensagem de alerta:
+Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à entidade de serviço que resultam na seguinte mensagem de alerta:
 
-## <a name="alert-aadds102-service-principal-not-found"></a>Alerta AADDS102: Principal de serviço não encontrado
+## <a name="alert-aadds102-service-principal-not-found"></a>AADDS102 de alerta: Entidade de serviço não encontrada
 
-**Mensagem de alerta:** *Um Principal de serviço necessárias para o Azure AD Domain Services funcionar corretamente foi eliminado do diretório do Azure AD. Esta configuração afeta a capacidade da Microsoft para monitorizar, gerir, corrigir e sincronizar o domínio gerido.*
+**Mensagem de alerta:** *Uma entidade de serviço necessária para que o Azure AD Domain Services funcione corretamente foi excluída do seu diretório do Azure AD. Essa configuração afeta a capacidade da Microsoft de monitorar, gerenciar, aplicar patches e sincronizar seu domínio gerenciado.*
 
-[Principais de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicações que a Microsoft utiliza para gerir, atualizar e manter o seu domínio gerido. Se eles forem excluídos, interrompe a capacidade da Microsoft para atender a seu domínio.
+As [entidades de serviço](../active-directory/develop/app-objects-and-service-principals.md) são aplicativos que a Microsoft usa para gerenciar, atualizar e manter seu domínio gerenciado. Se eles forem excluídos, ele interromperá a capacidade da Microsoft de atender ao seu domínio.
 
 
-## <a name="check-for-missing-service-principals"></a>Procurar em falta principais de serviço
-Utilize os seguintes passos para determinar qual serviço tem de ser recriadas principais:
+## <a name="check-for-missing-service-principals"></a>Verificar entidades de serviço ausentes
+Use as seguintes etapas para determinar quais entidades de serviço precisam ser recriadas:
 
-1. Navegue para o [aplicações empresariais - todas as aplicações](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) página no portal do Azure.
-2. Na **mostrar** menu pendente, selecione **todos os aplicativos** e clique em **aplicar**.
-3. Pesquisa para cada ID de aplicação, colar o ID na caixa de pesquisa e prima utilizando a tabela seguinte, introduza. Se os resultados da pesquisa estiverem vazios, tem de recriar o principal de serviço ao seguir os passos na coluna "Resolução".
+1. Navegue até a página [aplicativos empresariais – todos os aplicativos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) na portal do Azure.
+2. Na lista suspensa **Mostrar** , selecione **todos os aplicativos** e clique em **aplicar**.
+3. Usando a tabela a seguir, pesquise cada ID do aplicativo colando a ID na caixa de pesquisa e pressionando ENTER. Se os resultados da pesquisa estiverem vazios, você deverá recriar a entidade de serviço seguindo as etapas na coluna "resolução".
 
 | ID da aplicação | Resolução |
 | :--- | :--- |
-| 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um principal de serviço em falta com o PowerShell](#recreate-a-missing-service-principal-with-powershell) |
-| 443155a6-77f3-45e3-882b-22b3a8d431fb | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| abba844e-bc0e-44b0-947a-dc74e5d09022  | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
+| 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar uma entidade de serviço ausente com o PowerShell](#recreate-a-missing-service-principal-with-powershell) |
+| 443155a6-77f3-45e3-882b-22b3a8d431fb | [Registrar novamente no namespace Microsoft. AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
+| abba844e-bc0e-44b0-947a-dc74e5d09022  | [Registrar novamente no namespace Microsoft. AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Registrar novamente no namespace Microsoft. AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
-## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recriar um Principal de serviço em falta com o PowerShell
-Siga estes passos, se um principal de serviço com o ID de ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` está em falta no diretório do Azure AD.
+## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recriar uma entidade de serviço ausente com o PowerShell
+Siga estas etapas se uma entidade de serviço com a ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` ID estiver ausente no seu diretório do Azure AD.
 
-**Resolução:** É necessário o Azure AD PowerShell para concluir estes passos. Para obter informações sobre como instalar o Azure AD PowerShell, consulte [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Resolução:** Você precisa do Azure AD PowerShell para concluir essas etapas. Para obter informações sobre como instalar o PowerShell do Azure AD, consulte [Este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
-Para resolver este problema, escreva os seguintes comandos numa janela do PowerShell:
-1. Instalar o módulo Azure AD PowerShell e importe-o.
+Para resolver esse problema, digite os seguintes comandos em uma janela do PowerShell:
+1. Instale o módulo do PowerShell do Azure AD e importe-o.
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
 
-2. Verifique se o principal de serviço necessário para o Azure AD Domain Services está em falta no seu diretório, executando o seguinte comando do PowerShell:
+2. Verifique se a entidade de serviço necessária para Azure AD Domain Services está ausente no diretório executando o seguinte comando do PowerShell:
 
     ```powershell
     Get-AzureAdServicePrincipal -filter "AppId eq '2565bd9d-da50-47d4-8b85-4c97f669dc36'"
     ```
 
-3. Crie o principal de serviço, escrevendo o seguinte comando do PowerShell:
+3. Crie a entidade de serviço digitando o seguinte comando do PowerShell:
 
     ```powershell
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-4. Depois de criar o serviço em falta principal, aguarde duas horas e verifique o estado de funcionamento do seu domínio gerido.
+4. Depois de criar a entidade de serviço ausente, aguarde duas horas e verifique a integridade do seu domínio gerenciado.
 
 
-## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Voltar a registar para o espaço de nomes do Microsoft AAD com o portal do Azure
-Siga estes passos, se um principal de serviço com o ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` ou ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ou ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` está em falta no diretório do Azure AD.
+## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Registre novamente no namespace do Microsoft AAD usando o portal do Azure
+Siga estas etapas se uma entidade de serviço com a ```443155a6-77f3-45e3-882b-22b3a8d431fb``` ID ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ou ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` ou estiver ausente do seu diretório do Azure AD.
 
-**Resolução:** Utilize os seguintes passos para restaurar os serviços de domínio no seu diretório:
+**Resolução:** Use as etapas a seguir para restaurar os serviços de domínio em seu diretório:
 
-1. Navegue para o [subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) página no portal do Azure.
-2. Escolha a subscrição da tabela que está associada ao seu domínio gerido
-3. Usando o painel de navegação esquerda, escolha **fornecedores de recursos**
-4. Procure "Microsoft.AAD" na tabela e clique em **voltar a registar**
-5. Para garantir que o alerta é resolvido, ver a página de estado de funcionamento para o seu domínio gerido nas duas horas.
-
-
-## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: Aplicação de sincronização de palavra-passe está desatualizada
-
-**Mensagem de alerta:** O principal de serviço com o ID da aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e, em seguida, recriado. A recriação de deixa para trás inconsistentes permissões em recursos de serviços de domínio do Azure AD necessários para atender a seu domínio gerido. Sincronização de palavras-passe no seu domínio gerido poderá ser afetada.
+1. Navegue até a página [assinaturas](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
+2. Escolha a assinatura da tabela que está associada ao seu domínio gerenciado
+3. Usando a navegação do lado esquerdo, escolha **provedores de recursos**
+4. Pesquise "Microsoft. AAD" na tabela e clique em **registrar novamente**
+5. Para garantir que o alerta seja resolvido, exiba a página de integridade do seu domínio gerenciado em duas horas.
 
 
-**Resolução:** É necessário o Azure AD PowerShell para concluir estes passos. Para obter informações sobre como instalar o Azure AD PowerShell, consulte [este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>AADDS105 de alerta: O aplicativo de sincronização de senha está desatualizado
 
-Para resolver este problema, escreva os seguintes comandos numa janela do PowerShell:
-1. Instalar o módulo Azure AD PowerShell e importe-o.
+**Mensagem de alerta:** A entidade de serviço com a ID de aplicativo "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi excluída e recriada. A recreação deixa por trás das permissões inconsistentes em Azure AD Domain Services recursos necessários para atender ao domínio gerenciado. A sincronização de senhas em seu domínio gerenciado pode ser afetada.
+
+
+**Resolução:** Você precisa do Azure AD PowerShell para concluir essas etapas. Para obter informações sobre como instalar o PowerShell do Azure AD, consulte [Este artigo](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+
+Para resolver esse problema, digite os seguintes comandos em uma janela do PowerShell:
+1. Instale o módulo do PowerShell do Azure AD e importe-o.
 
     ```powershell
     Install-Module AzureAD
     Import-Module AzureAD
     ```
-2. Eliminar a aplicação antiga e o objeto com os seguintes comandos do PowerShell
+2. Exclua o aplicativo e o objeto antigos usando os seguintes comandos do PowerShell
 
     ```powershell
     $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
@@ -109,8 +109,8 @@ Para resolver este problema, escreva os seguintes comandos numa janela do PowerS
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```
-3. Depois de ter eliminado ambos, o sistema irá remediar em si e recrie aos aplicativos necessários para a sincronização de palavra-passe. Para garantir que o alerta foi remediado, aguarde duas horas e verifique o estado de funcionamento do seu domínio.
+3. Depois de ter excluído os dois, o sistema se corrigirá e recriará os aplicativos necessários para a sincronização de senha. Para garantir que o alerta foi corrigido, aguarde duas horas e verifique a integridade do seu domínio.
 
 
 ## <a name="contact-us"></a>Contacte-nos
-Contacte a equipa de produto do Azure Active Directory Domain Services para [partilhar comentários ou para o suporte](contact-us.md).
+Entre em contato com a equipe de produto Azure Active Directory Domain Services para [compartilhar comentários ou para obter suporte](contact-us.md).

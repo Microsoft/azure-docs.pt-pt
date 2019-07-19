@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 46e6858376fa70b4b57b6106f8292b842f206d01
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480239"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254740"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Acionador - exemplo de Java
 
-A seguinte função de Java utiliza a `@ServiceBusQueueTrigger` anotação do [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime) para descrever a configuração para um acionador de fila do Service Bus. A função captura a mensagem colocada na fila e adiciona-o para os registos.
+A função Java a seguir usa `@ServiceBusQueueTrigger` a anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ A seguinte função de Java utiliza a `@ServiceBusQueueTrigger` anotação do [b
  }
 ```
 
-As funções do Java também podem ser acionadas quando uma mensagem é adicionada a um tópico do Service Bus. O exemplo seguinte utiliza o `@ServiceBusTopicTrigger` anotação para descrever a configuração do acionador.
+As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicTrigger` a anotação para descrever a configuração do gatilho.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -283,7 +283,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**queueName**|**QueueName**|Nome da fila para monitorizar.  Defina apenas se a monitorização de uma fila, não para um tópico.
 |**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
 |**subscriptionName**|**subscriptionName**|Nome da subscrição a monitorizar. Defina apenas se a monitorização de um tópico, não para uma fila.|
-|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
+|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico. |
 |**accessRights**|**Acesso**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -295,7 +295,7 @@ No c# e no c# script, pode utilizar os seguintes tipos de parâmetro para a mens
 * `string` -Se a mensagem de texto.
 * `byte[]` -Útil para dados binários.
 * Um tipo personalizado - se a mensagem contém JSON, as funções do Azure tenta desserializar os dados JSON.
-* `BrokeredMessage` -Dá-lhe a mensagem de serialização anulada com o [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) método.
+* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage.\<GetBody T > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Esses parâmetros são para a versão das funções do Azure 1.x; para 2.x, utilize [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
@@ -309,7 +309,7 @@ Processamento de mensagens não processáveis não pode ser controlado ou config
 
 O runtime das funções recebe uma mensagem numa [PeekLock modo](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Ele chama `Complete` na mensagem se a função for concluída com êxito ou chamadas `Abandon` se a função falhar. Se a função é executada mais do que o `PeekLock` tempo limite, o bloqueio é renovado automaticamente, desde que a função está em execução. 
 
-O `maxAutoRenewDuration` pode ser configurada no *Host. JSON*, que é mapeado para [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta definição é de 5 minutos, de acordo com a documentação do Service Bus, ao passo que pode aumentar o limite de tempo de funções da predefinição de 5 minutos para 10 minutos. Para as funções do Service Bus não iria querer fazer isso, em seguida, porque iria exceder o limite de renovação do Service Bus.
+O `maxAutoRenewDuration` é configurável em *host. JSON*, que é mapeado para onmessageoptions [. MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet). O máximo permitido para esta definição é de 5 minutos, de acordo com a documentação do Service Bus, ao passo que pode aumentar o limite de tempo de funções da predefinição de 5 minutos para 10 minutos. Para as funções do Service Bus não iria querer fazer isso, em seguida, porque iria exceder o limite de renovação do Service Bus.
 
 ## <a name="trigger---message-metadata"></a>Acionador - metadados de mensagem
 
@@ -330,7 +330,7 @@ O acionador do Service Bus fornece vários [propriedades de metadados](./functio
 |`CorrelationId`|`string`|O ID de correlação.|
 
 > [!NOTE]
-> Atualmente, o acionador de barramento de serviço que funciona com a sessão ativada filas e subscrições está em pré-visualização. Controlar tenha [este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para todas as atualizações mais sobre isso. 
+> Atualmente, o gatilho do barramento de serviço que funciona com filas e assinaturas habilitadas para sessão está em versão prévia. Acompanhe [este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para obter atualizações adicionais sobre isso. 
 
 Ver [exemplos de código](#trigger---example) que utilizam estas propriedades no início deste artigo.
 
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@QueueOutput` anotação nos parâmetros de função, seria escrito cujo valor a uma fila do Service Bus.  O tipo de parâmetro deve ser `OutputBinding<T>`, em que T é qualquer tipo de Java nativo de um POJO.
 
-As funções do Java também podem escrever para um tópico do Service Bus. O exemplo seguinte utiliza o `@ServiceBusTopicOutput` anotação para descrever a configuração para o enlace de saída. 
+As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicOutput` a anotação para descrever a configuração da Associação de saída. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -598,7 +598,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**name** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina apenas se o envio de mensagens de fila, não para um tópico.
 |**topicName**|**topicName**|Nome do tópico para monitorizar. Defina apenas se o envio de mensagens de tópico, não para uma fila.|
-|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de ligação, siga os passos apresentados na [obter as credenciais de gestão](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
+|**ligação**|**ligação**|O nome de uma definição de aplicação que contém a cadeia de ligação do Service Bus para utilizar para este enlace. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome. Por exemplo, se definir `connection` para "MyServiceBus", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyServiceBus." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação do Service Bus de predefinição na definição da aplicação com o nome "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de ligação tem de ser para um espaço de nomes do Service Bus, que não se limitando a uma fila específica ou um tópico.|
 |**accessRights**|**Acesso**|Direitos de acesso da cadeia de ligação. Valores disponíveis são `manage` e `listen`. A predefinição é `manage`, que indica que o `connection` tem o **gerir** permissão. Se usar uma cadeia de ligação que não tenha as **gerir** conjunto de permissões, `accessRights` de "ouvir". Caso contrário, as funções de tempo de execução poderá falhar tentando fazer operações que exigem gerir direitos. Na versão das funções do Azure 2.x, esta propriedade não está disponível porque a versão mais recente do SDK do armazenamento não suporta operações de gerir.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

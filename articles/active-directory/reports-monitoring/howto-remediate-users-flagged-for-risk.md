@@ -1,5 +1,5 @@
 ---
-title: Utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory | Microsoft Docs
+title: Usuários sinalizados para risco no portal de Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre os utilizadores sinalizados no relatório de segurança de risco no portal do Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -15,55 +15,55 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286679"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276555"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
 
-Com os relatórios de segurança no Azure Active Directory (Azure AD), pode avaliar a probabilidade de contas de utilizador comprometidas no seu ambiente. Um utilizador sinalizado para risco é um indicador de uma conta de utilizador que pode ter sido comprometida.
+Com os relatórios de segurança no Azure Active Directory (Azure AD), você pode medir a probabilidade de contas de usuário comprometidas em seu ambiente. Um usuário sinalizado como risco é um indicador de uma conta de usuário que pode ter sido comprometida.
 
 A Microsoft está empenhada em ajudar a manter os seus ambientes seguros. Como parte desse compromisso, a Microsoft monitoriza continuamente atividades que são invulgares ou que são consistentes com padrões de ataques conhecidos. 
 
-Se forem detetadas atividades invulgares que possam indicar acesso não autorizado a algumas das suas contas de utilizador, receberá notificações que lhe permitem tomar medidas. Isso não significa que os sistemas da Microsoft tem sido comprometidos.
+Se atividades incomuns que podem indicar acesso não autorizado a algumas das contas de seus usuários forem detectadas, você receberá notificações permitindo que você tome uma providência. Isso não significa que os próprios sistemas da Microsoft foram comprometidos.
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>Aceda ao relatório de utilizadores sinalizados para risco
 
-Pode rever os utilizadores sinalizados para risco através da [os utilizadores no relatório de risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se não tiver o Azure AD, pode inscrever-se gratuitamente em [ https://aka.ms/AccessAAD ](https://aka.ms/AccessAAD). 
+Você pode revisar os usuários sinalizados por risco por meio do [relatório usuários em risco](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) no portal do Azure. Se você não tiver o Azure AD, poderá se inscrever gratuitamente em [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
-Dos utilizadores sinalizados no relatório de risco, pode efetuar as seguintes ações para cada utilizador:
+No relatório usuários sinalizados para risco, você pode executar as seguintes ações para cada usuário:
 
 - Gerar uma palavra-passe temporária
 - Exigir que o utilizador reponha a palavra-passe dele em segurança na próxima vez que iniciar sessão
 - Dispense o risco de utilizador sem tomar qualquer ação de remediação.
 
-Para obter mais informações, consulte [utilizadores sinalizados no relatório de segurança de risco de](concept-user-at-risk.md).
+Para obter mais informações, consulte [usuários sinalizados para o relatório de segurança de risco](concept-user-at-risk.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Subscrição do Azure AD para os clientes do Office 365
 
-Também pode utilizar as suas credenciais do Office 365 para aceder a **Centro de administração do Azure**. Depois de ativar o acesso ao Azure AD, é redirecionado para o portal do Azure AD. Ao nível da subscrição básica, a quantidade de detalhes indicados nos relatórios é limitada. Estão disponíveis mais dados e análises para os subscritores Premium do Azure.
+Você também pode usar suas credenciais do Office 365 para acessar o **centro de administração do Azure**. Depois de ativar o acesso ao Azure AD, é redirecionado para o portal do Azure AD. Ao nível da subscrição básica, a quantidade de detalhes indicados nos relatórios é limitada. Estão disponíveis mais dados e análises para os subscritores Premium do Azure.
 
-Para aceder a **utilizadores sinalizados para risco** relatórios no Centro de administração do Microsoft 365:
+Para acessar os **usuários sinalizados para** relatórios de risco no centro de administração Microsoft 365:
 
-1.  A partir do menu de navegação no lado esquerdo, selecione **do Centro de administração**. 
-2.  Selecione **do Azure AD**.
+1.  No menu de navegação no lado esquerdo, selecione **centros de administração**. 
+2.  Selecione **Azure ad**.
 3.  Inicie sessão no **Centro de administração do Azure Active Directory**.
-4.  Se é apresentada uma faixa na parte superior da página que diz **confira o novo portal**, selecione a ligação.
-4.  No menu de navegação no lado esquerdo, selecione **do Azure Active Directory**. 
-5.  No painel de navegação, selecione **utilizadores sinalizados para risco** partir do **segurança** secção.
+4.  Se uma faixa for exibida na parte superior da página que diz **verificar o novo portal**, selecione o link.
+4.  No menu de navegação no lado esquerdo, selecione **Azure Active Directory**. 
+5.  No painel de navegação, selecione **usuários sinalizados para risco** na seção **segurança** .
 
 ## <a name="remediation-actions"></a>Ações de remediação
 
 Execute as ações seguintes para ajudar a retificar as contas afetadas e a proteger o seu ambiente:
 
-1.  [Validar as informações corretas](https://aka.ms/MFAValid) para autenticação multifator e a palavra-passe self-service repor. 
-2.  [Ativar a autenticação multifator](https://aka.ms/MFAuth) para todos os utilizadores. 
-3.  Utilize esta opção [script de remediação](https://aka.ms/remediate) para todas as contas afetadas, para realizar automaticamente os seguintes passos: 
+1.  [Valide as informações corretas](https://aka.ms/MFAValid) para a autenticação multifator e a redefinição de senha de autoatendimento. 
+2.  [Habilite a autenticação](https://aka.ms/MFAuth) multifator para todos os usuários. 
+3.  Use esse [script de correção](https://aka.ms/remediate) para cada conta afetada, para executar automaticamente as seguintes etapas: 
 
-    a. Repor palavra-passe para proteger a conta e eliminar sessões ativas.
+    a. Redefina a senha para proteger a conta e eliminar as sessões ativas.
 
     b. Remover delegados de caixas de correio.
 
@@ -77,20 +77,20 @@ Execute as ações seguintes para ajudar a retificar as contas afetadas e a prot
 
     g. Ativar a auditoria da caixa de correio.
 
-    h. Produza um log de auditoria para o administrador rever.
+    h. Produzir um log de auditoria para que o administrador examine.
 
 4. Investigar o inquilino do Office 365 e outras infraestruturas de TI, incluindo uma análise de todas as definições do inquilino, das contas de utilizador e das definições de configuração por utilizador, para possível modificação. Verificar indicadores de métodos de persistência, bem como indicadores de que um intruso poderá ter tirado partido de uma presença inicial para obter credenciais de VPN ou acesso a outros recursos da organização. 
 
-5.  Como parte da sua investigação, considere se deve notificar as autoridades, incluindo a aplicação da lei.
+5.  Como parte de sua investigação, considere se você deve notificar as autoridades governamentais, incluindo a imposição da lei.
 
 Além disso, deve:
 
-- Ler e implementar estas [documentação de orientação sobre a abordagem a atividades invulgares](https://aka.ms/fixaccount). 
-- [Ativar o pipeline de auditoria](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade no seu inquilino. Depois de concluído, o arquivo de auditoria começa a ser preenchido com os registos de atividades. Neste ponto, também pode aproveitar o [recursos search and investigation do Security and Compliance Center](https://aka.ms/sccsearch). 
-- Utilize esta opção [script para ativar a auditoria da caixa de correio](https://aka.ms/mailboxaudit1) para todas as suas contas. 
+- Leia e implemente essas [diretrizes sobre como lidar com atividades incomuns](https://aka.ms/fixaccount). 
+- [Habilite o pipeline de auditoria](https://aka.ms/improvesecurity) para ajudá-lo a analisar a atividade em seu locatário. Depois de concluído, o repositório de auditoria começa a popular com os logs de atividade. Neste ponto, você também pode aproveitar o [recurso de pesquisa e investigação do centro de conformidade e segurança](https://aka.ms/sccsearch). 
+- Use esse [script para habilitar a auditoria de caixa de correio](https://aka.ms/mailboxaudit1) para todas as suas contas. 
 - Reveja as permissões de delegado e as regras de reencaminhamento de todas as caixas de correio de correio. Pode utilizar este [script do PowerShell](https://aka.ms/delegateforwardrules) para realizar esta tarefa. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [O Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Utilizadores sinalizados para risco](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+* [Usuários sinalizados para risco](concept-user-at-risk.md)

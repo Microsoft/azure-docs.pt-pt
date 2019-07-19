@@ -1,93 +1,95 @@
 ---
-title: Configure alertas nos eventos de registo de diagnóstico do Gateway de VPN do Azure
-description: Passos para configurar alertas de eventos de registo de diagnóstico do Gateway de VPN
+title: Configurar alertas em eventos de log de diagnóstico do gateway de VPN do Azure
+description: Etapas para configurar alertas em eventos de log de diagnóstico do gateway de VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: 4f18581b9ca5770b89be8ca37529c09d635dfb25
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c84d457c51f71bdf315bbbcec674ff1186dd905f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67607120"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249021"
 ---
-# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configure alertas nos eventos de registo de diagnóstico do Gateway de VPN
+# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurar alertas em eventos de log de diagnóstico do gateway de VPN
 
-Este artigo ajuda-o a configurar alertas com base em eventos de registo de diagnóstico do Gateway de VPN do Azure com o Azure Log Analytics. 
+Este artigo ajuda você a configurar alertas com base em eventos de log de diagnóstico do gateway de VPN do Azure usando o Azure Log Analytics. 
 
-Os seguintes registos estão disponíveis no Azure:
+Os seguintes logs estão disponíveis no Azure:
 
 |***Name*** | ***Descrição*** |
 |---        | ---               |
-|GatewayDiagnosticLog | Contém os registos de diagnóstico para eventos de configuração do gateway, principais alterações e eventos de manutenção |
-|TunnelDiagnosticLog | Contém eventos de alteração de estado de túnel. Eventos de ligar/desligar Tunnel tenham um motivo resumido para que a alteração de estado, se aplicável |
-|RouteDiagnosticLog | Registos de alterações para rotas estáticas e eventos BGP que ocorrem no gateway |
-|IKEDiagnosticLog | Regista mensagens de controlo de IKE e eventos no gateway |
-|P2SDiagnosticLog | Regista mensagens de controlo de ponto a site e eventos no gateway |
+|GatewayDiagnosticLog | Contém logs de diagnóstico para eventos de configuração do gateway, alterações principais e eventos de manutenção |
+|TunnelDiagnosticLog | Contém eventos de alteração de estado de túnel. Eventos Connect/Disconnect de túnel têm um motivo resumido para a alteração de estado, se aplicável |
+|RouteDiagnosticLog | Registra alterações em rotas estáticas e eventos BGP que ocorrem no gateway |
+|IKEDiagnosticLog | Registra mensagens de controle de IKE e eventos no gateway |
+|P2SDiagnosticLog | Registra mensagens de controle de ponto a site e eventos no gateway |
 
 ## <a name="setup"></a>Configurar alertas
 
-Os seguintes passos de exemplo irão criar um alerta para um evento de Desativação que envolve um túnel VPN de site a site:
+As etapas de exemplo a seguir criarão um alerta para um evento de desconexão que envolve um túnel VPN site a site:
 
 
-1. No portal do Azure, procure **do Log Analytics** sob **todos os serviços** e selecione **áreas de trabalho do Log Analytics**.
+1. Na portal do Azure, procure **log Analytics** em **todos os serviços** e selecione **log Analytics espaços de trabalho**.
 
-   ![Seleções para aceder a áreas de trabalho do Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
+   ![Seleções para ir para log Analytics espaços de trabalho](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Criar")
 
-2. Selecione **Create** sobre o **do Log Analytics** página.
+2. Selecione **criar** na página **log Analytics** .
 
-   ![Página de análise de registo com o botão Criar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "selecione")
+   ![Página log Analytics com botão criar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Selecione")
 
 3. Selecione **criar novo** e preencha os detalhes.
 
-   ![Detalhes para a criação de uma área de trabalho do Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "selecione")
+   ![Detalhes para a criação de um espaço de trabalho log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Selecione")
 
-4. Encontrar o gateway de VPN sobre o **Monitor** > **as definições de diagnóstico** painel.
+4. Localize o gateway de VPN na folha**configurações de diagnóstico** do **Monitor** > .
 
-   ![Seleções para encontrar o gateway de VPN em definições de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "selecione")
+   ![Seleções para localizar o gateway de VPN nas configurações de diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Selecione")
 
-5. Para ativar diagnósticos, clique duas vezes o gateway e, em seguida, selecione **ativar os diagnósticos**.
+5. Para ativar o diagnóstico, clique duas vezes no gateway e, em seguida, selecione **Ativar diagnóstico**.
 
-   ![Seleções para forem ativados os diagnósticos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "selecione")
+   ![Seleções para ativar o diagnóstico](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Selecione")
 
-6. Preencha os detalhes e certifique-se de que **enviar para o Log Analytics** e **TunnelDiagnosticLog** estão selecionadas. Escolha a área de trabalho de análise de registo que criou no passo 3.
+6. Preencha os detalhes e verifique se **Enviar para log Analytics** e **TunnelDiagnosticLog** estão selecionados. Escolha o espaço de trabalho Log Analytics que você criou na etapa 3.
 
-   ![Selecionado caixas de verificação](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "selecione")
+   ![Caixas de seleção selecionadas](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Selecione")
 
-7. Vá para a descrição geral para o recurso de gateway de rede virtual e selecione **alertas** partir do **monitorização** separador. Em seguida, criar uma nova regra de alerta ou editar uma regra de alerta existente.
+7. Vá para a visão geral do recurso de gateway de rede virtual e selecione **alertas** na guia **monitoramento** . Em seguida, crie uma nova regra de alerta ou edite uma regra de alerta existente.
 
-   ![Seleções para a criação de uma nova regra de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "selecione")
+   ![Seleções para criar uma nova regra de alerta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Selecione")
 
-   ![ponto a site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "selecione")
-8. Selecione a área de trabalho do Log Analytics e o recurso.
+   ![ponto a site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Selecione")
+8. Selecione o espaço de trabalho Log Analytics e o recurso.
 
-   ![Seleções para a área de trabalho e de recursos](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "selecione")
+   ![Seleções de espaço de trabalho e recurso](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Selecione")
 
-9. Selecione **pesquisa de registos personalizado** como a lógica de sinal sob **adicionar condição**.
+9. Selecione **pesquisa de logs personalizada** como a lógica de sinal em **Adicionar condição**.
 
-   ![Seleções para uma pesquisa de registos personalizado](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "selecione")
+   ![Seleções para uma pesquisa de logs personalizada](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Selecione")
 
-10. Introduza a seguinte consulta na caixa de texto **Consulta de pesquisa**. Substitua os valores em português conforme apropriado.
+10. Introduza a seguinte consulta na caixa de texto **Consulta de pesquisa**. Substitua os valores em < > conforme apropriado.
 
-     `AzureDiagnostics |
-     where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
+    ```
+    AzureDiagnostics |
+      where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
+      remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"
+    ```
 
-    Defina o valor de limiar para 0 e selecione **feito**.
+    Defina o valor do limite como 0 e selecione **concluído**.
 
-    ![Introduzir uma consulta e selecionar um limiar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "selecione")
+    ![Inserindo uma consulta e selecionando um limite](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Selecione")
 
-11. Sobre o **criar regra** página, selecione **criar novo** sob o **grupos de ação** secção. Preencha os detalhes e selecione **OK**.
+11. Na página **criar regra** , selecione **criar novo** na seção **grupos de ação** . Preencha os detalhes e selecione **OK**.
 
-    ![Detalhes de um novo grupo de ação](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "selecione")
+    ![Detalhes de um novo grupo de ação](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Selecione")
 
-12. Sobre o **criar regra** página, preencha os detalhes para **personalizar ações** e certifique-se de que o nome correto é apresentado no **nome do grupo de ação** secção. Selecione **criar regra de alerta** para criar a regra.
+12. Na página **criar regra** , preencha os detalhes de **Personalizar ações** e verifique se o nome correto aparece na seção **nome do grupo de ações** . Selecione **criar regra de alerta** para criar a regra.
 
-    ![Selecione as opções para criar uma regra](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "selecione")
+    ![Seleções para criar uma regra](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Selecione")
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para configurar alertas em métricas de túnel, consulte [configurar alertas em métricas de Gateway de VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).
+Para configurar alertas em métricas de túnel, consulte [configurar alertas em métricas de gateway de VPN](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).

@@ -1,24 +1,24 @@
 ---
-title: Regras de saída no balanceador de carga do Azure
+title: Regras de saída no Azure Load Balancer
 titlesuffix: Azure Load Balancer
 description: Utilizar regras de saída para definir conversões de endereço de rede de saída
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698438"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305589"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -34,7 +34,7 @@ Regras de saída permitem controlar:
 - quais as máquinas virtuais devem ser convertidas para que endereços IP públicos. 
 - como [portas de SNAT de saída](load-balancer-outbound-connections.md#snat) deve ser alocado.
 - os protocolos para fornecer a tradução de saída para.
-- o que duração a utilizar para a ligação de saída tempo limite de inatividade (4-120 minutos).
+- Qual duração usar para tempo limite de ociosidade de conexão de saída (4-120 minutos).
 - Se enviar uma reposição do TCP no tempo limite de inatividade (em pré-visualização pública). 
 
 Regras de saída expandir [cenário 2](load-balancer-outbound-connections.md#lb) descritas na [ligações de saída](load-balancer-outbound-connections.md) artigo e a precedência de cenário permanece como-é.
@@ -84,13 +84,13 @@ Utilize o parâmetro seguinte para alocar SNAT 10.000 portas por VM (configuraç
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de front-ends todos de uma regra de saída contribui até 51,200 portas efêmeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar portas de 10 000 por VM e 7 VMs num back-end conjunto compartilhariam um endereço IP público único, a configuração é rejeitadas (7 x 10 000 SNAT portas > 51,200 SNAT portas).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
+Cada endereço IP público de front-ends todos de uma regra de saída contribui até 51,200 portas efêmeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um pool de back-end compartilharão um único endereço IP público, a configuração será rejeitada (7 x 10.000 portas SNAT > 51.200 portas SNAT).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
 
 Pode reverter para [a alocação de porta SNAT automática com base no tamanho do conjunto de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas.
 
 ### <a name="idletimeout"></a> Tempo limite de inatividade de fluxo de saída do controle
 
-Regras de saída fornecem um parâmetro de configuração para controlar o tempo de limite de inatividade de fluxo de saída e fazer sua correspondência com as necessidades da sua aplicação.  Padrão de limites de ociosidade de saída a 4 minutos.  O parâmetro aceita um valor de 4 a 120 como específico, o número de minutos para que o tempo limite de inatividade para os fluxos que correspondam esta regra específica.
+Regras de saída fornecem um parâmetro de configuração para controlar o tempo de limite de inatividade de fluxo de saída e fazer sua correspondência com as necessidades da sua aplicação.  Padrão de limites de ociosidade de saída a 4 minutos.  O parâmetro aceita um valor de 4 a 120 para um número específico de minutos para o tempo limite de ociosidade para fluxos que correspondem a essa regra específica.
 
 Utilize o parâmetro seguinte para definir o tempo de limite de inatividade saído para 1 hora:
 
@@ -193,22 +193,22 @@ Ao usar um Standard Balanceador de carga interno, NAT de saída não está dispo
    1. Desative o SNAT de saída a regra de balanceamento de carga.
    2. Configure uma regra de saída no mesmo Balanceador de carga.
    3. Reutilize o conjunto de back-end já utilizado por suas VMs.
-   4. Especifique "protocolo": "Tudo" como parte da regra de saída.
+   4. Especifique "protocolo": "Todos" como parte da regra de saída.
 
 - Quando são utilizadas apenas regras NAT de entrada, é fornecido sem NAT de saída.
 
    1. Colocar VMs num conjunto de back-end.
    2. Defina uma ou mais configurações de IP de front-end com o endereço de IP público (s) ou o prefixo do IP público.
    3. Configure uma regra de saída no mesmo Balanceador de carga.
-   4. Especifique "protocolo": "Tudo" como parte da regra de saída
+   4. Especifique "protocolo": "Todos" como parte da regra de saída
 
 ## <a name="limitations"></a>Limitações
 
 - O número máximo de portas efêmeras utilizáveis por endereço IP de front-end é 51,200.
-- O intervalo do configurável saído tempo limite de inatividade é 4 a 120 minutos (240 para 7200 segundos).
+- O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7200 segundos).
 - Balanceador de carga não suporta o ICMP para NAT de saída.
 - Não é possível utilizar o portal para configurar ou ver regras de saída.  Utilize modelos, REST API, Az CLI 2.0 ou PowerShell.
-- Regras de saída só podem ser aplicadas para o NIC primário e a configuração de IP primária.
+- As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Há suporte para várias NICs.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

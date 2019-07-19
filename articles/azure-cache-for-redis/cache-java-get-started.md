@@ -1,6 +1,6 @@
 ---
-title: Início rápido para saber como utilizar a Cache do Azure para Redis com Java | Documentos da Microsoft
-description: Neste início rápido, irá criar uma nova aplicação de Java que utiliza o Azure Cache de Redis
+title: Início rápido para aprender a usar o cache do Azure para Redis com Java | Microsoft Docs
+description: Neste guia de início rápido, você criará um novo aplicativo Java que usa o cache do Azure para Redis
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -15,32 +15,21 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01fb6f66ce71599a70a127a2b73eba6f848bf365
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830573"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324131"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Início rápido: Como utilizar o Azure Cache de Redis com Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início rápido: Usar o cache do Azure para Redis com Java
 
-
-A Cache de Redis do Azure dá-lhe acesso a uma Cache dedicada do Azure para Redis, gerida pela Microsoft. Pode aceder a uma cache a partir de qualquer aplicação dentro do Microsoft Azure.
-
-Este artigo mostra-lhe como começar com a Cache do Azure para utilizar o Redis a [Jedis](https://github.com/xetorthio/jedis) cliente Redis para Java.
-
-![Aplicação de cache concluída](./media/cache-java-get-started/cache-app-complete.png)
-
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo Java usando o cliente [Jedis](https://github.com/xetorthio/jedis) Redis para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Apache Maven](https://maven.apache.org/)
-
-
+- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Criar uma Cache do Azure para Redis
 
@@ -50,7 +39,7 @@ Pode utilizar qualquer editor de código para concluir os passos deste início r
 
 Adicione variáveis de ambiente ao **NOME DO ANFITRIÃO** e à chave de acesso **Primária**. Vai utilizar estas variáveis do seu código em vez de incluir informações confidenciais diretamente no código.
 
-```
+```CMD 
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -59,7 +48,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Com o Maven, gera uma nova aplicação de início rápido:
 
-```
+```CMD
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
@@ -131,7 +120,7 @@ public class App
 }
 ```
 
-Este código mostra como ligar a uma Cache do Azure para a instância de Redis com o nome de anfitrião de cache e as variáveis de ambiente de chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. 
+Este código mostra como se conectar a um cache do Azure para a instância do Redis usando o nome de host do cache e as variáveis de ambiente de chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. 
 
 Save *App.java*.
 
@@ -139,7 +128,7 @@ Save *App.java*.
 
 Execute o seguinte comando Maven para criar e executar a aplicação:
 
-```
+```CMD
 mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
@@ -147,7 +136,6 @@ mvn exec:java -D exec.mainClass=example.demo.App
 No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor em cache, o qual foi definido com a Consola Redis no portal do Azure. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
 ![Aplicação de cache concluída](./media/cache-java-get-started/cache-app-complete.png)
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -161,7 +149,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-java-get-started/cache-delete-resource-group.png)
 
@@ -169,14 +157,9 @@ Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. 
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a utilizar o Cache do Azure para Redis a partir de uma aplicação de Java. Continue para o próximo início rápido utilizar a Cache do Azure para Redis com uma aplicação web ASP.NET.
+Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo Java. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Crie uma aplicação web ASP.NET que utiliza uma Cache do Azure para Redis.](./cache-web-app-howto.md)
-
-
-
+> [Crie um aplicativo Web ASP.NET que usa um cache do Azure para Redis.](./cache-web-app-howto.md)

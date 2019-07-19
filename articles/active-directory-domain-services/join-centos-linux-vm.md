@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Junte-se numa VM CentOS a um domínio gerido | Documentos da Microsoft'
-description: Junte-se a uma máquina virtual CentOS Linux para o Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Unir uma VM CentOS a um domínio gerenciado | Microsoft Docs'
+description: Ingresse em uma máquina virtual CentOS Linux para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,132 +15,134 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d34f6c9ea014759ec2ba310786cd524ff69094af
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473346"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234085"
 ---
-# <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Junte-se a uma máquina virtual CentOS Linux a um domínio gerido
-Este artigo mostra-lhe como associar uma máquina virtual CentOS Linux no Azure a um domínio gerido do Azure AD Domain Services.
+# <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar em uma máquina virtual CentOS Linux em um domínio gerenciado
+Este artigo mostra como unir uma máquina virtual CentOS Linux no Azure a um Azure AD Domain Services domínio gerenciado.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para executar as tarefas apresentadas neste artigo, terá de:
-1. Válido **subscrição do Azure**.
-2. Uma **diretório do Azure AD** -seja sincronizada com um diretório no local ou um diretório apenas na cloud.
-3. **O Azure AD Domain Services** tem de estar ativada para o diretório do Azure AD. Se ainda não o fez, siga todas as tarefas descritas a [guia de introdução](create-instance.md).
-4. Certifique-se de que configurou os endereços IP do domínio gerido que os servidores DNS para a rede virtual. Para obter mais informações, consulte [como atualizar as definições de DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md)
-5. Conclua os passos necessários para [sincronizar as palavras-passe ao seu domínio gerido do Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md).
+Para executar as tarefas listadas neste artigo, você precisará de:
+1. Uma **assinatura válida do Azure**.
+2. Um **diretório do Azure ad** -seja sincronizado com um diretório local ou um diretório somente na nuvem.
+3. **Azure AD Domain Services** deve ser habilitado para o diretório do Azure AD. Se você ainda não fez isso, siga todas as tarefas descritas no [Guia de introdução](create-instance.md).
+4. Verifique se você configurou os endereços IP do domínio gerenciado como servidores DNS para a rede virtual. Para obter mais informações, consulte [como atualizar as configurações de DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md)
+5. Conclua as etapas necessárias para [sincronizar as senhas para seu Azure AD Domain Services domínio gerenciado](active-directory-ds-getting-started-password-sync.md).
 
 
-## <a name="provision-a-centos-linux-virtual-machine"></a>Aprovisionar uma máquina virtual CentOS Linux
-Aprovisione a máquina virtual CentOS no Azure, utilizando qualquer um dos seguintes métodos:
+## <a name="provision-a-centos-linux-virtual-machine"></a>Provisionar uma máquina virtual CentOS Linux
+Provisione uma máquina virtual CentOS no Azure usando qualquer um dos seguintes métodos:
 * [Azure portal](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 > [!IMPORTANT]
-> * Implementar a máquina virtual para o **mesma rede virtual em que tiver ativado o Azure AD Domain Services**.
-> * Escolher uma **outra sub-rede** em que tiver ativado o Azure AD Domain Services.
+> * Implante a máquina virtual na **mesma rede virtual na qual você habilitou Azure AD Domain Services**.
+> * Escolha uma **sub-rede diferente** daquela na qual você habilitou Azure AD Domain Services.
 >
 
 
-## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Ligar remotamente à máquina virtual do Linux recentemente aprovisionada
-A máquina virtual do CentOS tiver sido aprovisionada no Azure. A tarefa seguinte é ligar remotamente à máquina virtual com a conta de administrador local criada durante o aprovisionamento da VM.
+## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Conectar-se remotamente à máquina virtual do Linux recém-provisionado
+A máquina virtual CentOS foi provisionada no Azure. A próxima tarefa é conectar-se remotamente à máquina virtual usando a conta de administrador local criada durante o provisionamento da VM.
 
-Siga as instruções no artigo [como iniciar sessão a uma máquina virtual em execução no Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Siga as instruções no artigo [como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurar o ficheiro de anfitriões da máquina virtual do Linux
-No seu terminal SSH, edite o ficheiro /etc/hosts e atualizar o endereço IP do seu computador e o nome de anfitrião.
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurar o arquivo de hosts na máquina virtual Linux
+No seu terminal SSH, edite o arquivo/etc/hosts e atualize o endereço IP e o nome do host do seu computador.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
-No ficheiro de anfitriões, introduza o seguinte valor:
+No arquivo de hosts, insira o seguinte valor:
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
-Aqui, 'contoso100.com' é o nome de domínio DNS do seu domínio gerido. "contoso-centos" é o nome do anfitrião da máquina virtual CentOS que são a associar ao domínio gerido.
+
+Aqui, ' contoso100.com ' é o nome de domínio DNS do seu domínio gerenciado. ' contoso-CentOS ' é o nome do host da máquina virtual CentOS que você está unindo ao domínio gerenciado.
 
 
-## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalar pacotes necessários na máquina virtual do Linux
-Em seguida, instale pacotes necessários para associação a um domínio na máquina virtual. No seu terminal SSH, escreva o seguinte comando para instalar os pacotes necessários:
+## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalar os pacotes necessários na máquina virtual Linux
+Em seguida, instale os pacotes necessários para o ingresso no domínio na máquina virtual. No terminal SSH, digite o seguinte comando para instalar os pacotes necessários:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
-## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Junte-se a máquina virtual do Linux ao domínio gerido
-Agora que os pacotes necessários estão instalados na máquina virtual do Linux, a próxima tarefa é associar a máquina virtual para o domínio gerido.
+## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Ingresse a máquina virtual Linux no domínio gerenciado
+Agora que os pacotes necessários estão instalados na máquina virtual Linux, a próxima tarefa é unir a máquina virtual ao domínio gerenciado.
 
-1. Descubra o domínio gerido dos serviços de domínio do AAD. No seu terminal SSH, escreva o seguinte comando:
+1. Descubra o domínio gerenciado dos serviços de domínio do AAD. No terminal SSH, digite o seguinte comando:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
    > [!NOTE]
-   > **Resolução de problemas:** Se *realm detetar* não conseguiu encontrar o seu domínio gerido:  
-   >    * Certifique-se de que o domínio está acessível a partir da máquina virtual (tente ping).  
-   >    * Verifique que a máquina virtual, de fato, foi implementada para a mesma rede virtual em que o domínio gerido está disponível.
-   >    * Verifique se a atualizar as definições do servidor DNS para a rede virtual para que apontem para os controladores de domínio do domínio gerido.  
+   > **Solução** Se a *descoberta de territórios* não conseguir localizar seu domínio gerenciado:  
+   >    * Verifique se o domínio está acessível da máquina virtual (tente executar ping).  
+   >    * Verifique se a máquina virtual realmente foi implantada na mesma rede virtual em que o domínio gerenciado está disponível.
+   >    * Verifique se você atualizou as configurações do servidor DNS para a rede virtual para apontar para os controladores de domínio do domínio gerenciado.  
 
-2. Inicialize o Kerberos. No seu terminal SSH, escreva o seguinte comando:
+2. Inicialize o Kerberos. No terminal SSH, digite o seguinte comando:
 
     > [!TIP]
-    > * Especifique um utilizador a quem pertence ao grupo "Administradores do AAD DC".
-    > * Especifique o nome de domínio em letras maiúsculas, kinit outra falha.
-    >
+    > * Especifique um usuário que pertença ao grupo ' Administradores do controlador de domínio do AAD '.
+    > * Especifique o nome de domínio em letras maiúsculas, caso contrário, kinit falhará.
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
-3. Junte-se a máquina ao domínio. No seu terminal SSH, escreva o seguinte comando:
+3. Ingresse o computador no domínio. No terminal SSH, digite o seguinte comando:
 
     > [!TIP]
-    > Utilize a mesma conta de utilizador que especificou no passo anterior ("kinit').
-    >
+    > Use a mesma conta de usuário especificada na etapa anterior (' kinit ').
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
-Obterá uma mensagem ("inscrito com êxito máquina no realm") quando a máquina com êxito é associada ao domínio gerido.
+Você deverá receber uma mensagem ("computador registrado com êxito no Realm") quando o computador tiver ingressado com êxito no domínio gerenciado.
 
 
-## <a name="verify-domain-join"></a>Certifique-se a associação a um domínio
-Certifique-se de que se a máquina foi associada com êxito para o domínio gerido. Ligue-se para as VM com uma ligação de SSH diferente de CentOS do associados a um domínio. Utilize uma conta de utilizador de domínio e, em seguida, verifique se a conta de utilizador foi resolvida corretamente.
+## <a name="verify-domain-join"></a>Verificar ingresso no domínio
+Verifique se o computador foi ingressado com êxito no domínio gerenciado. Conecte-se à VM CentOS do domínio ingressado usando uma conexão SSH diferente. Use uma conta de usuário de domínio e verifique se a conta de usuário foi resolvida corretamente.
 
-1. O SSH do terminal, escreva o seguinte comando para ligar ao domínio associado a máquina de virtual CentOS através de SSH. Utilize uma conta de domínio a que pertence ao domínio gerido (por exemplo, "bob@CONTOSO100.COM" em vez disso.)
-    ```
+1. No terminal SSH, digite o seguinte comando para se conectar à máquina virtual CentOS do domínio ingressado usando o SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo,bob@CONTOSO100.COM' ' neste caso).
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
-2. No seu terminal SSH, escreva o seguinte comando para ver se o diretório de raiz foi inicializado corretamente.
-    ```
+2. No terminal SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.
+   
+    ```console
     pwd
     ```
 
-3. No seu terminal SSH, escreva o seguinte comando para ver se as associações de grupo estão a ser resolvidas corretamente.
-    ```
+3. No terminal SSH, digite o seguinte comando para ver se as associações de grupo estão sendo resolvidas corretamente.
+    
+    ```console
     id
     ```
 
 
-## <a name="troubleshooting-domain-join"></a>Resolução de problemas de associação a um domínio
-Consulte a [associação de domínio de resolução de problemas](join-windows-vm.md#troubleshoot-joining-a-domain) artigo.
+## <a name="troubleshooting-domain-join"></a>Solucionando problemas de ingresso no domínio
+Consulte o artigo [solução de problemas de ingresso no domínio](join-windows-vm.md#troubleshoot-joining-a-domain) .
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Azure AD Domain Services - guia de introdução](create-instance.md)
-* [Junte-se a uma máquina virtual do Windows Server a um domínio gerido do Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Como iniciar sessão a uma máquina virtual em execução no Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* [Instalar o Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
-* [Red Hat Enterprise Linux 7 – guia de integração do Windows](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)
+* [Guia de Introdução de Azure AD Domain Services](create-instance.md)
+* [Ingressar uma máquina virtual do Windows Server em um Azure AD Domain Services domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Como fazer logon em uma máquina virtual que executa o Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Instalando o Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+* [Red Hat Enterprise Linux 7-guia de integração do Windows](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

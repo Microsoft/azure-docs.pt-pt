@@ -1,19 +1,20 @@
 ---
-title: 'Criar e modificar um circuito do ExpressRoute - portal: Azure | Microsoft Docs'
+title: 'Criar e modificar um circuito do ExpressRoute-Portal: Azure | Microsoft Docs'
 description: Criar, aprovisionar, certifique-se, atualizar, eliminar e desaprovisionar um circuito do ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: ce6d64f1df7a91f68e4621189553c36b36709039
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657216"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846588"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 
@@ -54,10 +55,10 @@ Num browser, navegue para o [Portal do Azure](https://portal.azure.com) e inicie
    ![Configurar o escalão de SKU e, em seguida, medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
 
    * **Escalão** determina se um padrão de ExpressRoute ou de um suplemento premium do ExpressRoute está ativado. Pode especificar **padrão** para obter o SKU standard ou **Premium** para o suplemento premium.
-   * **Dados de medição** determina o tipo de faturação. Pode especificar **ilimitados** de um plano de dados limitados e **ilimitado** para um plano de dados ilimitados. Tenha em atenção que é possível alterar o tipo de faturação de **ilimitados** ao **ilimitado**.
+   * **Dados de medição** determina o tipo de faturação. Pode especificar **ilimitados** de um plano de dados limitados e **ilimitado** para um plano de dados ilimitados. Observe que você pode alterar o tipo de cobrança de **limitado** para **ilimitado**.
 
      > [!IMPORTANT]
-     > Não é possível alterar o tipo de **ilimitado** ao **ilimitados**.
+     > Não é possível alterar o tipo de **ilimitado** para **limitado**.
 
    * **Localização de peering** é a localização física onde são peering com a Microsoft.
 
@@ -84,20 +85,20 @@ Nesta página, **estado do fornecedor** fornece informações sobre o estado atu
 
 Quando cria um novo circuito do ExpressRoute, o circuito está no estado seguinte:
 
-Estado do fornecedor: Não aprovisionado<BR>
-Estado do circuito: Enabled
+Status do provedor: Não provisionado<BR>
+Status do circuito: Enabled
 
 ![Iniciar o processo de aprovisionamento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 O circuito muda para o seguinte estado quando o fornecedor de conectividade está no processo de ativá-la para:
 
-Estado do fornecedor: Aprovisionamento<BR>
-Estado do circuito: Enabled
+Status do provedor: Aprovisionamento<BR>
+Status do circuito: Enabled
 
 Para poder ser capaz de utilizar um circuito do ExpressRoute, tem de estar no seguinte estado:
 
-Estado do fornecedor: Aprovisionada<BR>
-Estado do circuito: Enabled
+Status do provedor: Aprovisionada<BR>
+Status do circuito: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verificar periodicamente o estado e o estado da chave de circuito
 

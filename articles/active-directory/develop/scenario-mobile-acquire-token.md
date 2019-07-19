@@ -1,9 +1,9 @@
 ---
-title: Aplicação móvel que chamadas de web APIs - obter um token da aplicação | Plataforma de identidade da Microsoft
-description: Saiba como criar uma aplicação móvel que chama o web APIs (obter um token da aplicação)
+title: Aplicativo móvel que chama APIs da Web-obtendo um token para o aplicativo | Plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo móvel que chama APIs da Web (obtendo um token para o aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,22 +16,22 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 590184c25fa0aa3cb3219aa9c185a31e62090ba9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c1ac880aa8274cc9a4ea554de84dcb46476236f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111149"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320896"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicação móvel que chama o web APIs - obter um token
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicativo móvel que chama APIs da Web – obter um token
 
-Antes de começar a protegido ao chamar APIs, a aplicação web será necessário um token de acesso. Este artigo orienta-o processo para obter um token ao utilizar o Microsoft Authentication Library (MSAL).
+Antes que você possa começar a chamar APIs da Web protegidas, seu aplicativo precisará de um token de acesso. Este artigo orienta você pelo processo de obtenção de um token usando a MSAL (biblioteca de autenticação da Microsoft).
 
-## <a name="scopes-to-request"></a>Âmbitos de pedido
+## <a name="scopes-to-request"></a>Escopos a serem solicitados
 
-Quando solicita um token, terá de definir um âmbito. O âmbito determina quais seu aplicativo pode acessar os dados.  
+Ao solicitar um token, você precisa definir um escopo. O escopo determina quais dados seu aplicativo pode acessar.  
 
-A abordagem mais fácil é combinar da API web pretendido `App ID URI` com o âmbito `.default`. Isso informa a plataforma de identidade da Microsoft que a sua aplicação necessita de todos os âmbitos definidos no portal do.
+A abordagem mais fácil é combinar as APIs `App ID URI` da Web desejadas com o escopo. `.default` Isso informa à plataforma de identidade da Microsoft que seu aplicativo requer todos os escopos definidos no Portal.
 
 #### <a name="android"></a>Android
 ```Java
@@ -48,11 +48,11 @@ let scopes: [String] = ["https://graph.microsoft.com/.default"]
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="get-tokens"></a>Obter os tokens
+## <a name="get-tokens"></a>Obter tokens
 
 ### <a name="via-msal"></a>Via MSAL
 
-A MSAL permite que as aplicações adquirir tokens silenciosamente e interativamente. Basta chamar esses métodos e MSAL devolve um token de acesso para os âmbitos pedidos. O padrão de correto é efetuar um pedido de silencioso e reverter para um pedido de interativo.
+O MSAL permite que os aplicativos adquiram tokens de forma silenciosa e interativa. Basta chamar esses métodos e MSAL retornará um token de acesso para os escopos solicitados. O padrão correto é executar uma solicitação silenciosa e fazer fallback para uma solicitação interativa.
 
 #### <a name="android"></a>Android
 
@@ -161,11 +161,11 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-the-protocol"></a>Através do protocolo
+### <a name="via-the-protocol"></a>Por meio do protocolo
 
-Não é recomendado utilizar o protocolo diretamente. Se o fizer, a aplicação não suportar um início de sessão único (SSO), gestão de dispositivos e cenários de acesso condicional.
+Não é recomendável usar o protocolo diretamente. Se você fizer isso, o aplicativo não dará suporte a alguns cenários de logon único (SSO), gerenciamento de dispositivos e acesso condicional.
 
-Quando utiliza o protocolo para obter os tokens para aplicações móveis, terá de efetuar dois pedidos: obter um código de autorização e do exchange-lo para um token.
+Ao usar o protocolo para obter tokens para aplicativos móveis, você precisa fazer duas solicitações: Obtenha um código de autorização e troque-o por um token.
 
 #### <a name="get-authorization-code"></a>Obter código de autorização
 
@@ -179,7 +179,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-token"></a>Obter acesso e atualização de token
+#### <a name="get-access-and-refresh-token"></a>Obter acesso e atualizar token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -196,4 +196,4 @@ client_id=<CLIENT_ID>
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Chamar uma API web](scenario-mobile-call-api.md)
+> [Chamando uma API Web](scenario-mobile-call-api.md)

@@ -1,6 +1,6 @@
 ---
-title: Início rápido para saber como utilizar a cache do Azure para Redis com aplicações de .NET | Documentos da Microsoft
-description: Neste guia de introdução, saiba como acessar o Cache do Azure para Redis a partir das suas aplicações de .NET
+title: Início rápido para aprender a usar o cache do Azure para Redis com aplicativos .NET | Microsoft Docs
+description: Neste guia de início rápido, saiba como acessar o cache do Azure para Redis de seus aplicativos .NET
 services: cache,app-service
 documentationcenter: ''
 author: yegu-ms
@@ -15,29 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553411"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324441"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Início rápido: Utilizar a Cache do Azure para Redis com um aplicativo .NET
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Início rápido: Usar o cache do Azure para Redis com um aplicativo .NET Framework
 
-
-
-Este guia de introdução mostra-lhe como começar a utilizar o Microsoft Azure Cache de Redis com .NET. Cache de Redis do Microsoft Azure baseia-se na popular Cache de Azure de código-fonte aberto para Redis. Ele fornece acesso a uma Cache de Azure segura, dedicada para Redis, gerida pela Microsoft. Uma cache criada através do Azure Cache de Redis é acessível a partir de qualquer aplicação dentro do Microsoft Azure.
-
-Neste início rápido, irá utilizar o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com código C\# numa aplicação de consola. Irá criar uma cache e configurar a aplicação de cliente .NET. Em seguida, irá adicionar e atualizar objetos na cache. 
-
-![Aplicação de consola concluída](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo .NET Framework para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você usa especificamente o cliente [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) com C# código em um aplicativo de console .net.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* O cliente StackExchange.Redis exige o [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime), que é exigido pelo cliente stackexchange. Redis.
 
 ## <a name="create-a-cache"></a>Criar uma cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -63,7 +56,7 @@ Substitua `<access-key>` pela chave primária da sua cache.
 
 No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
 
-No **Visual C#**, clique em **Ambiente de Trabalho Clássico do Windows** e, em seguida, clique em **Aplicação de Consola** e **OK**, para criar uma nova aplicação de consola.
+No **Visual C#** , clique em **Ambiente de Trabalho Clássico do Windows** e, em seguida, clique em **Aplicação de Consola** e **OK**, para criar uma nova aplicação de consola.
 
 
 <a name="configure-the-cache-clients"></a>
@@ -106,7 +99,7 @@ using StackExchange.Redis;
 using System.Configuration;
 ```
 
-A ligação à Cache do Azure para o Redis é gerenciada pelo `ConnectionMultiplexer` classe. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
+A conexão com o cache do Azure para Redis é gerenciada `ConnectionMultiplexer` pela classe. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
 
 Nunca guarde as credenciais no código fonte. Para simplificar este exemplo, estou a utilizar apenas um ficheiro de configuração de segredos externo. Uma melhor abordagem seria utilizar o [Azure Key Vault com certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
 
@@ -129,7 +122,7 @@ Em *Program.cs*, adicione os seguintes membros à classe `Program` da sua aplica
 ```
 
 
-Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` está definido como FALSO, o que significa que a chamada terá êxito mesmo que não é possível estabelecer uma ligação à Cache de Redis do Azure. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
+Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect`é definido como false, o que significa que a chamada terá sucesso mesmo se uma conexão com o cache do Azure para Redis não for estabelecida. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
 O valor da appSetting de *CacheConnection* serve para referenciar a cadeia de ligação da cache a partir do portal do Azure como o parâmetro de palavra-passe.
 
@@ -174,7 +167,7 @@ Adicione o seguinte código ao procedimento `Main` da classe `Program` para a su
         }
 ```
 
-A Cache de Redis do Azure tem um número configurável de bases de dados (predefinição de 16) que pode ser utilizado para separar logicamente os dados dentro de uma Cache do Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
 
@@ -189,7 +182,7 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Trabalhar com objetos .NET na cache
 
-A Cache de Redis do Azure pode colocar em cache objetos .NET e tipos de dados primitivos, mas para que um objeto .NET pode ser colocado em cache tem de ser serializado. Esta serialização do objeto .NET é da responsabilidade do programador da aplicação, podendo o programador escolher o serializador pretendido.
+O cache do Azure para Redis pode armazenar em cache os objetos .NET e os tipos de dados primitivos, mas antes que um objeto .NET possa ser armazenado em cache, ele deve ser serializado. Esta serialização do objeto .NET é da responsabilidade do programador da aplicação, podendo o programador escolher o serializador pretendido.
 
 Uma forma simples de serializar objetos passa por utilizar os métodos de serialização `JsonConvert` no [Newtonsoft.Json.](https://www.nuget.org/packages/Newtonsoft.Json/) e serializar de e para o JSON. Nesta secção, irá adicionar um objeto de .NET à cache.
 
@@ -256,7 +249,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
@@ -270,9 +263,9 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a utilizar o Cache do Azure para Redis a partir de uma aplicação .NET. Continue para o próximo início rápido utilizar a Cache do Azure para Redis com uma aplicação web ASP.NET.
+Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo .NET. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Crie uma aplicação web ASP.NET que utiliza uma Cache do Azure para Redis.](./cache-web-app-howto.md)
+> [Crie um aplicativo Web ASP.NET que usa um cache do Azure para Redis.](./cache-web-app-howto.md)
 
 

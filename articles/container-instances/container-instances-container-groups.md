@@ -1,99 +1,99 @@
 ---
-title: Grupos de contentores do Azure Container Instances
-description: Compreender a grupos com vários contentores, como profissional no Azure Container Instances
+title: Grupos de contêineres de instâncias de contêiner do Azure
+description: Entender como os grupos de vários contêineres funcionam nas instâncias de contêiner do Azure
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cba57875daf9b570d274ec8c4e9c4146af0dc045
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b17004e7821bcac61ca98afdbeaf87644da2a441
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072836"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326061"
 ---
-# <a name="container-groups-in-azure-container-instances"></a>Grupos de contentores no Azure Container Instances
+# <a name="container-groups-in-azure-container-instances"></a>Grupos de contêineres em instâncias de contêiner do Azure
 
-O recurso de nível superior no Azure Container Instances é a *grupo de contentores*. Este artigo descreve o que são grupos de contentores e os tipos de cenários permitem.
+O recurso de nível superior nas instâncias de contêiner do Azure é o *grupo*de contêineres. Este artigo descreve o que são grupos de contêineres e os tipos de cenários que eles habilitam.
 
-## <a name="how-a-container-group-works"></a>Como funciona um grupo de contentores
+## <a name="how-a-container-group-works"></a>Como um grupo de contêineres funciona
 
-Um grupo de contentores é uma coleção de contentores que obter agendadas no mesmo computador anfitrião. Os contentores no grupo de contentores partilham um ciclo de vida, recursos, rede local e volumes de armazenamento. Ele é semelhante em conceito para um *pod* na [Kubernetes][kubernetes-pod].
+Um grupo de contêineres é uma coleção de contêineres que são agendados no mesmo computador host. Os contêineres em um grupo de contêineres compartilham um ciclo de vida, recursos, rede local e volumes de armazenamento. Ele é semelhante em conceito a um *Pod* em [kubernetes][kubernetes-pod].
 
-O diagrama seguinte mostra um exemplo de um grupo de contentor que inclui vários contentores:
+O diagrama a seguir mostra um exemplo de um grupo de contêineres que inclui vários contêineres:
 
-![Diagrama de grupos de contentor][container-groups-example]
+![Diagrama de grupos de contêineres][container-groups-example]
 
-Este grupo de contentores de exemplo:
+Este grupo de contêineres de exemplo:
 
-* Está agendado num único computador anfitrião.
-* É atribuído uma etiqueta de nome DNS.
-* Expõe um único endereço IP público, com uma porta exposto.
-* Consiste em dois contentores. Um contentor escuta na porta 80, enquanto as outras escuta na porta 5000.
-* Inclui duas partilhas de ficheiros do Azure como volume monta e cada contentor monta um dos localmente as partilhas.
+* Está agendado em um único computador host.
+* É atribuído um rótulo de nome DNS.
+* Expõe um único endereço IP público, com uma porta exposta.
+* Consiste em dois contêineres. Um contêiner escuta na porta 80, enquanto a outra escuta na porta 5000.
+* Inclui dois compartilhamentos de arquivos do Azure como montagens de volume e cada contêiner monta um dos compartilhamentos localmente.
 
 > [!NOTE]
-> Grupos com vários contentores atualmente suportam apenas os contentores de Linux. Para contentores do Windows, o Azure Container Instances só suporta a implementação de uma única instância. Enquanto estamos a trabalhar para colocar todas as funcionalidades para os contentores do Windows, pode encontrar as diferenças da plataforma atual no serviço [descrição geral](container-instances-overview.md#linux-and-windows-containers).
+> Atualmente, os grupos de vários contêineres dão suporte apenas a contêineres do Linux. Para contêineres do Windows, as instâncias de contêiner do Azure dão suporte apenas à implantação de uma única instância. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças da plataforma atual na [visão geral](container-instances-overview.md#linux-and-windows-containers)do serviço.
 
 ## <a name="deployment"></a>Implementação
 
-Eis duas formas comuns de implementar um grupo de vários contentor: utilizar um [modelo do Resource Manager] [ resource-manager template] ou uma [ficheiro YAML][yaml-file]. Um modelo do Resource Manager é recomendado quando precisa implantar recursos adicionais de serviço do Azure (por exemplo, um [partilha de ficheiros do Azure][azure-files]) ao implementar as instâncias de contentores. Devido à natureza de mais concisa do formato YAML, um ficheiro YAML é recomendado quando a implementação inclui apenas as instâncias de contentor.
+Aqui estão duas maneiras comuns de implantar um grupo de vários contêineres: Use um [modelo][resource-manager template] or a [YAML file][yaml-file]do Resource Manager. Um modelo do Resource Manager é recomendado quando você precisa implantar recursos adicionais de serviço do Azure (por exemplo, um [compartilhamento de arquivos]do Azure, arquivos[do]Azure) ao implantar as instâncias de contêiner. Devido à natureza mais concisa do formato YAML, um arquivo YAML é recomendado quando sua implantação inclui apenas instâncias de contêiner.
 
-Para preservar a configuração de um grupo de contentor, pode exportar a configuração para um ficheiro YAML, utilizando o comando da CLI do Azure [exportação do contentor de az][az-container-export]. Exportação permite-lhe armazenar suas configurações de grupo do contentor no controle de versão para "configuração como código." Em alternativa, utilize o ficheiro exportado como um ponto de partida ao desenvolver uma configuração de novo no YAML.
+Para preservar a configuração de um grupo de contêineres, você pode exportar a configuração para um arquivo YAML usando o comando de CLI do Azure [AZ contêiner Export][az-container-export]. A exportação permite que você armazene as configurações do grupo de contêineres no controle de versão para "configuração como código". Ou use o arquivo exportado como um ponto de partida ao desenvolver uma nova configuração no YAML.
 
 ## <a name="resource-allocation"></a>Alocação de recursos
 
-O Azure Container Instances aloca recursos, tais como CPUs, memória e opcionalmente [GPUs] [ gpus] (pré-visualização) para um grupo de contentores ao adicionar o [solicitações de recursos] [ resource-requests] das instâncias do grupo. Colocar recursos de CPU como exemplo, se criar um grupo de contentores com duas instâncias, cada 1 solicitante da CPU, em seguida, o grupo de contentores é alocado 2 CPUs.
+As instâncias de contêiner do Azure alocam recursos como CPUs, memória e, opcionalmente, [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] das instâncias no grupo. Usando recursos de CPU como exemplo, se você criar um grupo de contêineres com duas instâncias, cada uma solicitando 1 CPU, o grupo de contêineres tem 2 CPUs alocadas.
 
-Os recursos máximos disponíveis para um grupo de contentores dependem da [região do Azure] [ region-availability] utilizada para a implementação.
+O máximo de recursos disponíveis para um grupo de contêineres depende da [região do Azure][region-availability] usada para a implantação.
 
-### <a name="container-resource-requests-and-limits"></a>Limites e pedidos de recursos de contentor
+### <a name="container-resource-requests-and-limits"></a>Limites e solicitações de recursos de contêiner
 
-* Por predefinição, instâncias de contentor num grupo partilham os recursos de pedido do grupo. Num grupo com duas instâncias de cada 1 solicitante CPU, o grupo como todo tem acesso a 2 CPUs. Cada instância poderá utilizar até as 2 CPUs e as instâncias podem competir por recursos de CPU, enquanto estão em execução.
+* Por padrão, as instâncias de contêiner em um grupo compartilham os recursos solicitados do grupo. Em um grupo com duas instâncias, cada uma solicitando 1 CPU, o grupo como todo tem acesso a duas CPUs. Cada instância pode usar até as duas CPUs e as instâncias podem competir pelo recurso de CPU enquanto estiverem em execução.
 
-* Para limitar a utilização de recursos por uma instância de um grupo, se desejar, defina uma [limite de recursos] [ resource-limits] para a instância. Um grupo com duas instâncias de 1 a pedir CPU, um dos seus contentores pode exigir mais CPUs ser executada que a outra.
+* Para limitar o uso de recursos por uma instância em um grupo, opcionalmente, defina um [limite de recurso][resource-limits] para a instância. Em um grupo com duas instâncias solicitando 1 CPU, um de seus contêineres pode exigir mais CPUs para execução do que o outro.
 
-  Neste cenário, poderia definir um limite de recursos de 0,5 CPU para uma instância e um limite de 2 CPUs para a segunda. Esta configuração limita a utilização de recursos o primeiro contentor como 0,5 CPU, permitindo que o segundo contentor a utilizar até às CPUs completa 2, se disponível.
+  Nesse cenário, você pode definir um limite de recursos de CPU de 0,5 para uma instância e um limite de 2 CPUs para o segundo. Essa configuração limita o uso de recursos do primeiro contêiner a 0,5 de CPU, permitindo que o segundo contêiner use até as 2 CPUs completas, se disponíveis.
 
-Para obter mais informações, consulte a [ResourceRequirements] [ resource-requirements] REST API de grupos de propriedade no contentor.
+Para obter mais informações, consulte a propriedade [ResourceRequirements][resource-requirements] na API REST dos grupos de contêineres.
 
-### <a name="minimum-and-maximum-allocation"></a>Mínimo e máxima alocação
+### <a name="minimum-and-maximum-allocation"></a>Alocação mínima e máxima
 
-* Alocar um **mínima** 1 CPU e 1 GB de memória para um grupo de contentores. Instâncias de contentor individuais dentro de um grupo podem ser aprovisionadas com menos de 1 CPU e 1 GB de memória. 
+* Aloque um **mínimo** de 1 CPU e 1 GB de memória para um grupo de contêineres. As instâncias de contêiner individuais dentro de um grupo podem ser provisionadas com menos de 1 CPU e 1 GB de memória. 
 
-* Para o **máxima** recursos num grupo de contentor, consulte a [disponibilidade de recursos] [ region-availability] do Azure Container Instances na região de implementação.
+* Para obter o **máximo** de recursos em um grupo de contêineres, consulte [disponibilidade de recursos][region-availability] para instâncias de contêiner do Azure na região de implantação.
 
 ## <a name="networking"></a>Redes
 
-Grupos de contentores partilham um endereço IP e um espaço de nomes de porta nesse endereço IP. Para permitir que os clientes externos acedam um contentor no grupo, deve expor a porta no endereço IP e do contêiner. Uma vez que os contentores dentro do grupo partilham um espaço de nomes de porta, o mapeamento de portas não é suportado. Contentores dentro de um grupo podem chegar entre si através de localhost nas portas que eles tenham exposto, mesmo que essas portas não são expostas externamente no endereço IP do grupo.
+Grupos de contêineres compartilham um endereço IP e um namespace de porta nesse endereço IP. Para permitir que clientes externos alcancem um contêiner dentro do grupo, você deve expor a porta no endereço IP e no contêiner. Como os contêineres no grupo compartilham um namespace de porta, o mapeamento de porta não tem suporte. Os contêineres dentro de um grupo podem alcançar uns aos outros por meio de localhost nas portas que foram expostas, mesmo se essas portas não estiverem expostas externamente no endereço IP do grupo.
 
-Opcionalmente, implementar grupos de contentores para um [rede virtual do Azure] [ virtual-network] (pré-visualização) para permitir que os contentores para comunicar de forma segura com outros recursos na rede virtual.
+Opcionalmente, implante grupos de contêineres em uma [rede virtual do Azure][virtual-network] (versão prévia) para permitir que os contêineres se comuniquem com segurança com outros recursos na rede virtual.
 
 ## <a name="storage"></a>Armazenamento
 
-Pode especificar volumes externos para montar dentro de um grupo de contentor. Pode mapear esses volumes em caminhos específicos dentro de contentores individuais num grupo.
+Você pode especificar volumes externos para montar dentro de um grupo de contêineres. Você pode mapear esses volumes em caminhos específicos dentro dos contêineres individuais em um grupo.
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-Os grupos de vários contentores são úteis nos casos em que pretende dividir uma única tarefa funcional num pequeno número de imagens de contentor. Estas imagens, em seguida, podem ser fornecidas por equipes diferentes e tiverem requisitos de recursos separado.
+Os grupos de vários contêineres são úteis nos casos em que você deseja dividir uma única tarefa funcional em um pequeno número de imagens de contêiner. Essas imagens podem então ser entregues por equipes diferentes e têm requisitos de recursos separados.
 
-Exemplo de utilização pode incluir:
+O exemplo de uso pode incluir:
 
-* Um contentor que serve uma aplicação web e um contentor de extrair o conteúdo mais recente no controle da fonte.
-* Um contêiner de aplicativo e um contentor de registo. O contentor de registo recolhe a saída de registos e métricas por aplicativo principal e escreve-as para o armazenamento de longo prazo.
-* Um contêiner de aplicativo e um contentor de monitorização. O contentor de monitorização faz periodicamente um pedido para a aplicação para se certificar de que está em execução e a responder corretamente e gera um alerta se não for.
-* Um contentor de front-end e um contentor de back-end. O front-end pode atender a um aplicativo web, com o back-end que executa um serviço para recuperar dados. 
+* Um contêiner que atende um aplicativo Web e um contêiner puxando o conteúdo mais recente do controle do código-fonte.
+* Um contêiner de aplicativo e um contêiner de log. O contêiner de log coleta os logs e a saída de métricas pelo aplicativo principal e os grava no armazenamento de longo prazo.
+* Um contêiner de aplicativo e um contêiner de monitoramento. O contêiner de monitoramento faz periodicamente uma solicitação ao aplicativo para garantir que ele esteja em execução e respondendo corretamente, e emitirá um alerta se não for.
+* Um contêiner de front-end e um contêiner de back-end. O front-end pode servir a um aplicativo Web, com o back-end executando um serviço para recuperar dados. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como implementar um grupo de contentores de vários contentores com um modelo Azure Resource Manager:
+Saiba como implantar um grupo de contêineres de vários contêineres com um modelo de Azure Resource Manager:
 
 > [!div class="nextstepaction"]
-> [Implementar um grupo de contentores][resource-manager template]
+> [Implantar um grupo de contêineres][resource-manager template]
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

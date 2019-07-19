@@ -1,6 +1,6 @@
 ---
-title: V2 de Monitor de estado do Azure - introdução | Documentos da Microsoft
-description: Um guia de início rápido para v2 de Monitor de estado. Monitorizar o desempenho dos Web sites sem implementar novamente o Web site. Funciona com aplicações web ASP.NET alojadas no local, em VMs ou no Azure.
+title: Azure Status Monitor v2-introdução | Microsoft Docs
+description: Um guia de início rápido para o Status Monitor v2. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,42 +12,37 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 4da9d8e8efd5f70718f18b2e8e35ea6b5adf6757
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c836c8ef947e190a0090b3435eec1c53ded436
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734979"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326264"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Introdução ao v2 de Monitor de estado
+# <a name="get-started-with-status-monitor-v2"></a>Introdução ao Status Monitor v2
 
-Este artigo contém os comandos de início rápido, esperados-se para a maioria dos ambientes de trabalho.
-As instruções dependem da galeria do PowerShell para distribuir atualizações.
-Estes comandos suportam o PowerShell `-Proxy` parâmetro.
+Este artigo contém os comandos de início rápido esperados para funcionar para a maioria dos ambientes.
+As instruções dependem do Galeria do PowerShell para distribuir atualizações.
+Esses comandos oferecem suporte ao `-Proxy` parâmetro do PowerShell.
 
-Para obter uma explicação destes comandos, instruções de personalização e informações sobre resolução de problemas, consulte a [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
+Para obter uma explicação desses comandos, instruções de personalização e informações sobre solução de problemas, consulte as [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-> [!IMPORTANT]
-> V2 de Monitor de estado está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço, e não o recomendamos para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas e algumas podem ter capacidades restringidas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="download-and-install-via-powershell-gallery"></a>Transferir e instalar através da galeria do PowerShell
+## <a name="download-and-install-via-powershell-gallery"></a>Baixar e instalar via Galeria do PowerShell
 
 ### <a name="install-prerequisites"></a>Pré-requisitos da instalação
-Executar o PowerShell como administrador.
+Execute o PowerShell como administrador.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 Install-Module -Name PowerShellGet -Force
 ``` 
-Fechar o PowerShell.
+Feche o PowerShell.
 
-### <a name="install-status-monitor-v2"></a>Estado de instalação monitorizar v2
-Executar o PowerShell como administrador.
+### <a name="install-status-monitor-v2"></a>Instalar o Status Monitor v2
+Execute o PowerShell como administrador.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
 Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
@@ -60,11 +55,11 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ```
     
         
-## <a name="download-and-install-manually-offline-option"></a>Transferir e instalar manualmente (opção offline)
-### <a name="download-the-module"></a>Transferir o módulo
-Baixar a versão mais recente do módulo de manualmente [galeria do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+## <a name="download-and-install-manually-offline-option"></a>Baixar e instalar manualmente (opção offline)
+### <a name="download-the-module"></a>Baixar o módulo
+Baixe manualmente a versão mais recente do módulo em [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-status-monitor-v2"></a>Deszipe e instalar o Monitor de estado v2
+### <a name="unzip-and-install-status-monitor-v2"></a>Descompactar e instalar o Status Monitor v2
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -79,22 +74,22 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
  Ver a telemetria:
 
-- [Explorar métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e utilização.
-- [Pesquise eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- [Utilizar a análise de](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas.
-- [Criar dashboards](../../azure-monitor/app/overview-dashboard.md).
+- [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.
+- [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
+- [Use a análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
+- [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
 
  Adicionar mais telemetria:
 
-- [Criar testes web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
-- [Adicionar telemetria de cliente web](../../azure-monitor/app/javascript.md) para ver as exceções de código de página da web e para ativar chamadas de rastreio.
-- [Adicionar o Application Insights SDK ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir o rastreio e chamadas de registo.
+- [Crie testes da Web](monitor-web-app-availability.md) para garantir que seu site permaneça ativo.
+- [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
+- [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
 
-Faça mais com a v2 de Monitor de estado:
+Faça mais com Status Monitor v2:
 
-- Reveja os [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para obter uma explicação dos comandos encontrar aqui.
-- Utilize o nosso guia para [resolver problemas de](status-monitor-v2-troubleshoot.md) v2 de Monitor de estado.
+- Examine as [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para obter uma explicação dos comandos encontrados aqui.
+- Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.

@@ -1,9 +1,9 @@
 ---
-title: Executar cargas de trabalho em VMs de baixa prioridade económicas - Azure Batch | Documentos da Microsoft
-description: Saiba como aprovisionar as VMs de baixa prioridade para reduzir o custo de cargas de trabalho do Azure Batch.
+title: Executar cargas de trabalho em VMs de baixa prioridade econômicas-lote do Azure | Microsoft Docs
+description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo de cargas de trabalho do lote do Azure.
 services: batch
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
@@ -12,73 +12,73 @@ ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 90c8f3779283c23a98bac9d36fde2641c15afafe
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776141"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323467"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Utilizar VMs de baixa prioridade com o Batch
 
-O Azure Batch oferece máquinas de virtuais de baixa prioridade (VMs) para reduzir o custo de cargas de trabalho do Batch. VMs de baixa prioridade realizar novos tipos de cargas de trabalho possíveis, permitindo uma grande quantidade de energia a ser utilizado para um custo muito baixo de computação do Batch.
+O lote do Azure oferece VMs (máquinas virtuais) de baixa prioridade para reduzir o custo de cargas de trabalho do lote. As VMs de baixa prioridade tornam os novos tipos de cargas de trabalho do lote possíveis, permitindo que uma grande quantidade de poder de computação seja usada para um custo muito baixo.
  
-VMs de baixa prioridade tirar partido da capacidade excedente no Azure. Quando especificar VMs de baixa prioridade nos conjuntos, o Azure Batch pode utilizar este surplus, quando disponível.
+As VMs de baixa prioridade aproveitam a capacidade excedente no Azure. Quando você especifica VMs de baixa prioridade em seus pools, o lote do Azure pode usar esse excedente, quando disponível.
  
-O compromisso para a utilização de VMs de baixa prioridade é que essas VMs podem não estar disponíveis para atribuir ou podem ser suplantadas em qualquer altura, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Utilize VMs de baixa prioridade para batch e o processamento assíncrono de cargas de trabalho onde o tempo de conclusão do trabalho é flexível e o trabalho é distribuído por número de VMs.
+A desvantagem de usar VMs de baixa prioridade é que essas VMs podem não estar disponíveis para serem alocadas ou podem sofrer preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncrono e em lote, em que o tempo de conclusão de trabalhos é flexível e o trabalho é distribuído entre várias VMs.
  
-VMs de baixa prioridade são oferecidas a um preço reduzido significativamente em comparação com VMs dedicadas. Para detalhes de preços, consulte [preços do Batch](https://azure.microsoft.com/pricing/details/batch/).
+As VMs de baixa prioridade são oferecidas em um preço significativamente reduzido em comparação com as VMs dedicadas. Para obter detalhes de preços, consulte [preços do lote](https://azure.microsoft.com/pricing/details/batch/).
 
-## <a name="use-cases-for-low-priority-vms"></a>Casos de utilização para VMs de baixa prioridade
+## <a name="use-cases-for-low-priority-vms"></a>Casos de uso para VMs de baixa prioridade
 
-Tendo em conta as características das VMs de baixa prioridade, o que as cargas de trabalho podem e não é possível usá-los? Em geral, cargas de trabalho de processamento de batch são uma boa opção, como tarefas são divididas em várias tarefas paralelas ou há muitos trabalhos que são aumentados horizontalmente e distribuídos por várias VMs.
+Dadas as características de VMs de baixa prioridade, quais cargas de trabalho podem e não podem usá-las? Em geral, as cargas de trabalho de processamento em lote são uma boa opção, pois os trabalhos são divididos em muitas tarefas paralelas ou há muitos trabalhos que são dimensionados e distribuídos em várias VMs.
 
--   Para maximizar a utilização da capacidade excedente no Azure, as tarefas adequadas podem aumentar horizontalmente.
+-   Para maximizar o uso da capacidade excedente no Azure, os trabalhos adequados podem ser expandidos.
 
--   Ocasionalmente, VMs poderão não estar disponíveis ou são impedidas, que resulta em capacidade reduzida para as tarefas e pode levar a interrupções de tarefas e volta executar. Tarefas de, por conseguinte, tem de ser flexíveis no período de tempo que podem tomar para executar.
+-   Ocasionalmente, as VMs podem não estar disponíveis ou sofrer preempção, o que resulta em menor capacidade para trabalhos e pode levar à interrupção e à reexecutação da tarefa. Os trabalhos devem, portanto, ser flexíveis no tempo que podem ser executados.
 
--   Poderão ser afetadas mais tarefas com tarefas mais longas se interrompido. Se implementam o ponto de verificação para guardar o progresso conforme executam tarefas de execução longa, em seguida, o impacto de interrupção é reduzido. Tarefas com menores tempos de execução tendem a funcionar melhor com VMs de baixa prioridade, uma vez que o impacto de interrupção é muito menos.
+-   Trabalhos com tarefas mais longas podem ser impactados mais se forem interrompidos. Se as tarefas de execução longa implementarem o ponto de verificação para salvar o progresso à medida que elas forem executadas, o impacto da interrupção será reduzido. As tarefas com tempos de execução mais curtos tendem a funcionar melhor com VMs de baixa prioridade, pois o impacto da interrupção é muito menos.
 
--   Trabalhos de MPI de longa execução que utilizam várias VMs não são adequados para utilizar VMs de baixa prioridade, uma vez que uma VM admitiu preempção for pode levar a todo o trabalho de ter de executar novamente.
+-   Trabalhos MPI de longa execução que utilizam várias VMs não são adequados para usar VMs de baixa prioridade, pois uma VM admitida pode levar a um trabalho inteiro que precisa ser executado novamente.
 
-Alguns exemplos de casos de utilização de processamento de batch bem adequados para utilizar VMs de baixa prioridade são:
+Alguns exemplos de casos de uso de processamento em lotes bem adequados para usar VMs de baixa prioridade são:
 
--   **Desenvolvimento e teste**: Em particular, se estão a ser desenvolvidas soluções em grande escala, podem ser percebidas economias significativas. Podem trazer benefícios para todos os tipos de teste, mas o teste de carga em grande escala e testes de regressão são excelente utiliza.
+-   **Desenvolvimento e teste**: Em particular, se as soluções em grande escala estiverem sendo desenvolvidas, poderão ser percebidas economias significativas. Todos os tipos de teste podem se beneficiar, mas testes de carga e teste de regressão em larga escala são ótimos usos.
 
--   **Complementar as capacidade a pedido**: VMs de baixa prioridade podem ser utilizadas para complementar VMs regular dedicadas - quando estiverem disponíveis, tarefas, podem aumentar e, portanto, conclua mais rápida de custo mais baixo; Quando não está disponível, a linha de base de VMs dedicadas permanece disponível.
+-   **Complementando a capacidade sob demanda**: VMs de baixa prioridade podem ser usadas para complementar VMs dedicadas regulares – quando disponíveis, os trabalhos podem ser dimensionados e, portanto, concluídos mais rapidamente para menor custo; Quando não estiver disponível, a linha de base das VMs dedicadas permanecerá disponível.
 
--   **Tempo de execução de tarefa flexível**: Se houver flexibilidade no tempo de tarefas tem de concluir, em seguida, quedas potenciais na capacidade pela podem tolerar; No entanto, com a adição de tarefas de VMs de baixa prioridade frequência de execução de forma mais rápida e um custo mais baixo.
+-   **Tempo de execução do trabalho flexível**: Se houver flexibilidade no tempo que os trabalhos precisam ser concluídos, possíveis quedas na capacidade poderão ser toleradas; no entanto, com a adição de trabalhos de VMs de baixa prioridade com frequência são executados mais rapidamente e por um custo mais baixo.
 
-Os conjuntos do batch podem ser configurados para utilizar VMs de baixa prioridade de diversas formas, consoante a flexibilidade em tempo de execução de tarefa:
+Os pools do lote podem ser configurados para usar VMs de baixa prioridade de algumas maneiras, dependendo da flexibilidade no tempo de execução do trabalho:
 
--   VMs de baixa prioridade apenas podem ser utilizadas num conjunto. Neste caso, o Batch recupera qualquer capacidade admitiu preempção for quando disponível. Esta configuração é a maneira mais econômica para executar tarefas, como VMs de apenas de baixa prioridade são utilizadas.
+-   As VMs de baixa prioridade podem ser usadas somente em um pool. Nesse caso, o lote recupera qualquer capacidade admitida quando disponível. Essa configuração é a maneira mais barata de executar trabalhos, pois apenas VMs de baixa prioridade são usadas.
 
--   VMs de baixa prioridade podem ser utilizadas em conjunto com uma linha de base fixo de VMs dedicadas. O número fixo de VMs dedicadas que sempre existe alguma capacidade para manter uma tarefa progredir.
+-   As VMs de baixa prioridade podem ser usadas em conjunto com uma linha de base fixa de VMs dedicadas. O número fixo de VMs dedicadas garante que sempre haja alguma capacidade para manter um trabalho em andamento.
 
--   Pode existir uma combinação dinâmica de VMs dedicadas e de baixa prioridade, para que as VMs de baixa prioridade barato apenas são utilizadas quando estiverem disponíveis, mas as VMs dedicadas com preços completo são aumentadas verticalmente quando necessário. Esta configuração mantém uma quantidade mínima de capacidade disponível para manter as tarefas em curso.
+-   Pode haver uma mistura dinâmica de VMs dedicadas e de baixa prioridade, para que as VMs de baixa prioridade mais baratas sejam usadas somente quando disponíveis, mas as VMs dedicadas de preço total são aumentadas quando necessário. Essa configuração mantém uma quantidade mínima de capacidade disponível para manter os trabalhos em andamento.
 
-## <a name="batch-support-for-low-priority-vms"></a>Suporte para o batch para VMs de baixa prioridade
+## <a name="batch-support-for-low-priority-vms"></a>Suporte em lote para VMs de baixa prioridade
 
-O Azure Batch fornece diversos recursos que tornam fácil consumir e se beneficiar de VMs de baixa prioridade:
+O lote do Azure fornece vários recursos que facilitam o consumo e o benefício de VMs de baixa prioridade:
 
--   Os conjuntos do batch podem conter VMs dedicadas e VMs de baixa prioridade. O número de cada tipo de VM pode ser especificado quando um pool é criado ou alterado em qualquer altura para um conjunto existente, usando a operação de redimensionamento explícita ou utilizar o dimensionamento automático. Submissão de trabalhos e tarefas pode permanecer inalterado, não importando os tipos VM no conjunto. Também pode configurar um conjunto completamente utilizar VMs de baixa prioridade para executar tarefas de forma económica quanto possível, mas criar VMs dedicadas, se a capacidade diminuir abaixo de um limite mínimo, para manter as tarefas em execução.
+-   Os pools do lote podem conter VMs dedicadas e VMs de baixa prioridade. O número de cada tipo de VM pode ser especificado quando um pool é criado ou alterado a qualquer momento para um pool existente, usando a operação de redimensionamento explícito ou usando o dimensionamento automático. O envio de trabalhos e tarefas pode permanecer inalterado, independentemente dos tipos de VM no pool. Você também pode configurar um pool para usar completamente as VMs de baixa prioridade para executar trabalhos o mais barato possível, mas para acelerar as VMs dedicadas se a capacidade cair abaixo de um limite mínimo, para manter os trabalhos em execução.
 
--   Os conjuntos do batch procuram automaticamente o número de destino de VMs de baixa prioridade. Se as VMs são impedidas, o Batch tenta substituir a capacidade perdida e voltar para o destino.
+-   Os pools do lote buscam automaticamente o número de destino de VMs de baixa prioridade. Se as VMs forem admitidas com preempção, o lote tentará substituir a capacidade perdida e retornar ao destino.
 
--   Quando as tarefas sejam interrompidas, o Batch Deteta e requeues automaticamente tarefas sejam executadas novamente.
+-   Quando as tarefas são interrompidas, o lote detecta e enfileira automaticamente as tarefas para serem executadas novamente.
 
--   VMs de baixa prioridade têm uma quota de vCPU separado que difere do que para VMs dedicadas. 
-    A quota para VMs de baixa prioridade é maior do que a quota para VMs dedicadas, porque as VMs de baixa prioridade custam menos. Para obter mais informações, consulte [limites e quotas de serviço do Batch](batch-quota-limit.md#resource-quotas).    
+-   As VMs de baixa prioridade têm uma cota de vCPU separada que difere daquela para VMs dedicadas. 
+    A cota para VMs de baixa prioridade é maior do que a cota para VMs dedicadas, pois as VMs de baixa prioridade custam menos. Para obter mais informações, consulte [cotas e limites do serviço de lote](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> VMs de baixa prioridade não são atualmente suportadas para contas do Batch criadas no [modo de subscrição de utilizador](batch-api-basics.md#account).
+> Atualmente, não há suporte para VMs de baixa prioridade em contas do lote criadas no [modo de assinatura do usuário](batch-api-basics.md#account).
 >
 
-## <a name="create-and-update-pools"></a>Criar e atualizar conjuntos
+## <a name="create-and-update-pools"></a>Criar e atualizar pools
 
-Um conjunto do Batch pode conter VMs dedicadas e baixa prioridade (também referidas como nós de computação). Pode definir o número de destino de nós de computação para VMs dedicadas e baixa prioridade. O número de destino de nós Especifica o número de VMs que deseja ter no conjunto.
+Um pool do lote pode conter VMs dedicadas e de baixa prioridade (também conhecidas como nós de computação). Você pode definir o número de destino de nós de computação para VMs dedicadas e de baixa prioridade. O número de nós de destino especifica o número de VMs que você deseja ter no pool.
 
-Por exemplo, para criar um conjunto utiliza serviço cloud do Azure VMs com um destino de 5 dedicados VMs e 20 VMs de baixa prioridade:
+Por exemplo, para criar um pool usando VMs do serviço de nuvem do Azure com um destino de 5 VMs dedicadas e 20 VMs de baixa prioridade:
 
 ```csharp
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -90,7 +90,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 );
 ```
 
-Para criar um conjunto a máquinas virtuais do Azure (em VMs do Linux neste caso) a utilizar com um destino de 5 dedicado VMs e 20 VMs de baixa prioridade:
+Para criar um pool usando máquinas virtuais do Azure (neste caso, VMs do Linux) com um destino de 5 VMs dedicadas e 20 VMs de baixa prioridade:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
@@ -111,76 +111,76 @@ pool = batchClient.PoolOperations.CreatePool(
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
-Pode obter o número atual de nós para VMs dedicadas e baixa prioridade:
+Você pode obter o número atual de nós para VMs dedicadas e de baixa prioridade:
 
 ```csharp
 int? numDedicated = pool1.CurrentDedicatedComputeNodes;
 int? numLowPri = pool1.CurrentLowPriorityComputeNodes;
 ```
 
-Nós de conjunto de ter uma propriedade para indicar se o nó é uma VM dedicada ou de baixa prioridade:
+Os nós de pool têm uma propriedade para indicar se o nó é uma VM dedicada ou de baixa prioridade:
 
 ```csharp
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Quando um ou mais nós num conjunto são impedidas, uma lista de operação de nós no conjunto ainda retornará esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós tem seu estado definido como o **Preempted** estado. Batch tenta encontrar VMs de substituição e, se tiver êxito, os nós de percorrer **Creating** e, em seguida **inicial** Estados antes de se tornar disponível para a execução da tarefa, tal como os novos nós.
+Quando um ou mais nós em um pool são preempçãos, uma operação listar nós no pool ainda retorna esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós têm seu estado definido como o estado **preempção** . O lote tenta encontrar VMs de substituição e, se for bem-sucedido, os nós passarão pela **criação** e **inicialização** de Estados antes de ficarem disponíveis para a execução da tarefa, assim como novos nós.
 
-## <a name="scale-a-pool-containing-low-priority-vms"></a>Dimensionar um conjunto que contém VMs de baixa prioridade
+## <a name="scale-a-pool-containing-low-priority-vms"></a>Dimensionar um pool que contém VMs de baixa prioridade
 
-Como com os conjuntos consiste apenas em VMs dedicadas, é possível dimensionar um conjunto que contém VMs de baixa prioridade, chamando o método de redimensionamento ou ao utilizar o dimensionamento automático.
+Assim como acontece com os pools que consistem apenas em VMs dedicadas, é possível dimensionar um pool que contém VMs de baixa prioridade chamando o método redimensionar ou usando o dimensionamento automático.
 
-A operação de redimensionamento de conjunto demora um segundo parâmetro opcional que atualiza o valor de **targetLowPriorityNodes**:
+A operação de redimensionamento do pool usa um segundo parâmetro opcional que atualiza o valor de **targetLowPriorityNodes**:
 
 ```csharp
 pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 ```
 
-A fórmula de dimensionamento automático de agrupamento suporta VMs de baixa prioridade da seguinte forma:
+A fórmula de autoescala do pool dá suporte a VMs de baixa prioridade da seguinte maneira:
 
--   Pode obter ou definir o valor da variável definidas pelo serviço **$TargetLowPriorityNodes**.
+-   Você pode obter ou definir o valor da variável definida pelo serviço **$TargetLowPriorityNodes**.
 
--   Pode obter o valor da variável definidas pelo serviço **$CurrentLowPriorityNodes**.
+-   Você pode obter o valor da variável definida pelo serviço **$CurrentLowPriorityNodes**.
 
--   Pode obter o valor da variável definidas pelo serviço **$PreemptedNodeCount**. 
-    Esta variável retorna o número de nós no Estado admitiu preempção for e permite-lhe ampliar ou reduzir verticalmente o número de nós dedicados, dependendo do número de nós admitiu preempção for que não estão disponíveis.
+-   Você pode obter o valor da variável definida pelo serviço **$PreemptedNodeCount**. 
+    Essa variável retorna o número de nós no estado preempção e permite que você Escale ou reduza verticalmente o número de nós dedicados, dependendo do número de nós admitidos que não estão disponíveis.
 
 ## <a name="jobs-and-tasks"></a>Trabalhos e tarefas
 
-Trabalhos e tarefas exigem pouca configuração adicional para nós de baixa prioridade o suporte a apenas é o seguinte:
+Trabalhos e tarefas exigem pouca configuração adicional para nós de baixa prioridade; o único suporte é o seguinte:
 
--   A propriedade de JobManagerTask de uma tarefa tem uma nova propriedade **AllowLowPriorityNode**. 
-    Quando esta propriedade for true, a tarefa de gestão pode ser agendada num nó dedicado ou de baixa prioridade. Se esta propriedade é false, a tarefa de gestão está agendada para apenas um nó dedicado.
+-   A propriedade JobManagerTask de um trabalho tem uma nova propriedade, **AllowLowPriorityNode**. 
+    Quando essa propriedade é verdadeira, a tarefa do Gerenciador de trabalho pode ser agendada em um nó dedicado ou de baixa prioridade. Se essa propriedade for false, a tarefa do Gerenciador de trabalho será agendada somente para um nó dedicado.
 
--   Uma [variável de ambiente](batch-compute-node-environment-variables.md) está disponível para um aplicativo de tarefas para que ele possa determinar se está em execução num nó de baixa prioridade ou dedicado. A variável de ambiente é AZ_BATCH_NODE_IS_DEDICATED.
+-   Uma [variável de ambiente](batch-compute-node-environment-variables.md) está disponível para um aplicativo de tarefa para que ele possa determinar se está sendo executado em um nó de baixa prioridade ou dedicado. A variável de ambiente é AZ_BATCH_NODE_IS_DEDICATED.
 
-## <a name="handling-preemption"></a>Preempção de tratamento
+## <a name="handling-preemption"></a>Manipulando preempção
 
-As VMs podem ocasionalmente ser suplantadas; Quando preempção acontece, o Batch faz o seguinte:
+Ocasionalmente, as VMs podem sofrer preempção; Quando a preempção acontece, o lote faz o seguinte:
 
--   As VMs admitiu preempção for têm o estado atualizado para **Preempted**.
--   Se a tarefas estavam em execução nas VMs de nó admitiu preempção for, em seguida, essas tarefas são recolocadas e execute novamente.
--   A VM é eliminada com eficiência, levando a perda de todos os dados armazenados localmente na VM.
--   O conjunto continuamente tenta contactar o número de destino de nós de prioridade baixa disponíveis. Quando a capacidade de substituição é encontrada, os nós manter suas IDs, mas serão reinicializados percorrer **Creating** e **inicial** Estados antes de estarem disponíveis para o agendamento de tarefas.
--   Contagens de preempção estão disponíveis como uma métrica no portal do Azure.
+-   As VMs admitidas têm seu estado atualizado para **preempção**.
+-   Se as tarefas estivessem em execução nas VMs de nó admitidas anteriormente, essas tarefas serão recolocadas na fila e executadas novamente.
+-   A VM é efetivamente excluída, levando à perda de quaisquer dados armazenados localmente na VM.
+-   O pool tenta continuamente atingir o número de destino de nós de baixa prioridade disponíveis. Quando a capacidade de substituição é encontrada, os nós mantêm suas IDs, mas são reinicializados, passando pela **criação** e **inicialização** de Estados antes de estarem disponíveis para o agendamento de tarefas.
+-   As contagens de preempção estão disponíveis como uma métrica no portal do Azure.
 
 ## <a name="metrics"></a>Métricas
 
-Novas métricas estão disponíveis no [portal do Azure](https://portal.azure.com) para nós de baixa prioridade. Estas métricas são:
+Novas métricas estão disponíveis no [portal do Azure](https://portal.azure.com) para nós de baixa prioridade. Essas métricas são:
 
 - Contagem de nós de baixa prioridade
-- Número de núcleos de baixa prioridade 
-- Contagem de nós admitiu preempção for
+- Contagem de núcleos de baixa prioridade 
+- Contagem de nós preempção
 
-Para ver métricas no portal do Azure:
+Para exibir as métricas no portal do Azure:
 
-1. Navegue até à sua conta do Batch no portal e ver as definições para a sua conta do Batch.
-2. Selecione **métricas** partir do **monitorização** secção.
-3. Selecione as métricas pretendidos ao nível dos **métricas disponíveis** lista.
+1. Navegue até sua conta do lote no portal e exiba as configurações da sua conta do lote.
+2. Selecione **métricas** na seção **monitoramento** .
+3. Selecione as métricas que você deseja na lista de **métricas disponíveis** .
 
-![Métricas de nós de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
+![Métricas para nós de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a [Descrição geral da funcionalidade Batch para programadores](batch-api-basics.md), com informações essenciais para todos os utilizadores que se preparam para utilizar o Batch. O artigo contém informações mais detalhadas sobre recursos do serviço Batch, como conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch.
 * Saiba mais sobre o [Ferramentas e APIs do Batch](batch-apis-tools.md) disponíveis para criação de soluções para o Batch.

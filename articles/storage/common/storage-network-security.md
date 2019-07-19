@@ -9,21 +9,21 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f6422bf2ccc42c12d8f2d20a5a7ece8d37e8b48e
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449730"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326941"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
 O armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo permite-lhe proteger as contas de armazenamento para um conjunto específico de redes suportados. Quando as regras de rede estiverem configuradas, apenas as aplicações pedir dados de mais de mil o conjunto especificado de redes podem aceder a uma conta de armazenamento.
 
-Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Autorização é suportada com as credenciais do Azure Active Directory (Azure AD) para blobs e filas, com uma chave de acesso de conta válido ou um token de SAS.
+Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Há suporte para autorização com as credenciais do Azure Active Directory (Azure AD) para BLOBs e filas, com uma chave de acesso de conta válida ou com um token SAS.
 
 > [!IMPORTANT]
-> O Azure File Sync ainda não suporta firewalls e redes virtuais. Se estiver a utilizar o Azure File Sync na sua conta de armazenamento e ativar a eles, o Azure File Sync não serão sincronizados.
+> O Sincronização de Arquivos do Azure ainda não oferece suporte a firewalls e redes virtuais. Se você estiver usando Sincronização de Arquivos do Azure em sua conta de armazenamento e habilitá-las, Sincronização de Arquivos do Azure não serão sincronizadas.
 >
 > Ativar as regras de firewall para a sua conta de armazenamento bloqueia pedidos de entrada de dados por predefinição, a menos que os pedidos provenientes de um serviço que está a funcionar dentro de uma rede Virtual do Azure (VNet). Pedidos que estão bloqueados incluem os de outros serviços do Azure, do portal do Azure, do Registro em log e serviços de métricas e assim por diante.
 >
@@ -244,7 +244,7 @@ Cada conta de armazenamento suporta até 100 regras de rede IP, que podem ser co
 
 Para conceder acesso a partir de suas redes no local para a sua conta de armazenamento com uma regra de rede IP, tem de identificar endereços IP utilizados pela sua rede de acesso à internet. Contacte o administrador de rede para obter ajuda.
 
-Se estiver a utilizar [ExpressRoute](/azure/expressroute/expressroute-introduction) no local, para peering público ou peering da Microsoft, terá de identificar os endereços NAT IP que são utilizados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Se você estiver usando o [ExpressRoute](/azure/expressroute/expressroute-introduction) de seu local, para emparelhamento público ou emparelhamento da Microsoft, será necessário identificar os endereços IP de NAT que são usados. Para peering público, cada circuito ExpressRoute, por predefinição, utiliza dois endereços IP NAT que são aplicados ao tráfego de serviço do Azure quando o tráfego entra no backbone de rede do Microsoft Azure. Para peering da Microsoft, o(s) endereço(s) IP NAT que são utilizados são fornecidos pelo cliente ou são fornecidos pelo fornecedor de serviços. Para permitir o acesso aos recursos de serviço, tem de permitir estes endereços IP públicos na definição da firewall do IP dos recursos. Para localizar os endereços IP do circuito ExpressRoute de peering público, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure. Saiba mais sobre [NAT para peering público e da Microsoft do ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gerir regras de rede IP
 
@@ -353,15 +353,16 @@ Se ativar o **permitir confiável a serviços da Microsoft...**  exceção, os s
 |Serviço|Nome do fornecedor de recursos|Objetivo|
 |:------|:---------------------|:------|
 |Azure Backup|Microsoft.RecoveryServices|Executar cópias de segurança e restauros de discos não geridos em máquinas de virtuais IAAS. (não necessário para discos geridos). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Permite que a importação de dados para o Azure com o Data Box. [Saiba mais](/azure/databox/data-box-overview).|
+|Azure Data Box|Microsoft.DataBox|Permite a importação de dados para o Azure usando Data Box. [Saiba mais](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Instalação de Federação e de criação de imagem personalizada. [Saiba mais](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Ativar a publicação de eventos de armazenamento de BLOBs e permitir que o Event Grid publicar em filas do armazenamento. Saiba mais sobre [eventos de armazenamento de BLOBs](/azure/event-grid/event-sources) e [publicação para filas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arquivar dados com a captura de Hubs de eventos. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Aprovisione o conteúdo inicial do sistema de ficheiros predefinido para um novo cluster do HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
+| Azure File Sync| Microsoft.StorageSync| Permite transformar seu servidor de arquivos local em um cache para compartilhamentos de arquivos do Azure. Permitir a sincronização de vários sites, recuperação rápida de desastres e backup no lado da nuvem. [Saiba mais](../files/storage-sync-files-planning.md)|
+|Azure HDInsight|Microsoft.HDInsight|Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft. insights|Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Redes do Azure|Microsoft.Network|Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure recuperação após desastre ao ativar a replicação para máquinas de virtuais de IaaS do Azure. Isto é necessário se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bases de dados SQL com o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|Azure SQL Data Warehouse|Microsoft.Sql|Permite cenários de importação e exportação de instâncias específicas de bancos de dados SQL usando o polybase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
 

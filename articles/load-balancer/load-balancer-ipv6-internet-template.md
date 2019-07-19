@@ -1,10 +1,10 @@
 ---
-title: Implementar um balanceador de carga com acesso à Internet com IPv6 - modelo do Azure
+title: Implantar um balanceador de carga voltado para a Internet com o modelo IPv6-Azure
 titlesuffix: Azure Load Balancer
-description: Como implementar o suporte de IPv6 para o Azure Load Balancer e as VMs com balanceamento de carga.
+description: Como implantar o suporte a IPv6 para VMs Azure Load Balancer e com balanceamento de carga.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, o Balanceador de carga do azure, pilha dupla, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,15 +13,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 4286879dc53cc835532c7a8243eaf88813545265
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216858"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275004"
 ---
-# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar um acesso à Internet Balanceador de carga solução com o IPv6 com um modelo
+# <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implantar uma solução de balanceador de carga voltada para a Internet com IPv6 usando um modelo
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -34,106 +34,106 @@ Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UD
 
 ## <a name="example-deployment-scenario"></a>Cenário de implementação de exemplo
 
-O diagrama seguinte ilustra a solução de balanceamento de carga que está a ser implementada usando o modelo de exemplo descrito neste artigo.
+O diagrama a seguir ilustra a solução de balanceamento de carga que está sendo implantada usando o modelo de exemplo descrito neste artigo.
 
 ![Cenário do Balanceador de carga](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
-Neste cenário, irá criar os seguintes recursos do Azure:
+Nesse cenário, você criará os seguintes recursos do Azure:
 
 * Uma interface de rede virtual para cada VM com endereços IPv4 e IPv6 atribuídos
-* um balanceador de carga com acesso à Internet com um IPv4 e um endereço IP público IPv6
-* Duas regras para mapear os VIPs públicos para os pontos de extremidade privados de balanceamento de carga
+* um Load Balancer voltado para a Internet com um IPv4 e um endereço IP público IPv6
+* Duas regras de balanceamento de carga para mapear os VIPs públicos para os pontos de extremidade privados
 * um conjunto de disponibilidade que contém as duas VMs
-* Duas máquinas virtuais (VMs)
+* Duas VMs (máquinas virtuais)
 
-## <a name="deploying-the-template-using-the-azure-portal"></a>Implementar o modelo com o portal do Azure
+## <a name="deploying-the-template-using-the-azure-portal"></a>Implantando o modelo usando o portal do Azure
 
-Este artigo faz referência a um modelo que está publicado na [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) galeria. Pode transferir o modelo a partir da galeria ou iniciar a implementação no Azure diretamente a partir da galeria. Este artigo pressupõe que transferiu o modelo para o computador local.
+Este artigo faz referência a um modelo que é publicado na Galeria de [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) . Você pode baixar o modelo da galeria ou iniciar a implantação no Azure diretamente da galeria. Este artigo pressupõe que você baixou o modelo para o computador local.
 
-1. Abra o portal do Azure e inicie sessão com uma conta que tenha permissões para criar VMs e recursos de rede dentro de uma subscrição do Azure. Além disso, a menos que estiver usando os recursos existentes, a conta necessita da permissão para criar um grupo de recursos e uma conta de armazenamento.
-2. Clique em "+ novo" de menu em seguida, o tipo "modelo" na caixa de pesquisa. Selecione "Implementação do modelo" resultados da pesquisa.
+1. Abra o portal do Azure e entre com uma conta que tenha permissões para criar VMs e recursos de rede em uma assinatura do Azure. Além disso, a menos que você esteja usando recursos existentes, a conta precisa de permissão para criar um grupo de recursos e uma conta de armazenamento.
+2. Clique em "+ novo" no menu e digite "modelo" na caixa de pesquisa. Selecione "Implantação de modelo" nos resultados da pesquisa.
 
     ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
-3. Em tudo, o painel, clique em "Implementação do modelo".
+3. Na folha tudo, clique em "Implantação de modelo".
 
     ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
-4. Clique em "Criar".
+4. Clique em "criar".
 
     ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
-5. Clique em "Editar modelo". Elimine o conteúdo existente e copiar/colar em todo o conteúdo do ficheiro de modelo (para incluir o início e terminar com {}), em seguida, clique em "Salvar".
+5. Clique em "Editar modelo". Exclua o conteúdo existente e copie/cole todo o conteúdo do arquivo de modelo (para incluir o início e término {}) e clique em "salvar".
 
     > [!NOTE]
-    > Se estiver a utilizar o Microsoft Internet Explorer, quando colar, receber uma caixa de diálogo a pedir-lhe para permitir o acesso para a área de transferência do Windows. Clique em "Permitir acesso".
+    > Se você estiver usando o Microsoft Internet Explorer, ao colar, receberá uma caixa de diálogo solicitando que você permita o acesso à área de transferência do Windows. Clique em "permitir acesso".
 
     ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
-6. Clique em "Editar parâmetros". No painel de parâmetros, especifique os valores com a orientação na secção de parâmetros de modelo, em seguida, clique em "Guardar" para fechar o painel de parâmetros. No painel implementação personalizada, selecione a sua subscrição, grupo de recursos existente ou criar uma. Se estiver a criar um grupo de recursos, em seguida, selecione uma localização para o grupo de recursos. Em seguida, clique em **termos legais**, em seguida, clique em **Compra** para os termos legais. Azure começa a implementar os recursos. Demora alguns minutos para implementar todos os recursos.
+6. Clique em "editar parâmetros". Na folha parâmetros, especifique os valores de acordo com as diretrizes na seção parâmetros do modelo e clique em "salvar" para fechar a folha parâmetros. Na folha implantação personalizada, selecione sua assinatura, um grupo de recursos existente ou crie uma. Se você estiver criando um grupo de recursos, selecione um local para o grupo de recursos. Em seguida, clique em **termos legais**e clique em **comprar** para obter os termos legais. O Azure começa a implantar os recursos. Leva vários minutos para implantar todos os recursos.
 
     ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
-    Para obter mais informações sobre estes parâmetros, consulte a [variáveis e parâmetros de modelo](#template-parameters-and-variables) seção mais adiante neste artigo.
+    Para obter mais informações sobre esses parâmetros, consulte a seção [parâmetros e variáveis de modelo](#template-parameters-and-variables) mais adiante neste artigo.
 
-7. Para ver os recursos criados pelo modelo, clique em Procurar, desloque para baixo a lista até ver "Grupos de recursos", em seguida, clique no mesmo.
+7. Para ver os recursos criados pelo modelo, clique em procurar, role para baixo na lista até ver "grupos de recursos" e clique nele.
 
     ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
-8. No painel de grupos de recursos, clique no nome do grupo de recursos que especificou no passo 6. É apresentada uma lista de todos os recursos que foram implementadas. Se tudo tenha corrido bem, ele deverá indicar "Com êxito" em "Última implementação." Se não estiver, certifique-se de que a conta que está a utilizar tem permissões para criar os recursos necessários.
+8. Na folha grupos de recursos, clique no nome do grupo de recursos especificado na etapa 6. Você verá uma lista de todos os recursos que foram implantados. Se tudo correr bem, ele deverá dizer "êxito" em "última implantação". Caso contrário, verifique se a conta que você está usando tem permissões para criar os recursos necessários.
 
     ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
-    > Se seus grupos de recursos que navega imediatamente depois de concluir o passo 6, "Última implementação" exibirá o status de "Implantar" enquanto os recursos estão a ser implementados.
+    > Se você procurar os grupos de recursos imediatamente após concluir a etapa 6, a "última implantação" exibirá o status "Implantando" enquanto os recursos estão sendo implantados.
 
-9. Clique em "myIPv6PublicIP" na lista de recursos. Verá que ele tem um endereço de IPv6 em endereço IP e de que o respetivo nome DNS é o valor especificado para o parâmetro dnsNameforIPv6LbIP no passo 6. Este recurso é o público IPv6 endereço e nome do anfitrião que esteja acessível para os clientes de Internet.
+9. Clique em "myIPv6PublicIP" na lista de recursos. Você verá que ele tem um endereço IPv6 em endereço IP e que seu nome DNS é o valor especificado para o parâmetro dnsNameforIPv6LbIP na etapa 6. Esse recurso é o endereço IPv6 público e o nome do host que podem ser acessados por clientes da Internet.
 
     ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
-## <a name="validate-connectivity"></a>Validar a conectividade
+## <a name="validate-connectivity"></a>Validar conectividade
 
-Quando o modelo foi implementado com êxito, pode validar a conectividade ao concluir as seguintes tarefas:
+Quando o modelo tiver sido implantado com êxito, você poderá validar a conectividade concluindo as seguintes tarefas:
 
-1. Inicie sessão no portal do Azure e estabelecer ligação com cada uma das VMs criadas pela implementação do modelo. Se implementou uma VM do Windows Server, execute ipconfig/tudo a partir de um prompt de comando. Verá que as VMs têm endereços IPv4 e IPv6. Se tiver implementado as VMs do Linux, tem de configurar o SO Linux para receber os endereços IPv6 dinâmicos com as instruções fornecidas para a distribuição de Linux.
-2. De um cliente ligado à IPv6 Internet, inicie uma ligação para o endereço IPv6 público do Balanceador de carga. Para confirmar que o Balanceador de carga é o balanceamento entre as duas VMs, foi possível instalar um servidor web, como o Microsoft Internet Information Services (IIS) em cada uma das VMs. A página da web padrão em cada servidor pode conter o texto "Server0" ou "Servidor1" para identificar exclusivamente. Em seguida, abra um browser num cliente ligado à IPv6 Internet e navegue para o nome de anfitrião especificado para o parâmetro de dnsNameforIPv6LbIP do Balanceador de carga para confirmar a conectividade IPv6 de ponta a ponta para cada VM. Se vir apenas a página da web de apenas um servidor, terá de limpar a cache do browser. Abra várias sessões de navegação privadas. Deverá ver uma resposta de cada servidor.
-3. De um cliente ligado à IPv4 Internet, inicie uma ligação para o endereço IPv4 público do Balanceador de carga. Para confirmar que o Balanceador de carga é as duas VMs de balanceamento de carga, poderia testar usando o IIS, conforme detalhado no passo 2.
-4. A partir de cada VM, inicie uma ligação de saída para um dispositivo de IPv6 ou IPv4 ligados à Internet. Em ambos os casos, o IP de origem visto pelo dispositivo de destino é o endereço IPv4 ou IPv6 público do Balanceador de carga.
+1. Entre no portal do Azure e conecte-se a cada uma das VMs criadas pela implantação do modelo. Se você implantou uma VM do Windows Server, execute ipconfig/all em um prompt de comando. Você verá que as VMs têm endereços IPv4 e IPv6. Se você implantou VMs do Linux, precisará configurar o sistema operacional Linux para receber endereços IPv6 dinâmicos usando as instruções fornecidas para sua distribuição do Linux.
+2. A partir de um cliente conectado à Internet IPv6, inicie uma conexão com o endereço IPv6 público do balanceador de carga. Para confirmar que o balanceador de carga está equilibrando entre as duas VMs, você pode instalar um servidor Web como o Microsoft Serviços de Informações da Internet (IIS) em cada uma das VMs. A página da Web padrão em cada servidor pode conter o texto "Server0" ou "Server1" para identificá-lo exclusivamente. Em seguida, abra um navegador da Internet em um cliente conectado à Internet IPv6 e navegue até o nome do host especificado para o parâmetro dnsNameforIPv6LbIP do balanceador de carga para confirmar a conectividade IPv6 de ponta a ponta para cada VM. Se você só vê a página da Web de um servidor, talvez seja necessário limpar o cache do navegador. Abra várias sessões de navegação privada. Você deve ver uma resposta de cada servidor.
+3. A partir de um cliente conectado à Internet IPv4, inicie uma conexão com o endereço IPv4 público do balanceador de carga. Para confirmar se o balanceador de carga está equilibrando a carga das duas VMs, você pode testar usando o IIS, conforme detalhado na etapa 2.
+4. De cada VM, inicie uma conexão de saída para um dispositivo de Internet conectado a IPv6 ou IPv4. Em ambos os casos, o IP de origem visto pelo dispositivo de destino é o endereço IPv4 ou IPv6 público do balanceador de carga.
 
 > [!NOTE]
-> ICMP para IPv4 e IPv6 está bloqueada na rede do Azure. Como resultado, as ferramentas, como sempre ping do ICMP falharem. Para testar a conectividade, utilize uma alternativa TCP como TCPing ou o cmdlet Test-NetConnection do PowerShell. Tenha em atenção que os endereços IP mostrada no diagrama são exemplos de valores que poderá ver. Uma vez que os endereços IPv6 são atribuídos dinamicamente, os endereços que receberá serão diferentes e podem variar consoante a região. Além disso, é comum para o endereço IPv6 público no balanceador de carga para começar com um prefixo diferente do que os endereços IPv6 privados no conjunto de back-end.
+> O ICMP para IPv4 e IPv6 é bloqueado na rede do Azure. Como resultado, as ferramentas ICMP, como ping, sempre falham. Para testar a conectividade, use uma alternativa de TCP como TCPing ou o cmdlet Test-NetConnection do PowerShell. Observe que os endereços IP mostrados no diagrama são exemplos de valores que você pode ver. Como os endereços IPv6 são atribuídos dinamicamente, os endereços recebidos serão diferentes e poderão variar de acordo com a região. Além disso, é comum que o endereço IPv6 público no balanceador de carga inicie com um prefixo diferente dos endereços IPv6 privados no pool de back-ends.
 
-## <a name="template-parameters-and-variables"></a>Parâmetros de modelo e as variáveis
+## <a name="template-parameters-and-variables"></a>Parâmetros e variáveis de modelo
 
-Um modelo Azure Resource Manager contém várias variáveis e parâmetros que pode personalizar para as suas necessidades. As variáveis são usadas para valores fixos, que não pretende que um usuário altere. Parâmetros são usados para valores que pretende que um utilizador para fornecer ao implementar o modelo. O modelo de exemplo está configurado para o cenário descrito neste artigo. Pode personalizá-la às necessidades do seu ambiente.
+Um modelo de Azure Resource Manager contém várias variáveis e parâmetros que você pode personalizar para suas necessidades. As variáveis são usadas para valores fixos que você não deseja que um usuário altere. Os parâmetros são usados para os valores que você deseja que um usuário forneça ao implantar o modelo. O modelo de exemplo está configurado para o cenário descrito neste artigo. Você pode personalizar isso para as necessidades do seu ambiente.
 
-O modelo de exemplo utilizado neste artigo inclui os seguintes parâmetros e variáveis:
+O modelo de exemplo usado neste artigo inclui as seguintes variáveis e parâmetros:
 
-| Parâmetro / Variable | Notas |
+| Parâmetro/variável | Notas |
 | --- | --- |
-| adminUsername |Especifique o nome da conta de administrador utilizada para iniciar sessão para as máquinas virtuais com. |
-| adminPassword |Especifique a palavra-passe para a conta de administrador utilizada para iniciar sessão para as máquinas virtuais com. |
-| dnsNameforIPv4LbIP |Especifique o nome de anfitrião DNS que pretende atribuir como o nome público do Balanceador de carga. Este nome é resolvido para o endereço de IP IPv4 público do Balanceador de carga. O nome tem de estar em minúsculas e de corresponder ao regex: ^ [a-z] [uma-z0 - 9-]{1,61}[a-z0-9] $. |
-| dnsNameforIPv6LbIP |Especifique o nome de anfitrião DNS que pretende atribuir como o nome público do Balanceador de carga. Este nome é resolvido para o endereço IPv6 público do Balanceador de carga. O nome tem de estar em minúsculas e de corresponder ao regex: ^ [a-z] [uma-z0 - 9-]{1,61}[a-z0-9] $. Isso pode ser o mesmo nome que o endereço IPv4. Quando um cliente envia uma consulta DNS para este nome de Azure irá devolver a e AAAA regista quando o nome é partilhado. |
-| vmNamePrefix |Especifique o prefixo de nome VM. O modelo de anexa um número (0, 1, etc.) para o nome quando as VMs são criadas. |
-| nicNamePrefix |Especifique o prefixo de nome de interface de rede. O modelo de anexa um número (0, 1, etc.) para o nome quando são criadas as interfaces de rede. |
-| storageAccountName |Introduza o nome de uma conta de armazenamento existente ou especifique o nome de um novo a ser criado pelo modelo. |
-| availabilitySetName |Em seguida, introduza o nome do conjunto de disponibilidade para ser utilizado com as VMs |
-| addressPrefix |O prefixo de endereço usado para definir o intervalo de endereços da rede Virtual |
-| subnetName |O nome da sub-rede em criado para a VNet |
+| adminUsername |Especifique o nome da conta de administrador usada para entrar nas máquinas virtuais com. |
+| adminPassword |Especifique a senha da conta de administrador usada para entrar nas máquinas virtuais com. |
+| dnsNameforIPv4LbIP |Especifique o nome do host DNS que você deseja atribuir como o nome público do balanceador de carga. Esse nome é resolvido para o endereço IPv4 público do balanceador de carga. O nome deve estar em minúsculas e corresponder ao Regex: ^ [a-z] [a-Z0-9-{1,61}] [a-Z0-9] $. |
+| dnsNameforIPv6LbIP |Especifique o nome do host DNS que você deseja atribuir como o nome público do balanceador de carga. Esse nome é resolvido para o endereço IPv6 público do balanceador de carga. O nome deve estar em minúsculas e corresponder ao Regex: ^ [a-z] [a-Z0-9-{1,61}] [a-Z0-9] $. Pode ser o mesmo nome do endereço IPv4. Quando um cliente envia uma consulta DNS para esse nome, o Azure retornará os registros a e AAAA quando o nome for compartilhado. |
+| vmNamePrefix |Especifique o prefixo do nome da VM. O modelo acrescenta um número (0, 1, etc.) ao nome quando as VMs são criadas. |
+| nicNamePrefix |Especifique o prefixo do nome da interface de rede. O modelo acrescenta um número (0, 1, etc.) ao nome quando as interfaces de rede são criadas. |
+| storageAccountName |Insira o nome de uma conta de armazenamento existente ou especifique o nome de uma nova para ser criada pelo modelo. |
+| availabilitySetName |Insira o nome do conjunto de disponibilidade a ser usado com as VMs |
+| addressPrefix |O prefixo de endereço usado para definir o intervalo de endereços da rede virtual |
+| subnetName |O nome da sub-rede em criada para a VNet |
 | subnetPrefix |O prefixo de endereço usado para definir o intervalo de endereços da sub-rede |
-| vnetName |Especifique o nome para a VNet utilizada pelas VMs. |
-| ipv4PrivateIPAddressType |O método de alocação utilizado para o endereço IP privado (estático ou dinâmico) |
-| ipv6PrivateIPAddressType |O método de alocação utilizado para o endereço IP privado (dinâmico). IPv6 só suporta a alocação dinâmica. |
-| numberOfInstances |O número de instâncias com balanceamento de carga implementado pelo modelo |
-| ipv4PublicIPAddressName |Especifique o nome DNS que pretende utilizar para comunicar com o endereço IPv4 público do Balanceador de carga. |
-| ipv4PublicIPAddressType |O método de alocação utilizado para o endereço IP público (estáticos ou dinâmicos) |
-| Ipv6PublicIPAddressName |Especifique o nome DNS que pretende utilizar para comunicar com o endereço IPv6 público do Balanceador de carga. |
-| ipv6PublicIPAddressType |O método de alocação utilizado para o endereço IP público (dinâmico). IPv6 só suporta a alocação dinâmica. |
-| lbName |Especifique o nome do Balanceador de carga. Este nome é apresentado no portal ou utilizado ao fazer referência a ele com um comando CLI ou o PowerShell. |
+| vnetName |Especifique o nome para a VNet usada pelas VMs. |
+| ipv4PrivateIPAddressType |O método de alocação usado para o endereço IP privado (estático ou dinâmico) |
+| ipv6PrivateIPAddressType |O método de alocação usado para o endereço IP privado (dinâmico). O IPv6 dá suporte apenas à alocação dinâmica. |
+| numberOfInstances |O número de instâncias com balanceamento de carga implantadas pelo modelo |
+| ipv4PublicIPAddressName |Especifique o nome DNS que você deseja usar para se comunicar com o endereço IPv4 público do balanceador de carga. |
+| ipv4PublicIPAddressType |O método de alocação usado para o endereço IP público (estático ou dinâmico) |
+| Ipv6PublicIPAddressName |Especifique o nome DNS que você deseja usar para se comunicar com o endereço IPv6 público do balanceador de carga. |
+| ipv6PublicIPAddressType |O método de alocação usado para o endereço IP público (dinâmico). O IPv6 dá suporte apenas à alocação dinâmica. |
+| lbName |Especifique o nome do balanceador de carga. Esse nome é exibido no portal ou usado ao se referir a ele com uma CLI ou um comando do PowerShell. |
 
-As variáveis restantes no modelo contenham valores derivados que são atribuídos quando o Azure cria os recursos. Não altere essas variáveis.
+As variáveis restantes no modelo contêm valores derivados que são atribuídos quando o Azure cria os recursos. Não altere essas variáveis.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para a sintaxe JSON e propriedades de um balanceador de carga num modelo, consulte [Network/loadbalancers](/azure/templates/microsoft.network/loadbalancers).
+Para obter a sintaxe JSON e as propriedades de um balanceador de carga em um modelo, consulte [Microsoft. Network/](/azure/templates/microsoft.network/loadbalancers)Load balancers.

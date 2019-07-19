@@ -1,6 +1,6 @@
 ---
-title: Partilhar contas e credenciais - Azure Active Directory | Documentos da Microsoft
-description: Descreve como o Azure Active Directory permite às organizações partilhar em segurança as contas de aplicações no local e serviços de cloud do consumidor.
+title: Compartilhando contas e credenciais-Azure Active Directory | Microsoft Docs
+description: Descreve como Azure Active Directory permite que as organizações compartilhem com segurança contas para aplicativos locais e serviços de nuvem do consumidor.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,63 +15,62 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083739"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304379"
 ---
-# <a name="sharing-accounts-with-azure-ad"></a>Partilhar contas com o Azure AD
+# <a name="sharing-accounts-with-azure-ad"></a>Compartilhando contas com o Azure AD
 ## <a name="overview"></a>Descrição geral
-Por vezes, as organizações precisam de utilizar um único nome de utilizador e palavra-passe para várias pessoas, que normalmente ocorre em dois casos:
+Às vezes, as organizações precisam usar um único nome de usuário e senha para várias pessoas, o que geralmente acontece em dois casos:
 
-* Ao aceder a aplicações que requerem um início de sessão único e a palavra-passe para cada utilizador, se aplicações no local ou consumidor de serviços cloud (por exemplo, contas de mídia social corporativa).
-* Durante a criação de ambientes de vários utilizadores. Poderá ter uma conta de local única que tem privilégios elevados e é utilizada para núcleos de atividades de configuração, administração e a recuperação. Por exemplo, o local "administrador global" conta do Office 365 ou a conta de raiz no Salesforce.
+* Ao acessar aplicativos que exigem uma entrada e senha exclusivas para cada usuário, seja aplicativos locais ou serviços de nuvem do consumidor (por exemplo, contas de mídia social corporativa).
+* Ao criar ambientes de vários usuários. Você pode ter uma única conta local que tem privilégios elevados e é usada para fazer a configuração principal, a administração e as atividades de recuperação. Por exemplo, a conta "administrador global" local para o Office 365 ou a conta raiz no Salesforce.
 
-Tradicionalmente, estas contas são compartilhadas por distribuir as credenciais (nome de utilizador e palavra-passe) para os indivíduos de certos ou armazená-los num local compartilhado onde vários agentes fidedignos podem aceder aos mesmos.
+Tradicionalmente, essas contas são compartilhadas distribuindo as credenciais (nome de usuário e senha) para os indivíduos certos ou armazenando-as em um local compartilhado onde vários agentes confiáveis podem acessá-las.
 
-O modelo tradicional de partilha tem várias desvantagens:
+O modelo de compartilhamento tradicional tem várias desvantagens:
 
-* Permitir o acesso a novos aplicativos exige que distribuir as credenciais para todos os utilizadores que precisa de acesso.
-* Cada aplicação partilhadas pode exigir o seu próprio conjunto exclusivo de credenciais partilhadas, exigir que os usuários não se esqueça de vários conjuntos de credenciais. Quando os utilizadores tenham de memorizar credenciais muitos, aumenta o risco a que eles recorrer a práticas de risco. (por exemplo, escrever palavras-passe).
-* É impossível dizer, quem tem acesso a uma aplicação.
-* É impossível dizer, quem tem *acedidos* um aplicativo.
-* Quando deseja remover o acesso a uma aplicação, terá de atualizar as credenciais e redistribuí-los para todos os utilizadores que precisa de acesso a essa aplicação.
+* A habilitação do acesso a novos aplicativos exige que você distribua credenciais para todos que precisam de acesso.
+* Cada aplicativo compartilhado pode exigir seu próprio conjunto exclusivo de credenciais compartilhadas, exigindo que os usuários se comentem com vários conjuntos de credenciais. Quando os usuários precisam se lembrar de muitas credenciais, o risco aumenta a recorrer a práticas arriscadas. (por exemplo, gravando senhas).
+* Você não pode dizer quem tem acesso a um aplicativo.
+* Você não pode dizer quem *acessou* um aplicativo.
+* Quando desejar remover o acesso a um aplicativo, você precisará atualizar as credenciais e redistribuí-las a todos que precisem de acesso a esse aplicativo.
 
-## <a name="azure-active-directory-account-sharing"></a>Partilha e conta do Azure Active Directory
-O Azure AD fornece uma nova abordagem para utilizar as contas partilhadas, que elimina essas desvantagens.
+## <a name="azure-active-directory-account-sharing"></a>Compartilhamento de conta Azure Active Directory
+O Azure AD fornece uma nova abordagem para o uso de contas compartilhadas que eliminam essas desvantagens.
 
-O administrador do Azure AD configura as aplicações que um utilizador pode aceder ao utilizar o painel de acesso e escolher o tipo de melhor de início de sessão único adequam para essa aplicação. Um desses tipos *baseado em palavra-passe de início de sessão único*, permite que o Azure AD atuar como um tipo de "Mediador" durante o processo de início de sessão para essa aplicação.
+O administrador do Azure AD Configura quais aplicativos um usuário pode acessar usando o painel de acesso e escolhendo o tipo de logon único mais adequado para esse aplicativo. Um desses tipos, *logon único baseado em senha*, permite que o Azure ad atue como um tipo de "agente" durante o processo de logon para esse aplicativo.
 
-Os utilizadores iniciar sessão uma vez com suas contas institucionais. Esta conta é a mesma que utilizam regularmente para acessar sua área de trabalho ou e-mail. Podem detetar e aceder apenas os aplicativos que estão atribuídos. Com as contas partilhadas, esta lista de aplicativos pode incluir qualquer número de credenciais partilhadas. O utilizador final não precisa se lembrar ou anote as várias contas que talvez estejam usando.
+Os usuários fazem logon uma vez com sua conta institucional. Essa conta é a mesma usada regularmente para acessar seus desktops ou emails. Eles podem descobrir e acessar somente os aplicativos aos quais eles estão atribuídos. Com contas compartilhadas, essa lista de aplicativos pode incluir qualquer número de credenciais compartilhadas. O usuário final não precisa se lembrar ou anotar as várias contas que podem estar usando.
 
-As contas partilhadas não apenas aumentam de supervisão e aumentar a usabilidade, eles também melhoram a segurança. Os utilizadores com permissões para utilizar as credenciais não vir a palavra-passe partilhada, mas em vez disso, obtém permissões para utilizar a palavra-passe como parte de um fluxo de autenticação organizada. Além disso, alguns aplicativos de SSO de palavra-passe dão-lhe a opção de utilizar o Azure AD para periodicamente as senhas de rollover (atualização). O sistema utiliza as palavras-passe grandes e complexas, que aumenta a segurança da conta. O administrador pode conceder ou revogar o acesso facilmente a uma aplicação, sabe quem tem acesso à conta e quem acessou-lo no passado.
+As contas compartilhadas não só aumentam a supervisão e melhoram a usabilidade, elas também aprimoram sua segurança. Os usuários com permissões para usar as credenciais não veem a senha compartilhada, mas, em vez disso, obtêm permissões para usar a senha como parte de um fluxo de autenticação orquestrada. Além disso, alguns aplicativos de SSO de senha oferecem a opção de usar o Azure AD para substituir periodicamente (atualizar) as senhas. O sistema usa senhas grandes e complexas, o que aumenta a segurança da conta. O administrador pode conceder ou revogar facilmente o acesso a um aplicativo, sabe quem tem acesso à conta e quem a acessou no passado.
 
-O Azure AD suporta as contas partilhadas para qualquer Enterprise Mobility Suite (EMS), Premium ou Basic licenciado a utilizadores, em todos os tipos de palavra-passe único início de sessão em aplicações. Pode partilhar contas de qualquer uma das milhares de aplicações previamente integradas na Galeria de aplicações e pode adicionar sua própria aplicação de autenticação de palavra-passe com [aplicações personalizadas de SSO](../manage-apps/configure-single-sign-on-portal.md).
+O Azure AD dá suporte a contas compartilhadas para qualquer usuário licenciado do Enterprise Mobility Suite (EMS), Premium ou Basic, em todos os tipos de aplicativos de logon único com senha. Você pode compartilhar contas para qualquer um dos milhares de aplicativos previamente integrados na Galeria de aplicativos e pode adicionar seu próprio aplicativo de autenticação de senha com [aplicativos de SSO personalizados](../manage-apps/configure-single-sign-on-portal.md).
 
-As funcionalidades do Azure AD que ativar a partilha de conta incluem:
+Os recursos do Azure AD que habilitam o compartilhamento de conta incluem:
 
-* [Palavra-passe início de sessão único](../manage-apps/what-is-single-sign-on.md#password-based-sso)
-* Palavra-passe único início de sessão no agente
+* [Logon único com senha](../manage-apps/what-is-single-sign-on.md#password-based-sso)
+* Agente de logon único com senha
 * [Atribuição de grupo](groups-self-service-management.md)
-* Aplicações de palavra-passe personalizada
-* [Dashboard de utilização de aplicação/reports](../active-directory-passwords-get-insights.md)
-* Portais de acesso do utilizador final
-* [Proxy de aplicações](../manage-apps/application-proxy.md)
-* [Marketplace do Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/)
+* Aplicativos de senha personalizada
+* [Painel/relatórios de uso do aplicativo](../active-directory-passwords-get-insights.md)
+* Portais de acesso do usuário final
+* [Proxy de aplicativo](../manage-apps/application-proxy.md)
+* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
-## <a name="sharing-an-account"></a>Uma conta de partilha
-Para utilizar o Azure AD para partilhar uma conta, terá de:
+## <a name="sharing-an-account"></a>Compartilhando uma conta
+Para usar o Azure AD para compartilhar uma conta, você precisa:
 
-* Adicionar uma aplicação [Galeria de aplicações](https://azure.microsoft.com/marketplace/active-directory/) ou [aplicação personalizada](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
-* Configurar a aplicação para a palavra-passe único início de sessão (SSO)
-* Uso [atribuição baseada em grupo](groups-saasapps.md) e selecione a opção para introduzir uma credencial partilhada
-* Opcional: em alguns aplicativos, como o Facebook, Twitter ou LinkedIn, pode ativar a opção para [automatizada de rollover de palavra-passe do Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
+* Adicionar uma [Galeria](https://azure.microsoft.com/marketplace/active-directory/) de aplicativos de aplicativo ou um [aplicativo personalizado](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Configurar o aplicativo para logon único com senha (SSO)
+* Use a [atribuição baseada em grupo](groups-saasapps.md) e selecione a opção para inserir uma credencial compartilhada
 
-Pode também tornar a sua conta partilhada mais segura com multi-factor Authentication (MFA) (Saiba mais sobre [protegendo aplicativos com o Azure AD](../authentication/concept-mfa-whichversion.md)) e pode delegar a capacidade de gerir quem tem acesso para a aplicação utilizando [ Personalização do AD Azure](groups-self-service-management.md) gestão de grupo.
+Você também pode tornar sua conta compartilhada mais segura com a MFA (autenticação multifator) (Saiba mais sobre como [proteger aplicativos com o Azure ad](../authentication/concept-mfa-whichversion.md)) e pode delegar a capacidade de gerenciar quem tem acesso ao aplicativo usando o autoatendimento [do Azure AD ](groups-self-service-management.md)gerenciamento de grupo.
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Gestão de Aplicações no Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Proteger aplicações com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Gestão/SSAA de grupos self-service](groups-self-service-management.md)
+* [Protegendo aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
+* [Gerenciamento de grupo de autoatendimento/SSAA](groups-self-service-management.md)

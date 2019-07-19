@@ -1,6 +1,6 @@
 ---
-title: Tutorial para configurar a configuração de aplicações do Azure para enviar eventos para um ponto final web | Documentos da Microsoft
-description: Neste tutorial, saiba como configurar subscrições de eventos de configuração de aplicações do Azure para enviar eventos de modificação de chave-valor para um ponto final web.
+title: Tutorial para configurar Azure App configuração para enviar eventos para um ponto de extremidade da Web | Microsoft Docs
+description: Neste tutorial, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web.
 services: azure-app-configuration
 documentationcenter: ''
 author: jimmyca
@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735361"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326591"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: Encaminhar eventos de configuração de aplicações do Azure para um ponto final web com a CLI do Azure
+# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início rápido: Rotear Azure App eventos de configuração para um ponto de extremidade da Web com CLI do Azure
 
-Os utilizadores de configuração de aplicações do Azure podem subscrever a eventos que são emitidos sempre que os valores de chave são modificados. Esses eventos podem acionar webhooks, as funções do Azure, filas de armazenamento do Azure ou qualquer outro manipulador de eventos que é suportado pelo [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers). Neste artigo, ficará a saber como utilizar a CLI do Azure para subscrever a eventos de configuração de aplicações do Azure.
+Neste guia de início rápido, você aprende a configurar Azure App assinaturas de evento de configuração para enviar eventos de modificação de chave-valor para um ponto de extremidade da Web. Azure App os usuários de configuração podem assinar eventos emitidos sempre que os valores de chave são modificados. Esses eventos podem disparar WebHooks, Azure Functions, filas de armazenamento do Azure ou qualquer outro manipulador de eventos com suporte na grade de eventos do Azure. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
-Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Quando concluir os passos descritos neste artigo, pode ver que os dados do evento foram enviados para a aplicação Web.
-
-![Ver evento da subscrição](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Assinatura do Azure- [crie um gratuitamente](https://azure.microsoft.com/free/). Opcionalmente, você pode usar o Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,15 +40,15 @@ Os tópicos do Event Grid são recursos do Azure e têm de ser colocados num gru
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group). 
 
-O exemplo seguinte cria um grupo de recursos chamado `<resource_group_name>` no *westus* localização.  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
+O exemplo a seguir cria um grupo de `<resource_group_name>` recursos chamado no local *westus* .  Substitua `<resource_group_name>` por um nome exclusivo para o seu grupo de recursos.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration"></a>Criar uma configuração de aplicações
+## <a name="create-an-app-configuration"></a>Criar uma configuração de aplicativo
 
-Substitua `<appconfig_name>` com um nome exclusivo para a sua configuração de aplicação, e `<resource_group_name>` com o grupo de recursos que criou anteriormente. O nome deve ser exclusivo, porque é utilizado como um nome DNS.
+Substitua `<appconfig_name>` por um nome exclusivo para a configuração do aplicativo e `<resource_group_name>` pelo grupo de recursos que você criou anteriormente. O nome deve ser exclusivo porque é usado como um nome DNS.
 
 ```azurecli-interactive
 az appconfig create \
@@ -82,9 +78,9 @@ Deverá ver o site sem mensagens atualmente apresentadas.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration"></a>Subscrever a configuração da aplicação
+## <a name="subscribe-to-your-app-configuration"></a>Assinar sua configuração de aplicativo
 
-Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar e para onde enviar esses eventos. O exemplo seguinte subscreve à configuração de aplicação que criou e transmite o URL da sua aplicação web como o ponto final para notificação de eventos. Substitua `<event_subscription_name>` por um nome para a subscrição de eventos. Para `<resource_group_name>` e `<appconfig_name>`, utilize o valor que criou anteriormente.
+Subscreva um tópico para comunicar ao Event Grid os eventos que pretende controlar e para onde enviar esses eventos. O exemplo a seguir assina a configuração do aplicativo que você criou e passa a URL do seu aplicativo Web como o ponto de extremidade para notificação de eventos. Substitua `<event_subscription_name>` por um nome para a subscrição de eventos. Para `<resource_group_name>` e `<appconfig_name>`, utilize o valor que criou anteriormente.
 
 O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`.
 
@@ -102,9 +98,9 @@ Verifique a aplicação Web novamente e repare que um evento de validação de s
 
 ![Ver evento da subscrição](./media/quickstarts/event-grid/view-subscription-event.png)
 
-## <a name="trigger-an-app-configuration-event"></a>Acionar um evento de configuração de aplicações
+## <a name="trigger-an-app-configuration-event"></a>Disparar um evento de configuração de aplicativo
 
-Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Criar uma chave-valor com o `<appconfig_name>` anteriores.
+Agora, vamos acionar um evento para ver como o Event Grid distribui a mensagem para o ponto final. Crie um valor de chave usando o `<appconfig_name>` de antes.
 
 ```azurecli-interactive
 az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
@@ -130,7 +126,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Se planeia continuar a trabalhar com esta configuração de aplicações e a subscrição de evento, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
+Se você planeja continuar trabalhando com essa configuração de aplicativo e assinatura de evento, não limpe os recursos criados neste artigo. Se não quiser continuar, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 Substitua `<resource_group_name>` pelo grupo de recursos que criou acima.
 
@@ -140,7 +136,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre eventos de chave-valor e o Event Grid pode ajudá-lo a fazer:
+Agora que você sabe como criar tópicos e assinaturas de evento, saiba mais sobre os eventos de valor-chave e qual grade de eventos pode ajudá-lo:
 
-- [Reagir a eventos de chave-valor](concept-app-configuration-event.md)
+- [Reagindo a eventos de valor-chave](concept-app-configuration-event.md)
 - [Sobre o Event Grid](../event-grid/overview.md)
+- [Manipuladores de grade de eventos do Azure](../event-grid/event-handlers.md)

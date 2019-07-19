@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 51a554586c67842ead40cd4a1bfaaa51bbdd8a18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e450c0682a22a6e667a2bca153ce5d706a5bea96
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954408"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986243"
 ---
-# <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed no Azure Cosmos DB - descrição geral
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed em Azure Cosmos DB-visão geral
 
 Altere feed de suporte no Azure Cosmos DB funciona através da escuta de um contentor do Azure Cosmos DB para efetuar quaisquer alterações. Em seguida, gera a saída de lista classificada de documentos que foram alteradas pela ordem em que foram modificadas. As alterações são preservadas, podem ser processadas de forma assíncrona e incremental, e o resultado pode ser distribuído por um ou mais consumidores para processamento paralelo. 
 
@@ -33,7 +33,7 @@ A alteração de feed no Azure Cosmos DB permite-lhe criar soluções eficientes
 
 Esta funcionalidade é atualmente suportada pelas seguintes APIs do Azure Cosmos DB e SDKs do cliente.
 
-| **Controladores do cliente** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para o MongoDB** | **API do gremlin**|**API de Tabela** |
+| **Controladores do cliente** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
 | .NET | ND | Sim | Não | Não | Sim | Não |
 |Java|ND|Sim|Não|Não|Sim|Não|
@@ -58,7 +58,7 @@ Se uma propriedade de valor de TTL (Time TTL) é definida num item como -1, o fe
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Feed de alterações e _etag, _lsn ou TS
 
-O formato de _etag é interno e não deve demorar dependência, porque ele pode mudar em qualquer altura. TS é uma modificação ou um carimbo de criação. Pode usar TS para comparação cronológica. _lsn é um ID de lote que é adicionado para apenas; feed de alterações ele representa o ID da transação. Número de itens pode ter o mesmo _lsn. ETag no FeedResponse é diferente do _etag que vir no item. _etag é um identificador interno e é utilizado para a simultaneidade informa ao controle sobre a versão do item, ao passo que o ETag é utilizado para o feed de sequenciamento.
+O formato de _etag é interno e não deve demorar dependência, porque ele pode mudar em qualquer altura. TS é uma modificação ou um carimbo de criação. Pode usar TS para comparação cronológica. _lsn é uma ID de lote que é adicionada somente para o feed de alterações; representa a ID da transação. Número de itens pode ter o mesmo _lsn. ETag no FeedResponse é diferente do _etag que vir no item. _etag é um identificador interno e é utilizado para a simultaneidade informa ao controle sobre a versão do item, ao passo que o ETag é utilizado para o feed de sequenciamento.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cenários e casos de utilização de feed de alterações
 
@@ -94,7 +94,7 @@ Seguem-se alguns dos cenários, que pode facilmente implementar com o feed de al
 Pode trabalhar com o feed de alterações com as seguintes opções:
 
 * [Usando a alteração do feed com as funções do Azure](change-feed-functions.md)
-* [Usando a alteração do feed com biblioteca processador do feed de alterações](change-feed-processor.md) 
+* [Usando o feed de alterações com o processador do feed de alterações](change-feed-processor.md) 
 
 Feed de alterações está disponível para cada chave de partição lógica dentro do contêiner, e podem ser distribuído por um ou mais consumidores para processamento paralelo, conforme mostrado na imagem abaixo.
 
@@ -108,7 +108,7 @@ Feed de alterações está disponível para cada chave de partição lógica den
 
 * O feed de alterações inclui inserções e operações de atualização efetuadas aos itens dentro do contentor. Pode capturar eliminações ao definir um sinalizador de "eliminação de forma recuperável" dentro de seus itens (por exemplo, documentos) em vez de eliminações. Em alternativa, pode definir um período de expiração finita para seus itens com o [capacidade TTL](time-to-live.md). Por exemplo, 24 horas e utilização elimina o valor dessa propriedade para capturar. Com esta solução, deve processar as alterações dentro de um intervalo de tempo mais curto do que o período de expiração do TTL. 
 
-* Cada alteração a um item exatamente uma vez aparece no feed de alterações e os clientes têm de gerir a lógica de ponto de verificação. Se quiser evitar a complexidade de gerir pontos de verificação, a biblioteca de processador do feed de alterações fornece pontos de verificação automática e ", pelo menos, uma vez" semântica. Ver [usar alterar feed com biblioteca processador do feed de alterações](change-feed-processor.md).
+* Cada alteração a um item exatamente uma vez aparece no feed de alterações e os clientes têm de gerir a lógica de ponto de verificação. Se você quiser evitar a complexidade do gerenciamento de pontos de verificação, o processador do feed de alterações fornecerá o ponto de verificação automático e a semântica "pelo menos uma vez". Consulte [usar o feed de alterações com o processador do feed de alterações](change-feed-processor.md).
 
 * A alteração mais recente para um determinado item está incluída no log de alterações. Alterações intermédias poderão não estar disponíveis.
 
@@ -118,7 +118,7 @@ Feed de alterações está disponível para cada chave de partição lógica den
 
 * As alterações estão disponíveis em paralelo para todas as chaves de partição lógica de um contentor do Cosmos do Azure. Esta capacidade permite que as alterações dos contentores grandes para serem processados em paralelo por vários consumidores.
 
-* As aplicações podem solicitar a vários feeds de mudança no mesmo contentor em simultâneo. ChangeFeedOptions.StartTime pode ser utilizado para fornecer um ponto de partida inicial. Por exemplo, para encontrar o token de continuação correspondente a uma hora de relógio especificada. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 segundos. 
+* Os aplicativos podem solicitar vários feeds de alteração no mesmo contêiner simultaneamente. ChangeFeedOptions.StartTime pode ser utilizado para fornecer um ponto de partida inicial. Por exemplo, para encontrar o token de continuação correspondente a uma hora de relógio especificada. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 segundos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -126,4 +126,4 @@ Agora, pode avançar para saber mais sobre a alteração do feed nos seguintes a
 
 * [Feed de alterações de opções para ler](read-change-feed.md)
 * [Usando a alteração do feed com as funções do Azure](change-feed-functions.md)
-* [Usando a alteração de biblioteca processador do feed](change-feed-processor.md)
+* [Usando o processador do feed de alterações](change-feed-processor.md)

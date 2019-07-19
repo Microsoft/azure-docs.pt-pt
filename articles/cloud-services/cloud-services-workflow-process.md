@@ -1,6 +1,6 @@
 ---
-title: Fluxo de trabalho de arquitetura VM do Azure do Windows | Documentos da Microsoft
-description: Este artigo fornece a visão geral dos processos de fluxo de trabalho quando implementa um serviço.
+title: Fluxo de trabalho da arquitetura de VM do Windows Azure | Microsoft Docs
+description: Este artigo fornece uma visão geral dos processos de fluxo de trabalho quando você implanta um serviço.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -15,114 +15,114 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 7c8459a6694663a49203b6ec21a760d3e6bd60c3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3146ffa0f4b828f1a28d3bc51b26db194244c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480761"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249511"
 ---
-#    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Fluxo de trabalho de arquitetura de VM clássica do Windows Azure 
-Este artigo fornece uma descrição geral dos processos de fluxo de trabalho que ocorrem ao implementar ou atualizar um recurso do Azure, como uma máquina virtual. 
+#    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Fluxo de trabalho da arquitetura de VM clássica do Windows Azure 
+Este artigo fornece uma visão geral dos processos de fluxo de trabalho que ocorrem quando você implanta ou atualiza um recurso do Azure, como uma máquina virtual. 
 
 > [!NOTE]
->O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: Resource Manager e clássica. Este artigo cobre a utilização do modelo de implementação clássica.
+>O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: Resource Manager e clássico. Este artigo cobre a utilização do modelo de implementação clássica.
 
-O diagrama seguinte apresenta a arquitetura de recursos do Azure.
+O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 
 ![Fluxo de trabalho do Azure](./media/cloud-services-workflow-process/workflow.jpg)
 
-## <a name="workflow-basics"></a>Noções básicas de fluxo de trabalho
+## <a name="workflow-basics"></a>Noções básicas do fluxo de trabalho
    
-**A**. RDFE / FFE é o caminho de comunicação do utilizador aos recursos de infraestrutura. RDFE (RedDog Front End) é a API exposta publicamente que é o front-end para o Portal de gestão e a API de gestão do serviço como o Visual Studio, Azure MMC e assim por diante.  Todas as solicitações do usuário passam pelo RDFE. FFE (recursos de infraestrutura de Front-End) é a camada traduz os pedidos de RDFE em comandos de recursos de infraestrutura. Todos os pedidos de RDFE percorrer FFE para aceder o recursos de infraestrutura controladores.
+**A**. RDFE/FFE é o caminho de comunicação do usuário para a malha. RDFE (Front-End RedDog) é a API exposta publicamente que é o front-end para o Portal de Gerenciamento e o API de Gerenciamento de Serviços, como o Visual Studio, o MMC do Azure e assim por diante.  Todas as solicitações do usuário passam por RDFE. FFE (front-end da malha) é a camada que converte solicitações do RDFE em comandos de malha. Todas as solicitações de RDFE percorrem o FFE para alcançar os controladores de malha.
 
-**B**. O controlador de malha é responsável pela manutenção e monitoramento de todos os recursos no Centro de dados. Ele se comunica com agentes de anfitrião de recursos de infraestrutura nos recursos de infraestrutura do envio de informações de sistema operacional, como a versão SO convidado, o pacote de serviço, configuração de serviço e estado do serviço.
+**B**. O controlador de malha é responsável por manter e monitorar todos os recursos no data center. Ele se comunica com agentes de host de malha no sistema operacional de malha, enviando informações como a versão do SO convidado, o pacote de serviço, a configuração de serviço e o estado do serviço.
 
-**C**. O agente do anfitrião reside no OSsystem anfitrião e é responsável pela configuração do SO convidado e ao comunicar com o agente de convidado (WindowsAzureGuestAgent) para atualizar a função para um Estado de objetivo pretendido e fazer heartbeat verifica com o agente convidado. Se o agente do anfitrião não receber a resposta de heartbeat durante 10 minutos, o agente do anfitrião reinicia o SO convidado.
+**C**. O agente de host reside no host OSsystem e é responsável por configurar o sistema operacional convidado e se comunicar com o agente convidado (WindowsAzureGuestAgent) para atualizar a função em direção a um estado de meta pretendido e fazer verificações de pulsação com o agente convidado. Se o agente do host não receber resposta de pulsação por 10 minutos, o agente do host reiniciará o sistema operacional convidado.
 
-**C2**. WaAppAgent é responsável por instalar, configurar e atualizar WindowsAzureGuestAgent.exe.
+**C2**. O WaAppAgent é responsável por instalar, configurar e atualizar o WindowsAzureGuestAgent. exe.
 
 **D**.  WindowsAzureGuestAgent é responsável pelo seguinte:
 
-1. Configurar o SO convidado, incluindo a firewall, ACLs, LocalStorage recursos, o pacote de serviço e configuração e certificados. A configurar o SID da conta de utilizador que a função será executado no.
-2. Comunicando o status de função para os recursos de infraestrutura.
-3. A partir de WaHostBootstrapper e monitorizá-lo para se certificar de que a função está no estado de objetivos.
+1. Configurar o sistema operacional convidado, incluindo Firewall, ACLs, recursos de LocalStorage, pacote de serviço e configuração e certificados. Configuração do SID para a conta de usuário na qual a função será executada.
+2. Comunicando o status da função à malha.
+3. Iniciando o WaHostBootstrapper e monitorando-o para certificar-se de que a função está no estado de meta.
 
 **E**. WaHostBootstrapper é responsável por:
 
-1. Ler a configuração da função e, a partir de todas as tarefas adequadas e processos para configurar e executar a função.
-2. Monitorização de todos os processos filho.
-3. Gerando o evento de StatusCheck sobre o processo de anfitrião de função.
+1. Ler a configuração da função e iniciar todas as tarefas e processos apropriados para configurar e executar a função.
+2. Monitorando todos os seus processos filho.
+3. Gerando o evento StatusCheck no processo de host da função.
 
-**F**. IISConfigurator é executado se a função estiver configurada como uma função da web de IIS completo (não será executado para funções do SDK 1,2 HWC). Ele é responsável por:
+**F**. IISConfigurator será executado se a função estiver configurada como uma função Web do IIS completa (ela não será executada para as funções do SDK 1,2 HWC). É responsável por:
 
-1. A iniciar os serviços padrão do IIS
-2. Configurar o módulo de reescrita na configuração da web
-3. Como configurar o AppPool para a função configurada no modelo de serviço
-4. Configurar o registo do IIS para apontar para a pasta de DiagnosticStore LocalStorage
-5. Configurar permissões e ACLs
-6. O Web site reside em % roleroot%:\sitesroot\0 e os pontos do apppool para esta localização para executar o IIS. 
+1. Iniciando os serviços padrão do IIS
+2. Configurando o módulo Rewrite na configuração da Web
+3. Configurando o AppPool para a função configurada no modelo de serviço
+4. Configurando o log do IIS para apontar para a pasta DiagnosticStore LocalStorage
+5. Configurando permissões e ACLs
+6. O site reside em% RoleRoot%: \sitesroot\0, e o AppPool aponta para esse local para executar o IIS. 
 
-**G**. Tarefas de arranque são definidas pelo modelo de função e iniciadas pelo WaHostBootstrapper. Tarefas de arranque podem ser configuradas para executar de maneira assíncrona em segundo plano, e o bootstrapper de anfitrião irá iniciar a tarefa de arranque e, em seguida, avançar para outras tarefas de arranque. Tarefas de arranque também podem ser configuradas para ser executado no modo de simples (predefinição), no qual o bootstrapper de anfitrião irá esperar para a tarefa de arranque, termine a execução e retornar um código de saída de êxito (0) antes de continuar para a próxima tarefa de arranque.
+**G**. As tarefas de inicialização são definidas pelo modelo de função e iniciadas pelo WaHostBootstrapper. As tarefas de inicialização podem ser configuradas para serem executadas em segundo plano de forma assíncrona, e o bootstrapper de host iniciará a tarefa de inicialização e continuará em outras tarefas de inicialização. As tarefas de inicialização também podem ser configuradas para serem executadas no modo simples (padrão), no qual o bootstrapper de host aguardará a conclusão da execução da tarefa de inicialização e retornará um código de saída com êxito (0) antes de continuar com a próxima tarefa de inicialização.
 
-**H**. Essas tarefas fazem parte do SDK e são definidas como plug-ins na definição de serviço da função (. csdef). Quando expandido para tarefas de arranque, o **DiagnosticsAgent** e **RemoteAccessAgent** são exclusivos em que cada um deles definir duas tarefas de arranque, um regular e que tem um **/blockStartup** parâmetro. A tarefa de arranque normal é definida como uma tarefa de arranque em segundo plano, para que ele pode ser executado em segundo plano enquanto a função em si está em execução. O **/blockStartup** tarefa de arranque é definida como uma tarefa de arranque simples para que WaHostBootstrapper aguarda a sair antes de continuar. O **/blockStartup** tarefa aguarda que a tarefa regular concluir a inicialização, e, em seguida, ele é encerrado e permitir que o bootstrapper do anfitrião continuar. Isso é feito para que podem ser configurados antes do início de processos de função (isto é feito através da tarefa de /blockStartup) de diagnóstico e de acesso do RDP. Isto também permite o diagnóstico e de acesso do RDP para continuar a executar após o bootstrapper do anfitrião terminar as tarefas de arranque (isto é feito através da tarefa Normal).
+**H**. Essas tarefas fazem parte do SDK e são definidas como plug-ins na definição de serviço da função (. csdef). Quando expandido para tarefas de inicialização, o **DiagnosticsAgent** e o **RemoteAccessAgent** são exclusivos, pois cada um deles define duas tarefas de inicialização, uma regular e outra que tem um parâmetro **/blockStartup** . A tarefa de inicialização normal é definida como uma tarefa de inicialização em segundo plano para que possa ser executada em segundo plano enquanto a própria função está em execução. A tarefa de inicialização **/blockStartup** é definida como uma tarefa de inicialização simples para que o WaHostBootstrapper aguarde sua saída antes de continuar. A tarefa **/blockStartup** aguarda a conclusão da inicialização da tarefa regular e, em seguida, sai e permite que o bootstrapper do host continue. Isso é feito para que o diagnóstico e o acesso de RDP possam ser configurados antes do início dos processos de função (isso é feito por meio da tarefa/blockStartup). Isso também permite que o diagnóstico e o acesso do RDP continuem em execução depois que o bootstrapper do host tiver concluído as tarefas de inicialização (isso é feito por meio da tarefa normal).
 
-**I**. WaWorkerHost é o processo de host padrão para funções de trabalho normal. Este processo de anfitrião aloja DLLs e código de ponto de entrada, como OnStart e a execução da função.
+**I**. WaWorkerHost é o processo de host padrão para funções de trabalho normais. Esse processo de host hospeda todas as DLLs da função e o código de ponto de entrada, como OnStart e Run.
 
-**J**. WaWebHost é o processo de host padrão para funções da web, se estiverem configurados para utilizar o SDK 1,2 compatível com Alojável Web Core (HWC). Funções podem ativar o modo HWC ao remover o elemento da definição do serviço (. csdef). Neste modo, executam código e DLLs do serviço do processo de WaWebHost. IIS (w3wp) não é utilizado e não há nenhum AppPools configuradas no Gerenciador do IIS, porque está alojado no IIS dentro WaWebHost.exe.
+**J**. WaWebHost é o processo de host padrão para funções Web se elas estiverem configuradas para usar o HWC (núcleo de Web Hospedáal) compatível com o SDK 1,2. As funções podem habilitar o modo HWC removendo o elemento da definição de serviço (. csdef). Nesse modo, todo o código e as DLLs do serviço são executados do processo WaWebHost. IIS (w3wp) não é usado e não há AppPools configuradas no Gerenciador do IIS porque o IIS é hospedado dentro de WaWebHost. exe.
 
-**K**. WaIISHost é o processo de anfitrião para o código de ponto de entrada de função para funções da web que utilizam IIS completo. Este processo carrega a DLL primeiro que se encontra o que utiliza a **RoleEntryPoint** de classe e executa o código a partir dessa classe (OnStart, Run, OnStop). Qualquer **RoleEnvironment** (como StatusCheck e Changed) que são criados na classe RoleEntryPoint são gerados nesse processo.
+**K**. WaIISHost é o processo de host para o código de ponto de entrada de função para funções Web que usam o IIS completo. Esse processo carrega a primeira DLL encontrada que usa a classe **RoleEntryPoint** e executa o código dessa classe (OnStart, Run, OnStop). Todos os eventos **RoleEnvironment** (como StatusCheck e Changed) criados na classe RoleEntryPoint são gerados nesse processo.
 
-**L**. W3wp é o processo de trabalho padrão do IIS que é utilizado se a função está configurada para utilizar o IIS completo. Isso é executado o AppPool que está configurado de IISConfigurator. Qualquer RoleEnvironment (como StatusCheck e Changed) que são criadas aqui são gerados nesse processo. Tenha em atenção que os eventos de RoleEnvironment serão acionados em ambos os locais (WaIISHost e w3wp.exe) se subscrever a eventos em ambos os processos.
+**L**. W3WP é o processo de trabalho padrão do IIS que será usado se a função estiver configurada para usar o IIS completo. Isso executa o AppPool configurado no IISConfigurator. Qualquer evento RoleEnvironment (como StatusCheck e alterado) que são criados aqui são gerados nesse processo. Observe que os eventos RoleEnvironment serão acionados em ambos os locais (WaIISHost e w3wp. exe) se você se inscrever em eventos em ambos os processos.
 
 ## <a name="workflow-processes"></a>Processos de fluxo de trabalho
 
-1. Um usuário faz uma solicitação, como carregar ficheiros. cspkg e. cscfg, informar um recurso para parar ou efetuar uma alteração de configuração, e assim por diante. Isso pode ser feito através do portal do Azure ou uma ferramenta que usa a API de gestão de serviço, como o recurso de publicação do Visual Studio. Este pedido vai para RDFE fazer todos os relacionados com a subscrição de trabalho e, em seguida, comunicam o pedido para FFE. O resto destes passos de fluxo de trabalho está a implementar um novo pacote e iniciá-la.
-2. FFE localiza o agrupamento de computadores correto (com base na entrada do cliente, que o grupo de afinidade ou a localização geográfica mais a entrada de recurso de infraestrutura, como disponibilidade de máquina) e se comunica com o controlador de malha mestre nesse agrupamento de máquina.
-3. O controlador de malha localiza um anfitrião que tenha de núcleos de CPU disponíveis (ou rotações até um novo host). O pacote de serviço e a configuração são copiados para o anfitrião e o controlador de malha comunica com o agente do anfitrião do SO para implementar o pacote de anfitrião (configurar DIPs, portas, SO convidado e assim por diante).
-4. O agente do anfitrião é iniciado o SO convidado e comunica com o agente convidado (WindowsAzureGuestAgent). O anfitrião envia heartbeats para o convidado para se certificar de que a função está a funcionar para seu estado de objetivos.
-5. WindowsAzureGuestAgent configura o sistema operacional (firewall, ACLs, LocalStorage e assim por diante) do convidado, copia um novo ficheiro de configuração do XML para c:\Config e, em seguida, inicia o processo de WaHostBootstrapper.
-6. Para funções de web do IIS completo, WaHostBootstrapper começa IISConfigurator e diz-lhe para eliminar qualquer AppPools existente para a função web do IIS.
-7. WaHostBootstrapper lê a **inicialização** tarefas de E:\RoleModel.xml e começa a executar tarefas de arranque. WaHostBootstrapper aguarda até que todas as tarefas de inicialização simples tenham concluído e devolveu uma mensagem de "êxito".
-8. Para funções de web do IIS completo, WaHostBootstrapper informa ao IISConfigurator para configurar o AppPool do IIS e aponta o site para `E:\Sitesroot\<index>`, onde `<index>` é um índice 0 com base no número de <Sites> elementos definidos para o serviço.
+1. Um usuário faz uma solicitação, como carregar arquivos. cspkg e. cscfg, informando a um recurso para parar ou fazer uma alteração de configuração, e assim por diante. Isso pode ser feito por meio da portal do Azure ou de uma ferramenta que usa o API de Gerenciamento de Serviços, como o recurso de publicação do Visual Studio. Essa solicitação vai para RDFE para fazer todo o trabalho relacionado à assinatura e, em seguida, comunicar a solicitação ao FFE. O restante dessas etapas de fluxo de trabalho é implantar um novo pacote e iniciá-lo.
+2. O FFE localiza o pool de computadores correto (com base na entrada do cliente, como grupo de afinidade ou localização geográfica, além de entrada da malha, como disponibilidade do computador) e se comunica com o controlador de malha mestre nesse pool de computadores.
+3. O controlador de malha localiza um host que tem núcleos de CPU disponíveis (ou cria um novo host). O pacote de serviço e a configuração são copiados para o host, e o controlador de malha se comunica com o agente do host no sistema operacional do host para implantar o pacote (configurar DIPs, portas, SO convidado e assim por diante).
+4. O agente de host inicia o sistema operacional convidado e se comunica com o agente convidado (WindowsAzureGuestAgent). O host envia pulsações ao convidado para garantir que a função esteja funcionando em direção ao seu estado de meta.
+5. O WindowsAzureGuestAgent configura o sistema operacional convidado (firewall, ACLs, LocalStorage e assim por diante), copia um novo arquivo de configuração XML para c:\Config e, em seguida, inicia o processo de WaHostBootstrapper.
+6. Para funções Web do IIS completas, WaHostBootstrapper inicia IISConfigurator e informa a ele para excluir quaisquer AppPools existentes para a função Web do IIS.
+7. WaHostBootstrapper lê as tarefas de **inicialização** de E:\RoleModel.xml e começa a executar tarefas de inicialização. O WaHostBootstrapper aguarda até que todas as tarefas de inicialização simples tenham sido concluídas e retornaram uma mensagem de "êxito".
+8. Para funções Web do IIS completas, WaHostBootstrapper informa IISConfigurator para configurar o AppPool do IIS e aponta para `E:\Sitesroot\<index>`o site `<index>` , onde é um índice baseado em 0 no `<Sites>` número de elementos definidos para o serviço.
 9. WaHostBootstrapper iniciará o processo de host dependendo do tipo de função:
-    1. **Função de trabalho**: WaWorkerHost.exe é iniciado. WaHostBootstrapper executa o método ONSTART (). Após ela retornar, WaHostBootstrapper começa a executar o método Run() e, em seguida, em simultâneo marca a função como pronto e coloca-o para a rotação do Balanceador de carga (se for definidos um InputEndpoints). WaHostBootsrapper, em seguida, entra num loop de verificar o estado de função.
-    1. **Função da Web SDK 1,2 HWC**: WaWebHost é iniciado. WaHostBootstrapper executa o método ONSTART (). Após ela retornar, o WaHostBootstrapper começa a executar o método Run() e, em seguida, em simultâneo a marca a função como pronto e coloca-o para a rotação do Balanceador de carga. WaWebHost emite um pedido de aquecimento (GET /do.rd_runtime_init). Todas as solicitações da web são enviadas para WaWebHost.exe. WaHostBootsrapper, em seguida, entra num loop de verificar o estado de função.
-    1. **Total de função da Web de IIS**: aIISHost é iniciado. WaHostBootstrapper executa o método ONSTART (). Após ela retornar, começa a executar o método Run() e, em seguida, marca em simultâneo a função como pronto e coloca-o para a rotação do Balanceador de carga. WaHostBootsrapper, em seguida, entra num loop de verificar o estado de função.
-10. Os pedidos web recebidos para um IIS completo web acionadores de função IIS para iniciar o processo de W3WP e atender à solicitação, a mesma forma como seria num ambiente de IIS no local.
+    1. **Função de trabalho**: O WaWorkerHost. exe foi iniciado. WaHostBootstrapper executa o método OnStart (). Depois de retornar, WaHostBootstrapper começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga (se InputEndpoints for definido). WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
+    1. **Função Web do SDK 1,2 HWC**: WaWebHost foi iniciado. WaHostBootstrapper executa o método OnStart (). Depois de retornar, WaHostBootstrapper começa a executar o método Run () e, em seguida, marca simultaneamente a função como pronto e a coloca na rotação do balanceador de carga. WaWebHost emite uma solicitação aquecimento (GET/do.rd_runtime_init). Todas as solicitações da Web são enviadas para WaWebHost. exe. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
+    1. **Função Web do IIS completa**: a aIISHost foi iniciada. WaHostBootstrapper executa o método OnStart (). Depois de retornar, ele começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
+10. As solicitações da Web de entrada para uma função Web do IIS completa acionam o IIS para iniciar o processo W3WP e atender à solicitação, o mesmo que faria em um ambiente IIS local.
 
-## <a name="log-file-locations"></a>Localizações de ficheiros de registo
+## <a name="log-file-locations"></a>Locais do arquivo de log
 
 **WindowsAzureGuestAgent**
 
 - C:\Logs\AppAgentRuntime.Log.  
-Este registo contém alterações ao serviço incluindo é iniciado, paradas e configurações de novo. Se o serviço não se altera, pode esperar ver grandes intervalos de tempo neste ficheiro de registo.
+Esse log contém alterações no serviço, incluindo início, interrupções e novas configurações. Se o serviço não for alterado, você poderá esperar ver grandes intervalos de tempo nesse arquivo de log.
 - C:\Logs\WaAppAgent.Log.  
-Este registo contém as atualizações de estado e notificações de heartbeat e é atualizado a cada 2 a 3 segundos.  Este registo contém uma vista do histórico do Estado da instância e irá informá-lo quando a instância não estava no estado pronto.
+Esse log contém as atualizações de status e as notificações de pulsação e é atualizado a cada 2-3 segundos.  Esse log contém uma exibição histórica do status da instância e informará quando a instância não estiver no estado pronto.
  
 **WaHostBootstrapper**
 
-C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log
+`C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
  
 **WaWebHost**
 
-C:\Resources\Directory\<guid>.<role>\WaWebHost.log
+`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
-C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log
+`C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log`
  
 **IISConfigurator**
 
-C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log
+`C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log`
  
 **Registos do IIS**
 
-C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1
+`C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1`
  
-**Registos de eventos do Windows**
+**Logs de eventos do Windows**
 
-D:\Windows\System32\Winevt\Logs
+`D:\Windows\System32\Winevt\Logs`
  
 
 

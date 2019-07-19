@@ -1,10 +1,10 @@
 ---
-title: Crie soluções com modelos do Visual Studio - Azure Batch | Documentos da Microsoft
-description: Saiba como modelos de projeto do Visual Studio podem ajudá-lo a implementar e executar cargas de trabalho intensivas de computação no Azure Batch.
+title: Criar soluções com modelos do Visual Studio – lote do Azure | Microsoft Docs
+description: Saiba como os modelos de projeto do Visual Studio podem ajudá-lo a implementar e executar suas cargas de trabalho de computação intensiva no lote do Azure.
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -15,120 +15,120 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550099"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322780"
 ---
-# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utilizar modelos de projeto do Visual Studio para o pontapé inicial em soluções do Batch
+# <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar soluções de lote
 
-O **Gestor de tarefas** e **modelos de tarefas processador Visual Studio** para o Batch fornecem código para ajudá-lo a implementar e executar cargas de trabalho intensivas de computação no Batch com o mínimo de esforço. Este documento descreve estes modelos e fornece orientações sobre como usá-los.
+Os modelos do **Gerenciador de trabalhos** e do **Visual Studio do processador de tarefas** para o lote fornecem código para ajudá-lo a implementar e executar suas cargas de trabalho de computação intensiva no lote com a menor quantidade de esforço. Este documento descreve esses modelos e fornece orientações sobre como usá-los.
 
 > [!IMPORTANT]
-> Este artigo aborda apenas as informações aplicáveis a estes dois modelos e parte do princípio de que está familiarizado com o serviço de Batch e os principais conceitos relacionados a ele: conjuntos, nós de computação, trabalhos e tarefas, tarefas do Gestor, variáveis de ambiente e outros relevantes informações. Pode encontrar mais informações nos [Noções básicas do Azure Batch](batch-technical-overview.md) e [descrição geral da funcionalidade Batch para programadores](batch-api-basics.md).
+> Este artigo aborda apenas as informações aplicáveis a esses dois modelos e pressupõe que você esteja familiarizado com o serviço de lote e os principais conceitos relacionados a ele: pools, nós de computação, trabalhos e tarefas, tarefas do Gerenciador de trabalho, variáveis de ambiente e outros relevantes divulgação. Você pode encontrar mais informações em [noções básicas do lote do Azure](batch-technical-overview.md) e [visão geral do recurso de lote para desenvolvedores](batch-api-basics.md).
 > 
 > 
 
 ## <a name="high-level-overview"></a>Descrição geral de alto nível
-Os modelos do Gestor de tarefas e o processador de tarefa podem ser usados para criar dois componentes úteis:
+Os modelos do Gerenciador de trabalho e do processador de tarefas podem ser usados para criar dois componentes úteis:
 
-* Uma tarefa do Gestor de tarefas que implementa um divisor de tarefa que pode dividir uma tarefa em várias tarefas que podem ser executado de forma independente, em paralelo.
-* Um processador de tarefas que pode ser usado para executar de pré-processamento e pós-processamento em torno de uma linha de comandos do aplicativo.
+* Uma tarefa do Gerenciador de trabalho que implementa um divisor de trabalho que pode dividir um trabalho em várias tarefas que podem ser executadas de forma independente, em paralelo.
+* Um processador de tarefas que pode ser usado para executar o pré-processamento e o pós-processamento em torno de uma linha de comando do aplicativo.
 
-Por exemplo, num cenário de processamento de filme, o divisor de tarefa seria de transformar um trabalho de filme único em centenas ou milhares de tarefas separadas que seriam processada quadros individuais separadamente. Do mesmo modo, o processador de tarefa invocará o aplicativo de processamento e todos os processos dependentes que são necessários para processar cada quadro, bem como executam quaisquer ações adicionais (por exemplo, copiar o fotograma composto para uma localização de armazenamento).
+Por exemplo, em um cenário de renderização de filme, o divisor de trabalho transformaria um único trabalho de filme em centenas ou milhares de tarefas separadas que processariam quadros individuais separadamente. De forma correspondente, o processador de tarefas invocaria o aplicativo de renderização e todos os processos dependentes necessários para renderizar cada quadro, bem como executar quaisquer ações adicionais (por exemplo, copiar o quadro renderizado para um local de armazenamento).
 
 > [!NOTE]
-> Os modelos do Gestor de tarefas e o processador de tarefas são independentes entre si, para que pode optar por utilizar ambas, ou apenas um deles, consoante os requisitos da sua tarefa de computação e nas suas preferências.
+> Os modelos do Gerenciador de trabalho e do processador de tarefas são independentes um do outro, de modo que você pode optar por usar ambos, ou apenas um deles, dependendo dos requisitos de seu trabalho de computação e de suas preferências.
 > 
 > 
 
-Conforme mostrado no diagrama abaixo, uma tarefa de computação que utiliza estes modelos irão passar pelo três fases:
+Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esses modelos passará por três estágios:
 
-1. O código de cliente (por exemplo, aplicações, serviço web, etc.) submete um trabalho para o serviço do Batch no Azure, especificar como a sua tarefa do Gestor de tarefas do programa de Gestor de trabalho.
-2. O serviço Batch executa a tarefa de gestão num nó de computação e o divisor de tarefa inicia o número de tarefas de processador de tarefas, especificado no como muitos nós de computação conforme necessário, com base nos parâmetros e especificações no código de divisor de tarefa.
-3. As tarefas de processador de tarefas são executadas de forma independente, em paralelo, para processar os dados de entrada e gerar os dados de saída.
+1. O código do cliente (por exemplo, aplicativo, serviço Web, etc.) envia um trabalho para o serviço de lote no Azure, especificando como sua tarefa do Gerenciador de trabalho é o programa do Gerenciador de trabalho.
+2. O serviço de lote executa a tarefa do Gerenciador de trabalho em um nó de computação e o divisor de trabalho inicia o número especificado de tarefas do processador de tarefas, em quantos nós de computação forem necessários, com base nos parâmetros e especificações no código do divisor de trabalho.
+3. As tarefas do processador de tarefas são executadas de forma independente, em paralelo, para processar os dados de entrada e gerar os dados de saída.
 
-![Diagrama que mostra como o código de cliente interage com o serviço Batch][diagram01]
+![Diagrama mostrando como o código do cliente interage com o serviço de lote][diagram01]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para utilizar os modelos do Batch, terá o seguinte:
+Para usar os modelos de lote, você precisará do seguinte:
 
-* Um computador com o Visual Studio 2015 instalado. Modelos do batch são atualmente suportadas apenas para o Visual Studio 2015.
-* Os modelos do Batch, o que estão disponíveis a partir da [galeria do Visual Studio] [ vs_gallery] como extensões do Visual Studio. Existem duas formas de obter os modelos:
+* Um computador com o Visual Studio 2015 instalado. Atualmente, os modelos de lote têm suporte apenas para o Visual Studio 2015.
+* Os modelos de lote, que estão disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
-  * Instale os modelos utilizando o **extensões e atualizações** caixa de diálogo no Visual Studio (para obter mais informações, consulte [localizando e usando o Visual Studio Extensions][vs_find_use_ext]). Na **extensões e atualizações** diálogo caixa, procurar e transferir as extensões de dois seguintes:
+  * Instale os modelos usando a caixa de diálogo **extensões e atualizações** no Visual Studio (para obter mais informações, consulte [localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **extensões e atualizações** , pesquise e baixe as duas extensões a seguir:
     
-    * Gestor de tarefas de lote do Azure com o divisor de tarefa
-    * Processador de tarefa de lote do Azure
-  * Transferir os modelos a partir da Galeria online para o Visual Studio: [Modelos de projeto do Microsoft Azure Batch][vs_gallery_templates]
-* Se planeia utilizar o [pacotes de aplicações](batch-application-packages.md) para implementar a tarefa do Gestor de recursos e nós de computação de processador de tarefas para o Batch, precisa de associar uma conta de armazenamento à conta do Batch.
+    * Gerenciador de trabalhos do lote do Azure com divisor de trabalho
+    * Processador de tarefas do lote do Azure
+  * Baixe os modelos da galeria online para o Visual Studio: [Modelos de projeto Lote do Microsoft Azure][vs_gallery_templates]
+* Se você planeja usar o recurso de [pacotes de aplicativos](batch-application-packages.md) para implantar o Gerenciador de trabalhos e o processador de tarefas nos nós de computação do lote, será necessário vincular uma conta de armazenamento à sua conta do lote.
 
 ## <a name="preparation"></a>Preparação
-Recomendamos que crie uma solução que pode conter o seu Gestor de trabalho, bem como o processador de tarefa, porque isso pode tornar mais fácil de compartilhar código entre o Gestor de tarefas e os programas de processador de tarefa. Para criar esta solução, siga estes passos:
+É recomendável criar uma solução que possa conter o Gerenciador de trabalho, bem como o processador de tarefas, porque isso pode facilitar o compartilhamento de código entre o Gerenciador de trabalho e os programas do processador de tarefas. Para criar essa solução, siga estas etapas:
 
-1. Abra o Visual Studio e selecione **arquivo** > **New** > **projeto**.
-2. Sob **modelos**, expanda **Other Project Types**, clique em **soluções do Visual Studio**e, em seguida, selecione **solução em branco**.
-3. Escreva um nome que descreve a sua aplicação e o objetivo desta solução (por exemplo, "LitwareBatchTaskPrograms").
+1. Abra o Visual Studio e selecione **arquivo** > **novo** > **projeto**.
+2. Em **modelos**, expanda **outros tipos de projeto**, clique em **soluções do Visual Studio**e selecione **solução em branco**.
+3. Digite um nome que descreva seu aplicativo e a finalidade dessa solução (por exemplo, "Programasdetarefasdolotelitware").
 4. Para criar a nova solução, clique em **OK**.
 
-## <a name="job-manager-template"></a>Modelo de Gestor de tarefas
-O modelo de Gestor de tarefas ajuda-o a implementar uma tarefa do Gestor de tarefas que pode realizar as seguintes ações:
+## <a name="job-manager-template"></a>Modelo do Gerenciador de trabalho
+O modelo do Gerenciador de trabalho ajuda a implementar uma tarefa do Gerenciador de trabalho que pode executar as seguintes ações:
 
-* Divida uma tarefa em várias tarefas.
-* Submeta as tarefas para executar no Batch.
+* Divida um trabalho em várias tarefas.
+* Envie essas tarefas para execução no lote.
 
 > [!NOTE]
-> Para obter mais informações sobre tarefas do Gestor de mensagens em fila, consulte [descrição geral da funcionalidade Batch para programadores](batch-api-basics.md#job-manager-task).
+> Para obter mais informações sobre tarefas do Gerenciador de trabalho, consulte [visão geral do recurso de lote para desenvolvedores](batch-api-basics.md#job-manager-task).
 > 
 > 
 
-### <a name="create-a-job-manager-using-the-template"></a>Criar uma tarefa do Gestor utilizando o modelo
-Para adicionar um Gestor de trabalhos para a solução que criou anteriormente, siga estes passos:
+### <a name="create-a-job-manager-using-the-template"></a>Criar um Gerenciador de trabalho usando o modelo
+Para adicionar um Gerenciador de trabalhos à solução que você criou anteriormente, siga estas etapas:
 
-1. Abra a solução existente no Visual Studio.
-2. No Solution Explorer, clique com botão direito a solução, clique em **Add** > **novo projeto**.
-3. Sob **em Visual C#** , clique em **Cloud**e, em seguida, clique em **Gestor de tarefas do Azure Batch com a tarefa de Splitter**.
-4. Escreva um nome que descreve o seu aplicativo e identifica este projeto como o Gerenciador de trabalhos (por exemplo "LitwareJobManager").
+1. Abra sua solução existente no Visual Studio.
+2. Em Gerenciador de soluções, clique com o botão direito do mouse na solução, clique em **Adicionar** > **novo projeto**.
+3. Em **Visual C#** , clique em **nuvem**e, em seguida, clique em **Gerenciador de trabalho do lote do Azure com divisor de trabalho**.
+4. Digite um nome que descreva seu aplicativo e identifique esse projeto como o Gerenciador de trabalhos (por exemplo, "LitwareJobManager").
 5. Para criar o projeto, clique em **OK**.
-6. Por fim, compile o projeto para forçar o Visual Studio para carregar todos os pacotes de NuGet referenciados e certifique-se de que o projeto é válido antes de começar a modificá-la.
+6. Por fim, compile o projeto para forçar o Visual Studio a carregar todos os pacotes NuGet referenciados e verificar se o projeto é válido antes de você começar a modificá-lo.
 
-### <a name="job-manager-template-files-and-their-purpose"></a>Arquivos de modelo do Gestor de tarefas e sua finalidade
-Quando cria um projeto usando o modelo de Gestor de tarefas, ela gera três grupos de arquivos de código:
+### <a name="job-manager-template-files-and-their-purpose"></a>Arquivos de modelo do Gerenciador de trabalho e sua finalidade
+Quando você cria um projeto usando o modelo do Gerenciador de trabalho, ele gera três grupos de arquivos de código:
 
-* O ficheiro de programa principal (Program.cs). Contém o ponto de entrada de programa e manipulação de exceção de nível superior. Normalmente não deve ser preciso modificar isso.
-* O diretório da estrutura. Contém os ficheiros responsáveis pelo trabalho de 'automático' realizado pelo programa de Gestor de trabalho – descompactar os parâmetros, adicionar tarefas ao trabalho do Batch, etc. Normalmente não deve necessitar de modificar esses arquivos.
-* O ficheiro de divisor de tarefa (JobSplitter.cs). Isso é onde irá colocar sua lógica de específicas da aplicação para a divisão de um trabalho em tarefas.
+* O arquivo de programa principal (Program.cs). Ele contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, você não precisa modificar isso.
+* O diretório da estrutura. Ele contém os arquivos responsáveis pelo trabalho ' clichê ' feito pelo programa gerenciador de trabalho – descompactando parâmetros, adicionando tarefas ao trabalho em lotes, etc. Normalmente, você não precisa modificar esses arquivos.
+* O arquivo do divisor de trabalho (JobSplitter.cs). É aí que você colocará a lógica específica do aplicativo para dividir um trabalho em tarefas.
 
-Claro que pode adicionar ficheiros adicionais conforme necessário para suportar o seu código de divisor de tarefa, dependendo da complexidade do trabalho separação da lógica.
+É claro que você pode adicionar arquivos adicionais conforme necessário para dar suporte ao seu código de divisor de trabalho, dependendo da complexidade da lógica de divisão de trabalho.
 
-O modelo também gera arquivos de projeto do .NET padrão, como um arquivo. csproj, App. config, Packages, etc.
+O modelo também gera arquivos de projeto .NET padrão, como um arquivo. csproj, app. config, packages. config, etc.
 
-O resto desta secção descreve os diferentes arquivos e suas estruturas de código e explica o que faz cada classe.
+O restante desta seção descreve os diferentes arquivos e sua estrutura de código e explica o que cada classe faz.
 
-![Visual Studio Solution Explorer que mostra o Gerenciador de trabalhos a solução de modelo][solution_explorer01]
+![O Visual Studio Gerenciador de Soluções mostrando a solução de modelo do Gerenciador de trabalho][solution_explorer01]
 
-**Ficheiros de estrutura**
+**Arquivos do Framework**
 
-* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes de conta do Batch, as credenciais da conta de armazenamento ligada, tarefa e informações de tarefas e parâmetros da tarefa. Ele também fornece acesso a variáveis de ambiente definidas pelo Batch (consulte as definições de ambiente para tarefas, na documentação do Batch) por meio da classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Abstrai a implementação da classe de configuração, para que possa teste de unidade o divisor de tarefa com um objeto de configuração de falsos ou fictícios.
-* `JobManager.cs`: Orquestra os componentes do programa de Gestor de trabalho. Ele é responsável pela inicializar o divisor de tarefa, invocar o divisor de tarefa e fazer a expedição tarefas retornados pelo divisor de tarefa para o submissor da tarefa.
-* `JobManagerException.cs`: Representa um erro que exige o Gerenciador de trabalhos terminar. JobManagerException é utilizado para encapsular erros 'esperados' onde as informações de diagnóstico específicas podem ser fornecidas como parte de terminação.
-* `TaskSubmitter.cs`: Esta classe é da responsabilidade adicionando tarefas retornados pelo divisor de tarefa para a tarefa de lote. Agregações de classe JobManager a sequência de tarefas em lotes para adição atempada mas eficiente para a tarefa, em seguida, chama TaskSubmitter.SubmitTasks num thread em segundo plano para cada lote.
+* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do lote, credenciais de conta de armazenamento vinculadas, informações de trabalho e tarefa e parâmetros de trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo lote (consulte Configurações de ambiente para tarefas, na documentação do lote) por meio da classe Configuration. EnvironmentVariable.
+* `IConfiguration.cs`: Abstrai a implementação da classe de configuração para que você possa testar a unidade do divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `JobManager.cs`: Orquestra os componentes do programa gerenciador de trabalho. Ele é responsável pela inicialização do divisor de trabalho, invocando o divisor de trabalho e expedindo as tarefas retornadas pelo divisor de trabalho para o emissor da tarefa.
+* `JobManagerException.cs`: Representa um erro que exige que o Gerenciador de trabalhos seja encerrado. JobManagerException é usado para encapsular erros "esperados" onde informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
+* `TaskSubmitter.cs`: Essa classe é responsável por adicionar tarefas retornadas pelo divisor de trabalho para o trabalho em lotes. A classe JobManager agrega a sequência de tarefas em lotes para uma adição eficiente, mas oportuna ao trabalho, então chama TaskSubmitter. SubmitTasks em um thread em segundo plano para cada lote.
 
-**Divisor de tarefa**
+**Divisor de trabalho**
 
-`JobSplitter.cs`: Essa classe contém lógica de aplicativo específica para dividir o trabalho em tarefas. O framework invoca o método de JobSplitter.Split para obter uma sequência de tarefas, que adiciona ao trabalho, como o método retorna-los. Esta é a classe em que injetará a lógica do seu trabalho. Implemente o método Split para retornar uma seqüência de instâncias de CloudTask que representa as tarefas no qual deseja particionar o trabalho.
+`JobSplitter.cs`: Essa classe contém lógica específica do aplicativo para dividir o trabalho em tarefas. A estrutura invoca o método JobSplitter. Split para obter uma sequência de tarefas, que ele adiciona ao trabalho conforme o método os retorna. Essa é a classe na qual você injetará a lógica do seu trabalho. Implemente o método Split para retornar uma sequência de instâncias de CloudTask que representam as tarefas nas quais você deseja particionar o trabalho.
 
-**Arquivos de projeto de linha de comandos de .NET Standard**
+**Arquivos de projeto de linha de comando padrão do .NET**
 
-* `App.config`: Arquivo de configuração do aplicativo de .NET padrão.
-* `Packages.config`: Ficheiro de dependência do pacote de NuGet padrão.
-* `Program.cs`: Contém o ponto de entrada de programa e manipulação de exceções de nível superior.
+* `App.config`: Arquivo de configuração de aplicativo .NET padrão.
+* `Packages.config`: Arquivo de dependência do pacote NuGet padrão.
+* `Program.cs`: Contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
-### <a name="implementing-the-job-splitter"></a>Implementando o divisor de tarefa
-Quando abrir o projeto de modelo de Gestor de tarefas, o projeto terá o ficheiro de JobSplitter.cs abrir por predefinição. Pode implementar a lógica de divisão para as tarefas na sua carga de trabalho utilizando o show do método Split() abaixo:
+### <a name="implementing-the-job-splitter"></a>Implementando o divisor de trabalho
+Quando você abrir o projeto de modelo do Gerenciador de trabalho, o projeto terá o arquivo JobSplitter.cs aberto por padrão. Você pode implementar a lógica de divisão para as tarefas em sua carga de trabalho usando o método Split () mostrado abaixo:
 
 ```csharp
 /// <summary>
@@ -157,56 +157,56 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> A secção anotada no `Split()` método é a única seção do código do modelo de Gestor de tarefas que pretende modificar ao adicionar a lógica para dividir os trabalhos em tarefas diferentes. Se quiser modificar uma secção diferente do modelo, verifique se são familiarized com como o Batch funciona e experimente algumas da [exemplos de código do Batch][github_samples].
+> A seção anotada no `Split()` método é a única seção do código do modelo do Gerenciador de trabalho que se destina a você modificar adicionando a lógica para dividir seus trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, verifique se está familiarizado com o funcionamento do lote e experimente alguns dos [exemplos de código do lote][github_samples].
 > 
 > 
 
-A sua implementação de Split() tem acesso a:
+Sua implementação de Split () tem acesso a:
 
-* Os parâmetros da tarefa, via o `_parameters` campo.
-* O objeto de CloudJob que representa a tarefa, via o `_job` campo.
-* O objeto de CloudTask que representa a tarefa de gestão, via o `_jobManagerTask` campo.
+* Os parâmetros do trabalho, por `_parameters` meio do campo.
+* O objeto CloudJob que representa o trabalho, por `_job` meio do campo.
+* O objeto CloudTask que representa a tarefa do Gerenciador de trabalho `_jobManagerTask` , por meio do campo.
 
-Sua `Split()` implementação não precisa de adicionar tarefas ao trabalho diretamente. Em vez disso, seu código deverá devolver uma seqüência de objetos de CloudTask e estes serão adicionados ao trabalho automaticamente por classes do framework que invocam o divisor de tarefa. É comum para utilizar o C#do iterador (`yield return`) funcionalidade para implementar os separadores de tarefa, pois isso permite que as tarefas iniciar em execução logo que possível, em vez de aguardar que todas as tarefas deve ser calculado.
+Sua `Split()` implementação não precisa adicionar tarefas diretamente ao trabalho. Em vez disso, seu código deve retornar uma sequência de objetos CloudTask, e eles serão adicionados ao trabalho automaticamente pelas classes de estrutura que invocam o divisor de trabalho. É comum usar C#o recurso iterador (`yield return`) do para implementar divisores de trabalho, pois isso permite que as tarefas comecem a ser executadas assim que possível, em vez de esperar que todas as tarefas sejam calculadas.
 
-**Falha da tarefa divisor**
+**Falha do divisor de trabalho**
 
-Se o divisor de tarefa encontra um erro, ele deve optar por:
+Se o divisor de trabalho encontrar um erro, ele deverá:
 
-* Terminar a seqüência usando o c# `yield break` instrução, nesse caso, o Gerenciador de trabalhos será tratado conclusão com êxito; ou
-* Gera uma exceção, no qual o caso, que o Gerenciador de trabalhos será tratado como falha e pode ser repetido dependendo de como o cliente tenha configurado).
+* Encerre a sequência usando a C# `yield break` instrução, caso em que o Gerenciador de trabalho será tratado como bem-sucedido; ou
+* Lance uma exceção. nesse caso, o Gerenciador de trabalho será tratado como com falha e poderá ser repetido dependendo de como o cliente o configurou).
 
-Em ambos os casos, será elegíveis para executar quaisquer tarefas já devolvidos pelo divisor de tarefa e adicionadas ao trabalho do Batch. Se não quiser que isso aconteça, em seguida, pode:
+Em ambos os casos, todas as tarefas já retornadas pelo divisor de trabalho e adicionadas ao trabalho do lote serão elegíveis para execução. Se não quiser que isso aconteça, você poderia:
 
-* Terminar a tarefa antes do retorno do divisor de tarefa
-* Formular a coleção inteira de tarefas antes de o devolver (ou seja, retornar uma `ICollection<CloudTask>` ou `IList<CloudTask>` em vez de implementar o divisor de tarefa com um iterador c#)
-* Utilizar as dependências de tarefas para fazer todas as tarefas que dependem a conclusão com êxito do Gestor de trabalho
+* Encerrar o trabalho antes de retornar do divisor de trabalho
+* Formular a coleção de tarefas inteira antes de retorná-la ( `ICollection<CloudTask>` ou `IList<CloudTask>` seja, retornar um ou em vez de implementar C# seu divisor de trabalho usando um iterador)
+* Usar dependências de tarefas para fazer com que todas as tarefas dependam da conclusão bem-sucedida do Gerenciador de trabalho
 
-**Tentativas de Gestor de trabalho**
+**Novas tentativas do Gerenciador de trabalho**
 
-Se o Gestor de tarefas falhar, pode ser repetida pelo serviço Batch consoante as definições de repetição do cliente. Em geral, isso é seguro, porque quando o framework adiciona tarefas ao trabalho, ele ignora todas as tarefas que já existem. No entanto, se tarefas de cálculo é cara, pode não querer incorrer em custos de recalcular as tarefas que já foram adicionadas para a tarefa; por outro lado, se a voltar a executar não é garantida para gerar a mesma tarefa IDs, em seguida, o comportamento de 'Ignorar duplicados' será não iniciada. Nestes casos deve conceber a sua divisor de tarefa para detetar o trabalho que já foi feito e não repeti-lo, por exemplo, efetuando uma CloudJob.ListTasks antes de começar a gerar tarefas.
+Se o Gerenciador de trabalho falhar, ele poderá ser tentado novamente pelo serviço de lote, dependendo das configurações de repetição do cliente. Em geral, isso é seguro, porque quando a estrutura adiciona tarefas ao trabalho, ela ignora todas as tarefas que já existem. No entanto, se o cálculo das tarefas for caro, talvez você não queira incorrer no custo de recalcular as tarefas que já foram adicionadas ao trabalho; por outro lado, se a nova execução não tiver garantia de gerar as mesmas identificações de tarefa, o comportamento ' ignorar duplicatas ' não será ativado. Nesses casos, você deve projetar seu divisor de trabalho para detectar o trabalho que já foi feito e não repeti-lo, por exemplo, executando um CloudJob. ListTasks antes de começar a gerar tarefas.
 
-### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Códigos de saída e as exceções no modelo do Gestor de tarefas
-Códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e eles podem ajudar a identificar quaisquer problemas com a execução do programa. O modelo de Gestor de trabalho implementa os códigos de saída e exceções descritas nesta secção.
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Códigos de saída e exceções no modelo do Gerenciador de trabalho
+Códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e eles podem ajudar a identificar problemas com a execução do programa. O modelo do Gerenciador de trabalho implementa os códigos de saída e as exceções descritas nesta seção.
 
-Uma tarefa de gestão é implementada com o modelo de Gestor de tarefas pode retornar códigos de saída possível três:
+Uma tarefa do Gerenciador de trabalho implementada com o modelo do Gerenciador de trabalho pode retornar três códigos de saída possíveis:
 
 | Código | Descrição |
 | --- | --- |
-| 0 |O Gestor de tarefas foi concluído com êxito. O código de divisor de tarefa foi executada até à conclusão e todas as tarefas foram adicionadas ao trabalho. |
-| 1 |A tarefa de gestão falhou com uma exceção numa parte 'esperada' do programa. A exceção foi traduzida para um JobManagerException com informações de diagnóstico e, sempre que possível, sugestões para resolver a falha. |
-| 2 |A tarefa de gestão falhou com uma exceção 'inesperada'. A exceção foi registada para a saída padrão, mas o Gerenciador de trabalhos não foi possível adicionar as informações adicionais de diagnóstico ou de remediação. |
+| 0 |O Gerenciador de trabalho foi concluído com êxito. O código do divisor de trabalho foi executado até a conclusão e todas as tarefas foram adicionadas ao trabalho. |
+| 1 |A tarefa do Gerenciador de trabalho falhou com uma exceção em uma parte "esperada" do programa. A exceção foi convertida em um JobManagerException com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
+| 2 |A tarefa do Gerenciador de trabalho falhou com uma exceção ' inesperada '. A exceção foi registrada na saída padrão, mas o Gerenciador de trabalho não pôde adicionar informações adicionais de diagnóstico ou correção. |
 
-No caso de falha de tarefa do Gestor de trabalho, algumas tarefas ainda foram adicionadas ao serviço antes do erro ocorreu. Estas tarefas serão executadas normalmente. Consulte "Falha de divisor de tarefa" acima para discussão sobre este caminho de código.
+No caso de falha da tarefa do Gerenciador de trabalho, algumas tarefas ainda podem ter sido adicionadas ao serviço antes de o erro ter ocorrido. Essas tarefas serão executadas normalmente. Consulte "falha do divisor de trabalho" acima para obter uma discussão sobre esse caminho de código.
 
-Todas as informações retornadas pela exceções são escritas em arquivos stdout.txt e stderr. txt. Para obter mais informações, consulte [tratamento de erro](batch-api-basics.md#error-handling).
+Todas as informações retornadas por exceções são gravadas em arquivos stdout. txt e stderr. txt. Para obter mais informações, consulte [tratamento de erros](batch-api-basics.md#error-handling).
 
-### <a name="client-considerations"></a>Considerações de cliente
-Esta secção descreve alguns requisitos de implementação do cliente ao invocar um Gestor de trabalhos com base nesse modelo. Ver [como passar parâmetros e variáveis de ambiente de código do cliente](#pass-environment-settings) para obter detalhes sobre a passagem de parâmetros e definições de ambiente.
+### <a name="client-considerations"></a>Considerações do cliente
+Esta seção descreve alguns requisitos de implementação do cliente ao invocar um Gerenciador de trabalho com base neste modelo. Consulte [como passar parâmetros e variáveis de ambiente do código do cliente](#pass-environment-settings) para obter detalhes sobre como passar parâmetros e configurações de ambiente.
 
-**Obrigatórias credenciais**
+**Credenciais obrigatórias**
 
-Para adicionar tarefas ao trabalho do Azure Batch, a tarefa de gestão requer o URL da conta do Azure Batch e a chave. Tem de passar em variáveis de ambiente com o nome YOUR_BATCH_URL e YOUR_BATCH_KEY. Pode definir estas no Gestor de trabalho definições de ambiente de tarefas. Por exemplo, no c# cliente:
+Para adicionar tarefas ao trabalho do lote do Azure, a tarefa do Gerenciador de trabalho requer a URL e a chave da conta do lote do Azure. Você deve passá-los em variáveis de ambiente chamadas YOUR_BATCH_URL e YOUR_BATCH_KEY. Você pode defini-las nas configurações do ambiente de tarefas do Gerenciador de trabalho. Por exemplo, em um C# cliente:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -216,7 +216,7 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ```
 **Credenciais de armazenamento**
 
-Normalmente, o cliente não precisa de fornecer as credenciais da conta de armazenamento ligada para a tarefa de gestão porque (a) a maioria dos gerentes de tarefa não é necessário aceder explicitamente a conta de armazenamento associada e (b) a conta de armazenamento ligada, muitas vezes, é fornecida para todas as tarefas como um configuração de ambiente comum para a tarefa. Se não está a fornecer a conta de armazenamento associada através das definições de ambiente comuns, e o Gerenciador de trabalhos requer acesso ao armazenamento ligado, em seguida, deve fornecer as credenciais de armazenamento ligada da seguinte forma:
+Normalmente, o cliente não precisa fornecer as credenciais da conta de armazenamento vinculada à tarefa do Gerenciador de trabalho porque (a) a maioria dos gerentes de trabalho não precisa acessar explicitamente a conta de armazenamento vinculada e (b) a conta de armazenamento vinculada é geralmente fornecida a todas as tarefas como um configuração de ambiente comum para o trabalho. Se você não estiver fornecendo a conta de armazenamento vinculada por meio das configurações de ambiente comuns e o Gerenciador de trabalho exigir acesso ao armazenamento vinculado, você deverá fornecer as credenciais de armazenamento vinculadas da seguinte maneira:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -226,83 +226,83 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 };
 ```
 
-**Definições de tarefa do Gestor de trabalhos**
+**Configurações de tarefa do Gerenciador de trabalho**
 
-O cliente deve definir o Gerenciador de trabalhos *killJobOnCompletion* sinalizador para **falso**.
+O cliente deve definir o sinalizador *killJobOnCompletion* do Gerenciador de trabalho como **falso**.
 
-É normalmente seguro para o cliente defina *runExclusive* ao **falso**.
+Geralmente, é seguro que o cliente defina *runExclusive* como **false**.
 
-O cliente deve utilizar o *resourceFiles* ou *applicationPackageReferences* coleção para que a tarefa Gestor de executável (e suas DLLs necessárias) implementado para o nó de computação.
+O cliente deve usar a coleção *resourceFiles* ou *applicationPackageReferences* para que o executável do Gerenciador de trabalho (e suas DLLs necessárias) sejam implantados no nó de computação.
 
-Por predefinição, o Gerenciador de trabalhos não será repetido se falhar. Dependendo de sua lógica de Gestor de trabalho, o cliente poderá querer permitir repetição de tentativas via *restrições*/*maxTaskRetryCount*.
+Por padrão, o Gerenciador de trabalho não será repetido se falhar. Dependendo da lógica do Gerenciador de trabalho, o cliente pode querer habilitar repetições por meio de *restrições*/*maxTaskRetryCount*.
 
-**Definições de tarefa**
+**Configurações de trabalho**
 
-Se o divisor de tarefa emite tarefas com as dependências, o cliente tem de definir usesTaskDependencies da tarefa como true.
+Se o divisor de trabalho emitir tarefas com dependências, o cliente deverá definir o usesTaskDependencies do trabalho como true.
 
-No modelo de divisor de tarefa, é incomum para que os clientes desejam adicionar tarefas a trabalhos ativamos o que cria o divisor de tarefa. O cliente deve, portanto, definido normalmente da tarefa *onAllTasksComplete* ao **terminatejob**.
+No modelo de divisor de trabalho, é incomum para os clientes desejarem adicionar tarefas a trabalhos além do que o divisor de trabalho cria. O cliente, portanto, deve, normalmente, definir o *onAllTasksComplete* do trabalho como **terminatejob**.
 
-## <a name="task-processor-template"></a>Modelo de processador de tarefas
-Um modelo de processador de tarefa ajuda-o a implementar um processador de tarefas que pode realizar as seguintes ações:
+## <a name="task-processor-template"></a>Modelo do processador de tarefas
+Um modelo de processador de tarefas ajuda a implementar um processador de tarefas que pode executar as seguintes ações:
 
-* Configure as informações necessárias por cada tarefa do Batch para executar.
-* Execute todas as ações necessárias por cada tarefa do Batch.
-* Guarde saídas de tarefas para armazenamento persistente.
+* Configure as informações exigidas por cada tarefa do lote a ser executada.
+* Execute todas as ações exigidas por cada tarefa do lote.
+* Salvar saídas de tarefa para armazenamento persistente.
 
-Embora um processador de tarefa não é necessário para executar tarefas no Batch, a principal vantagem de usar um processador de tarefa é que ele fornece um wrapper para implementar todas as ações de execução de tarefas num único local. Por exemplo, se tiver de executar vários aplicativos no contexto de cada tarefa, ou se precisa copiar dados para armazenamento persistente, depois de concluir cada tarefa.
+Embora não seja necessário um processador de tarefas para executar tarefas no lote, a principal vantagem de usar um processador de tarefas é que ele fornece um wrapper para implementar todas as ações de execução de tarefas em um único local. Por exemplo, se você precisar executar vários aplicativos no contexto de cada tarefa, ou se precisar copiar dados para o armazenamento persistente depois de concluir cada tarefa.
 
-As ações executadas pelo processador de tarefa podem ser simples ou complexo e o máximo ou, no mínimo, conforme exigido pela sua carga de trabalho. Além disso, ao implementar todas as ações de tarefas num processador de tarefas, pode prontamente atualizar ou adicionar ações com base nas alterações a aplicações ou requisitos de carga de trabalho. No entanto, em alguns casos um processador de tarefas pode não ser a solução ideal para a sua implementação, pode adicionar complexidade desnecessária, por exemplo ao executar tarefas que podem ser rapidamente iniciadas a partir de uma linha de comandos simple.
+As ações executadas pelo processador de tarefas podem ser simples ou complexas, e tantas ou poucas, conforme exigido pela sua carga de trabalho. Além disso, ao implementar todas as ações de tarefa em um processador de tarefas, você pode facilmente atualizar ou adicionar ações com base em alterações em aplicativos ou requisitos de carga de trabalho. No entanto, em alguns casos, um processador de tarefas pode não ser a solução ideal para sua implementação, pois pode adicionar complexidade desnecessária, por exemplo, ao executar trabalhos que podem ser rapidamente iniciados a partir de uma linha de comando simples.
 
-### <a name="create-a-task-processor-using-the-template"></a>Criar um processador de tarefas utilizando o modelo
-Para adicionar um processador de tarefas para a solução que criou anteriormente, siga estes passos:
+### <a name="create-a-task-processor-using-the-template"></a>Criar um processador de tarefas usando o modelo
+Para adicionar um processador de tarefas à solução que você criou anteriormente, siga estas etapas:
 
-1. Abra a solução existente no Visual Studio.
-2. No Solution Explorer, clique com botão direito a solução, clique em **Add**e, em seguida, clique em **novo projeto**.
-3. Sob **em Visual C#** , clique em **Cloud**e, em seguida, clique em **processador de tarefa do Azure Batch**.
-4. Escreva um nome que descreve o seu aplicativo e identifica este projeto como o processador de tarefa (por exemplo "LitwareTaskProcessor").
+1. Abra sua solução existente no Visual Studio.
+2. Em Gerenciador de Soluções, clique com o botão direito do mouse na solução, clique em **Adicionar**e em **novo projeto**.
+3. Em **Visual C#** , clique em **nuvem**e, em seguida, clique em **processador de tarefas do lote do Azure**.
+4. Digite um nome que descreva seu aplicativo e identifique esse projeto como o processador de tarefas (por exemplo, "LitwareTaskProcessor").
 5. Para criar o projeto, clique em **OK**.
-6. Por fim, compile o projeto para forçar o Visual Studio para carregar todos os pacotes de NuGet referenciados e certifique-se de que o projeto é válido antes de começar a modificá-la.
+6. Por fim, compile o projeto para forçar o Visual Studio a carregar todos os pacotes NuGet referenciados e verificar se o projeto é válido antes de você começar a modificá-lo.
 
-### <a name="task-processor-template-files-and-their-purpose"></a>Arquivos de modelo de processador de tarefa e sua finalidade
-Quando cria um projeto usando o modelo de processador de tarefa, ele gera três grupos de arquivos de código:
+### <a name="task-processor-template-files-and-their-purpose"></a>Arquivos de modelo do processador de tarefas e sua finalidade
+Quando você cria um projeto usando o modelo de processador de tarefas, ele gera três grupos de arquivos de código:
 
-* O ficheiro de programa principal (Program.cs). Contém o ponto de entrada de programa e manipulação de exceção de nível superior. Normalmente não deve ser preciso modificar isso.
-* O diretório da estrutura. Contém os ficheiros responsáveis pelo trabalho de 'automático' realizado pelo programa de Gestor de trabalho – descompactar os parâmetros, adicionar tarefas ao trabalho do Batch, etc. Normalmente não deve necessitar de modificar esses arquivos.
-* O ficheiro de processador de tarefa (TaskProcessor.cs). Isso é onde irá colocar a lógica de específico do aplicativo para executar uma tarefa (normalmente, ao chamar um executável existente). Código de pré e pós-processamento, como a transferência de dados adicionais ou carregar arquivos de resultados, também vai aqui.
+* O arquivo de programa principal (Program.cs). Ele contém o ponto de entrada do programa e a manipulação de exceção de nível superior. Normalmente, você não precisa modificar isso.
+* O diretório da estrutura. Ele contém os arquivos responsáveis pelo trabalho ' clichê ' feito pelo programa gerenciador de trabalho – descompactando parâmetros, adicionando tarefas ao trabalho em lotes, etc. Normalmente, você não precisa modificar esses arquivos.
+* O arquivo do processador de tarefas (TaskProcessor.cs). É aí que você colocará a lógica específica do aplicativo para executar uma tarefa (normalmente chamando um executável existente). Código de pré e pós-processamento, como baixar dados adicionais ou carregar arquivos de resultado, também aparece aqui.
 
-Claro que pode adicionar ficheiros adicionais conforme necessário para suportar o seu código de processador de tarefas, dependendo da complexidade do trabalho separação da lógica.
+É claro que você pode adicionar arquivos adicionais conforme necessário para dar suporte ao código do processador de tarefas, dependendo da complexidade da lógica de divisão do trabalho.
 
-O modelo também gera arquivos de projeto do .NET padrão, como um arquivo. csproj, App. config, Packages, etc.
+O modelo também gera arquivos de projeto .NET padrão, como um arquivo. csproj, app. config, packages. config, etc.
 
-O resto desta secção descreve os diferentes arquivos e suas estruturas de código e explica o que faz cada classe.
+O restante desta seção descreve os diferentes arquivos e sua estrutura de código e explica o que cada classe faz.
 
-![Visual Studio Solution Explorer que mostra a solução de modelo de processador de tarefa][solution_explorer02]
+![O Visual Studio Gerenciador de Soluções mostrando a solução de modelo do processador de tarefas][solution_explorer02]
 
-**Ficheiros de estrutura**
+**Arquivos do Framework**
 
-* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes de conta do Batch, as credenciais da conta de armazenamento ligada, tarefa e informações de tarefas e parâmetros da tarefa. Ele também fornece acesso a variáveis de ambiente definidas pelo Batch (consulte as definições de ambiente para tarefas, na documentação do Batch) por meio da classe Configuration.EnvironmentVariable.
-* `IConfiguration.cs`: Abstrai a implementação da classe de configuração, para que possa teste de unidade o divisor de tarefa com um objeto de configuração de falsos ou fictícios.
-* `TaskProcessorException.cs`: Representa um erro que exige o Gerenciador de trabalhos terminar. TaskProcessorException é utilizado para encapsular erros 'esperados' onde as informações de diagnóstico específicas podem ser fornecidas como parte de terminação.
+* `Configuration.cs`: Encapsula o carregamento de dados de configuração de trabalho, como detalhes da conta do lote, credenciais de conta de armazenamento vinculadas, informações de trabalho e tarefa e parâmetros de trabalho. Ele também fornece acesso a variáveis de ambiente definidas pelo lote (consulte Configurações de ambiente para tarefas, na documentação do lote) por meio da classe Configuration. EnvironmentVariable.
+* `IConfiguration.cs`: Abstrai a implementação da classe de configuração para que você possa testar a unidade do divisor de trabalho usando um objeto de configuração falso ou fictício.
+* `TaskProcessorException.cs`: Representa um erro que exige que o Gerenciador de trabalhos seja encerrado. TaskProcessorException é usado para encapsular erros "esperados" onde informações de diagnóstico específicas podem ser fornecidas como parte do encerramento.
 
-**Processador de tarefa**
+**Processador de tarefas**
 
-* `TaskProcessor.cs`: É executada a tarefa. O framework invoca o método TaskProcessor.Run. Esta é a classe em que injetará a lógica de específicas da aplicação da sua tarefa. Implemente o método Run para:
-  * Analisar e validar os parâmetros da tarefa
-  * Compor a linha de comandos para qualquer programa externo que deseja invocar
-  * Registar quaisquer informações de diagnóstico, poderá precisar para fins de depuração
-  * Iniciar um processo com essa linha de comandos
-  * Aguarde que o processo sair
-  * Capturar o código de saída do processo para determinar se ele foi concluída com êxito ou falha
-  * Guardar quaisquer ficheiros de saída que pretende manter no armazenamento persistente
+* `TaskProcessor.cs`: Executa a tarefa. A estrutura invoca o método TaskProcessor. Run. Essa é a classe na qual você injetará a lógica específica do aplicativo da sua tarefa. Implemente o método Run para:
+  * Analisar e validar qualquer parâmetro de tarefa
+  * Compor a linha de comando para qualquer programa externo que você deseja invocar
+  * Registrar as informações de diagnóstico que você pode exigir para fins de depuração
+  * Iniciar um processo usando essa linha de comando
+  * Aguarde a saída do processo
+  * Capturar o código de saída do processo para determinar se ele teve êxito ou falhou
+  * Salve os arquivos de saída que você deseja manter no armazenamento persistente
 
-**Arquivos de projeto de linha de comandos de .NET Standard**
+**Arquivos de projeto de linha de comando padrão do .NET**
 
-* `App.config`: Arquivo de configuração do aplicativo de .NET padrão.
-* `Packages.config`: Ficheiro de dependência do pacote de NuGet padrão.
-* `Program.cs`: Contém o ponto de entrada de programa e manipulação de exceções de nível superior.
+* `App.config`: Arquivo de configuração de aplicativo .NET padrão.
+* `Packages.config`: Arquivo de dependência do pacote NuGet padrão.
+* `Program.cs`: Contém o ponto de entrada do programa e a manipulação de exceção de nível superior.
 
-## <a name="implementing-the-task-processor"></a>Implementando o processador de tarefa
-Quando abrir o projeto de modelo de processador de tarefa, o projeto terá o ficheiro de TaskProcessor.cs abrir por predefinição. Pode implementar a lógica de execução para as tarefas na sua carga de trabalho usando o método Run() mostrado abaixo:
+## <a name="implementing-the-task-processor"></a>Implementando o processador de tarefas
+Quando você abrir o projeto de modelo do processador de tarefas, o projeto terá o arquivo TaskProcessor.cs aberto por padrão. Você pode implementar a lógica de execução para as tarefas em sua carga de trabalho usando o método Run () mostrado abaixo:
 
 ```csharp
 /// <summary>
@@ -348,44 +348,44 @@ public async Task<int> Run()
 }
 ```
 > [!NOTE]
-> A seção anotada no método Run() é a única seção do código do modelo de processador de tarefas que pretende modificar ao adicionar a lógica de execução para as tarefas na sua carga de trabalho. Se quiser modificar uma secção diferente do modelo,. primeiro familiarize-se com o funcionamento de Batch ao rever a documentação do Batch e a experimentar alguns dos exemplos de código do Batch.
+> A seção anotada no método Run () é a única seção do código do modelo do processador de tarefas que se destina a você modificar adicionando a lógica de execução para as tarefas em sua carga de trabalho. Se você quiser modificar uma seção diferente do modelo, familiarize-se primeiro com o funcionamento do lote examinando a documentação do lote e experimentando alguns dos exemplos de código do lote.
 > 
 > 
 
-O método de Run() é responsável por iniciar a linha de comandos, a partir de um ou mais processos, aguardar pelo processo de todos os concluir, salvar os resultados e, finalmente retornar com um código de saída. O método de Run() é onde implementar a lógica de processamento para as suas tarefas. A estrutura de processador de tarefa invoca o método de Run() para; Não é necessário chamá-la.
+O método Run () é responsável por iniciar a linha de comando, iniciar um ou mais processos, aguardar a conclusão de todo o processo, salvar os resultados e, finalmente, retornar com um código de saída. O método Run () é onde você implementa a lógica de processamento para suas tarefas. A estrutura do processador de tarefas invoca o método Run () para você; Você não precisa chamá-lo por conta própria.
 
-A sua implementação de Run() tem acesso a:
+Sua implementação de Run () tem acesso a:
 
-* Os parâmetros da tarefa, via o `_parameters` campo.
-* Os ids de trabalhos e tarefas, através da `_jobId` e `_taskId` campos.
-* A configuração de tarefas, via o `_configuration` campo.
+* Os parâmetros da tarefa, por `_parameters` meio do campo.
+* As IDs de trabalho e tarefa, por `_jobId` meio `_taskId` dos campos e.
+* A configuração da tarefa, por `_configuration` meio do campo.
 
-**Falha de tarefa**
+**Falha da tarefa**
 
-Em caso de falha, pode sair do método Run() lançando uma exceção, mas tal deixa o manipulador de exceção de nível superior no controle do código de saída de tarefa. Se precisar de controlar o código de saída para que pode distinguir diferentes tipos de falha, por exemplo para fins de diagnóstico ou porque alguns modos de falha devem terminar o trabalho e outros não devem, em seguida, deverá ser encerrada o método Run() retornando um diferente de zero código de saída. Isso se torna o código de saída da tarefa.
+Em caso de falha, você pode sair do método Run () lançando uma exceção, mas isso deixa o manipulador de exceção de nível superior no controle do código de saída da tarefa. Se você precisar controlar o código de saída para que possa distinguir diferentes tipos de falha, por exemplo, para fins de diagnóstico ou porque alguns modos de falha devem encerrar o trabalho e outros não devem, então você deve sair do método Run () retornando um valor diferente de zero código de saída. Isso se torna o código de saída da tarefa.
 
-### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Códigos de saída e as exceções no modelo de processador de tarefa
-Códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e podem ajudar a identificar quaisquer problemas com a execução do programa. O modelo de processador de tarefa implementa os códigos de saída e exceções descritas nesta secção.
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Códigos de saída e exceções no modelo do processador de tarefas
+Códigos de saída e exceções fornecem um mecanismo para determinar o resultado da execução de um programa, e eles podem ajudar a identificar quaisquer problemas com a execução do programa. O modelo do processador de tarefas implementa os códigos de saída e as exceções descritas nesta seção.
 
-Uma tarefa do processador de tarefa que é implementada com o modelo de processador de tarefas pode retornar códigos de saída possível três:
+Uma tarefa do processador de tarefas que é implementada com o modelo do processador de tarefas pode retornar três códigos de saída possíveis:
 
 | Código | Descrição |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |O processador de tarefa foi executada até à conclusão. Tenha em atenção que isto não significa que o programa que invocou foi concluída com êxito – apenas que o processador de tarefa invocou com êxito e realizado qualquer processamento posterior sem exceções. O significado do código de saída depende do programa invocado – normalmente, o código de saída 0 significa que o programa foi concluída com êxito e qualquer outro código de saída significa que o programa com falhas. |
-| 1 |O processador de tarefa falhou com uma exceção numa parte 'esperada' do programa. A exceção foi traduzida para um `TaskProcessorException` com informações de diagnóstico e, sempre que possível, sugestões para resolver a falha. |
-| 2 |O processador de tarefa falhou com uma exceção 'inesperada'. A exceção foi registada para a saída padrão, mas o processador de tarefa não foi possível adicionar as informações adicionais de diagnóstico ou de remediação. |
+| [Process. ExitCode][process_exitcode] |O processador de tarefas foi executado até a conclusão. Observe que isso não significa que o programa que você chamou foi bem-sucedido – apenas que o processador de tarefas o invocou com êxito e executou qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado – normalmente o código de saída 0 significa que o programa foi bem-sucedido e qualquer outro código de saída significa que o programa falhou. |
+| 1 |O processador de tarefas falhou com uma exceção em uma parte "esperada" do programa. A exceção foi convertida em `TaskProcessorException` uma com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
+| 2 |O processador de tarefas falhou com uma exceção ' inesperada '. A exceção foi registrada na saída padrão, mas o processador de tarefas não pôde adicionar informações adicionais de diagnóstico ou correção. |
 
 > [!NOTE]
-> Se o programa, invoca utiliza códigos de saída 1 e 2 para indicar os modos de falha específico, em seguida, utilizar códigos de saída 1 e 2 para erros de processador de tarefa é ambíguo. Pode alterar esses códigos de erro do processador de tarefas para códigos de saída distintas ao editar os casos de exceção no ficheiro Program.cs.
+> Se o programa que você invocar usa os códigos de saída 1 e 2 para indicar modos de falha específicos, o uso de códigos de saída 1 e 2 para erros do processador de tarefas é ambíguo. Você pode alterar esses códigos de erro do processador de tarefas para códigos de saída distintivos editando os casos de exceção no arquivo Program.cs.
 > 
 > 
 
-Todas as informações retornadas pela exceções são escritas em arquivos stdout.txt e stderr. txt. Para obter mais informações, consulte o processamento de erros, na documentação do Batch.
+Todas as informações retornadas por exceções são gravadas em arquivos stdout. txt e stderr. txt. Para obter mais informações, consulte tratamento de erros, na documentação do lote.
 
-### <a name="client-considerations"></a>Considerações de cliente
+### <a name="client-considerations"></a>Considerações do cliente
 **Credenciais de armazenamento**
 
-Se o processador de tarefas utiliza o armazenamento de Blobs do Azure para manter saídas, por exemplo usando a biblioteca de programa auxiliar de convenções de ficheiros, em seguida, ele precisa de aceder a *ambos* as credenciais de conta de armazenamento na cloud *ou* um blob URL de contentor que inclui uma assinatura de acesso partilhado (SAS). O modelo inclui suporte para fornecer credenciais através de variáveis de ambiente comuns. O cliente pode passar as credenciais de armazenamento da seguinte forma:
+Se o processador de tarefas usar o armazenamento de BLOBs do Azure para manter as saídas, por exemplo, usando a biblioteca auxiliar de convenções de arquivo, ele precisará acessar as *credenciais da conta* de armazenamento em nuvem *ou* uma URL de contêiner de BLOB que inclui um acesso compartilhado assinatura (SAS). O modelo inclui suporte para fornecer credenciais por meio de variáveis de ambiente comuns. O cliente pode passar as credenciais de armazenamento da seguinte maneira:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -394,50 +394,50 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-A conta de armazenamento, em seguida, está disponível na classe TaskProcessor via o `_configuration.StorageAccount` propriedade.
+A conta de armazenamento fica disponível na classe TaskProcessor por meio da `_configuration.StorageAccount` propriedade.
 
-Se preferir usar uma URL de contentor com o SAS, pode também passar isso por meio de uma definição de ambiente comuns de tarefa, mas o modelo de processador de tarefas não inclui atualmente suporte interno para isso.
+Se preferir usar uma URL de contêiner com SAS, você também poderá passá-la por meio de uma configuração de ambiente comum de trabalho, mas o modelo de processador de tarefas não inclui atualmente suporte interno para isso.
 
 **Configuração de armazenamento**
 
-Recomenda-se que o cliente ou a tarefa do Gestor de tarefas crie quaisquer contentores necessárias para tarefas antes de adicionar tarefas ao trabalho. Isso é obrigatório que se utilizar um URL de contentor com o SAS, como tal, um URL não inclui permissão para criar o contentor. É recomendado, mesmo se passar credenciais de conta de armazenamento, como ele salva cada tarefa ter de chamar CloudBlobContainer.CreateIfNotExistsAsync no contentor.
+É recomendável que a tarefa cliente ou Gerenciador de trabalho crie todos os contêineres exigidos pelas tarefas antes de adicionar as tarefas ao trabalho. Isso é obrigatório se você usar uma URL de contêiner com SAS, pois tal URL não inclui permissão para criar o contêiner. É recomendável mesmo que você passe as credenciais da conta de armazenamento, pois ela salva todas as tarefas que têm que chamar CloudBlobContainer. CreateIfNotExistsAsync no contêiner.
 
-## <a name="pass-parameters-and-environment-variables"></a>Transmita os parâmetros e variáveis de ambiente
-### <a name="pass-environment-settings"></a>Definições de ambiente de passagem
-Um cliente pode passar informações para a tarefa de gestão na forma de definições de ambiente. Estas informações, em seguida, podem ser utilizadas pela tarefa de gestão ao gerar as tarefas de processador de tarefas que serão executado como parte do trabalho de computação. Exemplos de informações que pode passar como definições de ambiente são:
+## <a name="pass-parameters-and-environment-variables"></a>Passar parâmetros e variáveis de ambiente
+### <a name="pass-environment-settings"></a>Passar configurações de ambiente
+Um cliente pode passar informações para a tarefa do Gerenciador de trabalho na forma de configurações de ambiente. Essas informações podem ser usadas pela tarefa do Gerenciador de trabalho ao gerar as tarefas do processador de tarefas que serão executadas como parte do trabalho de computação. Exemplos das informações que você pode passar como configurações de ambiente são:
 
-* Chaves de conta e o nome de conta de armazenamento
-* URL da conta do batch
-* Chave de conta do batch
+* Nome da conta de armazenamento e chaves de conta
+* URL da conta do lote
+* Chave de conta do lote
 
-O serviço Batch tem um mecanismo simple para passar definições de ambiente para uma tarefa de gestão, utilizando o `EnvironmentSettings` propriedade na [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+O serviço de lote tem um mecanismo simples para passar configurações de ambiente para uma tarefa do Gerenciador de `EnvironmentSettings` trabalho usando a propriedade em [Microsoft. Azure. Batch. JobManagerTask][net_jobmanagertask].
 
-Por exemplo, para obter o `BatchClient` instância para uma conta do Batch, pode passar como variáveis de ambiente do cliente de código o URL e as credenciais da chave partilhadas para a conta do Batch. Da mesma forma, para aceder à conta de armazenamento que está ligada à conta do Batch, pode passar o nome da conta de armazenamento e a chave de conta de armazenamento como variáveis de ambiente.
+Por exemplo, para obter a `BatchClient` instância para uma conta do lote, você pode passar como variáveis de ambiente do código do cliente a URL e as credenciais de chave compartilhada para a conta do lote. Da mesma forma, para acessar a conta de armazenamento que está vinculada à conta do lote, você pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis de ambiente.
 
-### <a name="pass-parameters-to-the-job-manager-template"></a>Transmita os parâmetros para o modelo de Gestor de tarefas
-Em muitos casos, é útil passar parâmetros por tarefa para a tarefa de gestão, para controlar a tarefa de divisão de processo ou para configurar as tarefas para a tarefa. Pode fazê-lo ao carregar um ficheiro JSON com o nome Parameters. JSON como um arquivo de recursos para a tarefa de gestão. Os parâmetros, em seguida, podem se tornar disponíveis na `JobSplitter._parameters` campo no modelo do Gestor de tarefas.
+### <a name="pass-parameters-to-the-job-manager-template"></a>Passar parâmetros para o modelo do Gerenciador de trabalho
+Em muitos casos, é útil passar parâmetros por trabalho para a tarefa do Gerenciador de trabalho, para controlar o processo de divisão de trabalho ou para configurar as tarefas para o trabalho. Você pode fazer isso carregando um arquivo JSON chamado Parameters. JSON como um arquivo de recurso para a tarefa do Gerenciador de trabalho. Os parâmetros podem então ser disponibilizados no `JobSplitter._parameters` campo no modelo do Gerenciador de trabalho.
 
 > [!NOTE]
-> O manipulador de parâmetro interno oferece suporte apenas a cadeia-cadeia dicionários. Se quiser passar valores JSON complexos como valores de parâmetros, será preciso passá-los como cadeias de caracteres e analisá-las no divisor de tarefa ou modificar a estrutura `Configuration.GetJobParameters` método.
+> O manipulador de parâmetro interno dá suporte apenas a dicionários de cadeia de caracteres para cadeia de caracteres. Se você quiser passar valores JSON complexos como valores de parâmetro, será necessário passá-los como cadeias de caracteres e analisá-los no divisor de trabalho ou modificar o método `Configuration.GetJobParameters` da estrutura.
 > 
 > 
 
-### <a name="pass-parameters-to-the-task-processor-template"></a>Transmita os parâmetros para o modelo de processador de tarefa
-Pode também passar parâmetros para tarefas individuais implementadas usando o modelo de processador de tarefa. Assim como acontece com o modelo de Gestor de trabalho, o modelo de processador de tarefa procura um arquivo de recursos com o nome
+### <a name="pass-parameters-to-the-task-processor-template"></a>Passar parâmetros para o modelo de processador de tarefas
+Você também pode passar parâmetros para tarefas individuais implementadas usando o modelo de processador de tarefas. Assim como ocorre com o modelo do Gerenciador de trabalho, o modelo do processador de tarefas procura um arquivo de recurso chamado
 
-Parameters. JSON e se Achei carrega-o como o dicionário de parâmetros. Existem duas opções para como passar parâmetros para as tarefas de processador de tarefa:
+Parameters. JSON e, se encontrado, ele o carrega como o dicionário de parâmetros. Há algumas opções para passar parâmetros para as tarefas do processador de tarefas:
 
-* Reutilize os parâmetros da tarefa JSON. Isso funciona bem se os únicos parâmetros são aqueles em todo o trabalho (por exemplo, uma altura de composição e a largura). Para fazer isso, ao criar um CloudTask no divisor de tarefa, adicionar uma referência para o objeto de ficheiro de recurso Parameters. JSON da ResourceFiles a tarefa de Gestor de trabalho (`JobSplitter._jobManagerTask.ResourceFiles`) à coleção de ResourceFiles o CloudTask.
-* Gerar e carregar um documento de Parameters. JSON de tarefa específica como parte da execução da tarefa splitter para fazer referência a esse blob na coleção de ficheiros de recursos da tarefa. Isso é necessário se diferentes tarefas possuem parâmetros diferentes. Por exemplo, poderá um cenário de composição 3D em que o índice do quadro é passado para a tarefa como um parâmetro.
+* Reutilize o JSON dos parâmetros do trabalho. Isso funciona bem se os únicos parâmetros forem de todo o trabalho (por exemplo, uma altura e largura de renderização). Para fazer isso, ao criar um CloudTask no divisor de trabalho, adicione uma referência ao objeto do arquivo de recurso Parameters. JSON da ResourceFiles da tarefa do Gerenciador`JobSplitter._jobManagerTask.ResourceFiles`de trabalho () à coleção ResourceFiles do CloudTask.
+* Gerar e carregar um documento. JSON de parâmetros específicos da tarefa como parte da execução do divisor de trabalho e fazer referência a esse blob na coleção de arquivos de recursos da tarefa. Isso será necessário se diferentes tarefas tiverem parâmetros diferentes. Um exemplo pode ser um cenário de renderização 3D em que o índice de quadro é passado para a tarefa como um parâmetro.
 
 > [!NOTE]
-> O manipulador de parâmetro interno oferece suporte apenas a cadeia-cadeia dicionários. Se quiser passar valores JSON complexos como valores de parâmetros, será preciso passá-los como cadeias de caracteres e analisá-las no processador de tarefas ou modificar a estrutura `Configuration.GetTaskParameters` método.
+> O manipulador de parâmetro interno dá suporte apenas a dicionários de cadeia de caracteres para cadeia de caracteres. Se você quiser passar valores JSON complexos como valores de parâmetro, será necessário passá-los como cadeias de caracteres e analisá-los no processador de tarefas ou modificar o `Configuration.GetTaskParameters` método da estrutura.
 > 
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-### <a name="persist-job-and-task-output-to-azure-storage"></a>Manter a saída de trabalhos e tarefas para o armazenamento do Azure
-Outra ferramenta útil no desenvolvimento de soluções do Batch é [convenções de ficheiros do Azure Batch][nuget_package]. Utilize esta biblioteca de classes do .NET (atualmente em pré-visualização) nas suas aplicações de .NET do Batch para facilmente armazenam e obtêm saídas de tarefas para e do armazenamento do Azure. [Manter a saída de trabalhos e tarefas do Azure Batch](batch-task-output.md) contém uma discussão completa sobre a biblioteca e respetiva utilização.
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Manter saída de trabalho e tarefa no armazenamento do Azure
+Outra ferramenta útil no desenvolvimento da solução do lote é as [convenções de arquivo do lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (atualmente em visualização) em seus aplicativos .NET do lote para armazenar e recuperar facilmente saídas de tarefas para e do armazenamento do Azure. [Persistir o trabalho do lote do Azure e a saída da tarefa](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

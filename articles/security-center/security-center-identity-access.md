@@ -13,87 +13,87 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083662"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296482"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
+# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorar identidade e acesso na central de segurança do Azure (versão prévia)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
 
 > [!NOTE]
-> O "modo de exibição *clássico* identidade e acesso" link será descontinuado a 31 de Julho de 2019. Clique em [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre os serviços alternativos.
+> O link "exibir acesso à identidade *clássica* &" será desativado em 31 de julho de 2019. Clique [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre serviços alternativos.
 
 > [!NOTE]
-> Monitorizar a identidade e acesso está em pré-visualização e disponível apenas no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+> O monitoramento de identidade e acesso está em visualização e disponível somente na camada Standard da central de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
 >
 
-A identidade deve ser o plano de controlo da sua empresa e proteger a sua identidade deve ser a sua prioridade. O perímetro de segurança deixou de ser um perímetro de rede para um perímetro de identidade. A segurança se torna menos sobre defesa de rede e mais informações sobre a Defender seus dados, bem como gerir a segurança das suas aplicações e os utilizadores. Hoje em dia, com mais dados e mais aplicações a mudarem para a cloud, a identidade torna-se no novo perímetro.
+A identidade deve ser o plano de controlo da sua empresa e proteger a sua identidade deve ser a sua prioridade. O perímetro de segurança evoluiu de um perímetro de rede para um perímetro de identidade. A segurança se torna menos informando a defesa da sua rede e mais sobre como proteger seus dados, bem como gerenciar a segurança de seus aplicativos e usuários. Hoje em dia, com mais dados e mais aplicações a mudarem para a cloud, a identidade torna-se no novo perímetro.
 
-Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. O dashboard de identidade e acesso fornece recomendações, tais como:
+Através da monitorização das atividades de identidade, poderá levar a cabo ações proativas antes da ocorrência de um incidente ou ações reativas para parar uma tentativa de ataque. O painel identidade & Access fornece recomendações como:
 
 - Ativar o MFA para contas com privilégios na sua subscrição
 - Remover contas externas com permissões de escrita da sua subscrição
 - Remover as contas externas com privilégios da sua subscrição
 
 > [!NOTE]
-> Se a sua subscrição tiver mais de 600 contas, o Centro de segurança não consegue executar as recomendações de identidade na sua subscrição. Recomendações que são executadas não estão listadas na "avaliações indisponíveis" que é abordada abaixo.
-Centro de segurança não consegue executar as recomendações de identidade em agentes de administrador de um parceiro de fornecedor de soluções Cloud (CSP).
+> Se sua assinatura tiver mais de 600 contas, a central de segurança não poderá executar as recomendações de identidade em relação à sua assinatura. As recomendações que não são executadas são listadas em "avaliações não disponíveis", que são discutidas abaixo.
+A central de segurança não pode executar as recomendações de identidade em relação a agentes de administração do provedor de soluções de nuvem (CSP).
 >
 
-Ver [recomendações](security-center-identity-access.md#recommendations) para obter uma lista das recomendações de acesso e identidades fornecidas pelo centro de segurança.
+Consulte [recomendações](security-center-identity-access.md#recommendations) para obter uma lista das recomendações de identidade e acesso fornecidas pela central de segurança.
 
 ## <a name="monitoring-security-health"></a>Monitorizar o estado de funcionamento de segurança
-Pode monitorizar o estado de segurança dos seus recursos na **Centro de segurança – descrição geral** dashboard. O **recursos** secção é um indicador de estado de funcionamento que mostra as gravidades para cada tipo de recurso.
+Pode monitorizar o estado de segurança dos seus recursos na **Centro de segurança – descrição geral** dashboard. A seção de **recursos** é um indicador de integridade mostrando as severidades para cada tipo de recurso.
 
-Pode ver uma lista de todos os problemas, selecionando **recomendações**. Sob **recursos**, pode exibir uma lista dos problemas específicos de computação e aplicações, segurança de dados, redes, ou identidade e acesso. Para obter mais informações sobre como aplicar recomendações, veja [implementar recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
+Pode ver uma lista de todos os problemas, selecionando **recomendações**. Em **recursos**, você pode exibir uma lista de problemas específicos para computação & aplicativos, segurança de dados, rede ou identidade & acesso. Para obter mais informações sobre como aplicar recomendações, veja [implementar recomendações de segurança no Centro de segurança do Azure](security-center-recommendations.md).
 
-Para obter uma lista completa das recomendações de identidades e acessos, consulte [recomendações](security-center-identity-access.md#recommendations).
+Para obter uma lista completa de recomendações de identidade e acesso, consulte [recomendações](security-center-identity-access.md#recommendations).
 
-Para continuar, selecione **identidade e acesso** sob **recursos** ou o menu principal do Centro de segurança.
+Para continuar, selecione **identidade & acesso** em **recursos** ou no menu principal da central de segurança.
 
 ![Dashboard Centro de Segurança][1]
 
 ## <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
-Sob **identidade e acesso**, há duas guias:
+Em **identidade & acesso**, há duas guias:
 
-- **Descrição geral**: recomendações identificado pelo centro de segurança.
-- **Subscrições**: lista das suas subscrições e o estado de segurança atual de cada.
+- **Visão geral**: recomendações identificadas pela central de segurança.
+- **Assinaturas**: lista de suas assinaturas e o estado de segurança atual de cada uma.
 
 ![Identidade e Acesso][2]
 
 ### <a name="overview-section"></a>Seção de visão geral
-Sob **descrição geral**, há uma lista de recomendações. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de subscrições são afetadas por essa recomendação. A terceira coluna mostra a gravidade do problema.
+Em **visão geral**, há uma lista de recomendações. A primeira coluna indica a recomendação. A segunda coluna mostra o número total de assinaturas afetadas por essa recomendação. A terceira coluna mostra a gravidade do problema.
 
-1. Selecione uma recomendação. A recomendação é apresentada a janela e apresenta:
+1. Selecione uma recomendação. A janela da recomendação é aberta e exibe:
 
    - Descrição da recomendação
-   - Lista de subscrições de mau e bom estado de funcionamento
-   - Lista de recursos não verificados devido a uma avaliação com falhas ou o recurso está sob a uma subscrição em execução no escalão gratuito e não é avaliada
+   - Lista de assinaturas não íntegras e íntegras
+   - Lista de recursos que não foram verificados devido a uma avaliação com falha ou que o recurso está em uma assinatura em execução na camada gratuita e não é avaliado
 
-   ![Janela da recomendação][3]
+   ![Janela de recomendação][3]
 
-1. Selecione uma subscrição na lista para obter detalhes adicionais.
+1. Selecione uma assinatura na lista para obter detalhes adicionais.
 
-### <a name="subscriptions-section"></a>Secção de subscrições
-Sob **subscrições**, há uma lista de subscrições. A primeira coluna apresenta uma lista de subscrições. A segunda coluna mostra o número total de recomendações para cada subscrição. A terceira coluna mostra a gravidade dos problemas.
+### <a name="subscriptions-section"></a>Seção assinaturas
+Em **assinaturas**, há uma lista de assinaturas. A primeira coluna lista as assinaturas. A segunda coluna mostra o número total de recomendações para cada assinatura. A terceira coluna mostra as severidades dos problemas.
 
-![Separador da subscrição][4]
+![Guia da assinatura][4]
 
 1. Selecione uma subscrição. É aberta uma vista de resumida com três separadores:
 
    - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
    - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
-   - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 600 contas.
+   - **Avaliações indisponíveis**: lista de avaliações que não foram executadas devido a um erro ou porque a assinatura tem mais de 600 contas.
 
-   Sob **recomendações** é uma lista de recomendações para a subscrição selecionada e a gravidade de cada recomendação.
+   Em **recomendações** é uma lista das recomendações para a assinatura e a severidade selecionadas de cada recomendação.
 
-   ![Recomendações para selecionar a subscrição][5]
+   ![Recomendações para selecionar assinatura][5]
 
-1. Selecione uma recomendação para obter uma descrição da recomendação, uma lista de subscrições mau e bom estado de funcionamento e uma lista de recursos não verificados.
+1. Selecione uma recomendação para obter uma descrição da recomendação, uma lista de assinaturas não íntegras e íntegras e uma lista de recursos não verificados.
 
    ![Descrição da recomendação][6]
 
@@ -101,36 +101,36 @@ Sob **subscrições**, há uma lista de subscrições. A primeira coluna apresen
 
    ![Avaliações aprovadas][7]
 
-1. Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação e uma lista das inscrições em bom estado. Há uma guia para subscrições de mau estado de funcionamento que apresenta uma lista de todas as subscrições que falharam.
+1. Selecione uma avaliação aprovada na lista para obter uma descrição da avaliação e uma lista de assinaturas íntegras. Há uma guia para assinaturas não íntegras que lista todas as assinaturas que falharam.
 
    ![Avaliações aprovadas][8]
 
 ## <a name="recommendations"></a>Recomendações
-Utilize a tabela abaixo como referência para ajudar a compreender as recomendações de identidade e acesso disponíveis e o que cada um deles faz se as aplicar.
+Use a tabela abaixo como referência para ajudá-lo a entender a identidade disponível & recomendações de acesso e o que cada uma delas faz se você a aplicar.
 
 |Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
 |----|----|----|----|
-|Subscrição|50|MFA deve ser ativada em contas com permissões de proprietário na sua subscrição|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de administrador para evitar falhas de segurança de contas ou recursos.|
-|Subscrição|40|MFA deve ser ativada em suas contas de subscrição com permissões de escrita|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma violação de contas ou recursos.|
-|Subscrição|30|As contas externas com permissões de proprietário devem ser removidas da sua subscrição|Remova contas externas com permissões de proprietário da sua subscrição para impedir o acesso não monitorizado.|
-|Subscrição|30|MFA deve ser ativada em suas contas de subscrição com permissões de leitura|Ative a multi-factor Authentication (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma violação de contas ou recursos.|
-|Subscrição|25|Contas externas com escrita permissões devem ser removidas da sua subscrição|Remova contas externas com permissões de escrita da sua subscrição para impedir o acesso não monitorizado. |
-|Subscrição|20|As contas preteridas com permissões de proprietário devem ser removidas da sua subscrição|Remova contas preteridas com permissões de proprietário a partir das subscrições.|
-|Subscrição|5|As contas preteridas devem ser removidas da sua subscrição|Remova contas preteridas das suas subscrições para permitir o acesso aos utilizadores apenas atuais. |
-|Subscrição|5|Deve haver mais do que um proprietário atribuído à sua subscrição|Designe mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.|
-|Subscrição|5|Um máximo de 3 proprietários deve ser designado para a sua subscrição|Designe menos de 3 proprietários de subscrições para reduzir a possibilidade de violação por um proprietário comprometido.|
-|Key Vault|5|Os registos de diagnóstico no Cofre de chaves devem estar ativados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
-|Subscrição|15|As contas externas com permissões de leitura devem ser removidas da sua subscrição|Remova contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.| 
+|Subscription|50|A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura|Habilite a autenticação multifator (MFA) para todas as contas de assinatura com privilégios de administrador para evitar uma violação de contas ou recursos.|
+|Subscription|40|A MFA deve ser habilitada em suas contas de assinatura com permissões de gravação|Habilite a autenticação multifator (MFA) para todas as contas de assinatura com privilégios de gravação para evitar uma violação de contas ou recursos.|
+|Subscription|30|Contas externas com permissões de proprietário devem ser removidas da sua assinatura|Remova contas externas com permissões de proprietário da sua assinatura para impedir o acesso não monitorado.|
+|Subscription|30|A MFA deve ser habilitada em suas contas de assinatura com permissões de leitura|Habilite a autenticação multifator (MFA) para todas as contas de assinatura com privilégios de leitura para evitar uma violação de contas ou recursos.|
+|Subscription|25|As contas externas com permissões de escrita devem ser removidas da sua subscrição|Remova contas externas com permissões de gravação da sua assinatura para impedir o acesso não monitorado. |
+|Subscription|20|Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura|Remova contas preteridas com permissões de proprietário de suas assinaturas.|
+|Subscription|5|As contas preteridas devem ser removidas da sua assinatura|Remova contas preteridas de suas assinaturas para habilitar o acesso somente aos usuários atuais. |
+|Subscription|5|Deve haver mais de um proprietário atribuído à sua assinatura|Designe mais de um proprietário de assinatura para ter redundância de acesso de administrador.|
+|Subscription|5|Um máximo de 3 proprietários deve ser designado para sua assinatura|Designe menos de 3 proprietários de assinatura para reduzir o potencial de violação por um proprietário comprometido.|
+|Key Vault|5|Os logs de diagnóstico no Key Vault devem ser habilitados|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Subscription|15|Contas externas com permissões de leitura devem ser removidas da sua assinatura|Remova contas externas com privilégios de leitura de sua assinatura para impedir o acesso não monitorado.| 
 
 > [!NOTE]
-> Se tiver criado uma política de acesso condicional que exige o MFA, mas tem as exclusões definidas, a avaliação de recomendação do MFA do Centro de segurança considera a política de conformidade, porque ela permite que alguns usuários iniciar sessão no Azure sem MFA.
+> Se você criou uma política de acesso condicional que exige MFA, mas tem exclusões definidas, a avaliação de recomendação do MFA da central de segurança considera a política como não compatível, pois permite que alguns usuários entrem no Azure sem MFA.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:
 
 - [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-recommendations.md)
 - [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
-- [Proteger os dados no Centro de segurança do Azure e o serviço SQL do Azure](security-center-sql-service-recommendations.md)
+- [Protegendo o serviço e os dados do SQL Azure na central de segurança do Azure](security-center-sql-service-recommendations.md)
 
 Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Saiba como gerir alertas e responder a incidentes de segurança no Centro de Segurança.

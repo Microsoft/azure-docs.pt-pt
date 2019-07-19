@@ -3,21 +3,21 @@ title: Início Rápido do Azure - Executar Tarefa do Batch - Python
 description: Execute rapidamente uma tarefa do Batch com a biblioteca de clientes do Batch Python.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5788f6e699833c606b1bdeaf63a9aac13da2a0e9
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: f7170fbb4a258e9d8290ad9d207028087b22003a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67513275"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322322"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar o seu primeiro trabalho do Batch com a API de Python
+# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar seu primeiro trabalho em lotes com a API do Python
 
 Este início rápido executa uma tarefa do Azure Batch a partir de uma aplicação criada a partir da API Python do Azure Batch. A aplicação carrega vários ficheiros de dados de entrada para o armazenamento do Azure e, em seguida, cria um *conjunto* de nós de computação do Batch (máquinas virtuais). Em seguida, cria uma *tarefa* de amostra que executa *tarefas* para processar cada ficheiro de entrada no conjunto com um comando básico. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
  
@@ -108,7 +108,7 @@ O tempo de execução normal é aproximadamente 3 minutos quando executa a aplic
 A aplicação do Python neste início rápido faz o seguinte:
 
 * Carrega três pequenos ficheiros de texto para um contentor de blobs na sua conta de armazenamento do Azure. Estes ficheiros são entradas para processar por tarefas do Batch.
-* Cria um conjunto de dois nós de computação em execução 18.04 de Ubuntu LTS.
+* Cria um pool de dois nós de computação que executam o Ubuntu 18, 4 LTS.
 * Cria um trabalho e três tarefas para serem executados nos nós. Cada tarefa processa um dos ficheiros de entrada através de uma linha de comandos da shell do Bash.
 * Apresenta ficheiros devolvidos pelas tarefas.
 
@@ -149,7 +149,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um conjunto de nós de computação
 
-Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) objeto Especifica um [ImageReference](/python/api/azure.batch.models.imagereference) a uma imagem de Ubuntu Server 18.04 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
+Para criar um conjunto do Batch, a aplicação utiliza a classe [PoolAddParameter](/python/api/azure.batch.models.pooladdparameter) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/python/api/azure.batch.models.virtualmachineconfiguration) especifica um [ImageReference](/python/api/azure.batch.models.imagereference) para uma imagem do Ubuntu Server 18, 4 LTS publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
 
 O número de nós (`_POOL_NODE_COUNT`) e o tamanho da VM (`_POOL_VM_SIZE`) são constantes definidas. O exemplo predefinido cria um conjunto de dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
 
