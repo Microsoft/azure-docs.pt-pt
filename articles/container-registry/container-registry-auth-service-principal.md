@@ -1,56 +1,57 @@
 ---
-title: Autenticação de registo de contentor do Azure com um principal de serviço
-description: Fornece acesso a imagens no seu registo de contentor privado, utilizando um principal de serviço do Azure Active Directory.
+title: Autenticação do registro de contêiner do Azure com uma entidade de serviço
+description: Forneça acesso a imagens em seu registro de contêiner privado usando uma entidade de serviço Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347086"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309951"
 ---
-# <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação de registo de contentor do Azure com os principais de serviço
+# <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do registro de contêiner do Azure com entidades de serviço
 
-Pode utilizar um principal de serviço do Azure Active Directory (Azure AD) para fornecer a imagem de contentor `docker push` e `pull` acesso ao seu registo de contentor. Ao utilizar um principal de serviço, pode fornecer acesso a aplicações e serviços "sem interface".
+Você pode usar uma entidade de serviço Azure Active Directory (AD do Azure) para fornecer `docker push` a `pull` imagem de contêiner e o acesso ao registro de contêiner. Usando uma entidade de serviço, você pode fornecer acesso a aplicativos e serviços "sem periféricos".
 
 ## <a name="what-is-a-service-principal"></a>O que é um principal de serviço?
 
-O Azure AD *principais de serviço* fornecer acesso aos recursos do Azure na sua subscrição. Pode considerar um serviço principal como uma identidade de utilizador para um serviço, em que o "serviço" é qualquer aplicativo, o serviço ou a plataforma que precisa de acesso aos recursos. Pode configurar um principal de serviço com direitos de acesso no âmbito apenas a esses recursos que especificar. Em seguida, configure a sua aplicação ou serviço para utilizar credenciais do principal de serviço para aceder a esses recursos.
+As *entidades de serviço* do Azure ad fornecem acesso aos recursos do Azure em sua assinatura. Você pode considerar uma entidade de serviço como uma identidade de usuário para um serviço, em que "serviço" é qualquer aplicativo, serviço ou plataforma que precise de acesso aos recursos. Você pode configurar uma entidade de serviço com direitos de acesso com escopo apenas para os recursos que você especificar. Em seguida, configure seu aplicativo ou serviço para usar as credenciais da entidade de serviço para acessar esses recursos.
 
-No contexto do registo de contentor do Azure, pode criar um Azure AD principal de serviço com a solicitação, push e pull ou outras permissões para o seu registo privado no Azure. Para obter uma lista completa, consulte [permissões e funções do Azure Container Registry](container-registry-roles.md).
+No contexto do registro de contêiner do Azure, você pode criar uma entidade de serviço do Azure AD com pull, push e pull ou outras permissões para seu registro particular no Azure. Para obter uma lista completa, consulte [funções e permissões do registro de contêiner do Azure](container-registry-roles.md).
 
-## <a name="why-use-a-service-principal"></a>Por que usar um principal de serviço?
+## <a name="why-use-a-service-principal"></a>Por que usar uma entidade de serviço?
 
-Ao utilizar um principal de serviço do Azure AD, pode fornecer acesso de âmbito para o seu registo de contentor privado. Pode criar principais de serviço diferentes para cada um dos seus aplicativos ou serviços, cada um com direitos de acesso sob medida para o seu registo. Além disso, uma vez que pode evitar o compartilhamento de credenciais entre serviços e aplicações, pode alternar credenciais ou revogar o acesso para apenas o principal de serviço (e, portanto, o aplicativo) que escolher.
+Usando uma entidade de serviço do Azure AD, você pode fornecer acesso com escopo ao seu registro de contêiner privado. Você pode criar entidades de serviço diferentes para cada um dos seus aplicativos ou serviços, cada um com direitos de acesso adaptados ao registro. E, como você pode evitar o compartilhamento de credenciais entre serviços e aplicativos, você pode girar credenciais ou revogar o acesso apenas para a entidade de serviço (e, portanto, o aplicativo) escolhido.
 
-Por exemplo, seu aplicativo web pode utilizar um principal de serviço que fornece-lhe a imagem `pull` aceder apenas, enquanto o sistema de compilação pode utilizar um principal de serviço que fornece-lhe ambos `push` e `pull` acesso. Se o desenvolvimento da sua aplicação for alterado mãos, pode girar suas credenciais de principal de serviço sem afetar o sistema de compilação.
+Por exemplo, seu aplicativo Web pode usar uma entidade de serviço que fornece somente acesso `pull` a imagens, enquanto o sistema de compilação pode usar uma entidade de serviço que fornece o `push` e `pull` o acesso. Se o desenvolvimento do seu aplicativo mudar de mãos, você poderá girar suas credenciais de princípio de serviço sem afetar o sistema de compilação.
 
-## <a name="when-to-use-a-service-principal"></a>Quando utilizar um principal de serviço
+## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
 
-Deve utilizar um principal de serviço para fornecer acesso ao registo no **cenários sem periféricos**. Ou seja, qualquer aplicação, serviço ou script que tem push ou pull contentor de imagens de forma autónoma automatizada ou de outra forma.
+Você deve usar uma entidade de serviço para fornecer acesso ao registro em **cenários**sem periféricos. Ou seja, qualquer aplicativo, serviço ou script que deva enviar por Push ou extrair imagens de contêiner de maneira automatizada ou autônoma.
 
-Para obter acesso individual para um registo, por exemplo, quando extrair manualmente uma imagem de contentor para a estação de trabalho de desenvolvimento, deve usar sua própria [identidade do Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acesso ao Registro (por exemplo, com [az acr início de sessão][az-acr-login]).
+Para acesso individual a um registro, como quando você efetua pull manualmente de uma imagem de contêiner para sua estação de trabalho de desenvolvimento, você deve usar sua própria [identidade do Azure ad](container-registry-authentication.md#individual-login-with-azure-ad) para acesso ao registro (por exemplo, com [AZ ACR login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Pode encontrar os scripts de exemplo anterior para a CLI do Azure no GitHub, como versões bem para o Azure PowerShell:
+Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Assim que tiver um principal de serviço que tenha concedido acesso ao seu registo de contentor, pode utilizar as respetivas credenciais em seus aplicativos e serviços para interação de registo sem periféricos. Pode usar as credenciais do principal de serviço a partir de qualquer serviço do Azure que podem autenticar com um Azure container registry. Os exemplos incluem:
+Depois que você tiver uma entidade de serviço que concedeu acesso ao registro de contêiner, poderá usar suas credenciais em seus aplicativos e serviços para interação com o registro sem periféricos. Você pode usar as credenciais da entidade de serviço de qualquer serviço do Azure que possa autenticar com um registro de contêiner do Azure. Os exemplos incluem:
 
-* [Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
-* [Autenticar com o registo de contentores do Azure de Azure Container Instances (ACI)](container-registry-auth-aci.md)
+* [Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure (AKS)](container-registry-auth-aks.md)
+* [Autenticar com o registro de contêiner do Azure de ACI (instâncias de contêiner do Azure)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry

@@ -1,52 +1,52 @@
 ---
-title: Configurar o dashboard de aplicações do Azure IoT Central | Documentos da Microsoft
-description: Como um construtor, saiba como configurar o dashboard de aplicações do Azure IoT Central do padrão.
+title: Configurar o painel do aplicativo IoT Central do Azure | Microsoft Docs
+description: Como um construtor, saiba como configurar o painel padrão do aplicativo IoT Central do Azure.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e6947a4f15797028274d49069d9e2787b143860d
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 94ad51ac11687dfe060176132e2030d61b8d4ffc
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503222"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850219"
 ---
-# <a name="configure-the-application-dashboard"></a>Configurar o dashboard de aplicações
+# <a name="configure-the-application-dashboard"></a>Configurar o painel do aplicativo
 
-O **Dashboard** é a página que carrega quando os utilizadores que têm acesso à aplicação, navegue até ao URL da aplicação. Se tiver selecionado um a **Contoso de exemplo** ou **exemplo Devkits** o modelo de aplicativo para criar a sua aplicação, seu aplicativo tem um dashboard predefinido. Se tiver escolhido o **aplicativo personalizado** o modelo de aplicativo, o seu dashboard está em branco.
+O **painel** é a página que é carregada quando os usuários que têm acesso ao aplicativo navegam até a URL do aplicativo. Se você tiver selecionado o modelo exemplo de aplicativo **contoso** ou **exemplo do devkits** para criar seu aplicativo, seu aplicativo terá um painel predefinido. Se você escolher o modelo aplicativo de **aplicativo personalizado** , seu painel ficará em branco.
 
 > [!NOTE]
-> Os utilizadores também podem [criar seus próprios dashboards pessoais](howto-personalize-dashboard.md) para utilizar em vez do dashboard de aplicações predefinido.
+> Os usuários também podem [criar seus próprios painéis pessoais](howto-personalize-dashboard.md) para usar em vez do painel de aplicativo padrão.
 
-## <a name="add-tiles"></a>Adicionar mosaicos
+## <a name="add-tiles"></a>Adicionar blocos
 
-Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Para personalizar o dashboard predefinido para a sua aplicação, selecione **editar** na parte superior direita da página.
+A captura de tela a seguir mostra o painel em um aplicativo criado a partir do modelo de **exemplo da Contoso** . Para personalizar o painel padrão para seu aplicativo, selecione **Editar** na parte superior direita da página.
 
-![Dashboard de aplicações com base no modelo de "Exemplo Contoso"](media/howto-configure-homepage/image1a.png)
+![Painel para aplicativos com base no modelo "exemplo de contoso"](media/howto-configure-homepage/image1a.png)
 
-Selecionando **editar**, abre o painel de biblioteca do dashboard. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
+Selecionar **Editar**, abre o painel Biblioteca de painéis. A biblioteca contém os blocos e os primitivos de painel que você pode usar para personalizar o painel.
 
-![Biblioteca do dashboard](media/howto-configure-homepage/image2a.png)
+![Biblioteca de painéis](media/howto-configure-homepage/image2a.png)
 
-Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Captura de ecrã seguinte mostra as definições e propriedades selecionadas a adicionar ao mosaico. Selecione **feito** para guardar a alteração ao dashboard.
+Por exemplo, você pode adicionar um bloco **configurações de dispositivo e propriedades** para mostrar uma seleção das configurações atuais e os valores de propriedades de um dispositivo. Para fazer isso, primeiro selecione um **modelo de dispositivo** e, em seguida, selecione uma **instância de dispositivo**. Depois disso, dê um título ao bloco e selecione uma **configuração** ou uma **Propriedade** a ser exibida. A captura de tela a seguir mostra as configurações e as propriedades selecionadas para adicionar ao bloco. Selecione **concluído** para salvar a alteração no painel.
 
-![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-configure-homepage/image3a.png)
+![Formulário "configurar detalhes do dispositivo" com detalhes para configurações e propriedades](media/howto-configure-homepage/image3a.png)
 
-Agora, quando um operador visualiza o dashboard de aplicações predefinido, verão o mosaico novo com o **definir a temperatura** definição para o dispositivo:
+Agora, quando um operador exibir o painel de aplicativo padrão, ele verá o novo bloco com a configuração **definir temperatura** para o dispositivo:
 
-![Separador "Dashboard" com as definições apresentadas e propriedades para o mosaico](media/howto-configure-homepage/image4a.png)
+![Guia "painel" com as configurações e propriedades exibidas para o bloco](media/howto-configure-homepage/image4a.png)
 
-Pode explorar outros tipos de mosaico na biblioteca para saber como personalizar ainda mais o dashboard de aplicações predefinido.
+Você pode explorar outros tipos de bloco na biblioteca para descobrir como personalizar ainda mais o painel de aplicativo padrão.
 
-Para saber mais sobre como utilizar mosaicos no Azure IoT Central, consulte [utilizar mosaicos de dashboard](howto-use-tiles.md).
+Para saber mais sobre como usar blocos no Azure IoT Central, confira [usar blocos do Dashboard](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como configurar o seu dashboard de aplicações padrão do Azure IoT Central, pode:
+Agora que você aprendeu como configurar seu painel de aplicativo padrão do Azure IoT Central, você pode:
 
 > [!div class="nextstepaction"]
 > [Saiba como preparar e carregar imagens](howto-prepare-images.md)

@@ -1,37 +1,37 @@
 ---
-title: Transmissão em fluxo em direto em codificadores recomendados pelos serviços de multimédia - Azure | Documentos da Microsoft
-description: Saiba mais sobre codificadores de locais de transmissão em fluxo em direto recomendados pelos serviços de multimédia
+title: Codificadores de transmissão ao vivo recomendados pelos serviços de mídia – Azure | Microsoft Docs
+description: Saiba mais sobre codificadores locais de transmissão ao vivo recomendados pelos serviços de mídia
 services: media-services
-keywords: codificação; codificadores; suporte de dados
+keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: e31ad51121b1b198e2d444e70c3f482b208ef105
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840130"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297728"
 ---
-# <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
+# <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
-Nos serviços de multimédia do Azure, um [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline de processamento de conteúdo de transmissão em direto. O evento Live recebe transmissões em direto de entrada em uma de duas formas.
+Nos serviços de mídia do Azure, um [evento ao vivo](https://docs.microsoft.com/rest/api/media/liveevents) (canal) representa um pipeline para o processamento de conteúdo de streaming ao vivo. O evento ao vivo recebe fluxos de entrada ao vivo de uma das duas maneiras.
 
-* Um codificador em direto de no local envia uma velocidade de transmissão RTMP ou transmissão em fluxo uniforme (MP4 fragmentado) transmita em fluxo para o evento em direto que não está ativado para realizar live encoding com Media Services. As transmissões em fluxo passam por meio de eventos em direto sem qualquer processamento adicional. Esse método é chamado **pass-through**. Um codificador em direto pode enviar um fluxo de velocidade de transmissão única para um canal pass-through. Não recomendamos esta configuração porque ela não permite para velocidade de transmissão adaptável, transmissão em fluxo para o cliente.
+* Um codificador ao vivo local envia um fluxo RTMP de múltiplas taxas de bits ou Smooth Streaming (MP4 fragmentado) para o evento ao vivo que não está habilitado para executar a codificação ativa com os serviços de mídia. Os fluxos ingeridos passam por eventos ao vivo sem nenhum processamento adicional. Esse método é chamado **de passagem**. Um codificador ao vivo pode enviar um fluxo de taxa de bits única para um canal de passagem. Não recomendamos essa configuração porque ela não permite o streaming de taxa de bits adaptável para o cliente.
 
   > [!NOTE]
-  > Usando um método pass-through é a forma mais económica para transmissão em direto.
+  > Usar um método de passagem é a maneira mais econômica de realizar a transmissão ao vivo.
  
-* Um codificador em direto no local envia um fluxo de velocidade de transmissão única para o evento em direto que está ativado para realizar live encoding com Media Services dos seguintes formatos: RTMP ou transmissão em fluxo uniforme (MP4 fragmentado). O evento em direto, em seguida, executa a codificação em tempo real do fluxo de velocidade de transmissão única de entrada para um fluxo de vídeo com várias (adaptável).
+* Um codificador ao vivo local envia um fluxo de taxa de bits única para o evento ao vivo que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). Em seguida, o evento ao vivo executa a codificação ativa do fluxo de taxa de bits única de entrada para um fluxo de vídeo com múltiplas taxas de bits (adaptável).
 
-Para obter informações detalhadas sobre o live encoding com Media Services, consulte [Live transmissão em fluxo com serviços de multimédia v3](live-streaming-overview.md).
+Para obter informações detalhadas sobre a codificação ativa com os serviços de mídia, consulte [transmissão ao vivo com os serviços de mídia v3](live-streaming-overview.md).
 
-## <a name="live-encoders-that-output-rtmp"></a>Codificadores em direto que transmitem RTMP
+## <a name="live-encoders-that-output-rtmp"></a>Codificadores ao vivo que produzem RTMP
 
-Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os esquemas de URL suportados são `rtmp://` ou `rtmps://`.
+Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os esquemas de URL com `rtmp://` suporte `rtmps://`são ou.
 
 > [!NOTE]
 > Ao transmitir em fluxo através de RTMP, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
@@ -49,86 +49,86 @@ Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto s
 - VMIX
 - xStream
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores em direto que MP4 fragmentado
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores ao vivo que geram MP4 fragmentado
 
-Serviços de multimédia recomenda o uso de um dos seguintes codificadores em direto com velocidade de transmissão transmissão em fluxo uniforme (MP4 fragmentado) como saída. Os esquemas de URL suportados são `http://` ou `https://`.
+Os serviços de mídia recomendam o uso de um dos seguintes codificadores ao vivo com várias taxas de bits Smooth Streaming (MP4 fragmentado) como saída. Os esquemas de URL com `http://` suporte `https://`são ou.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
-- Imagine Communications Selenio MCP3
+- Imagine Communications selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
 > [!TIP]
->  Se estiver de transmissão em fluxo eventos em direto em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio espanhol), isso pode ser feito com o codificador em direto do Excel de suporte de dados configurado para enviar a transmissão em direto para um evento Live pass-through.
+>  Se você estiver transmitindo eventos ao vivo em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio em espanhol), poderá fazer isso com o Media Excel Live Encoder configurado para enviar o feed ao vivo para um evento ao vivo de passagem.
 
-## <a name="configuring-on-premises-live-encoder-settings"></a>Configurar definições no local codificador em direto
+## <a name="configuring-on-premises-live-encoder-settings"></a>Configurando configurações de codificador dinâmico local
 
-Para obter informações sobre quais configurações são válidas para o seu tipo de evento em direto, consulte [comparação de tipos de evento em direto](live-event-types-comparison.md).
+Para obter informações sobre quais configurações são válidas para seu tipo de evento ao vivo, consulte [comparação de tipos de evento ao vivo](live-event-types-comparison.md).
 
 ### <a name="playback-requirements"></a>Requisitos de reprodução
 
-Para reproduzir conteúdo de volta, tanto um fluxo de áudio e vídeo tem de estar presente. Não é suportada a reprodução da transmissão em fluxo só de vídeo.
+Para reproduzir o conteúdo, um fluxo de áudio e de vídeo deve estar presente. Não há suporte para a reprodução do fluxo somente de vídeo.
 
-### <a name="configuration-tips"></a>Sugestões de configuração
+### <a name="configuration-tips"></a>Dicas de configuração
 
 - Sempre que possível, utilize uma ligação de internet conectada.
-- Quando está a determinar requisitos de largura de banda, double transmissão em fluxo as velocidades de transmissão. Embora não seja obrigatório, esta regra simple ajuda a reduzir o impacto de congestionamento de rede.
+- Ao determinar os requisitos de largura de banda, clique duas vezes nas taxas de bits de streaming. Embora não seja obrigatório, essa simples regra ajuda a reduzir o impacto do congestionamento da rede.
 - Quando utilizar codificadores baseada em software, feche todos os programas desnecessários.
-- Alterar a sua configuração de codificador depois de este começou a enviar por push tem os efeitos negativos no evento. Alterações de configuração podem fazer com que o evento para se tornar instável. 
-- Certifique-se de que obtenha tempo bastante para configurar o seu evento. Para eventos de grande escala, recomendamos que comece a configuração de uma hora antes de seu evento.
+- Alterar a configuração do codificador depois de começar a enviar por push tem efeitos negativos sobre o evento. As alterações de configuração podem fazer com que o evento se torne instável. 
+- Certifique-se de que você tenha bastante tempo para configurar seu evento. Para eventos de alta escala, é recomendável iniciar a configuração uma hora antes do evento.
 
-## <a name="becoming-an-on-premises-encoder-partner"></a>Se tornar um parceiro do codificador no local
+## <a name="becoming-an-on-premises-encoder-partner"></a>Tornando-se um parceiro de codificador local
 
-Como parceiro de codificador de serviços de multimédia do Azure no local, serviços de multimédia promove seu produto ao recomendar seu codificador para os clientes empresariais. Para se tornar um parceiro de codificador no local, tem de verificar a compatibilidade de seu codificador no local com os Media Services. Para fazê-lo, conclua as seguintes verificações.
+Como um parceiro de codificador local dos serviços de mídia do Azure, os serviços de mídia promovem seu produto, recomendando o codificador para clientes corporativos. Para se tornar um parceiro de codificador local, você deve verificar a compatibilidade do codificador local com os serviços de mídia. Para fazer isso, conclua as verificações a seguir.
 
-### <a name="pass-through-live-event-verification"></a>Verificação de evento em direto de pass-through
+### <a name="pass-through-live-event-verification"></a>Verificação de evento ao vivo de passagem
 
-1. Na sua conta de Media Services, certifique-se de que o **ponto final de transmissão em fluxo** está em execução. 
-2. Criar e iniciar o **pass-through** evento em direto. <br/> Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
-3. Obtenha os URLs de ingestão e configurar seu codificador no local para utilizar o URL para enviar um velocidade de transmissão em fluxo em direto para os serviços de multimédia.
-4. Obter o URL de pré-visualização e utilizá-lo para verificar que a entrada do codificador, na verdade, está a ser recebida.
-5. Criar uma nova **Asset** objeto.
-6. Criar uma **Live saída** e utilize o nome de recurso que criou.
-7. Criar uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.
-8. Lista os caminhos a **localizador de transmissão em fluxo** para recuperar os URLs para utilizar.
-9. Obtenha o nome de anfitrião para o **ponto final de transmissão em fluxo** que pretende transmitir em fluxo do.
-10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.
-11. Execute seu codificador em direto para cerca de 10 minutos.
-12. Pare o evento em direto. 
-13. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível em todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
-14. Registe o ID de recurso, o URL de transmissão em fluxo publicado para o arquivo em direto e as definições e a versão utilizada a partir do seu codificador em direto.
-15. Repor o estado do evento em direto depois de criar cada exemplo.
-16. Repita os passos 5 a 15 para todas as configurações suportadas por seu codificador (com e sem a sinalização do ad, legendas ou velocidades de codificação diferentes).
+1. Em sua conta de serviços de mídia, verifique se o **ponto de extremidade de streaming** está em execução. 
+2. Crie e inicie o evento de **passagem** ao vivo. <br/> Para obter mais informações, consulte [Live Event States e Billing](live-event-states-billing.md).
+3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar uma transmissão ao vivo de múltiplas taxas de bits para os serviços de mídia.
+4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está realmente sendo recebida.
+5. Crie um novo objeto de **ativo** .
+6. Crie uma **saída ao vivo** e use o nome do ativo que você criou.
+7. Crie um **localizador de streaming** com os tipos de **política de streaming** internos.
+8. Liste os caminhos no **localizador de streaming** para obter as URLs a serem usadas.
+9. Obtenha o nome do host para o **ponto de extremidade de streaming** do qual você deseja transmitir.
+10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
+11. Execute o codificador ao vivo por aproximadamente 10 minutos.
+12. Pare o evento ao vivo. 
+13. Use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para garantir que a reprodução não tenha nenhum problema visível em todos os níveis de qualidade. Ou, Assista e valide por meio da URL de visualização durante a sessão ao vivo.
+14. Registre a ID do ativo, a URL de streaming publicada para o arquivo em tempo real e as configurações e a versão usadas no codificador ao vivo.
+15. Redefina o estado do evento ao vivo depois de criar cada exemplo.
+16. Repita as etapas de 5 a 15 para todas as configurações com suporte no seu codificador (com e sem sinalização do AD, legendas ou velocidades de codificação diferentes).
 
-### <a name="live-encoding-live-event-verification"></a>Verificação de evento em direto de codificação em direto
+### <a name="live-encoding-live-event-verification"></a>Verificação de evento ao vivo de codificação ativa
 
-1. Na sua conta de Media Services, certifique-se de que o **ponto final de transmissão em fluxo** está em execução. 
-2. Criar e iniciar o **codificação em direto** evento em direto. <br/> Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
-3. Obtenha os URLs de ingestão e configurar seu codificador para enviar um fluxo em direto com velocidade de transmissão única para serviços de multimédia.
-4. Obter o URL de pré-visualização e utilizá-lo para verificar que a entrada do codificador, na verdade, está a ser recebida.
-5. Criar uma nova **Asset** objeto.
-6. Criar uma **Live saída** e utilize o nome de recurso que criou.
-7. Criar uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.
-8. Lista os caminhos a **localizador de transmissão em fluxo** para recuperar os URLs para utilizar.
-9. Obtenha o nome de anfitrião para o **ponto final de transmissão em fluxo** que pretende transmitir em fluxo do.
-10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.
-11. Execute seu codificador em direto para cerca de 10 minutos.
-12. Pare o evento em direto.
-13. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver o elemento arquivado para garantir que essa reprodução tem sem falhas visível para todos os níveis de qualidade. Ou, ver e validar via a URL de pré-visualização durante a sessão em direto.
-14. Registe o ID de recurso, o URL de transmissão em fluxo publicado para o arquivo em direto e as definições e a versão utilizada a partir do seu codificador em direto.
-15. Repor o estado do evento em direto depois de criar cada exemplo.
-16. Repita os passos 5 a 15 para todas as configurações suportadas por seu codificador (com e sem a sinalização do ad, legendas ou velocidades de codificação diferentes).
+1. Em sua conta de serviços de mídia, verifique se o **ponto de extremidade de streaming** está em execução. 
+2. Crie e inicie o evento Live de **codificação** ativa. <br/> Para obter mais informações, consulte [Live Event States e Billing](live-event-states-billing.md).
+3. Obtenha as URLs de ingestão e configure seu codificador para enviar por push uma transmissão ao vivo de taxa de bits única para os serviços de mídia.
+4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está realmente sendo recebida.
+5. Crie um novo objeto de **ativo** .
+6. Crie uma **saída ao vivo** e use o nome do ativo que você criou.
+7. Crie um **localizador de streaming** com os tipos de **política de streaming** internos.
+8. Liste os caminhos no **localizador de streaming** para obter as URLs a serem usadas.
+9. Obtenha o nome do host para o **ponto de extremidade de streaming** do qual você deseja transmitir.
+10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
+11. Execute o codificador ao vivo por aproximadamente 10 minutos.
+12. Pare o evento ao vivo.
+13. Use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para garantir que a reprodução não tenha nenhum problema visível para todos os níveis de qualidade. Ou, Assista e valide por meio da URL de visualização durante a sessão ao vivo.
+14. Registre a ID do ativo, a URL de streaming publicada para o arquivo em tempo real e as configurações e a versão usadas no codificador ao vivo.
+15. Redefina o estado do evento ao vivo depois de criar cada exemplo.
+16. Repita as etapas de 5 a 15 para todas as configurações com suporte no seu codificador (com e sem sinalização do AD, legendas ou velocidades de codificação diferentes).
 
 ### <a name="longevity-verification"></a>Verificação de longevidade
 
-Siga os passos como na [verificação de evento em direto de pass-through](#pass-through-live-event-verification) , exceto para o passo 11. <br/>Em vez de 10 minutos, execute seu codificador em direto para uma semana ou mais tempo. Utilizar como um jogador [leitor de multimédia do Azure](http://aka.ms/azuremediaplayer) para ver a transmissão em direto da hora a hora (ou um elemento arquivado) para garantir que essa reprodução tem sem falhas visível.
+Siga as mesmas etapas da [verificação de eventos ao vivo de passagem](#pass-through-live-event-verification) , exceto para a etapa 11. <br/>Em vez de 10 minutos, execute seu codificador ao vivo por uma semana ou mais. Use um player como [player de mídia do Azure](https://aka.ms/azuremediaplayer) para observar a transmissão ao vivo de tempos em tempos (ou um ativo arquivado) para garantir que a reprodução não tenha nenhum problema visível.
 
-### <a name="email-your-recorded-settings"></a>As definições gravadas de e-mail
+### <a name="email-your-recorded-settings"></a>Enviar por email suas configurações gravadas
 
-Por fim, envie um e-mail as definições gravadas e live parâmetros de arquivo para serviços de multimédia do Azure em amslived@microsoft.com como uma notificação de que todas as verificações de verificação automática tenham passado. Além disso, incluem as informações de contacto para qualquer seguimentos. Pode contactar a equipa de serviços de multimédia do Azure com quaisquer perguntas sobre este processo.
+Por fim, envie por email suas configurações gravadas e os parâmetros de arquivamento dinâmico para os serviços de mídia do Azure em amshelp@microsoft.com uma notificação de que todas as verificações de Autoverificação passaram. Além disso, inclua suas informações de contato para qualquer acompanhamento. Você pode entrar em contato com a equipe dos serviços de mídia do Azure com perguntas sobre esse processo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Transmissão em direto com serviços de multimédia v3](live-streaming-overview.md)
+[Transmissão ao vivo com os serviços de mídia v3](live-streaming-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Linux com zona definida com a CLI do Azure | Documentos da Microsoft
-description: Criar uma VM do Linux numa zona de disponibilidade com a CLI do Azure
+title: Criar uma VM do Linux zoneada com o CLI do Azure | Microsoft Docs
+description: Criar uma VM do Linux em uma zona de disponibilidade com o CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -16,26 +16,26 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 87263d11828ff5122122ef36850fade87949bcac
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6bdbc566215fb7e68109b523fb2af9bca16c328c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671618"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849707"
 ---
-# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual do Linux numa zona de disponibilidade com a CLI do Azure
+# <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Criar uma máquina virtual do Linux em uma zona de disponibilidade com o CLI do Azure
 
-Este artigo explica a utilizar a CLI do Azure para criar uma VM do Linux numa zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
+Este artigo percorre o uso do CLI do Azure para criar uma VM do Linux em uma zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
 Para utilizar uma zona de disponibilidade, crie a máquina virtual numa [região suportada do Azure](../../availability-zones/az-overview.md#services-support-by-region).
 
-Certifique-se de que instalou a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) e tem sessão iniciada numa conta do Azure com [início de sessão az](/cli/azure/reference-index).
+Verifique se você instalou o [CLI do Azure](/cli/azure/install-az-cli2) mais recente e fez logon em uma conta do Azure com [AZ login](/cli/azure/reference-index).
 
 
 ## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade de SKU de VM
 A disponibilidade de tamanhos de VM ou SKUs poderá variar consoante a região e zona. Para ajudar a planear a utilização das Zonas de Disponibilidade, pode listar os SKUs de VM disponíveis por região e zona do Azure. Esta capacidade garante que escolhe um tamanho de VM adequado e obtém a resiliência pretendida nas zonas. Para obter mais informações sobre os diferentes tipos e tamanhos de VM, veja [Descrição geral de Tamanhos de VM](sizes.md).
 
-Pode ver os SKUs de VM disponíveis com o [az vm lista-skus](/cli/azure/vm) comando. O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
+Você pode exibir os SKUs de VM disponíveis com o comando [AZ VM List-SKUs](/cli/azure/vm) . O exemplo seguinte lista os SKUs de VM disponíveis na região *eualeste2*:
 
 ```azurecli
 az vm list-skus --location eastus2 --output table
@@ -64,25 +64,25 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group).  
 
-Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. Neste exemplo, um grupo de recursos chamado *myResourceGroupVM* é criado na *eualeste2* região. E.U.A. Leste 2 é uma das regiões do Azure que suporta zonas de disponibilidade.
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Um grupo de recursos tem de ser criado antes de uma máquina virtual. Neste exemplo, um grupo de recursos chamado *myResourceGroupVM* é criado na região *eastus2* . Leste dos EUA 2 é uma das regiões do Azure que oferece suporte a zonas de disponibilidade.
 
 ```azurecli 
 az group create --name myResourceGroupVM --location eastus2
 ```
 
-O grupo de recursos é especificado ao criar ou modificar uma VM, o que pode ser vista ao longo deste artigo.
+O grupo de recursos é especificado ao criar ou modificar uma VM, que pode ser visto neste artigo.
 
 ## <a name="create-virtual-machine"></a>Criar a máquina virtual
 
 Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm). 
 
-Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada numa zona de disponibilidade *1*. Por predefinição, a VM é criada no *Standard_DS1_v2* tamanho.
+Ao criar uma máquina virtual, várias opções estão disponíveis, como a imagem do sistema operativo, as credenciais administrativas e o dimensionamento do disco. Neste exemplo, é criada uma máquina virtual com o nome *myVM* a executar o Servidor Ubuntu. A VM é criada na zona de disponibilidade *1*. Por padrão, a VM é criada no tamanho *Standard_DS1_v2* .
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
-A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Anote o `zones` valor, que indica a zona de disponibilidade na qual a VM está em execução. 
+A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a CLI do Azure produz informações sobre a VM. Anote o `zones` valor, que indica a zona de disponibilidade em que a VM está em execução. 
 
 ```azurecli 
 {
@@ -98,16 +98,16 @@ A criação da VM pode demorar alguns minutos. Quando a VM tiver sido criada, a 
 }
 ```
 
-## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmar a zona do disco gerido e o endereço IP
+## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmar zona para disco gerenciado e endereço IP
 
-Quando a VM é implementada numa zona de disponibilidade, um disco gerido para a VM é criado na mesma zona de disponibilidade. Por predefinição, um endereço IP público também é criado nessa zona. Os exemplos seguintes obtém informações sobre esses recursos.
+Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado para a VM é criado na mesma zona de disponibilidade. Por padrão, um endereço IP público também é criado nessa zona. Os exemplos a seguir obtêm informações sobre esses recursos.
 
-Para verificar se o disco gerido da VM está na zona de disponibilidade, utilize o [show de vm de az](/cli/azure/vm) comando para devolver o ID do disco. Neste exemplo, o ID do disco é armazenado numa variável que é utilizada num passo posterior. 
+Para verificar se o disco gerenciado da VM está na zona de disponibilidade, use o comando [AZ VM show](/cli/azure/vm) para retornar a ID do disco. Neste exemplo, a ID do disco é armazenada em uma variável que é usada em uma etapa posterior. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
 ```
-Agora, pode obter informações sobre o disco gerido:
+Agora você pode obter informações sobre o disco gerenciado:
 
 ```azurecli-interactive
 az disk show --resource-group myResourceGroupVM --name $osdiskname
@@ -149,19 +149,19 @@ O resultado mostra que o disco gerido está na mesma zona de disponibilidade que
 }
 ```
 
-Utilize o [az vm lista-ip-addresses](/cli/azure/vm) comando para devolver o nome do recurso de endereço IP público na *myVM*. Neste exemplo, o nome é armazenado numa variável que é utilizada num passo posterior.
+Use o comando [AZ VM List-IP-addresses](/cli/azure/vm) para retornar o nome do recurso de endereço IP público em *myVM*. Neste exemplo, o nome é armazenado em uma variável que é usada em uma etapa posterior.
 
 ```azurecli
 ipaddressname=$(az vm list-ip-addresses -g myResourceGroupVM -n myVM --query "[].virtualMachine.network.publicIpAddresses[].name" -o tsv)
 ```
 
-Agora, pode obter informações sobre o endereço IP:
+Agora você pode obter informações sobre o endereço IP:
 
 ```azurecli
 az network public-ip show --resource-group myResourceGroupVM --name $ipaddressname
 ```
 
-O resultado mostra que o endereço IP está na mesma zona de disponibilidade da VM:
+A saída mostra que o endereço IP está na mesma zona de disponibilidade que a VM:
 
 ```azurecli
 {
@@ -198,7 +198,7 @@ O resultado mostra que o endereço IP está na mesma zona de disponibilidade da 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre [regiões e disponibilidade](regions-and-availability.md) para VMs do Azure.
+Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre a [disponibilidade](availability.md) de VMs do Azure.
 
 
 

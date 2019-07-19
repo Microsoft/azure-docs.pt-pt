@@ -1,38 +1,39 @@
 ---
-title: Autenticar com o registo de contentores do Azure de instâncias de contentor do Azure
-description: Saiba como fornecer acesso a imagens no seu registo de contentor privado do Azure Container Instances ao utilizar um principal de serviço do Azure Active Directory.
+title: Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
+description: Saiba como fornecer acesso a imagens em seu registro de contêiner privado de instâncias de contêiner do Azure usando uma entidade de serviço Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333590"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311628"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registo de contentores do Azure de instâncias de contentor do Azure
+# <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autenticar com o registro de contêiner do Azure de instâncias de contêiner do Azure
 
-Pode utilizar um principal de serviço do Azure Active Directory (Azure AD) para fornecer acesso aos seus registos de contentor privado no Azure Container Registry.
+Você pode usar uma entidade de serviço do Azure Active Directory (AD do Azure) para fornecer acesso aos seus registros de contêiner privado no registro de contêiner do Azure.
 
-Neste artigo, vai aprender a criar e configurar um principal de serviço do Azure AD com *pull* permissões para o seu registo. Em seguida, iniciar um contentor no Azure Container Instances (ACI) que obtém a imagem do seu registo privado, com o principal de serviço para a autenticação.
+Neste artigo, você aprende a criar e configurar uma entidade de serviço do Azure AD com permissões de *pull* para o registro. Em seguida, você inicia um contêiner em ACI (instâncias de contêiner do Azure) que efetua pull de sua imagem do registro particular, usando a entidade de serviço para autenticação.
 
-## <a name="when-to-use-a-service-principal"></a>Quando utilizar um principal de serviço
+## <a name="when-to-use-a-service-principal"></a>Quando usar uma entidade de serviço
 
-Deve utilizar um principal de serviço para a autenticação do ACI em **cenários sem periféricos**, como no caso de aplicações ou serviços que criar instâncias de contentor de forma autónoma automatizada ou de outra forma.
+Você deve usar uma entidade de serviço para autenticação de ACI em **cenários**sem periféricos, como em aplicativos ou serviços que criam instâncias de contêiner de maneira automatizada ou autônoma.
 
-Por exemplo, se tiver um script automatizado que é executada todas as noites e cria um [instância de contentor baseado em tarefas](../container-instances/container-instances-restart-policy.md) para processar alguns dados, pode utilizar um principal de serviço com permissões pull-only para autenticar para o registo. Em seguida, pode alternar credenciais do principal de serviço ou revogar o acesso totalmente sem afetar outros serviços e aplicações.
+Por exemplo, se você tiver um script automatizado que é executado à noite e cria uma [instância de contêiner baseada em tarefa](../container-instances/container-instances-restart-policy.md) para processar alguns dados, ele pode usar uma entidade de serviço com permissões somente de pull para autenticar no registro. Em seguida, você pode girar as credenciais da entidade de serviço ou revogar seu acesso completamente sem afetar outros serviços e aplicativos.
 
-Principais de serviço também devem ser utilizado quando o Registro [utilizador de admin](container-registry-authentication.md#admin-account) está desativada.
+As entidades de serviço também devem ser usadas quando o [usuário administrador](container-registry-authentication.md#admin-account) do registro estiver desabilitado.
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>Autenticar com o principal de serviço
+## <a name="authenticate-using-the-service-principal"></a>Autenticar usando a entidade de serviço
 
-Para iniciar um contentor no Azure Container Instances com um principal de serviço, especificar sua ID para `--registry-username`e a respetiva palavra-passe para `--registry-password`.
+Para iniciar um contêiner em instâncias de contêiner do Azure usando uma entidade de serviço, especifique `--registry-username`sua ID para e sua `--registry-password`senha para.
 
 ```azurecli-interactive
 az container create \
@@ -46,17 +47,17 @@ az container create \
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Pode encontrar os scripts de exemplo anterior para a CLI do Azure no GitHub, como versões bem para o Azure PowerShell:
+Você pode encontrar os scripts de exemplo anteriores para CLI do Azure no GitHub, bem como versões para Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
 * [Azure PowerShell][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Detalhes adicionais sobre como trabalhar com os principais de serviço e o ACR de conter os seguintes artigos:
+Os artigos a seguir contêm detalhes adicionais sobre como trabalhar com entidades de serviço e ACR:
 
-* [Autenticação de registo de contentor do Azure com os principais de serviço](container-registry-auth-service-principal.md)
-* [Autenticar com o registo de contentores do Azure de serviço Kubernetes do Azure (AKS)](container-registry-auth-aks.md)
+* [Autenticação do registro de contêiner do Azure com entidades de serviço](container-registry-auth-service-principal.md)
+* [Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure (AKS)](container-registry-auth-aks.md)
 
 <!-- IMAGES -->
 

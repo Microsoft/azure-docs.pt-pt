@@ -1,32 +1,32 @@
 ---
-title: Obter métricas com a API REST
+title: Recuperar métricas com a API REST
 titlesuffix: Azure Load Balancer
-description: Utilize as APIs de REST do Azure para recolher métricas de utilização e estado de funcionamento do Balanceador de carga para um determinado intervalo de datas e horários.
+description: Use as APIs REST do Azure para coletar métricas de integridade e utilização para Load Balancer para um determinado intervalo de tempo e datas.
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734546"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274530"
 ---
-# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter métricas de utilização de Balanceador de carga com a API REST
+# <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter Load Balancer métricas de utilização usando a API REST
 
-Nesta explicação de procedimento mostra como coletar o número de bytes processados por um [Balanceador de carga Standard](/azure/load-balancer/load-balancer-standard-overview) para um intervalo de tempo utilizando o [API REST do Azure](/rest/api/azure/).
+Este "como" mostra como coletar o número de bytes processados por um [Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview) para um intervalo de tempo usando a [API REST do Azure](/rest/api/azure/).
 
-Estão disponíveis na documentação de referência completa e exemplos adicionais para a API REST da [referência de REST do Azure Monitor](/rest/api/monitor). 
+A documentação de referência completa e exemplos adicionais para a API REST estão disponíveis na [referência REST do Azure monitor](/rest/api/monitor). 
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-Utilize o seguinte pedido GET para recolher os [métrica ByteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um balanceador de carga Standard. 
+Use a seguinte solicitação GET para coletar a [métrica byteCount](/azure/load-balancer/load-balancer-standard-diagnostics#multi-dimensional-metrics) de um Standard Load Balancer. 
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/providers/microsoft.insights/metrics?api-version=2018-01-01&metricnames=ByteCount&timespan=2018-06-05T03:00:00Z/2018-06-07T03:00:00Z
@@ -36,30 +36,30 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Os seguintes cabeçalhos são necessários: 
 
-|Cabeçalho do pedido|Descrição|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Tipo de conteúdo:*|Necessário. Defina como `application/json`.|  
+|*Authorization:*|Necessário. Defina como um token `Bearer` de [acesso](/rest/api/azure/#authorization-code-grant-interactive-clients)válido. |  
 
 ### <a name="uri-parameters"></a>Parâmetros do URI
 
-| Name | Descrição |
+| Nome | Descrição |
 | :--- | :---------- |
-| subscriptionId | O ID de subscrição que identifica uma subscrição do Azure. Se tiver várias subscrições, veja [trabalhar com várias subscrições](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| resourceGroupName | O nome do grupo de recursos que contém o recurso. Pode obter este valor de API do Gestor de recursos do Azure, CLI ou o portal. |
-| loadBalancerName | O nome do Balanceador de carga do Azure. |
-| metricnames | Lista separada por vírgulas de válido [métricas de Balanceador de carga](/azure/load-balancer/load-balancer-standard-diagnostics). |
-| versão de API | A versão de API a utilizar para o pedido.<br /><br /> Este documento abrange a api-version `2018-01-01`, incluído no URL acima.  |
-| TimeSpan | O período de tempo da consulta. É uma cadeia de caracteres com o seguinte formato `startDateTime_ISO/endDateTime_ISO`. Este parâmetro opcional é definido para devolver uma dias de dados no exemplo. |
+| subscriptionId | A ID da assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
+| resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor da API Azure Resource Manager, da CLI ou do Portal. |
+| loadBalancerName | O nome do Azure Load Balancer. |
+| metricnames | Lista separada por vírgulas de [métricas de Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics)válidas. |
+| versão de API | A versão da API a ser usada para a solicitação.<br /><br /> Este documento aborda a versão `2018-01-01`de API, incluída na URL acima.  |
+| TimeSpan | O TimeSpan da consulta. É uma cadeia de caracteres com o formato `startDateTime_ISO/endDateTime_ISO`a seguir. Esse parâmetro opcional é definido para retornar o valor de dados de um dia no exemplo. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>Corpo do pedido
 
-O corpo do pedido não é necessária para esta operação.
+Nenhum corpo de solicitação é necessário para esta operação.
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-Código de estado 200 é retornado quando a lista de valores de métrica é devolvida com êxito. Uma lista completa dos códigos de erro está disponível na [documentação de referência](/rest/api/monitor/metrics/list#errorresponse).
+O código de status 200 é retornado quando a lista de valores de métrica é retornada com êxito. Uma lista completa de códigos de erro está disponível na [documentação de referência](/rest/api/monitor/metrics/list#errorresponse).
 
 ## <a name="example-response"></a>Resposta de exemplo 
 

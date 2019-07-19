@@ -1,22 +1,22 @@
 ---
-title: Mover o suporte de operação por tipo de recurso do Azure
-description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou subscrição.
+title: Mover o suporte de operação pelo tipo de recurso do Azure
+description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 093c20407cb6210125106189f36566f539de0dcc
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721112"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226803"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
-Este artigo lista se um tipo de recurso do Azure suporta a operação de movimentação. Ele também fornece informações sobre as condições especiais a serem considerados ao mover um recurso.
+Este artigo lista se um tipo de recurso do Azure dá suporte à operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
 
-Ir para um espaço de nomes do fornecedor de recursos:
+Ir para um namespace do provedor de recursos:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
 > - [microsoft.aadiam](#microsoftaadiam)
@@ -29,7 +29,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 > - [Microsoft.Automation](#microsoftautomation)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
 > - [Microsoft.AzureStack](#microsoftazurestack)
-> - [Microsoft.Backup](#microsoftbackup)
+> - [Microsoft. backup](#microsoftbackup)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -152,12 +152,12 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| domainservices | Não | Não |
+| DomainServices | Não | Não |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Inquilinos | Não | Não |
+| locatários | Não | Não |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 | Tipo de recurso | Resource group | Subscription |
@@ -187,7 +187,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | gateways | Não | Não |
 
 > [!IMPORTANT]
-> Ver [serviço de aplicações mover orientações](./move-limitations/app-service-move-limitations.md).
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo de recurso | Resource group | Subscription |
@@ -198,11 +198,11 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | automationaccounts | Sim | Sim |
-| automationaccounts/configurations | Sim | Sim |
+| automationaccounts/configurações | Sim | Sim |
 | automationaccounts/runbooks | Sim | Sim |
 
 > [!IMPORTANT]
-> Runbooks tem de existir no mesmo grupo de recursos como a conta de automatização.
+> Os Runbooks devem existir no mesmo grupo de recursos que a conta de automação.
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo de recurso | Resource group | Subscription |
@@ -212,7 +212,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| registos | Sim | Sim |
+| registros | Sim | Sim |
 
 ## <a name="microsoftbackup"></a>Microsoft.Backup
 | Tipo de recurso | Resource group | Subscription |
@@ -227,10 +227,10 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftbatchai"></a>Microsoft.BatchAI
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Não | Não |
-| fileservers | Não | Não |
-| Tarefas | Não | Não |
-| Áreas de trabalho | Não | Não |
+| clusters | Não | Não |
+| servidores | Não | Não |
+| sejam | Não | Não |
+| Espaços | Não | Não |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Tipo de recurso | Resource group | Subscription |
@@ -260,16 +260,16 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| De redis | Sim | Sim |
+| Redis | Sim | Sim |
 
 > [!IMPORTANT]
-> Se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não é possível mover para uma subscrição diferente. Ver [redes virtuais mover limitações](./move-limitations/virtual-network-move-limitations.md).
+> Se o cache do Azure para instância Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Consulte [limitações de movimentação de redes virtuais](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | profiles | Sim | Sim |
-| perfis/pontos finais | Sim | Sim |
+| perfis/pontos de extremidade | Sim | Sim |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Tipo de recurso | Resource group | Subscription |
@@ -277,26 +277,26 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | certificateorders | Sim | Sim |
 
 > [!IMPORTANT]
-> Ver [serviço de aplicações mover orientações](./move-limitations/app-service-move-limitations.md).
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| domainnames | Sim | Não |
-| virtualmachines | Sim | Não |
+| DomainNames | Sim | Não |
+| VirtualMachines | Sim | Não |
 
 > [!IMPORTANT]
-> Ver [documentação de orientação de mover de implementação clássica](./move-limitations/classic-model-move-limitations.md). Recursos de implementação clássica podem ser movidos em várias subscrições com uma operação específica para esse cenário.
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | networksecuritygroups | Não | Não |
 | reservedips | Não | Não |
-| redes virtuais | Não | Não |
+| virtualnetworks | Não | Não |
 
 > [!IMPORTANT]
-> Ver [documentação de orientação de mover de implementação clássica](./move-limitations/classic-model-move-limitations.md). Recursos de implementação clássica podem ser movidos em várias subscrições com uma operação específica para esse cenário.
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo de recurso | Resource group | Subscription |
@@ -304,7 +304,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | storageaccounts | Sim | Não |
 
 > [!IMPORTANT]
-> Ver [documentação de orientação de mover de implementação clássica](./move-limitations/classic-model-move-limitations.md). Recursos de implementação clássica podem ser movidos em várias subscrições com uma operação específica para esse cenário.
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Resource group | Subscription |
@@ -317,22 +317,22 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | availabilitysets | Sim | Sim |
 | Discos | Sim | Sim |
 | galerias | Não | Não |
-| galleries/images | Não | Não |
+| galerias/imagens | Não | Não |
 | galleries/images/versions | Não | Não |
-| hostgroups | Não | Não |
-| hostgroups/hosts | Não | Não |
+| hosts | Não | Não |
+| hosts/hosts | Não | Não |
 | imagens | Sim | Sim |
 | proximityplacementgroups | Não | Não |
 | restorepointcollections | Não | Não |
 | sharedvmimages | Não | Não |
-| sharedvmimages/versions | Não | Não |
-| Instantâneos | Sim | Sim |
-| virtualmachines | Sim | Sim |
-| virtualmachines/extensions | Sim | Sim |
+| sharedvmimages/versões | Não | Não |
+| instantâneos | Sim | Sim |
+| VirtualMachines | Sim | Sim |
+| VirtualMachines/extensões | Sim | Sim |
 | virtualmachinescalesets | Sim | Sim |
 
 > [!IMPORTANT]
-> Ver [documentação de orientação de mover as máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md).
+> Consulte as [diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo de recurso | Resource group | Subscription |
@@ -347,16 +347,16 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| registos | Sim | Sim |
-| registries/buildtasks | Sim | Sim |
-| registries/replications | Sim | Sim |
-| registos/tarefas | Sim | Sim |
-| registries/webhooks | Sim | Sim |
+| registros | Sim | Sim |
+| registros/BuildTasks | Sim | Sim |
+| registros/replicações | Sim | Sim |
+| registros/tarefas | Sim | Sim |
+| registros/WebHooks | Sim | Sim |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| containerservices | Não | Não |
+| contêinerservices | Não | Não |
 | managedclusters | Não | Não |
 | openshiftmanagedclusters | Não | Não |
 
@@ -383,7 +383,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Tarefas | Não | Não |
+| sejam | Não | Não |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Tipo de recurso | Resource group | Subscription |
@@ -393,13 +393,13 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Áreas de trabalho | Não | Não |
+| Espaços | Não | Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | catálogos | Sim | Sim |
-| datacatalogs | Não | Não |
+| catálogos de | Não | Não |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo de recurso | Resource group | Subscription |
@@ -409,8 +409,8 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Pacotes | Não | Não |
-| Planos | Não | Não |
+| compacta | Não | Não |
+| Plan | Não | Não |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Tipo de recurso | Resource group | Subscription |
@@ -438,7 +438,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | ------------- | ----------- | ---------- |
 | services | Não | Não |
 | services/projects | Não | Não |
-| ranhuras | Não | Não |
+| períodos | Não | Não |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Tipo de recurso | Resource group | Subscription |
@@ -461,10 +461,10 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | artifactsources | Sim | Sim |
-| Implementações | Sim | Sim |
-| servicetopologies | Sim | Sim |
-| servicetopologies/services | Sim | Sim |
-| servicetopologies/services/serviceunits | Sim | Sim |
+| distribuições | Sim | Sim |
+| pertopologias | Sim | Sim |
+| serviços e pertopologias | Sim | Sim |
+| pertopologias/serviços/unidades de serviço | Sim | Sim |
 | passos | Sim | Sim |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -484,11 +484,11 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | labcenters | Não | Não |
-| Laboratórios | Sim | Não |
+| prático | Sim | Não |
 | laboratórios/ambientes | Sim | Sim |
-| labs/servicerunners | Sim | Sim |
-| labs/virtualmachines | Sim | Não |
-| Agendas | Sim | Sim |
+| laboratórios/perrunners | Sim | Sim |
+| laboratórios/VirtualMachines | Sim | Não |
+| agendamento | Sim | Sim |
 
 ## <a name="microsoftdns"></a>microsoft.dns
 | Tipo de recurso | Resource group | Subscription |
@@ -496,9 +496,9 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | dnszones | Não | Não |
 | dnszones/a | Não | Não |
 | dnszones/aaaa | Não | Não |
-| dnszones/cname | Não | Não |
-| dnszones/mx | Não | Não |
-| dnszones/ptr | Não | Não |
+| dnszones/CNAME | Não | Não |
+| dnszones/MX | Não | Não |
+| dnszones/PTR | Não | Não |
 | dnszones/srv | Não | Não |
 | dnszones/txt | Não | Não |
 | trafficmanagerprofiles | Não | Não |
@@ -527,7 +527,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Sim | Sim |
+| clusters | Sim | Sim |
 | namespaces | Sim | Sim |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
@@ -543,7 +543,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Sim | Sim |
+| clusters | Sim | Sim |
 
 > [!IMPORTANT]
 > Pode mover clusters do HDInsight para uma nova subscrição ou grupo de recursos. No entanto, não é possível mover entre subscrições, os recursos de rede ligados ao cluster do HDInsight (por exemplo, a rede virtual, uma NIC ou um balanceador de carga). Além disso, não é possível mover a um novo grupo de recursos um NIC que está ligado a uma máquina virtual para o cluster.
@@ -558,17 +558,17 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| máquinas | Não | Não |
+| maquina | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| datamanagers | Sim | Sim |
+| gerenciadores de DataManager | Sim | Sim |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Tarefas | Sim | Sim |
+| sejam | Sim | Sim |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Tipo de recurso | Resource group | Subscription |
@@ -578,17 +578,17 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | activitylogalerts | Não | Não |
 | alertrules | Sim | Sim |
 | autoscalesettings | Sim | Sim |
-| Componentes | Sim | Sim |
+| QC | Sim | Sim |
 | guestdiagnosticsettings | Não | Não |
 | metricalerts | Não | Não |
 | notificationgroups | Não | Não |
 | notificationrules | Não | Não |
 | scheduledqueryrules | Sim | Sim |
-| testes Web | Sim | Sim |
-| pastas de trabalho | Sim | Sim |
+| webtests | Sim | Sim |
+| Pastas | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo de recurso | Resource group | Subscription |
@@ -608,12 +608,12 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | cofres | Sim | Sim |
 
 > [!IMPORTANT]
-> Os cofres de chave utilizada para encriptação de disco não pode ser movidos para um grupo de recursos na mesma subscrição ou em várias subscrições.
+> Os cofres de chaves usados para criptografia de disco não podem ser movidos para um grupo de recursos na mesma assinatura ou entre assinaturas.
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Clusters | Sim | Sim |
+| clusters | Sim | Sim |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Resource group | Subscription |
@@ -637,14 +637,14 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | integrationaccounts | Sim | Sim |
 | integrationserviceenvironments | Não | Não |
 | isolatedenvironments | Não | Não |
-| Fluxos de trabalho | Sim | Sim |
+| fluxos | Sim | Sim |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | commitmentplans | Sim | Sim |
-| webservices | Sim | Não |
-| Áreas de trabalho | Sim | Sim |
+| WebServices | Sim | Não |
+| Espaços | Sim | Sim |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 | Tipo de recurso | Resource group | Subscription |
@@ -655,11 +655,11 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | accounts | Não | Não |
-| accounts/workspaces | Não | Não |
+| contas/espaços de trabalho | Não | Não |
 | accounts/workspaces/projects | Não | Não |
 | teamaccounts | Não | Não |
-| teamaccounts/áreas de trabalho | Não | Não |
-| teamaccounts/workspaces/projects | Não | Não |
+| teamaccounts/espaços de trabalho | Não | Não |
+| teamaccounts/espaços de trabalho/projetos | Não | Não |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Tipo de recurso | Resource group | Subscription |
@@ -674,7 +674,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Áreas de trabalho | Não | Não |
+| Espaços | Não | Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Tipo de recurso | Resource group | Subscription |
@@ -703,7 +703,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | ------------- | ----------- | ---------- |
 | assessmentprojects | Não | Não |
 | migrateprojects | Não | Não |
-| projetos | Não | Não |
+| projeto | Não | Não |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 | Tipo de recurso | Resource group | Subscription |
@@ -722,7 +722,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | applicationsecuritygroups | Sim | Sim |
 | azurefirewalls | Sim | Sim |
 | bastionhosts | Não | Não |
-| Ligações | Sim | Sim |
+| conexões | Sim | Sim |
 | ddoscustompolicies | Sim | Sim |
 | ddosprotectionplans | Não | Não |
 | dnszones | Sim | Sim |
@@ -732,7 +732,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | expressrouteports | Não | Não |
 | frontdoors | Não | Não |
 | frontdoorwebapplicationfirewallpolicies | Não | Não |
-| balanceadores de carga | Sim - SKU básico<br>Não - Standard SKU | Sim - SKU básico<br>Não - Standard SKU |
+| loadbalancers | Sim-SKU básico<br>Não-SKU padrão | Sim-SKU básico<br>Não-SKU padrão |
 | localnetworkgateways | Sim | Sim |
 | natgateways | Sim | Sim |
 | networkintentpolicies | Sim | Sim |
@@ -748,7 +748,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | privatednszones/virtualnetworklinks | Sim | Sim |
 | privateendpoints | Não | Não |
 | privatelinkservices | Não | Não |
-| publicipaddresses | Sim - SKU básico<br>Não - Standard SKU | Sim - SKU básico<br>Não - Standard SKU |
+| publicipaddresses | Sim-SKU básico<br>Não-SKU padrão | Sim-SKU básico<br>Não-SKU padrão |
 | publicipprefixes | Sim | Sim |
 | routefilters | Não | Não |
 | routetables | Sim | Sim |
@@ -757,7 +757,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | trafficmanagerprofiles | Sim | Sim |
 | virtualhubs | Não | Não |
 | virtualnetworkgateways | Sim | Sim |
-| redes virtuais | Sim | Sim |
+| virtualnetworks | Sim | Sim |
 | virtualnetworktaps | Não | Não |
 | virtualwans | Não | Não |
 | vpngateways | Não | Não |
@@ -765,7 +765,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | webapplicationfirewallpolicies | Sim | Sim |
 
 > [!IMPORTANT]
-> Ver [redes virtuais mover orientações](./move-limitations/virtual-network-move-limitations.md).
+> Consulte [diretrizes de movimentação de redes virtuais](./move-limitations/virtual-network-move-limitations.md).
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Resource group | Subscription |
@@ -776,10 +776,10 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Áreas de trabalho | Sim | Sim |
+| Espaços | Sim | Sim |
 
 > [!IMPORTANT]
-> Certifique-se de que a mudança para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#azure-monitor-limits).
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Resource group | Subscription |
@@ -791,12 +791,12 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| peerings | Não | Não |
+| emparelhamentos | Não | Não |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| dashboards | Sim | Sim |
+| Painéis | Sim | Sim |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 | Tipo de recurso | Resource group | Subscription |
@@ -811,7 +811,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Capacidades | Sim | Sim |
+| unidades | Sim | Sim |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Tipo de recurso | Resource group | Subscription |
@@ -824,7 +824,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | cofres | Sim | Sim |
 
 > [!IMPORTANT]
-> Ver [serviços de recuperação mover orientações](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> Consulte [diretrizes de movimentação dos serviços de recuperação](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Resource group | Subscription |
@@ -839,16 +839,16 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| fluxos | Sim | Sim |
-| jobcollections | Sim | Sim |
+| fluxo | Sim | Sim |
+| gratuitas | Sim | Sim |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| searchservices | Sim | Sim |
+| pesquisarservices | Sim | Sim |
 
 > [!IMPORTANT]
-> Não é possível mover vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
+> Você não pode mover vários recursos de pesquisa em regiões diferentes em uma única operação. Em vez disso, mova-os em operações separadas.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo de recurso | Resource group | Subscription |
@@ -870,11 +870,11 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | aplicações | Não | Não |
-| Clusters | Sim | Sim |
+| clusters | Sim | Sim |
 | containergroups | Não | Não |
 | containergroupsets | Não | Não |
 | edgeclusters | Não | Não |
-| Redes | Não | Não |
+| às | Não | Não |
 | secretstores | Não | Não |
 | volumes | Não | Não |
 
@@ -884,8 +884,8 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | aplicações | Sim | Sim |
 | containergroups | Não | Não |
 | gateways | Sim | Sim |
-| Redes | Sim | Sim |
-| Segredos | Sim | Sim |
+| às | Sim | Sim |
+| confidenciais | Sim | Sim |
 | volumes | Sim | Sim |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
@@ -899,13 +899,13 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | siterecoveryvault | Não | Não |
 
 > [!IMPORTANT]
-> Ver [serviços de recuperação mover orientações](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+> Consulte [diretrizes de movimentação dos serviços de recuperação](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | appliancedefinitions | Não | Não |
-| aplicações | Não | Não |
+| dispositivos | Não | Não |
 | applicationdefinitions | Não | Não |
 | aplicações | Não | Não |
 | jitrequests | Não | Não |
@@ -913,16 +913,16 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| instancepools | Sim | Sim |
-| managedinstances | Sim | Sim |
-| managedinstances/databases | Sim | Sim |
+| instancepools | Não | Não |
+| managedinstances | Não | Não |
+| ManagedInstances/bancos de dados | Não | Não |
 | Servidores | Sim | Sim |
 | servers/databases | Sim | Sim |
-| servers/elasticpools | Sim | Sim |
+| servidores/elasticpools | Sim | Sim |
 | virtualclusters | Sim | Sim |
 
 > [!IMPORTANT]
-> Uma base de dados e o servidor tem de estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
+> Um banco de dados e um servidor devem estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo de recurso | Resource group | Subscription |
@@ -943,7 +943,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Caches | Não | Não |
+| caches | Não | Não |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Resource group | Subscription |
@@ -963,7 +963,7 @@ Ir para um espaço de nomes do fornecedor de recursos:
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| gerentes | Não | Não |
+| esses | Não | Não |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Tipo de recurso | Resource group | Subscription |
@@ -971,34 +971,34 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | streamingjobs | Sim | Sim |
 
 > [!IMPORTANT]
-> Estado de análise de Stream tarefas não podem ser movidas quando em execução.
+> Stream Analytics trabalhos não podem ser movidos quando estiver em estado de execução.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Ambientes | Não | Não |
-| ambientes/eventsources | Não | Não |
+| sistemas | Não | Não |
+| ambientes/EventSources | Não | Não |
 | instâncias | Não | Não |
-| ambientes/instâncias | Não | Não |
-| ambientes/instâncias/eventsources | Não | Não |
+| instâncias/ambientes | Não | Não |
+| instâncias/ambientes/EventSources | Não | Não |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | providerregistrations | Não | Não |
-| Recursos | Não | Não |
+| Os | Não | Não |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Ambientes | Sim | Sim |
-| ambientes/eventsources | Sim | Sim |
+| sistemas | Sim | Sim |
+| ambientes/EventSources | Sim | Sim |
 | environments/referencedatasets | Sim | Sim |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| armazena | Não | Não |
+| mercado | Não | Não |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Tipo de recurso | Resource group | Subscription |
@@ -1009,52 +1009,52 @@ Ir para um espaço de nomes do fornecedor de recursos:
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | conta | Sim | Sim |
-| extensão da conta / | Sim | Sim |
+| conta/extensão | Sim | Sim |
 | conta/projeto | Sim | Sim |
 
 > [!IMPORTANT]
-> Para alterar a subscrição de Azure DevOps, consulte [alterar a subscrição do Azure utilizada para faturação](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+> Para alterar a assinatura do Azure DevOps, consulte [alterar a assinatura do Azure usada para cobrança](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | dedicatedcloudnodes | Sim | Sim |
 | dedicatedcloudservices | Sim | Sim |
-| virtualmachines | Sim | Sim |
+| VirtualMachines | Sim | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| Certificados | Não | Sim |
+| Certificado | Não | Sim |
 | connectiongateways | Sim | Sim |
-| Ligações | Sim | Sim |
+| conexões | Sim | Sim |
 | customapis | Sim | Sim |
 | hostingenvironments | Não | Não |
 | serverfarms | Sim | Sim |
 | sites | Sim | Sim |
 | sites/premieraddons | Sim | Sim |
-| sites/slots | Sim | Sim |
+| sites/Slots | Sim | Sim |
 
 > [!IMPORTANT]
-> Ver [serviço de aplicações mover orientações](./move-limitations/app-service-move-limitations.md).
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
-| deviceservices | Não | Não |
+| dispositivos | Não | Não |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | Tipo de recurso | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | applicationgroups | Não | Não |
 | hostpools | Não | Não |
-| Áreas de trabalho | Não | Não |
+| Espaços | Não | Não |
 
 ## <a name="third-party-services"></a>Serviços de terceiros
 
-Serviços de terceiros atualmente não é suportada a operação de movimentação.
+Os serviços de terceiros atualmente não dão suporte à operação de movimentação.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter comandos mover os recursos, veja [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).
 
-Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, transfira [move-suporte-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [move-support-Resources. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

@@ -1,11 +1,12 @@
 ---
-title: Introdução ao iOS – plataforma de identidade da Microsoft | Azure
-description: Como as aplicações de iOS (Swift) podem chamar uma API que requer que os tokens de acesso usando a plataforma de identidade da Microsoft
+title: Introdução ao iOS-plataforma de identidade da Microsoft | Azure
+description: Como os aplicativos iOS (Swift) podem chamar uma API que exige tokens de acesso usando a plataforma de identidade da Microsoft
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/15/2019
@@ -13,67 +14,67 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910069ab89cef18794e637b6bfbbc57fb732871c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: MT
+ms.openlocfilehash: 007cc21ee8c5d45037ce1183258f939f7cc24762
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872093"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320799"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Iniciar sessão dos utilizadores e chamar o Microsoft Graph a partir de uma aplicação iOS
+# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Conectar usuários e chamar o Microsoft Graph de um aplicativo iOS
 
-Neste tutorial, irá aprender como integrar uma aplicação iOS com a plataforma de identidade da Microsoft. A aplicação irá iniciar sessão de um utilizador, obter um token de acesso para chamar a API do Microsoft Graph e fazer um pedido para o Microsoft Graph API.  
+Neste tutorial, você aprenderá a integrar um aplicativo iOS com a plataforma de identidade da Microsoft. O aplicativo conectará um usuário, obterá um token de acesso para chamar a API de Microsoft Graph e fará uma solicitação para a API de Microsoft Graph.  
 
-Quando concluir o guia, a aplicação irá aceitar inícios de sessão de contas pessoais da Microsoft (incluindo o outlook.com, live.com e outros) e profissional ou escolar contas a partir de qualquer empresa ou organização que utiliza o Azure Active Directory.
+Quando você tiver concluído o guia, seu aplicativo aceitará entradas de contas pessoais da Microsoft (incluindo outlook.com, live.com e outros) e contas corporativas ou de estudante de qualquer empresa ou organização que usa Azure Active Directory.
 
-## <a name="how-this-tutorial-works"></a>Como funciona este tutorial
+## <a name="how-this-tutorial-works"></a>Como este tutorial funciona
 
-![Mostra como funciona a aplicação de exemplo gerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
+![Mostra como o aplicativo de exemplo gerado por este tutorial funciona](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
-A aplicação neste tutorial irá iniciar sessão dos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API protegida (Microsoft Graph API neste caso) que requer autorização e protegida por plataforma de identidades da Microsoft.
+O aplicativo neste tutorial conectará os usuários e obterá dados em seu nome.  Esses dados serão acessados por meio de uma API protegida (Microsoft Graph API, nesse caso) que requer autorização e são protegidos pela plataforma de identidade da Microsoft.
 
 Mais especificamente:
 
-* A aplicação irá iniciar sessão no usuário, seja por meio de um navegador ou o Microsoft Authenticator.
-* O utilizador final irá aceitar as permissões de que seu aplicativo solicitou.
-* A aplicação será emitida um token de acesso para a Microsoft Graph API.
-* O token de acesso será incluído na solicitação HTTP para a API web.
-* Processe a resposta do Microsoft Graph.
+* Seu aplicativo conectará o usuário por meio de um navegador ou do Microsoft Authenticator.
+* O usuário final aceitará as permissões solicitadas pelo seu aplicativo.
+* Seu aplicativo receberá um token de acesso para a API de Microsoft Graph.
+* O token de acesso será incluído na solicitação HTTP para a API da Web.
+* Processar a resposta de Microsoft Graph.
 
-Este exemplo utiliza a biblioteca Microsoft Authentication (MSAL) para implementar a autenticação. MSAL automaticamente irá renovar os tokens, fornecer início de sessão único (SSO) entre as outras aplicações no dispositivo e gerir a conta (s).
+Este exemplo usa a MSAL (biblioteca de autenticação da Microsoft) para implementar a autenticação. O MSAL renovará automaticamente os tokens, entregará o SSO (logon único) entre outros aplicativos no dispositivo e gerenciará as contas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- XCode versão 10.x é necessário para criar a aplicação neste guia. Pode baixar o XCode do [Web site do iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de transferência do XCode").
-- Biblioteca de autenticação da Microsoft ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Pode utilizar um Gestor de dependência ou adicionar a biblioteca manualmente. As instruções abaixo mostram-lhe como.
+- O XCode versão 10. x é necessário para compilar o aplicativo neste guia. Você pode baixar o XCode na(https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de download do Xcode")do site do [iTunes].
+- Biblioteca de autenticação da Microsoft ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Você pode usar um Gerenciador de dependência ou adicionar a biblioteca manualmente. As instruções a seguir mostram como.
 
-Neste tutorial, irá criar um novo projeto. Se deseja baixar o tutorial completo em vez disso, [baixar o código](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
+Este tutorial criará um novo projeto. Se você quiser baixar o tutorial concluído, [Baixe o código](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip).
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
 1. Abra o Xcode e selecione **criar um novo projeto do Xcode**.
-2. Selecione **iOS** > **aplicação de vista única** e selecione **seguinte**.
+2. Selecione**aplicativo de exibição única** do **Ios** > e selecione **Avançar**.
 3. Forneça um nome de produto.
-4. Definir o **linguagem** ao **Swift** e selecione **seguinte**.
-5. Selecione uma pasta para criar a sua aplicação e clique em **criar**.
+4. Defina o **idioma** como **Swift** e selecione **Avançar**.
+5. Selecione uma pasta para criar seu aplicativo e clique em **criar**.
 
 ## <a name="register-your-application"></a>Registar a sua aplicação
 
 1. Aceda ao [Portal do Azure](https://aka.ms/MobileAppReg)
-2. Abra o [painel de registos de aplicação](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) e clique em **+ novo registo**.
-3. Introduza um **Name** para a sua aplicação e, em seguida, sem definir um URI de redirecionamento, clique em **registar**.
-4. Na **Manage** secção do painel que aparece, selecione **autenticação**.
-5. Clique em **experimentar a nova experiência** junto à parte superior do ecrã para abrir a nova experiência de registo de aplicação e, em seguida, clique em **+ novo registo** >  **+ adicionar uma plataforma**  >  **iOS**.
-    - Introduza o ID de pacote. do seu projeto Se tiver transferido o código, este é `com.microsoft.identitysample.MSALiOS`. Se estiver a criar seu próprio projeto, selecione o seu projeto no Xcode e abra o **gerais** separador. O identificador de pacote é apresentado na **identidade** secção.
-6. Clique em `Configure` e guarde o **configuração de MSAL** que aparece na **configuração do iOS** página para que possam inseri-lo quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
+2. Abra a [folha registros de aplicativo](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) e clique em **+ novo registro**.
+3. Insira um **nome** para seu aplicativo e, em seguida, sem definir um URI de redirecionamento, clique em **registrar**.
+4. Na seção **gerenciar** do painel que aparece, selecione **autenticação**.
+5. Clique em **experimentar a nova experiência** perto da parte superior da tela para abrir a nova experiência de registro de aplicativo e, em seguida, clique em **+ novo registro** >  **+ Adicionar uma plataforma** > **Ios**.
+    - Insira a ID do pacote do seu projeto. Se você baixou o código, isso `com.microsoft.identitysample.MSALiOS`é. Se você estiver criando seu próprio projeto, selecione seu projeto no Xcode e abra a guia **geral** . O identificador do pacote aparece na seção **identidade** .
+6. Clique `Configure` e salve a **configuração do MSAL** que aparece na página de **configuração do IOS** para que você possa inseri-la ao configurar o aplicativo mais tarde.  Clique em **Concluído**.
 
-## <a name="add-msal"></a>Adicionar a MSAL
+## <a name="add-msal"></a>Adicionar MSAL
 
-Escolha uma das formas seguintes para instalar a biblioteca MSAL na sua aplicação:
+Escolha uma das seguintes maneiras de instalar a biblioteca MSAL em seu aplicativo:
 
 ### <a name="cocoapods"></a>CocoaPods
 
-1. Se estiver a utilizar [CocoaPods](https://cocoapods.org/), instale `MSAL` pelo primeiro criar um ficheiro vazio de chamado `podfile` na mesma pasta que o seu projeto `.xcodeproj` ficheiro. Adicione o seguinte ao `podfile`:
+1. Se você estiver usando o [CocoaPods](https://cocoapods.org/), `MSAL` instale primeiro criando um arquivo vazio chamado `podfile` na mesma pasta que o arquivo do `.xcodeproj` seu projeto. Adicione o seguinte a `podfile`:
 
    ```
    use_frameworks!
@@ -83,13 +84,13 @@ Escolha uma das formas seguintes para instalar a biblioteca MSAL na sua aplicaç
    end
    ```
 
-2. Substitua `<your-target-here>` com o nome do seu projeto.
-3. Na janela do terminal, navegue para a pasta que contém o `podfile` que criou e execute `pod install` para instalar a biblioteca MSAL.
-4. Feche o Xcode e abra `<your project name>.xcworkspace` para recarregar o projeto no Xcode.
+2. Substitua `<your-target-here>` pelo nome do seu projeto.
+3. Em uma janela de terminal, navegue até a pasta que contém `podfile` o que você criou `pod install` e execute para instalar a biblioteca MSAL.
+4. Feche o Xcode e `<your project name>.xcworkspace` abra para recarregar o projeto no Xcode.
 
 ### <a name="carthage"></a>Carthage
 
-Se estiver a utilizar [Carthage](https://github.com/Carthage/Carthage), instale `MSAL` adicionando-o para seu `Cartfile`:
+Se você estiver usando o [Carthage](https://github.com/Carthage/Carthage), `MSAL` instale-o adicionando- `Cartfile`o ao seu:
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
@@ -97,19 +98,19 @@ github "AzureAD/microsoft-authentication-library-for-objc" "master"
 
 ### <a name="manually"></a>Manualmente
 
-Também pode utilizar o Git Submodule, ou verifique a versão mais recente para utilizar como uma estrutura em seu aplicativo.
+Você também pode usar o submódulo git ou conferir a versão mais recente para usar como uma estrutura em seu aplicativo.
 
-## <a name="add-your-app-registration"></a>Adicionar o registo de aplicação
+## <a name="add-your-app-registration"></a>Adicionar o registro do aplicativo
 
-Em seguida, vamos adicionar o registo de aplicação para o seu código. 
+Em seguida, adicionaremos o registro do aplicativo ao seu código. 
 
-Em primeiro lugar, adicione a seguinte instrução de importação na parte superior dos `ViewController.swift` e `AppDelegate.swift` ficheiros:
+Primeiro, adicione a seguinte instrução de importação na parte superior dos `ViewController.swift` arquivos `AppDelegate.swift` e:
 
 ```swift
 import MSAL
 ```
 
-Em seguida, adicione o seguinte código ao `ViewController.swift` anteriores ao `viewDidLoad()`:
+Em seguida, adicione o seguinte `ViewController.swift` código ao `viewDidLoad()`antes de:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"
@@ -122,13 +123,13 @@ var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 ```
 
-Modificar o valor atribuído a `kClientID`para ser o seu ID da aplicação. Este valor é a parte dos dados de configuração de MSAL que guardou durante o passo no início deste tutorial para registar a aplicação no portal do Azure.
+Modifique o valor atribuído `kClientID`a para ser a ID do aplicativo. Esse valor faz parte dos dados de configuração do MSAL que você salvou durante a etapa no início deste tutorial para registrar o aplicativo no portal do Azure.
 
-## <a name="configure-url-schemes"></a>Configurar os esquemas de URL
+## <a name="configure-url-schemes"></a>Configurar esquemas de URL
 
-Neste passo, vai registar `CFBundleURLSchemes` para que o utilizador pode ser redirecionado ao aplicativo após o início de sessão. A propósito, `LSApplicationQueriesSchemes` também permite que a aplicação para fazer uso do Microsoft Authenticator.
+Nesta etapa, você será registrado `CFBundleURLSchemes` para que o usuário possa ser Redirecionado de volta para o aplicativo após a entrada. A propósito, `LSApplicationQueriesSchemes` também permite que seu aplicativo faça uso de Microsoft Authenticator.
 
-No Xcode, abra `Info.plist` como um código de origem do ficheiro e adicione o seguinte dentro do `<dict>` secção. Substitua `[BUNDLE_ID]` com o valor que utilizou no portal do Azure que, se tiver transferido o código, é `com.microsoft.identitysample.MSALiOS`. Se estiver a criar seu próprio projeto, selecione o seu projeto no Xcode e abra o **gerais** separador. O identificador de pacote é apresentado na **identidade** secção.
+No Xcode, abra `Info.plist` como um arquivo de código-fonte e adicione o seguinte dentro `<dict>` da seção. Substitua `[BUNDLE_ID]` pelo valor usado na portal do Azure que, se você baixou o código, é `com.microsoft.identitysample.MSALiOS`. Se você estiver criando seu próprio projeto, selecione seu projeto no Xcode e abra a guia **geral** . O identificador do pacote aparece na seção **identidade** .
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -147,9 +148,9 @@ No Xcode, abra `Info.plist` como um código de origem do ficheiro e adicione o s
 </array>
 ```
 
-## <a name="create-your-apps-ui"></a>Criar a IU da sua aplicação
+## <a name="create-your-apps-ui"></a>Criar a interface do usuário do seu aplicativo
 
-Agora, crie uma interface do Usuário, que inclui um botão para chamar o Microsoft Graph API, outro para terminar sessão, e um texto visualizados para ver algumas saídas adicionando o seguinte código para o `ViewController`classe:
+Agora, crie uma interface do usuário que inclua um botão para chamar a API de Microsoft Graph, outra para sair e uma exibição de texto para ver alguma saída adicionando o seguinte código `ViewController`à classe:
 
 ```swift
 var loggingText: UITextView!
@@ -199,7 +200,7 @@ func initUI() {
     }
 ```
 
-Em seguida, também dentro de `ViewController` classe, substitua o `viewDidLoad()` método com:
+Em seguida, também dentro `ViewController` da classe, substitua `viewDidLoad()` o método por:
 
 ```swift
     override func viewDidLoad() {
@@ -213,11 +214,11 @@ Em seguida, também dentro de `ViewController` classe, substitua o `viewDidLoad(
     }
 ```
 
-## <a name="use-msal"></a>Utilizar a MSAL
+## <a name="use-msal"></a>Usar MSAL
 
-### <a name="initialize-msal"></a>Inicializar a MSAL
+### <a name="initialize-msal"></a>Inicializar MSAL
 
-Adicione as seguintes `InitMSAL` método para o `ViewController` classe:
+Adicione o seguinte `InitMSAL` método `ViewController` à classe:
 
 ```swift
     func initMSAL() throws {
@@ -234,9 +235,9 @@ Adicione as seguintes `InitMSAL` método para o `ViewController` classe:
     }
 ```
 
-### <a name="handle-the-sign-in-callback"></a>Lidar com o retorno de chamada início de sessão
+### <a name="handle-the-sign-in-callback"></a>Manipular o retorno de chamada de entrada
 
-Abra o ficheiro `AppDelegate.swift`. Para lidar com o retorno de chamada após o início de sessão, adicione `MSALPublicClientApplication.handleMSALResponse` para o `appDelegate` classe assim:
+Abra o ficheiro `AppDelegate.swift`. Para lidar com o retorno de chamada após a entrada `MSALPublicClientApplication.handleMSALResponse` , adicione `appDelegate` à classe desta forma:
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -249,17 +250,17 @@ Abra o ficheiro `AppDelegate.swift`. Para lidar com o retorno de chamada após o
     }
 ```
 
-#### <a name="acquire-tokens"></a>Adquira Tokens
+#### <a name="acquire-tokens"></a>Adquirir tokens
 
-Agora, podemos implementar a lógica de processamento de interface do Usuário do aplicativo e obter os tokens de forma interativa através de MSAL.
+Agora, podemos implementar a lógica de processamento da interface do usuário do aplicativo e obter os tokens interativamente por meio de MSAL.
 
-A MSAL expõe dois métodos principais para obter os tokens: `acquireTokenSilently()` e `acquireTokenInteractively()`: 
+MSAL expõe dois métodos principais para obter tokens `acquireTokenSilently()` : `acquireTokenInteractively()`e: 
 
-- `acquireTokenSilently()` tenta iniciar sessão de um utilizador e obter os tokens sem qualquer interação do utilizador, desde que uma conta está presente.
+- `acquireTokenSilently()`tenta conectar um usuário e obter tokens sem qualquer interação do usuário, desde que uma conta esteja presente.
 
-- `acquireTokenInteractively()` Mostra sempre a interface do Usuário durante a tentativa de iniciar a sessão do utilizador. Ele pode usar cookies de sessão no browser ou uma conta no Microsoft authenticator para proporcionar uma experiência interativa SSO.
+- `acquireTokenInteractively()`sempre mostra a IU ao tentar entrar no usuário. Ele pode usar cookies de sessão no navegador ou uma conta no Microsoft Authenticator para fornecer uma experiência de SSO interativo.
 
-Adicione o seguinte código para o `ViewController` classe:
+Adicione o seguinte código à `ViewController` classe:
 
 ```swift
     @objc func callGraphAPI(_ sender: UIButton) {
@@ -294,16 +295,16 @@ Adicione o seguinte código para o `ViewController` classe:
     }
 ```
 
-#### <a name="get-a-token-interactively"></a>Obter um token de forma interativa
+#### <a name="get-a-token-interactively"></a>Obter um token interativamente
 
-O código a seguir obtém um token pela primeira vez ao criar uma `MSALInteractiveTokenParameters` objeto e chamar `acquireToken`. Em seguida, irá adicionar o código do que:
+O código a seguir obtém um token pela primeira vez, criando um `MSALInteractiveTokenParameters` objeto e chamando `acquireToken`. Em seguida, você adicionará o código que:
 
-1. Cria `MSALInteractiveTokenParameters` com âmbitos.
-2. Chamadas `acquireToken()` com os parâmetros de criado.
-3. Manipula erros. Para obter mais detalhes, consulte a [guia de tratamento de erros do iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
-4. Processa o caso com êxito.
+1. Cria `MSALInteractiveTokenParameters` com escopos.
+2. Chama `acquireToken()` com os parâmetros criados.
+3. Manipula erros. Para obter mais detalhes, consulte o [Guia de tratamento de erros do IOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki/Error-Handling).
+4. Manipula o caso bem-sucedido.
 
-Adicione o seguinte código para o `ViewController` classe.
+Adicione o código a seguir à `ViewController` classe.
 
 ```swift
     func acquireTokenInteractively() {
@@ -335,7 +336,7 @@ Adicione o seguinte código para o `ViewController` classe.
 
 #### <a name="get-a-token-silently"></a>Obter um token silenciosamente
 
-Para adquirir um token atualizado silenciosamente, adicione o seguinte código para o `ViewController` classe. Ele cria um `MSALSilentTokenParameters` objeto e chamadas `acquireTokenSilent()`:
+Para adquirir um token atualizado silenciosamente, adicione o código a seguir à `ViewController` classe. Ele cria um `MSALSilentTokenParameters` objeto e chama `acquireTokenSilent()`:
 
 ```swift
     
@@ -371,15 +372,15 @@ Para adquirir um token atualizado silenciosamente, adicione o seguinte código p
     }
 ```
 
-### <a name="call-the-microsoft-graph-api"></a>Chamar o Microsoft Graph API 
+### <a name="call-the-microsoft-graph-api"></a>Chamar a API de Microsoft Graph 
 
-Depois de ter um token, a aplicação pode utilizá-lo no cabeçalho de HTTP para fazer uma solicitação de autorizados para o Microsoft Graph:
+Quando você tiver um token, seu aplicativo poderá usá-lo no cabeçalho HTTP para fazer uma solicitação autorizada para o Microsoft Graph:
 
-| Chave do cabeçalho    | value                 |
+| chave de cabeçalho    | value                 |
 | ------------- | --------------------- |
-| Autorização | Bearer \<access-token> |
+| Autorização | \<Acesso de portador-> de token |
 
-Adicione o seguinte código para o `ViewController` classe:
+Adicione o seguinte código à `ViewController` classe:
 
 ```swift
     func getContentWithToken() {        
@@ -409,16 +410,16 @@ Adicione o seguinte código para o `ViewController` classe:
     }
 ```
 
-Ver [Microsoft Graph API](https://graph.microsoft.com) para saber mais sobre o Microsoft Graph API.
+Consulte [Microsoft Graph API](https://graph.microsoft.com) para saber mais sobre a api de Microsoft Graph.
 
-### <a name="use-msal-for-sign-out"></a>Utilizar a MSAL para fim de sessão
+### <a name="use-msal-for-sign-out"></a>Usar MSAL para sair
 
-Em seguida, adicionar suporte para fim de sessão.
+Em seguida, adicione suporte para sair.
 
 > [!Important]
-> Terminar a sessão com MSAL remove todas as informações conhecidas sobre um usuário do aplicativo, mas o utilizador continuará a ter uma sessão ativa no respetivo dispositivo. Se o utilizador tentar iniciar sessão novamente eles poderão ver o início de sessão da interface do Usuário, mas não poderão ter de reintroduzir as respetivas credenciais porque a sessão do dispositivo ainda está ativa.
+> Sair com o MSAL remove todas as informações conhecidas sobre um usuário do aplicativo, mas o usuário ainda terá uma sessão ativa em seu dispositivo. Se o usuário tentar entrar novamente, poderá ver a interface do usuário de entrada, mas talvez não precise reinserir suas credenciais porque a sessão do dispositivo ainda está ativa.
 
-Para adicionar capacidade de fim de sessão, adicione o seguinte código dentro do `ViewController` classe. Este método percorre todas as contas e remove-os:
+Para adicionar a capacidade de saída, adicione o código a seguir dentro `ViewController` da classe. Esse método percorre todas as contas e as remove:
 
 ```swift 
     @objc func signOut(_ sender: UIButton) {
@@ -445,17 +446,17 @@ Para adicionar capacidade de fim de sessão, adicione o seguinte código dentro 
     }
 ```
 
-### <a name="enable-token-caching"></a>Ativar colocação em cache de token
+### <a name="enable-token-caching"></a>Habilitar cache de token
 
-Por predefinição, a MSAL armazena em cache tokens da sua aplicação na keychain do iOS. 
+Por padrão, o MSAL armazena em cache os tokens do aplicativo no conjunto de chaves do iOS. 
 
-Para ativar a colocação em cache de token:
-1. Aceda a definições do projeto Xcode > **guia de funcionalidades** > **ativar a partilha de Keychain**
-2. Clique em **+** e introduza `com.microsoft.adalcache` como uma **grupos de Keychain** entrada.
+Para habilitar o cache de token:
+1. Vá para as configurações do projeto do Xcode > **guia** > recursos**Habilitar compartilhamento** de conjunto de chaves
+2. Clique **+** e insira `com.microsoft.adalcache` como uma entrada de grupos de conjunto de **chaves** .
 
 ### <a name="add-helper-methods"></a>Adicionar métodos auxiliares
 
-Adicione os seguintes métodos de programa auxiliar para o `ViewController` classe para concluir o exemplo:
+Adicione os seguintes métodos auxiliares à `ViewController` classe para concluir o exemplo:
 
 ``` swift
     
@@ -481,20 +482,20 @@ Adicione os seguintes métodos de programa auxiliar para o `ViewController` clas
     }
 ```
 
-### <a name="multi-account-applications"></a>Aplicações de várias contas
+### <a name="multi-account-applications"></a>Aplicativos de várias contas
 
-Esta aplicação baseia-se para um cenário de única conta. A MSAL também oferece suporte a cenários de várias contas, mas requer algum trabalho adicional de aplicações. Terá de criar a interface do Usuário para ajudar o usuário selecione a conta que pretendem utilizar para cada ação que requer tokens. Em alternativa, a sua aplicação pode implementar uma heurística para selecionar a conta a utilizar por meio do `getAccounts()` método.
+Esse aplicativo é criado para um cenário de conta única. O MSAL também dá suporte a cenários de várias contas, mas requer algum trabalho adicional dos aplicativos. Você precisará criar a IU para ajudar o usuário a selecionar qual conta deseja usar para cada ação que requer tokens. Como alternativa, seu aplicativo pode implementar uma heurística para selecionar qual conta usar por meio do `getAccounts()` método.
 
 ## <a name="test-your-app"></a>Testar a aplicação
 
 ### <a name="run-locally"></a>Executar localmente
 
-Crie e implemente a aplicação para um dispositivo de teste ou emulador. Deve ser capaz de iniciar sessão e obtenha tokens para o Azure AD ou pessoais contas Microsoft.
+Crie e implante o aplicativo em um dispositivo de teste ou emulador. Você deve ser capaz de entrar e obter tokens para contas pessoais ou da Microsoft do Azure AD.
 
-Na primeira vez que um utilizador inicia sessão na sua aplicação, serão solicitados pela identidade da Microsoft para dar consentimento às permissões solicitadas.  Embora a maioria dos usuários são capazes de consentir, alguns inquilinos do Azure AD tem desativado o consentimento do utilizador, que requer que os administradores de consentir em nome de todos os utilizadores. Para suportar este cenário, registe os âmbitos da sua aplicação no portal do Azure.
+Na primeira vez que um usuário entrar em seu aplicativo, ele será solicitado pela identidade da Microsoft para consentir as permissões solicitadas.  Embora a maioria dos usuários seja capaz de consentir, alguns locatários do Azure AD desabilitaram o consentimento do usuário, o que exige que os administradores consentissem em nome de todos os usuários. Para dar suporte a esse cenário, registre os escopos do seu aplicativo no portal do Azure.
 
-Depois de iniciar sessão, a aplicação irá apresentar os dados retornados de Microsoft Graph `/me` ponto final.
+Depois de entrar, o aplicativo exibirá os dados retornados do ponto de extremidade `/me` Microsoft Graph.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Visite [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se tiver problemas com este tutorial, ou com a plataforma de identidade da Microsoft.
+Visite [ajuda e suporte](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) se você tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.

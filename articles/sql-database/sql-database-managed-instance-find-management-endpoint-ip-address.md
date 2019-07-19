@@ -1,6 +1,6 @@
 ---
-title: Detetar ponto final de gestão de instância gerida da base de dados SQL do Azure | Documentos da Microsoft
-description: Saiba como obter a instância gerida da base de dados SQL do Azure ponto final público endereço IP de gestão e verificar a sua proteção de firewall interno
+title: Descobrir ponto de extremidade de gerenciamento de Instância Gerenciada do Banco de Dados SQL do Azure | Microsoft Docs
+description: Saiba como obter Instância Gerenciada do Banco de Dados SQL do Azure endereço IP público do ponto de extremidade de gerenciamento e verificar sua proteção de firewall interna
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,27 +12,24 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5304c62b29d842f9beeadb34eba1cb53048d179
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700013"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302283"
 ---
-# <a name="determine-the-management-endpoint-ip-address"></a>Determinar o endereço IP do ponto final de gestão
+# <a name="determine-the-management-endpoint-ip-address"></a>Determinar o endereço IP do ponto de extremidade de gerenciamento
 
-O cluster virtual de instância gerida da base de dados SQL do Azure contém um ponto final de gestão que a Microsoft utiliza para operações de gestão. O ponto final de gestão está protegido com um firewall interno a verificação de certificado mútua e nível de rede no nível do aplicativo. Pode determinar o endereço IP do ponto final de gestão, mas não pode aceder a este ponto final.
+O cluster virtual Instância Gerenciada do Banco de Dados SQL do Azure contém um ponto de extremidade de gerenciamento que a Microsoft usa para operações de gerenciamento. O ponto de extremidade de gerenciamento é protegido com um firewall interno no nível da rede e a verificação de certificado mútuo no nível do aplicativo. Você pode determinar o endereço IP do ponto de extremidade de gerenciamento, mas não pode acessar esse ponto de extremidade.
 
-## <a name="determine-ip-address"></a>Determinar o endereço IP
+Para determinar o endereço IP de gerenciamento, faça uma pesquisa de DNS no FQDN da instância `mi-name.zone_id.database.windows.net`gerenciada:. Isso retornará uma entrada DNS como `trx.region-a.worker.vnet.database.windows.net`essa. Em seguida, você pode fazer uma pesquisa de DNS nesse FQDN com a ". vnet" removida. Isso retornará o endereço IP de gerenciamento. 
 
-Vamos supor que o anfitrião da instância gerida é `mi-demo.xxxxxx.database.windows.net`. Executar `nslookup` usando o nome de anfitrião.
+Esse PowerShell fará tudo por você se você substituir \<o FQDN\> de mi pela entrada DNS da sua instância gerenciada: `mi-name.zone_id.database.windows.net`:
+  
+``` powershell
+  $MIFQDN = "<MI FQDN>"
+  resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
+```
 
-![Resolução de nomes de anfitrião interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
-
-Agora, fazer outra `nslookup` para remover o nome realçado a `.vnet.` segmento. Obterá o endereço IP público ao executar este comando.
-
-![Resolução de endereço IP público](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
-## <a name="next-steps"></a>Passos Seguintes
-
-Para obter mais informações sobre as instâncias geridas e a conectividade, consulte [arquitetura de conectividade de instância de geridas da base de dados do SQL Azure](sql-database-managed-instance-connectivity-architecture.md).
+Para obter mais informações sobre instâncias gerenciadas e conectividade, consulte [instância gerenciada do banco de dados SQL do Azure arquitetura de conectividade](sql-database-managed-instance-connectivity-architecture.md).

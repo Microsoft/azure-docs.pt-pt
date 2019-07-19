@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Extrair texto manuscrito - JavaScript'
+title: 'Início rápido: Extrair texto impresso e manuscrito-REST, JavaScript'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API de Imagem Digitalizada com o JavaScript.
+description: Neste guia de início rápido, você extrai texto impresso e manuscrito de uma imagem usando o API da Pesquisa Visual Computacional com JavaScript.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,25 +11,25 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4e627286f6a32816eafa84e860cb8eb49111f67
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 42bb85b5dfab6c9799d89ff92ab5e5b3c0230019
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311997"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Início rápido: Extrair texto manuscrito usando a API REST de imagem digitalizada e JavaScript
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Início rápido: Extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional e o JavaScript
 
-Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API e o [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, pode detetar texto manuscrito numa imagem e, em seguida, extrair reconhecido carateres para um fluxo de carateres máquina utilizável.
+Neste guia de início rápido, você extrai texto impresso e/ou manuscrito de uma imagem usando a API REST do Pesquisa Visual Computacional. Com os métodos de [resultado da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) de leitura e leitura [em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) , você pode detectar texto em uma imagem e extrair caracteres reconhecidos em um fluxo de caracteres legível por máquina. A API determinará qual modelo de reconhecimento usar para cada linha de texto, para que ele dê suporte a imagens com texto impresso e manuscrito.
 
 > [!IMPORTANT]
-> Ao contrário do [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) método, o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) método é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método Read do Batch devolve um URI no valor do `Operation-Content` campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) método, ao verificar o estado e devolver os resultados da chamada do método de leitura do lote.
+> Ao contrário do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) , o método [batch Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método batch Read retorna um URI no valor do `Operation-Content` campo de cabeçalho de resposta. Em seguida, você pode chamar esse URI, que representa o método de [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , para verificar o status e retornar os resultados da chamada do método de leitura em lotes.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
+Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -38,9 +38,9 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Copie o código seguinte para um editor de texto.
 1. Faça as alterações seguintes ao código, onde for necessário:
     1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
-    1. Substitua o valor de `uriBase` com o URL de ponto final para o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) método da região do Azure, onde obteve as chaves de subscrição, se necessário.
-    1. Opcionalmente, substitua o valor do atributo `value` pelo controlo `inputImage` com o URL de uma imagem diferente da qual pretende extrair texto manuscrito.
-1. Guarde o código como um ficheiro com uma extensão `.html`. Por exemplo, `get-handwriting.html`.
+    1. Substitua o valor de `uriBase` pela URL do ponto de extremidade do método de [leitura em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) da região do Azure em que você obteve as chaves de assinatura, se necessário.
+    1. Opcionalmente, substitua o valor do `value` atributo `inputImage` do controle pela URL de uma imagem diferente da qual você deseja extrair o texto.
+1. Guarde o código como um ficheiro com uma extensão `.html`. Por exemplo, `get-text.html`.
 1. Abra uma janela do browser.
 1. No browser, arraste e largue o ficheiro na janela do browser.
 1. Quando a página Web for apresentada no browser, selecione o botão **Read image** (Ler imagem).
@@ -49,7 +49,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handwriting Sample</title>
+    <title>Text Recognition Sample</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
@@ -99,10 +99,10 @@ Para criar e executar o exemplo, siga os seguintes passos:
 
         .done(function(data, textStatus, jqXHR) {
             // Show progress.
-            $("#responseTextArea").val("Handwritten text submitted. " +
+            $("#responseTextArea").val("Text submitted. " +
                 "Waiting 10 seconds to retrieve the recognized text.");
 
-            // Note: The response may not be immediately available. Handwriting
+            // Note: The response may not be immediately available. Text
             // recognition is an asynchronous operation that can take a variable
             // amount of time depending on the length of the text you want to
             // recognize. You may need to wait or retry the GET operation.
@@ -160,8 +160,8 @@ Para criar e executar o exemplo, siga os seguintes passos:
         });
     };
 </script>
-<h1>Read handwritten image:</h1>
-Enter the URL to an image of handwritten text, then click
+<h1>Read text from image:</h1>
+Enter the URL to an image of text, then click
 the <strong>Read image</strong> button.
 <br><br>
 Image to read:

@@ -1,74 +1,74 @@
 ---
-title: Sobre o funcionamento em rede na recuperação após desastre do Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Fornece uma descrição geral do funcionamento em rede para a replicação de VMs do Azure com o Azure Site Recovery.
+title: Sobre a rede no Azure para a recuperação de desastres do Azure usando o Azure Site Recovery | Microsoft Docs
+description: Fornece uma visão geral da rede para replicação de VMs do Azure usando Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789799"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876286"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
+# <a name="about-networking-in-azure-to-azure-replication"></a>Sobre a rede na replicação do Azure para o Azure
 
 
 
-Este artigo fornece orientações de rede, ao replicar e recuperar as VMs do Azure de uma região para outro, utilizando [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo fornece diretrizes de rede quando você está replicando e recuperando VMs do Azure de uma região para outra, usando [Azure site Recovery](site-recovery-overview.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Saiba como o Site Recovery fornece a recuperação após desastre para [este cenário](azure-to-azure-architecture.md).
+Saiba como Site Recovery fornece recuperação de desastre para [esse cenário](azure-to-azure-architecture.md).
 
 ## <a name="typical-network-infrastructure"></a>Infraestrutura de rede típica
 
-O diagrama seguinte mostra um ambiente típico do Azure, para aplicações em execução em VMs do Azure:
+O diagrama a seguir ilustra um ambiente típico do Azure, para aplicativos em execução em VMs do Azure:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-Se estiver a utilizar do Azure ExpressRoute ou uma ligação VPN a partir da rede no local para o Azure, o ambiente é o seguinte:
+Se você estiver usando o Azure ExpressRoute ou uma conexão VPN da sua rede local para o Azure, o ambiente será o seguinte:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Normalmente, redes estão protegidas através de firewalls e os grupos de segurança de rede (NSGs). Firewalls utilizam URL ou IP com base em listas de permissões para controlar a conectividade de rede. Os NSGs fornecem regras que utilizam intervalos de endereços IP para controlar a conectividade de rede.
+Normalmente, as redes são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam a URL ou a lista de permissões baseada em IP para controlar a conectividade de rede. NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
 
 >[!IMPORTANT]
-> Utilizar um proxy autenticado para conectividade de rede de controle não é suportado pelo Site Recovery e não é possível ativar a replicação.
+> O uso de um proxy autenticado para controlar a conectividade de rede não tem suporte pelo Site Recovery, e a replicação não pode ser habilitada.
 
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividade de saída para URLs
 
-Se estiver a utilizar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estes URLs do Site Recovery:
+Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas Site Recovery URLs:
 
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | É necessário para que os dados podem ser escritos para a conta de armazenamento de cache na região de origem da VM. Se souber a cache de contas de armazenamento para as suas VMs, pode a lista de permissões os URLs de conta de armazenamento específico (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
-login.microsoftonline.com | Necessário para autorização e autenticação para os URLs do serviço Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | É necessário para que a comunicação de serviço de recuperação de Site pode ocorrer a partir da VM. Pode usar o "Site Recovery IP correspondente' se o proxy de firewall oferece suporte a IPs.
-*.servicebus.windows.net | É necessário para que os dados de monitorização e diagnóstico do Site Recovery podem ser escritos da VM. Pode usar o "Site Recovery monitorização IP correspondente' se o proxy de firewall oferece suporte a IPs.
+*.blob.core.windows.net | Necessário para que os dados possam ser gravados na conta de armazenamento de cache na região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá colocar as URLs da conta de armazenamento específicas na lista de permissões (por exemplo: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
+login.microsoftonline.com | Necessário para autorização e autenticação para as URLs do serviço de Site Recovery.
+*.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação do serviço de Site Recovery possa ocorrer na VM. Você pode usar o ' Site Recovery IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
+*.servicebus.windows.net | Necessário para que os dados de monitoramento e de diagnóstico de Site Recovery possam ser gravados da VM. Você pode usar o ' Site Recovery Monitoring IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
-Se estiver a utilizar um proxy de firewall baseado em IP ou regras do NSG para controlar a conectividade de saída, estes intervalos IP têm de ser permitidos.
+Se você estiver usando um proxy de firewall baseado em IP ou regras NSG para controlar a conectividade de saída, esses intervalos de IP precisam ser permitidos.
 
 - Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
-    - Criar uma [etiquetas de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base em regras NSG para a região de origem.
-    - Permitir que estes endereços, de modo a que os dados podem ser escritos para a conta de armazenamento de cache, a partir da VM.
+    - Crie uma regra de NSG baseada em [marca de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) para a região de origem.
+    - Permita esses endereços para que os dados possam ser gravados na conta de armazenamento de cache, da VM.
 - Criar uma [etiquetas de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regras NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
     - Se novos endereços são adicionados ao Azure Active Directory (AAD) no futuro, terá de criar novas regras NSG.
-- Site Recovery service endpoint endereços IP - disponíveis numa [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem de sua localização de destino.
-- Recomendamos que crie as regras do NSG necessárias num NSG de teste e certifique-se de que não existem problemas antes de criar as regras num NSG de produção.
+- Site Recovery endereços IP do ponto de extremidade de serviço-disponíveis em um [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem do local de destino.
+- Recomendamos que você crie as regras NSG necessárias em um NSG de teste e verifique se não há problemas antes de criar as regras em um NSG de produção.
 
 
-Intervalos de endereços de IP de recuperação de site são os seguintes:
+Os intervalos de endereços IP Site Recovery são os seguintes:
 
-   **Target** | **Recuperação de site IP** |  **Recuperação de site IP de monitorização**
+   **Target** | **Site Recovery IP** |  **IP de monitoramento de Site Recovery**
    --- | --- | ---
    Ásia Oriental | 52.175.17.132 | 13.94.47.61
    Sudeste Asiático | 52.187.58.193 | 13.76.179.223
@@ -77,7 +77,7 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    EUA Centro-Norte | 23.96.195.247 | 168.62.249.226
    Europa do Norte | 40.69.212.238 | 52.169.18.8
    Europa Ocidental | 52.166.13.64 | 40.68.93.145
-   EUA Leste | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    EUA Oeste | 40.83.179.48 | 104.40.26.199
    EUA Centro-Sul | 13.84.148.14 | 104.210.146.250
    EUA Central | 40.69.144.231 | 52.165.34.144
@@ -99,7 +99,7 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    Coreia do Sul | 52.231.198.185 | 52.231.200.144
    França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
-   Austrália central| 20.36.34.70 | 20.36.46.142
+   Austrália Central| 20.36.34.70 | 20.36.46.142
    Austrália Central 2| 20.36.69.62 | 20.36.74.130
    África do Sul, Oeste | 102.133.72.51 | 102.133.26.128
    África do Sul, Norte | 102.133.160.44 | 102.133.154.128
@@ -111,63 +111,63 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    US DoD Centro | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Exemplo de configuração de NSG
 
-Este exemplo mostra como configurar regras NSG para uma VM a replicar.
+Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
-- Se estiver a utilizar as regras do NSG para controlar a conectividade de saída, use regras de "Permitir HTTPS de saída" para a porta: 443 para todo os necessários intervalos de endereços IP.
-- O exemplo parte do princípio de que a localização de origem da VM é "Leste E.u.a." e a localização de destino é "E.u.a. Central".
+- Se você estiver usando regras de NSG para controlar a conectividade de saída, use regras de "permitir HTTPS de saída" para a porta: 443 para todos os intervalos de endereços IP necessários.
+- O exemplo supõe que o local de origem da VM é "leste dos EUA" e o local de destino é "EUA Central".
 
-### <a name="nsg-rules---east-us"></a>Regras do NSG - E.U.A. leste
+### <a name="nsg-rules---east-us"></a>Regras de NSG – leste dos EUA
 
-1. Crie uma regra de segurança de saída HTTPS (443) para "Eastus" no NSG conforme mostrado na captura de ecrã abaixo.
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage. Eastus" no NSG, conforme mostrado na captura de tela abaixo.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![marca de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
 
-2. Crie uma regra de segurança de saída HTTPS (443) para "AzureActiveDirectory" no NSG conforme mostrado na captura de ecrã abaixo.
+2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG, conforme mostrado na captura de tela abaixo.
 
-      ![etiqueta de aad](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![AAD – marca](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de destino:
+3. Crie regras de saída HTTPS (443) para os IPs de Site Recovery que correspondem ao local de destino:
 
-   **Location** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
+   **Location** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
    EUA Central | 40.69.144.231 | 52.165.34.144
 
-### <a name="nsg-rules---central-us"></a>Regras do NSG - E.U.A. Central
+### <a name="nsg-rules---central-us"></a>Regras de NSG-EUA Central
 
-Estas regras são necessárias para que os replicação pode ser ativada a partir da região de destino para a publicação de região de origem-ativação pós-falha:
+Essas regras são necessárias para que a replicação possa ser habilitada da região de destino para a região de origem após o failover:
 
-1. Crie uma regra de segurança de saída HTTPS (443) para "Storage.CentralUS" no NSG.
+1. Crie uma regra de segurança HTTPS (443) de saída para "Storage. Centralus" no NSG.
 
-2. Crie uma regra de segurança de saída HTTPS (443) para "AzureActiveDirectory" no NSG.
+2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG.
 
-3. Crie regras de saída HTTPS (443) para os IPs de recuperação de Site que correspondem à localização de origem:
+3. Crie regras de saída HTTPS (443) para os IPs de Site Recovery que correspondem ao local de origem:
 
-   **Location** | **Endereço de IP de recuperação de site** |  **Endereço IP de monitorização de recuperação de site**
+   **Location** | **Endereço IP Site Recovery** |  **Endereço IP de monitoramento de Site Recovery**
     --- | --- | ---
    EUA Central | 13.82.88.226 | 104.45.147.24
 
-## <a name="network-virtual-appliance-configuration"></a>Configuração de aplicação virtual de rede
+## <a name="network-virtual-appliance-configuration"></a>Configuração da solução de virtualização de rede
 
-Se estiver a utilizar aplicações virtuais de rede (NVAs) para controlar o tráfego de rede de saída das VMs, a aplicação poderá ficar bloqueada se todo o tráfego de replicação passa através da NVA. Recomendamos que crie um ponto de extremidade do serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não é transmitido para a NVA.
+Se você estiver usando NVAs (soluções de virtualização de rede) para controlar o tráfego de rede de saída de VMs, o dispositivo poderá ficar limitado se todo o tráfego de replicação passar pelo NVA. É recomendável criar um ponto de extremidade de serviço de rede em sua rede virtual para "armazenamento" para que o tráfego de replicação não vá para o NVA.
 
-### <a name="create-network-service-endpoint-for-storage"></a>Criar o ponto final de serviço de rede para armazenamento
-Pode criar um ponto de extremidade do serviço de rede na sua rede virtual para "Armazenamento", para que o tráfego de replicação não deixam o limite do Azure.
+### <a name="create-network-service-endpoint-for-storage"></a>Criar ponto de extremidade de serviço de rede para armazenamento
+Você pode criar um ponto de extremidade de serviço de rede em sua rede virtual para "armazenamento" para que o tráfego de replicação não saia do limite do Azure.
 
-- Selecione a rede virtual do Azure e clique em "Pontos finais de serviço"
+- Selecione sua rede virtual do Azure e clique em ' pontos de extremidade de serviço '
 
-    ![storage-endpoint](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
+    ![armazenamento-ponto de extremidade](./media/azure-to-azure-about-networking/storage-service-endpoint.png)
 
-- Clique em "Adicionar" e "Adicionar pontos finais de serviço" separador abre-se
-- Selecione "Microsoft. Storage" em "Service" e as sub-redes necessárias em campo "Sub-redes" e clique em "Adicionar"
+- Clique na guia "Adicionar" e "adicionar pontos de extremidade de serviço" é aberta
+- Selecione ' Microsoft. Storage ' em ' serviço ' e as sub-redes necessárias no campo ' sub-redes ' e clique em ' Adicionar '
 
 >[!NOTE]
->Não restringir o acesso de rede virtual às contas de armazenamento utilizadas para o ASR. Deve permitir acesso de "Todas as redes"
+>Não restrinja o acesso à rede virtual às suas contas de armazenamento usadas para o ASR. Você deve permitir o acesso de ' todas as redes '
 
 ### <a name="forced-tunneling"></a>Túnel forçado
 
-Pode substituir a rota de sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com um [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego VM para uma aplicação de virtual de rede de no local (NVA), mas esta configuração não é recomendada para o Site Recovery replicação. Se estiver a utilizar rotas personalizadas, deve [criar um ponto de final de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) no seu virtual de rede para "Armazenamento", para que o tráfego de replicação não deixam o limite do Azure.
+Você pode substituir a rota do sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 por uma [rota personalizada](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e desviar o tráfego da VM para uma NVA (solução de virtualização de rede) local, mas essa configuração não é recomendada para replicação de site Recovery. Se você estiver usando rotas personalizadas, deverá [criar um ponto de extremidade de serviço de rede virtual](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) em sua rede virtual para "armazenamento" para que o tráfego de replicação não deixe o limite do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Começar a proteger as cargas de trabalho por [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
-- Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para ativação pós-falha da máquina virtual do Azure.
-- Saiba mais sobre a recuperação após desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Comece a proteger suas cargas de trabalho replicando as [máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
+- Saiba mais sobre a [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para o failover de máquina virtual do Azure.
+- Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

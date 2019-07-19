@@ -1,143 +1,143 @@
 ---
-title: Considerações de segurança do Azure Container Instances
-description: Recomendações para proteger os imagens e segredos para o Azure Container Instances e considerações de segurança geral para qualquer plataforma de contentores
+title: Considerações de segurança de instâncias de contêiner do Azure
+description: Recomendações para proteger imagens e segredos para instâncias de contêiner do Azure e considerações de segurança geral para qualquer plataforma de contêiner
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: dc516277d79e37500e73e1aee6b88c908acb9b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 618d3a901698e46760d970f6d4fbc4157c5d2ea3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64944000"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325910"
 ---
-# <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança do Azure Container Instances
+# <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contêiner do Azure
 
-Este artigo apresenta considerações de segurança para utilizar o Azure Container Instances para executar aplicações de contentor. Os tópicos incluem:
+Este artigo apresenta considerações de segurança para usar instâncias de contêiner do Azure para executar aplicativos de contêiner. Os tópicos incluem:
 
 > [!div class="checklist"]
-> * **Recomendações de segurança** para o gerenciamento de imagens e os segredos do Azure Container Instances
-> * **Considerações para o ecossistema de contentor** em todo o ciclo de vida do contentor, para qualquer plataforma de contentor
+> * **Recomendações de segurança** para o gerenciamento de imagens e segredos para instâncias de contêiner do Azure
+> * **Considerações para o ecossistema de contêiner** ao longo do ciclo de vida do contêiner, para qualquer plataforma de contêiner
 
-## <a name="security-recommendations-for-azure-container-instances"></a>Recomendações de segurança do Azure Container Instances
+## <a name="security-recommendations-for-azure-container-instances"></a>Recomendações de segurança para instâncias de contêiner do Azure
 
-### <a name="use-a-private-registry"></a>Utilizar um registo privado
+### <a name="use-a-private-registry"></a>Usar um registro privado
 
-Os contentores são criados a partir de imagens que estão armazenadas num ou mais repositórios. Estes repositórios podem pertencer a um registo público, como [Docker Hub](https://hub.docker.com), ou para um registo privado. Um exemplo de um registo privado é o [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), que pode ser instalado no local ou numa cloud privada virtual. Também pode utilizar os serviços de registo de contentores privados baseados na cloud, incluindo [Azure Container Registry](../container-registry/container-registry-intro.md). 
+Os contentores são criados a partir de imagens que estão armazenadas num ou mais repositórios. Esses repositórios podem pertencer a um registro público, como o [Hub](https://hub.docker.com)do Docker ou a um registro privado. Um exemplo de um registo privado é o [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), que pode ser instalado no local ou numa cloud privada virtual. Você também pode usar os serviços de registro de contêiner privado baseados em nuvem, incluindo o [registro de contêiner do Azure](../container-registry/container-registry-intro.md). 
 
-Uma imagem de contentor publicamente disponível não garante a segurança. Imagens de contentor consistem em várias camadas de software, e cada camada de software pode ter vulnerabilidades. Para ajudar a reduzir a ameaça de ataques, deve armazenar e recuperar imagens de um registo privado, como o Azure Container Registry ou o Docker Trusted Registry. Além de fornecer um registo privado gerido, o Azure Container Registry suporta [autenticação baseada em principais de serviço](../container-registry/container-registry-authentication.md) através do Azure Active Directory para fluxos de autenticação básica. Esta autenticação inclui acesso baseado em funções para (solicitação) só de leitura, escrita (push) e permissões de proprietário.
+Uma imagem de contêiner disponível publicamente não garante a segurança. As imagens de contêiner consistem em várias camadas de software e cada camada de software pode ter vulnerabilidades. Para ajudar a reduzir a ameaça de ataques, você deve armazenar e recuperar imagens de um registro privado, como o registro de contêiner do Azure ou o registro confiável do Docker. Além de fornecer um registro privado gerenciado, o registro de contêiner do Azure dá suporte à [autenticação baseada na entidade de serviço](../container-registry/container-registry-authentication.md) por meio de Azure Active Directory para fluxos de autenticação básica. Essa autenticação inclui acesso baseado em função para permissões somente leitura (pull), gravação (push) e proprietário.
 
-### <a name="monitor-and-scan-container-images"></a>Monitorizar e analisar imagens de contentores
+### <a name="monitor-and-scan-container-images"></a>Monitorar e verificar imagens de contêiner
 
-Monitorização de segurança e soluções de análise, como [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) e [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) estão disponíveis através do Azure Marketplace. Pode usá-los para analisar imagens de contentor num registo privado e identificar potenciais vulnerabilidades. É importante compreender a profundidade das análises que oferecem as soluções diferentes. 
+Soluções de monitoramento e verificação de segurança, como [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) e [segurança de água](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) , estão disponíveis por meio do Azure Marketplace. Você pode usá-los para verificar as imagens de contêiner em um registro privado e identificar possíveis vulnerabilidades. É importante entender a profundidade da verificação que as diferentes soluções fornecem. 
 
 ### <a name="protect-credentials"></a>Proteger credenciais
 
-Contentores podem distribuídos por vários clusters e regiões do Azure. Por isso, tem de proteger as credenciais necessárias para inícios de sessão ou de acesso à API, como palavras-passe ou tokens. Certifique-se de que apenas os utilizadores com privilégios podem aceder esses contentores em trânsito e em inatividade. Inventariar todos os segredos de credenciais e, em seguida, exigem que os desenvolvedores a utilizar ferramentas de gestão de segredos emergentes que foram concebidas para plataformas de contentores.  Certifique-se de que a sua solução inclui bases de dados encriptados, encriptação de TLS para os dados de segredos em trânsito e de menor privilégio [controlo de acesso baseado em funções](../role-based-access-control/overview.md). [O Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) é um serviço cloud que salvaguarda as chaves de encriptação e os segredos (tal como certificados, cadeias de ligação e palavras-passe) para aplicações em contentores. Uma vez que estes dados são sensíveis e crítico para a empresa, o acesso seguro à sua chave de cofres para que apenas aplicativos autorizados e os utilizadores podem aceder aos mesmos.
+Os contêineres podem se espalhar por vários clusters e regiões do Azure. Portanto, você deve proteger as credenciais necessárias para logons ou acesso à API, como senhas ou tokens. Certifique-se de que somente usuários privilegiados possam acessar esses contêineres em trânsito e em repouso. Inventariar todos os segredos de credencial e, em seguida, exigir que os desenvolvedores usem ferramentas de gerenciamento de segredos emergentes projetadas para plataformas de contêiner.  Certifique-se de que sua solução inclui bancos de dados criptografados, criptografia de TLS para segredos em trânsito e [controle de acesso baseado em função](../role-based-access-control/overview.md)de privilégio mínimo. [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) é um serviço de nuvem que protege as chaves de criptografia e os segredos (como certificados, cadeias de conexão e senhas) para aplicativos em contêineres. Como esses dados são confidenciais e críticos para os negócios, proteja o acesso a seus cofres de chaves para que somente aplicativos e usuários autorizados possam acessá-los.
 
-## <a name="considerations-for-the-container-ecosystem"></a>Considerações para o ecossistema de contentor
+## <a name="considerations-for-the-container-ecosystem"></a>Considerações para o ecossistema do contêiner
 
-As seguintes medidas de segurança, bem implementados e geridos de forma eficaz, podem ajudar a proteger e proteger o seu ecossistema de contentor. Estas medidas aplicam-se em todo o ciclo de vida do contentor, desde o desenvolvimento por meio da implantação de produção e a uma variedade de plataformas, anfitriões e orquestradores de contentor. 
+As seguintes medidas de segurança, implementadas bem e gerenciadas efetivamente, podem ajudá-lo a proteger e proteger seu ecossistema de contêiner. Essas medidas se aplicam ao longo do ciclo de vida do contêiner, desde o desenvolvimento até a implantação de produção e a uma variedade de orquestradores de contêiner, hosts e plataformas. 
 
-### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Utilize a gestão de vulnerabilidade como parte do seu ciclo de vida do desenvolvimento de contentor 
+### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Use o gerenciamento de vulnerabilidades como parte do seu ciclo de vida de desenvolvimento de contêiner 
 
-Ao utilizar a gestão de vulnerabilidades em vigor em todo o ciclo de vida do desenvolvimento de contentores, aumentar as probabilidades que identificar e resolver questões de segurança antes que se tornem um problema mais sério. 
+Ao usar o gerenciamento de vulnerabilidades eficaz em todo o ciclo de vida de desenvolvimento do contêiner, você aumenta as chances de identificar e resolver questões de segurança antes que elas se tornem um problema mais sério. 
 
-### <a name="scan-for-vulnerabilities"></a>Verificar a existência de vulnerabilidades 
+### <a name="scan-for-vulnerabilities"></a>Verificar se há vulnerabilidades 
 
-Novas vulnerabilidades são detetadas o tempo todo, pelo que a análise de e identificação de vulnerabilidades são um processo contínuo. Incorpore análise em todo o ciclo de vida do contentor de vulnerabilidades:
+Novas vulnerabilidades são descobertas o tempo todo, portanto, a verificação e a identificação de vulnerabilidades é um processo contínuo. Incorpore a verificação de vulnerabilidade em todo o ciclo de vida do contêiner:
 
-* Como uma verificação final no seu pipeline de desenvolvimento, deve realizar uma análise de vulnerabilidade em contentores antes de enviar imagens para um registo público ou privado. 
-* Continue a analisar imagens de contentores no Registro para identificar quaisquer falhas de alguma forma existância durante o desenvolvimento e para resolver quaisquer vulnerabilidades detetadas recentemente que podem ocorrer no código usado nas imagens do contentor.  
+* Como uma verificação final em seu pipeline de desenvolvimento, você deve executar uma verificação de vulnerabilidade em contêineres antes de enviar as imagens por push para um registro público ou privado. 
+* Continue a verificar as imagens de contêiner no registro para identificar as falhas que estavam de alguma forma perdidas durante o desenvolvimento e para resolver quaisquer vulnerabilidades recém-descobertas que possam existir no código usado nas imagens de contêiner.  
 
-### <a name="map-image-vulnerabilities-to-running-containers"></a>Vulnerabilidades de imagem do mapa para contentores em execução 
+### <a name="map-image-vulnerabilities-to-running-containers"></a>Mapear vulnerabilidades de imagem para executar contêineres 
 
-Tem de ter um meio de vulnerabilidades de mapeamento identificados em imagens de contentor para a execução de contentores, para que os problemas de segurança podem ser atenuados ou resolvidos.  
+Você precisa ter um meio de mapear vulnerabilidades identificadas em imagens de contêiner para executar contêineres, para que os problemas de segurança possam ser mitigados ou resolvidos.  
 
-### <a name="ensure-that-only-approved-images-are-used-in-your-environment"></a>Certifique-se de que apenas as aprovadas imagens são utilizadas no seu ambiente 
+### <a name="ensure-that-only-approved-images-are-used-in-your-environment"></a>Garantir que apenas as imagens aprovadas sejam usadas em seu ambiente 
 
-Existe suficiente alteração e volatilidade num ecossistema de contentor sem permitir também a contentores desconhecida. Permitir que as imagens de contentor aprovados apenas. Ter processos e ferramentas para monitorizar e impedir a utilização de imagens de contentor não aprovadas. 
+Há uma alteração e volatilidade suficientes em um ecossistema de contêineres sem permitir contêineres desconhecidos também. Permitir apenas imagens de contêiner aprovadas. Ter ferramentas e processos em vigor para monitorar e impedir o uso de imagens de contêiner não aprovadas. 
 
-É uma maneira eficiente de reduzir a superfície de ataque e ao impedir que os desenvolvedores erros críticos de segurança controlar o fluxo de imagens de contentor no seu ambiente de desenvolvimento. Por exemplo, pode aprovar uma única distribuição do Linux como uma imagem base, preferencialmente, um que seja enxuto (Alpine ou CoreOS em vez de Ubuntu), para minimizar a superfície de potenciais ataques. 
+Uma maneira eficaz de reduzir a superfície de ataque e impedir que os desenvolvedores façam erros de segurança críticos é controlar o fluxo de imagens de contêiner em seu ambiente de desenvolvimento. Por exemplo, você pode aprovar uma única distribuição do Linux como uma imagem de base, preferencialmente uma que seja Lean (Alpine ou CoreOS em vez do Ubuntu), para minimizar a superfície para possíveis ataques. 
 
-Imagem de assinatura ou impressão digital pode fornecer uma cadeia de custódia que permite-lhe verificar a integridade dos contentores. Por exemplo, o Azure Container Registry suporta do Docker [confiança de conteúdo](https://docs.docker.com/engine/security/trust/content_trust) modelar, que permite que os publicadores de imagem assinar as imagens que são enviadas para um registo e os consumidores de imagem para extrair apenas assinado imagens.
+Assinatura de imagem ou impressão digital pode fornecer uma cadeia de custódia que permite verificar a integridade dos contêineres. Por exemplo, o registro de contêiner do Azure dá suporte ao modelo de [confiança de conteúdo](https://docs.docker.com/engine/security/trust/content_trust) do Docker, que permite que os editores de imagens assinem imagens enviadas por push a um registro e que os consumidores de imagem recebam apenas imagens assinadas.
 
-### <a name="permit-only-approved-registries"></a>Permitir apenas os registos aprovados 
+### <a name="permit-only-approved-registries"></a>Permitir somente registros aprovados 
 
-É uma extensão de garantir que o seu ambiente usa apenas as imagens aprovadas permitir apenas a utilização de registos de contentores aprovados. Exigir a utilização de registos de contentores aprovados reduz a exposição a risco ao limitar o potencial para a introdução de vulnerabilidades desconhecidas ou problemas de segurança. 
+Uma extensão para garantir que seu ambiente Use apenas imagens aprovadas é permitir apenas o uso de registros de contêiner aprovados. Exigir o uso de registros de contêiner aprovados reduz sua exposição ao risco, limitando o potencial para a introdução de vulnerabilidades desconhecidas ou problemas de segurança. 
 
-### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>Certifique-se a integridade de imagens em todo o ciclo de vida 
+### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>Garantir a integridade das imagens durante todo o ciclo de vida 
 
-Parte da gestão de segurança em todo o ciclo de vida do contentor é para assegurar a integridade das imagens de contentor no Registro e como eles são alterados ou implementados em produção. 
+Parte do gerenciamento de segurança em todo o ciclo de vida do contêiner é garantir a integridade das imagens de contêiner no registro e conforme elas são alteradas ou implantadas na produção. 
 
-* Imagens com vulnerabilidades, mesmo que pequenas, não devem ser permitidas a execução num ambiente de produção. Idealmente, todas as imagens implementadas em produção devem ser salvos num registo privado acessível para algumas pessoas. Mantenha o número de imagens de produção de pequeno e certifique-se de que eles podem ser geridos eficientemente.
+* Imagens com vulnerabilidades, mesmo secundárias, não devem ter permissão para serem executadas em um ambiente de produção. O ideal é que todas as imagens implantadas na produção sejam salvas em um registro privado acessível a uma seleção. Mantenha o número de imagens de produção pequenas para garantir que elas possam ser gerenciadas com eficiência.
 
-* Porque é difícil identificar a origem do software a partir de uma imagem de contentor publicamente disponível, crie imagens de origem para garantir que os dados de conhecimento da origem da camada. Quando surge uma vulnerabilidade numa imagem de contentor criada automaticamente, os clientes podem encontrar um caminho mais rápido para a resolução. Com uma imagem pública, os clientes têm de determinar a raiz de uma imagem pública para corrigi-lo ou obter outra imagem segura a partir do publicador. 
+* Porque é difícil identificar a origem do software de uma imagem de contêiner disponível publicamente, criar imagens da origem para garantir o conhecimento da origem da camada. Quando surge uma vulnerabilidade numa imagem de contentor criada automaticamente, os clientes podem encontrar um caminho mais rápido para a resolução. Com uma imagem pública, os clientes precisariam encontrar a raiz de uma imagem pública para corrigi-la ou obter outra imagem segura do Publicador. 
 
-* Não é garantida que uma imagem analisada exaustivamente e implementada em produção ser atualizado para o tempo de vida do aplicativo. Podem ser reportadas vulnerabilidades de segurança para camadas da imagem que não eram conhecidas anteriormente ou que foram introduzidas após a implementação em produção. 
+* Não há garantia de que uma imagem digitalizada completamente implantada em produção esteja atualizada durante o tempo de vida do aplicativo. Podem ser reportadas vulnerabilidades de segurança para camadas da imagem que não eram conhecidas anteriormente ou que foram introduzidas após a implementação em produção. 
 
-  Realize auditorias periódicas imagens implementadas em produção para identificar as imagens que estão Desatualizadas ou não tem sido atualizadas há algum tempo. Poderá utilizar metodologias de implementação "blue-Green" e sem interrupção mecanismos de atualização para atualizar imagens de contentores sem tempo de inatividade. Pode examinar imagens com as ferramentas descritas na secção anterior. 
+  Auditar periodicamente as imagens implantadas em produção para identificar imagens desatualizadas ou que não foram atualizadas há algum tempo. Você pode usar metodologias de implantação verde-azulado e mecanismos de atualização sem interrupção para atualizar imagens de contêiner sem tempo de inatividade. Você pode digitalizar imagens usando as ferramentas descritas na seção anterior. 
 
-* Utilize um pipeline de integração contínua (CI) com análise para criar imagens seguras e emiti-las para o seu registo privado de segurança integrada. A análise de vulnerabilidade incorporada na solução de CI assegura que as imagens que passam em todos os testes são enviadas para o registo privado a partir do qual as cargas de trabalho em produção são implementadas. 
+* Use um pipeline de CI (integração contínua) com a verificação de segurança integrada para criar imagens seguras e enviá-las por push para o registro privado. A análise de vulnerabilidade incorporada na solução de CI assegura que as imagens que passam em todos os testes são enviadas para o registo privado a partir do qual as cargas de trabalho em produção são implementadas. 
 
-  Pipeline de CI garante que as imagens vulneráveis não são enviadas para o registo privado que é utilizado para implementações de carga de trabalho de produção. Também automatiza a análise se houver um número significativo de imagens de segurança de imagem. Caso contrário, auditar manualmente as imagens relativamente a vulnerabilidades pode ser extremamente moroso e suscetível a erros. 
+  Uma falha de pipeline de CI garante que imagens vulneráveis não sejam enviadas para o registro privado que é usado para implantações de carga de trabalho de produção. Ele também automatiza a verificação de segurança de imagem se houver um número significativo de imagens. Caso contrário, auditar manualmente as imagens relativamente a vulnerabilidades pode ser extremamente moroso e suscetível a erros. 
 
-### <a name="enforce-least-privileges-in-runtime"></a>Impor o mínimo de privilégios no tempo de execução 
+### <a name="enforce-least-privileges-in-runtime"></a>Impor privilégios mínimos no tempo de execução 
 
-O conceito de menos privilégios é uma prática recomendada de básicos de segurança que também se aplica aos contentores. Quando uma vulnerabilidade é explorada, em geral, dá-o acesso do invasor e privilégios igual da aplicação comprometida ou processo. Garantir que contentores funcionam com os privilégios mais baixos e acesso necessário para concluir o trabalho reduz a exposição a risco. 
+O conceito de privilégios mínimos é uma prática recomendada de segurança básica que também se aplica aos contêineres. Quando uma vulnerabilidade é explorada, geralmente fornece ao invasor acesso e privilégios iguais aos do aplicativo ou processo comprometido. Garantir que os contêineres operem com os privilégios mais baixos e o acesso necessário para que o trabalho seja reduzido reduz a exposição a riscos. 
 
-### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>Reduzir a superfície de ataque de contentor através da remoção de privilégios desnecessários 
+### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>Reduzir a superfície de ataque de contêiner removendo privilégios desnecessários 
 
-Também pode minimizar a potencial superfície de ataque ao remover quaisquer processos não utilizados e desnecessários ou privilégios de tempo de execução do contentor. Executam contentores com privilégios como raiz. Se um utilizador mal intencionado ou carga de trabalho escapes num contentor com privilégios, o contentor, em seguida, executará como raiz nesse sistema.
+Você também pode minimizar a possível superfície de ataque removendo quaisquer processos ou privilégios não utilizados ou desnecessários do tempo de execução do contêiner. Contêineres com privilégios executados como raiz. Se um usuário mal-intencionado ou uma carga de trabalho escapar em um contêiner com privilégios, o contêiner será executado como raiz no sistema.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Ficheiros de lista de permissões e executáveis que o contentor está autorizado a aceder ou executar 
+### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Arquivos de lista de permissões e executáveis que o contêiner tem permissão para acessar ou executar 
 
-Reduzindo o número de variáveis ou incertezas ajuda-o a manter um ambiente estável e confiável. Limitação de contentores, para que possam aceder ou executar apenas pré-aprovados ou na lista de permissões ficheiros e executáveis é um método comprovado de limitar a exposição ao risco.  
+A redução do número de variáveis ou desconhecidas ajuda a manter um ambiente estável e confiável. Limitar contêineres para que eles possam acessar ou executar somente arquivos pré-aprovados ou na lista de permissões e executáveis é um método comprovado de limitar a exposição ao risco.  
 
-É muito mais fácil gerir uma lista de permissões quando ele é implementado desde o início. Uma lista de permissões fornece uma medida de controle e capacidade de gestão à medida que saiba quais arquivos e executáveis são necessários para o aplicativo funcione corretamente. 
+É muito mais fácil gerenciar uma lista de permissões quando ela é implementada desde o início. Uma lista de permissões fornece uma medida de controle e capacidade de gerenciamento à medida que você aprende quais arquivos e executáveis são necessários para que o aplicativo funcione corretamente. 
 
-Uma lista de permissões não só reduz a superfície de ataque, mas também pode fornecer uma linha de base para anomalias e impedir que os casos de utilização dos cenários de abertas de contentor e de "vizinho ruidoso". 
+Uma lista de permissões não apenas reduz a superfície de ataque, mas também pode fornecer uma linha de base para anomalias e impedir os casos de uso dos cenários de "vizinho ruidosa" e de debates de contêiner. 
 
-### <a name="enforce-network-segmentation-on-running-containers"></a>Impor a segmentação de rede em contentores em execução  
+### <a name="enforce-network-segmentation-on-running-containers"></a>Impor a segmentação de rede em contêineres em execução  
 
-Para ajudar a proteger contentores numa sub-rede de riscos de segurança em outra sub-rede, manter a segmentação de rede (ou segmentação de nano) ou segregação entre contentores em execução. Manutenção de segmentação de rede também pode ser necessária para utilizar contentores em setores que são necessários para atender a conformidade com as.  
+Para ajudar a proteger os contêineres em uma sub-rede contra riscos de segurança em outra sub-rede, mantenha a segmentação de rede (ou a segmentação do nano) ou a diferenciação entre contêineres em execução. Manter a segmentação de rede também pode ser necessário para usar contêineres em setores que são necessários para atender às obrigações de conformidade.  
 
-Por exemplo, a ferramenta do parceiro [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) fornece uma abordagem automatizada para segmentação de nano. Aqua monitoriza as atividades de rede do contentor no tempo de execução. Ele identifica todas as ligações de rede de entrada e saída de/para outros contentores, serviços, endereços IP e da internet pública. Segmentação de nano é criada automaticamente com base no tráfego monitorizado. 
+Por exemplo, a ferramenta de parceiro [azul-piscina](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) fornece uma abordagem automatizada para a segmentação do nano. A água monitora as atividades de rede do contêiner em tempo de execução. Ele identifica todas as conexões de rede de entrada e saída de/para outros contêineres, serviços, endereços IP e a Internet pública. A segmentação do nano é criada automaticamente com base no tráfego monitorado. 
 
-### <a name="monitor-container-activity-and-user-access"></a>Monitorizar o acesso de utilizador e a atividade do contentor 
+### <a name="monitor-container-activity-and-user-access"></a>Monitorar a atividade do contêiner e o acesso do usuário 
 
-Tal como acontece com qualquer ambiente de TI, consistentemente, deve monitorizar atividade e o utilizador o acesso ao seu ecossistema de contentor para identificar rapidamente qualquer atividade suspeita ou maliciosa. O Azure fornece soluções, incluindo de monitorização do contentor:
+Assim como acontece com qualquer ambiente de ti, você deve monitorar consistentemente a atividade e o acesso do usuário ao seu ecossistema de contêiner para identificar rapidamente qualquer atividade suspeita ou mal-intencionada. O Azure fornece soluções de monitoramento de contêiner, incluindo:
 
-* [Monitor do Azure para contentores](../azure-monitor/insights/container-insights-overview.md) para monitorizar o desempenho das cargas de trabalho implementadas nos ambientes do Kubernetes alojados no Azure Kubernetes Service (AKS). Monitor do Azure para contentores dá-lhe visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. 
+* [Azure monitor para contêineres](../azure-monitor/insights/container-insights-overview.md) para monitorar o desempenho de suas cargas de trabalho implantadas em ambientes kubernetes hospedados no AKs (serviço kubernetes do Azure). Monitor do Azure para contentores dá-lhe visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. 
 
-* O [solução de monitorização de contentores do Azure](../azure-monitor/insights/containers.md) ajuda-o ver e gerir outros Docker e o Windows anfitriões de contentor numa única localização. Por exemplo:
+* A [solução de monitoramento de contêiner do Azure](../azure-monitor/insights/containers.md) ajuda você a exibir e gerenciar outros hosts de contêiner do Docker e do Windows em um único local. Por exemplo:
 
-  * Ver informações detalhadas de auditoria que mostra os comandos utilizados com contentores. 
-  * Resolver problemas de contentores ao visualizar e procurar registos centralizados sem ter de ver remotamente os anfitriões de Docker ou do Windows.  
-  * Encontre os contentores que podem ser desnecessárias e consumindo recursos em excesso num anfitrião.
-  * Ver centralizada de CPU, memória, armazenamento e informações de utilização e desempenho de rede para contentores.  
+  * Exibir informações de auditoria detalhadas que mostram os comandos usados com contêineres. 
+  * Solucione problemas de contêineres exibindo e pesquisando logs centralizados sem ter que exibir remotamente os hosts Docker ou Windows.  
+  * Encontre contêineres que podem estar com ruídos e consumindo recursos em excesso em um host.
+  * Exibir informações de desempenho, memória, armazenamento e CPU centralizadas para contêineres.  
 
-  A solução suporta orquestradores de contentor, incluindo Docker Swarm, DC/OS, Kubernetes, Service Fabric e não Red Hat OpenShift. 
+  A solução dá suporte a orquestradores de contêineres, incluindo Docker Swarm, DC/so, kubernetes não gerenciado, Service Fabric e Red Hat OpenShift. 
 
-### <a name="monitor-container-resource-activity"></a>Monitorizar a atividade de recursos de contentor 
+### <a name="monitor-container-resource-activity"></a>Monitorar atividade de recursos de contêiner 
 
-Monitorize a atividade de recursos, como arquivos, rede e outros recursos que acedem a seus contentores. A monitorização de atividade de recursos e o consumo é útil para monitorizar o desempenho e uma medida de segurança. 
+Monitore a atividade de recursos, como arquivos, rede e outros recursos que seus contêineres acessam. Monitorar a atividade e o consumo de recursos é útil para o monitoramento de desempenho e como uma medida de segurança. 
 
-[O Azure Monitor](../azure-monitor/overview.md) permite a monitorização dos componentes essenciais para serviços do Azure, permitindo que a coleção de métricas, registos de atividades e os registos de diagnóstico. Por exemplo, o registo de atividade indica quando são criados ou modificados os novos recursos. 
+O [Azure monitor](../azure-monitor/overview.md) permite o monitoramento de núcleo para os serviços do Azure, permitindo a coleta de métricas, logs de atividade e logs de diagnóstico. Por exemplo, o registo de atividade indica quando são criados ou modificados os novos recursos. 
 
-Estão disponíveis métricas que fornecem estatísticas de desempenho de recursos diferentes e, mesmo, do sistema operativo no interior de uma máquina virtual. Pode ver estes dados com um dos exploradores no portal do Azure e criar alertas com base nestas métricas. O Azure Monitor fornece que as métricas mais rápidas do pipeline (5 minutos até 1 minuto), para que deve usá-lo para notificações e alertas críticos de tempo. 
+Estão disponíveis métricas que fornecem estatísticas de desempenho de recursos diferentes e, mesmo, do sistema operativo no interior de uma máquina virtual. Pode ver estes dados com um dos exploradores no portal do Azure e criar alertas com base nestas métricas. Azure Monitor fornece o pipeline de métricas mais rápido (5 minutos até 1 minuto), portanto, você deve usá-lo para alertas e notificações de tempo crítico. 
 
-### <a name="log-all-container-administrative-user-access-for-auditing"></a>Todos os acessos de utilizador administrativo de contentor para auditoria de registo 
+### <a name="log-all-container-administrative-user-access-for-auditing"></a>Registrar o acesso de usuário administrativo de todos os contêineres para auditoria 
 
-Manter uma trilha de auditoria precisa de acesso administrativo para o seu ecossistema de contentor, o registo de contentor e a imagens de contentor. Estes registos, poderão ser necessários para fins de auditoria e serão útil como evidências forenses após qualquer incidente de segurança. Pode utilizar o [solução de monitorização de contentores do Azure](../azure-monitor/insights/containers.md) para atingir esse objetivo. 
+Mantenha uma trilha de auditoria precisa de acesso administrativo ao seu ecossistema de contêiner, registro de contêiner e imagens de contêiner. Esses logs podem ser necessários para fins de auditoria e serão úteis como evidências forenses após qualquer incidente de segurança. Você pode usar a [solução de monitoramento de contêiner do Azure](../azure-monitor/insights/containers.md) para obter essa finalidade. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre a gestão de vulnerabilidades de contentor com soluções a partir [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) e [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).
+* Saiba mais sobre como gerenciar vulnerabilidades de contêiner com soluções de [segurança](https://www.aquasec.com/solutions/azure-container-security/)de [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) e água.
 
-* Saiba mais sobre [segurança do contentor no Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).
+* Saiba mais sobre a [segurança de contêiner no Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).
