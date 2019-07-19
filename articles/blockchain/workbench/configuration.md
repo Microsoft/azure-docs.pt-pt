@@ -203,7 +203,7 @@ Define os parâmetros de entrada para uma instância de um fluxo de trabalho.
 }
 ```
 
-## <a name="functions"></a>Funções
+## <a name="functions"></a>Functions
 
 Define as funções que podem ser executadas no fluxo de trabalho.
 
@@ -251,7 +251,7 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 
 ```
 
-## <a name="states"></a>Estados
+## <a name="states"></a>States
 
 Uma coleção de Estados exclusivos dentro de um fluxo de trabalho. Cada Estado captura um passo no fluxo de controlo a lógica de negócios. 
 

@@ -4,27 +4,29 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: ad1527a5e7f1cb2ff1beb9ddace5460f41bb8a87
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 674dd30ff3e493ec4c4036f032f82624a6ca5749
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461524"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334241"
 ---
-## <a name="azure-cognitive-service-subscription-types"></a>Tipos de subscrição de serviços cognitivos do Azure
+## <a name="azure-cognitive-service-resource-types"></a>Tipos de recursos de serviço cognitiva do Azure
 
 > [!NOTE]
-> Proprietários de subscrições podem desativar a criação de contas de serviços cognitivos para subscrições e grupos de recursos através da aplicação [o Azure policy](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), atribuir uma definição de política de "tipos de recurso não permitidos" e especificando **Microsoft.CognitiveServices/accounts** como o tipo de recurso de destino.
+> Os proprietários da assinatura podem desabilitar a criação de recursos de serviços cognitivas para assinaturas e grupos de recursos aplicando a [política do Azure](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition), atribuindo uma definição de política "tipos de recursos não permitidos" e especificando  **Microsoft. Cognitivaservices/** accounts como o tipo de recurso de destino.
 
-Pode acessar os serviços cognitivos do Azure através de duas subscrições diferentes: Uma subscrição de múltiplos serviço, ou um serviço único um. Estas subscrições permitem-lhe ligar a um serviço único ou vários serviços, ao mesmo tempo.
+Você pode acessar os serviços cognitivas do Azure por meio de dois recursos diferentes: Um recurso de vários serviços ou um único serviço. Essas assinaturas permitem que você se conecte a um único serviço ou a vários serviços de uma vez.
 
-### <a name="multi-service-subscription"></a>Subscrição múltiplos serviço
+### <a name="multi-service-resource"></a>Recurso de vários serviços
 
 >[!WARNING]
-> Neste momento, estes serviços **não** chaves múltiplos serviços de suporte: A ferramenta QnA Maker, serviços de voz, visão personalizada e detetor de anomalias.
+> Neste momento, esses serviços **não** oferecem suporte a chaves de vários serviços: QnA Maker, serviços de fala, Visão Personalizada e detector de anomalias.
 
-Uma subscrição de múltiplos serviço para os serviços cognitivos do Azure permite-lhe utilizar uma única subscrição e os recursos do Azure para a maioria dos serviços cognitivos do Azure e consolida a faturação de serviços que utiliza. Ver [preços dos serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações adicionais.
+Inscrevendo-se em um recurso de serviços cognitivas de vários serviços:
+* Permite que você use um único recurso do Azure para a maioria dos serviços cognitivas do Azure.
+* Consolida a cobrança dos serviços que você usa. Consulte [preços de serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter informações adicionais.
 
-### <a name="single-service-subscription"></a>Subscrição de serviço único
+### <a name="single-service-resource"></a>Recurso de serviço único
 
-Uma subscrição para um único serviço, como a visão do computador ou dos serviços de voz. Uma subscrição de serviço único é restrita a esse recurso. 
+Recursos de serviço único (como Pesquisa Visual Computacional ou serviços de fala) são restritos ao serviço especificado.

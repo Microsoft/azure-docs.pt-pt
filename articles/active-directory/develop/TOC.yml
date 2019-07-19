@@ -81,6 +81,8 @@
       href: sample-v2-code.md
     - name: Conceitos
       items:
+        - name: Noções básicas sobre autenticação
+          href: authentication-scenarios.md
         - name: Fluxos de autenticação e cenários de aplicações
           href: authentication-flows-app-scenarios.md
         - name: Cenários de aplicações
@@ -271,8 +273,6 @@
                       href: msal-js-known-issues-safari-browser.md
         - name: Protocolo de autenticação
           items:
-            - name: Noções básicas sobre autenticação
-              href: authentication-scenarios.md
             - name: Tipos de aplicação e OAuth2.0
               href: v2-app-types.md
             - name: Protocolos OAuth 2.0 e OpenID Connect

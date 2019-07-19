@@ -394,12 +394,12 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| stringTrue | Booleano | Verdadeiro |
-| stringFalse | Booleano | Falso |
-| objectTrue | Booleano | Verdadeiro |
-| objectFalse | Booleano | Falso |
-| arrayTrue | Booleano | Verdadeiro |
-| arrayFalse | Booleano | Falso |
+| stringTrue | Bool | true |
+| stringFalse | Bool | Falso |
+| objectTrue | Bool | true |
+| objectFalse | Bool | Falso |
+| arrayTrue | Bool | true |
+| arrayFalse | Bool | Falso |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -556,9 +556,9 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayEmpty | Booleano | Verdadeiro |
-| objectEmpty | Booleano | Verdadeiro |
-| stringEmpty | Booleano | Verdadeiro |
+| arrayEmpty | Bool | true |
+| objectEmpty | Bool | true |
+| stringEmpty | Bool | true |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
@@ -774,7 +774,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | Verdadeiro |
+| nullOutput | Boolean | true |
 | paramOutput | Object | {"a": "demo value"}
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:

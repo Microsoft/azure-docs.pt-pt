@@ -1,53 +1,56 @@
 ---
-title: Criar uma conta de serviços cognitivos com a CLI do Azure
+title: Criar um recurso de serviços cognitivas usando o CLI do Azure
 titlesuffix: Azure Cognitive Services
-description: Como criar uma conta de APIs serviços cognitivos do Azure com a CLI do Azure.
+description: Introdução aos serviços cognitivas do Azure criando e assinando um recurso usando a interface de linha de comando do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 07/17/2019
 ms.author: aahi
-ms.openlocfilehash: acafc2c42c2946632496b646d001c58d6b48c2a6
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 05b679fd969dc766d697070979416312c3bad622
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657715"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334265"
 ---
-# <a name="create-a-cognitive-services-account-using-the-azure-command-line-interfacecli"></a>Criar uma conta de serviços cognitivos com Interface(CLI) de linha de comandos do Azure
+# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
-Neste início rápido, irá aprender a inscrever-se para os serviços cognitivos do Azure e criar uma conta que tenha uma subscrição de serviço único ou múltiplos serviço, usando o [Interface(CLI) de linha de comandos do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Estes serviços são representados pelo Azure [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), que permitem-lhe ligar a um ou mais das APIs de serviços cognitivos do Azure.
+Use este guia de início rápido para começar a usar os serviços cognitivas do Azure usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Os serviços cognitivas são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) do Azure que você cria em sua assinatura do Azure. Depois de criar o recurso, use as chaves e o ponto de extremidade gerados para autenticar seus aplicativos. 
+
+
+Neste guia de início rápido, você aprenderá a se inscrever nos serviços cognitivas do Azure e criar uma conta que tenha uma assinatura de serviço único ou de vários serviços, usando a [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Esses serviços são representados pelos [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)do Azure, que permitem que você se conecte a um ou mais dos API de serviços cognitivos do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure válida. [Criar uma conta](https://azure.microsoft.com/free/) gratuitamente.
-* O [Interface(CLI) de linha de comandos do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* Uma assinatura válida do Azure- [crie uma](https://azure.microsoft.com/free/) gratuitamente.
+* A [CLI (interface de linha de comando) do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Instalar a CLI do Azure e iniciar sessão 
+## <a name="install-the-azure-cli-and-sign-in"></a>Instalar o CLI do Azure e entrar 
 
-Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para iniciar sessão na sua instalação local da CLI, execute o [início de sessão az](https://docs.microsoft.com/cli/azure/reference-index#az-login) comando:
+Instale a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para entrar na instalação local da CLI, execute o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
 
 ```console
 az login
 ```
 
-Também pode utilizar o verde **experimentar** botão para executar estes comandos no seu browser.
+Você também pode usar o botão de **teste** verde para executar esses comandos em seu navegador.
  
-## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Criar um novo grupo de recursos de serviços cognitivos do Azure
+## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Criar um novo grupo de recursos dos serviços cognitivas do Azure
 
-As suas subscrições para os serviços cognitivos são representadas por recursos do Azure. Cada conta dos serviços cognitivos (e seu recurso do Azure associado) têm de pertencer a um grupo de recursos do Azure.
+Antes de criar um recurso de serviços cognitivas, você deve ter um grupo de recursos do Azure para conter o recurso. Ao criar um novo recurso, você tem a opção de criar um novo grupo de recursos ou usar um existente. Este artigo mostra como criar um novo grupo de recursos.
 
-### <a name="choose-your-resource-group-location"></a>Escolha a localização do grupo de recursos
+### <a name="choose-your-resource-group-location"></a>Escolha o local do grupo de recursos
 
-Para criar um recurso, terá uma das localizações do Azure disponíveis para a sua subscrição. Pode obter uma lista das localizações disponíveis com o [lista de conta de az-locations](/cli/azure/account#az-account-list-locations) comando. A maioria dos serviços cognitivos podem ser acedidos a partir de várias localizações. Escolher o mais perto de si ou ver as localizações de estão disponíveis para o serviço.
+Para criar um recurso, você precisará de um dos locais do Azure disponíveis para sua assinatura. Você pode recuperar uma lista de locais disponíveis com o comando [AZ Account List-Locations](/cli/azure/account#az-account-list-locations) . A maioria dos serviços cognitivas pode ser acessada de vários locais. Escolha o mais próximo a você ou veja quais locais estão disponíveis para o serviço.
 
 > [!IMPORTANT]
-> * Lembre-se a localização do Azure, pois irá precisar ao chamar os serviços cognitivos do Azure.
-> * A disponibilidade de alguns serviços cognitivos pode variar consoante a região. Para obter mais informações, consulte [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
+> * Lembre-se do local do Azure, pois você precisará dele ao chamar os serviços cognitivas do Azure.
+> * A disponibilidade de alguns serviços cognitivas pode variar por região. Para obter mais informações, consulte [produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
 
 ```azurecli-interactive
 az account list-locations \
@@ -55,9 +58,9 @@ az account list-locations \
     --out table
 ```
 
-Depois de ter sua localização do azure, crie um novo grupo de recursos na CLI do Azure utilizando o [criar grupo az](/cli/azure/group#az-group-create) comando.
+Depois de ter o local do Azure, crie um novo grupo de recursos no CLI do Azure usando o comando [AZ Group Create](/cli/azure/group#az-group-create) .
 
-No exemplo abaixo, substitua a localização do azure `westus2` com uma das localizações do Azure disponíveis para a sua subscrição.
+No exemplo a seguir, substitua o local `westus2` do Azure por um dos locais do Azure disponíveis para sua assinatura.
 
 ```azurecli-interactive
 az group create \
@@ -67,27 +70,27 @@ az group create \
 
 ## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
-### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Escolher um serviço cognitivo e o escalão de preço
+### <a name="choose-a-cognitive-service-and-pricing-tier"></a>Escolha um serviço cognitiva e um tipo de preço
 
-Ao criar um novo recurso, precisará saber o "kind" do serviço que pretende utilizar, juntamente com o [escalão de preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou sku) que pretende. Irá utilizar esta e outras informações como parâmetros ao criar o recurso.
+Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com o tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso.
 
 > [!NOTE]
-> Muitos serviços cognitivos tem um escalão gratuito que pode utilizar para experimentar o serviço. Para utilizar o escalão gratuito, utilize `F0` como o sku para o seu recurso.
+> Muitos serviços cognitivas têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como o SKU para seu recurso.
 
 ### <a name="vision"></a>Visão
 
-| Serviço                    | tipo                      |
+| Serviço                    | Quase                      |
 |----------------------------|---------------------------|
 | Imagem Digitalizada            | `ComputerVision`          |
-| Visão personalizada - previsão | `CustomVision.Prediction` |
-| Personalizado de visão - treinamento   | `CustomVision.Training`   |
+| Visão Personalizada-previsão | `CustomVision.Prediction` |
+| Visão Personalizada-treinamento   | `CustomVision.Training`   |
 | API Face                   | `Face`                    |
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
 ### <a name="search"></a>Pesquisa
 
-| Serviço            | tipo                  |
+| Serviço            | Quase                  |
 |--------------------|-----------------------|
 | Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
@@ -97,16 +100,16 @@ Ao criar um novo recurso, precisará saber o "kind" do serviço que pretende uti
 
 ### <a name="speech"></a>Voz
 
-| Serviço            | tipo                 |
+| Serviço            | Quase                 |
 |--------------------|----------------------|
 | Serviços de Voz    | `SpeechServices`     |
 | Reconhecimento de Voz | `SpeakerRecognition` |
 
 ### <a name="language"></a>Idioma
 
-| Serviço            | tipo                |
+| Serviço            | Quase                |
 |--------------------|---------------------|
-| Compreensão de formulário | `FormUnderstanding` |
+| Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
 | Análise de Texto     | `TextAnalytics`     |
@@ -114,13 +117,13 @@ Ao criar um novo recurso, precisará saber o "kind" do serviço que pretende uti
 
 ### <a name="decision"></a>Decisão
 
-| Serviço           | tipo               |
+| Serviço           | Quase               |
 |-------------------|--------------------|
 | Detetor de Anomalias  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
 | Personalizador      | `Personalizer`     |
 
-Pode encontrar uma lista dos serviço cognitivos disponível "tipos" com o [az cognitiveservices account lista tipos](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) comando:
+Você pode encontrar uma lista de "tipos" de serviço cognitiva disponíveis com o comando [AZ cognitivaservices Account List-tipos](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) :
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -128,9 +131,9 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>Adicionar um novo recurso ao seu grupo de recursos
 
-Para criar e subscrever um novo recurso de serviços cognitivos, utilize o [criar conta de cognitiveservices az](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) comando. Este comando adiciona um novo recurso sujeito a faturação para o grupo de recursos que criou anteriormente. Ao criar o novo recurso, precisará saber o "kind" do serviço que pretende utilizar, juntamente com o seu escalão de preço (ou sku) e uma localização do Azure:
+Para criar e assinar um novo recurso de serviços cognitivas, use o comando [AZ cognitivaservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Esse comando adiciona um novo recurso cobrável ao grupo de recursos criado anteriormente. Ao criar o novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com seu tipo de preço (ou SKU) e um local do Azure:
 
-Pode criar um recurso (gratuito) F0 para detetor de anomalias, com o nome `anomaly-detector-resource` com o comando abaixo.
+Você pode criar um recurso F0 (gratuito) para o detector de anomalias `anomaly-detector-resource` , chamado com o comando a seguir.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -142,15 +145,15 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="get-the-keys-for-your-subscription"></a>Obter as chaves para a sua subscrição
+## <a name="get-the-keys-for-your-resource"></a>Obter as chaves para seu recurso
 
-Para iniciar sessão na sua instalação local do Interface(CLI) a linha de comandos, utilize o [início de sessão az](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) comando.
+Para fazer logon em sua instalação local da CLI (interface de linha de comando), use o comando [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) .
 
 ```console
 az login
 ```
 
-Utilize o [az cognitiveservices account lista de chaves](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) comando para obter as chaves para o seu recurso de serviço cognitivo.
+Use o comando [AZ cognitivaservices da lista de chaves de conta](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) para obter as chaves para o recurso de serviço cognitiva.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -162,9 +165,9 @@ Utilize o [az cognitiveservices account lista de chaves](https://docs.microsoft.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser limpar e remover uma subscrição de serviços cognitivos, é possível eliminar o recurso ou grupo de recursos. Eliminar o grupo de recursos também elimina a quaisquer outros recursos associados ao grupo de recursos.
+Se você quiser limpar e remover um recurso de serviços cognitivas, poderá excluí-lo ou o grupo de recursos. Excluir o grupo de recursos também exclui todos os outros recursos contidos no grupo.
 
-Para remover o grupo de recursos e respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o comando de eliminação do grupo az.
+Para remover o grupo de recursos e seus recursos associados, use o comando AZ Group Delete.
 
 ```azurecli-interactive
 az group delete --name storage-resource-group
@@ -172,7 +175,7 @@ az group delete --name storage-resource-group
 
 ## <a name="see-also"></a>Consulte também
 
-* [Autenticar pedidos para os serviços cognitivos do Azure](authentication.md)
-* [O que é o serviços cognitivos do Azure?](Welcome.md)
-* [Suporte de linguagem natural](language-support.md)
-* [Suporte de contentor do docker](cognitive-services-container-support.md)
+* [Autenticar solicitações para serviços cognitivas do Azure](authentication.md)
+* [O que são os serviços cognitivas do Azure?](Welcome.md)
+* [Suporte a idioma natural](language-support.md)
+* [Suporte a contêiner do Docker](cognitive-services-container-support.md)

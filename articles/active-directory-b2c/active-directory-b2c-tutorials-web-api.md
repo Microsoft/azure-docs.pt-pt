@@ -1,6 +1,6 @@
 ---
-title: Tutorial - conceder acesso a uma API web ASP.NET - Azure Active Directory B2C | Documentos da Microsoft
-description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API web ASP.NET e chamá-lo a partir de uma aplicação web ASP.NET.
+title: Tutorial-conceder acesso a uma API Web do ASP.NET-Azure Active Directory B2C | Microsoft Docs
+description: Tutorial sobre como usar Active Directory B2C para proteger uma API Web ASP.NET e chamá-la de um aplicativo Web ASP.NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,94 +10,94 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6b93a7848e5c8516507c825d3064fb61a404e3cf
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 339b118e48a01469312a40e6b0652a4ffb90291a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507754"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347125"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API através do Azure Active Directory B2C web ASP.NET
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET usando Azure Active Directory B2C
 
-Este tutorial mostra-lhe como chamar um recurso de API web protegido no Azure Active Directory (Azure AD) B2C a partir de uma aplicação web ASP.NET.
+Este tutorial mostra como chamar um recurso de API Web protegido no Azure Active Directory (Azure AD) B2C de um aplicativo Web ASP.NET.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
-> * Configurar âmbitos para uma API web
-> * Conceder permissões para a API web
-> * Configurar o exemplo a utilizar a aplicação
+> * Configurar escopos para uma API Web
+> * Conceder permissões para a API da Web
+> * Configurar o exemplo para usar o aplicativo
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos e a pré-requisitos no [Tutorial: Ativar autenticação numa aplicação web através do Azure Active Directory B2C](active-directory-b2c-tutorials-web-app.md).
+Conclua as etapas e os pré-requisitos [no tutorial: Habilite a autenticação em um aplicativo Web](active-directory-b2c-tutorials-web-app.md)usando Azure Active Directory B2C.
 
 ## <a name="add-a-web-api-application"></a>Adicionar uma aplicação de API Web
 
-Recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a pedidos de recursos protegidos por aplicações cliente que apresentam um token de acesso.
+Os recursos da API Web precisam ser registrados em seu locatário antes que possam aceitar e responder a solicitações de recursos protegidos por aplicativos cliente que apresentam um token de acesso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Add**.
-5. Introduza um nome para a aplicação. Por exemplo, *webapi1*.
-6. Para **incluir a aplicação web / web API** e **permitir fluxo implícito**, selecione **Sim**.
-7. Para **URL de resposta**, introduza um ponto de extremidade em que o Azure AD B2C deverá devolver quaisquer tokens que a aplicação solicite. Neste tutorial, o exemplo é executada localmente e escuta na `https://localhost:44332`.
-8. Para **URI de ID de aplicação**, introduza o identificador utilizado para a API web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
+5. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
+6. Para **incluir aplicativo Web/API Web** e **permitir fluxo implícito**, selecione **Sim**.
+7. Para **URL de resposta**, insira um ponto de extremidade onde Azure ad B2C deve retornar quaisquer tokens que seu aplicativo solicitar. Neste tutorial, o exemplo é executado localmente e escuta em `https://localhost:44332`.
+8. Para **URI da ID do aplicativo**, insira o identificador usado para sua API Web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
 9. Clique em **Criar**.
-10. Na página de propriedades, registe o ID da aplicação que irá utilizar quando configurar a aplicação web.
+10. Na página Propriedades, registre a ID do aplicativo que você usará ao configurar o aplicativo Web.
 
-## <a name="configure-scopes"></a>Configurar âmbitos
+## <a name="configure-scopes"></a>Configurar escopos
 
-Âmbitos proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
+Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, os utilizadores da API Web podem ter acesso de leitura e escrita ou podem ter apenas acesso só de leitura. Neste tutorial, vai utilizar os âmbitos para definir as permissões de leitura e escrita para a API Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapi1*.
-2. Selecione **âmbitos publicados**.
-3. Para **âmbito**, introduza `Hello.Read`e para a descrição, insira `Read access to hello`.
-4. Para **âmbito**, introduza `Hello.Write`e para a descrição, insira `Write access to hello`.
+2. Selecione **escopos publicados**.
+3. Para **escopo**, insira `Hello.Read`e, para descrição, digite `Read access to hello`.
+4. Para **escopo**, insira `Hello.Write`e, para descrição, digite `Write access to hello`.
 5. Clique em **Guardar**.
 
-Os âmbitos publicados podem ser utilizados para conceder um cliente permissão da aplicação para a API web.
+Os escopos publicados podem ser usados para conceder a uma permissão de aplicativo cliente para a API da Web.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-Para chamar uma API web protegida a partir de uma aplicação, tem de conceder as permissões de aplicação para a API. O tutorial de pré-requisitos, criou uma aplicação web no Azure AD B2C com o nome *webapp1*. Utilizar esta aplicação para chamar a API web.
+Para chamar uma API Web protegida de um aplicativo, você precisa conceder permissões de aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web em Azure AD B2C chamado *webapp1*. Você usa esse aplicativo para chamar a API da Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapp1*.
-2. Selecione **acesso à API**e, em seguida, selecione **Add**.
-3. Na **selecionar API** menu pendente, selecione *webapi1*.
-4. Na **selecionar âmbitos** menu pendente, selecione a **Hello.Read** e **Hello.Write** âmbitos que definiu anteriormente.
+2. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
+3. Na lista suspensa **selecionar API** , selecione *webapi1*.
+4. Na lista suspensa **selecionar** escopos, selecione os escopos **Hello. Read** e **Hello. Write** que você definiu anteriormente.
 5. Clique em **OK**.
 
-A aplicação fica registada para chamar a API web protegida. Um utilizador é autenticado com o Azure AD B2C para utilizar a aplicação. A aplicação obtém uma concessão de autorização do Azure AD B2C para aceder à API web protegida.
+Seu aplicativo está registrado para chamar a API Web protegida. Um usuário é autenticado com Azure AD B2C para usar o aplicativo. O aplicativo obtém uma concessão de autorização de Azure AD B2C para acessar a API Web protegida.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Agora que a API web está registada e já estão definidos âmbitos, configurar a API web para utilizar o seu inquilino do Azure AD B2C. Neste tutorial, vai configurar uma API Web de exemplo. A API da web de exemplo está incluída no projeto que transferiu no tutorial de pré-requisito.
+Agora que a API Web está registrada e você tem escopos definidos, configure a API Web para usar seu locatário Azure AD B2C. Neste tutorial, vai configurar uma API Web de exemplo. A API Web de exemplo está incluída no projeto que você baixou no tutorial de pré-requisito.
 
 Existem dois projetos na solução de exemplo:
 
-São os seguintes dois projetos na solução de exemplo:
+Os dois projetos a seguir estão na solução de exemplo:
 
-- **TaskWebApp** - criar e editar uma lista de tarefas. Este exemplo utiliza a **inscrição ou início de sessão** fluxo de utilizador para inscrever-se ou iniciar sessão dos utilizadores.
-- **TaskService** - oferece suporte a criar, ler, atualizar e eliminar a funcionalidade de lista de tarefas. A API é protegida pelo Azure AD B2C e chamada pela TaskWebApp.
+- **TaskWebApp** -criar e editar uma lista de tarefas. O exemplo usa o fluxo de usuário de inscrição **ou de entrada** para inscrever-se ou conectar usuários.
+- **TaskService** -dá suporte à funcionalidade criar, ler, atualizar e excluir lista de tarefas. A API é protegida por Azure AD B2C e chamada pelo TaskWebApp.
 
-### <a name="configure-the-web-application"></a>Configurar a aplicação web
+### <a name="configure-the-web-application"></a>Configurar o aplicativo Web
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
 2. Abra **Web.config** no projeto **TaskWebApp**.
 3. Para executar a API localmente, utilize a definição de localhost **api:TaskServiceUrl**. Altere o Web.config da seguinte forma: 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Configure o URI da API. Este é o URI a aplicação web utiliza para fazer o pedido de API. Além disso, configure as permissões pedidas.
+3. Configure o URI da API. Esse é o URI que o aplicativo Web usa para fazer a solicitação de API. Além disso, configure as permissões pedidas.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -108,25 +108,25 @@ São os seguintes dois projetos na solução de exemplo:
 1. Abra **Web.config** no projeto **TaskService**.
 2. Configure a API para utilizar o seu inquilino.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. Defina o ID de cliente como o ID da Aplicação registada para a API.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Fluxo de atualização, o utilizador fluxo definição com o nome do sinal de cópia de segurança e de início de sessão do utilizador.
+4. Atualize a configuração de fluxo de usuário com o nome do fluxo de usuário de inscrição e de entrada.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Configure a definição de âmbitos para que corresponda ao que criou no portal.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```
@@ -136,16 +136,16 @@ São os seguintes dois projetos na solução de exemplo:
 Tem de executar os dois projetos, **TaskWebApp** e **TaskService**. 
 
 1. No Explorador de Soluções, clique com o botão direito do rato na solução e selecione **Definir Projetos de Arranque...** . 
-2. Selecione **vários projetos de arranque**.
+2. Selecione **vários projetos de inicialização**.
 3. Altere a **Ação** em ambos os projetos para **Iniciar**.
-4. Clique em **OK** para guardar a configuração.
-5. Prima **F5** para executar as duas aplicações. Cada aplicação abre no seu próprio separador do browser. `https://localhost:44316/` é o aplicativo web.
+4. Clique em **OK** para salvar a configuração.
+5. Prima **F5** para executar as duas aplicações. Cada aplicativo é aberto em sua própria guia do `https://localhost:44316/` navegador. é o aplicativo Web.
     `https://localhost:44332/` é a API Web.
 
-6. No aplicativo da web, clique em **inscrição / início de sessão** para iniciar sessão para a aplicação web. Utilize a conta que criou anteriormente. 
-7. Depois de iniciar sessão, clique em **lista de tarefas** e criar um item de lista de tarefas.
+6. No aplicativo Web, clique em **inscrever-se/entrar** para entrar no aplicativo Web. Use a conta que você criou anteriormente. 
+7. Depois de entrar, clique em **lista de tarefas** e crie um item de lista de tarefas pendentes.
 
-Quando cria um item de lista de tarefas, o aplicativo web faz um pedido para a API web para gerar esse item. Protegida aplicação web é chamar a API de web protegida no seu inquilino do Azure AD B2C.
+Quando você cria um item de lista de tarefas pendentes, o aplicativo Web faz uma solicitação para a API da Web para gerar o item de lista de tarefas pendentes. Você está protegido o aplicativo Web está chamando a API Web protegida em seu locatário Azure AD B2C.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -153,9 +153,9 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
-> * Configurar âmbitos para uma API web
-> * Conceder permissões para a API web
-> * Configurar o exemplo a utilizar a aplicação
+> * Configurar escopos para uma API Web
+> * Conceder permissões para a API da Web
+> * Configurar o exemplo para usar o aplicativo
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar fornecedores de identidade às suas aplicações no Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Tutorial: Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C](tutorial-add-identity-providers.md)

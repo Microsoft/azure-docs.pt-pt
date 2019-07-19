@@ -1,7 +1,7 @@
 ---
-title: Como configurar um contentor para o reconhecedor de formulário
+title: Como configurar um contêiner para o reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
-description: Saiba como configurar o contentor do reconhecedor de formulário para analisar dados de formulário e de tabela.
+description: Saiba como configurar o contêiner do reconhecedor de formulário para analisar dados de formulário e tabela.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
@@ -9,31 +9,31 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 7752b09dd1bf20d796b19d03e62426b098486c39
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4a490e8a9f111985df9c9e8c9f73bc36d686cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718451"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348705"
 ---
-# <a name="configure-form-recognizer-containers"></a>Configurar os contentores do reconhecedor de formulário
+# <a name="configure-form-recognizer-containers"></a>Configurar contêineres do reconhecedor de formulário
 
-Ao utilizar contentores do reconhecedor de formulário do Azure, pode criar uma arquitetura de aplicativo que está otimizada para tirar partido das capacidades de cloud robustas e Localidade de borda.
+Usando contêineres do reconhecedor do Azure Form, você pode criar uma arquitetura de aplicativo otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda.
 
-Configurar o ambiente de tempo de execução de contentores do reconhecedor de formulário com o `docker run` argumentos de comando. Este contentor tem vários necessário as definições e algumas definições opcionais. Para obter alguns exemplos, consulte a ["Execute comandos docker de exemplo"](#example-docker-run-commands) secção. As definições específicas do contentor são as definições de faturas.
+Você configura o ambiente de tempo de execução do contêiner do reconhecedor `docker run` de formulário usando os argumentos do comando. Esse contêiner tem várias configurações necessárias e algumas configurações opcionais. Para alguns exemplos, consulte a seção ["exemplo de comandos de execução do Docker"](#example-docker-run-commands) . As configurações específicas do contêiner são as configurações de cobrança.
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> O [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), e [ `Eula` ](#eula-setting) definições são utilizadas em conjunto. Tem de fornecer valores válidos para todos os três definições; caso contrário, não inicia o contentor. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](form-recognizer-container-howto.md#billing).
+> As [`ApiKey`](#apikey-configuration-setting)configurações [`Billing`](#billing-configuration-setting),, [`Eula`](#eula-setting) e são usadas juntas. Você deve fornecer valores válidos para todas as três configurações; caso contrário, o contêiner não será iniciado. Para obter mais informações sobre como utilizar estas definições de configuração para criar uma instância de um contentor, consulte [faturação](form-recognizer-container-howto.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey definição de configuração
 
-O `ApiKey` definição especifica a chave de recurso do Azure que é utilizada para controlar informações de faturação para o contentor. O valor para o ApiKey tem de ser uma chave válida para o _formulário reconhecedor_ recurso especificado para `Billing` na secção "Definição de configuração de faturação".
+A `ApiKey` configuração especifica a chave de recurso do Azure que é usada para rastrear informações de cobrança para o contêiner. O valor de ApiKey deve ser uma chave válida para o recurso de _reconhecimento de formulário_ especificado para `Billing` a seção "configuração de cobrança".
 
-Pode encontrar esta definição no portal do Azure, além **gestão de recursos do reconhecedor de formulário**, em **chaves**.
+Você pode encontrar essa configuração na portal do Azure, em **formulário, gerenciamento de recursos**do reconhecedor, em **chaves**.
 
 ## <a name="applicationinsights-setting"></a>Definição do Application Insights
 
@@ -41,9 +41,9 @@ Pode encontrar esta definição no portal do Azure, além **gestão de recursos 
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de faturação
 
-O `Billing` definição especifica o URI do ponto final da _reconhecedor de formulário_ recursos do Azure, que é utilizado para informações de faturação para o contentor do medidor. O valor para esta definição de configuração tem de ser um URI de ponto de final válido para um _reconhecedor de formulário_ recursos no Azure. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
+A `Billing` configuração especifica o URI do ponto de extremidade do recurso reconhecedor de _formulário_ no Azure que é usado para medir as informações de cobrança do contêiner. O valor dessa definição de configuração deve ser um URI de ponto de extremidade válido para um recurso de _reconhecimento de formulário_ no Azure. O contêiner relata o uso de cada 10 a 15 minutos.
 
-Pode encontrar esta definição no portal do Azure, além **descrição geral do formulário reconhecedor**, em **Endpoint**.
+Você pode encontrar essa configuração na portal do Azure, na **visão geral**do reconhecedor de formulário, em **ponto de extremidade**.
 
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
@@ -57,7 +57,7 @@ Pode encontrar esta definição no portal do Azure, além **descrição geral do
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Definições de credenciais de proxy HTTP
+## <a name="http-proxy-credentials-settings"></a>Configurações de credenciais de proxy HTTP
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -68,11 +68,11 @@ Pode encontrar esta definição no portal do Azure, além **descrição geral do
 
 ## <a name="mount-settings"></a>Definições de montagem
 
-Monta o enlace de utilização para ler e escrever dados de e para o contentor. Pode especificar uma montagem de entrada ou de uma montagem de saída especificando o `--mount` opção da [ `docker run` comando](https://docs.docker.com/engine/reference/commandline/run/).
+Monta o enlace de utilização para ler e escrever dados de e para o contentor. Você pode especificar uma montagem de entrada ou uma montagem de saída especificando `--mount` a opção [ `docker run` no comando](https://docs.docker.com/engine/reference/commandline/run/).
 
-O contentor do reconhecedor de formulário exige uma montagem de entrada e um monte de saída. A montagem de entrada pode ser só de leitura, e ela é necessária para acesso aos dados que são utilizados para preparação e classificação. A montagem de saída tem de ser gravável e utilizá-lo para armazenar os modelos e dados temporários.
+O contêiner do reconhecedor de formulário requer uma montagem de entrada e uma montagem de saída. A montagem de entrada pode ser somente leitura e é necessária para o acesso aos dados que são usados para treinamento e pontuação. A montagem de saída deve ser gravável e você a usa para armazenar os modelos e os dados temporários.
 
-A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, a localização de montagem do [computador anfitrião](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões de conta de serviço do Docker e as permissões de localização de montagem do anfitrião.
+A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o local de montagem do [computador host](form-recognizer-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões de conta de serviço do Docker e as permissões de local de montagem do host.
 
 |Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
@@ -81,31 +81,31 @@ A sintaxe exata da localização de montagem do anfitrião varia consoante o sis
 
 ## <a name="example-docker-run-commands"></a>Executar comandos de docker de exemplo
 
-Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e usar `docker run` comandos. Quando ele é executado, o contentor continua a ser executada até [pará-la](form-recognizer-container-howto.md#stop-the-container).
+Os exemplos seguintes utilizam as definições de configuração para ilustrar como escrever e usar `docker run` comandos. Quando estiver em execução, o contêiner continuará a ser executado até que você o [interrompa](form-recognizer-container-howto.md#stop-the-container).
 
-* **Caracteres de continuação de linha**: Os comandos de Docker nas secções seguintes utilizam uma barra invertida (\\) como um caractere de continuação de linha. Substituir ou remova este caráter, dependendo das necessidades do seu sistema de operativo de anfitrião.
-* **Ordem de argumento**: Não altere a ordem dos argumentos, a menos que está familiarizado com contentores do Docker.
+* **Caractere de continuação de linha**: Os comandos do Docker nas seções a seguir usam uma barra invertida (\\) como um caractere de continuação de linha. Substitua ou remova esse caractere, dependendo dos requisitos do seu sistema operacional do host.
+* **Ordem do argumento**: Não altere a ordem dos argumentos, a menos que você esteja familiarizado com contêineres do Docker.
 
-Substitua {_argument_name_} na tabela a seguir pelos seus próprios valores:
+Substitua {_argument_name_} na tabela a seguir com seus próprios valores:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
-|{BILLING_KEY} | A chave que é utilizada para iniciar o contentor. Está disponível no portal do Azure, página chaves do reconhecedor de formulário.  |
-|{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível no portal do Azure, página de descrição geral do reconhecedor de formulário.|
-|{COMPUTER_VISION_API_KEY}| A chave está disponível no portal do Azure, página chaves de API de visão do computador.|
-|{COMPUTER_VISION_ENDPOINT_URI}|O ponto final de faturação. Se estiver a utilizar um recurso de imagem digitalizada com base na cloud, o valor do URI está disponível no portal do Azure, página de descrição geral da API de visão de computador. Se estiver a utilizar um *cognitive services-reconhecer-texto* contentor, utilize o URL de ponto final de faturação que é passado para o contentor no `docker run` comando.|
+|{FORM_RECOGNIZER_API_KEY} | A chave usada para iniciar o contêiner. Ele está disponível na página chaves do reconhecedor do portal do Azure Form.  |
+|{FORM_RECOGNIZER_ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral do reconhecedor do portal do Azure Form.|
+|{COMPUTER_VISION_API_KEY}| A chave está disponível na página portal do Azure API da Pesquisa Visual Computacional chaves.|
+|{COMPUTER_VISION_ENDPOINT_URI}|O ponto de extremidade de cobrança. Se você estiver usando um recurso de Pesquisa Visual Computacional baseado em nuvem, o valor do URI estará disponível na página Visão geral do API da Pesquisa Visual Computacional de portal do Azure. Se você estiver usando um contêiner *cognitiva-Services-Recognize-Text* , use a URL do ponto de extremidade de cobrança que é passada `docker run` para o contêiner no comando.|
 
 > [!IMPORTANT]
-> Para executar o contentor, especifique a `Eula`, `Billing`, e `ApiKey` opções; caso contrário, não inicia o contentor. Para obter mais informações, consulte [faturação](#billing-configuration-setting).
+> Para executar o contêiner, especifique as `Eula`opções `Billing`, e `ApiKey` ; caso contrário, o contêiner não será iniciado. Para obter mais informações, consulte [faturação](#billing-configuration-setting).
 
 > [!NOTE] 
-> O valor de ApiKey é o **chave** na página de chaves do Azure Resource do reconhecedor de formulário.
+> O valor ApiKey é a **chave** da página chaves de recurso do reconhecedor do Azure Form.
 
-## <a name="form-recognizer-container-docker-examples"></a>Exemplos de Docker de contentor do reconhecedor de formulário
+## <a name="form-recognizer-container-docker-examples"></a>Exemplos do Docker de contêiner do reconhecedor de formulário
 
-Os exemplos de Docker seguintes são para o contentor do reconhecedor de formulário.
+Os exemplos do Docker a seguir são para o contêiner do reconhecedor de formulário.
 
-### <a name="basic-example-for-form-recognizer"></a>Exemplo básico para reconhecedor de formulário
+### <a name="basic-example-for-form-recognizer"></a>Exemplo básico para o reconhecedor de formulário
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
@@ -113,13 +113,13 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
-### <a name="logging-example-for-form-recognizer"></a>Exemplo de registo para o reconhecedor de formulário
+### <a name="logging-example-for-form-recognizer"></a>Exemplo de log para reconhecedor de formulário
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
@@ -127,14 +127,13 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Revisão [instalação e execução de contentores](form-recognizer-container-howto.md).
+* Examine [instalar e executar contêineres](form-recognizer-container-howto.md).

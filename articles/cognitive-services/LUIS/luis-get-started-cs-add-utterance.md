@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 01fd5b06a2e534a85c88d5c1a706713f07f40106
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d44877e35687745ddba51d4d015729e62106c9ca
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277556"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348445"
 ---
-# <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar através do modeloC#
+# <a name="quickstart-change-model-using-c"></a>Início rápido: Alterar modelo usandoC#
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
@@ -37,19 +37,19 @@ ms.locfileid: "68277556"
 
 ## <a name="create-quickstart-code"></a>Criar código de início rápido 
 
-No Visual Studio, crie um novo **consola clássica de ambiente de trabalho do Windows** aplicação com o .NET Framework. Nomeie o projeto `ConsoleApp1`.
+No Visual Studio, crie um novo aplicativo de **console da área de trabalho clássica do Windows** usando o .NET Framework. Nomeie o projeto `ConsoleApp1`.
 
 ![Tipo de projeto do Visual Studio](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Adicionar a dependência System.Web
 
-O projeto do Visual Studio precisa de **System.Web**. No Explorador de soluções, faça duplo clique em **referências** e selecione **Add Reference** da secção de Assemblies.
+O projeto do Visual Studio precisa de **System.Web**. Na Gerenciador de Soluções, clique com o botão direito do mouse em **referências** e selecione **Adicionar referência** na seção assemblies.
 
 ![Adicionar referência System.web](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>Adicionar outras dependências
 
-O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParser**. No Explorador de Soluções, clique com o botão direito do rato em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet...** . Navegue para e adicione cada um dos dois pacotes. 
+O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParser**. No Explorador de Soluções, clique com o botão direito do rato em **Referências** e, em seguida, clique em **Gerir Pacotes NuGet...** . Procure e adicione cada um dos dois pacotes. 
 
 ![Adicionar dependências de terceiros](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -57,7 +57,7 @@ O projeto do Visual Studio precisa de **JsonFormatterPlus** e **CommandLineParse
 ### <a name="write-the-c-code"></a>Escrever o código C#
 O ficheiro **Program.cs** deve ser:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +75,7 @@ namespace ConsoleApp1
 }
 ```
 
-Atualize as dependências de forma que são:
+Atualize as dependências para que sejam:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Para gerir os argumentos de linha de comandos, adicione o código principal. Adi
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copiar utterances.json para o diretório de saída
 
-No Solution Explorer, adicione a `utterances.json` clicando no nome do projeto do Solution Explorer, em seguida, selecionar **Add**, em seguida, selecionar **item existente**. Selecione o `utterances.json` ficheiro. Esta ação adiciona o arquivo ao projeto. Em seguida, ele precisa ser adicionado para a direção de saída. Com o botão direito a `utterances.json` e selecione **propriedades**. Na janela de propriedades, marque a **Ação de Compilação** de `Content` e **Copiar para Diretório de Saída** de `Copy Always`.  
+No Gerenciador de soluções, adicione o `utterances.json` clicando com o botão direito do mouse no nome do projeto do Gerenciador de soluções, selecionando **Adicionar**e, em seguida, selecionando **Item existente**. Selecione o `utterances.json` arquivo. Isso adiciona o arquivo ao projeto. Em seguida, ele precisa ser adicionado à direção de saída. Clique com o botão `utterances.json` direito do mouse no e selecione **Propriedades**. Na janela de propriedades, marque a **Ação de Compilação** de `Content` e **Copiar para Diretório de Saída** de `Copy Always`.  
 
 ![Marcar o ficheiro JSON como conteúdo](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - conceder acesso a uma API web ASP.NET Core através de um aplicativo de página única - Azure Active Directory B2C | Documentos da Microsoft
+title: Tutorial-conceder acesso a uma API Web do ASP.NET Core de um aplicativo de página única-Azure Active Directory B2C | Microsoft Docs
 description: Tutorial sobre como utilizar o Active Directory B2C para proteger uma API Web .NET Core e chamá-la a partir de uma aplicação de página única.
 services: active-directory-b2c
 author: mmacy
@@ -10,73 +10,73 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 609e7bc4104a445c5d77109c9470fb487b2f1336
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: cbea29320c896637190766d1b2b60c09f7db5163
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507738"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347162"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API web ASP.NET Core a partir de uma aplicação de página única com o Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web do ASP.NET Core de um aplicativo de página única usando Azure Active Directory B2C
 
-Este tutorial mostra-lhe como chamar um Azure Active Directory (Azure AD) B2C ASP.NET Core protegida web recurso de API a partir de uma aplicação de página única.
+Este tutorial mostra como chamar um recurso de API Web do Azure Active Directory (Azure AD) B2C protegido ASP.NET Core de um aplicativo de página única.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
-> * Configurar âmbitos para uma API web
-> * Conceder permissões para a API web
-> * Configurar o exemplo a utilizar a aplicação
+> * Configurar escopos para uma API Web
+> * Conceder permissões para a API da Web
+> * Configurar o exemplo para usar o aplicativo
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua os passos e a pré-requisitos no [Tutorial: Ativar a autenticação de aplicação de página única com contas através do Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
+Conclua as etapas e os pré-requisitos [no tutorial: Habilite a autenticação de aplicativo de página única com](active-directory-b2c-tutorials-spa.md)contas usando Azure Active Directory B2C.
 
 ## <a name="add-a-web-api-application"></a>Adicionar uma aplicação de API Web
 
-Recursos da API Web têm de ser registados no seu inquilino antes de poderem aceitar e responder a pedidos de recursos protegidos por aplicações cliente que apresentam um token de acesso.
+Os recursos da API Web precisam ser registrados em seu locatário antes que possam aceitar e responder a solicitações de recursos protegidos por aplicativos cliente que apresentam um token de acesso.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Add**.
-5. Introduza um nome para a aplicação. Por exemplo, *webapi1*.
-6. Para **incluir a aplicação web / web API** e **permitir fluxo implícito**, selecione **Sim**.
-7. Para **URL de resposta**, introduza um ponto de extremidade em que o Azure AD B2C deverá devolver quaisquer tokens que a aplicação solicite. Neste tutorial, o exemplo é executada localmente e escuta na `https://localhost:5000`.
-8. Para **URI de ID de aplicação**, introduza o identificador utilizado para a API web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
+5. Insira um nome para o aplicativo. Por exemplo, *webapi1*.
+6. Para **incluir aplicativo Web/API Web** e **permitir fluxo implícito**, selecione **Sim**.
+7. Para **URL de resposta**, insira um ponto de extremidade onde Azure ad B2C deve retornar quaisquer tokens que seu aplicativo solicitar. Neste tutorial, o exemplo é executado localmente e escuta em `https://localhost:5000`.
+8. Para **URI da ID do aplicativo**, insira o identificador usado para sua API Web. O URI identificador completo, incluindo o domínio, é gerado por si. Por exemplo, `https://contosotenant.onmicrosoft.com/api`.
 9. Clique em **Criar**.
-10. Na página de propriedades, registe o ID da aplicação que irá utilizar quando configurar a aplicação web.
+10. Na página Propriedades, registre a ID do aplicativo que você usará ao configurar o aplicativo Web.
 
-## <a name="configure-scopes"></a>Configurar âmbitos
+## <a name="configure-scopes"></a>Configurar escopos
 
-Âmbitos proporcionam uma forma de reger o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura para a API Web.
+Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. São utilizados pela API Web para implementar o controlo de acesso baseado no âmbito. Por exemplo, alguns utilizadores podem ter o acesso de leitura e de escrita, ao passo que outros podem ter apenas permissões só de leitura. Neste tutorial, vai definir as permissões de leitura para a API Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapi1*.
-2. Selecione **âmbitos publicados**.
-3. Para **âmbito**, introduza `Hello.Read`e para a descrição, insira `Read access to hello`.
-4. Para **âmbito**, introduza `Hello.Write`e para a descrição, insira `Write access to hello`.
+2. Selecione **escopos publicados**.
+3. Para **escopo**, insira `Hello.Read`e, para descrição, digite `Read access to hello`.
+4. Para **escopo**, insira `Hello.Write`e, para descrição, digite `Write access to hello`.
 5. Clique em **Guardar**.
 
 Os âmbitos publicados podem ser utilizados para conceder permissão a uma aplicação cliente à API Web.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-Para chamar uma API web protegida a partir de uma aplicação, tem de conceder as permissões de aplicação para a API. O tutorial de pré-requisitos, criou uma aplicação web no Azure AD B2C com o nome *webapp1*. Utilizar esta aplicação para chamar a API web.
+Para chamar uma API Web protegida de um aplicativo, você precisa conceder permissões de aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web em Azure AD B2C chamado *webapp1*. Você usa esse aplicativo para chamar a API da Web.
 
 1. Selecione **aplicativos**e, em seguida, selecione *webapp1*.
-2. Selecione **acesso à API**e, em seguida, selecione **Add**.
-3. Na **selecionar API** menu pendente, selecione *webapi1*.
-4. Na **selecionar âmbitos** menu pendente, selecione a **Hello.Read** e **Hello.Write** âmbitos que definiu anteriormente.
+2. Selecione **acesso à API**e, em seguida, selecione **Adicionar**.
+3. Na lista suspensa **selecionar API** , selecione *webapi1*.
+4. Na lista suspensa **selecionar** escopos, selecione os escopos **Hello. Read** e **Hello. Write** que você definiu anteriormente.
 5. Clique em **OK**.
 
-**A minha aplicação de página única de exemplo** está registada para chamar a **Hello Core API** protegida. Um utilizador é autenticado com o Azure AD B2C para utilizar a aplicação de página única. A aplicação de página única obtém uma concessão de autorização do Azure AD B2C para aceder à API web protegida.
+**A minha aplicação de página única de exemplo** está registada para chamar a **Hello Core API** protegida. Um usuário é autenticado com Azure AD B2C para usar o aplicativo de página única. O aplicativo de página única Obtém uma concessão de autorização de Azure AD B2C para acessar a API Web protegida.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Agora que a API web está registada e já estão definidos âmbitos, configura a web, código de API para utilizar o inquilino do Azure AD B2C. Neste tutorial, irá configurar uma aplicação web do .NET Core de exemplo que pode transferir a partir do GitHub. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
+Agora que a API Web está registrada e você tem escopos definidos, configure o código da API Web para usar seu locatário Azure AD B2C. Neste tutorial, você configura um aplicativo Web .NET Core de exemplo que pode ser baixado do GitHub. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi.git
@@ -99,18 +99,18 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### <a name="enable-cors"></a>Ativar o CORS
 
-Permitir que o aplicativo de página única chamar a API web ASP.NET Core, tem de ativar [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
+Para permitir que seu aplicativo de página única chame a API Web do ASP.NET Core, você precisa habilitar o [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
 1. Em **Startup.cs**, adicione o CORS ao método `ConfigureServices()`.
 
-    ```C#
+    ```csharp
     public void ConfigureServices(IServiceCollection services) {
       services.AddCors();
     ```
 
 2. Em **Startup.cs**, configure o CORS no método `Configure()`.
 
-    ```C#
+    ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
       app.UseCors(builder =>
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
@@ -118,9 +118,9 @@ Permitir que o aplicativo de página única chamar a API web ASP.NET Core, tem d
 
 3. Abra o ficheiro **launchSettings.json** em **Properties** (Propriedades), localize a definição **iisSettings** *applicationURL* e defina o número da porta para o número registado para o URL de Resposta da API `http://localhost:5000`.
 
-### <a name="configure-the-single-page-application"></a>Configurar a aplicação de página única
+### <a name="configure-the-single-page-application"></a>Configurar o aplicativo de página única
 
-A aplicação de página única utiliza o Azure AD B2C para inscrição e início de sessão do utilizador e chama a API de web ASP.NET Core protegida. Atualizar a aplicação de página única para chamar a API web .NET Core.
+O aplicativo de página única usa Azure AD B2C para inscrição de usuário, entrada e chama a API Web ASP.NET Core protegida. Você atualiza o aplicativo de página única para chamar a API Web do .NET Core.
 
 Para alterar as definições da aplicação:
 
@@ -137,9 +137,9 @@ Para alterar as definições da aplicação:
     };
     ```
 
-## <a name="run-the-spa-application-and-web-api"></a>Executar a API de web e de aplicação SPA
+## <a name="run-the-spa-application-and-web-api"></a>Executar o aplicativo SPA e a API Web
 
-Terá de executar a aplicação de página única node. js e a API web .NET Core.
+Você precisa executar o aplicativo de página única do node. js e a API Web do .NET Core.
 
 ### <a name="run-the-aspnet-core-web-api"></a>Executar a API Web ASP.NET Core 
 
@@ -157,15 +157,15 @@ Quando o projeto é iniciado, é apresentada uma página Web no browser predefin
     node server.js
     ```
 
-    A janela da consola mostra o número de porta de onde o aplicativo é hospedado.
+    A janela do console exibe o número da porta onde o aplicativo está hospedado.
     
     ```
     Listening on port 6420...
     ```
 
-4. Utilize um browser para navegar para o endereço `http://localhost:6420` para ver a aplicação.
+4. Use um navegador para navegar até o endereço `http://localhost:6420` para exibir o aplicativo.
 5. Inicie sessão com o endereço de e-mail e a palavra-passe utilizados em [Autenticar utilizadores com o Azure Active Directory B2C numa aplicação de página única (JavaScript)](active-directory-b2c-tutorials-spa.md).
-6. Clique em **chamar a API**.
+6. Clique em **chamar API**.
 
 Depois de se inscrever ou iniciar sessão com uma conta de utilizador, o exemplo chama a API Web protegida e devolve um resultado.
 
@@ -175,9 +175,9 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
-> * Configurar âmbitos para uma API web
-> * Conceder permissões para a API web
-> * Configurar o exemplo a utilizar a aplicação
+> * Configurar escopos para uma API Web
+> * Conceder permissões para a API da Web
+> * Configurar o exemplo para usar o aplicativo
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar fornecedores de identidade às suas aplicações no Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Tutorial: Adicionar provedores de identidade a seus aplicativos no Azure Active Directory B2C](tutorial-add-identity-providers.md)
