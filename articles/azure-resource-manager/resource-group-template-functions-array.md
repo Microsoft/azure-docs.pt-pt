@@ -27,7 +27,7 @@ Resource Manager fornece várias funções para trabalhar com matrizes e objetos
 * [intersection](#intersection)
 * [json](#json)
 * [last](#last)
-* [Comprimento](#length)
+* [length](#length)
 * [max](#max)
 * [min](#min)
 * [range](#range)
@@ -191,7 +191,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | Array | [1] |
-| emptyOutput | Booleano | Verdadeiro |
+| emptyOutput | Bool | true |
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
 
