@@ -1,6 +1,6 @@
 ---
-title: Reduzir os custos de serviço utilizando o Assistente do Azure | Documentos da Microsoft
-description: Utilize o Assistente do Azure para otimizar o custo das suas implementações do Azure.
+title: Reduzir os custos de serviço usando o Azure Advisor | Microsoft Docs
+description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 services: advisor
 documentationcenter: NA
 author: kasparks
@@ -8,61 +8,61 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: fef7b82e6969de16d1815250d2373c99021b0e86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96e939f8e3da58a123d9a6733b71b74c2ff0ba87
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254730"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311902"
 ---
-# <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Assistente do Azure
+# <a name="reduce-service-costs-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
-O assistente o ajuda a otimizar e reduzir sua gerais com o Azure gasta ao identificar recursos subutilizados e inativos. Pode obter custar recomendações do **custo** separador no dashboard do Advisor.
+O Advisor ajuda a otimizar e reduzir o gasto geral do Azure identificando recursos ociosos e subutilizados. Você pode obter recomendações de custo na guia **custo** no painel do Advisor.
 
-## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar a máquina virtual passar por redimensionamento ou encerrar subutilizadas instâncias 
+## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Otimizar o gasto de máquinas virtuais redimensionando ou desligando instâncias subutilizadas 
 
-Embora determinados cenários de aplicação podem resultar numa utilização reduzida por design, pode poupar dinheiro várias vezes ao gerir o tamanho e número de máquinas virtuais. O assistente monitoriza a utilização da máquina virtual durante sete dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e a utilização de rede é inferior a % de 2 ou se a atual carga de trabalho pode ser atendida por um tamanho mais pequeno da máquina virtual.
+Embora determinados cenários de aplicativos possam resultar em baixa utilização por design, muitas vezes você pode economizar dinheiro Gerenciando o tamanho e o número de suas máquinas virtuais. O Advisor monitora o uso de máquinas virtuais por 7 dias e identifica máquinas virtuais de baixa utilização. As máquinas virtuais são consideradas de baixa utilização se a utilização da CPU for de 5% ou menos e sua utilização de rede for menor que 2% ou se a carga de trabalho atual puder ser acomodada por um tamanho de máquina virtual menor.
 
-O assistente mostra o custo estimado de continuar a executar a máquina virtual, para que pode optar por encerrá-lo ou redimensioná-la.
+O Advisor mostra o custo estimado de continuar a executar sua máquina virtual, para que você possa optar por desligá-la ou redimensioná-la.
 
-Se pretender que seja mais agressiva na identificação de máquinas virtuais subutilizadas, pode ajustar a regra de utilização de CPU média numa base por subscrição.
+Se você quiser ser mais agressivo na identificação de máquinas virtuais subutilizadas, poderá ajustar a regra de utilização da CPU por assinatura.
 
-## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir os custos, eliminando o circuito do ExpressRoute não aprovisionado
+## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reduzir custos eliminando circuitos de ExpressRoute não provisionados
 
-Advisor identifica os circuitos do ExpressRoute que já estão no estado de fornecedor *não aprovisionado* para mais de um mês e recomenda eliminando o circuito se não estiver a planear aprovisioná-lo com a conectividade fornecedor.
+O Advisor identifica os circuitos do ExpressRoute que estão no status do provedor de *não provisionado* por mais de um mês e recomenda a exclusão do circuito se você não estiver planejando provisionar o circuito com seu provedor de conectividade.
 
-## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Reduzir os custos, eliminar ou reconfigurar gateways de rede virtual Inativos
+## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Reduzir custos ao excluir ou reconfigurar gateways de rede virtual ociosas
 
-Advisor identifica as portas de rede virtual que tem estado Inativas durante mais de 90 dias. Uma vez que esses gateways são cobradas à hora, deve considerar a reconfiguração ou excluí-los, se não pretender utilizá-los mais. 
+O Advisor identifica os gateways de rede virtual que ficaram ociosos por mais de 90 dias. Como esses gateways são cobrados por hora, você deve considerar reconfigurá-los ou excluí-los se não pretende mais usá-los. 
 
-## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Comprar instâncias de máquinas virtuais reservadas para poupar dinheiro sobre os custos de pay as you go
+## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Comprar instâncias de máquinas virtuais reservadas para economizar dinheiro nos custos pagos conforme o uso
 
-O assistente irá rever a utilização da máquina virtual durante os últimos 30 dias e determinar se pode poupar dinheiro ao comprar uma reserva do Azure. O assistente mostrará a os regiões e os tamanhos em que potencialmente tem as maioria das poupanças e irá mostrar-lhe a poupança estimada na compra de reservas. Com reservas do Azure, pode comprar previamente os custos base para as suas máquinas virtuais. Descontos serão aplicado automaticamente para as VMs de novas ou existentes com o mesmo tamanho e a região, como as reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+O Advisor examinará o uso da sua máquina virtual nos últimos 30 dias e determinará se você pode economizar dinheiro comprando uma reserva do Azure. O Advisor mostrará as regiões e os tamanhos onde você potencialmente tem a maior economia e mostrará a você a economia estimada de reservas de compra. Com as reservas do Azure, você pode adquirir previamente os custos base para suas máquinas virtuais. Os descontos serão aplicados automaticamente a VMs novas ou existentes que tenham o mesmo tamanho e região que suas reservas. [Saiba mais sobre as instâncias de VM reservadas do Azure.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-O assistente também será notificado das instâncias reservadas que tem que expiram nos próximos 30 dias. Recomenda que compra instâncias reservadas novas para evitar pagar o preço pay as you go.
+O Advisor também notificará você das instâncias reservadas que você tem que expirarão nos próximos 30 dias. Será recomendável que você compre novas instâncias reservadas para evitar pagar o preço pago conforme o uso.
 
-## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Eliminar não associados a endereços IP públicos para poupar dinheiro
+## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Exclua endereços IP públicos não associados para economizar dinheiro
 
-Advisor identifica os endereços IP públicos que não estão atualmente associados aos recursos do Azure, como VMs ou balanceadores de carga. IP público destes endereços são fornecidos com um encargo nominal. Se não pretender utilizá-los, excluí-los pode resultar em reduções de custos.
+O Advisor identifica endereços IP públicos que não estão associados atualmente a recursos do Azure, como balanceadores de carga ou VMs. Esses endereços IP públicos vêm com um custo nominal. Se você não planeja usá-las, excluí-las pode resultar em economia de custos.
 
-## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Eliminar pipelines do Azure Data Factory que estão a falhar
+## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Excluir Azure Data Factory pipelines que estão falhando
 
-O Assistente do Azure irá detetar os pipelines do Azure Data Factory que repetidamente falharam e recomendamos que resolva os problemas ou eliminar os pipelines de falha se já não são necessários. Será cobrada destes pipelines, mesmo se entretanto eles são não ser-lhe útil enquanto eles estão a falhar. 
+O Azure Advisor detectará Azure Data Factory pipelines que falham repetidamente e recomendam que você resolva os problemas ou exclua os pipelines com falha se eles não forem mais necessários. Você será cobrado por esses pipelines mesmo se eles não estiverem servindo você enquanto estiverem falhando. 
 
-## <a name="use-standard-snapshots-for-managed-disks"></a>Utilizar instantâneos de Standard para os discos geridos
-Para guardar a 60% do custo, recomendamos o armazenamento sua instantâneos no armazenamento Standard, independentemente do tipo de armazenamento de disco principal. Esta é a opção predefinida para instantâneos de Managed Disks. O Assistente do Azure irá identificar instantâneos que são armazenados armazenamento Premium e recomendamos migrar o instantâneo de Premium para o armazenamento Standard. [Saiba mais sobre os preços dos discos geridos](https://aka.ms/aa_manageddisksnapshot_learnmore)
+## <a name="use-standard-snapshots-for-managed-disks"></a>Usar instantâneos padrão para Managed Disks
+Para economizar 60% do custo, é recomendável armazenar seus instantâneos no armazenamento padrão, independentemente do tipo de armazenamento do disco pai. Essa é a opção padrão para instantâneos de Managed Disks. O assistente do Azure identificará os instantâneos armazenados no armazenamento Premium e recomendará migrar seu instantâneo do Premium para o armazenamento Standard. [Saiba mais sobre os preços do disco gerenciado](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
-## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Assistente do Azure
+## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Como acessar as recomendações de custo no Azure Advisor
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e, em seguida, abra [Advisor](https://aka.ms/azureadvisordashboard).
+1. Entre no [portal do Azure](https://portal.azure.com)e abra o [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  No dashboard do assistente, clique nas **custo** separador.
+2.  No painel do Advisor, clique na guia **custo** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre as recomendações do assistente, consulte:
+Para saber mais sobre as recomendações do Advisor, consulte:
 * [Introdução ao Advisor](advisor-overview.md)
 * [Introdução](advisor-get-started.md)
-* [Recomendações de desempenho do Assistente](advisor-cost-recommendations.md)
-* [Recomendações de elevada disponibilidade do Assistente](advisor-cost-recommendations.md)
+* [Recomendações de desempenho do Advisor](advisor-cost-recommendations.md)
+* [Recomendações de alta disponibilidade do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-cost-recommendations.md)
