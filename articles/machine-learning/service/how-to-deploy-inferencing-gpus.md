@@ -1,7 +1,7 @@
 ---
-title: Implementar um modelo do inferência de tipos com GPU
+title: Implantar um modelo para inferência com GPU
 titleSuffix: Azure Machine Learning service
-description: Este artigo mostra como utilizar o serviço Azure Machine Learning para implementar um modelo como um service.service web e pedidos de inferência de tipos de pontuação de aprendizagem profunda de Tensorflow ativadas para GPU.
+description: Este artigo ensina como usar o serviço de Azure Machine Learning para implantar um modelo de aprendizado profundo Tensorflow habilitado para GPU como um serviço Web. solicitações de inferência de serviço e pontuação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,41 +10,41 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/01/2019
-ms.openlocfilehash: 8086d059913cc61bff0bca31681368bea6d76777
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: eeb1bc35e0438a7e99ea5ed8284f0c8611108da0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543808"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326995"
 ---
-# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência de tipos com GPU
+# <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implantar um modelo de aprendizado profundo para inferência com GPU
 
-Este artigo mostra como utilizar o serviço Azure Machine Learning para implementar um modelo como um serviço web de aprendizagem profunda de Tensorflow ativadas para GPU.
+Este artigo ensina como usar o serviço de Azure Machine Learning para implantar um modelo de aprendizado profundo Tensorflow habilitado para GPU como um serviço Web.
 
-Implemente o seu modelo para um cluster do Azure Kubernetes Service (AKS) para fazer inferência ativadas para GPU. Inferência ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição. Utilizar GPUs, em vez de CPUs oferecem vantagens de desempenho no cálculo altamente ponto pode ser paralelizada.
+Implante seu modelo em um cluster AKS (serviço de kubernetes do Azure) para realizar inferência habilitadas para GPU. Inferência, ou pontuação de modelo, é a fase em que o modelo implantado é usado para previsão. O uso de GPUs em vez de CPUs oferece vantagens de desempenho na computação altamente paralelizáveis.
 
-Embora este exemplo utiliza um modelo do TensorFlow, pode aplicar os seguintes passos para qualquer arquitetura que suporta GPUs fazendo pequenas alterações para o ficheiro de classificação e o ficheiro de ambiente de aprendizagem automática. 
+Embora este exemplo use um modelo TensorFlow, você pode aplicar as etapas a seguir a qualquer estrutura de Machine Learning que dê suporte a GPUs fazendo pequenas alterações no arquivo de Pontuação e no arquivo de ambiente. 
 
-Neste artigo, siga os passos seguintes:
+Neste artigo, você executará as seguintes etapas:
 
-* Criar um cluster do AKS com GPU ativada
-* Implementar um modelo de GPU do Tensorflow
-* Emitir uma consulta de exemplo para o seu modelo implementado
+* Criar um cluster AKS habilitado para GPU
+* Implantar um modelo de GPU Tensorflow
+* Emitir uma consulta de exemplo para seu modelo implantado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho de serviços do Azure Machine Learning.
-* Uma distribuição do Python.
-* Um Tensorflow registado guardar modelo.
-    * Para saber como registar modelos, veja [implementar modelos](../service/how-to-deploy-and-where.md#registermodel).
+* Um espaço de trabalho dos serviços Azure Machine Learnings.
+* Um distribuição Python.
+* Um modelo salvo do Tensorflow registrado.
+    * Para saber como registrar modelos, consulte [implantar modelos](../service/how-to-deploy-and-where.md#registermodel).
 
-Pode concluir a primeira parte desta série de procedimentos [como preparar um modelo do TensorFlow](how-to-train-tensorflow.md), para cumprir os pré-requisitos necessários.
+Você pode concluir a parte um desta série de instruções, [como treinar um modelo TensorFlow](how-to-train-tensorflow.md)para atender aos pré-requisitos necessários.
 
-## <a name="provision-an-aks-cluster-with-gpus"></a>Aprovisionar um cluster do AKS com GPUs
+## <a name="provision-an-aks-cluster-with-gpus"></a>Provisionar um cluster AKS com GPUs
 
-O Azure tem muitas opções diferentes de GPU. Pode utilizar qualquer um deles para inferência. Ver [a lista de VMs de série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para uma divisão completa de capacidades e os custos.
+O Azure tem muitas opções de GPU diferentes. Você pode usar qualquer um deles para inferência. Consulte [a lista de VMs da série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para obter uma análise completa dos recursos e dos custos.
 
-Para obter mais informações sobre como utilizar o AKS com o serviço Azure Machine Learning, consulte [como implementar e, em que](../service/how-to-deploy-and-where.md#deploy-aks).
+Para obter mais informações sobre como usar o AKS com o serviço Azure Machine Learning, consulte [como implantar e onde](../service/how-to-deploy-and-where.md#deploy-aks).
 
 ```Python
 # Choose a name for your cluster
@@ -52,7 +52,7 @@ aks_name = "aks-gpu"
 
 # Check to see if the cluster already exists
 try:
-    compute_target = ComputeTarget(workspace=ws, name=aks_name)
+    aks_target = ComputeTarget(workspace=ws, name=aks_name)
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
@@ -68,11 +68,11 @@ except ComputeTargetException:
 ```
 
 > [!IMPORTANT]
-> Azure irá cobrar-lhe, desde que o cluster do AKS é aprovisionado. Lembre-se de que elimina o cluster AKS quando tiver terminado com ele.
+> O Azure cobrará você desde que o cluster AKS seja provisionado. Certifique-se de excluir o cluster AKS quando tiver terminado.
 
-## <a name="write-the-entry-script"></a>Escrever o script de entrada
+## <a name="write-the-entry-script"></a>Gravar o script de entrada
 
-Guarde o seguinte código no seu diretório de trabalho como `score.py`. Este ficheiro pontua imagens à medida que são enviados para o seu serviço. Carrega o modelo do TensorFlow guardado, passa a imagem de entrada para a sessão do TensorFlow em cada pedido POST e, em seguida, devolve as pontuações resultantes. Outras estruturas de inferência requerem diferentes arquivos de classificação.
+Salve o código a seguir em seu diretório de `score.py`trabalho como. Esse arquivo pontua imagens conforme elas são enviadas para o serviço. Ele carrega o modelo TensorFlow salvo, passa a imagem de entrada para a sessão TensorFlow em cada solicitação POST e, em seguida, retorna as pontuações resultantes. Outras estruturas inferência exigem diferentes arquivos de pontuação.
 
 ```python
 import json
@@ -101,9 +101,9 @@ def run(raw_data):
     return y_hat.tolist()
 
 ```
-## <a name="define-the-conda-environment"></a>Definir o ambiente de conda
+## <a name="define-the-conda-environment"></a>Definir o ambiente Conda
 
-Crie um ficheiro de ambiente de conda denominado `myenv.yml` para especificar as dependências para o seu serviço. É importante especificar que está a utilizar `tensorflow-gpu` para obter um desempenho acelerado.
+Crie um arquivo de ambiente Conda `myenv.yml` chamado para especificar as dependências do seu serviço. É importante especificar que você está usando `tensorflow-gpu` o para obter um desempenho acelerado.
 
 ```yaml
 name: project_environment
@@ -120,9 +120,9 @@ channels:
 - conda-forge
 ```
 
-## <a name="define-the-gpu-inferenceconfig-class"></a>Definir a classe InferenceConfig de GPU
+## <a name="define-the-gpu-inferenceconfig-class"></a>Definir a classe InferenceConfig GPU
 
-Criar um `InferenceConfig` objeto que permite que as GPUs e assegura que executam CUDA é instalado com a imagem do Docker.
+Crie um `InferenceConfig` objeto que habilite as GPUs e garanta que o CUDA seja instalado com a imagem do Docker.
 
 ```python
 from azureml.core.model import Model
@@ -143,12 +143,12 @@ inference_config = InferenceConfig(runtime= "python",
 
 Para obter mais informações, consulte:
 
-- [Classe de InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)
-- [Classe de AksServiceDeploymentConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+- [Classe InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py)
+- [Classe AksServiceDeploymentConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
-Implementar o modelo ao seu cluster do AKS e aguarde pela criar o seu serviço.
+Implante o modelo em seu cluster AKS e aguarde até que ele crie seu serviço.
 
 ```python
 aks_service = Model.deploy(ws,
@@ -163,13 +163,13 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> O serviço do Azure Machine Learning não implementar um modelo com um `InferenceConfig` objeto que espera GPU seja ativado para um cluster que não tem uma GPU.
+> Azure Machine Learning serviço não implantará um modelo `InferenceConfig` com um objeto que espera que a GPU seja habilitada para um cluster que não tenha uma GPU.
 
 Para obter mais informações, consulte [classe de modelo](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-## <a name="issue-a-sample-query-to-your-model"></a>Emitir uma consulta de exemplo para o seu modelo
+## <a name="issue-a-sample-query-to-your-model"></a>Emitir uma consulta de exemplo para seu modelo
 
-Envie uma consulta de teste para o modelo implementado. Quando envia uma imagem jpeg para o modelo, ele pontua a imagem. O código de exemplo seguinte utiliza uma função de utilitário externo para carregar imagens. Pode encontrar o código relevante em pir [TensorFlow exemplo no GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
+Envie uma consulta de teste para o modelo implantado. Quando você envia uma imagem JPEG para o modelo, ela classifica a imagem. O exemplo de código a seguir usa uma função de utilitário externo para carregar imagens. Você pode encontrar o código relevante em PIR [TensorFlow sample no GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/utils.py). 
 
 ```python
 # Used to test your webservice
@@ -194,14 +194,14 @@ print("prediction:", resp.text)
 ```
 
 > [!IMPORTANT]
-> Para minimizar a latência e otimizar o débito, certificar-se de que o cliente está na mesma região do Azure como o ponto final. Neste exemplo, as APIs são criadas na região do Azure do Leste-nos.
+> Para minimizar a latência e otimizar a taxa de transferência, verifique se o cliente está na mesma região do Azure que o ponto de extremidade. Neste exemplo, as APIs são criadas na região do Azure leste dos EUA.
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Depois de terminar com este exemplo, elimine os recursos.
+Se você criou o cluster AKS especificamente para este exemplo, exclua seus recursos depois de terminar.
 
 > [!IMPORTANT]
-> O Azure cobra com base no quanto é implementado o cluster do AKS. Certifique-se para limpá-los depois de terminar com o mesmo.
+> O Azure cobra com base em quanto tempo o cluster AKS é implantado. Certifique-se de limpá-lo depois de concluir a tarefa.
 
 ```python
 aks_service.delete()
@@ -210,6 +210,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Implementar o modelo em FPGA](../service/how-to-deploy-fpga-web-service.md)
-* [Implementar o modelo com ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
-* [Utilizar modelos do Tensorflow DNN](../service/how-to-train-tensorflow.md)
+* [Implantar modelo em FPGA](../service/how-to-deploy-fpga-web-service.md)
+* [Implantar modelo com ONNX](../service/concept-onnx.md#deploy-onnx-models-in-azure)
+* [Treinar modelos do Tensorflow DNN](../service/how-to-train-tensorflow.md)

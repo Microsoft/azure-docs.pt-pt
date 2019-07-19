@@ -1,6 +1,6 @@
 ---
-title: Serviços de domínio do Azure AD - Verifique o estado de funcionamento do seu domínio gerido | Documentos da Microsoft
-description: Verifique o estado de funcionamento do seu domínio gerido com a página de estado de funcionamento no portal do Azure.
+title: Azure AD Domain Services-verificar a integridade do domínio gerenciado | Microsoft Docs
+description: Verifique a integridade do seu domínio gerenciado usando a página integridade no portal do Azure.
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,70 +15,70 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 38403efd72843e7cd6d1afff5ff65a15af39c107
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b808126fe4366d3ca3cc19c674b489ec3055665
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473962"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234161"
 ---
-# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verifique o estado de funcionamento de um domínio gerido do Azure AD Domain Services
+# <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado Azure AD Domain Services
 
-## <a name="overview-of-the-health-page"></a>Descrição geral da página de estado de funcionamento
-Usando a página de estado de funcionamento no portal do Azure, é capazes de se manter atualizado sobre o que acontece no seu domínio gerido. Este artigo explica os elementos da página de estado de funcionamento.
+## <a name="overview-of-the-health-page"></a>Visão geral da página de integridade
+Usando a página de integridade em seu portal do Azure, você poderá se manter atualizado sobre o que está acontecendo em seu domínio gerenciado. Este artigo percorre os elementos da página de integridade.
 
-### <a name="how-to-view-the-health-of-your-managed-domain"></a>Como ver o estado de funcionamento do seu domínio gerido
-1. Navegue para o [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
-2. Clique no domínio que pretende ver o estado de funcionamento.
-3. No painel de navegação do lado esquerdo, clique em **estado de funcionamento**.
+### <a name="how-to-view-the-health-of-your-managed-domain"></a>Como exibir a integridade do seu domínio gerenciado
+1. Navegue até a [página Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
+2. Clique no domínio do qual você deseja exibir a integridade.
+3. No painel de navegação à esquerda, clique em **integridade**.
 
-A imagem seguinte ilustra uma página de estado de funcionamento de exemplo: ![Página de estado de funcionamento de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
+A figura a seguir ilustra uma página de exemplo de integridade: ![Página de integridade de exemplo](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
-> Estado de funcionamento do seu domínio gerido é avaliado a cada hora. Depois de efetuar alterações ao seu domínio gerido, aguarde até o próximo ciclo de avaliação para ver o estado de funcionamento atualizado do seu domínio gerido. O carimbo de hora "Avaliado pela última vez" no canto superior direito mostra quando o estado de funcionamento do seu domínio gerido foi avaliado pela última vez.
+> A integridade do seu domínio gerenciado é avaliada a cada hora. Depois de fazer alterações no domínio gerenciado, aguarde o próximo ciclo de avaliação para exibir a integridade atualizada do seu domínio gerenciado. O carimbo de data/hora "último avaliado" no canto superior direito mostra quando a integridade do seu domínio gerenciado foi avaliada pela última vez.
 >
 
-### <a name="status-of-your-managed-domain"></a>Estado do seu domínio gerido
-O estado no canto superior direito do seu estado de funcionamento da página indica o estado de funcionamento global do seu domínio gerido. O Estado tenha em consideração o todos os alertas existentes no seu domínio. Também pode ver o estado do seu domínio na página Descrição geral do Azure AD Domain Services.
+### <a name="status-of-your-managed-domain"></a>Status do seu domínio gerenciado
+O status na parte superior direita da página de integridade indica a integridade geral do seu domínio gerenciado. Os fatores de status em todos os alertas existentes em seu domínio. Você também pode exibir o status do seu domínio na página Visão geral de Azure AD Domain Services.
 
 | Estado | Ícone | Explicação |
 | --- | :----: | --- |
-| A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | O domínio gerido está a funcionar sem problemas e não tem quaisquer alertas críticas ou de aviso. Este domínio pode ter alertas informativos. |
-| Necessita de atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | Não existem sem alertas críticos no seu domínio gerido, mas existem um ou mais alertas de aviso que precisam ser abordadas. |
-| Necessita de atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | Existem um ou mais alertas críticos no seu domínio gerido. Também pode ter alertas de aviso e/ou informativas. |
-| A implementar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | O domínio está no processo de que está sendo implantado. |
+| A executar | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Seu domínio gerenciado está funcionando sem problemas e não tem nenhum alerta crítico ou de aviso. Este domínio pode ter alertas informativos. |
+| Requer atenção (aviso) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Não há alertas críticos em seu domínio gerenciado, mas há um ou mais alertas de aviso que precisam ser resolvidos. |
+| Requer atenção (crítico) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Há um ou mais alertas críticos em seu domínio gerenciado. Você também pode ter alertas de aviso e/ou informativos. |
+| Implantar | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Seu domínio está em processo de implantação. |
 
 ## <a name="monitors"></a>Monitores
-Monitores são aspectos do seu domínio gerido que o Azure AD Domain Services monitoriza regularmente. É a melhor forma de manter seus monitores em bom estado de funcionamento resolver quaisquer alertas ativos para o seu domínio gerido.
+Monitores são aspectos do seu domínio gerenciado que Azure AD Domain Services monitores regularmente. A melhor maneira de manter seus monitores em um estado íntegro é resolver quaisquer alertas ativos para seu domínio gerenciado.
 
-Serviços de domínio do Azure AD monitora o seguinte:
+O Azure AD Domain Services atualmente monitora o seguinte:
  - Cópia de segurança
  - Sincronização com o Azure AD
 
-### <a name="the-backup-monitor"></a>O monitor de "cópia de segurança"
-Isto monitoriza se estão a ser efetuadas cópias de segurança regulares do seu domínio gerido. A tabela seguinte explica o que esperar na coluna detalhes do monitor de cópia de segurança:
+### <a name="the-backup-monitor"></a>O monitor de ' backup '
+Isso monitora se os backups regulares do seu domínio gerenciado estão sendo executados. A tabela a seguir explica o que esperar na coluna de detalhes do monitor de backup:
 
 | Valor de detalhe | Explicação |
 | --- | --- |
-|"Nunca uma cópia de segurança" | Este estado é normal para um domínio gerido criado recentemente. Em geral, a primeira cópia de segurança é criada a 24 horas após o seu domínio gerido está aprovisionado. Se o seu domínio gerido não é criado recentemente ou ver neste estado durante um período anormal de tempo, [contacte o suporte](contact-us.md). |
-| Última cópia de segurança foi efetuada a 1 de 14 dias atrás | Em geral, este valor é esperado para o monitor de cópia de segurança. |
-| Última cópia de segurança foi efetuada há mais de 14 dias. | Qualquer altura mais de duas semanas é um tempo anormalmente longo, desde a última cópia de segurança. Alertas críticos ativos podem impedir que o domínio gerido a cópia de segurança em intervalos regulares. Primeiro, resolva qualquer ativo alertas para o seu domínio gerido e, em seguida, se ainda o problema persiste, [contacte o suporte](contact-us.md). |
+|"Nunca foi feito backup" | Esse estado é normal para um domínio gerenciado recém-criado. Em geral, o primeiro backup é criado 24 horas depois que o domínio gerenciado é provisionado. Se o domínio gerenciado não for criado recentemente ou se você vir esse estado por um período anormal, [contate o suporte](contact-us.md). |
+| O último backup foi levado de 1 a 14 dias atrás | Em geral, esse valor é esperado para o monitor de backup. |
+| O último backup foi feito há mais de 14 dias. | Qualquer tempo por mais de duas semanas é um tempo muito longo desde o último backup. Alertas críticos ativos podem impedir que o backup do domínio gerenciado seja feito regularmente. Primeiro, resolva todos os alertas ativos para seu domínio gerenciado e, se o problema persistir, [contate o suporte](contact-us.md). |
 
 
-### <a name="the-synchronization-with-azure-ad-monitor"></a>O monitor de "sincronização com o Azure AD"
-Microsoft monitoriza a frequência com que o seu domínio gerido está sincronizado com o Azure Active Directory. O número de objetos (utilizadores e grupos) e o número de alterações feitas no diretório do Azure AD, uma vez que a última sincronização pode ambos afetar o tempo que pode demorar um período de sincronização. Se o seu domínio gerido última sincronização há, mais de três dias [contacte o suporte](contact-us.md).
+### <a name="the-synchronization-with-azure-ad-monitor"></a>O monitor ' sincronização com o Azure AD '
+A Microsoft monitora com que frequência seu domínio gerenciado é sincronizado com Azure Active Directory. O número de objetos (usuários & grupos) e o número de alterações feitas no diretório do AD do Azure desde a última sincronização podem afetar o tempo que um período de sincronização pode tomar. Se o seu domínio gerenciado foi sincronizado pela última vez há três dias, [contate o suporte](contact-us.md).
 
 ## <a name="alerts"></a>Alertas
-São gerados alertas para problemas no seu domínio gerido, que precisam ser resolvidos para que os serviços de domínio do Azure AD para serem executados. Cada alerta explica o problema e um URL de resolução que descreve os passos específicos para resolver o problema. Para ver todos os alertas e resolução das, visite o [resolver problemas relacionados com alertas](troubleshoot-alerts.md) artigo.
+Os alertas são gerados para problemas em seu domínio gerenciado que precisam ser resolvidos para que Azure AD Domain Services seja executado. Cada alerta explica o problema e fornece uma URL de resolução que descreve as etapas específicas para resolver o problema. Para exibir todos os alertas e suas resoluções, visite o artigo [solucionar problemas de alertas](troubleshoot-alerts.md) .
 
-### <a name="alert-severity"></a>Gravidade do alerta
-Alertas são categorizados em três diferentes níveis de gravidade: crítico, aviso e informativas.
+### <a name="alert-severity"></a>Severidade do alerta
+Os alertas são categorizados em três níveis diferentes de severidade: crítico, aviso e informativo.
 
- * **Alertas críticos** são problemas que afetar gravemente o seu domínio gerido. Estes alertas devem ser resolvidos imediatamente, como a Microsoft não é possível monitorizar, gerir, corrigir e sincronizar o domínio gerido. 
- * **Alertas de aviso** notificá-lo dos problemas que possam afetar o seu domínio gerido no futuro. Estes alertas oferecem recomendações para proteger o seu domínio gerido.
- * **Alertas informativos** são notificações que são não afetar negativamente o seu domínio. Alertas informativos são projetadas para mantê-lo informado sobre o que acontece no seu domínio e o Azure AD Domain Services.
+ * **Alertas críticos** são problemas que afetam seriamente o domínio gerenciado. Esses alertas devem ser resolvidos imediatamente, pois a Microsoft não pode monitorar, gerenciar, aplicar patch e sincronizar seu domínio gerenciado. 
+ * **Alertas de aviso** notificam sobre problemas que podem afetar seu domínio gerenciado no futuro. Esses alertas oferecem recomendações para proteger seu domínio gerenciado.
+ * **Alertas** informativos são notificações que não afetam negativamente seu domínio. Os alertas informativos são projetados para manter você mais experiente sobre o que está acontecendo em seu domínio e Azure AD Domain Services.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Resolver alertas no seu domínio gerido](troubleshoot-alerts.md)
-- [Leia mais sobre o Azure AD Domain Services](overview.md)
-- [Contacte a equipa de produto](contact-us.md)
+- [Resolver alertas em seu domínio gerenciado](troubleshoot-alerts.md)
+- [Leia mais sobre Azure AD Domain Services](overview.md)
+- [Contate a equipe do produto](contact-us.md)

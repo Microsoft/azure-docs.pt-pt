@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2c98b069e042f9cbd07ccee643028ac84b3471c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728602"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327155"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação Java Spring Boot no Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Início rápido: Implantar um aplicativo Spring boot do Java para Service Fabric
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos par implementar e gerir microsserviços e contentores.
 
@@ -90,7 +90,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. Adicionar o recurso **Pontos finais** no ficheiro `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml`
+1. Adicionar o recurso de **pontos de extremidade** no arquivo *GS-Spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/em Manifest. xml*
 
     ```xml 
         <Resources>
@@ -145,7 +145,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em **http://localhost:19080**. Os cinco nós em bom estado indicam que o cluster local está a funcionar. 
+    O arranque do cluster local demora algum tempo. Para confirmar que o cluster está totalmente operacional, aceda ao Service Fabric Explorer em **http://localhost:19080** . Os cinco nós em bom estado indicam que o cluster local está a funcionar. 
     
     ![Cluster local em bom estado de funcionamento](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
@@ -161,7 +161,7 @@ Nesta fase, já criou uma aplicação de Service Fabric para o exemplo da Introd
     ./install.sh
     ```
 
-1. Abra o browser favorito e aceda a aplicação `http://localhost:8080`.
+1. Abra seu navegador da Web favorito e acesse o aplicativo `http://localhost:8080`acessando.
 
     ![Front-end da aplicação Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

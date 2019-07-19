@@ -1,22 +1,22 @@
 ---
-title: O que é o Azure Container Instances?
-description: O serviço do Azure Container Instances oferece a forma mais rápida e simples para executar contentores isolados no Azure, sem ter de gerir máquinas virtuais e sem ter de adotar um orquestrador de nível superior.
+title: O que são instâncias de contêiner do Azure?
+description: O serviço de instâncias de contêiner do Azure oferece a maneira mais rápida e simples de executar contêineres isolados no Azure, sem precisar gerenciar máquinas virtuais e sem precisar adotar um orquestrador de nível superior.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073291"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325751"
 ---
-# <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
+# <a name="what-is-azure-container-instances"></a>O que são instâncias de contêiner do Azure?
 
 Os contentores estão a tornar-se na forma preferida de empacotar, implementar e gerir aplicações na cloud. O Azure Container Instances é a forma mais rápida e simples de executar um contentor no Azure, sem que tenha de gerir máquinas virtuais e sem que tenha de adotar um serviço de nível superior.
 
@@ -38,7 +38,7 @@ Historicamente, os contentores têm vindo a oferecer isolamento de dependências
 
 Normalmente, os contentores são otimizados para executarem apenas uma única aplicação, mas as necessidades exatas de cada uma dessas aplicações podem ser bastante diferentes. O Azure Container Instances proporciona uma utilização ideal ao permitir especificações exatas de núcleos de CPU e memória. A faturação é ao segundo e consoante o que precisar, para que possa ajustar os gastos com base nas suas necessidades reais.
 
-Para as tarefas de computação intensiva, como a aprendizagem automática, Azure Container Instances permite agendar contentores do Linux utilizar NVIDIA Tesla [recursos GPU](container-instances-gpu.md) (pré-visualização).
+Para trabalhos de computação intensiva, como o Machine Learning, as instâncias de contêiner do Azure podem agendar contêineres do Linux para usar os recursos NVIDIA Tesla [GPU](container-instances-gpu.md) (versão prévia).
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
@@ -48,18 +48,18 @@ Para obter e persistir o estado com o Azure Container Instances, ofereceremos a 
 
 O Azure Container Instances permite agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
 
-Algumas funcionalidades estão atualmente restritas para contentores do Linux:
+Alguns recursos estão atualmente restritos a contêineres do Linux:
 
 * Vários contentores por grupo de contentores
-* Montagem de volume ([ficheiros do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
-* [Métricas de utilização de recursos](container-instances-monitor.md) com o Azure Monitor
-* [Implementação da rede virtual](container-instances-vnet.md) (pré-visualização)
-* [Recursos GPU](container-instances-gpu.md) (pré-visualização)
+* Montagem de volume ([arquivos do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
+* [Métricas de uso de recursos](container-instances-monitor.md) com Azure monitor
+* [Implantação de rede virtual](container-instances-vnet.md) apresentação
+* [Recursos de GPU](container-instances-gpu.md) apresentação
 
-Para implementações de contentor do Windows, utilizar imagens com base em comum [imagens de base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Para implantações de contêiner do Windows, use imagens baseadas em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows.
 
 > [!NOTE]
-> Utilização de imagens baseadas no Windows Server 2019 no Azure Container Instances está em pré-visualização.
+> O uso de imagens baseadas no Windows Server 2019 em instâncias de contêiner do Azure está em versão prévia.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 
@@ -70,7 +70,7 @@ O Azure Container Instances suporta o agendamento de [grupos de vários contento
 Atualmente em pré-visualização, esta funcionalidade do Azure Container Instances permite [implementar instâncias de contentor numa rede virtual do Azure](container-instances-vnet.md). Ao implementar instâncias de contentor numa sub-rede da sua rede virtual, estes podem comunicar em segurança com outros recursos na rede virtual, incluindo os que estão no local (através da [gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou de [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Algumas funcionalidades do Azure Container Instances estão em pré-visualização e algumas [limitações aplicam-se](container-instances-vnet.md#preview-limitations). As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos destas funcionalidades podem ser alterados antes da disponibilidade geral (GA).
+> Determinados recursos das instâncias de contêiner do Azure estão em versão prévia e algumas [limitações se aplicam](container-instances-vnet.md#preview-limitations). As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspectos desses recursos podem ser alterados antes da disponibilidade geral (GA).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,29 +1,29 @@
 ---
-title: Política de ligação do Azure Cosmos DB acionador
-description: Saiba como configurar a política de ligação utilizada pelo acionador do Azure Cosmos DB
+title: Gatilho de Azure Functions para a política de conexão Cosmos DB
+description: Saiba como configurar a política de conexão usada pelo gatilho Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/05/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 584d59884b70d2ee8243216e6f907fc9ec2d8ad4
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 359b6a905e64046aad62b70ae53b993c86884ad2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66755333"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335638"
 ---
-# <a name="how-to-configure-the-connection-policy-used-by-azure-cosmos-db-trigger"></a>Como configurar a política de ligação utilizada pelo acionador do Azure Cosmos DB
+# <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Como configurar a política de conexão usada pelo gatilho Azure Functions para Cosmos DB
 
-Este artigo descreve como configurar a política de ligação ao utilizar o acionador do Azure Cosmos DB para ligar à sua conta do Cosmos do Azure.
+Este artigo descreve como você pode configurar a política de conexão ao usar o gatilho de Azure Functions para Cosmos DB para se conectar à sua conta do Azure Cosmos.
 
-## <a name="why-is-the-connection-policy-important"></a>Por que a diretiva de conexão é importante?
+## <a name="why-is-the-connection-policy-important"></a>Por que a política de conexão é importante?
 
-Existem dois modos de ligação - modo direto e o modo de Gateway. Para saber mais sobre esses modos de ligação, veja a [sugestões de desempenho](./performance-tips.md#networking) artigo. Por predefinição, **Gateway** é utilizado para estabelecer a todas as ligações no acionador do Azure Cosmos DB. No entanto, pode não ser a melhor opção para cenários orientados ao desempenho.
+Há dois modos de conexão: modo direto e modo de gateway. Para saber mais sobre esses modos de conexão, consulte o artigo [dicas de desempenho](./performance-tips.md#networking) . Por padrão, o **Gateway** é usado para estabelecer todas as conexões no gatilho Azure Functions para Cosmos DB. No entanto, pode não ser a melhor opção para cenários controlados por desempenho.
 
-## <a name="changing-the-connection-mode-and-protocol"></a>Alterar o modo de ligação e protocolo
+## <a name="changing-the-connection-mode-and-protocol"></a>Alterando o modo de conexão e o protocolo
 
-Existem duas definições de configuração da chave disponíveis para configurar a política de ligação de cliente – a **modo de ligação** e o **protocolo da ligação**. Pode alterar o modo de ligação predefinido e o protocolo utilizado, o acionador do Azure Cosmos DB e todos os [do Azure Cosmos DB enlaces](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). Para alterar as definições predefinidas, tem de localizar o `host.json` do ficheiro no seu projeto de funções do Azure ou a aplicação de funções do Azure e adicione as seguintes [extra definição](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
+Há duas definições de configuração principais disponíveis para configurar a política de conexão do cliente – o **modo de conexão** e o **protocolo de conexão**. Você pode alterar o modo de conexão padrão e o protocolo usado pelo gatilho de Azure Functions para Cosmos DB e todas as [associações de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#output)). Para alterar as configurações padrão, você precisa localizar o `host.json` arquivo em seu projeto de Azure Functions ou Azure Functions aplicativo e adicionar a seguinte [configuração extra](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings):
 
 ```js
 {
@@ -34,9 +34,9 @@ Existem duas definições de configuração da chave disponíveis para configura
 }
 ```
 
-Em que `connectionMode` tem de ter o modo de conexão desejadas (direto ou Gateway) e `protocol` o protocolo de conexão desejadas (Tcp ou Https). 
+Onde `connectionMode` o deve ter o modo de conexão desejado (direto ou gateway `protocol` ) e o protocolo de conexão desejado (TCP ou HTTPS). 
 
-Se o seu projeto de funções do Azure está a trabalhar com o tempo de execução do V1 de funções do Azure, a configuração tem uma diferença de nome de pequenas, deve usar `documentDB` em vez de `cosmosDB`:
+Se seu projeto de Azure Functions estiver trabalhando com o tempo de execução do Azure Functions v1, a configuração terá uma pequena diferença `documentDB` de nome `cosmosDB`, que deverá ser usada em vez de:
 
 ```js
 {
@@ -48,10 +48,10 @@ Se o seu projeto de funções do Azure está a trabalhar com o tempo de execuç�
 ```
 
 > [!NOTE]
-> Ao trabalhar com o plano de alojamento plano de consumo de funções do Azure, cada instância tem um limite na quantidade de conexões de soquete que possa manter. Ao trabalhar com Direct / modo TCP, por design mais ligações são criadas e pode atingir os [limite de plano de consumo](../azure-functions/manage-connections.md#connection-limit), caso em que pode utilizar o modo de Gateway ou executar as suas funções de Azure [o modo de serviço de aplicações](../azure-functions/functions-scale.md#app-service-plan).
+> Ao trabalhar com o plano de Hospedagem de plano de consumo Azure Functions, cada instância tem um limite na quantidade de conexões de soquete que ele pode manter. Ao trabalhar com o modo direto/TCP, o design de mais conexões é criado e pode atingir o [limite do plano de consumo](../azure-functions/manage-connections.md#connection-limit). nesse caso, você pode usar o modo de gateway ou executar o Azure Functions no modo de serviço de [aplicativo](../azure-functions/functions-scale.md#app-service-plan).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Limites de ligação nas funções do Azure](../azure-functions/manage-connections.md#connection-limit)
-* [Sugestões de desempenho do Azure Cosmos DB](./performance-tips.md)
+* [Limites de conexão no Azure Functions](../azure-functions/manage-connections.md#connection-limit)
+* [Azure Cosmos DB dicas de desempenho](./performance-tips.md)
 * [Exemplos de código](https://github.com/ealsur/serverless-recipes/tree/master/connectionmode)

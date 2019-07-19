@@ -1,10 +1,10 @@
 ---
-title: Configurar o tempo limite de inatividade de TCP de Balanceador de carga no Azure
+title: Configurar Load Balancer tempo limite de ociosidade de TCP no Azure
 titlesuffix: Azure Load Balancer
-description: Configurar o tempo limite de inatividade de TCP de Balanceador de carga
+description: Configurar Load Balancer tempo limite de ociosidade de TCP
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,49 +12,49 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0c57eec4d739da13d98099a6b2f01fbf0ad0051c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734610"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274174"
 ---
-# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configurar as definições de tempo limite de inatividade de TCP para o Balanceador de carga do Azure
+# <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Definir configurações de tempo limite de ociosidade de TCP para Azure Load Balancer
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Na configuração predefinida, o Balanceador de carga do Azure tem uma definição de tempo limite de inatividade de 4 minutos. Se um período de inatividade é maior do que o valor de tempo limite, não há nenhuma garantia de que a sessão TCP ou HTTP é mantida entre o cliente e o seu serviço cloud.
+Em sua configuração padrão, Azure Load Balancer tem uma configuração de tempo limite de ociosidade de 4 minutos. Se um período de inatividade for maior do que o valor de tempo limite, não haverá garantia de que a sessão TCP ou HTTP seja mantida entre o cliente e o serviço de nuvem.
 
-Quando a conexão é fechada, a aplicação cliente pode receber a seguinte mensagem de erro: "A ligação subjacente foi fechada: Uma ligação que foi poderá demorar a ser mantido ativo foi fechada pelo servidor."
+Quando a conexão é fechada, o aplicativo cliente pode receber a seguinte mensagem de erro: "A conexão subjacente foi fechada: Uma conexão que deveria ser mantida ativa foi fechada pelo servidor. "
 
-Uma prática comum é usar uma ligação keep-alive de TCP. Esta prática mantém a ligação ativa durante um período mais longo. Para obter mais informações, consulte estes [exemplos de .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com a ligação keep-alive ativada, pacotes são enviados durante os períodos de inatividade na ligação. Estes pacotes de keep-alive Certifique-se de que nunca é atingido o valor de tempo limite de inatividade e a ligação é mantida por um longo período.
+Uma prática comum é usar um TCP Keep-Alive. Essa prática mantém a conexão ativa por um período mais longo. Para obter mais informações, consulte estes [exemplos do .net](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). Com keep-alive habilitado, os pacotes são enviados durante períodos de inatividade na conexão. Esses pacotes Keep-Alive garantem que o valor de tempo limite de ociosidade nunca seja atingido e a conexão seja mantida por um longo período.
 
-Esta definição funciona para apenas ligações de entrada. Para evitar perder a ligação, tem de configurar a ligação keep-alive de TCP com um intervalo menor do que a definição de tempo limite de inatividade ou aumentar o valor de tempo limite de inatividade. Para suportar tais cenários, adicionámos suporte para um tempo de limite de inatividade configurável. Agora pode defini-lo para uma duração de 4 a 30 minutos.
+Essa configuração funciona apenas para conexões de entrada. Para evitar a perda da conexão, você deve configurar o TCP Keep-Alive com um intervalo menor que a configuração de tempo limite de ociosidade ou aumentar o valor de tempo limite de ociosidade. Para dar suporte a esses cenários, adicionamos suporte para um tempo limite de ociosidade configurável. Agora você pode defini-lo por uma duração de 4 a 30 minutos.
 
-TCP keep-alive funciona bem para cenários em que a vida útil da bateria não é uma restrição. Não é recomendado para aplicativos móveis. Utilizar uma ligação keep-alive de um aplicativo móvel de TCP pode drenar a bateria do dispositivo mais rápido.
+O TCP Keep-Alive funciona bem para cenários em que a vida útil da bateria não é uma restrição. Não é recomendável para aplicativos móveis. Usar um TCP Keep-Alive em um aplicativo móvel pode drenar a bateria do dispositivo mais rapidamente.
 
-![Tempo limite TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
+![Tempo limite de TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-As secções seguintes descrevem como alterar as definições de tempo limite de inatividade em máquinas virtuais e serviços em nuvem.
+As seções a seguir descrevem como alterar as configurações de tempo limite de ociosidade em máquinas virtuais e serviços de nuvem.
 
-## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurar o tempo limite TCP para o seu IP público de nível de instância para 15 minutos
+## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurar o tempo limite de TCP para o IP público em nível de instância para 15 minutos
 
 ```powershell
 Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 ```
 
-`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite predefinido é de 4 minutos. O intervalo de tempo limite aceitável é de 4 a 30 minutos.
+`IdleTimeoutInMinutes` é opcional. Se não estiver definido, o tempo limite padrão será de 4 minutos. O intervalo de tempo limite aceitável é de 4 a 30 minutos.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Definir o tempo limite de inatividade durante a criação de um ponto final do Azure numa máquina virtual
+## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Definir o tempo limite de ociosidade ao criar um ponto de extremidade do Azure em uma máquina virtual
 
-Para alterar a definição de tempo limite para um ponto de extremidade, utilize o seguinte:
+Para alterar a configuração de tempo limite de um ponto de extremidade, use o seguinte:
 
 ```powershell
 Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
 ```
 
-Para obter a configuração de tempo limite de inatividade, utilize o seguinte comando:
+Para recuperar sua configuração de tempo limite de ociosidade, use o seguinte comando:
 
     PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
@@ -74,19 +74,19 @@ Para obter a configuração de tempo limite de inatividade, utilize o seguinte c
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Definir o tempo limite TCP num conjunto de ponto final com balanceamento de carga
+## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Definir o tempo limite de TCP em um conjunto de pontos de extremidade com balanceamento de carga
 
-Se os pontos finais fazem parte de um conjunto de ponto final com balanceamento de carga, o tempo limite TCP deve ser definido no conjunto de ponto final com balanceamento de carga. Por exemplo:
+Se os pontos de extremidade fizerem parte de um conjunto de pontos de extremidades com balanceamento de carga, o tempo limite de TCP deverá ser definido no conjunto de pontos de extremidade com balanceamento de carga. Por exemplo:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 ```
 
-## <a name="change-timeout-settings-for-cloud-services"></a>Alterar as definições de tempo limite para os serviços cloud
+## <a name="change-timeout-settings-for-cloud-services"></a>Alterar configurações de tempo limite para serviços de nuvem
 
-Pode utilizar o Azure SDK para atualizar o seu serviço cloud. Verifique as definições de ponto de extremidade para serviços em nuvem no ficheiro. csdef. A atualizar o tempo limite TCP para a implementação de um serviço em nuvem requer uma atualização de implementação. Uma exceção é se o tempo limite TCP é especificado apenas para um IP público. Definições de IP públicas estão no ficheiro. cscfg e atualizá-las por meio de atualização da implementação e atualização.
+Você pode usar o SDK do Azure para atualizar seu serviço de nuvem. Você faz configurações de ponto de extremidade para serviços de nuvem no arquivo. csdef. A atualização do tempo limite de TCP para a implantação de um serviço de nuvem requer uma atualização de implantação. Uma exceção é se o tempo limite de TCP é especificado somente para um IP público. As configurações de IP público estão no arquivo. cscfg e você pode atualizá-las por meio da atualização e atualização de implantação.
 
-As alterações. csdef para definições de ponto final são:
+As alterações de. csdef para configurações de ponto de extremidade são:
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -96,7 +96,7 @@ As alterações. csdef para definições de ponto final são:
 </WorkerRole>
 ```
 
-As alterações. cscfg para a definição de tempo limite nos IPs públicos são:
+As alterações de. cscfg para a configuração de tempo limite em IPs públicos são:
 
 ```xml
 <NetworkConfiguration>
@@ -111,9 +111,9 @@ As alterações. cscfg para a definição de tempo limite nos IPs públicos são
 </NetworkConfiguration>
 ```
 
-## <a name="rest-api-example"></a>Exemplo de REST API
+## <a name="rest-api-example"></a>Exemplo de API REST
 
-Pode configurar o tempo de limite de inatividade de TCP ao utilizar a API de gestão do serviço. Certifique-se de que o `x-ms-version` cabeçalho está definido para a versão `2014-06-01` ou posterior. Atualize a configuração das especificado com balanceamento de carga pontos finais de entrada em todas as máquinas virtuais numa implementação.
+Você pode configurar o tempo limite de ociosidade de TCP usando a API de gerenciamento de serviços. Verifique se o `x-ms-version` cabeçalho está definido como versão `2014-06-01` ou posterior. Atualize a configuração dos pontos de extremidade de entrada com balanceamento de carga especificados em todas as máquinas virtuais em uma implantação.
 
 ### <a name="request"></a>Pedir
 
@@ -154,8 +154,8 @@ Pode configurar o tempo de limite de inatividade de TCP ao utilizar a API de ges
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição geral do Balanceador de carga interno](load-balancer-internal-overview.md)
+[Visão geral do balanceador de carga interno](load-balancer-internal-overview.md)
 
-[Começar a configurar um balanceador de carga com acesso à Internet](load-balancer-get-started-internet-arm-ps.md)
+[Introdução à configuração de um balanceador de carga voltado para a Internet](load-balancer-get-started-internet-arm-ps.md)
 
 [Configurar um modo de distribuição de balanceador de carga](load-balancer-distribution-mode.md)

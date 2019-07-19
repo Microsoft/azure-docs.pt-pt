@@ -1,52 +1,53 @@
 ---
-title: Exemplos de modelos do Azure Resource Manager - Azure Container Instances
-description: Exemplos de modelos do Azure Resource Manager do Azure Container Instances
+title: Exemplos de modelo de Azure Resource Manager-instâncias de contêiner do Azure
+description: Exemplos de modelo de Azure Resource Manager para instâncias de contêiner do Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537960"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325700"
 ---
-# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager do Azure Container Instances
+# <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos de Azure Resource Manager para instâncias de contêiner do Azure
 
-Os modelos de exemplo seguintes implementam instâncias de contentor em diversas configurações.
+Os modelos de exemplo a seguir implantam instâncias de contêiner em várias configurações.
 
-Para opções de implementação, consulte a [implementação](#deployment) secção. Se quiser criar seus próprios modelos, o Azure Container Instances [referência de modelo do Resource Manager] [ ref] fornece detalhes sobre o formato de modelo e propriedades disponíveis.
+Para obter opções de implantação, consulte a seção [implantação](#deployment) . Se você quiser criar seus próprios modelos, o modelo de referência do modelo do Azure instâncias de contêiner do [Resource Manager][ref] detalhes e as propriedades disponíveis.
 
 ## <a name="sample-templates"></a>Modelos de exemplo
 
 | | |
 |-|-|
 | **Aplicações** ||
-| [WordPress][app-wp] | Cria um Web site WordPress e a respetiva base de dados MySQL num grupo de contentor. O conteúdo de site do WordPress e a base de dados MySQL persistem para um serviço ficheiros do Azure partilhar. Também cria um gateway de aplicação para expor o acesso à rede pública para o WordPress. |
-| [Barra de navegação do MS SQL Server e do IIS][app-nav] | Implementa um único contentor do Windows com um Dynamics NAV com todas as funcionalidades autossuficiente / ambiente do Dynamics 365 Business Central. |
+| [WordPress][app-wp] | Cria um site do WordPress e seu banco de dados MySQL em um grupo de contêineres. O conteúdo do site do WordPress e o banco de dados MySQL são persistidos em um compartilhamento de arquivos do Azure. Também cria um gateway de aplicativo para expor o acesso à rede pública ao WordPress. |
+| [MS NAV com SQL Server e IIS][app-nav] | Implanta um único contêiner do Windows com um ambiente autocontido do Dynamics NAV/Dynamics 365 Business central totalmente incluído. |
 | **Volumes** ||
-| [emptyDir][vol-emptydir] | Implementa dois contentores de Linux que compartilham um volume de emptyDir. |
-| [gitRepo][vol-gitrepo] | Implementa um contentor de Linux que clona um repositório do GitHub e monta-lo como um volume. |
-| [secret][vol-secret] | Implementa o contentor do Linux com um certificado PFX montado como um volume secreto. |
+| [emptyDir][vol-emptydir] | Implanta dois contêineres do Linux que compartilham um volume emptyDir. |
+| [gitRepo][vol-gitrepo] | Implanta um contêiner do Linux que clona um repositório do GitHub e o monta como um volume. |
+| [secret][vol-secret] | Implanta um contêiner do Linux com um certificado PFX montado como um volume secreto. |
 | **Redes** ||
-| [Contentor exposta por UDP][net-udp] | Implementa um contentor do Windows ou Linux que expõe uma porta UDP. |
-| [Contentor do Linux com IP público][net-publicip] | Implementa um único contentor de Linux podem ser acedido através de um IP público. |
-| [Implementar um grupo de contentor com uma rede virtual (pré-visualização)][net-vnet] | Implementa uma nova rede virtual, a sub-rede, o perfil de rede e o grupo de contentores. |
+| [Contêiner de UDP exposto][net-udp] | Implanta um contêiner do Windows ou Linux que expõe uma porta UDP. |
+| [Contêiner do Linux com IP público][net-publicip] | Implanta um único contêiner do Linux acessível por meio de um IP público. |
+| [Implantar um grupo de contêineres com uma rede virtual (versão prévia)][net-vnet] | Implanta uma nova rede virtual, sub-rede, perfil de rede e grupo de contêineres. |
 | **Recursos do Azure** ||
-| [Criar conta de armazenamento do Azure e a partilha de ficheiros][az-files] | Utiliza a CLI do Azure numa instância de contentor para criar uma conta de armazenamento e uma partilha de ficheiros do Azure.
+| [Criar conta de armazenamento do Azure e compartilhamento de arquivos][az-files] | Usa o CLI do Azure em uma instância de contêiner para criar uma conta de armazenamento e um compartilhamento de arquivos do Azure.
 
 ## <a name="deployment"></a>Implementação
 
-Tem várias opções para implementar recursos com modelos do Resource Manager:
+Você tem várias opções para implantar recursos com modelos do Resource Manager:
 
 [CLI do Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 
-[Portal do Azure][deploy-portal]
+[Azure portal][deploy-portal]
 
 [REST API][deploy-rest]
 

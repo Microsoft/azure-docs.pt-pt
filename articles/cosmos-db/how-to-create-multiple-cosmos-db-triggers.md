@@ -1,50 +1,50 @@
 ---
-title: Como criar múltiplos independentes do Azure Cosmos DB Acionadores
-description: Saiba como configurar múltiplos independentes do Azure Cosmos DB Acionadores para criar arquiteturas condicionadas por eventos de funções do Azure.
+title: Como criar vários gatilhos de Azure Functions independentes para Cosmos DB
+description: Saiba como configurar vários gatilhos de Azure Functions independentes para Cosmos DB para criar arquiteturas controladas por eventos.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241954"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335689"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>Criar múltiplos Acionadores de BD do Cosmos do Azure
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos Azure Functions para Cosmos DB
 
-Este artigo descreve como pode configurar múltiplos Acionadores de BD do Cosmos para trabalhar em paralelo e reagir de forma independente a alterações.
+Este artigo descreve como você pode configurar vários disparadores de Azure Functions para que Cosmos DB funcionem em paralelo e reagir de forma independente às alterações.
 
-![Funções sem servidor com base em eventos trabalhar com o acionador do Azure Cosmos DB e um contentor de concessões de partilha](./media/change-feed-functions/multi-trigger.png)
+![Funções baseadas em evento sem servidor trabalhando com o gatilho de Azure Functions para Cosmos DB e compartilhamento de um contêiner de concessões](./media/change-feed-functions/multi-trigger.png)
 
-## <a name="event-based-architecture-requirements"></a>Requisitos de arquitetura baseada em eventos
+## <a name="event-based-architecture-requirements"></a>Requisitos de arquitetura baseada em evento
 
-Durante a criação de arquiteturas sem servidor com [as funções do Azure](../azure-functions/functions-overview.md), tem [recomendado](../azure-functions/functions-best-practices.md#avoid-long-running-functions) para criar conjuntos de função pequeno que funcionam em conjunto em vez de funções de execução demorada grandes.
+Ao criar arquiteturas sem servidor com o [Azure Functions](../azure-functions/functions-overview.md), é [recomendável](../azure-functions/functions-best-practices.md#avoid-long-running-functions) criar pequenos conjuntos de funções que funcionam juntos em vez de grandes funções de longa execução.
 
-À medida que cria fluxos sem servidor com base em eventos com o [acionador do Azure Cosmos DB](./change-feed-functions.md), que irá executar para o cenário em que deseja fazer várias coisas, sempre que houver um novo evento num determinado [contentor do Cosmos do Azure](./databases-containers-items.md#azure-cosmos-containers). Se pretender acionar, as ações são independentes entre si, a solução ideal seria **criar um acionador do DB Cosmos por ação** que pretende fazer, tudo escutando as alterações no mesmo contentor do Cosmos do Azure.
+Ao criar fluxos sem servidor com base em eventos usando o [gatilho Azure Functions para Cosmos DB](./change-feed-functions.md), você encontrará o cenário em que deseja fazer várias coisas sempre que houver um novo evento em um determinado [contêiner Cosmos do Azure](./databases-containers-items.md#azure-cosmos-containers). Se as ações que você deseja disparar, são independentes umas das outras, a solução ideal seria **criar um Azure Functions gatilhos para Cosmos dB por ação** que você deseja fazer, todos ouvindo alterações no mesmo contêiner de Cosmos do Azure.
 
-## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando o contentores múltiplos Acionadores
+## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando contêineres para vários gatilhos
 
-Tendo em conta a *requisitos* do acionador Cosmos DB, precisamos de um segundo contentor para armazenar o estado, também chamado, o *contentor de concessões*. Isso significa que terá um contentor de concessões separado para cada função do Azure?
+Devido aos *requisitos* do gatilho de Azure Functions para Cosmos DB, precisamos de um segundo contêiner para armazenar o estado, também chamado de *contêiner*de concessões. Isso significa que você precisa de um contêiner de concessões separado para cada função do Azure?
 
-Aqui, tem duas opções:
+Aqui, você tem duas opções:
 
-* Crie **um obtiver a concessão de contentor por função**: Essa abordagem pode se traduzir em custos adicionais, a menos que esteja a utilizar um [base de dados da taxa de transferência partilhada](./set-throughput.md#set-throughput-on-a-database). Lembre-se que o débito mínimo ao nível do contentor é 400 [unidades de pedido](./request-units.md), e no caso do contentor de concessões, ele é apenas a ser utilizado para o ponto de verificação, o progresso e manter o estado.
-* Ter **um contentor da concessão e partilhá-lo** para as suas funções: Essa segunda opção faz melhor uso das unidades de pedido aprovisionadas no contentor, já que permite que várias funções do Azure partilhar e utilizar o mesmo débito aprovisionado.
+* Crie **um contêiner de concessões por função**: Essa abordagem pode ser traduzida em custos adicionais, a menos que você esteja usando um [banco de dados de produtividade compartilhado](./set-throughput.md#set-throughput-on-a-database). Lembre-se de que a taxa de transferência mínima no nível do contêiner é de 400 [unidades de solicitação](./request-units.md)e, no caso do contêiner de concessões, ela está sendo usada apenas para verificar o progresso e manter o estado.
+* Ter **um contêiner de concessão e compartilhá-lo** para todas as suas funções: Essa segunda opção faz uso melhor das unidades de solicitação provisionadas no contêiner, pois permite que vários Azure Functions compartilhem e usem a mesma taxa de transferência provisionada.
 
-O objetivo deste artigo é para orientá-lo para realizar a segunda opção.
+O objetivo deste artigo é orientá-lo a realizar a segunda opção.
 
-## <a name="configuring-a-shared-leases-container"></a>Configurando um contêiner de concessões partilhado
+## <a name="configuring-a-shared-leases-container"></a>Configurando um contêiner de concessões compartilhadas
 
-Para configurar o contentor de concessões partilhado, uma configuração adicional apenas precisa de fazer no seu acionadores é adicionar o `LeaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) se estiver a utilizar C# ou `leaseCollectionPrefix` [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example)se estiver a utilizar o JavaScript. O valor do atributo deve ser um descritor de lógico de que esse acionador específico.
+Para configurar o contêiner de concessões compartilhadas, a única configuração extra que você precisa fazer em seus gatilhos `LeaseCollectionPrefix` é adicionar o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) se C# você `leaseCollectionPrefix` estiver usando o [atributo](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) ou se estiver usando o JavaScript. O valor do atributo deve ser um descritor lógico do que esse gatilho específico.
 
-Por exemplo, se tiver três Acionadores: um que envia mensagens de correio eletrónico, um que faz uma agregação para criar uma vista materializada e outro que envia as alterações para o armazenamento de outro, para análise posterior, pode atribuir a `LeaseCollectionPrefix` de "mensagens de e-mail" ao primeiro, " materializada"para a segunda e"analytics"para o terceiro.
+Por exemplo, se você tiver três gatilhos: um que envia emails, um que faz uma agregação para criar uma exibição materializada e outro que envia as alterações para outro armazenamento, para análise posterior, você pode `LeaseCollectionPrefix` atribuir o de "emails" para o primeiro " materializado "para o segundo, e" Analytics "para o terceiro.
 
-O que importa é que todos os três Aciona **pode utilizar a mesma configuração de contentor de concessões** (nome de conta, base de dados e de contentor).
+A parte importante é que todos os três gatilhos **podem usar a mesma configuração de contêiner de concessões** (conta, banco de dados e nome do contêiner).
 
-Um exemplos de código muito simples com o `LeaseCollectionPrefix` atributo C#, teria o seguinte aspeto:
+Um exemplo de código muito simples usando `LeaseCollectionPrefix` o atributo C#no, ficaria assim:
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-E para JavaScript, pode aplicar a configuração do `function.json` arquivo, com o `leaseCollectionPrefix` atributo:
+E para JavaScript, você pode aplicar a configuração no `function.json` arquivo, com o `leaseCollectionPrefix` atributo:
 
 ```json
 {
@@ -104,10 +104,10 @@ E para JavaScript, pode aplicar a configuração do `function.json` arquivo, com
 ```
 
 > [!NOTE]
-> Monitorize sempre as unidades de pedido aprovisionadas no seu contentor de concessões partilhado. Cada acionador que partilhe o mesmo, irá aumentar o consumo médio de débito, pelo que poderá precisar aumentar o débito aprovisionado, à medida que aumenta o número de funções do Azure que está a utilizar.
+> Sempre monitore nas unidades de solicitação provisionadas no contêiner de concessões compartilhadas. Cada gatilho que o compartilha, aumentará o consumo médio da taxa de transferência, de modo que talvez seja necessário aumentar a taxa de transferência provisionada à medida que você aumentar o número de Azure Functions que o está usando.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte a configuração completa para o [acionador do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
-* Verifique o expandida [lista de exemplos](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) para todos os idiomas.
-* Visite as receitas sem servidor com o Azure Cosmos DB e as funções do Azure [repositório do GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) para obter mais amostras.
+* Consulte a configuração completa para o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* Verifique a lista estendida [de amostras](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) de todos os idiomas.
+* Visite as receitas sem servidor com Azure Cosmos DB e Azure Functions [repositório GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) para obter mais exemplos.

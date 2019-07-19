@@ -3,7 +3,7 @@ title: Simulação paralela em R com o Azure Batch
 description: Tutorial - instruções passo a passo para executar uma simulação financeira Monte Carlo no Azure Batch com o pacote doAzureParallel de R
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a3f760f31bcd27c5f3d3289aa799d6886df17e15
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779976"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321912"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação paralela em R com o Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: Executar uma simulação de R paralela com o lote do Azure 
 
 Execute as suas cargas de trabalho paralelas em R em escala com [doAzureParallel](https://www.github.com/Azure/doAzureParallel), um pacote de R leve que lhe permite utilizar o Azure Batch diretamente na sua sessão de R. O pacote doAzureParallel foi criado com base no popular pacote de R [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel obtém cada iteração do ciclo foreach e submete-a como tarefa do Azure Batch.
 
@@ -38,14 +38,14 @@ Este tutorial mostra-lhe como implementar um conjunto do Batch e executar um tra
 
 * Uma conta do Azure Batch e uma conta de Armazenamento do Azure. Para criar estas contas, veja os inícios rápidos do Batch no [portal do Azure](quick-create-portal.md) ou na [CLI do Azure](quick-create-cli.md). 
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>Instalar doAzureParallel
 
-Na consola do RStudio, instale o [pacote doAzureParallel do GitHub](https://www.github.com/Azure/doAzureParallel). Os comandos seguintes transferem e instalam o pacote e as respetivas dependências na sua sessão atual de R: 
+No console do RStudio, instale o [pacote GitHub do doAzureParallel](https://www.github.com/Azure/doAzureParallel). Os comandos seguintes transferem e instalam o pacote e as respetivas dependências na sua sessão atual de R: 
 
 ```R
 # Install the devtools package  

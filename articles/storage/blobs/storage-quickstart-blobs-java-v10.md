@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido do Azure: Criar um blob no armazenamento de objetos com V10 de SDK de armazenamento de Java | Documentos da Microsoft'
+title: 'Início rápido do Azure: Criar um blob no armazenamento de objeto usando o SDK de armazenamento do Java v10 | Microsoft Docs'
 description: Neste início rápido, vai criar um contentor no armazenamento de objetos (Blob do Azure), carregar um ficheiro, listar os objetos e transferir com o SDK de Armazenamento Java.
 services: storage
 author: mhopkins-msft
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f023f3fdbc82960f3994f8e5763310dc95ca1c2f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2aa004ffa98730341c8de105f16feea6e3931a86
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152804"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326688"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início rápido: Carregar, transferir e listar os blobs ao utilizar a V10 de SDK de armazenamento de Java
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início rápido: Carregar, baixar e listar BLOBs usando o Java Storage SDK v10
 
 Neste início rápido, vai aprender a utilizar o novo SDK de Armazenamento Java para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. O novo SDK Java utiliza o modelo de programação reativa com RxJava, que permite operações assíncronas. Saiba mais sobre as [extensões reativas RxJava para a VM de Java](https://github.com/ReactiveX/RxJava). 
 
@@ -24,9 +24,9 @@ Neste início rápido, vai aprender a utilizar o novo SDK de Armazenamento Java 
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+Verifique se você tem os seguintes pré-requisitos adicionais instalados:
 
-* [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos, ou qualquer ambiente de desenvolvimento integrado Java que preferir.
+* [Maven](https://maven.apache.org/download.cgi) para trabalhar na linha de comando ou em qualquer ambiente de desenvolvimento integrado Java que você preferir.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
@@ -50,14 +50,14 @@ Esta solução exige que armazene em segurança o nome e a chave da conta de arm
 
 ### <a name="linux-example"></a>Exemplo do Linux
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Exemplo do Windows
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +74,7 @@ Se quiser executar o exemplo mediante a utilização do Maven na linha de comand
 
 Este exemplo mostra o resultado se executar a aplicação no Windows.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample

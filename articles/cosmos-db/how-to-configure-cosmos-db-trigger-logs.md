@@ -1,31 +1,31 @@
 ---
-title: Registos de acionador do Azure Cosmos DB
-description: Saiba como expor os registos de Acionador do Azure Cosmos DB para as suas funções do Azure log pipeline
+title: Configurar e ler logs ao usar o gatilho Azure Functions para Cosmos DB
+description: Saiba como expor os logs para o pipeline de log de Azure Functions ao usar o gatilho Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: bf5216dc3b296c98176387c6e2cfff7c31daedab
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ad53762ad490c5e8feedb83007b8721fe4883806
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241030"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334525"
 ---
-# <a name="how-to-configure-and-read-the-azure-cosmos-db-trigger-logs"></a>Como configurar e ler os logs de Acionador do Azure Cosmos DB
+# <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Como configurar e ler os logs ao usar o gatilho Azure Functions para Cosmos DB
 
-Este artigo descreve como configurar o ambiente de funções do Azure para enviar os registos de Acionador do Azure Cosmos DB para seu configurado [solução de monitorização](../azure-functions/functions-monitoring.md).
+Este artigo descreve como você pode configurar seu ambiente de Azure Functions para enviar o gatilho de Azure Functions para logs de Cosmos DB para sua [solução de monitoramento](../azure-functions/functions-monitoring.md)configurada.
 
-## <a name="included-logs"></a>Registos incluídos
+## <a name="included-logs"></a>Logs incluídos
 
-O acionador do Azure Cosmos DB utiliza a [biblioteca de processador do Feed de alterações](./change-feed-processor.md) internamente, e a biblioteca gera um conjunto de registos de estado de funcionamento que podem ser utilizados para monitorizar operações internas para [resolução](./troubleshoot-changefeed-functions.md).
+O gatilho de Azure Functions para Cosmos DB usa a [biblioteca do processador do feed de alterações](./change-feed-processor.md) internamente, e a biblioteca gera um conjunto de logs de integridade que podem ser usados para monitorar operações internas para fins de solução de [problemas](./troubleshoot-changefeed-functions.md).
 
-Os registos de estado de funcionamento descrevem como o acionador do Azure Cosmos DB se comporta ao tentar operações durante a cenários de balanceamento de carga ou de inicialização.
+Os logs de integridade descrevem como o gatilho de Azure Functions para Cosmos DB se comporta ao tentar operações durante os cenários de balanceamento de carga ou inicialização.
 
-## <a name="enabling-logging"></a>Ativar o registo
+## <a name="enabling-logging"></a>Habilitando o log
 
-Para ativar o registo de Acionador do Azure Cosmos DB, localize a `host.json` arquivo em seu projeto de funções do Azure ou a aplicação de funções do Azure e [configurar o nível de registo necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Tem de ativar os rastreios para `Host.Triggers.CosmosDB` conforme mostrado no exemplo a seguir:
+Para habilitar o log ao usar o gatilho de Azure Functions para Cosmos DB `host.json` , localize o arquivo em seu projeto de Azure Functions ou aplicativo de Azure Functions e [Configure o nível de registro em log necessário](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Você precisa habilitar os rastreamentos para `Host.Triggers.CosmosDB` , conforme mostrado no exemplo a seguir:
 
 ```js
 {
@@ -39,11 +39,11 @@ Para ativar o registo de Acionador do Azure Cosmos DB, localize a `host.json` ar
 }
 ```
 
-Depois da função do Azure é implementada com a configuração atualizada, irá ver os registos de Acionador do Azure Cosmos DB como parte da sua rastreios. Pode ver os registos no seu fornecedor de registo configurada sob o *categoria* `Host.Triggers.CosmosDB`.
+Depois que a função do Azure for implantada com a configuração atualizada, você verá o gatilho Azure Functions para Cosmos DB logs como parte de seus rastreamentos. Você pode exibir os logs em seu provedor de log configurado na *categoria* `Host.Triggers.CosmosDB`.
 
-## <a name="query-the-logs"></a>Os registos de consulta
+## <a name="query-the-logs"></a>Consultar os logs
 
-Execute a seguinte consulta para consulta os registos gerados pelo acionador do Azure Cosmos DB no [do Azure Application Insights Analytics](../azure-monitor/app/analytics.md):
+Execute a consulta a seguir para consultar os logs gerados pelo gatilho Azure Functions para Cosmos DB na [análise do aplicativo Azure](../azure-monitor/app/analytics.md)insights:
 
 ```sql
 traces
@@ -52,5 +52,5 @@ traces
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Ativar a monitorização](../azure-functions/functions-monitoring.md) nas suas aplicações de funções do Azure.
-* Saiba como [diagnosticar e resolver problemas comuns de](./troubleshoot-changefeed-functions.md) ao utilizar o acionador do Azure Cosmos DB nas funções do Azure.
+* [Habilite o monitoramento](../azure-functions/functions-monitoring.md) em seus aplicativos Azure functions.
+* Saiba como [diagnosticar e solucionar problemas comuns](./troubleshoot-changefeed-functions.md) ao usar o gatilho de Azure Functions para Cosmos DB.

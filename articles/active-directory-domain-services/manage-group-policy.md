@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Administrar política de grupo em domínios geridos | Documentos da Microsoft'
-description: Domínios de geridos de política de grupo de administrar no Azure Active Directory Domain Services
+title: 'Azure Active Directory Domain Services: Administrar Política de Grupo | Microsoft Docs'
+description: Administrar o Política de Grupo em Azure Active Directory Domain Services domínios gerenciados
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,118 +15,118 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: iainfou
-ms.openlocfilehash: 3776ec6fd60ad888102cbc4992572516386fede2
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: c7b32885fdb3cf4f3e584c916d6b234fff54bfc4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473103"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234033"
 ---
-# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrar política de grupo num domínio gerido do Azure AD Domain Services
-Os serviços de domínio do Active Directory do Azure inclui objetos de política de grupo (GPOs) incorporada para os contentores de "Utilizadores do aad DC" e "Computadores do aad DC". Pode personalizar estes GPOs incorporados para configurar a política de grupo no domínio gerido. Além disso, os membros do grupo "Administradores do AAD DC" podem criar suas próprias unidades organizacionais personalizados no domínio gerido. Também pode criar GPOs personalizados e vinculá-las para essas UOs personalizadas. Os utilizadores que pertencem ao grupo "Administradores do AAD DC" são concedidos privilégios de administração de política de grupo no domínio gerido.
+# <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
+Azure Active Directory Domain Services inclui objetos de Política de Grupo (GPOs) internos para os contêineres ' AADDC users ' e ' AADDC Computers '. Você pode personalizar esses GPOs internos para configurar Política de Grupo no domínio gerenciado. Além disso, os membros do grupo "administradores do controlador de domínio do AAD" podem criar suas próprias UOs personalizadas no domínio gerenciado. Eles também podem criar GPOs personalizados e vinculá-los a essas UOs personalizadas. Os usuários que pertencem ao grupo "administradores do AAD DC" recebem privilégios de administração Política de Grupo no domínio gerenciado.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-Para executar as tarefas apresentadas neste artigo, terá de:
+Para executar as tarefas listadas neste artigo, você precisará de:
 
-1. Válido **subscrição do Azure**.
-2. Uma **diretório do Azure AD** -seja sincronizada com um diretório no local ou um diretório apenas na cloud.
-3. **O Azure AD Domain Services** tem de estar ativada para o diretório do Azure AD. Se ainda não o fez, siga todas as tarefas descritas a [guia de introdução](create-instance.md).
-4. R **associados a um domínio máquina de virtual** partir do qual administra o domínio gerido do Azure AD Domain Services. Se não tiver um computador virtual, siga todas as tarefas descritas no artigo intitulado [associar uma máquina de virtual do Windows a um domínio gerido](active-directory-ds-admin-guide-join-windows-vm.md).
-5. Terá das credenciais de uma **conta de utilizador que pertencem ao grupo "Administradores do AAD DC"** no seu diretório, para administrar a política de grupo para o seu domínio gerido.
+1. Uma **assinatura válida do Azure**.
+2. Um **diretório do Azure ad** -seja sincronizado com um diretório local ou um diretório somente na nuvem.
+3. **Azure AD Domain Services** deve ser habilitado para o diretório do Azure AD. Se você ainda não fez isso, siga todas as tarefas descritas no [Guia de introdução](create-instance.md).
+4. Uma **máquina virtual ingressada no domínio** da qual você administra o Azure AD Domain Services domínio gerenciado. Se você não tiver essa máquina virtual, siga todas as tarefas descritas no artigo [ingressar uma máquina virtual do Windows em um domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md).
+5. Você precisa das credenciais de uma **conta de usuário que pertença ao grupo ' Administradores do controlador de domínio do AAD '** em seu diretório, para administrar política de grupo para seu domínio gerenciado.
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>Tarefa 1 - aprovisionar uma máquina de virtual associado a um domínio para administrar remotamente a diretiva de grupo para o domínio gerido
-Domínios de geridos de serviços de domínio do AD do Azure podem ser geridos remotamente utilizando o Active Directory administrativas ferramentas familiares como o Active Directory Centro de administração (ADAC) ou o AD PowerShell. Da mesma forma, a política de grupo para o domínio gerido pode ser administrada remotamente com as ferramentas de administração da diretiva de grupo.
+## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-group-policy-for-the-managed-domain"></a>Tarefa 1-provisionar uma máquina virtual ingressada no domínio para administrar remotamente Política de Grupo para o domínio gerenciado
+Azure AD Domain Services domínios gerenciados podem ser gerenciados remotamente usando ferramentas administrativas Active Directory familiares, como o Centro Administrativo do Active Directory (ADAC) ou o AD PowerShell. Da mesma forma, Política de Grupo para o domínio gerenciado pode ser administrado remotamente usando as ferramentas de administração de Política de Grupo.
 
-Os administradores no seu diretório do Azure AD não tem privilégios para ligar aos controladores de domínio no domínio gerido através do ambiente de trabalho remoto. Membros do grupo "Administradores do AAD DC" podem administrar política de grupo para domínios geridos remotamente. Eles podem usar ferramentas de diretiva de grupo num computador Windows Server/cliente associado ao domínio gerido. Ferramentas da política de grupo podem ser instaladas como parte da funcionalidade opcional do gerenciamento de diretiva de grupo, no Windows Server e máquinas de cliente associadas ao domínio gerido.
+Os administradores do seu diretório do Azure AD não têm privilégios para se conectar aos controladores de domínio no domínio gerenciado por meio do Área de Trabalho Remota. Os membros do grupo ' Administradores de controlador de domínio do AAD ' podem administrar Política de Grupo remotamente para domínios gerenciados. Eles podem usar as ferramentas de Política de Grupo em um computador cliente/servidor do Windows ingressado no domínio gerenciado. Política de Grupo ferramentas podem ser instaladas como parte do recurso opcional de gerenciamento de Política de Grupo no Windows Server e computadores cliente ingressados no domínio gerenciado.
 
-A primeira tarefa é aprovisionar uma máquina virtual do Windows Server que está associada ao domínio gerido. Para obter instruções, consulte o artigo intitulado [associar uma máquina de virtual do Windows Server a um domínio gerido do Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md).
+A primeira tarefa é provisionar uma máquina virtual do Windows Server que tenha ingressado no domínio gerenciado. Para obter instruções, consulte o artigo intitulada [unir uma máquina virtual do Windows Server a um Azure AD Domain Services domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md).
 
-## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Tarefa 2 - ferramentas de diretiva de grupo de instalação na máquina virtual
-Execute os seguintes passos para instalar as ferramentas de administração da diretiva de grupo na máquina de virtual associado a um domínio.
+## <a name="task-2---install-group-policy-tools-on-the-virtual-machine"></a>Tarefa 2-instalar as ferramentas de Política de Grupo na máquina virtual
+Execute as etapas a seguir para instalar as ferramentas de administração de Política de Grupo na máquina virtual ingressada no domínio.
 
-1. Navegue para o portal do Azure. Clique em **todos os recursos** no painel à esquerda. Localize e clique na máquina virtual que criou na tarefa 1.
-2. Clique nas **Connect** botão na guia visão geral. Um ficheiro do protocolo de ambiente de trabalho remoto (. rdp) é criado e transferido.
+1. Navegue até a portal do Azure. Clique em **todos os recursos** no painel esquerdo. Localize e clique na máquina virtual que você criou na tarefa 1.
+2. Clique no botão **conectar** na guia Visão geral. Um arquivo protocolo RDP (. RDP) é criado e baixado.
 
-    ![Ligar à máquina de virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for solicitado, clique em **Ligar**. No prompt de início de sessão, utilize as credenciais de um usuário pertencente ao grupo "Administradores do AAD DC". Por exemplo, podemos usar 'bob@domainservicespreview.onmicrosoft.com' no nosso caso. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em Sim ou continuar a prosseguir com a ligação.
-4. A partir do ecrã Iniciar, abra **Gestor de servidor**. Clique em **para adicionar funções e funcionalidades** no painel central da janela do Gestor de servidores.
+    ![Conectar-se à máquina virtual do Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
+3. Para ligar à sua VM, abra o ficheiro RDP transferido. Se lhe for solicitado, clique em **Ligar**. No prompt de logon, use as credenciais de um usuário que pertence ao grupo "administradores do controlador de domínio do AAD". Por exemplo, usamos 'bob@domainservicespreview.onmicrosoft.com' em nosso caso. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em Sim ou continuar para prosseguir com a conexão.
+4. Na tela iniciar, abra **Gerenciador do servidor**. Clique em **adicionar funções e recursos** no painel central da janela de Gerenciador do servidor.
 
-    ![Inicie o Gestor de servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
-5. Sobre o **antes de começar** página do **Assistente Adicionar funções e funcionalidades**, clique em **seguinte**.
+    ![Iniciar Gerenciador do Servidor na máquina virtual](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
+5. Na página **antes de começar** do **Assistente para adicionar funções e recursos**, clique em **Avançar**.
 
-    ![Antes de iniciar a página](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
-6. Sobre o **tipo de instalação** página, deixe a **instalação baseada em funções ou baseada em recursos** opção marcada e clique em **seguinte**.
+    ![Antes de começar a página](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
+6. Na página **tipo de instalação** , deixe a opção de instalação baseada em **função ou recurso** marcada e clique em **Avançar**.
 
     ![Página tipo de instalação](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
-7. Sobre o **seleção de servidor** página, selecione a máquina virtual atual no agrupamento de servidores e clique em **próxima**.
+7. Na página **seleção de servidor** , selecione a máquina virtual atual no pool de servidores e clique em **Avançar**.
 
     ![Página de seleção de servidor](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Sobre o **funções de servidor** página, clique em **próxima**. Vamos ignorar esta página, uma vez que estamos não estiver a instalar quaisquer funções no servidor.
-9. Sobre o **funcionalidades** página, selecione o **gerenciamento de diretiva de grupo** funcionalidade.
+8. Na página **funções de servidor** , clique em **Avançar**. Ignoramos esta página, pois não estamos instalando nenhuma função no servidor.
+9. Na página **recursos** , selecione o recurso de **Gerenciamento de política de grupo** .
 
     ![Página de recursos](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
-10. Sobre o **confirmação** página, clique em **instalar** para instalar a funcionalidade de gerenciamento de diretiva de grupo na máquina virtual. Quando a instalação da funcionalidade for concluída com êxito, clique em **fechar** para sair do **para adicionar funções e funcionalidades** assistente.
+10. Na página **confirmação** , clique em **instalar** para instalar o recurso de gerenciamento de política de grupo na máquina virtual. Quando a instalação do recurso for concluída com êxito, clique em **fechar** para sair do assistente **adicionar funções e recursos** .
 
     ![Página de confirmação](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
-## <a name="task-3---launch-the-group-policy-management-console-to-administer-group-policy"></a>Tarefa 3 – iniciar o console de gerenciamento de diretiva de grupo para administrar a política de grupo
-Pode usar o console de gerenciamento de diretiva de grupo na máquina de virtual associado a um domínio para administrar a política de grupo no domínio gerido.
+## <a name="task-3---launch-the-group-policy-management-console-to-administer-group-policy"></a>Tarefa 3-iniciar o console de gerenciamento de Política de Grupo para administrar Política de Grupo
+Você pode usar o console de gerenciamento do Política de Grupo na máquina virtual ingressada no domínio para administrar Política de Grupo no domínio gerenciado.
 
 > [!NOTE]
-> Tem de ser um membro do grupo "Administradores do AAD DC", para administrar a política de grupo no domínio gerido.
+> Você precisa ser um membro do grupo "administradores do controlador de domínio do AAD" para administrar Política de Grupo no domínio gerenciado.
 >
 >
 
-1. No ecrã Iniciar, clique em **ferramentas administrativas**. Deverá ver o **gerenciamento de diretiva de grupo** consola instalada na máquina virtual.
+1. Na tela iniciar, clique em **Ferramentas administrativas**. Você deve ver o console de **Gerenciamento do política de grupo** instalado na máquina virtual.
 
-    ![Gerenciamento de diretiva de grupo de lançamento](./media/active-directory-domain-services-admin-guide/gp-management-installed.png)
-2. Clique em **gerenciamento de diretiva de grupo** para iniciar o console de gerenciamento de diretiva de grupo.
+    ![Iniciar o gerenciamento de Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-management-installed.png)
+2. Clique em **Gerenciamento de política de grupo** para iniciar o console de gerenciamento de política de grupo.
 
-    ![Consola de política de grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
+    ![Console do Política de Grupo](./media/active-directory-domain-services-admin-guide/gp-management-console.png)
 
-## <a name="task-4---customize-built-in-group-policy-objects"></a>Tarefa 4 - Personalizar objetos de diretiva de grupo interno
-Existem dois incorporada objetos diretiva de grupo (GPOs) - um para os contentores "Computadores do aad DC" e "Utilizadores do aad DC" no seu domínio gerido. Pode personalizar estes GPOs para configurar a política de grupo no domínio gerido.
+## <a name="task-4---customize-built-in-group-policy-objects"></a>Tarefa 4-personalizar objetos de Política de Grupo internos
+Há dois objetos de Política de Grupo internos (GPOs), um para os contêineres ' AADDC Computers ' e ' AADDC users ' em seu domínio gerenciado. Você pode personalizar esses GPOs para configurar a política de grupo no domínio gerenciado.
 
-1. Na **gerenciamento de diretiva de grupo** consola, clique para expandir a **floresta: contoso100.com** e **domínios** nós para ver as políticas de grupo para o seu domínio gerido.
+1. No console de **Gerenciamento do política de grupo** , clique para expandir os nós **floresta: contoso100.com** e **domínios** para ver as políticas de grupo para seu domínio gerenciado.
 
-    ![GPOs incorporadas](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
-2. Pode personalizar estes GPOs incorporados para configurar políticas de grupo no seu domínio gerido. Com o botão direito no GPO e clique em **editar...**  para personalizar o GPO incorporado. A ferramenta de Editor de configuração de diretiva de grupo permite-lhe personalizar o GPO.
+    ![GPOs internos](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
+2. Você pode personalizar esses GPOs internos para configurar políticas de grupo em seu domínio gerenciado. Clique com o botão direito do mouse no GPO e clique em **Editar...** para personalizar o GPO interno. A ferramenta do editor de configuração do Política de Grupo permite que você personalize o GPO.
 
-    ![Editar o GPO incorporado](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
-3. Agora, pode utilizar o **Editor de gerenciamento de diretiva de grupo** consola para editar o GPO incorporado. Por exemplo, a captura de ecrã seguinte mostra como personalizar o GPO de "Computadores do aad DC" incorporado.
+    ![Editar GPO interno](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
+3. Agora você pode usar o console do **Editor de gerenciamento de política de grupo** para editar o GPO interno. Por exemplo, a captura de tela a seguir mostra como personalizar o GPO interno de ' AADDC Computers '.
 
-    ![Personalizar o GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Personalizar GPO](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
-## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Tarefa 5 - criar um objeto de política de grupo (GPO) personalizado
-Pode criar ou importar os seus próprios objetos de política de grupo personalizado. Também pode ligar GPOs personalizados a uma UO personalizada que criou no seu domínio gerido. Para obter mais informações sobre a criação de unidades organizacionais personalizadas, consulte [criar uma UO personalizada num domínio gerido](create-ou.md).
+## <a name="task-5---create-a-custom-group-policy-object-gpo"></a>Tarefa 5 – criar um objeto de Política de Grupo personalizado (GPO)
+Você pode criar ou importar seus próprios objetos de política de grupo personalizados. Você também pode vincular GPOs personalizados a uma UO personalizada que você criou em seu domínio gerenciado. Para obter mais informações sobre como criar unidades organizacionais personalizadas, consulte [criar uma UO personalizada em um domínio gerenciado](create-ou.md).
 
 > [!NOTE]
-> Tem de ser um membro do grupo "Administradores do AAD DC", para administrar a política de grupo no domínio gerido.
+> Você precisa ser um membro do grupo "administradores do controlador de domínio do AAD" para administrar Política de Grupo no domínio gerenciado.
 >
 >
 
-1. Na **gerenciamento de diretiva de grupo** consola, clique para selecionar sua personalizada (OU unidade organizacional). A UO com o botão direito e clique em **criar um GPO neste domínio e ligá-lo aqui...** .
+1. No console de **Gerenciamento do política de grupo** , clique para selecionar sua UO (unidade organizacional) personalizada. Clique com o botão direito do mouse na UO e clique em **criar um GPO nesse domínio e vincule-o aqui...** .
 
     ![Criar um GPO personalizado](./media/active-directory-domain-services-admin-guide/gp-create-gpo.png)
 2. Especifique um nome para o novo GPO e clique em **OK**.
 
     ![Especifique um nome para o GPO](./media/active-directory-domain-services-admin-guide/gp-specify-gpo-name.png)
-3. Um novo GPO é criado e ligado à sua UO personalizado. Com o botão direito no GPO e clique em **editar...**  no menu.
+3. Um novo GPO é criado e vinculado à sua UO personalizada. Clique com o botão direito do mouse no GPO e clique em **Editar...** no menu.
 
     ![GPO recém-criado](./media/active-directory-domain-services-admin-guide/gp-gpo-created.png)
-4. Pode personalizar o GPO recém-criado com o **Editor de gerenciamento de diretiva de grupo**.
+4. Você pode personalizar o GPO recém-criado usando o **Editor de gerenciamento de política de grupo**.
 
-    ![Personalizar o novo GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
+    ![Personalizar novo GPO](./media/active-directory-domain-services-admin-guide/gp-customize-gpo.png)
 
 
-Obter mais informações sobre como utilizar [consola de gestão de políticas de grupo](https://technet.microsoft.com/library/cc753298.aspx) estão disponíveis no Technet.
+Mais informações sobre como usar o [console de gerenciamento de política de grupo](https://technet.microsoft.com/library/cc753298.aspx) estão disponíveis no TechNet.
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* [Azure AD Domain Services - guia de introdução](create-instance.md)
-* [Junte-se a uma máquina virtual do Windows Server a um domínio gerido do Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Gerir um domínio do Azure AD Domain Services](manage-domain.md)
-* [Console de gerenciamento de diretiva de grupo](https://technet.microsoft.com/library/cc753298.aspx)
+* [Guia de Introdução de Azure AD Domain Services](create-instance.md)
+* [Ingressar uma máquina virtual do Windows Server em um Azure AD Domain Services domínio gerenciado](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Gerenciar um domínio de Azure AD Domain Services](manage-domain.md)
+* [Console de Gerenciamento de Política de Grupo](https://technet.microsoft.com/library/cc753298.aspx)

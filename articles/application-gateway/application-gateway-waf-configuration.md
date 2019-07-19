@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e13884fb0c39beabf543fd04c9808373a68ec26a
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
-ms.translationtype: HT
+ms.openlocfilehash: 9e9472fbcd01cf40204063174b159638369d7429
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304308"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326657"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de solicitação de firewall do aplicativo Web e listas de exclusão
 
@@ -91,10 +91,10 @@ O cmdlet a seguir Azure PowerShell exclui o parâmetro do usuário da avaliaçã
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -MatchVariable "RequestArgNames" `
-   -SelectorMatchOperator "Equals" `
+   -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Portanto, se a **http://www.contoso.com/?user=fdafdasfda** URL for passada para o WAF, ela não avaliará a cadeia de caracteres **fdafdasfda**.
+Portanto, se a **http://www.contoso.com/?user%281%29=fdafdasfda** URL for passada para o WAF, ela não avaliará a cadeia de caracteres **fdafdasfda**, mas ainda avaliará o usuário de nome de parâmetro **% 281% 29**. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

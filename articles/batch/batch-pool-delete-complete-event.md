@@ -1,9 +1,9 @@
 ---
-title: Evento de conclusão de eliminar o conjunto do Batch do Azure | Documentos da Microsoft
-description: Referência para o conjunto do Batch eliminar evento de conclusão.
+title: Evento de conclusão de exclusão do pool do lote do Azure | Microsoft Docs
+description: Referência de exclusão do pool do lote evento concluído.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd32554866d1e2130fd0833adc1b286fb6bc07a5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775768"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323232"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de eliminação de conjunto
 
- Este evento é emitido quando uma operação de eliminação de conjunto for concluída.
+ Esse evento é emitido quando uma operação de exclusão de pool é concluída.
 
- O exemplo seguinte mostra o corpo de um evento de conclusão de eliminação de conjunto.
+ O exemplo a seguir mostra o corpo de um evento de exclusão de pool concluído.
 
 ```
 {
@@ -33,11 +33,11 @@ ms.locfileid: "60775768"
 }
 ```
 
-|Elemento|Tipo|Notas|
+|Elemento|Type|Notas|
 |-------------|----------|-----------|
-|id|String|O id do conjunto.|
-|startTime|DateTime|O tempo de eliminar o conjunto foi iniciada.|
-|endTime|DateTime|O tempo de eliminar o conjunto foi concluído.|
+|id|Cadeia|A ID do pool.|
+|startTime|DateTime|A hora em que a exclusão do pool foi iniciada.|
+|endTime|DateTime|A hora em que a exclusão do pool foi concluída.|
 
 ## <a name="remarks"></a>Observações
-Para obter mais informações sobre Estados e códigos de erro de operação de redimensionamento de conjunto, consulte [eliminar um conjunto a partir de uma conta](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Para obter mais informações sobre Estados e códigos de erro para a operação de redimensionamento do pool, consulte [excluir um pool de uma conta](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso - REST, Python'
+title: 'Início rápido: Extrair texto impresso-REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 94f73d323604fc49227b871d3419b2e48c25551b
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: a60d93b081637ca2be5ed0c6d1a21ce185e6cdbb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604213"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321394"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST de imagem digitalizada e Python
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Python
 
 Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Pode obter uma chave de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a imagem digitalizada e obtenha a chave.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -105,6 +105,21 @@ for word in word_infos:
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
 ```
+
+## <a name="upload-image-from-local-storage"></a>Carregar imagem do armazenamento local
+
+Se você quiser analisar uma imagem local, defina o cabeçalho Content-Type como application/octet-stream e defina o corpo da solicitação como uma matriz de bytes em vez de dados JSON.
+
+```python
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+```
+
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
@@ -209,7 +224,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

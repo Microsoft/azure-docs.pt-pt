@@ -48,6 +48,6 @@
     - name: Comentários sobre o produto
       href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
     - name: Preços
-      href: 'https://azure.microsoft.com/pricing'
+      href: 'https://azure.microsoft.com/pricing/details/data-share/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=data-share'

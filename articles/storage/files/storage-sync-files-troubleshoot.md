@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/16/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1e35ef9eab841878ecc147d7b22a82860f27e7d9
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: HT
+ms.openlocfilehash: 2cf0093d08c37c0941e86f9fc82b864aea14ebfe
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297687"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327085"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma o Windows Server em um cache rápido de seu compartilhamento de arquivos do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -250,7 +250,8 @@ Para ver esses erros, execute o script do PowerShell **FileSyncErrorsReport. ps1
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. Sincronização de Arquivos do Azure cria um instantâneo VSS temporário uma vez por dia no servidor para sincronizar arquivos que têm identificadores abertos. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Um arquivo foi alterado, mas a alteração ainda não foi detectada pela sincronização. A sincronização será recuperada depois que essa alteração for detectada. | Nenhuma ação é necessária. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | O arquivo não pode ser sincronizado porque o limite de compartilhamento de arquivos do Azure foi atingido. | Para resolver esse problema, consulte [a seção limite de armazenamento do compartilhamento de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) no guia de solução de problemas. |
-| 0x80070005 | -2147024891 | E_ACCESSDENIED | Esse erro pode ocorrer pelos seguintes motivos: o arquivo é criptografado por uma solução sem suporte (como o EFS do NTFS), o arquivo tem um estado de exclusão pendente ou o arquivo está localizado em uma pasta de replicação somente leitura do DFS-R | Se o arquivo for criptografado por uma solução sem suporte, descriptografe o arquivo e use uma solução de criptografia com suporte. Para obter uma lista de soluções de suporte, consulte a seção [soluções de criptografia](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) no guia de planejamento. Se o arquivo estiver em um estado de exclusão pendente, o arquivo será excluído quando todos os identificadores de arquivos abertos forem fechados. Se o arquivo estiver localizado em uma pasta de replicação somente leitura do DFS-R, a sincronização de arquivos do Azure não oferecerá suporte a pontos de extremidade de servidor em pastas de replicação somente leitura do DFS-R. Consulte o [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações.
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | O arquivo é criptografado por uma solução sem suporte (como o EFS do NTFS). | Descriptografe o arquivo e use uma solução de criptografia com suporte. Para obter uma lista de soluções de suporte, consulte a seção [soluções de criptografia](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) no guia de planejamento. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Esse erro pode ocorrer pelos seguintes motivos: O arquivo tem um estado de exclusão pendente ou o arquivo está localizado em uma pasta de replicação somente leitura do DFS-R. | Se o arquivo estiver em um estado de exclusão pendente, o arquivo será excluído quando todos os identificadores de arquivos abertos forem fechados. Se o arquivo estiver localizado em uma pasta de replicação somente leitura do DFS-R, a sincronização de arquivos do Azure não oferecerá suporte a pontos de extremidade de servidor em pastas de replicação somente leitura do DFS-R. Consulte o [Guia de planejamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) para obter mais informações. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Um arquivo não pode ser sincronizado porque está em uso. O arquivo será sincronizado quando não estiver mais em uso. | Nenhuma ação é necessária. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Um arquivo foi alterado durante A sincronização, portanto, ele precisa ser sincronizado novamente. | Nenhuma ação é necessária. |
 

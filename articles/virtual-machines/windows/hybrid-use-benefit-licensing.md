@@ -1,9 +1,9 @@
 ---
-title: Benefício híbrido do Azure para o Windows Server | Documentos da Microsoft
-description: Saiba como maximizar os benefícios do Windows Software Assurance para colocar licenças no local para o Azure
+title: Benefício Híbrido do Azure para Windows Server | Microsoft Docs
+description: Saiba como maximizar seus benefícios do Windows Software Assurance para trazer licenças locais para o Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: xujing
+author: xujing-ms
 manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
@@ -13,45 +13,45 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 739c867171d7b59a68f7e4d11bbf50a189568ce7
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.author: xujing
+ms.openlocfilehash: 0a0b2a38cb01a5cd551d07da89a42dd837264aae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722757"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875073"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
-Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Para clientes com Software Assurance, o Benefício Híbrido do Azure para Windows Server permite que você use suas licenças locais do Windows Server e execute máquinas virtuais do Windows no Azure a um custo reduzido. Você pode usar Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com o sistema operacional Windows. Este artigo apresenta as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para o Windows Server e como você pode atualizar as VMs em execução existentes. Para obter mais informações sobre Benefício Híbrido do Azure para licenciamento e economia de custo do Windows Server, consulte a [página benefício híbrido do Azure para licenciamento do Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
 > [!Important]
 > Cada licença de dois processadores ou cada conjunto de licenças de 16 núcleos são elegíveis para duas instâncias de até oito núcleos ou uma instância de até 16 núcleos. O Benefício Híbrido do Azure para licenças da Edição Standard só pode ser utilizado uma vez, no local ou no Azure. Os benefícios da Datacenter Edition permitem a utilização no local e no Azure em simultâneo.
 >
 
 > [!Important]
-> Utilizar o Azure híbrido benefício para o Windows Server com todas as VMs a executar o SO do Windows Server agora são suportadas em todas as regiões, incluindo VMs com o software adicional, como o SQL Server ou software de terceiros marketplace. 
+> O uso do Benefício Híbrido do Azure para Windows Server com qualquer VM que executa o sistema operacional Windows Server agora tem suporte em todas as regiões, incluindo VMs com software adicional, como SQL Server ou software do Marketplace de terceiros. 
 >
 
 > [!NOTE]
-> Para VMs clássicas, a única implementação nova VM a partir em imagens personalizadas do local é suportado. Para tirar partido das capacidades de suportadas neste artigo, deve primeiro migrar VMs clássicas ao modelo do Resource Manager.
+> Para VMs clássicas, há suporte apenas para implantar uma nova VM a partir de imagens personalizadas locais. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar VMs clássicas para o modelo do Resource Manager.
 >
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Formas de utilizar o Azure híbrido benefício para o Windows Server
-Existem algumas formas de utilizar as máquinas virtuais do Windows com o benefício híbrido do Azure:
+## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Maneiras de usar Benefício Híbrido do Azure para o Windows Server
+Há algumas maneiras de usar máquinas virtuais do Windows com o Benefício Híbrido do Azure:
 
-1. Pode implementar VMs a partir de uma das imagens do Windows Server fornecidas no Azure Marketplace
-2. Pode carregar VMS personalizadas e implementar com um modelo do Resource Manager ou o Azure PowerShell
-3. Pode ativar/desativar e converter uma VM existente entre executar com o benefício híbrido do Azure ou paga um custo de sob demanda para o Windows Server
-4. Também pode aplicar Azure híbrido benefício para o Windows Server no conjunto também de dimensionamento de máquina virtual
+1. Você pode implantar VMs de uma das imagens do Windows Server fornecidas no Azure Marketplace
+2. Você pode carregar uma VM personalizada e implantá-la usando um modelo do Resource Manager ou Azure PowerShell
+3. Você pode alternar e converter a VM existente entre a execução com Benefício Híbrido do Azure ou pagar o custo sob demanda para o Windows Server
+4. Você também pode aplicar Benefício Híbrido do Azure para o Windows Server no conjunto de dimensionamento de máquinas virtuais também
 
 
-## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Criar uma VM com o benefício híbrido do Azure para o Windows Server
-Todas as imagens de SO do Windows Server com base são suportadas para Azure híbrido benefício para o Windows Server. Pode utilizar imagens de suporte de plataforma do Azure ou carregar suas próprias imagens personalizadas do Windows Server. 
+## <a name="create-a-vm-with-azure-hybrid-benefit-for-windows-server"></a>Criar uma VM com o Benefício Híbrido do Azure para Windows Server
+Todas as imagens baseadas no sistema operacional Windows Server têm suporte para o Benefício Híbrido do Azure para Windows Server. Você pode usar imagens de suporte da plataforma Azure ou carregar suas próprias imagens personalizadas do Windows Server. 
 
 ### <a name="portal"></a>Portal
-Para criar uma VM com o Azure híbrido benefício para o Windows Server, utilize o botão de alternar na seção "Poupar dinheiro".
+Para criar uma VM com o Benefício Híbrido do Azure para Windows Server, use a alternância na seção "economizar dinheiro".
 
 ### <a name="powershell"></a>PowerShell
 
@@ -75,7 +75,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Modelo
-Dentro de modelos do Resource Manager, um parâmetro adicional `licenseType` tem de ser especificado. Pode ler mais sobre [criar modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
+Em seus modelos do Resource Manager, um parâmetro `licenseType` adicional deve ser especificado. Você pode ler mais sobre a [criação de modelos de Azure Resource Manager](../../resource-group-authoring-templates.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -84,18 +84,18 @@ Dentro de modelos do Resource Manager, um parâmetro adicional `licenseType` tem
     }
 ```
 
-## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converter uma VM existente com o Azure híbrido benefício para o Windows Server
-Se tiver uma VM existente que pretende converter para tirar partido do Azure híbrido benefício para o Windows Server, pode atualizar o tipo de licença da VM ao seguir as instruções abaixo.
+## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converter uma VM existente usando o Benefício Híbrido do Azure para Windows Server
+Se você tiver uma VM existente que deseja converter para tirar proveito do Benefício Híbrido do Azure para o Windows Server, poderá atualizar o tipo de licença da VM seguindo as instruções abaixo.
 
 > [!NOTE]
-> Alterar o tipo de licença na VM não faz com que o sistema reiniciar ou fazer com que um interuption de serviço.  É simplesmente uma atualização para um sinalizador de metadados.
+> A alteração do tipo de licença na VM não faz com que o sistema seja reinicializado ou cause um interuption de serviço.  É simplesmente uma atualização para um sinalizador de metadados.
 > 
 
 ### <a name="portal"></a>Portal
-No portal do painel da VM, pode atualizar a VM para utilizar o benefício híbrido do Azure ao selecionar a opção de "Configuração" e ativar/desativar a opção "benefício híbrido do Azure"
+Na folha VM do portal, você pode atualizar a VM para usar Benefício Híbrido do Azure selecionando a opção "configuração" e alternando a opção "benefício híbrido do Azure"
 
 ### <a name="powershell"></a>PowerShell
-- Converter VMs existentes do Windows Server em Azure híbrido benefício para o Windows Server
+- Converter VMs do Windows Server existentes em Benefício Híbrido do Azure para o Windows Server
 
     ```powershell
     $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
@@ -103,7 +103,7 @@ No portal do painel da VM, pode atualizar a VM para utilizar o benefício híbri
     Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
-- Converter VMs do Windows Server com o benefício de volta para pay as you go
+- Converta VMs do Windows Server com o benefício de volta para o pré-pago
 
     ```powershell
     $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
@@ -112,20 +112,20 @@ No portal do painel da VM, pode atualizar a VM para utilizar o benefício híbri
     ```
     
 ### <a name="cli"></a>CLI
-- Converter VMs existentes do Windows Server em Azure híbrido benefício para o Windows Server
+- Converter VMs do Windows Server existentes em Benefício Híbrido do Azure para o Windows Server
 
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
 
-### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Como verificar a sua VM está a utilizar o benefício de licenciamento
-Assim que tiver implementado a sua VM através do PowerShell, o modelo do Resource Manager ou do portal, pode verificar a definição nos métodos seguintes.
+### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Como verificar se sua VM está utilizando o benefício de licenciamento
+Depois de implantar sua VM por meio do PowerShell, do modelo do Resource Manager ou do portal, você pode verificar a configuração nos métodos a seguir.
 
 ### <a name="portal"></a>Portal
-No portal do painel da VM, pode ver o botão de alternar para o Azure híbrido benefício para o Windows Server selecionando o separador "Configuração".
+Na folha VM do portal, você pode exibir a alternância para Benefício Híbrido do Azure do Windows Server selecionando a guia "configuração".
 
 ### <a name="powershell"></a>PowerShell
-O exemplo seguinte mostra o tipo de licença para uma única VM
+O exemplo a seguir mostra o tipo de licença para uma única VM
 ```powershell
 Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
@@ -137,7 +137,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-Esta saída contrasta com a VM seguinte implementada sem licenciamento Azure híbrido benefício para o Windows Server:
+Essa saída contrasta com a seguinte VM implantada sem Benefício Híbrido do Azure para licenciamento do Windows Server:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
@@ -150,14 +150,14 @@ az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Wind
 ```
 
 > [!NOTE]
-> Alterar o tipo de licença na VM não faz com que o sistema reiniciar ou fazer com que um interuption de serviço. É uma sinalizador só de licenciamento de metadados.
+> A alteração do tipo de licença na VM não faz com que o sistema seja reinicializado ou cause um interuption de serviço. É apenas um sinalizador de licenciamento de metadados.
 >
 
-## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Listar todas as VMs com o Azure híbrido benefício para o Windows Server numa subscrição
-Para ver e contagem de todas as máquinas virtuais implementadas com o Azure híbrido benefício para o Windows Server, pode executar o seguinte comando da sua subscrição:
+## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Listar todas as VMs com Benefício Híbrido do Azure para Windows Server em uma assinatura
+Para ver e contar todas as máquinas virtuais implantadas com o Benefício Híbrido do Azure para Windows Server, você pode executar o seguinte comando em sua assinatura:
 
 ### <a name="portal"></a>Portal
-O Máquina Virtual ou Máquina Virtual dimensionamento conjuntos de recursos no painel de, pode ver uma lista de todas as suas VM (s) e o tipo de licenciamento, configurando a coluna da tabela para incluir o "Benefício híbrido do Azure". A definição de VM pode estar em "Ativada", "Não está ativada" ou "Não suportado" Estado.
+Na folha de recursos da máquina virtual ou dos conjuntos de dimensionamento de máquinas virtuais, você pode exibir uma lista de todas as VMs e o tipo de licenciamento Configurando a coluna da tabela para incluir "Benefício Híbrido do Azure". A configuração de VM pode estar no estado "habilitado", "não habilitado" ou "sem suporte".
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
@@ -170,10 +170,10 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
-## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implementar um conjunto de dimensionamento de Máquina Virtual com o benefício híbrido do Azure para o Windows Server
-Dentro de sua máquina virtual do conjunto de dimensionamento de modelos do Resource Manager, um parâmetro adicional `licenseType` tem de ser especificada dentro de sua propriedade VirtualMachineProfile. Pode fazê-lo durante a criação ou atualização para o seu conjunto com o modelo de ARM do PowerShell, CLI do Azure ou REST de dimensionamento.
+## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implantar um conjunto de dimensionamento de máquinas virtuais com o Benefício Híbrido do Azure para Windows Server
+Em seus modelos do Resource Manager do conjunto de dimensionamento de máquinas `licenseType` virtuais, um parâmetro adicional deve ser especificado dentro de sua propriedade VirtualMachineProfile. Você pode fazer isso durante criar ou atualizar para seu conjunto de dimensionamento por meio do modelo ARM, PowerShell, CLI do Azure ou REST.
 
-O exemplo seguinte utiliza o modelo ARM com uma imagem do Windows Server 2016 Datacenter:
+O exemplo a seguir usa o modelo ARM com uma imagem do Windows Server 2016 datacenter:
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -194,12 +194,12 @@ O exemplo seguinte utiliza o modelo ARM com uma imagem do Windows Server 2016 Da
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-Também pode saber mais sobre como [modificar um conjunto de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para obter mais maneiras de atualizar seu dimensionamento definido.
+Você também pode aprender mais sobre como [modificar um conjunto de dimensionamento de máquinas virtuais](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) para obter mais maneiras de atualizar seu conjunto de dimensionamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Leia mais sobre [como poupar dinheiro com o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
-- Leia mais sobre [perguntas mais frequentes sobre o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
-- Saiba mais sobre [Azure híbrido benefício para o Windows Server orientações detalhadas de licenciamento](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
-- Saiba mais sobre [Azure híbrido benefício para o Windows Server e o Azure Site Recovery fazem migração de aplicativos para o Azure ainda mais económico](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-- Saiba mais sobre [Windows 10 no Azure com o direito de alojamento multi-inquilino](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-- Saiba mais sobre [modelos usando o Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+- Leia mais sobre [como economizar dinheiro com o benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+- Leia mais sobre as perguntas frequentes [para benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Saiba mais sobre o [benefício híbrido do Azure para obter orientações detalhadas sobre licenciamento do Windows Server](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Saiba mais sobre o [benefício híbrido do Azure para o Windows Server e Azure site Recovery tornar a migração de aplicativos para o Azure ainda mais](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) econômica
+- Saiba mais sobre o [Windows 10 no Azure com o direito de hospedagem multilocatário](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Saiba mais sobre como [usar modelos do Resource Manager](../../azure-resource-manager/resource-group-overview.md)

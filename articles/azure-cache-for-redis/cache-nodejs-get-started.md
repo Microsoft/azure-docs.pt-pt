@@ -1,6 +1,6 @@
 ---
-title: Início rápido para saber como utilizar a Cache do Azure para Redis com node. js | Documentos da Microsoft
-description: Este guia de introdução irá aprender a utilizar a Cache do Azure para Redis com node. js e o node_redis.
+title: Início rápido para aprender a usar o cache do Azure para Redis com node. js | Microsoft Docs
+description: Neste início rápido, você aprenderá a usar o cache do Azure para Redis com node. js e node_redis.
 services: cache
 documentationcenter: ''
 author: yegu-ms
@@ -15,35 +15,23 @@ ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc629133a393c4ff8f9193b02e9080d7f08f4958
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830216"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326467"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Início rápido: Como utilizar o Azure Cache de Redis com node. js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Início rápido: Usar o cache do Azure para Redis com node. js
 
-
-
-A Cache de Redis do Azure dá-lhe acesso a uma Cache de Azure segura, dedicada para Redis, gerida pela Microsoft. Pode aceder a uma cache a partir de qualquer aplicação dentro do Microsoft Azure.
-
-Este tópico mostra-lhe como começar com Azure Cache de Redis com node. js. 
-
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
-
-![Aplicação de cache concluída](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo node. js para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Instale o [node_redis](https://github.com/mranney/node_redis):
 
-    npm install redis
+- Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis), que você pode instalar com o comando `npm install redis`. 
 
-Este tutorial utiliza o [node_redis](https://github.com/mranney/node_redis). Para obter exemplos de utilização de outros clientes Node.js, consulte a documentação individual para os clientes Node.js listados em [Clientes Node.js Redis](https://redis.io/clients#nodejs).
-
+Para obter exemplos de utilização de outros clientes Node.js, consulte a documentação individual para os clientes Node.js listados em [Clientes Node.js Redis](https://redis.io/clients#nodejs).
 
 ## <a name="create-a-cache"></a>Criar uma cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -58,10 +46,9 @@ set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-
 ## <a name="connect-to-the-cache"></a>Ligar à cache
 
-As versões mais recentes do [node_redis](https://github.com/mranney/node_redis) fornecem suporte para ligar à Cache do Azure para Redis utilizando SSL. O exemplo seguinte mostra como ligar à Cache do Azure para Redis com o ponto final SSL de 6380. 
+As compilações mais recentes do [node_redis](https://github.com/mranney/node_redis) fornecem suporte para conexão com o cache do Azure para REDIS usando SSL. O exemplo a seguir mostra como se conectar ao cache do Azure para Redis usando o ponto de extremidade SSL de 6380. 
 
 ```js
 var redis = require("redis");
@@ -77,7 +64,7 @@ Não crie uma ligação nova para cada operação no código. Em vez disso, reut
 
 Crie um novo ficheiro de script com o nome *redistest.js*.
 
-Adicione o seguinte exemplo de JavaScript ao ficheiro. Este código mostra como ligar a uma Cache do Azure para a instância de Redis com o nome de anfitrião de cache e as variáveis de ambiente de chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de utilização de Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [https://redis.js.org/](https://redis.js.org/).
+Adicione o seguinte exemplo de JavaScript ao ficheiro. Este código mostra como se conectar a um cache do Azure para a instância do Redis usando o nome de host do cache e as variáveis de ambiente de chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de utilização de Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [https://redis.js.org/](https://redis.js.org/).
 
 ```js
 var redis = require("redis");
@@ -128,7 +115,6 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 ![Aplicação de cache concluída](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
@@ -141,7 +127,7 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
@@ -149,14 +135,9 @@ Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. 
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a utilizar o Cache do Azure para Redis a partir de uma aplicação node. js. Continue para o próximo início rápido utilizar a Cache do Azure para Redis com uma aplicação web ASP.NET.
+Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo node. js. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Crie uma aplicação web ASP.NET que utiliza uma Cache do Azure para Redis.](./cache-web-app-howto.md)
-
-
-
+> [Crie um aplicativo Web ASP.NET que usa um cache do Azure para Redis.](./cache-web-app-howto.md)

@@ -1,24 +1,25 @@
 ---
-title: Registo de instância de contentor com os registos do Azure Monitor
-description: Saiba como enviar registos de instâncias de contentor do Azure para registos do Azure Monitor.
+title: Log de instância de contêiner com logs de Azure Monitor
+description: Saiba como enviar logs de instâncias de contêiner do Azure para Azure Monitor logs.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: cab0bc4d2d0491c70a1d2f11f3a5d5d831ade6cf
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722639"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325889"
 ---
-# <a name="container-instance-logging-with-azure-monitor-logs"></a>Registo de instância de contentor com os registos do Azure Monitor
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Log de instância de contêiner com logs de Azure Monitor
 
-Áreas de trabalho do log Analytics fornecem um local centralizado para armazenar e consultar dados de registo de não apenas recursos do Azure, mas também recursos no local e de recursos noutras Clouds. O Azure Container Instances inclui suporte incorporado para enviar dados para os registos do Azure Monitor.
+Os espaços de trabalho Log Analytics fornecem um local centralizado para armazenar e consultar dados de log de recursos não apenas do Azure, mas também recursos e recursos locais em outras nuvens. As instâncias de contêiner do Azure incluem suporte interno para enviar dados a logs de Azure Monitor.
 
-Para enviar dados de instância de contentor para os registos do Azure Monitor, tem de especificar uma chave de ID e a área de trabalho de área de trabalho do Log Analytics ao criar um grupo de contentor. As secções seguintes descrevem como criar um grupo de contentores com registo ativado e registos de consulta.
+Para enviar dados de instância de contêiner para logs de Azure Monitor, você deve especificar uma ID de espaço de trabalho Log Analytics e uma chave de espaço de trabalho ao criar um grupo de contêineres. As secções seguintes descrevem como criar um grupo de contentores com registo ativado e registos de consulta.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,10 +34,10 @@ Para ativar o registo nas instâncias de contentor, precisa do seguinte:
 
 O Azure Container Instances necessita de permissão para enviar dados para a sua área de trabalho do Log Analytics. Para conceder esta permissão e ativar o registo, tem de fornecer o ID da área de trabalho do Log Analytics e uma das respetivas chaves (primárias ou secundárias), quando criar o grupo de contentores.
 
-Para obter o ID de área de trabalho do log analytics e a chave primária:
+Para obter a ID do espaço de trabalho do log Analytics e a chave primária:
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
-1. Sob **configurações**, selecione **definições avançadas**
+1. Em **configurações**, selecione **Configurações avançadas**
 1. Selecione **Origens ligadas** > **Windows Servers** (ou **Servidores Linux**– o ID e as chaves são os mesmos para os dois)
 1. Tome nota de:
    * **ID DA ÁREA DE TRABALHO**
@@ -44,13 +45,13 @@ Para obter o ID de área de trabalho do log analytics e a chave primária:
 
 ## <a name="create-container-group"></a>Criar grupo de contentores
 
-Agora que tem o ID de área de trabalho do log analytics e a chave primária, está pronto para criar um grupo de contentores de registo ativado.
+Agora que você tem a ID do espaço de trabalho do log Analytics e a chave primária, você está pronto para criar um grupo de contêineres habilitado para registro em log.
 
-Os exemplos seguintes demonstram duas formas de criar um grupo de contentores com um único [fluentd][fluentd] contentor: CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
+Os exemplos a seguir demonstram duas maneiras de criar um grupo de contêineres com um único contêiner [fluente][fluentd] : CLI do Azure e CLI do Azure com um modelo YAML. O contentor Fluentd produz várias linhas de saída na sua configuração predefinida. Uma vez que este resultado é enviado para a sua área de trabalho do Log Analytics, funciona bem para demonstrar a visualização e a consulta dos registos.
 
 ### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
 
-Para implementar com a CLI do Azure, especifique a `--log-analytics-workspace` e `--log-analytics-workspace-key` parâmetros nos [criar o contentor de az][az-container-create] comando. Substitua os dois valores de área de trabalho pelos valores que obteve no passo anterior (e atualize o nome de grupo de recursos) antes de executar o seguinte comando.
+Para implantar com o CLI do Azure, especifique os `--log-analytics-workspace` parâmetros `--log-analytics-workspace-key` e no comando [AZ container Create][az-container-create] . Substitua os dois valores de área de trabalho pelos valores que obteve no passo anterior (e atualize o nome de grupo de recursos) antes de executar o seguinte comando.
 
 ```azurecli-interactive
 az container create \
@@ -90,7 +91,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Em seguida, execute o seguinte comando para implementar o grupo de contentores. Substitua `myResourceGroup` com um recurso de grupo na sua subscrição (ou crie primeiro um grupo de recursos com o nome "myResourceGroup"):
+Em seguida, execute o comando a seguir para implantar o grupo de contêineres. Substitua `myResourceGroup` por um grupo de recursos em sua assinatura (ou primeiro crie um grupo de recursos chamado "MyResource Group"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -98,22 +99,22 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Deverá receber uma resposta do Azure com detalhes de implementação poucos instantes após a emissão do comando.
 
-## <a name="view-logs-in-azure-monitor-logs"></a>Vista regista nos registos do Azure Monitor
+## <a name="view-logs-in-azure-monitor-logs"></a>Exibir logs em logs de Azure Monitor
 
-Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para ver os registos do grupo de contentores:
+Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para exibir os logs do grupo de contêineres:
 
 1. Navegue para a sua área de trabalho do Log Analytics no portal do Azure
-1. Sob **gerais**, selecione **registos**  
-1. Escreva a seguinte consulta: `search *`
+1. Em **geral**, selecione **logs**  
+1. Digite a seguinte consulta:`search *`
 1. Selecione **executar**
 
-Deverá ver vários resultados apresentados pela consulta `search *`. Se não vir a quaisquer resultados em primeiro lugar, aguarde alguns minutos, em seguida, selecione o **executar** botão para executar a consulta novamente. Por predefinição, as entradas de registo são apresentadas na **tabela** formato. Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.
+Deverá ver vários resultados apresentados pela consulta `search *`. Se, a princípio, você não vir nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas em formato de **tabela** . Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.
 
 ![Resultados da Pesquisa de registos no portal do Azure][log-search-01]
 
 ## <a name="query-container-logs"></a>Consultar registos de contentor
 
-Registos de Monitor do Azure inclui uma ampla [linguagem de consulta][query_lang] para extrair as informações de potencialmente milhares de linhas de saída de registo.
+Os logs de Azure Monitor incluem uma [linguagem de consulta][query_lang] extensiva para extrair informações de potencialmente milhares de linhas de saída de log.
 
 O agente de registo do Azure Container Instances envia entradas para a tabela `ContainerInstanceLog_CL` da sua área de trabalho do Log Analytics. A estrutura básica de uma consulta é a tabela de origem (`ContainerInstanceLog_CL`) seguida de uma série de operadores separados pelo caráter pipe (`|`). Pode encadear vários operadores para refinar os resultados e executar funções avançadas.
 
@@ -132,13 +133,13 @@ ContainerInstanceLog_CL
 | where (TimeGenerated > ago(1h))
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
-Para obter mais informações sobre como consultar registos e configurar alertas nos registos do Azure Monitor, consulte:
+Para obter mais informações sobre como consultar logs e configurar alertas em logs de Azure Monitor, consulte:
 
-* [Compreender a pesquisa nos registos do Azure Monitor](../log-analytics/log-analytics-log-search.md)
+* [Noções básicas sobre pesquisas de log em logs de Azure Monitor](../log-analytics/log-analytics-log-search.md)
 * [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

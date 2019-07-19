@@ -408,7 +408,7 @@
         - name: Alterações interruptivas
           href: reference-breaking-changes.md
 - name: v1.0
-  expanded: true
+  expanded: false
   items:
     - name: Descrição geral
       href: v1-overview.md

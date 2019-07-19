@@ -1,6 +1,6 @@
 ---
-title: Alertas de registo de atividades no Azure Monitor
-description: Ser notificado através de SMS, webhook, SMS, e-mail e além disso, quando determinados eventos ocorrem no registo de atividades.
+title: Alertas do log de atividades no Azure Monitor
+description: Seja notificado via SMS, webhook, SMS, email e muito mais, quando determinados eventos ocorrerem no log de atividades.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,62 +8,60 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 5d0819f71405b1bf1d4bef57a8b93d57bc879087
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61b5b96636ea12b5c63da657e006bd3121c34756
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244973"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67852617"
 ---
-# <a name="alerts-on-activity-log"></a>Alertas de registo de atividades 
+# <a name="alerts-on-activity-log"></a>Alertas no log de atividades 
 
 ## <a name="overview"></a>Descrição geral
-Alertas de registo de atividade são alertas que ativar a ocorrência de um novo log de eventos de atividade que coincida com as condições especificadas no alerta. Eles são recursos do Azure, pelo que podem ser criadas com um modelo Azure Resource Manager. Eles também podem ser criados, atualizados ou eliminados no portal do Azure. Este artigo apresenta os conceitos por trás de alertas de registo de atividade. Em seguida, mostra como utilizar o portal do Azure para configurar um alerta sobre eventos de registo de atividade. Para obter mais informações sobre a utilização, consulte [criar e gerir alertas de registo de atividade](alerts-activity-log.md).
+Alertas do log de atividades são alertas que são ativados quando ocorre um novo [evento do log de atividades](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e no volume dos eventos registrados no [log de atividades do Azure](activity-logs-overview.md), a regra de alerta será acionada. As regras de alerta do log de atividades são recursos do Azure, para que possam ser criadas usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Este artigo apresenta os conceitos por trás dos alertas do log de atividades. Para obter mais informações sobre a criação ou uso de regras de alerta do log de atividades, consulte [criar e gerenciar alertas do log de atividades](alerts-activity-log.md).
 
 > [!NOTE]
-> Alertas **não é possível** criado para eventos na categoria de alerta de registo de atividades.
+> **Não é possível** criar alertas para eventos na categoria de alerta do log de atividades.
 
-Normalmente, criar atividade de alertas de registo para receber notificações quando:
+Normalmente, você cria alertas do log de atividades para receber notificações quando:
 
-* Operações específicas ocorrerem nos recursos da sua subscrição do Azure, com freqüência no âmbito de recursos ou grupos de recursos específico. Por exemplo, poderá ser notificado quando qualquer máquina virtual na myProductionResourceGroup é eliminada. Em alternativa, pode querer ser notificado se quaisquer novas funções são atribuídas a um utilizador na sua subscrição.
-* Ocorre um evento de estado de funcionamento do serviço. Eventos de estado de funcionamento do serviço incluem a notificação de incidentes e eventos de manutenção que se aplicam a recursos na sua subscrição.
+* Operações específicas ocorrem nos recursos em sua assinatura do Azure, com frequência no escopo de recursos ou grupos de recursos específicos. Por exemplo, talvez você queira ser notificado quando qualquer máquina virtual no myProductionResourceGroup for excluída. Ou talvez você queira ser notificado se alguma nova função for atribuída a um usuário em sua assinatura.
+* Ocorre um evento de integridade do serviço. Os eventos de integridade do serviço incluem a notificação de incidentes e eventos de manutenção que se aplicam aos recursos em sua assinatura.
 
-Uma analogia simple para condições de noções básicas sobre em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos via [registo de atividades no portal do Azure](activity-log-view.md#azure-portal). No Azure Monitor - registo de atividades, um pode filtrar ou localizar evento necessários e, em seguida, criar um alerta com o **Adicionar alerta de registo de atividade** botão.
+Uma analogia simples para entender as condições em que as regras de alerta podem ser criadas no log de atividades é explorar ou filtrar eventos por meio [do log de atividades em portal do Azure](activity-log-view.md#azure-portal). No log de atividades Azure Monitor, é possível filtrar ou localizar o evento necessário e, em seguida, criar um alerta usando o botão de **alerta Adicionar log de atividades** .
 
-Em ambos os casos, um alerta de registo de atividade monitoriza apenas para os eventos na subscrição na qual o alerta é criado.
+Em ambos os casos, um alerta do log de atividades monitora apenas os eventos na assinatura em que o alerta é criado.
 
-Pode configurar um alerta de registo de atividade com base em qualquer propriedade de nível superior no objeto JSON para o evento do registo de atividades. Para obter mais informações, consulte [descrição geral do registo de atividades do Azure](./activity-logs-overview.md#categories-in-the-activity-log). Para saber mais sobre eventos de estado de funcionamento do serviço, veja [receber alertas de registo de atividade nas notificações do serviço](./alerts-activity-log-service-notifications.md). 
+Você pode configurar um alerta do log de atividades com base em qualquer propriedade de nível superior no objeto JSON para um evento do log de atividades. Para obter mais informações, consulte [visão geral do log de atividades do Azure](./activity-logs-overview.md#categories-in-the-activity-log). Para saber mais sobre eventos de integridade do serviço, consulte [receber alertas do log de atividades em notificações de serviço](./alerts-activity-log-service-notifications.md). 
 
-Alertas de registo de atividade tem algumas opções comuns:
+Os alertas do log de atividades têm algumas opções comuns:
 
-- **Categoria**: Administrativo, serviço de estado de funcionamento, dimensionamento automático, segurança, política e recomendação. 
-- **Âmbito**: O recurso individual ou um conjunto de recursos para o qual o alerta no log de atividade está definido. Âmbito para um alerta de registo de atividades pode ser definido em vários níveis:
-    - Nível de recursos: Por exemplo, para uma máquina virtual específica
-    - Ao nível do grupo de recursos: Por exemplo, todas as máquinas virtuais no grupo de recursos específico
-    - Nível de assinatura: Por exemplo, todas as máquinas virtuais numa subscrição (ou) a todos os recursos numa subscrição
-- **Grupo de recursos**: Por predefinição, a regra de alerta é salvo no mesmo grupo de recursos que o destino definido no âmbito. O usuário também pode definir o grupo de recursos em que a regra de alerta deve ser armazenada.
-- **Tipo de recurso**: Gestor de recursos definidos pelo espaço de nomes para o destino do alerta.
-
-- **Nome da operação**: O nome da operação de controlo de acesso baseado em funções do Resource Manager.
-- **Nível**: O nível de gravidade do evento (verboso, informativo, aviso, erro ou crítico).
-- **Estado**: O estado do evento, geralmente inicia, falhou ou foi concluída com êxito.
-- **Evento iniciado por**: Também conhecido como o "autor da chamada." O endereço de e-mail ou o identificador do Azure Active Directory do utilizador que executou a operação.
+- **Categoria**: Administrativo, integridade do serviço, dimensionamento automático, segurança, política e recomendação. 
+- **Escopo**: O recurso individual ou conjunto de recursos para os quais o alerta no log de atividades é definido. O escopo de um alerta do log de atividades pode ser definido em vários níveis:
+    - Nível de recurso: Por exemplo, para uma máquina virtual específica
+    - Nível do grupo de recursos: Por exemplo, todas as máquinas virtuais em um grupo de recursos específico
+    - Nível de assinatura: Por exemplo, todas as máquinas virtuais em uma assinatura (ou) todos os recursos em uma assinatura
+- **Grupo de recursos**: Por padrão, a regra de alerta é salva no mesmo grupo de recursos que o destino definido no escopo. O usuário também pode definir o grupo de recursos onde a regra de alerta deve ser armazenada.
+- **Tipo de recurso**: Namespace definido pelo Gerenciador de recursos para o destino do alerta.
+- **Nome da operação**: O nome da [operação de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilizado para o controle de acesso baseado em função. As operações não registradas com Azure Resource Manager não podem ser usadas em uma regra de alerta do log de atividades.
+- **Nível**: O nível de severidade do evento (detalhado, informativo, aviso, erro ou crítico).
+- **Status**: O status do evento, normalmente iniciado, com falha ou com êxito.
+- **Evento iniciado por**: Também conhecido como "chamador". O endereço de email ou o identificador de Azure Active Directory do usuário que realizou a operação.
 
 > [!NOTE]
-> Numa subscrição de até 100 regras de alerta pode ser criado para uma atividade do âmbito em qualquer um de: um único recurso, todos os recursos no recurso de grupo (ou) ao nível da subscrição completa.
+> Em uma assinatura de até 100, as regras de alerta podem ser criadas para uma atividade de escopo em: um único recurso, todos os recursos no grupo de recursos (ou) todo o nível de assinatura.
 
-Quando um alerta de registo de atividade é ativado, ele usa um grupo de ação para gerar as ações ou notificações. Um grupo de ação é um conjunto reutilizável de recetores de notificação, como endereços de e-mail, números de telefone de URLs de webhook, nem o SMS. Os recetores podem ser referenciados a partir de vários alertas para centralizar e seus canais de notificação de grupo. Quando define o alerta de registo de atividades, tem duas opções. Pode:
+Quando um alerta do log de atividades é ativado, ele usa um grupo de ações para gerar ações ou notificações. Um grupo de ações é um conjunto reutilizável de receptores de notificação, como endereços de email, URLs de webhook ou números de telefone de SMS. Os receptores podem ser referenciados de vários alertas para centralizar e agrupar seus canais de notificação. Ao definir o alerta do log de atividades, você tem duas opções. Pode:
 
-* Utilize um grupo de ação existente no seu alerta de registo de atividades.
+* Use um grupo de ação existente no alerta do log de atividades.
 * Crie um novo grupo de ação.
 
-Para saber mais sobre os grupos de ação, veja [criar e gerir grupos de ação no portal do Azure](action-groups.md).
+Para saber mais sobre grupos de ações, confira [criar e gerenciar grupos de ações no portal do Azure](action-groups.md).
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Obter um [descrição geral dos alertas](alerts-overview.md).
-- Saiba mais sobre [criar e modificar alertas do registo de atividade](alerts-activity-log.md).
-- Reveja os [esquema de webhook de alerta de registo de atividades](activity-log-alerts-webhook.md).
-- Saiba mais sobre [notificações de estado de funcionamento de serviço](service-notifications.md).
 
-
+- Obtenha uma [visão geral dos alertas](alerts-overview.md).
+- Saiba mais sobre como [criar e modificar alertas do log de atividades](alerts-activity-log.md).
+- Examine o [esquema](activity-log-alerts-webhook.md)de webhook de alerta do log de atividades.
+- Saiba mais sobre as [notificações de integridade do serviço](service-notifications.md).

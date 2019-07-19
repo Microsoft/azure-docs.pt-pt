@@ -10,15 +10,13 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 01c153f2f8836b7d99de57af60b8623e54c6d6fe
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: bb0e44f83e2101a7b21e7b7ec6fdc75974c6d6d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311918"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333605"
 ---
-[!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
-
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>Início rápido: Analisar o conteúdo de texto para materiais censuráveis em Python
 
 Este artigo fornece informações e exemplos de código para ajudá-lo a começar a utilizar o SDK de moderador de conteúdo para o Python. Vai aprender a executar a filtragem baseada em termos e a classificação de conteúdos de texto com o objetivo de moderar materiais potencialmente censuráveis.
@@ -47,7 +45,7 @@ Criar um novo script de Python com o nome _ContentModeratorQS.py_ e adicione o c
 
 ## <a name="initialize-variables"></a>Inicializar variáveis
 
-Em seguida, adicione as variáveis para o URL de ponto final e a chave de subscrição do Content Moderator. Você precisará adicionar o nome `CONTENT_MODERATOR_SUBSCRIPTION_KEY` às suas variáveis de ambiente e adicionar sua chave de assinatura como seu valor. Para a URL do ponto de extremidade `CONTENT_MODERATOR_ENDPOINT` base, adicione às suas variáveis de ambiente com a URL específica da região como seu `https://westus.api.cognitive.microsoft.com`valor, por exemplo. Chaves de subscrição de avaliação gratuita são geradas na **westus** região.
+Em seguida, adicione as variáveis para o URL de ponto final e a chave de subscrição do Content Moderator. Adicione o nome `CONTENT_MODERATOR_SUBSCRIPTION_KEY` às suas variáveis de ambiente com sua chave de assinatura como seu valor. Para a URL do ponto de extremidade `CONTENT_MODERATOR_ENDPOINT` base, adicione às suas variáveis de ambiente com a URL específica da região como seu `https://westus.api.cognitive.microsoft.com`valor, por exemplo. Chaves de subscrição de avaliação gratuita são geradas na **westus** região.
 
 [!code-python[](~/cognitive-services-content-moderator-samples/documentation-samples/python/content_moderator_quickstart.py?name=authentication)]
 
@@ -67,9 +65,7 @@ Em seguida, use seu cliente com sua instância **TextModerationOperations** do m
 
 ## <a name="check-the-printed-response"></a>Verificar a resposta impressa
 
-Execute o exemplo e confirme a resposta. Ele deve ter sido concluído com êxito e retornado uma instância de **tela** . Um resultado bem-sucedido é impresso abaixo:
-
-O texto de exemplo usado nos resultados início rápido na seguinte saída:
+Execute o exemplo e confirme a resposta. Após a conclusão bem-sucedida, retorna uma instância de **tela** . Um resultado bem-sucedido é mostrado abaixo:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '

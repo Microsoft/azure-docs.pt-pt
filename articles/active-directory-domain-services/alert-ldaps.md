@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Resolução de problemas de configuração de Secure LDAP | Documentos da Microsoft'
-description: Resolução de problemas de Secure LDAP para serviços de domínio do Azure AD
+title: 'Azure Active Directory Domain Services: Solucionar problemas de LDAP seguro | Microsoft Docs'
+description: LDAP Seguro de solução de problemas para Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,54 +15,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 453018f486ca3fda91d8447208fe3d936722522e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8a542f7927ddd834c7273f6ef8b251ddc35e8436
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473959"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234194"
 ---
-# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Serviços de domínio do Azure AD - configuração de resolução de problemas do LDAP seguro
+# <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services-solução de problemas de configuração de LDAP Seguro
 
-Este artigo fornece resoluções para comuns com problemas ao [configurar o secure LDAP](configure-ldaps.md) para serviços de domínio do Azure AD.
+Este artigo fornece soluções para problemas comuns ao [Configurar o LDAP seguro](configure-ldaps.md) para Azure AD Domain Services.
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Configuração do grupo de segurança de rede LDAP seguro
+## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: LDAP Seguro configuração do grupo de segurança de rede
 
 **Mensagem de alerta:**
 
-*Secure LDAP via internet está ativada para o domínio gerido. No entanto, o acesso à porta 636 não está bloqueado através de um grupo de segurança de rede. Isso pode expor as contas de utilizador no domínio gerido a ataques de força bruta de palavra-passe.*
+*LDAP Seguro pela Internet está habilitada para o domínio gerenciado. No entanto, o acesso à porta 636 não é bloqueado usando um grupo de segurança de rede. Isso pode expor as contas de usuário no domínio gerenciado para ataques de força bruta de senha.*
 
-### <a name="secure-ldap-port"></a>Porta LDAP segura
+### <a name="secure-ldap-port"></a>Porta LDAP Seguro
 
-Quando o LDAP seguro está ativado, recomendamos que crie regras adicionais para permitir o acesso de entrada de LDAPS apenas a partir de certos endereços IP. Estas regras protejam contra ataques de força bruta que poderiam representar uma ameaça de segurança para o seu domínio. Porta 636 permite o acesso ao seu domínio gerido. Eis como atualizar o seu NSG para permitir o acesso de Secure LDAP:
+Quando o LDAP seguro está habilitado, recomendamos a criação de regras adicionais para permitir o acesso de LDAPs de entrada apenas de determinados endereços IP. Essas regras protegem seu domínio contra ataques de força bruta que podem representar uma ameaça à segurança. A porta 636 permite o acesso ao domínio gerenciado. Aqui está como atualizar seu NSG para permitir o acesso para LDAP Seguro:
 
-1. Navegue para o [guia de grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) no portal do Azure
-2. Escolha o NSG associado com o domínio da tabela.
+1. Navegue até a [guia grupos de segurança de rede](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FNetworkSecurityGroups) na portal do Azure
+2. Escolha o NSG associado ao seu domínio da tabela.
 3. Clique em **regras de segurança de entrada**
-4. Criar a regra de porta 636
-   1. Clique em **adicionar** na barra de navegação superior.
-   2. Escolher **endereços IP** para a origem.
+4. Criar a regra 636 da porta
+   1. Clique em **Adicionar** na barra de navegação superior.
+   2. Escolha os **endereços IP** para a origem.
    3. Especifique os intervalos de porta de origem para esta regra.
-   4. Entrada "636" para os intervalos de portas de destino.
-   5. Protocolo é **TCP**.
-   6. Dê a regra de um nome apropriado, a descrição e a prioridade. Prioridade desta regra deve ser superior a prioridade de sua regra de "Negar todos os", se tiver uma.
+   4. Insira "636" para os intervalos de porta de destino.
+   5. O protocolo é **TCP**.
+   6. Dê à regra um nome, uma descrição e uma prioridade apropriados. A prioridade dessa regra deve ser maior que a prioridade da regra "negar tudo", se você tiver uma.
    7. Clique em **OK**.
-5. Certifique-se de que a regra foi criada.
-6. Verifique o estado de funcionamento do seu domínio nas duas horas para se certificar de que concluiu os passos corretamente.
+5. Verifique se a regra foi criada.
+6. Verifique a integridade do seu domínio em duas horas para garantir que você concluiu as etapas corretamente.
 
 > [!TIP]
-> Porta 636 não é a única regra necessária para os serviços de domínio do Azure AD sem problemas. Para saber mais, visite o [orientações de redes](network-considerations.md) ou [configuração de NSG de resolução de problemas](alert-nsg.md) artigos.
+> A porta 636 não é a única regra necessária para que Azure AD Domain Services seja executada sem problemas. Para saber mais, visite os artigos [diretrizes de rede](network-considerations.md) ou solução de problemas de configuração do [NSG](alert-nsg.md) .
 >
 
-## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: Proteger a expiração do certificado LDAP
+## <a name="aadds502-secure-ldap-certificate-expiring"></a>AADDS502: LDAP Seguro certificado expirando
 
 **Mensagem de alerta:**
 
-*O certificado de secure LDAP para o domínio gerido irá expirar em [date]].*
+*O certificado LDAP seguro para o domínio gerenciado expirará em [date]].*
 
 **Resolução:**
 
-Criar um novo certificado de secure LDAP ao seguir os passos descritos no [configurar o secure LDAP](configure-ldaps.md) artigo.
+Crie um novo certificado LDAP seguro seguindo as etapas descritas no artigo [Configurar LDAP seguro](configure-ldaps.md) .
 
 ## <a name="contact-us"></a>Contacte-nos
-Contacte a equipa de produto do Azure Active Directory Domain Services para [partilhar comentários ou para o suporte](contact-us.md).
+Entre em contato com a equipe de produto Azure Active Directory Domain Services para [compartilhar comentários ou para obter suporte](contact-us.md).

@@ -1,62 +1,62 @@
 ---
-title: Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas utilizando funções do Azure Site Recovery.
+title: Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas usando Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como configurar a recuperação de desastres para um aplicativo do SharePoint de várias camadas usando Azure Site Recovery recursos.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 4b4edec43d01878bbc5899487f6ee1d2816eb135
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491837"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325117"
 ---
-# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas para recuperação após desastre com o Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastre usando Azure Site Recovery
 
-Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando [do Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure site Recovery](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Descrição geral
 
-Microsoft SharePoint é um aplicativo avançado que pode ajudar a um grupo ou departamento organizar, colaborar e compartilhar informações. SharePoint pode fornecer portais de intranet, gestão de ficheiros e documentos, colaboração, redes sociais, extranets, Web sites, pesquisa empresarial e business intelligence. Também tem a integração de sistemas, integração de processos e recursos de automação do fluxo de trabalho. Normalmente, as organizações considerá-lo como uma aplicação de camada 1 sensíveis ao tempo de inatividade e perda de dados.
+O Microsoft SharePoint é um aplicativo poderoso que pode ajudar um grupo ou departamento a organizar, colaborar e compartilhar informações. O SharePoint pode fornecer portais de intranet, gerenciamento de documentos e arquivos, colaboração, redes sociais, extranets, sites, pesquisa empresarial e business intelligence. Ele também tem recursos de integração do sistema, integração de processos e automação de fluxo de trabalho. Normalmente, as organizações consideram isso como um aplicativo de camada 1 sensível ao tempo de inatividade e à perda de dados.
 
-Hoje em dia, o Microsoft SharePoint não fornece quaisquer capacidades de recuperação após desastre de out-of-the-box. Independentemente do tipo e o dimensionamento de um desastre, recuperação envolve a utilização de um centro de dados em modo de espera que pode recuperar o farm. Centros de dados em modo de espera são necessários para cenários em que local sistemas redundantes e cópias de segurança não consegue recuperar a falha no Centro de dados primário.
+Hoje, o Microsoft SharePoint não fornece nenhum recurso de recuperação de desastres pronto para uso. Independentemente do tipo e da escala de um desastre, a recuperação envolve o uso de um data center em espera no qual você pode recuperar o farm. Os data centers em espera são necessários para cenários em que os sistemas e backups com redundância local não podem se recuperar da interrupção no data center primário.
 
-Uma solução de recuperação após desastre boa deve permitir que a Modelagem de planos de recuperação em torno das arquiteturas de aplicativo complexo como o SharePoint. Ele também deve ter a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicação entre vários escalões e, por conseguinte, fornecendo uma ativação pós-falha de clique único com um RTO inferior em caso de desastre.
+Uma boa solução de recuperação de desastres deve permitir a modelagem de planos de recuperação em relação a arquiteturas de aplicativos complexas, como o SharePoint. Ele também deve ter a capacidade de adicionar etapas personalizadas para lidar com mapeamentos de aplicativos entre várias camadas e, portanto, fornecer um failover de clique único com um RTO inferior em caso de desastre.
 
-Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando [do Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para replicar um três de camada aplicativo do SharePoint para o Azure, como pode fazer um teste de recuperação após desastre e como pode de ativação pós-falha, a aplicação no Azure.
+Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para replicar um aplicativo do SharePoint de três camadas para o Azure, como você pode fazer uma análise de recuperação de desastre e como é possível realizar o failover do aplicativo para o Azure.
 
-Pode ver o abaixo vídeo sobre como recuperar uma aplicação multicamada no Azure.
+Você pode assistir ao vídeo abaixo sobre como recuperar um aplicativo de várias camadas para o Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, certifique-se de que compreende o seguinte:
+Antes de começar, certifique-se de entender o seguinte:
 
-1. [Replicar uma máquina virtual para o Azure](site-recovery-vmware-to-azure.md)
-2. Como [estruturar uma rede de recuperação](site-recovery-network-design.md)
-3. [Fazer uma ativação pós-falha de teste para o Azure](site-recovery-test-failover-to-azure.md)
-4. [Efetuar uma ativação pós-falha para o Azure](site-recovery-failover.md)
+1. [Replicando uma máquina virtual para o Azure](site-recovery-vmware-to-azure.md)
+2. Como [criar uma rede de recuperação](site-recovery-network-design.md)
+3. [Fazendo um failover de teste para o Azure](site-recovery-test-failover-to-azure.md)
+4. [Fazendo um failover para o Azure](site-recovery-failover.md)
 5. Como [replicar um controlador de domínio](site-recovery-active-directory.md)
-6. Como [replicação do SQL Server](site-recovery-sql.md)
+6. Como [replicar SQL Server](site-recovery-sql.md)
 
 ## <a name="sharepoint-architecture"></a>Arquitetura do SharePoint
 
-SharePoint pode ser implementado num ou mais servidores usando as topologias em camadas e funções de servidor para implementar um design de farm que cumpre os objetivos específicos e objetivos. Um típico grande e de alta demanda server farm do SharePoint que suporta um elevado número de utilizadores em simultâneo e um grande número de itens de conteúdo utilizar o agrupamento do serviço como parte de sua estratégia de escalabilidade. Essa abordagem envolve a executar os serviços em servidores dedicados, agrupar estes serviços e, em seguida, aumentar horizontalmente os servidores como um grupo. A seguinte topologia ilustra o serviço e o servidor de agrupamento para um farm de servidores do SharePoint de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter instruções detalhadas sobre diferentes topologias do SharePoint. Pode encontrar mais detalhes sobre a implantação do SharePoint 2013 no [este documento](https://technet.microsoft.com/library/cc303422.aspx).
+O SharePoint pode ser implantado em um ou mais servidores usando topologias em camadas e funções de servidor para implementar um design de farm que atenda a metas e objetivos específicos. Um farm de servidores do SharePoint grande e de alta demanda, que dá suporte a um grande número de usuários simultâneos, e que vários itens de conteúdo usam o agrupamento de serviços como parte de sua estratégia de escalabilidade. Essa abordagem envolve a execução de serviços em servidores dedicados, o agrupamento desses serviços e a expansão dos servidores como um grupo. A topologia a seguir ilustra o serviço e o agrupamento de servidores para um farm de servidores do SharePoint de três camadas. Consulte a documentação do SharePoint e arquiteturas de linha de produto para obter diretrizes detalhadas sobre diferentes topologias do SharePoint. Você pode encontrar mais detalhes sobre a implantação do SharePoint 2013 neste [documento](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 
-![Padrão de implementação 1](./media/site-recovery-sharepoint/sharepointarch.png)
+![Padrão de implantação 1](./media/site-recovery-sharepoint/sharepointarch.png)
 
 
 ## <a name="site-recovery-support"></a>Suporte do Site Recovery
 
-Para a criação deste artigo, máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise foram utilizadas. SharePoint 2013 Enterprise edition e SQL server 2014 Enterprise edition foram utilizados. Como replicação do Site Recovery é independente de aplicativo, as recomendações fornecidas aqui devem manter para cenários seguintes também.
+Para criar este artigo, as máquinas virtuais VMware com o Windows Server 2012 R2 Enterprise foram usadas. O SharePoint 2013 Enterprise Edition e o SQL Server 2014 Enterprise Edition foram usados. Como Site Recovery replicação é independente de aplicativo, as recomendações fornecidas aqui devem ser mantidas para os cenários a seguir também.
 
 ### <a name="source-and-target"></a>Origem e destino
 
@@ -68,143 +68,143 @@ Para a criação deste artigo, máquinas virtuais VMware com o Windows Server 20
 **Azure** | ND | Sim
 
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
-São suportadas as seguintes versões de servidor do SharePoint.
+Há suporte para as seguintes versões do SharePoint Server.
 
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
+* SharePoint Server 2013 Standard
+* SharePoint Server 2013 Enterprise
+* SharePoint Server 2016 Standard
+* SharePoint Server 2016 Enterprise
 
-### <a name="things-to-keep-in-mind"></a>Aspetos a ter em mente
+### <a name="things-to-keep-in-mind"></a>Coisas para ter em mente
 
-Se estiver a utilizar um cluster com base em disco partilhado como qualquer camada na sua aplicação, em seguida, não será possível usar replicação do Site Recovery para replicar essas máquinas virtuais. Pode utilizar os replicação nativo fornecido pela aplicação e, em seguida, utilizar um [plano de recuperação](site-recovery-create-recovery-plans.md) para ativação pós-falha de todas as camadas.
+Se você estiver usando um cluster compartilhado baseado em disco como qualquer camada em seu aplicativo, não será possível usar Site Recovery replicação para replicar essas máquinas virtuais. Você pode usar a replicação nativa fornecida pelo aplicativo e, em seguida, usar um [plano de recuperação](site-recovery-create-recovery-plans.md) para fazer failover de todas as camadas.
 
-## <a name="replicating-virtual-machines"></a>Replicar máquinas virtuais
+## <a name="replicating-virtual-machines"></a>Replicando máquinas virtuais
 
-Siga [esta orientação](site-recovery-vmware-to-azure.md) para iniciar a replicação da máquina virtual para o Azure.
+Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para iniciar a replicação da máquina virtual para o Azure.
 
-* Quando a replicação estiver concluída, certifique-se de que vá para cada máquina virtual de cada escalão e selecione o mesmo conjunto de disponibilidade no "item replicado > Definições > propriedades > computação e rede". Por exemplo, se sua camada web tem 3 VMs, certifique-se a todos os 3 VMs estão configuradas como parte do mesmo conjunto de disponibilidade no Azure.
+* Depois que a replicação for concluída, verifique se você vai para cada máquina virtual de cada camada e selecione o mesmo conjunto de disponibilidade em ' item replicado > Configurações > Propriedades > Computação e rede '. Por exemplo, se sua camada da Web tiver 3 VMs, verifique se todas as três VMs estão configuradas como parte do mesmo conjunto de disponibilidade no Azure.
 
-    ![Conjunto de disponibilidade de conjunto](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
 
-* Para obter orientações sobre como proteger o Active Directory e DNS, consulte [proteger o Active Directory e DNS](site-recovery-active-directory.md) documento.
+* Para obter orientação sobre como proteger Active Directory e DNS, consulte [proteger o Active Directory e](site-recovery-active-directory.md) o documento DNS.
 
-* Para obter orientações sobre a proteção de camada de base de dados em execução no SQL server, consulte [proteger o SQL Server](site-recovery-active-directory.md) documento.
+* Para obter orientação sobre como proteger a camada de banco de dados em execução no SQL Server, consulte [proteger SQL Server](site-recovery-active-directory.md) documento.
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-### <a name="network-properties"></a>Propriedades de rede
+### <a name="network-properties"></a>Propriedades da rede
 
-* Para a aplicação e as VMs de camada Web, configure as definições de rede no portal do Azure para que as VMs são anexadas à rede certa DR após a ativação pós-falha.
+* Para as VMs do aplicativo e da camada da Web, defina as configurações de rede no portal do Azure para que as VMs sejam anexadas à rede de DR correta após o failover.
 
-    ![Selecione a rede](./media/site-recovery-sharepoint/select-network.png)
-
-
-* Se estiver a utilizar um IP estático, em seguida, especifique o IP que pretende que a máquina virtual para tirar o **IP de destino** campo
-
-    ![Definir o IP estático](./media/site-recovery-sharepoint/set-static-ip.png)
-
-### <a name="dns-and-traffic-routing"></a>DNS e o encaminhamento de tráfego
-
-Para sites, de acesso à internet [criar um perfil do Gestor de tráfego do tipo 'Priority'](../traffic-manager/traffic-manager-create-profile.md) na subscrição do Azure. E, em seguida, configure o seu perfil de DNS e o Gestor de tráfego da seguinte forma.
+    ![Selecionar rede](./media/site-recovery-sharepoint/select-network.png)
 
 
-| **Where** | **Origem** | **Target**|
+* Se você estiver usando um IP estático, especifique o IP que deseja que a máquina virtual execute no campo IP de **destino**
+
+    ![Definir IP estático](./media/site-recovery-sharepoint/set-static-ip.png)
+
+### <a name="dns-and-traffic-routing"></a>Roteamento de tráfego e DNS
+
+Para sites voltados para a Internet, [crie um perfil do Gerenciador de tráfego do tipo ' prioridade '](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil de DNS e do Gerenciador de tráfego da seguinte maneira.
+
+
+| **Posição** | **Origem** | **Target**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
-| DNS no local | sharepointonprem.contoso.com | IP público no farm de no local |
+| DNS local | sharepointonprem.contoso.com | IP público no farm local |
 
 
-No perfil do Gestor de tráfego, [criar os pontos finais de principal e de recuperação](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Utilize o ponto final externo para o ponto de extremidade no local e um IP público para o ponto final do Azure. Certifique-se de que a prioridade é definida como superior ao ponto final de no local.
+No perfil do Gerenciador de tráfego, [crie os pontos de extremidade primário e de recuperação](../traffic-manager/traffic-manager-configure-priority-routing-method.md). Use o ponto de extremidade externo para o ponto de extremidade local e o IP público para o ponto de extremidade do Azure. Verifique se a prioridade está definida como superior ao ponto de extremidade local.
 
-Aloje uma página de teste numa porta específica (por exemplo, 800) na camada de web do SharePoint por ordem para o Gestor de tráfego para detetar automaticamente a disponibilidade após a ativação pós-falha. Esta é uma solução alternativa, no caso de não é possível ativar a autenticação anónima em qualquer um dos seus sites do SharePoint.
+Hospede uma página de teste em uma porta específica (por exemplo, 800) na camada da Web do SharePoint para que o Gerenciador de tráfego detecte automaticamente a disponibilidade após o failover. Isso é uma solução alternativa no caso de você não poder habilitar a autenticação anônima em nenhum dos seus sites do SharePoint.
 
-[Configurar o perfil do Gestor de tráfego](../traffic-manager/traffic-manager-configure-priority-routing-method.md) com o abaixo as definições.
+[Configure o perfil do Gerenciador de tráfego](../traffic-manager/traffic-manager-configure-priority-routing-method.md) com as configurações abaixo.
 
-* Método de encaminhamento - 'Priority'
-* Tempo DNS para live (TTL) - ' ' 30 segundos
-* Definições do monitor de ponto final - se pode ativar a autenticação anónima, pode dar um ponto de extremidade do Web site específico. Em alternativa, pode usar uma página de teste numa porta específica (por exemplo, 800).
+* Método de roteamento-' prioridade '
+* TTL (vida útil) do DNS-' 30 segundos '
+* Configurações do monitor de ponto de extremidade – se você puder habilitar a autenticação anônima, poderá fornecer um ponto de extremidade de site específico. Ou, você pode usar uma página de teste em uma porta específica (por exemplo, 800).
 
-## <a name="creating-a-recovery-plan"></a>Criar um plano de recuperação
+## <a name="creating-a-recovery-plan"></a>Criando um plano de recuperação
 
-Um plano de recuperação permite sequenciar a ativação pós-falha de vários escalões num aplicativo de várias camado, por conseguinte, manter a consistência de aplicação. Siga os passos ao criar um plano de recuperação para uma aplicação web de várias camadas abaixo. [Saiba mais sobre como criar um plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
+Um plano de recuperação permite sequenciar o failover de várias camadas em um aplicativo de várias camadas, portanto, mantendo a consistência do aplicativo. Siga as etapas abaixo ao criar um plano de recuperação para um aplicativo Web de várias camadas. [Saiba mais sobre como criar um plano de recuperação](site-recovery-runbook-automation.md#customize-the-recovery-plan).
 
-### <a name="adding-virtual-machines-to-failover-groups"></a>A adicionar máquinas virtuais para grupos de ativação pós-falha
+### <a name="adding-virtual-machines-to-failover-groups"></a>Adicionando máquinas virtuais a grupos de failover
 
-1. Crie um plano de recuperação ao adicionar a aplicação e as VMs de camada Web.
-2. Clique em "Personalizar" para agrupar as VMs. Por predefinição, todas as VMs são parte do 'Grupo 1'.
+1. Crie um plano de recuperação adicionando as VMs do aplicativo e da camada da Web.
+2. Clique em ' Personalizar ' para agrupar as VMs. Por padrão, todas as VMs fazem parte do ' grupo 1 '.
 
-    ![Personalizar a RP](./media/site-recovery-sharepoint/rp-groups.png)
+    ![Personalizar RP](./media/site-recovery-sharepoint/rp-groups.png)
 
-3. Criar outro grupo (2 de grupo) e mover as VMs de camada Web para o novo grupo. As VMs de camada de aplicação devem fazer parte do "Grupo 1" e VMs de camada Web devem fazer parte do "Grupo 2". Isto é, para garantir que o arranque de VMs da camada de aplicação de cópia de segurança, primeiro, seguidos pelos VMs de camada de Web.
+3. Crie outro grupo (grupo 2) e mova as VMs da camada da Web para o novo grupo. As VMs da camada de aplicativo devem fazer parte do ' grupo 1 ' e as VMs da camada da Web devem ser parte do ' grupo 2 '. Isso é para garantir que as VMs da camada de aplicativo sejam inicializadas primeiro, seguidas pelas VMs da camada da Web.
 
 
-### <a name="adding-scripts-to-the-recovery-plan"></a>Adição de scripts para o plano de recuperação
+### <a name="adding-scripts-to-the-recovery-plan"></a>Adicionando scripts ao plano de recuperação
 
-Pode implementar os scripts mais utilizados do Azure Site Recovery para a sua conta de automatização, clicar no botão "Implementar para o Azure" abaixo. Quando estiver a utilizar qualquer script publicado, certifique-se de que siga as orientações no script.
+Você pode implantar os scripts de Azure Site Recovery usados com mais frequência em sua conta de automação clicando no botão ' implantar no Azure ' abaixo. Quando você estiver usando qualquer script publicado, certifique-se de seguir as orientações no script.
 
 [![Implementar no Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Adicione um script de pré-ação para 'Grupo 1' ao grupo de disponibilidade de SQL de ativação pós-falha. Utilize o script de "ASR-SQL-FailoverAG" publicado nos scripts de exemplo. Certifique-se de que siga as orientações no script e faça as alterações necessárias no script adequadamente.
+1. Adicione um script de pré-ação a ' grupo 1 ' para failover do grupo de disponibilidade do SQL. Use o script ' ASR-SQL-FailoverAG ' publicado nos scripts de exemplo. Certifique-se de seguir as diretrizes no script e faça as alterações necessárias no script adequadamente.
 
     ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
     ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
-2. Adicionar um script de ação de postagem para anexar um balanceador de carga na sobre as máquinas virtuais de camada Web (grupo de 2). Utilize o script de "ASR AddSingleLoadBalancer" publicado nos scripts de exemplo. Certifique-se de que siga as orientações no script e faça as alterações necessárias no script adequadamente.
+2. Adicione um script de ação post para anexar um balanceador de carga nas máquinas virtuais com failover da camada da Web (grupo 2). Use o script ' ASR-AddSingleLoadBalancer ' publicado nos scripts de exemplo. Certifique-se de seguir as diretrizes no script e faça as alterações necessárias no script adequadamente.
 
-    ![Adicionar-LB-Script-passo-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
+    ![Add-LB-script – Step-1](./media/site-recovery-sharepoint/add-lb-script-step1.png)
 
     ![Add-LB-Script-Step-2](./media/site-recovery-sharepoint/add-lb-script-step2.png)
 
-3. Adicione um passo manual para atualizar os registos DNS para apontar para a nova farm no Azure.
+3. Adicione uma etapa manual para atualizar os registros DNS para apontar para o novo farm no Azure.
 
-    * Para sites com face de internet, não existem atualizações DNS são necessárias após a ativação pós-falha. Siga os passos descritos na secção "Diretrizes de rede" para configurar o Gestor de tráfego. Se tiver sido configurado o perfil do Gestor de tráfego, tal como descrito na secção anterior, adicione um script para abrir a porta fictícia (800 no exemplo) na VM do Azure.
+    * Para sites voltados para a Internet, nenhuma atualização de DNS é necessária após o failover. Siga as etapas descritas na seção "diretrizes de rede" para configurar o Gerenciador de tráfego. Se o perfil do Gerenciador de tráfego tiver sido configurado conforme descrito na seção anterior, adicione um script para abrir a porta fictícia (800 no exemplo) na VM do Azure.
 
-    * Para sites com acesso internos, adicione um passo manual para atualizar o registo DNS para apontar para o IP do Balanceador de carga de novos Web escalão da VM.
+    * Para sites internos, adicione uma etapa manual para atualizar o registro DNS para apontar para o IP do balanceador de carga da VM da nova camada da Web.
 
-4. Adicione um passo manual para restaurar o aplicativo de pesquisa a partir de uma cópia de segurança ou iniciar um novo serviço de pesquisa.
+4. Adicione uma etapa manual para restaurar o aplicativo de pesquisa de um backup ou iniciar um novo serviço de pesquisa.
 
-5. Para restaurar a aplicação de serviço de pesquisa de uma cópia de segurança, siga os passos abaixo.
+5. Para restaurar o aplicativo de serviço de pesquisa de um backup, siga as etapas abaixo.
 
-    * Este método pressupõe que uma cópia de segurança da aplicação de serviço de pesquisa foi realizada antes do evento catastrófico e que a cópia de segurança está disponível no site de DR.
-    * Isso pode ser conseguido facilmente com agendamento da cópia de segurança (por exemplo, uma vez diariamente) e usando um procedimento de cópia para colocar a cópia de segurança no site de DR. Procedimentos de cópia podem incluir programas com script, como o AzCopy (cópia do Azure) ou como configurar o DFSR (Serviços de replicação de ficheiros distribuído).
-    * Agora que o farm do SharePoint está em execução, navegue até a Administração Central, "Cópia de segurança e restaurar" e selecione restaurar. O restauro consulta a localização de cópia de segurança especificada (poderá ter de atualizar o valor). Selecione a cópia de segurança de aplicação de serviço de pesquisa que pretende restaurar.
-    * Pesquisa é restaurada. Tenha em atenção que o restauro espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas difícil letras de unidade atribuídas a esses servidores. Para obter mais informações, consulte ["Aplicativo de serviço de pesquisa de restauro no SharePoint 2013"](https://technet.microsoft.com/library/ee748654.aspx) documento.
+    * Esse método pressupõe que um backup do aplicativo de Serviço de Pesquisa foi executado antes do evento catastrófico e que o backup está disponível no local de recuperação de desastre.
+    * Isso pode ser feito facilmente agendando o backup (por exemplo, uma vez por dia) e usando um procedimento de cópia para fazer o backup no local de recuperação de desastres. Os procedimentos de cópia podem incluir programas com script como AzCopy (cópia do Azure) ou configurar o DFSR (replicação de serviços de arquivos distribuídos).
+    * Agora que o farm do SharePoint está em execução, navegue pela administração central, ' backup e restauração ' e selecione restaurar. A restauração interroga o local de backup especificado (talvez seja necessário atualizar o valor). Selecione o backup do aplicativo Serviço de Pesquisa que você deseja restaurar.
+    * A pesquisa é restaurada. Tenha em mente que a restauração espera encontrar a mesma topologia (mesmo número de servidores) e as mesmas letras de disco rígido atribuídas a esses servidores. Para obter mais informações, consulte o documento [' restaurar aplicativo de serviço de pesquisa no SharePoint 2013 '](https://technet.microsoft.com/library/ee748654.aspx) .
 
 
-6. Para iniciar com uma nova aplicação de serviço de pesquisa, siga os passos abaixo.
+6. Para iniciar com um novo aplicativo de serviço de pesquisa, siga as etapas abaixo.
 
-    * Este método assume que está disponível uma cópia de segurança da base de dados "Administração de pesquisa" no site de DR.
-    * Uma vez que não são replicadas as outras bases de dados aplicação de serviço de pesquisa, eles precisam de ser recriadas. Para tal, navegue para a Administração Central e eliminar a aplicação de serviço de pesquisa. Em todos os servidores que alojam o índice de pesquisa, elimine os ficheiros de índice.
-    * Voltar a criar a aplicação de serviço de pesquisa e isso cria as bases de dados novamente. É recomendado ter um script preparado, que cria novamente esta aplicação de serviço, uma vez que não é possível efetuar todas as ações através da GUI. Por exemplo, definir o local de unidade de índice e configurar a topologia de pesquisa são só possíveis utilizando cmdlets do PowerShell do SharePoint. Utilize o cmdlet do Windows PowerShell SPEnterpriseSearchServiceApplication de restauro e especifique o replicados com envio de log e administração de pesquisa da base de dados, Search_Service__DB. Este cmdlet permite que a configuração de pesquisa, esquema, propriedades gerenciadas, regras e origens e cria um conjunto predefinido dos outros componentes.
-    * Assim que a aplicação de serviço de pesquisa tem de ser recriadas, tem de iniciar uma pesquisa completa para cada origem de conteúdo restaurar o serviço de pesquisa. Perder algumas informações de análise do farm no local, por exemplo, recomendações de pesquisa.
+    * Esse método pressupõe que um backup do banco de dados "administração de pesquisa" está disponível no local de recuperação de desastre.
+    * Como os outros bancos de dados de aplicativo Serviço de Pesquisa não são replicados, eles precisam ser recriados. Para fazer isso, navegue até a administração central e exclua o aplicativo Serviço de Pesquisa. Em todos os servidores que hospedam o índice de pesquisa, exclua os arquivos de índice.
+    * Recrie o aplicativo Serviço de Pesquisa e isso recriará os bancos de dados. É recomendável ter um script preparado que recria esse aplicativo de serviço, pois não é possível executar todas as ações por meio da GUI. Por exemplo, definir o local da unidade de índice e configurar a topologia de pesquisa só é possível usando cmdlets do SharePoint PowerShell. Use o cmdlet do Windows PowerShell Restore-SPEnterpriseSearchServiceApplication e especifique o banco de dados de administração de pesquisa replicado e enviado por log, Search_Service__DB. Esse cmdlet fornece a configuração de pesquisa, o esquema, as propriedades gerenciadas, as regras e as fontes e cria um conjunto padrão de outros componentes.
+    * Depois que o aplicativo Serviço de Pesquisa for recriado, você deverá iniciar um rastreamento completo para cada fonte de conteúdo a fim de restaurar o Serviço de Pesquisa. Você perde algumas informações de análise do farm local, como recomendações de pesquisa.
 
-7. Depois de todas as etapas são concluídas, guardar o plano de recuperação e o plano de recuperação final será semelhante a seguinte.
+7. Depois que todas as etapas forem concluídas, salve o plano de recuperação e o plano de recuperação final será semelhante ao seguinte.
 
-    ![RP guardado](./media/site-recovery-sharepoint/saved-rp.png)
+    ![RP salvo](./media/site-recovery-sharepoint/saved-rp.png)
 
-## <a name="doing-a-test-failover"></a>Efetuar uma ativação pós-falha de teste
-Siga [esta orientação](site-recovery-test-failover-to-azure.md) para fazer uma ativação pós-falha de teste.
+## <a name="doing-a-test-failover"></a>Fazendo um failover de teste
+Siga [estas diretrizes](site-recovery-test-failover-to-azure.md) para fazer um failover de teste.
 
-1.  Aceda ao portal do Azure e selecione o Cofre de serviço de recuperação.
-2.  Clique no plano de recuperação criado para a aplicação do SharePoint.
-3.  Clique em "Ativação pós-falha de teste".
-4.  Selecione o ponto de recuperação e de rede virtual do Azure para iniciar o processo de ativação pós-falha de teste.
-5.  Após o ambiente secundário está ativo, pode realizar as validações.
-6.  Depois que as validações forem concluídas, pode clicar em "Ativação pós-falha de teste" no plano de recuperação e o ambiente de ativação pós-falha de teste sejam limpos.
+1.  Vá para portal do Azure e selecione o cofre do serviço de recuperação.
+2.  Clique no plano de recuperação criado para o aplicativo do SharePoint.
+3.  Clique em "failover de teste".
+4.  Selecione ponto de recuperação e rede virtual do Azure para iniciar o processo de failover de teste.
+5.  Depois que o ambiente secundário estiver ativo, você poderá executar suas validações.
+6.  Depois que as validações forem concluídas, você poderá clicar em ' limpar failover de teste ' no plano de recuperação e o ambiente de failover de teste será limpo.
 
-Para obter orientações sobre a fazer a ativação pós-falha de teste para o AD e DNS, consulte [considerações de ativação pós-falha do AD de teste e DNS](site-recovery-active-directory.md#test-failover-considerations) documento.
+Para obter orientação sobre como fazer failover de teste para AD e DNS, consulte [considerações de failover de teste para o documento do AD e DNS](site-recovery-active-directory.md#test-failover-considerations) .
 
-Para obter orientações sobre como fazer a ativação pós-falha de teste para o SQL Always em grupos de disponibilidade, consulte [efetuar DR de aplicação com o Azure Site Recovery e fazer a ativação pós-falha de teste](site-recovery-sql.md#disaster-recovery-of-application) documento.
+Para obter orientação sobre como fazer failover de teste para grupos de disponibilidade AlwaysOn do SQL, consulte [executando o aplicativo de recuperação de desastre com Azure site Recovery e fazendo failover de teste](site-recovery-sql.md#disaster-recovery-of-an-application) .
 
-## <a name="doing-a-failover"></a>Efetuar uma ativação pós-falha
-Siga [esta orientação](site-recovery-failover.md) para efetuar uma ativação pós-falha.
+## <a name="doing-a-failover"></a>Fazendo um failover
+Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.
 
-1.  Aceda ao portal do Azure e selecione o Cofre de serviços de recuperação.
-2.  Clique no plano de recuperação criado para a aplicação do SharePoint.
-3.  Clique em "Ativação pós-falha".
-4.  Selecione o ponto de recuperação para iniciar o processo de ativação pós-falha.
+1.  Vá para portal do Azure e selecione o cofre dos serviços de recuperação.
+2.  Clique no plano de recuperação criado para o aplicativo do SharePoint.
+3.  Clique em ' failover '.
+4.  Selecione ponto de recuperação para iniciar o processo de failover.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Pode saber mais sobre [replicar outros aplicativos](site-recovery-workload.md) com o Site Recovery.
+Você pode aprender mais sobre a [replicação de outros aplicativos](site-recovery-workload.md) usando o site Recovery.

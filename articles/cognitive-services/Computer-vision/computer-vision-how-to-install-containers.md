@@ -1,5 +1,5 @@
 ---
-title: Como instalar e executar contentores - de imagem digitalizada
+title: Como instalar e executar contêineres-Pesquisa Visual Computacional
 titlesuffix: Azure Cognitive Services
 description: Como transferir, instalar e executar contentores para imagem digitalizada neste tutorial passo a passo.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: d72b47d375b8e50cde43e263261551d3010ba013
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: efde223061a873a57595bc4a577b7de55b1d8a46
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704718"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321470"
 ---
-# <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
+# <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contêineres de Reconhecimento de Texto
 
 A parte de reconhecer texto de imagem digitalizada também está disponível como um contentor do Docker. Permite-lhe detetar e extrair texto impresso de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.  
 > [!IMPORTANT]
@@ -28,48 +28,47 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de reconhecer texto:
+Você deve atender aos seguintes pré-requisitos antes de usar contêineres de Reconhecimento de Texto:
 
 |Necessário|Objetivo|
 |--|--|
-|Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
-|Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
-|Azure `Cognitive Services` recursos |Para utilizar o contentor, tem de ter:<br><br>R _dos serviços cognitivos_ o ponto final de faturação URI da chave de recursos do Azure e a faturação associada. Ambos os valores estão disponíveis nas páginas de descrição geral e as chaves para o recurso e são necessários para iniciar o contentor. Tem de adicionar o `vision/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
+|Pesquisa Visual Computacional recurso |Para usar o contêiner, você deve ter:<br><br>Um recurso de **Pesquisa Visual computacional** do Azure e a chave de API associada do URI do ponto de extremidade. Ambos os valores estão disponíveis nas páginas visão geral e chaves para o recurso e são necessários para iniciar o contêiner.<br><br>**{API_KEY}** : Uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : O ponto de extremidade conforme fornecido na página **visão geral**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
 
 [!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-### <a name="the-host-computer"></a>O computador anfitrião
+### <a name="the-host-computer"></a>O computador host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
-A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória para atribuir cada contentor de reconhecer texto.
+A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de Reconhecimento de Texto.
 
-| Contentor | Mínimo | Recomendado |TPS<br>(No mínimo, máximo)|
+| Contentor | Mínimo | Recomendado |TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Reconhecer texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|0.5, 1|
+|Reconhecimento de Texto|1 núcleo, 8 GB de memória, 0,5 TPS|2 núcleos, 8 GB de memória, 1 TPS|0,5, 1|
 
-* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
-* TPS - transações por segundo
+* Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
+* TPS-transações por segundo
 
-Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
+O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com`docker pull`
 
-Imagens de contentor para reconhecer texto estão disponíveis. 
+As imagens de contêiner para Reconhecimento de Texto estão disponíveis. 
 
 | Contentor | Repositório |
 |-----------|------------|
-|Reconhecer texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
+|Reconhecimento de Texto | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor.
+Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
 
-### <a name="docker-pull-for-the-recognize-text-container"></a>Solicitação de docker para o contentor de reconhecer texto
+### <a name="docker-pull-for-the-recognize-text-container"></a>Pull do Docker para o contêiner de Reconhecimento de Texto
 
 ```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
@@ -77,42 +76,42 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-## <a name="how-to-use-the-container"></a>Como utilizar o contentor
+## <a name="how-to-use-the-container"></a>Como usar o contêiner
 
-Assim que o contentor estiver no [computador anfitrião](#the-host-computer), utilize o seguinte processo para trabalhar com o contentor.
+Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
 
-1. [Execute o contentor](#run-the-container-with-docker-run), o necessário com as definições de faturação. Obter mais [exemplos](computer-vision-resource-container-config.md) do `docker run` comandos estão disponíveis. 
-1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint). 
+1. [Execute o contêiner](#run-the-container-with-docker-run)com as configurações de cobrança necessárias. Mais [exemplos](computer-vision-resource-container-config.md) do `docker run` comando estão disponíveis. 
+1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
+## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com`docker run`
 
-Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar o contentor. O comando utiliza os seguintes parâmetros:
+Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar o contêiner. O comando usa os seguintes parâmetros:
 
 | Marcador de posição | Value |
 |-------------|-------|
-|{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível no Azure `Cognitive Services` página chaves.  |
-|{BILLING_ENDPOINT_URI} | O ponto final faturação valor do URI. Exemplo é: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+|{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página chaves do `Cognitive Services` Azure.  |
+|{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança. O exemplo é:`https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-Tem de adicionar o `vision/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI.
+Você precisa adicionar o `vision/v2.0` roteamento ao URI do ponto de extremidade, conforme mostrado no exemplo de BILLING_ENDPOINT_URI a seguir.
 
-Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
+Substitua esses parâmetros pelos seus próprios valores no comando de exemplo `docker run` a seguir.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Este comando:
 
-* Execute um contentor de reconhecer a partir da imagem de contentor
+* Executa um contêiner de reconhecimento da imagem de contêiner
 * Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião. 
+* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host. 
 
-Obter mais [exemplos](./computer-vision-resource-container-config.md#example-docker-run-commands) do `docker run` comandos estão disponíveis. 
+Mais [exemplos](./computer-vision-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis. 
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
@@ -120,11 +119,11 @@ Obter mais [exemplos](./computer-vision-resource-container-config.md#example-doc
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-Usar o host, `http://localhost:5000`, para o contentor APIs.
+Use o host, `http://localhost:5000`, para APIs de contêiner.
 
 ### <a name="asynchronous-text-recognition"></a>Reconhecimento de texto assíncrona
 
@@ -132,46 +131,46 @@ Pode utilizar o `POST /vision/v2.0/recognizeText` e `GET /vision/v2.0/textOperat
 
 ### <a name="synchronous-text-recognition"></a>Reconhecimento de texto síncrona
 
-Pode utilizar o `POST /vision/v2.0/recognizeTextDirect` operação de forma síncrona reconhecer texto impresso numa imagem. Uma vez que esta operação é síncrona, o corpo do pedido para esta operação é o mesmo que para o `POST /vision/v2.0/recognizeText` operação, mas a resposta body para esta operação é o mesmo que devolvido pelo `GET /vision/v2.0/textOperations/*{id}*` operação.
+Pode utilizar o `POST /vision/v2.0/recognizeTextDirect` operação de forma síncrona reconhecer texto impresso numa imagem. Como essa operação é síncrona, o corpo da solicitação para essa operação é o mesmo que `POST /vision/v2.0/recognizeText` a operação, mas o corpo da resposta para essa operação é o mesmo que o retornado `GET /vision/v2.0/textOperations/*{id}*` pela operação.
 
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 
-## <a name="stop-the-container"></a>Parar o contentor
+## <a name="stop-the-container"></a>Parar o contêiner
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se executar o contentor com uma saída [montar](./computer-vision-resource-container-config.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
+Se você executar o contêiner com uma [montagem](./computer-vision-resource-container-config.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem ao iniciar ou executar o contêiner. 
 
 
 ## <a name="billing"></a>Faturação
 
-O envio de contentores de reconhecer texto cobrança informações para o Azure, utilizando um _reconhecer texto_ recursos na sua conta do Azure. 
+Os contêineres de Reconhecimento de Texto enviam informações de cobrança para o Azure, usando um recurso de _reconhecimento de texto_ em sua conta do Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](./computer-vision-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e reconhecer texto contentores em execução. Em resumo:
+Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, instalar e executar Reconhecimento de Texto contêineres. Em resumo:
 
-* Reconhecer texto fornece um contentor do Linux para o Docker, encapsulando reconhecer texto.
+* Reconhecimento de Texto fornece um contêiner do Linux para o Docker, encapsulando o texto de reconhecimento.
 * Imagens de contentor são transferidas a partir do registo de contentor do Microsoft (MCR) no Azure.
 * Executam imagens de contentor no Docker.
-* Pode utilizar a REST API ou o SDK para chamar operações em contentores de reconhecer texto ao especificar o URI do contentor do anfitrião.
+* Você pode usar a API REST ou o SDK para chamar operações em contêineres Reconhecimento de Texto especificando o URI do host do contêiner.
 * Tem de especificar informações de faturação ao instanciar um contentor.
 
 > [!IMPORTANT]
-> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
+> Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Os contêineres de serviços cognitivas não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -179,4 +178,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 * Revisão [descrição geral de imagem digitalizada](Home.md) para saber mais sobre o reconhecimento de texto manuscrito e impresso  
 * Consulte a [API de imagem digitalizada](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos suportados pelo contentor.
 * Consulte a [perguntas mais frequentes (FAQ) do sobre](FAQ.md) para resolver problemas relacionados com a funcionalidade de imagem digitalizada.
-* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)
+* Usar mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md)

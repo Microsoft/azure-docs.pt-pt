@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Exemplos do Azure PowerShell
 services: virtual-network
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,17 +12,17 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 12/10/2018
-ms.author: kumud
-ms.openlocfilehash: cf4e0346a93961df14afe48ec767e383f92eab3b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: cf984efdeb8c65f4f9d639e331c2dc07e2910479
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60507560"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274065"
 ---
-# <a name="azure-powershell-samples-for-load-balancer"></a>Exemplos do PowerShell do Azure para o Balanceador de carga
+# <a name="azure-powershell-samples-for-load-balancer"></a>Exemplos de Azure PowerShell para Load Balancer
 
-A tabela seguinte inclui ligações para scripts criados com o Azure PowerShell.
+A tabela a seguir inclui links para scripts criados usando Azure PowerShell.
 
 | | |
 |-|-|

@@ -8,41 +8,42 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e3cff54f49d40fb7da99dcafa9535349ccb70e09
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 54050116f9894f9a7903dad53caf6b01228313b7
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150487"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326976"
 ---
-A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais v1, v2 e contas de armazenamento de Blobs. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.
+A tabela a seguir descreve os limites padrão para contas de armazenamento de blob v1, V2 e de uso geral do Azure. O limite de *entrada* refere-se a todos os dados de solicitações enviadas para uma conta de armazenamento. O limite de *saída* refere-se a todos os dados de respostas recebidas de uma conta de armazenamento.
 
 | Resource | Limite predefinido |
 | --- | --- |
-| Número de contas de armazenamento por região por subscrição, incluindo contas standard e premium | 250 |
-| Capacidade de conta de armazenamento máximo | 2 PB para E.U.A. e Europa, 500 TB para todas as outras regiões, que inclui o Reino Unido |
-| Número máximo de contentores de BLOBs, blobs, partilhas de ficheiros, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
-| Taxa máxima de pedidos<sup>1</sup> por conta de armazenamento | 20 000 pedidos por segundo |
-| Máxima de entrada<sup>1</sup> por conta de armazenamento (regiões dos E.U.A.) | 10 Gbps, se o RA-GRS/GRS estiver ativado, 20 Gbps para LRS/ZRS<sup>2</sup> |
-| Máxima de entrada<sup>1</sup> por conta de armazenamento (regiões fora dos E.U.A.) | 5 Gbps, se o RA-GRS/GRS estiver ativado, 10 Gbps para LRS/ZRS<sup>2</sup> |
-| Saída máxima para fins gerais v2 e contas de armazenamento de BLOBs (todas as regiões) | 50 Gbps |
-| Saída máxima para as contas de armazenamento para fins gerais v1 (regiões dos E.U.A.) | 20 Gbps se o RA-GRS/GRS estiver ativado, 30 Gbps para LRS/ZRS<sup>2</sup> |
-| Saída máxima para as contas de armazenamento para fins gerais v1 (regiões fora dos E.U.A.) | 10 Gbps, se o RA-GRS/GRS estiver ativado, 15 Gbps para LRS/ZRS<sup>2</sup> |
+| Número de contas de armazenamento por região por assinatura, incluindo contas padrão e Premium | 250 |
+| Capacidade máxima da conta de armazenamento | 2 PB para nós e Europa e 500 TB para todas as outras regiões (incluindo o Reino Unido) <sup>1</sup>|
+| Número máximo de contêineres de BLOB, BLOBs, compartilhamentos de arquivos, tabelas, filas, entidades ou mensagens por conta de armazenamento | Sem limite |
+| Taxa de solicitação máxima<sup>1</sup> por conta de armazenamento | 20.000 solicitações por segundo |
+| Entrada máxima<sup>1</sup> por conta de armazenamento (EUA, regiões da Europa) | 25 Gbps |
+| Entrada máxima<sup>1</sup> por conta de armazenamento (regiões diferentes de EUA e Europa) | 5 Gbps se RA-GRS/GRS estiver habilitado, 10 Gbps para LRS/ZRS<sup>2</sup> |
+| Egresso máxima para contas de armazenamento de BLOBs V2 e de uso geral (todas as regiões) | 50 Gbps |
+| Egresso máxima para contas de armazenamento v1 de uso geral (regiões dos EUA) | 20 Gbps se RA-GRS/GRS estiver habilitado, 30 Gbps para LRS/ZRS<sup>2</sup> |
+| Egresso máxima para contas de armazenamento v1 de uso geral (regiões fora dos EUA) | 10 Gbps se RA-GRS/GRS estiver habilitado, 15 Gbps para LRS/ZRS<sup>2</sup> |
 
-<sup>1</sup>as contas de armazenamento padrão do azure suportam limites mais elevados para entrada por pedido. Para pedir um aumento de limites de conta para entrada, contacte [suporte do Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> As contas de armazenamento standard do Azure dão suporte a limites de capacidade mais altos e limites mais altos para entrada por solicitação. Para solicitar um aumento nos limites de conta para entrada, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/faq/). Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> [replicação de armazenamento do azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) as opções incluem:
-- **RA-GRS**: Armazenamento georredundante com acesso de leitura. Se o RA-GRS for ativado, os destinos de saída para a localização secundária são idênticos para a localização principal.
-- **GRS**: Armazenamento georredundante.
+<sup>2</sup> as opções de [replicação de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) incluem:
+
+- **RA-GRS**: Armazenamento com redundância geográfica com acesso de leitura. Se o RA-GRS estiver habilitado, os destinos de saída para o local secundário serão idênticos aos do local primário.
+- **GRS**: Armazenamento com redundância geográfica.
 - **ZRS**: Armazenamento com redundância de zona.
-- **LRS**: Armazenamento localmente redundante.
+- **LRS**: Armazenamento com redundância local.
 
 > [!NOTE]
-> Recomendamos que utilize uma conta de armazenamento para fins gerais v2 para a maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou uma conta de armazenamento de Blobs do Azure para uma conta para fins gerais v2, sem períodos de indisponibilidade e sem a necessidade de copiar dados.
+> Recomendamos que você use uma conta de armazenamento de uso geral v2 para a maioria dos cenários. Você pode atualizar facilmente uma conta de uso geral v1 ou de armazenamento de BLOBs do Azure para uma conta v2 de finalidade geral sem tempo de inatividade e sem a necessidade de copiar dados.
 >
-> Para obter mais informações sobre contas de armazenamento do Azure, consulte [descrição geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
+> Para obter mais informações sobre contas de armazenamento do Azure, consulte [visão geral da conta de armazenamento](../articles/storage/common/storage-account-overview.md).
 
-Se as necessidades da sua aplicação excederem os destinos de escalabilidade de uma conta de armazenamento única, pode criar a sua aplicação para utilizar várias contas de armazenamento. Em seguida, pode particionar seus objetos de dados entre essas contas de armazenamento. Para obter informações sobre os preços de volume, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
+Se as necessidades do seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, você poderá criar seu aplicativo para usar várias contas de armazenamento. Em seguida, você pode particionar seus objetos de dados entre essas contas de armazenamento. Para obter informações sobre o preço do volume, consulte [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Todas as contas de armazenamento executam numa topologia de rede simples e suportam os destinos de escalabilidade e desempenho descritos neste artigo, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples de armazenamento do Azure e na escalabilidade, consulte [armazenamento do Microsoft Azure: Um serviço de armazenamento de Cloud de elevada disponibilidade com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Todas as contas de armazenamento são executadas em uma topologia de rede simples e dão suporte a escalabilidade e metas de desempenho descritas neste artigo, independentemente de quando elas foram criadas. Para obter mais informações sobre a arquitetura de rede simples do armazenamento do Azure e [sobre escalabilidade, consulte armazenamento do Microsoft Azure: Um serviço de armazenamento em nuvem altamente disponível com](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)consistência forte.
 

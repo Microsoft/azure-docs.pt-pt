@@ -1,13 +1,14 @@
 ---
-title: Adicionar uma aplicação multi-inquilino à Galeria de aplicações do Azure AD | Documentos da Microsoft
-description: Explica como pode listar a sua aplicação multi-inquilino personalizada na Galeria de aplicações do Azure AD.
+title: Adicionar um aplicativo multilocatário à galeria de aplicativos do Azure AD | Microsoft Docs
+description: Explica como você pode listar o aplicativo multilocatário personalizado desenvolvido na Galeria de aplicativos do Azure AD.
 services: active-directory
 documentationCenter: na
 author: rwike77
 manager: CelesteDG
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,38 +17,38 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0434ec889a791079e2019bcb1d04f5ce0fceb731
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8024130b986d111abe3b470d6b06e86ed6419dc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545563"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320923"
 ---
-# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar uma aplicação multi-inquilino à Galeria de aplicações do Azure AD
+# <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Adicionar um aplicativo multilocatário à galeria de aplicativos do Azure AD
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a Galeria de aplicações do Azure AD?
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a Galeria de aplicativos do Azure AD?
 
-Azure Active Directory (Azure AD) é um serviço de identidade com base na cloud. O [Galeria de aplicações do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) é na loja de aplicações do Azure Marketplace, onde todos os conectores de aplicações são publicados para início de sessão único e o aprovisionamento de utilizadores. Os clientes que utilizam o Azure AD como fornecedor de identidade encontrar os conectores de aplicações SaaS diferentes publicados aqui. Os administradores de TI adicionar conectores a partir da Galeria de aplicações e, em seguida, configurar e utilizam os conectores para início de sessão único e o aprovisionamento. O Azure AD suporta todos os protocolos de Federação principal, incluindo o SAML 2.0, OpenID Connect, OAuth e WS-Fed para início de sessão único. 
+O Azure Active Directory (AD do Azure) é um serviço de identidade baseado em nuvem. A [Galeria de aplicativos do Azure ad](https://azure.microsoft.com/marketplace/active-directory/all/) está na loja de aplicativos do Azure Marketplace, onde todos os conectores de aplicativos são publicados para logon único e provisionamento de usuário. Os clientes que usam o Azure AD como um provedor de identidade localizam os diferentes conectores de aplicativos SaaS publicados aqui. Os administradores de ti adicionam conectores da Galeria de aplicativos e, em seguida, configuram e usam os conectores para logon único e provisionamento. O Azure AD dá suporte a todos os principais protocolos de Federação, incluindo SAML 2,0, OpenID Connect, OAuth e WS-enalimentado para logon único. 
 
-## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se a aplicação suporta SAML ou OpenIDConnect
-Se tiver uma aplicação multi-inquilino que pretende que sejam apresentados na Galeria de aplicações do Azure AD, deve primeiro certificar-se de que seu aplicativo oferece suporte a uma das seguintes únicas início de sessão em tecnologias:
+## <a name="if-your-application-supports-saml-or-openidconnect"></a>Se seu aplicativo der suporte a SAML ou OpenIDConnect
+Se você tiver um aplicativo multilocatário que você deseja listar na Galeria de aplicativos do Azure AD, deverá primeiro certificar-se de que seu aplicativo dá suporte a uma das seguintes tecnologias de logon único:
 
-- **OpenID Connect**: Para ter a aplicação listada, crie a aplicação multi-inquilino no Azure AD e implementar o [framework de consentimento do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) para a sua aplicação. Envie o pedido de início de sessão para um ponto de extremidade comum para que todos os clientes podem fornecer consentimento para a aplicação. Pode controlar o acesso de um utilizador com base no ID de inquilino e o UPN do utilizador recebido no token. Submeter a aplicação utilizando o processo descrito na [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: Para que seu aplicativo seja listado, crie o aplicativo multilocatário no Azure AD e implemente a [estrutura de consentimento do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) para seu aplicativo. Envie a solicitação de logon para um ponto de extremidade comum para que qualquer cliente possa fornecer consentimento para o aplicativo. Você pode controlar o acesso de um usuário com base na ID do locatário e o UPN do usuário recebido no token. Envie o aplicativo usando o processo descrito em [listando seu aplicativo na Galeria de aplicativos Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: Se a sua aplicação suporta SAML 2.0, a aplicação pode ser apresentada na galeria. Siga as instruções em [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: Se seu aplicativo der suporte a SAML 2,0, o aplicativo poderá ser listado na galeria. Siga as instruções em [listando seu aplicativo na Galeria de aplicativos Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se a sua aplicação não suporta SAML ou OpenIDConnect
-Aplicações que não suportam SAML ou OpenIDConnect ainda podem ser integradas numa galeria de aplicações através de palavra-passe único início de sessão em tecnologia.
+## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Se seu aplicativo não der suporte a SAML ou OpenIDConnect
+Os aplicativos que não dão suporte a SAML ou OpenIDConnect ainda podem ser integrados à galeria de aplicativos por meio da tecnologia de logon único de senha.
 
-Palavra-passe início de sessão único, também chamado de cofres de palavras de palavra-passe, permite-lhe gerir o acesso de utilizador e palavras-passe para aplicações web que não suportam o Federação de identidades. Também é útil para cenários em que vários utilizadores tem de partilhar uma única conta, tal como para contas de aplicação de comunicação social da sua organização. 
+O logon único com senha, também chamado de cofre de senha, permite que você gerencie o acesso do usuário e as senhas para aplicativos Web que não dão suporte à Federação de identidade. Ele também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
 
-Se pretende apresentar a sua aplicação com esta tecnologia:
-1. Criar uma aplicação web que tem uma página de início de sessão do HTML para configurar [palavra-passe início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
-2. Submeter o pedido, conforme descrito em [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+Se você quiser listar seu aplicativo com essa tecnologia:
+1. Crie um aplicativo Web que tenha uma página de entrada HTML para configurar o [logon único com senha](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). 
+2. Envie a solicitação conforme descrito em [listando seu aplicativo na Galeria de aplicativos Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-## <a name="escalations"></a>Escalonamento
+## <a name="escalations"></a>Escalonamentos
 
-Para qualquer escalonamentos, envie um e-mail para [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e voltaremos a logo que possível.
+Para qualquer escalonamento, envie um email para a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) e voltaremos a você assim que possível.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba como [inclua a sua aplicação na Galeria de aplicações do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+## <a name="next-steps"></a>Passos seguintes
+Saiba como [listar seu aplicativo na Galeria de aplicativos Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).

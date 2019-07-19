@@ -1,9 +1,9 @@
 ---
-title: Eventos de início de redimensionamento de conjunto de Batch do Azure | Documentos da Microsoft
-description: Referência para o evento de início de redimensionamento de conjunto do Batch.
+title: Evento de início de redimensionamento do pool do lote do Azure | Microsoft Docs
+description: Referência do evento de início de redimensionamento do pool do lote.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: lahugh
-ms.openlocfilehash: 63abeaca5a9c87945671e79a9c8d7a2512d0d777
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7ef6bb9550b7398a10f5b57e6009d896256666b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60774238"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323181"
 ---
 # <a name="pool-resize-start-event"></a>Evento de início de redimensionamento de conjunto
 
- Este evento é emitido quando um redimensionamento de conjunto foi iniciado. Uma vez que o redimensionamento de conjunto é um evento assíncrono, pode esperar um evento de conclusão de redimensionamento de conjunto a ser emitida uma vez concluída a operação de redimensionamento.
+ Esse evento é emitido quando um redimensionamento de pool é iniciado. Como o redimensionamento do pool é um evento assíncrono, você pode esperar que um evento completo de redimensionamento do pool seja emitido após a conclusão da operação de redimensionamento.
 
- O exemplo seguinte mostra o corpo de um evento de início de redimensionamento de conjunto para um conjunto de redimensionamento de 0 a 2 nós com um redimensionamento manual.
+ O exemplo a seguir mostra o corpo de um evento de início de redimensionamento de pool para um redimensionamento de pool de 0 a 2 nós com um redimensionamento manual.
 
 ```
 {
@@ -36,11 +36,11 @@ ms.locfileid: "60774238"
 }
 ```
 
-|Elemento|Tipo|Notas|
+|Elemento|Type|Notas|
 |-------------|----------|-----------|
-|poolId|String|O id do conjunto.|
-|nodeDeallocationOption|String|Especifica quando nós podem ser removidos do conjunto, se estiver a diminuir o tamanho do conjunto.<br /><br /> Os valores possíveis são:<br /><br /> **recolocação na fila** – terminar a execução de tarefas e de recolocações na fila-los. As tarefas serão executadas novamente quando a tarefa está ativada. Remova nós assim que as tarefas forem terminadas.<br /><br /> **terminar** – terminar tarefas em execução. As tarefas não serão executadas novamente. Remova nós assim que as tarefas forem terminadas.<br /><br /> **taskcompletion** – permitir tarefas atualmente em execução para concluir. Não agende novas tarefas enquanto espera. Remova nós quando todas as tarefas estiverem concluídas.<br /><br /> **Retaineddata** -permitir tarefas sejam concluídas e aguardar que todas as tarefas de períodos de retenção de dados para expirar atualmente em execução. Não agende novas tarefas enquanto espera. Remova nós quando todos os períodos de retenção de tarefas tiverem expirado.<br /><br /> O valor predefinido é recolocação na fila.<br /><br /> Se está a aumentar o tamanho do conjunto, em seguida, o valor é definido como **inválido**.|
-|currentDedicated|Int32|O número de nós de computação atualmente atribuídos ao agrupamento.|
-|targetDedicated|Int32|O número de nós de computação que são pedidos para o conjunto.|
-|enableAutoScale|Booleano|Especifica se o tamanho do conjunto se ajusta automaticamente ao longo do tempo.|
-|isAutoPool|Booleano|Especifica se o conjunto foi criado por meio de mecanismo de AutoPool de uma tarefa.|
+|poolid|Cadeia|A ID do pool.|
+|nodeDeallocationOption|Cadeia|Especifica quando os nós podem ser removidos do pool, se o tamanho do pool estiver diminuindo.<br /><br /> Os valores possíveis são:<br /><br /> recolocar em **fila** – termine as tarefas em execução e recoloca-as na fila. As tarefas serão executadas novamente quando o trabalho for habilitado. Remova os nós assim que as tarefas forem encerradas.<br /><br /> **terminar** – encerrar tarefas em execução. As tarefas não serão executadas novamente. Remova os nós assim que as tarefas forem encerradas.<br /><br /> **taskcompletion** – permitir que as tarefas atualmente em execução sejam concluídas. Não agendar nenhuma nova tarefa enquanto aguarda. Remova os nós quando todas as tarefas tiverem sido concluídas.<br /><br /> **Retaineddata** – permitir que as tarefas atualmente em execução sejam concluídas e aguarde até que todos os períodos de retenção de dados da tarefa expirem. Não agendar nenhuma nova tarefa enquanto aguarda. Remova os nós quando todos os períodos de retenção de tarefa tiverem expirado.<br /><br /> O valor padrão é recolocar na fila.<br /><br /> Se o tamanho do pool estiver aumentando, o valor será definido como **inválido**.|
+|currentDedicated|Int32|O número de nós de computação atribuídos ao pool no momento.|
+|targetDedicated|Int32|O número de nós de computação que são solicitados para o pool.|
+|enableAutoScale|Bool|Especifica se o tamanho do pool se ajusta automaticamente ao longo do tempo.|
+|isAutoPool|Bool|Especifica se o pool foi criado por meio do mecanismo de autopool de um trabalho.|
