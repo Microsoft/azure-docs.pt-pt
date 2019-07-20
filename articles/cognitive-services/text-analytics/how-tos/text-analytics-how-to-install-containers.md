@@ -11,22 +11,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: dapine
-ms.openlocfilehash: c4ef58f35b3d038f360ff962c70e92711bc205ce
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 7f178152fb5b6d540c2cecdfa42687469dfe3881
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446516"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356977"
 ---
-# <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores de análise de texto
+# <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contêineres de Análise de Texto
 
-Os contentores de análise de texto fornecem avançada de processamento de linguagem natural relativamente a texto não processado e inclui três funções principais: análise de sentimentos, extração de expressões-chave e deteção de idioma. Ligação de entidades não é atualmente suportado num contentor.
+Os contêineres de Análise de Texto fornecem processamento de idioma natural avançado sobre texto bruto e incluem três funções principais: análise de sentimentos, extração de frases-chave e detecção de idioma. No momento, não há suporte para vinculação de entidade em um contêiner.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar qualquer um dos contentores de análise de texto, tem de ter os ambientes de contentor e de computador do anfitrião.
+Para executar qualquer um dos contêineres de Análise de Texto, você deve ter o computador host e os ambientes de contêiner.
 
 ## <a name="preparation"></a>Preparação
 
@@ -34,11 +34,11 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de an�
 
 |Necessário|Objetivo|
 |--|--|
-|Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
-|Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
-|`Cognitive Services` Recurso |Para utilizar o contentor, tem de ter:<br><br>R [ _dos serviços cognitivos_ ](text-analytics-how-to-access-key.md) recursos do Azure para obter a chave de faturação associada e a faturação URI do ponto final. Ambos os valores estão disponíveis nas páginas de descrição geral de serviços cognitivos e chaves do portal do Azure e são necessários para iniciar o contentor. Tem de adicionar o `text/analytics/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}** : chave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
+|Análise de Texto recurso |Para usar o contêiner, você deve ter:<br><br>Um recurso de [análise de texto](text-analytics-how-to-access-key.md) do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis na Análise de Texto visão geral e nas páginas de chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{API_KEY}** : Uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : O ponto de extremidade conforme fornecido na página **visão geral**|
 
-### <a name="the-host-computer"></a>O computador anfitrião
+### <a name="the-host-computer"></a>O computador host
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
@@ -46,18 +46,18 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de an�
 
 A tabela seguinte descreve os núcleos de CPU mínimos e recomendados, pelo menos 2,6 GHz (gigahertz) ou mais rápida e memória, em gigabytes (GB), ao alocar para cada contentor de análise de texto.
 
-| Contentor | Mínimo | Recomendado | TPS<br>(No mínimo, máximo)|
+| Contentor | Mínimo | Recomendado | TPS<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
 |Extração de Expressões-Chave | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 |Deteção de Idioma | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 |Análise de Sentimentos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |15, 30|
 
-* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
-* TPS - transações por segundo
+* Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
+* TPS-transações por segundo
 
-Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
+O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com`docker pull`
 
 Imagens de contentor para análise de texto estão disponíveis a partir do registo de contentor do Microsoft. 
 
@@ -67,7 +67,7 @@ Imagens de contentor para análise de texto estão disponíveis a partir do regi
 |Deteção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Análise de Sentimentos | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contentor do registo de contentor do Microsoft.
+Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner do registro de contêiner da Microsoft.
 
 Para obter uma descrição completa de etiquetas disponíveis para os contentores de análise de texto, consulte os seguintes contentores sobre o Docker Hub:
 
@@ -75,22 +75,21 @@ Para obter uma descrição completa de etiquetas disponíveis para os contentore
 * [Deteção de idioma](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Análise de sentimentos](https://go.microsoft.com/fwlink/?linkid=2018654)
 
-Utilize o [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando para transferir uma imagem de contentor.
+Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
-
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Solicitação de docker para o contentor de extração de frase chave
+### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Pull do Docker para o contêiner de extração de frases-chave
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
-### <a name="docker-pull-for-the-language-detection-container"></a>Solicitação de docker para o contentor de deteção de idioma
+### <a name="docker-pull-for-the-language-detection-container"></a>Pull do Docker para o contêiner de detecção de idioma
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-### <a name="docker-pull-for-the-sentiment-container"></a>Solicitação de docker para o contentor de sentimentos
+### <a name="docker-pull-for-the-sentiment-container"></a>Pull do Docker para o contêiner de sentimentos
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
@@ -99,75 +98,73 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
-## <a name="how-to-use-the-container"></a>Como utilizar o contentor
+## <a name="how-to-use-the-container"></a>Como usar o contêiner
 
-Assim que o contentor estiver no [computador anfitrião](#the-host-computer), utilize o seguinte processo para trabalhar com o contentor.
+Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
 
-1. [Execute o contentor](#run-the-container-with-docker-run), o necessário com as definições de faturação. Obter mais [exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comandos estão disponíveis. 
-1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint). 
+1. [Execute o contêiner](#run-the-container-with-docker-run)com as configurações de cobrança necessárias. Mais [exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis. 
+1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
+## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com`docker run`
 
-Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
+Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os seguintes parâmetros:
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível no portal do Azure `Cognitive Services` página chaves.  |
-|{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível no Azure `Cognitive Services` página de descrição geral. <br><br>Exemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página chaves do `Text Analytics` portal do Azure. |
+|{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança `Text Analytics` está disponível na página Visão geral do Azure. |
 
-Tem de adicionar o `text/analytics/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo anterior BILLING_ENDPOINT_URI.
-
-Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
+Substitua esses parâmetros pelos seus próprios valores no comando de exemplo `docker run` a seguir.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
 mcr.microsoft.com/azure-cognitive-services/keyphrase \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Este comando:
 
-* Execute um contentor de expressões-chave a partir da imagem de contentor
+* Executa um contêiner de frase-chave da imagem de contêiner
 * Aloca um núcleo de CPU e 4 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião. 
+* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host. 
 
-Obter mais [exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comandos estão disponíveis. 
+Mais [exemplos](../text-analytics-resource-container-config.md#example-docker-run-commands) do `docker run` comando estão disponíveis. 
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
-O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
+O contêiner fornece APIs de ponto de extremidade de previsão de consulta baseadas em REST. 
 
-Usar o host, `https://localhost:5000`, para o contentor APIs.
+Use o host, `https://localhost:5000`, para APIs de contêiner.
 
 <!--  ## Validate container is running -->
 
 [!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Parar o contentor
+## <a name="stop-the-container"></a>Parar o contêiner
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se executar o contentor com uma saída [montar](../text-analytics-resource-container-config.md#mount-settings) e registo ativado, o contentor gera os ficheiros de registo que são úteis para resolver os problemas que ocorrem ao iniciar ou executar o contentor. 
+Se você executar o contêiner com uma [montagem](../text-analytics-resource-container-config.md#mount-settings) de saída e o registro em log habilitado, o contêiner gerará arquivos de log que são úteis para solucionar problemas que ocorrem ao iniciar ou executar o contêiner. 
 
 ## <a name="billing"></a>Faturação
 
-O envio de contentores de análise de texto cobrança informações para o Azure, utilizando um _dos serviços cognitivos_ recursos na sua conta do Azure. 
+Os contêineres de Análise de Texto enviam informações de cobrança para o Azure, usando um recurso de _análise de texto_ em sua conta do Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](../text-analytics-resource-container-config.md).
 
-<!--blogs/samples/video coures -->
+<!--blogs/samples/video course -->
 
 [!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
 
@@ -187,5 +184,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Revisão [configurar contentores](../text-analytics-resource-container-config.md) para definições de configuração
-* Consulte a [perguntas mais frequentes (FAQ) do sobre](../text-analytics-resource-faq.md) para resolver problemas relacionados à funcionalidade.
-
+* Consulte as [perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados à funcionalidade.
