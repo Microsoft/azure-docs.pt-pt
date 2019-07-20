@@ -1,43 +1,43 @@
 ---
-title: Definir chaves exclusivas para um contentor do Cosmos do Azure
-description: Saiba como definir as chaves exclusivas para um contentor do Cosmos do Azure
+title: Definir chaves exclusivas para um contêiner Cosmos do Azure
+description: Saiba como definir chaves exclusivas para um contêiner Cosmos do Azure
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: fb9872d2fd41066899ff9198915d573bfb4a0b84
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 313dd07c2b8eeb5684310b57d74053d3cbc1b5e1
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240978"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356395"
 ---
-# <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contentor do Cosmos do Azure
+# <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definir chaves exclusivas para um contêiner Cosmos do Azure
 
-Este artigo apresenta as diferentes formas de definir [chaves exclusivas](unique-keys.md) ao criar um contentor do Cosmos do Azure. É atualmente possível efetuar esta operação com o portal do Azure ou através de um dos SDKs.
+Este artigo apresenta as diferentes maneiras de definir [chaves exclusivas](unique-keys.md) ao criar um contêiner Cosmos do Azure. No momento, é possível executar essa operação usando o portal do Azure ou por meio de um dos SDKs.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. [Criar uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione um existente.
+1. [Crie uma nova conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) ou selecione uma existente.
 
-1. Abra o **Data Explorer** painel e selecione o contentor que deseja trabalhar.
+1. Abra o painel de **Data Explorer** e selecione o contêiner no qual você deseja trabalhar.
 
-1. Clique em **novo contentor**.
+1. Clique em **novo contêiner**.
 
-1. Na **adicionar contentor** caixa de diálogo, clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
+1. Na caixa de diálogo **Adicionar contêiner** , clique em **+ Adicionar chave exclusiva** para adicionar uma entrada de chave exclusiva.
 
-1. Introduza o caminho da restrição de chave exclusiva (s)
+1. Insira os caminhos da restrição de chave exclusiva
 
-1. Se for necessário, adicione mais entradas de chaves exclusivas ao clicar no **+ Adicionar chave exclusiva**
+1. Se necessário, adicione mais entradas de chave exclusivas clicando em **+ Adicionar chave exclusiva**
 
-![Captura de ecrã da entrada de restrição de chave exclusiva no portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
+![Captura de tela de entrada de restrição de chave exclusiva em portal do Azure](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
-## <a name="use-the-net-sdk-v2"></a>Utilizar o V2 do SDK de .NET
+## <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET v2
 
-Ao criar um novo contentor utilizando o [v2 do SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), um `UniqueKeyPolicy` objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do .net v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
 
 ```csharp
 client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), new DocumentCollection
@@ -54,9 +54,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-java-sdk"></a>Utilizar o Java SDK
+## <a name="use-the-java-sdk"></a>Usar o SDK do Java
 
-Ao criar um novo contentor utilizando o [SDK de Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), um `UniqueKeyPolicy` objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
 
 ```java
 // create a new DocumentCollection object
@@ -86,9 +86,9 @@ container.setUniqueKeyPolicy(uniqueKeyPolicy);
 client.createCollection(String.format("/dbs/%s", "database"), container, null);
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Utilizar o SDK de node. js
+## <a name="use-the-nodejs-sdk"></a>Usar o SDK do node. js
 
-Ao criar um novo contentor utilizando o [SDK node. js](https://www.npmjs.com/package/@azure/cosmos), um `UniqueKeyPolicy` objeto pode ser usado para definir restrições de chave exclusivas.
+Ao criar um novo contêiner usando o [SDK do node. js](https://www.npmjs.com/package/@azure/cosmos), `UniqueKeyPolicy` um objeto pode ser usado para definir restrições de chave exclusivas.
 
 ```javascript
 client.database('database').containers.create({
@@ -102,23 +102,23 @@ client.database('database').containers.create({
 });
 ```
 
-## <a name="use-the-python-sdk"></a>Utilizar o SDK Python
+## <a name="use-the-python-sdk"></a>Usar o SDK do Python
 
-Ao criar um novo contentor utilizando o [SDK de Python](https://pypi.org/project/azure-cosmos/), restrições de chave exclusivas que podem ser especificadas como parte do dicionário passado como parâmetro.
+Ao criar um novo contêiner usando o [SDK do Python](https://pypi.org/project/azure-cosmos/), as restrições de chave exclusivas podem ser especificadas como parte do dicionário passado como parâmetro.
 
 ```python
 client.CreateContainer('dbs/' + config['DATABASE'], {
     'id': 'container',
     'uniqueKeyPolicy': {
         'uniqueKeys': [
-            { 'paths': ['/firstName', '/lastName', '/emailAddress'] },
-            { 'paths': ['/address/zipCode'] }
+            {'paths': ['/firstName', '/lastName', '/emailAddress']},
+            {'paths': ['/address/zipCode']}
         ]
     }
 })
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [criação de partições](partition-data.md)
+- Saiba mais sobre o [particionamento](partition-data.md)
 - Explore [como funciona a indexação](index-overview.md)

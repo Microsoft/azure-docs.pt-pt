@@ -1,6 +1,6 @@
 ---
-title: Tutorial – registos do Stream do Azure Active Directory para um hub de eventos do Azure | Documentos da Microsoft
-description: Saiba como configurar o diagnóstico do Azure para enviar registos do Azure Active Directory para um hub de eventos
+title: Tutorial-transmitir logs de Azure Active Directory para um hub de eventos do Azure | Microsoft Docs
+description: Saiba como configurar Diagnóstico do Azure para enviar por push Azure Active Directory logs para um hub de eventos
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,16 +17,16 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd55abac534407facd0cb416012767b9f2e39fd8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437263"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360003"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Registos do Azure Active Directory Stream para um hub de eventos do Azure
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmitir logs de Azure Active Directory para um hub de eventos do Azure
 
-Neste tutorial, saiba como configurar as definições de diagnóstico do Azure Monitor para transmitir os registos de Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
+Neste tutorial, você aprenderá a configurar Azure Monitor configurações de diagnóstico para transmitir logs do Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -37,7 +37,7 @@ Para utilizar esta funcionalidade, precisa de:
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
 * Um espaço de nomes dos Hubs de Eventos e um hub de eventos na sua subscrição do Azure. Saiba como [criar um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="stream-logs-to-an-event-hub"></a>Registos do Stream para um hub de eventos
+## <a name="stream-logs-to-an-event-hub"></a>Transmitir logs para um hub de eventos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
@@ -76,17 +76,21 @@ Para utilizar esta funcionalidade, precisa de:
 Quando os dados forem apresentados no hub de eventos, pode aceder e lê-los de duas formas:
 
 * **Configurar uma ferramenta SIEM suportada**. Para ler os dados do hub de eventos, a maioria das ferramentas precisa da cadeia de ligação do hub de eventos e de determinadas permissões para a sua subscrição do Azure. As ferramentas de terceiros com integração do Azure Monitor incluem, entre outras:
-    * **Splunk**: Para obter mais informações sobre como integrar registos do Azure AD com Splunk, consulte [registos de integrar o Azure AD com o Splunk com o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
-    * **IBM QRadar**: O DSM e o protocolo de Hub de eventos do Azure estão disponíveis para download em [suporte da IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração no Azure, aceda ao site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+    * **ArcSight**: Para obter mais informações sobre como integrar logs do Azure AD ao Splunk, consulte [integrar logs de Azure Active Directory com o ArcSight usando o Azure monitor](howto-integrate-activity-logs-with-arcsight.md).
     
-    * **Lógica de sumo**: Para definir a lógica do Sumo para consumir dados de um hub de eventos, consulte [instalar a aplicação do Azure AD e ver os dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
+    * **Splunk**: Para obter mais informações sobre como integrar os logs do Azure AD ao Splunk, consulte [integrar logs do Azure AD ao Splunk usando Azure monitor](tutorial-integrate-activity-logs-with-splunk.md).
+    
+    * **IBM QRadar**: O DSM e o protocolo Hub de eventos do Azure estão disponíveis para download no [suporte IBM](https://www.ibm.com/support). Para obter mais informações sobre a integração no Azure, aceda ao site [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+    
+    * **Lógica do resumo**: Para configurar a lógica do suma para consumir dados de um hub de eventos, consulte [instalar o aplicativo do Azure AD e exibir os painéis](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards). 
 
 * **Configurar ferramentas personalizadas**. Se a sua SIEM atual ainda não for suportada nos diagnóstico do Azure Monitor, pode configurar as ferramentas personalizadas com a API dos Hubs de Eventos. Para saber mais, veja [Começar a receber mensagens a partir de um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
+* [Integrar logs de Azure Active Directory com o ArcSight usando Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no SumoLogic)
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Interpretar o esquema dos registos de auditoria no Azure Monitor)

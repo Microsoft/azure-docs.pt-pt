@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: aafbef2c9a9328266a937d4c52c154a8b826c342
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312169"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359439"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Tutorial: Criar um modelo de regressão com o Machine Learning automatizado e os conjuntos de valores abertos
 
@@ -90,8 +90,8 @@ Comece criando um dataframe para manter os dados de táxi. Ao trabalhar em um am
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -147,8 +147,8 @@ green_taxi_df.head(10)
       <td>2016-01-20 17:46:33</td>
       <td>1</td>
       <td>0,98</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
       <td>-73,921715</td>
       <td>40,766682</td>
       <td>-73,916908</td>
@@ -172,7 +172,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>3, 8</td>
       <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,979973</td>
       <td>40,677071</td>
       <td>-73,934349</td>
@@ -195,8 +195,8 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Nenhum</td>
       <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,863045</td>
       <td>40,882923</td>
       <td>-73,839836</td>
@@ -219,7 +219,7 @@ green_taxi_df.head(10)
       <td>2016-01-04 18:03:43</td>
       <td>1</td>
       <td>2,87</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,977730</td>
       <td>40,684647</td>
@@ -267,8 +267,8 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
+      <td>Nenhum</td>
       <td>-73,830894</td>
       <td>40,759434</td>
       <td>-73,842422</td>
@@ -291,7 +291,7 @@ green_taxi_df.head(10)
       <td>2016-01-14 00:54:16</td>
       <td>1</td>
       <td>1,93</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>Nenhum</td>
       <td>-73,927109</td>
       <td>40,762848</td>
@@ -316,7 +316,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>0,80</td>
       <td>Nenhuma</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>-73,881195</td>
       <td>40,741779</td>
       <td>-73,872086</td>
@@ -363,8 +363,8 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
       <td>-73.845200</td>
       <td>40,722134</td>
       <td>-73,810638</td>
@@ -401,7 +401,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -475,7 +477,7 @@ green_taxi_df.head(10)
       <td>2016-01-02 00:00:00</td>
       <td>1</td>
       <td>3, 8</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>Nenhuma</td>
       <td>-73,979973</td>
       <td>40,677071</td>
@@ -524,7 +526,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2,87</td>
       <td>Nenhum</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,977730</td>
       <td>40,684647</td>
       <td>-73,931259</td>
@@ -571,7 +573,7 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>Nenhum</td>
       <td>-73,830894</td>
       <td>40,759434</td>
@@ -595,8 +597,8 @@ green_taxi_df.head(10)
       <td>2016-01-14 00:54:16</td>
       <td>1</td>
       <td>1,93</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
+      <td>Nenhuma</td>
       <td>-73,927109</td>
       <td>40,762848</td>
       <td>-73,909302</td>
@@ -620,7 +622,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>0,80</td>
       <td>Nenhuma</td>
-      <td>Nenhuma</td>
+      <td>Nenhum</td>
       <td>-73,881195</td>
       <td>40,741779</td>
       <td>-73,872086</td>
@@ -643,8 +645,8 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1, 4</td>
-      <td>Nenhuma</td>
       <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>-73,954376</td>
       <td>40,805729</td>
       <td>-73,939117</td>
@@ -667,7 +669,7 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>Nenhum</td>
       <td>-73.845200</td>
       <td>40,722134</td>
@@ -695,11 +697,12 @@ Remova algumas das colunas que você não precisará para modelagem ou criação
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -880,7 +883,7 @@ holidays_df.head(5)
       <th>40689</th>
       <td>Argélia</td>
       <td>Dia do ano novo</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>DZ</td>
       <td>Dia do ano novo</td>
       <td>2008-01-01</td>
@@ -907,7 +910,7 @@ holidays_df.head(5)
       <th>40692</th>
       <td>Argentina</td>
       <td>Dia do ano novo</td>
-      <td>Nenhum</td>
+      <td>Nenhuma</td>
       <td>AR</td>
       <td>Dia do ano novo</td>
       <td>2008-01-01</td>
@@ -921,12 +924,14 @@ holidays_df.head(5)
 `countryRegionCode` Renomeie `date` as colunas e para que correspondam aos respectivos nomes de campo dos dados de táxi e também Normalize o tempo para que ele possa ser usado como uma chave. Em seguida, junte os dados de feriado com os dados de táxi executando uma junção à esquerda usando a `merge()` função pandas. Isso preservará todos os registros `green_taxi_df`de, mas adicionará dados de feriado onde existirem para `datetime` o `country_code`correspondente e, que nesse caso é `"US"`sempre. Visualize os dados para verificar se eles foram mesclados corretamente.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -1071,8 +1076,8 @@ Agora você acrescenta dados meteorológicos de superfície de NOAA aos dados de
 from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1254,7 +1259,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1370,7 +1376,8 @@ weather_df_grouped.head(10)
 Mescle os dados de táxi e feriado que você preparou com os novos dados meteorológicos. Desta vez, você só precisa `datetime` da chave e, novamente, executar uma junção à esquerda dos dados. Execute a `describe()` função no novo dataframe para ver as estatísticas de Resumo de cada campo.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1466,7 +1473,7 @@ taxi_holidays_weather_df.describe()
       <td>2815.592754</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>mín.</th>
       <td>1, 0</td>
       <td>-60, 0</td>
       <td>-1, 0</td>
@@ -1542,7 +1549,7 @@ taxi_holidays_weather_df.describe()
       <td>132, 0</td>
     </tr>
     <tr>
-      <th>Maximizar</th>
+      <th>máx.</th>
       <td>2, 0</td>
       <td>460, 0</td>
       <td>51,950000</td>
@@ -1569,13 +1576,16 @@ Nas estatísticas de resumo, você verá que há vários campos que têm exceç�
 Filtre essas anomalias usando funções de consulta e, em seguida, remova as últimas colunas desnecessárias para treinamento.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1662,7 +1672,7 @@ final_df.describe()
       <td>1284,892832</td>
     </tr>
     <tr>
-      <th>min.</th>
+      <th>mín.</th>
       <td>1, 0</td>
       <td>1, 0</td>
       <td>0, 10000</td>
@@ -1722,7 +1732,7 @@ final_df.describe()
       <td>41, 0</td>
     </tr>
     <tr>
-      <th>Maximizar</th>
+      <th>máx.</th>
       <td>2, 0</td>
       <td>6, 0</td>
       <td>51,950000</td>
@@ -1755,7 +1765,8 @@ Agora você divide os dados em conjuntos de treinamento e teste usando a `train_
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### <a name="load-workspace-and-configure-experiment"></a>Carregar espaço de trabalho e configurar o experimento
@@ -1767,7 +1778,8 @@ Carregue seu espaço de trabalho de serviço `get()` do Azure Machine Learning u
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1792,7 +1804,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### <a name="submit-experiment"></a>Submeter a experimentação
@@ -1930,7 +1942,7 @@ Se você não planeja usar os recursos que criou, exclua-os, para não incorrer 
 1. Selecione **Eliminar grupo de recursos**.
 1. Insira o nome do grupo de recursos. Em seguida, selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte os [blocos de anotações](https://github.com/Azure/OpenDatasetsNotebooks) do Azure Open DataSets para obter mais exemplos de código.
 * Siga o [instruções](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) para obter mais informações sobre o aprendizado de máquina automatizado no serviço Azure Machine Learning.

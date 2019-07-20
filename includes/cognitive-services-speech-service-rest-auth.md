@@ -4,21 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f06ca04b0b6ea48ebb49952df71cb02946777fa
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333387"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362601"
 ---
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
-Cada pedido requer um cabeçalho de autorização. Esta tabela mostra quais cabeçalhos são suportados para cada serviço:
+Cada solicitação requer um cabeçalho de autorização. Esta tabela mostra quais cabeçalhos são suportados para cada serviço:
 
 | Cabeçalhos de autorização suportados | Conversão de voz em texto | Conversão de texto em voz |
 |------------------------|----------------|----------------|
 | OCP-Apim-Subscription-Key | Sim | Não |
-| Autorização: Portador | Sim | Sim |
+| Nesse Portador | Sim | Sim |
 
 Ao utilizar o `Ocp-Apim-Subscription-Key` cabeçalho, só é necessário para fornecer a chave de subscrição. Por exemplo:
 
@@ -26,7 +26,7 @@ Ao utilizar o `Ocp-Apim-Subscription-Key` cabeçalho, só é necessário para fo
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Ao utilizar o `Authorization: Bearer` cabeçalho, for necessário para fazer um pedido para o `issueToken` ponto final. Neste pedido, trocar a chave de subscrição para um token de acesso que é válido durante 10 minutos. As próximas seções, aprenderá como obter um token e utilizar um token.
+Ao utilizar o `Authorization: Bearer` cabeçalho, for necessário para fazer um pedido para o `issueToken` ponto final. Neste pedido, trocar a chave de subscrição para um token de acesso que é válido durante 10 minutos. Nas próximas seções, você aprenderá a obter um token e usará um token.
 
 ### <a name="how-to-get-an-access-token"></a>Como obter um token de acesso
 
@@ -50,7 +50,7 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-O corpo da resposta contém o token de acesso no formato JSON Web Token (JWT).
+O corpo da resposta contém o token de acesso no formato JSON Web token (JWT).
 
 #### <a name="powershell-sample"></a>Exemplo do PowerShell
 
@@ -129,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

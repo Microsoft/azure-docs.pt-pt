@@ -1,45 +1,45 @@
 ---
-title: 'Início rápido: Pesquisa de entidades com o SDK de pesquisa de entidades do Bing paraC#'
+title: 'Início rápido: Pesquisar entidades com o SDK do Pesquisa de Entidade do Bing paraC#'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para procurar entidades com o SDK de pesquisa de entidades do Bing para C#.
+description: Use este guia de início rápido para pesquisar entidades com o SDK C#do pesquisa de entidade do Bing para.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 13ef0734345df17adb2303471b8cb4178f95a2f6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 20f76c0adfcbd756c71769979214ea975cb5d6d9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813749"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360594"
 ---
-# <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar um pedido de pesquisa com o SDK de pesquisa de entidades do Bing paraC#
+# <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar uma solicitação de pesquisa com o SDK do Pesquisa de Entidade do Bing paraC#
 
-Utilize este guia de introdução para começar a pesquisa de entidades com o SDK de pesquisa de entidades do Bing para C#. Embora a pesquisa de entidades do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
+Use este guia de início rápido para começar a procurar entidades com o C#SDK do pesquisa de entidade do Bing para o. Embora Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
 * Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
-* O [pacote NuGet do SDK de pesquisa do Bing notícias](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Também instalar este pacote instala o seguinte:
+* O [pacote NuGet do SDK do pesquisa de notícias do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). A instalação desse pacote também instala o seguinte:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual Studio, utilize o **gerir pacotes NuGet** opção partir **Explorador de soluções**e adicione o `Microsoft.Azure.CognitiveServices.Search.EntitySearch` pacote.
+Para adicionar o SDK do pesquisa de entidade do Bing ao seu projeto do Visual Studio, use a opção **gerenciar pacotes NuGet** do **Gerenciador de soluções**e adicione `Microsoft.Azure.CognitiveServices.Search.EntitySearch` o pacote.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-an-application"></a>Criar e inicializar uma aplicação
+## <a name="create-and-initialize-an-application"></a>Criar e inicializar um aplicativo
 
-1. criar um novo C# consola de solução no Visual Studio. Em seguida, adicione o seguinte para o ficheiro de código principal.
+1. Crie uma nova C# solução de console no Visual Studio. Em seguida, adicione o seguinte ao arquivo de código principal.
 
     ```csharp
     using System;
@@ -50,23 +50,23 @@ Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual S
     using Newtonsoft.Json;
     ```
 
-## <a name="create-a-client-and-send-a-search-request"></a>Criar um cliente e enviar um pedido de pesquisa
+## <a name="create-a-client-and-send-a-search-request"></a>Criar um cliente e enviar uma solicitação de pesquisa
 
-1. Crie um novo cliente de pesquisa. Adicionar a chave de subscrição ao criar um novo `ApiKeyServiceClientCredentials`.
+1. Crie um novo cliente de pesquisa. Adicione sua chave de assinatura criando um novo `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-1. Utilizar o cliente `Entities.Search()` função para procurar a sua consulta:
+1. Use a função do `Entities.Search()` cliente para pesquisar sua consulta:
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");
     ```
 
-## <a name="get-and-print-an-entity-description"></a>Obter e imprimir uma descrição da entidade
+## <a name="get-and-print-an-entity-description"></a>Obter e imprimir uma descrição de entidade
 
-1. Se a API devolver resultados da pesquisa, obter a entidade principal do `entityData`.
+1. Se a API retornou os resultados da pesquisa, obtenha a `entityData`entidade principal do.
 
     ```csharp
     var mainEntity = entityData.Entities.Value.Where(thing => thing.EntityPresentationInfo.EntityScenario == EntityScenario.DominantEntity).FirstOrDefault();
@@ -83,4 +83,4 @@ Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual S
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de pesquisa de entidades do Bing?](../overview.md )
+* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )

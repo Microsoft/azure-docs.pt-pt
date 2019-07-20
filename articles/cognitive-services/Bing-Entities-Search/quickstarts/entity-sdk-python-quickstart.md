@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisa de entidades do Bing SDK, Python'
+title: 'Início rápido: SDK do Pesquisa de Entidade do Bing, Python'
 titlesuffix: Azure Cognitive Services
 description: Configure a aplicação de consola do SDK de Pesquisa de Entidades do Bing.
 services: cognitive-services
@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9a66df03ceb03885ba5f61b4adeb54cb1876338d
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99bf0c155a1cd211a9cdc41d4184be716244d035
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813619"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358906"
 ---
-# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início rápido: Pesquisa de entidades do Bing SDK com Python
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Início rápido: SDK do Pesquisa de Entidade do Bing com Python
 
-Utilize este guia de introdução para começar a procurar entidades com o SDK de pesquisa de entidades do Bing para Python. Embora a pesquisa de entidades do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
+Use este guia de início rápido para começar a procurar entidades com o SDK do Pesquisa de Entidade do Bing para Python. Embora Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Python [2.x ou 3.x](https://www.python.org/)
+* Python [2. x ou 3. x](https://www.python.org/)
 
-* O [de pesquisa de entidades do Bing SDK para Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
+* O [SDK do pesquisa de entidade do Bing para Python](https://pypi.org/project/azure-cognitiveservices-search-entitysearch/)
 
-Recomenda-se que utilize um ambiente virtual do python. Pode instalar e inicializar um ambiente virtual com o módulo de venv. Pode instalar virtualenv para o Python 2.7 com:
+É recomendável que você use um ambiente virtual do Python. Você pode instalar e inicializar um ambiente virtual com o módulo venv. Você pode instalar o virtualenv com:
 
 ```Console
 python -m venv mytestenv
 ```
 
-Instalar o SDK com de pesquisa de entidades do Bing:
+Instale o SDK do Pesquisa de Entidade do Bing com:
 
 ```Console
 cd mytestenv
@@ -44,7 +44,7 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Criar um novo ficheiro de Python no seu IDE ou editor favorito e adicione as seguintes declarações de importação. 
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes instruções de importação. 
 
     ```python
     from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
@@ -52,22 +52,22 @@ python -m pip install azure-cognitiveservices-search-entitysearch
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Criar uma variável para a sua chave de subscrição e criar uma instância do cliente ao criar um novo `CognitiveServicesCredentials` objeto com o mesmo.
+2. Crie uma variável para sua chave de assinatura e instancie o cliente criando um novo `CognitiveServicesCredentials` objeto com ele.
     
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
     client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
 
-## <a name="send-a-search-request-and-receive-a-response"></a>Enviar um pedido de pesquisa e receber uma resposta
+## <a name="send-a-search-request-and-receive-a-response"></a>Enviar uma solicitação de pesquisa e receber uma resposta
 
-1. Enviar um pedido de pesquisa para pesquisa de entidades do Bing com `client.entities.search()` e uma consulta de pesquisa. 
+1. Envie uma solicitação de pesquisa para pesquisa de entidade do Bing `client.entities.search()` com e uma consulta de pesquisa. 
     
     ```python
     entity_data = client.entities.search(query="Gibralter")
     ```
 
-2. Se a entidades foram devolvidas, converter `entity_data.entities.value` a uma lista e imprimir o primeiro resultado.
+2. Se as entidades foram retornadas `entity_data.entities.value` , converta em uma lista e imprima o primeiro resultado.
     ```python
     if entity_data.entities.value:
     
@@ -83,4 +83,4 @@ python -m pip install azure-cognitiveservices-search-entitysearch
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de pesquisa de entidades do Bing?](../overview.md )
+* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )

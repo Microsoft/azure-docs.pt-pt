@@ -1,9 +1,9 @@
 ---
-title: Script da CLI do Azure de exemplo - criar aplicação e implementar continuamente a partir de repositórios do Azure | Documentos da Microsoft
-description: Script da CLI do Azure de exemplo - criar uma aplicação com implementação contínua a partir de repositórios do Azure
+title: Exemplo de script CLI do Azure – criar aplicativo e implantar continuamente de Azure Repos | Microsoft Docs
+description: Exemplo de script CLI do Azure-criar um aplicativo com implantação contínua de Azure Repos
 services: app-service\web
 documentationcenter: ''
-author: msangapu
+author: msangapu-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: jeconnoc
+ms.author: msangapu-msft
 ms.custom: seodec18
-ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 502b2fabfe1bb90862e673d6bd88a5397065d5d7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136787"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359939"
 ---
-# <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Criar uma aplicação de serviço de aplicações com implementação contínua com a CLI do Azure
+# <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Criar um aplicativo do serviço de aplicativo com implantação contínua usando o CLI do Azure
 
-Este script de exemplo cria uma aplicação no serviço de aplicações com os respetivos recursos relacionados e, em seguida, configura a implementação contínua a partir de um repositório de DevOps do Azure. Neste exemplo, precisa de:
+Este script de exemplo cria um aplicativo no serviço de aplicativo com seus recursos relacionados e, em seguida, configura a implantação contínua de um repositório DevOps do Azure. Neste exemplo, precisa de:
 
-* Um repositório de DevOps do Azure com o código da aplicação, que tem permissões administrativas.
+* Um repositório DevOps do Azure com código de aplicativo para o qual você tem permissões administrativas.
 * Um [Token de Acesso Pessoal (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) para a sua organização do Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -50,11 +50,11 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | Comando | Notas |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano do Serviço de Aplicações. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria uma aplicação de serviço de aplicações. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa uma aplicação de serviço de aplicações com o Git ou Mercurial repositório. |
+| [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Cria um plano de Serviço de Aplicações. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Cria um aplicativo do serviço de aplicativo. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Associa um aplicativo do serviço de aplicativo a um repositório do git ou do Mercurial. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 
