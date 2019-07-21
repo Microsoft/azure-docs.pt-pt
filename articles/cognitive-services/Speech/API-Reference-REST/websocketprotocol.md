@@ -311,7 +311,7 @@ Os clientes tem de confirmar o fim de uma vez através do envio de um `telemetry
 | Path | `telemetry` |
 | X-Timestamp | Carimbo de hora de relógio de cliente UTC no formato ISO 8601 |
 | Content-Type | `application/json` |
-| Corpo | Uma estrutura JSON que contém informações de cliente sobre a mão |
+| Body | Uma estrutura JSON que contém informações de cliente sobre a mão |
 
 O esquema para o corpo da `telemetry` mensagem é definida no [esquema de telemetria](#telemetry-schema) secção.
 
