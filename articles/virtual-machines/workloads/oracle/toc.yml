@@ -20,6 +20,8 @@
       href: configure-oracle-golden-gate.md
 - name: Conceitos
   items:
+    - name: Arquiteturas de aplicação do Oracle
+      href: oracle-oci-applications.md
     - name: Arquitetar uma base de dados Oracle
       href: oracle-design.md
     - name: Estratégia de cópia de segurança para base de dados Oracle

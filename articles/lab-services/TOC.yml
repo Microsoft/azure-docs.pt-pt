@@ -56,8 +56,6 @@
           href: best-practices-distributive-collaborative-development-environment.md
         - name: Integração com o Azure DevOps
           href: devtest-lab-dev-ops.md
-        - name: Utilizar as capacidades reivindicação
-          href: devtest-lab-use-claim-capabilities.md
         - name: Cenários
           items:
             - name: Cenários populares para utilizar o DevTest Labs
@@ -68,6 +66,8 @@
               href: devtest-lab-test-env.md
             - name: Utilizar laboratórios para fins de formação
               href: devtest-lab-training-lab.md
+            - name: Cenários para utilizar VMs reclamáveis
+              href: devtest-lab-use-claim-capabilities.md
 - name: Guias de procedimentos
   items:
     - name: Laboratórios de sala de aula
@@ -158,11 +158,11 @@
           items:
             - name: Criar uma VM - Portal do Azure
               href: devtest-lab-add-vm.md
-            - name: Criar uma VM com o Azure PowerShell
+            - name: Criar uma VM - Azure PowerShell
               href: devtest-lab-vm-powershell.md
-            - name: Criar e gerir VMs com a CLI do Azure
+            - name: Criar uma VM - CLI do Azure
               href: devtest-lab-vmcli.md
-            - name: Criar uma VM a partir de um modelo do Resource Manager
+            - name: Criar uma VM - modelo do Resource Manager
               href: devtest-lab-use-resource-manager-template.md
             - name: Iniciar ou parar uma VM com o PowerShell ou com a CLI
               href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
               href: devtest-lab-resize-vm.md
             - name: Reimplementar uma VM
               href: devtest-lab-redeploy-vm.md
+            - name: Configurar o desligamento automático de uma VM
+              href: devtest-lab-auto-shutdown-vm.md
             - name: Criar e gerir VMs reclamáveis
               href: devtest-lab-add-claimable-vm.md
             - name: Configurar segredos
@@ -210,9 +212,9 @@
               items:
                 - name: Criar uma imagem personalizada a partir de uma VM
                   href: devtest-lab-create-custom-image-from-vm-using-portal.md
-                - name: Criar uma imagem personalizada a partir de um VHD com o portal do Azure
+                - name: Criar uma imagem personalizada a partir de um VHD - Portal do Azure
                   href: devtest-lab-create-template.md
-                - name: Criar uma imagem personalizada a partir de um VHD com o PowerShell
+                - name: Criar uma imagem personalizada a partir de um VHD - PowerShell
                   href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
                 - name: Carregar o ficheiro VHD com o AzCopy
                   href: devtest-lab-upload-vhd-using-azcopy.md

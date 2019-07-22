@@ -61,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: Gerir contas do Batch com a Gestão de Lotes .NET
           href: batch-management-dotnet.md
+        - name: Análise de custos e orçamentos
+          href: budget.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com o serviço Batch

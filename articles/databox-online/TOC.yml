@@ -47,6 +47,8 @@
           href: data-box-gateway-monitor.md
         - name: Resolução de problemas
           href: data-box-gateway-troubleshoot.md
+        - name: Contacte o Suporte da Microsoft
+          href: data-box-edge-contact-microsoft-support.md
     - name: Notas de versão
       items:
         - name: 1905 - Atual
@@ -105,9 +107,11 @@
               href: data-box-edge-connect-powershell-interface.md
         - name: Resolução de problemas
           href: data-box-edge-troubleshoot.md
+        - name: Contacte o Suporte da Microsoft
+          href: data-box-edge-contact-microsoft-support.md
         - name: Monitorizar
           href: data-box-edge-monitor.md
-        - name: Devolver dispositivo
+        - name: Devolver ou substituir o dispositivo
           href: data-box-edge-return-device.md
     - name: Notas de versão
       items:
