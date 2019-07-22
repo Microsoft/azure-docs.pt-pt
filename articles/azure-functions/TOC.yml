@@ -53,6 +53,8 @@
       href: functions-twitter-email.md
     - name: Criar uma API sem servidor
       href: functions-create-serverless-api.md
+    - name: Criar funções Python com programação VS
+      href: tutorial-vs-code-serverless-python.md
     - name: Criar uma definição de OpenAPI
       href: functions-openapi-definition.md
     - name: Ligar a uma Rede Virtual

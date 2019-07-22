@@ -274,7 +274,7 @@
           items:
             - name: Descrição geral de clusters do Azure
               href: service-fabric-azure-clusters-overview.md
-            - name: Tipos de nós e Conjuntos de Dimensionamento de VMs
+            - name: Tipos de nós e conjuntos de dimensionamento de máquinas virtuais
               href: service-fabric-cluster-nodetypes.md
             - name: Atualizar clusters no Azure
               href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Práticas recomendadas
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Refatorizar uma aplicação migrada
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Modernizar a sua aplicação
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Gerir o ciclo de vida da aplicação
       items:
         - name: Criar pacote de uma aplicação

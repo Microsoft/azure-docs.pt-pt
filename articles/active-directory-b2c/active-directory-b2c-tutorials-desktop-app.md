@@ -1,6 +1,6 @@
 ---
-title: Tutorial - ativar a autenticação num aplicativo cliente nativo - Azure Active Directory B2C | Documentos da Microsoft
-description: Tutorial sobre como utilizar o Azure Active Directory B2C para fornecer início de sessão do utilizador para um aplicativo de desktop do .NET.
+title: Tutorial – habilitar a autenticação em um aplicativo cliente nativo-Azure Active Directory B2C | Microsoft Docs
+description: Tutorial sobre como usar o Azure Active Directory B2C para fornecer logon de usuário para um aplicativo de área de trabalho .NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,85 +10,85 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c84f336d11a512435e6d8eea814b41e9213eeb13
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835701"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347142"
 ---
-# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação num aplicativo de cliente nativo através do Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar a autenticação em um aplicativo cliente nativo usando Azure Active Directory B2C
 
-Este tutorial mostra-lhe como utilizar o Azure Active Directory (Azure AD) B2C para inscrever e iniciar a sessão dos utilizadores numa aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos autenticar contas de redes sociais, contas empresariais e contas do Azure Active Directory através de protocolos padrão abertos.
+Este tutorial mostra-lhe como utilizar o Azure Active Directory (Azure AD) B2C para inscrever e iniciar a sessão dos utilizadores numa aplicação de ambiente de trabalho do Windows Presentation Foundation (WPF). O Azure AD B2C permite que seus aplicativos se autentiquem em contas sociais, contas corporativas e Azure Active Directory contas usando protocolos padrão abertos.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Adicionar a aplicação de cliente nativo
-> * Configurar o exemplo a utilizar a aplicação
-> * Inscreva-se com o fluxo de utilizador
+> * Adicionar o aplicativo cliente nativo
+> * Configurar o exemplo para usar o aplicativo
+> * Inscrever-se usando o fluxo do usuário
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar fluxos de utilizador](tutorial-create-user-flows.md) para permitir experiências de utilizador na sua aplicação.
-- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com **desenvolvimento de área de trabalho do .NET** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
+- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
+- Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com cargas de **trabalho de desenvolvimento de desktop .net** e **ASP.net e desenvolvimento** para a Web.
 
-## <a name="add-the-native-client-application"></a>Adicionar a aplicação de cliente nativo
+## <a name="add-the-native-client-application"></a>Adicionar o aplicativo cliente nativo
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
-3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-4. Selecione **aplicativos**e, em seguida, selecione **Add**.
-5. Introduza um nome para a aplicação. Por exemplo, *nativeapp1*.
-6. Para **incluir a aplicação web / web API**, selecione **não**.
+3. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
+4. Selecione **aplicativos**e, em seguida, selecione **Adicionar**.
+5. Insira um nome para o aplicativo. Por exemplo, *nativeapp1*.
+6. Para **incluir aplicativo Web/API Web**, selecione **não**.
 7. Para **incluir cliente nativo**, selecione **Sim**.
-8. Para **URI de redirecionamento**, introduza um URI de redirecionamento válido com um esquema personalizado. Existem duas considerações importantes ao escolher um URI de redirecionamento:
+8. Para **URI**de redirecionamento, insira um URI de redirecionamento válido com um esquema personalizado. Há duas considerações importantes ao escolher um URI de redirecionamento:
 
-    - **Exclusivo** -o esquema do URI de redirecionamento deve ser exclusivo para cada aplicação. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Este padrão deve ser seguido. Se duas aplicações partilharem o mesmo esquema, o utilizador recebe uma opção para escolher uma aplicação. Se o utilizador fizer uma seleção incorreta, o início de sessão irá falhar.
-    - **Completa** -o URI de redirecionamento tem de ter um esquema e um caminho. O caminho tem de conter, pelo menos, uma barra depois do domínio. Por exemplo, `//contoso/` funciona e `//contoso` falhar. Certifique-se de que o URI de redirecionamento não inclui caracteres especiais, como carateres de sublinhado.
+    - **Unique** – o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. No exemplo `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` é o esquema. Esse padrão deve ser seguido. Se dois aplicativos compartilharem o mesmo esquema, o usuário terá a opção de escolher um aplicativo. Se o usuário fizer uma escolha incorreta, a entrada falhará.
+    - **Complete** -o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra após o domínio. Por exemplo, `//contoso/` funciona e `//contoso` falha. Certifique-se de que o URI de redirecionamento não inclua caracteres especiais, como sublinhados.
 
 9. Clique em **Criar**.
-10. Na página de propriedades, registe o ID da aplicação que irá utilizar quando configurar o exemplo.
+10. Na página Propriedades, registre a ID do aplicativo que você usará ao configurar o exemplo.
 
 ## <a name="configure-the-sample"></a>Configurar o exemplo
 
-Neste tutorial, configurou um exemplo que pode transferir a partir do GitHub. A aplicação ambiente de trabalho do WPF de exemplo demonstra a inscrição, início de sessão e chama uma API de web protegida no Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
+Neste tutorial, você configura um exemplo que pode ser baixado do GitHub. O aplicativo de área de trabalho do WPF de exemplo demonstra a inscrição, a entrada e a chamada de uma API Web protegida no Azure AD B2C. [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [navegar no repositório](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) ou clone o exemplo a partir do GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
 ```
 
-Para alterar as definições de aplicação, substitua a `<your-tenant-name>` com o seu nome de inquilino e substitua`<application-ID`> com o ID da aplicação que registou.
+Para alterar as configurações do aplicativo, substitua `<your-tenant-name>` pelo nome do locatário e substitua`<application-ID`> pela ID do aplicativo que você registrou.
 
 1. Abra a solução `active-directory-b2c-wpf` no Visual Studio.
 2. No projeto `active-directory-b2c-wpf`, abra o ficheiro **App.xaml.cs** e faça as seguintes atualizações:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
-3. Atualização do **PolicySignUpSignIn** variável com o nome do fluxo de utilizador que criou.
+3. Atualize a variável **PolicySignUpSignIn** com o nome do fluxo de usuário que você criou.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Prima **F5** para compilar e executar o exemplo.
+Pressione **F5** para compilar e executar o exemplo.
 
 ### <a name="sign-up-using-an-email-address"></a>Inscrever-se com um endereço de e-mail
 
-1. Clique em **sessão** para se inscrever como um utilizador. Esta opção utiliza a **B2C_1_signupsignin1** fluxo de utilizador.
+1. Clique em **entrar** para inscrever-se como um usuário. Isso usa o fluxo de usuário **B2C_1_signupsignin1** .
 2. O Azure AD B2C apresenta uma página de início de sessão com uma ligação de inscrição. Uma vez que ainda não tem uma conta, clique na ligação **Inscrever-se agora**.
-3. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também recolhe a senha do usuário e os atributos solicitados definidos no fluxo de utilizador.
+3. O fluxo de trabalho de inscrição apresenta uma página para recolher e verificar a identidade do utilizador através de um endereço de e-mail. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo do usuário.
 
     Utilize um endereço de e-mail válido e valide com o código de verificação. Defina uma palavra-passe. Introduza os valores para os atributos solicitados.
 
-    ![Página de inscrição mostrada como parte do início de sessão-no/inscrever-se fluxo de trabalho](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![Página de inscrição mostrada como parte do fluxo de trabalho de entrada/inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Clique em **Criar** para criar uma conta local no inquilino do Azure AD B2C.
 
@@ -102,9 +102,9 @@ Agora, o utilizador pode utilizar o respetivo endereço de e-mail para iniciar s
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Adicionar a aplicação de cliente nativo
-> * Configurar o exemplo a utilizar a aplicação
-> * Inscreva-se com o fluxo de utilizador
+> * Adicionar o aplicativo cliente nativo
+> * Configurar o exemplo para usar o aplicativo
+> * Inscrever-se usando o fluxo do usuário
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conceder acesso a uma API da web de node. js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Conceder acesso a uma API Web node. js de um aplicativo de desktop usando Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)

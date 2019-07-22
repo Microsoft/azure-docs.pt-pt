@@ -175,7 +175,7 @@ Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de est
 | Campo | Descrição |
 |----|----|
 | Codificação de mensagens do WebSocket | Text |
-| Corpo | O payload como uma estrutura JSON |
+| Body | O payload como uma estrutura JSON |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
 
@@ -244,7 +244,7 @@ Serviço de voz utiliza a primeira `audio` mensagem que contém um identificador
 | Campo | Descrição |
 |-------------|----------------|
 | Codificação de mensagens do WebSocket | Binário |
-| Corpo | Os dados binários para o segmento de áudio. Tamanho máximo é de 8.192 bytes. |
+| Body | Os dados binários para o segmento de áudio. Tamanho máximo é de 8.192 bytes. |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessário
 
@@ -332,7 +332,7 @@ O `speech.startDetected` mensagem indica que o serviço de voz detetado fala no 
 | Codificação de mensagens do WebSocket | Text |
 | Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
-| Corpo | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
+| Body | A estrutura JSON que contém informações sobre as condições de quando foi detetado o início da voz. O *deslocamento* campo nesta estrutura Especifica o deslocamento (em unidades de 100 nanossegundos) quando a conversão de voz foi detetada no fluxo de áudio, em relação ao início da transmissão em fluxo. |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -358,7 +358,7 @@ Durante o reconhecimento de fala, o serviço de voz periodicamente gera hipótes
 | Path | `speech.hypothesis` |
 | X-RequestId | UUID no formato de "no-dash" |
 | Content-Type | application/json |
-| Corpo | A estrutura JSON de hipótese de voz |
+| Body | A estrutura JSON de hipótese de voz |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -389,7 +389,7 @@ Quando o serviço de voz determina a que tem informações suficientes para prod
 | Codificação de mensagens do WebSocket | Text |
 | Path | `speech.phrase` |
 | Content-Type | application/json |
-| Corpo | A frase de voz estrutura JSON |
+| Body | A frase de voz estrutura JSON |
 
 O esquema JSON de frase de voz contém os seguintes campos: `RecognitionStatus`, `DisplayText`, `Offset`, e `Duration`. Para obter mais informações sobre estes campos, consulte [respostas de transcrição](../concepts.md#transcription-responses).
 
@@ -416,7 +416,7 @@ O `speech.endDetected` mensagem Especifica que a aplicação cliente deverá ser
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
 | Path | `speech.endDetected` |
-| Corpo | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
+| Body | A estrutura JSON que contém o deslocamento quando o final de voz foi detetado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é utilizado para reconhecimento. |
 | Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
@@ -442,7 +442,7 @@ O `turn.start` sinaliza o início de uma mão da perspectiva do serviço. O `tur
 | Codificação de mensagens do WebSocket | Text |
 | Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
-| Corpo | Estrutura JSON |
+| Body | Estrutura JSON |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -468,7 +468,7 @@ O `turn.end` sinaliza o término de uma mão da perspectiva do serviço. O `turn
 | ------------- | ---------------- |
 | Codificação de mensagens do WebSocket | Text |
 | Path | `turn.end` |
-| Corpo | Nenhuma |
+| Body | Nenhuma |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 

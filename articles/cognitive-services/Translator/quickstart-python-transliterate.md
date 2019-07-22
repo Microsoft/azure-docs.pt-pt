@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Transcrição de texto, Python - API de texto do tradutor'
+title: 'Início rápido: Transliteração de texto, Python-API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Python e a API REST de Texto do Microsoft Translator. Neste exemplo, o japonês é transliterado para utilizar o alfabeto latino.
 services: cognitive-services
@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: c6c6bb526c78ce87b9ee2acca05f478fee0ae5ff
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: cafaf67cfaa07d27bf4569efbc7f76196222cc2a
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704334"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348724"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início rápido: Utilizar a API de texto do Translator a transcrição de texto com o Python
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>Início rápido: Usar o API de Tradução de Texto para transliterar texto usando Python
 
 Neste início rápido, vai aprender a transliterar (converter) texto a partir de um script para outro com o Python e a API REST de Texto do Microsoft Translator. No exemplo apresentado, o japonês é transliterado para utilizar o alfabeto latino.
 
 Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 >[!TIP]
-> Se gostaria de ver todo o código de uma só vez, o código-fonte para este exemplo está disponível no [GitHub]().
+> Se você quiser ver todo o código de uma só vez, o código-fonte desse exemplo estará disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -35,7 +35,7 @@ Este início rápido requer:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-Criar um novo projeto usando o seu IDE favorito ou editor ou uma nova pasta com um arquivo chamado `transliterate-text.py` no ambiente de trabalho. Em seguida, copie este fragmento de código no seu projeto/ficheiro:
+Crie um novo projeto usando seu IDE ou editor favorito, ou uma nova pasta com um arquivo chamado `transliterate-text.py` em sua área de trabalho. Em seguida, copie este trecho de código em seu projeto/arquivo:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -70,12 +70,12 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-O ponto final global do texto do tradutor está definido como o `base_url`. `path` define a rota `transliterate` e identifica que queremos utilizar a versão 3 da API.
+O ponto de extremidade global Tradução de Texto é definido `base_url`como o. `path` define a rota `transliterate` e identifica que queremos utilizar a versão 3 da API.
 
 Os `params` são utilizados para definir o idioma de entrada e os scripts de entrada e saída. Neste exemplo, estamos a transliterar de japonês para o alfabeto latino.
 
 >[!NOTE]
-> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros do pedido, consulte [3.0 de API de texto de tradutor: Translitere](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Para obter mais informações sobre pontos de extremidade, rotas e parâmetros de solicitação, [consulte API de tradução de texto 3,0: Ser transliterado](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -98,7 +98,7 @@ headers = {
 }
 ```
 
-Se estiver a utilizar uma subscrição de múltiplos serviço de serviços cognitivos, também tem de incluir o `Ocp-Apim-Subscription-Region` nos parâmetros do pedido. [Saiba mais sobre autenticação com a subscrição de múltiplos serviço](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+Se você estiver usando uma assinatura de vários serviços cognitivas, também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre como autenticar com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-transliterate-text"></a>Criar um pedido para transliterar texto
 
@@ -155,14 +155,14 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja a referência de API para compreender tudo o que pode fazer com a API de texto do Translator.
+Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 
 > [!div class="nextstepaction"]
 > [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 
-Saiba como utilizar a API de texto do Translator para:
+Saiba como usar o API de Tradução de Texto para:
 
 * [Traduzir texto](quickstart-python-translate.md)
 * [Identificar o idioma por entrada](quickstart-python-detect.md)
