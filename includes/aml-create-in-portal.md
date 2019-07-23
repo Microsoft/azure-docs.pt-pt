@@ -8,43 +8,41 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 05/21/2019
-ms.openlocfilehash: 2ec45b67367198c14fc9d03cdb659a51aed8a504
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.date: 07/21/2019
+ms.openlocfilehash: 51bd3dfb33b1f445db8672e1b987ee6c6242e09c
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841427"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371009"
 ---
-1. Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. 
-
-   ![Portal do Azure](./media/aml-create-in-portal/portal-dashboard-05-2019.png)
+1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
 
 1. No canto superior esquerdo do portal, selecione **criar um recurso**.
 
    ![Criar um recurso no portal do Azure](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
 
-1. Utilize a barra de pesquisa, para selecionar **área de trabalho do Machine Learning serviço**.
+1. Use a barra de pesquisa para localizar **Machine Learning espaço de trabalho de serviço**.
 
-   ![Procure uma área de trabalho](./media/aml-create-in-portal/allservices-search.png)
+1. Selecione **Machine Learning espaço de trabalho de serviço**.
 
-1. Na **área de trabalho do ML service** painel, selecione **criar** para começar.
+1. No painel **espaço de trabalho do serviço ml** , selecione **criar** para começar.
 
-    ![Botão Criar](./media/aml-create-in-portal/portal-create-button.png)
-
-1. Na **área de trabalho do ML service** painel, configurar a sua área de trabalho.
+1. Configure seu novo espaço de trabalho fornecendo o nome, a assinatura, o grupo de recursos e o local do espaço de trabalho.
 
     ![Criar área de trabalho](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
    Campo|Descrição
    ---|---
-   Nome de área de trabalho |Introduza um nome exclusivo que identifica a sua área de trabalho. Neste exemplo, utilizamos **docs ws**. Nomes têm de ser exclusivos entre o grupo de recursos. Utilize um nome que é fácil de lembrar e diferenciar de áreas de trabalho criadas por outras pessoas.  
+   Nome da área de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
    Subscription |Selecione a subscrição do Azure que pretende utilizar.
-   Resource group | Utilize um grupo de recursos existente na sua subscrição ou introduza um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, utilizamos **docs aml**. 
-   Location | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados. Esta localização é onde a área de trabalho é criada.
+   Resource group | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
+   Location | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
 
-1. Reveja a configuração da área de trabalho e selecione **criar**. Pode demorar alguns minutos a criar a área de trabalho.
+1. Depois de concluir a configuração do espaço de trabalho, selecione **criar**. 
 
-1. Quando o processo estiver concluído, é apresentada uma mensagem de êxito da implementação. Ele também está presente na secção notificações. Para ver a nova área de trabalho, selecione **Ir para recurso**.
+   Pode levar alguns minutos para criar o espaço de trabalho.
 
-   ![Estado de criação da área de trabalho](./media/aml-create-in-portal/notifications.png)
+   Quando o processo for concluído, uma mensagem de êxito de implantação será exibida. Ele também está presente na seção notificações. Para exibir o novo espaço de trabalho, selecione **ir para o recurso**.
+
+   ![Status de criação do espaço de trabalho](./media/aml-create-in-portal/notifications.png)

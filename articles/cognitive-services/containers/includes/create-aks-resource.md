@@ -1,7 +1,7 @@
 ---
-title: Criar um recurso de cluster do serviço Kubernetes do Azure
+title: Criar um recurso de cluster do serviço kubernetes do Azure
 titleSuffix: Azure Cognitive Services
-description: Saiba como criar um recurso do Azure Kubernetes Service (AKS).
+description: Saiba como criar um recurso de AKS (serviço de kubernetes do Azure).
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,43 +9,43 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 7/3/2019
 ms.author: dapine
-ms.openlocfilehash: ab7ce8b4a538e6a286a00285069a22878c5d88d9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5e442f38a8e81170eeeac2f31f00a7d0eeb08d2b
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877444"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377430"
 ---
-## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço Kubernetes do Azure
+## <a name="create-an-azure-kubernetes-service-cluster-resource"></a>Criar um recurso de cluster do serviço kubernetes do Azure
 
-1. Aceda a [do Azure Kubernetes Service](https://ms.portal.azure.com/#create/microsoft.aks) e selecione **criar**.
+1. Vá para o [serviço kubernetes do Azure](https://ms.portal.azure.com/#create/microsoft.aks)e selecione **criar**.
 
-1. Sobre o **Noções básicas** separador, introduza as seguintes informações:
+1. Na guia **noções básicas** , insira as seguintes informações:
 
     |Definição|Valor|
     |--|--|
-    |Subscription|Selecione uma subscrição adequada|
-    |Resource group|Selecione um grupo de recursos disponíveis|
-    |Nome do cluster de Kubernetes|Introduza um nome (em minúsculas)|
-    |Região|Selecione uma localização próximas|
-    |Versão do Kubernetes|1.12.8 (predefinição)|
-    |Prefixo de nome DNS|Criado automaticamente, mas pode substituir|
+    |Subscription|Selecione uma subscrição adequada.|
+    |Resource group|Selecione um grupo de recursos disponível.|
+    |Nome do cluster Kubernetes|Insira um nome (em minúsculas).|
+    |Região|Selecione um local próximo.|
+    |Versão do Kubernetes|1.12.8 (padrão).|
+    |Prefixo de nome DNS|Criado automaticamente, mas você pode substituir.|
     |Tamanho do nó|Standard DS2 v2:<br>`2 vCPUs`, `7 GB`|
-    |Contagem de nós|Deixe o controlo de deslize com o valor predefinido|
+    |Contagem de nós|Deixe o controle deslizante no valor padrão.|
 
-1. Na **escala** separador, deixe **nós virtuais** e **conjuntos de dimensionamento de Máquina Virtual (pré-visualização)** definido para os valores predefinidos.
-1. Na **autenticação** separador, deixe **principal de serviço** e **ativar RBAC** definido para os valores predefinidos.
-1. Sobre o **redes** separador, introduza as seguintes seleções:
+1. Na guia **escala** , deixe **nós virtuais** e **conjuntos de dimensionamento de máquinas virtuais (versão prévia)** definidos com os valores padrão.
+1. Na guia **autenticação** , saia da **entidade de serviço** e habilite o **RBAC** definido com os valores padrão.
+1. Na guia **rede** , insira as seguintes seleções:
 
-    |Definição|Value|
+    |Definição|Valor|
     |--|--|
-    |Encaminhamento de aplicações de HTTP|Não|
+    |Encaminhamento de pedido de HTTP|Não|
     |Configuração de rede|Básica|
 
-1. Na **monitorização** separador, certifique-se de que **ativar a monitorização do contentor** está definida como **Sim**e deixe **área de trabalho do Log Analytics** como o valor predefinido.
-1. Sobre o **etiquetas** separador, deixe os pares nome/valor em branco por agora.
-1. Selecione **reveja e criar**.
-1. Depois de passar a validação, selecione **criar**.
+1. Na guia **monitoramento** , verifique se habilitar o **monitoramento de contêiner** está definido como **Sim**e deixe **log Analytics espaço de trabalho** como o valor padrão.
+1. Na guia **marcas** , deixe os pares nome/valor em branco por enquanto.
+1. Selecione **revisar e criar**.
+1. Depois que a validação for aprovada, selecione **criar**.
 
 > [!NOTE]
-> Se a validação falhar, pode ser devido um erro de "Principal de serviço". Volte para o **autenticação** separador e, em seguida, voltar ao **revisão + criar**, onde validação deve executar e, em seguida, passar.
+> Se a validação falhar, isso pode ser devido a um erro de "entidade de serviço". Volte para a guia **autenticação** e, em seguida, volte para revisar **+ criar**, em que a validação deve ser executada e, em seguida, passada.

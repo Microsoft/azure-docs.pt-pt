@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a49ee5720711bb23ec4770de38a408827c645b73
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360940"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371033"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Use o Machine Learning automatizado para criar seu modelo de regressão
 
@@ -748,7 +748,7 @@ Explore os resultados de treinamento automática com um widget de Jupyter ou, ex
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>Opção 1: Adicionar um widget Jupyter para ver os resultados
 
-Se você usar um notebook Jupyter, use este widget do Jupyter Notebook para ver um grafo e uma tabela de todos os resultados:
+Se você usar um notebook Jupyter, use este [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) para ver um grafo e uma tabela de todos os resultados:
 
 
 ```python
@@ -758,6 +758,13 @@ RunDetails(local_run).show()
 
 ![Jupyter de execução do](./media/tutorial-auto-train-models/automl-dash-output.png)
 widget detalhes![Jupyter do widget](./media/tutorial-auto-train-models/automl-chart-output.png)
+
+Os mesmos resultados são armazenados em seu espaço de trabalho.  Você pode obter um link para os resultados da execução:
+
+```
+local_run.get_portal_url()
+```
+  
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Opção 2: Obter e examinar todas as iterações de execução no Python
 
