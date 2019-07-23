@@ -4,7 +4,7 @@ description: Estabelece uma elevada disponibilidade do SAP HANA em máquinas vir
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922138"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709107"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -101,7 +101,7 @@ O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux 7.4 para o SA
 Pode utilizar um dos modelos de início rápido estão disponíveis no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, o conjunto de disponibilidade e assim por diante.
 Para implementar o modelo, siga estes passos:
 
-1. Abra o [modelo de base de dados] [ template-multisid-db] no portal do Azure.
+1. Abra o [modelo de base de dados][template-multisid-db] no portal do Azure.
 1. Introduza os seguintes parâmetros:
     * **ID de sistema de SAP**: Introduza o ID de sistema SAP do sistema SAP que pretende instalar. O ID é utilizado como um prefixo para os recursos que são implementados.
     * **Tipo de SO**: Selecione uma das distribuições de Linux. Para este exemplo, selecione **RHEL 7**.
@@ -335,7 +335,7 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 1. **[A]**  Atualize o agente de anfitrião do SAP.
 
-   Baixe o arquivo de agente de anfitrião do SAP mais recentes a partir da [Centro de Software SAP] [ sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho para o arquivo para apontar para o ficheiro transferido:
+   Baixe o arquivo de agente de anfitrião do SAP mais recentes a partir da [Centro de Software SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho para o arquivo para apontar para o ficheiro transferido:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>

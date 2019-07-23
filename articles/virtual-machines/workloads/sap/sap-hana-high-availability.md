@@ -4,7 +4,7 @@ description: Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux E
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 3d59fc48f1f6f6931ca18e09a420fdbccc7d53dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78d14add09a89b7ec4d4844a12ffa0434d714b3a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922291"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709089"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
@@ -71,9 +71,9 @@ Leia primeiro o SAP Notes e os documentos seguintes:
 * A nota SAP [401162] tem informações sobre como evitar "endereço já está em utilização" ao configurar o HANA System Replication.
 * [WIKI de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas de SAP necessária para Linux.
 * [SAP HANA certificadas plataformas IaaS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-* [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure] [ planning-guide] guia.
-* [Implementação de máquinas virtuais do Azure para SAP no Linux] [ deployment-guide] (Este artigo).
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux] [ dbms-guide] guia.
+* [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide] guia.
+* [Implementação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (Este artigo).
+* [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide] guia.
 * [SUSE Linux Enterprise Server para o SAP aplicativos 12 SP3 melhores práticas guias][sles-for-sap-bp]
   * Configurando um SAP HANA SR desempenho com otimização de infraestrutura (SLES para SAP aplicativos 12 SP1). O guia contém todas as informações necessárias para configurar a replicação do sistema do SAP HANA para desenvolvimento no local. Utilize este guia como uma linha de base.
   * Configurando um SAP HANA SR custo com otimização de infraestrutura (SLES para SAP aplicativos 12 SP1)
@@ -101,8 +101,8 @@ O Azure Marketplace contém uma imagem para o SUSE Linux Enterprise Server para 
 Pode utilizar um dos modelos de início rápido estão disponíveis no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, o conjunto de disponibilidade e assim por diante.
 Para implementar o modelo, siga estes passos:
 
-1. Abra o [modelo de base de dados] [ template-multisid-db] ou o [convergido modelo] [ template-converged] no portal do Azure. 
-    O modelo de base de dados cria as regras de balanceamento de carga para apenas uma base de dados. O modelo convergido também cria as regras de balanceamento de carga para um ASCS/SCS e a instância ERS (apenas Linux). Se planear instalar um sistema baseado em SAP NetWeaver e que pretende instalar a instância do ASCS/SCS nos mesmos computadores, utilize o [modelo de convergência][template-converged].
+1. Abra o [modelo de base de dados][template-multisid-db] or the [converged template][template-converged] on the Azure portal. 
+    The database template creates the load-balancing rules for a database only. The converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver-based system and you want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
 
 1. Introduza os seguintes parâmetros:
     - **ID de sistema de SAP**: Introduza o ID de sistema SAP do sistema SAP que pretende instalar. O ID é utilizado como um prefixo para os recursos que são implementados.
@@ -347,7 +347,7 @@ Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cená
 
 1. **[A]**  Atualize o agente de anfitrião do SAP.
 
-   Baixe o arquivo de agente de anfitrião do SAP mais recentes a partir da [Centro de Software SAP] [ sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho para o arquivo para apontar para o ficheiro transferido:
+   Baixe o arquivo de agente de anfitrião do SAP mais recentes a partir da [Centro de Software SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho para o arquivo para apontar para o ficheiro transferido:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
