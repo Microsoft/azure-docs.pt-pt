@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2019
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a54ec7349317fdd8621fecec57cb06ad98f4660b
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306741"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385050"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Agrupar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empacotar e implantar contêineres como um aplicativo Service Fabric usando o Yeoman
 
 Este tutorial é a segunda parte de uma série. Neste tutorial, é utilizada uma ferramenta de gerador de modelos (Yeoman) para gerar uma definição de aplicação do Service Fabric. Esta aplicação pode, depois, ser utilizada para implementar contentores no Service Fabric. Neste tutorial, ficará a saber como:
 
@@ -122,7 +122,7 @@ ApplicationManifest.xml azurevotefrontPkg azurevotebackPkg
 
 Para que o Service Fabric extraia as imagens de contentores do Azure Container Registry, temos de indicar as credenciais em **ApplicationManifest.xml**.
 
-Inicie sessão na sua instância do ACR. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Entre em sua instância do ACR. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
 ```bash
 az acr login --name <acrName>
@@ -227,7 +227,7 @@ Nesta fase do tutorial, o modelo de uma aplicação Service Package está dispon
 
 ## <a name="create-a-service-fabric-cluster"></a>Criar um cluster do Service Fabric
 
-Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric para executar a aplicação. Os seguintes comandos criam um cluster de cinco nós no Azure.  Os comandos também criar um certificado autoassinado, adiciona-o para um cofre de chaves e transfere o certificado localmente como um ficheiro PEM. O novo certificado é utilizado para proteger o cluster quando implementa e é utilizado para autenticar clientes.
+Para implementar a aplicação no Azure, precisa de um cluster do Service Fabric para executar a aplicação. Os comandos a seguir criam um cluster de cinco nós no Azure.  Os comandos também criam um certificado autoassinado, adiciona-o a um cofre de chaves e baixa o certificado localmente como um arquivo PEM. O novo certificado é usado para proteger o cluster quando ele é implantado e é usado para autenticar clientes.
 
 ```azurecli
 #!/bin/bash
@@ -261,16 +261,16 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 ```
 
 > [!Note]
-> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Por predefinição, a porta 80 está aberta no seu cluster de VMs e o Balanceador de carga do Azure.
+> O serviço de front-end da Web está configurado para escutar tráfego de entrada na porta 80. Por padrão, a porta 80 está aberta nas VMs do cluster e no Azure Load Balancer.
 >
 
-Para obter mais informações sobre como criar seu próprio cluster, consulte [criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
+Para obter mais informações sobre como criar seu próprio cluster, consulte [criar um Service Fabric cluster no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Criar e implementar a aplicação no cluster
 
 Pode implementar a aplicação no cluster do Azure com a CLI do Service Fabric. Se a CLI do Service Fabric não estiver instalada no seu computador, siga [estas](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) instruções para instalá-la.
 
-Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final do exemplo pelo seu próprio. O ponto final tem de ser um URL completo semelhante ao seguinte.  O ficheiro PEM é o certificado autoassinado que foi criado anteriormente.
+Ligue ao cluster do Service Fabric no Azure. Substitua o ponto final do exemplo pelo seu próprio. O ponto final tem de ser um URL completo semelhante ao seguinte.  O arquivo PEM é o certificado autoassinado que foi criado anteriormente.
 
 ```bash
 sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
@@ -282,11 +282,11 @@ Utilize o script de instalação disponibilizado no diretório **TestContainer**
 ./install.sh
 ```
 
-Abra um browser e navegue para o Service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
+Abra um navegador e navegue até Service Fabric Explorer em http:\//containertestcluster.eastus.cloudapp.Azure.com:19080/Explorer. Expanda o nó Aplicações e repare que há uma entrada para o tipo de aplicação e outra para a instância.
 
 ![Service Fabric Explorer][sfx]
 
-Para ligar para a aplicação em execução, abra um browser e aceda ao url do cluster - por exemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Deverá ver a aplicação Voting na IU da Web.
+Para se conectar ao aplicativo em execução, abra um navegador da Web e vá para a URL do cluster-por exemplo,\/http:/containertestcluster.eastus.cloudapp.Azure.com:80. Deverá ver a aplicação Voting na IU da Web.
 
 ![votingapp][votingapp]
 

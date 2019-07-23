@@ -13,17 +13,17 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306772"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385221"
 ---
-# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contêiner em um cluster de Service Fabric do Linux
 
 Este tutorial faz parte de uma série de tutoriais que demonstra como utilizar contentores num cluster do Service Fabric do Linux. Neste tutorial, uma aplicação de contentores múltiplos é preparada para utilização com o Service Fabric. Em tutoriais posteriores, estas imagens serão utilizadas como parte de uma aplicação do Service Fabric. Neste tutorial, ficará a saber como:
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Execute primeiro o **início de sessão az** comando para iniciar sessão na sua conta do Azure.
+Primeiro, execute o comando **AZ login** para entrar em sua conta do Azure.
 
 ```bash
 az login
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor.
 
-## <a name="sign-in-to-your-container-registry"></a>Inicie sessão no seu registo de contentor
+## <a name="sign-in-to-your-container-registry"></a>Entre no registro de contêiner
 
-Inicie sessão na sua instância do ACR antes de enviar imagens a ela. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Entre em sua instância do ACR antes de enviar imagens por push para ela. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
 ```bash
 az acr login --name <acrName>
@@ -208,7 +208,7 @@ Ao concluir o tutorial, a imagem de contentor foi armazenada numa instância pri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, uma aplicação foi obtida do GitHub e imagens de contentor foram criadas e enviadas para um registo. Foram efetuados os seguintes passos:
+Neste tutorial, um aplicativo foi extraído do GitHub e as imagens de contêiner foram criadas e enviadas por push para um registro. Foram efetuados os seguintes passos:
 
 > [!div class="checklist"]
 > * Clonar a origem de aplicação a partir do GitHub

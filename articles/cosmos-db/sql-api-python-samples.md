@@ -1,19 +1,19 @@
 ---
-title: Exemplos da SQL API Python para o Azure Cosmos DB
-description: Encontre exemplos de Python no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD.
+title: Exemplos de Python da API do SQL para Azure Cosmos DB
+description: Encontre exemplos do Python no GitHub para tarefas comuns no Azure Cosmos DB, incluindo operações CRUD.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
-ms.date: 03/14/2018
+ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: cf296d8bb494307dbb58b9de522d55a83892c6d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd0981de1464fb3458ed5d0e1d2967a667eaf2ff
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546634"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383954"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Exemplos do Python do Azure Cosmos DB
 
@@ -27,7 +27,7 @@ ms.locfileid: "60546634"
 > 
 > 
 
-Exemplos de soluções que fazer operações CRUD e outras operações comuns em recursos do Azure Cosmos DB estão incluídos no [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) repositório do GitHub. Este artigo fornece:
+Soluções de exemplo que fazem operações CRUD e outras operações comuns em Azure Cosmos DB recursos estão incluídas no repositório GitHub [Azure-documentdb-Python](https://github.com/Azure/azure-documentdb-python) . Este artigo fornece:
 
 * Ligações para as tarefas em cada um dos ficheiros do projeto de exemplo do Python. 
 * Ligações para o conteúdo relacionado de referência da API.
@@ -36,19 +36,19 @@ Exemplos de soluções que fazer operações CRUD e outras operações comuns em
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Pode [ativar os benefícios de subscritor do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Subscrição do Visual Studio dá-lhe créditos todos os meses que pode utilizar para serviços pagos do Azure.
+- Você pode [ativar os benefícios do assinante do Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Sua assinatura do Visual Studio oferece créditos a cada mês que você pode usar para serviços pagos do Azure.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 Também precisa do [SDK do Python](sql-api-sdk-python.md). 
    
    > [!NOTE]
-   > Cada amostra é independente, configura-se automaticamente e limpa-se em seguida. Os exemplos de emitir várias chamadas para [CosmosClient.CreateContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#createcontainer-database-link--collection--options-none-). Cada vez que isto é feito, a sua subscrição é cobrada por uma hora de utilização. Para obter mais informações sobre a faturação do Azure Cosmos DB, veja [Preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   > Cada amostra é independente, configura-se automaticamente e limpa-se em seguida. Os exemplos emitem várias chamadas para [CosmosClient. CreateContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#createcontainer-database-link--collection--options-none-). Cada vez que isto é feito, a sua subscrição é cobrada por uma hora de utilização. Para obter mais informações sobre a faturação do Azure Cosmos DB, veja [Preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
    > 
    > 
 
 ## <a name="database-examples"></a>Exemplos de base de dados
-O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) ficheiro da [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) projeto mostra como fazer as seguintes tarefas. Para saber mais sobre as bases de dados do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
+O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) do projeto [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) mostra como realizar as tarefas a seguir. Para saber mais sobre os bancos de dados do Azure Cosmos antes de executar os seguintes exemplos, consulte o artigo conceitual [trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md) . 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -58,7 +58,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 | [Eliminar uma base de dados](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L113-L126) |[CosmosClient.DeleteDatabase](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletedatabase-database-link--options-none-) |
 
 ## <a name="collection-examples"></a>Exemplos de coleção
-O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) ficheiro da [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) projeto mostra como fazer as seguintes tarefas. Para saber mais sobre as coleções do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
+O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) do projeto [CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) mostra como realizar as tarefas a seguir. Para saber mais sobre as coleções de Cosmos do Azure antes de executar os seguintes exemplos, consulte o artigo conceitual [trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md) . 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -69,7 +69,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 | [Eliminar uma coleção](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L224-L238) |[CosmosClient.DeleteContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletecontainer-collection-link--options-none-) |
 
 ## <a name="document-examples"></a>Exemplos de documento
-O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) ficheiro da [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) projeto mostra como fazer as seguintes tarefas. Para saber mais sobre os documentos do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
+O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) do projeto [DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) mostra como realizar as tarefas a seguir. Para saber mais sobre os documentos do Azure Cosmos antes de executar os exemplos a seguir, consulte o artigo conceitual [trabalhando com bancos de dados, contêineres e itens](databases-containers-items.md) . 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -80,7 +80,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 | [Substituir documento com verificação ETag condicional](https://github.com/Azure/azure-cosmos-python/blob/a21f6fb4bad3f59909ef43558b598f9fb476b7bc/test/crud_tests.py#L1216-L1218) | [CosmosClient.ReplaceItem](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replaceitem-document-link--new-document--options-none-) |
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
-O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) ficheiro da [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) projeto mostra como fazer as seguintes tarefas.  Para saber mais sobre a indexação no Azure Cosmos DB, antes de executar os exemplos seguintes, veja [políticas de indexação](index-policy.md), [indexação tipos](index-types.md), e [indexação caminhos](index-paths.md) artigos conceptuais. 
+O arquivo [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) do projeto [IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) mostra como realizar as tarefas a seguir.  Para saber mais sobre a indexação no Azure Cosmos DB antes de executar os exemplos a seguir, confira [políticas](index-policy.md)de indexação, [tipos](index-types.md)de indexação e artigos conceituais de [caminhos](index-paths.md) de indexação. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -92,7 +92,7 @@ O [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samp
 | [Realizar uma transformação de índice](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## <a name="query-examples"></a>Exemplos de consultas
-Os projetos de exemplo também mostram como realizar as seguintes tarefas de consulta. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos seguintes, veja [exemplos de consulta SQL](how-to-sql-query.md) artigo conceitual. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos seguintes, veja [exemplos de consulta SQL](how-to-sql-query.md) artigo conceitual. 
+Os projetos de exemplo também mostram como fazer as tarefas de consulta a seguir. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos a seguir, consulte o artigo conceitual de [exemplos de consulta SQL](how-to-sql-query.md) . Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos a seguir, consulte o artigo conceitual de [exemplos de consulta SQL](how-to-sql-query.md) . 
 
 
 | Tarefa | Referência da API |
