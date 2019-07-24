@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verifique a ortografia com a API de REST de verificação do Bing ortográfica eC#'
-titlesuffix: Azure Cognitive Services
-description: Começar a utilizar a API de REST de verificação do Bing ortográfica para verificar a ortografia e gramática.
+title: 'Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing eC#'
+titleSuffix: Azure Cognitive Services
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,31 +10,31 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: e7a1f2572296015aac2d05b36b9b659c85586ff9
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a2c121ed58882427022b716081b096c913d447f8
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390250"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423626"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API de REST de verificação do Bing ortográfica eC#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing eC#
 
-Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Esta simples C# aplicação envia um pedido para a API e devolve uma lista de correções sugeridas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing. Esse aplicativo C# simples envia uma solicitação para a API e retorna uma lista de correções sugeridas. Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição dos [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
-* Para instalar `Newtonsoft.Json` como um pacote de NuGet no Visual studio:
-    1. Na **Explorador de soluções**, com o botão direito do arquivo da solução.
-    1. Selecione **gerir pacotes NuGet para solução**.
-    1. Procure `Newtonsoft.Json` e instalar o pacote.
-* Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
+* Para instalar `Newtonsoft.Json` o como um pacote NuGet no Visual Studio:
+    1. Em **Gerenciador de soluções**, clique com o botão direito do mouse no arquivo da solução.
+    1. Selecione **gerenciar pacotes NuGet para solução**.
+    1. `Newtonsoft.Json` Procure e instale o pacote.
+* Se você estiver usando o linux/MacOS, esse aplicativo poderá ser executado usando o [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. criar uma nova solução de consola com o nome `SpellCheckSample` no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
+1. Crie uma nova solução de console `SpellCheckSample` chamada no Visual Studio. Em seguida, adicione os seguintes espaços de nomes ao ficheiro de código principal.
     
     ```csharp
     using System;
@@ -46,7 +46,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     using Newtonsoft.Json;
     ```
 
-2. Crie variáveis para o ponto final da API, a chave de subscrição e o texto a ser verificada de ortografia.
+2. Crie variáveis para o ponto de extremidade da API, sua chave de assinatura e o texto a ser marcado para verificação ortográfica.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,15 +62,15 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     }
     ```
 
-3. Crie uma variável para seus parâmetros de pesquisa. Acrescente o código de mercado após `mkt=`. O código de mercado é o país que fizer o pedido do. Além disso, acrescentar o modo de verificação de ortografia após `&mode=`. Modo está `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos ortografia, mas não tantos erros de gramática).
+3. Crie uma variável para os parâmetros de pesquisa. Acrescente seu código de mercado `mkt=`após. O código do mercado é o país do qual você faz a solicitação. Além disso, acrescente seu modo de verificação ortográfica `&mode=`após. O `proof` modo é (captura a maioria dos erros de ortografia/gramática `spell` ) ou (captura a maior parte da ortografia, mas não a quantidade de erros gramaticais).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
     ```
 
-## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar um pedido de verificação ortográfica
+## <a name="create-and-send-a-spell-check-request"></a>Criar e enviar uma solicitação de verificação ortográfica
 
-1. Criar uma função assíncrona chamada `SpellCheck()` para enviar um pedido para a API. Criar uma `HttpClient`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho. Em seguida, execute os passos seguintes na função.
+1. Crie uma função assíncrona `SpellCheck()` chamada para enviar uma solicitação à API. Crie um `HttpClient`e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho. Em seguida, execute as etapas a seguir na função.
 
     ```csharp
     async static void SpellCheck()
@@ -83,13 +83,13 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     }
     ```
 
-2. Crie o URI para o seu pedido ao acrescentar o seu anfitrião, caminho e parâmetros.
+2. Crie o URI para sua solicitação anexando o host, o caminho e os parâmetros.
     
     ```csharp
     string uri = host + path + params_;
     ```
 
-3. Criar uma lista com um `KeyValuePair` que contém o texto de objeto e utilizá-lo para criar um `FormUrlEncodedContent` objeto. Definir as informações de cabeçalho e usar `PostAsync()` para enviar o pedido.
+3. Crie uma lista com um `KeyValuePair` objeto que contém o texto e use-o para criar `FormUrlEncodedContent` um objeto. Defina as informações de cabeçalho e use `PostAsync()` para enviar a solicitação.
 
     ```csharp
     List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
@@ -102,11 +102,11 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     }
     ```
 
-## <a name="get-and-print-the-api-response"></a>Obter e imprimir a resposta de API
+## <a name="get-and-print-the-api-response"></a>Obter e imprimir a resposta da API
 
-### <a name="get-the-client-id-header"></a>Obter o cabeçalho de ID de cliente
+### <a name="get-the-client-id-header"></a>Obter o cabeçalho da ID do cliente
 
-Se a resposta contém uma `X-MSEdge-ClientID` cabeçalho, obter o valor e imprimi-lo.
+Se a resposta contiver `X-MSEdge-ClientID` um cabeçalho, obtenha o valor e imprima-o.
 
 ``` csharp
 string client_id;
@@ -117,9 +117,9 @@ if (response.Headers.TryGetValues("X-MSEdge-ClientID", out IEnumerable<string> h
 }
 ```
 
-### <a name="get-the-response"></a>Obtenha a resposta
+### <a name="get-the-response"></a>Obter a resposta
 
-Obtenha a resposta da API. Anular a serialização do objeto JSON e imprimi-lo na consola.
+Obtenha a resposta da API. Desserializar o objeto JSON e imprimi-lo no console.
 
 ```csharp
 string contentString = await response.Content.ReadAsStringAsync();
@@ -130,7 +130,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>Chamar a função de verificação ortográfica
 
-Na função Main de seu projeto, chamar `SpellCheck()`.
+Na função principal do seu projeto, chame `SpellCheck()`.
 
 ```csharp
 static void Main(string[] args)
@@ -140,7 +140,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -187,5 +187,5 @@ static void Main(string[] args)
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](../tutorials/spellcheck.md)
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

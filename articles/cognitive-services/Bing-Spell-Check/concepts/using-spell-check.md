@@ -1,7 +1,7 @@
 ---
 title: Utilizar a API de Verificação de Ortografia do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre os modos de verificação ortográfica do Bing, definições e outras informações relacionadas com a API.
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre os modos de Verificação Ortográfica do Bing, configurações e outras informações relacionadas à API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,41 +10,41 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: b847615e8440a8992c8130d12cd6111afe3d33d2
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 7fd528b5f21622051bdad67c6ffcb6dd8500386a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390228"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423639"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Utilizar a API de Verificação de Ortografia do Bing
 
-Utilize este artigo para saber como utilizar a API de verificação de ortografia do Bing para efetuar a gramática contextual e inclui verificação ortográfica. Enquanto a maioria dos verificadores ortográficos dependem de conjuntos de regras com base no dicionário, o Verificador de ortografia do Bing utiliza machine learning e estatísticos de tradução automática para fornecer correções precisas e contextuais. 
+Use este artigo para saber mais sobre como usar a API de Verificação Ortográfica do Bing para executar a gramática contextual e a verificação ortográfica. Embora a maioria dos verificadores ortográficos dependam de conjuntos de regras baseados em dicionário, o verificador ortográfico do Bing aproveita o aprendizado de máquina e a tradução automática do computador para fornecer correções precisas e contextuais. 
 
 ## <a name="spell-check-modes"></a>Modos de verificação ortográfica
 
 A API suporta dois modos de revisão de texto, `Proof` e `Spell`.  Experimente [estes](https://azure.microsoft.com/services/cognitive-services/spell-check/) exemplos.
 
-### <a name="proof---for-documents"></a>Prova - para documentos 
+### <a name="proof---for-documents"></a>Prova de documentos 
 
-O modo predefinido é `Proof`. O modo de ortografia `Proof` oferece as verificações mais abrangentes, a adição de capitalização, pontuação básica e outras funcionalidades para ajudar na criação de documentos. no entanto, está disponível apenas nos mercados en-US (inglês dos Estados Unidos), es-ES (espanhol), pt-BR [português (Brasil)] (Nota: apenas na versão beta para espanhol e português). Para todos os outros mercados, defina o parâmetro de consulta de modo para Ortografia. 
+O modo predefinido é `Proof`. O modo de ortografia `Proof` oferece as verificações mais abrangentes, a adição de capitalização, pontuação básica e outras funcionalidades para ajudar na criação de documentos. no entanto, está disponível apenas nos mercados en-US (inglês dos Estados Unidos), es-ES (espanhol), pt-BR (português do Brasil) (Nota: apenas na versão beta para espanhol e português). Para todos os outros mercados, defina o parâmetro de consulta de modo para Ortografia. 
 
 > [!NOTE]
-> Se o comprimento do texto de consulta exceder 4096, será truncado para 4096 carateres, em seguida, processadas. 
+> Se o comprimento do texto da consulta exceder 4096, ele será truncado para 4096 caracteres e, em seguida, ser processado. 
 
-### <a name="spell----for-web-searchesqueries"></a>Ortografia - para web pesquisas/consultas
+### <a name="spell----for-web-searchesqueries"></a>Ortografia-para pesquisas/consultas na Web
 
 A `Spell` é mais agressiva para devolver resultados melhores de pesquisa. O modo `Spell` encontra a maioria dos erros de ortografia, mas não encontra alguns dos erros de gramática que o `Proof` encontra, por exemplo, a capitalização e as palavras repetidas.
 
 > [!NOTE]
-> * O comprimento máximo de consulta suportados é inferior. Se a consulta excede o comprimento máximo, a consulta e seus resultados não serão alterados.
->    * 130 carateres para os seguintes códigos de idioma: en, Alemanha, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, ele, zh, ko. 
->    * 65 carateres para todos os outros.
-> * O modo de ortografia não oferece suporte a caracteres de parêntesis Reto de fecho (`[` e `]`) em consultas e pode gerar resultados inconsistentes. Recomendamos a removê-los a partir de suas consultas ao usar o modo de ortografia.
+> * O comprimento máximo de consulta com suporte está abaixo. Se a consulta exceder o comprimento máximo, a consulta e seus resultados não serão alterados.
+>    * 130 caracteres para os seguintes códigos de idioma: en, de, es, FR, pl, pt, VA, ru, NL, NB, TR-TR, ti, zh, Ko. 
+>    * 65 caracteres para todos os outros.
+> * O modo de ortografia não dá suporte a caracteres de`[` colchetes (e `]`) em consultas e pode causar resultados inconsistentes. É recomendável removê-los de suas consultas ao usar o modo de verificação ortográfica.
 
 ## <a name="market-setting"></a>Definição do mercado
 
-R [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) deve ser especificado com o `mkt` parâmetro no seu pedido de consulta. A API caso contrário, irá utilizar um mercado de padrão com base no endereço IP do pedido.
+Um [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) deve ser especificado com `mkt` o parâmetro de consulta em sua solicitação. Caso contrário, a API usará um mercado padrão com base no endereço IP da solicitação.
 
 
 ## <a name="http-post-and-get-support"></a>Suporte HTTP POST e GET
@@ -122,5 +122,5 @@ Se o campo `type` é RepeatedToken, ainda deveria substituir o token por `sugges
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Criar uma aplicação web de página única com a API de pesquisa de notícias do Bing'
-titlesuffix: Azure Cognitive Services
-description: Utilize este tutorial para criar uma aplicação web de página única que pode enviar consultas de pesquisa para a API de notícias do Bing e exibir os resultados na página Web.
+title: 'Tutorial: Criar um aplicativo Web de página única usando o API de Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
+description: Use este tutorial para criar um aplicativo Web de página única que pode enviar consultas de pesquisa para a API de notícias do Bing e exibir os resultados na página da Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 10798b471012d53b5820b078b4be7c9c648d3233
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868368"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423614"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de página única
 
@@ -397,7 +397,7 @@ As políticas de segurança do browser (CORS) podem impedir que o cabeçalho `X-
 > [!NOTE]
 > Numa aplicação Web de produção, deve fazer o pedido no lado do servidor. Caso contrário, a chave da API de Pesquisa do Bing tem de ser incluída na página Web, onde ficará disponível para qualquer pessoa que veja a origem. São-lhe cobradas todas as utilizações feitas com a sua chave de subscrição da API, mesmo os pedidos feitos por partes não autorizadas, pelo que é importante que não revele a sua chave.
 
-Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que permite que os cabeçalhos de resposta e disponibiliza-os para o JavaScript.
+Para fins de programação, pode fazer o pedido da API de Pesquisa na Web do Bing através de um proxy do CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que permite cabeçalhos de resposta e os torna disponíveis para o JavaScript.
 
 É fácil instalar um proxy do CORS para permitir que a nossa aplicação de tutorial aceda ao cabeçalho do ID de cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, emita o comando seguinte numa janela de comando:
 

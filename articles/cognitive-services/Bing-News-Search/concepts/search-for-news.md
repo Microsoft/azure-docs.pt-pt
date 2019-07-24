@@ -1,7 +1,7 @@
 ---
-title: Pesquisa de notícias com a API de pesquisa de notícias do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba como enviar consultas de pesquisa de notícias gerais, tópicos em destaque e manchetes.
+title: Pesquisar notícias com o API de Pesquisa de Notícias do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba como enviar consultas de pesquisa para notícias gerais, tópicos de tendências e manchetes.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,26 +10,26 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: da1dd68b8e155e121f26f5599207691877fbf0ca
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274162"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423885"
 ---
-# <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisa de notícias com a API de pesquisa de notícias do Bing
+# <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisar notícias com o API de Pesquisa de Notícias do Bing
 
-A API de pesquisa de imagens do Bing torna mais fácil de integrar as capacidades de pesquisa do Bing notícias cognitivos aos seus aplicativos.
+O API de Pesquisa de Imagem do Bing facilita a integração dos recursos de pesquisa de notícias cognitivas do Bing em seus aplicativos.
 
-Embora a API de pesquisa de notícias do Bing principalmente localiza e devolve os artigos de notícias relevantes, fornece vários recursos para obtenção de notícias inteligentes e focada na web.
+Embora o API de Pesquisa de Notícias do Bing encontre e retorne artigos de notícias relevantes, ele fornece vários recursos para recuperação de notícias inteligente e concentrada na Web.
 
-## <a name="suggest-and-use-search-terms"></a>Sugerir e utilizar os termos de pesquisa
+## <a name="suggest-and-use-search-terms"></a>Sugerir e usar termos de pesquisa
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
 Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
-## <a name="get-general-news"></a>Receba notícias gerais
+## <a name="get-general-news"></a>Obtenha notícias gerais
 
 Para obter artigos gerais relacionados com o termo de pesquisa do utilizador a partir da Web, envie o seguinte pedido GET:
 
@@ -51,7 +51,7 @@ Para obter notícias de um domínio específico, utilize o operador de consulta 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-O exemplo JSON seguinte mostra a resposta para a consulta anterior. Como parte do [requisitos de utilização e a exibição](../useanddisplayrequirements.md) para a pesquisa do Bing APIs, deverá exibir cada artigo de notícias na ordem disposta na resposta. Se o artigo tem em cluster artigos, deverá indicar que os artigos relacionados existem e exibi-las mediante pedido.
+O exemplo JSON a seguir mostra a resposta à consulta anterior. Como parte dos [requisitos de uso e exibição](../useanddisplayrequirements.md) das APIs de pesquisa do Bing, você deve exibir cada artigo de notícias na ordem fornecida na resposta. Se o artigo tiver artigos em cluster, você deverá indicar que existem artigos relacionados e exibi-los após a solicitação.
 
 ```json
 {
@@ -105,9 +105,9 @@ Cada [artigo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/b
 
 Se o Bing conseguir determinar a categoria do artigo, este incluirá o campo `category`.
 
-## <a name="get-todays-top-news"></a>Obtenha notícias de principais de hoje
+## <a name="get-todays-top-news"></a>Obtenha as principais notícias de hoje
 
-Para obter os artigos de notícias de principais de hoje em dia, pode enviar o mesmo pedido de notícias geral como antes, embora deixando o `q` parâmetro não definido.
+Para obter os principais artigos de notícias de hoje, você pode enviar a mesma solicitação de notícias geral como antes, `q` deixando a desdefinição do parâmetro.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,9 +119,9 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-A resposta para obter notícias superior é quase o mesmo para obter notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de que usar o `provider` campo para o artigo de atributo.
+A resposta para obter as notícias mais importantes é quase igual à de obter notícias gerais. No entanto, a resposta `news` não inclui o campo `totalEstimatedMatches` porque existe um número definido de resultados. O número de artigos principais pode variar consoante o ciclo de notícias. Certifique-se de usar `provider` o campo para atributo do artigo.
 
-## <a name="get-news-by-category"></a>Receba notícias por categoria
+## <a name="get-news-by-category"></a>Obter notícias por categoria
 
 Para obter artigos por categoria, como os principais artigos de desporto ou entretenimento, envie o seguinte pedido GET ao Bing:
 
@@ -139,7 +139,7 @@ Utilize o parâmetro de consulta [category](https://docs.microsoft.com/rest/api/
 
 A resposta para obter notícias por categoria é quase a mesma que para obter notícias gerais. No entanto, os artigos são todos da categoria especificada.
 
-## <a name="get-headline-news"></a>Obter manchetes
+## <a name="get-headline-news"></a>Obter notícias de manchete
 
 Para pedir títulos de notícias e obter artigos de todas as categorias, envie o seguinte pedido ao Bing:
 
@@ -161,7 +161,7 @@ Por predefinição, a resposta inclui até 12 títulos de artigos. Para alterar 
 
 A resposta contabiliza os clusters como um artigo. Uma vez que um cluster pode ter vários artigos, a resposta pode incluir mais de 12 títulos de artigos e mais de quatro artigos sem título por categoria.
 
-## <a name="get-trending-news"></a>Obtenha notícias populares
+## <a name="get-trending-news"></a>Obtenha notícias de tendência
 
 Para obter os tópicos populares nas redes sociais, envie o seguinte pedido GET ao Bing:
 
@@ -264,4 +264,4 @@ Se existirem outros artigos relacionados com uma notícia, esta pode incluir o c
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Como paginar através de resultados de pesquisa do Bing notícias](../paging-news.md)
+> [Como paginar os resultados de Pesquisa de Notícias do Bing](../paging-news.md)

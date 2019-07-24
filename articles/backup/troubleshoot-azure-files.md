@@ -1,19 +1,18 @@
 ---
 title: Resolver problemas da Cópia de Segurança das Partilhas de Ficheiros do Azure
 description: Este artigo apresenta informações sobre a resolução de problemas que ocorrem ao proteger as suas partilhas de ficheiros do Azure.
-services: backup
 ms.service: backup
 author: rayne-wiselman
 ms.author: raynew
 ms.date: 07/22/2019
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 30601e9159dee05abb8f13c7faaafa7add17ac65
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: c44819bfda2f48195c25ad6be7608383162f3c61
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405573"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467101"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Resolução de problemas da cópia de segurança de Partilhas de Ficheiros do Azure
 Pode resolver problemas e erros encontrados ao utilizar a cópia de segurança de Partilhas de Ficheiros do Azure com as informações listadas nas tabelas seguintes.

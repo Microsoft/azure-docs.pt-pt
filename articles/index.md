@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: f4b4fc401a022b3e46a3a48ed028b235ceb27b2c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 810df2f0826d6740aa499ecf98b51e470526b765
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327116"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443084"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1483,9 +1483,9 @@ ms.locfileid: "68327116"
                                     <h3>Telemóvel</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/app-service-mobile/">
-                                                <img src="media/index/app-service-mobile.svg" alt="" />
-                                                <p>Serviço de Aplicações - Aplicações Móveis</p>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1501,12 +1501,6 @@ ms.locfileid: "68327116"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/appcenter/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
-                                                <p>Visual Studio App Center</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-maps-icon-portal.svg" alt="" />
                                                 <p>Azure Maps</p>
@@ -1516,6 +1510,12 @@ ms.locfileid: "68327116"
                                             <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/app-service-mobile/">
+                                                <img src="media/index/app-service-mobile.svg" alt="" />
+                                                <p>Serviço de Aplicações - Aplicações Móveis</p>
                                             </a>
                                         </li>
                                     </ul>

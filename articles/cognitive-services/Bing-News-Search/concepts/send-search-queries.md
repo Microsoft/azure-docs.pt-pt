@@ -1,7 +1,7 @@
 ---
-title: Envio de consultas para a API de pesquisa de notícias do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre o envio de pedidos de pesquisa para a API de pesquisa de notícias do Bing.
+title: Enviando consultas para o API de Pesquisa de Notícias do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre como enviar solicitações de pesquisa para o API de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: ce3cada557c4e32fe8b0ba3a85e574fe049889f5
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: cfa9cd23e19788d847fd9177d70ee2af89c69272
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542724"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423828"
 ---
-# <a name="sending-queries-to-the-bing-news-search-api"></a>Envio de consultas para a API de pesquisa de notícias do Bing
+# <a name="sending-queries-to-the-bing-news-search-api"></a>Enviando consultas para o API de Pesquisa de Notícias do Bing
 
-A API de pesquisa de notícias do Bing permite-lhe pesquisar na web para itens de notícias relevantes. Utilize este artigo para saber mais sobre como enviar consultas de pesquisa para a API.
+O API de Pesquisa de Notícias do Bing permite pesquisar itens de notícias relevantes na Web. Use este artigo para saber mais sobre como enviar consultas de pesquisa para a API.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-## <a name="sending-a-request"></a>Enviar um pedido
+## <a name="sending-a-request"></a>Enviando uma solicitação
 
 Para obter os resultados da pesquisa de notícias, enviaria um pedido GET ao seguinte ponto final:
 
@@ -60,7 +60,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-## <a name="bing-news-search-api-response"></a>Resposta de API de pesquisa de notícias do Bing
+## <a name="bing-news-search-api-response"></a>API de Pesquisa de Notícias do Bing resposta
 
 O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta.
 
@@ -284,7 +284,7 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [O que é a pesquisa de notícias do Bing? ](../search-the-web.md). 
-* [Obtenha notícias de principais de hoje](search-for-news.md#get-todays-top-news)
-* [Receba notícias por categoria](search-for-news.md#get-news-by-category)
-* [Obtenha notícias populares](search-for-news.md#get-trending-news)
+* [O que é pesquisa de notícias do Bing?](../search-the-web.md). 
+* [Obtenha as principais notícias de hoje](search-for-news.md#get-todays-top-news)
+* [Obter notícias por categoria](search-for-news.md#get-news-by-category)
+* [Obtenha notícias de tendência](search-for-news.md#get-trending-news)

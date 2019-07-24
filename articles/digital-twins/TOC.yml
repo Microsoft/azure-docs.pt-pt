@@ -5,6 +5,7 @@
     - name: Acerca do Azure Digital Twins
       href: about-digital-twins.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Encontrar salas disponíveis
       href: quickstart-view-occupancy-dotnet.md

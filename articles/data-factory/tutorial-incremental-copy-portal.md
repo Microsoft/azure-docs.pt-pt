@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 6a9d6ec651cd365995ce63a8dff6d60c8b23dec1
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312646"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424290"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -150,7 +150,7 @@ END
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu da esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
+1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
    
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -172,7 +172,7 @@ END
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
 7. Clique em **Criar**.      
-8. No dashboard, verá o mosaico seguinte com o estado: **Implementar fábrica de dados**. 
+8. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -238,7 +238,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
 
         ![Segunda atividade Lookup - conjunto de dados novo](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Clique no separador do pipeline, na parte superior, ou clique no nome do pipeline na vista de árvore, do lado esquerdo, para mudar para o editor do pipeline. Na janela de propriedades da atividade **Lookup**, confirme que **SourceDataset** está selecionado no campo **Conjunto de Dados de Origem**. 
-18. Selecione **Consulta** no campo **Utilizar Consulta** e introduza a consulta seguinte; só está a selecionar o valor máximo de **LastModifytime** de **data_ source_table**. Certifique-se de que verificou também **apenas a linha Fist**.
+18. Selecione **Consulta** no campo **Utilizar Consulta** e introduza a consulta seguinte; só está a selecionar o valor máximo de **LastModifytime** de **data_ source_table**. Verifique se você também marcou a **primeira linha**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

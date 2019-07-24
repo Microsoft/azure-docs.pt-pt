@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o node. js'
-titlesuffix: Azure Cognitive Services
-description: Começar a utilizar a API de REST de verificação do Bing ortográfica para verificar a ortografia e gramática.
+title: 'Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Node. js'
+titleSuffix: Azure Cognitive Services
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: aahill
-ms.openlocfilehash: ba56f6d68df34fc9249d02c8aba9155ed41b5be8
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: c45e9e7743aca2d091b62caed6a7c5a724bacebf
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388451"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423501"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o node. js
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Node. js
 
-Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Este nó simple aplicação envia um pedido para a API e retorna uma lista de palavras, ele não reconhece, seguido de correção sugerida. Embora esse aplicativo é escrito em node. js, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
+Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing. Esse aplicativo de nó simples envia uma solicitação para a API e retorna uma lista de palavras que ela não reconheceu, seguida de correções sugeridas. Embora esse aplicativo seja escrito em node. js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [NODE. js 6](https://nodejs.org/en/download/) ou posterior.
+* [Node. js 6](https://nodejs.org/en/download/) ou posterior.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
-1. Crie um novo ficheiro JavaScript no seu IDE ou editor favorito. Definir o strictness e exigir `https`. Em seguida, crie variáveis para anfitrião do seu ponto final de API, caminho e a chave de subscrição.
+1. Crie um novo arquivo JavaScript em seu IDE ou editor favorito. Defina a restrição e exija `https`. Em seguida, crie variáveis para o host do seu ponto de extremidade de API, o caminho e sua chave de assinatura.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Crie variáveis para seus parâmetros de pesquisa e o texto que pretende verificar. Acrescente o código de mercado após `mkt=`. O código de mercado é o país que fizer o pedido do. Além disso, acrescentar o modo de verificação de ortografia após `&mode=`. Modo está `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos ortografia, mas não tantos erros de gramática).
+2. Crie variáveis para os parâmetros de pesquisa e o texto que você deseja verificar. Acrescente seu código de mercado `mkt=`após. O código do mercado é o país do qual você faz a solicitação. Além disso, acrescente seu modo de verificação ortográfica `&mode=`após. O `proof` modo é (captura a maioria dos erros de ortografia/gramática `spell` ) ou (captura a maior parte da ortografia, mas não a quantidade de erros gramaticais).
 
     ```javascript
     let mkt = "en-US";
@@ -50,9 +50,9 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     let query_string = "?mkt=" + mkt + "&mode=" + mode;
     ```
 
-## <a name="create-the-request-parameters"></a>Criar os parâmetros do pedido
+## <a name="create-the-request-parameters"></a>Criar os parâmetros de solicitação
 
-Pode criar os parâmetros do pedido ao criar um novo objeto com um `POST` método. Adicione o seu caminho ao acrescentar o caminho do ponto final e cadeia de consulta. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+Crie seus parâmetros de solicitação criando um novo objeto com um `POST` método. Adicione seu caminho acrescentando o caminho do ponto de extremidade e a cadeia de caracteres de consulta. Adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
 ```javascript
 let request_params = {
@@ -69,7 +69,7 @@ let request_params = {
 
 ## <a name="create-a-response-handler"></a>Criar um processador de resposta
 
-Criar uma função chamada `response_handler` tirar a resposta JSON da API e imprimi-lo. Crie uma variável para o corpo da resposta. Acrescentar a resposta quando um `data` sinalizador é recebido, usando `response.on()`. Quando um `end` sinalizador é recebido, o corpo JSON para a consola de impressão.
+Crie uma função chamada `response_handler` para pegar a resposta JSON da API e imprimi-la. Crie uma variável para o corpo da resposta. Acrescente a resposta quando um `data` sinalizador for recebido, usando `response.on()`. Quando um `end` sinalizador for recebido, imprima o corpo JSON no console.
 
 ```javascript
 let response_handler = function (response) {
@@ -87,9 +87,9 @@ let response_handler = function (response) {
 };
 ```
 
-## <a name="send-the-request"></a>Enviar o pedido
+## <a name="send-the-request"></a>Enviar a solicitação
 
-Chamar a API utilizando `https.request()` com os seus parâmetros de pedido e o manipulador de resposta. Escrever o seu texto para a API e, depois de terminar o pedido.
+Chame a API usando `https.request()` com seus parâmetros de solicitação e o manipulador de resposta. Grave o texto na API e Finalize a solicitação posteriormente.
 
 ```javascript
 let req = https.request (request_params, response_handler);
@@ -97,7 +97,7 @@ req.write ("text=" + text);
 req.end ();
 ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -142,7 +142,7 @@ req.end ();
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

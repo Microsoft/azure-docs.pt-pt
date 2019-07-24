@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Pesquisa de Entidade do Bing aplicativo Web de página única'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Mostra como utilizar a API de Pesquisa de Entidades do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 67aaf2a3b0c7de85283642795cc1a69e9c36aa37
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360565"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423983"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
@@ -543,7 +543,7 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Bing Entity Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) (Referência da API de Pesquisa de Entidades do Bing)

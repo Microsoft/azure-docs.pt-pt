@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0499b2ef25cc93615a72269bd64af689ebced01d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: b69bd39e97cc97830142c8b1911f1116927643b2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333596"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467524"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticar solicitações para serviços cognitivas do Azure
 
@@ -23,6 +23,7 @@ Cada solicitação para um serviço de cognitiva do Azure deve incluir um cabeç
 * [Autenticar com uma chave de assinatura de serviço único](#authenticate-with-a-single-service-subscription-key)
 * [Autenticar com uma chave de assinatura de vários serviços](#authenticate-with-a-multi-service-subscription-key)
 * [Autenticar com um token](#authenticate-with-an-authentication-token)
+* [Autenticar com Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
 ## <a name="see-also"></a>Consulte também
 
 * [O que são os Serviços Cognitivos?](welcome.md)
 * [Preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Criar uma conta](cognitive-services-apis-create-account.md)
+* [Subdomínios personalizados](cognitive-services-custom-subdomains.md)

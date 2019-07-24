@@ -1,7 +1,6 @@
 ---
 title: Cópia de Segurança do Windows Server para o Azure
 description: Este tutorial apresenta detalhes sobre a cópia de segurança do Windows Server no local para um cofre dos Serviços de Recuperação.
-services: backup
 author: dcurwin
 manager: carmonm
 keywords: cópia de segurança do windows server; cópia de segurança do windows server; cópia de segurança e recuperação após desastre
@@ -10,12 +9,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 907a10314f27428d4d4b867abb71e2046208650b
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0a8a4795cf35402ebecbf6838aaeb5f17768aa06
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273953"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467042"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -26,7 +25,7 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 > [!div class="checklist"]
 > * Transferir e configurar o Agente MARS
 > * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
-> * Efetuar um ad hoc a cópia de segurança
+> * Executar um backup ad hoc
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -128,7 +127,7 @@ Utilize o agente dos Serviços de Recuperação do Microsoft Azure para agendar 
 
 11. Depois de o assistente ter criado a agenda da cópia de segurança, clique em **Fechar**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Efetuar um ad hoc a cópia de segurança
+## <a name="perform-an-ad-hoc-back-up"></a>Executar um backup ad hoc
 
 Tem de estabelecer o agendamento quando forem executadas tarefas de cópia de segurança. No entanto, não terá efetuado cópia de segurança do servidor. É uma prática de melhor de recuperação após desastre executar uma cópia de segurança a pedido para se certificar da resiliência de dados para o servidor.
 

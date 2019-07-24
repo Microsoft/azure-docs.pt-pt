@@ -1,7 +1,6 @@
 ---
 title: Fazer cópia de segurança de máquinas virtuais do Azure em escala
 description: Criar cópias de segurança de várias máquinas virtuais para o Azure em simultâneo
-services: backup
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
 author: rayne-wiselman
 ms.author: raynew
@@ -9,19 +8,19 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da2a9e634567dbe657410a61e5bfe0526197309d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60723260"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467124"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utilizar o portal do Azure para criar cópias de segurança de várias máquinas virtuais
 
 Quando cria cópias de segurança de dados no Azure, esses dados são armazenados num recurso do Azure chamado “Cofre dos Serviços de Recuperação”. O recurso Cofre dos Serviços de Recuperação está disponível no menu Definições da maioria dos serviços do Azure. A vantagem de ter o Cofre dos Serviços de Recuperação integrado no menu Definições de quase todos os serviços do Azure é que permite criar cópias de segurança dos dados muito facilmente. No entanto, trabalhar com cada base de dados ou máquina virtual da sua empresa individualmente é entediante. E se quiser criar uma cópia de segurança dos dados de todas as máquinas virtuais de um departamento ou de uma determinada localização? É fácil criar cópias de segurança de várias máquinas virtuais mediante a criação de uma política de cópia de segurança e aplicá-la às máquinas virtuais pretendidas. Este tutorial explica como:
 
 > [!div class="checklist"]
-> * Criar um cofre dos Serviços de Recuperação 
+> * Criar um cofre dos Serviços de Recuperação
 > * Definir uma política de cópia de segurança
 > * Aplicar a política de cópia de segurança para proteger várias máquinas virtuais
 > * Acionar um trabalho de cópia de segurança a pedido para as máquinas virtuais protegidas
@@ -30,7 +29,7 @@ Quando cria cópias de segurança de dados no Azure, esses dados são armazenado
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
-## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
+## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
 O cofre dos Serviços de Recuperação contém os dados para os quais foi criada a cópia de segurança, bem como a política de cópia de segurança aplicada às máquinas virtuais protegidas. A cópia de segurança das máquinas virtuais é um processo local. Não pode criar cópias de segurança de máquinas virtuais de uma localização para um cofre dos Serviços de Recuperação noutra localização. Por isso, para cada localização do Azure com máquinas virtuais para as quais criar cópias de segurança, tem de existir, pelo menos, um cofre dos Serviços de Recuperação nessa localização.
 
@@ -177,7 +176,7 @@ Se quiser continuar a trabalhar com os tutoriais subsequentes, não limpe os rec
 Neste tutorial, utilizou o portal do Azure para:
 
 > [!div class="checklist"]
-> * Criar um cofre dos Serviços de Recuperação 
+> * Criar um cofre dos Serviços de Recuperação
 > * Definir o cofre para proteger máquinas virtuais
 > * Criar uma política de cópia de segurança e retenção personalizada
 > * Atribuir a política para proteger várias máquinas virtuais

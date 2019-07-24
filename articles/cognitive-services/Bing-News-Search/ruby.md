@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Realizar uma pesquisa de notícias com Ruby e a API de REST de pesquisa do Bing notícias'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com Ruby e receber uma resposta JSON.
+title: 'Início rápido: Executar uma pesquisa de notícias com o Ruby e a API REST do Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando o Ruby e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 6/19/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5db8d9055ff973c3de1b995340d77004d889aa3d
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: ab16a54269c2afe820d9d17d1400152d078186ed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272727"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423671"
 ---
-# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias com Ruby e a API de REST de pesquisa do Bing notícias
+# <a name="quickstart-perform-a-news-search-using-ruby-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias usando o Ruby e a API REST do Pesquisa de Notícias do Bing
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de notícias do Bing e receber uma resposta JSON. Esta aplicação simple de JavaScript envia uma consulta de pesquisa para a API e processa os resultados.
+Use este guia de início rápido para fazer sua primeira chamada para o API de Pesquisa de Notícias do Bing e receber uma resposta JSON. Esse aplicativo JavaScript simples envia uma consulta de pesquisa para a API e processa os resultados.
 
-Embora esse aplicativo é escrito em Python, a API é uma Web RESTful compatível com a maioria das linguagens de programação do serviço. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
+Embora esse aplicativo seja escrito em Python, a API é uma maioria das linguagens de programação compatíveis com o serviço Web RESTful. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingNewsSearchv7.rb).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     require 'json'
     ```
 
-2. Criar variáveis para o ponto de final de API, URL de pesquisa de notícias, a chave de subscrição e o termo de pesquisa.
+2. Crie variáveis para o ponto de extremidade da API, URL de pesquisa de notícias, sua chave de assinatura e termo de pesquisa.
 
     ```ruby
     accessKey = "enter key here"
@@ -64,9 +64,9 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json-response"></a>Processar e a resposta JSON de impressão
+## <a name="process-and-print-the-json-response"></a>Processar e imprimir a resposta JSON
 
-Depois da resposta é recebida, pode analisar o JSON e imprimir o corpo da resposta e cabeçalhos de seu:
+Depois que a resposta é recebida, você pode analisar o JSON e imprimir o corpo da resposta e seus cabeçalhos:
 
 ```ruby
 puts "\nRelevant Headers:\n\n"
@@ -179,4 +179,4 @@ puts JSON::pretty_generate(JSON(response.body))
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação de página signle](tutorial-bing-news-search-single-page-app.md)
+> [Criar um aplicativo de único de página](tutorial-bing-news-search-single-page-app.md)

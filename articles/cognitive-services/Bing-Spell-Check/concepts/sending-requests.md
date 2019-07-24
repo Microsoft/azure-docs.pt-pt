@@ -1,7 +1,7 @@
 ---
 title: Enviar pedidos para a API de Verificação de Ortografia do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre os modos de verificação ortográfica do Bing, definições e outras informações relacionadas com a API.
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre os modos de Verificação Ortográfica do Bing, configurações e outras informações relacionadas à API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 2b33c27e7af603c73bf7b7c6188bd9aef5ebc669
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: ef5d812b1e55713f30928582d9aa9e61bba7c7a6
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542707"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423540"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar pedidos para a API de Verificação de Ortografia do Bing
 
@@ -27,11 +27,11 @@ https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
   
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Um servidor também fornece um único ponto de atualização para futuras versões da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Um servidor também fornece um único ponto de atualização para versões futuras da API.
 
 O pedido tem de especificar o parâmetro de consulta [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#text), que contém a cadeia de texto a verificar. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, como `mode`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
   
-O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#subscriptionkey). Embora seja opcional, é encorajado a também especificar os seguintes cabeçalhos. Esses cabeçalhos ajudam os resultados de retornados mais precisos a API de verificação ortográfica do Bing:  
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#subscriptionkey). Embora opcional, você também é incentivado a especificar os cabeçalhos a seguir. Esses cabeçalhos ajudam a Verificação Ortográfica do Bing API a retornar resultados mais precisos:  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#clientid)  
@@ -40,15 +40,15 @@ O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://doc
 
 Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference#headers).
 
-Ao chamar o Bing API de verificação ortográfica usando JavaScript, funcionalidades de segurança incorporadas do seu browser podem impedir que os valores desses cabeçalhos a aceder.
+Ao chamar a API de Verificação Ortográfica do Bing usando JavaScript, os recursos de segurança internos do seu navegador podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para resolver este problema, pode fazer o pedido de API de verificação de ortografia do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
+Para resolver esse problema, você pode fazer a Verificação Ortográfica do Bing solicitação de API por meio de um proxy CORS. A resposta de um proxy desse tipo tem `Access-Control-Expose-Headers` um cabeçalho que os cabeçalhos de resposta da lista de permissões e os torna disponíveis para o JavaScript.
 
-É fácil de instalar um proxy CORS para permitir que o [tutorial de aplicação](../tutorials/spellcheck.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+É fácil instalar um proxy CORS para permitir que o [aplicativo tutorial](../tutorials/spellcheck.md) acesse os cabeçalhos de cliente opcionais. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de API de verificação de ortografia do Bing no arquivo HTML para:
+Em seguida, altere o ponto de extremidade da API Verificação Ortográfica do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
 
@@ -56,9 +56,9 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção de cabeçalhos HTTP expansível abaixo os resultados da pesquisa, pode agora ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na seção cabeçalhos HTTP expansíveis abaixo dos resultados da pesquisa, agora você pode ver o `X-MSEdge-ClientID` cabeçalho (entre outros) e verificar se ele é o mesmo para cada solicitação.
 
-## <a name="example-api-request"></a>Pedido de API de exemplo
+## <a name="example-api-request"></a>Exemplo de solicitação de API
 
 A seguir, é-lhe mostrado um pedido que inclui todos os parâmetros de consulta e cabeçalhos sugeridos. Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo. 
   
@@ -123,5 +123,5 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

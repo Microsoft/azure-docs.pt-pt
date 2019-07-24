@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Efetua uma pesquisa de notícias com node. js - API de REST de pesquisa de notícias do Bing'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com node. js e receber uma resposta JSON.
+title: 'Início rápido: Executar uma pesquisa de notícias com o Node. js – API REST do Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando o Node. js e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1fb2676fb1513ab4955ffa35c559b2ae36e0efd0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 501ae6107232287011388bb67e64a1ae3fe5f7e3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203321"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423720"
 ---
-# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando node. js e a API de REST de pesquisa do Bing notícias
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias usando o Node. js e a API REST do Pesquisa de Notícias do Bing
 
 Utilize este guia de início rápido para fazer a sua primeira chamada à API de Pesquisa de Imagens do Bing e receber uma resposta JSON. Esta aplicação JavaScript simples envia uma consulta de pesquisa para a API e mostra os resultados não processados.
 
@@ -30,7 +30,7 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
 * A versão mais recente do [Node.js](https://nodejs.org/en/download/).
 
-* O [biblioteca de pedido de JavaScript](https://github.com/request/request)
+* A [biblioteca de solicitações do JavaScript](https://github.com/request/request)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -71,7 +71,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
         });
         ```
 
-    3. Quando um **final** sinalizador é sinalizado, o JSON e cabeçalhos podem ser visualizados.
+    3. Quando um sinalizador de **fim** é sinalizado, o JSON e os cabeçalhos podem ser exibidos.
 
         ```javascript
         response.on('end', function () {

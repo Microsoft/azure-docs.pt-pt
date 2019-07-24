@@ -356,7 +356,7 @@
     - name: Segurança empresarial
       items:
         - name: Descrição geral
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
         - name: Planear para segurança empresarial
           href: ../domain-joined/apache-domain-joined-architecture.md
         - name: Configurar a segurança empresarial no HDInsight

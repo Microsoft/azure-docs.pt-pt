@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Execute uma pesquisa na web com o C# -API de REST de pesquisa de Web do Bing'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar um pedido para a API de REST do Search do Bing notícias com Java e receber uma resposta JSON.
+title: 'Início rápido: Executar uma pesquisa na Web C# com a API REST-pesquisa na Web do Bing'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para enviar uma solicitação para a API REST do Pesquisa de Notícias do Bing usando Java e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 351bc71046df1bdd677d8c64411b6ae09dfc1ef1
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 414287b4a279ac76abf62d3721a51627380a8668
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206126"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423768"
 ---
-# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando Java e a API de REST de pesquisa do Bing notícias
+# <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Início rápido: Executar uma pesquisa de notícias usando Java e a API REST do Pesquisa de Notícias do Bing
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de notícias do Bing e ver a resposta JSON. Esta aplicação de Java simple envia uma consulta de pesquisa de notícias para a API e apresenta a resposta.
+Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Notícias do Bing e exibir a resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa de notícias para a API e exibe a resposta.
 
 Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-O código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+O código-fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,7 +52,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     import com.google.gson.JsonParser;
     ```
 
-2. Criar uma nova classe, com variáveis para o ponto de final de API, a chave de subscrição e o termo de pesquisa.
+2. Crie uma nova classe, com variáveis para o ponto de extremidade da API, sua chave de assinatura e termo de pesquisa.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -64,7 +64,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     }
     ```
 
-## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construa a solicitação de pesquisa e receber uma resposta JSON
+## <a name="construct-the-search-request-and-receive-a-json-response"></a>Construir a solicitação de pesquisa e receber uma resposta JSON
 
 1. Utilize as variáveis do último passo para formatar um URL de pesquisa para o pedido da API. Tenha em atenção que o seu termo de pesquisa tem de ter codificação URL antes de ser anexado ao pedido.
 
@@ -77,7 +77,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     }
     ```
 
-2. Receber a resposta JSON da API de pesquisa de notícias do Bing e construir o objeto de resultado.
+2. Receba a resposta JSON da API de Pesquisa de Notícias do Bing e construa o objeto de resultado.
 
     ```java
     // receive JSON body
@@ -89,7 +89,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
 
 ## <a name="process-the-json-response"></a>Processar a resposta JSON
 
-1. Separar os cabeçalhos HTTP relacionados com o Bing, do corpo JSON, em seguida, feche o fluxo e retorna a resposta de API.
+1. Separe os cabeçalhos HTTP relacionados ao Bing do corpo JSON, feche o fluxo e retorne a resposta da API.
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -103,7 +103,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     return results;
     ```
 
-2. Criar um método para analisar e reserialize JSON
+2. Criar um método para analisar e reserializar JSON
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -114,7 +114,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
     }
     ```
 
-3. O método principal de seu aplicativo, chame o método de pesquisa e exibir os resultados.
+3. No método principal do seu aplicativo, chame o método Search e exiba os resultados.
     ```csharp
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);

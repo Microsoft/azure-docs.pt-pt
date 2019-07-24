@@ -1,7 +1,7 @@
 ---
-title: Início rápido - enviar uma consulta para o Local Business API de pesquisa Bing em Python | Documentos da Microsoft
+title: Início rápido – enviar uma consulta para a API de pesquisa de negócios local do Bing no Python
 titleSuffix: Azure Cognitive Services
-description: Utilize este artigo para começar a utilizar a API de pesquisa de negócios locais do Bing em Python.
+description: Use este artigo para começar a usar a API de pesquisa de negócios local do Bing no Python.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,33 +9,33 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: cfc4bd95214c56dfbe940b7a2785d297f59105a9
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c6da3c9a169f3b6e5885499d3a7bc5347902782e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592737"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423319"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Início rápido: Enviar uma consulta para o Local Business API de pesquisa Bing em Python
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Início rápido: Enviar uma consulta para a API de pesquisa de negócios local do Bing no Python
 
-Utilize este guia de introdução para começar a enviar pedidos para o Local Business API de pesquisa Bing, que é um serviço cognitivos do Azure. Embora esse simples aplicativo é escrito em Python, a API é um serviço RESTful Web compatível com qualquer linguagem de programação capaz de fazer pedidos de HTTP e analisar JSON.
+Use este guia de início rápido para começar a enviar solicitações para a API de pesquisa de negócios local do Bing, que é um serviço de cognitiva do Azure. Embora esse aplicativo simples seja escrito em Python, a API é um serviço Web RESTful compatível com qualquer linguagem de programação capaz de fazer solicitações HTTP e analisar JSON.
 
-Esta aplicação de exemplo obtém os dados do local de resposta da API para a consulta de pesquisa `hotel in Bellevue`.
+Este aplicativo de exemplo obtém dados de resposta locais da API para a consulta `hotel in Bellevue`de pesquisa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python](https://www.python.org/) 2.x ou 3.x
+* [Python](https://www.python.org/) 2. x ou 3. x
  
-Tem de ter uma [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com as APIs do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Utilize a chave de acesso fornecida pela versão de avaliação gratuita.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Você deve ter uma [conta de API de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs do Bing. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Use a chave de acesso fornecida pela avaliação gratuita.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="run-the-complete-application"></a>Executar a aplicação concluída
+## <a name="run-the-complete-application"></a>Executar o aplicativo completo
 
-O código seguinte obtém resultados localizados. É implementado nos passos seguintes:
+O código a seguir obtém os resultados localizados. É implementado nos passos seguintes:
 1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
 2. Especifique o parâmetro de consulta. 
-3. Defina a função de pesquisa que cria o pedido e adiciona o cabeçalho de Ocp-Apim-Subscription-Key.
-4. Defina o cabeçalho de Ocp-Apim-Subscription-Key. 
-5. Fazer a conexão e enviar o pedido.
+3. Defina a função de pesquisa que cria a solicitação e adiciona o cabeçalho OCP-APIM-Subscription-Key.
+4. Defina o cabeçalho OCP-APIM-Subscription-Key. 
+5. Faça a conexão e envie a solicitação.
 6. Imprima os resultados JSON.
 
 Segue-se o código completo para esta demonstração:
@@ -67,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido de Java de pesquisa comercial](local-search-java-quickstart.md)
-- [Pesquisa de negócios locais C# início rápido](local-quickstart.md)
-- [Início rápido do nó de pesquisa comercial](local-search-node-quickstart.md)
+- [Início rápido do Java da pesquisa de negócios local](local-search-java-quickstart.md)
+- [Início rápido de C# pesquisa comercial local](local-quickstart.md)
+- [Início rápido do nó de pesquisa comercial local](local-search-node-quickstart.md)
