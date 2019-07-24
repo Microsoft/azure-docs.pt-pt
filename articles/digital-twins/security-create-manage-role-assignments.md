@@ -1,31 +1,31 @@
 ---
-title: Criar e gerir atribuições de funções no duplos Digital do Azure | Documentos da Microsoft
-description: Criar e gerir atribuições de funções no duplos Digital do Azure.
+title: Criar e gerenciar atribuições de função no Azure digital gêmeos | Microsoft Docs
+description: Crie e gerencie atribuições de função no gêmeos digital do Azure.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: lyrana
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66162141"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846649"
 ---
-# <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerir atribuições de funções no duplos Digital do Azure
+# <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função no gêmeos digital do Azure
 
-Os gémeos Digital do Azure utiliza o controlo de acesso baseado em funções ([RBAC](./security-role-based-access-control.md)) para gerir o acesso aos recursos.
+O Azure digital gêmeos usa o[RBAC](./security-role-based-access-control.md)(controle de acesso baseado em função) para gerenciar o acesso aos recursos.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="role-assignments-overview"></a>Descrição geral de atribuições de função
+## <a name="role-assignments-overview"></a>Visão geral das atribuições de função
 
-Cada atribuição de função está em conformidade com a seguinte definição:
+Cada atribuição de função está de acordo com a seguinte definição:
 
 ```JSON
 {
@@ -37,35 +37,35 @@ Cada atribuição de função está em conformidade com a seguinte definição:
 }
 ```
 
-A tabela abaixo descreve cada atributo:
+A tabela a seguir descreve cada atributo:
 
-| Atributo | Name | Necessário | Tipo | Descrição |
+| Atributo | Nome | Necessário | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
-| roleId | Identificador de definição de função | Sim | String | O ID exclusivo da atribuição de função desejada. Encontre as definições de função e seu identificador consultando a API de sistema ou consultar a tabela abaixo. |
-| objectId | Identificador de objeto | Sim | String | Um ID de diretório do Azure Active Directory, o ID de objeto do principal de serviço ou o nome de domínio. O que, ou quem a atribuição de função é atribuída a. A atribuição de função têm de ser formatada vzhledem KE svému typu associado. Para o `DomainName` objectIdType, objectId tem de começar com o `“@”` caráter. |
-| objectIdType | Tipo de identificador de objeto | Sim | String | O tipo de identificador de objeto utilizado. Ver **suportado ObjectIdTypes** abaixo. |
-| caminho | Caminho de espaço | Sim | String | O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
-| tenantId | Identificador do inquilino | Varia | String | Na maioria dos casos, um inquilino do Azure Active Directory ID. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
+| roleId | Identificador de definição de função | Sim | Cadeia | A ID exclusiva da atribuição de função desejada. Encontre definições de função e seu identificador consultando a API do sistema ou revisando a tabela abaixo. |
+| objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para o `DomainName` objectidtype, ObjectID deve começar com o `“@”` caractere. |
+| objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
+| path | Caminho do espaço | Sim | Cadeia | O caminho de acesso completo para `Space` o objeto. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para o grafo inteiro, `"/"`especifique. Esse caractere designa a raiz, mas seu uso não é recomendado. Sempre siga o princípio de privilégios mínimos. |
+| tenantId | Identificador do locatário | Varia | Cadeia | Na maioria dos casos, uma ID de locatário Azure Active Directory. Não permitido para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o ObjectIdid DomainName. |
 
-### <a name="supported-role-definition-identifiers"></a>Identificadores da definição de função suportadas
+### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de função com suporte
 
-Cada atribuição de função associa uma definição de função com uma entidade no seu ambiente de duplos Digital do Azure.
+Cada atribuição de função associa uma definição de função a uma entidade em seu ambiente de gêmeos digital do Azure.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
-### <a name="supported-object-identifier-types"></a>Tipos de identificador de objeto suportados
+### <a name="supported-object-identifier-types"></a>Tipos de identificador de objeto com suporte
 
-Anteriormente, o **objectIdType** atributo foi introduzido.
+Anteriormente, o  atributo objectidtype foi introduzido.
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 ## <a name="role-assignment-operations"></a>Operações de atribuição de função
 
-Duplos Digital do Azure oferece suporte completo *CREATE*, *ler*, e *eliminar* operações para atribuições de funções. *ATUALIZAÇÃO* operações são processadas as atribuições de funções a adicionar, remover atribuições de funções ou modificando o [geográficos de inteligência de gráfico](./concepts-objectmodel-spatialgraph.md) nós que atribuições de funções fornecem acesso a.
+O Azure digital gêmeos dá suporte a operações de *criação*, *leitura*e *exclusão* completas para atribuições de função. As operações de *atualização* são tratadas adicionando atribuições de função, removendo atribuições de função ou modificando os nós de [grafo de inteligência espacial](./concepts-objectmodel-spatialgraph.md) aos quais as atribuições de função concedem acesso.
 
-![Pontos finais de atribuição de função][1]
+![Pontos de extremidade de atribuição de função][1]
 
-A documentação de referência do Swagger fornecida contém mais informações sobre todas as disponíveis API pontos de extremidade, operações de pedidos e definições.
+A documentação de referência do Swagger fornecida contém mais informações sobre todos os pontos de extremidade de API, operações de solicitação e definições disponíveis.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
@@ -73,30 +73,30 @@ A documentação de referência do Swagger fornecida contém mais informações 
 
 <div id="grant"></div>
 
-### <a name="grant-permissions-to-your-service-principal"></a>Conceder permissões a seu principal de serviço
+### <a name="grant-permissions-to-your-service-principal"></a>Conceder permissões para a entidade de serviço
 
-Conceder permissões para a sua principal de serviço é, muitas vezes, uma das primeiras etapas que toma quando se trabalha com duplos Digital do Azure. Implícito:
+A concessão de permissões para sua entidade de serviço geralmente é uma das primeiras etapas que você seguirá ao trabalhar com o Azure digital gêmeos. Isso envolve:
 
-1. Iniciar sessão na sua instância do Azure através do PowerShell.
-1. A adquirir as suas informações do principal de serviço.
-1. Atribuir a função desejada para o seu principal de serviço.
+1. Fazendo logon em sua instância do Azure por meio do PowerShell.
+1. Adquirindo as informações da entidade de serviço.
+1. Atribuindo a função desejada à entidade de serviço.
 
-ID da sua aplicação é fornecido para si no Azure Active Directory. Para saber mais sobre como configurar e aprovisionar um duplos Digital do Azure no Active Directory, leia os [guia de introdução](./quickstart-view-occupancy-dotnet.md).
+A ID do aplicativo é fornecida a você no Azure Active Directory. Para saber mais sobre como configurar e provisionar um gêmeos digital do Azure no Active Directory, leia o guia de [início rápido](./quickstart-view-occupancy-dotnet.md).
 
-Assim que tiver o ID da aplicação, execute os seguintes comandos do PowerShell:
+Depois de ter a ID do aplicativo, execute os seguintes comandos do PowerShell:
 
 ```shell
 Login-AzAccount
 Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
-Um utilizador com o **administrador** função, em seguida, pode atribuir a função de administrador de espaço para um utilizador ao fazer um pedido de HTTP POST autenticado para o URL:
+Um usuário com a função de **administrador** pode atribuir a função de administrador de espaço a um usuário fazendo uma solicitação HTTP post autenticada para a URL:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
-Com o corpo JSON seguinte:
+Com o seguinte corpo JSON:
 
 ```JSON
 {
@@ -110,17 +110,17 @@ Com o corpo JSON seguinte:
 
 <div id="all"></div>
 
-### <a name="retrieve-all-roles"></a>Obter todas as funções
+### <a name="retrieve-all-roles"></a>Recuperar todas as funções
 
 ![Funções do sistema][2]
 
-Para listar todas as funções disponíveis (definições de função), fazer um pedido de HTTP GET autenticado para:
+Para listar todas as funções disponíveis (definições de função), faça uma solicitação HTTP GET autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
-Um pedido com êxito irá devolver uma matriz JSON com entradas para cada função que podem ser atribuídos:
+Uma solicitação bem-sucedida retornará uma matriz JSON com entradas para cada função que pode ser atribuída:
 
 ```JSON
 [
@@ -157,7 +157,7 @@ Um pedido com êxito irá devolver uma matriz JSON com entradas para cada funç�
 
 ### <a name="check-a-specific-role-assignment"></a>Verificar uma atribuição de função específica
 
-Para verificar uma atribuição de função específica, fazer um pedido HTTP GET autenticado para:
+Para verificar uma atribuição de função específica, faça uma solicitação HTTP GET autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
@@ -165,26 +165,26 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valor do parâmetro** | **Necessário** |  **Tipo** |  **Descrição** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  Verdadeiro | String |   O objectId para objectIdType o ID de utilizador. |
-| YOUR_PATH | Verdadeiro | String |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  Verdadeiro | String |   O tipo de acesso para procurar. |
-| YOUR_RESOURCE_TYPE | Verdadeiro | String |  O recurso para verificar. |
+| YOUR_USER_ID |  True | Cadeia |   O objectId do objectIdtype de UserId. |
+| YOUR_PATH | True | Cadeia |   O caminho escolhido para verificar o acesso. |
+| YOUR_ACCESS_TYPE |  True | Cadeia |   O tipo de acesso a ser verificado. |
+| YOUR_RESOURCE_TYPE | True | Cadeia |  O recurso a ser verificado. |
 
-Um pedido com êxito irá devolver um valor booleano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao utilizador para o caminho especificado e o recurso.
+Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso especificados.
 
-### <a name="get-role-assignments-by-path"></a>Obter atribuições de funções através do caminho
+### <a name="get-role-assignments-by-path"></a>Obter atribuições de função por caminho
 
-Para obter todas as atribuições de funções para um caminho, fazer um pedido de HTTP GET autenticado para:
+Para obter todas as atribuições de função para um caminho, faça uma solicitação HTTP GET autenticada para:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Value | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_PATH | O caminho completo para o espaço |
 
-Um pedido com êxito irá devolver uma matriz JSON com cada atribuição de função associada selecionado **caminho** parâmetro:
+Uma solicitação bem-sucedida retornará uma matriz JSON com cada atribuição de função associada ao parâmetro de **caminho** selecionado:
 
 ```JSON
 [
@@ -200,7 +200,7 @@ Um pedido com êxito irá devolver uma matriz JSON com cada atribuição de fun�
 
 ### <a name="revoke-a-permission"></a>Revogar uma permissão
 
-Para revogar um permissões de um destinatário, elimine a atribuição de função, fazendo uma solicitação HTTP DELETE autenticada:
+Para revogar uma permissão de um destinatário, exclua a atribuição de função fazendo uma solicitação HTTP DELETE autenticada:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
@@ -208,19 +208,19 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 
 | Parâmetro | Substituir |
 | --- | --- |
-| *YOUR_ROLE_ASSIGNMENT_ID* | O **id** de remover a atribuição de função |
+| *YOUR_ROLE_ASSIGNMENT_ID* | A **ID** da atribuição de função a ser removida |
 
-Um pedido de eliminação com êxito irá devolver um Estado de 204 resposta. Certifique-se a remoção da atribuição de função por [verificação](#check) se a atribuição de função ainda se aplica.
+Uma solicitação de exclusão bem-sucedida retornará um status de resposta 204. Verifique a remoção da atribuição de função [verificando](#check) se a atribuição de função ainda é mantida.
 
 ### <a name="create-a-role-assignment"></a>Criar uma atribuição de função
 
-Para criar uma atribuição de função, efetue um pedido de HTTP POST autenticado para o URL:
+Para criar uma atribuição de função, faça uma solicitação HTTP POST autenticada para a URL:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
-Certifique-se de que o corpo JSON está em conformidade com o esquema seguinte:
+Verifique se o corpo JSON está de acordo com o esquema a seguir:
 
 ```JSON
 {
@@ -232,7 +232,7 @@ Certifique-se de que o corpo JSON está em conformidade com o esquema seguinte:
 }
 ```
 
-Um pedido com êxito irá devolver um Estado de 201 resposta juntamente com o **id** da atribuição de função recentemente criada:
+Uma solicitação bem-sucedida retornará um status de resposta 201 junto com a **ID** da atribuição de função recém-criada:
 
 ```JSON
 "d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
@@ -240,9 +240,9 @@ Um pedido com êxito irá devolver um Estado de 201 resposta juntamente com o **
 
 ## <a name="configuration-examples"></a>Exemplos de configuração
 
-Os exemplos seguintes demonstram como configurar o seu corpo JSON em vários cenários de atribuição de função comumente encontrados.
+Os exemplos a seguir demonstram como configurar seu corpo JSON em vários cenários de atribuição de função comumente encontrados.
 
-* **Exemplo**: Um utilizador tem acesso administrativo a um andar de um espaço de inquilino.
+* **Exemplo**: Um usuário precisa de acesso administrativo a um andar de um espaço de locatário.
 
    ```JSON
    {
@@ -254,7 +254,7 @@ Os exemplos seguintes demonstram como configurar o seu corpo JSON em vários cen
    }
    ```
 
-* **Exemplo**: Dispositivos e sensores de simulação de cenários de teste de execução de um aplicativo.
+* **Exemplo**: Um aplicativo executa os dispositivos e sensores de simulação de cenários de teste.
 
    ```JSON
    {
@@ -266,7 +266,7 @@ Os exemplos seguintes demonstram como configurar o seu corpo JSON em vários cen
    }
     ```
 
-* **Exemplo**: Todos os utilizadores que fazem parte de um domínio recebem acesso de leitura para usuários, sensores e espaços. Este acesso inclui seus objetos relacionados correspondentes.
+* **Exemplo**: Todos os usuários que fazem parte de um domínio recebem acesso de leitura para espaços, sensores e usuários. Esse acesso inclui seus objetos relacionados correspondentes.
 
    ```JSON
    {
@@ -279,9 +279,9 @@ Os exemplos seguintes demonstram como configurar o seu corpo JSON em vários cen
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para rever duplos Digital do Azure-com base--controlo de acesso funções, leia [função-base-access-control](./security-authenticating-apis.md).
+- Para examinar o controle de acesso baseado em função do gêmeos digital do Azure, leia [função-base-acesso-Control](./security-authenticating-apis.md).
 
-- Para saber mais sobre a autenticação de API de duplos Digital do Azure, leia [autenticação de API](./security-authenticating-apis.md).
+- Para saber mais sobre a autenticação da API do Azure digital gêmeos, leia [autenticação de API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png

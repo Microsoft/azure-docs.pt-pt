@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 803fe6eff8804dbd407642386865fe975c8db524
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67123272"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385662"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -28,28 +28,28 @@ Neste tutorial, irá realizar as seguintes ações:
 
 > [!div class="checklist"]
 > * Criar um laboratório de sala de aula
-> * Adicionar utilizadores ao laboratório
+> * Adicionar usuários ao laboratório
 > * Enviar a ligação de registo para os alunos
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para configurar um laboratório de sala de aula numa conta de laboratório, tem de ser um membro de uma destas funções na conta de laboratório: Proprietário, criador do laboratório ou contribuinte. A conta que utilizou para criar uma conta de laboratório é automaticamente adicionada à função de proprietário.
+Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro de uma dessas funções na conta do laboratório: Proprietário, criador de laboratório ou colaborador. A conta usada para criar uma conta de laboratório é adicionada automaticamente à função proprietário.
 
-Proprietário de um laboratório pode adicionar outros utilizadores para o **criador do laboratório** função. Por exemplo, o proprietário de um laboratório adiciona professores para a função de criador do laboratório. Em seguida, os professores criar laboratórios com VMs para suas classes. Os estudantes utilizam a ligação de registo que ele recebe de professores se registrar para o laboratório. Assim que estão registadas, eles podem usar as VMs nos laboratórios para fazer a classe de trabalho e trabalho doméstico. Para obter passos detalhados para adicionar utilizadores à função de criador do laboratório, consulte [adicionar um utilizador à função de criador do laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Um proprietário de laboratório pode adicionar outros usuários à função de **criador de laboratório** . Por exemplo, um proprietário de laboratório adiciona professores à função de criador de laboratório. Em seguida, os professores criam laboratórios com VMs para suas classes. Os alunos usam o link de registro que eles recebem dos professores para se registrarem no laboratório. Depois de registrados, eles podem usar VMs nos laboratórios para fazer a classe funcionar e trabalhar em casa. Para obter etapas detalhadas para adicionar usuários à função de criador de laboratório, consulte [Adicionar um usuário à função criador de laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
-1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Tenha em atenção que Internet Explorer 11 ainda não é suportado. 
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Observe que o Internet Explorer 11 ainda não tem suporte. 
 2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
-    2. Especifique o número máximo **número de máquinas virtuais** no laboratório. Pode aumentar ou decreate o número de VMs, depois de criar o laboratório ou num laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs num laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
+    2. Especifique o **número máximo de máquinas virtuais** no laboratório. Você pode aumentar ou descriar o número de VMs depois de criar o laboratório ou em um laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs em um laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Selecione **Guardar**.
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
-    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, **pequeno**, **médio**, **média (virtualização)** , **grandes**, e **GPU** tamanhos são permitido.
-    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se selecionar uma imagem do Linux, verá uma opção para ativar a ligação de ambiente de trabalho remoto para o mesmo. Para obter detalhes, consulte [ativar a ligação de ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
+    1. Selecione um **tamanho** para máquinas virtuais (VM) criadas no laboratório. Atualmente, os tamanhos **pequeno**, **médio**, **médio (virtualização)** , **grande**e **GPU** são permitidos.
+    3. Selecione a **imagem de VM** a ser utilizado para criar as VM no laboratório. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, consulte [habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Seguinte**.
 
         ![Especificar as especificações de VM](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -68,9 +68,9 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 7. Depois de concluída a configuração do modelo, verá a página seguinte: 
 
     ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Sobre o **modelo de configurar** página, efetue os seguintes passos: Essas etapas são **opcional** para o tutorial.
-    2. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um modelo VM do Linux, escolher se pretende ligar com SSH ou RDP (se estiver ativado RDP).
-    1. Selecione **Repor palavra-passe** para repor a palavra-passe para a VM. 
+8. Na página **Configurar modelo** , execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
+    2. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for uma VM de modelo do Linux, escolha se deseja se conectar usando SSH ou RDP (se o RDP estiver habilitado).
+    1. Selecione **Redefinir senha** para redefinir a senha para a VM. 
     1. Instalar e configurar o software na sua VM de modelo. 
     1. **Parar** a VM.  
     1. Introduzir uma **descrição** do modelo
@@ -80,7 +80,7 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar o modelo de VM depois de concluído o assistente. Para obter detalhes sobre como configurar e publicar depois de concluído o assistente, consulte [publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm) secção a [como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md) artigo.
+    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Você pode publicar a VM de modelo após a conclusão do assistente. Para obter detalhes sobre como configurar e publicar após a conclusão do assistente, consulte [a seção publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm) no artigo [como gerenciar laboratórios de sala de aula](how-to-manage-classroom-labs.md) .
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 
@@ -92,70 +92,70 @@ Proprietário de um laboratório pode adicionar outros utilizadores para o **cri
 1. Verá o **dashboard** para o seu laboratório. 
     
     ![Dashboard de laboratório de sala de aula](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Mude para o **máquinas virtuais** página ao selecionar máquinas virtuais no menu da esquerda ou ao selecionar o mosaico de máquinas virtuais. Confirme que vê as máquinas virtuais que estão na **não atribuído** estado. Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
+4. Alterne para a página **máquinas virtuais** selecionando máquinas virtuais no menu à esquerda ou selecionando máquinas virtuais bloco. Confirme que você vê as máquinas virtuais que estão em estado não **atribuído** . Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
+## <a name="add-users-to-the-lab"></a>Adicionar usuários ao laboratório
 
-1. Selecione **utilizadores** no menu da esquerda. Por predefinição, o **restringir o acesso** opção está ativada. Quando esta definição está ativado, um utilizador não é possível registar com o laboratório, mesmo que o utilizador tem a ligação de registo, a menos que o utilizador está na lista de utilizadores. Apenas os utilizadores da lista podem registar com o laboratório, utilizando a ligação de registo que envia. Neste procedimento, pode adicionar utilizadores à lista. Em alternativa, pode desativar **restringir o acesso**, que permite aos utilizadores para se registar com o laboratório, desde que tenham uma ligação de registo. 
-2. Selecione **adicionar utilizadores** na barra de ferramentas. 
+1. Selecione **usuários** no menu à esquerda. Por padrão, a opção de **acesso restrito** está habilitada. Quando essa configuração estiver ativada, um usuário não poderá se registrar no laboratório, mesmo se o usuário tiver o link de registro, a menos que o usuário esteja na lista de usuários. Somente os usuários na lista podem se registrar no laboratório usando o link de registro que você envia. Neste procedimento, você adiciona usuários à lista. Como alternativa, você pode desativar o **acesso restrito**, que permite aos usuários se registrarem com o laboratório, desde que eles tenham o link de registro. 
+2. Selecione **Adicionar usuários** na barra de ferramentas. 
 
-    ![Adicionar botão de utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
-1. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
+    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
+1. Na página **Adicionar usuários** , insira os endereços de email dos usuários em linhas separadas ou em uma única linha separada por ponto e vírgula. 
 
-    ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 
+    ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Você vê os endereços de email dos usuários e seus status (registrados ou não) na lista. 
 
-    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-for-users"></a>Definir quotas para os utilizadores
-Pode definir quotas de por utilizador, utilizando os seguintes passos: 
+## <a name="set-quotas-for-users"></a>Definir cotas para usuários
+Você pode definir cotas por usuário usando as seguintes etapas: 
 
-1. Selecione **utilizadores** no menu da esquerda, se a página não estiver ativada. 
-2. Selecione **Quota por utilizador:** na barra de ferramentas. 
-3. Sobre o **Quota por utilizador** , especifique o número de horas que pretende dar a cada usuário (para estudantes): 
-    1. **0 horas (apenas para o agendamento)** . Os utilizadores podem utilizar as respetivas VMs apenas durante a hora agendada ou quando, como o proprietário de laboratório ativa de VMs para os mesmos.
+1. Selecione **usuários** no menu à esquerda se a página ainda não estiver ativa. 
+2. Selecionar **cota por usuário: 10 horas** na barra de ferramentas. 
+3. Na página **cota por usuário** , especifique o número de horas que você deseja dar a cada usuário (aluno): 
+    1. **Número total de horas de laboratório por usuário**. Os usuários podem usar suas VMs para o número definido de horas (especificado para esse campo) **além do horário agendado**. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
 
-        ![Horas de zero - apenas hora agendada](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Número total de horas de laboratório por utilizador**. Os utilizadores podem utilizar as respetivas VMs para o número de horas (especificado para este campo) definido **além da data agendada**. Se selecionar esta opção, introduza o **número de horas** na caixa de texto. 
+        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 horas (somente agenda)** . Os usuários podem usar suas VMs somente durante o horário agendado ou quando você, à medida que o proprietário do laboratório ativar as VMs para elas.
 
-        ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+        ![Zero horas-somente hora agendada](../media/how-to-configure-student-usage/zero-hours.png)
     4. Selecione **Guardar**. 
-5. Veja os valores alterados na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;** . 
+5. Você verá os valores alterados na barra de ferramentas agora: **Cota por usuário: &lt;número de horas&gt;** . 
 
-    ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
+    ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)
 
-## <a name="set-a-schedule-for-the-lab"></a>Definir uma agenda para o laboratório
-Se tiver configurado a definição de quota para **0 horas (apenas para o agendamento)** , tem de definir uma agenda para o laboratório. Neste tutorial, defina a agenda para ser um agendamento semanal recorrente.
+## <a name="set-a-schedule-for-the-lab"></a>Definir um agendamento para o laboratório
+Se você tiver configurado a configuração de cota para **0 hora (agenda apenas)** , deverá definir um agendamento para o laboratório. Neste tutorial, você define a agenda para ser uma agenda semanal recorrente.
 
-1. Mude para o **agendas** página e selecione **adicionar agenda** na barra de ferramentas. 
+1. Alterne para a  página agendas e selecione **Adicionar agenda** na barra de ferramentas. 
 
-    ![Adicionar botão de agenda na página de agendas](../media/how-to-create-schedules/add-schedule-button.png)
-2. Sobre o **adicionar agenda** página, mude para **semanal** na parte superior. 
-3. Para **agendar dias (obrigatório)** , selecione os dias em que pretende que a agenda para entrar em vigor. No exemplo a seguir, de segunda a sexta-feira está selecionada. 
-4. Para o **partir** , insira o **agendar a data de início** ou escolher uma data, selecionando o **calendário** botão. Este campo é obrigatório. 
-5. Para **data de fim da agenda**, introduza ou selecione uma data de término no qual as VMs devem ser encerradas. 
-6. Para **hora de início**, selecione a hora em que pretende que as VMs para ser iniciado. A hora de início é necessária se a hora de paragem não está definida. Selecione **remover Iniciar evento** se pretender especificar a hora de paragem. Se o **hora de início** é desativada, selecione **evento de início de adicionar** junto à lista pendente para ativá-la. 
-7. Para **hora de paragem**, selecione a hora em que pretende que as VMs sejam encerradas. A hora de paragem é necessária se a hora de início não está definida. Selecione **evento stop do Remove** se pretender especificar a hora de início. Se o **hora de paragem** é desativada, selecione **evento stop do Add** junto à lista pendente para ativá-la.
-8. Para **fuso de horário (obrigatório)** , selecione o fuso horário para o início e parar de vezes especificado.  
-9. Para **notas**, introduza qualquer descrição ou notas para a agenda. 
+    ![Botão Adicionar agendamento na página agendas](../media/how-to-create-schedules/add-schedule-button.png)
+2. Na página **Adicionar agenda** , alterne para **semanalmente** na parte superior. 
+3. Para **agendar dias (obrigatório)** , selecione os dias nos quais você deseja que o agendamento entre em vigor. No exemplo a seguir, segunda-feira é selecionada. 
+4. Para o campo **de** , insira a **data de início da agenda** ou escolha uma data selecionando o botão **calendário** . Este campo é obrigatório. 
+5. Em **data de término do agendamento**, insira ou selecione uma data de término na qual as VMs devem ser desligadas. 
+6. Para **hora de início**, selecione a hora em que você deseja que as VMs sejam iniciadas. A hora de início será necessária se a hora de parada não estiver definida. Selecione **remover evento de início** se desejar especificar apenas a hora de parada. se a **hora de início** estiver desabilitada, selecione **Adicionar evento de início** ao lado da lista suspensa para habilitá-la. 
+7. Em **hora de parada**, selecione a hora em que você deseja que as VMs sejam desligadas. A hora de parada será necessária se a hora de início não estiver definida. Selecione **remover evento de parada** se desejar especificar apenas a hora de início. se a **hora de parada** estiver desabilitada, selecione **Adicionar evento de parada** ao lado da lista suspensa para habilitá-la.
+8. Para **fuso horário (obrigatório)** , selecione o fuso horário para os horários de início e de término especificados.  
+9. Para **observações**, insira qualquer descrição ou nota para o agendamento. 
 10. Selecione **Guardar**. 
 
-    ![Agendamento semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
+    ![Agenda semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="send-an-email-with-the-registration-link"></a>Enviar um e-mail com a ligação de registo
+## <a name="send-an-email-with-the-registration-link"></a>Enviar um email com o link de registro
 
-1. Mude para o **utilizadores** ver se ainda não está na página. 
-2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista. Pode ver o estado do **estado de convite** nesta lista.  Na imagem seguinte, o estado de convite para todos os estudantes é definido como **convite não enviado**. 
+1. Alterne para a exibição de **usuários** se você ainda não estiver na página. 
+2. Selecione específico ou todos os usuários na lista. Para selecionar usuários específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente do título da primeira coluna (**nome**) ou marque todas as caixas de seleção para todos os usuários na lista. Você pode ver o status do **estado do convite** nesta lista.  Na imagem a seguir, o estado do convite para todos os alunos está definido como **convite não enviado**. 
 
-    ![Selecionar estudantes](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Selecione o **ícone de e-mail (envelope)** em uma das linhas (ou) select **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista para ver o ícone de e-mail. 
+    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de email (envelope)** em uma das linhas (ou) selecione **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome de aluno na lista para ver o ícone de email. 
 
-    ![Enviar ligação de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Sobre o **ligação de registo de enviar por e-mail** página, siga estes passos: 
-    1. Tipo de uma **mensagem opcional** que pretende enviar para os alunos. O e-mail inclui automaticamente a ligação de registo. 
-    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. Verá o estado de convite para a alteração **Enviar convite** e clique em **convite enviado**. 
+    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Na página **Enviar link de registro por email** , siga estas etapas: 
+    1. Digite uma **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
+    2. Na página **Enviar link de registro por email** , selecione **Enviar**. Você vê o status da alteração de convite para **Enviar convite** e, em seguida, para o **convite enviado**. 
         
         ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 

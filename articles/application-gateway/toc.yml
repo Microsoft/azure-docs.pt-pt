@@ -122,10 +122,12 @@
               href: application-gateway-end-to-end-ssl-powershell.md
         - name: Gerir certificados
           items:
-            - name: Criar certificados para o back-end da lista de permissões
+            - name: Certificados para o back-end
               href: certificates-for-backend-authentication.md
             - name: Renovar certificados
               href: renew-certificates.md
+            - name: Gerar certificados autoassinados
+              href: self-signed-certificates.md
         - name: Política de SSL
           items:
             - name: Configurar a política do SSL

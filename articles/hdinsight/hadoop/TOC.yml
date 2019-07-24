@@ -421,11 +421,14 @@
       items:
         - name: Arquitetura da rede virtual do HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planear VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
         - name: Utilizar a firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight em VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Ligar o HDInsight com a sua rede local
           href: ../connect-on-premises-network.md
           maintainContext: true

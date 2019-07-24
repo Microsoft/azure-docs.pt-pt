@@ -1,40 +1,41 @@
 ---
-title: As políticas com tarefas em contentores de reinício de utilização no Azure Container Instances
-description: Saiba como utilizar o Azure Container Instances para executar tarefas que são executadas até a conclusão, tal como na compilação, teste ou trabalhos de composição de imagem.
+title: Usar políticas de reinicialização com tarefas em contêineres em instâncias de contêiner do Azure
+description: Saiba como usar as instâncias de contêiner do Azure para executar tarefas que são executadas até a conclusão, como nos trabalhos de processamento de compilação, teste ou imagem.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60608114"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325682"
 ---
-# <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contentores com políticas de reinício
+# <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinicialização
 
-A facilidade e velocidade de implementação de contentores no Azure Container Instances fornece uma plataforma atraente para executar tarefas de execução única, como a compilação, teste e composição de imagem numa instância de contentor.
+A facilidade e a velocidade de implantação de contêineres nas instâncias de contêiner do Azure fornecem uma plataforma atraente para executar tarefas de execução única, como compilação, teste e renderização de imagem em uma instância de contêiner.
 
-Com uma política de reinício configuráveis, pode especificar que os contentores são parados quando seus processos forem concluídas. Uma vez que as instâncias de contentor são faturadas ao segundo, é-lhe cobrado apenas pelos recursos de computação utilizados enquanto o contentor a executar a tarefa está em execução.
+Com uma política de reinicialização configurável, você pode especificar que seus contêineres sejam interrompidos quando seus processos forem concluídos. Como as instâncias de contêiner são cobradas por segundo, você será cobrado apenas pelos recursos de computação usados enquanto o contêiner que executa a tarefa estiver em execução.
 
-Os exemplos apresentados neste artigo uso a CLI do Azure. Tem de ter a CLI do Azure da versão 2.0.21 ou superior [instalado localmente][azure-cli-install], ou utilizar a CLI no [Azure Cloud Shell](../cloud-shell/overview.md).
+Os exemplos apresentados neste artigo usam o CLI do Azure. Você deve ter CLI do Azure versão 2.0.21 ou superior [instalada localmente][azure-cli-install]ou usar a CLI no [Azure cloud Shell](../cloud-shell/overview.md).
 
-## <a name="container-restart-policy"></a>Política de reinício do contentor
+## <a name="container-restart-policy"></a>Política de reinicialização de contêiner
 
-Quando cria um [grupo de contentores](container-instances-container-groups.md) no Azure Container Instances, pode especificar uma das três definições de política de reinício.
+Ao criar um [grupo](container-instances-container-groups.md) de contêineres em instâncias de contêiner do Azure, você pode especificar uma das três configurações de política de reinicialização.
 
 | Política de reinício   | Descrição |
 | ---------------- | :---------- |
-| `Always` | Contentores no grupo de contentores são sempre reiniciados. Este é o **predefinição** definição aplicada quando nenhuma política de reinício é especificada durante a criação do contentor. |
-| `Never` | Contentores no grupo de contentores nunca são reiniciadas. Os contentores executam no máximo uma vez. |
-| `OnFailure` | Contentores no grupo de contentores são reiniciadas apenas quando o processo executado no contentor de falha (quando termina com um código de saída diferente de zero). Os contentores são executados, pelo menos, uma vez. |
+| `Always` | Os contêineres no grupo de contêineres são sempre reiniciados. Essa é a configuração **padrão** aplicada quando nenhuma política de reinicialização é especificada na criação do contêiner. |
+| `Never` | Os contêineres no grupo de contêineres nunca são reiniciados. Os contêineres são executados no máximo uma vez. |
+| `OnFailure` | Os contêineres no grupo de contêineres são reiniciados somente quando o processo executado no contêiner falha (quando ele termina com um código de saída diferente de zero). Os contêineres são executados pelo menos uma vez. |
 
-## <a name="specify-a-restart-policy"></a>Especifique uma política de reinício
+## <a name="specify-a-restart-policy"></a>Especificar uma política de reinicialização
 
-Como especificar uma política de reinício depende de como criar as instâncias de contentor, tal como com a CLI do Azure, cmdlets do PowerShell do Azure, ou no portal do Azure. Na CLI do Azure, especifique a `--restart-policy` parâmetro, quando chama [criar contentor de az][az-container-create].
+A maneira de especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com os cmdlets CLI do Azure, Azure PowerShell ou no portal do Azure. Na CLI do Azure, especifique o `--restart-policy` parâmetro ao chamar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -44,11 +45,11 @@ az container create \
     --restart-policy OnFailure
 ```
 
-## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
+## <a name="run-to-completion-example"></a>Exemplo de execução até a conclusão
 
-Para ver a política de reinício em ação, crie uma instância de contentor da Microsoft [aci-wordcount] [ aci-wordcount-image] de imagem e especificar o `OnFailure` política de reinício. Este contentor de exemplo executa um script de Python que, por predefinição, analisa o texto do de Shakespeare [Mítico](http://shakespeare.mit.edu/hamlet/full.html), escreve as 10 palavras mais comuns para STDOUT e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Esse contêiner de exemplo executa um script Python que, por padrão, analisa o texto do [Hamlet](http://shakespeare.mit.edu/hamlet/full.html)de Shakespeare, grava as 10 palavras mais comuns em stdout e, em seguida, sai.
 
-Execute o contentor de exemplo com o seguinte procedimento [criar contentor de az] [ az-container-create] comando:
+Execute o contêiner de exemplo com o seguinte comando [AZ container Create][az-container-create] :
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-O Azure Container Instances inicia o contentor e, em seguida, pára-lo quando seu aplicativo (ou script, neste caso) é fechado. Quando o Azure Container Instances para um contentor de é cuja política de reinício `Never` ou `OnFailure`, estado do contentor é definido como **Terminated**. Pode verificar o estado de um contentor com o [show de contentor az] [ az-container-show] comando:
+As instâncias de contêiner do Azure iniciam o contêiner e, em seguida, são interrompidas quando seu aplicativo (ou script, neste caso) é encerrado. Quando as instâncias de contêiner do Azure param um contêiner `Never` cuja `OnFailure`política de reinicialização é ou, o status do contêiner é definido como encerrado. Você pode verificar o status de um contêiner com o comando [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,7 +71,7 @@ Exemplo de saída:
 "Terminated"
 ```
 
-Assim que o estado do contentor de exemplo mostra *Terminated*, pode ver o resultado da tarefa, visualizando os registos de contentor. Executar o [registos de contentor az] [ az-container-logs] o resultado de comando para ver o script:
+Depois que o status do contêiner de exemplo mostrar *terminado*, você poderá ver a saída da tarefa exibindo os logs de contêiner. Execute o comando [AZ container logs][az-container-logs] para exibir a saída do script:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -91,13 +92,13 @@ Saída:
  ('HAMLET', 386)]
 ```
 
-Este exemplo mostra a saída que o script enviado para STDOUT. As tarefas em contentores, no entanto, poderão em vez disso, escrever o resultado no armazenamento persistente para recuperação posterior. Por exemplo, para um [partilha de ficheiros do Azure](container-instances-mounting-azure-files-volume.md).
+Este exemplo mostra a saída que o script enviou para STDOUT. As tarefas em contêineres, no entanto, podem gravar sua saída no armazenamento persistente para recuperação posterior. Por exemplo, para um [compartilhamento de arquivos do Azure](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Cenários e baseado em tarefas, como um grande conjunto de dados com vários contentores, de processamento em lotes podem tirar partido de personalizado [variáveis de ambiente](container-instances-environment-variables.md) ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
+Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem tirar proveito de [variáveis de ambiente](container-instances-environment-variables.md) personalizadas ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
 
-Para obter detalhes sobre como manter a saída de seus contentores que são executados até a conclusão, consulte [montar uma partilha de ficheiros do Azure com o Azure Container Instances](container-instances-mounting-azure-files-volume.md).
+Para obter detalhes sobre como persistir a saída de seus contêineres que são executados até a conclusão, consulte [montar um compartilhamento de arquivos do Azure com instâncias de contêiner do Azure](container-instances-mounting-azure-files-volume.md).
 
 <!-- LINKS - External -->
 [aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

@@ -1,6 +1,6 @@
 ---
-title: Configurar Pacemaker no Red Hat Enterprise Linux no Azure | Documentos da Microsoft
-description: Como configurar Pacemaker no Red Hat Enterprise Linux no Azure
+title: Configurando o pacemaker em Red Hat Enterprise Linux no Azure | Microsoft Docs
+description: Configurando o pacemaker no Red Hat Enterprise Linux no Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc703f02ecf5dbaf5eb69e8e20918415e76ba469
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992154"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228381"
 ---
-# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Como configurar Pacemaker no Red Hat Enterprise Linux no Azure
+# <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configurando o pacemaker no Red Hat Enterprise Linux no Azure
 
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
@@ -39,45 +39,46 @@ ms.locfileid: "65992154"
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!NOTE]
-> Pacemaker no Red Hat Enterprise Linux utiliza o agente de cerca de Azure para fence um nó de cluster, se necessário. Uma ativação pós-falha pode demorar até 15 minutos, se falha de parar um recurso ou os nós do cluster não é possível comunicar que uns aos outros mais. Para obter mais informações, leia [VM do Azure em execução como um membro do cluster de elevada disponibilidade do RHEL demorar muito tempo a ser bloqueados ou falha a delimitação por barreiras / horizontalmente vezes antes da VM encerra o tempo limite](https://access.redhat.com/solutions/3408711)
+> [!TIP]
+> Pacemaker em Red Hat Enterprise Linux usa o agente de limite do Azure para cercar um nó de cluster, se necessário. Uma nova versão do agente de limite do Azure está disponível e o failover não demora mais tempo, se uma parada de recurso falhar ou se os nós de cluster não conseguirem se comunicar mais. Para obter mais informações, leia [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL Reserve um tempo muito longo para ser decrescente ou o isolamento falha/expira antes de a VM ser](https://access.redhat.com/solutions/3408711) desligada
 
-Leia primeiro o SAP Notes e os documentos seguintes:
+Leia as seguintes notas e documentos SAP primeiro:
 
-* A nota SAP [1928533], que tem:
-  * A lista de tamanhos de VM do Azure que são suportados para a implementação de software da SAP.
-  * Informações de capacidade importante para os tamanhos de VM do Azure.
-  * O software suportado do SAP e sistema operativo (SO) e combinações de base de dados.
-  * A versão de kernel SAP necessária para Windows e Linux no Microsoft Azure.
-* A nota SAP [2015553] apresenta uma lista de pré-requisitos para implementações de software SAP suportadas para SAP no Azure.
-* A nota SAP [2002167] recomendado configurações do sistema operacional para Red Hat Enterprise Linux
-* A nota SAP [2009879] tem diretrizes do SAP HANA para Red Hat Enterprise Linux
-* A nota SAP [2178632] tem informações detalhadas sobre todas as monitorizações métricas comunicadas para o SAP no Azure.
-* A nota SAP [2191498] tem a versão necessária do agente de anfitrião do SAP para o Linux no Azure.
-* A nota SAP [2243692] tem informações sobre o licenciamento de SAP no Linux no Azure.
-* A nota SAP [1999351] tem informações adicionais de resolução de problemas avançada de monitorização a extensão do Azure para SAP.
-* [WIKI de Comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as necessárias SAP Notes para o Linux.
-* [Máquinas de virtuais de planeamento e implementação para o SAP no Linux do Azure][planning-guide]
-* [Implementação de máquinas virtuais do Azure para SAP no Linux (Este artigo)][deployment-guide]
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
-* [Replicação de sistema de SAP HANA num cluster de pacemaker](https://access.redhat.com/articles/3004101)
-* Documentação geral RHEL
-  * [Descrição geral do suplemento de elevada disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de elevada disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de elevada disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Nota SAP [1928533], que tem:
+  * A lista de tamanhos de VM do Azure com suporte para a implantação do software SAP.
+  * Informações de capacidade importantes para tamanhos de VM do Azure.
+  * O software SAP com suporte e as combinações de sistema operacional e banco de dados.
+  * A versão de kernel do SAP necessária para Windows e Linux em Microsoft Azure.
+* O SAP Note [2015553] lista os pré-requisitos para implantações de software SAP com suporte no SAP no Azure.
+* A observação do SAP [2002167] tem as configurações do sistema operacional recomendadas para Red Hat Enterprise Linux
+* A observação do SAP [2009879] tem diretrizes SAP HANA para Red Hat Enterprise Linux
+* A nota SAP [2178632] tem informações detalhadas sobre todas as métricas de monitoramento relatadas para SAP no Azure.
+* A nota SAP [2191498] tem a versão do agente de host do SAP necessária para Linux no Azure.
+* A nota SAP [2243692] tem informações sobre o licenciamento SAP no Linux no Azure.
+* A nota SAP [1999351] tem informações adicionais para solução de problemas para a extensão de monitoramento avançado do Azure para SAP.
+* O [SAP Community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as notas SAP necessárias para o Linux.
+* [Planejamento e implementação de máquinas virtuais do Azure para SAP no Linux][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
+* [SAP HANA a replicação do sistema no cluster pacemaker](https://access.redhat.com/articles/3004101)
+* Documentação geral do RHEL
+  * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Documentação do RHEL específica do Azure:
-  * [Políticas de suporte para Clusters de elevada disponibilidade do RHEL - máquinas de virtuais do Microsoft Azure como membros do Cluster](https://access.redhat.com/articles/3131341)
-  * [Instalar e configurar um Cluster de elevada disponibilidade Linux 7.4 (e posterior) de Enterprise do Red Hat no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Políticas de suporte para clusters de alta disponibilidade RHEL-Máquinas Virtuais do Microsoft Azure como membros do cluster](https://access.redhat.com/articles/3131341)
+  * [Instalando e configurando um cluster de alta disponibilidade Red Hat Enterprise Linux 7,4 (e posterior) no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Configurar o SAP S/4HANA ASCS/ERS com o servidor de enfileiramento autônomo 2 (ENSA2) no pacemaker no RHEL 7,6](https://access.redhat.com/articles/3974941)
 
 ## <a name="cluster-installation"></a>Instalação de cluster
 
-![Pacemaker no Descrição geral do RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+![Visão geral do pacemaker on RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
 
-1. **[A]**  Registar
+1. **[A]** registrar
 
-   Registe as máquinas virtuais e anexá-lo a um conjunto que contém os repositórios para RHEL 7.
+   Registre suas máquinas virtuais e anexe-a a um pool que contém repositórios para RHEL 7.
 
    <pre><code>sudo subscription-manager register
    # List the available pools
@@ -85,27 +86,40 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   Tenha em atenção que ao anexar um conjunto a uma imagem RHEL de PAYG do Azure Marketplace, será cobrado efetivamente double para a sua utilização do RHEL: uma vez para a imagem PAYG e, uma vez para a elegibilidade do RHEL no conjunto é anexar. Para atenuar isso, o Azure agora fornece BYOS RHEL imagens. Estão disponíveis mais informações [aqui](https://aka.ms/rhel-byos).
+   Observe que, ao anexar um pool a uma imagem do PAYG RHEL do Azure Marketplace, você será efetivamente cobrado por seu uso do RHEL: uma vez para a imagem PAYG e uma vez para o direito de RHEL no pool que você anexar. Para atenuar isso, o Azure agora fornece imagens BYOS RHEL. Mais informações estão disponíveis [aqui](https://aka.ms/rhel-byos).
 
-1. **[A]**  Ativar RHEL para repositórios SAP
+1. **[A]** habilitar RHEL para SAP repositórios
 
-   Para instalar os pacotes necessários, ative os seguintes repositórios.
+   Para instalar os pacotes necessários, habilite os seguintes repositórios.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
    sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-rpms
-   sudo subscription-manager repos --enable="rhel-sap-for-rhel-7-server-rpms"
+   sudo subscription-manager repos --enable=rhel-sap-for-rhel-7-server-rpms
+   sudo subscription-manager repos --enable=rhel-ha-for-rhel-7-server-eus-rpms
    </code></pre>
 
-1. **[A]**  Instalar o suplemento do HA RHEL
+1. **[A]** instalar o complemento RHEL ha
 
    <pre><code>sudo yum install -y pcs pacemaker fence-agents-azure-arm nmap-ncat
+   </code></pre>
+
+   > [!IMPORTANT]
+   > Recomendamos as seguintes versões do agente de isolamento do Azure (ou posterior) para que os clientes se beneficiem de um tempo de failover mais rápido, se uma interrupção de recurso falhar ou se os nós de cluster não conseguirem se comunicar mais um com o outro:  
+   > RHEL 7,6: Fence-Agents-4.2.1 -11. EL7 _ 6.8  
+   > RHEL 7,5: Fence-Agents-4.0.11 -86. EL7 _ 5.8  
+   > RHEL 7,4: Fence-Agents-4.0.11 -66. EL7 _ 4.12  
+   > Para obter mais informações, consulte [a VM do Azure em execução como um membro de cluster de alta disponibilidade do RHEL levar muito tempo para ser decrescente ou o isolamento falha/expira antes que a VM seja](https://access.redhat.com/solutions/3408711) desligada
+
+   Verifique a versão do agente de limite do Azure. Se necessário, atualize-o para uma versão igual ou posterior à especificada acima.
+   <pre><code># Check the version of the Azure Fence Agent
+    sudo yum info fence-agents-azure-arm
    </code></pre>
 
 1. **[A]**  Configurar a resolução de nomes de anfitrião
 
    Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
-   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independentes do DNS que também poderia ser um ponto único de falhas.
+   Substitua o endereço IP e o nome de anfitrião nos seguintes comandos. A vantagem de utilizar /etc/hosts é que o seu cluster se torna independente de DNS, que também poderia ser um ponto único de falhas.
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
@@ -123,25 +137,25 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Adicionar regras de firewall para pacemaker
+1. **[A]** adicionar regras de firewall para pacemaker
 
-   Adicione as seguintes regras de firewall para todas as comunicações de cluster entre os nós de cluster.
+   Adicione as regras de firewall a seguir a todas as comunicações de cluster entre os nós de cluster.
 
    <pre><code>sudo firewall-cmd --add-service=high-availability --permanent
    sudo firewall-cmd --add-service=high-availability
    </code></pre>
 
-1. **[A]**  Ativar os serviços de cluster básico
+1. **[A]** habilitar serviços de cluster básicos
 
-   Execute os seguintes comandos para ativar o serviço de Pacemaker e iniciá-la.
+   Execute os comandos a seguir para habilitar o serviço pacemaker e iniciá-lo.
 
    <pre><code>sudo systemctl start pcsd.service
    sudo systemctl enable pcsd.service
    </code></pre>
 
-1. **[1]**  Cluster Pacemaker criar
+1. **[1]** criar cluster pacemaker
 
-   Execute os seguintes comandos para autenticar os nós e criar o cluster. Defina o token para 30000 para permitir que a memória preservação da manutenção. Para obter mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance].
+   Execute os comandos a seguir para autenticar os nós e criar o cluster. Defina o token como 30000 para permitir a manutenção da preservação da memória. Para obter mais informações, consulte [Este artigo para Linux][virtual-machines-linux-maintenance].
 
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
@@ -171,7 +185,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    #   pcsd: active/enabled
    </code></pre>
 
-1. **[A]**  Conjunto esperados de votos
+1. **[A]** definir votos esperados
 
    <pre><code>sudo pcs quorum expected-votes 2
    </code></pre>
@@ -181,15 +195,17 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 O dispositivo STONITH utiliza um Principal de serviço para autorizar com o Microsoft Azure. Siga estes passos para criar um Principal de serviço.
 
 1. Ir para <https://portal.azure.com>
-1. Abra o painel Azure Active Directory vá para propriedades e anote o ID de diretório. Este é o **ID de inquilino**.
+1. Abra o painel Azure Active Directory  
+   Vá para propriedades e anote o ID de diretório. Este é o **ID de inquilino**.
 1. Clique em registos de aplicações
-1. Clique em Adicionar
-1. Introduza um nome, selecione o tipo de aplicação "Aplicação/API da Web", introduza um URL de início de sessão (por exemplo, http:\//localhost) e clique em criar
-1. O URL de início de sessão não é utilizado e pode ser qualquer URL válido
-1. Selecione a nova aplicação e clique em chaves no separador Definições
-1. Introduza uma descrição para uma nova chave, selecione "Nunca expira" e clique em Guardar
+1. Clique em novo registro
+1. Insira um nome, selecione "contas somente neste diretório da organização" 
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
+   O URL de início de sessão não é utilizado e pode ser qualquer URL válido
+1. Selecione certificados e segredos e clique em novo segredo do cliente
+1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
 1. Anote o valor. Ele é usado como o **palavra-passe** para o Principal de serviço
-1. Anote o ID da aplicação. Ele é usado como o nome de utilizador (**ID de início de sessão** nos passos abaixo) de Principal de serviço
+1. Selecione visão geral. Anote o ID da aplicação. Ele é usado como o nome de utilizador (**ID de início de sessão** nos passos abaixo) de Principal de serviço
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Criar uma função personalizada para o agente de cerca
 
@@ -217,7 +233,7 @@ Utilize o seguinte conteúdo para o ficheiro de entrada. Precisa adaptar o conte
 }
 ```
 
-### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]**  Atribuir a função personalizada para o Principal de serviço
+### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** atribuir a função personalizada à entidade de serviço
 
 Atribua a função personalizada "Linux cerca agente de função" que foi criado no último capítulo para o Principal de serviço. Não utilize a função de proprietário mais!
 
@@ -240,21 +256,21 @@ Depois de editar as permissões para as máquinas virtuais, pode configurar os d
 sudo pcs property set stonith-timeout=900
 </code></pre>
 
-Utilize o seguinte comando para configurar o dispositivo cerca.
+Use o comando a seguir para configurar o dispositivo de isolamento.
 
 > [!NOTE]
-> Opção de 'pcmk_host_map' só é necessária no comando, se os nomes de anfitrião do RHEL e os nomes de nó do Azure não são idênticos. Consulte a seção em negrito no comando.
+> A opção ' pcmk_host_map ' só será necessária no comando se os nomes de host do RHEL e os nomes dos nós do Azure não forem idênticos. Consulte a seção negrito no comando.
 
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:10.0.0.6;prod-cl1-1:10.0.0.7"</b> power_timeout=240 pcmk_reboot_timeout=900</code></pre>
 
-### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  Permitem a utilização de um dispositivo STONITH
+### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]** habilitar o uso de um dispositivo STONITH
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Máquinas de virtuais de planeamento e implementação de SAP do Azure][planning-guide]
-* [Implementação de máquinas virtuais do Azure para SAP][deployment-guide]
-* [Implementação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
-* Para saber como estabelecer a elevada disponibilidade e o plano de recuperação após desastre do SAP HANA em VMs do Azure, veja [disponibilidade elevada do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]
+* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
+* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]

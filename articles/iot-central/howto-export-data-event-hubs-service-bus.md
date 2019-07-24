@@ -1,120 +1,120 @@
 ---
-title: Exportar os dados para os Hubs de eventos do Azure e o Azure Service Bus | Documentos da Microsoft
-description: Como exportar dados da sua aplicação do Azure IoT Central para os Hubs de eventos do Azure e o Azure Service Bus
+title: Exportar seus dados para os hubs de eventos do Azure e o barramento de serviço do Azure | Microsoft Docs
+description: Como exportar dados de seu aplicativo de IoT Central do Azure para os hubs de eventos do Azure e o barramento de serviço do Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6f10352646350152c5aac795885231697e81fe7
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65463933"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850196"
 ---
-# <a name="export-your-data-in-azure-iot-central"></a>Exportar os dados no Azure IoT Central
+# <a name="export-your-data-in-azure-iot-central"></a>Exportar seus dados no Azure IoT Central
 
-*Este tópico aplica-se aos administradores.*
+*Este tópico se aplica aos administradores do.*
 
-Este artigo descreve como utilizar a funcionalidade de exportação contínua de dados no Azure IoT Central para exportar os dados para os seus próprios **os Hubs de eventos do Azure**, e **do Azure Service Bus** instâncias. Pode exportar **medidas**, **dispositivos**, e **modelos de dispositivos** para o seu destino para caminho de acesso pouco frequente informações e análises. Isto inclui acionar as regras personalizadas no Azure Stream Analytics, acionar fluxos de trabalho personalizados no Azure Logic Apps, ou transformar os dados e transmitir através de funções do Azure. 
+Este artigo descreve como usar o recurso de exportação de dados contínuos no Azure IoT Central para exportar seus dados para seus próprios **hubs de eventos do Azure**e instâncias **do barramento de serviço do Azure** . Você pode exportar **medidas**, **dispositivos**e **modelos de dispositivo** para seu próprio destino para análises e insights de caminho quentes. Isso inclui disparar regras personalizadas no Azure Stream Analytics, disparar fluxos de trabalho personalizados em aplicativos lógicos do Azure ou transformar os dados e passá-los por meio de Azure Functions. 
 
 > [!Note]
-> Mais uma vez, quando ativar a exportação contínua de dados, obtém apenas os dados a partir desse momento ou superior. Atualmente, não poderá obter dados para um tempo quando a exportação de dados contínua foi desativada. Para manter mais dados históricos, ative a exportação contínua de dados desde o início.
+> Mais uma vez, ao ativar a exportação de dados contínuas, você obtém apenas os dados desse momento em diante. Atualmente, os dados não podem ser recuperados por um horário quando a exportação de dados contínuas estava desativada. Para manter mais dados históricos, ative a exportação contínua de dados antecipadamente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ser um administrador na sua aplicação do Centro de IoT
+- Você deve ser um administrador em seu aplicativo IoT Central
 
-## <a name="set-up-export-destination"></a>Configurar o destino de exportação
+## <a name="set-up-export-destination"></a>Configurar destino de exportação
 
-Se não tiver um barramento de serviço/Hubs de eventos existente para exportar para, siga estes passos:
+Se você não tiver um hub de eventos/barramento de serviço existente para exportar para o, siga estas etapas:
 
-## <a name="create-event-hubs-namespace"></a>Criar espaço de nomes de Hubs de eventos
+## <a name="create-event-hubs-namespace"></a>Criar namespace de hubs de eventos
 
-1. Criar uma [novo espaço de nomes de Hubs de eventos no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Pode saber mais na [docs de Event Hubs do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
-2. Escolha uma subscrição. 
-
-    > [!Note] 
-    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
-3. Crie um hub de eventos no seu espaço de nomes de Hubs de eventos. Aceda ao seu espaço de nomes e selecione **+ Hub de eventos** na parte superior para criar uma instância do hub de eventos.
-
-## <a name="create-service-bus-namespace"></a>Criar espaço de nomes do Service Bus
-
-1. Criar uma [novo espaço de nomes do Service Bus no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Pode saber mais na [docs do Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
-2. Escolha uma subscrição. 
+1. Crie um [novo namespace de hubs de eventos na portal do Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Você pode aprender mais em [documentos dos hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Escolha uma assinatura. 
 
     > [!Note] 
-    > Agora, pode exportar dados para outras subscrições que estão **não são as mesmas** que aquela para a sua aplicação pay as you go IoT Central. Irá ligar através de uma cadeia de ligação em vez disso.
+    > Agora, você pode exportar dados para outras assinaturas que não são **iguais** às do seu aplicativo de IOT central pago conforme o uso. Nesse caso, você se conectará usando uma cadeia de conexão.
+3. Crie um hub de eventos em seu namespace de hubs de eventos. Vá para o namespace e selecione **+ Hub de eventos** na parte superior para criar uma instância do hub de eventos.
 
-3. Aceda ao seu espaço de nomes do Service Bus e selecione **+ fila** ou **+ tópico** na parte superior para criar uma fila ou tópico para exportar para.
+## <a name="create-service-bus-namespace"></a>Criar namespace do barramento de serviço
+
+1. Crie um [novo namespace do barramento de serviço no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Você pode aprender mais nos [documentos do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Escolha uma assinatura. 
+
+    > [!Note] 
+    > Agora, você pode exportar dados para outras assinaturas que não são **iguais** às do seu aplicativo de IOT central pago conforme o uso. Nesse caso, você se conectará usando uma cadeia de conexão.
+
+3. Acesse o namespace do barramento de serviço e selecione **+ fila** ou **+ tópico** na parte superior para criar uma fila ou um tópico para o qual exportar.
 
 
-## <a name="set-up-continuous-data-export"></a>Configurar a exportação contínua de dados
+## <a name="set-up-continuous-data-export"></a>Configurar a exportação de dados contínuas
 
-Agora que tem um destino de barramento de serviço/Hubs de eventos para exportar dados, siga estes passos para configurar a exportação contínua de dados. 
+Agora que você tem um destino de barramento de serviço/hubs de eventos para exportar dados para o, siga estas etapas para configurar a exportação de dados contínuas. 
 
-1. Inicie sessão na sua aplicação IoT Central.
+1. Entre no seu aplicativo IoT Central.
 
-2. No menu da esquerda, selecione **a exportação contínua de dados**.
+2. No menu à esquerda, selecione **exportação de dados contínuas**.
 
     > [!Note]
-    > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
+    > Se você não vir a exportação de dados contínua no menu à esquerda, você não é um administrador em seu aplicativo. Converse com um administrador para configurar a exportação de dados.
 
-    ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu1.png)
+    ![Criar novo hub de eventos CDE](media/howto-export-data/export_menu1.png)
 
-3. Selecione o **+ novo** botão no canto superior direito. Escolha uma das **os Hubs de eventos do Azure** ou **do Azure Service Bus** como o destino da exportação. 
-
-    > [!NOTE] 
-    > O número máximo de exportações por aplicação é cinco. 
-
-    ![Criar nova exportação contínua de dados](media/howto-export-data/export_new1.png)
-
-4. Na caixa de lista pendente, selecione seu **espaço de nomes do Hubs de eventos espaço de nomes/Service Bus**. Também pode escolher a última opção na lista que é **introduza uma cadeia de ligação**. 
+3. Selecione o botão **+ novo** no canto superior direito. Escolha um dos **hubs de eventos do Azure** ou o **barramento de serviço do Azure** como o destino de sua exportação. 
 
     > [!NOTE] 
-    > Apenas verá espaços de nomes do Hubs de eventos/contas de armazenamento espaços de nomes/Service Bus no **mesma subscrição que a sua aplicação do Centro de IoT**. Se pretender exportar para um destino fora desta subscrição, escolha **introduza uma cadeia de ligação** e veja o passo 5.
+    > O número máximo de exportações por aplicativo é cinco. 
+
+    ![Criar nova exportação de dados contínuas](media/howto-export-data/export_new1.png)
+
+4. Na caixa de listagem suspensa, selecione o namespace do seu namespace de **hubs de eventos/barramento de serviço**. Você também pode escolher a última opção na lista que é **Inserir uma cadeia de conexão**. 
 
     > [!NOTE] 
-    > Para exportar aplicações de avaliação, a única forma de configurar contínua de dados de 7 dias é por meio de uma cadeia de ligação. Isto acontece porque a 7 dias aplicações avaliação não tem uma subscrição do Azure associada.
+    > Você só verá namespaces de contas de armazenamento/hubs de eventos/namespaces do barramento de serviço na **mesma assinatura que seu aplicativo IOT central**. Se você quiser exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e consulte a etapa 5.
 
-    ![Criar novo cde Hub de eventos](media/howto-export-data/export_create1.png)
+    > [!NOTE] 
+    > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação de dados contínuas é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
 
-5. (Opcional) Se escolheu **introduza uma cadeia de ligação**, aparece uma caixa de novo para que cole a cadeia de ligação. Para obter a cadeia de ligação para a sua:
-    - Os Hubs de eventos ou do Service Bus, avance para o espaço de nomes no portal do Azure.
-        - Sob **configurações**, selecione **políticas de acesso partilhado**
-        - Escolher a predefinição **RootManageSharedAccessKey** ou criar um novo
-        - Copie a cadeia de ligação primária ou secundária
+    ![Criar novo hub de eventos CDE](media/howto-export-data/export_create1.png)
+
+5. Adicional Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para seu:
+    - Hubs de eventos ou barramento de serviço, acesse o namespace na portal do Azure.
+        - Em **configurações**, selecione **políticas de acesso compartilhado**
+        - Escolha o **RootManageSharedAccessKey** padrão ou crie um novo
+        - Copie a cadeia de conexão primária ou secundária
  
-6. Na caixa de lista pendente, escolha um hub de eventos/fila ou tópico.
+6. Escolha um hub de eventos/fila ou tópico na caixa de listagem suspensa.
 
-7. Sob **dados para exportar**, especifique cada tipo de dados para exportar, definindo o tipo como **no**.
+7. Em **dados a serem**exportados, especifique cada tipo de dados a serem exportados definindo o tipo como **ativado**.
 
-6. Para ativar a exportação contínua de dados, certifique-se **exportar dados** é **no**. Selecione **Guardar**.
+6. Para ativar a exportação de dados contínuas, verifique se a **exportação de dados** está **ativada**. Selecione **Guardar**.
 
-    ![Configurar a exportação contínua de dados](media/howto-export-data/export_list1.png)
+    ![Configurar exportação de dados contínuas](media/howto-export-data/export_list1.png)
 
-7. Após alguns minutos, os dados serão apresentados no seu destino escolhido.
+7. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportar para os Hubs de eventos do Azure e o Azure Service Bus
+## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportar para os hubs de eventos do Azure e o barramento de serviço do Azure
 
-Medidas, dispositivos e dados de modelos de dispositivos são exportados para o seu hub de eventos ou fila do Service Bus ou tópico em tempo quase real. Dados de medidas exportado contém a totalidade da mensagem de seus dispositivos enviados ao IoT Central, não apenas os valores de medidas de si. Dispositivos exportados dados contém alterações às propriedades e configurações de todos os dispositivos e modelos de dispositivos exportado contém alterações para todos os modelos de dispositivos. Os dados exportados é na propriedade "corpo" e estão no formato JSON.
+Os dados de medidas, dispositivos e modelos de dispositivo são exportados para o Hub de eventos ou a fila ou tópico do barramento de serviço quase em tempo real. Os dados de medidas exportados contêm a totalidade da mensagem que seus dispositivos enviaram para IoT Central, não apenas os valores das próprias medidas. Dados de dispositivos exportados contém alterações nas propriedades e configurações de todos os dispositivos, e os modelos de dispositivo exportados contêm alterações em todos os modelos de dispositivo. Os dados exportados estão na propriedade "corpo" e estão no formato JSON.
 
 > [!NOTE]
-> Ao escolher um barramento de serviço como um destino de exportação, as filas e tópicos **não tem de ter sessões ou de deteção de duplicados ativada**. Se qualquer uma dessas opções estiverem ativada, algumas mensagens não chegam a sua fila ou tópico.
+> Ao escolher um barramento de serviço como um destino de exportação, as filas e os tópicos **não devem ter sessões ou detecção de duplicidades habilitadas**. Se qualquer uma dessas opções estiver habilitada, algumas mensagens não chegarão em sua fila ou tópico.
 
 ### <a name="measurements"></a>Medições
 
-Uma nova mensagem é exportada rapidamente depois do IoT Central recebe a mensagem a partir de um dispositivo. Cada mensagem exportada no Service Bus e Hubs de eventos contém a mensagem completa do dispositivo enviada na propriedade "corpo" no formato JSON. 
+Uma nova mensagem é exportada rapidamente depois que IoT Central recebe a mensagem de um dispositivo. Cada mensagem exportada nos hubs de eventos e no barramento de serviço contém a mensagem completa que o dispositivo enviou na propriedade "Body" no formato JSON. 
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por identificações de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exportar dados de dispositivo e correlacionar cada salvação utilizando o **connectionDeviceId** que corresponda à **deviceId** da mensagem de dispositivo.
+> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os dados do dispositivo e correlacione cada mensagem usando o **connectionDeviceId** que corresponde  à DeviceID da mensagem do dispositivo.
 
-O exemplo seguinte mostra o recebida uma mensagem sobre dados de medidas no hub de eventos ou fila do Service Bus ou tópico.
+O exemplo a seguir mostra uma mensagem sobre os dados de medidas recebidos no Hub de eventos ou na fila ou no tópico do barramento de serviço.
 
 ```json
 {
@@ -155,24 +155,24 @@ O exemplo seguinte mostra o recebida uma mensagem sobre dados de medidas no hub 
 
 ### <a name="devices"></a>Dispositivos
 
-Mensagens que contêm dados do dispositivo são enviadas ao seu hub de eventos ou fila do Service Bus ou tópico, uma vez intervalos de poucos minutos. Isso significa que intervalos de poucos minutos, um lote de mensagens vai deparar-se com os dados sobre
+As mensagens que contêm dados do dispositivo são enviadas ao seu hub de eventos ou à fila ou ao tópico do barramento de serviço uma vez a cada poucos minutos. Isso significa que, a cada poucos minutos, um lote de mensagens será enviado com dados sobre
 - Novos dispositivos que foram adicionados
-- Dispositivos com a propriedade alterada e definir valores
+- Dispositivos com propriedade alterada e valores de configuração
 
-Cada mensagem representa uma ou mais alterações a um dispositivo desde a última mensagem exportada. As informações que serão enviadas em cada mensagem incluem:
-- `id` do dispositivo no Centro de IoT
-- `name` do dispositivo
-- `deviceId` de [serviço aprovisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
-- Informações de modelo do dispositivo
+Cada mensagem representa uma ou mais alterações em um dispositivo desde a última mensagem exportada. As informações que serão enviadas em cada mensagem incluirão:
+- `id`do dispositivo no IoT Central
+- `name`do dispositivo
+- `deviceId`do [serviço de provisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
+- Informações do modelo do dispositivo
 - Valores de propriedade
-- Valores de definição
+- Definindo valores
 
 > [!NOTE]
-> Dispositivos eliminados, uma vez que o último lote não são exportadas. Atualmente, existem sem indicadores na exportados mensagens para dispositivos eliminados.
+> Dispositivos excluídos desde o último lote não são exportados. No momento, não há indicadores em mensagens exportadas para dispositivos excluídos.
 >
-> O modelo de dispositivo que cada dispositivo pertence à é representado por um ID de modelo do dispositivo. Para obter o nome do modelo de dispositivo, certifique-se de que a exportar dados de modelo do dispositivo demasiado.
+> O modelo de dispositivo ao qual cada dispositivo pertence é representado por uma ID de modelo de dispositivo. Para obter o nome do modelo de dispositivo, certifique-se de exportar também os dados do modelo de dispositivo.
 
-O exemplo seguinte mostra uma mensagem sobre dados de dispositivos no hub de eventos ou fila do Service Bus ou tópico:
+O exemplo a seguir mostra uma mensagem sobre os dados do dispositivo no Hub de eventos ou na fila ou no tópico do barramento de serviço:
 
 
 ```json
@@ -214,24 +214,24 @@ O exemplo seguinte mostra uma mensagem sobre dados de dispositivos no hub de eve
 }
 ```
 
-### <a name="device-templates"></a>Modelos de dispositivos
+### <a name="device-templates"></a>Modelos de dispositivo
 
-Mensagens que contêm dados de modelos de dispositivo são enviadas ao seu hub de eventos ou fila do Service Bus ou tópico, uma vez intervalos de poucos minutos. Isso significa que intervalos de poucos minutos, um lote de mensagens vai deparar-se com os dados sobre
-- Novos modelos de dispositivos que foram adicionados
-- Modelos de dispositivos com medidas alteradas, propriedade e as definições de configuração
+As mensagens que contêm os dados dos modelos de dispositivo são enviadas para o Hub de eventos ou para a fila ou tópico do barramento de serviço uma vez a cada poucos minutos. Isso significa que, a cada poucos minutos, um lote de mensagens será enviado com dados sobre
+- Novos modelos de dispositivo que foram adicionados
+- Modelos de dispositivo com medidas alteradas, propriedade e definições de configuração
 
-Cada mensagem representa uma ou mais alterações a um modelo de dispositivo desde a última mensagem exportada. As informações que serão enviadas em cada mensagem incluem:
-- `id` o modelo de dispositivo
-- `name` o modelo de dispositivo
-- `version` o modelo de dispositivo
-- Tipos de dados de medição e valores mínimos/máximos
-- Tipos de dados de propriedade e os valores predefinidos
-- Definir tipos de dados e valores predefinidos
+Cada mensagem representa uma ou mais alterações em um modelo de dispositivo desde a última mensagem exportada. As informações que serão enviadas em cada mensagem incluirão:
+- `id`do modelo de dispositivo
+- `name`do modelo de dispositivo
+- `version`do modelo de dispositivo
+- Tipos de dados de medição e valores mínimo/máximo
+- Tipos de dados de propriedade e valores padrão
+- Definindo tipos de dados e valores padrão
 
 > [!NOTE]
-> Modelos de dispositivos eliminados desde o último lote não são exportados. Atualmente, existem sem indicadores na exportados mensagens para modelos de dispositivos eliminada.
+> Modelos de dispositivo excluídos desde o último lote não são exportados. No momento, não há indicadores em mensagens exportadas para modelos de dispositivo excluídos.
 
-O exemplo seguinte mostra uma mensagem sobre dados de modelos de dispositivos no hub de eventos ou fila do Service Bus ou tópico:
+O exemplo a seguir mostra uma mensagem sobre os dados de modelos de dispositivo no Hub de eventos ou na fila ou no tópico do barramento de serviço:
 
 ```json
 {
@@ -295,7 +295,7 @@ O exemplo seguinte mostra uma mensagem sobre dados de modelos de dispositivos no
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como exportar os dados para os Hubs de eventos do Azure e o Azure Service Bus, avance para o passo seguinte:
+Agora que você sabe como exportar seus dados para os hubs de eventos do Azure e o barramento de serviço do Azure, vá para a próxima etapa:
 
 > [!div class="nextstepaction"]
-> [Como acionar as funções do Azure](howto-trigger-azure-functions.md)
+> [Como disparar Azure Functions](howto-trigger-azure-functions.md)

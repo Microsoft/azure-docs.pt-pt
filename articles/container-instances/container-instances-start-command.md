@@ -1,71 +1,72 @@
 ---
-title: Utilizar uma linha de comando inicial no Azure Container Instances
-description: Substituir o ponto de entrada configurado numa imagem de contentor ao implementar uma instância de contentor do Azure
+title: Usar uma linha de comando inicial em instâncias de contêiner do Azure
+description: Substituir o ponto de entrada configurado em uma imagem de contêiner ao implantar uma instância de contêiner do Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99440e22eb736522a25c2ee56bb07ef1d9967e66
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569648"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325655"
 ---
-# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comandos numa instância de contentor para substituir a operação de linha de comandos padrão
+# <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Definir a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
-Quando cria uma instância de contentor, opcionalmente, especifica um comando para substituir a instrução de linha de comandos padrão embutida na imagem de contentor. Este comportamento é semelhante para o `--entrypoint` argumento da linha de comandos para `docker run`.
+Ao criar uma instância de contêiner, especifique opcionalmente um comando para substituir a instrução de linha de comando padrão inclusas na imagem de contêiner. Esse comportamento é semelhante ao `--entrypoint` argumento de linha de comando para. `docker run`
 
-Como a definição [variáveis de ambiente](container-instances-environment-variables.md) para instâncias de contentor, especificar uma linha de comando inicial é útil para tarefas do batch em que precisa preparar cada contentor dinamicamente com a configuração de tarefa específica.
+Como definir [variáveis de ambiente](container-instances-environment-variables.md) para instâncias de contêiner, especificar uma linha de comando inicial é útil para trabalhos em lotes onde você precisa preparar cada contêiner dinamicamente com a configuração específica de tarefa.
 
-## <a name="command-line-guidelines"></a>Diretrizes de linha de comandos
+## <a name="command-line-guidelines"></a>Diretrizes de linha de comando
 
-* Por predefinição, a linha de comando Especifica um *único processo que é iniciado sem um shell* no contentor. Por exemplo, a linha de comandos pode executar um script de Python ou arquivo executável. 
+* Por padrão, a linha de comando especifica um *único processo que inicia sem um shell* no contêiner. Por exemplo, a linha de comando pode executar um script Python ou um arquivo executável. 
 
-* Para executar vários comandos, comece a sua linha de comandos ao definir um ambiente de shell que é suportado no sistema de operativo contentor. Exemplos:
+* Para executar vários comandos, comece sua linha de comando definindo um ambiente de shell com suporte no sistema operacional do contêiner. Exemplos:
 
-  |Sistema operativo  |Shell predefinida  |
+  |Sistema operativo  |Shell padrão  |
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
   |Alpine     |   `/bin/sh`      |
   |Windows     |    `cmd`     |
 
-  Siga as convenções de shell para combinar vários comandos para executar na sequência.
+  Siga as convenções do Shell para combinar vários comandos a serem executados em sequência.
 
-* Dependendo da configuração de contentor, poderá ter de definir um caminho completo para o executável da linha de comando ou os argumentos.
+* Dependendo da configuração do contêiner, talvez seja necessário definir um caminho completo para o executável ou os argumentos da linha de comando.
 
-* Definir apropriadas [política de reinício](container-instances-restart-policy.md) para a instância de contentor, dependendo se a linha de comando Especifica uma tarefa de execução longa ou uma tarefa de execução única. Por exemplo, uma política de reinício do `Never` ou `OnFailure` é recomendada para uma tarefa de execução única. 
+* Defina uma [política](container-instances-restart-policy.md) de reinicialização apropriada para a instância de contêiner, dependendo se a linha de comando especifica uma tarefa de execução longa ou uma tarefa de execução única. Por exemplo, uma política de reinicialização do `Never` ou `OnFailure` é recomendada para uma tarefa de execução única. 
 
-* Se precisar de informações sobre o ponto de entrada padrão definido numa imagem de contentor, utilize o [inspecionar a imagem do docker](https://docs.docker.com/engine/reference/commandline/image_inspect/) comando.
+* Se você precisar de informações sobre o ponto de entrada padrão definido em uma imagem de contêiner, use o comando [Docker Image eninspecione](https://docs.docker.com/engine/reference/commandline/image_inspect/) .
 
-## <a name="command-line-syntax"></a>Sintaxe de linha de comandos
+## <a name="command-line-syntax"></a>Sintaxe de linha de comando
 
-A sintaxe de linha de comandos varia consoante a API do Azure ou a ferramenta usada para criar as instâncias. Se especificar um ambiente de shell, também observe as convenções de sintaxe de comando do shell.
+A sintaxe da linha de comando varia dependendo da API do Azure ou da ferramenta usada para criar as instâncias. Se você especificar um ambiente de Shell, observe também as convenções de sintaxe de comando do Shell.
 
-* [az container create][az-container-create] command: Passar uma cadeia de caracteres com o `--command-line` parâmetro. Exemplo: `--command-line "python myscript.py arg1 arg2"`).
+* comando [AZ container Create][az-container-create] : Passe uma cadeia de caracteres `--command-line` com o parâmetro. Exemplo: `--command-line "python myscript.py arg1 arg2"`).
 
-* [Novo-AzureRmContainerGroup] [ new-azurermcontainergroup] cmdlet do PowerShell do Azure: Passar uma cadeia de caracteres com o `-Command` parâmetro. Exemplo: `-Command "echo hello"`.
+* [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell cmdlet: Passe uma cadeia de caracteres `-Command` com o parâmetro. Exemplo: `-Command "echo hello"`.
 
-* Portal do Azure: Na **substituição de comando** propriedade da configuração do contentor, fornecer uma lista separada por vírgulas de cadeias de caracteres, sem aspas. Exemplo: `python, myscript.py, arg1, arg2`). 
+* Portal do Azure: Na propriedade de **substituição de comando** da configuração do contêiner, forneça uma lista separada por vírgulas de cadeias de caracteres, sem aspas. Exemplo: `python, myscript.py, arg1, arg2`). 
 
-* Modelo do Resource Manager ou ficheiro YAML ou um dos SDKs do Azure: Especifique a propriedade de linha de comandos como uma matriz de cadeias de caracteres. Exemplo: a matriz JSON `["python", "myscript.py", "arg1", "arg2"]` num modelo do Resource Manager. 
+* Modelo do Resource Manager ou arquivo YAML ou um dos SDKs do Azure: Especifique a propriedade de linha de comando como uma matriz de cadeias de caracteres. Exemplo: a matriz `["python", "myscript.py", "arg1", "arg2"]` JSON em um modelo do Resource Manager. 
 
-  Se estiver familiarizado com o [Dockerfile](https://docs.docker.com/engine/reference/builder/) sintaxe, esse formato é semelhante a *exec* formulário da instrução CMD.
+  Se você estiver familiarizado com a sintaxe [Dockerfile](https://docs.docker.com/engine/reference/builder/) , esse formato será semelhante ao formulário *exec* da instrução cmd.
 
 ### <a name="examples"></a>Exemplos
 
 |    |  CLI do Azure   | Portal | Modelo | 
 | ---- | ---- | --- | --- |
-| Único comando | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Múltiplos comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| Comando único | `--command-line "python myscript.py arg1 arg2"` | **Substituição de comando**:`python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| Vários comandos | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Substituição de comando**:`/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
-## <a name="azure-cli-example"></a>Exemplo da CLI do Azure
+## <a name="azure-cli-example"></a>Exemplo de CLI do Azure
 
-Por exemplo, modificar o comportamento do [aci/microsoft-wordcount] [ aci-wordcount] imagem de contentor, que analisa o texto de Shakespeare *Mítico* para localizar com mais frequência ocorrendo palavras. Em vez de analisar *Mítico*, é possível definir uma linha de comando que aponta para uma origem de texto diferente.
+Por exemplo, modifique o comportamento da imagem de contêiner [Microsoft/ACI-WordCount][aci-wordcount] , que analisa o texto em *Hamlet* de Shakespeare para localizar as palavras que ocorrem com mais frequência. Em vez de analisar *Hamlet*, você pode definir uma linha de comando que aponta para uma fonte de texto diferente.
 
-Para ver o resultado do [aci/microsoft-wordcount] [ aci-wordcount] contentor ao analisar o texto predefinido, executá-la com seguintes [criar contentor de az] [ az-container-create] comando. Nenhuma linha de comando de início é especificada, pelo que o comando de contentor predefinido é executado. Para efeitos de ilustração, este exemplo define [variáveis de ambiente](container-instances-environment-variables.md) para encontrar as palavras de 3 principais que são letras, pelo menos, cinco longas:
+Para ver a saída do comando [Microsoft/ACI-WordCount][aci-wordcount] container when it analyzes the default text, run it with the following [az container create][az-container-create] . Nenhuma linha de comando inicial é especificada, portanto, o comando de contêiner padrão é executado. Para fins de ilustração, este exemplo define [variáveis de ambiente](container-instances-environment-variables.md) para localizar as três principais palavras que têm pelo menos cinco letras de comprimento:
 
 ```azurecli-interactive
 az container create \
@@ -76,7 +77,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Assim que é apresentado como estado do contentor *Terminated* (utilizar [show de contentor az] [ az-container-show] para verificar o estado), apresentar o registo com [registos de contentor az] [ az-container-logs] para ver a saída.
+Quando o estado do contêiner aparecer como *encerrado* (use [AZ container show][az-container-show] to check state), display the log with [az container logs][az-container-logs] para ver a saída.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
@@ -88,9 +89,9 @@ Saída:
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
 ```
 
-Configure agora um segundo contentor de exemplo para analisar texto diferente ao especificar uma linha de comandos diferente. O script de Python executado pelo contêiner, *wordcount.py*, aceita um URL como um argumento e processa o conteúdo dessa página em vez da predefinição.
+Agora, configure um segundo contêiner de exemplo para analisar o texto diferente especificando uma linha de comando diferente. O script Python executado pelo contêiner, *WordCount.py*, aceita uma URL como um argumento e processa o conteúdo dessa página em vez do padrão.
 
-Por exemplo, para determinar a parte superior 3 palavras que são, pelo menos, cinco há muito tempo em letras *Romeu e Julieta*:
+Por exemplo, para determinar as três principais palavras que têm pelo menos cinco letras de comprimento em *Romeu e Julieta*:
 
 ```azurecli-interactive
 az container create \
@@ -102,7 +103,7 @@ az container create \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
 ```
 
-Novamente, assim que o contentor estiver *Terminated*, ver o resultado, mostrando os registos do contentor:
+Novamente, depois que o contêiner for encerrado, exiba a saída mostrando os logs do contêiner:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
@@ -116,7 +117,7 @@ Saída:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Cenários de baseado em tarefas, como um grande conjunto de dados com vários contentores, de processamento em lote podem beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de contentores com base em tarefas, consulte [executar tarefas em contentores com políticas de reinício](container-instances-restart-policy.md).
+Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem se beneficiar de linhas de comando personalizadas em tempo de execução. Para obter mais informações sobre a execução de contêineres baseados em tarefas, consulte [executar tarefas em contêineres com políticas](container-instances-restart-policy.md)de reinicialização.
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount

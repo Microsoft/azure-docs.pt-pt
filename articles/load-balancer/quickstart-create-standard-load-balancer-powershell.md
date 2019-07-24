@@ -1,10 +1,10 @@
 ---
-title: 'Início rápido: Criar um balanceador de carga Standard - Azure PowerShell'
+title: 'Início rápido: Criar um Standard Load Balancer-Azure PowerShell'
 titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um Balanceador de Carga Standard com o PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
@@ -14,18 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 04db0232e14ccac7938d7062d77c36a54526489c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 0e00728e091a7d7d96cb624135519b17524d2227
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730475"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274112"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
+# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Início rápido: Criar um Standard Load Balancer usando Azure PowerShell
 
-Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o Balanceador de carga, implemente três máquinas de virtuais (VMs) com o Windows server e uma aplicação web entre as VMs de balanceamento de carga. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).
+Este início rápido mostra-lhe como criar um Balanceador de Carga Standard com o Azure PowerShell. Para testar o balanceador de carga, implante três máquinas virtuais (VMs) executando o Windows Server e equilibre o balanceamento de carga de um aplicativo Web entre as VMs. Para saber mais sobre o Balanceador de Carga Standard, veja [O que é o Balanceador de Carga Standard](load-balancer-standard-overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -35,7 +35,7 @@ Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a v
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Antes de poder criar o Balanceador de carga, tem de criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo seguinte cria um grupo de recursos chamado *myResourceGroupSLB* no *EastUS* localização:
+Antes de criar o balanceador de carga, você deve criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroupSLB* no local *eastus* :
 
 ```azurepowershell
 $rgName='MyResourceGroupSLB'
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Crie um endereço IP público
 
-Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Criar um endereço IP público [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo seguinte cria um endereço IP público com o nome *myPublicIP* no *myResourceGroupSLB* grupo de recursos:
+Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Crie um endereço IP público com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). O exemplo a seguir cria um endereço IP público chamado *myPublicIP* no grupo de recursos *myResourceGroupSLB* :
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -58,19 +58,19 @@ $publicIp = New-AzPublicIpAddress `
 
 ## <a name="create-standard-load-balancer"></a>Criar o Balanceador de Carga Standard
 
-Nesta secção, configure o IP de front-end e o conjunto de endereços de back-end do Balanceador de carga e, em seguida, criar o Balanceador de carga Standard.
+Nesta seção, você configura o IP de front-end e o pool de endereços de back-end para o balanceador de carga e, em seguida, cria o Standard Load Balancer.
 
-### <a name="create-front-end-ip"></a>Criar endereço IP de front-end
+### <a name="create-front-end-ip"></a>Criar IP de front-end
 
-Criar um IP de front-end com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo seguinte cria uma configuração de IP Front-end com o nome *myFrontEnd* e anexa o *myPublicIP* endereço:
+Crie um IP de front-end com [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). O exemplo a seguir cria uma configuração de IP de front  -end chamada myfrontend e anexa o endereço *myPublicIP* :
 
 ```azurepowershell
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
 ```
 
-### <a name="configure-back-end-address-pool"></a>Configurar o conjunto de endereços de back-end
+### <a name="configure-back-end-address-pool"></a>Configurar o pool de endereços de back-end
 
-Criar um conjunto de endereços de back-end com [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). As VMs são anexadas a este conjunto de back-end nos restantes passos. O exemplo seguinte cria um conjunto de endereços de back-end designado *myBackEndPool*:
+Crie um pool de endereços de back-end com [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). As VMs são anexadas a esse pool de back-ends nas etapas restantes. O exemplo a seguir cria um pool de endereços de back-end chamado *myBackEndPool*:
 
 ```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
@@ -81,7 +81,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 O exemplo seguinte cria uma sonda TCP. Também pode criar sondas HTTP personalizadas para obter verificações de estado de funcionamento mais detalhadas. Quando utilizar uma sonda HTTP personalizada, tem de criar a página de verificação de estado de funcionamento, tal como *healthcheck.aspx*. A sonda tem de devolver uma resposta **HTTP 200 OK** para o balanceador de carga manter o anfitrião na rotação.
 
-Para criar uma sonda de estado de funcionamento TCP, utilize [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). O exemplo seguinte cria uma sonda de estado de funcionamento denominada *myHealthProbe* que monitoriza cada VM na *porta*  HTTP *80*:
+Para criar uma investigação de integridade TCP, use [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). O exemplo seguinte cria uma sonda de estado de funcionamento denominada *myHealthProbe* que monitoriza cada VM na *porta*  HTTP *80*:
 
 ```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig `
@@ -93,7 +93,7 @@ $probe = New-AzLoadBalancerProbeConfig `
 ### <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
 É utilizada uma regra de balanceador de carga para definir a forma como o tráfego é distribuído pelas VMs. Pode definir a configuração de IP de front-end do tráfego de entrada e o conjunto de IPs de back-end para receber o tráfego, juntamente com a porta de origem e de destino necessárias. Para garantir que apenas as VMs em bom estado de funcionamento recebem o tráfego, também pode definir a sonda de estado de funcionamento a utilizar.
 
-Crie uma regra de Balanceador de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria uma regra de balanceador de carga designada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego no *TCP* porta *80*:
+Crie uma regra de balanceador de carga com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). O exemplo seguinte cria uma regra de balanceador de carga designada *myLoadBalancerRule* e faz o balanceamento de carga do tráfego no *TCP* porta *80*:
 
 ```azurepowershell
 $rule = New-AzLoadBalancerRuleConfig `
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Criar as regras NAT
 
-Criar com as regras NAT [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). O exemplo seguinte cria regras NAT com o nome *myLoadBalancerRDP1* e *myLoadBalancerRDP2* para permitir ligações de RDP para os servidores de back-end com a porta 4221 e 4222:
+Crie regras de NAT com [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). O exemplo a seguir cria regras NAT chamadas *myLoadBalancerRDP1* e *myLoadBalancerRDP2* para permitir conexões RDP para os servidores back-end com a porta 4221 e 4222:
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -131,7 +131,7 @@ $natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-Criar o Balanceador de carga Standard com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um Standard Balanceador de carga público com o nome myLoadBalancer usando a configuração de IP Front-end, conjunto de back-end, a sonda de estado de funcionamento, a regra de balanceamento de carga e regras NAT que criou nos passos anteriores:
+Crie o Standard Load Balancer com [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo a seguir cria um Standard Load Balancer público chamado myLoadBalancer usando a configuração de IP de front-end, o pool de back-end, a investigação de integridade, a regra de balanceamento de carga e as regras de NAT que você criou nas etapas anteriores:
 
 ```azurepowershell
 $lb = New-AzLoadBalancer `
@@ -150,7 +150,7 @@ $lb = New-AzLoadBalancer `
 Antes de implementar algumas VMs e testar o balanceador, tem de criar recursos de rede de apoio: rede virtual e NICs virtuais. 
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Criar uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). O exemplo seguinte cria uma rede virtual designada *myVnet* com *mySubnet*:
+Crie uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). O exemplo seguinte cria uma rede virtual designada *myVnet* com *mySubnet*:
 
 ```azurepowershell
 # Create subnet config
@@ -166,9 +166,9 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnetConfig
 ```
-### <a name="create-public-ip-addresses-for-the-vms"></a>Crie endereços IP públicos para as VMs
+### <a name="create-public-ip-addresses-for-the-vms"></a>Criar endereços IP públicos para as VMs
 
-Para acessar as VMs com uma ligação de RDP, terá de endereço IP público para as VMs. Uma vez que um balanceador de carga Standard é utilizado neste cenário, tem de criar os endereços IP públicos Standard para as VMs com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+Para acessar suas VMs usando uma conexão RDP, você precisará de um endereço IP público para as VMs. Como um Standard Load Balancer é usado nesse cenário, você deve criar endereços IP públicos padrão para as VMs com [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell
 $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -199,7 +199,7 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
 Crie um grupo de segurança de rede para definir ligações recebidas para a sua rede virtual.
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>Criar uma regra de grupo de segurança de rede para a porta 3389
-Criar uma regra de grupo de segurança de rede para permitir ligações de RDP pela porta 3389 com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+Crie uma regra de grupo de segurança de rede para permitir conexões RDP por meio da porta 3389 com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell
 
@@ -210,7 +210,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig -Name 'myNetworkSecurityGroupRuleRDP' -
 ```
 
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Criar uma regra de grupo de segurança de rede para a porta 80
-Criar uma regra de grupo de segurança de rede para permitir ligações de entrada através da porta 80 com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+Crie uma regra de grupo de segurança de rede para permitir conexões de entrada por meio da porta 80 com [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell
 $rule2 = New-AzNetworkSecurityRuleConfig -Name 'myNetworkSecurityGroupRuleHTTP' -Description 'Allow HTTP' `
@@ -229,7 +229,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $RgName -Location $location
 ```
 
 ### <a name="create-nics"></a>Criar NICs
-Criar virtual NICs e associar o endereço IP público e criados nos passos anteriores com os grupos de segurança de rede [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). O exemplo seguinte cria três NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar NICs virtuais e VMs adicionais em qualquer altura e adicioná-las ao balanceador de carga:
+Crie NICs virtuais e associe com o endereço IP público e grupos de segurança de rede criados nas etapas anteriores com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). O exemplo seguinte cria três NICs virtuais. (Uma NIC virtual para cada VM que criar para a aplicação nos passos seguintes). Pode criar NICs virtuais e VMs adicionais em qualquer altura e adicioná-las ao balanceador de carga:
 
 ```azurepowershell
 # Create NIC for VM1
@@ -254,7 +254,7 @@ Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Agora, pode criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria duas VMs e os componentes de rede virtual necessários, se eles ainda não existir. Neste exemplo, os NICs (*MyNic1*, *MyNic2*, e *MyNic3*) criado no passo anterior são atribuídos a máquinas virtuais *myVM1* , *myVM2*, e *VM3*. Além disso, uma vez que as NICs estão associadas ao conjunto de back-end do Balanceador de carga, as VMs são automaticamente adicionadas ao agrupamento de back-end.
+Agora você pode criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, se eles ainda não existirem. Neste exemplo, as NICs (*MyNic1*, *MyNic2*e *MyNic3*) criadas na etapa anterior são atribuídas às máquinas virtuais *myVM1*, *myVM2*e *VM3*. Além disso, como as NICs estão associadas ao pool de back-end do balanceador de carga, as VMs são adicionadas automaticamente ao pool de back-end.
 
 ```azurepowershell
 
@@ -292,20 +292,20 @@ $vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 `
 $vm3 = New-AzVM -ResourceGroupName $rgName -Zone 3 -Location $location -VM $vmConfig
 ```
 
-Demora alguns minutos para criar e configurar as três VMs.
+Leva alguns minutos para criar e configurar as três VMs.
 
-### <a name="install-iis-with-a-custom-web-page"></a>Instalar o IIS com uma página da web personalizada
+### <a name="install-iis-with-a-custom-web-page"></a>Instalar o IIS com uma página da Web personalizada
 
-Instale o IIS com uma página da web personalizada em ambas as VMs de back-end da seguinte forma:
+Instale o IIS com uma página da Web personalizada em ambas as VMs de back-end da seguinte maneira:
 
-1. Obtenha os endereços IP públicos das três VMs com `Get-AzPublicIPAddress`.
+1. Obtenha os endereços IP públicos das três VMs usando `Get-AzPublicIPAddress`.
 
    ```azurepowershell
      $vm1_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_1").IpAddress
      $vm2_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_2").IpAddress
      $vm3_rdp_ip = (Get-AzPublicIPAddress -ResourceGroupName $rgName -Name "RdpPublicIP_3").IpAddress
     ```
-2. Criar ligações de ambiente de trabalho remotas com *myVM1*, *myVM2*, e *myVM3* com os endereços IP públicos das VMs da seguinte forma: 
+2. Crie conexões de área de trabalho remota com *myVM1*, *myVM2*e *myVM3* usando os endereços IP públicos das VMs da seguinte maneira: 
 
    ```azurepowershell    
      mstsc /v:$vm1_rdp_ip
@@ -314,8 +314,8 @@ Instale o IIS com uma página da web personalizada em ambas as VMs de back-end d
    
     ```
 
-3. Introduza as credenciais para cada VM iniciar a sessão do RDP.
-4. Inicie o Windows PowerShell em cada VM e com os comandos seguintes para instalar o servidor IIS e atualizar o ficheiro do padrão htm.
+3. Insira as credenciais para cada VM para iniciar a sessão RDP.
+4. Inicie o Windows PowerShell em cada VM e use os comandos a seguir para instalar o servidor IIS e atualizar o arquivo htm padrão.
 
     ```azurepowershell
     # Install IIS
@@ -328,11 +328,11 @@ Instale o IIS com uma página da web personalizada em ambas as VMs de back-end d
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
     ```
 
-5. Fechar as ligações de RDP com *myVM1*, *myVM2*, e *myVM3*.
+5. Feche as conexões RDP com *myVM1*, *myVM2*e *myVM3*.
 
 
 ## <a name="test-load-balancer"></a>Testar o balanceador de carga
-Obtenha o endereço IP público do seu Balanceador de carga com [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
+Obtenha o endereço IP público do balanceador de carga com [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). O exemplo seguinte obtém o endereço IP para *myPublicIP* criado anteriormente:
 
 ```azurepowershell
 Get-AzPublicIPAddress `
@@ -348,7 +348,7 @@ Para ver o balanceador de carga a distribuir tráfego pelas três VMs que estão
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) de comando para remover o grupo de recursos, a VM e todos os recursos relacionados.
+Quando não for mais necessário, você pode usar o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
 ```azurepowershell
 Remove-AzResourceGroup -Name myResourceGroupSLB

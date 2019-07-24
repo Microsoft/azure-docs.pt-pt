@@ -1,5 +1,5 @@
 ---
-title: 'o Azure Cosmos DB: Criar uma aplicação de tarefas com Xamarin'
+title: 'o Azure Cosmos DB: Compilar um aplicativo de tarefas pendentes com o Xamarin'
 description: Apresenta um exemplo de código Xamarin que pode utilizar para ligar e consultar o Azure Cosmos DB
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,18 +8,17 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: e0d439edc35e70bc8ac477cf56a6bc25e41df083
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 079f25cf9333b7ca090b5a3390d193b757117c1c
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754719"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986390"
 ---
-# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de tarefas com Xamarin com a conta do Azure Cosmos DB SQL API
+# <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Compilar um aplicativo de tarefas pendentes com o Xamarin usando Azure Cosmos DB conta da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (pré-visualização)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -37,7 +36,7 @@ Este início rápido demonstra como criar uma conta API SQL do Azure Cosmos DB, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se estiver a desenvolver em Windows e ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que ativa as cargas de trabalho **desenvolvimento do Azure** e **Desenvolvimento móvel com .NET** durante a configuração do Visual Studio.
+Se estiver desenvolvendo no Windows e ainda não tiver o Visual Studio 2019 instalado, você poderá baixar e usar o  [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito. Confirme que ativa as cargas de trabalho **desenvolvimento do Azure** e **Desenvolvimento móvel com .NET** durante a configuração do Visual Studio.
 
 Se estiver a utilizar um Mac, pode transferir o [Visual Studio para Mac](https://www.visualstudio.com/vs/mac/) **gratuito**.
 
@@ -48,7 +47,7 @@ Se estiver a utilizar um Mac, pode transferir o [Visual Studio para Mac](https:/
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Adicionar um contentor
+## <a name="add-a-container"></a>Adicionar um contêiner
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -62,7 +61,7 @@ Se estiver a utilizar um Mac, pode transferir o [Visual Studio para Mac](https:/
 
 ## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
 
-Agora, vamos clonar a API de SQL Xamarin aplicação a partir do GitHub, reveja o código, obter as chaves de API e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente.
+Agora, vamos clonar o aplicativo de API do SQL Xamarin do GitHub, examinar o código, obter as chaves de API e executá-lo. Vai ver como é fácil trabalhar com dados programaticamente.
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
@@ -92,7 +91,7 @@ Regresse ao portal do Azure para obter as informações de chaves da API e copie
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. No Visual Studio 2019 ou Visual Studio para Mac, abra o ficheiro APIKeys.cs na pasta azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers.
+2. No Visual Studio 2019 ou Visual Studio para Mac, abra o arquivo APIKeys.cs na pasta Azure-documentdb-dotnet/Samples/xamarin/ToDoItems/ToDoItems. Core/Helpers.
 
 3. Copie o valor do URI a partir do portal (com o botão Copiar) e faça deste o valor da variável `CosmosEndpointUrl` em APIKeys.cs.
 
@@ -112,9 +111,9 @@ Esta solução demonstra como criar uma aplicação de lista de tarefas com a AP
 
 O código na solução ToDoItems contém:
 
-* ToDoItems.Core: Este é um projeto .NET Standard que contém um projeto xamarin. Forms e o código de lógica de aplicação partilhado que mantém os itens de afazeres no Azure Cosmos DB.
-* ToDoItems.Android: Este projeto contém a aplicação Android.
-* ToDoItems.iOS: Este projeto contém a aplicação iOS.
+* ToDoItems. Core: Este é um projeto .NET Standard que contém um projeto Xamarin. Forms e um código lógico de aplicativo compartilhado que mantém os itens de tarefas pendentes no Azure Cosmos DB.
+* ToDoItems.Android: Este projeto contém o aplicativo do Android.
+* ToDoItems. iOS: Este projeto contém o aplicativo iOS.
 
 Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
 
@@ -184,7 +183,7 @@ Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
     }
     ```
 
-    Aqui um novo URI é necessária para identificar exclusivamente o documento a substituir e é obtida usando `UriFactory.CreateDocumentUri` e passando-lhe os nomes de base de dados e coleção e o ID do documento.
+    Aqui, um novo URI é necessário para identificar exclusivamente o documento a ser substituído e obtido usando `UriFactory.CreateDocumentUri` e passando os nomes do banco de dados e da coleção e a ID do documento.
 
     `DocumentClient.ReplaceDocumentAsync` substitui o documento identificado pelo URI pelo que foi especificado como parâmetro.
 
@@ -200,7 +199,7 @@ Agora, vamos ver como é que a aplicação comunica com o Azure Cosmos DB.
     }
     ```
 
-    Novamente em atenção o URI de documento exclusivo a ser criado e transmitido para o `DocumentClient.DeleteDocumentAsync` função.
+    Observe novamente o URI de documento exclusivo que está sendo criado e `DocumentClient.DeleteDocumentAsync` passado para a função.
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
@@ -245,7 +244,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a criar uma conta do Cosmos do Azure, criar um contentor com o Data Explorer e criar e implementar uma aplicação Xamarin. Agora, pode importar dados adicionais à sua conta do Cosmos do Azure.
+Neste guia de início rápido, você aprendeu como criar uma conta do Azure Cosmos, criar um contêiner usando o Data Explorer e criar e implantar um aplicativo Xamarin. Agora você pode importar dados adicionais para sua conta do Azure Cosmos.
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md) (Importar dados para o Azure Cosmos DB).

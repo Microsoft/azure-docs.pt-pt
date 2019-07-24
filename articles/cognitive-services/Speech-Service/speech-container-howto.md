@@ -1,7 +1,7 @@
 ---
-title: Instalar os contentores de voz
+title: Instalar contêineres de fala
 titleSuffix: Azure Cognitive Services
-description: Instalar e executar contentores de voz. Conversão de voz em texto converte os fluxos de áudio em texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou apresentar. Voz converte a entrada de texto em fala sintetizada de semelhante à humana.
+description: Instale e execute contêineres de fala. A fala a texto transcreve fluxos de áudio para texto em tempo real que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Conversão de texto em fala converte o texto de entrada em fala sintetizada por meio do tipo humano.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,51 +10,51 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: 8f395788d4dd3c845155a52bd6b4666998838fcd
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 089b9030debc7489e123d49b5c78052f597ca469
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490238"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348409"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
+# <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala
 
-Contentores de voz permitem aos clientes criar uma arquitetura de aplicativos de fala que está otimizada para tirar partido das capacidades de cloud robustas e Localidade de borda. 
+Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. 
 
-São os contentores de dois voz **voz em texto** e **voz**. 
+Os dois contêineres de fala são **conversão de fala em texto** e **texto em fala**. 
 
-|Função|Funcionalidades|mais recente|
+|Função|Funcionalidades|Mais Recente|
 |-|-|--|
-|Conversão de voz em texto| <li>Converte contínuas em tempo real de voz ou lote gravações de áudio em texto com os resultados intermediários.|1.1.3|
-|Texto em Voz| <li>Converte texto em voz com som natural. com a introdução de texto sem formatação ou Speech Synthesis Markup Language (SSML). |1.1.0|
+|Conversão de voz em texto| <li>Transcreve as gravações contínuas de fala em tempo real ou de áudio em lotes em texto com resultados intermediários.|1.1.3|
+|Texto em Voz| <li>Converte texto em voz com som natural. com a entrada de texto sem formatação ou a linguagem de marcação de síntese de fala (SSML). |1.1.0|
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores de voz:
+Você deve atender aos seguintes pré-requisitos antes de usar contêineres de fala:
 
-|Necessário|Objetivo|
+|Requerido|Objetivo|
 |--|--|
-|Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
-|Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
-|Recursos de voz |Para utilizar estes contentores, tem de ter:<br><br>R _voz_ recursos do Azure para obter a chave de faturação associada e a faturação URI do ponto final. Ambos os valores estão disponíveis no portal do Azure **voz** páginas de descrição geral e as chaves e são necessários para iniciar o contentor.<br><br>**{BILLING_KEY}** : chave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Mecanismo do Docker| Você precisa do mecanismo do Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
+|Familiaridade com o Docker | Você deve ter uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como o conhecimento de comandos `docker` básicos.| 
+|Recurso de fala |Para usar esses contêineres, você deve ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{API_KEY}** : Uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}** : O ponto de extremidade conforme fornecido na página **visão geral**|
 
-## <a name="request-access-to-the-container-registry"></a>Pedir acesso ao registo de contentor
+## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao registro de contêiner
 
-Primeiro tem de concluir e submeter o [formulário de pedido de contentores de voz dos serviços cognitivos](https://aka.ms/speechcontainerspreview/) para pedir acesso ao contentor. 
+Você deve primeiro concluir e enviar o [formulário de solicitação de contêineres de fala dos serviços cognitivas](https://aka.ms/speechcontainerspreview/) para solicitar acesso ao contêiner. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
-## <a name="the-host-computer"></a>O computador anfitrião
+## <a name="the-host-computer"></a>O computador host
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-### <a name="advanced-vector-extension-support"></a>Suporte avançado do Vetor de extensão
+### <a name="advanced-vector-extension-support"></a>Suporte à extensão de vetor avançado
 
-O **anfitrião** é o computador que executa o contentor do docker. O anfitrião tem de suportar [Advanced extensões de Vetor](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). É possível verificar esse suporte em anfitriões do Linux com o seguinte comando: 
+O **host** é o computador que executa o contêiner do Docker. O host deve dar suporte a [extensões de vetor avançadas](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). Você pode verificar esse suporte em hosts Linux com o seguinte comando: 
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
@@ -62,51 +62,51 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações
 
-A tabela seguinte descreve os mínimos e recomendados núcleos de CPU e memória para atribuir cada contentor de voz.
+A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memória a ser alocada para cada contêiner de fala.
 
 | Contentor | Mínimo | Recomendado |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 núcleos<br>2 GB de memória  | 4 núcleos<br>4 GB de memória  |
-|cognitive-services-text-to-speech | 1 núcleo, 0,5 GB de memória| 2 núcleos, 1 GB de memória |
+|cognitive-services-speech-to-text | 2 núcleos<br>memória de 2 GB  | 4 núcleos<br>4 GB de memória  |
+|cognitiva – serviços-conversão de texto em fala | 1 núcleo, 0,5 GB de memória| 2 núcleos, 1 GB de memória |
 
-* Cada principal tem de ser, pelo menos, de 2,6 GHz (gigahertz) ou mais rápido.
+* Cada núcleo deve ter pelo menos 2,6 gigahertz (GHz) ou mais rápido.
 
-Núcleos e memória correspondem para o `--cpus` e `--memory` as definições, que são utilizadas como parte do `docker run` comando.
+O núcleo e a `--cpus` memória correspondem às configurações e `--memory` , que são `docker run` usadas como parte do comando.
 
-**Tenha em atenção**; Mínimos e recomendados baseiam-se fora dos limites de Docker *não* recursos da máquina host. Por exemplo, é a partes de mapa de memória de contentores de voz em texto de um modelo de idioma grandes e ele _recomendado_ que todo o arquivo se encaixa na memória, o que é mais 4 a 6 GB. Além disso, a primeira execução de qualquer um dos contentores pode demorar mais, uma vez que os modelos estão a ser paginados na memória.
+**Observação**; O mínimo e recomendado são baseados nos limites do Docker, *não* nos recursos da máquina host. Por exemplo, os contêineres de conversão de texto na memória mapeiam partes de um modelo de linguagem grande  e é recomendável que todo o arquivo caiba na memória, que é de 4-6 GB adicionais. Além disso, a primeira execução de qualquer um dos contêineres pode levar mais tempo, pois os modelos estão sendo paginados na memória.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contentor com o `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com`docker pull`
 
-Imagens de contentor para conversão de voz estão disponíveis.
+As imagens de contêiner para fala estão disponíveis.
 
 | Contentor | Repositório |
 |-----------|------------|
 | cognitive-services-speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
-| cognitive-services-text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| cognitiva – serviços-conversão de texto em fala | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-### <a name="language-locale-is-in-container-tag"></a>Região de idioma é na marca de contentor
+### <a name="language-locale-is-in-container-tag"></a>A localidade do idioma está na marca do contêiner
 
-O `latest` Etiquetar extrai o `en-us` localidade e `jessarus` voz.
+A `latest` marca extrai a localidade `en-us` e `jessarus` a voz.
 
-#### <a name="speech-to-text-locales"></a>Conversão de voz em localidades de texto
+#### <a name="speech-to-text-locales"></a>As localidades de fala para texto
 
-Todas as etiquetas, exceto para `latest` estão no formato seguinte, onde o `<culture>` indica o contentor de localidade:
+Todas as marcas, exceto `latest` no, estão no seguinte formato, em `<culture>` que o indica o contêiner de localidade:
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
 ```
 
-A seguinte marca é um exemplo do formato de:
+A marca a seguir é um exemplo do formato:
 
 ```
 1.1.3-amd64-en-us-preview
 ```
 
-A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.3 versão do contentor:
+A tabela a seguir lista as localidades com suporte para a **conversão de fala em texto** na versão 1.1.3 do contêiner:
 
-|Região de idioma|Tags|
+|Localidade do idioma|Tags|
 |--|--|
 |Chinês|`zh-cn`|
 |Português |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
@@ -118,40 +118,40 @@ A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.3 ve
 |Português|`pt-br`|
 |Espanhol|`es-es`<br>`es-mx`|
 
-#### <a name="text-to-speech-locales"></a>Localidades de texto em voz
+#### <a name="text-to-speech-locales"></a>Texto para localidades de fala
 
-Todas as etiquetas, exceto para `latest` estão no formato seguinte, em que o `<culture>` indica a Localidade e o `<voice>` indica a voz do contentor:
+Todas as marcas, exceto `latest` para estão no seguinte formato, em que `<culture>` o `<voice>` indica a localidade e indica a voz do contêiner:
 
 ```
 <major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
 ```
 
-A seguinte marca é um exemplo do formato de:
+A marca a seguir é um exemplo do formato:
 
 ```
 1.1.0-amd64-en-us-jessarus-preview
 ```
 
-A tabela seguinte lista as regiões suportadas para **voz** no 1.1.0 versão do contentor:
+A tabela a seguir lista as localidades com suporte para **conversão de texto em fala** na versão 1.1.0 do contêiner:
 
-|Região de idioma|Tags|Vozes suportados|
+|Localidade do idioma|Tags|Vozes com suporte|
 |--|--|--|
-|Chinês|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
+|Chinês|`zh-cn`|huihuirus<br>kangkang-Apollo<br>yaoyao-Apollo|
 |Português |`en-au`|catherine<br>hayleyrus|
-|Português |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
-|Português |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
+|Português |`en-gb`|George-Apollo<br>hazelrus<br>Susan-Apollo|
+|Português |`en-in`|Heera-Apollo<br>priyarus<br>Ravi-Apollo<br>|
 |Português |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
-|Francês|`fr-ca`|caroline<br>harmonierus|
-|Francês|`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
-|Alemão|`de-de`|hedda<br>heddarus<br>stefan-apollo|
-|Italiano|`it-it`|cosimo apollo<br>luciarus|
-|Japonês|`ja-jp`|ayumi-apollo<br>harukarus<br>ichiro-apollo|
+|Francês|`fr-ca`|Carolina<br>harmonierus|
+|Francês|`fr-fr`|hortenserus<br>Julie-Apollo<br>Paul-Apollo|
+|Alemão|`de-de`|hedda<br>heddarus<br>Stefan-Apollo|
+|Italiano|`it-it`|Cosimo-Apollo<br>luciarus|
+|Japonês|`ja-jp`|Ayumi-Apollo<br>harukarus<br>Ichiro-Apollo|
 |Coreano|`ko-kr`|heamirus|
-|Português|`pt-br`|Daniel apollo<br>heloisarus|
-|Espanhol|`es-es`|elenarus<br>Laura apollo<br>Pablo apollo<br>|
-|Espanhol|`es-mx`|hildarus<br>raul apollo|
+|Português|`pt-br`|Daniel-Apollo<br>heloisarus|
+|Espanhol|`es-es`|elenarus<br>Laura-Apollo<br>Pablo-Apollo<br>|
+|Espanhol|`es-mx`|hildarus<br>Ricardo-Apollo|
 
-### <a name="docker-pull-for-the-speech-containers"></a>Solicitação de docker para os contentores de voz
+### <a name="docker-pull-for-the-speech-containers"></a>Pull do Docker para os contêineres de fala
 
 #### <a name="speech-to-text"></a>Conversão de voz em texto
 
@@ -165,25 +165,25 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Como utilizar o contentor
+## <a name="how-to-use-the-container"></a>Como usar o contêiner
 
-Assim que o contentor estiver no [computador anfitrião](#the-host-computer), utilize o seguinte processo para trabalhar com o contentor.
+Depois que o contêiner estiver no [computador host](#the-host-computer), use o processo a seguir para trabalhar com o contêiner.
 
-1. [Execute o contentor](#run-the-container-with-docker-run), com as definições de faturas necessárias mas não utilizadas. Obter mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comandos estão disponíveis.
-1. [Consultar o ponto final de predição do contentor](#query-the-containers-prediction-endpoint).
+1. [Execute o contêiner](#run-the-container-with-docker-run), com as configurações de cobrança obrigatórias, mas não usadas. Mais [exemplos](speech-container-configuration.md#example-docker-run-commands) do `docker run` comando estão disponíveis.
+1. [Consulte o ponto de extremidade de previsão do contêiner](#query-the-containers-prediction-endpoint).
 
-## <a name="run-the-container-with-docker-run"></a>Execute o contentor com `docker run`
+## <a name="run-the-container-with-docker-run"></a>Execute o contêiner com`docker run`
 
-Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
+Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os seguintes parâmetros:
 
-**Durante a pré-visualização**, as definições de faturas tem de ser válidas para iniciar o contentor, mas não são faturadas para utilização.
+**Durante a visualização**, as configurações de cobrança devem ser válidas para iniciar o contêiner, mas você não é cobrado pelo uso.
 
 | Marcador de posição | Value |
 |-------------|-------|
-|{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível na página de chaves de voz do portal do Azure.  |
-|{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível na página de descrição geral de voz do portal do Azure.|
+|{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página de teclas de fala do portal do Azure.  |
+|{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança está disponível na página Visão geral de fala do portal do Azure.|
 
-Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
+Substitua esses parâmetros pelos seus próprios valores no comando de exemplo `docker run` a seguir.
 
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 
@@ -191,8 +191,8 @@ Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `do
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
@@ -201,21 +201,21 @@ ApiKey={BILLING_KEY}
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
 Este comando:
 
-* Execute um contentor de voz a partir da imagem de contentor
+* Executa um contêiner de fala da imagem de contêiner
 * Aloca 2 núcleos de CPU e 2 gigabytes (GB) de memória
 * Expõe a porta TCP 5000 e aloca um TTY pseudo para o contentor
-* Remove automaticamente o contentor depois sai. A imagem de contentor ainda está disponível no computador anfitrião.
+* Remove automaticamente o contêiner depois que ele é encerrado. A imagem de contêiner ainda está disponível no computador host.
 
 > [!IMPORTANT]
 > O `Eula`, `Billing`, e `ApiKey` opções tem de ser especificadas para executar o contentor; caso contrário, não inicia o contentor.  Para obter mais informações, consulte [faturação](#billing).
 
-## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
+## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 
 |Contentor|Ponto Final|
 |--|--|
@@ -224,21 +224,21 @@ Este comando:
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 
-O contêiner fornece APIs, que são acedidos através do ponto de extremidade do websocket com base na consulta a [SDK de voz](index.yml).
+O contêiner fornece APIs de ponto de extremidade de consulta baseadas no WebSocket, que são acessadas por meio do [SDK de fala](index.yml).
 
-Por predefinição, o SDK de voz utiliza serviços de voz online. Para usar o contêiner, terá de alterar o método de inicialização. Veja os exemplos abaixo.
+Por padrão, o SDK de fala usa os serviços de fala online. Para usar o contêiner, você precisa alterar o método de inicialização. Consulte os exemplos abaixo.
 
-#### <a name="for-c"></a>ParaC#
+#### <a name="for-c"></a>FinsC#
 
-Deixa de utilizar esta chamada de inicialização da cloud do Azure:
+Alterar do uso desta chamada de inicialização do Azure-cloud:
 
-```C#
+```csharp
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-para esta chamada usando o ponto final do contentor:
+para essa chamada usando o ponto de extremidade do contêiner:
 
-```C#
+```csharp
 var config = SpeechConfig.FromEndpoint(
     new Uri("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1"),
     "YourSubscriptionKey");
@@ -246,14 +246,14 @@ var config = SpeechConfig.FromEndpoint(
 
 #### <a name="for-python"></a>Para Python
 
-Deixa de utilizar esta chamada de inicialização da cloud do Azure
+Alterar do uso desta chamada de inicialização do Azure-cloud
 
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-para esta chamada usando o ponto final do contentor:
+para essa chamada usando o ponto de extremidade do contêiner:
 
 ```python
 speech_config = speechsdk.SpeechConfig(
@@ -262,21 +262,21 @@ speech_config = speechsdk.SpeechConfig(
 
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 
-O contêiner fornece o ponto final REST APIs que pode ser encontradas [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) e pode ver exemplos [aqui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
+O contêiner fornece APIs de ponto de extremidade REST que podem ser encontradas [aqui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech) e exemplos podem ser encontrados [aqui](https://azure.microsoft.com/resources/samples/cognitive-speech-tts/).
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Parar o contentor
+## <a name="stop-the-container"></a>Parar o contêiner
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao executar o contentor, o contentor utiliza **stdout** e **stderr** às informações de saída que é útil para resolver os problemas que ocorrem ao iniciar ou executar o contentor.
+Quando você executa o contêiner, o contêiner usa **stdout** e **stderr** para gerar informações que são úteis para solucionar problemas que ocorrem ao iniciar ou executar o contêiner.
 
 ## <a name="billing"></a>Faturação
 
-O envio de contentores de voz cobrança informações para o Azure, utilizando um _voz_ recursos na sua conta do Azure.
+Os contêineres de fala enviam informações de cobrança para o Azure, usando um recurso de _fala_ em sua conta do Azure.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -288,13 +288,13 @@ Para obter mais informações sobre estas opções, consulte [configurar content
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e voz contentores em execução. Em resumo:
+Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, instalar e executar contêineres de fala. Em resumo:
 
-* Voz fornece dois contentores do Linux para o Docker, encapsulando a conversão de voz em texto e o texto em voz.
-* Imagens de contentor são transferidas a partir do registo de contentor privado no Azure.
+* A fala fornece dois contêineres do Linux para o Docker, encapsulando a fala em texto e texto em fala.
+* As imagens de contêiner são baixadas do registro de contêiner privado no Azure.
 * Executam imagens de contentor no Docker.
-* Pode utilizar a REST API ou o SDK para chamar operações em contentores de voz, especificando o URI do contentor do anfitrião.
-* Tem de especificar informações de faturação ao instanciar um contentor.
+* Você pode usar a API REST ou o SDK para chamar operações em contêineres de fala especificando o URI do host do contêiner.
+* Você precisa fornecer informações de cobrança ao criar uma instância de um contêiner.
 
 > [!IMPORTANT]
 >  Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
@@ -302,4 +302,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Revisão [configurar contentores](speech-container-configuration.md) para definições de configuração
-* Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)
+* Usar mais [contêineres de serviços cognitivas](../cognitive-services-container-support.md)

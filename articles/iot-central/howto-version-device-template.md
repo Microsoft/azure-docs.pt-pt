@@ -1,71 +1,71 @@
 ---
-title: Noções básicas sobre controle de versão de modelo de dispositivo para as suas aplicações do Azure IoT Central | Documentos da Microsoft
-description: Iterar sobre os modelos de dispositivos através da criação de novas versões e sem causar impacto nos seus dispositivos ligados em direto
+title: Noções básicas sobre o controle de versão de modelo de dispositivo para seus aplicativos do Azure IoT Central | Microsoft Docs
+description: Iterar seus modelos de dispositivo criando novas versões e sem afetar seus dispositivos conectados ao vivo
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a53c1432ce4dc6be5dd15ee804cda6b00257ca0e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 638be5e62c523c478f139f13185edeb24995ab3f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509732"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848989"
 ---
-# <a name="create-a-new-device-template-version"></a>Criar uma nova versão de modelo do dispositivo
+# <a name="create-a-new-device-template-version"></a>Criar uma nova versão de modelo de dispositivo
 
-O Azure IoT Central permite um desenvolvimento rápido de aplicativos de IoT. Pode iterar rapidamente sobre o design de modelo do dispositivo por adicionar, editar ou eliminar as medidas, as definições ou propriedades. Algumas dessas alterações poderiam ser intrusivas para os dispositivos atualmente ligados. O Azure IoT Central identifica estas alterações de última hora e fornece uma maneira de implantar com segurança essas atualizações para os dispositivos.
+O Azure IoT Central permite o desenvolvimento rápido de aplicativos de IoT. Você pode iterar rapidamente seus designs de modelo de dispositivo adicionando, editando ou excluindo medidas, configurações ou propriedades. Algumas dessas alterações podem ser intrusivas para os dispositivos conectados no momento. O Azure IoT Central identifica essas alterações significativas e fornece uma maneira de implantar com segurança essas atualizações nos dispositivos.
 
-Um modelo do dispositivo tem um número de versão quando a criar. Por predefinição, o número da versão for 1.0.0. Se editar um modelo de dispositivo e se essa alteração pode afetar live dispositivos ligados, o Azure IoT Central pede-lhe para criar uma nova versão de modelo do dispositivo.
-
-> [!NOTE]
-> Para saber mais sobre como criar um modelo de dispositivo, veja [configurar um modelo de dispositivo](howto-set-up-template.md)
-
-## <a name="changes-that-prompt-a-version-change"></a>Alterações que uma alteração de versão de linha de comandos
-
-Em geral, alterações a definições ou propriedades do seu modelo de dispositivo solicitar uma alteração de versão.
+Um modelo de dispositivo tem um número de versão ao criá-lo. Por padrão, o número de versão é 1.0.0. Se você editar um modelo de dispositivo e se essa alteração puder afetar os dispositivos conectados ao vivo, o Azure IoT Central solicitará que você crie uma nova versão de modelo de dispositivo.
 
 > [!NOTE]
-> As alterações feitas ao modelo de dispositivo não pedir para a criação de uma nova versão quando nenhum dispositivo ou em mais um dispositivo está ligado.
+> Para saber mais sobre como criar um modelo de dispositivo, consulte [configurar um modelo de dispositivo](howto-set-up-template.md)
 
-A lista seguinte descreve as ações de utilizador que podem exigir uma nova versão:
+## <a name="changes-that-prompt-a-version-change"></a>Alterações que solicitam uma alteração de versão
 
-* Propriedades (obrigatórios)
-    * Adicionar ou excluir uma propriedade necessária
-    * Alterar o nome do campo de uma propriedade, o nome do campo que é utilizado pelos seus dispositivos para enviar mensagens.
-*  Propriedades (opcionais)
-    * A eliminação de uma propriedade opcional
-    * Alterar o nome do campo de uma propriedade, o nome do campo que é utilizado pelos seus dispositivos para enviar mensagens.
-    * Alterar uma propriedade opcional para uma propriedade necessária
+Em geral, as alterações nas configurações ou nas propriedades do seu modelo de dispositivo solicitam uma alteração de versão.
+
+> [!NOTE]
+> As alterações feitas no modelo de dispositivo não solicitam a criação de uma nova versão quando nenhum dispositivo ou no máximo um dispositivo está conectado.
+
+A lista a seguir descreve as ações do usuário que podem exigir uma nova versão:
+
+* Propriedades (obrigatória)
+    * Adicionando ou excluindo uma propriedade obrigatória
+    * Alterar o nome do campo de uma propriedade, o nome do campo que é usado pelos dispositivos para enviar mensagens.
+*  Propriedades (opcional)
+    * Excluindo uma propriedade opcional
+    * Alterar o nome do campo de uma propriedade, o nome do campo que é usado pelos dispositivos para enviar mensagens.
+    * Alterando uma propriedade opcional para uma propriedade obrigatória
 *  Definições
-    * Adicionar ou excluir uma definição
-    * Alterar o nome do campo de uma configuração, o nome do campo que é utilizado pelos seus dispositivos para enviar e receber mensagens.
+    * Adicionando ou excluindo uma configuração
+    * Alterando o nome do campo de uma configuração, nome do campo que é usado pelos dispositivos para enviar e receber mensagens.
 
 ## <a name="what-happens-on-version-change"></a>O que acontece na alteração de versão?
 
-O que acontece a regras e dashboards do dispositivo quando ocorre uma alteração de versão?
+O que acontece com regras e painéis de dispositivos quando há uma alteração de versão?
 
-**Regras** pode conter condições que dependem das propriedades. Se tiver removido um ou mais destas propriedades, estas regras poderiam ser quebradas em sua nova versão de modelo do dispositivo. Pode ir para estas regras específicas e as condições para corrigir as regras de atualização. Regras para a sua versão anterior deverá funcionar sem qualquer impacto.
+**As regras** podem conter condições que dependem de propriedades. Se você tiver removido uma ou mais dessas propriedades, essas regras poderão ser quebradas na nova versão do modelo de dispositivo. Você pode acessar essas regras específicas e atualizar as condições para corrigir as regras. As regras para a versão anterior devem funcionar sem impacto.
 
-**Dashboards de dispositivo** pode conter vários tipos de mosaicos. Alguns dos mosaicos podem conter definições e propriedades. Quando uma propriedade ou configuração utilizado num mosaico for removida, o mosaico é quebrado total ou parcialmente. Pode ir para o mosaico e corrigir o problema ao remover o mosaico ou a atualizar o conteúdo do mosaico.
+Os **painéis de dispositivos** podem conter vários tipos de blocos. Alguns dos blocos podem conter configurações e propriedades. Quando uma propriedade ou configuração usada em um bloco é removida, o bloco é totalmente ou parcialmente rompido. Você pode ir até o bloco e corrigir o problema removendo o bloco ou atualizando o conteúdo do bloco.
 
-## <a name="migrate-a-device-across-device-template-versions"></a>Migrar de um dispositivo em todas as versões do modelo de dispositivo
+## <a name="migrate-a-device-across-device-template-versions"></a>Migrar um dispositivo entre versões de modelo de dispositivo
 
-Pode criar várias versões do modelo de dispositivo. Ao longo do tempo, terá vários dispositivos conectados usando esses modelos de dispositivo. Pode migrar dispositivos de uma versão do seu modelo de dispositivo para outro. Os passos seguintes descrevem como migrar de um dispositivo:
+Você pode criar várias versões do modelo de dispositivo. Ao longo do tempo, você terá vários dispositivos conectados usando esses modelos de dispositivo. Você pode migrar dispositivos de uma versão do modelo de dispositivo para outra. As etapas a seguir descrevem como migrar um dispositivo:
 
-1. Vá para o **Device Explorer** página.
-1. Selecione o dispositivo que tem de migrar para outra versão.
-1. Escolher **migrar dispositivos**.
-1. Selecione o número de versão que pretende migrar o dispositivo e escolher **migrar**.
+1. Vá para a página de **Device Explorer** .
+1. Selecione o dispositivo que você precisa migrar para outra versão.
+1. Escolha **migrar dispositivo**.
+1. Selecione o número de versão para o qual você deseja migrar o dispositivo e escolha migrar.
 
-![Como migrar de um dispositivo](media/howto-version-device-template/pick-version.png)
+![Como migrar um dispositivo](media/howto-version-device-template/pick-version.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como utilizar as versões do modelo de dispositivo na sua aplicação do Azure IoT Central, este é o passo seguinte sugerido:
+Agora que você aprendeu a usar as versões de modelo de dispositivo em seu aplicativo IoT Central do Azure, aqui está a próxima etapa sugerida:
 
 > [!div class="nextstepaction"]
 > [Como criar regras de telemetria](howto-create-telemetry-rules.md)

@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 title: Ajuda de utilizador para autenticação, aplicações e gestão de dispositivos - Azure Active Directory | Microsoft Docs
-description: A ajuda de utilizador serve para os utilizadores que precisem de ajuda a configurar as informações de segurança, verificação de dois passos, reposição de palavra-passe self-service, gestão de dispositivos, a aplicação Microsoft Authenticator e o portal As minhas Aplicações.
+description: A ajuda de utilizador destina-se aos utilizadores que precisam de ajuda para configurar e utilizar as informações de segurança, a verificação de dois passos, a reposição personalizada de palavra-passe, a gestão de dispositivos, a aplicação Microsoft Authenticator e o portal As minhas Aplicações.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,16 +11,16 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861808"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383105"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ajuda do utilizador para autenticação, aplicações e gestão de dispositivos
 
-Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações de segurança, verificação de dois passo, para aprender a repor as suas próprias palavras-passe, para configurar e associar os seus dispositivos do Azure Active Directory e configurar e utilizar a aplicação do Microsoft Authenticator e o portal As minhas Aplicações.
+Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações de segurança e a verificação de dois passos, a repor as suas próprias palavras-passe, configurar e associar os seus dispositivos do Azure Active Directory e configurar e utilizar a aplicação Microsoft Authenticator e o portal As minhas Aplicações.
 
 |  |
 |--|
@@ -77,6 +77,7 @@ Criámos este conteúdo para ajudá-lo a configurar e utilizar as informações 
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Configurar uma aplicação de autenticação</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Configurar mensagens de texto</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Configurar chamadas telefónicas</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-security-key">Configurar uma chave de segurança</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Como iniciar sessão</a>
                         </p>
                     </div>

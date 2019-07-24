@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Azure Policy para restringir a instalação da extensão de VM | Documentos da Microsoft
-description: Utilize o Azure Policy para restringir as implementações de extensão VM.
+title: Usar Azure Policy para restringir a instalação da extensão de VM | Microsoft Docs
+description: Use Azure Policy para restringir implantações de extensão de VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
@@ -12,33 +12,34 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
-ms.author: roiyz;cynthn
-ms.openlocfilehash: 5a885637aa2321e12953a72754eed42c91b5b201
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.author: roiyz
+ms.reviewer: cynthn
+ms.openlocfilehash: 79a65dc0e7aa85b2f8cef5f884fab7bc6cd076fe
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706732"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876715"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utilizar a política do Azure para restringir a instalação de extensões em VMs do Linux
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usar Azure Policy para restringir a instalação de extensões em VMs Linux
 
-Se quiser evitar que a utilização ou a instalação de determinadas extensões nas suas VMs do Linux, pode criar uma política do Azure com a CLI para restringir as extensões para as VMs dentro de um grupo de recursos. 
+Se você quiser impedir o uso ou a instalação de determinadas extensões em suas VMs do Linux, poderá criar uma política do Azure usando a CLI para restringir as extensões para VMs em um grupo de recursos. 
 
-Este tutorial utiliza a CLI do Azure Cloud Shell, que é constantemente atualizada para a versão mais recente. Se quiser executar a CLI do Azure localmente, tem de instalar a versão 2.0.26 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial usa a CLI dentro do Azure Cloud Shell, que é constantemente atualizado para a versão mais recente. Se você quiser executar o CLI do Azure localmente, precisará instalar a versão 2.0.26 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-## <a name="create-a-rules-file"></a>Crie um ficheiro de regras
+## <a name="create-a-rules-file"></a>Criar um arquivo de regras
 
-Para restringir que extensões podem ser instalados, tem de ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) para fornecer a lógica para identificar a extensão.
+Para restringir quais extensões podem ser instaladas, você precisa ter uma [regra](../../governance/policy/concepts/definition-structure.md#policy-rule) para fornecer a lógica para identificar a extensão.
 
-Este exemplo mostra como negar a instalação de extensões publicadas por "Microsoft.OSTCExtensions" através da criação de um arquivo de regras no Azure Cloud Shell, mas se estiver a trabalhar na CLI localmente, também pode criar um ficheiro local e substituir o caminho (~/clouddrive) com o caminho para o ficheiro local no seu computador.
+Este exemplo mostra como negar a instalação de extensões publicadas por ' Microsoft. OSTCExtensions ' criando um arquivo de regras no Azure Cloud Shell, mas se você estiver trabalhando localmente na CLI, também poderá criar um arquivo local e substituir o caminho (~/CloudDrive) pelo caminho para o arquivo local em seu computador.
 
-Num [bash Cloud Shell](https://shell.azure.com/bash), tipo:
+Em um [Cloud shell bash](https://shell.azure.com/bash), digite:
 
 ```azurecli-interactive 
 vim ~/clouddrive/azurepolicy.rules.json
 ```
 
-Copie e cole o seguinte. de JSON para o ficheiro.
+Copie e cole o. JSON a seguir no arquivo.
 
 ```json
 {
@@ -64,22 +65,22 @@ Copie e cole o seguinte. de JSON para o ficheiro.
 }
 ```
 
-Quando tiver terminado, prima a **Esc** da chave e, em seguida, escreva **: wq** para guardar e fechar o ficheiro.
+Quando terminar, pressione a tecla **ESC** e digite **: Wq** para salvar e fechar o arquivo.
 
 
-## <a name="create-a-parameters-file"></a>Crie um ficheiro de parâmetros
+## <a name="create-a-parameters-file"></a>Criar um arquivo de parâmetros
 
-Também é necessário um [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) ficheiro que cria uma estrutura para que possa utilizar para passar numa lista das extensões para bloquear. 
+Você também precisa de um arquivo de [parâmetros](../../governance/policy/concepts/definition-structure.md#parameters) que cria uma estrutura a ser usada para passar uma lista das extensões a serem bloqueadas. 
 
-Este exemplo mostra como criar um ficheiro de parâmetros para VMs do Linux no Cloud Shell, mas se estiver a trabalhar na CLI localmente, também pode criar um ficheiro local e substituir o caminho (~/clouddrive) com o caminho para o arquivo local no seu computador.
+Este exemplo mostra como criar um arquivo de parâmetros para VMs do Linux no Cloud Shell, mas se você estiver trabalhando localmente na CLI, também poderá criar um arquivo local e substituir o caminho (~/CloudDrive) pelo caminho para o arquivo local em seu computador.
 
-Na [bash Cloud Shell](https://shell.azure.com/bash), tipo:
+No [Cloud shell bash](https://shell.azure.com/bash), digite:
 
 ```azurecli-interactive
 vim ~/clouddrive/azurepolicy.parameters.json
 ```
 
-Copie e cole o seguinte. de JSON para o ficheiro.
+Copie e cole o. JSON a seguir no arquivo.
 
 ```json
 {
@@ -94,13 +95,13 @@ Copie e cole o seguinte. de JSON para o ficheiro.
 }
 ```
 
-Quando tiver terminado, prima a **Esc** da chave e, em seguida, escreva **: wq** para guardar e fechar o ficheiro.
+Quando terminar, pressione a tecla **ESC** e digite **: Wq** para salvar e fechar o arquivo.
 
 ## <a name="create-the-policy"></a>Criar a política
 
-Uma definição de política é um objeto usado para armazenar a configuração que pretende utilizar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Crie a definição de política com [criação da definição de política de az](/cli/azure/role/assignment?view=azure-cli-latest).
+Uma definição de política é um objeto usado para armazenar a configuração que você deseja usar. A definição de política usa os arquivos de regras e parâmetros para definir a política. Crie a definição de política usando [AZ Policy Definition Create](/cli/azure/role/assignment?view=azure-cli-latest).
 
-Neste exemplo, as regras e parâmetros são os arquivos criados e armazenados como arquivos. JSON no cloud shell.
+Neste exemplo, as regras e os parâmetros são os arquivos que você criou e armazenou como arquivos. JSON em seu Cloud Shell.
 
 ```azurecli-interactive
 az policy definition create \
@@ -115,9 +116,9 @@ az policy definition create \
 
 ## <a name="assign-the-policy"></a>Atribuir a política
 
-Este exemplo atribui a política para um grupo de recursos utilizando [criação da atribuição de política de az](/cli/azure/policy/assignment). Qualquer VM criada no **myResourceGroup** grupo de recursos não será possível instalar o acesso de VM do Linux ou as extensões de Script personalizado para Linux. O grupo de recursos tem de existir antes de poder atribuir a política.
+Este exemplo atribui a política a um grupo de recursos usando a [atribuição de política AZ Create](/cli/azure/policy/assignment). Qualquer VM criada no grupo  de recursos MyResource Group não será capaz de instalar o acesso de VM do Linux ou as extensões de script personalizado para Linux. O grupo de recursos deve existir antes que você possa atribuir a política.
 
-Utilizar [lista de contas de az](/cli/azure/account?view=azure-cli-latest) para obter o seu ID de subscrição para utilizar no lugar no exemplo.
+Use a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest) para obter sua ID de assinatura a ser usada no lugar do exemplo.
 
 
 ```azurecli-interactive
@@ -137,7 +138,7 @@ az policy assignment create \
 
 ## <a name="test-the-policy"></a>Testar a política
 
-Teste a política ao criar uma nova VM e a tentar adicionar um novo utilizador.
+Teste a política criando uma nova VM e tentando adicionar um novo usuário.
 
 
 ```azurecli-interactive
@@ -148,7 +149,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Tente criar um novo utilizador com o nome **myNewUser** usando a extensão de acesso à VM.
+Tente criar um novo usuário chamado **myNewUser** usando a extensão de acesso da VM.
 
 ```azurecli-interactive
 az vm user update \
@@ -171,6 +172,6 @@ az policy assignment delete --name 'not-allowed-vmextension-linux' --resource-gr
 az policy definition delete --name 'not-allowed-vmextension-linux'
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja [Azure Policy](../../governance/policy/overview.md).

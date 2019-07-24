@@ -1,6 +1,6 @@
 ---
-title: Ver a tendência de custo mensal estimado laboratório no Azure DevTest Labs | Documentos da Microsoft
-description: Saiba mais sobre o gráfico de tendência de custo estimado mensal do Azure DevTest Labs.
+title: Exibir a tendência de custo estimado mensal do laboratório em Azure DevTest Labs | Microsoft Docs
+description: Saiba mais sobre o gráfico de tendência de custo estimado mensal Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,94 +14,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9180c29b807ef26c6426aab75fe74870fef9669a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868288"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318170"
 ---
-# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Controlar os custos associados a um laboratório no Azure DevTest Labs
-Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como ver a estimativa de custos trent para o mês de calendário atual para o laboratório. O artigo também mostra como ver o custo do mês até à data por recurso no laboratório.
+# <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Acompanhe os custos associados a um laboratório no Azure DevTest Labs
+Este artigo fornece informações sobre como controlar o custo do seu laboratório. Ele mostra como exibir o Trent de custo estimado para o mês do calendário atual do laboratório. O artigo também mostra como exibir o custo acumulado no mês por recurso no laboratório.
 
-## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Ver a tendência de custo mensal estimado de laboratório 
-Nesta secção, irá aprender a utilizar o **tendência de custo mensal estimado** gráfico para ver estimado custo até à data o calendário do mês atual e o custo previsto do mês final para o mês de calendário atual. Também irá aprender a gerir os custos de laboratório, definindo gastos metas e limiares que, quando alcançado, o acionador DevTest Labs para relatar os resultados para.
+## <a name="view-the-monthly-estimated-lab-cost-trend"></a>Exibir a tendência de custo estimado mensal do laboratório 
+Nesta seção, você aprenderá a usar o gráfico de **tendência de custo estimado mensal** para exibir o custo estimado do mês do calendário atual e o custo do fim do mês projetado para o mês do calendário atual. Você também aprende a gerenciar os custos de laboratório definindo metas de gastos e limites que, quando atingido, disparam os laboratórios de DevTest para relatar os resultados para você.
 
-Para ver o gráfico de tendência de custo estimado mensal, siga estes passos: 
+Para exibir o gráfico de tendência de custo estimado mensal, siga estas etapas: 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
-3. Na lista de laboratórios, selecione o seu laboratório.  
-4. Selecione **Konfigurace a zásady** no menu da esquerda.  
-4. Selecione **tendência de custo** no **controlo de custos** secção no menu da esquerda. Captura de ecrã seguinte mostra um exemplo de um gráfico de custo. 
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+3. Na lista de laboratórios, selecione seu laboratório.  
+4. Selecione **configuração e políticas** no menu à esquerda.  
+4. Selecione **tendência de custo** na seção **controle de custo** no menu à esquerda. A captura de tela a seguir mostra um exemplo de um gráfico de custo. 
    
     ![Gráfico de custo](./media/devtest-lab-configure-cost-management/graph.png)
 
-    O **custo estimado** valor é estimado custo até à data do mês de calendário atual. O **custo previsto** é o custo estimado para o mês de calendário atual todo, calculado com o custo do laboratório durante os últimos cinco dias.
+    O valor de **custo estimado** é o custo estimado do mês do calendário atual. O **custo projetado** é o custo estimado para todo o mês do calendário atual, calculado usando o custo do laboratório dos cinco dias anteriores.
 
-    As quantidades de custo são arredondadas para o número inteiro seguinte. Por exemplo: 
+    Os valores de custo são arredondados para o próximo número inteiro. Por exemplo: 
 
-   * 5.01 Arredonda por excesso até 6 
-   * 5.50 Arredonda por excesso até 6
-   * 5.99 Arredonda por excesso até 6
+   * 5, 1 arredonda até 6 
+   * 5,50 arredonda até 6
+   * 5,99 arredonda até 6
 
-     Como ele declara acima do gráfico, os custos de vir por predefinição no gráfico estão *estimado* custa usando [pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/) oferecem taxas. Também pode definir seus próprios gastos destinos que são apresentados nos gráficos por [gerenciando os destinos de custo para o laboratório.](#managing-cost-targets-for-your-lab)
+     Como ele diz acima do gráfico, os custos que você vê por padrão no gráfico são  custos estimados usando tarifas [de oferta pagas conforme o](https://azure.microsoft.com/offers/ms-azr-0003p/) uso. Você também pode definir seus próprios destinos de gastos que são exibidos nos gráficos [Gerenciando as metas de custo para seu laboratório.](#managing-cost-targets-for-your-lab)
 
-     Os seguintes custos estão *não* incluídas no cálculo de custo:
+     Os seguintes custos *não* estão incluídos no cálculo de custo:
 
-   * Subscrições de CSP e Dreamspark não são atualmente suportadas como o Azure DevTest Labs utiliza a [APIs de faturas do Azure](../billing/billing-usage-rate-card-overview.md) para calcular o laboratório de custos, que não suporta subscrições de CSP ou Dreamspark.
-   * As taxas de oferta. Atualmente, não é possível utilizar as tarifas da oferta (mostradas na sua subscrição) que ter negociado com a Microsoft ou Microsoft parceiros. São utilizadas apenas as taxas de pay as you go.
+   * Atualmente, não há suporte para assinaturas do CSP e do DreamSpark, pois Azure DevTest Labs usa as [APIs de cobrança do Azure](../billing/billing-usage-rate-card-overview.md) para calcular o custo do laboratório, que não oferece suporte a assinaturas CSP ou DreamSpark.
+   * Suas tarifas de oferta. No momento, você não pode usar as taxas de oferta (mostradas em sua assinatura) que você negocia com a Microsoft ou com parceiros da Microsoft. Somente as tarifas pagas conforme o uso são usadas.
    * Seus impostos
-   * Slevy
-   * A moeda de faturação. Atualmente, o custo do laboratório é apresentado apenas na moeda USD.
+   * Seus descontos
+   * Sua moeda de cobrança. Atualmente, o custo do laboratório é exibido apenas na moeda USD.
 
-### <a name="managing-cost-targets-for-your-lab"></a>Gestão de destinos de custo para o laboratório
-DevTest Labs permite que a gerenciar melhor os custos em seu laboratório, definindo um destino de gastos, em seguida, pode ver no gráfico de tendência de custo estimado mensal. DevTest Labs pode também enviar-lhe uma notificação quando os gastos de destino especificado ou o limiar for atingido. 
+### <a name="managing-cost-targets-for-your-lab"></a>Gerenciando metas de custo para seu laboratório
+O DevTest Labs permite que você gerencie melhor os custos em seu laboratório definindo um alvo de gastos que você pode exibir no gráfico de tendência de custo estimado mensalmente. O DevTest Labs também pode enviar uma notificação quando os gastos ou o limite de destino especificado forem atingidos. 
 
-1. Sobre o **tendência de custo** página, selecione **destino gerir**.
+1. Na página **tendência de custo** , selecione **gerenciar destino**.
 
-    ![Gerir o botão de destino](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
-2. Sobre o **gerir destino** , especifique um destino de gastos e limiares. Também pode definir se cada limite selecionado é reportado no gráfico de tendência de custo ou por meio de uma notificação de webhook.
+    ![Botão gerenciar destino](./media/devtest-lab-configure-cost-management/cost-trend-manage-target.png)
+2. Na página **gerenciar destino** , especifique um alvo e limites de gastos. Você também pode definir se cada limite selecionado é relatado no gráfico de tendência de custo ou por meio de uma notificação de webhook.
 
-    ![Gerir o painel de destino](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
+    ![Painel gerenciar destino](./media/devtest-lab-configure-cost-management/cost-trend-manage-target-pane.png)
 
-   - Selecione um período de tempo que deseja rastreados de destinos de custo.
-      - **Mensal**: destinos de custo são controlados por mês.
-      - **Foi corrigido**: destinos de custo são registados para o intervalo de datas que especificou nas datas de início e de fim. Normalmente, estes valores representam o tempo que o seu projeto é agendado para ser executada.
-   - Especifique um **custo de destino**. Por exemplo, quanto planeja gastar neste laboratório, no período de tempo que definiu.
-   - Selecione para ativar ou desativar qualquer limiar que pretende comunicado – em incrementos de 25% – até 125% do seu especificado **custo de destino**.
-      - **Notificar**: Quando esse limiar for cumprido, será notificado por um URL de webhook especificado.
-      - **Vykreslit v grafu**: Quando esse limiar for cumprido, os resultados são desenhados no gráfico de tendência de custo, pode ver, conforme descrito em visualizar o gráfico de tendência de custo estimado mensal.
-   - Se optar por **notificar** quando o limiar for cumprido, tem de especificar um URL do webhook. Na área de integrações de custo, selecione **clique aqui para adicionar uma integração**. Introduza um **URL de Webhook** no painel de notificação de configurar e, em seguida, selecione **OK**.
+   - Selecione um período de tempo durante o qual você deseja que os destinos de custo sejam acompanhados.
+      - **Mensalmente**: os destinos de custo são acompanhados por mês.
+      - **Corrigido**: os destinos de custo são rastreados para o intervalo de datas especificado nas datas de início e término. Normalmente, esses valores representam por quanto tempo seu projeto está agendado para ser executado.
+   - Especifique um **custo de destino**. Por exemplo, quanto você planeja gastar neste laboratório no período de tempo definido.
+   - Selecione para habilitar ou desabilitar qualquer limite que você deseja reportar – em incrementos de 25% – até 125% do **custo de destino**especificado.
+      - **Notificar**: Quando esse limite for atingido, você será notificado por uma URL de webhook que você especificar.
+      - **Plotar no gráfico**: Quando esse limite é atingido, os resultados são plotados no gráfico de tendência de custo que você pode exibir, conforme descrito em exibindo o gráfico de tendência de custo estimado mensal.
+   - Se você optar por **notificar** quando o limite for atingido, deverá especificar uma URL de webhook. Na área integrações de custo, selecione **clique aqui para adicionar uma integração**. Insira uma **URL** de webhook no painel configurar notificação e, em seguida, selecione **OK**.
 
        ![Configurar o painel de notificação](./media/devtest-lab-configure-cost-management/configure-notification.png)
 
-     - Se especificar **notificar**, tem de definir um URL do webhook.
-     - Da mesma forma, se definir um URL do webhook, tem de definir **notificação** ao **no** no painel de limiar de custo.
-     - Tem de criar um webhook antes de introduzi-la aqui.  
+     - Se você especificar **notificar**, deverá definir uma URL de webhook.
+     - Da mesma forma, se você definir uma URL de webhook, deverá definir **notificação** como **ativado** no painel de limite de custo.
+     - Você deve criar um webhook antes de inseri-lo aqui.  
 
-       Para obter mais informações sobre os webhooks, consulte [criar um webhook ou uma função de Azure API](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+       Para obter mais informações sobre WebHooks, consulte [criar um webhook ou uma função de API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
-## <a name="view-cost-by-resource"></a>Vista de custos por recurso 
-A funcionalidade de tendência de custo mensal no labs permite-lhe ver o quanto têm gasto no mês atual. Ela também mostra a projeção de gastos até ao fim do mês, com base nos seus gastos nos últimos sete dias. Para ajudar a compreender por que motivo o gastos no laboratório está a cumprir limiares no início, pode utilizar o **de custos por recurso** funcionalidade que lhe mostra o custo acumulado do mês **por recurso** numa tabela.
+## <a name="view-cost-by-resource"></a>Exibir custo por recurso 
+O recurso de tendência de custo mensal em laboratórios permite que você veja quanto você gastou no mês do calendário atual. Ele também mostra a projeção dos gastos até o fim do mês, com base em seus gastos nos últimos sete dias. Para ajudá-lo a entender por que os gastos no laboratório estão atendendo aos limites no início, você pode usar o recurso de **custo por recurso** que mostra o custo acumulado do mês **por recurso** em uma tabela.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
-3. Na lista de laboratórios, selecione o laboratório pretendido.  
-4. Selecione **Konfigurace a zásady** no menu da esquerda.
-5. Selecione **de custos por recurso** no **controlo de custos** secção no menu da esquerda. Ver os custos associados a cada recurso associado a um laboratório. 
+2. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** na lista.
+3. Na lista de laboratórios, selecione o laboratório desejado.  
+4. Selecione **configuração e políticas** no menu à esquerda.
+5. Selecione **custo por recurso** na seção **controle de custo** no menu à esquerda. Você verá os custos associados a cada recurso associado a um laboratório. 
 
-    ![Custos por recurso](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
+    ![Custo por recurso](./media/devtest-lab-configure-cost-management/cost-by-resource.png)
 
-Esta funcionalidade ajuda-o a identificar facilmente os recursos que custam mais, para que pode tomar medidas para reduzir os gastos de laboratório. Por exemplo, o custo de uma VM baseia-se no tamanho da VM. Quanto maior for o tamanho da VM, mais é o custo. Pode encontrar facilmente o tamanho de uma VM e o proprietário, para que pode se comunicar com o proprietário da VM para compreender por que motivo esse tamanho VM é necessária e se existe uma chance para reduzir o tamanho.
+Esse recurso ajuda a identificar facilmente os recursos que custam mais para que você possa tomar medidas para reduzir os gastos com o laboratório. Por exemplo, o custo de uma VM é baseado no tamanho da VM. Quanto maior o tamanho da VM, mais é o custo. Você pode encontrar facilmente o tamanho de uma VM e o proprietário, para que você possa se comunicar com o proprietário da VM para entender por que esse tamanho de VM é necessário e se há uma chance de diminuir o tamanho.
 
-[Política de encerramento automático](devtest-lab-get-started-with-lab-policies.md#set-auto-shutdown) ajuda-o a reduzir o custo por encerrar as VMs do laboratório num determinado momento do dia. No entanto, um utilizador de laboratório pode desativar a política de encerramento, o que aumenta o custo de execução da VM. Pode selecionar uma VM na tabela para ver se ele tem sido optado por-fora da política de encerramento automático. Se for esse o caso, pode se comunicar com o proprietário da VM para descobrir por que a VM tem sido tenha optado por ela-da política.
+A política de desligamento [automático](devtest-lab-set-lab-policy.md?#set-auto-shutdown-policy) ajuda a reduzir o custo desligando VMs de laboratório em um determinado momento do dia. No entanto, um usuário de laboratório pode recusar a política de desligamento, o que aumenta o custo da execução da VM. Você pode selecionar uma VM na tabela para ver se ela foi recusada da política de desligamento automático. Se esse for o caso, você poderá se comunicar com o proprietário da VM para descobrir por que a VM foi recusada da política.
  
 ## <a name="next-steps"></a>Passos Seguintes
-Aqui estão algumas coisas a experimentar a seguir:
+Aqui estão algumas coisas a serem experimentadas a seguir:
 
-* [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) -Saiba como configurar as políticas de vários utilizadas para regular como seu laboratório e as respetivas VMs são usados. 
-* [Criar uma imagem personalizada](devtest-lab-create-template.md) - quando cria uma VM, especifique uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um ficheiro VHD.
-* [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) - DevTest Labs suporta a criação de VMs com base nas imagens do Azure Marketplace. Este artigo ilustra como especificar que, se houver, imagens do Azure Marketplace podem ser utilizadas durante a criação de VMs num laboratório.
-* [Criar uma VM num laboratório](devtest-lab-add-vm.md) -ilustra como criar uma VM a partir de uma imagem base (qualquer um dos personalizado ou Marketplace) e como trabalhar com artefactos em sua VM.
+* [Definir políticas de laboratório](devtest-lab-set-lab-policy.md) – saiba como definir as várias políticas usadas para controlar como seu laboratório e suas VMs são usados. 
+* [Criar imagem personalizada](devtest-lab-create-template.md) -ao criar uma VM, você especifica uma base, que pode ser uma imagem personalizada ou uma imagem do Marketplace. Este artigo ilustra como criar uma imagem personalizada de um arquivo VHD.
+* [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md) -o DevTest Labs dá suporte à criação de VMs com base em imagens do Azure Marketplace. Este artigo ilustra como especificar quais imagens do Azure Marketplace podem ser usadas ao criar VMs em um laboratório.
+* [Criar uma VM em um laboratório](devtest-lab-add-vm.md) – ilustra como criar uma VM de uma imagem base (personalizada ou do Marketplace) e como trabalhar com artefatos em sua VM.
 

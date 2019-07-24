@@ -1,7 +1,7 @@
 ---
-title: Certifique-se a instância de contentor de análise de sentimentos
+title: Verificar a instância do contêiner de análise de sentimentos
 titleSuffix: Azure Cognitive Services
-description: Saiba como verificar a instância de contentor de análise de sentimentos.
+description: Saiba como verificar a instância de contêiner de análise de sentimentos.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: f69d573e9e70a505018e94cca354f363097cc1b8
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 1303d753b1cbfabe7ddd3442e0880b0bffe089b3
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68229187"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377440"
 ---
-## <a name="verify-the-sentiment-analysis-container-instance"></a>Certifique-se a instância de contentor de análise de sentimentos
+## <a name="verify-the-sentiment-analysis-container-instance"></a>Verificar a instância do contêiner de análise de sentimentos
 
-1. Selecione o **descrição geral** separador e copie o endereço IP.
-1. Abra um novo separador do browser e introduza o endereço IP. Por exemplo, introduza `http://<IP-address>:5000 (http://55.55.55.55:5000`). É apresentada a página de página inicial do contentor, permitindo-lhe saber o contentor está em execução.
+1. Selecione a guia **visão geral** e copie o endereço IP.
+1. Abra uma nova guia do navegador e insira o endereço IP. Por exemplo, digite `http://<IP-address>:5000 (http://55.55.55.55:5000`). O home page do contêiner é exibido, o que permite que você saiba que o contêiner está em execução.
 
-    ![Ver a home page do contentor para verificar que está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png).
+    ![Exibir o home page do contêiner para verificar se ele está em execução](../media/how-tos/container-instance/swagger-docs-on-container.png).
 
-1. Selecione o **descrição do serviço de API** ligação para aceder à página de swagger do contentor.
+1. Selecione o link de **Descrição da API de serviço** para ir para a página do Swagger do contêiner.
 
-1. Escolher qualquer uma da **POST** APIs e selecione **experimentá-lo**.  Os parâmetros são apresentados, incluindo esta entrada de exemplo:
+1. Escolha qualquer uma das APIs **post** e selecione **experimentar**. Os parâmetros são exibidos, o que inclui esta entrada de exemplo:
 
     ```json
     {
@@ -49,7 +49,7 @@ ms.locfileid: "68229187"
     }
     ```
 
-1. Substitua a entrada com o seguinte conteúdo JSON:
+1. Substitua a entrada pelo seguinte conteúdo JSON:
 
     ```json
     {
@@ -63,13 +63,13 @@ ms.locfileid: "68229187"
     }
     ```
 
-1. Definir **showStats** como true.
+1. Defina  instats como true.
 
-1. Selecione **Execute** para determinar os sentimentos do texto.
+1. Selecione **executar** para determinar a suopinião do texto.
 
-    O modelo que é empacotado no contentor gera uma pontuação entre 0 e 1, em que 0 é negativo e 1 é positivo.
+    O modelo que é empacotado no contêiner gera uma pontuação que varia de 0 a 1, em que 0 é negativo e 1 é positivo.
 
-    A resposta JSON devolvido inclui o sentimento para entrada de texto atualizado:
+    A resposta JSON retornada inclui um sentimentos para a entrada de texto atualizada:
 
     ```json
     {
@@ -93,4 +93,4 @@ ms.locfileid: "68229187"
     }
     ```
 
-Vamos agora pode correlacionar o documento `id` dos dados JSON do payload de resposta para o documento de payload do pedido original `id`. Vemos uma pontuação igual a mais do que `.98`, que indicam um sentimento positivo rigidez.
+Agora podemos correlacionar o documento `id` dos dados JSON da carga de resposta ao documento `id`de carga de solicitação original. A pontuação de mais do `.98` que indica um sentimentos altamente positivo.

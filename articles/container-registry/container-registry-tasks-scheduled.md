@@ -1,47 +1,48 @@
 ---
-title: Agendar tarefas de Azure Container Registry
-description: Definir temporizadores, para executar uma tarefa de registo de contentor do Azure com base numa agenda definida.
+title: Agendar tarefas do registro de contêiner do Azure
+description: Defina temporizadores para executar uma tarefa de registro de contêiner do Azure em um agendamento definido.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a1123a30025f9be6e994e69703f5ee1aa05d1b49
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509706"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310552"
 ---
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR com base numa agenda definida
+# <a name="run-an-acr-task-on-a-defined-schedule"></a>Executar uma tarefa ACR em um agendamento definido
 
-Este artigo mostra como executar uma [tarefas ACR](container-registry-tasks-overview.md) com base numa agenda. Agendar uma tarefa ao configurar um ou mais *acionadores de temporizadores*. 
+Este artigo mostra como executar uma [tarefa ACR](container-registry-tasks-overview.md) em uma agenda. Agende uma tarefa Configurando um ou mais *gatilhos*de temporizador. 
 
-Agendar uma tarefa é útil para cenários como o seguinte:
+O agendamento de uma tarefa é útil para cenários como o seguinte:
 
-* Execute uma carga de trabalho de contentor para operações de manutenção agendada. Por exemplo, execute uma aplicação em contentores para remover as imagens desnecessárias do seu registo.
-* Execute um conjunto de testes numa imagem de produção durante o dia de trabalho como parte da sua monitorização de sites ativos.
+* Execute uma carga de trabalho de contêiner para operações de manutenção agendadas. Por exemplo, execute um aplicativo em contêiner para remover imagens desnecessárias do registro.
+* Execute um conjunto de testes em uma imagem de produção durante o workday como parte de seu monitoramento de site ativo.
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para executar os exemplos neste artigo. Se gostaria de usá-lo localmente, versão 2.0.68 ou posterior é necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para executar os exemplos neste artigo. Se você quiser usá-lo localmente, a versão 2.0.68 ou posterior será necessária. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli-install].
 
 
 ## <a name="about-scheduling-a-task"></a>Sobre o agendamento de uma tarefa
 
-* **Acionador com a expressão cron** -o acionador de temporizador para uma tarefa utiliza um *expressão cron*. A expressão é uma cadeia de caracteres com cinco campos especificando o minuto, hora, dia, mês e dia da semana para acionar a tarefa. São suportadas as frequências de até uma vez por minuto. 
+* **Gatilho com expressão cron** – o gatilho de temporizador para uma tarefa usa uma *expressão cron*. A expressão é uma cadeia de caracteres com cinco campos especificando o minuto, a hora, o dia, o mês e o dia da semana para disparar a tarefa. Há suporte para frequências de até uma vez por minuto. 
 
-  Por exemplo, a expressão `"0 12 * * Mon-Fri"` aciona uma tarefa ao meio-dia UTC em cada dia da semana. Ver [detalhes](#cron-expressions) mais adiante neste artigo.
-* **Múltiplos acionadores de temporizador** -múltiplos timers para uma tarefa é permitido adicionar, desde que as agendas são diferentes. 
-    * Especifica múltiplos acionadores de temporizador quando criar a tarefa ou adicioná-los mais tarde.
-    * Opcionalmente, atribua um nome os disparadores para facilitar a gestão ou tarefas de ACR irá fornecer nomes de Acionador de padrão.
-    * Se existir sobreposição de agendas de temporizador ao mesmo tempo, as tarefas de ACR aciona a tarefa à hora agendada para cada temporizador. 
-* **Outros acionadores de tarefas** -uma tarefa de acionada por temporizador de mensagens em fila, também pode ativar a acionadores com base na [consolidação de código de origem](container-registry-tutorial-build-task.md) ou [basear as atualizações da imagem](container-registry-tutorial-base-image-update.md). Como outras tarefas ACR, também pode [acionar manualmente][az-acr-task-run] uma tarefa agendada.
+  Por exemplo, a expressão `"0 12 * * Mon-Fri"` dispara uma tarefa às 12h UTC em cada dia da semana. Consulte os [detalhes](#cron-expressions) mais adiante neste artigo.
+* **Vários gatilhos** de temporizador-a adição de vários temporizadores a uma tarefa é permitida, desde que as agendas sejam diferentes. 
+    * Especifique vários gatilhos de temporizador ao criar a tarefa ou adicione-os mais tarde.
+    * Opcionalmente, nomeie os gatilhos para facilitar o gerenciamento, ou as tarefas ACR fornecerão nomes de gatilho padrão.
+    * Se os agendamentos de temporizador se sobrepõem por vez, as tarefas ACR disparam a tarefa no horário agendado para cada temporizador. 
+* **Outros gatilhos de tarefa** – em uma tarefa disparada por temporizador, você também pode habilitar gatilhos com base na [confirmação do código-fonte](container-registry-tutorial-build-task.md) ou em [atualizações da imagem base](container-registry-tutorial-base-image-update.md). Assim como outras tarefas de ACR, você também pode [disparar manualmente][az-acr-task-run] uma tarefa agendada.
 
-## <a name="create-a-task-with-a-timer-trigger"></a>Crie uma tarefa com um acionador de temporizador
+## <a name="create-a-task-with-a-timer-trigger"></a>Criar uma tarefa com um gatilho de temporizador
 
-Quando cria uma tarefa com o [az acr tarefa criar][az-acr-task-create] de comando, opcionalmente, pode adicionar um acionador de temporizador. Adicionar o `--schedule` parâmetro e passar uma expressão cron para o temporizador. 
+Ao criar uma tarefa com o comando [AZ ACR Task Create][az-acr-task-create] , você pode opcionalmente adicionar um gatilho de temporizador. Adicione o `--schedule` parâmetro e passe uma expressão cron para o temporizador. 
 
-Como um exemplo simples, o seguinte comando a executar os acionadores a `hello-world` imagem do Docker Hub todos os dias às 21:00 UTC. A tarefa é executada sem um contexto de código de origem.
+Como um exemplo simples, o comando a seguir dispara a `hello-world` execução da imagem do Hub do Docker todos os dias às 21:00 UTC. A tarefa é executada sem um contexto de código-fonte.
 
 ```azurecli
 az acr task create \
@@ -52,7 +53,7 @@ az acr task create \
   --schedule "0 21 * * *"
 ```
 
-Executar o [show de tarefa az acr][az-acr-task-show] comando para ver que o acionador de temporizador está configurado. Por predefinição, o acionador de atualização da imagem base também está ativado.
+Execute o comando [AZ ACR Task show][az-acr-task-show] para ver que o gatilho do temporizador está configurado. Por padrão, o gatilho de atualização da imagem base também está habilitado.
 
 ```console
 $ az acr task show --name mytask --registry registry --output table
@@ -61,13 +62,13 @@ NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
 ```
 
-Acionar a tarefa com o manualmente [execução da tarefa az acr][az-acr-task-run] para se certificar de que este está configurado corretamente:
+Dispare a tarefa manualmente com [AZ ACR tarefa executada][az-acr-task-run] para garantir que ela esteja configurada corretamente:
 
 ```azurecli
 az acr task run --name mytask --registry myregistry
 ```
 
-Se o contentor é executado com êxito, o resultado é semelhante ao seguinte:
+Se o contêiner for executado com êxito, a saída será semelhante à seguinte:
 
 ```console
 Queued a run with ID: cf2a
@@ -82,13 +83,13 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
-Depois da hora agendada, execute o [az acr tarefas lista-runs][az-acr-task-list-runs] comando para verificar se o timer acionado a tarefa, conforme esperado:
+Após a hora agendada, execute o comando [AZ ACR Task List-executes][az-acr-task-list-runs] para verificar se o temporizador disparou a tarefa como esperado:
 
 ```azurecli
 az acr task list runs --name mytask --registry myregistry --output table
 ``` 
 
-Quando o temporizador é bem-sucedida, o resultado é semelhante ao seguinte:
+Quando o temporizador for bem-sucedido, a saída será semelhante ao seguinte:
 
 ```console
 RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURATION
@@ -98,13 +99,13 @@ cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
             
-## <a name="manage-timer-triggers"></a>Gerir os acionadores de temporizadores
+## <a name="manage-timer-triggers"></a>Gerenciar gatilhos de temporizador
 
-Utilize o [temporizador de tarefa az acr][az-acr-task-timer] comandos para gerir os acionadores de temporizador para uma tarefa do ACR.
+Use os comandos do temporizador de [tarefa AZ ACR][az-acr-task-timer] para gerenciar os gatilhos de temporizador de uma tarefa ACR.
 
-### <a name="add-or-update-a-timer-trigger"></a>Adicionar ou atualizar um acionador de temporizador
+### <a name="add-or-update-a-timer-trigger"></a>Adicionar ou atualizar um gatilho de temporizador
 
-Depois de uma tarefa é criada, opcionalmente, adicione um acionador de temporizador, utilizando o [temporizador de tarefa az acr adicionar][az-acr-task-timer-add] comando. O exemplo seguinte adiciona um nome de Acionador de temporizador *timer2* ao *mytask* criado anteriormente. Este temporizador aciona a tarefa de todos os dias às 10:30 UTC.
+Depois que uma tarefa é criada, adicione opcionalmente um gatilho de temporizador usando o comando [AZ ACR Task cronômetro Add][az-acr-task-timer-add] . O exemplo a seguir adiciona um nome de gatilho de temporizador *timer2* a MyTask criado anteriormente. Esse temporizador dispara a tarefa todos os dias às 10:30 UTC.
 
 ```azurecli
 az acr task timer add \
@@ -114,7 +115,7 @@ az acr task timer add \
   --schedule "30 10 * * *"
 ```
 
-Atualizar a agenda de um acionador existente ou alterar o respetivo estado, utilizando o [atualização do az acr tarefa temporizador][az-acr-task-timer-update] comando. Por exemplo, atualizar o acionador com o nome *timer2* para acionar a tarefa em 11:30 UTC:
+Atualize o agendamento de um gatilho existente ou altere seu status usando o comando [AZ ACR Task timer Update][az-acr-task-timer-update] . Por exemplo, atualize o gatilho chamado *timer2* para disparar a tarefa em 11:30 UTC:
 
 ```azurecli
 az acr task timer update \
@@ -124,9 +125,9 @@ az acr task timer update \
   --schedule "30 11 * * *"
 ```
 
-### <a name="list-timer-triggers"></a>Lista os acionadores de temporizadores
+### <a name="list-timer-triggers"></a>Listar gatilhos de timer
 
-O [lista de temporizador de tarefas do az acr][az-acr-task-timer-list] comando mostra os acionadores de temporizadores definida para uma tarefa:
+O comando [AZ ACR Task timer List][az-acr-task-timer-list] mostra os gatilhos de temporizador configurados para uma tarefa:
 
 ```azurecli
 az acr task timer list --name mytask --registry myregistry
@@ -149,9 +150,9 @@ Exemplo de saída:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Remover um acionador de temporizador 
+### <a name="remove-a-timer-trigger"></a>Remover um gatilho de temporizador 
 
-Utilize o [remover de temporizador de tarefa do az acr][az-acr-task-timer-remove] comando para remover um acionador de temporizador a partir de uma tarefa. O exemplo seguinte remove o *timer2* acionar partir *mytask*:
+Use o comando [AZ ACR Task timer remove][az-acr-task-timer-remove] para remover um gatilho de temporizador de uma tarefa. O exemplo a seguir remove o gatilho *timer2* de MyTask:
 
 ```azurecli
 az acr task timer remove \
@@ -162,43 +163,43 @@ az acr task timer remove \
 
 ## <a name="cron-expressions"></a>Expressões cron
 
-Tarefas de ACR utiliza a [NCronTab](https://github.com/atifaziz/NCrontab) biblioteca interpretar expressões cron. As expressões suportadas no ACR tarefas têm cinco campos obrigatórios, separados por espaços em branco:
+As tarefas ACR usam a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar expressões cron. As expressões com suporte em tarefas ACR têm cinco campos obrigatórios separados por espaço em branco:
 
 `{minute} {hour} {day} {month} {day-of-week}`
 
-O fuso horário utilizado com as expressões cron é a hora Universal Coordenada (UTC). As horas estão no formato de 24 horas.
+O fuso horário usado com as expressões cron é UTC (tempo Universal Coordenado). As horas estão no formato de 24 horas.
 
 > [!NOTE]
-> Tarefas de ACR não suporta o `{second}` ou `{year}` campo em expressões cron. Se copiar uma expressão cron utilizada em outro sistema, certifique-se de que remover esses campos, se forem usados.
+> As tarefas de ACR não dão `{second}` suporte `{year}` ao campo ou em expressões cron. Se você copiar uma expressão cron usada em outro sistema, certifique-se de remover esses campos, se eles forem usados.
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Type  |Exemplo  |Quando acionado  |
+|Type  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
-|Um valor específico |<nobr>"5 * * * *"</nobr>|cada hora em 5 minutos decorridos desde a hora|
-|Todos os valores (`*`)|<nobr>"* 5 * * *"</nobr>|todos os minutos do UTC de 5:00 início a hora (60 vezes por dia)|
+|Um valor específico |<nobr>"5 * * * *"</nobr>|a cada hora às 5 minutos após a hora|
+|Todos os valores`*`()|<nobr>"* 5 * * *"</nobr>|a cada minuto da hora começando em 5:00 UTC (60 vezes por dia)|
 |Um intervalo (`-` operador)|<nobr>"0 1-3 * * *"</nobr>|3 vezes por dia, às 1:00, 2:00 e 3:00 UTC|  
-|Um conjunto de valores (`,` operador)|<nobr>"20,30,40 * * * *"</nobr>|3 vezes por hora, em 20 minutos, 30 minutos e 40 minutos decorridos desde a hora|
-|Um valor de intervalo (`/` operador)|<nobr>"*/10 * * * *"</nobr>|6 vezes por hora, em 10 minutos, 20 minutos e assim por diante, decorridos desde a hora
+|Um conjunto de valores (`,` operador)|<nobr>"20, 30, 40 * * * *"</nobr>|3 vezes por hora, a 20 minutos, 30 minutos e 40 minutos após a hora|
+|Um valor de intervalo`/` (operador)|<nobr>"*/10 * * * *"</nobr>|6 vezes por hora, em 10 minutos, 20 minutos e assim por diante, após a hora
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>Exemplos de cron
 
-|Exemplo|Quando acionado  |
+|Exemplo|Quando disparado  |
 |---------|---------|
 |`"*/5 * * * *"`|uma vez a cada cinco minutos|
 |`"0 * * * *"`|uma vez na parte superior de cada hora|
 |`"0 */2 * * *"`|uma vez a cada duas horas|
-|`"0 9-17 * * *"`|uma vez por hora de 9:00 17:00 UTC|
-|`"30 9 * * *"`|em 9:30 UTC todos os dias|
-|`"30 9 * * 1-5"`|em 9:30 UTC cada dia da semana|
-|`"30 9 * Jan Mon"`|em 9:30 UTC sempre de segunda em Janeiro|
+|`"0 9-17 * * *"`|uma vez a cada hora, de 9:00 a 17:00 UTC|
+|`"30 9 * * *"`|às 9:30 UTC todos os dias|
+|`"30 9 * * 1-5"`|às 9:30 UTC a cada dia da semana|
+|`"30 9 * Jan Mon"`|às 9:30 UTC a cada segunda-feira em janeiro|
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para os exemplos de tarefas acionado por consolidações de código de origem ou uma imagem base, atualizações, consulte a [série de tutoriais de tarefas de ACR](container-registry-tutorial-quick-task.md).
+Para obter exemplos de tarefas disparadas por confirmações de código-fonte ou atualizações de imagem de base, confira a [série de tutoriais de tarefas de ACR](container-registry-tutorial-quick-task.md).
 
 
 

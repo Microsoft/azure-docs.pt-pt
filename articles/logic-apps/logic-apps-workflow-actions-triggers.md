@@ -1,6 +1,6 @@
 ---
-title: Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho - Azure Logic Apps
-description: Guia de referência para os tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
+title: Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho – aplicativos lógicos do Azure
+description: Guia de referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,29 +9,29 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 490131d1743b366b5ac51a5a0fdac4b89ffe08f2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
-ms.translationtype: MT
+ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274170"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260359"
 ---
-# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
+# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
-Esta referência descreve os tipos gerais utilizados para identificar o acionadores e ações na definição de fluxo de trabalho subjacentes da sua aplicação lógica, que é descrito e validadas pelos [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
-Para localizar os acionadores de conector específico e as ações que pode utilizar nas suas aplicações lógicas, consulte a lista sob a [descrição geral dos conectores](https://docs.microsoft.com/connectors/).
+Esta referência descreve os tipos gerais usados para identificar gatilhos e ações na definição de fluxo de trabalho subjacente do aplicativo lógico, que é descrita e validada pela [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md).
+Para localizar gatilhos e ações de conectores específicos que você pode usar em seus aplicativos lógicos, consulte a lista na [visão geral](https://docs.microsoft.com/connectors/)dos conectores.
 
 <a name="triggers-overview"></a>
 
-## <a name="triggers-overview"></a>Descrição geral de acionadores
+## <a name="triggers-overview"></a>Visão geral de gatilhos
 
-Cada fluxo de trabalho inclui um acionador, que define as chamadas de instanciar e iniciar o fluxo de trabalho. Estas são as categorias de Acionador gerais:
+Cada fluxo de trabalho inclui um gatilho, que define as chamadas que instanciam e iniciam o fluxo de trabalho. Aqui estão as categorias gerais de gatilho:
 
-* R *consulta* acionador, que verifica o ponto final de um serviço em intervalos regulares
+* Um  gatilho de sondagem, que verifica o ponto de extremidade de um serviço em intervalos regulares
 
-* R *push* acionador, que cria uma subscrição para um ponto final e fornece um *URL de retorno de chamada* para que o ponto final pode notificar o acionador quando ocorre o evento especificado ou os dados estão disponíveis. O acionador, em seguida, aguarda para resposta do ponto de extremidade antes acionadas. 
+* Um gatilho de *Push* , que cria uma assinatura para um ponto de extremidade e fornece uma *URL de retorno de chamada* para que o ponto de extremidade possa notificar o gatilho quando o evento especificado ocorrer ou se os dados estiverem disponíveis. Em seguida, o gatilho aguarda a resposta do ponto de extremidade antes de disparar. 
 
-Os acionadores têm esses elementos de nível superior, apesar de alguns são opcionais:  
+Os gatilhos têm esses elementos de nível superior, embora alguns sejam opcionais:  
   
 ```json
 "<trigger-name>": {
@@ -50,54 +50,54 @@ Os acionadores têm esses elementos de nível superior, apesar de alguns são op
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*trigger-name*> | String | O nome do acionador | 
-| <*trigger-type*> | String | O tipo de Acionador, como "Http" ou "ApiConnection" | 
-| <*trigger-inputs*> | Objeto JSON | As entradas que definem o comportamento do acionador | 
-| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*number-of-time-units*> | Integer | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*trigger-name*> | Cadeia | O nome do gatilho | 
+| <*trigger-type*> | Cadeia | O tipo de gatilho, como "http" ou "ApiConnection" | 
+| <*trigger-inputs*> | Objeto JSON | As entradas que definem o comportamento do gatilho | 
+| <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Array | Uma matriz que contém um ou mais [condições](#trigger-conditions) que determinar se deve executar o fluxo de trabalho. Disponível apenas para acionadores. | 
-| <*runtime-config-options*> | Objeto JSON | Pode alterar o comportamento de tempo de execução do acionador definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
-| <*splitOn-expression*> | String | Para acionadores que retornam uma matriz, pode especificar uma expressão que [divide ou *debatches* ](#split-on-debatch) matriz de itens em várias instâncias de fluxo de trabalho para processamento. | 
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*matriz com condições*> | Array | Uma matriz que contém uma ou mais [condições](#trigger-conditions) que determinam se o fluxo de trabalho deve ser executado. Disponível somente para gatilhos. | 
+| <*runtime-config-options*> | Objeto JSON | Você pode alterar o comportamento do tempo de `runtimeConfiguration` execução do gatilho definindo propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
+| <*splitOn-expression*> | Cadeia | Para gatilhos que retornam uma matriz, você pode especificar uma expressão que [divida  ou](#split-on-debatch) delotee itens de matriz em várias instâncias de fluxo de trabalho para processamento. | 
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
-## <a name="trigger-types-list"></a>Lista de tipos de Acionador
+## <a name="trigger-types-list"></a>Lista de tipos de gatilho
 
-Cada tipo de Acionador tem uma interface diferente e entradas que definem o comportamento do acionador. 
+Cada tipo de gatilho tem uma interface e entradas diferentes que definem o comportamento do gatilho. 
 
-### <a name="built-in-triggers"></a>Acionadores incorporados
+### <a name="built-in-triggers"></a>Gatilhos internos
 
-| Tipo de Acionador | Descrição | 
+| Tipo de gatilho | Descrição | 
 |--------------|-------------| 
-| [**HTTP**](#http-trigger) | Verifica ou *inquéritos* qualquer ponto final. Este ponto final deve estar em conformidade com um contrato de Acionador específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
-| [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica, mas chama o URL especificado para registar ou anular o registo. |
-| [**Recurrence**](#recurrence-trigger) | É acionado com base numa agenda definida. Pode definir uma data futura e a hora para trabalharem este acionador. Com base na frequência, também pode especificar tempos e dias para a execução de seu fluxo de trabalho. | 
-| [**Request**](#request-trigger)  | Cria um ponto final que pode ser chamado para a aplicação lógica e também é conhecido como um acionador "manual". Por exemplo, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**HTTP**](#http-trigger) | Verifica ou *sonda* qualquer ponto de extremidade. Esse ponto de extremidade deve estar em conformidade com um contrato de gatilho específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
+| [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto de extremidade chamável para seu aplicativo lógico, mas chama a URL especificada para registrar ou cancelar o registro. |
+| [**Recurrence**](#recurrence-trigger) | Dispara com base em um agendamento definido. Você pode definir uma data e hora futuras para disparar esse gatilho. Com base na frequência, você também pode especificar horas e dias para executar o fluxo de trabalho. | 
+| [**Request**](#request-trigger)  | Cria um ponto de extremidade que possa ser chamado para seu aplicativo lógico e também é conhecido como gatilho "manual". Por exemplo, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
-### <a name="managed-api-triggers"></a>Acionadores de API geridos
+### <a name="managed-api-triggers"></a>Gatilhos de API gerenciada
 
-| Tipo de Acionador | Descrição | 
+| Tipo de gatilho | Descrição | 
 |--------------|-------------| 
-| [**ApiConnection**](#apiconnection-trigger) | Verifica ou *inquéritos* um ponto de extremidade usando [APIs geridas pela Microsoft](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Cria um ponto final que pode ser chamado para a aplicação lógica chamando [APIs geridas pela Microsoft](../connectors/apis-list.md) para subscrever e anular a subscrição. | 
+| [**ApiConnection**](#apiconnection-trigger) | Verifica ou *sonda* um ponto de extremidade usando [APIs gerenciadas pela Microsoft](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Cria um ponto de extremidade chamável para seu aplicativo lógico chamando [APIs gerenciadas pela Microsoft](../connectors/apis-list.md) para assinar e cancelar a assinatura. | 
 ||| 
 
-## <a name="triggers---detailed-reference"></a>Acionadores - referência detalhada
+## <a name="triggers---detailed-reference"></a>Gatilhos-referência detalhada
 
 <a name="apiconnection-trigger"></a>
 
-### <a name="apiconnection-trigger"></a>Acionador de APIConnection  
+### <a name="apiconnection-trigger"></a>Gatilho APIConnection  
 
-Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs geridas pela Microsoft](../connectors/apis-list.md) para que os parâmetros para este acionador pode diferir com base no ponto final. Muitas secções nesta definição de Acionador são opcionais. Comportamento do acionador depende se pretende ou não estão incluídas secções.
+Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciadas pela Microsoft](../connectors/apis-list.md) para que os parâmetros para esse gatilho possam diferir com base no ponto de extremidade. Muitas seções nessa definição de gatilho são opcionais. O comportamento do gatilho depende se as seções estão incluídas ou não.
 
 ```json
 "<APIConnection_trigger_name>": {
@@ -130,40 +130,40 @@ Este acionador verifica ou *inquéritos* um ponto de extremidade usando [APIs ge
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | O nome do acionador | 
-| <*connection-name*> | String | O nome para a ligação para a API gerenciada que utiliza o fluxo de trabalho | 
-| <*method-type*> | String | O método HTTP para comunicar com a API gerenciada: "GET", "COLOCAR", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | String | A operação de API de chamada | 
-| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*number-of-time-units*> | Integer | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*APIConnection_trigger_name*> | Cadeia | O nome do gatilho | 
+| <*nome da conexão*> | Cadeia | O nome da conexão com a API gerenciada que o fluxo de trabalho usa | 
+| <*tipo de método*> | Cadeia | O método HTTP para se comunicar com a API gerenciada: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*api-operation*> | Cadeia | A operação de API para chamar | 
+| <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a API de chamam. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*max-runs*> | Integer | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). |
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API. Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*splitOn-expression*> | Cadeia | Para gatilhos que retornam matrizes, essa expressão faz referência à matriz a ser usada para que você possa criar e executar uma instância de fluxo de trabalho para cada item de matriz, em vez de usar um loop "for each". <p>Por exemplo, essa expressão representa um item na matriz retornada no conteúdo do corpo do gatilho:`@triggerbody()?['value']` |
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). |
 ||||
 
 *Saídas*
  
-| Elemento | Tipo | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------|
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta |
-| Corpo | Objeto JSON | O corpo da resposta |
-| Código de estado | Integer | O código de estado da resposta |
+| Conector | Objeto JSON | Os cabeçalhos da resposta |
+| Conteúdo | Objeto JSON | O corpo da resposta |
+| Código de status | Número inteiro | O código de status da resposta |
 |||| 
 
 *Exemplo*
 
-Esta definição de Acionador verifica a existência de correio eletrónico todos os dias dentro da caixa de entrada para uma conta do Outlook do Office 365: 
+Essa definição de gatilho verifica o email todos os dias dentro da caixa de entrada de uma conta do Outlook do Office 365: 
 
 ```json
 "When_a_new_email_arrives": {
@@ -192,9 +192,9 @@ Esta definição de Acionador verifica a existência de correio eletrónico todo
 
 <a name="apiconnectionwebhook-trigger"></a>
 
-### <a name="apiconnectionwebhook-trigger"></a>Acionador de ApiConnectionWebhook
+### <a name="apiconnectionwebhook-trigger"></a>Gatilho ApiConnectionWebhook
 
-Este acionador envia um pedido de subscrição para um ponto de extremidade através de um [API gerida pela Microsoft](../connectors/apis-list.md), fornece um *URL de retorno de chamada* para onde o ponto final pode enviar uma resposta e aguarda para o ponto final responder. Para obter mais informações, consulte [as assinaturas do ponto de extremidade](#subscribe-unsubscribe).
+Esse gatilho envia uma solicitação de assinatura para um ponto de extremidade usando uma [API gerenciada pela Microsoft](../connectors/apis-list.md), fornece uma URL de *retorno de chamada* para onde o ponto de extremidade pode enviar uma resposta e aguarda o ponto de extremidade responder. Para obter mais informações, consulte as [assinaturas do ponto de extremidade](#subscribe-unsubscribe).
 
 ```json
 "<ApiConnectionWebhook_trigger_name>": {
@@ -224,27 +224,27 @@ Este acionador envia um pedido de subscrição para um ponto de extremidade atra
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*connection-name*> | String | O nome para a ligação para a API gerenciada que utiliza o fluxo de trabalho | 
-| <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem para enviar como carga para a API gerenciada | 
+| <*nome da conexão*> | Cadeia | O nome da conexão com a API gerenciada que o fluxo de trabalho usa | 
+| <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar como carga para a API gerenciada | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*max-runs*> | Integer | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*splitOn-expression*> | String | Para acionadores que retornam as matrizes, essa expressão referencia a matriz de usar para que pode criar e executar uma instância de fluxo de trabalho para cada item da matriz, em vez de usar um loop "for each". <p>Por exemplo, esta expressão representa um item na matriz devolvida no conteúdo do corpo do acionador: `@triggerbody()?['value']` |
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*splitOn-expression*> | Cadeia | Para gatilhos que retornam matrizes, essa expressão faz referência à matriz a ser usada para que você possa criar e executar uma instância de fluxo de trabalho para cada item de matriz, em vez de usar um loop "for each". <p>Por exemplo, essa expressão representa um item na matriz retornada no conteúdo do corpo do gatilho:`@triggerbody()?['value']` |
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Exemplo*
 
-Esta definição de Acionador assina a API do Office 365 Outlook, um URL de retorno de chamada para o ponto final da API e aguarda que o ponto final para responder quando chega um novo e-mail.
+Essa definição de gatilho assina a API do Outlook do Office 365, fornece uma URL de retorno de chamada para o ponto de extremidade da API e aguarda o ponto de extremidade responder quando um novo email chegar.
 
 ```json
 "When_a_new_email_arrives_(webhook)": {
@@ -273,7 +273,7 @@ Esta definição de Acionador assina a API do Office 365 Outlook, um URL de reto
 
 ### <a name="http-trigger"></a>Acionador HTTP
 
-Este acionador verifica ou consulta o ponto final especificado com base na agenda de periodicidade especificados. Resposta do ponto de extremidade determina se o fluxo de trabalho é executada.
+Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na agenda de recorrência especificada. A resposta do ponto de extremidade determina se o fluxo de trabalho é executado.
 
 ```json
 "HTTP": {
@@ -303,67 +303,67 @@ Este acionador verifica ou consulta o ponto final especificado com base na agend
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*method-type*> | String | O método HTTP a utilizar para consultar o ponto final especificado: "GET", "COLOCAR", "POST", "PATCH", "DELETE" | 
-| <*endpoint-URL*> | String | O HTTP ou HTTPS URL para o ponto final para consultar <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
-| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*number-of-time-units*> | Integer | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*tipo de método*> | Cadeia | O método HTTP a ser usado para sondar o ponto de extremidade especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
+| <*endpoint-URL*> | Cadeia | A URL HTTP ou HTTPS para o ponto de extremidade para sondagem <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
+| <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*header-content*> | Objeto JSON | Os cabeçalhos para enviar com o pedido <p>Por exemplo, para definir o idioma e o tipo de um pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | String | O conteúdo da mensagem a enviar como payload com o pedido | 
-| <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). Além do Scheduler, o `authority` propriedade é suportada. Quando não especificado, o valor predefinido é `https://login.windows.net`, mas pode usar um valor diferente, como`https://login.windows\-ppe.net`. |
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
- <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com o pedido <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` ao pedido. | 
-| <*max-runs*> | Integer | Por predefinição, as instâncias de fluxo de trabalho são executados ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*header-content*> | Objeto JSON | Os cabeçalhos a serem enviados com a solicitação <p>Por exemplo, para definir o idioma e o tipo de uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | Cadeia | O conteúdo da mensagem a ser enviada como carga com a solicitação | 
+| <*método de autenticação*> | Objeto JSON | O método usado pela solicitação para autenticação. Para obter mais informações, consulte [autenticação de saída](../scheduler/scheduler-outbound-authentication.md)do Agendador. Além do Agendador, `authority` há suporte para a propriedade. Quando não especificado, o valor padrão é `https://login.windows.net`, mas você pode usar um valor diferente,`https://login.windows\-ppe.net`como. |
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
+ <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a solicitação <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à solicitação. | 
+| <*max-runs*> | Número inteiro | Por padrão, as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Saídas*
 
-| Elemento | Tipo | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| Corpo | Objeto JSON | O corpo da resposta | 
-| Código de estado | Integer | O código de estado da resposta | 
+| Conector | Objeto JSON | Os cabeçalhos da resposta | 
+| Conteúdo | Objeto JSON | O corpo da resposta | 
+| Código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
-*Requisitos para pedidos recebidos*
+*Requisitos para solicitações de entrada*
 
-Para funcionar bem com a sua aplicação lógica, o ponto final tem de estar em conformidade com um padrão de Acionador específico ou um contrato e reconhecer estas propriedades:  
+Para funcionar bem com seu aplicativo lógico, o ponto de extremidade deve estar em conformidade com um padrão ou contrato de gatilho específico e reconhecer essas propriedades:  
   
 | Resposta | Necessário | Descrição | 
 |----------|----------|-------------| 
-| Código de estado | Sim | O "200 OK" código de estado inicia a execução. Qualquer outro código de estado não iniciar uma execução. | 
-| Cabeçalho retry-after | Não | O número de segundos até que a sua aplicação lógica consulta o ponto final novamente | 
-| Cabeçalho de localização | Não | O URL em que o intervalo de consulta seguinte. Se não for especificado, o URL original é utilizado. | 
+| Código de estado | Sim | O código de status "200 OK" inicia uma execução. Qualquer outro código de status não inicia uma execução. | 
+| Cabeçalho repetir-após | Não | O número de segundos até o aplicativo lógico sondar o ponto de extremidade novamente | 
+| Cabeçalho do local | Não | A URL a ser chamada no próximo intervalo de sondagem. Se não for especificado, a URL original será usada. | 
 |||| 
 
-*Comportamentos de exemplo para diferentes solicitações*
+*Comportamentos de exemplo para solicitações diferentes*
 
-| Código de estado | Repetir após | Comportamento | 
+| Código de estado | Tentar novamente após | Comportamento | 
 |-------------|-------------|----------|
-| 200 | {num} | Executar o fluxo de trabalho, em seguida, verificar novamente para obter mais dados após a periodicidade definida. | 
-| 200 | 10 segundos | Executar o fluxo de trabalho, em seguida, verificar novamente para obter mais dados após 10 segundos. |  
-| 202 | 60 segundos | Não acione o fluxo de trabalho. Da próxima tentativa ocorre num minuto, sujeitos a periodicidade definido. Se a periodicidade definida é de menos de um minuto, o cabeçalho retry-after tem precedência. Caso contrário, é utilizada a periodicidade definida. | 
-| 400 | {num} | Pedido inválido, não execute o fluxo de trabalho. Se não `retryPolicy` é definida, a política predefinida é utilizado. Depois do número de tentativas foi atingido, o acionador verifica novamente para os dados após a periodicidade definida. | 
-| 500 | {num}| Erro de servidor, não executar o fluxo de trabalho. Se não `retryPolicy` é definida, a política predefinida é utilizado. Depois do número de tentativas foi atingido, o acionador verifica novamente para os dados após a periodicidade definida. | 
+| 200 | None | Execute o fluxo de trabalho e verifique novamente se há mais dados após a recorrência definida. | 
+| 200 | 10 segundos | Execute o fluxo de trabalho e verifique novamente se há mais dados após 10 segundos. |  
+| 202 | 60 segundos | Não dispare o fluxo de trabalho. A próxima tentativa ocorrerá em um minuto, sujeito à recorrência definida. Se a recorrência definida for menor que um minuto, o cabeçalho Retry-After terá precedência. Caso contrário, a recorrência definida será usada. | 
+| 400 | None | Solicitação inadequada, não execute o fluxo de trabalho. Se não `retryPolicy` for definido, a política padrão será usada. Depois que o número de repetições for atingido, o gatilho verificará novamente os dados após a recorrência definida. | 
+| 500 | None| Erro do servidor, não execute o fluxo de trabalho. Se não `retryPolicy` for definido, a política padrão será usada. Depois que o número de repetições for atingido, o gatilho verificará novamente os dados após a recorrência definida. | 
 |||| 
 
 <a name="http-webhook-trigger"></a>
 
-### <a name="httpwebhook-trigger"></a>Acionador de HTTPWebhook  
+### <a name="httpwebhook-trigger"></a>Gatilho HTTPWebhook  
 
-Este acionador torna a sua aplicação lógica pode ser chamada através da criação de um ponto final que pode registrar uma assinatura ao chamar o URL de ponto final especificado. Quando cria este acionador no seu fluxo de trabalho, um pedido de saída faz a chamada para registar a subscrição. Dessa forma, o acionador pode começar a ouvir eventos. Quando uma operação faz este acionador inválido, um pedido de saída torna a chamada para cancelar a subscrição. Para obter mais informações, consulte [as assinaturas do ponto de extremidade](#subscribe-unsubscribe).
+Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode registrar uma assinatura chamando a URL de ponto de extremidade especificada. Quando você cria esse gatilho em seu fluxo de trabalho, uma solicitação de saída faz a chamada para registrar a assinatura. Dessa forma, o gatilho pode iniciar a escuta de eventos. Quando uma operação torna esse gatilho inválido, uma solicitação de saída faz automaticamente a chamada para cancelar a assinatura. Para obter mais informações, consulte as [assinaturas do ponto de extremidade](#subscribe-unsubscribe).
 
-Também pode especificar [limites assíncronas](#asynchronous-limits) num **HTTPWebhook** acionador.
-Comportamento do acionador depende as secções que se utilizar ou omita a. 
+Você também pode especificar [limites assíncronos](#asynchronous-limits) em um gatilho **HTTPWebhook** .
+O comportamento do gatilho depende das seções que você usa ou omite. 
 
 ```json
 "HTTP_Webhook": {
@@ -396,42 +396,42 @@ Comportamento do acionador depende as secções que se utilizar ou omita a.
 }
 ```
 
-Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os `"subscribe"` e `"unsubscribe"` objetos.
+Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subscribe"` objetos e. `"unsubscribe"`
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*method-type*> | String | O método HTTP a utilizar para o pedido de subscrição: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
-| <*endpoint-subscribe-URL*> | String | O URL de ponto final para onde enviar o pedido de subscrição | 
+| <*tipo de método*> | Cadeia | O método HTTP a ser usado para a solicitação de assinatura: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*endpoint-subscribe-URL*> | Cadeia | A URL do ponto de extremidade para onde enviar a solicitação de assinatura | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*method-type*> | String | O método HTTP a utilizar para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
-| <*endpoint-unsubscribe-URL*> | String | O URL de ponto final para onde enviar a solicitação de cancelamento | 
-| <*body-content*> | String | Qualquer conteúda enviar o pedido de subscrição ou cancelamento de mensagem | 
-| <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). |
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Integer | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*tipo de método*> | Cadeia | O método HTTP a ser usado para a solicitação de cancelamento: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*endpoint-unsubscribe-URL*> | Cadeia | A URL do ponto de extremidade para onde enviar a solicitação de cancelamento | 
+| <*body-content*> | Cadeia | Qualquer conteúdo de mensagem para enviar na solicitação de assinatura ou cancelamento | 
+| <*método de autenticação*> | Objeto JSON | O método usado pela solicitação para autenticação. Para obter mais informações, consulte [autenticação de saída](../scheduler/scheduler-outbound-authentication.md)do Agendador. |
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Saídas* 
 
-| Elemento | Tipo | Descrição |
+| Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Cabeçalhos | Objeto JSON | Os cabeçalhos da resposta | 
-| Corpo | Objeto JSON | O corpo da resposta | 
-| Código de estado | Integer | O código de estado da resposta | 
+| Conector | Objeto JSON | Os cabeçalhos da resposta | 
+| Conteúdo | Objeto JSON | O corpo da resposta | 
+| Código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Exemplo*
 
-Este acionador cria uma subscrição para o ponto final especificado, fornece um URL de retorno de chamada exclusivos e aguarda artigos sobre tecnologia recentemente publicado.
+Esse gatilho cria uma assinatura para o ponto de extremidade especificado, fornece uma URL de retorno de chamada exclusiva e aguarda artigos de tecnologia publicados recentemente.
 
 ```json
 "HTTP_Webhook": {
@@ -461,9 +461,9 @@ Este acionador cria uma subscrição para o ponto final especificado, fornece um
 
 <a name="recurrence-trigger"></a>
 
-### <a name="recurrence-trigger"></a>Acionador de periodicidade  
+### <a name="recurrence-trigger"></a>Gatilho de recorrência  
 
-Este acionador é executado com base na agenda de periodicidade especificados e fornece uma forma fácil para criar um fluxo de trabalho regularmente em execução. 
+Esse gatilho é executado com base na agenda de recorrência especificada e fornece uma maneira fácil de criar um fluxo de trabalho em execução regularmente. 
 
 ```json
 "Recurrence": {
@@ -496,27 +496,27 @@ Este acionador é executado com base na agenda de periodicidade especificados e 
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*time-unit*> | String | A unidade de tempo que descreve a frequência com que o acionador é acionado: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*number-of-time-units*> | Integer | Um valor que especifica a frequência com que o acionador é acionado com base na frequência, o que é o número de unidades de tempo de espera até que o acionador é acionado novamente <p>Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", a periodicidade é a cada 6 meses. | 
+| <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | A data de início e a hora neste formato: <p>AAAA-MM-ddTHH se especificar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não especificar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e especificar um fuso horário, como "Hora padrão do Pacífico", ou "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não especificar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. Para obter mais informações sobre datas de início e horas, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
-| <*time-zone*> | String | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que pretende aplicar. | 
-| <*one-or-more-hour-marks*> | Número inteiro ou matriz de números inteiros | Se especificar "Dia" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 23, separados por vírgulas, como as horas do dia que deseja executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", obter 10 AM e PM 2 como as marcas de hora 12 PM. | 
-| <*one-or-more-minute-marks*> | Número inteiro ou matriz de números inteiros | Se especificar "Day" ou "Week" para `frequency`, pode especificar um ou mais números inteiros de 0 a 59, separados por vírgulas, como os minutos da hora quando quiser executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e usando o exemplo anterior de horas do dia, obtém 10:30, 12 17:30 e 2 17:30. | 
-| weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se especificar "Week" para `frequency`, pode especificar um ou mais dias, separados por vírgulas, quando deseja executar o fluxo de trabalho: "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado" e "Domingo" | 
-| <*max-runs*> | Integer | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*Data de início-hora-com-formato-AAAA-MM-DDThh: mm: SS*> | Cadeia | A data e a hora de início neste formato: <p>AAAA-MM-DDThh: mm: SS se você especificar um fuso horário <p>-ou- <p>AAAA-MM-DDThh: mm: ssZ se você não especificar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 2:00 PM, especifique "2017-09-18T14:00:00" e especifique um fuso horário como "hora padrão do Pacífico" ou especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** Essa hora de início deve seguir a especificação de data e hora [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem um [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não especificar um fuso horário, deverá adicionar a letra "Z" no final sem espaços. Esse "Z" refere-se ao [tempo náuticas](https://en.wikipedia.org/wiki/Nautical_time)equivalente. <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o gatilho não é acionado antes da hora de início. Para obter mais informações sobre datas e horários de início, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md). | 
+| <*fuso horário*> | Cadeia | Aplica-se somente quando você especifica uma hora de início porque esse gatilho não aceita o [deslocamento UTC](https://en.wikipedia.org/wiki/UTC_offset). Especifique o fuso horário que você deseja aplicar. | 
+| <*uma ou mais marcas de hora*> | Matriz de inteiro ou de inteiro | Se você especificar "Day" ou "Week" para `frequency`, poderá especificar um ou mais inteiros de 0 a 23, separados por vírgulas, como as horas do dia em que você deseja executar o fluxo de trabalho. <p>Por exemplo, se você especificar "10", "12" e "14", obterá 10 A.M., 12 PM e 2 PM como as marcas de hora. | 
+| <*one-or-more-minute-marks*> | Matriz de inteiro ou de inteiro | Se você especificar "Day" ou "Week" para `frequency`, poderá especificar um ou mais inteiros de 0 a 59, separados por vírgulas, como os minutos da hora em que você deseja executar o fluxo de trabalho. <p>Por exemplo, você pode especificar "30" como a marca de minuto e usar o exemplo anterior para horas do dia, você recebe 10:30, 12:30 PM e 2:30 PM. | 
+| weekDays | Matriz de cadeia de caracteres ou cadeia de caracteres | Se você especificar "semana" para `frequency`, poderá especificar um ou mais dias, separados por vírgulas, quando desejar executar o fluxo de trabalho: "Segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado" e "domingo" | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Exemplo 1*
 
-Este acionador de periodicidade básica é executada diariamente:
+Este gatilho de recorrência básico é executado diariamente:
 
 ```json
 "Recurrence": {
@@ -530,7 +530,7 @@ Este acionador de periodicidade básica é executada diariamente:
 
 *Exemplo 2*
 
-Pode especificar uma data de início e hora para a ativação do acionador. Este acionador de periodicidade começa na data especificada e, em seguida, é acionado diariamente:
+Você pode especificar uma data e hora de início para acionar o gatilho. Este gatilho de recorrência começa na data especificada e, em seguida, é acionado diariamente:
 
 ```json
 "Recurrence": {
@@ -545,7 +545,7 @@ Pode especificar uma data de início e hora para a ativação do acionador. Este
 
 *Exemplo 3*
 
-Este acionador de periodicidade começa em 9 de Setembro de 2017 em às 14:00 e é acionado semanalmente cada segunda-feira às 10:30, 12 17:30 e 2 17:30, horário do Pacífico:
+Este gatilho de recorrência começa em 9 de setembro de 2017 às 2:00 e é acionado semanalmente a cada segunda-feira às 10:30 AM, 12:30 PM e 2:30 PM hora oficial do Pacífico:
 
 ``` json
 "Recurrence": {
@@ -564,15 +564,15 @@ Este acionador de periodicidade começa em 9 de Setembro de 2017 em às 14:00 e 
 }
 ```
 
-Para obter mais informações e exemplos para este acionador, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md).
+Para obter mais informações e exemplos para esse gatilho, consulte [criar e agendar tarefas em execução regularmente](../connectors/connectors-native-recurrence.md).
 
 <a name="request-trigger"></a>
 
-### <a name="request-trigger"></a>Acionador de pedido
+### <a name="request-trigger"></a>Gatilho de solicitação
 
-Este acionador torna a sua aplicação lógica pode ser chamada através da criação de um ponto final que pode aceitar os pedidos recebidos. Para este acionador, forneça um esquema JSON que descreve e valida a carga ou entradas que o acionador recebe da solicitação recebida. O esquema também facilita a propriedades de Acionador para referência de ações subsequentes no fluxo de trabalho. 
+Esse gatilho torna seu aplicativo lógico chamável criando um ponto de extremidade que pode aceitar solicitações de entrada. Para esse gatilho, forneça um esquema JSON que descreve e valida a carga ou as entradas que o gatilho recebe da solicitação de entrada. O esquema também torna as propriedades de gatilho mais fáceis de fazer referência a partir de ações posteriores no fluxo de trabalho. 
 
-Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está descrito com o [API de REST do serviço de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Para saber como utilizar este acionador como um ponto final HTTP, veja [chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md).
+Para chamar esse gatilho, você deve usar a `listCallbackUrl` API, que é descrita na [API REST do serviço de fluxo de trabalho](https://docs.microsoft.com/rest/api/logic/workflows). Para saber como usar esse gatilho como um ponto de extremidade HTTP, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidades http](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
@@ -605,25 +605,25 @@ Para chamar este acionador, tem de utilizar o `listCallbackUrl` API, que está d
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*property-name*> | String | O nome de uma propriedade no esquema JSON, que descreve o payload | 
-| <*property-type*> | String | O tipo de propriedade | 
+| <*nome da propriedade*> | Cadeia | O nome de uma propriedade no esquema JSON, que descreve a carga | 
+| <*property-type*> | Cadeia | O tipo da propriedade | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*method-type*> | String | O método que solicitações de entrada tem de utilizar para chamar a sua aplicação lógica: "GET", "COLOCAR", "POST", "PATCH", "DELETE" |
-| <*relative-path-for-accepted-parameter*> | String | O caminho relativo para o parâmetro que pode aceitar o URL do ponto de extremidade | 
-| <*required-properties*> | Array | Uma ou mais propriedades que necessitam de valores | 
-| <*max-runs*> | Integer | Por predefinição, todos os de instâncias de fluxo de trabalho executadas ao mesmo tempo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [simultaneidade de Acionador de alteração](#change-trigger-concurrency). | 
-| <*max-runs-queue*> | Integer | Quando o fluxo de trabalho já está em execução o número máximo de instâncias, que pode alterar com base na `runtimeConfiguration.concurrency.runs` propriedade, quaisquer novas execuções são colocadas nesta fila de cópia de segurança o [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | 
-| <*operation-option*> | String | Pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*tipo de método*> | Cadeia | O método que as solicitações de entrada devem usar para chamar seu aplicativo lógico: "GET", "PUT", "POST", "PATCH", "DELETE" |
+| <*relative-path-for-accepted-parameter*> | Cadeia | O caminho relativo para o parâmetro que a URL do ponto de extremidade pode aceitar | 
+| <*obrigatório-Propriedades*> | Array | Uma ou mais propriedades que exigem valores | 
+| <*max-runs*> | Número inteiro | Por padrão, todas as instâncias de fluxo de trabalho são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar simultaneidade de gatilho](#change-trigger-concurrency). | 
+| <*max-runs-queue*> | Número inteiro | Quando o fluxo de trabalho já estiver executando o número máximo de instâncias, que podem ser alteradas `runtimeConfiguration.concurrency.runs` com base na propriedade, todas as novas execuções serão colocadas nessa fila até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | 
+| <*operation-option*> | Cadeia | Você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 *Exemplo*
 
-Este acionador Especifica que uma solicitação de entrada tem de utilizar o método HTTP POST para chamar o acionador e inclui um esquema que valida a entrada da solicitação recebida: 
+Esse gatilho especifica que uma solicitação de entrada deve usar o método HTTP POST para chamar o gatilho e inclui um esquema que valida a entrada da solicitação de entrada: 
 
 ```json
 "manual": {
@@ -656,11 +656,11 @@ Este acionador Especifica que uma solicitação de entrada tem de utilizar o mé
 
 <a name="trigger-conditions"></a>
 
-## <a name="trigger-conditions"></a>Condições de acionamento
+## <a name="trigger-conditions"></a>Condições do gatilho
 
-Para qualquer acionador e apenas acionadores, pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar o `conditions` propriedade para um acionador de fluxo de trabalho, abra a aplicação lógica no editor de vista de código.
+Para qualquer gatilho e somente gatilhos, você pode incluir uma matriz que contém uma ou mais expressões para condições que determinam se o fluxo de trabalho deve ser executado. Para adicionar a `conditions` Propriedade a um gatilho em seu fluxo de trabalho, abra seu aplicativo lógico no editor de exibição de código.
 
-Por exemplo, pode especificar que um acionador é acionado quando um Web site retorna apenas um erro de servidor interno referenciando o código de estado do acionador no `conditions` propriedade:
+Por exemplo, você pode especificar que um gatilho seja acionado somente quando um site retornar um erro de servidor interno referenciando o código de status `conditions` do gatilho na propriedade:
 
 ```json
 "Recurrence": {
@@ -675,25 +675,25 @@ Por exemplo, pode especificar que um acionador é acionado quando um Web site re
 }
 ```
 
-Por predefinição, um acionador é acionado apenas depois de obter um "200 OK" resposta. Quando uma expressão fizer referência a código de estado de um acionador, o comportamento predefinido do acionador é substituído. Então, se pretender que o acionador a acionar para mais do que um código de estado, por exemplo, "200" e o código de estado "201", tem de incluir esta expressão como sua condição: 
+Por padrão, um gatilho é acionado somente depois de obter uma resposta "200 OK". Quando uma expressão referencia o código de status de um gatilho, o comportamento padrão do gatilho é substituído. Portanto, se você quiser que o gatilho seja acionado para mais de um código de status, como o código de status "200" e "201", você deve incluir essa expressão como sua condição: 
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
 <a name="split-on-debatch"></a>
 
-## <a name="trigger-multiple-runs"></a>Acionar várias execuções
+## <a name="trigger-multiple-runs"></a>Disparar várias execuções
 
-Se o acionador retorna uma matriz para a sua aplicação lógica processar, às vezes, um loop "for each" poderá demorar demasiado tempo a processar cada item da matriz. Em vez disso, pode utilizar o **SplitOn** propriedade no seu acionador para *debatch* a matriz. Divisões, divida os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item da matriz. Essa abordagem é útil, por exemplo, quando quer consultar um ponto de extremidade que pode devolver vários itens novos entre intervalos de consulta.
-Para o número máximo de matriz de itens que **SplitOn** pode processar numa execução de aplicação lógica única, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Se o gatilho retornar uma matriz para o aplicativo lógico processar, às vezes um loop "for each" pode demorar muito para processar cada item da matriz. Em vez disso, você pode  usar a propriedade splitize em seu gatilho para deslote da matriz. O desenvio em lote divide os itens de matriz e inicia uma nova instância de fluxo de trabalho que é executada para cada item de matriz. Essa abordagem é útil, por exemplo, quando você deseja sondar um ponto de extremidade que possa retornar vários novos itens entre intervalos de sondagem.
+Para o número máximo de itens de matriz que a **divisão** pode processar em uma única execução de aplicativo lógico, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
-> Não é possível usar **SplitOn** com um padrão de resposta síncrona. Qualquer fluxo de trabalho que utiliza **SplitOn** e inclui uma resposta de ação é executada de forma assíncrona e enviará imediatamente uma `202 ACCEPTED` resposta.
+> Não é possível usar a **divisão** com um padrão de resposta síncrona. Qualquer fluxo de trabalho que usa a **divisão** e inclui uma ação de resposta é executado de `202 ACCEPTED` forma assíncrona e envia imediatamente uma resposta.
 
-Se o ficheiro de Swagger do acionador descreve uma carga que é uma matriz, o **SplitOn** propriedade é automaticamente adicionada ao seu acionador. Caso contrário, adicione esta propriedade no payload de resposta que tenha a matriz que pretende debatch. 
+Se o arquivo Swagger do gatilho descrever uma carga que é uma matriz, a propriedade de **divisão** será adicionada automaticamente ao gatilho. Caso contrário, adicione essa propriedade dentro da carga de resposta que tem a matriz que você deseja deslotear. 
 
 *Exemplo*
 
-Suponha que tenha uma API que retorna essa resposta: 
+Suponha que você tenha uma API que retorne esta resposta: 
   
 ```json
 {
@@ -711,7 +711,7 @@ Suponha que tenha uma API que retorna essa resposta:
 }
 ```
  
-A aplicação lógica precisa apenas o conteúdo da matriz no `Rows`, para que possa criar um acionador semelhante a este exemplo:
+Seu aplicativo lógico precisa apenas do conteúdo da matriz no `Rows`, para que você possa criar um gatilho como este exemplo:
 
 ``` json
 "HTTP_Debatch": {
@@ -729,11 +729,11 @@ A aplicação lógica precisa apenas o conteúdo da matriz no `Rows`, para que p
 ```
 
 > [!NOTE]
-> Se utilizar o `SplitOn` de comando, não é possível obter as propriedades que estão fora da matriz. Portanto, neste exemplo, não é possível obter o `status` devolvido de propriedade na resposta da API.
+> Se você usar o `SplitOn` comando, não poderá obter as propriedades que estão fora da matriz. Portanto, para este exemplo, você não pode `status` obter a propriedade na resposta retornada da API.
 > 
-> Para evitar uma falha se o `Rows` propriedade não existir, este exemplo utiliza o `?` operador.
+> Para evitar uma falha se a `Rows` propriedade não existir, este exemplo usará `?` o operador.
 
-A definição de fluxo de trabalho pode agora utilizar `@triggerBody().name` para obter o `name` valores, que são `"customer-name-one"` de primeira execução e `"customer-name-two"` da segunda execução. Então, o acionador produz olhada, como nestes exemplos:
+Sua definição de fluxo de trabalho `@triggerBody().name` agora pode usar `name` para obter os valores `"customer-name-one"` , que são da primeira `"customer-name-two"` execução e da segunda execução. Portanto, as saídas do gatilho são semelhantes a estes exemplos:
 
 ```json
 {
@@ -755,11 +755,11 @@ A definição de fluxo de trabalho pode agora utilizar `@triggerBody().name` par
 
 <a name="actions-overview"></a>
 
-## <a name="actions-overview"></a>Descrição geral de ações
+## <a name="actions-overview"></a>Visão geral das ações
 
-O Azure Logic Apps fornece vários tipos de ação - cada uma com diferentes entradas que definem o comportamento exclusivo de uma ação. 
+Os aplicativos lógicos do Azure fornecem vários tipos de ação, cada um com entradas diferentes que definem o comportamento exclusivo de uma ação. 
 
-Ações têm esses elementos de alto nível, embora alguns são opcionais:
+As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 ```json
 "<action-name>": {
@@ -778,43 +778,43 @@ Ações têm esses elementos de alto nível, embora alguns são opcionais:
 
 | Value | Type | Descrição | 
 |-------|------|-------------|
-| <*action-name*> | String | O nome da ação | 
-| <*action-type*> | String | O tipo de ação, por exemplo, "Http" ou "ApiConnection"| 
-| <*input-name*> | String | O nome de entrada que define o comportamento da ação | 
-| <*input-value*> | Vários | O valor de entrada, que pode ser uma cadeia de caracteres, inteiros, objeto JSON e assim por diante | 
-| <*previous-trigger-or-action-status*> | Objeto JSON | O nome e o resultado de estado para o acionador ou ação que tem de executar imediatamente antes de pode executar esta ação atual | 
+| <*nome da ação*> | Cadeia | O nome da ação | 
+| <*action-type*> | Cadeia | O tipo de ação, por exemplo, "http" ou "ApiConnection"| 
+| <*input-name*> | Cadeia | O nome de uma entrada que define o comportamento da ação | 
+| <*entrada-valor*> | Vários | O valor de entrada, que pode ser uma cadeia de caracteres, um inteiro, um objeto JSON e assim por diante | 
+| <*previous-trigger-or-action-status*> | Objeto JSON | O nome e o status resultante para o gatilho ou ação que deve ser executado imediatamente antes que esta ação atual possa ser executada | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------|
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte as políticas de repetição. | 
-| <*runtime-config-options*> | Objeto JSON | Para algumas ações, pode alterar o comportamento da ação em tempo de execução definindo `runtimeConfiguration` propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
-| <*operation-option*> | String | Para algumas ações, pode alterar o comportamento predefinido ao definir o `operationOptions` propriedade. Para obter mais informações, consulte [opções de operação](#operation-options). | 
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte políticas de repetição. | 
+| <*runtime-config-options*> | Objeto JSON | Para algumas ações, você pode alterar o comportamento da ação em tempo `runtimeConfiguration` de execução definindo propriedades. Para obter mais informações, consulte [definições de configuração de tempo de execução](#runtime-config-options). | 
+| <*operation-option*> | Cadeia | Para algumas ações, você pode alterar o comportamento padrão definindo a `operationOptions` propriedade. Para obter mais informações, consulte [Opções de operação](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Lista de tipos de ação
 
-Seguem-se alguns tipos de ação frequentemente utilizadas: 
+Aqui estão alguns tipos de ação usados com frequência: 
 
-* [Tipos de ações incorporadas](#built-in-actions) como nestes exemplos e muito mais: 
+* [Tipos de ação internos](#built-in-actions) , como estes exemplos e mais: 
 
-  * [**HTTP** ](#http-action) para chamar pontos finais através de HTTP ou HTTPS
+  * [**Http**](#http-action) para chamar pontos de extremidade via http ou https
 
-  * [**Resposta** ](#response-action) para responder a pedidos
+  * [**Resposta**](#response-action) para responder a solicitações
 
-  * [**Executar o código de JavaScript** ](#run-javascript-code) fragmentos de código para a execução de JavaScript
+  * [**Executar código JavaScript**](#run-javascript-code) para executar trechos de código JavaScript
 
-  * [**Função** ](#function-action) para chamar as funções do Azure
+  * [**Função**](#function-action) para chamar Azure Functions
 
-  * Ações de operação de dados, como [ **aderir**](#join-action), [ **Compose**](#compose-action), [ **tabela** ](#table-action), [ **Selecione**](#select-action)e outras pessoas que criam ou transformar dados de várias entradas
+  * Ações de operação de dados como [**unir**](#join-action), [**compor**](#compose-action), [**tabela**](#table-action), [**selecionar**](#select-action)e outros que criam ou transformam dados de várias entradas
 
-  * [**Fluxo de trabalho** ](#workflow-action) para chamar outro fluxo de trabalho de aplicação lógica
+  * [**Fluxo de trabalho**](#workflow-action) para chamar outro fluxo de trabalho de aplicativo lógico
 
-* [Gerido tipos de ação de API](#managed-api-actions) tal como [ **ApiConnection** ](#apiconnection-action) e [ **ApiConnectionWebHook** ](#apiconnectionwebhook-action) que chamar vários APIs e conectores geridos pela Microsoft, por exemplo, do Azure Service Bus, Outlook do Office 365, Power BI, armazenamento de Blobs do Azure, OneDrive, GitHub e muito mais
+* [Tipos de ação de API gerenciada](#managed-api-actions) , como [**ApiConnection**](#apiconnection-action) e [**ApiConnectionWebHook**](#apiconnectionwebhook-action) , que chamam vários conectores e APIs gerenciados pela Microsoft, por exemplo, barramento de serviço do azure, Office 365 Outlook, Power bi, armazenamento de BLOBs do Azure, onedrive, github e muito mais
 
-* [Controlar os tipos de ação de fluxo de trabalho](#control-workflow-actions) tal como [ **se**](#if-action), [ **Foreach**](#foreach-action), [ **comutador**  ](#switch-action), [ **Âmbito**](#scope-action), e [ **até**](#until-action), que contêm outras ações e ajudá-lo a organizar a execução de fluxo de trabalho
+* [Controlar tipos de ação de fluxo de trabalho](#control-workflow-actions) como [**If**](#if-action), [**foreach**](#foreach-action), [**switch**](#switch-action), [**Scope**](#scope-action)e [**until**](#until-action), que contêm outras ações e ajudar a organizar a execução do fluxo de trabalho
 
 <a name="built-in-actions"></a>
 
@@ -822,53 +822,53 @@ Seguem-se alguns tipos de ação frequentemente utilizadas:
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**Compor**](#compose-action) | Cria uma única saída a partir de entradas, que podem ter vários tipos. | 
-| [**Executar o código de JavaScript**](#run-javascript-code) | Execute fragmentos de código do JavaScript que se encaixa em critérios específicos. Para requisitos de código e obter mais informações, consulte [adicionar e trechos de código de execução com o código embutido](../logic-apps/logic-apps-add-run-inline-code.md). |
-| [**Função**](#function-action) | Chama uma função do Azure. | 
-| [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
-| [**Join**](#join-action) | Cria uma cadeia de caracteres a partir de todos os itens numa matriz e separa esses itens com um caráter delimitador especificado. | 
-| [**Parse JSON**](#parse-json-action) | Cria conteúdo tokens amigável de utilizador a partir das propriedades em JSON. Em seguida, pode referenciar essas propriedades, incluindo os tokens na sua aplicação lógica. | 
-| [**Query**](#query-action) | Cria uma matriz de itens na outra matriz com base numa condição ou filtro. | 
-| [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a pedido. | 
-| [**Select**](#select-action) | Cria uma matriz com objetos JSON, transformando os itens a partir de outra matriz com base no mapa especificado. | 
-| [**Table**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
-| [**Terminate**](#terminate-action) | Interrompe um fluxo de trabalho ativamente em execução. | 
-| [**Wait**](#wait-action) | Interrompe o fluxo de trabalho durante um período de tempo especificado ou até a data e hora especificadas. | 
-| [**Fluxo de trabalho**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
+| [**Compose**](#compose-action) | Cria uma única saída de entradas, que pode ter vários tipos. | 
+| [**Executar código JavaScript**](#run-javascript-code) | Executar trechos de código JavaScript que se enquadram dentro de critérios específicos. Para obter os requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código embutido](../logic-apps/logic-apps-add-run-inline-code.md). |
+| [**Funcionamento**](#function-action) | Chama uma função do Azure. | 
+| [**HTTP**](#http-action) | Chama um ponto de extremidade HTTP. | 
+| [**Em**](#join-action) | Cria uma cadeia de caracteres de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
+| [**Analisar JSON**](#parse-json-action) | Cria tokens amigáveis de propriedades no conteúdo JSON. Em seguida, você pode fazer referência a essas propriedades incluindo os tokens em seu aplicativo lógico. | 
+| [**Consultá**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
+| [**Responde**](#response-action) | Cria uma resposta a uma chamada ou solicitação recebida. | 
+| [**Não**](#select-action) | Cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. | 
+| [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
+| [**Encerrar**](#terminate-action) | Interrompe um fluxo de trabalho em execução ativamente. | 
+| [**Wait**](#wait-action) | Pausa o fluxo de trabalho por uma duração especificada ou até a data e hora especificadas. | 
+| [**Modelo**](#workflow-action) | Aninha um fluxo de trabalho dentro de outro fluxo de trabalho. | 
 ||| 
 
 <a name="managed-api-actions"></a>
 
-### <a name="managed-api-actions"></a>Ações de API geridas
+### <a name="managed-api-actions"></a>Ações de API gerenciadas
 
 | Tipo de ação | Descrição | 
 |-------------|-------------|  
-| [**ApiConnection**](#apiconnection-action) | Chama um ponto de final HTTP utilizando um [API gerida pela Microsoft](../connectors/apis-list.md). | 
-| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Funciona como Webhook de HTTP, mas usa um [API gerida pela Microsoft](../connectors/apis-list.md). | 
+| [**ApiConnection**](#apiconnection-action) | Chama um ponto de extremidade HTTP usando uma [API gerenciada pela Microsoft](../connectors/apis-list.md). | 
+| [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Funciona como webhook HTTP, mas usa uma [API gerenciada pela Microsoft](../connectors/apis-list.md). | 
 ||| 
 
 <a name="control-workflow-actions"></a>
 
 ### <a name="control-workflow-actions"></a>Ações de fluxo de trabalho de controle
 
-Estas ações ajudam a controlar a execução de fluxo de trabalho e incluir outras ações. De fora de uma ação de fluxo de trabalho de controle, pode fazem referência diretamente ações dentro dessa ação de fluxo de trabalho de controle. Por exemplo, se tem um `Http` ação dentro de um âmbito, pode referenciar o `@body('Http')` expressão em qualquer lugar no fluxo de trabalho. No entanto, ações que existem dentro de uma ação de fluxo de trabalho de controle podem apenas "executar após" outras ações que estão na mesma estrutura de fluxo de trabalho de controle.
+Essas ações ajudam a controlar a execução do fluxo de trabalho e a incluir outras ações. De fora de uma ação de fluxo de trabalho de controle, você pode referenciar ações diretamente dentro dessa ação de fluxo de trabalho de controle. Por exemplo, se você tiver uma `Http` ação dentro de um escopo, poderá fazer referência `@body('Http')` à expressão de qualquer lugar no fluxo de trabalho. No entanto, as ações existentes dentro de uma ação de fluxo de trabalho de controle só podem ser "executadas após" outras ações que estão na mesma estrutura de fluxo de trabalho de controle.
 
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
-| [**ForEach**](#foreach-action) | Execute as mesmas ações num loop para cada item numa matriz. | 
-| [**If**](#if-action) | Executadas ações com base em se a condição especificada é true ou false. | 
-| [**Âmbito**](#scope-action) | Execute ações com base no estado do grupo de um conjunto de ações. | 
-| [**Switch**](#switch-action) | Execute ações organizadas em casos quando valores de expressões, objetos ou tokens correspondem aos valores especificados por cada caso. | 
-| [**Until**](#until-action) | Execute ações num loop até que a condição especificada for verdadeira. | 
+| [**ForEach**](#foreach-action) | Execute as mesmas ações em um loop para cada item em uma matriz. | 
+| [**If**](#if-action) | Execute ações com base em se a condição especificada é true ou false. | 
+| [**Com**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
+| [**Comutador**](#switch-action) | Execute ações organizadas em casos em que os valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
+| [**Haja**](#until-action) | Execute ações em um loop até que a condição especificada seja verdadeira. | 
 |||  
 
-## <a name="actions---detailed-reference"></a>Ações - referência detalhada
+## <a name="actions---detailed-reference"></a>Ações-referência detalhada
 
 <a name="apiconnection-action"></a>
 
-### <a name="apiconnection-action"></a>Ação de APIConnection
+### <a name="apiconnection-action"></a>Ação APIConnection
 
-Esta ação envia um pedido HTTP para um [API gerida pela Microsoft](../connectors/apis-list.md) e necessita de informações sobre a API e parâmetros além de uma referência a uma ligação válida. 
+Essa ação envia uma solicitação HTTP para uma [API gerenciada pela Microsoft](../connectors/apis-list.md) e requer informações sobre a API e os parâmetros, além de uma referência a uma conexão válida. 
 
 ``` json
 "<action-name>": {
@@ -892,27 +892,27 @@ Esta ação envia um pedido HTTP para um [API gerida pela Microsoft](../connecto
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*action-name*> | String | O nome da ação fornecida pelo conector do | 
-| <*api-name*> | String | O nome da API gerida pela Microsoft que é utilizado para a ligação | 
-| <*method-type*> | String | O método HTTP para chamar a API: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
-| <*api-operation*> | String | A operação de API de chamada | 
+| <*nome da ação*> | Cadeia | O nome da ação fornecida pelo conector | 
+| <*api-name*> | Cadeia | O nome da API gerenciada pela Microsoft que é usada para a conexão | 
+| <*tipo de método*> | Cadeia | O método HTTP para chamar a API: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*api-operation*> | Cadeia | A operação de API para chamar | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*other-action-specific-input-properties*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a esta ação específica | 
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a API de chamam. <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*other-action-specific-properties*> | Objeto JSON | Outras propriedades que se aplicam a esta ação específica | 
+| <*other-action-specific-input-properties*> | Objeto JSON | Todas as outras propriedades de entrada que se aplicam a essa ação específica | 
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API. <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*outras propriedades de ação específica*> | Objeto JSON | Todas as outras propriedades que se aplicam a essa ação específica | 
 |||| 
 
 *Exemplo*
 
-Esta definição descreve a **enviar um e-mail** ação para o conector do Outlook do Office 365, que é uma API gerida pela Microsoft: 
+Essa definição descreve a ação **enviar um email** para o conector Outlook do Office 365, que é uma API gerenciada pela Microsoft: 
 
 ```json
 "Send_an_email": {
@@ -937,9 +937,9 @@ Esta definição descreve a **enviar um e-mail** ação para o conector do Outlo
 
 <a name="apiconnection-webhook-action"></a>
 
-### <a name="apiconnectionwebhook-action"></a>Ação de APIConnectionWebhook
+### <a name="apiconnectionwebhook-action"></a>Ação APIConnectionWebhook
 
-Esta ação envia um pedido de subscrição através de HTTP para um ponto de extremidade através de um [API gerida pela Microsoft](../connectors/apis-list.md), fornece um *URL de retorno de chamada* para onde o ponto final pode enviar uma resposta e aguarda para o ponto final para responda. Para obter mais informações, consulte [as assinaturas do ponto de extremidade](#subscribe-unsubscribe).
+Essa ação envia uma solicitação de assinatura por HTTP para um ponto de extremidade usando uma [API gerenciada pela Microsoft](../connectors/apis-list.md), fornece uma URL de *retorno de chamada* para onde o ponto de extremidade pode enviar uma resposta e aguarda o ponto de extremidade responder. Para obter mais informações, consulte as [assinaturas do ponto de extremidade](#subscribe-unsubscribe).
 
 ```json
 "<action-name>": {
@@ -968,39 +968,39 @@ Esta ação envia um pedido de subscrição através de HTTP para um ponto de ex
 }
 ```
 
-Alguns valores, tais como <*tipo de método*>, estão disponíveis para ambos os `"subscribe"` e `"unsubscribe"` objetos.
+Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subscribe"` objetos e. `"unsubscribe"`
 
 *Necessário*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*action-name*> | String | O nome da ação fornecida pelo conector do | 
-| <*method-type*> | String | O método HTTP a utilizar para subscrever ou anular a subscrição de um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
-| <*api-subscribe-URL*> | String | O URI a utilizar para subscrever a API | 
+| <*nome da ação*> | Cadeia | O nome da ação fornecida pelo conector | 
+| <*tipo de método*> | Cadeia | O método HTTP a ser usado para assinatura ou cancelamento de um ponto de extremidade: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*api-subscribe-URL*> | Cadeia | O URI a ser usado para assinar a API | 
 |||| 
 
-*Opcional*
+*Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*api-unsubscribe-URL*> | String | O URI a utilizar para anular a subscrição da API | 
-| <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar o pedido <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar no pedido | 
-| <*método de autenticação*> | Objeto JSON | O método o pedido utiliza para autenticação. Para obter mais informações, consulte [autenticação de saída do Scheduler](../scheduler/scheduler-outbound-authentication.md). |
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*other-action-specific-input-properties*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a esta ação específica | 
-| <*other-action-specific-properties*> | Objeto JSON | Outras propriedades que se aplicam a esta ação específica | 
+| <*api-unsubscribe-URL*> | Cadeia | O URI a ser usado para cancelar a da API | 
+| <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados na solicitação <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar na solicitação | 
+| <*método de autenticação*> | Objeto JSON | O método usado pela solicitação para autenticação. Para obter mais informações, consulte [autenticação de saída](../scheduler/scheduler-outbound-authentication.md)do Agendador. |
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*other-action-specific-input-properties*> | Objeto JSON | Todas as outras propriedades de entrada que se aplicam a essa ação específica | 
+| <*outras propriedades de ação específica*> | Objeto JSON | Todas as outras propriedades que se aplicam a essa ação específica | 
 |||| 
 
-Também pode especificar limites numa **ApiConnectionWebhook** ação da mesma forma como [limites HTTP assíncronas](#asynchronous-limits).
+Você também pode especificar limites em uma ação **ApiConnectionWebhook** da mesma forma que [os limites assíncronos http](#asynchronous-limits).
 
 <a name="compose-action"></a>
 
 ### <a name="compose-action"></a>Ação de composição
 
-Esta ação cria uma única saída de várias entradas, incluindo expressões. A saída e de entradas, podem ter qualquer tipo que o Azure Logic Apps suporta de forma nativa, como matrizes, objetos JSON, XML e binário.
-Em seguida, pode utilizar o resultado da ação em outras ações. 
+Essa ação cria uma única saída de várias entradas, incluindo expressões. Tanto a saída quanto as entradas podem ter qualquer tipo ao qual os aplicativos lógicos do Azure dão suporte nativo, como matrizes, objetos JSON, XML e binário.
+Em seguida, você pode usar a saída da ação em outras ações. 
 
 ```json
 "Compose": {
@@ -1014,13 +1014,13 @@ Em seguida, pode utilizar o resultado da ação em outras ações.
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*inputs-to-compose*> | Qualquer | As entradas para a criação de uma única saída | 
+| <*inputs-to-compose*> | Any | As entradas para criar uma única saída | 
 |||| 
 
 *Exemplo 1*
 
 <!-- markdownlint-disable MD038 -->
-Esta definição de ação intercala `abcdefg ` com um espaço à direita e o valor `1234`:
+Esta definição de ação é `abcdefg ` mesclada com um espaço à direita e `1234`o valor:
 <!-- markdownlint-enable MD038 -->
 
 ```json
@@ -1031,13 +1031,13 @@ Esta definição de ação intercala `abcdefg ` com um espaço à direita e o va
 },
 ```
 
-Eis a saída que esta ação cria:
+Aqui está a saída que essa ação cria:
 
 `abcdefg 1234`
 
 *Exemplo 2*
 
-Esta definição de ação intercala uma variável de cadeia de caracteres que contém `abcdefg` e uma variável de inteiro que contém `1234`:
+Essa definição de ação mescla uma variável de cadeia de `abcdefg` caracteres que contém e uma variável `1234`de inteiro que contém:
 
 ```json
 "Compose": {
@@ -1047,15 +1047,15 @@ Esta definição de ação intercala uma variável de cadeia de caracteres que c
 },
 ```
 
-Eis a saída que esta ação cria:
+Aqui está a saída que essa ação cria:
 
 `"abcdefg1234"`
 
 <a name="run-javascript-code"></a>
 
-### <a name="execute-javascript-code-action"></a>Executar a ação de código JavaScript
+### <a name="execute-javascript-code-action"></a>Executar ação de código JavaScript
 
-Esta ação é executada um trecho de código do JavaScript e retorna os resultados por meio de um `Result` token que podem fazer referência a ações subsequentes.
+Essa ação executa um trecho de código JavaScript e retorna os resultados por `Result` meio de um token que as ações posteriores podem referenciar.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1075,23 +1075,23 @@ Esta ação é executada um trecho de código do JavaScript e retorna os resulta
 
 | Value | Type | Descrição |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varia | O código de JavaScript que pretende executar. Para requisitos de código e obter mais informações, consulte [adicionar e trechos de código de execução com o código embutido](../logic-apps/logic-apps-add-run-inline-code.md). <p>Na `code` atributo, seu trecho de código pode utilizar o só de leitura `workflowContext` de objeto como entrada. Este objeto tem subproperties conceder o acesso de código para os resultados a partir do acionador e ações anteriores no fluxo de trabalho. Para obter mais informações sobre o `workflowContext` objeto, consulte [resultados de Acionador e ação em seu código de referência](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Varia | O código JavaScript que você deseja executar. Para obter os requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código embutido](../logic-apps/logic-apps-add-run-inline-code.md). <p>No atributo, seu trecho de código pode usar o objeto somente `workflowContext` leitura como entrada. `code` Esse objeto tem subpropriedades que dão ao seu código acesso aos resultados do gatilho e ações anteriores em seu fluxo de trabalho. Para obter mais informações sobre `workflowContext` o objeto, consulte [gatilho de referência e resultados de ação em seu código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Necessário em alguns casos*
 
-O `explicitDependencies` atributo especifica de que deseja incluir explicitamente os resultados do acionador, as ações anteriores ou ambas como dependências para o seu trecho de código. Para obter mais informações sobre como adicionar estas dependências, consulte [adicionar parâmetros de código inline](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+O `explicitDependencies` atributo especifica que você deseja incluir explicitamente os resultados do gatilho, ações anteriores ou ambas como dependências para o trecho de código. Para obter mais informações sobre como adicionar essas dependências, consulte [adicionar parâmetros para código embutido](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
 
-Para o `includeTrigger` atributo, pode especificar `true` ou `false` valores.
+Para o `includeTrigger` atributo, você pode especificar `true` ou `false` valores.
 
-| Value | Type | Descrição |
+| Valor | Type | Descrição |
 |-------|------|-------------|
-| <*previous-actions*> | Matriz de cadeia de caracteres | Uma matriz com seus nomes de ação especificada. Utilize os nomes de ação que aparecem na sua definição de fluxo de trabalho em que os nomes de ação utilizam carateres de sublinhado (_), não espaços (""). |
+| <*ações anteriores*> | Matriz de cadeia de caracteres | Uma matriz com os nomes de ação especificados. Use os nomes de ação que aparecem na definição de fluxo de trabalho em que os nomes de ação usam sublinhados (_), não espaços (""). |
 ||||
 
 *Exemplo 1*
 
-Esta ação executa o código que obtém o nome da sua aplicação lógica e retorna o texto "Hello world do < nome da aplicação lógica >" como o resultado. Neste exemplo, o código referencia o nome do fluxo de trabalho acedendo a `workflowContext.workflow.name` propriedade através do só de leitura `workflowContext` objeto. Para obter mais informações sobre como utilizar o `workflowContext` objeto, consulte [resultados de Acionador e ação em seu código de referência](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+Esta ação executa o código que obtém o nome do aplicativo lógico e retorna o texto "Olá, \<mundo de Logic-app-Name >" como resultado. Neste exemplo, o código faz referência ao nome do fluxo de trabalho acessando a `workflowContext.workflow.name` Propriedade por meio do objeto somente `workflowContext` leitura. Para obter mais informações sobre como `workflowContext` usar o objeto, consulte [gatilho de referência e resultados de ação em seu código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1105,9 +1105,9 @@ Esta ação executa o código que obtém o nome da sua aplicação lógica e ret
 
 *Exemplo 2*
 
-Esta ação executa código numa aplicação lógica que é acionada quando um novo e-mail chega numa conta de Outlook do Office 365. A aplicação lógica também utiliza uma ação de e-mail de aprovação de envio que encaminha o conteúdo do e-mail recebido, juntamente com um pedido de aprovação. 
+Esta ação executa o código em um aplicativo lógico que dispara quando um novo email chega em uma conta do Outlook do Office 365. O aplicativo lógico também usa uma ação enviar email de aprovação que encaminha o conteúdo do email recebido junto com uma solicitação de aprovação. 
 
-O código extrai endereços de e-mail a partir do acionador `Body` propriedade e retorna esses endereços de e-mail juntamente com o `SelectedOption` valor da propriedade da ação de aprovação. A ação inclua explicitamente a ação de e-mail de aprovação de envio como uma dependência no `explicitDependencies`  >  `actions` atributo.
+O código extrai endereços de email da Propriedade do `Body` gatilho e retorna esses endereços de email junto com o `SelectedOption` valor da propriedade da ação de aprovação. A ação inclui explicitamente a ação enviar email de aprovação como uma dependência no `explicitDependencies`  >  `actions` atributo.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1130,7 +1130,7 @@ O código extrai endereços de e-mail a partir do acionador `Body` propriedade e
 
 ### <a name="function-action"></a>Ação de função
 
-Esta ação chama um criado anteriormente [função do Azure](../azure-functions/functions-create-first-azure-function.md).
+Essa ação chama uma [função do Azure](../azure-functions/functions-create-first-azure-function.md)criada anteriormente.
 
 ```json
 "<Azure-function-name>": {
@@ -1152,36 +1152,36 @@ Esta ação chama um criado anteriormente [função do Azure](../azure-functions
 
 | Value | Type | Descrição | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | String | O ID de recurso para a função do Azure que pretende chamar. Este é o formato para este valor:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
-| <*method-type*> | String | O método HTTP a utilizar para chamar a função: "GET", "PUT", "POST", "PATCH" ou "Eliminar" <p>Se não for especificado, a predefinição é o método "POST". | 
+| <*Azure-function-ID*> | Cadeia | A ID de recurso para a função do Azure que você deseja chamar. Este é o formato para este valor:<p>"/subscriptions/<*Azure-Subscription-ID*>/ResourceGroups/<*Azure-resource-group*>/Providers/Microsoft.Web/sites/<*Azure-function-app-Name*>/Functions/<*Azure-function-name*> " | 
+| <*tipo de método*> | Cadeia | O método HTTP a ser usado para chamar a função: "GET", "PUT", "POST", "PATCH" ou "DELETE" <p>Se não for especificado, o padrão será o método "POST". | 
 ||||
 
-*Opcional*
+*Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|  
-| <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com a chamada <p>Por exemplo, para definir o idioma e escreva num pedido: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar no pedido | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com a chamada de API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*other-action-specific-input-properties*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a esta ação específica | 
-| <*other-action-specific-properties*> | Objeto JSON | Outras propriedades que se aplicam a esta ação específica | 
+| <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a chamada <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar na solicitação | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*other-action-specific-input-properties*> | Objeto JSON | Todas as outras propriedades de entrada que se aplicam a essa ação específica | 
+| <*outras propriedades de ação específica*> | Objeto JSON | Todas as outras propriedades que se aplicam a essa ação específica | 
 ||||
 
-Ao guardar a aplicação lógica, o motor do Logic Apps executa estas verificações a função de referenciado:
+Quando você salva seu aplicativo lógico, o mecanismo de aplicativos lógicos executa essas verificações na função referenciada:
 
-* O fluxo de trabalho tem de ter acesso à função.
+* Seu fluxo de trabalho deve ter acesso à função.
 
-* O fluxo de trabalho pode utilizar apenas um acionador HTTP padrão ou um acionador de webhook JSON genérica. 
+* Seu fluxo de trabalho pode usar apenas um gatilho HTTP padrão ou um gatilho de webhook JSON genérico. 
 
-  O motor do Logic Apps obtém e armazena em cache o URL do acionador, que é utilizado no tempo de execução. No entanto, se qualquer operação invalida o URL em cache, o **função** ação falhar em tempo de execução. Para corrigir este problema, guarde a aplicação lógica novamente para que a aplicação lógica recebe e armazena em cache o URL de Acionador novamente.
+  O mecanismo de aplicativos lógicos Obtém e armazena em cache a URL do gatilho, que é usada em tempo de execução. No entanto, se qualquer operação invalida a URL armazenada em cache, a ação da **função** falhará em tempo de execução. Para corrigir esse problema, salve o aplicativo lógico novamente para que o aplicativo lógico obtenha e armazene em cache a URL do gatilho novamente.
 
-* A função não pode ter qualquer rota definida.
+* A função não pode ter nenhuma rota definida.
 
-* São permitidos apenas "function" e níveis de autorização "anonymous". 
+* Somente os níveis de autorização "função" e "anônimo" são permitidos. 
 
 *Exemplo*
 
-Esta definição de ação chama a função de "GetProductID" criada anteriormente:
+Essa definição de ação chama a função "getProductId" criada anteriormente:
 
 ```json
 "GetProductID": {
@@ -1204,9 +1204,9 @@ Esta definição de ação chama a função de "GetProductID" criada anteriormen
 
 <a name="http-action"></a>
 
-### <a name="http-action"></a>Ação de HTTP
+### <a name="http-action"></a>Ação HTTP
 
-Esta ação envia um pedido para o ponto final especificado e verifica a resposta para determinar se o fluxo de trabalho deve ser executado. 
+Essa ação envia uma solicitação para o ponto de extremidade especificado e verifica a resposta para determinar se o fluxo de trabalho deve ser executado. 
 
 ```json
 "HTTP": {
@@ -1223,25 +1223,25 @@ Esta ação envia um pedido para o ponto final especificado e verifica a respost
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*method-type*> | String | O método a utilizar para enviar o pedido: "GET", "PUT", "POST", "PATCH" ou "Eliminar" | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | String | O HTTP ou HTTPS ponto final para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
+| <*tipo de método*> | Cadeia | O método a ser usado para enviar a solicitação: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | Cadeia | O ponto de extremidade HTTP ou HTTPS para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com o pedido <p>Por exemplo, para definir o idioma e tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar no pedido | 
-| <*retry-behavior*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o 408, 429 e código de estado de 5XX e quaisquer exceções de conetividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | Objeto JSON | Quaisquer parâmetros de consulta para incluir com o pedido <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` adiciona o objeto `?api-version=2018-01-01` para a chamada. | 
-| <*other-action-specific-input-properties*> | Objeto JSON | Quaisquer outras propriedades de entrada que se aplicam a esta ação específica | 
-| <*other-action-specific-properties*> | Objeto JSON | Outras propriedades que se aplicam a esta ação específica | 
+| <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a solicitação <p>Por exemplo, para definir o idioma e o tipo: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar na solicitação | 
+| <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
+| <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a solicitação <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
+| <*other-action-specific-input-properties*> | Objeto JSON | Todas as outras propriedades de entrada que se aplicam a essa ação específica | 
+| <*outras propriedades de ação específica*> | Objeto JSON | Todas as outras propriedades que se aplicam a essa ação específica | 
 |||| 
 
 *Exemplo*
 
-Esta definição de ação obtém as notícias mais recentes ao enviar um pedido para o ponto final especificado:
+Essa definição de ação Obtém as notícias mais recentes enviando uma solicitação para o ponto de extremidade especificado:
 
 ```json
 "HTTP": {
@@ -1255,9 +1255,9 @@ Esta definição de ação obtém as notícias mais recentes ao enviar um pedido
 
 <a name="join-action"></a>
 
-### <a name="join-action"></a>Junte-se a ação
+### <a name="join-action"></a>Ação de junção
 
-Esta ação cria uma cadeia de caracteres a partir de todos os itens numa matriz e separa esses itens com o caráter delimitador especificado. 
+Essa ação cria uma cadeia de caracteres de todos os itens em uma matriz e separa esses itens com o caractere delimitador especificado. 
 
 ```json
 "Join": {
@@ -1274,17 +1274,17 @@ Esta ação cria uma cadeia de caracteres a partir de todos os itens numa matriz
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. | 
-| <*delimiter*> | Cadeia de caracteres único | O caráter que separa cada item na cadeia de caracteres | 
+| <*array*> | Array | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. | 
+| <*delimitador*> | Cadeia de caracteres única | O caractere que separa cada item na cadeia de caracteres | 
 |||| 
 
 *Exemplo*
 
-Suponha que tenha uma variável de "myIntegerArray" criado anteriormente que contém esta matriz de número inteiro: 
+Suponha que você tenha uma variável "myIntegerArray" criada anteriormente que contenha essa matriz de inteiros: 
 
 `[1,2,3,4]` 
 
-Esta definição de ação obtém os valores da variável utilizando o `variables()` numa expressão de função e cria essa cadeia de caracteres com esses valores separados por vírgulas: `"1,2,3,4"`
+Essa definição de ação Obtém os valores da variável usando a `variables()` função em uma expressão e cria essa cadeia de caracteres com esses valores, que são separados por uma vírgula:`"1,2,3,4"`
 
 ```json
 "Join": {
@@ -1299,9 +1299,9 @@ Esta definição de ação obtém os valores da variável utilizando o `variable
 
 <a name="parse-json-action"></a>
 
-### <a name="parse-json-action"></a>Analisar a ação de JSON
+### <a name="parse-json-action"></a>Analisar ação JSON
 
-Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSON. Em seguida, pode acessar essas propriedades na sua aplicação lógica utilizando os tokens em vez disso. Por exemplo, quando deseja usar a saída do JSON de serviços como o Azure Service Bus e Azure Cosmos DB, pode incluir esta ação na sua aplicação lógica, de modo a que pode referenciar mais facilmente os dados que dados de saída. 
+Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSON. Em vez disso, você pode acessar essas propriedades em seu aplicativo lógico usando os tokens. Por exemplo, quando você deseja usar a saída JSON de serviços como o barramento de serviço do Azure e Azure Cosmos DB, você pode incluir essa ação em seu aplicativo lógico para que você possa referenciar mais facilmente os dados nessa saída. 
 
 ```json
 "Parse_JSON": {
@@ -1318,15 +1318,15 @@ Esta ação cria campos amigáveis ou *tokens* das propriedades no conteúdo JSO
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*JSON-source*> | Objeto JSON | O que pretende analisar o conteúdo JSON | 
-| <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve o conteúdo JSON, o que a ação utiliza para analisar a origem de conteúdo JSON subjacente. <p>**Sugestão**: No estruturador de aplicações lógicas, pode fornecer o esquema ou fornecer um payload de exemplo, para que a ação pode gerar o esquema. | 
+| <*Origem JSON*> | Objeto JSON | O conteúdo JSON que você deseja analisar | 
+| <*JSON-schema*> | Objeto JSON | O esquema JSON que descreve a base do conteúdo JSON, que a ação usa para analisar o conteúdo JSON de origem. <p>**Dica**: No designer de aplicativos lógicos, você pode fornecer o esquema ou fornecer um conteúdo de exemplo para que a ação possa gerar o esquema. | 
 |||| 
 
 *Exemplo*
 
-Esta definição de ação cria estes tokens que pode utilizar em seu fluxo de trabalho, mas apenas em ações essa execução seguinte a **Parse JSON** ação: 
+Essa definição de ação cria esses tokens que você pode usar em seu fluxo de trabalho, mas somente em ações que são executadas após a ação **analisar JSON** : 
 
-`FirstName`, `LastName`, e `Email`
+`FirstName`, `LastName`e`Email`
 
 ```json
 "Parse_JSON": {
@@ -1363,7 +1363,7 @@ Esta definição de ação cria estes tokens que pode utilizar em seu fluxo de t
 },
 ```
 
-Neste exemplo, a propriedade "content" Especifica o conteúdo JSON para a ação analisar. Também pode fornecer este conteúdo JSON como o payload de exemplo para gerar o esquema.
+Neste exemplo, a propriedade "content" especifica o conteúdo JSON para a ação a ser analisada. Você também pode fornecer esse conteúdo JSON como a carga de exemplo para gerar o esquema.
 
 ```json
 "content": {
@@ -1375,7 +1375,7 @@ Neste exemplo, a propriedade "content" Especifica o conteúdo JSON para a ação
 },
 ```
 
-A propriedade "schema" Especifica o esquema JSON utilizado para descrever o conteúdo JSON:
+A propriedade "Schema" especifica o esquema JSON usado para descrever o conteúdo JSON:
 
 ```json
 "schema": {
@@ -1403,7 +1403,7 @@ A propriedade "schema" Especifica o esquema JSON utilizado para descrever o cont
 
 ### <a name="query-action"></a>Ação de consulta
 
-Esta ação cria uma matriz de itens na outra matriz com base numa condição especificada ou o filtro.
+Essa ação cria uma matriz de itens em outra matriz com base em uma condição ou filtro especificado.
 
 ```json
 "Filter_array": {
@@ -1420,13 +1420,13 @@ Esta ação cria uma matriz de itens na outra matriz com base numa condição es
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Se especificar uma expressão, coloque essa expressão com aspas duplas. |
-| <*condition-or-filter*> | String | A condição utilizada para filtrar itens na matriz de origem <p>**Nota**: Se não existem valores satisfaçam a condição, em seguida, a ação cria uma matriz vazia. |
+| <*array*> | Array | A matriz ou expressão que fornece os itens de origem. Se você especificar uma expressão, coloque essa expressão entre aspas duplas. |
+| <*condição ou filtro*> | Cadeia | A condição usada para filtrar itens na matriz de origem <p>**Nota**: Se nenhum valor atender à condição, a ação criará uma matriz vazia. |
 |||| 
 
 *Exemplo*
 
-Esta definição de ação cria uma matriz que tem valores maiores que o valor especificado, o que é dois:
+Essa definição de ação cria uma matriz com valores maiores que o valor especificado, que é dois:
 
 ```json
 "Filter_array": {
@@ -1442,7 +1442,7 @@ Esta definição de ação cria uma matriz que tem valores maiores que o valor e
 
 ### <a name="response-action"></a>Ação de resposta  
 
-Esta ação cria o payload de resposta a um pedido HTTP. 
+Essa ação cria a carga para a resposta a uma solicitação HTTP. 
 
 ```json
 "Response" {
@@ -1459,22 +1459,22 @@ Esta ação cria o payload de resposta a um pedido HTTP.
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*response-status-code*> | Integer | O código de estado HTTP que é enviado para a solicitação de entrada. O código de padrão é "200 OK", mas o código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx, mas não com 3xxx. | 
+| <*response-status-code*> | Número inteiro | O código de status HTTP que é enviado para a solicitação de entrada. O código padrão é "200 OK", mas o código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx, mas não com 3xxx. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*response-headers*> | Objeto JSON | Um ou mais cabeçalhos a incluir com a resposta | 
-| <*response-body*> | Vários | O corpo da resposta, que pode ser uma cadeia de caracteres, o objeto JSON ou o conteúdo até mesmo binário a partir de uma ação anterior | 
+| <*response-headers*> | Objeto JSON | Um ou mais cabeçalhos a serem incluídos com a resposta | 
+| <*corpo da resposta*> | Vários | O corpo da resposta, que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo conteúdo binário de uma ação anterior | 
 |||| 
 
 *Exemplo*
 
-Esta definição de ação cria uma resposta a um pedido HTTP com o código de estado especificado, o corpo da mensagem e a cabeçalhos de mensagens:
+Essa definição de ação cria uma resposta a uma solicitação HTTP com o código de status, o corpo da mensagem e os cabeçalhos de mensagem especificados:
 
 ```json
 "Response": {
@@ -1494,29 +1494,29 @@ Esta definição de ação cria uma resposta a um pedido HTTP com o código de e
 }
 ```
 
-*Restrições*
+*Quanto*
 
-Ao contrário de outras ações, o **resposta** ação tem restrições especiais: 
+Ao contrário de outras ações, a ação de **resposta** tem restrições especiais: 
 
-* O fluxo de trabalho pode utilizar o **resposta** ação apenas quando o fluxo de trabalho é iniciado com um acionador de pedido HTTP, que significa que o fluxo de trabalho tem de ser acionada por um pedido HTTP.
+* O fluxo de trabalho pode usar a ação de **resposta** somente quando o fluxo de trabalho começa com um gatilho de solicitação HTTP, o que significa que seu fluxo de trabalho deve ser disparado por uma solicitação HTTP.
 
-* O fluxo de trabalho pode utilizar o **resposta** ação em qualquer lugar *exceto* dentro **Foreach** loops, **até que** loops, incluindo sequenciais loops, e ramificações em paralelo. 
+* O fluxo de trabalho pode usar a ação de **resposta** em qualquer lugar, *exceto* dentro de loops **foreach** , **até** loops, incluindo loops sequenciais e ramificações paralelas. 
 
-* A solicitação HTTP original obtém resposta de seu fluxo de trabalho apenas quando todas as ações necessárias pela **resposta** ação concluído dentro do [limite de tempo limite do pedido HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* A solicitação HTTP original Obtém a resposta do fluxo de trabalho somente quando todas as ações exigidas pela ação de **resposta** são concluídas dentro do [limite de tempo limite da solicitação HTTP](../logic-apps/logic-apps-limits-and-config.md#request-limits).
 
-  No entanto, se o seu fluxo de trabalho chama outra aplicação de lógica como um fluxo de trabalho aninhado, o fluxo de trabalho principal aguarda até que a conclusão do fluxo de trabalho aninhado, não importa quanto tempo passa antes de concluir o fluxo de trabalho aninhado.
+  No entanto, se seu fluxo de trabalho chama outro aplicativo lógico como um fluxo de trabalho aninhado, o fluxo de trabalho pai aguarda até que o fluxo de trabalho aninhado seja concluído, não importa quanto tempo o fluxo de trabalho aninhado é concluído.
 
-* Quando o fluxo de trabalho utiliza o **resposta** ação e um padrão de resposta síncrona, o fluxo de trabalho também não é possível utilizar o **splitOn** comando na definição do acionador porque esse comando cria várias execuções. Verifique neste caso, quando o método PUT é usado e se for VERDADEIRO, devolver uma resposta de "Solicitação incorreta".
+* Quando o fluxo de trabalho usa a ação de **resposta** e um padrão de resposta síncrona, o fluxo de trabalho também não pode usar o comando de **divisão** na definição do gatilho porque esse comando cria várias execuções. Verifique esse caso quando o método PUT for usado e, se for true, retornar uma resposta de "solicitação inválida".
 
-  Caso contrário, se o seu fluxo de trabalho utiliza o **splitOn** comando e um **resposta** ação, o fluxo de trabalho é executado de forma assíncrona e retorna imediatamente uma resposta "202 aceite".
+  Caso contrário, se o fluxo de trabalho usar o comando de **divisão** e uma ação de **resposta** , o fluxo de trabalho será executado de forma assíncrona e imediatamente retornará uma resposta "202 aceito".
 
-* Quando atinge a execução do fluxo de trabalho do **resposta** ação, mas a solicitação de entrada já recebeu uma resposta, o **resposta** ação está marcada como "Falha" devido ao conflito. E, consequentemente, a execução da aplicação lógica também está marcada com estado de "Falhado".
+* Quando a execução do fluxo de trabalho atinge a ação de **resposta** , mas a solicitação de entrada já recebeu uma resposta, a ação de **resposta** é marcada como "falha" devido ao conflito. E, como resultado, a execução do aplicativo lógico também é marcada com o status "falha".
 
 <a name="select-action"></a>
 
-### <a name="select-action"></a>Ação de seleção
+### <a name="select-action"></a>Selecionar ação
 
-Esta ação cria uma matriz com objetos JSON, transformando os itens a partir de outra matriz com base no mapa especificado. A matriz de saída e a matriz de origem sempre têm o mesmo número de itens. Apesar de não é possível alterar o número de objetos da matriz de saída, pode adicionar ou remover propriedades e os respetivos valores entre esses objetos. O `select` propriedade especifica, pelo menos, um par de chave-valor que definem o mapa para transformar itens na matriz de origem. Um par chave-valor representa uma propriedade e o respetivo valor todos os objetos da matriz de saída. 
+Essa ação cria uma matriz com objetos JSON transformando itens de outra matriz com base no mapa especificado. A matriz de saída e a matriz de origem sempre têm o mesmo número de itens. Embora não seja possível alterar o número de objetos na matriz de saída, você pode adicionar ou remover propriedades e seus valores entre esses objetos. A `select` propriedade especifica pelo menos um par chave-valor que define o mapa para transformar itens na matriz de origem. Um par chave-valor representa uma propriedade e seu valor em todos os objetos na matriz de saída. 
 
 ```json
 "Select": {
@@ -1536,16 +1536,16 @@ Esta ação cria uma matriz com objetos JSON, transformando os itens a partir de
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem. Certifique-se de que coloque uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma matriz vazia. | 
-| <*key-name*> | String | O nome de propriedade atribuído para o resultado de <*expressão*> <p>Para adicionar uma nova propriedade de todos os objetos da matriz de saída, forneça um <*nome da chave*> para essa propriedade e um <*expressão*> para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos da matriz, omita o <*nome da chave*> para essa propriedade. | 
-| <*expression*> | String | A expressão que transforma o item da matriz de origem e atribui o resultado de <*nome da chave*> | 
+| <*array*> | Array | A matriz ou expressão que fornece os itens de origem. Certifique-se de colocar uma expressão com aspas duplas. <p>**Nota**: Se a matriz de origem estiver vazia, a ação criará uma matriz vazia. | 
+| <*key-name*> | Cadeia | O nome da propriedade atribuído ao resultado da*expressão* <> <p>Para adicionar uma nova propriedade em todos os objetos na matriz de saída, forneça um < > de*nome de chave*para essa propriedade e uma*expressão*de < > para o valor da propriedade. <p>Para remover uma propriedade de todos os objetos na matriz, omita o < > de*nome de chave*para essa propriedade. | 
+| <*expressão*> | Cadeia | A expressão que transforma o item na matriz de origem e atribui o resultado a <*nome-chave*> | 
 |||| 
 
-O **selecione** ação cria uma matriz como saída, para que qualquer ação que deseja usar esta saída deve aceitar uma matriz ou tem de converter a matriz para o tipo que aceita a ação de consumidor. Por exemplo, para converter a matriz de saída para uma cadeia de caracteres, pode passar essa matriz para o **Compose** ação e, em seguida, referenciar a saída do **Compose** ação no seu outras ações.
+A ação **selecionar** cria uma matriz como saída, portanto, qualquer ação que queira usar essa saída deve aceitar uma matriz ou você deve converter a matriz no tipo que a ação do consumidor aceita. Por exemplo, para converter a matriz de saída em uma cadeia de caracteres, você pode passar essa  matriz para a ação compor e, em seguida, fazer referência à saída da ação **compor** em suas outras ações.
 
 *Exemplo*
 
-Esta definição de ação cria uma matriz de objeto JSON a partir de uma matriz de número inteiro. A ação itera através da matriz de origem, obtém a cada valor de número inteiro utilizando o `@item()` expressão e atribui a cada valor para o "`number`" propriedade em cada objeto JSON: 
+Essa definição de ação cria uma matriz de objeto JSON a partir de uma matriz de inteiros. A ação faz a iteração pela matriz de origem, obtém cada valor inteiro usando `@item()` a expressão e atribui cada valor à propriedade "`number`" em cada objeto JSON: 
 
 ```json
 "Select": {
@@ -1560,11 +1560,11 @@ Esta definição de ação cria uma matriz de objeto JSON a partir de uma matriz
 },
 ```
 
-Segue-se a matriz que esta ação cria:
+Aqui está a matriz que essa ação cria:
 
 `[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
 
-Para utilizar esta matriz de saída em outras ações, passar a saída para um **Compose** ação:
+Para usar essa saída de matriz em outras ações, passe esta saída para uma ação de **composição** :
 
 ```json
 "Compose": {
@@ -1576,7 +1576,7 @@ Para utilizar esta matriz de saída em outras ações, passar a saída para um *
 },
 ```
 
-Em seguida, pode utilizar a saída do **Compose** ação em suas outras ações, por exemplo, o **Outlook do Office 365 - enviar um e-mail** ação:
+Você pode usar a saída da ação **compor** em suas outras ações, por exemplo, o **Office 365 Outlook – enviar uma** ação de email:
 
 ```json
 "Send_an_email": {
@@ -1603,9 +1603,9 @@ Em seguida, pode utilizar a saída do **Compose** ação em suas outras ações,
 
 <a name="table-action"></a>
 
-### <a name="table-action"></a>Ação de tabela
+### <a name="table-action"></a>Ação da tabela
 
-Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com objetos JSON, esta ação cria automaticamente os cabeçalhos de coluna de nomes de propriedades dos objetos. Para as matrizes com outros tipos de dados, tem de especificar os valores e cabeçalhos de coluna. Por exemplo, essa matriz inclui as propriedades de "ID" e "Product_Name" que esta ação pode utilizar para os nomes de cabeçalho de coluna:
+Essa ação cria uma tabela CSV ou HTML de uma matriz. Para matrizes com objetos JSON, essa ação cria automaticamente os cabeçalhos de coluna dos nomes de propriedade dos objetos. Para matrizes com outros tipos de dados, você deve especificar os cabeçalhos e valores de coluna. Por exemplo, essa matriz inclui as propriedades "ID" e "Product_Name" que essa ação pode usar para os nomes de cabeçalho de coluna:
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]` 
 
@@ -1632,29 +1632,29 @@ Esta ação cria uma tabela CSV ou HTML de uma matriz. Para as matrizes com obje
 
 *Necessário* 
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| < CSV *ou* HTML >| String | O formato para a tabela que pretende criar | 
-| <*array*> | Array | A matriz ou uma expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação cria uma tabela vazia. | 
+| \<> CSV *ou* HTML| Cadeia | O formato da tabela que você deseja criar | 
+| <*array*> | Array | A matriz ou expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação criará uma tabela vazia. | 
 |||| 
 
-*Opcional*
+*Adicional*
 
-Para especificar ou personalizar os cabeçalhos de coluna e os valores, utilize o `columns` matriz. Quando `header-value` pares de tem o mesmo nome de cabeçalho, seus valores são apresentados na mesma coluna sob esse nome de cabeçalho. Caso contrário, cada cabeçalho exclusivo define uma única coluna.
+Para especificar ou personalizar cabeçalhos e valores de coluna, use `columns` a matriz. Quando `header-value` os pares têm o mesmo nome de cabeçalho, seus valores aparecem na mesma coluna sob esse nome de cabeçalho. Caso contrário, cada cabeçalho exclusivo define uma coluna exclusiva.
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*column-name*> | String | O nome do cabeçalho para uma coluna | 
-| <*column-value*> | Qualquer | O valor dessa coluna | 
+| <*column-name*> | Cadeia | O nome do cabeçalho de uma coluna | 
+| <*coluna-valor*> | Any | O valor nessa coluna | 
 |||| 
 
 *Exemplo 1*
 
-Suponha que tenha uma variável de "myItemArray" criado anteriormente que atualmente contém essa matriz: 
+Suponha que você tenha uma variável "myItemArray" criada anteriormente que contenha atualmente esta matriz: 
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-Esta definição de ação cria uma tabela CSV da variável de "myItemArray". A expressão utilizada pelos `from` propriedade obtém a matriz de "myItemArray" ao utilizar o `variables()` função: 
+Essa definição de ação cria uma tabela CSV a partir da variável "myItemArray". A expressão usada pela `from` propriedade Obtém a matriz de "myItemArray" usando a `variables()` função: 
 
 ```json
 "Create_CSV_table": {
@@ -1667,7 +1667,7 @@ Esta definição de ação cria uma tabela CSV da variável de "myItemArray". A 
 }
 ```
 
-Segue-se a tabela CSV que esta ação cria: 
+Esta é a tabela CSV que esta ação cria: 
 
 ```
 ID,Product_Name 
@@ -1677,7 +1677,7 @@ ID,Product_Name
 
 *Exemplo 2*
 
-Esta definição de ação cria uma tabela HTML da variável de "myItemArray". A expressão utilizada pelos `from` propriedade obtém a matriz de "myItemArray" ao utilizar o `variables()` função: 
+Essa definição de ação cria uma tabela HTML a partir da variável "myItemArray". A expressão usada pela `from` propriedade Obtém a matriz de "myItemArray" usando a `variables()` função: 
 
 ```json
 "Create_HTML_table": {
@@ -1690,13 +1690,13 @@ Esta definição de ação cria uma tabela HTML da variável de "myItemArray". A
 }
 ```
 
-Segue-se a tabela HTML que esta ação cria: 
+Esta é a tabela HTML que esta ação cria: 
 
-<table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Maçãs</td></tr><tr><td>1</td><td>Laranjas</td></tr></tbody></table>
+<table><thead><tr><th>id</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Aplica</td></tr><tr><td>1</td><td>Laranjas</td></tr></tbody></table>
 
 *Exemplo 3*
 
-Esta definição de ação cria uma tabela HTML da variável de "myItemArray". No entanto, neste exemplo substitui os nomes de cabeçalho de coluna padrão com "Stock_ID" e "Descrição" e adiciona a palavra "Organic" para os valores na coluna "Descrição".
+Essa definição de ação cria uma tabela HTML a partir da variável "myItemArray". No entanto, este exemplo substitui os nomes de cabeçalho de coluna padrão por "Stock_ID" e "Description" e adiciona a palavra "orgânica" aos valores na coluna "Descrição".
 
 ```json
 "Create_HTML_table": {
@@ -1719,15 +1719,15 @@ Esta definição de ação cria uma tabela HTML da variável de "myItemArray". N
 },
 ```
 
-Segue-se a tabela HTML que esta ação cria: 
+Esta é a tabela HTML que esta ação cria: 
 
 <table><thead><tr><th>Stock_ID</th><th>Descrição</th></tr></thead><tbody><tr><td>0</td><td>Maçãs orgânicas</td></tr><tr><td>1</td><td>Laranjas orgânicas</td></tr></tbody></table>
 
 <a name="terminate-action"></a>
 
-### <a name="terminate-action"></a>Terminar a ação
+### <a name="terminate-action"></a>Ação terminar
 
-Esta ação impede a execução de uma instância de fluxo de trabalho, cancela todas as ações em curso, ignora todas as restantes ações e devolve o estado especificado. Por exemplo, pode utilizar o **Terminate** ação quando a aplicação lógica deve sair completamente de um Estado de erro. Esta ação não afeta a ações já concluídas e não pode aparecer dentro **Foreach** e **até que** loops, incluindo loops seqüenciais. 
+Essa ação interrompe a execução de uma instância de fluxo de trabalho, cancela as ações em andamento, ignora as ações restantes e retorna o status especificado. Por exemplo, você pode usar a ação **terminar** quando seu aplicativo lógico precisar sair completamente de um estado de erro. Essa ação não afeta as ações já concluídas e não pode aparecer dentro de loops **foreach** e **until** , incluindo loops sequenciais. 
 
 ```json
 "Terminate": {
@@ -1745,24 +1745,24 @@ Esta ação impede a execução de uma instância de fluxo de trabalho, cancela 
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*status*> | String | O estado a devolver para a execução: "Falha", "Cancelada" ou "Foi concluída com êxito" |
+| <*status*> | Cadeia | O status a ser retornado para a execução: "Falha", "cancelado" ou "êxito" |
 |||| 
 
-*Opcional*
+*Adicional*
 
-As propriedades para o objeto "runStatus" aplicam-se apenas quando a propriedade "runStatus" está definida para o status de "Falhado".
+As propriedades do objeto "runStatus" aplicam-se somente quando a propriedade "runStatus" está definida como status "falha".
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*error-code-or-name*> | String | O código ou um nome para o erro |
-| <*error-message*> | String | A mensagem ou o texto que descreve o erro e quaisquer ações o utilizador de aplicação pode tirar | 
+| <*error-code-or-name*> | Cadeia | O código ou o nome do erro |
+| <*error-message*> | Cadeia | A mensagem ou o texto que descreve o erro e as ações que o usuário do aplicativo pode executar | 
 |||| 
 
 *Exemplo*
 
-Esta definição de ação deixa de uma execução de fluxo de trabalho, define o estado de execução para "Falhado" e devolve o estado, um código de erro e uma mensagem de erro:
+Essa definição de ação interrompe uma execução de fluxo de trabalho, define o status de execução como "falha" e retorna o status, um código de erro e uma mensagem de erro:
 
 ```json
 "Terminate": {
@@ -1782,7 +1782,7 @@ Esta definição de ação deixa de uma execução de fluxo de trabalho, define 
 
 ### <a name="wait-action"></a>Ação de espera  
 
-Esta ação coloca em pausa a execução de fluxo de trabalho para o intervalo especificado, ou até à hora especificada, mas não ambos. 
+Essa ação pausa a execução do fluxo de trabalho para o intervalo especificado ou até a hora especificada, mas não ambos. 
 
 *Intervalo especificado*
 
@@ -1799,7 +1799,7 @@ Esta ação coloca em pausa a execução de fluxo de trabalho para o intervalo e
 },
 ```
 
-*Período de tempo especificado*
+*Tempo especificado*
 
 ```json
 "Delay_until": {
@@ -1815,16 +1815,16 @@ Esta ação coloca em pausa a execução de fluxo de trabalho para o intervalo e
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*number-of-units*> | Integer | Para o **atraso** ação, o número de unidades de espera | 
-| <*interval*> | String | Para o **atraso** ação, o intervalo de espera: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês" | 
-| <*date-time-stamp*> | String | Para o **atraso até** ação, a data e hora para retomar a execução. Este valor tem de utilizar o [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+| <*number-of-units*> | Número inteiro | Para a ação de **atraso** , o número de unidades a esperar | 
+| <*interval*> | Cadeia | Para a ação de **atraso** , o intervalo a aguardar: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
+| <*date-time-stamp*> | Cadeia | Para a ação **atrasar até** , a data e hora para retomar a execução. Esse valor deve usar o [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
 *Exemplo 1*
 
-Esta definição de ação interrompe o fluxo de trabalho para 15 minutos:
+Essa definição de ação pausa o fluxo de trabalho por 15 minutos:
 
 ```json
 "Delay": {
@@ -1841,7 +1841,7 @@ Esta definição de ação interrompe o fluxo de trabalho para 15 minutos:
 
 *Exemplo 2*
 
-Esta definição de ação interrompe o fluxo de trabalho até o período de tempo especificado:
+Essa definição de ação pausa o fluxo de trabalho até o tempo especificado:
 
 ```json
 "Delay_until": {
@@ -1859,15 +1859,15 @@ Esta definição de ação interrompe o fluxo de trabalho até o período de tem
 
 ### <a name="workflow-action"></a>Ação de fluxo de trabalho
 
-Esta ação chama outra aplicação de lógica criada anteriormente, o que significa que pode incluir e reutilizar outros fluxos de trabalho de aplicação lógica. Também pode utilizar as saídas resultantes o filho ou *aninhada* aplicação lógica nas ações após a aplicação lógica aninhada, desde que a aplicação de lógica de subordinados devolve uma resposta.
+Essa ação chama outro aplicativo lógico criado anteriormente, o que significa que você pode incluir e reutilizar outros fluxos de trabalho de aplicativo lógico. Você também pode usar as saídas do aplicativo lógico filho  ou aninhado em ações que seguem o aplicativo lógico aninhado, desde que o aplicativo lógico filho retorne uma resposta.
 
-O motor do Logic Apps verifica o acesso ao acionador que pretende chamar, por isso, certifique-se de que pode acessar esse acionador. Além disso, a aplicação lógica aninhada tem de cumprir estes critérios:
+O mecanismo de aplicativos lógicos verifica o acesso ao gatilho que você deseja chamar, portanto, verifique se você pode acessar esse gatilho. Além disso, o aplicativo lógico aninhado deve atender a estes critérios:
 
-* Um acionador torna a aplicação lógica aninhada podem ser chamados, por exemplo, um [pedir](#request-trigger) ou [HTTP](#http-trigger) acionador
+* Um gatilho torna o aplicativo lógico aninhado que possa ser chamado, como uma [solicitação](#request-trigger) ou um gatilho [http](#http-trigger)
 
-* A mesma subscrição do Azure que a sua aplicação de lógica principal
+* A mesma assinatura do Azure que seu aplicativo lógico pai
 
-* Para utilizar as saídas da aplicação lógica aninhada na sua aplicação de lógica principal, a aplicação lógica aninhada tem de ter uma [resposta](#response-action) ação 
+* Para usar as saídas do aplicativo lógico aninhado em seu aplicativo lógico pai, o aplicativo lógico aninhado deve ter uma ação de [resposta](#response-action) 
 
 ```json
 "<nested-logic-app-name>": {
@@ -1888,30 +1888,30 @@ O motor do Logic Apps verifica o acesso ao acionador que pretende chamar, por is
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*nested-logic-app-name*> | String | O nome para a aplicação lógica que pretende chamar | 
-| <*trigger-name*> | String | O nome para o acionador na aplicação lógica aninhada deseja chamar | 
-| <*Azure-subscription-ID*> | String | O ID de subscrição do Azure para a aplicação lógica aninhada |
-| <*Azure-resource-group*> | String | O nome do grupo de recursos do Azure para a aplicação lógica aninhada |
-| <*nested-logic-app-name*> | String | O nome para a aplicação lógica que pretende chamar |
+| <*nested-logic-app-name*> | Cadeia | O nome do aplicativo lógico que você deseja chamar | 
+| <*trigger-name*> | Cadeia | O nome do gatilho no aplicativo lógico aninhado que você deseja chamar | 
+| <*Azure-subscription-ID*> | Cadeia | A ID de assinatura do Azure para o aplicativo lógico aninhado |
+| <*Azure-resource-group*> | Cadeia | O nome do grupo de recursos do Azure para o aplicativo lógico aninhado |
+| <*nested-logic-app-name*> | Cadeia | O nome do aplicativo lógico que você deseja chamar |
 ||||
 
-*Opcional*
+*Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|  
-| <*header-content*> | Objeto JSON | Quaisquer cabeçalhos para enviar com a chamada | 
-| <*body-content*> | Objeto JSON | Qualquer conteúdo da mensagem a enviar com a chamada | 
+| <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a chamada | 
+| <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar com a chamada | 
 ||||
 
 *Saídas*
 
-Saídas desta ação variam com base na ação de resposta da aplicação lógica aninhada. Se a aplicação lógica aninhada não inclui uma ação de resposta, as saídas estão vazias.
+As saídas dessa ação variam de acordo com a ação de resposta do aplicativo lógico aninhado. Se o aplicativo lógico aninhado não incluir uma ação de resposta, as saídas estarão vazias.
 
 *Exemplo*
 
-Após a conclusão com êxito a ação de "Start_search", esta definição de ação de fluxo de trabalho chama outra aplicação de lógica com o nome "Get_product_information", que passa nas entradas de especificado: 
+Depois que a ação "Start_search" for concluída com êxito, essa definição de ação de fluxo de trabalho chamará outro aplicativo lógico chamado "Get_product_information", que passa nas entradas especificadas: 
 
 ```json
 "actions": {
@@ -1937,13 +1937,13 @@ Após a conclusão com êxito a ação de "Start_search", esta definição de a�
 },
 ```
 
-## <a name="control-workflow-action-details"></a>Detalhes de ação de fluxo de trabalho de controle
+## <a name="control-workflow-action-details"></a>Detalhes da ação de fluxo de trabalho de controle
 
 <a name="foreach-action"></a>
 
-### <a name="foreach-action"></a>Ação de foreach
+### <a name="foreach-action"></a>Ação foreach
 
-Esta ação loop itera através de uma matriz e realiza ações em cada item da matriz. Por predefinição, o loop "for each" é executada em paralelo para um número máximo de loops. Para este valor máximo, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Saiba mais [como criar "for each" loops](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
+Essa ação de loop itera por meio de uma matriz e executa ações em cada item da matriz. Por padrão, o loop "for each" é executado em paralelo até um número máximo de loops. Para esse máximo, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Saiba [como criar loops "para cada"](../logic-apps/logic-apps-control-flow-loops.md#foreach-loop).
 
 ```json
 "For_each": {
@@ -1967,22 +1967,22 @@ Esta ação loop itera através de uma matriz e realiza ações em cada item da 
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*ação-1... n*> | String | Os nomes das ações que são executadas em cada item da matriz | 
-| <*action-definition-1...n*> | Objeto JSON | As definições das ações que executar | 
-| <*for-each-expression*> | String | A expressão que faz referência a cada item na matriz especificada | 
+| <*ação-1... p*> | Cadeia | Os nomes das ações que são executadas em cada item da matriz | 
+| <*ação-definição-1... p*> | Objeto JSON | As definições das ações que são executadas | 
+| <*for-each-expression*> | Cadeia | A expressão que faz referência a cada item na matriz especificada | 
 |||| 
 
-*Opcional*
+*Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*count*> | Integer | Por predefinição, o loop "for each" iterações executam ao mesmo tempo, ou em paralelo, até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar este limite, definindo uma nova <*contagem*> valor, veja [alterar loop "for each" simultaneidade](#change-for-each-concurrency). | 
-| <*operation-option*> | String | Para executar um loop "for each" em seqüência, em vez de em paralelo, defina <*opção de operação*> para `Sequential` ou <*contagem*> para `1`, mas não ambos. Para obter mais informações, consulte [executar "for each" faz um loop sequencialmente](#sequential-for-each). | 
+| <*count*> | Número inteiro | Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar a simultaneidade de loop "for each"](#change-for-each-concurrency). | 
+| <*operation-option*> | Cadeia | Para executar um loop "for each" sequencialmente, em vez de em paralelo, defina <*opção Operation-Option*> `Sequential` ou `1`<*Count*>, mas não ambos. Para obter mais informações, consulte [executar loops "for each" sequencialmente](#sequential-for-each). | 
 |||| 
 
 *Exemplo*
 
-Esse loop "for each" envia um e-mail para cada item da matriz, que contém anexos num email de entrada. O loop envia uma mensagem de e-mail, incluindo o anexo, para uma pessoa que analisa o anexo.
+Esse loop "for each" envia um email para cada item na matriz, que contém anexos de um email de entrada. O loop envia um email, incluindo o anexo, para uma pessoa que revisa o anexo.
 
 ```json
 "For_each": {
@@ -2012,15 +2012,15 @@ Esse loop "for each" envia um e-mail para cada item da matriz, que contém anexo
 }
 ```
 
-Para especificar apenas uma matriz que é passada como saída do acionador, esta expressão obtém a <*nome da matriz*> matriz do corpo do acionador. Para evitar uma falha se a matriz não existir, a expressão usa o `?` operador:
+Para especificar apenas uma matriz que é passada como saída do gatilho, essa expressão Obtém o <*nome da matriz*> matriz do corpo do gatilho. Para evitar uma falha se a matriz não existir, a expressão usará `?` o operador:
 
 `@triggerBody()?['<array-name>']` 
 
 <a name="if-action"></a>
 
-### <a name="if-action"></a>Se ação
+### <a name="if-action"></a>Ação If
 
-Esta ação, o que é um *instrução condicional*, avalia uma expressão que representa uma condição e executa um ramo diferente com base em se a condição for verdadeira ou FALSO. Se a condição for verdadeira, a condição é marcada com estado de "Êxito". Saiba mais [como criar instruções condicionais](../logic-apps/logic-apps-control-flow-conditional-statement.md).
+Essa ação, que é uma *instrução condicional*, avalia uma expressão que representa uma condição e executa uma ramificação diferente com base em se a condição é verdadeira ou falsa. Se a condição for verdadeira, a condição será marcada com o status "êxito". Saiba [como criar instruções condicionais](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 
 ``` json
 "Condition": {
@@ -2040,21 +2040,21 @@ Esta ação, o que é um *instrução condicional*, avalia uma expressão que re
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*condição*> | Objeto JSON | A condição, o que pode ser uma expressão, para avaliar | 
-| <*action-1*> | Objeto JSON | A ação de execução quando <*condição*> avalia como verdadeiro | 
+| <*problema*> | Objeto JSON | A condição, que pode ser uma expressão, para avaliar | 
+| <*ação-1*> | Objeto JSON | A ação a ser executada quando <*condição*> avaliada como true | 
 | <*action-definition*> | Objeto JSON | A definição da ação | 
-| <*action-2*> | Objeto JSON | A ação de execução quando <*condição*> for avaliada como falsa | 
+| <*ação-2*> | Objeto JSON | A ação a ser executada quando <*condição*> avaliada como falsa | 
 |||| 
 
-As ações no `actions` ou `else` objetos obtém estes Estados terem:
+As ações nos `actions` objetos ou `else` obtêm estes status:
 
-* "Foi concluída com êxito" depois de executar e concluída com êxito
-* "Falha" quando executar e efetuar a ativação
-* "Ignorada" quando o respetivo ramo não é executado
+* "Êxito" quando eles são executados e bem-sucedidos
+* "Falha" ao executar e falhar
+* "Ignorado" quando a respectiva ramificação não é executada
 
 *Exemplo*
 
-Esta condição especifica que, quando a variável de número inteiro tem um valor maior que zero, o fluxo de trabalho verifica um Web site. Se a variável for zero ou menos, o fluxo de trabalho verifica a outro Web site.
+Essa condição especifica que quando a variável de inteiro tem um valor maior que zero, o fluxo de trabalho verifica um site. Se a variável for zero ou menos, o fluxo de trabalho verificará um site diferente.
 
 ```json
 "Condition": {
@@ -2090,23 +2090,23 @@ Esta condição especifica que, quando a variável de número inteiro tem um val
 }
 ```  
 
-#### <a name="how-conditions-use-expressions"></a>Como condições de utilizam expressões
+#### <a name="how-conditions-use-expressions"></a>Como as condições usam expressões
 
-Aqui estão alguns exemplos que mostram como pode utilizar expressões nas condições:
+Aqui estão alguns exemplos que mostram como você pode usar expressões em condições:
   
 | JSON | Resultado | 
 |------|--------| 
-| "expression": "@parameters('<*hasSpecialAction*>')" | Para expressões booleanas apenas, a condição transmite para qualquer valor que é avaliada como true. <p>Para converter outros tipos de valor booleano, utilizar estas funções: `empty()` ou `equals()`. | 
-| "expression": "@greater(actions('<*action*>').output.value, parameters('<*threshold*>'))" | Para funções de comparação, a ação é executada apenas quando a saída do <*ação*> é mais do que o <*limiar*> valor. | 
-| "expression": "@or(greater(actions('<*action*>').output.value, parameters('<*threshold*>')), less(actions('<*same-action*>').output.value, 100))" | Para funções de lógica e a criação de aninhados expressões booleanas, a ação é executada quando a saída do <*ação*> é mais do que o <*limiar*> valor ou em 100. | 
-| "expression": "@equals(length(actions('<*action*>').outputs.errors), 0))" | Pode utilizar funções de matriz para verificar se a matriz tem todos os itens. A ação é executada quando o `errors` matriz está vazia. | 
+| "Expression": "@parameters(' <*hasSpecialAction*> ')" | Somente para expressões booleanas, a condição passa para qualquer valor que seja avaliado como true. <p>Para converter outros tipos em booliano, use estas funções `empty()` : `equals()`ou. | 
+| "expression": "@greater(actions('<*action*>').output.value, parameters('<*threshold*>'))" | Para funções de comparação, a ação é executada somente quando a saída da*ação*< > é maior que o*limite*de < > valor. | 
+| "expressão": "@or(maior (ações (' <*ação*> '). saída. valor, parâmetros (' <*limite*> ')), menos (ações (' <*mesma ação*> '). Output. Value, 100))" | Para funções lógicas e criação de expressões boolianas aninhadas, a ação é executada quando a saída da*ação*< > é maior que o*limite*de < > valor ou abaixo de 100. | 
+| "expression": "@equals(length(actions('<*action*>').outputs.errors), 0))" | Você pode usar funções de matriz para verificar se a matriz tem algum item. A ação é executada quando `errors` a matriz está vazia. | 
 ||| 
 
 <a name="scope-action"></a>
 
-### <a name="scope-action"></a>Ação de âmbito
+### <a name="scope-action"></a>Ação de escopo
 
-Esta ação agrupa logicamente ações em *âmbitos*, que obter seu próprio Estado após as ações em que o âmbito termine a execução. Em seguida, pode utilizar o estado de âmbito para determinar se executar outras ações. Saiba mais [como criar âmbitos](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md).
+Essa ação agrupa logicamente ações em escopos, que obtêm seu próprio status depois que as ações nesse escopo terminam de ser executadas. Você pode usar o status do escopo para determinar se outras ações são executadas. Saiba [como criar](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)escopos.
 
 ```json
 "Scope": {
@@ -2130,15 +2130,15 @@ Esta ação agrupa logicamente ações em *âmbitos*, que obter seu próprio Est
 
 | Value | Type | Descrição | 
 |-------|------|-------------|  
-| <*inner-action-1...n*> | Objeto JSON | Uma ou mais ações que são executados dentro do escopo |
-| <*entradas de ação*> | Objeto JSON | As entradas para cada ação |
+| <*inner-action-1...n*> | Objeto JSON | Uma ou mais ações que são executadas dentro do escopo |
+| <*ação-entradas*> | Objeto JSON | As entradas para cada ação |
 |||| 
 
 <a name="switch-action"></a>
 
-### <a name="switch-action"></a>Ação de Switch
+### <a name="switch-action"></a>Ação do comutador
 
-Esta ação, também conhecida como um *mudar a instrução*, organiza outras ações no *casos*e atribui um valor para cada caso, exceto caso padrão, se existir. Quando o seu fluxo de trabalho é executada, o **comutador** ação compara o valor de uma expressão, objeto ou token contra os valores especificados para cada caso. Se o **comutador** ação localiza um caso de correspondência, o fluxo de trabalho é executado apenas as ações para esse caso. Sempre que o **comutador** execuções de ação, ambos os casos correspondente apenas um existe ou não correspondências existem. Não se existir nenhuma correspondência, o **comutador** ação executa as ações padrão. Saiba mais [como criar declarações do comutador](../logic-apps/logic-apps-control-flow-switch-statement.md).
+Essa ação, também conhecida como *instrução switch*, organiza outras ações em *casos*e atribui um valor a cada caso, exceto para o caso padrão, se houver. Quando o fluxo de trabalho é executado, a ação **switch** compara o valor de uma expressão, objeto ou token com os valores especificados para cada caso. Se a  ação de comutador encontrar um caso correspondente, o fluxo de trabalho executará apenas as ações para esse caso. Cada vez que  a ação de comutador é executada, apenas um caso correspondente existe ou nenhuma correspondência existe. Se nenhuma correspondência existir, a  ação de comutador executará as ações padrão. Saiba [como criar instruções switch](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
 ``` json
 "Switch": {
@@ -2169,25 +2169,25 @@ Esta ação, também conhecida como um *mudar a instrução*, organiza outras a�
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
-| <*expression-object-or-token*> | Varia | A expressão, o objeto JSON ou o token para avaliar | 
-| <*action-name*> | String | O nome da ação a ser executado para o caso de correspondência | 
-| <*action-definition*> | Objeto JSON | A definição para a ação de execução para o caso de correspondência | 
-| <*matching-value*> | Varia | O valor a comparar com o resultado avaliado | 
+| <*expression-object-or-token*> | Varia | A expressão, o objeto JSON ou o token a ser avaliado | 
+| <*nome da ação*> | Cadeia | O nome da ação a ser executada para o caso de correspondência | 
+| <*action-definition*> | Objeto JSON | A definição da ação a ser executada para o caso de correspondência | 
+| <*correspondência-valor*> | Varia | O valor a ser comparado com o resultado avaliado | 
 |||| 
 
-*Opcional*
+*Adicional*
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*default-action-name*> | String | O nome da ação predefinida para ser executada quando não existe nenhum caso correspondente | 
-| <*default-action-definition*> | Objeto JSON | A definição da ação ser executada quando não existe nenhum caso correspondente | 
+| <*default-action-name*> | Cadeia | O nome da ação padrão a ser executada quando não houver nenhum caso correspondente | 
+| <*default-action-definition*> | Objeto JSON | A definição da ação a ser executada quando não houver nenhum caso correspondente | 
 |||| 
 
 *Exemplo*
 
-Esta definição de ação avalia se a pessoa a responder para o e-mail de pedido de aprovação selecionado a opção "Aprovar" ou a opção "Rejeitar". Com base nessa opção, o **comutador** ação executa as ações para o caso correspondente, que consiste em Enviar outro e-mail para o dispositivo de resposta, mas com diferentes palavras utilizadas em cada caso. 
+Esta definição de ação avalia se a pessoa que está respondendo ao email de solicitação de aprovação selecionou a opção "aprovar" ou a opção "rejeitar". Com base nessa opção, a  ação de comutador executa as ações para o caso de correspondência, que é enviar outro email para o respondente, mas com palavras diferentes em cada caso. 
 
 ``` json
 "Switch": {
@@ -2267,9 +2267,9 @@ Esta definição de ação avalia se a pessoa a responder para o e-mail de pedid
 
 <a name="until-action"></a>
 
-### <a name="until-action"></a>Até a ação
+### <a name="until-action"></a>Ação until
 
-Esta ação de loop contém ações que executar até que a condição especificada for verdadeira. O loop verifica a condição como última etapa depois de tem de executar todas as outras ações. Pode incluir mais do que uma ação no `"actions"` objeto e a ação tem de definir, pelo menos, um limite. Saiba mais [como criar "loops até"](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
+Essa ação de loop contém ações que são executadas até que a condição especificada seja verdadeira. O loop verifica a condição como a última etapa após a execução de todas as outras ações. Você pode incluir mais de uma ação no `"actions"` objeto e a ação deve definir pelo menos um limite. Saiba [como criar loops "until"](../logic-apps/logic-apps-control-flow-loops.md#until-loop). 
 
 ```json
  "Until": {
@@ -2297,21 +2297,21 @@ Esta ação de loop contém ações que executar até que a condição especific
 
 | Value | Type | Descrição | 
 |-------|------|-------------| 
-| <*action-name*> | String | O nome para a ação que pretende executar dentro do loop | 
-| <*action-type*> | String | O tipo de ação que pretende executar | 
-| <*entradas de ação*> | Vários | As entradas para a ação de execução | 
-| <*condição*> | String | A condição ou expressão a avaliar Afinal de contas as ações no loop termine a execução | 
-| <*loop-count*> | Integer | O limite para o maior número de loops, que pode executar a ação. A predefinição `count` valor é 60. | 
-| <*loop-timeout*> | String | O limite de tempo mais longo que pode executar o loop. A predefinição `timeout` é o valor `PT1H`, que é o necessário [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
+| <*nome da ação*> | Cadeia | O nome da ação que você deseja executar dentro do loop | 
+| <*action-type*> | Cadeia | O tipo de ação que você deseja executar | 
+| <*ação-entradas*> | Vários | As entradas para a ação a ser executada | 
+| <*problema*> | Cadeia | A condição ou expressão a ser avaliada depois que todas as ações no loop terminarem de ser executadas | 
+| <*loop-count*> | Número inteiro | O limite do número máximo de loops que a ação pode executar. O valor `count` padrão é 60. | 
+| <*loop-timeout*> | Cadeia | O limite do tempo mais longo que o loop pode ser executado. O valor `timeout` padrão é `PT1H`, que é o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)necessário. |
 |||| 
 
 *Exemplo*
 
-Esta definição de ação de loop envia um pedido HTTP para o URL especificado, até que uma das seguintes condições seja cumprida: 
+Essa definição de ação de loop envia uma solicitação HTTP para a URL especificada até que uma dessas condições seja atendida: 
 
-* O pedido obtém uma resposta com o "200 OK" código de estado.
-* O loop foi executado 60 vezes.
-* O loop foi executado durante uma hora.
+* A solicitação Obtém uma resposta com o código de status "200 OK".
+* O loop executou 60 vezes.
+* O loop foi executado por uma hora.
 
 ```json
  "Run_until_loop_succeeds_or_expires": {
@@ -2337,25 +2337,25 @@ Esta definição de ação de loop envia um pedido HTTP para o URL especificado,
 
 <a name="subscribe-unsubscribe"></a>
 
-## <a name="webhooks-and-subscriptions"></a>As assinaturas e Webhooks
+## <a name="webhooks-and-subscriptions"></a>WebHooks e assinaturas
 
-Ações e acionadores baseados em Webhook regularmente não verificar os pontos finais, mas aguarde eventos específicos ou dados nesses pontos de extremidade em vez disso. Estes acionadores e ações *subscrever* para os pontos de extremidade, fornecendo um *URL de retorno de chamada* onde o ponto final pode enviar as respostas.
+Gatilhos e ações baseados em webhook não verificam regularmente os pontos de extremidade, mas aguardam eventos ou dados específicos nesses pontos de extremidade. Esses gatilhos e  ações assinam os pontos de extremidade fornecendo uma *URL de retorno de chamada* em que o ponto de extremidade pode enviar respostas.
 
-O `subscribe` chamada acontece quando o fluxo de trabalho de alterações de qualquer forma, por exemplo, quando as credenciais são renovadas ou quando são alterados os parâmetros de entrada para um acionador ou ação. Esta chamada utiliza os mesmos parâmetros como ações de HTTP padrão. 
+A `subscribe` chamada ocorre quando o fluxo de trabalho é alterado de qualquer forma, por exemplo, quando as credenciais são renovadas ou quando os parâmetros de entrada são alterados para um gatilho ou uma ação. Essa chamada usa os mesmos parâmetros que as ações HTTP padrão. 
 
-O `unsubscribe` chamada ocorre automaticamente quando uma operação faz com que o acionador ou ação inválido, por exemplo:
+A `unsubscribe` chamada ocorre automaticamente quando uma operação torna o gatilho ou a ação inválida, por exemplo:
 
-* A eliminar ou desativar o acionador. 
-* A eliminar ou desativar o fluxo de trabalho. 
-* Eliminação ou desativação da subscrição. 
+* Excluindo ou desabilitando o gatilho. 
+* Excluindo ou desabilitando o fluxo de trabalho. 
+* Excluindo ou desabilitando a assinatura. 
 
-Para oferecer suporte a essas chamadas, o `@listCallbackUrl()` expressão retorna um exclusivo "URL de retorno de chamada" para o acionador ou ação. Este URL representa um identificador exclusivo para os pontos finais que utilizar a API de REST do serviço. Os parâmetros para esta função são o mesmo que o acionador de webhook ou uma ação.
+Para dar suporte a essas chamadas `@listCallbackUrl()` , a expressão retorna uma "URL de retorno de chamada" exclusiva para o gatilho ou a ação. Essa URL representa um identificador exclusivo para os pontos de extremidade que usam a API REST do serviço. Os parâmetros para essa função são os mesmos que o gatilho ou ação de webhook.
 
 <a name="asynchronous-limits"></a>
 
-## <a name="change-asynchronous-duration"></a>Altere a duração assíncrona
+## <a name="change-asynchronous-duration"></a>Alterar duração assíncrona
 
-Para acionadores e ações, pode limitar a duração para o padrão assíncrono para um intervalo de tempo específico, adicionando o `limit.timeout` propriedade. Dessa forma, se a ação não foi concluída quando o mercado de intervalo, o estado da ação está marcado como `Cancelled` com o `ActionTimedOut` código. O `timeout` propriedade utiliza [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+Para gatilhos e ações, você pode limitar a duração do padrão assíncrono a um intervalo de tempo específico adicionando a `limit.timeout` propriedade. Dessa forma, se a ação não tiver terminado quando o intervalo se sobrepuser, o status da ação será `Cancelled` marcado como `ActionTimedOut` com o código. A `timeout` propriedade usa o [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2372,47 +2372,47 @@ Para acionadores e ações, pode limitar a duração para o padrão assíncrono 
 
 ## <a name="runtime-configuration-settings"></a>Definições de configuração de tempo de execução
 
-Pode alterar o comportamento de tempo de execução padrão para acionadores e ações com essas `runtimeConfiguration` propriedades na definição do acionador ou ação.
+Você pode alterar o comportamento de tempo de execução padrão para gatilhos `runtimeConfiguration` e ações com essas propriedades na definição do gatilho ou da ação.
 
-| Propriedade | Tipo | Descrição | Ação ou acionador | 
+| Propriedade | Tipo | Descrição | Gatilho ou ação | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os disparadores | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que pode aguardar para ser executada quando o fluxo de trabalho já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os disparadores | 
-| `runtimeConfiguration.concurrency.repetitions` | Integer | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p>Definir o `repetitions` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [alterar "for each" simultaneidade](#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
-| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Para ações específicas que suportam e tem a paginação ativada, este valor Especifica a *mínima* número de resultados a obter. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados com paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Ação: Diversificados |
-| `runtimeConfiguration.staticResult` | Objeto JSON | Para ações que suportam e têm o [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) definição ativados, o `staticResult` objeto tem esses atributos: <p>- `name`, que referencia o nome de definição estática do resultado da ação atual, que aparece dentro do `staticResults` atributo no seu trabalho de aplicação de lógica `definition` atributo. Para obter mais informações, consulte [resultados estáticos - referência de esquema para a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica se os resultados estáticos são `Enabled` ou não para a ação atual. <p>Para ativar resultados estáticos, consulte [testar aplicações lógicas com dados fictícios ao configurar resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md) | Ação: Diversificados |
+| `runtimeConfiguration.concurrency.runs` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo ou em paralelo. Esse valor pode ajudar a limitar o número de solicitações que os sistemas de back-end recebem. <p>Definir a `runs` propriedade para `1` funciona da mesma maneira `SingleInstance`que definir a `operationOptions` Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar](#change-trigger-concurrency) a simultaneidade de gatilho ou [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem esperar para serem executadas quando o fluxo de trabalho já estiver executando o máximo de instâncias simultâneas. Você pode alterar o limite de simultaneidade `concurrency.runs` na propriedade. <p>Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | Todos os gatilhos | 
+| `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p>Definir a `repetitions` propriedade para `1` funciona da mesma maneira `SingleInstance`que definir a `operationOptions` Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar "para cada" simultaneidade](#change-for-each-concurrency) ou [executar "loop for each" em sequência](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Número inteiro | Para ações específicas que dão suporte e têm a paginação ativada, esse valor especifica o número *mínimo* de resultados a serem recuperados. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados usando](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) paginação | Ação: Variado |
+| `runtimeConfiguration.staticResult` | Objeto JSON | Para ações que dão suporte e têm a configuração de [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) ativada `staticResult` , o objeto tem estes atributos: <p>- `name`, que faz referência ao nome de definição de resultado estático da ação atual, que `staticResults` aparece dentro do atributo no atributo do `definition` fluxo de trabalho do aplicativo lógico. Para obter mais informações, consulte [resultados estáticos-referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica se os resultados estáticos são `Enabled` ou não para a ação atual. <p>Para ativar os resultados estáticos, consulte [testar aplicativos lógicos com dados fictícios Configurando resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md) | Ação: Variado |
 ||||| 
 
 <a name="operation-options"></a>
 
 ## <a name="operation-options"></a>Opções de operação
 
-Pode alterar o comportamento predefinido para acionadores e ações com o `operationOptions` propriedade na definição de Acionador ou ação.
+Você pode alterar o comportamento padrão para gatilhos e ações com `operationOptions` a propriedade na definição do gatilho ou da ação.
 
-| Opção de operação | Tipo | Descrição | Ação ou acionador | 
+| Opção de operação | Type | Descrição | Gatilho ou ação | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | String | Execute ações com base em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir esta opção, veja [executar ações de forma síncrona](#asynchronous-patterns). | Ações: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Resposta](#response-action) | 
-| `OptimizedForHighThroughput` | String | Alteração da [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) o número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir esta opção, veja [executado no modo de alto débito](#run-high-throughput-mode). | Todas as ações | 
-| `Sequential` | String | Execute "for each" loop iterações um por vez, em vez de todos ao mesmo tempo em paralelo. <p>Esta opção funciona da mesma forma que a definição do `runtimeConfiguration.concurrency.repetitions` propriedade `1`. Pode definir a propriedade, mas não ambos. <p><p>Para definir esta opção, veja [executar "for each" faz um loop sequencialmente](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | String | O acionador para cada instância da aplicação lógica são executados sequencialmente e aguarde pela execução anteriormente Active Directory para concluir antes de acionar a instância seguinte da aplicação lógica. <p><p>Esta opção funciona da mesma forma que a definição do `runtimeConfiguration.concurrency.runs` propriedade `1`. Pode definir a propriedade, mas não ambos. <p>Para definir esta opção, veja [acionar instâncias sequencialmente](#sequential-trigger). | Todos os disparadores | 
+| `DisableAsyncPattern` | Cadeia | Execute ações baseadas em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir essa opção, consulte [executar ações](#asynchronous-patterns)de forma síncrona. | Ações <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Resposta](#response-action) | 
+| `OptimizedForHighThroughput` | Cadeia | Altere o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) no número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir essa opção, consulte [executar no modo de alta taxa de transferência](#run-high-throughput-mode). | Todas as ações | 
+| `Sequential` | Cadeia | Execute "para cada" iterações de loop, uma de cada vez, em vez de todas ao mesmo tempo em paralelo. <p>Essa opção funciona da mesma maneira que definir a `runtimeConfiguration.concurrency.repetitions` `1`Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p><p>Para definir essa opção, consulte [executar loops "for each" sequencialmente](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | Cadeia | Execute o gatilho para cada instância de aplicativo lógico sequencialmente e aguarde até que a execução ativa anteriormente seja acionada antes de disparar a próxima instância de aplicativo lógico. <p><p>Essa opção funciona da mesma maneira que definir a `runtimeConfiguration.concurrency.runs` `1`Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para definir essa opção, confira [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
 ||||
 
 <a name="change-trigger-concurrency"></a>
 
-### <a name="change-trigger-concurrency"></a>Simultaneidade de Acionador de alteração
+### <a name="change-trigger-concurrency"></a>Alterar simultaneidade do gatilho
 
-Por predefinição, instâncias de aplicações lógicas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de Acionador é acionado antes da instância de fluxo de trabalho anterior termina a respetiva execução. Este limite ajuda a controlar o número de pedidos a receber de sistemas back-end. 
+Por padrão, as instâncias do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Portanto, cada instância de gatilho é acionada antes da conclusão da execução da instância do fluxo de trabalho anterior. Esse limite ajuda a controlar o número de solicitações que os sistemas de back-end recebem. 
 
-Para alterar o limite predefinido, pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas como alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. Esta propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. 
+Para alterar o limite padrão, você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por `runtimeConfiguration.concurrency.runs` meio do designer adiciona ou atualiza a propriedade na definição de gatilho subjacente e vice-versa. Essa propriedade controla o número máximo de instâncias de fluxo de trabalho que podem ser executadas em paralelo. 
 
 > [!NOTE] 
-> Se definir o acionador para ser executado em seqüência usando o designer ou o editor de vista de código, não define o acionador `operationOptions` propriedade `SingleInstance` no editor de vista de código. Caso contrário, receberá um erro de validação. Para obter mais informações, consulte [acionar instâncias sequencialmente](#sequential-trigger).
+> Se você definir o gatilho para ser executado sequencialmente usando o designer ou o editor de modo de exibição de código, não defina `operationOptions` a propriedade `SingleInstance` do gatilho como no editor de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [disparar instâncias sequencialmente](#sequential-trigger).
 
-#### <a name="edit-in-code-view"></a>Editar no modo de exibição de código 
+#### <a name="edit-in-code-view"></a>Editar na exibição de código 
 
-No subjacentes definição do acionador, adicionar ou atualizar o `runtimeConfiguration.concurrency.runs` propriedade para um valor entre `1` e `50` , inclusivamente.
+Na definição de gatilho subjacente, adicione ou atualize a `runtimeConfiguration.concurrency.runs` propriedade para um valor entre `1` e `50` inclusive.
 
-Eis um exemplo que limita as execuções simultâneas para 10 instâncias:
+Aqui está um exemplo que limita as execuções simultâneas a 10 instâncias:
 
 ```json
 "<trigger-name>": {
@@ -2429,28 +2429,28 @@ Eis um exemplo que limita as execuções simultâneas para 10 instâncias:
 }
 ```
 
-#### <a name="edit-in-logic-apps-designer"></a>Editar no estruturador de aplicações lógicas
+#### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. No canto superior direito do acionador, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
+1. No canto superior direito do gatilho, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
 
-2. Sob **controlo de simultaneidade**, defina **limite** para **no**. 
+2. Em **controle**de simultaneidade, defina **limite** como **ativado**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. Para executar a aplicação lógica em seqüência, arraste o valor de controlo de deslize para **1**.
+3. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-for-each-concurrency"></a>
 
-### <a name="change-for-each-concurrency"></a>Alterar a simultaneidade "for each"
+### <a name="change-for-each-concurrency"></a>Alterar "para cada" simultaneidade
 
-Por predefinição, o ciclo "for" each iterações executam ao mesmo tempo, ou em paralelo, até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite predefinido, pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas como alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.repetitions` propriedade na ação "for each" subjacentes definição e vice-versa. Esta propriedade controla o número máximo de iterações que podem ser executadas em paralelo.
+Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo, ou em paralelo, até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar o limite padrão, você pode usar o editor de modo de exibição de código ou o designer de aplicativos lógicos, pois alterar a configuração de `runtimeConfiguration.concurrency.repetitions` simultaneidade por meio do designer adiciona ou atualiza a propriedade na definição de ação "para cada" subjacente e vice-versa. Essa propriedade controla o número máximo de iterações que podem ser executadas em paralelo.
 
 > [!NOTE] 
-> Se definir a ação "for each" para ser executado em seqüência usando o designer ou o editor de vista de código, não defina a ação `operationOptions` propriedade `Sequential` no editor de vista de código. Caso contrário, receberá um erro de validação. Para obter mais informações, consulte [executar "for each" faz um loop sequencialmente](#sequential-for-each).
+> Se você definir a ação "para cada" para ser executada sequencialmente usando o designer ou o editor de modo de exibição de código, não defina `operationOptions` a propriedade `Sequential` da ação como no editor de modo de exibição de código. Caso contrário, você receberá um erro de validação. Para obter mais informações, consulte [executar loops "for each" sequencialmente](#sequential-for-each).
 
-#### <a name="edit-in-code-view"></a>Editar no modo de exibição de código 
+#### <a name="edit-in-code-view"></a>Editar na exibição de código 
 
-Na definição de "for each" subjacentes, adicionar ou atualizar o `runtimeConfiguration.concurrency.repetitions` propriedade para um valor entre `1` e `50` , inclusivamente. 
+Na definição subjacente "para cada", adicione ou atualize a `runtimeConfiguration.concurrency.repetitions` propriedade para um valor entre `1` e `50` inclusive. 
 
-Eis um exemplo que limita as execuções simultâneas para 10 iterações:
+Aqui está um exemplo que limita as execuções simultâneas a 10 iterações:
 
 ```json
 "For_each" {
@@ -2466,23 +2466,23 @@ Eis um exemplo que limita as execuções simultâneas para 10 iterações:
 }
 ```
 
-#### <a name="edit-in-logic-apps-designer"></a>Editar no estruturador de aplicações lógicas
+#### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. Na **para cada** ação, no canto superior direito, selecione o botão de reticências (...) e, em seguida, escolha **definições**.
+1. Na ação **para cada** , no canto superior direito, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
 
-2. Sob **controlo de simultaneidade**, defina **controlo de simultaneidade** para **no**. 
+2. Em **controle**de simultaneidade, defina **controle** de simultaneidade como **ativado**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o valor desejado. Para executar a aplicação lógica em seqüência, arraste o valor de controlo de deslize para **1**.
+3. Arraste o controle deslizante **grau de paralelismo** para o valor desejado. Para executar o aplicativo lógico em sequência, arraste o valor do controle deslizante para **1**.
 
 <a name="change-waiting-runs"></a>
 
-### <a name="change-waiting-runs-limit"></a>Alterar a aguardar o limite de execuções
+### <a name="change-waiting-runs-limit"></a>Alterar limite de execuções de espera
 
-Por predefinição, instâncias de fluxo de trabalho de aplicação lógica todas executadas ao mesmo tempo, em simultâneo, ou em paralelo até a [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instância de Acionador é acionado antes da instância de fluxo de trabalho anteriormente ativo termina a respetiva execução. Embora possa [alterar este limite predefinido](#change-trigger-concurrency), quando o número de instâncias de fluxo de trabalho atinge o limite de simultaneidade novo, quaisquer outras novas instâncias têm de aguardar para ser executado. 
+Por padrão, todas as instâncias de fluxo de trabalho do aplicativo lógico são executadas ao mesmo tempo, simultaneamente ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Cada instância de gatilho é acionada antes da conclusão da execução da instância de fluxo de trabalho ativa anteriormente. Embora você possa [alterar esse limite padrão](#change-trigger-concurrency), quando o número de instâncias de fluxo de trabalho atinge o novo limite de simultaneidade, todas as novas instâncias devem aguardar para serem executadas. 
 
-O número de execuções que pode aguardar também tem um [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que pode alterar. No entanto, depois que a aplicação lógica atinge o limite de execuções de espera, o motor do Logic Apps aceita já não novas execuções. Os acionadores de pedido e webhook devolvem 429 erros e acionadores recorrentes começar a ignorar tentativas de consulta.
+O número de execuções que podem esperar também tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que pode ser alterado. No entanto, depois que o aplicativo lógico atingir o limite de execuções em espera, o mecanismo de aplicativos lógicos não aceitará mais novas execuções. Os gatilhos de solicitação e webhook retornam erros 429 e os gatilhos recorrentes começam a ignorar as tentativas de sondagem.
 
-Para alterar o limite predefinido no execuções de espera, em subjacentes definição do acionador, adicione a `runtimeConfiguration.concurency.maximumWaitingRuns` propriedade com um valor entre `0` e `100`. 
+Para alterar o limite padrão em espera de execuções, na definição de gatilho subjacente, `runtimeConfiguration.concurency.maximumWaitingRuns` adicione a propriedade com um `0` valor `100`entre e. 
 
 ```json
 "<trigger-name>": {
@@ -2501,18 +2501,18 @@ Para alterar o limite predefinido no execuções de espera, em subjacentes defin
 
 <a name="sequential-trigger"></a>
 
-### <a name="trigger-instances-sequentially"></a>Acionar instâncias sequencialmente
+### <a name="trigger-instances-sequentially"></a>Instâncias de gatilho sequencialmente
 
-Para executar a lógica de cada instância de fluxo de trabalho de aplicação apenas após a conclusão da instância anterior em execução, defina o gatilho para são executados sequencialmente. Pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas, porque também alterar a definição de simultaneidade por meio do designer adiciona ou atualiza o `runtimeConfiguration.concurrency.runs` propriedade na definição do acionador subjacente e vice-versa. 
+Para executar cada instância de fluxo de trabalho do aplicativo lógico somente após a conclusão da execução da instância anterior, defina o gatilho para ser executado em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a configuração de simultaneidade por `runtimeConfiguration.concurrency.runs` meio do designer também adiciona ou atualiza a propriedade na definição de gatilho subjacente e vice-versa. 
 
 > [!NOTE] 
-> Ao definir um acionador para ser executado em seqüência usando o designer ou o editor de vista de código, não define o acionador `operationOptions` propriedade `Sequential` no editor de vista de código. Caso contrário, receberá um erro de validação. 
+> Quando você define um gatilho para ser executado sequencialmente usando o designer ou o editor de modo de exibição de código, não defina `operationOptions` a propriedade `Sequential` do gatilho como no editor de modo de exibição de código. Caso contrário, você receberá um erro de validação. 
 
-#### <a name="edit-in-code-view"></a>Editar no modo de exibição de código
+#### <a name="edit-in-code-view"></a>Editar na exibição de código
 
-Na definição do acionador, definiu, seja destas propriedades, mas não ambos. 
+Na definição do gatilho, defina uma dessas propriedades, mas não ambas. 
 
-Definir o `runtimeConfiguration.concurrency.runs` propriedade `1`:
+Defina a `runtimeConfiguration.concurrency.runs` Propriedade como `1`:
 
 ```json
 "<trigger-name>": {
@@ -2529,9 +2529,9 @@ Definir o `runtimeConfiguration.concurrency.runs` propriedade `1`:
 }
 ```
 
-*- ou -*
+*or*
 
-Definir o `operationOptions` propriedade `SingleInstance`:
+Defina a `operationOptions` Propriedade como `SingleInstance`:
 
 ```json
 "<trigger-name>": {
@@ -2544,28 +2544,28 @@ Definir o `operationOptions` propriedade `SingleInstance`:
 }
 ```
 
-#### <a name="edit-in-logic-apps-designer"></a>Editar no estruturador de aplicações lógicas
+#### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. No canto superior direito do acionador, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
+1. No canto superior direito do gatilho, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
 
-2. Sob **controlo de simultaneidade**, defina **limite** para **no**. 
+2. Em **controle**de simultaneidade, defina **limite** como **ativado**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o número `1`. 
+3. Arraste o controle deslizante **grau de paralelismo** para o `1`número. 
 
 <a name="sequential-for-each"></a>
 
-### <a name="run-for-each-loops-sequentially"></a>Execute "for each" faz um loop em sequência
+### <a name="run-for-each-loops-sequentially"></a>Executar loops "for each" sequencialmente
 
-Para executar um loop "for each" iteração apenas após a conclusão da iteração anterior em execução, defina a ação "for each" para são executados sequencialmente. Pode utilizar o editor de vista de código ou o estruturador de aplicações lógicas, porque a alteração de simultaneidade da ação por meio do designer também adiciona ou atualiza o `runtimeConfiguration.concurrency.repetitions` propriedade na definição da ação subjacente e vice-versa. 
+Para executar uma iteração de loop "for each" somente após a conclusão da execução da iteração anterior, defina a ação "para cada" para ser executada em sequência. Você pode usar o editor de exibição de código ou o designer de aplicativos lógicos porque alterar a simultaneidade da ação por meio `runtimeConfiguration.concurrency.repetitions` do designer também adiciona ou atualiza a propriedade na definição de ação subjacente e vice-versa. 
 
 > [!NOTE] 
-> Ao definir uma ação "for each" para executar sequencialmente através da utilização do designer ou um editor de vista de código, não defina a ação `operationOptions` propriedade `Sequential` no editor de vista de código. Caso contrário, receberá um erro de validação. 
+> Quando você define uma ação "para cada" para execução sequencialmente usando o designer ou o editor de modo de exibição de código, não defina `operationOptions` a propriedade `Sequential` da ação como no editor de modo de exibição de código. Caso contrário, você receberá um erro de validação. 
 
-#### <a name="edit-in-code-view"></a>Editar no modo de exibição de código
+#### <a name="edit-in-code-view"></a>Editar na exibição de código
 
-Na definição da ação, definiu, seja destas propriedades, mas não ambos. 
+Na definição de ação, defina qualquer uma dessas propriedades, mas não ambas. 
 
-Definir o `runtimeConfiguration.concurrency.repetitions` propriedade `1`:
+Defina a `runtimeConfiguration.concurrency.repetitions` Propriedade como `1`:
 
 ```json
 "For_each" {
@@ -2581,9 +2581,9 @@ Definir o `runtimeConfiguration.concurrency.repetitions` propriedade `1`:
 }
 ```
 
-*- ou -*
+*or*
 
-Definir o `operationOptions` propriedade `Sequential`:
+Defina a `operationOptions` Propriedade como `Sequential`:
 
 ```json
 "For_each" {
@@ -2595,21 +2595,21 @@ Definir o `operationOptions` propriedade `Sequential`:
 }
 ```
 
-#### <a name="edit-in-logic-apps-designer"></a>Editar no estruturador de aplicações lógicas
+#### <a name="edit-in-logic-apps-designer"></a>Editar no designer de aplicativos lógicos
 
-1. Na **para cada** canto do canto superior direito da ação, escolha o botão de reticências (...) e, em seguida, escolha **definições**.
+1. No canto superior direito de **cada** ação, escolha o botão de reticências (...) e, em seguida, escolha **configurações**.
 
-2. Sob **controlo de simultaneidade**, defina **controlo de simultaneidade** para **no**. 
+2. Em **controle**de simultaneidade, defina **controle** de simultaneidade como **ativado**. 
 
-3. Arrastar o **grau de paralelismo** controlo de deslize para o número `1`. 
+3. Arraste o controle deslizante **grau de paralelismo** para o `1`número. 
 
 <a name="asynchronous-patterns"></a>
 
 ### <a name="run-actions-synchronously"></a>Executar ações de forma síncrona
 
-Por predefinição, todas as ações com base em HTTP seguem o padrão de operação assíncrona padrão. Esse padrão Especifica que quando uma ação baseada em HTTP envia um pedido para o ponto final especificado, o servidor remoto envia uma resposta "202 aceite". Esta resposta significa que o servidor aceita o pedido para processamento. O motor do Logic Apps continua verificando o URL especificado pelo cabeçalho de localização da resposta até a paragem do processamento, que é qualquer resposta não 202.
+Por padrão, todas as ações baseadas em HTTP seguem o padrão de operação assíncrona padrão. Esse padrão especifica que quando uma ação baseada em HTTP envia uma solicitação para o ponto de extremidade especificado, o servidor remoto envia de volta uma resposta "202 aceito". Essa resposta significa que o servidor aceitou a solicitação de processamento. O mecanismo de aplicativos lógicos mantém a verificação da URL especificada pelo cabeçalho de local da resposta até que o processamento seja interrompido, que é qualquer resposta diferente de 202.
 
-No entanto, os pedidos têm um tempo limite limitar, portanto, para ações de longa execução, pode desativar o comportamento assíncrono adicionando e definindo a `operationOptions` propriedade `DisableAsyncPattern` em entradas da ação.
+No entanto, as solicitações têm um limite de tempo limite, portanto, para ações de longa execução, você pode desabilitar o comportamento `operationOptions` assíncrono adicionando `DisableAsyncPattern` e configurando a propriedade para sob as entradas da ação.
   
 ```json
 "<some-long-running-action>": {
@@ -2622,12 +2622,12 @@ No entanto, os pedidos têm um tempo limite limitar, portanto, para ações de l
 
 <a name="run-high-throughput-mode"></a>
 
-### <a name="run-in-high-throughput-mode"></a>Executar no modo de alto débito
+### <a name="run-in-high-throughput-mode"></a>Executar no modo de alta taxa de transferência
 
-Para obter uma definição de aplicação lógica única, o número de ações que executar a cada 5 minutos tem um [limite predefinido](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar este limite para o [máxima](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possíveis, defina o `operationOptions` propriedade `OptimizedForHighThroughput`. Esta definição coloca a sua aplicação lógica no modo de "débitos". 
+Para uma definição de aplicativo lógico único, o número de ações executadas a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para aumentar esse limite para o [máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possível, defina a `operationOptions` Propriedade como `OptimizedForHighThroughput`. Essa configuração coloca seu aplicativo lógico no modo de "alta taxa de transferência". 
 
 > [!NOTE]
-> Modo de alto débito está em pré-visualização. Também é possível distribuir uma carga de trabalho em mais do que uma aplicação de lógica, conforme necessário.
+> O modo de alta taxa de transferência está em versão prévia. Você também pode distribuir uma carga de trabalho entre mais de um aplicativo lógico, conforme necessário.
 
 ```json
 "<action-name>": {
@@ -2640,37 +2640,37 @@ Para obter uma definição de aplicação lógica única, o número de ações q
 
 <a name="connector-authentication"></a>
 
-## <a name="authenticate-http-triggers-and-actions"></a>Autenticação HTTP acionadores e ações
+## <a name="authenticate-http-triggers-and-actions"></a>Autenticar gatilhos e ações HTTP
 
-Pontos de extremidade HTTP suportam diferentes tipos de autenticação. Pode configurar a autenticação para estas HTTP acionadores e ações:
+Os pontos de extremidade HTTP dão suporte a diferentes tipos de autenticação. Você pode configurar a autenticação para esses gatilhos e ações HTTP:
 
 * [HTTP](../connectors/connectors-native-http.md)
 * [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 
-Aqui estão os tipos de autenticação, que pode configurar:
+Aqui estão os tipos de autenticação que você pode configurar:
 
 * [Autenticação básica](#basic-authentication)
 * [Autenticação de certificado de cliente](#client-certificate-authentication)
-* [Autenticação do Active Directory (Azure AD) OAuth do Azure](#azure-active-directory-oauth-authentication)
+* [Autenticação OAuth do Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
-> Certifique-se de que proteger informações confidenciais que lida com a definição de fluxo de trabalho da aplicação lógica. Utilizar parâmetros seguros e codificar dados conforme necessário. Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+> Certifique-se de proteger quaisquer informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como usar e proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="basic-authentication"></a>
 
 ### <a name="basic-authentication"></a>Autenticação básica
 
-Para [autenticação básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) ao utilizar o Azure Active Directory, a definição de Acionador ou ação pode incluir um `authentication` objeto JSON, que tem as propriedades especificadas pela tabela seguinte. Para aceder a valores de parâmetro em tempo de execução, pode utilizar o `@parameters('parameterName')` expressão, que é fornecido pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). 
+Para a [autenticação básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando Azure Active Directory, sua definição de gatilho ou ação pode incluir `authentication` um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). 
 
 | Propriedade | Necessário | Value | Descrição | 
 |----------|----------|-------|-------------| 
-| **type** | Sim | "Básico" | O tipo de autenticação a utilizar, que é "Básico" aqui | 
-| **username** | Sim | "@parameters('userNameParam')" | O nome de utilizador para autenticar o acesso para o ponto de extremidade do serviço de destino |
-| **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para autenticar o acesso para o ponto de extremidade do serviço de destino |
+| **type** | Sim | Basic | O tipo de autenticação a ser usado, que é "básico" aqui | 
+| **username** | Sim | "@parameters(' userNameParam ')" | O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
+| **password** | Sim | "@parameters(' passwordParam ')" | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||| 
 
-Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `Basic` autenticação. Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+Nesta definição de ação http de exemplo, `authentication` a seção `Basic` especifica autenticação. Para obter mais informações sobre como usar e proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -2689,22 +2689,22 @@ Neste exemplo de definição da ação de HTTP, o `authentication` secção espe
 ```
 
 > [!IMPORTANT]
-> Certifique-se de que proteger informações confidenciais que lida com a definição de fluxo de trabalho da aplicação lógica. Utilizar parâmetros seguros e codificar dados conforme necessário. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+> Certifique-se de proteger quaisquer informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como proteger os parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
 ### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
 
-Para [autenticação baseada em certificado](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) com o Azure Active Directory, a definição de Acionador ou ação pode incluir um `authentication` objeto JSON, que tem as propriedades especificadas pela tabela seguinte. Para aceder a valores de parâmetro em tempo de execução, pode utilizar o `@parameters('parameterName')` expressão, que é fornecido pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). Para limites no número de certificados de cliente pode utilizar, consulte [limites e configuração para o Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
+Para a [autenticação baseada em certificado](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) usando Azure Active Directory, sua definição de gatilho ou ação pode `authentication` incluir um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). Para obter limites sobre o número de certificados de cliente que você pode usar, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md).
 
 | Propriedade | Necessário | Value | Descrição |
 |----------|----------|-------|-------------|
-| **type** | Sim | "ClientCertificate" | O tipo de autenticação a utilizar Secure Sockets Layer (SSL) para certificados de cliente. Embora sejam suportados certificados autoassinados, não são suportados certificados autoassinados para SSL. |
-| **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
-| **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
+| **type** | Sim | "ClientCertificate" | O tipo de autenticação a ser usado para certificados de cliente protocolo SSL (SSL). Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
+| **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
+| **password** | Sim | "@parameters(' passwordParam ')" | A senha para acessar o arquivo PFX |
 ||||| 
 
-Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `ClientCertificate` autenticação. Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+Nesta definição de ação http de exemplo, `authentication` a seção `ClientCertificate` especifica autenticação. Para obter mais informações sobre como usar e proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -2723,28 +2723,28 @@ Neste exemplo de definição da ação de HTTP, o `authentication` secção espe
 ```
 
 > [!IMPORTANT]
-> Certifique-se de que proteger informações confidenciais que lida com a definição de fluxo de trabalho da aplicação lógica. Utilizar parâmetros seguros e codificar dados conforme necessário. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+> Certifique-se de proteger quaisquer informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como proteger os parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticação do Active Directory (AD) OAuth do Azure
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticação OAuth do Azure Active Directory (AD)
 
-Para [autenticação de OAuth do Azure AD](../active-directory/develop/authentication-scenarios.md), a definição de Acionador ou ação pode incluir um `authentication` objeto JSON, que tem as propriedades especificadas pela tabela seguinte. Para aceder a valores de parâmetro em tempo de execução, pode utilizar o `@parameters('parameterName')` expressão, que é fornecido pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs).
+Para a [Autenticação OAuth do Azure ad](../active-directory/develop/authentication-scenarios.md), sua definição de gatilho ou ação `authentication` pode incluir um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs).
 
 | Propriedade | Necessário | Value | Descrição |
 |----------|----------|-------|-------------|
-| **type** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a utilizar, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
-| **authority** | Não | <*URL-for-authority-token-issuer*> | O URL para a autoridade que fornece o token de autenticação |
-| **tenant** | Sim | <*tenant-ID*> | O ID de inquilino para o inquilino do Azure AD |
-| **Público-alvo** | Sim | <*resource-to-authorize*> | O recurso que pretende utilizar para autorização, por exemplo, `https://management.core.windows.net/` |
-| **clientId** | Sim | <*client-ID*> | O ID de cliente para a aplicação a solicitar autorização |
-| **credentialType** | Sim | "Certificate" ou "Segredo" | Utiliza o tipo de credencial do cliente para solicitar autorização. Esta propriedade e valor não aparecem na sua definição subjacente, mas determina os parâmetros necessários para o tipo de credencial. |
-| **pfx** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('pfxParam') | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
-| **password** | Sim, apenas para o tipo de credencial "Certificate" | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
-| **secret** | Sim, apenas para o "Segredo" tipo de credencial | "@parameters('secretParam')" | O segredo do cliente para solicitar autorização |
+| **type** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
+| **autoridades** | Não | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação |
+| **tenant** | Sim | <*tenant-ID*> | A ID de locatário para o locatário do Azure AD |
+| **platéia** | Sim | <*recurso a ser autorizado*> | O recurso que você deseja usar para autorização, por exemplo,`https://management.core.windows.net/` |
+| **clientId** | Sim | <*client-ID*> | A ID do cliente para o aplicativo que solicita autorização |
+| **credentialType** | Sim | "Certificado" ou "segredo" | O tipo de credencial que o cliente usa para solicitar autorização. Essa propriedade e o valor não aparecem na definição subjacente, mas determina os parâmetros necessários para o tipo de credencial. |
+| **pfx** | Sim, somente para o tipo de credencial "certificado" | "@parameters('pfxParam') | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
+| **password** | Sim, somente para o tipo de credencial "certificado" | "@parameters(' passwordParam ')" | A senha para acessar o arquivo PFX |
+| **secret** | Sim, somente para o tipo de credencial "segredo" | "@parameters(' secretParam ')" | O segredo do cliente para solicitar autorização |
 |||||
 
-Neste exemplo de definição da ação de HTTP, o `authentication` secção especifica `ActiveDirectoryOAuth` tipo de credencial de autenticação e o "segredo". Para obter mais informações sobre o uso e a proteção de parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+Nesta definição de ação http de exemplo, `authentication` a seção `ActiveDirectoryOAuth` especifica autenticação e o tipo de credencial "segredo". Para obter mais informações sobre como usar e proteger parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ```json
 "HTTP": {
@@ -2765,8 +2765,8 @@ Neste exemplo de definição da ação de HTTP, o `authentication` secção espe
 ```
 
 > [!IMPORTANT]
-> Certifique-se de que proteger informações confidenciais que lida com a definição de fluxo de trabalho da aplicação lógica. Utilizar parâmetros seguros e codificar dados conforme necessário. Para obter mais informações sobre como proteger a parâmetros, consulte [proteger a sua aplicação lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
+> Certifique-se de proteger quaisquer informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros protegidos e codifique os dados conforme necessário. Para obter mais informações sobre como proteger os parâmetros, consulte [proteger seu aplicativo lógico](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md)
+* Saiba mais sobre a [linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md)

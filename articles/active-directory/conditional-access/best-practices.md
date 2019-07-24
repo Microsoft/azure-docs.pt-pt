@@ -1,6 +1,6 @@
 ---
-title: Melhores práticas para acesso condicional no Azure Active Directory | Documentos da Microsoft
-description: Saiba mais sobre coisas que deve saber, e o que é deve evitar quando configurar políticas de acesso condicional.
+title: Práticas recomendadas para acesso condicional no Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre as coisas que você deve saber e o que você deve evitar fazer ao configurar políticas de acesso condicional.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,137 +11,137 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a27fb5e243d2590e3fae85c6c820c4a43af0d5
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509428"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248870"
 ---
-# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Azure Active Directory
+# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
-Com o [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), pode controlar o acesso de utilizadores autorizados como suas aplicações na cloud. Este artigo fornece informações sobre:
+Com o [acesso condicional do Azure Active Directory (AD do Azure)](../active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Este artigo fornece informações sobre:
 
-- Coisas que deve saber 
-- O que é deve evitar quando configurar políticas de acesso condicional. 
+- Coisas que você deve saber 
+- O que você deve evitar fazer ao configurar políticas de acesso condicional. 
 
-Este artigo pressupõe que familiar os conceitos e terminologia descritos no [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Este artigo pressupõe que você esteja familiarizado com os conceitos e a terminologia descrita em [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
-## <a name="whats-required-to-make-a-policy-work"></a>O que é necessário para tornar uma política de trabalho?
+## <a name="whats-required-to-make-a-policy-work"></a>O que é necessário para fazer uma política funcionar?
 
-Quando cria uma nova política, não são os utilizadores, grupos, aplicações ou controlos de acesso selecionados.
+Quando você cria uma nova política, não há usuários, grupos, aplicativos ou controles de acesso selecionados.
 
-![Aplicações na cloud](./media/best-practices/02.png)
+![Aplicativos de nuvem](./media/best-practices/02.png)
 
-Para tornar a sua política de trabalho, tem de configurar:
+Para fazer sua política funcionar, você deve configurar:
 
-| O quê           | Como                                  | Por que motivo |
+| O quê           | Qual                                  | Por |
 | :--            | :--                                  | :-- |
-| **Aplicações na cloud** |Selecione uma ou mais aplicações.  | O objetivo de uma política de acesso condicional é que lhe permite controlar os utilizadores autorizados como podem aceder a aplicações na cloud.|
-| **Utilizadores e grupos** | Selecione pelo menos um utilizador ou grupo que está autorizado a aceder às suas aplicações na nuvem selecionada. | Uma política de acesso condicional que tenha de não utilizadores e grupos atribuídos, nunca é acionado. |
-| **Controlos de acesso** | Selecione o controlo de acesso de pelo menos um. | Se forem satisfeitas as condições, o processador de política tem de saber o que fazer. |
+| **Aplicativos de nuvem** |Selecione um ou mais aplicativos.  | O objetivo de uma política de acesso condicional é permitir que você controle como os usuários autorizados podem acessar os aplicativos de nuvem.|
+| **Usuários e grupos** | Selecione pelo menos um usuário ou grupo que esteja autorizado a acessar seus aplicativos de nuvem selecionados. | Uma política de acesso condicional que não tem usuários e grupos atribuídos nunca é disparada. |
+| **Controles de acesso** | Selecione pelo menos um controle de acesso. | Se suas condições forem satisfeitas, o processador de política precisará saber o que fazer. |
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-### <a name="how-are-conditional-access-policies-applied"></a>Como são aplicadas políticas de acesso condicional?
+### <a name="how-are-conditional-access-policies-applied"></a>Como as políticas de acesso condicional são aplicadas?
 
-Mais de uma política de acesso condicional pode aplicar-se ao aceder a uma aplicação na cloud. Neste caso, devem ser satisfeitas todas as políticas que se aplicam. Por exemplo, se uma política exige a MFA e o segundo requer um dispositivo em conformidade, deve passar por MFA e utilizar um dispositivo em conformidade. 
+Mais de uma política de acesso condicional pode ser aplicada quando você acessa um aplicativo de nuvem. Nesse caso, todas as políticas que se aplicam devem ser satisfeitas. Por exemplo, se uma política exigir MFA e a segunda exigir um dispositivo compatível, você deverá passar pelo MFA e usar um dispositivo compatível. 
 
 Todas as políticas são impostas em duas fases:
 
-- Na **primeiro** fase, todas as políticas são avaliadas e todos os controles de acesso que não forem satisfeitos são recolhidos. 
-- Na **segundo** fase, lhe for pedido para satisfazer os requisitos que ainda não a cumpriu. Se qualquer uma das políticas de bloquear o acesso, são bloqueados e não lhe for pedido para satisfazer outros Controles de política. Se as políticas de bloqueiam, lhe for pedido para atender a outros controlos de política na seguinte ordem:
+- Na **primeira** fase, todas as políticas são avaliadas e todos os controles de acesso que não são satisfeitos são coletados. 
+- Na **segunda** fase, você receberá uma solicitação para atender aos requisitos que não atendeu. Se qualquer uma das políticas bloquear o acesso, você será bloqueado e não será solicitado a atender a outros controles de política. Se as políticas bloquearem você, você será solicitado a atender a outros controles de política na seguinte ordem:
 
    ![Encomenda](./media/best-practices/06.png)
     
-   Externo fornecedores MFA e os termos de utilização vêm seguintes.
+   Os provedores de MFA externos e os termos de uso vêm em seguida.
 
-### <a name="how-are-assignments-evaluated"></a>Como são avaliadas as atribuições?
+### <a name="how-are-assignments-evaluated"></a>Como as atribuições são avaliadas?
 
-Todas as atribuições são logicamente **ANDed**. Se tiver mais de uma atribuição configurada, todas as atribuições de devem ser satisfeitas para acionar uma política.  
+Todas as atribuições são logicamente ANDeddas. Se você tiver mais de uma atribuição configurada, todas as atribuições deverão ser satisfeitas para disparar uma política.  
 
-Se precisar de configurar uma condição de localização que se aplica a todas as ligações feitas a partir de fora da rede da sua organização:
+Se você precisar configurar uma condição de local que se aplica a todas as conexões feitas de fora da rede da sua organização:
 
-- Incluir **todas as localizações**
-- Excluir **todos os IPs fidedignos**
+- Incluir **todos os locais**
+- Excluir **todos os IPs confiáveis**
 
-### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>O que fazer se estiver impedido de aceder ao portal de administração do Azure AD?
+### <a name="what-to-do-if-you-are-locked-out-of-the-azure-ad-admin-portal"></a>O que fazer se você estiver bloqueado no portal de administração do Azure AD?
 
-Se estiver impedido de aceder ao portal do Azure AD devido a uma definição incorreta numa política de acesso condicional:
+Se você estiver bloqueado no portal do AD do Azure devido a uma configuração incorreta em uma política de acesso condicional:
 
-- Verificação é que existem outros administradores na sua organização que não são bloqueadas ainda. Um administrador com acesso ao portal do Azure pode desativar a política que está a afetar o seu início de sessão. 
-- Se nenhum dos administradores na sua organização pode atualizar a política, tem de submeter um pedido de suporte. Suporte da Microsoft pode rever e atualizar as políticas de acesso condicional que estão a impedir o acesso.
+- Verifique se há outros administradores em sua organização que ainda não foram bloqueados. Um administrador com acesso ao portal do Azure pode desabilitar a política que está afetando sua entrada. 
+- Se nenhum dos administradores da sua organização puder atualizar a política, você precisará enviar uma solicitação de suporte. O suporte da Microsoft pode revisar e atualizar políticas de acesso condicional que estão impedindo o acesso.
 
-### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>O que acontece se tiver políticas no portal clássico do Azure e no portal do Azure configurado?  
+### <a name="what-happens-if-you-have-policies-in-the-azure-classic-portal-and-azure-portal-configured"></a>O que acontece se você tiver políticas no portal clássico do Azure e portal do Azure configuradas?  
 
-Ambas as políticas são aplicadas pelo Azure Active Directory e o utilizador obtém acesso apenas quando todos os requisitos são cumpridos.
+Ambas as políticas são impostas por Azure Active Directory e o usuário obtém acesso somente quando todos os requisitos são atendidos.
 
-### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>O que acontece se tiver políticas no portal do Intune Silverlight e o portal do Azure?
+### <a name="what-happens-if-you-have-policies-in-the-intune-silverlight-portal-and-the-azure-portal"></a>O que acontece se você tiver políticas no portal do Intune Silverlight e o portal do Azure?
 
-Ambas as políticas são aplicadas pelo Azure Active Directory e o utilizador obtém acesso apenas quando todos os requisitos são cumpridos.
+Ambas as políticas são impostas por Azure Active Directory e o usuário obtém acesso somente quando todos os requisitos são atendidos.
 
-### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>O que acontece se tiver múltiplas políticas para o mesmo utilizador configurado?  
+### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>O que acontece se eu tiver várias políticas para o mesmo usuário configurado?  
 
-Para cada início de sessão, o Azure Active Directory avalia todas as políticas e garante que todos os requisitos são cumpridos antes de acesso concedido ao utilizador. Bloquear o acesso supera todas as outras definições de configuração. 
+Para cada entrada, Azure Active Directory avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder acesso ao usuário. Bloquear o acesso supera todas as outras definições de configuração. 
 
-### <a name="does-conditional-access-work-with-exchange-activesync"></a>Acesso condicional funciona com o Exchange ActiveSync?
+### <a name="does-conditional-access-work-with-exchange-activesync"></a>O acesso condicional funciona com o Exchange ActiveSync?
 
-Sim, pode utilizar o Exchange ActiveSync numa política de acesso condicional com algumas [limitações](block-legacy-authentication.md). 
+Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional com algumas [limitações](block-legacy-authentication.md). 
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como configurar o acesso condicional com aplicações do Office 365?
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como você deve configurar o acesso condicional com os aplicativos do Office 365?
 
-Como aplicações do Office 365 estão interligadas, recomendamos que normalmente a atribuir aplicações utilizadas em conjunto durante a criação de políticas.
+Como os aplicativos do Office 365 são interconectados, é recomendável atribuir aplicativos comumente usados ao criar políticas.
 
-Aplicativos interconectados comuns incluem o Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online do Office 365, Office 365 SharePoint Online e Yammer do Office 365.
+Aplicativos comuns interconectados incluem Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
 
-É importante para as políticas que necessitem de interações de utilizador, como autenticação multifator, quando o acesso é controlado no início de sessão ou a tarefa. Se não o fizer, os utilizadores não poderão concluir algumas tarefas dentro de uma aplicação. Por exemplo, se necessitar de autenticação multifator em dispositivos não geridos para acessar o SharePoint, mas não ao e-mail, os utilizadores que trabalham no respetivo e-mail não será possível anexar arquivos do SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo, [quais são as dependências do serviço no Azure Active Directory condicional Access?](service-dependencies.md).
+É importante para as políticas que exigem interações com o usuário, como a autenticação multifator, quando o acesso é controlado no início de uma sessão ou tarefa. Caso contrário, os usuários não poderão concluir algumas tarefas em um aplicativo. Por exemplo, se você precisar de autenticação multifator em dispositivos não gerenciados para acessar o SharePoint, mas não para email, os usuários que trabalham em seu email não poderão anexar arquivos do SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo [quais são as dependências de serviço em Azure Active Directory acesso condicional?](service-dependencies.md).
 
-## <a name="what-you-should-avoid-doing"></a>O que deve evitar ao fazê-lo
+## <a name="what-you-should-avoid-doing"></a>O que você deve evitar fazer
 
-A estrutura de acesso condicional fornece uma flexibilidade de configuração grande. No entanto, grande flexibilidade também significa que deve examinar cuidadosamente cada política de configuração antes da sua liberação para evitar resultados indesejáveis. Neste contexto, deve prestar atenção especial para atribuições de afetar conjuntos completos, como **todos os utilizadores / grupos / aplicações na cloud**.
+A estrutura de acesso condicional fornece uma ótima flexibilidade de configuração. No entanto, grande flexibilidade também significa que você deve examinar atentamente cada política de configuração antes de liberá-la para evitar resultados indesejáveis. Nesse contexto, você deve prestar atenção especial às atribuições que afetam os conjuntos completos, como **todos os usuários/grupos/aplicativos de nuvem**.
 
-No seu ambiente, deve evitar as seguintes configurações:
+Em seu ambiente, você deve evitar as seguintes configurações:
 
-**Para todos os utilizadores, todas as aplicações na cloud:**
+**Para todos os usuários, todos os aplicativos de nuvem:**
 
-- **Bloquear o acesso** -esta configuração bloqueia toda a organização, que definitivamente não é uma boa idéia.
-- **Exigir dispositivo em conformidade** - os para os utilizadores que não inscreveram os dispositivos ainda, esta política bloqueia todos os acessos, incluindo o acesso ao portal do Intune. Se for um administrador sem um dispositivo inscrito, esta política bloqueia-o partir voltando para o portal do Azure para alterar a política.
-- **Exigir a associação a domínio** – este bloco de política acesso também tem o potencial para bloquear o acesso para todos os utilizadores na sua organização se ainda não tiver um dispositivo associado a um domínio.
-- **Exigir a política de proteção de aplicações** – este bloco de política acesso também tem o potencial para bloquear o acesso para todos os utilizadores na sua organização se não tiver uma política do Intune. Se for um administrador sem uma aplicação de cliente que tenha uma política de proteção de aplicações do Intune, esta política bloqueia-o partir voltando para portais como o Intune e do Azure.
+- **Bloquear o acesso** -essa configuração bloqueia toda a organização, o que definitivamente não é uma boa ideia.
+- **Exigir dispositivo compatível** -para usuários que ainda não registraram seus dispositivos, essa política bloqueia todo o acesso, incluindo acesso ao portal do Intune. Se você for um administrador sem um dispositivo registrado, essa política o impedirá de voltar para o portal do Azure para alterar a política.
+- **Exigir ingresso no domínio** – esse acesso ao bloqueio de política também tem o potencial de bloquear o acesso para todos os usuários em sua organização se você ainda não tiver um dispositivo ingressado no domínio.
+- **Exigir política de proteção de aplicativo** -este acesso ao bloqueio de política também tem o potencial de bloquear o acesso para todos os usuários em sua organização se você não tiver uma política do Intune. Se você for um administrador sem um aplicativo cliente que tenha uma política de proteção de aplicativo do Intune, essa política o bloqueará de voltar para portais como o Intune e o Azure.
 
-**Para todos os utilizadores, todas as aplicações na cloud, todas as plataformas de dispositivos:**
+**Para todos os usuários, todos os aplicativos de nuvem, todas as plataformas de dispositivo:**
 
-- **Bloquear o acesso** -esta configuração bloqueia toda a organização, que definitivamente não é uma boa idéia.
+- **Bloquear o acesso** -essa configuração bloqueia toda a organização, o que definitivamente não é uma boa ideia.
 
-## <a name="how-should-you-deploy-a-new-policy"></a>Como deve implementar uma nova política?
+## <a name="how-should-you-deploy-a-new-policy"></a>Como você deve implantar uma nova política?
 
-Como primeiro passo, deve avaliar sua política através da [e se a ferramenta](what-if-tool.md).
+Como primeira etapa, você deve avaliar sua política usando a [ferramenta What If](what-if-tool.md).
 
-Quando as novas políticas são prontas para o seu ambiente, implantá-los em fases:
+Quando novas políticas estiverem prontas para seu ambiente, implante-as em fases:
 
-1. Aplicar uma política a um pequeno conjunto de utilizadores e certifique-se de que funciona conforme o esperado. 
-1. Ao expandir uma política para incluir mais usuários. Continue excluir todos os administradores da política para se certificar de que ainda tem acesso e pode atualizar uma política, se for necessária uma alteração.
-1. Aplica uma política a todos os utilizadores apenas se for necessário. 
+1. Aplique uma política a um pequeno conjunto de usuários e verifique se ele se comporta conforme o esperado. 
+1. Quando você expande uma política para incluir mais usuários. Continue a excluir todos os administradores da política para garantir que eles ainda tenham acesso e possam atualizar uma política se uma alteração for necessária.
+1. Aplique uma política a todos os usuários somente se necessário. 
 
-Como melhor prática, crie uma conta de utilizador que seja:
+Como prática recomendada, crie uma conta de usuário que seja:
 
-- Dedicada à administração da diretiva 
-- Excluído da todas as suas políticas
+- Dedicado à administração de política 
+- Excluído de todas as suas políticas
 
-## <a name="policy-migration"></a>Migração da política
+## <a name="policy-migration"></a>Migração de política
 
-Considere migrar as políticas que não tenha criado no portal do Azure porque:
+Considere migrar as políticas que você não criou no portal do Azure porque:
 
-- Agora pode solucionar cenários que não poderia manipular antes.
-- Pode reduzir o número de políticas que tem de gerir por consolidá-las.   
-- Pode gerir todas as suas políticas de acesso condicional num local central.
-- Portal clássico do Azure foi desativado.   
+- Agora você pode abordar os cenários que não podia manipular antes.
+- Você pode reduzir o número de políticas a serem gerenciadas, consolidando-as.   
+- Você pode gerenciar todas as políticas de acesso condicional em um local central.
+- O portal clássico do Azure foi desativado.   
 
 Para obter mais informações, consulte [migrar políticas clássicas no portal do Azure](policy-migration.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser saber:
+Se você quiser saber:
 
-- Como configurar uma política de acesso condicional, consulte [exigir MFA para aplicações específicas com o Azure Active Directory condicional acesso](app-based-mfa.md).
-- Como planear as suas políticas de acesso condicional, consulte [como planear a implementação de acesso condicional no Azure Active Directory](plan-conditional-access.md).
+- Como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
+- Como planejar suas políticas de acesso condicional, consulte [como planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md).

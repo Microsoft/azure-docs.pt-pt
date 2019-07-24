@@ -1,6 +1,6 @@
 ---
-title: II SKUs de tipo de cópia de segurança do sistema operativo e o restauro de SAP HANA no Azure (instâncias grandes) | Documentos da Microsoft
-description: Efetuar cópia de segurança do sistema operativo e o restauro para o SAP HANA no Azure (instâncias grandes) tipo II SKUs
+title: Backup do sistema operacional e restauração de SAP HANA em SKUs do tipo II do Azure (instâncias grandes) | Microsoft Docs
+description: Executar backup e restauração do sistema operacional para SAP HANA em SKUs do tipo II do Azure (instâncias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -11,79 +11,83 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dacc0a745fc387dcaf6be282b562d83e1b798ea4
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67710101"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868971"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Cópia de segurança do sistema operacional e de restauro para SKUs do tipo II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3
 
-Este documento descreve os passos para executar um backup de nível de ficheiro de sistema operativo e o restauro para o **SKUs do tipo II** das instâncias grandes do HANA. 
+Este documento descreve as etapas para executar um backup e restauração no nível de arquivo do sistema operacional para os **SKUs do tipo II** das instâncias grandes Hana da revisão 3. 
+
+>[!Important]
+> **Este artigo não se aplica a implantações de SKU do tipo II na revisão 4 carimbos de instância grande do HANA.** LUNS de inicialização do tipo II as unidades de instância grande do HANA que são implantadas na revisão 4 é possível fazer backup de carimbos de instância grande do HANA com instantâneos de armazenamento, pois esse é o caso com SKUs do tipo I já nos carimbos de revisão 3
+
 
 >[!NOTE]
->Os scripts de cópia de segurança do sistema operacional utiliza o software de trás, que é previamente instalado no servidor.  
+>Os scripts de backup do sistema operacional usam o software traseiro, que é pré-instalado no servidor.  
 
-Após o aprovisionamento estiver concluído, a equipe de gerenciamento de serviços da Microsoft, por predefinição, o servidor está configurado com a agenda de duas cópias de segurança para criar cópias de segurança do sistema de ficheiros ao nível de cópia de segurança do sistema operativo. Pode verificar o agendamento da tarefa de cópia de segurança utilizando o seguinte comando:
+Depois que o provisionamento for concluído pela equipe da Microsoft `Service Management` , por padrão, o servidor será configurado com duas agendas de backup para fazer backup do nível do sistema de arquivos de volta do sistema operacional. Você pode verificar os agendamentos dos trabalhos de backup usando o seguinte comando:
 ```
 #crontab –l
 ```
-Pode alterar a agenda de cópia de segurança qualquer altura utilizando o seguinte comando:
+Você pode alterar o agendamento de backup a qualquer momento usando o seguinte comando:
 ```
 #crontab -e
 ```
-## <a name="how-to-take-a-manual-backup"></a>Como efetuar uma cópia de segurança manual?
+## <a name="how-to-take-a-manual-backup"></a>Como fazer um backup manual?
 
-A cópia de segurança do sistema de ficheiros do sistema operativo é programada com uma **tarefa cron** já. No entanto, pode executar o sistema operativo ao nível backup de arquivos manualmente também. Para efetuar uma cópia de segurança manual, execute o seguinte comando:
+O backup do sistema de arquivos do so já está agendado usando um **trabalho cron** . No entanto, você também pode executar o backup de nível de arquivo do sistema operacional manualmente. Para executar um backup manual, execute o seguinte comando:
 
 ```
 #rear -v mkbackup
 ```
-O seguir mostram de ecrã mostra a cópia de segurança manual do exemplo:
+A exibição de tela a seguir mostra o backup manual de exemplo:
 
-![Como](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![Qual](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
-## <a name="how-to-restore-a-backup"></a>Como restaurar uma cópia de segurança?
+## <a name="how-to-restore-a-backup"></a>Como restaurar um backup?
 
-Pode restaurar uma cópia de segurança completa ou de um arquivo individual a partir da cópia de segurança. Para restaurar, utilize o seguinte comando:
+Você pode restaurar um backup completo ou um arquivo individual do backup. Para restaurar, use o seguinte comando:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Após o restauro, é recuperar o ficheiro no diretório de trabalho atual.
+Após a restauração, o arquivo é recuperado no diretório de trabalho atual.
 
-O comando seguinte mostra o restauro de um arquivo *nomedeanfitrião fstabfrom* o arquivo de backup *backup.tar.gz*
+O comando a seguir mostra a restauração de um arquivo */etc/fstabfrom* backup File *. tar. gz*
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->Precisa copiar o ficheiro para a localização pretendida, após o restauro da cópia de segurança.
+>Você precisa copiar o arquivo para o local desejado depois que ele for restaurado do backup.
 
-Captura de ecrã seguinte mostra o restauro de uma cópia de segurança completa:
+A captura de tela a seguir mostra a restauração de um backup completo:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Como instalar a ferramenta de atrás e alterar a configuração? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Como instalar a ferramenta de trás e alterar a configuração? 
 
-Os pacotes de Relax-e-recuperação (traseiro) estão **pré-instalado** no **tipo II SKUs** de instâncias grandes do HANA e nenhuma ação necessária da sua. Diretamente pode começar a utilizar o traseiro para a cópia de segurança do sistema operativo.
-No entanto, nas circunstâncias em que tem de instalar os pacotes no seu próprio, pode seguir os passos indicados para instalar e configurar a ferramenta de trás.
+Os pacotes de reversões (traseiras) são **pré-instalados** nos **SKUs do tipo II** do Hana em instâncias grandes e nenhuma ação é necessária. Você pode começar diretamente usando a parte traseira para o backup do sistema operacional.
+No entanto, nas circunstâncias em que você precisa instalar os pacotes por conta própria, você pode seguir as etapas listadas para instalar e configurar a ferramenta de trás.
 
-Para instalar o **traseiro** pacotes de cópia de segurança, utilize os seguintes comandos:
+Para instalar os  pacotes de backup traseiros, use os seguintes comandos:
 
-Para **SLES** sistema operativo, utilize o seguinte comando:
+Para o sistema operacional **SLES** , use o seguinte comando:
 ```
 #zypper install <rear rpm package>
 ```
-Para **RHEL** sistema operativo, utilize o seguinte comando: 
+Para o sistema operacional **RHEL** , use o seguinte comando: 
 ```
 #yum install rear -y
 ```
-Para configurar a ferramenta de trás, tem de atualizar os parâmetros **OUTPUT_URL** e **BACKUP_URL** no *ficheiro /etc/rear/local.conf*.
+Para configurar a ferramenta de trás, você precisa atualizar os parâmetros **OUTPUT_URL** e **BACKUP_URL** no *arquivo/etc/Rear/local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -96,4 +100,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Captura de ecrã seguinte mostra o restauro de uma cópia de segurança completa: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+A captura de tela a seguir mostra a restauração de um backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

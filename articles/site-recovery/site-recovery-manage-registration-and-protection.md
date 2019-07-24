@@ -1,54 +1,54 @@
 ---
-title: Remover servidores e desativar proteção | Documentos da Microsoft
-description: Este artigo descreve como anular o registo de servidores a partir de um cofre de recuperação de Site e para desativar a proteção para máquinas virtuais e servidores físicos.
+title: Remover servidores e desabilitar a proteção | Microsoft Docs
+description: Este artigo descreve como cancelar o registro de servidores de um cofre Site Recovery e desabilitar a proteção para máquinas virtuais e servidores físicos.
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: 400ffaa9e6fed14ceabf34283cd5fa7c7a0336b8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.author: rajanaki
+ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203405"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875803"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
-Este artigo descreve como anular o registo de servidores a partir de um cofre dos serviços de recuperação e como desativar a proteção para máquinas protegidas pelo Site Recovery.
+Este artigo descreve como cancelar o registro de servidores de um cofre dos serviços de recuperação e como desabilitar a proteção para computadores protegidos pelo Site Recovery.
 
 
-## <a name="unregister-a--configuration-server"></a>Anular o registo de um servidor de configuração
+## <a name="unregister-a--configuration-server"></a>Cancelar o registro de um servidor de configuração
 
-Se replicar VMs de VMware ou servidores físicos Windows/Linux para o Azure, pode cancelar o registro de um servidor de configuração de solução desligada a partir de um cofre da seguinte forma:
+Se você replicar VMs VMware ou servidores físicos Windows/Linux para o Azure, poderá cancelar o registro de um servidor de configuração não conectado de um cofre da seguinte maneira:
 
-1. [Desative a proteção de máquinas virtuais](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Desassociação ou eliminar](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) políticas de replicação.
-3. [Eliminar o servidor de configuração](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+1. [Desabilitar a proteção de máquinas virtuais](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
+2. [Desassocie ou exclua políticas de](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replicação.
+3. [Excluir o servidor de configuração](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
-## <a name="unregister-a-vmm-server"></a>Anular o registo de um servidor do VMM
+## <a name="unregister-a-vmm-server"></a>Cancelar o registro de um servidor VMM
 
-1. Pare a replicação de máquinas virtuais em nuvens no servidor do VMM que pretende remover.
-2. Elimine quaisquer mapeamentos de rede utilizados pelo nuvens no servidor VMM que pretende eliminar. No **infraestrutura do Site Recovery** > **para o System Center VMM** > **mapeamento da rede**, faça duplo clique o mapeamento de rede > **Eliminar**.
-3. Tenha em atenção o ID do servidor VMM.
-4. Desassociação políticas de replicação de nuvens no servidor do VMM que pretende remover.  Na **infraestrutura do Site Recovery** > **para o System Center VMM** >  **políticas de replicação**, faça duplo clique a política associada. A cloud com o botão direito > **Disassociate**.
-5. Elimine o servidor do VMM ou o nó ativo. Na **infraestrutura do Site Recovery** > **para o System Center VMM** > **servidores VMM**, com o botão direito do servidor > **eliminar** .
-6. Se o servidor do VMM estava num estado desligado, em seguida, transfira e execute o [script de limpeza](https://aka.ms/asr-cleanup-script-vmm) no servidor do VMM. Abra o PowerShell com o **executar como administrador** opção, para alterar a diretiva de execução para o âmbito de predefinição (LocalMachine). No script, especifique o ID do servidor VMM que pretende remover. O script remove o registo e informações do servidor de emparelhamento na cloud.
-5. Execute o script de limpeza em qualquer servidor VMM secundário.
-6. Execute o script de limpeza em qualquer outros passivos VMM nós de cluster que tenham o fornecedor instalado.
-7. Desinstale o fornecedor manualmente no servidor do VMM. Se tiver um cluster, remova de todos os nós.
-8. Se as máquinas virtuais foram a replicar para o Azure, terá de desinstalar o agente dos serviços de recuperação do Microsoft de anfitriões de Hyper-V nas nuvens eliminadas.
+1. Pare de replicar máquinas virtuais em nuvens no servidor do VMM que você deseja remover.
+2. Exclua todos os mapeamentos de rede usados pelas nuvens no servidor do VMM que você deseja excluir. Em **infraestrutura** > **de site Recovery para o mapeamento de rede do VMM** > do System Center, clique com o botão direito do mouse no mapeamento de rede > **excluir**.
+3. Anote a ID do servidor do VMM.
+4. Desassocie as políticas de replicação de nuvens no servidor do VMM que você deseja remover.  Em **infraestrutura** > de site Recovery para**políticas de replicação** **do System Center VMM** >  , clique duas vezes na política associada. Clique com o botão direito do mouse na nuvem > desassociar.
+5. Exclua o servidor do VMM ou o nó ativo. Em **site Recovery infraestrutura** > para**servidores VMM** **do System Center** > VMM, clique com o botão direito do mouse no servidor > **excluir**.
+6. Se o servidor do VMM estava em um estado desconectado, baixe e execute o [script de limpeza](https://aka.ms/asr-cleanup-script-vmm) no servidor do VMM. Abra o PowerShell com a opção **Executar como administrador** para alterar a política de execução para o escopo padrão (LocalMachine). No script, especifique a ID do servidor do VMM que você deseja remover. O script remove o registro e as informações de emparelhamento de nuvem do servidor.
+5. Execute o script de limpeza em qualquer servidor do VMM secundário.
+6. Execute o script de limpeza em qualquer outro nó de cluster do VMM passivo que tenha o provedor instalado.
+7. Desinstale o provedor manualmente no servidor do VMM. Se você tiver um cluster, remova de todos os nós.
+8. Se suas máquinas virtuais estivessem replicando para o Azure, você precisa desinstalar o agente de serviços de recuperação da Microsoft dos hosts Hyper-V nas nuvens excluídas.
 
-## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Anular o registo de um anfitrião de Hyper-V num Site de Hyper-V
+## <a name="unregister-a-hyper-v-host-in-a-hyper-v-site"></a>Cancelar o registro de um host Hyper-V em um site do Hyper-V
 
-Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de Hyper-V. Remova um anfitrião num site Hyper-V da seguinte forma:
+Os hosts do Hyper-V que não são gerenciados pelo VMM são coletados em um site do Hyper-V. Remova um host em um site do Hyper-V da seguinte maneira:
 
-1. Desative a replicação das VMs de Hyper-V localizada no anfitrião.
-2. Desassociação políticas para o site Hyper-V. Na **infraestrutura do Site Recovery** > **para Sites de Hyper-V** >  **políticas de replicação**, faça duplo clique a política associada. Com o botão direito do site > **Disassociate**.
-3. Elimine anfitriões Hyper-V. Na **infraestrutura do Site Recovery** > **para Sites de Hyper-V** > **anfitriões Hyper-V**, com o botão direito do servidor > **eliminar** .
-4. Elimine o site de Hyper-V depois de todos os anfitriões foram removidos do mesmo. Na **infraestrutura do Site Recovery** > **para Sites de Hyper-V** > **Sites Hyper-V**, com o botão direito do site > **eliminar** .
-5. Se o anfitrião Hyper-V estava num **desligado** de estado, em seguida, execute o seguinte script em cada anfitrião de Hyper-V que removeu. O script limpa as definições no servidor e anula o registo do cofre.
+1. Desabilite a replicação para VMs do Hyper-V localizadas no host.
+2. Desassocie políticas para o site do Hyper-V. Em **infraestrutura** > de site Recovery para**políticas de replicação**de >  **sites do Hyper-V**, clique duas vezes na política associada. Clique com o botão direito do mouse no site > desassociar.
+3. Exclua os hosts Hyper-V. Em **site Recovery infraestrutura** >  > **para sites Hyper-v** **hosts Hyper-v**, clique com o botão direito do mouse no servidor > **excluir**.
+4. Exclua o site do Hyper-V depois que todos os hosts tiverem sido removidos dele. Em **site Recovery infraestrutura** > **para sites**Hyper-vsitesHyper-v,cliquecomobotãodireitodomousenosite> >  **excluir**.
+5. Se o host do Hyper-V estava em  um estado desconectado, execute o script a seguir em cada host do Hyper-v que você removeu. O script limpa as configurações no servidor e cancela o registro do cofre.
 
 
 ```powershell
@@ -141,41 +141,41 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 ```
 
 
-## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Desative a proteção para uma VM de VMware ou servidor físico (VMware para o Azure)
+## <a name="disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure"></a>Desabilitar a proteção para uma VM VMware ou servidor físico (VMware para Azure)
 
-1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
-2. Na **desative a replicação** , selecione uma destas opções:
-    - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação no servidor de configuração é limpo e faturação do Site Recovery para este servidor protegido é interrompida. Tenha em atenção que esta opção só pode ser utilizada quando o servidor de configuração está no estado ligado.
-    - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação no servidor de configuração **não irá** ser limpos. 
-
-> [!NOTE]
-> Em ambas as opções das serviço de mobilidade não será desinstalado dos servidores protegidos, terá de desinstalá-lo manualmente. Se pretender proteger o servidor novamente usando o mesmo servidor de configuração, pode ignorar a desinstalar o serviço de mobilidade.
+1. Em **itens** > protegidos itens replicados, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+2. Na página **desabilitar replicação** , selecione uma destas opções:
+    - **Desabilitar a replicação e remover (recomendado)** – essa opção remove o item replicado de Azure site Recovery e a replicação do computador é interrompida. A configuração de replicação no servidor de configuração é limpa e Site Recovery cobrança para este servidor protegido é interrompida. Observe que essa opção só pode ser usada quando o servidor de configuração está no estado conectado.
+    - **Remover** -esta opção deve ser usada somente se o ambiente de origem for excluído ou não estiver acessível (não conectado). Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação no servidor de configuração **não será** limpa. 
 
 > [!NOTE]
-> Se já foi através de uma VM e está em execução no Azure, tenha em atenção que desative a proteção não remover / afetam a ativação pós-falha VM.
-## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Desative a proteção para uma VM do Azure (Azure para o Azure)
-
--  Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
-> [!NOTE]
-> o serviço de mobilidade não será desinstalado dos servidores protegidos, terá de desinstalá-lo manualmente. Se pretender proteger novamente o servidor, pode ignorar a desinstalar o serviço de mobilidade.
-
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Desative a proteção para uma máquina virtual de Hyper-V (Hyper-V para o Azure)
+> Em ambas as opções, o serviço de mobilidade não será desinstalado dos servidores protegidos, você precisará desinstalá-lo manualmente. Se você planeja proteger o servidor novamente usando o mesmo servidor de configuração, você pode ignorar a desinstalação do serviço de mobilidade.
 
 > [!NOTE]
-> Utilize este procedimento se estiver a replicar VMs Hyper-V para o Azure sem um servidor do VMM. Se estiver a replicar suas máquinas virtuais utilizando o **System Center VMM para o Azure** cenário, em seguida, siga a instruções desative a proteção Hyper-V virtual da máquina a replicar com o System Center VMM para o cenário do Azure
+> Se você já tiver feito failover de uma VM e ela estiver em execução no Azure, observe que a desabilitação da proteção não remove/afeta a VM com failover.
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Desabilitar a proteção para uma VM do Azure (Azure para Azure)
 
-1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
-2. Na **desative a replicação**, pode selecionar as seguintes opções:
-   - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local serão limpos e faturação do Site Recovery para este servidor protegido é interrompida.
-   - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação na máquina virtual no local **não irá** ser limpos. 
+-  Em **itens** > protegidos itens replicados, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+> [!NOTE]
+> o serviço de mobilidade não será desinstalado dos servidores protegidos, você precisará desinstalá-lo manualmente. Se você planeja proteger o servidor novamente, poderá ignorar a desinstalação do serviço de mobilidade.
+
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Desabilitar a proteção para uma máquina virtual do Hyper-V (Hyper-V para Azure)
+
+> [!NOTE]
+> Use este procedimento se você estiver replicando VMs do Hyper-V para o Azure sem um servidor do VMM. Se você estiver replicando suas máquinas virtuais usando o **System Center VMM para o cenário do Azure** , siga as instruções desabilitar a proteção para uma máquina virtual do Hyper-V replicando usando o cenário do System Center VMM para o Azure
+
+1. Em **itens** > protegidos itens replicados, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+2. Em **desabilitar replicação**, você pode selecionar as seguintes opções:
+   - **Desabilitar a replicação e remover (recomendado)** – essa opção remove o item replicado de Azure site Recovery e a replicação do computador é interrompida. A configuração de replicação na máquina virtual local será limpa e Site Recovery cobrança para esse servidor protegido será interrompida.
+   - **Remover** -esta opção deve ser usada somente se o ambiente de origem for excluído ou não estiver acessível (não conectado). Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação na máquina virtual local **não será** limpa. 
 
  > [!NOTE]
-     > Se tiver escolhido o **remover** opção, em seguida, execute o seguinte conjunto de scripts para limpar as definições de replicação no local servidor Hyper-V.
+     > Se você escolher a opção **remover** , execute o seguinte conjunto de scripts para limpar as configurações de replicação do servidor Hyper-V local.
 
 > [!NOTE]
-> Se já foi através de uma VM e está em execução no Azure, tenha em atenção que desative a proteção não remover / afetam a ativação pós-falha VM.
+> Se você já tiver feito failover de uma VM e ela estiver em execução no Azure, observe que a desabilitação da proteção não remove/afeta a VM com failover.
 
-1. No servidor de origem Hyper-V anfitrião, para remover a replicação para a máquina virtual. Substitua SQLVM1 com o nome da sua máquina virtual e execute o script a partir de um PowerShell administrativo
+1. No servidor de host do Hyper-V de origem, para remover a replicação da máquina virtual. Substitua SQLVM1 pelo nome da sua máquina virtual e execute o script de um PowerShell administrativo
 
 ```powershell
     $vmName = "SQLVM1"
@@ -184,21 +184,21 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
 ```
 
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Desative a proteção para uma máquina virtual de Hyper-V a replicar para o Azure com o System Center VMM para o cenário do Azure
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario"></a>Desabilitar a proteção para uma máquina virtual do Hyper-V replicando para o Azure usando o cenário do System Center VMM para o Azure
 
-1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
-2. Na **desative a replicação**, selecione uma destas opções:
+1. Em **itens** > protegidos itens replicados, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+2. Em **desabilitar replicação**, selecione uma destas opções:
 
-   - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local é limpo e faturação do Site Recovery para este servidor protegido é interrompida.
-   - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação na máquina virtual no local **não irá** ser limpos. 
+   - **Desabilitar a replicação e remover (recomendado)** – essa opção remove o item replicado de Azure site Recovery e a replicação do computador é interrompida. A configuração de replicação na máquina virtual local é limpa e Site Recovery cobrança para esse servidor protegido é interrompida.
+   - **Remover** -esta opção deve ser usada somente se o ambiente de origem for excluído ou não estiver acessível (não conectado). Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação na máquina virtual local **não será** limpa. 
 
      > [!NOTE]
-     > Se tiver escolhido o **remover** opção, em seguida, tun os seguintes scripts para limpar as definições de replicação no VMM Server local.
-3. Execute este script no servidor do VMM de origem, com o PowerShell (privilégios de administrador necessários) a partir da consola do VMM. Substitua o marcador de posição **SQLVM1** com o nome da sua máquina virtual.
+     > Se você escolheu a opção **remover** , execute os scripts a seguir para limpar as configurações de replicação do servidor VMM local.
+3. Execute esse script no servidor VMM de origem, usando o PowerShell (privilégios de administrador necessários) no console do VMM. Substitua o espaço reservado **SQLVM1** pelo nome da sua máquina virtual.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
-4. Os passos acima limpar as definições de replicação no servidor do VMM. Para parar a replicação para a máquina virtual em execução no servidor de anfitrião do Hyper-V, execute este script. Substitua SQLVM1 com o nome da máquina virtual e host01.contoso.com com o nome do servidor de anfitrião Hyper-V.
+4. As etapas acima limpam as configurações de replicação no servidor do VMM. Para interromper a replicação da máquina virtual em execução no servidor de host do Hyper-V, execute este script. Substitua SQLVM1 pelo nome da sua máquina virtual e host01.contoso.com pelo nome do servidor de host Hyper-V.
 
 ```powershell
     $vmName = "SQLVM1"
@@ -208,26 +208,26 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
 ```
 
-## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Desative a proteção para uma máquina virtual de Hyper-V a replicar para o servidor de VMM secundário com o System Center VMM para o cenário VMM
+## <a name="disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario"></a>Desabilitar a proteção para uma máquina virtual Hyper-V replicando para o servidor VMM secundário usando o cenário VMM do System Center para VMM
 
-1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
-2. Na **desative a replicação**, selecione uma destas opções:
+1. Em **itens** > protegidos itens replicados, clique com o botão direito do mouse no computador > **desabilitar a replicação**.
+2. Em **desabilitar replicação**, selecione uma destas opções:
 
-   - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local é limpo e faturação do Site Recovery para este servidor protegido é interrompida.
-   - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação na máquina virtual no local **não irá** ser limpos. Execute o seguinte conjunto de scripts para limpar as máquinas de virtuais de locais de definições de replicação.
+   - **Desabilitar a replicação e remover (recomendado)** – essa opção remove o item replicado de Azure site Recovery e a replicação do computador é interrompida. A configuração de replicação na máquina virtual local é limpa e Site Recovery cobrança para esse servidor protegido é interrompida.
+   - **Remover** -esta opção deve ser usada somente se o ambiente de origem for excluído ou não estiver acessível (não conectado). Isso remove o item replicado do Azure Site Recovery (a cobrança é interrompida). A configuração de replicação na máquina virtual local **não será** limpa. Execute o seguinte conjunto de scripts para limpar as configurações de replicação das máquinas virtuais locais.
      > [!NOTE]
-     > Se tiver escolhido o **remover** opção, em seguida, tun os seguintes scripts para limpar as definições de replicação no VMM Server local.
+     > Se você escolheu a opção **remover** , execute os scripts a seguir para limpar as configurações de replicação do servidor VMM local.
 
-3. Execute este script no servidor do VMM de origem, com o PowerShell (privilégios de administrador necessários) a partir da consola do VMM. Substitua o marcador de posição **SQLVM1** com o nome da sua máquina virtual.
+3. Execute esse script no servidor VMM de origem, usando o PowerShell (privilégios de administrador necessários) no console do VMM. Substitua o espaço reservado **SQLVM1** pelo nome da sua máquina virtual.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
-4. No servidor secundário do VMM, execute este script para limpar as definições para a máquina virtual secundária:
+4. No servidor do VMM secundário, execute este script para limpar as configurações da máquina virtual secundária:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Remove-SCVirtualMachine -VM $vm -Force
-5. No servidor secundário do VMM, Atualize as máquinas virtuais no servidor de anfitrião de Hyper-V, para que a VM secundária obtém detetada novamente na consola do VMM.
-6. Os passos acima limpar as definições de replicação no servidor do VMM. Se pretender parar a replicação para a máquina virtual, execute o seguinte script AH a VM principal e secundária. Substitua SQLVM1 com o nome da sua máquina virtual.
+5. No servidor do VMM secundário, atualize as máquinas virtuais no servidor de host do Hyper-V para que a VM secundária seja detectada novamente no console do VMM.
+6. As etapas acima limpam as configurações de replicação no servidor do VMM. Se você quiser interromper a replicação para a máquina virtual, execute o seguinte script de Oh as VMs primárias e secundárias. Substitua SQLVM1 pelo nome da sua máquina virtual.
 
         Remove-VMReplication –VMName “SQLVM1”
 

@@ -1,25 +1,26 @@
 ---
-title: Início rápido - implementar o contentor do Docker no Azure Container Instances - PowerShell
-description: Neste início rápido, vai utilizar do Azure PowerShell para implementar rapidamente uma aplicação web em contentores que é executado numa instância de contentor do Azure isolado
+title: Guia de início rápido – implantar o contêiner do Docker em instâncias de contêiner do Azure-PowerShell
+description: Neste guia de início rápido, você usa Azure PowerShell para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c6baf10308f04d5f08ba651bd70ac2b48dfc013c
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 7fe199d2ac228ddb0ccfd1e5bc980e680e160acf
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729457"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325833"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Início rápido: Implementar uma instância de contentor no Azure com o Azure PowerShell
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Início rápido: Implantar uma instância de contêiner no Azure usando Azure PowerShell
 
-Utilize o Azure Container Instances para execução sem servidor contentores do Docker no Azure com a simplicidade e celeridade. Implemente uma aplicação para uma contentor instância sob demanda quando não precisar de uma plataforma de orquestração de contentores completa, como o serviço Kubernetes do Azure.
+Use as instâncias de contêiner do Azure para executar contêineres do Docker sem servidor no Azure com simplicidade e velocidade. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisar de uma plataforma de orquestração de contêiner completa, como o serviço kubernetes do Azure.
 
-Neste início rápido, utilizar o Azure PowerShell para implementar um contentor isolado do Windows e disponibilizar a sua aplicação com um nome de domínio completamente qualificado (FQDN). Alguns segundos depois de executar um comando de implementação única, pode navegar para o aplicativo em execução no contentor:
+Neste guia de início rápido, você usa Azure PowerShell para implantar um contêiner do Windows isolado e disponibilizar seu aplicativo com um FQDN (nome de domínio totalmente qualificado). Alguns segundos após a execução de um único comando de implantação, você pode navegar até o aplicativo em execução no contêiner:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][qs-powershell-01]
 
@@ -29,13 +30,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
+Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 O Azure Container Instances, como todos os recursos do Azure, tem de ser implementados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-Em primeiro lugar, crie um grupo de recursos chamado *myResourceGroup* no *eastus* localização com o seguinte [New-AzResourceGroup] [ New-AzResourceGroup] comando:
+Primeiro, crie um grupo de recursos  chamado MyResource Group no  local eastus com o seguinte comando [New-AzResourceGroup][New-AzResourceGroup] :
 
  ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -43,17 +44,17 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contentor com o Azure PowerShell, forneça um nome de grupo de recursos, o nome da instância de contentor e a imagem de contentor do Docker para o [New-AzContainerGroup] [ New-AzContainerGroup] cmdlet. Neste início rápido, vai utilizar o público `mcr.microsoft.com/windows/servercore/iis:nanoserver` imagem. Esta imagem de pacotes Microsoft Internet Information Services (IIS) para ser executado no servidor Nano.
+Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contêiner com Azure PowerShell, forneça um nome de grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker para o cmdlet [New-AzContainerGroup][New-AzContainerGroup] . Neste guia de início rápido, você usa `mcr.microsoft.com/windows/servercore/iis:nanoserver` a imagem pública. Esta imagem empacota o Microsoft Serviços de Informações da Internet (IIS) para ser executado no nano Server.
 
-Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste início rápido, vai implementar um contentor com uma etiqueta de nome DNS para que o IIS está publicamente acessível.
+Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste guia de início rápido, você implanta um contêiner com um rótulo de nome DNS para que o IIS possa ser acessado publicamente.
 
-Execute um comando semelhante ao seguinte para iniciar uma instância de contentor. Definir um `-DnsNameLabel` valor que é exclusivo na região do Azure onde criar a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
+Execute um comando semelhante ao seguinte para iniciar uma instância de contêiner. Defina um `-DnsNameLabel` valor que seja exclusivo na região do Azure onde você cria a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Alguns segundos depois, deverá receber uma resposta do Azure. O estado do contentor `ProvisioningState` inicialmente é **A criar**, mas deve passar para um **Com êxito** ao fim de um ou dois minutos. Verificar o estado de implementação com o [Get-AzContainerGroup] [ Get-AzContainerGroup] cmdlet:
+Alguns segundos depois, deverá receber uma resposta do Azure. O estado do contentor `ProvisioningState` inicialmente é **A criar**, mas deve passar para um **Com êxito** ao fim de um ou dois minutos. Verifique o estado da implantação com o cmdlet [Get-AzContainerGroup][Get-AzContainerGroup] :
 
  ```azurepowershell-interactive
 Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
@@ -91,7 +92,7 @@ Quando o estado do contentor `ProvisioningState` passar a **Com êxito**, navegu
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado com o contêiner, removê-lo com o [Remove-AzContainerGroup] [ Remove-AzContainerGroup] cmdlet:
+Quando você terminar o contêiner, remova-o com o cmdlet [Remove-AzContainerGroup][Remove-AzContainerGroup] :
 
  ```azurepowershell-interactive
 Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer

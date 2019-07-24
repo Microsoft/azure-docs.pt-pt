@@ -1,32 +1,32 @@
 ---
-title: Como enviar eventos de serviço Azure SignalR para o Event Grid
-description: Um guia para mostrar a como ativar eventos do Event Grid para o seu serviço SignalR, em seguida, Enviar ligação de cliente ligado/desligado eventos para um aplicativo de exemplo.
-services: azure-signalr
+title: Como enviar eventos do serviço de Signaler do Azure para a grade de eventos
+description: Um guia para mostrar como habilitar eventos de grade de eventos para o serviço Signalr e, em seguida, enviar eventos conectados/desconectados da conexão do cliente a um aplicativo de exemplo.
+services: signalr
 author: chenyl
 ms.service: azure-signalr
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: chenyl
-ms.openlocfilehash: 2d782306938136ce6d21a331185f591316f58a29
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 52e4194acd6a3abfed3fabadb892b0de76025b7e
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789179"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296868"
 ---
-# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos de serviço Azure SignalR para o Event Grid
+# <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Como enviar eventos do serviço de sinalizador do Azure para a grade de eventos
 
-O Azure Event Grid é um serviço de encaminhamento de eventos totalmente gerido que fornece o consumo de eventos uniforme com um modelo de publicação. Neste guia, vai utilizar a CLI do Azure para criar um serviço Azure SignalR, assinar eventos de ligação, em seguida, implementar uma aplicação web de exemplo para receber os eventos. Por fim, pode ligar e desligar e ver o payload do evento no aplicativo de exemplo.
+A grade de eventos do Azure é um serviço de roteamento de eventos totalmente gerenciado que fornece consumo uniforme de eventos usando um modelo pub-sub. Neste guia, você usa o CLI do Azure para criar um serviço de Signaler do Azure, assinar eventos de conexão e, em seguida, implantar um aplicativo Web de exemplo para receber os eventos. Por fim, você pode se conectar e desconectar e ver a carga do evento no aplicativo de exemplo.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Os comandos da CLI do Azure neste artigo são formatados para o **Bash** shell. Se estiver a utilizar um shell diferente, como o PowerShell ou da linha de comandos, terá de ajustar os caracteres de continuação de linha ou linhas de atribuição de variáveis em conformidade. Este artigo utiliza as variáveis para minimizar a quantidade de comando de edição necessárias.
+Os comandos CLI do Azure neste artigo são formatados para o Shell **bash** . Se você estiver usando um shell diferente, como o PowerShell ou o prompt de comando, talvez seja necessário ajustar os caracteres de continuação de linha ou as linhas de atribuição de variável de acordo. Este artigo usa variáveis para minimizar a quantidade de edição de comandos necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contentor lógico no qual implementar e gerir recursos do Azure. O seguinte procedimento [criar grupo az][az-group-create] comando cria um grupo de recursos com o nome *myResourceGroup* no *eastus* região. Se pretender utilizar um nome diferente para o grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia seus recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de  recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para seu grupo de recursos, defina `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -36,14 +36,14 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-signalr-service"></a>Criar um Serviço SignalR
 
-Em seguida, implemente um serviço Azure Signalr para o grupo de recursos com os seguintes comandos.
+Em seguida, implante um serviço de sinalizador do Azure no grupo de recursos com os comandos a seguir.
 ```azurecli-interactive
 SIGNALR_NAME=SignalRTestSvc
 
 az signalr create --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --sku Free_F1
 ```
 
-Quando o serviço SignalR tiver sido criado, a CLI do Azure devolve resultados semelhantes ao seguinte:
+Depois que o serviço Signalr tiver sido criado, o CLI do Azure retornará uma saída semelhante à seguinte:
 
 ```json
 {
@@ -71,11 +71,11 @@ Quando o serviço SignalR tiver sido criado, a CLI do Azure devolve resultados s
 
 ```
 
-## <a name="create-an-event-endpoint"></a>Criar um ponto de extremidade do evento
+## <a name="create-an-event-endpoint"></a>Criar um ponto de extremidade de evento
 
-Nesta secção, vai utilizar um modelo do Resource Manager, localizado num repositório do GitHub para implementar uma aplicação de web de exemplo precompilados no App Service do Azure. Mais tarde, subscrever a eventos do Event Grid do seu registo e especifique esta aplicação como o ponto final ao qual os eventos são enviados.
+Nesta seção, você usa um modelo do Resource Manager localizado em um repositório GitHub para implantar um aplicativo Web de exemplo pré-compilado para Azure App serviço. Posteriormente, você assina os eventos da grade de eventos do registro e especifica esse aplicativo como o ponto de extremidade para o qual os eventos são enviados.
 
-Para implementar a aplicação de exemplo, defina `SITE_NAME` para um nome exclusivo para a sua aplicação web e execute os seguintes comandos. O nome do site tem de ser exclusivo no Azure porque ele faz parte do nome de domínio completamente qualificado (FQDN) da aplicação web. Numa seção posterior, navegue para o FQDN da aplicação num browser para ver eventos do seu registo.
+Para implantar o aplicativo de exemplo, `SITE_NAME` defina como um nome exclusivo para seu aplicativo Web e execute os comandos a seguir. O nome do site deve ser exclusivo no Azure porque ele faz parte do FQDN (nome de domínio totalmente qualificado) do aplicativo Web. Em uma seção posterior, navegue até o FQDN do aplicativo em um navegador da Web para exibir os eventos do registro.
 
 ```azurecli-interactive
 SITE_NAME=<your-site-name>
@@ -86,15 +86,15 @@ az group deployment create \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
-Assim que a implementação com êxito (pode demorar alguns minutos), abra um browser e navegue para a aplicação web para garantir que ela está em execução:
+Depois que a implantação for realizada com sucesso (pode levar alguns minutos), abra um navegador e navegue até seu aplicativo Web para verificar se ele está em execução:
 
 `http://<your-site-name>.azurewebsites.net`
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-registry-events"></a>Subscrever eventos de registo
+## <a name="subscribe-to-registry-events"></a>Assinar eventos do registro
 
-Na grelha de eventos, se inscreve para um *tópico* para dizer a ele os eventos que pretende controlar e onde enviá-los. O seguinte procedimento [criar subscrição de evento do eventgrid az][az-eventgrid-event-subscription-create] comando subscreve o serviço Azure SignalR que criou e especifica o URL da sua aplicação web como o ponto final para o qual ele deve enviar eventos. As variáveis de ambiente preenchido nas secções anteriores são reutilizadas aqui, portanto, não edições são necessárias.
+Na grade de eventos, você assina um *tópico* para informar quais eventos você deseja controlar e para onde enviá-los. O comando [AZ eventgrid Event-Subscription Create][az-eventgrid-event-subscription-create] a seguir assina o serviço de signaler do Azure que você criou e especifica a URL do seu aplicativo Web como o ponto de extremidade para o qual ele deve enviar eventos. As variáveis de ambiente preenchidas nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
 
 ```azurecli-interactive
 SIGNALR_SERVICE_ID=$(az signalr show --resource-group $RESOURCE_GROUP_NAME --name $SIGNALR_NAME --query id --output tsv)
@@ -106,7 +106,7 @@ az eventgrid event-subscription create \
     --endpoint $APP_ENDPOINT
 ```
 
-Quando a subscrição estiver concluída, deve ver um resultado semelhante ao seguinte:
+Quando a assinatura for concluída, você deverá ver uma saída semelhante à seguinte:
 
 ```JSON
 {
@@ -139,9 +139,9 @@ Quando a subscrição estiver concluída, deve ver um resultado semelhante ao se
 }
 ```
 
-## <a name="trigger-registry-events"></a>Eventos de registo do acionador
+## <a name="trigger-registry-events"></a>Disparar eventos de registro
 
-Mude para o modo de serviço para `Serverless Mode` e configurar uma ligação de cliente para o serviço de SignalR. Pode tirar [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como referência.
+Alterne para o modo de serviço `Serverless Mode` para e configure uma conexão de cliente com o serviço signalr. Você pode escolher um [exemplo sem servidor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) como uma referência.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -160,9 +160,9 @@ cd SignalRClient
 dotnet run
 ```
 
-## <a name="view-registry-events"></a>Ver eventos de registo
+## <a name="view-registry-events"></a>Exibir eventos do registro
 
-Agora ligou um cliente para o serviço de SignalR. Navegue até à sua aplicação web do Visualizador de grelha de eventos e deverá ver um `ClientConnectionConnected` eventos. Se encerrar o cliente, também poderá ver um `ClientConnectionDisconnected` eventos.
+Agora você conectou um cliente ao serviço Signalr. Navegue até o aplicativo Web do Visualizador de grade de eventos e você verá `ClientConnectionConnected` um evento. Se você encerrar o cliente, também verá um `ClientConnectionDisconnected` evento.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

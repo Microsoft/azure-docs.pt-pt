@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Windows com zona definida com o portal do Azure | Documentos da Microsoft
-description: Criar uma VM do Windows numa zona de disponibilidade com o portal do Azure
+title: Criar uma VM do Windows zoneada com o portal do Azure | Microsoft Docs
+description: Criar uma VM do Windows em uma zona de disponibilidade com o portal do Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 15dd81b6d222c811fe26ec693927355ebdeb47ee
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: af2295643869ba8022fe15cf1e1cef3f2f20a428
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719047"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849836"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual do Windows numa zona de disponibilidade com o portal do Azure
+# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Criar uma máquina virtual do Windows em uma zona de disponibilidade com o portal do Azure
 
-Este artigo explica através do portal do Azure para criar uma máquina virtual numa zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
+Este artigo percorre o uso do portal do Azure para criar uma máquina virtual em uma zona de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona separada fisicamente numa região do Azure. Utilize as zonas de disponibilidade para proteger as aplicações e os dados de uma falha pouco provável ou da perda de um datacenter completo.
 
 Para utilizar uma zona de disponibilidade, crie a máquina virtual numa [região suportada do Azure](../../availability-zones/az-overview.md#services-support-by-region).
 
@@ -39,40 +39,40 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
 
-3. Introduza as informações da máquina virtual. O nome de utilizador e a palavra-passe introduzidos aqui são utilizados para iniciar sessão na máquina virtual. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Escolha uma localização, como os E.U.A. Leste 2, que suporta zonas de disponibilidade. Quando terminar, clique em **OK**.
+3. Introduza as informações da máquina virtual. O nome de utilizador e a palavra-passe introduzidos aqui são utilizados para iniciar sessão na máquina virtual. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Escolha um local como leste dos EUA 2 que ofereça suporte a zonas de disponibilidade. Quando terminar, clique em **OK**.
 
     ![Introduza as informações básicas sobre a VM no painel do portal](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 
-4. Escolha um tamanho para a VM. Selecione um tamanho recomendado ou filtro com base nos recursos. Certifique-se que o tamanho está disponível na zona de que pretende utilizar.
+4. Escolha um tamanho para a VM. Selecione um tamanho recomendado ou filtre com base nos recursos. Confirme se o tamanho está disponível na zona que você deseja usar.
 
     ![Selecione um tamanho de VM](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
 
-5. Sob **configurações** > **elevada disponibilidade**, selecione uma das zonas de numerados do **zona de disponibilidade** lista pendente, mantenha as predefinições restantes, e Clique em **OK**.
+5. Em **configurações** > **alta disponibilidade**, selecione uma das zonas numeradas na lista suspensa **zona de disponibilidade** , mantenha os padrões restantes e clique em **OK**.
 
-    ![Selecione a zona de disponibilidade](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
+    ![Selecionar uma zona de disponibilidade](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
 
-6. Na página Resumo, clique em **criar** para iniciar a implementação da máquina virtual.
+6. Na página Resumo, clique em **criar** para iniciar a implantação da máquina virtual.
 
 7. A VM será afixada ao dashboard do portal do Azure. Depois de concluída a implementação, o resumo da VM abre-se automaticamente.
 
-## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmar a zona do disco gerido e o endereço IP
+## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>Confirmar zona para disco gerenciado e endereço IP
 
-Quando a VM é implementada numa zona de disponibilidade, um disco gerido para a VM é criado na mesma zona de disponibilidade. Por predefinição, um endereço IP público também é criado nessa zona.
+Quando a VM é implantada em uma zona de disponibilidade, um disco gerenciado para a VM é criado na mesma zona de disponibilidade. Por padrão, um endereço IP público também é criado nessa zona.
 
-Pode confirmar as definições de zona para estes recursos no portal.  
+Você pode confirmar as configurações de zona para esses recursos no Portal.  
 
-1. Clique em **grupos de recursos** e, em seguida, o nome do recurso de grupo para a VM, tal como *myResourceGroup*.
+1. Clique em **grupos de recursos** e no nome do grupo de recursos da VM, como MyResource Group.
 
-2. Clique no nome do recurso de disco. O **descrição geral** página inclui detalhes sobre a localização e zona de disponibilidade do recurso.
+2. Clique no nome do recurso de disco. A página **visão geral** inclui detalhes sobre o local e a zona de disponibilidade do recurso.
 
-    ![Zona de disponibilidade do disco gerido](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
+    ![Zona de disponibilidade para o disco gerenciado](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
 
-3. Clique no nome do recurso de endereço IP público. O **descrição geral** página inclui detalhes sobre a localização e zona de disponibilidade do recurso.
+3. Clique no nome do recurso de endereço IP público. A página **visão geral** inclui detalhes sobre o local e a zona de disponibilidade do recurso.
 
-    ![Zona de disponibilidade para o endereço IP](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
+    ![Zona de disponibilidade para endereço IP](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre [regiões e disponibilidade](regions-and-availability.md) para VMs do Azure.
+Neste artigo, aprendeu a criar uma VM numa zona de disponibilidade. Saiba mais sobre a [disponibilidade](availability.md) de VMs do Azure.

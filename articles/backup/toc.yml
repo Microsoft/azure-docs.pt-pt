@@ -100,6 +100,8 @@
               href: backup-mabs-unattended-install.md
         - name: Proteger cargas de trabalho
           items:
+            - name: Fazer uma cópia de segurança das máquinas virtuais Hyper-V
+              href: back-up-hyper-v-virtual-machines-mabs.md
             - name: Servidor VMware
               href: backup-azure-backup-server-vmware.md
             - name: Troca

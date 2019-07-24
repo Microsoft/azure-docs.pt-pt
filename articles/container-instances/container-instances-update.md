@@ -1,32 +1,33 @@
 ---
-title: Atualizar os contentores no Azure Container Instances
-description: Saiba como atualizar os contentores em execução nos seus grupos de contentor do Azure Container Instances.
+title: Atualizar contêineres em instâncias de contêiner do Azure
+description: Saiba como atualizar contêineres em execução em seus grupos de contêiner de instâncias de contêiner do Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d555ba6b8c2b32fc6ec56d6c51dda9626b6f0cb0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686896"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325535"
 ---
-# <a name="update-containers-in-azure-container-instances"></a>Atualizar os contentores no Azure Container Instances
+# <a name="update-containers-in-azure-container-instances"></a>Atualizar contêineres em instâncias de contêiner do Azure
 
-Durante o funcionamento normal das suas instâncias de contentor, pode ser necessário atualizar os contentores num grupo de contentor. Por exemplo, pode desejar atualizar a versão de imagem, alterar um nome DNS, Atualize as variáveis de ambiente ou Atualize o estado de um contentor cuja aplicação teve uma falha.
+Durante a operação normal das instâncias de contêiner, talvez você ache necessário atualizar os contêineres em um grupo de contêineres. Por exemplo, você pode desejar atualizar a versão da imagem, alterar um nome DNS, atualizar variáveis de ambiente ou atualizar o estado de um contêiner cujo aplicativo falhou.
 
-## <a name="update-a-container-group"></a>Atualizar um grupo de contentores
+## <a name="update-a-container-group"></a>Atualizar um grupo de contêineres
 
-Atualize os contentores num grupo de contentor, voltar a implementar um grupo existente pelo menos uma propriedade modificada. Quando atualizar um grupo de contentores, todos os contentores em execução no grupo são reiniciados no local.
+Atualize os contêineres em um grupo de contêineres Reimplantando um grupo existente com pelo menos uma propriedade modificada. Quando você atualiza um grupo de contêineres, todos os contêineres em execução no grupo são reiniciados no local.
 
-Voltar a implementar um grupo de contentor existente emitindo o comando create (ou utilize o portal do Azure) e especifique o nome de um grupo existente. Modificar pelo menos uma propriedade válida do grupo quando emitir o comando create para acionar a reimplementação. Nem todas as propriedades do grupo de contentor são válidas para a nova implementação. Ver [propriedades que necessitam de eliminação](#properties-that-require-container-delete) para obter uma lista de propriedades não suportadas.
+Reimplante um grupo de contêineres existente emitindo o comando Create (ou use o portal do Azure) e especifique o nome de um grupo existente. Modifique pelo menos uma propriedade válida do grupo ao emitir o comando Create para disparar a reimplantação. Nem todas as propriedades do grupo de contêineres são válidas para reimplantação. Consulte [Propriedades que exigem exclusão](#properties-that-require-container-delete) para obter uma lista de propriedades sem suporte.
 
-O exemplo seguinte da CLI do Azure atualiza um grupo de contentores com uma nova etiqueta de nome DNS. Porque a propriedade de etiqueta de nome DNS do grupo é modificada, o grupo de contentores é reimplementado, sendo reiniciada de seus contêineres.
+O exemplo a seguir CLI do Azure atualiza um grupo de contêineres com um novo rótulo de nome DNS. Como a propriedade rótulo do nome DNS do grupo é modificada, o grupo de contêineres é reimplantado e seus contêineres são reiniciados.
 
-Inicial de implementação com a etiqueta de nome DNS *myapplication-teste*:
+Implantação inicial com rótulo de nome DNS *MyApplication-preparo*:
 
 ```azurecli-interactive
 # Create container group
@@ -34,7 +35,7 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Atualizar o grupo de contentores com uma nova etiqueta de nome DNS *myapplication*:
+Atualize o grupo de contêineres com um novo rótulo de nome DNS, *MyApplication*:
 
 ```azurecli-interactive
 # Update container group (restarts container)
@@ -44,41 +45,41 @@ az container create --resource-group myResourceGroup --name mycontainer \
 
 ## <a name="update-benefits"></a>Benefícios da atualização
 
-O principal benefício da atualização de um grupo de contentor existente é a implantação mais rápida. Quando voltar a implementar um grupo de contentor existente, respetivas camadas de imagem de contentor são extraídas daqueles armazenados em cache pela implementação anterior. Em vez de extrair todas as camadas de imagem atualizada do Registro como é feito com novas Implantações, são obtidas apenas camadas modificadas (se houver).
+O principal benefício de atualizar um grupo de contêineres existente é a implantação mais rápida. Quando você reimplanta um grupo de contêineres existente, suas camadas de imagem de contêiner são extraídas daquelas armazenadas em cache pela implantação anterior. Em vez de extrair todas as camadas de imagem do registro como é feito com novas implantações, somente as camadas modificadas (se houver) são puxadas.
 
-Aplicativos com base nas imagens de contentor maiores, como o Windows Server Core pode ver o aperfeiçoamento significativo na velocidade de implantação durante a atualização em vez de eliminam e implementar novas.
+Aplicativos baseados em imagens de contêiner maiores, como o Windows Server Core, podem ver uma melhoria significativa na velocidade de implantação quando você atualiza em vez de excluir e implantar novo.
 
 ## <a name="limitations"></a>Limitações
 
-Nem todas as propriedades de um grupo de contentores suportam atualizações. Para alterar algumas propriedades de um grupo de contentor, primeiro tem de eliminar e voltar a implementar o grupo. Para obter detalhes, consulte [eliminar propriedades que necessitam de contentor](#properties-that-require-container-delete).
+Nem todas as propriedades de um grupo de contêineres dão suporte a atualizações. Para alterar algumas propriedades de um grupo de contêineres, você deve primeiro excluir e reimplantar o grupo. Para obter detalhes, consulte [Propriedades que exigem exclusão de contêiner](#properties-that-require-container-delete).
 
-Todos os contentores num grupo de contentor são reiniciados quando atualizar o grupo de contentores. Não é possível efetuar uma atualização ou reinício no local de um contentor específico num grupo de vários contentor.
+Todos os contêineres em um grupo de contêineres são reiniciados quando você atualiza o grupo de contêineres. Você não pode executar uma atualização ou reinicialização in-loco de um contêiner específico em um grupo de vários contêineres.
 
-O endereço IP de um contentor, normalmente, não será alterada entre as atualizações, mas não há garantia de permanecem os mesmos. Desde que o grupo de contentor é implementado para o mesmo anfitrião subjacente, o grupo de contentores mantém o respetivo endereço IP. Embora seja raro, e, embora o Azure Container Instances permite todos os esforços para Reimplementar no mesmo anfitrião, existem alguns eventos interno do Azure que podem fazer com que a reimplementação para outro anfitrião. Para atenuar este problema, utilize sempre uma etiqueta de nome DNS para as instâncias de contentor.
+O endereço IP de um contêiner normalmente não é alterado entre as atualizações, mas não é garantido que permaneça o mesmo. Desde que o grupo de contêineres seja implantado no mesmo host subjacente, o grupo de contêineres manterá seu endereço IP. Embora seja raro, e embora as instâncias de contêiner do Azure façam cada esforço para reimplantar no mesmo host, há alguns eventos internos do Azure que podem causar a reimplantação em um host diferente. Para atenuar esse problema, use sempre um rótulo de nome DNS para suas instâncias de contêiner.
 
-Não não possível atualizar os grupos de contentores terminado ou eliminado. Assim que parou de um grupo de contentores (está no *Terminated* Estado) ou tiver sido eliminado, o grupo é implementado como novo.
+Grupos de contêineres finalizados ou excluídos não podem ser atualizados. Depois que um grupo de contêineres for interrompido (  está no estado encerrado) ou tiver sido excluído, o grupo será implantado como novo.
 
-## <a name="properties-that-require-container-delete"></a>Propriedades que necessitam de eliminação de contentor
+## <a name="properties-that-require-container-delete"></a>Propriedades que exigem exclusão de contêiner
 
-Como mencionado anteriormente, nem todas as propriedades do grupo de contentor podem ser atualizadas. Por exemplo, para alterar as portas ou política de um contentor de reinício, deve primeiro eliminar o grupo de contentores, em seguida, criá-la novamente.
+Como mencionado anteriormente, nem todas as propriedades do grupo de contêineres podem ser atualizadas. Por exemplo, para alterar as portas ou reiniciar a política de um contêiner, primeiro você deve excluir o grupo de contêineres e, em seguida, criá-lo novamente.
 
-Estas propriedades necessitam de eliminação do grupo de contentor antes da nova implementação:
+Essas propriedades exigem a exclusão do grupo de contêineres antes da reimplantação:
 
-* Tipo de SO
+* Tipo de so
 * CPU
 * Memória
 * Política de reinício
 * Portas
 
-Quando eliminar um grupo de contentores e recriá-lo, ele tem não "Reimplementar", mas criado de novo. Todas as camadas de imagem são extraídas atualizadas do Registro, não a partir em cache por uma implementação anterior. O endereço IP do contentor também podem ser alteradas devido a ser implementado para outro anfitrião subjacente.
+Quando você exclui um grupo de contêineres e o recria, ele não é "reimplantado", mas é criado novo. Todas as camadas de imagem são retiradas do registro, não das que foram armazenadas em cache por uma implantação anterior. O endereço IP do contêiner também pode ser alterado porque está sendo implantado em um host subjacente diferente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Mencionado várias vezes neste artigo é o **grupo de contentores**. Todos os contentores no Azure Container Instances é implementado num grupo de contentor e grupos de contentores podem conter mais de um contêiner.
+Mencionado várias vezes neste artigo está o **grupo**de contêineres. Cada contêiner nas instâncias de contêiner do Azure é implantado em um grupo de contêineres e os grupos de contêineres podem conter mais de um contêiner.
 
 [Grupos de contentores no Azure Container Instances](container-instances-container-groups.md)
 
-[Implementar um grupo de vários contentor](container-instances-multi-container-group.md)
+[Implantar um grupo de vários contêineres](container-instances-multi-container-group.md)
 
 <!-- LINKS - External -->
 

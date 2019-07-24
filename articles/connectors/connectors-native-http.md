@@ -1,6 +1,6 @@
 ---
-title: Ligar a pontos finais HTTP ou HTTPS a partir do Azure Logic Apps
-description: Monitorizar pontos finais HTTP ou HTTPS em tarefas automatizadas, processos e fluxos de trabalho com o Azure Logic Apps
+title: Conectar-se a pontos de extremidade HTTP ou HTTPS de aplicativos lógicos do Azure
+description: Monitorar pontos de extremidade HTTP ou HTTPS em tarefas, processos e fluxos de trabalho automatizados usando aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,114 +10,160 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: fa5fd3ef8b144826468f56ea2a14be592cef5dc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 04d9beaef29e76d40c0bb3f9dcf0bb6f4fe3152d
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541265"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234337"
 ---
-# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Chamar pontos finais HTTP ou HTTPS ao utilizar o Azure Logic Apps
+# <a name="call-http-or-https-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
 
-Com o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o conector HTTP incorporado, pode automatizar fluxos de trabalho que regularmente chamam qualquer ponto final HTTP ou HTTPS com a criação de aplicações lógicas. Por exemplo, pode monitorizar o ponto final de serviço do Web site ao verificar o ponto de extremidade com base numa agenda especificada. Quando um evento específico acontece naquele ponto de extremidade, como o seu Web site fica em baixo, o evento aciona o fluxo de trabalho da sua aplicação lógica e executa as ações especificadas.
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector http interno, você pode automatizar fluxos de trabalho que chamam regularmente qualquer ponto de extremidade http ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site verificando esse ponto de extremidade em um agendamento especificado. Quando um evento específico acontece nesse ponto de extremidade, como seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas.
 
-Para verificar ou *poll* um ponto de extremidade com base numa agenda regular, pode usar o acionador HTTP como o primeiro passo no fluxo de trabalho. Em cada verificação, o acionador envia uma chamada ou *pedido* para o ponto final. Resposta do ponto de extremidade determina se a fluxo de trabalho da sua aplicação lógica é executada. O acionador passa ao longo de qualquer conteúdo da resposta às ações na sua aplicação lógica.
+Para verificar ou *sondar* um ponto de extremidade em um agendamento regular, você pode usar o gatilho http como a primeira etapa no fluxo de trabalho. Em cada verificação, o gatilho envia uma chamada ou *solicitação* ao ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa qualquer conteúdo da resposta às ações em seu aplicativo lógico.
 
-Pode utilizar a ação de HTTP como qualquer outro passo no fluxo de trabalho para chamar o ponto de extremidade quando quiser. Resposta do ponto de extremidade determina como executam ações restantes do seu fluxo de trabalho.
+Você pode usar a ação HTTP como qualquer outra etapa no fluxo de trabalho para chamar o ponto de extremidade quando desejar. A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
 
-Com base em capacidade do destino do ponto de extremidade, o conector HTTP suporta o Transport Layer Security (TLS) versões 1.0, 1.1 e 1.2. O Logic Apps negocia com o ponto final com o uso a versão suportada mais elevada possível. Então, por exemplo, se o ponto final de suportar 1.2, o conector utiliza 1.2 pela primeira vez. Caso contrário, o conector utiliza a versão suportada mais alta seguinte.
+Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá suporte às versões 1,0, 1,1 e 1,2 da TLS (Transport Layer Security). Os aplicativos lógicos negociam com o ponto de extremidade do usando a versão mais recente com suporte possível. Portanto, por exemplo, se o ponto de extremidade der suporte a 1,2, o conector usará a 1,2 primeiro. Caso contrário, o conector usará a próxima versão com suporte mais alta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* O URL para o ponto de extremidade de destino que deseja chamar
+* A URL para o ponto de extremidade de destino que você deseja chamar
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
 
-* A aplicação de lógica de onde deseja chamar o ponto de extremidade de destino. Para começar com o acionador HTTP [criar uma aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para utilizar a ação de HTTP, inicie a aplicação lógica com qualquer acionador que pretende. Este exemplo utiliza o acionador HTTP, como a primeira etapa.
+* O aplicativo lógico do qual você deseja chamar o ponto de extremidade de destino. Para começar com o gatilho HTTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação HTTP, inicie seu aplicativo lógico com qualquer gatilho desejado. Este exemplo usa o gatilho HTTP como a primeira etapa.
 
-## <a name="add-an-http-trigger"></a>Adicionar um acionador HTTP
+## <a name="add-an-http-trigger"></a>Adicionar um gatilho HTTP
 
-Este acionador incorporado faz uma chamada HTTP para o URL especificado para um ponto final e retorna uma resposta.
+Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a aplicação lógica em branco no Estruturador da aplicação lógica.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
-1. No estruturador, na caixa de pesquisa, introduza "http" como o filtro. Partir do **Acionadores** lista, selecione a **HTTP** acionador.
+1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista  de gatilhos, selecione o gatilho **http** .
 
-   ![Selecione o acionador HTTP](./media/connectors-native-http/select-http-trigger.png)
+   ![Selecionar gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-   Este exemplo muda o nome do acionador "Acionador de HTTP", para que a etapa tem um nome mais descritivo. Além disso, o exemplo adiciona mais tarde uma ação de HTTP, e ambos os nomes têm de ser exclusivos.
+   Este exemplo renomeia o gatilho para "gatilho HTTP" para que a etapa tenha um nome mais descritivo. Além disso, o exemplo posteriormente adiciona uma ação HTTP e ambos os nomes devem ser exclusivos.
 
-1. Forneça os valores para o [parâmetros de Acionador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que pretende incluir na chamada para o ponto de extremidade de destino. Configure a periodicidade para a frequência com que pretende que o acionador para verificar o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
 
-   ![Introduza os parâmetros de Acionador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+   ![Inserir parâmetros de gatilho HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar HTTP acionadores e ações](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar gatilhos e ações http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-1. Para adicionar outros parâmetros disponíveis, abra a **adicione o novo parâmetro** lista e selecione os parâmetros que pretende.
+1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 
-1. Continue a criar o fluxo de trabalho da sua aplicação lógica com ações executadas quando o acionador é acionado.
+1. Continue criando o fluxo de trabalho do aplicativo lógico com ações que são executadas quando o gatilho é acionado.
 
-1. Quando tiver terminado, feito, não se esqueça de guardar a aplicação lógica. Na barra de ferramentas da estruturador, selecione **guardar**.
+1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
 
-## <a name="add-an-http-action"></a>Adicionar uma ação de HTTP
+## <a name="add-an-http-action"></a>Adicionar uma ação HTTP
 
-Esta ação incorporada faz uma chamada HTTP para o URL especificado para um ponto final e retorna uma resposta.
+Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto de extremidade e retorna uma resposta.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra a aplicação lógica no Estruturador da aplicação lógica.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico no designer de aplicativo lógico.
 
-   Este exemplo utiliza o acionador HTTP, como a primeira etapa.
+   Este exemplo usa o gatilho HTTP como a primeira etapa.
 
-1. No passo em que pretende adicionar a ação de HTTP, selecione **novo passo**.
+1. Na etapa em que você deseja adicionar a ação HTTP, selecione **nova etapa**.
 
-   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. Selecione o sinal ( **+** ) que é apresentada e, em seguida, selecione **adicionar uma ação**.
+   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. No estruturador, na caixa de pesquisa, introduza "http" como o filtro. Partir do **ações** lista, selecione a **HTTP** ação.
+1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista **ações** , selecione a ação **http** .
 
-   ![Selecione a ação de HTTP](./media/connectors-native-http/select-http-action.png)
+   ![Selecionar ação HTTP](./media/connectors-native-http/select-http-action.png)
 
-   Este exemplo muda o nome da ação como "Ação de HTTP", para que a etapa tem um nome mais descritivo.
+   Este exemplo renomeia a ação como "ação HTTP" para que a etapa tenha um nome mais descritivo.
 
-1. Forneça os valores para o [parâmetros de ação de HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que pretende incluir na chamada para o ponto de extremidade de destino.
+1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
 
-   ![Introduza os parâmetros de ação de HTTP](./media/connectors-native-http/http-action-parameters.png)
+   ![Inserir parâmetros de ação HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar HTTP acionadores e ações](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar gatilhos e ações http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-1. Para adicionar outros parâmetros disponíveis, abra a **adicione o novo parâmetro** lista e selecione os parâmetros que pretende.
+1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 
-1. Quando tiver terminado, lembre-se de guardar a aplicação lógica. Na barra de ferramentas da estruturador, selecione **guardar**.
+1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
+
+## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo de dados de várias partes/formulário
+
+Para lidar com o conteúdo `multipart/form-data` que tem o tipo em solicitações HTTP, você pode adicionar um objeto JSON `$content-type` que `$multipart` inclui os atributos e ao corpo da solicitação HTTP usando esse formato.
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+Por exemplo, suponha que você tenha um aplicativo lógico que envia uma solicitação HTTP post para um arquivo do Excel para um site usando a API desse site, que dá `multipart/form-data` suporte ao tipo. Veja como essa ação pode parecer:
+
+![Dados de formulário com várias partes](./media/connectors-native-http/http-action-multipart.png)
+
+Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na definição de fluxo de trabalho subjacente:
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter mais informações sobre parâmetros de Acionador e ação, veja essas secções:
+Para obter mais informações sobre parâmetros de ação e gatilho, consulte estas seções:
 
-* [Parâmetros de Acionador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
-* [Parâmetros de ação de HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+* [Parâmetros de gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
+* [Parâmetros de ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
 
-### <a name="output-details"></a>Detalhes de saída
+### <a name="output-details"></a>Detalhes da saída
 
-Aqui estão mais algumas informações sobre as saídas de um acionador HTTP ou a ação, que retorna essas informações:
+Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Type | Descrição |
 |---------------|------|-------------|
-| Cabeçalhos | object | Os cabeçalhos do pedido |
-| Corpo | object | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
-| Código de estado | int | O código de estado do pedido |
+| Conector | object | Os cabeçalhos da solicitação |
+| Conteúdo | object | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| Código de status | int | O código de status da solicitação |
 |||
 
 | Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Aceite |
+| 202 | Aceitar |
 | 400 | Pedido incorreto |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não foi encontrado |
-| 500 | Erro de servidor interno. Ocorreu um erro desconhecido. |
+| 404 | Não encontrado |
+| 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)

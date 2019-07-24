@@ -1,6 +1,6 @@
 ---
-title: Advanced a utilização de autenticação e autorização - serviço de aplicações do Azure | Documentos da Microsoft
-description: Mostra como personalizar a autenticação e autorização no serviço de aplicações e obter afirmações de utilizador e tokens diferentes.
+title: Uso avançado de autenticação e autorização – serviço de Azure App | Microsoft Docs
+description: Mostra como personalizar a autenticação e a autorização no serviço de aplicativo e obter declarações de usuário e tokens diferentes.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b628f88e3d0d644cf5a9471be1d7a766c2b9575b
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: b4b70a45758f697c469895bcef6ea8d203065e26
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143932"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853965"
 ---
-# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilização avançada de autenticação e autorização no serviço de aplicações do Azure
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no serviço Azure App
 
-Este artigo mostra-lhe como personalizar o incorporado [autenticação e autorização no serviço de aplicações](overview-authentication-authorization.md)e para gerir a identidade da sua aplicação. 
+Este artigo mostra como personalizar a [autenticação interna e a autorização no serviço de aplicativo](overview-authentication-authorization.md)e gerenciar a identidade do seu aplicativo. 
 
-Para começar rapidamente a utilizar, consulte um dos seguintes tutoriais:
+Para começar rapidamente, consulte um dos seguintes tutoriais:
 
-* [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto no serviço de aplicações do Azure para Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no serviço de Azure App (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticar e autorizar usuários de ponta a ponta no serviço de Azure App para Linux](containers/tutorial-auth-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Azure Active Directory](configure-authentication-provider-aad.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Facebook](configure-authentication-provider-facebook.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google](configure-authentication-provider-google.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft](configure-authentication-provider-microsoft.md)
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter](configure-authentication-provider-twitter.md)
 
-## <a name="use-multiple-sign-in-providers"></a>Utilizar vários fornecedores de início de sessão
+## <a name="use-multiple-sign-in-providers"></a>Usar vários provedores de entrada
 
-A configuração do portal não oferece uma forma chave na mão para apresentar vários fornecedores de início de sessão a seus usuários (por exemplo, Facebook e Twitter). No entanto, não é difícil adicionar a funcionalidade para a sua aplicação. Os passos estão delineados do seguinte modo:
+A configuração do portal não oferece uma forma de chave para apresentar vários provedores de entrada para seus usuários (como o Facebook e o Twitter). No entanto, não é difícil adicionar a funcionalidade ao seu aplicativo. As etapas são descritas a seguir:
 
-Primeiro, na **autenticação / autorização** página no portal do Azure, configure cada fornecedor de identidade que pretende ativar.
+Primeiro, na página **autenticação/autorização** no portal do Azure, configure cada provedor de identidade que você deseja habilitar.
 
-Na **ação a tomar quando o pedido não é autenticado**, selecione **pedidos permitir anónimos (sem ação)** .
+Em **ação a ser tomada quando a solicitação não for autenticada**, selecione **Permitir solicitações anônimas (nenhuma ação)** .
 
-Na página de início de sessão, ou a barra de navegação ou qualquer outro local da sua aplicação, adicione uma ligação de início de sessão para cada um dos fornecedores ativou (`/.auth/login/<provider>`). Por exemplo:
+Na página de entrada ou na barra de navegação ou em qualquer outro local do seu aplicativo, adicione um link de entrada para cada um dos provedores habilitados (`/.auth/login/<provider>`). Por exemplo:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -53,19 +53,19 @@ Na página de início de sessão, ou a barra de navegação ou qualquer outro lo
 <a href="/.auth/login/twitter">Log in with Twitter</a>
 ```
 
-Quando o usuário clica em um dos links, é aberta a respectiva página de início de sessão para iniciar a sessão do utilizador.
+Quando o usuário clica em um dos links, a página de entrada respectiva é aberta para entrar no usuário.
 
-Para redirecionar o utilizador pós-sessão-para um URL personalizado, utilize o `post_login_redirect_url` (não deve ser confundido com o URI de redirecionamento na sua configuração de fornecedor de identidade) de parâmetro de cadeia de caracteres de consulta. Por exemplo, para direcionar o utilizador para `/Home/Index` após o início de sessão, utilize o seguinte código HTML:
+Para redirecionar a postagem do usuário para uma URL personalizada, use o `post_login_redirect_url` parâmetro de cadeia de caracteres de consulta (não deve ser confundido com o URI de redirecionamento em sua configuração de provedor de identidade). Por exemplo, para navegar pelo usuário para `/Home/Index` depois de entrar, use o seguinte código HTML:
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
-## <a name="validate-tokens-from-providers"></a>Validar os tokens de fornecedores
+## <a name="validate-tokens-from-providers"></a>Validar tokens de provedores
 
-Num cliente direcionado início de sessão, o aplicativo inicia a sessão do utilizador para o fornecedor manualmente e, em seguida, envia o token de autenticação no serviço de aplicações para a validação (consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow)). Esta validação em si, na verdade, não concede acesso aos recursos de aplicação pretendida, mas uma validação com êxito irá dar-lhe um token de sessão que pode utilizar para aceder aos recursos da aplicação. 
+Em uma entrada direcionada ao cliente, o aplicativo conecta o usuário ao provedor manualmente e, em seguida, envia o token de autenticação para o serviço de aplicativo para validação (consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow)). Na verdade, essa validação não concede a você acesso aos recursos de aplicativo desejados, mas uma validação bem-sucedida fornecerá um token de sessão que você pode usar para acessar os recursos do aplicativo. 
 
-Para validar o token de fornecedor, aplicação de serviço de aplicações em primeiro lugar tem de ser configurada com o fornecedor pretendido. No tempo de execução, depois de obter o token de autenticação através do seu fornecedor, publicar o token para `/.auth/login/<provider>` para validação. Por exemplo: 
+Para validar o token do provedor, o aplicativo do serviço de aplicativo deve primeiro ser configurado com o provedor desejado. Em tempo de execução, depois de recuperar o token de autenticação do seu provedor, poste `/.auth/login/<provider>` o token para para validação. Por exemplo: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -74,18 +74,18 @@ Content-Type: application/json
 {"id_token":"<token>","access_token":"<token>"}
 ```
 
-O formato do token varia um pouco, de acordo com o fornecedor. Consulte a tabela seguinte para obter mais detalhes:
+O formato do token varia um pouco de acordo com o provedor. Consulte a tabela a seguir para obter detalhes:
 
-| Valor de fornecedor | Necessário no corpo do pedido | Comentários |
+| Valor do provedor | Necessário no corpo da solicitação | Comentários |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | O `expires_in` propriedade é opcional. <br/>Quando pedir o token de serviços do Live, sempre pedir o `wl.basic` âmbito. |
-| `google` | `{"id_token":"<id_token>"}` | O `authorization_code` propriedade é opcional. Quando especificado, ele pode opcionalmente, também de ser acompanhado do `redirect_uri` propriedade. |
-| `facebook`| `{"access_token":"<user_access_token>"}` | Utilizar válido [token de acesso de utilizador](https://developers.facebook.com/docs/facebook-login/access-tokens) do Facebook. |
+| `microsoftaccount` | `{"access_token":"<token>"}` | A `expires_in` propriedade é opcional. <br/>Ao solicitar o token de serviços dinâmicos, sempre solicite o `wl.basic` escopo. |
+| `google` | `{"id_token":"<id_token>"}` | A `authorization_code` propriedade é opcional. Quando especificado, ele também pode ser acompanhado pela `redirect_uri` propriedade. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Use um [token de acesso de usuário](https://developers.facebook.com/docs/facebook-login/access-tokens) válido do Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 | | | |
 
-Se o token de fornecedor for validado com êxito, a API devolve com um `authenticationToken` no corpo da resposta, que é o seu token de sessão. 
+Se o token do provedor for validado com êxito, a API retornará `authenticationToken` com um no corpo da resposta, que é o seu token de sessão. 
 
 ```json
 {
@@ -96,42 +96,42 @@ Se o token de fornecedor for validado com êxito, a API devolve com um `authenti
 }
 ```
 
-Assim que tiver este token de sessão, pode aceder a recursos de aplicação protegida, adicionando o `X-ZUMO-AUTH` cabeçalho aos seus pedidos HTTP. Por exemplo: 
+Assim que tiver esse token de sessão, você poderá acessar os recursos do aplicativo protegido `X-ZUMO-AUTH` adicionando o cabeçalho às suas solicitações HTTP. Por exemplo: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
 X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
-## <a name="sign-out-of-a-session"></a>Terminar uma sessão
+## <a name="sign-out-of-a-session"></a>Sair de uma sessão
 
-Os utilizadores podem iniciar um fim de sessão através do envio de um `GET` pedido para a aplicação `/.auth/logout` ponto final. O `GET` pedido procede da seguinte forma:
+Os usuários podem iniciar uma saída enviando uma `GET` solicitação ao ponto de extremidade do `/.auth/logout` aplicativo. A `GET` solicitação faz o seguinte:
 
-- Limpa cookies de autenticação da sessão atual.
-- Elimina tokens de acesso do utilizador atual do arquivo de tokens.
-- Para o Azure Active Directory e o Google, efetua um servidor fim de sessão do fornecedor de identidade.
+- Limpa os cookies de autenticação da sessão atual.
+- Exclui os tokens do usuário atual do repositório de token.
+- Para Azure Active Directory e Google, o executa uma saída do lado do servidor no provedor de identidade.
 
-Este é um link de fim de sessão simples numa página Web:
+Aqui está um link de saída simples em uma página da Web:
 
 ```HTML
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Por predefinição, um êxito fim de sessão redireciona o cliente para o URL `/.auth/logout/done`. Pode alterar a página de redirecionamento post-sign-out adicionando o `post_logout_redirect_uri` parâmetro de consulta. Por exemplo:
+Por padrão, uma saída bem-sucedida redireciona o cliente para a URL `/.auth/logout/done`. Você pode alterar a página de redirecionamento pós-sair adicionando o `post_logout_redirect_uri` parâmetro de consulta. Por exemplo:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
 ```
 
-É recomendado que [codificar](https://wikipedia.org/wiki/Percent-encoding) o valor de `post_logout_redirect_uri`.
+É recomendável que você [codifique](https://wikipedia.org/wiki/Percent-encoding) o valor de `post_logout_redirect_uri`.
 
-Quando utilizar URLs completamente qualificados, o URL deve ser hospedado no mesmo domínio ou configurado como um URL de redirecionamento externo permitido para a sua aplicação. No exemplo a seguir, para redirecionar para `https://myexternalurl.com` que não está alojada no mesmo domínio:
+Ao usar URLs totalmente qualificadas, a URL deve ser hospedada no mesmo domínio ou configurada como uma URL de redirecionamento externa permitida para seu aplicativo. No exemplo a seguir, para redirecionar para `https://myexternalurl.com` isso não está hospedado no mesmo domínio:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-Tem de executar o seguinte comando [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Você deve executar o seguinte comando no [Azure cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -139,66 +139,66 @@ az webapp auth update --name <app_name> --resource-group <group_name> --allowed-
 
 ## <a name="preserve-url-fragments"></a>Preservar fragmentos de URL
 
-Depois dos utilizadores iniciam sessão na sua aplicação, normalmente, eles querem ser redirecionado para a mesma seção da mesma página, tal como `/wiki/Main_Page#SectionZ`. No entanto, uma vez [fragmentos de URL](https://wikipedia.org/wiki/Fragment_identifier) (por exemplo, `#SectionZ`) nunca são enviadas para o servidor, eles não são mantidos por predefinição quando o OAuth início de sessão estiver concluída e redireciona para a sua aplicação. Os utilizadores, em seguida, obtém uma experiência de inferior ao ideal quando precisam para navegar novamente para a âncora pretendida. Esta limitação se aplica a todas as soluções de autenticação de servidor.
+Depois que os usuários entram em seu aplicativo, eles geralmente desejam ser redirecionados para a mesma seção da mesma página, como `/wiki/Main_Page#SectionZ`. No entanto, como os [fragmentos](https://wikipedia.org/wiki/Fragment_identifier) de URL `#SectionZ`(por exemplo,) nunca são enviados ao servidor, eles não são preservados por padrão depois que a entrada do OAuth é concluída e redireciona de volta para seu aplicativo. Em seguida, os usuários obtêm uma experiência ideal quando precisam navegar até a âncora desejada novamente. Essa limitação se aplica a todas as soluções de autenticação do lado do servidor.
 
-Na autenticação do serviço de aplicações, pode preservar fragmentos de URL em toda o OAuth início de sessão. Para tal, defina uma aplicação chamada `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` para `true`. Pode fazê-lo [portal do Azure](https://portal.azure.com), ou simplesmente executar o seguinte comando na [Azure Cloud Shell](../cloud-shell/quickstart.md):
+Na autenticação do serviço de aplicativo, você pode preservar os fragmentos de URL na entrada OAuth. Para fazer isso, defina uma configuração de aplicativo `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` chamada `true`para. Você pode fazer isso na [portal do Azure](https://portal.azure.com)ou simplesmente executar o seguinte comando no [Azure cloud Shell](../cloud-shell/quickstart.md):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
-## <a name="access-user-claims"></a>Afirmações de utilizador de acesso
+## <a name="access-user-claims"></a>Acessar declarações de usuário
 
-Serviço de aplicações passa afirmações de utilizador à sua aplicação ao utilizar cabeçalhos especiais. Solicitações externas não são permitidas para definir esses cabeçalhos, para que estejam presentes apenas se for definido pelo serviço de aplicações. Alguns cabeçalhos de exemplo incluem:
+O serviço de aplicativo passa declarações do usuário para seu aplicativo usando cabeçalhos especiais. Solicitações externas não têm permissão para definir esses cabeçalhos, portanto, elas estão presentes somente se definidas pelo serviço de aplicativo. Alguns cabeçalhos de exemplo incluem:
 
 * X-MS-CLIENT-PRINCIPAL-NAME
 * X-MS-CLIENT-PRINCIPAL-ID
 
-O código escrito em qualquer linguagem ou arquitetura pode obter as informações que necessita desses cabeçalhos. Para aplicações ASP.NET 4.6, o **ClaimsPrincipal** é definida automaticamente com os valores apropriados.
+O código escrito em qualquer linguagem ou estrutura pode obter as informações necessárias desses cabeçalhos. Para aplicativos ASP.NET 4,6, o **ClaimsPrincipal** é definido automaticamente com os valores apropriados.
 
-Seu aplicativo também pode obter detalhes adicionais sobre o utilizador autenticado ao chamar `/.auth/me`. O servidor de aplicações móveis SDKs fornecem métodos auxiliares para trabalhar com estes dados. Para obter mais informações, consulte [como utilizar o Azure Mobile Apps node. js SDK](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity), e [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
+Seu aplicativo também pode obter detalhes adicionais sobre o usuário autenticado chamando `/.auth/me`. Os SDKs do servidor de aplicativos móveis fornecem métodos auxiliares para trabalhar com esses dados. Para obter mais informações, consulte [como usar o SDK do node. js de aplicativos móveis do Azure](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity)e [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info).
 
-## <a name="retrieve-tokens-in-app-code"></a>Obter tokens no código da aplicação
+## <a name="retrieve-tokens-in-app-code"></a>Recuperar tokens no código do aplicativo
 
-A partir do código de servidor, os tokens de específica do fornecedor serão inseridos o cabeçalho do pedido, para que pode acessá-los facilmente. A tabela seguinte mostra os nomes de cabeçalho de token possíveis:
+No código do servidor, os tokens específicos do provedor são injetados no cabeçalho da solicitação, para que você possa acessá-los facilmente. A tabela a seguir mostra os possíveis nomes de cabeçalho de token:
 
 | Fornecedor | Nomes de cabeçalho |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
-| Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
+| Token do Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
 | Google | `X-MS-TOKEN-GOOGLE-ID-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-ACCESS-TOKEN` <br/> `X-MS-TOKEN-GOOGLE-EXPIRES-ON` <br/> `X-MS-TOKEN-GOOGLE-REFRESH-TOKEN` |
 | Conta Microsoft | `X-MS-TOKEN-MICROSOFTACCOUNT-ACCESS-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-EXPIRES-ON` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-AUTHENTICATION-TOKEN` <br/> `X-MS-TOKEN-MICROSOFTACCOUNT-REFRESH-TOKEN` |
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-A partir do código de cliente (por exemplo, uma aplicação móvel ou JavaScript no browser), enviar um HTTP `GET` pedido para `/.auth/me`. O JSON devolvido tem os tokens de específica do fornecedor.
+Do seu código de cliente (como um aplicativo móvel ou JavaScript no navegador), envie uma solicitação HTTP `GET` para. `/.auth/me` O JSON retornado tem os tokens específicos do provedor.
 
 > [!NOTE]
-> São tokens de acesso para aceder a recursos de fornecedor, para que estejam presentes apenas se configurar o seu fornecedor com um segredo do cliente. Para ver como obter tokens de atualização, consulte os tokens de acesso de atualização.
+> Tokens de acesso são para acessar recursos do provedor, para que eles estejam presentes somente se você configurar seu provedor com um segredo do cliente. Para ver como obter tokens de atualização, consulte atualizar tokens de acesso.
 
-## <a name="refresh-identity-provider-tokens"></a>Tokens de fornecedor de identidade de atualização
+## <a name="refresh-identity-provider-tokens"></a>Atualizar tokens do provedor de identidade
 
-Quando o token de acesso do seu fornecedor (não o [token de sessão](#extend-session-token-expiration-grace-period)) expirar, terá de autenticar o utilizador antes de utilizar esse token novamente. Pode evitar a expiração do token, fazendo uma `GET` chamar para o `/.auth/refresh` ponto final do seu aplicativo. Quando chamado, o serviço de aplicações atualiza automaticamente os tokens de acesso no arquivo de tokens para o usuário autenticado. Pedidos subsequentes para tokens pelo seu código de aplicação obtém os tokens de atualização. No entanto, para a atualização de token funcionar, o arquivo de tokens tem de conter [tokens de atualização](https://auth0.com/learn/refresh-tokens/) para o seu fornecedor. A forma de obter tokens de atualização estão documentados pelo cada fornecedor, mas a lista seguinte é um breve resumo:
+Quando o token de acesso do seu provedor (não o [token de sessão](#extend-session-token-expiration-grace-period)) expirar, você precisará autenticar novamente o usuário antes de usar esse token novamente. Você pode evitar a expiração do token `GET` fazendo uma chamada `/.auth/refresh` para o ponto de extremidade do seu aplicativo. Quando chamado, o serviço de aplicativo atualiza automaticamente os tokens de acesso no repositório de token para o usuário autenticado. Solicitações subsequentes de tokens pelo código do aplicativo obtêm os tokens atualizados. No entanto, para que a atualização de token funcione, o repositório de token deve conter tokens de [atualização](https://auth0.com/learn/refresh-tokens/) para seu provedor. A maneira de obter tokens de atualização é documentada por cada provedor, mas a lista a seguir é um breve resumo:
 
-- **Google**: Acrescentar um `access_type=offline` consultar o parâmetro de cadeia de caracteres para seu `/.auth/login/google` chamada à API. Se utilizar o SDK de aplicações móveis, pode adicionar o parâmetro para um da `LogicAsync` sobrecargas (consulte [Tokens de atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
-- **Facebook**: Não fornece tokens de atualização. Tokens de longa duração expirarem em 60 dias (consulte [expiração do Facebook e extensão de Tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: Tokens de acesso não expiram (consulte [FAQ de OAuth do Twitter](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Conta Microsoft**: Quando [configurar definições de autenticação de conta do Microsoft](configure-authentication-provider-microsoft.md), selecione o `wl.offline_access` âmbito.
-- **Azure Active Directory**: Na [ https://resources.azure.com ](https://resources.azure.com), siga os passos abaixo:
-    1. Na parte superior da página, selecione **leitura/escrita**.
-    2. No navegador à esquerda, navegue até **subscrições** >  ** _\<subscrição\_nome_**   >  **resourceGroups** >  _ **\<recursos\_grupo\_nome >** _   >  **provedores** > **Microsoft. Web** > **sites** >  _ **\<aplicação \_name >** _ > **config** > **authsettings**. 
+- **Google**: Acrescente um `access_type=offline` parâmetro de cadeia de caracteres `/.auth/login/google` de consulta à sua chamada à API. Se estiver usando o SDK de aplicativos móveis, você poderá adicionar o parâmetro a uma `LogicAsync` das sobrecargas (consulte tokens de [atualização do Google](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
+- **Facebook**: Não fornece tokens de atualização. Tokens de vida longa expiram em 60 dias (consulte [expiração do Facebook e extensão de tokens de acesso](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
+- **Twitter**: Tokens de acesso não expiram (consulte [perguntas frequentes sobre o Twitter OAuth](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Conta da Microsoft**: Ao [definir as configurações de autenticação da conta](configure-authentication-provider-microsoft.md)da `wl.offline_access` Microsoft, selecione o escopo.
+- **Azure Active Directory**: No [https://resources.azure.com](https://resources.azure.com), execute as seguintes etapas:
+    1. Na parte superior da página, selecione **leitura/gravação**.
+    2. No navegador esquerdo, **navegue até** >  **_\<assinaturas nome\__**  > da assinaturaresourceGroups >  **_grupode\_recursos\< nome\_>_**  **provedores Microsoft. Web** **_sitesnomedo\_aplicativo > configuração\<_**  >  >  >  >   >  >  **authsettings**. 
     3. Clique em **Editar**.
-    4. Modifique a seguinte propriedade. Substitua  _\<aplicação\_id >_ com o ID da aplicação do Azure Active Directory do serviço pretende aceder.
+    4. Modifique a propriedade a seguir. Substitua a ID do _aplicativo\_> pela ID do aplicativo Azure Active Directory do serviço que você deseja acessar. \<_
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. Clique em **colocar**. 
+    5. Clique em **Put**. 
 
-Assim que o fornecedor está configurado, pode [encontrar o token de atualização e a hora de expiração para o token de acesso](#retrieve-tokens-in-app-code) no arquivo de tokens. 
+Quando o provedor estiver configurado, você poderá [encontrar o token de atualização e a hora de expiração para o token de acesso](#retrieve-tokens-in-app-code) no repositório de tokens. 
 
-Para atualizar o token de acesso a qualquer altura, basta chamar `/.auth/refresh` em qualquer idioma. O fragmento seguinte utiliza o jQuery para atualizar seus tokens de acesso de um cliente JavaScript.
+Para atualizar seu token de acesso a qualquer momento, `/.auth/refresh` basta chamar em qualquer idioma. O trecho a seguir usa o jQuery para atualizar os tokens de acesso de um cliente JavaScript.
 
 ```JavaScript
 function refreshTokens() {
@@ -211,31 +211,31 @@ function refreshTokens() {
 }
 ```
 
-Se um utilizador revoga as permissões concedidas à sua aplicação, a chamada para `/.auth/me` poderá falhar com um `403 Forbidden` resposta. Para diagnosticar erros, verifique os registos da aplicação para obter detalhes.
+Se um usuário revogar as permissões concedidas ao seu aplicativo, sua chamada `/.auth/me` para poderá falhar com `403 Forbidden` uma resposta. Para diagnosticar erros, verifique os logs do aplicativo para obter detalhes.
 
-## <a name="extend-session-token-expiration-grace-period"></a>Estender o período de tolerância de expiração do token de sessão
+## <a name="extend-session-token-expiration-grace-period"></a>Estender período de carência de expiração do token de sessão
 
-Sessão autenticada expira após oito horas. Depois de uma sessão autenticada expira, existe um período de tolerância de 72 horas por predefinição. Durante este período de tolerância, tem permissão para atualizar o token de sessão com o serviço de aplicações sem reautenticar o utilizador. Pode simplesmente chamar `/.auth/refresh` quando o token de sessão se torna inválido e não precisa de controlar a expiração do token por conta própria. Assim que o período de tolerância de 72 horas encerraram, o utilizador deve iniciar sessão novamente para obter o token de uma sessão válida.
+A sessão autenticada expira após 8 horas. Depois que uma sessão autenticada expira, há um período de carência de 72 horas por padrão. Dentro desse período de carência, você tem permissão para atualizar o token de sessão com o serviço de aplicativo sem reautenticar o usuário. Você pode chamar `/.auth/refresh` apenas quando o token de sessão se tornar inválido e não precisar controlar a expiração do token por conta própria. Uma vez que o período de carência de 72 horas se sobrepõe, o usuário deve entrar novamente para obter um token de sessão válido.
 
-Se 72 horas não estiver tempo suficiente para, pode estender esta janela de expiração. Estendendo a expiração durante um longo período pode ter implicações de segurança significativos (por exemplo, quando um token de autenticação for perdido ou roubado). Por isso, deve deixá-lo com a predefinição 72 horas ou definir o período de extensão para o valor mais baixo.
+Se 72 horas não for tempo suficiente para você, você poderá estender essa janela de expiração. Estender a expiração por um longo período pode ter implicações de segurança significativas (como quando um token de autenticação é vazado ou roubado). Portanto, você deve deixá-lo no padrão de 72 horas ou definir o período de extensão para o menor valor.
 
-Para expandir a janela de expiração predefinida, execute o seguinte comando [Cloud Shell](../cloud-shell/overview.md).
+Para estender a janela de expiração padrão, execute o seguinte comando na [Cloud Shell](../cloud-shell/overview.md).
 
 ```azurecli-interactive
 az webapp auth update --resource-group <group_name> --name <app_name> --token-refresh-extension-hours <hours>
 ```
 
 > [!NOTE]
-> O período de tolerância só se aplica à sessão do serviço de aplicações que authenticated, não os tokens de fornecedores de identidade. Não há nenhum período de cortesia para os tokens expirados fornecedor. 
+> O período de carência só se aplica à sessão autenticada do serviço de aplicativo, não aos tokens dos provedores de identidade. Não há nenhum período de carência para os tokens de provedor expirados. 
 >
 
-## <a name="limit-the-domain-of-sign-in-accounts"></a>Limite do domínio de contas de início de sessão
+## <a name="limit-the-domain-of-sign-in-accounts"></a>Limitar o domínio de contas de entrada
 
-Account da Microsoft e do Azure Active Directory permite-lhe iniciar sessão a partir de vários domínios. Por exemplo, permite que a Microsoft Account _outlook.com_, _live.com_, e _hotmail.com_ contas. O Azure Active Directory permite que qualquer número de domínios personalizados para as contas de início de sessão. Esse comportamento pode ser indesejável para uma aplicação interna, que não pretende qualquer pessoa com uma _outlook.com_ para acesso da conta. Para limitar o nome de domínio das contas de início de sessão, siga estes passos.
+Tanto a conta da Microsoft quanto a Azure Active Directory permitem que você entre em vários domínios. Por exemplo, a conta da Microsoft permite contas _Outlook.com_, _Live.com_e _hotmail.com_ . Azure Active Directory permite qualquer número de domínios personalizados para as contas de entrada. Esse comportamento pode ser indesejável para um aplicativo interno, que você não deseja que ninguém com uma conta do _Outlook.com_ acesse. Para limitar o nome de domínio das contas de entrada, siga estas etapas.
 
-Na [ https://resources.azure.com ](https://resources.azure.com), navegue até à **subscrições** >  ** _\< subscrição\_ nome_**   >  **resourceGroups** >  _ **\< recursos\_ grupo\_ nome >** _   >  **fornecedores** > **Microsoft. Web** > **sites**  >    _ **\< app\_ nome >** _ > **config** > **authsettings**. 
+No [https://resources.azure.com](https://resources.azure.com), **navegue até** >  assinaturasnome >  da **_assinaturaresourceGroups\_ recurso\<_**  >  **_\<\_ nome\_ do grupo >_**  > **provedores** **Microsoft. Web** **_sitesnome\< doaplicativo>\__**  >  >  >  >  **configuração** do  >  **authsettings**. 
 
-Clique em **edite**, modifique a seguinte propriedade e, em seguida, clique em **colocar**. Não se esqueça de substituir  _\<domínio\_name >_ com o domínio que pretende.
+Clique em **Editar**, modifique a seguinte propriedade e, em seguida, clique em **Put**. Certifique-se de  _\<substituir\_o nome de domínio >_ pelo domínio desejado.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
@@ -243,5 +243,5 @@ Clique em **edite**, modifique a seguinte propriedade e, em seguida, clique em *
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: Autenticar e autorizar utilizadores ponto-a-ponto (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar os usuários tutorial de ponta a ponta](app-service-web-tutorial-auth-aad.md)(Windows)
+> [: Autenticar e autorizar usuários de ponta a ponta (Linux)](containers/tutorial-auth-aad.md)

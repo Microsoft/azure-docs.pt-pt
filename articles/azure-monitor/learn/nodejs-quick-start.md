@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540362"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002757"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Iniciar a Monitorização de uma Aplicação Web Node.js
 
@@ -45,23 +45,22 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Adicionar um Recurso do Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Adicionar um Recurso do Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Se esta for a primeira vez que você cria um recurso de Application Insights, você pode aprender mais visitando o documento [criar um Application insights recurso](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) .
 
+   Uma página de configuração é exibida; Use a tabela a seguir para preencher os campos de entrada. 
 
-   É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
-
-    | Definições        | Value           | Descrição  |
+    | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
+   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Node.js | Tipo de aplicação que está a monitorizar |
-   | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Localização** | EUA Leste | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 
 ## <a name="configure-app-insights-sdk"></a>Configurar o SDK do Application Insights
 
-1. Selecione **descrição geral** e copie o seu aplicativo **chave de instrumentação**.
+1. Selecione **visão geral** e copie a **chave**de instrumentação do aplicativo.
 
    ![Formulário de recurso novo do App Insights](./media/nodejs-quick-start/3key.png)
 
@@ -93,7 +92,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapeamento de Aplicações](./media/nodejs-quick-start/5appmap.png)
 
-3. Clique nas **análise da aplicação** ícone ![ícone do mapa da aplicação](./media/nodejs-quick-start/006.png) **ver na análise**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no ícone de **análise** de ![aplicativo ícones mapa](./media/nodejs-quick-start/006.png) **de aplicativo exibir no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/nodejs-quick-start/6analytics.png)
 
@@ -123,7 +122,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
    </script>
    ```
 
-5. Sobre o lado esquerdo clique em **métricas**. Utilize o Explorador de métricas para investigar o estado de funcionamento e a utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que apresenta o tempo de carregamento de página do browser média ao selecionar um "Tempo de carregamento de páginas do Browser" na lista pendente da métricas e "Média" de agregação. Para saber mais sobre o Explorador de métricas do Azure visite [introdução ao Explorador de métricas do Azure](../../azure-monitor/platform/metrics-getting-started.md).
+5. No lado esquerdo, clique em métricas. Use o Metrics Explorer para investigar a integridade e a utilização do recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, você pode criar um gráfico que exibe o tempo médio de carregamento da página do navegador selecionando "tempo de carregamento de página do navegador" no menu suspenso métricas e "Méd" da agregação. Para saber mais sobre o Azure Metrics Explorer visite [a introdução ao azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
    ![Gráficos de métricas de servidor](./media/nodejs-quick-start/8metrics.png)
 
@@ -131,7 +130,7 @@ Para saber mais sobre a monitorização de Node.js, veja a [Documentação adici
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.
+Quando terminar o teste, você poderá excluir o grupo de recursos e todos os recursos relacionados. Para fazer isso, siga as etapas abaixo.
 
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.

@@ -1,7 +1,7 @@
 ---
-title: Criar aplicação web Java em Windows - serviço de aplicações do Azure
-description: Neste início rápido, implemente o seu primeiro Java Hello World no serviço de aplicações do Azure no Windows em minutos.
-keywords: Azure, serviço de aplicações, aplicação web, windows, java, maven, início rápido
+title: Criar aplicativo Web Java no Windows-serviço de Azure App
+description: Neste guia de início rápido, você implanta sua primeira Olá, Mundo Java no serviço Azure App no Windows em minutos.
+keywords: Azure, serviço de aplicativo, aplicativo Web, Windows, Java, Maven, início rápido
 services: app-service\web
 documentationcenter: ''
 author: msangapu-msft
@@ -16,23 +16,23 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc
-ms.openlocfilehash: 0ca50bae0748570932c7a4cc3bb10cde17c940f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1e25f65cf7ec52b4a58386843a1d2f5796c66e65
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67617715"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297360"
 ---
-# <a name="quickstart-create-a-java-app-in-app-service"></a>Início rápido: Criar uma aplicação Java no serviço de aplicações
+# <a name="quickstart-create-a-java-app-in-app-service"></a>Início rápido: Criar um aplicativo Java no serviço de aplicativo
 
 > [!NOTE]
-> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um serviço de aplicações no _Linux_, consulte [Java Criar aplicação de web no Linux](./containers/quickstart-java.md).
+> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [criar aplicativo Web Java no Linux](./containers/quickstart-java.md).
 >
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este início rápido mostra como utilizar o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [Plug-in do Maven para serviço de aplicações do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar um ficheiro de arquivo (WAR) de web de Java.
+O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como usar o [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) com o [plug-in do Maven para Azure app Service](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implantar um arquivo War (Java Web Archive).
 
 > [!NOTE]
-> Também pode ser feita a mesma coisa com IDEs populares, como o IntelliJ e Eclipse. Confira nossos documentos semelhante às [Azure Toolkit para IntelliJ guia de introdução](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit para Eclipse guia de introdução](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
+> A mesma coisa também pode ser feita usando IDEs populares, como o IntelliJ e o eclipse. Confira nossos documentos semelhantes em [Azure Toolkit for IntelliJ início rápido](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) ou [Azure Toolkit for Eclipse início rápido](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
 ![Aplicação de exemplo em execução no Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
@@ -42,7 +42,7 @@ O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojam
 
 ## <a name="create-a-java-app"></a>Criar uma aplicação em Java
 
-Execute o seguinte comando Maven na linha de comandos Cloud Shell para criar uma nova aplicação com o nome `helloworld`:
+Execute o seguinte comando do Maven no prompt de Cloud Shell para criar um novo aplicativo `helloworld`chamado:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -66,7 +66,7 @@ Em seguida, adicione a seguinte definição de plug-in dentro do elemento `<buil
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
@@ -104,10 +104,10 @@ Atualize os seguintes marcadores de posição na configuração do plug-in:
 
 | Marcador de posição | Descrição |
 | ----------- | ----------- |
-| `SUBSCRIPTION_ID` | O ID exclusivo da subscrição que pretende implementar a sua aplicação. ID de subscrição de predefinida pode ser encontrado do Cloud Shell ou a CLI com o `az account show` comando. Para todas as subscrições disponíveis, utilize o `az account list` comando.|
-| `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual pretende criar a sua aplicação. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualizar este valor com um novo recurso grupo nome exclusivo, por exemplo, *myResourceGroup*. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
-| `WEBAPP_NAME` | O nome da aplicação vai fazer parte do nome do anfitrião para a aplicação quando implementada no Azure (WEBAPP_NAME.azurewebsites.net). Atualizar este valor com um nome exclusivo para a nova aplicação de serviço de aplicações, que irá alojar a aplicação de Java, por exemplo *contoso*. |
-| `REGION` | Uma região do Azure onde a aplicação está alojada, por exemplo *westus2*. Pode obter uma lista de regiões do Cloud Shell ou da CLI com o comando `az account list-locations`. |
+| `SUBSCRIPTION_ID` | A ID exclusiva da assinatura na qual você deseja implantar seu aplicativo. A ID da assinatura padrão pode ser encontrada no Cloud Shell ou CLI usando o `az account show` comando. Para todas as assinaturas disponíveis, use o `az account list` comando.|
+| `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual criar seu aplicativo. Ao colocar todos os recursos de uma aplicação num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos eliminará todos os recursos associados à aplicação. Atualize esse valor com um novo nome de grupo de recursos exclusivo, por exemplo, MyResource Group. Irá utilizar este nome de grupo de recursos para limpar todos os recursos do Azure numa secção posterior. |
+| `WEBAPP_NAME` | O nome do aplicativo será parte do nome do host para o aplicativo quando implantado no Azure (WEBAPP_NAME. azurewebsites. net). Atualize esse valor com um nome exclusivo para o novo aplicativo do serviço de aplicativo, que hospedará seu aplicativo Java, por exemplo, *contoso*. |
+| `REGION` | Uma região do Azure em que o aplicativo está hospedado, por exemplo, *westus2*. Pode obter uma lista de regiões do Cloud Shell ou da CLI com o comando `az account list-locations`. |
 
 ## <a name="deploy-the-app"></a>Implementar a aplicação
 
@@ -121,14 +121,14 @@ Uma vez concluída a implementação, navegue para a aplicação implementada co
 
 ![Aplicação de exemplo em execução no Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
 
-**Parabéns!** Implementou a sua primeira aplicação Java para o serviço de aplicações no Windows.
+**Parabéns!** Você implantou seu primeiro aplicativo Java no serviço de aplicativo no Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Azure para recursos de que os desenvolvedores de Java](/java/azure/)
+> [Recursos do Azure para desenvolvedores de Java](/java/azure/)
 
 > [!div class="nextstepaction"]
 > [Mapear domínio personalizado](app-service-web-tutorial-custom-domain.md)

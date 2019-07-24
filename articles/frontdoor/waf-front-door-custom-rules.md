@@ -1,6 +1,6 @@
 ---
-title: Regra personalizada do Web application firewall para a porta da frente do Azure
-description: Saiba como utilizar o web application firewall (WAF) regras personalizadas Protegendo seus aplicativos web de ataques maliciosos.
+title: Regra personalizada do firewall do aplicativo Web para a porta frontal do Azure
+description: Saiba como usar as regras personalizadas do WAF (firewall do aplicativo Web), protegendo seus aplicativos Web contra ataques mal-intencionados.
 author: KumudD
 ms.service: frontdoor
 ms.devlang: na
@@ -8,31 +8,32 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459713"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846270"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regras personalizadas para o firewall de aplicação web com porta da frente do Azure
-Firewall de aplicações web do Azure (WAF) com o serviço de porta de entrada permite-lhe controlar o acesso às suas aplicações web com base nas condições que definir. Uma regra personalizada de WAF é composta por um número de prioridade, um tipo de regra, condições de correspondência e uma ação. Existem dois tipos de regras personalizadas: corresponderem às regras e regras de limite de velocidade. Uma regra de correspondência controla o acesso com base em condições de correspondência, enquanto uma regra de limite de taxa controla o acesso com base na correspondência de condições e as taxas de pedidos recebidos. Pode desativar uma regra personalizada para impedi-lo de que está a ser avaliada, mas continuar a manter a configuração. Este artigo discute as regras de correspondência que se baseiam em parâmetros de http.
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Regras personalizadas para o Firewall do aplicativo Web com a porta frontal do Azure
+O WAF (firewall do aplicativo Web) do Azure com o serviço de porta frontal permite que você controle o acesso aos seus aplicativos Web com base nas condições que você definir. Uma regra WAF personalizada consiste em um número de prioridade, um tipo de regra, condições de correspondência e uma ação. Há dois tipos de regras personalizadas: regras de correspondência e regras de limite de taxa. Uma regra de correspondência controla o acesso com base em condições de correspondência, enquanto uma regra de limite de taxa controla o acesso com base nas condições de correspondência e nas taxas de solicitações de entrada. Você pode desabilitar uma regra personalizada para impedir que ela seja avaliada, mas ainda manter a configuração. Este artigo discute as regras de correspondência baseadas em parâmetros http.
 
 ## <a name="priority-match-conditions-and-action-types"></a>Prioridade, condições de correspondência e tipos de ação
-Pode controlar o acesso com uma regra personalizada da WAf que define um número de prioridade, um tipo de regra, condições de correspondência e uma ação. 
+Você pode controlar o acesso com uma regra WAf personalizada que define um número de prioridade, um tipo de regra, condições de correspondência e uma ação. 
 
-- **Prioridade:** é um número inteiro exclusivo que descreve a ordem de avaliação de regras WAF. As regras com valores mais baixos são avaliadas antes das regras com valores superiores
+- **Priority:** é um inteiro exclusivo que descreve a ordem de avaliação das regras de WAF. As regras com valores inferiores são avaliadas antes das regras com valores mais altos
 
-- **Ação:** define como encaminhar um pedido se uma regra de WAF é correspondida. Pode escolher uma do abaixo das ações a aplicar quando um pedido de corresponde a uma regra personalizada.
+- **Ação:** define como rotear uma solicitação se uma regra de WAF for correspondida. Você pode escolher uma das ações abaixo para aplicar quando uma solicitação corresponde a uma regra personalizada.
 
-    - *Permitir* -WAF reencaminha a busca para o back-end, registos de uma entrada no registos WAF e saídas.
-    - *Bloco* -pedido está bloqueado, WAF envia a resposta ao cliente sem reencaminhar o pedido para o back-end. WAF registra uma entrada nos registos WAF.
-    - *Registo* -registos WAF uma entrada no WAF regista e continua a avaliar a regra seguinte.
-    - *Redirecionar* -WAF redireciona o pedido para um URI especificado, registos de uma entrada nos registos WAF e é encerrado.
+    - *Allow* -WAF encaminha a Quest para o back-end, registra em log uma entrada em logs do WAF e sai.
+    - A solicitação de *bloqueio* está bloqueada, o WAF envia resposta ao cliente sem encaminhar a solicitação para o back-end. WAF registra uma entrada nos logs do WAF.
+    - *Log* -WAF registra uma entrada nos logs do WAF e continua avaliando a próxima regra.
+    - *Redirect* -WAF redireciona a solicitação para um URI especificado, registra uma entrada em logs do WAF e sai.
 
-- **Corresponde à condição:** define uma variável de correspondência, um operador e corresponde ao valor. Cada regra pode conter várias condições de correspondência. Pode basear-se numa condição de correspondência do abaixo *corresponder variáveis*:
-    - RemoteAddr (IP de cliente)
+- **Condição de correspondência:** define uma variável de correspondência, um operador e um valor de correspondência. Cada regra pode conter várias condições de correspondência. Uma condição de correspondência pode ser baseada nas *variáveis de correspondência*abaixo:
+    - RemoteAddr (IP do cliente)
     - RequestMethod
     - Cadeia de consulta
     - PostArgs
@@ -40,43 +41,43 @@ Pode controlar o acesso com uma regra personalizada da WAf que define um número
     - RequestHeader
     - RequestBody
 
-- **Operador:** lista inclui o seguinte:
-    - Qualquer: é frequentemente utilizada para definir a ação predefinida se não há regras são correspondentes. Qualquer é uma correspondência operador all.
-    - IPMatch: definir a restrição de IP para a variável de RemoteAddr
-    - GeoMatch: Definir geo de filtragem para RemoteAddr variável
-    - Equal
+- **Operador:** a lista inclui o seguinte:
+    - Any: é geralmente usado para definir a ação padrão se nenhuma regra for correspondida. Any é um operador match ALL.
+    - IPMatch: definir a restrição de IP para a variável RemoteAddr
+    - Geocorrespondente: definir a filtragem geográfica para a variável RemoteAddr
+    - Iguais
     - Contém
     - LessThan: restrição de tamanho
     - GreaterThan: restrição de tamanho
-    - LessThanOrEqual: size constraint
-    - GreaterThanOrEqual: size constraint
+    - LessThanOrEqual: restrição de tamanho
+    - GreaterThanOrEqual: restrição de tamanho
     - BeginsWith
      - EndsWith
 
-Pode definir *negar* condição ser VERDADEIRO se o resultado de uma condição deve ser negado.
+Você pode definir  a condição de negação como true se o resultado de uma condição deve ser negado.
 
-*Corresponde ao valor* define a lista de valores de correspondência possível.
-Suporta o método de pedido HTTP valores incluem:
+O *valor de correspondência* define a lista de possíveis valores de correspondência.
+Os valores do método de solicitação HTTP com suporte incluem:
 - GET
 - POST
 - PUT
-- HEAD
+- PRINCIPAL
 - DELETE
-- BLOQUEIO
-- DESBLOQUEAR
-- PERFIL
+- PROPRIETÁRIO
+- AUTOMÁTICO
+- CRIAR
 - OPÇÕES
 - PROPFIND
-- PROPPATCH
+- DEFINE
 - MKCOL
-- CÓPIA
-- MOVER
+- COPIAROBJETO
+- PROSSEGUIR
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Exemplo de regras personalizadas de WAF com base nos parâmetros de http
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Exemplo de regras personalizadas do WAF com base em parâmetros http
 
-Eis um exemplo que mostra a configuração de uma regra personalizada com duas condições de correspondência. Pedidos são de um site especificado, conforme definido pela Referenciador e cadeia de consulta não contém "palavra-passe".
+Aqui está um exemplo que mostra a configuração de uma regra personalizada com duas condições de correspondência. As solicitações são de um site especificado, conforme definido pelo referenciador, e a cadeia de caracteres de consulta não contém "senha".
 
 ```
 # http rules example
@@ -108,7 +109,7 @@ Eis um exemplo que mostra a configuração de uma regra personalizada com duas c
 }
 
 ```
-Um exemplo de configuração de bloqueio de "Colocar" método é mostrado abaixo:
+Uma configuração de exemplo para bloquear o método "PUT" é mostrada abaixo:
 
 ``` 
 # http Request Method custom rules
@@ -134,7 +135,7 @@ Um exemplo de configuração de bloqueio de "Colocar" método é mostrado abaixo
 
 ### <a name="size-constraint"></a>Restrição de tamanho
 
-Pode criar uma regra personalizada que especifica a restrição de tamanho na parte de uma solicitação de entrada. Por exemplo, abaixo regra bloqueia um Url que é mais de 100 carateres.
+Você pode criar uma regra personalizada que especifique a restrição de tamanho em parte de uma solicitação de entrada. Por exemplo, a regra abaixo bloqueia uma URL com mais de 100 caracteres.
 
 ```
 # http parameters size constraint
@@ -159,6 +160,6 @@ Pode criar uma regra personalizada que especifica a restrição de tamanho na pa
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [firewall de aplicações web](waf-overview.md)
+- Saiba mais sobre o [Firewall do aplicativo Web](waf-overview.md)
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 

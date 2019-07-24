@@ -3,7 +3,7 @@ title: Configurar um ambiente de desenvolvimento Windows para microsserviços do
 description: Instale o runtime, o SDK e as ferramentas e crie um cluster de desenvolvimento local. Depois de concluir esta configuração, estará pronto para criar aplicações no Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: peterpogorski
 manager: chackdan
 editor: ''
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: aljo
-ms.openlocfilehash: 19f5d99fe95e1290cc30dedc8b8172e234bd4642
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 0302d8950d10d2c606fad0582079ed0c77047fbf
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566046"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295532"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar o ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "67566046"
 > 
 > 
 
-Para criar e executar [aplicações do Azure Service Fabric][1] no seu computador de desenvolvimento do Windows, instale o runtime, SDK e ferramentas do Service Fabric. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
+Para compilar e executar [aplicativos de Service Fabric do Azure][1] no computador de desenvolvimento do Windows, instale o Service Fabric Runtime, o SDK e as ferramentas. Também precisa de [ativar a execução dos scripts do Windows PowerShell](#enable-powershell-script-execution) incluídos no SDK.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operativo com suporte
@@ -43,18 +43,18 @@ As seguintes versões do sistema operativo são suportadas para desenvolvimento:
 
 > [!NOTE]
 > Suporte do Windows 7:
-> - O Windows 7 inclui, por predefinição, apenas o Windows PowerShell 2.0. Os cmdlets do PowerShell do Service Fabric necessitam do PowerShell 3.0 ou superior. Pode [transferir o Windows PowerShell 5.0][powershell5-download] do Microsoft Download Center.
+> - O Windows 7 inclui, por predefinição, apenas o Windows PowerShell 2.0. Os cmdlets do PowerShell do Service Fabric necessitam do PowerShell 3.0 ou superior. Você pode [baixar o Windows PowerShell 5,0][powershell5-download] do centro de download da Microsoft.
 > - O Proxy Inverso do Service Fabric não está disponível no Windows 7.
 >
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
-Instalador de plataforma Web (WebPI) é a forma recomendada de instalar o SDK e ferramentas. Se receber erros de tempo de execução através de WebPI, também pode encontrar ligações diretas para os programas de instalação nas notas de versão para uma versão específica do Service Fabric. As notas de versão podem ser encontradas nos vários anúncios de lançamento no [blogue da equipa do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Web Platform Installer (WebPI) é a maneira recomendada para instalar o SDK e as ferramentas. Se você receber erros de tempo de execução usando o WebPI, também poderá encontrar links diretos para os instaladores nas notas de versão de uma versão específica do Service Fabric. As notas de versão podem ser encontradas nos vários anúncios de versão no [blog da equipe do Service Fabric](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 > [!NOTE]
-> Atualizações do cluster de desenvolvimento de Service Fabric locais não são suportadas.
+> Não há suporte para atualizações de cluster de desenvolvimento Service Fabric locais.
 
-### <a name="to-use-visual-studio-2017"></a>Para utilizar o Visual Studio 2017
-As Ferramentas do Service Fabric fazem parte da carga de trabalho de Desenvolvimento do Azure no Visual Studio 2017. Ative esta carga de trabalho como parte da instalação do Visual Studio.
+### <a name="to-use-visual-studio-2017-or-2019"></a>Para usar o Visual Studio 2017 ou 2019
+Os Ferramentas do Service Fabric fazem parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017 e 2019. Ative esta carga de trabalho como parte da instalação do Visual Studio.
 Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK, utilizando o Instalador de Plataforma Web.
 
 * [Instale o SDK do Microsoft Azure Service Fabric][core-sdk]
@@ -62,7 +62,7 @@ Para além disso, deve instalar o runtime e o Microsoft Azure Service Fabric SDK
 ### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Utilizar Visual Studio 2015 (requer a Atualização 2 do Visual Studio 2015 ou posterior)
 Para o Visual Studio 2015, as ferramentas do Service Fabric são instaladas juntamente com o SDK e o runtime, utilizando o Instalador de Plataforma Web:
 
-* [Instalar o Microsoft Azure Service Fabric SDK e ferramentas][full-bundle-vs2015]
+* [Instalar o SDK e as ferramentas do Microsoft Azure Service Fabric][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Apenas instalação do SDK
 Se apenas precisa do SDK, pode instalar este pacote:
@@ -70,14 +70,15 @@ Se apenas precisa do SDK, pode instalar este pacote:
 
 As versões atuais são:
 * Service Fabric SDK e ferramentas 3.4.641
-* Runtime do Service Fabric 6.5.641
+* 6\.5.641 tempo de execução de Service Fabric
 * Ferramentas do Service Fabric para Visual Studio 2015 2.5.20615.1
-* 15.9 de 2017 do Visual Studio inclui as ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
+* O Visual Studio 2017 15,9 inclui Ferramentas do Service Fabric para Visual Studio 2.4.11024.1 
+* O Visual Studio 2019 16,1 inclui Ferramentas do Service Fabric para Visual Studio 2.5.20423.3
 
-Para obter uma lista de versões suportadas, consulte [versões de Service Fabric](service-fabric-versions.md)
+Para obter uma lista de versões com suporte, consulte [versões do Service Fabric](service-fabric-versions.md)
 
 > [!NOTE]
-> Atualiza a única máquina clusters (OneBox) não são suportados para o aplicativo ou Cluster; eliminar o cluster OneBox e recrie-o se tiver de executar uma atualização de Cluster ou tem quaisquer problemas a efetuar uma atualização da aplicação. 
+> Não há suporte para clusters de computador único (OneBox) para atualizações de cluster ou aplicativo; Exclua o cluster OneBox e recrie-o se você precisar executar uma atualização de cluster ou tiver problemas para executar uma atualização de aplicativo. 
 
 ## <a name="enable-powershell-script-execution"></a>Ativar a execução do script do PowerShell
 O Service Fabric utiliza scripts do Windows PowerShell para criar um cluster de desenvolvimento local e para implementação de aplicações do Visual Studio. Por predefinição, o Windows bloqueará a execução destes scripts. Para ativá-los, tem de modificar a política de execução do PowerShell. Abra o PowerShell como administrador e introduza o seguinte comando:
@@ -86,12 +87,12 @@ O Service Fabric utiliza scripts do Windows PowerShell para criar um cluster de 
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 ## <a name="install-docker-optional"></a>Instalar o Docker (opcional)
-[O Service Fabric é um orquestrador de contentores](service-fabric-containers-overview.md) para implementar microsserviços em clusters de máquinas. Para executar aplicações de contentor do Windows no seu cluster de desenvolvimento local, primeiro tem de instalar o Docker para Windows. Obtenha [Docker CE para Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
+[Service Fabric é um orquestrador de contêiner](service-fabric-containers-overview.md) para implantar microserviços em um cluster de computadores. Para executar aplicativos de contêiner do Windows em seu cluster de desenvolvimento local, você deve primeiro instalar o Docker for Windows. Obter [Docker CE for Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que o ambiente de desenvolvimento está configurado, pode começar a criar e executar aplicações.
 
-* [Saiba como criar, implementar e gerir aplicações](service-fabric-tutorial-create-dotnet-app.md)
+* [Saiba como criar, implantar e gerenciar aplicativos](service-fabric-tutorial-create-dotnet-app.md)
 * [Saiba mais sobre os modelos de programação: Reliable Services e Reliable Actors](service-fabric-choose-framework.md)
 * [Veja exemplos de códigos do Service Fabric em GitHub](https://aka.ms/servicefabricsamples)
 * [Visualizar o cluster através do Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
