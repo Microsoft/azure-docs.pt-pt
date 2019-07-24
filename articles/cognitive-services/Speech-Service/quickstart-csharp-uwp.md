@@ -1,31 +1,31 @@
 ---
-title: 'Início rápido: Reconhecer a conversão de voz, C# (UWP) - serviços de voz'
+title: 'Início rápido: Recognize Speech C# , (UWP)-serviços de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, vai criar um C# aplicação plataforma Universal do Windows (UWP) com o SDK de voz dos serviços cognitivos. Converta voz em texto em tempo real, a partir do microfone do seu dispositivo. A aplicação baseia-se com o pacote de NuGet do SDK de voz e o Microsoft Visual Studio 2017.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 30a12c504071cd178ed3e7563f9d7d967d8ba36d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606400"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405923"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer voz numa aplicação UWP com o SDK de voz
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de fala
 
-Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-csharp-uwp.md), [tradução de voz](quickstart-translate-speech-uwp.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-csharp-uwp.md).
+Os guias de início rápido também estão disponíveis para conversão de [texto em fala](quickstart-text-to-speech-csharp-uwp.md), [voz-tradução](quickstart-translate-speech-uwp.md) e [assistente virtual de voz-primeiro](quickstart-virtual-assistant-csharp-uwp.md).
 
-Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
+Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai desenvolver uma C# plataforma Universal do Windows (UWP; Versão 1709 do Windows mais tarde) aplicativos usando os serviços cognitivos [SDK de voz](speech-sdk.md). O programa será transcrição de voz para texto em tempo real do microfone do dispositivo. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
+Neste artigo, você desenvolverá um C# plataforma universal do Windows (UWP; Windows versão 1709 mais recente) usando o [SDK de fala](speech-sdk.md)dos serviços cognitivas. O programa transcreverá a fala em texto em tempo real do microfone do seu dispositivo. A aplicação é compilada com o [Pacote NuGet de SDK de Voz](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
 > [!NOTE]
 > A Plataforma Universal do Windows permite-lhe desenvolver aplicações que são executadas em qualquer dispositivo que suporte o Windows 10, incluindo PCs, Xbox, Surface Hub e outros dispositivos.
@@ -35,7 +35,7 @@ Neste artigo, vai desenvolver uma C# plataforma Universal do Windows (UWP; Vers�
 Este início rápido requer:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -71,14 +71,14 @@ Este início rápido requer:
 
     ![Captura de ecrã do pedido de permissão](media/sdk/qs-csharp-uwp-10-access-prompt.png "Iniciar a aplicação para depuração")
 
-1. Selecione **Reconhecimento de voz com entrada do microfone** e fale uma frase ou um trecho em inglês no microfone do dispositivo. Sua voz é transmitido para os serviços de voz e transcrito para texto, que aparece na janela.
+1. Selecione **Reconhecimento de voz com entrada do microfone** e fale uma frase ou um trecho em inglês no microfone do dispositivo. Sua fala é transmitida para os serviços de fala e transcrita para texto, que aparece na janela.
 
     ![Captura de ecrã da interface de utilizador do reconhecimento de voz](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

@@ -1,26 +1,26 @@
 ---
-title: 'Início rápido: Usando o Java para chamar a API de análise de texto'
+title: 'Início rápido: Usar Java para chamar a API REST do Análise de Texto'
 titleSuffix: Azure Cognitive Services
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de análise de texto nos serviços cognitivos do Azure.
+description: Obtenha informações e exemplos de código para ajudá-lo a começar rapidamente a usar o API de Análise de Texto nos serviços cognitivas do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.openlocfilehash: fc848feb3f9a0e1160a8e36014ca4a469f792c96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 72a3fd1220a5acf7429f0dac05133bc9852d8c5b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829349"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404780"
 ---
-# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Java para chamar o serviço cognitivos de análise de texto
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Java para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities) usando o [APIs de análise de texto](//go.microsoft.com/fwlink/?LinkID=759711) com Java.
+Este artigo mostra como detectar o [idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair frases-chave](#KeyPhraseExtraction)e [identificar entidades vinculadas](#Entities) usando as [APIs](//go.microsoft.com/fwlink/?LinkID=759711) de análise de texto com Java.
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
@@ -34,14 +34,14 @@ Também tem de ter a [chave de ponto final e acesso](../How-tos/text-analytics-h
 
 ## <a name="detect-language"></a>Detetar idioma
 
-A API de deteção de idioma Deteta o idioma de um texto de documento, utilizando o [método detetar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
+A API de Detecção de Idioma detecta o idioma de um documento de texto, usando o [método detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
-1. Crie um novo projeto de Java no seu IDE favorito (ou nova pasta na área de trabalho). Criar uma classe chamada `DetectLanguage.java`.
+1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe chamada `DetectLanguage.java`.
 1. Adicione o código fornecido abaixo à sua classe.
-1. Substitua a `accessKey` valor com a chave da sua subscrição de análise de texto no [Azure](https://ms.portal.azure.com).
+1. Substitua o `accessKey` valor pela chave de sua assinatura do análise de texto no [Azure](https://ms.portal.azure.com).
 1. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-1. Certifique-se de que tem o [Gson](https://github.com/google/gson) biblioteca instalada.
-1. Executar o programa no seu IDE ou utilize a linha de comandos para executar (instruções nos comentários do código).
+1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -162,7 +162,7 @@ public class DetectLanguage {
 }
 ```
 
-### <a name="language-detection-response"></a>Resposta de deteção de idioma
+### <a name="language-detection-response"></a>Resposta de detecção de idioma
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -212,12 +212,12 @@ public class DetectLanguage {
 
 A API da Análise de Sentimentos deteta o sentimento de um conjunto de registos de texto através do [método Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
 
-1. Crie um novo projeto de Java no seu IDE favorito (ou nova pasta na área de trabalho). Criar uma classe no mesmo com o nome `GetSentiment.java`.
+1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe com o nome `GetSentiment.java`.
 1. Adicione o código fornecido abaixo à sua classe.
-1. Substitua a `accessKey` valor com a chave da sua subscrição de análise de texto no [Azure](https://ms.portal.azure.com).
+1. Substitua o `accessKey` valor pela chave de sua assinatura do análise de texto no [Azure](https://ms.portal.azure.com).
 1. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-1. Certifique-se de que tem o [Gson](https://github.com/google/gson) biblioteca instalada.
-1. Executar o programa no seu IDE ou utilize a linha de comandos para executar (instruções nos comentários do código).
+1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -338,9 +338,9 @@ public class GetSentiment {
 }
 ```
 
-### <a name="sentiment-analysis-response"></a>Resposta de análise de sentimentos
+### <a name="sentiment-analysis-response"></a>Resposta da análise de sentimentos
 
-O resultado é medido como positivo se ele é classificado mais próximo 1.0 e negativo se são classificada mais próximo para 0,0.
+O resultado será medido como positivo se for mais próximo de 1,0 e negativo se for mais próximo de 0,0.
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
@@ -361,16 +361,16 @@ O resultado é medido como positivo se ele é classificado mais próximo 1.0 e n
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
+## <a name="extract-key-phrases"></a>Extrair frases-chave
 
 A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). O seguinte exemplo extrai Expressões-chave para o documento em inglês e o documento em espanhol.
 
-1. Crie um novo projeto de Java no seu IDE favorito (ou nova pasta na área de trabalho). Criar uma classe no mesmo chamado `GetKeyPhrases.java`.
+1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe chamada `GetKeyPhrases.java`.
 1. Adicione o código fornecido abaixo à sua classe.
-1. Substitua a `accessKey` valor com a chave da sua subscrição de análise de texto no [Azure](https://ms.portal.azure.com).
+1. Substitua o `accessKey` valor pela chave de sua assinatura do análise de texto no [Azure](https://ms.portal.azure.com).
 1. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-1. Certifique-se de que tem o [Gson](https://github.com/google/gson) biblioteca instalada.
-1. Executar o programa no seu IDE ou utilize a linha de comandos para executar (instruções nos comentários do código).
+1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;
@@ -492,7 +492,7 @@ public class GetKeyPhrases {
 }
 ```
 
-### <a name="key-phrase-extraction-response"></a>Resposta de extração de expressões-chave
+### <a name="key-phrase-extraction-response"></a>Resposta de extração de frases-chave
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -535,14 +535,14 @@ public class GetKeyPhrases {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extrair palavras de texto, como "EUA", em seguida, dar a o tipo de e/ou a ligação da Wikipedia para este word(s). O tipo de "United States" for `location`, enquanto o link para Wikipedia é `https://en.wikipedia.org/wiki/United_States`.  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). As [entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras do texto, como "Estados Unidos", e, em seguida, fornecem o link do tipo e/ou da Wikipédia para esta palavra (s). O tipo de "Estados Unidos" é `location`, enquanto o link para a Wikipédia `https://en.wikipedia.org/wiki/United_States`é.  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
-1. Crie um novo projeto de Java no seu IDE favorito (ou nova pasta na área de trabalho). Criar uma classe no mesmo com o nome `GetEntities.java`.
+1. Crie um novo projeto Java em seu IDE favorito (ou nova pasta na área de trabalho). Crie uma classe com o nome `GetEntities.java`.
 1. Adicione o código fornecido abaixo à sua classe.
-1. Substitua a `accessKey` valor com a chave da sua subscrição de análise de texto no [Azure](https://ms.portal.azure.com).
+1. Substitua o `accessKey` valor pela chave de sua assinatura do análise de texto no [Azure](https://ms.portal.azure.com).
 1. Substitua a localização em `host` (atualmente `westus`) pela região em que se inscreveu.
-1. Certifique-se de que tem o [Gson](https://github.com/google/gson) biblioteca instalada.
-1. Executar o programa no seu IDE ou utilize a linha de comandos para executar (instruções nos comentários do código).
+1. Verifique se você tem a biblioteca [Gson](https://github.com/google/gson) instalada.
+1. Execute o programa em seu IDE ou use a linha de comando para executar (instruções nos comentários de código).
 
 ```java
 import java.io.*;

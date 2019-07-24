@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Criar uma página da web de pesquisa personalizada - pesquisa personalizada do Bing'
-titlesuffix: Azure Cognitive Services
+title: 'Tutorial: Criar uma página da Web de pesquisa personalizada-Pesquisa Personalizada do Bing'
+titleSuffix: Azure Cognitive Services
 description: Descreve como configurar uma instância de pesquisa personalizada e integrá-la numa página Web.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 0870983fe9f0ae64090652f02c526a370064b8ab
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3a8d6a831adf24212191a103dcf356bbe74d7962
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595890"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405226"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -35,7 +35,7 @@ As tarefas abrangidas são:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Para acompanhar o tutorial, necessita de uma chave de subscrição para a API de Pesquisa Personalizada do Bing.  Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se ainda não tiver o Visual Studio 2017 ou posterior instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
+- Se você ainda não tiver o Visual Studio 2017 ou posterior instalado, poderá baixar e usar o  [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)gratuito.
 
 ## <a name="create-a-custom-search-instance"></a>Criar uma instância de pesquisa personalizada
 
@@ -127,10 +127,10 @@ A Pesquisa Personalizada fornece uma IU alojada para compor a resposta JSON da s
 
 Existem duas formas de consumir a IU alojada.  
 
-- Opção 1: Integre o fragmento do JavaScript fornecido na sua aplicação.
-- Opção 2: Utilize o ponto de final do HTML fornecida.
+- Opção 1: Integre o trecho de JavaScript fornecido ao seu aplicativo.
+- Opção 2: Use o ponto de extremidade HTML fornecido.
 
-O resto deste tutorial ilustra **opção 1: Fragmento do JavaScript**.  
+O restante deste tutorial ilustra **a opção 1: Trecho de**código JavaScript.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Configurar a sua solução do Visual Studio
 

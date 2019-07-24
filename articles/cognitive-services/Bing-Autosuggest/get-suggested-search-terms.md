@@ -1,6 +1,6 @@
 ---
 title: O que é a Sugestão Automática do Bing?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,38 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 24f35d795b34e7d9c214a23c040791841b4a711b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 13606fa5a58106575648a39e5074507f5d3bf471
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382558"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405382"
 ---
 # <a name="what-is-bing-autosuggest"></a>O que é a Sugestão Automática do Bing?
 
-Se a sua aplicação enviar consultas para qualquer uma das APIs de pesquisa do Bing, pode usar a API de sugestão automática do Bing para melhorar a experiência de pesquisa dos seus utilizadores. A API de sugestão automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial na caixa de pesquisa. Que carateres são inseridos na caixa de pesquisa, pode exibir sugestões numa lista pendente.
+Se seu aplicativo enviar consultas para qualquer um dos APIs de Pesquisa do Bing, você poderá usar o API de Sugestão Automática do Bing para melhorar a experiência de pesquisa de seus usuários. O API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de caracteres de consulta parcial na caixa de pesquisa. À medida que os caracteres são inseridos na caixa de pesquisa, você pode exibir sugestões em uma lista suspensa.
 
-## <a name="bing-autosuggest-api-features"></a>Funcionalidades de API de sugestão automática do Bing
+## <a name="bing-autosuggest-api-features"></a>Recursos de API de Sugestão Automática do Bing
 
 | Funcionalidade                                                                                                                                                                                 | Descrição                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Sugerir termos de pesquisa em tempo real](concepts/get-suggestions.md) | Melhore a sua experiência de aplicação com a API de sugestão automática para apresentar os termos de pesquisa sugerida, à medida que estão a ser digitados. |
+| [Sugerir termos de pesquisa em tempo real](concepts/get-suggestions.md) | Aprimore sua experiência de aplicativo usando a API de sugestão automática para exibir os termos de pesquisa sugeridos conforme eles são digitados. |
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-A API de sugestão automática do Bing é um serviço RESTful web, fáceis de chamar a partir de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
+O API de Sugestão Automática do Bing é um serviço Web RESTful, fácil de chamar de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON. 
 
 1. Crie uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com acesso às APIs de Pesquisa do Bing. Se não tiver uma subscrição do Azure, pode [criar uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
-2. Envie um pedido para esta API sempre que um usuário digita um caractere de nova na caixa de pesquisa da sua aplicação.
+2. Envie uma solicitação para essa API cada vez que um usuário digitar um novo caractere na caixa de pesquisa do seu aplicativo.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 
-Normalmente, chamaria esta API sempre que o utilizador escreve um caractere de nova na caixa de pesquisa da sua aplicação. Que forem inseridas mais carateres, a API irá devolver a consultas de pesquisa sugerida mais relevantes. Por exemplo, as sugestões a API podem devolver para uma única `s` são provavelmente será menos relevantes do que aqueles para `sail`.
+Normalmente, você chamaria essa API toda vez que o usuário digitar um novo caractere na caixa de pesquisa do seu aplicativo. À medida que mais caracteres forem inseridos, a API retornará consultas de pesquisa sugeridas mais relevantes. Por exemplo, as sugestões que a API pode retornar para um `s` único provavelmente serão menos relevantes do que aquelas para `sail`.
 
-O exemplo seguinte mostra uma caixa de pesquisa de lista suspensa com os termos de sugestões de consulta da API de sugestão automática do Bing.
+O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consulta sugeridos do API de Sugestão Automática do Bing.
 
 ![Lista da caixa de pesquisa pendente de sugestão automática](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Quando um usuário seleciona uma sugestão na lista pendente, pode utilizá-lo para a pesquisa com uma das APIs de pesquisa do Bing ou vá diretamente para a página de resultados de pesquisa do Bing.
+Quando um usuário seleciona uma sugestão na lista suspensa, você pode usá-la para começar a Pesquisar com uma das APIs de Pesquisa do Bing ou ir diretamente para a página resultados da pesquisa do Bing.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

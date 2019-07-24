@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Ruby'
-titlesuffix: Azure Cognitive Services
+title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Ruby'
+titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
@@ -10,27 +10,27 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 56ad71d9a746f61e724c1f3b5c5c6be0a3318452
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 3797e8b0d200bcb7f010afbf77f57cfc5cf6b5d1
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390361"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405214"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Ruby
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Ruby
 
-Utilize este início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Esta aplicação Ruby simple envia uma consulta de pesquisa parcial para a API e devolve sugestões para as pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do Ruby envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior.
+* [Ruby 2,4](https://www.ruby-lang.org/en/downloads/) ou posterior.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-1. Crie um novo ficheiro de Ruby no seu IDE ou editor favorito. Adicione os seguintes requisitos:
+1. Crie um novo arquivo Ruby em seu IDE ou editor favorito. Adicione os seguintes requisitos:
 
     ```ruby
     require 'net/https'
@@ -38,7 +38,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     require 'json'
     ```
 
-2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), a consulta de pesquisa parcial.
+2. Crie variáveis para seu host e caminho de API, [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), consulta de pesquisa parcial.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,23 +48,23 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     query = 'sail'
     ```
 
-3. Criar uma cadeia de caracteres de parâmetros ao acrescentar o seu código de mercado para o `?mkt=` parâmetro e a acrescentar sua consulta para o `&q=` parâmetro. Em seguida, construa o seu URI de pedido ao combinar o anfitrião da API, caminho e a cadeia de caracteres de parâmetros.
+3. Crie uma cadeia de caracteres de parâmetros acrescentando seu código de `?mkt=` mercado ao parâmetro e anexando sua consulta `&q=` ao parâmetro. Em seguida, construa seu URI de solicitação combinando o host de API, o caminho e a cadeia de caracteres de parâmetros.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
     uri = URI (host + path + params)
     ```
 
-## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
+## <a name="create-and-send-an-api-request"></a>Criar e enviar uma solicitação de API
 
-1. Criar um pedido com o seu URI e adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+1. Crie uma solicitação com o URI e adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho.
     
     ```ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-2. Enviar o pedido e armazenar a resposta.
+2. Envie a solicitação e armazene a resposta.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -78,7 +78,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     puts JSON::pretty_generate (JSON (response.body))
     ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 

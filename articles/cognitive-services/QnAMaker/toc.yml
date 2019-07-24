@@ -156,8 +156,8 @@
         - name: API de Preparação
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: FAQ
-      href: faqs.md
+    - name: Resolução de problemas
+      href: troubleshooting.md
     - name: Limites
       href: limits.md
     - name: Glossário

@@ -7,14 +7,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/18/2019
+ms.date: 07/23/2019
 ms.author: diberry
-ms.openlocfilehash: c99e5f9b810499dd67be55d137a2e451a59be0b6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 15faacccfa1e0f7dd759f719c02e106918d735bb
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386651"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414700"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Serviços cognitivas e aprendizado de máquina
 
@@ -54,7 +54,7 @@ Um serviço cognitiva fornece parte ou todos os componentes em uma solução de 
 
 ## <a name="how-are-cognitive-services-and-azure-machine-learning-aml-similar"></a>Como os serviços cognitivas e Azure Machine Learning (AML) são semelhantes?
 
-Ambos têm o objetivo final de aplicar o ia (inteligência artificial) para aprimorar as operações de negócios, embora como o fornece isso nas respectivas ofertas é diferente. 
+Ambos têm o objetivo final de aplicar o ia (inteligência artificial) para aprimorar as operações de negócios, embora a maneira como cada uma delas fornece isso nas respectivas ofertas é diferente. 
 
 Em geral, as audiências são diferentes:
 
@@ -117,6 +117,10 @@ Os dados a seguir categorizam cada serviço de acordo com o tipo de dados que el
  
 Os serviços são usados em qualquer aplicativo que possa tornar as APIs REST ou as chamadas do SDK. Exemplos de aplicativos incluem sites da Web, bots, realidade virtual ou mista, aplicativos móveis e de desktop. 
 
+## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>Como a pesquisa cognitiva está relacionada aos serviços cognitivas?
+
+[Azure Search](../search/search-what-is-azure-search.md) usa serviços cognitivas para fornecer esse recurso. Os serviços cognitivas são expostos em Azure Search por meio [de habilidades internas](../search/cognitive-search-predefined-skills.md) que encapsulam APIs individuais. Você pode usar um recurso gratuito para passo a passos, mas planeje criar e anexar um [recurso Faturável](../search/cognitive-search-attach-cognitive-services.md) para volumes maiores.
+
 ## <a name="how-can-you-use-cognitive-services"></a>Como você pode usar serviços cognitivas?
 
 Cada serviço fornece informações sobre seus dados. Você pode combinar serviços juntos para encadear soluções, como converter a fala (áudio) em texto, traduzir o texto em vários idiomas e, em seguida, usar os idiomas traduzidos para obter respostas de uma base de dados de conhecimento. Embora os serviços cognitivas possam ser usados para criar soluções inteligentes por conta própria, eles também podem ser combinados com projetos de aprendizado de máquina tradicionais para complementar modelos ou acelerar o processo de desenvolvimento. 
@@ -125,7 +129,7 @@ Serviços cognitivas que fornecem modelos exportados para outras ferramentas de 
 
 |Serviço Cognitivo|Informações do modelo|
 |--|--|
-|Visão Personalizada|Exportar para Tensorflow para Android, do coreml para iOS11, ONNX para Windows ML|
+|[Visão Personalizada](./custom-vision-service/home.md)|[Exportar](./Custom-Vision-Service/export-model-python.md) para Tensorflow para Android, do coreml para IOS11, ONNX para Windows ml|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

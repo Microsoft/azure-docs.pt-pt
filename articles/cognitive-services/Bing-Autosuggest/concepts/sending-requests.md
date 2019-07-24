@@ -1,7 +1,7 @@
 ---
-title: Enviar pedidos para a API de sugestão automática do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba como enviar pedidos para a API de sugestão automática do Bing.
+title: Enviando solicitações para o API de Sugestão Automática do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba como enviar solicitações para API de Sugestão Automática do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,43 +10,43 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: fe35901f7d084fd96cb4c164e957391bfe2346a9
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 6ece70b78166578cd4ef391d761b0e4e478f4f04
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67542631"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405355"
 ---
-# <a name="sending-requests-to-the-bing-autosuggest-api"></a>A enviar pedidos para a API de sugestão automática do Bing.
+# <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envio de solicitações para o API de Sugestão Automática do Bing.
 
-Se a sua aplicação enviar consultas para qualquer uma das APIs de pesquisa do Bing, pode usar a API de sugestão automática do Bing para melhorar a experiência de pesquisa dos seus utilizadores. A API de sugestão automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial na caixa de pesquisa. Que carateres são inseridos numa caixa de pesquisa em seu aplicativo, pode exibir sugestões numa lista pendente. Utilize este artigo para saber mais sobre como enviar pedidos para esta API. 
+Se seu aplicativo enviar consultas para qualquer um dos APIs de Pesquisa do Bing, você poderá usar o API de Sugestão Automática do Bing para melhorar a experiência de pesquisa de seus usuários. O API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de caracteres de consulta parcial na caixa de pesquisa. À medida que os caracteres são inseridos em uma caixa de pesquisa em seu aplicativo, você pode exibir sugestões em uma lista suspensa. Use este artigo para saber mais sobre como enviar solicitações para essa API. 
 
-## <a name="bing-autosuggest-api-endpoint"></a>Ponto final da API de sugestão automática do Bing
+## <a name="bing-autosuggest-api-endpoint"></a>Ponto de extremidade API de Sugestão Automática do Bing
 
-O **a API de sugestão automática do Bing** inclui um ponto de extremidade, que retorna uma lista de consultas sugeridas a partir de um termo de pesquisa parcial.
+O **API de sugestão automática do Bing** inclui um ponto de extremidade, que retorna uma lista de consultas sugeridas de um termo de pesquisa parcial.
 
-Para obter consultas sugeridas com a API do Bing, enviar um `GET` pedido para o seguinte ponto de extremidade. Utilize os cabeçalhos e os parâmetros de URL para definir ainda mais especificações.
+Para obter consultas sugeridas usando a API do Bing, `GET` envie uma solicitação para o ponto de extremidade a seguir. Use os cabeçalhos e os parâmetros de URL para definir outras especificações.
 
-**Ponto final:** Sugestões de pesquisa devolve resultados JSON que são relevantes para a entrada do usuário definida por `?q=""`.
+**Extremidade** Retorna sugestões de pesquisa como resultados JSON que são relevantes para a entrada do usuário definida `?q=""`pelo.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Para obter detalhes sobre os cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a [a API de sugestão automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) referência.
+Para obter detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência do [API de sugestão automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference) .
 
-O **Bing** ações de pesquisa devolvem resultados de acordo com seu tipo de suporte de APIs. Todos os pontos finais de pesquisa devolvem resultados como objetos de resposta JSON.
-Todos os pontos finais suportam consultas que devolvem um idioma específico e/ou localizações, longitude, latitude e radius de pesquisa.
+As APIs do **Bing** dão suporte a ações de pesquisa que retornam resultados de acordo com seu tipo. Todos os pontos de extremidade de pesquisa retornam resultados como objetos de resposta JSON.
+Todos os pontos de extremidade dão suporte a consultas que retornam um idioma e/ou local específico por longitude, latitude e raio de pesquisa.
 
-Para obter informações completas sobre os parâmetros suportados por cada ponto de extremidade, consulte as páginas de referência para cada tipo.
-Para obter exemplos de solicitações básicas com a API de sugestão automática, consulte [inícios rápidos de sugestão automática](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
+Para obter informações completas sobre os parâmetros com suporte em cada ponto de extremidade, consulte as páginas de referência para cada tipo.
+Para obter exemplos de solicitações básicas usando a API de sugestão automática, consulte autosugestão de [início rápido](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
 
-## <a name="bing-autosuggest-api-requests"></a>Pedidos de API de sugestão automática do Bing
+## <a name="bing-autosuggest-api-requests"></a>Solicitações de API de Sugestão Automática do Bing
 
 > [!NOTE]
-> * Pedidos à API de sugestão automática do Bing têm de utilizar o protocolo HTTPS.
+> * As solicitações para o API de Sugestão Automática do Bing devem usar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais acesso de terceiros mal-intencionados oportunidade. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras atualizações.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de um aplicativo cliente fornece acesso de terceiros mal-intencionado a mais oportunidades. Além disso, fazer chamadas de um servidor fornece um único ponto de atualização para atualizações futuras.
 
 O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), que contém o termo de pesquisa parcial do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
@@ -62,15 +62,15 @@ Os cabeçalhos de IP e localização do cliente são importantes para devolver o
 Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 > [!NOTE]
-> Quando chama a API de sugestão automática do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser podem impedir que os valores desses cabeçalhos a aceder.
+> Quando você chama o API de Sugestão Automática do Bing do JavaScript, os recursos de segurança internos do seu navegador podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para resolver este problema, pode fazer o pedido de API de sugestão automática do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
+Para resolver isso, você pode fazer a solicitação de API de Sugestão Automática do Bing por meio de um proxy CORS. A resposta de um proxy desse tipo tem `Access-Control-Expose-Headers` um cabeçalho que os cabeçalhos de resposta da lista de permissões e os torna disponíveis para o JavaScript.
 
-É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](../tutorials/autosuggest.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+É fácil instalar um proxy CORS para permitir que nosso [aplicativo tutorial](../tutorials/autosuggest.md) acesse os cabeçalhos de cliente opcionais. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, digite o comando a seguir em um prompt de comando.
 
     npm install -g cors-proxy-server
 
-Em seguida, altere o ponto final de API de sugestão automática do Bing no arquivo HTML para:
+Em seguida, altere o ponto de extremidade API de Sugestão Automática do Bing no arquivo HTML para:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
@@ -80,7 +80,7 @@ Por fim, inicie o proxy do CORS com o comando seguinte:
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-Pedidos devem incluir todos os parâmetros de consulta sugeridos e cabeçalhos. 
+As solicitações devem incluir todos os parâmetros e cabeçalhos de consulta sugeridos. 
 
 O seguinte exemplo mostra um pedido que devolve as cadeias de consulta sugeridas para *sail*.
 
@@ -95,11 +95,11 @@ O seguinte exemplo mostra um pedido que devolve as cadeias de consulta sugeridas
 
 Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o cabeçalho do ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para a combinação de utilizador e dispositivo.
 
-O grupo de sugestão de web seguinte é uma resposta ao pedido acima. O grupo contém uma lista de sugestões de consulta de pesquisa, com cada sugestão, incluindo uma `displayText`, `query`, e `url` campo.
+O seguinte grupo de sugestões da Web é uma resposta à solicitação acima. O grupo contém uma lista de sugestões de consulta de pesquisa, com cada sugestão `displayText`, `query`incluindo um `url` campo, e.
 
 O campo `displayText` contém a consulta sugerida que utilizaria para preencher a lista pendente da sua caixa de pesquisa. Tem de apresentar todas as sugestões incluídas na resposta e pela ordem fornecida.  
 
-Se o usuário seleciona uma consulta da lista pendente, pode usá-lo para chamar um da [APIs de pesquisa Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o utilizador para a página de resultados do Bing com retornado `url` campo.
+Se o usuário selecionar uma consulta na lista suspensa, você poderá usá-la para chamar uma das [APIs de pesquisa do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o usuário para a página de resultados do Bing usando o campo retornado `url` .
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -171,4 +171,4 @@ BingAPIs-Market: en-US
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
-- [Obter os termos de pesquisa sugerida do API de sugestão automática do Bing](get-suggestions.md)
+- [Obtendo os termos de pesquisa sugeridos do API de Sugestão Automática do Bing](get-suggestions.md)

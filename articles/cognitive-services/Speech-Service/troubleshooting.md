@@ -1,27 +1,27 @@
 ---
 title: Resolver problemas de conversão de voz SDK - serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece informações para ajudar a resolver problemas que poderá encontrar ao utilizar o SDK de voz.
+description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de fala.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: wolfma
-ms.openlocfilehash: 8682cd8b91d17b16a56e401661856e141ac5f0c1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 99cb23afcdb40f74485a7dcec34435a46d0e7476
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606238"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405898"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Resolver problemas com o SDK de Voz
 
-Este artigo fornece informações para ajudar a resolver problemas que poderá encontrar ao utilizar o SDK de voz.
+Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de fala.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erro: Falha ao atualizar o WebSocket com um erro de autenticação (403)
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erro: Falha na atualização do WebSocket com um erro de autenticação (403)
 
 Terá do ponto de extremidade errado para a sua região ou o serviço. Verifique o URI para se certificar de que está correto.
 
@@ -66,7 +66,7 @@ Pode verificar que tem uma chave de subscrição válido ao executar um dos segu
     curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
-Se introduzir uma chave de subscrição válido, o comando devolve um token de autorização, caso contrário, é devolvido um erro.
+Se você inseriu uma chave de assinatura válida, o comando retorna um token de autorização; caso contrário, um erro será retornado.
 
 ### <a name="validate-an-authorization-token"></a>Validar um token de autorização
 
@@ -103,15 +103,15 @@ Se utilizar um token de autorização para autenticação, execute um dos seguin
     curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
-Se tiver introduzido um token de autorização válido, o comando devolve a transcrição para seu arquivo de áudio, caso contrário, que é devolvido um erro.
+Se você inseriu um token de autorização válido, o comando retornará a transcrição para o arquivo de áudio; caso contrário, um erro será retornado.
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erro: Pedido do HTTP 400 inválido
+## <a name="error-http-400-bad-request"></a>Erro: Solicitação inadequada de HTTP 400
 
 Este erro ocorre normalmente quando o corpo do pedido contém dados de áudio inválidos. Formato WAV apenas é suportado. Além disso, verifique os cabeçalhos da solicitação para se certificar de que especifique valores corretos para o `Content-Type` e `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Erro: Tempo limite do HTTP 408 pedido
+## <a name="error-http-408-request-timeout"></a>Erro: Tempo limite de solicitação HTTP 408
 
 O maior probabilidade de erro ocorre porque não existem dados de áudio são enviados para o serviço. Este erro também pode ser causado por problemas de rede.
 

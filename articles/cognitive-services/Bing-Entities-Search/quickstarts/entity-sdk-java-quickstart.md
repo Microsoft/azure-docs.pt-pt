@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Pesquisa de entidades com o SDK de pesquisa de entidades do Bing para Java'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para procurar entidades com o SDK de pesquisa de entidades do Bing para Java
+title: 'Início rápido: Pesquisar entidades com o SDK do Pesquisa de Entidade do Bing para Java'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para pesquisar entidades com o SDK do Pesquisa de Entidade do Bing para Java
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 15958033ef305a44f9c5254409fa111acd9d1eb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f0dad214ceaf0606699eb8eca7cfb1c325a38eab
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813708"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404930"
 ---
-# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Início rápido: Enviar um pedido de pesquisa com o SDK de pesquisa de entidades do Bing para Java
+# <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Início rápido: Enviar uma solicitação de pesquisa com o SDK do Pesquisa de Entidade do Bing para Java
 
-Utilize este guia de introdução para começar a pesquisa de entidades com o SDK de pesquisa de entidades do Bing para Java. Embora a pesquisa de entidades do Bing tenha uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
+Use este guia de início rápido para começar a procurar entidades com o SDK do Pesquisa de Entidade do Bing para Java. Embora Pesquisa de Entidade do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Kit(JDK) de desenvolvimento do Java](https://www.oracle.com/technetwork/java/javase/downloads/)
+* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
-* A pesquisa de entidades do Bing SDK para Java
+* O SDK do Pesquisa de Entidade do Bing para Java
 
 Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
 
@@ -59,7 +59,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
     import java.util.List;
     ```
 
-2. Criar uma variável para a sua chave de subscrição
+2. Criar uma variável para sua chave de assinatura
 
     ```java
     String subscriptionKey = "your-key-here"
@@ -67,7 +67,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
 
 ## <a name="create-a-search-client"></a>Criar um cliente de pesquisa
 
-1. Implementar o `dominantEntityLookup` cliente, o que requer o ponto final de API e uma instância do `ServiceClientCredentials` classe.
+1. Implemente `dominantEntityLookup` o cliente, que exige o ponto `ServiceClientCredentials` de extremidade da API e uma instância da classe.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -78,9 +78,9 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
     )};
     ```
 
-    Para implementar o `ServiceClientCredentials`, siga estes passos:
+    Para implementar o `ServiceClientCredentials`, siga estas etapas:
 
-   1. substituir a `applyCredentialsFilter()` função, com um `OkHttpClient.Builder` objeto como um parâmetro. 
+   1. Substitua a `applyCredentialsFilter()` função por um `OkHttpClient.Builder` objeto como parâmetro. 
         
        ```java
        //...
@@ -92,7 +92,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
        //...
        ```
     
-   2. Dentro `applyCredentialsFilter()`, chame `builder.addNetworkInterceptor()`. Criar uma nova `Interceptor` de objeto e substituir seu `intercept()` método tirar uma `Chain` objeto interceptor.
+   2. Em `applyCredentialsFilter()`, chame `builder.addNetworkInterceptor()`. Crie um novo `Interceptor` objeto e substitua seu `intercept()` método para obter um `Chain` objeto interceptador.
 
        ```java
        //...
@@ -106,7 +106,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
        ///...
        ```
 
-   3. Dentro do `intercept` de função, criar variáveis para o seu pedido. Utilize `Request.Builder()` para criar o seu pedido. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho e retorno `chain.proceed()` no objeto de solicitação.
+   3. Dentro da `intercept` função, crie variáveis para sua solicitação. Use `Request.Builder()` para criar sua solicitação. Adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho e retorne `chain.proceed()` ao objeto de solicitação.
             
        ```java
        //...
@@ -120,9 +120,9 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
        }
        //...
        ```
-      ## <a name="send-a-request-and-receive-a-response"></a>Enviar um pedido e receber uma resposta
+      ## <a name="send-a-request-and-receive-a-response"></a>Enviar uma solicitação e receber uma resposta
 
-1. Crie uma nova instância do cliente de pesquisa com a sua chave de subscrição. utilizar `client.entities().search()` para enviar uma solicitação de pesquisa para a consulta de pesquisa `satya nadella`e obter uma resposta. 
+1. Crie uma nova instância do cliente de pesquisa com sua chave de assinatura. Use `client.entities().search()` o para enviar uma solicitação de pesquisa para a `satya nadella`consulta de pesquisa e obter uma resposta. 
     
     ```java
     EntitySearchAPIImpl client = getClient(subscriptionKey);
@@ -130,7 +130,7 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-1. Se qualquer entidades foram devolvidas, convertê-los numa lista. Iterá-los e a entidade dominante de impressão.
+1. Se todas as entidades forem retornadas, converta-as em uma lista. Itere-as e imprima a entidade dominante.
 
     ```java
     if (entityData.entities().value().size() > 0){
@@ -150,6 +150,6 @@ Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gr
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
-* [O que é a API de pesquisa de entidades do Bing?](../overview.md )
+* [O que é o API de Pesquisa de Entidade do Bing?](../overview.md )

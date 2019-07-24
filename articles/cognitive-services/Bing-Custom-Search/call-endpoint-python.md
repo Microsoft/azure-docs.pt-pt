@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com Python | Documentos da Microsoft'
-titlesuffix: Azure Cognitive Services
-description: Utilizar este início rápido para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing com Python
+title: 'Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando Python | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para começar a solicitar os resultados da pesquisa de sua instância de Pesquisa Personalizada do Bing usando o Python
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,28 +10,28 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6f8d3964c71d036053fe0d4136468fde690f872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d3aeb2fd9072c508cad5adec9ce9129087d3a88
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593162"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405137"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com Python
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-python"></a>Início rápido: Chamar seu ponto de extremidade de Pesquisa Personalizada do Bing usando Python
 
-Utilize este guia de introdução para começar a pedir os resultados da pesquisa da sua instância de pesquisa personalizada do Bing. Embora esse aplicativo é escrito em Python, a API de pesquisa personalizada do Bing é um serviço RESTful web compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
+Use este guia de início rápido para começar a solicitar resultados de pesquisa de sua instância de Pesquisa Personalizada do Bing. Embora esse aplicativo seja escrito em Python, o API de Pesquisa Personalizada do Bing é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingCustomSearchv7.py).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma instância de pesquisa personalizada do Bing. Consulte [início rápido: Criar a primeira instância de pesquisa personalizada do Bing](quick-start.md) para obter mais informações.
-- [Python](https://www.python.org/) 2.x ou 3.x
+- Uma instância de Pesquisa Personalizada do Bing. Consulte [início rápido: Crie sua primeira instância](quick-start.md) de pesquisa personalizada do Bing para obter mais informações.
+- [Python](https://www.python.org/) 2. x ou 3. x
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Criar um novo ficheiro de Python no seu IDE ou editor favorito e adicione as seguintes declarações de importação. Crie variáveis para a chave de subscrição, ID de configuração personalizada e um termo de pesquisa. 
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione as seguintes instruções de importação. Crie variáveis para sua chave de assinatura, ID de configuração personalizada e um termo de pesquisa. 
 
     ```python
     import json
@@ -42,15 +42,15 @@ Utilize este guia de introdução para começar a pedir os resultados da pesquis
     searchTerm = "microsoft"
     ```
 
-## <a name="send-and-receive-a-search-request"></a>Enviar e receber um pedido de pesquisa 
+## <a name="send-and-receive-a-search-request"></a>Enviar e receber uma solicitação de pesquisa 
 
-1. Construir o URL do pedido ao acrescentar o termo de pesquisa para o `q=` parâmetro de consulta e o ID de configuração da sua instância de pesquisa personalizada para `customconfig=`. Separe-os com um `&` caráter. 
+1. Construa a URL de solicitação acrescentando seu termo de pesquisa ao `q=` parâmetro de consulta e a ID de configuração personalizada da sua instância `customconfig=`de pesquisa para. Separe os parâmetros com um `&` caractere. 
 
     ```python
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId
     ```
 
-2. Enviar o pedido à sua instância de pesquisa personalizada do Bing e imprimir os resultados da pesquisa.  
+2. Envie a solicitação para sua instância de Pesquisa Personalizada do Bing e imprima os resultados de pesquisa retornados.  
 
     ```python
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
@@ -60,4 +60,4 @@ Utilize este guia de introdução para começar a pedir os resultados da pesquis
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de pesquisa personalizada](./tutorials/custom-search-web-page.md)
+> [Criar um aplicativo Web de pesquisa personalizado](./tutorials/custom-search-web-page.md)

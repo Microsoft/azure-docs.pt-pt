@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Java'
-titlesuffix: Azure Cognitive Services
-description: Saiba como começar rapidamente a sugerir termos de pesquisa em tempo real com a API de sugestão automática do Bing.
+title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java'
+titleSuffix: Azure Cognitive Services
+description: Saiba como começar a sugerir rapidamente os termos de pesquisa em tempo real com o API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: f41e81d948bfa482a016e3770a705344f9c26b0c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a789c8278abc49602db1ee58354f96a04c2d111d
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390434"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405322"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o Java
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e o Java
 
 
-Utilize este início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Esta aplicação de Java simple envia uma consulta de pesquisa parcial para a API e retorna sugestões para as pesquisas. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Kit(JDK) de desenvolvimento do Java](https://www.oracle.com/technetwork/java/javase/downloads/)
+* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -44,7 +44,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     import com.google.gson.JsonParser;
     ```
 
-2. Criar variáveis para a chave de subscrição, o anfitrião da API e o caminho, sua [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa.
+2. Crie variáveis para sua chave de assinatura, o host e o caminho da API, seu [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -57,7 +57,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-Crie um método chamado `prettify()` para formatar a resposta devolvida pelo API de vídeos do Bing. Utilize a biblioteca de Gson `JsonParser` pegar uma cadeia de caracteres do JSON e convertê-lo num objeto. Em seguida, utilize `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada.
+Crie um método chamado `prettify()` para formatar a resposta retornada da API de vídeo do Bing. Use a biblioteca `JsonParser` Gson para pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida `GsonBuilder()` , `toJson()` use e para criar a cadeia de caracteres formatada.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -69,11 +69,11 @@ public static String prettify(String json_text) {
 }
 ```
 
-## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
+## <a name="construct-and-send-the-search-request"></a>Construir e enviar a solicitação de pesquisa
 
-1. Criar um novo método chamado `get_suggestions()` e execute os seguintes passos:
+1. Crie um novo método chamado `get_suggestions()` e execute as seguintes etapas:
 
-   1. Construa o URL para o seu pedido ao combinar a sua API anfitrião, caminho e consulta de pesquisa de codificação. Certifique-se de que a url-codificar a consulta antes de acrescentá-lo. Criar uma cadeia de caracteres de parâmetros para a consulta ao acrescentar o código de mercado para o `mkt=` parâmetro e a sua consulta o `q=` parâmetro.
+   1. Construa a URL para sua solicitação combinando seu host de API, caminho e codificando sua consulta de pesquisa. Certifique-se de codificar a consulta por URL antes de acrescentá-la. Crie uma cadeia de caracteres de parâmetros para a consulta acrescentando o código do `mkt=` mercado ao parâmetro e sua consulta `q=` ao parâmetro.
     
       ```java
   
@@ -84,7 +84,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Crie um novo URL do pedido com o anfitrião, caminho e os parâmetros API criados acima. 
+   2. Crie uma nova URL para a solicitação com o host de API, o caminho e os parâmetros criados acima. 
     
        ```java
        //...
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Criar uma `HttpsURLConnection` de objeto e usar `openConnection()` para criar uma ligação. Definir o método de pedido como `GET`e adicione a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+   3. Crie um `HttpsURLConnection` objeto e use `openConnection()` para criar uma conexão. Defina o método de solicitação `GET`como e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
 
       ```java
        //...
@@ -103,7 +103,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Ler a resposta de API a um `StringBuilder`. Depois de captura a resposta, feche o `InputStreamReader` transmitir e retornar a resposta.
+   4. Leia na resposta da API para um `StringBuilder`. Depois que a resposta tiver sido capturada, `InputStreamReader` feche o fluxo e retorne a resposta.
 
        ```java
        //...
@@ -119,7 +119,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. A função main de seu aplicativo, chame `get_suggestions()`e a resposta através de impressão `prettify()`.
+2. Na função principal do seu aplicativo, chame `get_suggestions()`e imprima a resposta usando. `prettify()`
     
     ```java
     public static void main(String[] args) {
@@ -133,7 +133,7 @@ public static String prettify(String json_text) {
     }
     ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 

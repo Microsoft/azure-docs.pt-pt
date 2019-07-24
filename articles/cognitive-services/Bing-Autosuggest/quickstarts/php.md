@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o PHP'
-titlesuffix: Azure Cognitive Services
-description: Saiba como começar rapidamente a sugerir termos de pesquisa em tempo real com a API de sugestão automática do Bing.
+title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e PHP'
+titleSuffix: Azure Cognitive Services
+description: Saiba como começar a sugerir rapidamente os termos de pesquisa em tempo real com o API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 9b93714883ca4558925ac64c360db7bc395ff8f4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6bbd9e5f0f1c9f26a8af756dd3c9bce666168079
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390386"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405289"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e PHP
 
-Utilize este início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Este aplicativo simples do PHP envia uma consulta de pesquisa parcial para a API e retorna sugestões para as pesquisas. Embora esse aplicativo é escrito em PHP, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do PHP envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esse aplicativo seja escrito em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

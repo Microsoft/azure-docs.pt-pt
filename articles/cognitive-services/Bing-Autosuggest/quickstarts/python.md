@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Python'
-titlesuffix: Azure Cognitive Services
+title: 'Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e Python'
+titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
@@ -10,32 +10,32 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 38cc9440e3cb5492ef1f45b3907fd2c00867f350
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 733b3a943c0699d4a3af6771c917849b0b0eb528
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385018"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405258"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Python
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Início rápido: Sugerir consultas de pesquisa com a API REST do Sugestão Automática do Bing e Python
 
-Utilize este início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Esta aplicação de Python simple envia uma consulta de pesquisa parcial para a API e retorna sugestões para as pesquisas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
+Use este guia de início rápido para começar a fazer chamadas para o API de Sugestão Automática do Bing e obter a resposta JSON. Esse aplicativo simples do Python envia uma consulta de pesquisa parcial para a API e retorna sugestões para pesquisas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Python 3.x](https://www.python.org/downloads/) 
+* [Python 3. x](https://www.python.org/downloads/) 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-1. Crie um novo ficheiro de Python no seu IDE ou editor favorito. Adicione as seguintes importações:
+1. Crie um novo arquivo Python em seu IDE ou editor favorito. Adicione as seguintes importações:
 
     ```python
     import http.client, urllib.parse, json
     ```
 
-2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial.
+2. Crie variáveis para o host e o caminho da API, o [código do mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -45,21 +45,21 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     query = 'sail'
     ```
 
-3. Criar uma cadeia de caracteres de parâmetros ao acrescentar o seu código de mercado para o `?mkt=` parâmetro e a acrescentar sua consulta para o `&q=` parâmetro.
+3. Crie uma cadeia de caracteres de parâmetros acrescentando seu código de `?mkt=` mercado ao parâmetro e anexando sua consulta `&q=` ao parâmetro.
 
     ```python
     params = '?mkt=' + mkt + '&q=' + query
     ```
 
-## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
+## <a name="create-and-send-an-api-request"></a>Criar e enviar uma solicitação de API
 
-1. Adicionar a chave de subscrição para um `Ocp-Apim-Subscription-Key` cabeçalho.
+1. Adicione sua chave de assinatura a `Ocp-Apim-Subscription-Key` um cabeçalho.
     
     ```python
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
     ```
 
-2. Ligar através da API `HTTPSConnection()`e enviar o `GET` pedido que contém os parâmetros do pedido.
+2. Conecte-se à API `HTTPSConnection()`usando e envie a `GET` solicitação que contém os parâmetros de solicitação.
     
     ```python
     conn = http.client.HTTPSConnection(host)
@@ -68,14 +68,14 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     return response.read ()
     ```
 
-3. Obtenha e a resposta JSON de impressão.
+3. Obtenha e imprima a resposta JSON.
 
     ```python
     result = get_suggestions ()
     print (json.dumps(json.loads(result), indent=4))
     ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
