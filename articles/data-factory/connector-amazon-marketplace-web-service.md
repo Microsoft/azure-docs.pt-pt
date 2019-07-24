@@ -46,7 +46,7 @@ As seguintes propriedades são suportadas para o serviço do serviço Web do Ama
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **AmazonMWS** | Sim |
 | endpoint | O ponto final do servidor Amazon MWS, (ou seja, mws.amazonservices.com)  | Sim |
-| marketplaceID | O ID de Marketplace Amazon para obter dados a partir de. Para recuperar dados de vários IDs de Marketplace, separá-los com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
+| marketplaceID | O Amazon Marketplace ID para obter dados a partir de. Para recuperar dados de vários IDs de Marketplace, separá-los com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
 | sellerID | O ID do vendedor Amazon.  | Sim |
 | mwsAuthToken | O token de autenticação do Amazon MWS. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessKeyId | O acesso à chave ID utilizado para aceder aos dados.  | Sim |
