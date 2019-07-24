@@ -1,7 +1,7 @@
 ---
-title: Como funciona o Personalizer - Personalizer
+title: Como o personalizador funciona – personalizador
 titleSuffix: Azure Cognitive Services
-description: Personalizer utiliza machine learning para descobrir qual a ação a utilizar um contexto. Cada loop learning tem um modelo que está preparado exclusivamente nos dados que enviou a ele por meio de classificação e chama de recompensa. Cada loop de aprendizado é completamente independente umas das outras.
+description: O personalizador usa o aprendizado de máquina para descobrir a ação a ser usada em um contexto. Cada loop de aprendizagem tem um modelo que é treinado exclusivamente em dados que você enviou a ele por meio de chamadas de classificação e recompensa. Cada loop de aprendizado é completamente independente um do outro.
 author: edjez
 manager: nitinme
 ms.service: cognitive-services
@@ -9,176 +9,179 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: edjez
-ms.openlocfilehash: 38480d3cc32d53084b79af627e4f7e6ae7dcc03d
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 7bdafafc0d542a98b80f2b6f5db2c14c8777bf5b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722369"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423251"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 
-Personalizer utiliza machine learning para descobrir qual a ação a utilizar um contexto. Cada loop de aprendizado tem um modelo que está preparado exclusivamente nos dados que enviou a ele via **classificação** e **recompensa** chamadas. Cada loop de aprendizado é completamente independente umas das outras. Crie um loop de aprendizagem para cada parte ou o comportamento da sua aplicação que pretende personalizar.
+O personalizador usa o aprendizado de máquina para descobrir a ação a ser usada em um contexto. Cada loop de aprendizagem tem um modelo que é treinado exclusivamente em dados que você enviou a ele por meio de chamadas de **classificação** e **recompensa** . Cada loop de aprendizado é completamente independente um do outro. Crie um loop de aprendizagem para cada parte ou comportamento do seu aplicativo que você deseja personalizar.
 
-Para cada loop **chamar a API de classificação com** com base no contexto atual, com:
+Para cada loop, **chame a API de classificação com** base no contexto atual, com:
 
-* Lista de ações possíveis: itens a partir do qual pode selecionar a ação de principal de conteúdo.
-* Lista de [funcionalidades do contexto](concepts-features.md): dados relevantes contextualmente como usuário, o conteúdo e o contexto.
+* Lista de ações possíveis: itens de conteúdo dos quais selecionar a ação superior.
+* Lista de [recursos de contexto](concepts-features.md): dados contextualmente relevantes, como usuário, conteúdo e contexto.
 
-O **classificação** decide a utilização de uma API:
+A API de **classificação** decide usar:
 
-* _Explorar_: O modelo atual para decidir a melhor ação com base nos últimos dados.
-* _Explore_: Selecione outra ação em vez da ação superior.
+* _Exploração_: O modelo atual para decidir a melhor ação com base nos dados anteriores.
+* _Explorar_: Selecione uma ação diferente em vez da ação superior.
 
-O **recompensa** API:
+A API de **recompensa** :
 
-* Recolhe dados para preparar o modelo gravando as funcionalidades e as pontuações de recompensa de cada chamada de classificação.
-* Usa esses dados para atualizar o modelo com base nas definições especificadas na _Learning política_.
+* Coleta dados para treinar o modelo registrando os recursos e recompensando pontuações de cada chamada de classificação.
+* Usa esses dados para atualizar o modelo com base nas configurações especificadas na _política de aprendizado_.
 
 ## <a name="architecture"></a>Arquitetura
 
-A imagem seguinte mostra o fluxo de arquitetura de chamar as chamadas de classificação e a recompensa:
+A imagem a seguir mostra o fluxo arquitetônico de chamar as chamadas Rank e recompensa:
 
-![texto alternativo](./media/how-personalizer-works/personalization-how-it-works.png "como funciona a personalização")
+![texto alt](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a personalização")
 
-1. Personalizer utiliza um modelo de IA interno para determinar a classificação da ação.
-1. O serviço de decide se pretende explorar o modelo atual ou explorar novas escolhas para o modelo.  
-1. O resultado de classificação é enviado para EventHub.
-1. Quando Personalizer recebe a recompensa, a recompensa é enviada para EventHub. 
-1. A classificação e a recompensa são correlacionados.
-1. É atualizar o modelo de IA com base nos resultados de correlação.
-1. O mecanismo de inferência de tipos é atualizado com o novo modelo. 
+1. O personalizador usa um modelo interno de ia para determinar a classificação da ação.
+1. O serviço decide se deseja explorar o modelo atual ou explorar novas opções para o modelo.  
+1. O resultado da classificação é enviado para o EventHub.
+1. Quando o personalizador recebe a recompensa, o prêmio é enviado para o EventHub. 
+1. A classificação e a recompensa estão correlacionadas.
+1. O modelo de ia é atualizado com base nos resultados de correlação.
+1. O mecanismo de inferência é atualizado com o novo modelo. 
 
-## <a name="research-behind-personalizer"></a>Pesquisa por trás Personalizer
+## <a name="research-behind-personalizer"></a>Pesquisa por trás do personalizador
 
-Personalizer baseia-se a ciência de vanguarda e investigação na área de [aprendizagem por reforço](concepts-reinforcement-learning.md) incluindo documentos, atividades de pesquisa e as áreas em curso de exploração na Microsoft Research.
+O personalizador é baseado em ciência de ponta e pesquisa na área de [aprendizado de reforço](concepts-reinforcement-learning.md) , incluindo documentos, atividades de pesquisa e áreas contínuas de exploração no Microsoft Research.
 
 ## <a name="terminology"></a>Terminologia
 
-* **Ciclo de aprendizagem**: Pode criar um loop de aprendizagem para todas as partes do aplicativo que pode se beneficiar da personalização. Se tiver mais de uma experiência para personalizar, crie um loop para cada um. 
+* **Loop de aprendizagem**: Você pode criar um loop de aprendizagem para cada parte do seu aplicativo que pode se beneficiar da personalização. Se você tiver mais de uma experiência para personalizar, crie um loop para cada uma delas. 
 
-* **Ações**: As ações são os itens de conteúdo, por exemplo, produtos ou promoções, à sua escolha. Personalizer escolhe a ação para mostrar aos seus utilizadores, conhecidos como superior a _recompensar ação_, através da API de classificação. Cada ação pode ter submetidos com o pedido de classificação de recursos.
+* **Ações**: As ações são itens de conteúdo, como produtos ou promoções, para escolher. O personalizador escolhe a ação principal a ser mostrada aos usuários, conhecida como a _ação de recompensa_, por meio da API de classificação. Cada ação pode ter recursos enviados com a solicitação de classificação.
 
-* **Contexto**: Para fornecer uma classificação mais precisa, fornecem informações sobre seu contexto, por exemplo:
-    * O utilizador.
-    * O dispositivo estão no. 
+* **Contexto**: Para fornecer uma classificação mais precisa, forneça informações sobre seu contexto, por exemplo:
+    * Seu usuário.
+    * O dispositivo no qual estão. 
     * A hora atual.
     * Outros dados sobre a situação atual.
-    * Dados históricos sobre o utilizador ou o contexto.
+    * Dados históricos sobre o usuário ou contexto.
 
-    Seu aplicativo específico pode ter informações de contexto diferente. 
+    Seu aplicativo específico pode ter informações de contexto diferentes. 
 
-* **[Funcionalidades](concepts-features.md)** : Uma unidade de informações sobre um item de conteúdo ou a um contexto de usuário.
+* **[Recursos](concepts-features.md)** do: Uma unidade de informações sobre um item de conteúdo ou um contexto de usuário.
 
-* **Recompensa**: Uma medida de como o usuário respondesse para a API de classificação devolveu ação, como uma classificação de entre 0 e 1. O valor de 0 a 1 é definido por sua lógica de negócio, com base em como a opção ajudou a atingir suas metas de negócios de personalização. 
+* **Recompensa**: Uma medida de como o usuário respondeu à API Rank retornou a ação, como uma pontuação entre 0 e 1. O valor de 0 a 1 é definido pela lógica de negócios, com base em como a escolha ajudou a atingir suas metas de negócios de personalização. 
 
-* **Exploração**: O serviço de Personalizer está explorando quando, em vez de retornar a melhor ação, ela escolhe uma ação diferente para o utilizador. O serviço de Personalizer evita descompassos, estagnação e pode adaptar ao comportamento do utilizador em curso ao explorar. 
+* **Exploração**: O serviço personalizado está explorando quando, em vez de retornar a melhor ação, ele escolhe uma ação diferente para o usuário. O serviço personalizado evita descompasso, estagnação e pode se adaptar ao comportamento contínuo do usuário explorando. 
 
-* **Duração experimental**: A quantidade de tempo que o serviço de Personalizer aguarda uma recompensa, a partir do momento em que a chamada de classificação aconteceu para esse evento.
+* **Duração do experimento**: A quantidade de tempo que o serviço personalizado aguarda para um prêmio, começando do momento em que a chamada de classificação ocorreu para esse evento.
 
-* **Eventos Inativos**: Um evento inativo é um em que é chamado de classificação, mas não tiver a certeza do que usuário nunca verá o resultado, devido a decisões de aplicação de cliente. Eventos Inativos permitem-lhe criar e armazenar os resultados de personalização, em seguida, optar por eliminá-las mais tarde sem afetar o modelo de machine learning.
+* **Eventos**inativos: Um evento inativo é aquele em que você chamou Rank, mas não tem certeza de que o usuário verá o resultado, devido às decisões do aplicativo cliente. Os eventos inativos permitem que você crie e armazene os resultados da personalização e, em seguida, decida descartá-los mais tarde sem afetar o modelo de aprendizado de máquina.
 
-* **modelo**: Um modelo de Personalizer captura todos os dados, ficou a conhecer o comportamento dos utilizadores, a obtenção de dados de treinamento da combinação dos enviar para chamadas de classificação e a recompensa e com um comportamento de treinamento, determinado pela política de aprendizagem de argumentos. 
+* **Modelo**: Um modelo personalizado captura todos os dados aprendidos sobre o comportamento do usuário, obtendo dados de treinamento da combinação dos argumentos que você envia para classificar e recompensar chamadas e com um comportamento de treinamento determinado pela política de aprendizado. 
 
-## <a name="example-use-cases-for-personalizer"></a>Casos de utilização de exemplo para Personalizer
+* **Política de aprendizagem**: O modo como o personalizado treinará um modelo em cada evento será determinado por alguns metaparâmetros que afetam o funcionamento dos algoritmos de aprendizado de máquina. Novos loops do personalizador começarão com uma política de aprendizado padrão, que pode produzir um desempenho moderado. Ao executar [avaliações](concepts-offline-evaluation.md), o personalizador pode criar novas políticas de aprendizado especificamente otimizadas para os casos de uso do loop. O personalizador terá um desempenho significativamente melhor com políticas otimizadas para cada loop específico, gerado durante a avaliação.
 
-* Esclarecimento intenção & desambiguação: ajuda os utilizadores têm uma melhor experiência quando o seu objetivo é não desmarque ao fornecer uma opção que é personalizada para cada utilizador.
-* Sugestões para menus e as opções de predefinido: tem o bot sugerir o item mais provável de forma personalizada como primeiro passo, em vez de apresentar um impersonal menu ou uma lista de alternativas.
-* As características de bot & tom: para bots que pode variar tom verbosidade e estilo de escrita, considere variados estas características de uma formas personalizadas.
-* Conteúdo do & alerta de notificação: decidir o texto a utilizar para alertas para interagir com os utilizadores mais.
-* & Tempo de alerta de notificação: ter personalizadas de aprendizagem de quando enviar notificações aos utilizadores para contactá-lo mais.
+## <a name="example-use-cases-for-personalizer"></a>Casos de uso de exemplo para personalizador
 
-## <a name="checklist-for-applying-personalizer"></a>Lista de verificação para a aplicação de Personalizer
+* Esclarecimento da intenção & Desambigüidade: ajuda os usuários a ter uma experiência melhor quando sua intenção não está clara, fornecendo uma opção que é personalizada para cada usuário.
+* Sugestões padrão para menus & opções: faça com que o bot sugira o item mais provável de uma maneira personalizada como uma primeira etapa, em vez de apresentar um menu ou uma lista de alternativas pessoais.
+* As características do bot & Tom: para bots que podem variar o estilo de Tom, detalhamento e escrita, considere a possibilidade de diversificar essas características de maneiras personalizadas.
+* Notificação & conteúdo do alerta: decida qual texto deve ser usado para alertas a fim de envolver mais usuários.
+* Tempo de alerta de & de notificação: tenha aprendizado personalizado de quando enviar notificações aos usuários para que eles se envolvam mais.
 
-Pode aplicar Personalizer em situações em que:
+## <a name="checklist-for-applying-personalizer"></a>Lista de verificação para aplicação do personalizador
 
-* Tem uma empresa ou o objetivo de Facilidade de utilização para a sua aplicação.
-* Tem um local na sua aplicação em que a tomar uma decisão contextual do que mostrar para os utilizadores irão melhorar esse objetivo.
-* A melhor opção pode e deve ser aprendida com a pontuação de recompensa de comportamento e total de utilizador coletiva.
-* Segue-se a utilização do machine learning para personalização [diretrizes de utilização responsável](ethics-responsible-use.md) e opções para a sua equipa.
-* A decisão pode ser expresso como a classificação a melhor opção ([ação](concepts-features.md#actions-represent-a-list-of-options) de um conjunto limitado de opções.
-* Bem, essa opção trabalhada pode ser computada por sua lógica de negócio, por medir algum aspecto do comportamento do usuário e expressá-lo num número entre -1 e 1.
-* A pontuação de recompensa não leva em muitos fatores externos ou confusão, especificamente a duração de experimentação é baixa o suficiente para que a pontuação de recompensa pode ser computada, enquanto ainda é relevante.
-* Pode expressar o contexto para a classificação como um dicionário de recursos, pelo menos, 5, que acredita que ajudaria a escolha certa e que não inclui informações de identificação pessoal.
-* Tem informações sobre cada ação, como um dicionário de atributos, pelo menos, 5 ou recursos que acredita que ajudará a Personalizer escolha certa.
-* Pode manter os dados de longa duração suficiente para acumular um histórico de interações, pelo menos, 100 000.
+Você pode aplicar o personalizador em situações em que:
 
-## <a name="machine-learning-considerations-for-applying-personalizer"></a>As considerações para aplicar Personalizer de aprendizagem automática
+* Você tem uma meta comercial ou de usabilidade para seu aplicativo.
+* Você tem um local em seu aplicativo, em que tomar uma decisão contextual do que mostrar aos usuários melhorará essa meta.
+* A melhor opção pode e deve ser aprendida do comportamento do usuário coletivo e da Pontuação de recompensa total.
+* O uso do aprendizado de máquina para personalização segue as diretrizes e as opções de [uso responsável](ethics-responsible-use.md) para sua equipe.
+* A decisão pode ser expressa como classificação da melhor opção ([ação](concepts-features.md#actions-represent-a-list-of-options) de um conjunto limitado de opções.
+* O quão bem a escolha funcionou pode ser computada pela lógica de negócios, medindo algum aspecto do comportamento do usuário e expressando-o em um número entre-1 e 1.
+* A pontuação de recompensa não traz muitos fatores contratados ou externos, especificamente a duração do experimento é baixa o suficiente para que a pontuação de recompensa possa ser computada enquanto ainda é relevante.
+* Você pode expressar o contexto para a classificação como um dicionário de pelo menos 5 recursos que você imagina que ajudarão a fazer a escolha certa e que não incluem informações de identificação pessoal.
+* Você tem informações sobre cada ação como um dicionário de pelo menos 5 atributos ou recursos que você considera que ajudarão o personalizado a fazer a escolha certa.
+* Você pode reter dados por tempo suficiente para acumular um histórico de pelo menos 100.000 interações.
 
-Personalizer baseia-se por reforço learning, uma abordagem ao machine learning que obtém ensinado por comentários dá-lhe. 
+## <a name="machine-learning-considerations-for-applying-personalizer"></a>Considerações de aprendizado de máquina para aplicar personalizador
 
-Personalizer aprenderá melhor em situações em que:
-* Não existe suficiente eventos para ficar por cima de personalização ideal, se o problema drifts ao longo do tempo (por exemplo, as preferências em notícias ou em forma de mensagens em fila). Personalizer irá adaptar-se a mudança contínua no mundo real, mas os resultados não serão ideais se não houver suficiente eventos e os dados de aprender com a descoberta e se concentrar em novos padrões. Deve escolher um caso de utilização que ocorre com frequência suficiente. Considere busca de casos de utilização de isso acontecer, pelo menos, 500 vezes por dia.
-* Contexto e ações tem suficiente recursos para facilitar a aprendizagem.
-* Há menos de 50 ações para classificação por chamada.
-* As definições de retenção de dados permitem Personalizer recolher dados suficientes para realizar avaliações offline e a otimização de política. Isto é, normalmente, os pontos de dados, pelo menos, 50 000.
+O personalizador se baseia no reforço Learning, uma abordagem ao aprendizado de máquina que é ensinada pelos comentários que você fornece. 
 
-## <a name="how-to-use-personalizer-in-a-web-application"></a>Como utilizar Personalizer num aplicativo web
+O personalizador aprenderá melhor em situações em que:
+* Há eventos suficientes para se manter em cima da personalização ideal se o problema se desconectar ao longo do tempo (como preferências de notícias ou de moda). O personalizado se adaptará à mudança contínua no mundo real, mas os resultados não serão ideais se não houver eventos e dados suficientes para aprender com a descoberta e a liquidação de novos padrões. Você deve escolher um caso de uso que ocorra com frequência suficiente. Considere procurar casos de uso que acontecem pelo menos 500 vezes por dia.
+* O contexto e as ações têm recursos suficientes para facilitar o aprendizado.
+* Há menos de 50 ações para a classificação por chamada.
+* Suas configurações de retenção de dados permitem que o personalizado colete dados suficientes para executar avaliações offline e otimização de política. Normalmente, são pelo menos 50.000 pontos de dados.
 
-Adicionar um loop para uma aplicação web inclui:
+## <a name="how-to-use-personalizer-in-a-web-application"></a>Como usar o personalizador em um aplicativo Web
 
-* Determine que experiência para personalizar, quais ações e os recursos têm, quais recursos de contexto para utilizar, e que recompensa definirá.
-* Adicione uma referência para o SDK de personalização em seu aplicativo.
-* Quando estiver pronto para personalizar, chame a API de classificação.
-* Store o eventId. Enviar uma recompensa com a API de recompensa mais tarde.
-1. Chame ativar para o evento assim que tiver a certeza do que utilizador teve sua página personalizada.
-1. Aguarde pela seleção de utilizador de conteúdo classificada. 
-1. Chame a API de recompensa para especificar a eficiência com que a saída da API de classificação fez.
+Adicionar um loop a um aplicativo Web inclui:
 
-## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Como utilizar Personalizer com um bot de bate-papo
+* Determine qual experiência deve ser individualizada, quais ações e recursos você tem, quais recursos de contexto usar e qual recompensa você definirá.
+* Adicione uma referência ao SDK de personalização em seu aplicativo.
+* Chame a API de classificação quando estiver pronto para personalizar.
+* Armazene o eventId. Você envia uma recompensa com a API de recompensa mais tarde.
+1. Chame ativar para o evento quando tiver certeza de que o usuário viu sua página personalizada.
+1. Aguarde a seleção de conteúdo classificada pelo usuário. 
+1. Chame a API de recompensa para especificar o quão bem a saída da API de classificação.
 
-Neste exemplo, verá como utilizar personalização para fazer uma sugestão de predefinição em vez de enviar o utilizador para baixo de uma série de menus ou opções de cada vez.
+## <a name="how-to-use-personalizer-with-a-chat-bot"></a>Como usar o personalizador com um bot de chat
 
-* Obter o [código](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) para este exemplo.
-* Configure a solução de bot. Certifique-se publicar a sua aplicação LUIS. 
-* Gerir a classificação e chamadas à API de recompensa para bot.
-    * Adicione código para gerir o processamento de intenção de LUIS. Se o **None** é retornada como a intenção de principal ou de classificação a intenção superior é abaixo o limiar de lógica de negócios, enviar as intenções listam para Personalizer a classificação dos objetivos.
-    * Mostra a lista de intenção ao utilizador como ligações selecionáveis com a intenção de primeiro a ser a intenção de classificação alta de mensagens em fila de resposta da API de classificação.
-    * Capturar a seleção do usuário e enviar isso na chamada de API de recompensa. 
+Neste exemplo, você verá como usar a personalização para fazer uma sugestão padrão em vez de enviar o usuário uma série de menus ou opções a cada vez.
 
-### <a name="recommended-bot-patterns"></a>Padrões de bot recomendada
+* Obtenha o [código](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) para este exemplo.
+* Configure sua solução de bot. Certifique-se de publicar seu aplicativo LUIS. 
+* Gerenciar classificação e recompensar chamadas de API para bot.
+    * Adicione código para gerenciar o processamento de intenção LUIS. Se **nenhum** for retornado como a principal intenção ou a pontuação da intenção principal estiver abaixo do limite da lógica de negócios, envie a lista de tentativas para personalizar para classificar as intenções.
+    * Mostrar a lista de intenções ao usuário como links selecionáveis com a primeira intenção sendo a intenção de classificação mais alta da resposta da API de classificação.
+    * Capture a seleção do usuário e envie-a na chamada à API de recompensa. 
 
-* Efetuar chamadas de API de classificação de Personalizer sempre que for necessário uma desambiguação, em vez de colocação em cache os resultados para cada utilizador. O resultado de eliminar a ambiguidade intenção podem ser alterados ao longo do tempo para uma pessoa, e permitindo que a API de classificação explorar as variações irá acelerar a aprendizagem geral.
-* Escolha uma interação que é comum com muitos usuários, para que tenha dados suficientes para personalizar. Por exemplo, perguntas introdutórias podem ser melhor ajusta-se que o menores esclarecimentos no gráfico de conversação que apenas a alguns utilizadores podem obter a.
-* Utilize chamadas à API de classificação para ativar a "a primeira sugestão é o direito" conversas, onde obtém pedido ao utilizador "Gostaria que X?" ou "quis dizer X?" e o utilizador pode confirmar; em vez de dar opções ao usuário em que têm de escolher um menu. Por exemplo, utilizador: "Eu gostaria de solicitar um café" Bot: "Gostaria que uma dupla espresso?". Dessa forma o sinal de recompensa também é forte porque ela pertence diretamente para uma sugestão.
+### <a name="recommended-bot-patterns"></a>Padrões de bot recomendados
 
-## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Como utilizar Personalizer com uma solução de recomendação
+* Faça chamadas da API de classificação do personalizado sempre que uma desambiguidade for necessária, em vez de armazenar em cache os resultados de cada usuário. O resultado da intenção de ambiguidade pode mudar ao longo do tempo para uma pessoa, e permitir que a API de classificação Explore as variações acelerará o aprendizado geral.
+* Escolha uma interação que seja comum com muitos usuários para que você tenha dados suficientes para personalizar. Por exemplo, as perguntas introdutórias podem ser mais bem ajustadas do que os esclarecimentos mais amplos no grafo de conversa que apenas alguns usuários podem chegar.
+* Use chamadas à API de classificação para habilitar as conversas "primeira sugestão é certa", em que o usuário recebe uma pergunta "você gostaria de X?" ou "você quis dizer X?" e o usuário pode apenas confirmar; em vez de fornecer opções para o usuário onde eles devem escolher um menu. Por exemplo, usuário: "gostaria de pedir um" bot "de café:" você gostaria de um expresso duplo? ". Dessa forma, o sinal de recompensa também é forte, pois ele se refere diretamente a uma sugestão.
 
-Use seu mecanismo de recomendação para filtrar um catálogo de grandes dimensões para alguns itens que, em seguida, pode ser apresentado como 30 ações possíveis enviadas para a API de classificação.
+## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Como usar o personalizador com uma solução de recomendação
 
-Pode usar os motores de recomendações com Personalizer:
+Use seu mecanismo de recomendação para filtrar um catálogo grande em alguns itens que podem ser apresentados como 30 ações possíveis enviadas para a API de classificação.
 
-* Configurar o [solução recomendação](https://github.com/Microsoft/Recommenders/). 
-* Quando visualizar uma página, invoca o modelo de recomendação para obter uma lista de recomendações.
+Você pode usar os mecanismos de recomendação com o personalizador:
+
+* Configure a [solução de recomendação](https://github.com/Microsoft/Recommenders/). 
+* Ao exibir uma página, invoque o modelo de recomendação para obter uma lista curta de recomendações.
 * Chame a personalização para classificar a saída da solução de recomendação.
-* Envie comentários sobre a ação do utilizador com a chamada da API de recompensa.
+* Envie comentários sobre a ação do usuário com a chamada à API de recompensa.
 
 
 ## <a name="pitfalls-to-avoid"></a>Armadilhas a serem evitadas
 
-* Não utilize Personalizer onde o comportamento personalizado não é algo que possam ser detetados em todos os utilizadores, mas em vez disso, algo que deve ser memorizada para utilizadores específicos, ou é proveniente de uma lista de utilizadores específicos de alternativas. Por exemplo, usando Personalizer sugerir uma ordem de pizza primeiro de uma lista de 20 itens de menu possíveis é útil, mas a lista de contactos que contacto a chamar a partir dos utilizadores, quando precisar de ajuda com childcare (por exemplo, "Vovó") não é algo que é personalizáveis em sua base de usuários.
+* Não use o personalizador onde o comportamento personalizado não é algo que possa ser descoberto em todos os usuários, mas sim algo que deve ser lembrado para usuários específicos ou proveniente de uma lista de alternativas específicas do usuário. Por exemplo, usar o personalizador para sugerir uma primeira ordem de pizza de uma lista de 20 itens de menu possíveis é útil, mas qual contato chamar da lista de contatos dos usuários ao exigir ajuda com Childcare (como "avó") não é algo que seja personalizável em sua base de usuários.
 
 
-## <a name="adding-content-safeguards-to-your-application"></a>Adição de garantias de conteúdo à sua aplicação
+## <a name="adding-content-safeguards-to-your-application"></a>Adicionando proteções de conteúdo ao seu aplicativo
 
-Se a aplicação permite que as variações de grandes dimensões no conteúdo apresentado aos utilizadores e alguns dos que conteúdo pode ser confiável ou inadequada para alguns usuários, deve planeje com antecedência para se certificar de que as salvaguardas certas estão em vigor para impedir que os utilizadores visualizem inaceitáveis conteúdo. O padrão recomendado para implementar as proteções é: O padrão recomendado para implementar as proteções é:
-    * Obter a lista de ações para classificação.
-    * Filtre aqueles que não são viáveis para o público-alvo.
-    * Classificar apenas essas ações viáveis.
-    * Mostrar parte superior com a classificação de ação para o utilizador.
+Se o seu aplicativo permitir grandes variações no conteúdo mostrado aos usuários, e algum desses conteúdos pode não ser seguro ou inadequado para alguns usuários, você deve planejar com antecedência para garantir que as proteções certas estejam em vigor para impedir que os usuários vejam inaceitáveis disputa. O melhor padrão para implementar proteções é: O melhor padrão para implementar proteções é:
+    * Obtenha a lista de ações a serem classificadas.
+    * Filtre aqueles que não são viáveis para o público.
+    * Classifique somente essas ações viáveis.
+    * Exibe a ação mais classificada para o usuário.
 
-Algumas arquiteturas, poderá ser difíceis de implementar a sequência de acima. Nesse caso, há uma abordagem alternativa para implementar as proteções após a classificação, mas um aprovisionamento tem de ser feitas para que as ações que está fora do salvaguardar não são utilizadas para preparar o modelo de Personalizer.
+Em algumas arquiteturas, a sequência acima pode ser difícil de implementar. Nesse caso, há uma abordagem alternativa para implementar proteções após a classificação, mas um provisionamento precisa ser feito para que as ações que ficarem fora da proteção não sejam usadas para treinar o modelo personalizado.
 
-* Obter a lista de ações para classificação, com aprendizagem desativada.
+* Obter a lista de ações a serem classificadas, com o aprendizado desativado.
 * Ações de classificação.
-* Verificar se a ação superior é viável.
-    * Se a ação superior for viável, ativar learning para esta classificação, em seguida, mostrá-lo ao usuário.
-    * Se a ação superior não for viável, não ative learning para esta classificação e decidir, por meio de sua própria lógica ou abordagens alternativas, o que mostrar ao usuário. Mesmo que utilize a opção de classificações de segundo melhor, não ative learning para esta classificação.
+* Verifique se a ação principal é viável.
+    * Se a ação principal for viável, ative o Learning para essa classificação e, em seguida, mostre-a para o usuário.
+    * Se a ação principal não for viável, não ative o aprendizado para essa classificação e decida por sua própria lógica ou abordagens alternativas o que mostrar ao usuário. Mesmo que você use a segunda opção com a melhor classificação, não ative o aprendizado para essa classificação.
 
-## <a name="verifying-adequate-effectiveness-of-personalizer"></a>Verificar a eficácia adequada de Personalizer
+## <a name="verifying-adequate-effectiveness-of-personalizer"></a>Verificando a eficácia adequada do personalizador
 
-Pode monitorizar a eficácia da Personalizer periodicamente executando [avaliações offline](how-to-offline-evaluation.md)
+Você pode monitorar a eficácia do Personalizar periodicamente executando [avaliações offline](how-to-offline-evaluation.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Compreender [onde pode utilizar Personalizer](where-can-you-use-personalizer.md).
+Entenda [onde você pode usar](where-can-you-use-personalizer.md)o personalizador.
+Executar [avaliações offline](how-to-offline-evaluation.md)

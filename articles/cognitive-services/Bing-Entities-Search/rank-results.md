@@ -1,7 +1,7 @@
 ---
-title: Usando a classificação de mensagens em fila para exibir respostas - pesquisa de entidades do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba como utilizar a classificação de mensagens em fila para apresentar as respostas que retorna a API de pesquisa de entidades do Bing.
+title: Usando classificação para exibir respostas-Pesquisa de Entidade do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba como usar a classificação para exibir as respostas que o API de Pesquisa de Entidade do Bing retorna.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,32 +10,32 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309339"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423913"
 ---
-# <a name="using-ranking-to-display-entity-search-results"></a>Usando a classificação de mensagens em fila para exibir os resultados da pesquisa de entidades  
+# <a name="using-ranking-to-display-entity-search-results"></a>Usando a classificação para exibir os resultados da pesquisa de entidade  
 
-Cada resposta de pesquisa de entidades inclui um [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) resposta que especifica a forma como deve exibir resultados de pesquisa devolvidos pela API de pesquisa de entidades do Bing. A resposta de classificação agrupa os resultados em Polo, principal e o conteúdo da barra lateral. O resultado de Polo é o resultado mais importante ou proeminente e deverá ser apresentado pela primeira vez. Se não exibir os resultados restantes tradicional no principal e o formato de barra lateral, tem de fornecer a visibilidade mais elevada do que o conteúdo da barra lateral do conteúdo principal. 
+Cada resposta de pesquisa de entidade inclui uma resposta [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) que especifica como você deve exibir os resultados da pesquisa retornados pelo API de pesquisa de entidade do Bing. Os resultados da classificação agrupam o conteúdo do pólo, da principal e da barra lateral. O resultado do pólo é o resultado mais importante ou proeminente e deve ser exibido primeiro. Se você não exibir os resultados restantes em um formato principal e de barra lateral tradicional, deverá fornecer o conteúdo principal maior visibilidade do que o conteúdo da barra lateral. 
   
-Em cada grupo, o [itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) matriz identifica a ordem em que o conteúdo tem de aparecer no. Cada item fornece duas formas de identificar o resultado numa resposta.  
+Dentro de cada grupo, a matriz de [itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica a ordem em que o conteúdo deve aparecer. Cada item fornece duas maneiras de identificar o resultado em uma resposta.  
  
 
 |Campo | Descrição  |
 |---------|---------|
-|`answerType` e `resultIndex` | `answerType` identifica a resposta (entidade ou local) e `resultIndex` identifica um resultado na resposta (por exemplo, uma entidade). O índice começa em 0.|
-|`value`    | `value` Contém um ID que corresponde ao ID de uma resposta ou um resultado na resposta. A resposta ou os resultados contêm o ID, mas não ambos. |
+|`answerType` e `resultIndex` | `answerType`Identifica a resposta (entidade ou local) e `resultIndex` identifica um resultado dentro dessa resposta (por exemplo, uma entidade). O índice começa em 0.|
+|`value`    | `value`Contém uma ID que corresponde à ID de uma resposta ou a um resultado na resposta. A resposta ou os resultados contêm a ID, mas não ambos. |
   
-Utilizar o `answerType` e `resultIndex` é um processo de dois passos. Em primeiro lugar, utilize `answerType` para identificar a resposta que contém os resultados para apresentar. Em seguida, utilizar `resultIndex` ao índice resultados dessa resposta para obter o resultado para apresentar. (A `answerType` valor é o nome do campo no [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) objeto.) Se deverá para exibir resultados de todos os a resposta em conjunto, a resposta de classificação item não inclui o `resultIndex` campo.
+Usar o `answerType` e `resultIndex` o é um processo de duas etapas. Primeiro, use `answerType` para identificar a resposta que contém os resultados a serem exibidos. Em seguida `resultIndex` , use para indexar os resultados dessa resposta para obter o resultado a ser exibido. (O `answerType` valor é o nome do campo no objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) .) Se você tiver que exibir todos os resultados da resposta juntos, o item de resposta de classificação não incluirá o `resultIndex` campo.
 
-Com o ID requer que coincide com o ID de classificação com o ID de uma resposta ou um dos seus resultados. Se um objeto de resposta inclui uma `id` campo, exibir os resultados de todos os a resposta em conjunto. Por exemplo, se o `Entities` objeto inclui o `id` campo, apresentar todos os artigos de entidades em conjunto. Se o `Entities` objeto não inclui o `id` campo, em seguida, cada entidade contém um `id` campo e a resposta de classificação mistura as entidades com os resultados de locais.  
+O uso da ID exige que você corresponda à ID de classificação com a ID de uma resposta ou de um de seus resultados. Se um objeto de resposta incluir `id` um campo, exiba todos os resultados da resposta juntos. Por exemplo, se o `Entities` objeto incluir o `id` campo, exiba todos os artigos de entidades juntos. Se o `Entities` objeto não incluir o `id` campo, cada entidade conterá um `id` campo e a resposta de classificação mistura as entidades com os resultados dos locais.  
   
 ## <a name="ranking-response-example"></a>Exemplo de resposta de classificação
 
-O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
+Veja a seguir um exemplo de [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse).
   
 ```json
 {
@@ -67,9 +67,9 @@ O seguinte mostra um exemplo [RankingResponse](https://docs.microsoft.com/rest/a
 }
 ```
 
-Com base na resposta classificação, a barra lateral seria exibir os resultados de dois entidade relacionados com Jimi Hendrix.
+Com base nessa resposta de classificação, a barra lateral exibiria os dois resultados da entidade relacionados ao Jimi Hendrix.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação Web de página única](tutorial-bing-entities-search-single-page-app.md)

@@ -1,7 +1,7 @@
 ---
-title: Avaliação offline - Personalizer
+title: Avaliação offline – personalizador
 titleSuffix: Azure Cognitive Services
-description: Criar o ciclo de comentários nesta C# início rápido com o serviço de Personalizer.
+description: Crie um loop de comentários C# neste guia de início rápido com o serviço personalizado.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,57 +10,57 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 3fdedd1af9b683b221dfa4aebad7a30559b7abff
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 3d9415a99655c7866c1a6688d0e48fd0b236a63b
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722487"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423262"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
-Avaliação offline é um método que permite-lhe testar e avaliar a eficácia do serviço Personalizer sem alterar o seu código ou afetar a experiência do usuário. Avaliação offline usa passado executaram os dados, enviados a partir da sua aplicação para a API de classificação, para comparar diferentes classificações.
+A avaliação offline é um método que permite testar e avaliar a eficácia do serviço personalizado sem alterar seu código nem afetar a experiência do usuário. A avaliação offline usa dados passados, enviados do seu aplicativo para a API de classificação, para comparar a forma como as classificações diferentes foram executadas.
 
-Avaliação offline é executada num intervalo de datas. O intervalo pode concluir mais tarde a hora atual. O início do intervalo não pode ser superior ao número de dias especificado para [retenção de dados](how-to-settings.md).
+A avaliação offline é executada em um intervalo de datas. O intervalo pode terminar o mais tarde da hora atual. O início do intervalo não pode ser maior do que o número de dias especificado para a [retenção de dados](how-to-settings.md).
 
-Avaliação offline pode ajudá-lo a responder às seguintes perguntas:
+A avaliação offline pode ajudá-lo a responder às seguintes perguntas:
 
-* A eficiência são classificações Personalizer para personalização concluída com êxito?
-    * Quais são as recompensas média obtidas com o Personalizer de machine learning online política?
-    * Como Personalizer compara para a eficiência da qual a aplicação teria feito por predefinição?
-    * O que teria sido a eficácia comparativa de uma escolha aleatória para personalização?
-    * O que teria sido a eficácia comparativa de políticas de aprendizagem diferente especificado manualmente?
-* Quais recursos do contexto estiver a contribuir mais ou menos para personalização concluída com êxito?
-* Quais recursos das ações estiver a contribuir mais ou menos para personalização concluída com êxito?
+* Quão eficiente são as classificações personalizadas para personalização bem-sucedida?
+    * Quais são as recompensas médias alcançadas pela política de aprendizado de máquina online do personalizador?
+    * Como o personalizador se compara à eficácia do que o aplicativo teria feito por padrão?
+    * O que seria a eficácia comparativa de uma escolha aleatória para personalização?
+    * O que seria a eficácia comparativa de diferentes políticas de aprendizagem especificadas manualmente?
+* Quais recursos do contexto estão contribuindo com uma personalização mais ou menos bem-sucedida?
+* Quais recursos das ações estão contribuindo com uma personalização mais ou menos bem-sucedida?
 
-Além disso, avaliação Offline pode ser utilizada para detetar mais otimizadas para aprendizagem políticas que Personalizer pode utilizar para melhorar os resultados no futuro.
+Além disso, a avaliação offline pode ser usada para descobrir políticas de aprendizado mais otimizadas que o personalizador pode usar para melhorar os resultados no futuro.
 
-Avaliações offline não fornecem orientação sobre a percentagem de eventos a utilizar para exploração.
+As avaliações offline não fornecem orientações sobre a porcentagem de eventos a serem usados para exploração.
 
-## <a name="prerequisites-for-offline-evaluation"></a>Pré-requisitos para avaliação offline
+## <a name="prerequisites-for-offline-evaluation"></a>Pré-requisitos para a avaliação offline
 
-Seguem-se as considerações importantes para a avaliação offline representativa:
+Estas são as considerações importantes para a avaliação offline representativa:
 
-* Ter dados suficientes. O mínimo recomendado é, pelo menos, 50 000 eventos.
-* Recolha dados de períodos com o comportamento do utilizador representativos e o tráfego.
+* Ter dados suficientes. O mínimo recomendado é de pelo menos 50.000 eventos.
+* Colete dados de períodos com comportamento e tráfego representativos do usuário.
 
-## <a name="discovering-the-optimized-learning-policy"></a>Detetar a política de learning otimizado
+## <a name="discovering-the-optimized-learning-policy"></a>Descobrindo a política de aprendizagem otimizada
 
-Personalizer pode utilizar o processo de avaliação de offline para detetar automaticamente uma política de aprendizado mais ideal.
+O personalizador pode usar o processo de avaliação offline para descobrir uma política de aprendizado mais ideal automaticamente.
 
-Depois de efetuar a avaliação offline, pode ver a eficácia comparativa de Personalizer com essa nova política em comparação com a atual política online. Pode, em seguida, aplicar essa política de aprendizagem para torná-lo em vigor imediatamente em Personalizer ou transferi-lo para uso ou análise futura.
+Depois de executar a avaliação offline, você pode ver a eficácia comparativa do personalizador com essa nova política em comparação com a política online atual. Em seguida, você pode aplicar essa política de aprendizado para torná-la eficaz imediatamente no Personalizador, baixando-a e carregando-a no painel modelos e políticas. Você também pode baixá-lo para análise ou uso futuro.
 
-## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Noções básicas sobre a relevância dos resultados da avaliação offline
+## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Compreendendo a relevância dos resultados da avaliação offline
 
-Quando executa uma edição de avaliação offline, é muito importante analisar _dos limites de confiança_ dos resultados. Se forem grandes, significa que seu aplicativo não recebeu dados suficientes para que as estimativas de recompensa ser preciso ou significativas. À medida que o sistema acumula mais dados e executar avaliações offline por períodos mais longos, os intervalos de confiança se tornará mais estreito.
+Quando você executa uma avaliação offline, é muito importante analisar os _limites de confiança_ dos resultados. Se eles forem largos, significa que seu aplicativo não recebeu dados suficientes para que as estimativas de recompensa sejam precisas ou significativas. À medida que o sistema acumula mais dados e você executa avaliações offline em períodos mais longos, os intervalos de confiança se tornam mais estreitos.
 
-## <a name="how-offline-evaluations-are-done"></a>Como offline são feitas avaliações
+## <a name="how-offline-evaluations-are-done"></a>Como as avaliações offline são feitas
 
-Avaliações offline são feitas através de um método chamado **avaliação Counterfactual**. 
+As avaliações offline são feitas usando um método chamado **counterfactual Evaluation**. 
 
-Personalizer baseia-se no pressuposto de que usuários comportamento (e, portanto, remunerações) são impossíveis prever retrospectively (Personalizer não é possível saber o que teria acontecido se o usuário tivesse apresentado algo diferente da que vêem) e somente para aprender a partir de medida de remunerações. 
+O personalizador se baseia na suposição de que o comportamento dos usuários (e, portanto, as recompensas) é impossível prever de forma retrospectiva (o personalizador não sabe o que teria ocorrido se o usuário tivesse mostrado algo diferente do que foi visto) e apenas para aprender com recompensas medidas. 
 
-Este é o processo de conceitual utilizado para avaliações:
+Este é o processo conceitual usado para avaliações:
 
 ```
 [For a given _learning policy), such as the online learning policy, uploaded learning policies, or optimized candidate policies]:
@@ -81,21 +81,22 @@ Este é o processo de conceitual utilizado para avaliações:
 }
 ```
 
-A avaliação offline utiliza apenas o comportamento do utilizador observado. Este processo descartará grandes volumes de dados, especialmente se o seu aplicativo classificar chamadas com um grande número de ações.
+A avaliação offline usa apenas o comportamento de usuário observado. Esse processo descarta grandes volumes de dados, especialmente se o aplicativo classifica chamadas com um grande número de ações.
 
 
 ## <a name="evaluation-of-features"></a>Avaliação dos recursos
 
-Avaliações offline podem fornecer informações sobre a quantidade de recursos específicos para ações ou contexto são Pesar para remunerações superior. As informações são calculadas utilizando a avaliação em relação a determinado período de tempo e os dados e podem variar de acordo com a hora.
+As avaliações offline podem fornecer informações sobre quanto dos recursos específicos para ações ou contexto estão pesando para recompensas mais altas. As informações são computadas usando a avaliação em relação ao período de tempo e aos dados fornecidos e podem variar com o tempo.
 
-Recomendamos olhar para as avaliações de funcionalidade e perguntar:
+É recomendável observar as avaliações de recursos e perguntar:
 
-* Quais recursos de outros, adicionais, foi a sua aplicação ou sistema fornece ao longo das linhas os que são mais eficientes?
-* Que funcionalidades podem ser removida devido a eficácia de baixa? Adicionar funcionalidades de eficácia baixa _ruído_ para o machine learning.
-* Existem quaisquer funcionalidades que estão incluídas por acidente? Exemplos disso são: pessoal (PII), informações de identificação duplicar IDs, etc.
-* Existem considerações de utilizar quaisquer funcionalidades indesejáveis que não devem ser usadas para personalizar devido à regulamentação ou responsável? Existem recursos que poderiam proxy (ou seja, estreitamente espelhar ou obtenha uma correlação) recursos indesejáveis?
+* Que outros recursos adicionais podem ser o seu aplicativo ou sistema ao longo das linhas que são mais eficazes?
+* Quais recursos podem ser removidos devido à baixa eficácia? Os recursos de baixa eficácia adicionam _ruído_ ao aprendizado de máquina.
+* Há algum recurso que é incluído acidentalmente? Exemplos são: informações de identificação pessoal (PII), IDs duplicadas, etc.
+* Há algum recurso indesejável que não deve ser usado para personalizar devido a considerações de uso normativo ou responsável? Há recursos que poderiam ser configurados por proxy (ou seja, espelhados ou correlacionar com) recursos indesejáveis?
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Configurar Personalizer](how-to-settings.md)
+[Configurar o personalizado](how-to-settings.md)
+[executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)
