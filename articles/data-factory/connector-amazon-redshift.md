@@ -126,7 +126,7 @@ Para copiar dados do Amazon Redshift, defina o tipo de origem na atividade de c�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonRedshiftSource** | Sim |
-| consulta |Utilize a consulta personalizada para ler dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
+| query |Utilize a consulta personalizada para ler dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
 | redshiftUnloadSettings | Grupo de propriedade ao utilizar UNLOAD do Amazon Redshift. | Não |
 | s3LinkedServiceName | Refere-se a um Amazon S3 to-be-utilizado como um armazenamento provisório, especificando um nome de serviço ligado do tipo "AmazonS3". | Sim, se utilizar o descarregamento |
 | bucketName | Indica o registo de S3 para armazenar os dados intermediárias. Se não for indicado, serviço Data Factory gera automaticamente.  | Sim, se utilizar o descarregamento |
