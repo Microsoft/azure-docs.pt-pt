@@ -26,7 +26,7 @@ API do Azure Cosmos DB para o MongoDB é compatível com a versão 3.2 do protoc
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | O número total de unidades de pedido consumida é mais do que a taxa de unidade de pedido de aprovisionamento para a coleção e otimizado. | Considere dimensionar o débito atribuído a um contentor ou um conjunto de contentores a partir do portal do Azure ou pode repetir a operação. |
 | ExceededMemoryLimit | 16501 | Como um serviço de multi-inquilino, tornou-se a operação ao longo de alocação de memória do cliente. | Reduza o âmbito da operação por meio de critérios de consulta mais restritivas ou contacte o suporte do [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Exemplo: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
-| Problemas de versão de durante a transmissão do MongoDB | - | As versões mais antigas de drivers de MongoDB são não é possível detetar o nome da conta do Azure Cosmos nas cadeias de ligação. | Acrescentar *appName = @**accountName** @*  no final da API do Cosmos DB para a cadeia de ligação do MongoDB, em que ***accountName*** é o nome da sua conta do Cosmos DB . |
+| Problemas de versão de durante a transmissão do MongoDB | - | As versões mais antigas de drivers de MongoDB são não é possível detetar o nome da conta do Azure Cosmos nas cadeias de ligação. | Acrescentar *appName = @**accountName**@* no final da API do Cosmos DB para a cadeia de ligação do MongoDB, em que ***accountName*** é o nome da sua conta do Cosmos DB . |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

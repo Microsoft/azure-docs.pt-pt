@@ -1,6 +1,6 @@
 ---
-title: Criar um volume estático para vários pods no Azure Kubernetes Service (AKS)
-description: Saiba como criar manualmente um volume com ficheiros do Azure para utilização com vários pods em simultâneo no Azure Kubernetes Service (AKS)
+title: Criar um volume estático para vários pods no serviço de kubernetes do Azure (AKS)
+description: Saiba como criar um volume manualmente com arquivos do Azure para uso com vários pods simultâneos no AKS (serviço kubernetes do Azure)
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,27 +8,27 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: mlearned
 ms.openlocfilehash: ad80b738058b4048fa1a51144a37eb4f62b538c0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67616029"
 ---
-# <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Crie manualmente e usar um volume com a partilha de ficheiros do Azure no Azure Kubernetes Service (AKS)
+# <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Criar e usar manualmente um volume com o compartilhamento de arquivos do Azure no serviço de kubernetes do Azure (AKS)
 
-Aplicações baseadas em contentores, muitas vezes, tem de aceder e manter os dados num volume de dados externa. Se precisam de vários pods acesso simultâneo no mesmo volume de armazenamento, pode utilizar ficheiros do Azure para ligar através da [protocolo Server Message Block (SMB)][smb-overview]. Este artigo mostra-lhe como criar uma partilha de ficheiros do Azure e anexá-lo a um pod no AKS manualmente.
+Aplicativos baseados em contêiner geralmente precisam acessar e manter dados em um volume de dados externo. Se vários pods precisarem de acesso simultâneo ao mesmo volume de armazenamento, você poderá usar os arquivos do Azure para se conectar usando o [protocolo SMB][smb-overview]. Este artigo mostra como criar manualmente um compartilhamento de arquivos do Azure e anexá-lo a um pod no AKS.
 
-Para obter mais informações sobre volumes do Kubernetes, consulte [opções de armazenamento para aplicações no AKS][concepts-storage].
+Para obter mais informações sobre volumes kubernetes, consulte [Opções de armazenamento para aplicativos em AKs][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Este artigo pressupõe que você tenha um cluster AKS existente. Se você precisar de um cluster AKS, consulte o guia de início rápido do AKS [usando o CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
-Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
+Você também precisa do CLI do Azure versão 2.0.59 ou posterior instalada e configurada. Execute `az --version` para localizar a versão. Se você precisar instalar ou atualizar, consulte [instalar CLI do Azure][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 
-Antes de poder utilizar os ficheiros do Azure como um volume do Kubernetes, tem de criar uma conta de armazenamento do Azure e a partilha de ficheiros. Os comandos seguintes criam um grupo de recursos chamado *myAKSShare*, uma conta de armazenamento e uma partilha de ficheiros com o nome *aksshare*:
+Antes de poder usar os arquivos do Azure como um volume kubernetes, você deve criar uma conta de armazenamento do Azure e o compartilhamento de arquivos. Os comandos a seguir criam um grupo de recursos chamado *myAKSShare*, uma conta de armazenamento e um compartilhamento de arquivos chamado *aksshare*:
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -57,21 +57,21 @@ echo Storage account name: $AKS_PERS_STORAGE_ACCOUNT_NAME
 echo Storage account key: $STORAGE_KEY
 ```
 
-Anote o nome da conta de armazenamento e a chave mostrado no final de saída do script. Estes valores são necessários quando criar o volume do Kubernetes em um dos seguintes passos.
+Anote o nome da conta de armazenamento e a chave mostrados no final da saída do script. Esses valores são necessários quando você cria o volume kubernetes em uma das etapas a seguir.
 
-## <a name="create-a-kubernetes-secret"></a>Crie um Kubernetes secreta
+## <a name="create-a-kubernetes-secret"></a>Criar um segredo kubernetes
 
-Kubernetes necessita de credenciais para aceder à partilha de ficheiro criada no passo anterior. Estas credenciais são armazenadas num [segredo do Kubernetes][kubernetes-secret], que é referenciado quando cria um pod de Kubernetes.
+O kubernetes precisa de credenciais para acessar o compartilhamento de arquivos criado na etapa anterior. Essas credenciais são armazenadas em um [segredo kubernetes][kubernetes-secret], que é referenciado quando você cria um pod kubernetes.
 
-Utilize o `kubectl create secret` comando para criar o segredo. O exemplo seguinte cria um partilhado com o nome *azure-secret* e preenche o *azurestorageaccountname* e *azurestorageaccountkey* do passo anterior. Para utilizar uma conta de armazenamento do Azure existente, forneça o nome da conta e a chave.
+Use o `kubectl create secret` comando para criar o segredo. O exemplo a seguir cria um compartilhado chamado *Azure-Secret* e popula o *azurestorageaccountname* e o *azurestorageaccountkey* da etapa anterior. Para usar uma conta de armazenamento do Azure existente, forneça o nome da conta e a chave.
 
 ```console
 kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=$AKS_PERS_STORAGE_ACCOUNT_NAME --from-literal=azurestorageaccountkey=$STORAGE_KEY
 ```
 
-## <a name="mount-the-file-share-as-a-volume"></a>Montar a partilha de ficheiros como um volume
+## <a name="mount-the-file-share-as-a-volume"></a>Montar o compartilhamento de arquivos como um volume
 
-Para montar a partilha de ficheiros do Azure no seu pod, configure o volume na especificação do contentor. Crie um novo ficheiro designado `azure-files-pod.yaml` com o seguinte conteúdo. Se tiver alterado o nome da partilha de ficheiros ou nome do segredo, atualize o *shareName* e *secretName*. Se assim o desejar, atualize o `mountPath`, que é o caminho onde os ficheiros partilham esteja montada no pod. Para o Windows Server contentores (atualmente em pré-visualização no AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, tal como *'D:'* .
+Para montar o compartilhamento de arquivos do Azure em seu Pod, configure o volume na especificação do contêiner. Crie um novo arquivo chamado `azure-files-pod.yaml` com o conteúdo a seguir. Se você alterou o nome do compartilhamento de arquivos ou nome do segredo,  atualize o ShareName e o *secretname*. Se desejar, atualize o `mountPath`, que é o caminho onde o compartilhamento de arquivos é montado no pod. Para contêineres do Windows Server (atualmente em visualização em AKS), especifique um *mountPath* usando a Convenção de caminho do Windows, como *: '* .
 
 ```yaml
 apiVersion: v1
@@ -100,13 +100,13 @@ spec:
       readOnly: false
 ```
 
-Utilize o `kubectl` comando para criar o pod.
+Use o `kubectl` comando para criar o pod.
 
 ```console
 kubectl apply -f azure-files-pod.yaml
 ```
 
-Tem agora um pod em execução com uma partilha de ficheiros do Azure montada em */mnt/azure*. Pode usar `kubectl describe pod mypod` para verificar a partilha é montada com êxito. O resultado de exemplo condensado seguinte mostra o volume montado no contentor:
+Agora você tem um pod em execução com um compartilhamento de arquivos do Azure montado em */mnt/Azure*. Você pode usar `kubectl describe pod mypod` o para verificar se o compartilhamento foi montado com êxito. A seguinte saída de exemplo condensada mostra o volume montado no contêiner:
 
 ```
 Containers:
@@ -135,17 +135,17 @@ Volumes:
 
 ## <a name="mount-options"></a>Opções de montagem
 
-Predefinido *fileMode* e *dirMode* valores diferentes entre versões do Kubernetes, conforme descrito na tabela seguinte.
+Os valores padrão *fileMode* e *dirMode* diferem entre as versões kubernetes, conforme descrito na tabela a seguir.
 
 | version | value |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
-| V1.8.6 ou superior | 0755 |
+| v 1.8.6 ou superior | 0755 |
 | v1.9.0 | 0700 |
-| V1.9.1 ou superior | 0755 |
+| v 1.9.1 ou superior | 0755 |
 
-Se utilizar um cluster de versão 1.8.5 ou superior e estaticamente criar o objeto de volume persistente, opções de montagem precisam ser especificado o *PersistentVolume* objeto.
+Se usar um cluster da versão 1.8.5 ou superior e criar estaticamente o objeto de volume persistente, as opções de montagem precisarão ser especificadas no objeto *PersistentVolume* .
 
 ```yaml
 apiVersion: v1
@@ -168,13 +168,13 @@ spec:
   - gid=1000
 ```
 
-Se utilizar um cluster de versão 1.8.0 - 1.8.4, um contexto de segurança pode ser especificado com o *runAsUser* valor definido como *0*. Para obter mais informações sobre o contexto de segurança de Pod, consulte [configurar um contexto de segurança][kubernetes-security-context].
+Se estiver usando um cluster da versão 1.8.0-1.8.4, um contexto de segurança poderá ser especificado com o valor de *runAsUser* definido como *0*. Para obter mais informações sobre o contexto de segurança Pod, consulte [configurar um contexto de segurança][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para as práticas recomendadas associadas, consulte [melhores práticas para o armazenamento e cópias de segurança no AKS][operator-best-practices-storage].
+Para obter as práticas recomendadas associadas, consulte [práticas recomendadas para armazenamento e backups em AKs][operator-best-practices-storage].
 
-Para obter mais informações sobre clusters do AKS interagir com os ficheiros do Azure, consulte a [Plug-in do Kubernetes para ficheiros do Azure][kubernetes-files].
+Para obter mais informações sobre os clusters AKS interagem com os arquivos do Azure, consulte o [plug-in kubernetes para arquivos do Azure][kubernetes-files].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
