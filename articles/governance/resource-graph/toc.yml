@@ -41,6 +41,9 @@
     - name: Obter alterações do recurso
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
+- name: Resolução de problemas
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: Referência
   items:
     - name: CLI do Azure
