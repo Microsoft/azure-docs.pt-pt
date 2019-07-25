@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Saiba como configurar, gerir, compilar e implementar uma aplicação através do Spatial Anchors do Azure.'
       - type: list
-        style: ordered
+        style: unordered
         items:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Partilhar no Unity.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Partilhar no Unity com o Azure Cosmos DB.</a>
