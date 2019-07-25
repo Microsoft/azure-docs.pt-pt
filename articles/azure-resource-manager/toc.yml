@@ -63,18 +63,18 @@
       href: template-best-practices.md
     - name: Modelos para a consistência de cloud
       href: templates-cloud-consistency.md
-    - name: Fornecedores e tipos de recursos
-      href: resource-manager-supported-services.md
-    - name: Gestor de Implementação
-      displayName: adm
-      href: deployment-manager-overview.md
-    - name: Verificação de estado de funcionamento do Gestor de Implementação
-      displayName: adm
-      href: deployment-manager-health-check.md
     - name: Modos de implementação
       href: deployment-modes.md
     - name: Eliminação de recursos
       href: resource-group-delete.md
+    - name: Gestor de Implementação
+      items:
+        - name: Descrição geral
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Verificação de estado de funcionamento
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
     - name: Implementação clássica e Resource Manager
       href: resource-manager-deployment-model.md
     - name: Atributos de segurança comuns do Azure
@@ -228,6 +228,8 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Problemas de implementação do Windows
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+    - name: Fornecedores e tipos de recursos
+      href: resource-manager-supported-services.md
     - name: Limitar pedidos
       href: resource-manager-request-limits.md
     - name: Monitorizar operações assíncronas

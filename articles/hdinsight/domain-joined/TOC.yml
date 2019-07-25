@@ -2,8 +2,8 @@
   href: /azure/hdinsight
 - name: Descrição geral
   items:
-    - name: O que é o Pacote de Segurança Enterprise no HDInsight?
-      href: apache-domain-joined-introduction.md
+    - name: O que é a segurança empresarial no HDInsight?
+      href: hdinsight-security-overview.md
 - name: Tutoriais
   items:
     - name: Apache HBase RBAC com o Apache Ranger

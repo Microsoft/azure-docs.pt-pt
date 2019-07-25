@@ -127,11 +127,25 @@
           href: sql-data-warehouse-overview-develop.md
         - name: Melhores práticas
           href: sql-data-warehouse-best-practices-development.md
+        - name: JSON
+          items:
+            - name: JSON
+              href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+            - name: ISJSON
+              href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+            - name: JSON_VALUE
+              href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+            - name: JSON_QUERY
+              href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+            - name: JSON_MODIFY
+              href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+            - name: OPENJSON
+              href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
         - name: Vista materializada
           items:
-            - name: Criar vista materializada como select (Transact-SQL)
+            - name: Criar
               href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
-            - name: Alterar vista materializada como select (Transact-SQL)
+            - name: Alterar
               href: /sql/t-sql/statements/alter-materialized-view-transact-sql
         - name: Colocação em cache dos resultados
           href: /sql/t-sql/statements/set-result-set-caching-transact-sql
@@ -281,6 +295,16 @@
           href: sql-data-warehouse-manage-monitor.md
         - name: Monitorizar a cache de Gen2
           href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Cópia de segurança e restauro
+      items:
+        - name: Criar pontos de restauro
+          href: sql-data-warehouse-restore-points.md
+        - name: Restaurar um armazém de dados existente
+          href: sql-data-warehouse-restore-active-paused-dw.md
+        - name: Restaurar um armazém de dados eliminado
+          href: sql-data-warehouse-restore-deleted-dw.md
+        - name: Restaurar a partir de uma cópia de segurança geo
+          href: sql-data-warehouse-restore-from-geo-backup.md
     - name: Integrar
       items:
         - name: Utilizar a aprendizagem automática
