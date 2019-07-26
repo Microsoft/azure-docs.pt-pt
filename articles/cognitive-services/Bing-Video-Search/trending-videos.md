@@ -1,7 +1,7 @@
 ---
-title: Pesquisar na web para vídeos populares usando a API de pesquisa de vídeos do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba como utilizar a API de pesquisa de vídeos do Bing para pesquisar a web para vídeos populares.
+title: Pesquise vídeos de tendências na Web usando o API de Pesquisa de Vídeo do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba como usar o API de Pesquisa de Vídeo do Bing para pesquisar vídeos de tendências na Web.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f79bf6c305ecc07b3e684ede15ad439039e7e
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61431927"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500618"
 ---
-# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos populares com a API de pesquisa de vídeos do Bing 
+# <a name="get-trending-videos-with-the-bing-video-search-api"></a>Obtenha vídeos de tendências com o API de Pesquisa de Vídeo do Bing 
 
-A API de pesquisa de vídeos do Bing permite-lhe encontrar vídeos populares da atualidade em toda a web e, em diferentes categorias. 
+O API de Pesquisa de Vídeo do Bing permite que você encontre vídeos de tendência de hoje em toda a Web e em categorias diferentes. 
 
-## <a name="get-request"></a>O pedido
+## <a name="get-request"></a>OBTER solicitação
 
-Para aproveitar a API de pesquisa de vídeos do Bing vídeos populares da atualidade, envie o pedido GET seguinte:  
+Para obter vídeos de tendência de hoje da API de Pesquisa de Vídeo do Bing, envie a seguinte solicitação GET:  
   
 ```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
@@ -35,27 +35,27 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="market-support"></a>Suporte do mercado
+## <a name="market-support"></a>Suporte ao mercado
 
-Os seguintes mercados suportam vídeos populares.  
+Os seguintes mercados dão suporte a vídeos de tendência.  
  
--   EN-AU (inglês, Austrália)  
--   en-CA (inglês, Canadá)  
--   en-GB (em inglês, Grã-Bretanha)  
--   EN-ID (inglês, Indonésia)  
--   EN-IE (inglês, Irlanda)  
--   EN-Índia (inglês, Índia)  
--   EN-NZ (inglês, Nova Zelândia)  
--   EN-PH (inglês, Filipinas)  
--   EN-SG (inglês, Singapura)  
--   EN-US (inglês, Estados Unidos)  
--   EN-WW (inglês, Worldwide agregar código)  
--   ZA en (inglês, África do Sul)  
--   zh-CN (Chinese, China)
+-   en-AU (Inglês, Austrália)  
+-   en-CA (Inglês, Canadá)  
+-   en-GB (Inglês, Grã-Bretanha)  
+-   EN-ID (Inglês, Indonésia)  
+-   EN-IE (Inglês, Irlanda)  
+-   en-IN (Inglês, Índia)  
+-   en-NZ (Inglês, Nova Zelândia)  
+-   EN-PH (Inglês, Filipinas)  
+-   EN-SG (Inglês, Cingapura)  
+-   en-US (Inglês, Estados Unidos)  
+-   EN-WW (Inglês, código de agregação mundial)  
+-   EN-ZA (Inglês, África do Sul)  
+-   ZH-CN (chinês, China)
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo  
+## <a name="example-json-response"></a>Exemplo de resposta JSON  
 
-O exemplo seguinte mostra uma resposta de API que contém vídeos populares, que estão listados por categoria e subcategoria. A resposta também contém vídeos de faixa, que são os mais populares vídeos populares e podem vir de uma ou mais categorias.  
+O exemplo a seguir mostra uma resposta de API que contém vídeos de tendência, que são listados por categoria e subcategoria. A resposta também contém vídeos de faixa, que são os vídeos mais populares de tendências e podem vir de uma ou mais categorias.  
 
 ```json
 {  
@@ -124,4 +124,4 @@ O exemplo seguinte mostra uma resposta de API que contém vídeos populares, que
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Obtenha informações de vídeo](video-insights.md)
+> [Obter informações de vídeo](video-insights.md)

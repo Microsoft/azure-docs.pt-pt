@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: cea763416f36abd80b1d22b4414cc2454bc30c66
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
-ms.translationtype: HT
+ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868732"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501311"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -114,12 +114,15 @@ Promova seus negócios com a Microsoft criando uma listagem do Marketplace. Sele
 - **Como você deseja que clientes potenciais interajam com esta oferta de listagem?**
 
 ##### <a name="get-it-now-free"></a>Obtenha agora (gratuito)
-Liste sua oferta aos clientes gratuitamente fornecendo uma URL válida (começando com http ou HTTPS) em que eles podem acessar seu aplicativo.  Por exemplo: `https://contoso.com/saas-app`
+Liste sua oferta aos clientes gratuitamente fornecendo uma URL válida (começando com *http* ou *https*) em que eles podem acessar seu aplicativo.  Por exemplo: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Avaliação gratuita (listagem)
-Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecendo uma URL válida (começando com http ou HTTPS) em que eles podem acessar seu aplicativo.  Por exemplo: `https://contoso.com/trial/saas-app`. As avaliações gratuitas de listagem de ofertas são criadas, gerenciadas e configuradas pelo seu serviço e não têm assinaturas gerenciadas pela Microsoft.
+Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecendo uma URL válida (começando com *http* ou *https*), em que eles podem obter uma avaliação por meio de [autenticação com um clique usando Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Por exemplo: `https://contoso.com/trial/saas-app`. As avaliações gratuitas de listagem de ofertas são criadas, gerenciadas e configuradas pelo seu serviço e não têm assinaturas gerenciadas pela Microsoft.
 
-##### <a name="contact-me"></a>Contactem-me
+> [!NOTE]
+> Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure AD para automatizar a criação de contas em seu aplicativo. As contas da Microsoft (MSA) não têm suporte para autenticação usando esse token.
+
+##### <a name="contact-me"></a>Contactar-me
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do Marketplace
@@ -178,7 +181,7 @@ Selecione **salvar** depois de concluir esses campos.
 ### <a name="category"></a>Category
 Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. 
 
-### <a name="industry"></a>Indústria
+### <a name="industry"></a>Sector
 Selecione até dois (2) setores usados para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Se sua oferta não for específica para um setor, não selecione uma. Descreva como sua oferta dá suporte aos setores selecionados na descrição da oferta. 
 
 ### <a name="app-version"></a>Versão da aplicação
@@ -220,13 +223,99 @@ Até 3.000 caracteres de texto podem ser inseridos neste campo. Para obter dicas
 - **Pesquisar palavras-chave**: Insira até três palavras-chave de pesquisa que os clientes podem usar para localizar sua oferta no (s) Marketplace (es).
 - **Instruções de introdução** (obrigatório): Explique como configurar e começar a usar seu aplicativo para clientes potenciais.  Este guia de início rápido pode conter links para documentação online mais detalhada. Até 3.000 caracteres de texto podem ser inseridos neste campo. 
 
-#### <a name="links"></a>Ligações
+#### <a name="description"></a>**Descrição**
+
+Este campo é obrigatório. Itens a serem incluídos na descrição: 
+
+* Descreva claramente a proposta de valor da sua oferta nas primeiras frases da sua descrição.  
+* Tenha em mente que as primeiras frases podem ser exibidas nos resultados do mecanismo de pesquisa.  
+* Não confie em recursos e funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você fornece.  
+* Use vocabulário específico do setor ou palavras com base no benefício o máximo possível. 
+
+Os componentes principais da sua proposta de valor devem incluir as seguintes informações: 
+
+* Descrição do produto. 
+* Tipo de usuário que se beneficia do produto. 
+* O cliente precisa ou problemático que o produto aborda. 
+
+Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML para formatar a descrição. 
+
+1. Se você quiser criar parágrafos, adicione `<p>` no implorando do texto e adicione `</p>` ao final.
+
+    **Exemplo**: 
+
+    `<p>`Este é o primeiro parágrafo. `</p>` <br>
+    `<p>`Este é o meu segundo parágrafo. `</p>` <br>
+
+    O anterior ficaria assim:
+
+    <p> Este é o primeiro parágrafo. </p>
+    <p> Este é o meu segundo parágrafo. </p>
+
+1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das `<li>` marcas abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as `<li>` marcas `</li>` e) nas `<ul>` marcas e `</ul>` . Certifique-se de adicionar `<ul></ul>`o. 
+
+    **Exemplo**:
+
+    ```
+    <ul> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
+    </ul> 
+    ```
+
+    O anterior ficaria assim:
+    <ul> 
+        <li>Adicionar texto aqui</li> 
+        <li> Adicionar texto aqui </li> 
+        <li> Adicionar texto aqui </li> 
+    </ul> 
+
+1. Para conteúdo em **negrito** , `<b>` adicione no início do texto que você deseja negrito e adicione `</b>` ao final do texto que você deseja colocar em negrito. 
+
+    **Exemplo**: `<b>`AVALIAÇÃO GRATUITA`</b>`
+    
+    O anterior faria com que as palavras de avaliação gratuita fossem em negrito na descrição da oferta na vitrine. 
+
+    **AVALIAÇÃO GRATUITA**
+
+1. Para adicionar **quebras de linha** entre o conteúdo `<br>` , adicione antes do conteúdo que você deseja iniciar em uma nova linha. Se você quiser deixar um espaço e certificar-se de que o conteúdo começa em uma nova `<br><br>` linha, adicione antes do conteúdo. 
+
+    **Exemplo**:
+
+    Esta é uma linha de texto. `<br>`Esta é uma linha de texto que será iniciada em uma nova linha. `<br><br>`Esta é uma linha que iniciará duas linhas abaixo. 
+
+    O anterior ficaria assim:
+
+    Esta é uma linha de texto. <br> Esta é uma linha de texto que será iniciada em uma nova linha. <br><br> Esta é uma linha que iniciará duas linhas abaixo. 
+
+1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcas correspondentes `<H*></H*>` ao início e ao final do texto. 
+
+    **Exemplo**:
+
+    `<h1>`Este é o título 1`</h1>` <br>
+    `<h2>`Este é o título 2`</h2>` <br>
+    `<h3>`Este é o título 3`</h3>` <br>
+    `<h4>`Este é o título 4`</h4>` <br>
+    `<h5>`Este é o título 5`</h5>` <br>
+    `<h6>`Este é o título 6`</h6>` 
+
+    O anterior ficaria assim:
+
+    <h1>Este é o título 1</h1> 
+    <h2>Este é o título 2</h2> 
+    <h3>Este é o título 3</h3> 
+    <h4>Este é o título 4</h4> 
+    <h5>Este é o título 5</h5> 
+    <h6>Este é o título 6</h6> 
+
+#### <a name="links"></a>Hiperligações
 
 - **Política de privacidade** (obrigatório): Link para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida
 - **Materiais de marketing do programa CSP** (opcional): Você deve fornecer um link para materiais de marketing se optar por estender sua oferta para o programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . O CSP amplia sua oferta para uma variedade maior de clientes qualificados, permitindo que os parceiros do CSP agrupem, comercializam e revendam sua oferta. Esses revendedores precisarão de acesso aos materiais para marketing de sua oferta. Para obter mais informações, consulte [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
 - **Links úteis** (opcional): Documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados listados fornecendo um **título** e uma **URL**. Adicione links úteis adicionais clicando em **+ Adicionar uma URL**.
 
-#### <a name="contact-information"></a>Informações de contacto
+#### <a name="contact-information"></a>Informação de contacto
 
 - **Contatos**: Para cada contato de cliente, forneça um **nome** de funcionário, **número de telefone**e endereço de **email** .  (Eles *não serão* exibidos publicamente). Uma **URL de suporte** também é necessária para o grupo de **contato de suporte** .  (Essas informações *serão* exibidas publicamente).
 
@@ -259,7 +348,7 @@ A guia **Visualização** permite que você defina um **público de visualizaç�
 
 - **Definir um público-alvo de visualização: Adicione um único email de conta do AAD/MSA por linha, juntamente com uma descrição opcional.**
 
-Adicione até dez (10) endereços de email manualmente ou vinte (20) se estiver carregando um arquivo CSV, para contas existentes do MSA (conta da Microsoft) ou Azure Active Directory (AAD) para ajudar a validar sua oferta antes de publicar em tempo real. Ao adicionar essas contas, você está definindo um público que terá permissão para visualizar o acesso à sua oferta antes que ele seja publicado no (s) Marketplace (es). Se sua oferta já estiver ativa, você ainda poderá definir um público de visualização para testar quaisquer alterações ou atualizações na sua oferta.
+Adicione até dez (10) endereços de email manualmente ou vinte (20) se estiver carregando um arquivo CSV, para a conta da Microsoft existente (MSA) ou Azure Active Directory contas para ajudar a validar sua oferta antes de publicar em tempo real. Ao adicionar essas contas, você está definindo um público que terá permissão para visualizar o acesso à sua oferta antes que ele seja publicado no (s) Marketplace (es). Se sua oferta já estiver ativa, você ainda poderá definir um público de visualização para testar quaisquer alterações ou atualizações na sua oferta.
 
 > [!NOTE]
 > O público de visualização difere de um público privado. Um público de visualização tem permissão de acesso à sua oferta _antes_ de ser publicado em tempo real nos Marketplaces. Você também pode optar por criar um plano e torná-lo disponível somente para um público privado. Na guia **lista de planos** , você pode definir um público privado com a caixa de seleção **este é um plano privado** . Em seguida, você pode definir um público privado de até 20.000 clientes usando as IDs de locatário do Azure.
@@ -496,6 +585,6 @@ Se esta for a primeira vez que você publica essa oferta, você pode:
 - Forneça instruções de teste à equipe de certificação para garantir que seu aplicativo seja testado corretamente, além de qualquer nota suplementar útil para entender seu aplicativo.
 - Envie a oferta para publicação selecionando **Enviar**. Enviaremos um email para que você saiba quando uma versão prévia da oferta está disponível para revisão e aprovação. Você deve retornar ao Partner Center e selecionar **Go-Live** para a oferta para publicar sua oferta no público (ou se uma oferta privada, para o público privado).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

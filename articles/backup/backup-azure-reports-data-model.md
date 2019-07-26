@@ -1,193 +1,192 @@
 ---
-title: Modelo de dados para cópia de segurança do Azure
-description: Este artigo fala sobre detalhes de modelo de dados do Power BI para relatórios de cópia de segurança do Azure.
-services: backup
+title: Modelo de dados para o backup do Azure
+description: Este artigo fala sobre Power BI detalhes do modelo de dados para relatórios de backup do Azure.
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337583"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465602"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Modelo de dados para relatórios do Azure Backup
-Este artigo descreve o modelo de dados do Power BI utilizado para a criação de relatórios do Azure Backup. Usando esse modelo de dados, pode filtrar relatórios existentes com base nos campos relevantes e mais importante, criar seus próprios relatórios com tabelas e campos no modelo. 
+Este artigo descreve o modelo de dados Power BI usado para criar relatórios de backup do Azure. Usando esse modelo de dados, você pode filtrar relatórios existentes com base em campos relevantes e, mais importante, criar seus próprios relatórios usando tabelas e campos no modelo. 
 
-## <a name="creating-new-reports-in-power-bi"></a>Criar novos relatórios no Power BI
-O Power BI fornece recursos de personalização com o que pode [criar relatórios usando o modelo de dados](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
+## <a name="creating-new-reports-in-power-bi"></a>Criando novos relatórios no Power BI
+Power BI fornece recursos de personalização usando os quais você pode [criar relatórios usando o modelo de dados](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/).
 
-## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de cópia de segurança do Azure
-Pode utilizar os seguintes campos fornecidos como parte do modelo de dados para criar relatórios e personalizar relatórios existentes.
+## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de backup do Azure
+Você pode usar os campos a seguir fornecidos como parte do modelo de dados para criar relatórios e personalizar os relatórios existentes.
 
 ### <a name="alert"></a>Alerta
-Esta tabela fornece campos básicos e agregações ao longo de vários campos relacionados alerta.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao alerta.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Número inteiro |Número de alertas criados no período de tempo selecionado |
-| %ActiveAlertsCreatedInPeriod |Percentagem |Percentagem de alertas ativos no período de tempo selecionado |
-| %CriticalAlertsCreatedInPeriod |Percentagem |Percentagem de alertas críticos no período de tempo selecionado |
-| AlertOccurrenceDate |Date |Data de quando o alerta foi criado |
-| AlertSeverity |Text |Gravidade do alerta, por exemplo, crítico |
-| AlertStatus |Text |Estado do alerta, por exemplo, Active Directory |
-| AlertType |Text |Tipo de alerta gerado por exemplo, a cópia de segurança |
-| AlertUniqueId |Text |Id exclusivo do alerta gerado |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
+| %ActiveAlertsCreatedInPeriod |Percentagem |Percentual de alertas ativos no período de tempo selecionado |
+| %CriticalAlertsCreatedInPeriod |Percentagem |Percentual de alertas críticos no período de tempo selecionado |
+| AlertOccurrenceDate |Date |Data em que o alerta foi criado |
+| AlertSeverity |Text |Severidade do alerta, por exemplo, crítico |
+| AlertStatus |Text |Status do alerta, por exemplo, ativo |
+| AlertType |Text |Tipo do alerta gerado, por exemplo, backup |
+| AlertUniqueId |Text |ID exclusiva do alerta gerado |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Número decimal |Tempo médio (em minutos) para resolver o alerta para o período de tempo selecionado |
-| EntityState |Text |Estado atual do objeto alerta, por exemplo, Active Directory, eliminado |
+| EntityState |Text |Estado atual do objeto de alerta, por exemplo, ativo, excluído |
 
-### <a name="backup-item"></a>Item de cópia de segurança
-Esta tabela fornece campos básicos e agregações ao longo de vários campos de cópia de segurança relacionados com o item.
+### <a name="backup-item"></a>Item de backup
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao item de backup.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| #BackupItems |Número inteiro |Número de itens de cópia de segurança |
-| #UnprotectedBackupItems |Número inteiro |Número de itens de cópia de segurança parado para proteção ou configurados para cópias de segurança, mas as cópias de segurança não foi iniciadas|
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| BackupItemFriendlyName |Text |Nome amigável de item de cópia de segurança |
-| BackupItemId |Text |ID do item de cópia de segurança |
-| BackupItemName |Text |Nome do item de cópia de segurança |
-| BackupItemType |Text |Tipo de item de cópia de segurança, por exemplo, a VM, FileFolder |
-| EntityState |Text |Estado atual do objeto de item de cópia de segurança, por exemplo, Active Directory, eliminado |
-| LastBackupDateTime |Data/Hora |Hora da última cópia de segurança para o item de cópia de segurança selecionado |
-| LastBackupState |Text |Estado da última cópia de segurança para o item de cópia de segurança selecionado por exemplo, com êxito, com falhas |
-| LastSuccessfulBackupDateTime |Data/Hora |Hora da última cópia de segurança com êxito para o item de cópia de segurança selecionado |
-| ProtectionState |Text |Estado de proteção atual do item de cópia de segurança por exemplo, protegido, ProtectionStopped |
+| #BackupItems |Número inteiro |Número de itens de backup |
+| #UnprotectedBackupItems |Número inteiro |Número de itens de backup interrompidos para proteção ou configurados para backups, mas backups não iniciados|
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| BackupItemFriendlyName |Text |Nome amigável do item de backup |
+| BackupItemId |Text |ID do item de backup |
+| BackupItemName |Text |Nome do item de backup |
+| BackupItemType |Text |Tipo de item de backup, por exemplo, VM, fileFolder |
+| EntityState |Text |Estado atual do objeto de item de backup, por exemplo, ativo, excluído |
+| LastBackupDateTime |Date/Time |Hora do último backup do item de backup selecionado |
+| LastBackupState |Text |Estado do último backup para o item de backup selecionado, por exemplo, bem-sucedido, com falha |
+| LastSuccessfulBackupDateTime |Date/Time |Hora do último backup bem-sucedido para o item de backup selecionado |
+| Proteçãostate |Text |Estado de proteção atual do item de backup, por exemplo, protegido, ProtectionStopped |
 
 ### <a name="calendar"></a>Calendário
-Esta tabela fornece detalhes sobre os campos relacionados com o calendário.
+Esta tabela fornece detalhes sobre os campos relacionados ao calendário.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | Date |Date |Data selecionada para filtrar dados |
-| DateKey |Text |Chave exclusiva para cada item de dados |
-| DayDiff |Número decimal |Diferença em dias para filtrar dados, por exemplo, 0 indica a data do dia atual, -1 indica dados do dia anterior um, 0 e -1 indicam dados para o dia atual e anterior  |
-| Mês |Text |Mês do ano selecionado para filtrar os dados, o mês começa no primeiro dia e termina a 31 dias |
-| MonthDate | Date |Data no mês quando termina o mês, selecionada para filtrar os dados |
-| MonthDiff |Número decimal |Diferença no mês para filtrar dados, por exemplo, 0 indica os dados do mês atual, -1 indica os dados do mês anterior, 0 e -1 indicam dados para o mês atual e anterior |
-| Week (Semana) |Text |Semana selecionado para filtrar dados semana começa no Domingo e termina no Sábado |
-| WeekDate |Date |Data da semana, quando a semana termina, selecionada para filtrar os dados |
-| WeekDiff |Número decimal |Diferença na semana para filtrar dados, por exemplo, 0 indica os dados da semana atual, -1 indica os dados da semana anterior, 0 e -1 indicam dados para a semana atual e anterior |
-| Ano |Text |Ano de calendário selecionado para filtrar os dados |
-| YearDate |Date |Datas no ano quando termina o ano, selecionada para filtrar os dados |
+| DateKey |Text |Chave exclusiva para cada item de data |
+| DayDiff |Número decimal |Diferença no dia para filtrar dados, por exemplo, 0 indica os dados do dia atual,-1 indica os dados de um dia anterior, 0 e-1 indicam os dados para o dia atual e o anterior  |
+| Mês |Text |Mês do ano selecionado para filtrar dados, o mês começa no primeiro dia e termina no dia 31 |
+| MonthDate | Date |Data do mês em que o mês termina, selecionado para filtrar dados |
+| MonthDiff |Número decimal |Diferença no mês de filtragem de dados, por exemplo, 0 indica os dados do mês atual,-1 indica os dados do mês anterior, 0 e-1 indicam dados para o mês atual e o anterior |
+| Semana |Text |Semana selecionada para filtrar dados, a semana começa no domingo e termina no sábado |
+| WeekDate |Date |Data da semana quando a semana termina, selecionada para filtrar dados |
+| WeekDiff |Número decimal |Diferença na semana para filtrar dados, por exemplo, 0 indica os dados da semana atual,-1 indica os dados da semana anterior, 0 e-1 indicam dados para a semana atual e a anterior |
+| Ano |Text |Ano civil selecionado para filtrar dados |
+| YearDate |Date |Data do ano em que o ano termina, selecionado para filtrar dados |
 
 ### <a name="job"></a>Tarefa
-Esta tabela fornece campos básicos e agregações ao longo de vários campos relacionados com tarefas.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao trabalho.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| #JobsCreatedInPeriod |Número inteiro |Número de tarefas criadas no período de tempo selecionado |
-| %FailuresForJobsCreatedInPeriod |Percentagem |Percentagem de falhas em tarefas gerais no período de tempo selecionado |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Número decimal |valor de percentil 80th dos dados transferidos em MB para **cópia de segurança** tarefas criadas no período de tempo selecionado |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para que **cópia de segurança concluída** tarefas criadas no período de tempo selecionado |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para que **concluir o restauro** tarefas criadas no período de tempo selecionado |
-| BackupStorageDestination |Text |Destino de cópias de segurança, por exemplo, a nuvem, disco  |
-| EntityState |Text |Estado atual do objeto de tarefa, por exemplo, Active Directory, eliminado |
-| JobFailureCode |Text |Cadeia de caracteres do código de falha devido a que ocorreu a falha da tarefa |
-| JobOperation |Text |Operação para o qual tarefa é executada por exemplo, cópia de segurança, restauro, configurar a cópia de segurança |
-| JobStartDate |Date |Data de quando iniciar a tarefa em execução |
-| JobStartTime |Hora |Tempo quando iniciar a tarefa em execução |
-| Estado da Tarefa |Text |Estado do trabalho concluído, por exemplo, concluído, com falhas |
-| JobUniqueId |Text |Id exclusivo para identificar a tarefa |
+| #JobsCreatedInPeriod |Número inteiro |Número de trabalhos criados no período de tempo selecionado |
+| %FailuresForJobsCreatedInPeriod |Percentagem |Percentual de falhas gerais de trabalho no período de tempo selecionado |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Número decimal |valor do 80 º percentil de dados transferidos em MB para trabalhos de **backup** criados no período de tempo selecionado |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para trabalhos de **backup concluídos** criados no período de tempo selecionado |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |Número decimal |Tempo médio em minutos para trabalhos de **restauração concluídos** criados no período de tempo selecionado |
+| BackupStorageDestination |Text |Destino do armazenamento de backup, por exemplo, nuvem, disco  |
+| EntityState |Text |Estado atual do objeto de trabalho, por exemplo, ativo, excluído |
+| JobFailureCode |Text |Cadeia de caracteres de código de falha devido a uma falha de trabalho |
+| JobOperation |Text |Operação para a qual o trabalho é executado, por exemplo, backup, restauração, configurar backup |
+| JobStartDate |Date |Data em que o trabalho começou a ser executado |
+| JobStartTime |Time |Hora em que o trabalho começou a ser executado |
+| Estado da Tarefa |Text |Status do trabalho concluído, por exemplo, concluído, com falha |
+| JobUniqueId |Text |ID exclusiva para identificar o trabalho |
 
 ### <a name="policy"></a>Política
-Esta tabela fornece campos básicos e agregações ao longo de vários campos relacionados com a política.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados à política.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| #Policies |Número inteiro |Número de políticas de cópia de segurança que existe no sistema |
-| #PoliciesInUse |Número inteiro |Número de políticas atualmente a ser utilizado para configurar cópias de segurança |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| BackupDaysOfTheWeek |Text |Dias da semana quando tiverem sido agendadas as cópias de segurança |
-| BackupFrequency |Text |Frequência com que as cópias de segurança são executadas, por exemplo, diariamente, semanalmente |
-| BackupTimes |Text |Data e hora quando estão agendadas cópias de segurança |
-| DailyRetentionDuration |Número inteiro |Duração total de retenção em dias para cópias de segurança configurados |
-| DailyRetentionTimes |Text |Data e hora quando a retenção diária foi configurada |
-| EntityState |Text |Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
-| MonthlyRetentionDaysOfTheMonth |Text |Datas do mês selecionado para a retenção mensal |
-| MonthlyRetentionDaysOfTheWeek |Text |Dias da semana selecionada para a retenção mensal |
-| MonthlyRetentionDuration |Número decimal |Duração da retenção total nos meses para cópias de segurança configuradas |
-| MonthlyRetentionFormat |Text |Tipo de configuração de retenção mensal por exemplo, diariamente por dia, com base, semanalmente por semana com base |
-| MonthlyRetentionTimes |Text |Data e hora quando estiver configurada retenção mensal |
-| MonthlyRetentionWeeksOfTheMonth |Text |Semanas do mês quando o período de retenção mensal é configurado, por exemplo, primeiro, último etc. |
+| #Policies |Número inteiro |Número de políticas de backup existentes no sistema |
+| #PoliciesInUse |Número inteiro |Número de políticas que estão sendo usadas atualmente para configurar backups |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| BackupDaysOfTheWeek |Text |Dias da semana em que os backups foram agendados |
+| BackupFrequency |Text |Frequência com que os backups são executados por exemplo, diariamente, semanalmente |
+| Inatividade |Text |Data e hora em que os backups são agendados |
+| DailyRetentionDuration |Número inteiro |Duração total de retenção em dias para backups configurados |
+| DailyRetentionTimes |Text |Data e hora em que a retenção diária foi configurada |
+| EntityState |Text |Estado atual do objeto de política, por exemplo, ativo, excluído |
+| MonthlyRetentionDaysOfTheMonth |Text |Datas do mês selecionadas para retenção mensal |
+| MonthlyRetentionDaysOfTheWeek |Text |Dias da semana selecionados para retenção mensal |
+| MonthlyRetentionDuration |Número decimal |Duração total de retenção em meses para backups configurados |
+| MonthlyRetentionFormat |Text |Tipo de configuração para retenção mensal, por exemplo, diariamente com base no dia, semanal para a semana com base |
+| MonthlyRetentionTimes |Text |Data e hora quando a retenção mensal está configurada |
+| MonthlyRetentionWeeksOfTheMonth |Text |Semanas do mês em que a retenção mensal é configurada, por exemplo, a primeira, a última, etc. |
 | PolicyName |Text |Nome da política definida |
-| PolicyUniqueId |Text |Id exclusivo para identificar a política |
-| RetentionType |Text |Tipo de política de retenção por exemplo, diárias, semanais, mensais, anuais |
-| WeeklyRetentionDaysOfTheWeek |Text |Dias da semana selecionada para a retenção semanal |
-| WeeklyRetentionDuration |Número decimal |Duração da retenção semanal total em semanas para cópias de segurança configuradas |
-| WeeklyRetentionTimes |Text |Data e hora quando estiver configurada retenção semanal |
-| YearlyRetentionDaysOfTheMonth |Text |Datas do mês selecionado para a retenção anual |
-| YearlyRetentionDaysOfTheWeek |Text |Dias da semana selecionada para a retenção anual |
-| YearlyRetentionDuration |Número decimal |Duração da retenção total nos anos para cópias de segurança configurados |
-| YearlyRetentionFormat |Text |Tipo de configuração de retenção anual por exemplo, diariamente por dia, com base, semanalmente por semana com base |
-| YearlyRetentionMonthsOfTheYear |Text |Meses do ano selecionado para a retenção anual |
-| YearlyRetentionTimes |Text |Data e hora quando estiver configurada retenção anual |
-| YearlyRetentionWeeksOfTheMonth |Text |Semanas do mês quando o período de retenção anual é configurado, por exemplo, primeiro, último etc. |
+| PolicyUniqueId |Text |ID exclusiva para identificar a política |
+| RetentionType |Text |Tipo de política de retenção, por exemplo, diária, semanal, mensal, anual |
+| WeeklyRetentionDaysOfTheWeek |Text |Dias da semana selecionados para retenção semanal |
+| WeeklyRetentionDuration |Número decimal |Duração da retenção semanal total em semanas para backups configurados |
+| WeeklyRetentionTimes |Text |Data e hora quando a retenção semanal é configurada |
+| YearlyRetentionDaysOfTheMonth |Text |Datas do mês selecionadas para retenção anual |
+| YearlyRetentionDaysOfTheWeek |Text |Dias da semana selecionados para retenção anual |
+| YearlyRetentionDuration |Número decimal |Duração total de retenção em anos para backups configurados |
+| YearlyRetentionFormat |Text |Tipo de configuração para retenção anual, por exemplo, diariamente com base no dia, semanal para a semana com base |
+| YearlyRetentionMonthsOfTheYear |Text |Meses do ano selecionados para retenção anual |
+| YearlyRetentionTimes |Text |Data e hora quando a retenção anual é configurada |
+| YearlyRetentionWeeksOfTheMonth |Text |Semanas do mês em que a retenção anual é configurada, por exemplo, a primeira, a última, etc. |
 
 ### <a name="protected-server"></a>Servidor protegido
-Esta tabela fornece campos básicos e agregações ao longo de vários campos protegidos relacionados a servidores.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao servidor protegido.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | #ProtectedServers |Número inteiro |Número de servidores protegidos |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| AzureBackupAgentOSType |Text |Tipo de SO do agente de cópia de segurança do Azure |
-| AzureBackupAgentOSVersion |Text |Versão do SO do agente de cópia de segurança do Azure |
-| AzureBackupAgentUpdateDate |Text |Data de quando o agente de cópia de segurança do agente foi atualizado |
-| AzureBackupAgentVersion |Text |Número de versão de versão do agente de cópia de segurança |
-| BackupManagementType |Text |Tipo de fornecedor para a execução de cópia de segurança, por exemplo, IaaSVM, FileFolder |
-| EntityState |Text |Estado atual do objeto de servidor protegido, por exemplo, Active Directory, eliminado |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| AzureBackupAgentOSType |Text |Tipo de so do agente de backup do Azure |
+| AzureBackupAgentOSVersion |Text |Versão do so do agente de backup do Azure |
+| AzureBackupAgentUpdateDate |Text |Data quando o agente de backup do agente foi atualizado |
+| AzureBackupAgentVersion |Text |Número de versão da versão de backup do agente |
+| BackupManagementType |Text |Tipo de provedor para executar o backup, por exemplo, IaaSVM, fileFolder |
+| EntityState |Text |Estado atual do objeto de servidor protegido, por exemplo, ativo, excluído |
 | ProtectedServerFriendlyName |Text |Nome amigável do servidor protegido |
 | ProtectedServerName |Text |Nome do servidor protegido |
-| ProtectedServerType |Text |Tipo de servidor protegido backup IaaSVMContainer por exemplo, |
-| ProtectedServerName |Text |Nome do servidor protegido para o qual o item de cópia de segurança pertence |
-| RegisteredContainerId |Text |O ID de contentor registado para cópia de segurança |
+| ProtectedServerType |Text |Tipo de backup do servidor protegido, por exemplo, IaaSVMContainer |
+| ProtectedServerName |Text |Nome do servidor protegido ao qual pertence o item de backup |
+| RegisteredContainerId |Text |ID do contêiner registrado para backup |
 
 ### <a name="storage"></a>Armazenamento
-Esta tabela fornece campos básicos e agregações ao longo de vários campos relacionados com o armazenamento.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao armazenamento.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| #ProtectedInstances |Número decimal |Número de instâncias protegidas usada para calcular o armazenamento de front-end na faturação, calculada com base no valor mais recente no tempo selecionado |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| CloudStorageInMB |Número decimal |O armazenamento de cópia de segurança na cloud utilizados pelas cópias de segurança, calculadas com base no valor mais recente no tempo selecionado |
-| EntityState |Text |Estado atual do objeto, por exemplo, Active Directory, eliminado |
-| LastUpdatedDate |Date |Data de quando linha selecionada foi atualizado pela última vez |
+| #ProtectedInstances |Número decimal |Número de instâncias protegidas usadas para calcular o armazenamento de front-end na cobrança, calculadas com base no valor mais recente na hora selecionada |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| CloudStorageInMB |Número decimal |Armazenamento de backup na nuvem usado pelos backups, calculados com base no valor mais recente na hora selecionada |
+| EntityState |Text |Estado atual do objeto, por exemplo, ativo, excluído |
+| LastUpdatedDate |Date |Data em que a linha selecionada foi atualizada pela última vez |
 
-### <a name="time"></a>Hora
-Esta tabela fornece detalhes sobre os campos relacionados com o tempo.
+### <a name="time"></a>Time
+Esta tabela fornece detalhes sobre os campos relacionados ao tempo.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
-| Hora |Hora |Hora do dia, por exemplo, 1: das 12:00:00 |
-| HourNumber |Número decimal |Número de hora do dia, por exemplo, 13.00 |
+| Hora |Time |Hora do dia, por exemplo, 1:00:00 PM |
+| HourNumber |Número decimal |Número de hora no dia, por exemplo, 13, 0 |
 | Minuto |Número decimal |Minuto da hora |
-| PeriodOfTheDay |Text |Ranhura de período de tempo no dia, por exemplo, 3 de 12 AM |
-| Hora |Hora |Hora do dia, por exemplo, 12:00: 01 AM |
-| TimeKey |Text |Valor da chave para representar o tempo |
+| PeriodOfTheDay |Text |Slot de período de tempo no dia, por exemplo, 12-3 AM |
+| Time |Time |Hora do dia, por exemplo, 12:00:01 AM |
+| TimeKey |Text |Valor da chave para representar a hora |
 
 ### <a name="vault"></a>Cofre
-Esta tabela fornece campos básicos e agregações ao longo de vários campos relacionados com o cofre.
+Esta tabela fornece campos e agregações básicos em vários campos relacionados ao cofre.
 
 | Campo | Tipo de Dados | Descrição |
 | --- | --- | --- |
 | #Vaults |Número inteiro |Número de cofres |
-| AsOnDateTime |Data/Hora |Hora de atualização mais recente para a linha selecionada |
-| AzureDataCenter |Text |Onde está localizado o Cofre de centro de dados |
-| EntityState |Text |Estado atual do objeto de cofre, por exemplo, Active Directory, eliminado |
-| StorageReplicationType |Text |Tipo de replicação de armazenamento para o cofre, por exemplo, GeoRedundant |
-| SubscriptionId |Text |Id de subscrição do cliente selecionado para a geração de relatórios |
-| VaultName |Text |Nome do Cofre |
-| VaultTags |Text |Marcas associadas ao Cofre |
+| AsOnDateTime |Date/Time |Hora de atualização mais recente para a linha selecionada |
+| AzureDataCenter |Text |Data Center onde o cofre está localizado |
+| EntityState |Text |Estado atual do objeto do cofre, por exemplo, ativo, excluído |
+| StorageReplicationType |Text |Tipo de replicação de armazenamento para o cofre, por exemplo, georedundante |
+| SubscriptionId |Text |ID da assinatura do cliente selecionado para gerar relatórios |
+| VaultName |Text |Nome do cofre |
+| VaultTags |Text |Marcas associadas ao cofre |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de rever o modelo de dados para a criação de relatórios do Azure Backup, consulte os artigos seguintes para obter mais detalhes sobre como criar e visualizar relatórios no Power BI.
+Depois de examinar o modelo de dados para criar relatórios de backup do Azure, consulte os artigos a seguir para obter mais detalhes sobre como criar e exibir relatórios no Power BI.
 
-* [Criar relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-* [Filtragem de relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Criando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Filtrando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

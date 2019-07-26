@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 07/25/2019
 ms.author: diberry
-ms.openlocfilehash: efb2524b430935e6c74415efe850b69835825bc7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 156b2cf7c8042699f70e4bc3ec0b8944ac59a364
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447678"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501168"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -25,22 +25,22 @@ A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são supo
 
 |Tipo de Fonte|Tipo de Conteúdo| Exemplos|
 |--|--|--|
-|do IdP|FAQs<br> (Fixa, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Página única artigos de procedimentos, resolução de problemas de artigos, etc.)|[FAQ simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com ligações](https://www.microsoft.com/software-download/faq),<br> [Perguntas frequentes com home page de tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC|FAQs,<br> Manual de produto,<br> Brochuras,<br> Documento,<br> Política de documentos,<br> Guia de suporte,<br> QnA estruturado,<br> etc.|[Estruturado QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual.pdf de produto de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo semiestruturados structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Branco paper.pdf de exemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Ficheiro de QnA estruturado<br> (incluindo RTF, HTML suportam)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL|FAQs<br> (Simples, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Artigos de instruções de página única, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Página de perguntas frequentes com tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC|FAQs<br> Manual do produto,<br> Folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo white paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Ficheiro de QnA estruturado<br> (incluindo RTF, suporte a HTML)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Ficheiro de QnA estruturado|[Exemplo chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
 
-A maioria das localizações de origem de dados tem de fornecer URLs públicas ou de arquivos, que não necessitam de autenticação. 
+A maioria dos locais de fonte de dados precisa fornecer URLs ou arquivos públicos, que não exigem autenticação. 
 
-[Localizações de origem de dados do SharePoint](../How-to/add-sharepoint-datasources.md) têm permissão para fornecer os ficheiros de autenticado. Recursos do SharePoint tem de ser ficheiros, não páginas da web. 
+Os [locais de fonte de dados do SharePoint](../How-to/add-sharepoint-datasources.md) têm permissão para fornecer arquivos autenticados. Os recursos do SharePoint devem ser arquivos, não páginas da Web. 
 
-Em seguida, se tiver um arquivo autenticado ou URL, uma opção é transferir o ficheiro a partir do site autenticado para o computador local, adicione o ficheiro do seu local computador para a base de dados de conhecimento. 
+Se você tiver um arquivo ou URL autenticados, uma opção alternativa é baixar o arquivo do site autenticado para o computador local e, em seguida, adicionar o arquivo do computador local à base de dados de conhecimento. 
 
 ## <a name="faq-urls"></a>URLs de FAQ
 
-A ferramenta QnA Maker pode suportar FAQ páginas da web em 3 diferentes formatos: Páginas de FAQ sem formatação, páginas de FAQ com links, páginas de FAQ com uma home page de tópicos.
+QnA Maker pode dar suporte a páginas da Web de perguntas frequentes em três formas diferentes: Páginas de perguntas frequentes simples, páginas de perguntas frequentes com links, páginas de perguntas frequentes com uma página de tópicos.
 
 ### <a name="plain-faq-pages"></a>Páginas de FAQ simples
 
@@ -69,14 +69,14 @@ Segue-se um exemplo de uma página de perguntas frequentes sobre onde uma home p
  ![Exemplo de página de perguntas frequentes sobre a ligação avançada para uma base de dados de conhecimento](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
-### <a name="support-urls"></a>Urls de suporte
+### <a name="support-urls"></a>URLs de suporte
 
-A ferramenta QnA Maker pode processar suporte semiestruturados páginas da web, como artigos da web que descrevem como executar uma determinada tarefa, como diagnosticar e resolver um problema e quais são as melhores práticas para um determinado processo. Extração funciona melhor em conteúdo que tenha uma estrutura clara com cabeçalhos hierárquicas.
+QnA Maker pode processar páginas da Web de suporte semiestruturadas, como artigos da Web que descrevem como executar uma determinada tarefa, como diagnosticar e resolver um determinado problema e quais são as práticas recomendadas para um determinado processo. A extração funciona melhor em conteúdo que tem uma estrutura clara com títulos hierárquicos.
 
 > [!NOTE]
-> Extração de artigos de suporte é uma nova funcionalidade e nas fases iniciais. Ele funciona melhor para páginas simples, que são bem estruturadas e não contêm cabeçalhos/rodapés complexos.
+> A extração para artigos de suporte é um novo recurso e está em estágios iniciais. Ele funciona melhor para páginas simples, que são bem estruturadas e não contêm cabeçalhos/rodapés complexos.
 
-![A ferramenta QnA Maker suporta extração semiestruturados páginas da web onde é apresentada uma estrutura clara cabeçalhos hierárquicos](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+![QnA Maker dá suporte à extração de páginas da Web semiestruturadas onde uma estrutura clara é apresentada com títulos hierárquicos](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 
 ## <a name="pdf-doc-files"></a>PDF / arquivos do documento
@@ -98,7 +98,7 @@ Segue-se um exemplo de um manual com uma página de índice e conteúdo hierárq
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Brochuras, diretrizes, documentos e outros ficheiros
 
-Muitos outros tipos de documentos também podem ser processados para gerar pares de controle de qualidade, desde que tenham uma estrutura clara e o layout. Estas incluem: Brochuras, diretrizes, relatórios, white papers, papers científicas, políticas, livros, etc. Ver um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Muitos outros tipos de documentos também podem ser processados para gerar pares de controle de qualidade, desde que tenham uma estrutura clara e o layout. Estas incluem: Folhetos, diretrizes, relatórios, White papers, documentos científicos, políticas, livros etc. Ver um exemplo [aqui](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Segue-se um exemplo de um documento semiestruturado, sem um índice:
 
@@ -126,7 +126,7 @@ Segue-se um exemplo de um documento do word QnA estruturado:
 
 QnAs na forma de estruturado *. txt*, *. tsv* ou *. xls* ficheiros também podem ser carregados para o QnA Maker para criar ou aumente uma base de dados de conhecimento.  Estas podem ser texto simples, ou podem ter o conteúdo em RTF ou HTML. 
 
-| Pergunta  | Resposta  | Metadados (1 chave: valor de 1) |
+| Pergunta  | Resposta  | Metadados (1 chave: 1 valor) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -139,9 +139,9 @@ Segue-se um exemplo de um QnA estruturado *. xls* arquivo, com conteúdo HTML:
 
 ## <a name="structured-data-format-through-import"></a>Formato de dados estruturados através de importação
 
-Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. Importação requer um ficheiro. tsv estruturados que contém informações de origem de dados. Estas informações ajudam o QnA Maker agrupar os pares de resposta de pergunta e atributo-los para uma determinada origem de dados.
+Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. Importação requer um ficheiro. tsv estruturados que contém informações de origem de dados. Essas informações ajudam a QnA Maker agrupar os pares de respostas de perguntas e os atributos para uma determinada fonte de dados.
 
-| Pergunta  | Resposta  | source| Metadados (1 chave: valor de 1) |          
+| Pergunta  | Resposta  | Source| Metadados (1 chave: 1 valor) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
@@ -150,26 +150,46 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 
 Se não tiver conteúdo já existente para preencher a base de dados de conhecimento, pode adicionar QnAs forma editorial nos conhecimentos do QnA Maker base. Saiba como atualizar a sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## <a name="formatting-considerations"></a>Considerações sobre a formatação
 
-Depois de importar um ficheiro ou URL, é convertida em Markdown e armazenado nesse formato. Se o processo de conversão não é converter ligações em seus arquivos e os URLs corretamente, deve editar as perguntas e respostas sobre o **editar** página. 
+Depois de importar um arquivo ou URL, QnA Maker converte e armazena seu conteúdo no [formato de redução](https://en.wikipedia.org/wiki/Markdown). O processo de conversão adiciona novas linhas no texto, como `\n\n`. Um conhecimento do formato de redução ajuda você a entender o conteúdo convertido e gerenciar seu conteúdo da base de dados de conhecimento. 
 
-|Formato|Objetivo|
-|--|--|
-|`\n\n`| Nova linha|
-|`\n*`|Marcador para uma lista ordenada|
+Se você adicionar ou editar seu conteúdo diretamente na sua base de dados de conhecimento, use a **formatação de redução** para criar conteúdo de Rich Text ou alterar o conteúdo do formato de redução que já está na resposta. QnA Maker dá suporte a grande parte do formato de redução para trazer recursos de Rich Text para seu conteúdo. No entanto, o aplicativo cliente, como um bot de chat, pode não dar suporte ao mesmo conjunto de formatos de redução. É importante testar a exibição de respostas do aplicativo cliente. 
 
-## <a name="editing-your-knowledge-base-locally"></a>Editar a sua base de dados de conhecimento localmente
+A seguir está a lista de formatos de redução que você pode usar em QnA Maker: 
 
-Depois de criar uma base de dados de conhecimento, recomenda-se que efetue as edições no texto de base de dados de conhecimento dos [portal do QnA Maker](https://qnamaker.ai), em vez de exportar e voltar a importar por meio de arquivos locais. No entanto, pode haver ocasiões que terá de editar uma base de dados de conhecimento localmente. 
+|Objetivo|Formato|Redução de exemplo|Composição<br>conforme exibido no bot de chat|
+|--|--|--|--|
+Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![Formatar nova linha entre duas frases](../media/qnamaker-concepts-datasources/format-newline.png)|
+|Cabeçalhos de H1 a H6, o número de `#` denota o cabeçalho. 1 `#` é o H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![Formatar com cabeçalhos de redução](../media/qnamaker-concepts-datasources/format-headers.png)<br>![Formatar com cabeçalhos de redução H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Itálico |`*text*`|`How do I create a bot with *QnA Maker*?`|![Formatar com itálico](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Cadeia de caracteres (negrito)|`**text**`|`How do I create a bot with **QnA Maker**?`|![Formatar com marcação forte para negrito](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL para o link|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato da URL (hiperlink)](../media/qnamaker-concepts-datasources/format-url.png)|
+|\* URL para imagem pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato da URL da imagem pública ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Rasurado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato de tachado](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Negrito e itálico|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato para negrito e itálico](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL em negrito para o link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL em negrito](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|URL de itálico para o link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior usa a numeração automática incorporada à redução.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior usa a numeração explícita.|![formato da lista ordenada](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia, `\t`, indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
-Exportar a base de dados de conhecimento a partir da **definições** página, em seguida, edite a base de dados de conhecimento com o Microsoft Excel. Se optar por usar outra aplicação para editar o ficheiro TSV exportado, o aplicativo pode introduzir erros de sintaxe, porque não é totalmente TSV em conformidade. Ficheiros do Microsoft Excel TSV geralmente não introduzem quaisquer erros de formatação. 
+\* QnA Maker não processa a imagem de forma alguma. É a função do aplicativo cliente para renderizar a imagem. 
 
-Quando tiver terminado as suas edições, importe novamente o ficheiro TSV a partir da **definições** página. Isso substituirá totalmente a base de dados de conhecimento atual com a base de dados de conhecimento importada. 
+## <a name="editing-your-knowledge-base-locally"></a>Editando sua base de dados de conhecimento localmente
 
-## <a name="testing-your-markdown"></a>Teste a sua Markdown
+Quando uma base de dados de conhecimento é criada, é recomendável que você faça edições no texto da base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), em vez de exportar e reimportar por meio de arquivos locais. No entanto, pode haver ocasiões em que você precisa editar uma base de dados de conhecimento localmente. 
 
-Utilize o **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial para validar a sua Markdown. O tutorial tem um **experimente** funcionalidade para a validação de copiar/colar rápida. 
+Exporte a base de dados de conhecimento na página **configurações** e edite a base de dados de conhecimento com o Microsoft Excel. Se você optar por usar outro aplicativo para editar o arquivo TSV exportado, o aplicativo poderá introduzir erros de sintaxe porque ele não é compatível totalmente com TSV. Os arquivos TSV do Microsoft Excel geralmente não introduzem erros de formatação. 
+
+Depois de concluir suas edições, reimporte o arquivo TSV da página **configurações** . Isso substituirá completamente a base de dados de conhecimento atual pela base de dados de conhecimento importada. 
+
+## <a name="testing-your-markdown"></a>Testando sua redução
+
+Use o tutorial do **[CommonMark](https://commonmark.org/help/tutorial/index.html)** para validar sua redução. O tutorial tem um recurso **experimentar** para a validação rápida de copiar/colar. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

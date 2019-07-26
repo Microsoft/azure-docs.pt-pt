@@ -1,7 +1,7 @@
 ---
-title: Detetar os descompassos de dados (pré-visualização) nas implantações do AKS
+title: Detectar descompasso de dados (versão prévia) em implantações de AKS
 titleSuffix: Azure Machine Learning service
-description: Detete os descompassos de dados no serviço Kubernetes do Azure implementadas modelos no serviço Azure Machine Learning.
+description: Detectar descompasso de dados nos modelos implantados do serviço kubernetes do Azure no serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,58 +10,58 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 3b8152bde8b7e44dde1b0b9c82216333778f83da
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806010"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370383"
 ---
-# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detetar os descompassos de dados (pré-visualização) sobre os modelos de implementação para o Azure Kubernetes Service (AKS)
+# <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Detectar descompasso de dados (versão prévia) em modelos implantados no serviço kubernetes do Azure (AKS)
 
-Neste artigo, saiba como monitorizar para desvios de dados entre o conjunto de dados de formação e inferência de tipos de dados de um modelo implementado. No contexto do machine learning, com formação modelos de machine learning poderão ter de predição de degradação de desempenho devido a desvios. Com o serviço Azure Machine Learning, pode monitorizar os descompassos de dados e o serviço pode enviar um alerta por e-mail para si quando descompassos é detetado.
+Neste artigo, você aprenderá a monitorar a descompasso de dados entre o conjunto de dados de treinamento e de inferência de um modelo implantado. No contexto do aprendizado de máquina, os modelos de aprendizado de máquina treinados podem enfrentar desempenho de previsão degradado devido à descompasso. Com o serviço de Azure Machine Learning, você pode monitorar a descompasso de dados e o serviço pode enviar um alerta por email para você quando for detectado descompasso.
 
-## <a name="what-is-data-drift"></a>O que é descompassos de dados?
+## <a name="what-is-data-drift"></a>O que é descompasso de dados?
 
-Desvios de dados acontece quando os dados fornecidos para um modelo na produção são diferentes dos dados utilizados para preparar o modelo. É uma das razões principais em que a precisão do modelo degrada ao longo do tempo, os dados de monitorização, portanto, descompassos ajuda a detetar problemas de desempenho do modelo. 
+A descompasso de dados ocorre quando os dados servidos para um modelo na produção são diferentes dos dados usados para treinar o modelo. É um dos principais motivos em que a precisão do modelo degrada ao longo do tempo, o que monitora a descompasso de dados ajuda a detectar problemas de desempenho do modelo. 
 
-## <a name="what-can-i-monitor"></a>O que posso monitorizar?
+## <a name="what-can-i-monitor"></a>O que posso monitorar?
 
-Com o serviço do Azure Machine Learning, pode monitorizar as entradas para um modelo implementado no AKS e comparar estes dados para o conjunto de dados de treinamento para o modelo. Em intervalos regulares, os dados de inferência de tipos são [tirar instantâneo e para as quais criar perfis](how-to-explore-prepare-data.md), em seguida, calculado com base no conjunto de linha de base dados para produzir uma análise de desvios de dados que: 
+Com o serviço de Azure Machine Learning, você pode monitorar as entradas em um modelo implantado em AKS e comparar esses dados com o DataSet de treinamento para o modelo. Em intervalos regulares, os dados de inferência são [instantâneos e](how-to-explore-prepare-data.md)analisados, em seguida, computados em relação ao conjunto de dados de linha de base para produzir uma análise de descompasso que: 
 
-+ Mede a magnitude da descompassos de dados, chamado o coeficiente de desvios.
-+ Medidas dos dados inconsistências contribuição pela funcionalidade, informando quais recursos causada descompassos de dados.
-+ Métricas de distâncias de medidas. Atualmente são calculadas Wasserstein e a distância de energia.
-+ Distribuições de medidas de recursos. Estimativa de densidade de kernel atualmente e histogramas.
-+ Envie alertas para dados de inconsistências por e-mail.
++ Mede a magnitude da descompasso de dados, chamada de coeficiente de descompasso.
++ Mede a contribuição de descompasso de dados por recurso, informando quais recursos causaram a descompasso de dados.
++ Mede métricas de distância. Atualmente, a Wasserstein e a distância de energia são computadas.
++ Mede as distribuições de recursos. Estimativa e histogramas de densidade do kernel no momento.
++ Enviar alertas para descompasso de dados por email.
 
 > [!Note]
-> Este serviço está em (pré-visualização) e limitado de opções de configuração. Consulte nossos [documentação da API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [notas de versão](azure-machine-learning-release-notes.md) para obter detalhes e atualizações. 
+> Esse serviço está em (versão prévia) e limitado nas opções de configuração. Consulte nossa [documentação de API](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) e [notas de versão](azure-machine-learning-release-notes.md) para obter detalhes e atualizações. 
 
-### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Como os descompassos de dados está sendo monitorado no serviço Azure Machine Learning
+### <a name="how-data-drift-is-monitored-in-azure-machine-learning-service"></a>Como a descompasso de dados é monitorada no serviço Azure Machine Learning
 
-Utilizar o serviço Azure Machine Learning, descompassos de dados é monitorizado por meio de conjuntos de dados ou implementações. Para monitorar os descompassos de dados, um conjunto de dados de linha de base - normalmente, o treinamento conjunto de dados para um modelo - é especificado. Normalmente, de recolha de dados de entrada de modelo de uma implementação - é testado um segundo conjunto de dados - conjunto de dados da linha de base. Ambos os conjuntos de dados são [profiled](how-to-explore-prepare-data.md#explore-with-summary-statistics) e serviço de monitoramento de inconsistências de entrada para os dados. A preparar um modelo de machine learning é utilizado para detetar as diferenças entre os dois conjuntos de dados. Desempenho do modelo é convertido para o coeficiente de desvios, que mede a magnitude da descompassos entre os dois conjuntos de dados. Usando [modelar interpretability](machine-learning-interpretability-explainability.md), os recursos que contribuem para o coeficiente de desvios são computados. O perfil de conjunto de dados, são rastreadas informações estatísticas sobre cada funcionalidade. 
+Usando o serviço Azure Machine Learning, a descompasso de dados é monitorada por meio de conjuntos ou de implantações. Para monitorar a descompasso de dados, é um DataSet de linha de base – geralmente o conjunto de dado de treinamento para um modelo-é especificado. Um segundo conjunto de dados-geralmente modelar os dados de entrada coletados de uma implantação-é testado no conjunto de dado de linha de base. Os dois conjuntos de dados são de [perfil](how-to-explore-prepare-data.md#explore-with-summary-statistics) e são inseridos para o serviço de monitoramento de descompasso. Um modelo de aprendizado de máquina é treinado para detectar diferenças entre os dois conjuntos de valores. O desempenho do modelo é convertido para o coeficiente de descompasso, que mede a magnitude do descompasso entre os dois conjuntos de valores. Usando a [interpretação de modelo](machine-learning-interpretability-explainability.md), os recursos que contribuem para o coeficiente de descompasso são calculados. No perfil do conjunto de dados, as informações estatísticas sobre cada recurso são rastreadas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma, crie uma conta gratuita, antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+- Uma subscrição do Azure. Se você não tiver uma, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço de Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-- Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Utilize as instruções em [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk) para fazer o seguinte:
+- Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Use as instruções em [criar um Azure Machine Learning espaço de trabalho de serviço](setup-create-workspace.md#sdk) para fazer o seguinte:
 
-    - Criar um ambiente de Miniconda
-    - Instalar o Azure Machine Learning SDK para Python
+    - Criar um ambiente Miniconda
+    - Instalar o SDK do Azure Machine Learning para Python
     - Criar uma área de trabalho
-    - Escreva um ficheiro de configuração da área de trabalho (aml_config/config.json).
+    - Gravar um arquivo de configuração de espaço de trabalho (aml_config/config. JSON).
 
-- Instale os descompassos de dados SDK com o seguinte comando:
+- Instale o SDK de descompasso de dados usando o seguinte comando:
 
     ```shell
     pip install azureml-contrib-datadrift
     ```
 
-- Criar uma [conjunto de dados](how-to-create-register-datasets.md) de dados de preparação de seu modelo.
+- Crie um [conjunto](how-to-create-register-datasets.md) de dados a partir de seus dados de treinamento do modelo.
 
-- Especificar o conjunto de dados de treinamento quando [registar](concept-model-management-and-deployment.md) o modelo. O exemplo seguinte demonstra como utilizar o `datasets` parâmetro para especificar o conjunto de dados de treinamento:
+- Especifique o conjunto de registros de treinamento ao [registrar](concept-model-management-and-deployment.md) o modelo. O exemplo a seguir demonstra o `datasets` uso do parâmetro para especificar o conjunto de os de treinamento:
 
     ```python
     model = Model.register(model_path=model_file,
@@ -72,12 +72,12 @@ Utilizar o serviço Azure Machine Learning, descompassos de dados é monitorizad
     print(model_name, image_name, service_name, model)
     ```
 
-- [Ativar a recolha de dados de modelo](how-to-enable-data-collection.md) recolher dados da implementação do AKS do modelo e confirmarem os dados é recolhidos no `modeldata` contentor de Blobs.
+- [Habilite a coleta de dados de modelo](how-to-enable-data-collection.md) para coletar dados da implantação AKs do modelo e confirmar que os dados estão `modeldata` sendo coletados no contêiner de BLOB.
 
-## <a name="configure-data-drift"></a>Configurar os descompassos de dados
-Para configurar os descompassos de dados para a experimentação, importe as dependências como mostrado no seguinte exemplo de Python. 
+## <a name="configure-data-drift"></a>Configurar descompasso de dados
+Para configurar a descompasso de dados para seu experimento, importe as dependências conforme mostrado no exemplo de Python a seguir. 
 
-Este exemplo demonstra a configurar o [ `DataDriftDetector` ](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) objeto:
+Este exemplo demonstra como configurar [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) o objeto:
 
 ```python
 # Import Azure ML packages
@@ -93,9 +93,9 @@ datadrift = DataDriftDetector.create(ws, model.name, model.version, services, fr
 print('Details of Datadrift Object:\n{}'.format(datadrift))
 ```
 
-## <a name="submit-a-datadriftdetector-run"></a>Submeter uma execução de DataDriftDetector
+## <a name="submit-a-datadriftdetector-run"></a>Enviar uma execução do DataDriftDetector
 
-Com o `DataDriftDetector` objeto configurado, pode submeter um [descompassos de dados, executar](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) numa determinada data para o modelo. Como parte da execução, ativar alertas de DataDriftDetector ao definir o `drift_threshold` parâmetro. Se o [datadrift_coefficient](#metrics) for superior a determinado `drift_threshold`, é enviado um e-mail.
+Com o `DataDriftDetector` objeto configurado, você pode enviar uma [execução](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) de descompasso de dados em uma determinada data para o modelo. Como parte da execução, habilite alertas do DataDriftDetector definindo o `drift_threshold` parâmetro. Se o [datadrift_coefficient](#metrics) estiver acima do fornecido `drift_threshold`, um email será enviado.
 
 ```python
 # adhoc run today
@@ -113,27 +113,27 @@ dd_run = Run(experiment=exp, run_id=run)
 RunDetails(dd_run).show()
 ```
 
-## <a name="visualize-drift-metrics"></a>Visualize os descompassos de métricas
+## <a name="visualize-drift-metrics"></a>Visualizar métricas de descompasso
 
 <a name="metrics"></a>
 
-Depois de submeter o seu DataDriftDetector executar, é possível ver as métricas de desvios são salvas em cada iteração de execução de uma tarefa de desvios de dados:
+Depois de enviar sua execução do DataDriftDetector, você poderá ver as métricas de descompasso salvas em cada iteração de execução para uma tarefa de descompasso de dados:
 
 
 |Métrica|Descrição|
 --|--|
 wasserstein_distance|Distância estatística definida para distribuição numérica unidimensional.|
 energy_distance|Distância estatística definida para distribuição numérica unidimensional.|
-datadrift_coefficient|Da mesma forma como o coeficiente de correlação de Matthew calculados, mas esta saída é um número real entre 0 e 1. No contexto de desvios, 0 indica sem descompassos e 1 descompassos máximo.|
-datadrift_contribution|Importância da funcionalidade dos recursos que contribuem para divergir.|
+datadrift_coefficient|Calculado da mesma forma que o coeficiente de correlação de Matthew, mas essa saída é um número real que varia de 0 a 1. No contexto de descompasso, 0 indica que não há descompasso e 1 indica o descompasso máximo.|
+datadrift_contribution|Importância dos recursos que contribuem para descompasso.|
 
-Existem várias formas para visualizar as métricas de desvios:
+Há várias maneiras de exibir as métricas de descompasso:
 
-* Utilize o widget do Jupyter.
-* Utilize o [ `get_metrics()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) função em qualquer `datadrift` executar o objeto.
-* Ver as métricas no portal do Azure no seu modelo
+* Use o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+* Use a [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) função em qualquer `datadrift` objeto Run.
+* Exiba as métricas no portal do Azure em seu modelo.
 
-O exemplo de Python seguinte demonstra como a representar dados relevantes descompassos métricas. Pode utilizar as métricas retornadas para criar visualizações personalizadas:
+O exemplo de Python a seguir demonstra como plotar métricas de descompasso de dados relevantes. Você pode usar as métricas retornadas para criar visualizações personalizadas:
 
 ```python
 # start and end are datetime objects 
@@ -144,40 +144,40 @@ drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 drift_figures = datadrift.show(with_details=True)
 ```
 
-![Consulte os descompassos de dados detetados pelo Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
+![Consulte descompasso de dados detectado por Azure Machine Learning](media/how-to-monitor-data-drift/drift_show.png)
 
 
-## <a name="schedule-data-drift-scans"></a>Verificações de desvios de dados de agenda 
+## <a name="schedule-data-drift-scans"></a>Agendar verificações de descompasso de dados 
 
-Quando ativa a deteção de desvios de dados, um DataDriftDetector é executado com a frequência especificada, agendada. Se atingir o datadrift_coefficient a determinado `drift_threshold`, é enviado um e-mail com cada execução agendada. 
+Quando você habilita a detecção de descompasso de dados, um DataDriftDetector é executado na frequência especificada, agendada. Se o datadrift_coefficient atingir o dado `drift_threshold`, um email será enviado com cada execução agendada. 
 
 ```python
 datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-A configuração do detetor de desvios de dados pode ser vista na página de detalhes do modelo no portal do Azure.
+A configuração do detector de descompasso de dados pode ser vista na página de detalhes do modelo na portal do Azure.
 
-![Portal do Azure dados Descompassos de configuração](media/how-to-monitor-data-drift/drift_config.png)
+![Configuração de descompasso de dados portal do Azure](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Ver os resultados na interface do Usuário de área de trabalho do Azure ML
+## <a name="view-results-in-azure-ml-workspace-ui"></a>Exibir resultados na interface do usuário do Workspace do ML do Azure
 
-Para ver os resultados na IU de área de trabalho do Azure ML, navegue para a página do modelo. No separador de detalhes do modelo, é apresentada a configuração de desvios de dados. Um separador de 'Descompassos de dados (pré-visualização)' já está disponível a visualização das métricas de desvios de dados. 
+Para exibir os resultados na interface do usuário do Workspace do ML do Azure, navegue até a página modelo. Na guia detalhes do modelo, a configuração de descompasso de dados é mostrada. Uma guia ' descompasso de dados (visualização) ' agora está disponível visualizando as métricas de descompasso de dados. 
 
-![Portal do Azure Descompassos de dados](media/how-to-monitor-data-drift/drift_ui.png)
+![Descompasso portal do Azure dados](media/how-to-monitor-data-drift/drift_ui.png)
 
-## <a name="receiving-drift-alerts"></a>Recebimento de desvios de alertas
+## <a name="receiving-drift-alerts"></a>Recebendo alertas de descompasso
 
-Definindo o coeficiente de desvios limiar de alerta e fornecer um endereço de e-mail, um [do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) alerta por e-mail é enviada automaticamente sempre que o coeficiente de desvios é superior ao limiar. 
+Ao definir o limite de alerta de coeficiente de descompasso e fornecer um endereço de email, um alerta de email [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) é enviado automaticamente sempre que o coeficiente de descompasso está acima do limite. 
 
-Para configurar alertas personalizados e ações efetuada, todas as métricas de desvios de dados são armazenadas no [Application Insights](how-to-enable-app-insights.md) recurso que foi criado, juntamente com a área de trabalho do serviço do Azure Machine Learning. Pode seguir a ligação no e-mail do alerta para a consulta do Application Insights.
+Para configurar ações e alertas personalizados, todas as métricas de descompasso de dados são armazenadas no recurso de [Application insights](how-to-enable-app-insights.md) que foi criado junto com o espaço de trabalho de serviço do Azure Machine Learning. Você pode seguir o link no alerta de email para a consulta de Application Insights.
 
-![Alerta de E-Mail de desvios de dados](media/how-to-monitor-data-drift/drift_email.png)
+![Alerta de email de descompasso de dados](media/how-to-monitor-data-drift/drift_email.png)
 
-## <a name="retrain-your-model-after-drift"></a>Voltar a preparar seu modelo após descompassos
+## <a name="retrain-your-model-after-drift"></a>Treinar novamente o modelo após a descompasso
 
-Quando os descompassos de dados afeta negativamente o desempenho do seu modelo implementado, é hora de voltar a preparar o modelo. O seguinte procedimento [ `diff()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
-) método lhe dá uma idéia inicial do que mudou entre os conjuntos de dados de treinamento antigos e novos. 
+Quando a descompasso de dados afeta negativamente o desempenho do modelo implantado, é hora de treinar novamente o modelo. O método [ a seguir `diff()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#diff-rhs-dataset--compute-target-none--columns-none-
+) fornece uma noção inicial do que mudou entre os conjuntos de dados de treinamento antigo e novo. 
 
 ```python
 from azureml.core import Dataset
@@ -185,16 +185,16 @@ from azureml.core import Dataset
 old_training_dataset.diff(new_training_dataset)
 ```
 
-Com base no resultado do código anterior, pode pretender voltar a preparar seu modelo. Para fazer isso, continue com os passos seguintes.
+Com base na saída do código anterior, talvez você queira treinar novamente seu modelo. Para fazer isso, continue com as etapas a seguir.
 
-* Investigue os dados recolhidos e preparar dados para preparar o modelo de novo.
-* Dividi-la em dados de formação e teste.
-* Prepare o modelo novamente usando os novos dados.
-* Avalie o desempenho do modelo gerado recentemente.
-* Implemente o novo modelo se o desempenho é melhor do que o modelo de produção.
+* Investigue os dados coletados e prepare os dados para treinar o novo modelo.
+* Divida-o em dados de treinamento/teste.
+* Treine o modelo novamente usando os novos dados.
+* Avalie o desempenho do modelo recém-gerado.
+* Implante o novo modelo se o desempenho for melhor do que o modelo de produção.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter um exemplo completo de usar os descompassos de dados, consulte a [bloco de notas de inconsistências de dados do Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Este bloco de notas do Jupyter demonstra como utilizar um [conjunto de dados aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para preparar um modelo para prever a meteorologia, implementá-la no AKS e monitorar os descompassos de dados. 
+* Para obter um exemplo completo de como usar a descompasso de dados, consulte o notebook de descompasso de [dados do Azure ml](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Este Jupyter Notebook demonstra como usar um conjunto de dados [aberto do Azure](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) para treinar um modelo para prever o clima, implantá-lo no AKs e monitorar a descompasso de dados. 
 
-* Seria muito Agradecemos suas perguntas, comentários ou sugestões conforme os descompassos de dados se move na direção geral disponibilidade. Utilize o botão de feedback do produto abaixo! 
+* Agradecemos suas dúvidas, seus comentários ou suas sugestões, pois a descompasso de dados se move para a disponibilidade geral. Use o botão comentários do produto abaixo! 

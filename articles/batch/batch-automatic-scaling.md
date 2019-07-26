@@ -15,12 +15,12 @@ ms.workload: multiple
 ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 489a3935605432b485f7b0866668f6dbfaac686b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323759"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500027"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automático para dimensionar nós de computação em um pool do lote
 
@@ -40,7 +40,7 @@ Este artigo discute as várias entidades que compõem suas fórmulas de dimensio
 >
 
 ## <a name="automatic-scaling-formulas"></a>Fórmulas de dimensionamento automático
-Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define que contém uma ou mais instruções. A fórmula de dimensionamento automático é atribuída à propriedade [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] do pool (.net do lote). O serviço de lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento. A cadeia de caracteres da fórmula não pode exceder 8 KB, pode incluir até 100 instruções separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
+Uma fórmula de dimensionamento automático é um valor de cadeia de caracteres que você define que contém uma ou mais instruções. A fórmula de dimensionamento automático é atribuída ao elemento [autoScaleFormula][rest_autoscaleformula] do pool (REST do lote) ou à propriedade [CloudPool. autoScaleFormula][net_cloudpool_autoscaleformula] (.net do lote). O serviço de lote usa sua fórmula para determinar o número de destino dos nós de computação no pool para o próximo intervalo de processamento. A cadeia de caracteres da fórmula não pode exceder 8 KB, pode incluir até 100 instruções separadas por ponto e vírgula e pode incluir quebras de linha e comentários.
 
 Você pode considerar as fórmulas de dimensionamento automático como um "idioma" de autoescala do lote. As instruções de fórmula são expressões de forma livre que podem incluir variáveis definidas pelo serviço (variáveis definidas pelo serviço de lote) e variáveis definidas pelo usuário (variáveis que você define). Eles podem executar várias operações nesses valores usando tipos, operadores e funções internos. Por exemplo, uma instrução pode assumir o seguinte formato:
 
@@ -132,7 +132,7 @@ Você pode obter o valor dessas variáveis definidas pelo serviço para fazer aj
 >
 >
 
-## <a name="types"></a>Digita
+## <a name="types"></a>Tipos
 Esses tipos têm suporte em uma fórmula:
 
 * double
@@ -185,7 +185,7 @@ Essas operações são permitidas nos tipos listados na seção anterior.
 
 Ao testar um Double com um operador ternário (`double ? statement1 : statement2`), diferente de zero é **true**e zero é **false**.
 
-## <a name="functions"></a>Funções
+## <a name="functions"></a>Functions
 Essas **funções** predefinidas estão disponíveis para uso na definição de uma fórmula de dimensionamento automático.
 
 | Função | Tipo de retorno | Descrição |
@@ -364,15 +364,19 @@ $totalDedicatedNodes =
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 ```
 
-## <a name="create-an-autoscale-enabled-pool-with-net"></a>Criar um pool habilitado para autoescala com o .NET
+## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Criar um pool habilitado para autoescala com SDKs do lote
+
+O dimensionamento automático do pool pode ser configurado usando qualquer um dos [SDKs](batch-apis-tools.md#azure-accounts-for-batch-development)do lote, os cmdlets do [PowerShell do lote](batch-powershell-cmdlets-get-started.md)da [API REST do lote](https://docs.microsoft.com/rest/api/batchservice/) e a CLI do [lote](batch-cli-get-started.md). Nesta seção, você pode ver exemplos para .NET e Python.
+
+### <a name="net"></a>.NET
 
 Para criar um pool com o dimensionamento automático habilitado no .NET, siga estas etapas:
 
 1. Crie o pool com [BatchClient. PoolOperations. createpool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-2. Defina a propriedade [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) como `true`.
-3. Defina a propriedade [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com sua fórmula de autoescala.
-4. Adicional Defina a propriedade [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é 15 minutos).
-5. Confirme o pool com [CloudPool. Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
+1. Defina a propriedade [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) como `true`.
+1. Defina a propriedade [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) com sua fórmula de autoescala.
+1. Adicional Defina a propriedade [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (o padrão é 15 minutos).
+1. Confirme o pool com [CloudPool. Commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) ou [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
 O trecho de código a seguir cria um pool habilitado para autoescala no .NET. A fórmula de dimensionamento automático do pool define o número de nós dedicados de destino como 5 nas segundas-feiras e 1 em todos os outros dias da semana. O [intervalo de dimensionamento automático](#automatic-scaling-interval) é definido como 30 minutos. Neste e nos outros C# trechos de código neste artigo, `myBatchClient` é uma instância corretamente inicializada da classe [BatchClient][net_batchclient] .
 
@@ -392,10 +396,8 @@ await pool.CommitAsync();
 >
 >
 
-Além do .NET do lote, você pode usar qualquer um dos outros [SDKs do lote](batch-apis-tools.md#azure-accounts-for-batch-development), [REST do lote](https://docs.microsoft.com/rest/api/batchservice/), cmdlets do PowerShell do [lote](batch-powershell-cmdlets-get-started.md)e a CLI do [lote](batch-cli-get-started.md) para configurar o dimensionamento automático.
+#### <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
 
-
-### <a name="automatic-scaling-interval"></a>Intervalo de dimensionamento automático
 Por padrão, o serviço de lote ajusta o tamanho de um pool de acordo com sua fórmula de dimensionamento automático a cada 15 minutos. Esse intervalo é configurável usando as seguintes propriedades de pool:
 
 * [CloudPool. AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (.net do lote)
@@ -405,6 +407,50 @@ O intervalo mínimo é de cinco minutos e o máximo é de 168 horas. Se um inter
 
 > [!NOTE]
 > O dimensionamento automático não se destina atualmente a responder a alterações em menos de um minuto, mas sim para ajustar o tamanho do pool gradualmente à medida que você executa uma carga de trabalho.
+>
+>
+
+### <a name="python"></a>Python
+
+Da mesma forma, você pode criar um pool habilitado para autoescala com o SDK do Python:
+
+1. Crie um pool e especifique sua configuração.
+1. Adicione o pool ao cliente de serviço.
+1. Habilite o dimensionamento automático no pool com uma fórmula que você escreve.
+
+```python
+# Create a pool; specify configuration
+new_pool = batch.models.PoolAddParameter(
+    id="autoscale-enabled-pool",
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+          publisher="Canonical",
+          offer="UbuntuServer",
+          sku="18.04-LTS",
+          version="latest"
+            ),
+        node_agent_sku_id="batch.node.ubuntu 18.04"),
+    vm_size="STANDARD_D1_v2",
+    target_dedicated_nodes=0,
+    target_low_priority_nodes=0
+)
+batch_service_client.pool.add(new_pool) # Add the pool to the service client
+
+formula = """$curTime = time();
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
+             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
+
+# Enable autoscale; specify the formula
+response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
+                                            pool_enable_auto_scale_options=None, 
+                                            custom_headers=None, raw=False)
+```
+
+> [!TIP]
+> Mais exemplos de como usar o SDK do Python podem ser encontrados no [repositório do início rápido do Python do lote](https://github.com/Azure-Samples/batch-python-quickstart) no github.
 >
 >
 

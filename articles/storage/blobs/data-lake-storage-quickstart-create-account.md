@@ -1,24 +1,23 @@
 ---
 title: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake | Documentos da Microsoft
-description: Aprenda rapidamente a criar uma nova conta de armazenamento com acesso a geração 2 de armazenamento do Data Lake com o portal do Azure, Azure PowerShell ou a CLI do Azure.
+description: Aprenda rapidamente a criar uma nova conta de armazenamento com acesso a Data Lake Storage Gen2 usando o portal do Azure, Azure PowerShell ou o CLI do Azure.
 services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 12/06/2018
+ms.topic: article
+ms.date: 07/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
-ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297ab5971fdf60ce260808cb4864621ec1188b5e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939412"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360777"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Criar uma conta de armazenamento Azure Data Lake Storage Gen2
 
-Geração de armazenamento 2 do Azure Data Lake [suporta um espaço de nomes hierárquico](data-lake-storage-introduction.md) que fornece um nativo baseada no Active adaptado para trabalhar com o Hadoop Distributed File System (HDFS) do sistema de ficheiros. O acesso aos dados de Armazenamento do Data Lake Ger2 a partir do HDFS está disponível através do [controlador ABFS](data-lake-storage-abfs-driver.md).
+O Azure Data Lake Storage Gen2 [dá suporte a um namespace hierárquico](data-lake-storage-introduction.md) que fornece um sistema de arquivos nativo baseado em diretório personalizado para funcionar com o sistema de arquivos distribuído do HADOOP (HDFS). O acesso aos dados de Armazenamento do Data Lake Ger2 a partir do HDFS está disponível através do [controlador ABFS](data-lake-storage-abfs-driver.md).
 
 Este início rápido demonstra como criar uma conta com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou através da [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -30,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 |-----------|--------------|
 |Portal     | Nenhuma         |
 |PowerShell | Este início rápido requer a versão de Az.Storage de módulo do PowerShell **0,7** ou posterior. Para encontrar a versão atual, execute o `Get-Module -ListAvailable Az.Storage` comando. Se depois de executar este comando, não existem resultados são apresentados ou se uma versão diferente do **0,7** for apresentada, tem de atualizar o módulo do powershell. Consulte a [atualizar o módulo do powershell](#upgrade-your-powershell-module) secção deste guia.
-|CLI        | Pode iniciar sessão no Azure e executar comandos da CLI do Azure de uma de duas formas: <ul><li>Pode executar comandos da CLI no portal do Azure, no Azure Cloud Shell </li><li>Pode instalar a CLI e executar os respetivos comandos localmente</li></ul>|
+|CLI        | Você pode entrar no Azure e executar CLI do Azure comandos de uma das duas maneiras: <ul><li>Pode executar comandos da CLI no portal do Azure, no Azure Cloud Shell </li><li>Pode instalar a CLI e executar os respetivos comandos localmente</li></ul>|
 
 Ao trabalhar na linha de comandos, tem a opção de executar o Azure Cloud shell ou instalar a CLI localmente.
 
@@ -53,7 +52,7 @@ Também pode instalar e utilizar a CLI do Azure localmente. Este início rápido
 Antes de criar uma conta, primeiro tem de criar um grupo de recursos que age como um contentor lógico para contas de armazenamento ou outros recursos criados do Azure. Se pretende limpar os recursos criados por este guia de introdução, basta eliminar o grupo de recursos. Ao eliminar o grupo de recursos também elimina a conta de armazenamento associada e quaisquer outros recursos associados ao grupo de recursos. Para obter mais informações sobre os grupos de recursos, veja [Descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 > [!NOTE]
-> Tem de criar novas contas de armazenamento como o tipo **StorageV2 (V2 de fins gerais)**, para tirar partido das funcionalidades de Armazenamento do Data Lake Ger2.  
+> Tem de criar novas contas de armazenamento como o tipo **StorageV2 (V2 de fins gerais)** , para tirar partido das funcionalidades de Armazenamento do Data Lake Ger2.  
 
 Para obter mais informações sobre as contas de armazenamento, veja [Azure Storage account overview](../common/storage-account-overview.md) (Descrição geral da Conta de Armazenamento).
 
@@ -77,7 +76,7 @@ Para criar um grupo de recursos no portal do Azure, siga estes passos:
 5. Escolha a localização para o grupo de recursos.
 6. Clique no botão **Criar**.  
 
-   ![Captura de ecrã que mostra a criação do grupo de recursos no portal do Azure](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Captura de tela mostrando a criação do grupo de recursos no portal do Azure](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento v2 para fins gerais
 
@@ -90,14 +89,14 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 2. Selecione seu **subscrição** e o **grupo de recursos** que criou anteriormente.
 3. Introduza um nome para a conta do Storage.
 4. Defina a **Localização** para **E.U.A. Oeste 2**
-5. Deixe estes campos nas predefinições: **Desempenho**, **tipo de conta**, **replicação**, **camada de acesso**.
+5. Deixe esses campos definidos com seus padrões: **Desempenho**, **tipo de conta**, **replicação**, **camada de acesso**.
 6. Escolha a subscrição na qual pretende criar a conta de armazenamento.
-7. Selecione **seguinte: Advanced >**
+7. Selecione **avançar: > Avançado**
 8. Deixe os valores em **SECURITY** e **redes virtuais** campos definidos para as predefinições.
-9. Na **geração 2 de armazenamento do Data Lake** secção conjunto **espaço de nomes hierárquico** para **ativado**.
+9. Na seção **Data Lake Storage Gen2** , defina **namespace hierárquico** como **habilitado**.
 10. Clique em **rever + criar** para criar a conta de armazenamento.
 
-    ![Captura de ecrã que mostra a criação da conta de armazenamento no portal do Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Captura de tela mostrando a criação da conta de armazenamento no portal do Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 A conta de armazenamento está agora criada através do portal.
 
@@ -106,14 +105,14 @@ A conta de armazenamento está agora criada através do portal.
 Para remover um grupo de recursos através do portal do Azure:
 
 1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos**, para apresentar a lista dos seus grupos de recursos.
-2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** (**...** ) no lado direito da lista.
+2. Encontre o grupo de recursos a eliminar e clique com o botão direito do rato em **Mais** ( **...** ) no lado direito da lista.
 3. Selecione **Eliminar grupo de recursos** e confirme.
 
 ## <a name="create-an-account-using-powershell"></a>Criar uma conta com o PowerShell
 
 Em primeiro lugar, instale a versão mais recente dos [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) módulo.
 
-Em seguida, atualizar o módulo do powershell, inicie sessão na sua subscrição do Azure, crie um grupo de recursos e, em seguida, criar uma conta de armazenamento.
+Em seguida, atualize seu módulo do PowerShell, entre na sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
 
 ### <a name="upgrade-your-powershell-module"></a>Atualizar o módulo do powershell
 
@@ -129,7 +128,7 @@ Instalar o módulo de Az.Storage
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Inicie sessão na sua subscrição do Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
 
 Utilize o `Login-AzAccount` de comando e siga na tela direções para autenticar.
 
@@ -139,7 +138,7 @@ Login-AzAccount
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Para criar um novo grupo de recursos com o PowerShell, utilize o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando: 
+Para criar um novo grupo de recursos com o PowerShell, use o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) : 
 
 > [!NOTE]
 > O espaço de nomes hierárquico está atualmente disponível em todas as regiões públicas.
@@ -154,7 +153,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento v2 para fins gerais
 
-Para criar uma conta de armazenamento para fins gerais v2 do PowerShell com armazenamento localmente redundante (LRS), utilize o [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) comando:
+Para criar uma conta de armazenamento de uso geral v2 do PowerShell com armazenamento com redundância local (LRS), use o comando [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
 
 ```powershell
 $location = "westus2"
@@ -169,7 +168,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Para remover o grupo de recursos e respetivos recursos associados, incluindo a nova conta de armazenamento, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) comando: 
+Para remover o grupo de recursos e seus recursos associados, incluindo a nova conta de armazenamento, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) : 
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -177,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Criar uma conta com a CLI do Azure
 
-Para iniciar o Azure Cloud Shell, inicie sessão para o [portal do Azure](https://portal.azure.com).
+Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azure.com).
 
-Se quiser iniciar sessão na sua instalação local da CLI, execute o comando de início de sessão:
+Se você quiser entrar em sua instalação local da CLI, execute o comando de logon:
 
 ```cli
 az login

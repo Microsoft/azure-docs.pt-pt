@@ -1,138 +1,120 @@
 ---
-title: 'Cópia de segurança do Azure: Monitorizar a cópia de segurança do Azure com o Azure Monitor'
-description: Monitorizar cargas de trabalho de cópia de segurança do Azure e criar alertas personalizados com o Azure Monitor.
-services: backup
+title: 'Backup do Azure: Monitorar o backup do Azure com o Azure Monitor'
+description: Monitore as cargas de trabalho de backup do Azure e crie alertas personalizados usando Azure Monitor.
 author: pvrk
 manager: shivamg
-keywords: O log Analytics; Cópia de segurança do Azure; Alertas; Definições de diagnóstico; Grupos de ação
+keywords: Log Analytics; Backup do Azure; Alertas Configurações de diagnóstico; Grupos de ação
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e2d4a235737789f2f5852c00218427613db3d558
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786320"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465936"
 ---
-# <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorizar à escala com o Azure Monitor
+# <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
-O Azure Backup fornece [monitorização e alertas de recursos incorporados](backup-azure-monitoring-built-in-monitor.md) num cofre dos serviços de recuperação. Estas capacidades estão disponíveis sem qualquer infraestrutura de gestão adicionais. Mas este serviço incorporado é limitado nos seguintes cenários:
+O backup do Azure fornece [recursos internos de monitoramento e alerta](backup-azure-monitoring-built-in-monitor.md) em um cofre dos serviços de recuperação. Esses recursos estão disponíveis sem nenhuma infraestrutura de gerenciamento adicional. Mas esse serviço interno é limitado nos seguintes cenários:
 
-- Se o monitor de dados a partir de vários cofres de serviços de recuperação entre subscrições
-- Se for o canal de notificação preferencial *não* e-mail
-- Se os utilizadores quiserem alertas para cenários mais
-- Se desejar exibir informações a partir de um componente no local, como o System Center Data Protection Manager no Azure, que o portal não mostra na [ **tarefas de cópia de segurança** ](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) ou [  **Alertas de cópia de segurança**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Se você monitorar dados de vários cofres de serviços de recuperação entre assinaturas
+- Se o canal de notificação preferencial *não* for email
+- Se os usuários quiserem alertas para mais cenários
+- Se você quiser exibir informações de um componente local, como o System Center Data Protection Manager no Azure, que o portal não mostra em trabalhos de [**backup**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) ou [**alertas de backup**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
-## <a name="using-log-analytics-workspace"></a>Utilizar a área de trabalho do Log Analytics
-
-> [!NOTE]
-> Dados de cópias de segurança de VM do Azure, o agente do Azure Backup, System Center Data Protection Manager, as cópias de segurança SQL em VMs do Azure e cópias de segurança de partilha de ficheiros do Azure é colocados na área de trabalho do Log Analytics através das definições de diagnóstico. 
-
-Para monitorizar à escala, terá das capacidades dos dois serviços do Azure. *Definições de diagnóstico* enviar dados de vários recursos do Azure Resource Manager para outro recurso. *Log Analytics* gera em que pode utilizar grupos de ação para definir a outros canais de notificação de alertas personalizados. 
-
-As secções seguintes detalham como utilizar o Log Analytics para monitorizar a cópia de segurança do Azure em escala.
-
-### <a name="configure-diagnostic-settings"></a>Configurar definições de diagnóstico
-
-Recursos de Gestor de recursos do Azure, como o Cofre de serviços de recuperação, registram informações sobre as operações agendadas e as operações de utilizador que acionou como dados de diagnóstico. 
-
-Na secção de monitorização, selecione **das definições de diagnóstico** e especifique o destino para o Cofre dos serviços de recuperação dados de diagnóstico.
-
-![Definição de diagnóstico do Cofre de serviços de recuperação, direcionamento do Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
-
-Pode direcionar uma área de trabalho do Log Analytics a partir de outra subscrição. Para monitorizar cofres em várias subscrições num único local, selecione a mesma área de trabalho do Log Analytics para vários cofres de serviços de recuperação. Para todas as informações relacionadas com a cópia de segurança do Azure para a área de trabalho do Log Analytics de canal, selecione **AzureBackupReport** como o registo.
-
-> [!IMPORTANT]
-> Depois de concluir a configuração, é necessário aguardar o envio de dados inicial ao fim de 24 horas. Depois que a inicial push de dados, todos os eventos são enviados por push conforme descrito neste artigo, o [secção de frequência](#diagnostic-data-update-frequency).
-
-### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Implantar uma solução para a área de trabalho do Log Analytics
-
-Depois dos dados no interior da área de trabalho do Log Analytics [implementar um modelo de GitHub](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) ao Log Analytics para visualizar os dados. Para identificar corretamente a área de trabalho, certifique-se de que dê a ele o mesmo grupo de recursos, o nome de área de trabalho e a localização da área de trabalho. Em seguida, instale este modelo na área de trabalho.
+## <a name="using-log-analytics-workspace"></a>Usando Log Analytics espaço de trabalho
 
 > [!NOTE]
-> Se não tiver alertas, tarefas de cópia de segurança ou tarefas de restauro na sua área de trabalho do Log Analytics, poderá ver um código de erro "BadArgumentError" no portal. Ignorar este erro e continuar a utilizar a solução. Depois dos dados relevantes escreva começa a ser encaminhados para a área de trabalho, as visualizações irão refletir o mesmo e não vir o erro mais.
+> Dados de backups de VM do Azure, o agente de backup do Azure, o System Center Data Protection Manager, backups do SQL em VMs do Azure e backups de compartilhamento de arquivos do Azure são bombeados para o espaço de trabalho Log Analytics por meio de configurações de diagnóstico 
 
-### <a name="view-azure-backup-data-by-using-log-analytics"></a>Ver dados de cópia de segurança do Azure através da utilização do Log Analytics
+Para monitorar/relatar em escala, você precisa dos recursos de dois serviços do Azure. *As configurações de diagnóstico* enviam dados de vários recursos Azure Resource Manager para outro recurso. *Log Analytics* gera alertas personalizados em que você pode usar grupos de ação para definir outros canais de notificação. 
 
-Depois do modelo é implementado, a solução para a monitorização do Azure Backup serão apresentados na região de resumo de área de trabalho. Para ir para o resumo, siga um destes caminhos:
+As seções a seguir detalham como usar Log Analytics para monitorar o backup do Azure em escala.
 
-- **Azure Monitor**: Na **Insights** secção, selecione **mais** e, em seguida, escolha a área de trabalho relevante.
-- **Áreas de trabalho de análise de registo**: Selecione a área de trabalho relevante e, em **gerais**, selecione **resumo de área de trabalho**.
+### <a name="configure-diagnostic-settings"></a>Definir configurações de diagnóstico
 
-![O mosaico monitorização do Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+Azure Resource Manager recursos, como o cofre dos serviços de recuperação, registram informações sobre operações agendadas e operações disparadas pelo usuário como dados de diagnóstico. 
 
-Ao selecionar o mosaico monitorização, o modelo de designer é aberta uma série de gráficos sobre os dados de monitorização básicos da cópia de segurança do Azure. Aqui estão alguns dos gráficos, que verá:
+Na seção monitoramento, selecione **configurações de diagnóstico** e especifique o destino para os dados de diagnóstico do cofre dos serviços de recuperação.
 
-* Todas as tarefas de cópia de segurança
+![A configuração de diagnóstico do cofre dos serviços de recuperação, direcionando Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
 
-   ![Gráficos de análise de registo para tarefas de cópia de segurança](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
-
-* Tarefas de restauro
-
-   ![Gráfico de análise de registo para tarefas de restauro](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
-
-* Alertas de cópia de segurança do Azure incorporados para recursos do Azure
-
-   ![Gráfico de análise de registo para os alertas de cópia de segurança do Azure incorporadas para recursos do Azure](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* Alertas de cópia de segurança do Azure incorporados para recursos no local
-
-   ![Gráfico de análise de registo para os alertas de cópia de segurança do Azure incorporadas para recursos no local](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* Origens de dados do Active Directory
-
-   ![Gráfico de análise de registo para entidades de cópia de segurança Active Directory](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* Armazenamento na cloud do cofre dos serviços de recuperação
-
-   ![Gráfico de análise de registo para o armazenamento de nuvem de Cofre de serviços de recuperação](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
-Estes gráficos são fornecidos com o modelo. Pode editar os gráficos ou adicionar mais gráficos, se for necessário.
+Você pode direcionar um espaço de trabalho Log Analytics de outra assinatura. Para monitorar cofres entre assinaturas em um único local, selecione o mesmo espaço de trabalho Log Analytics para vários cofres de serviços de recuperação. Para canalizar todas as informações relacionadas ao backup do Azure para o espaço de trabalho Log Analytics, selecione **AzureBackupReport** como o log.
 
 > [!IMPORTANT]
-> Quando implementar o modelo, essencialmente está criando um bloqueio só de leitura. Para editar e guardar o modelo, terá de remover o bloqueio. Pode remover um bloqueio no **configurações** secção da área de trabalho do Log Analytics, no **bloqueia** painel.
+> Depois de concluir a configuração, você deve aguardar 24 horas para que o envio de dados inicial seja concluído. Após esse envio de dados inicial, todos os eventos serão enviados por push, conforme descrito posteriormente neste artigo, na [seção frequência](#diagnostic-data-update-frequency).
 
-### <a name="create-alerts-by-using-log-analytics"></a>Criar alertas com o Log Analytics
-
-No Azure Monitor, pode criar seus próprios alertas numa área de trabalho do Log Analytics. Na área de trabalho, utilize *grupos de ação do Azure* para selecionar o mecanismo de notificação preferencial. 
+### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Implantar uma solução no espaço de trabalho Log Analytics
 
 > [!IMPORTANT]
-> Para informações sobre o custo de criar essa consulta, consulte [preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+> Lançamos um [modelo](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) atualizado e de várias exibições para monitoramento e relatórios baseados em la no backup do Azure. Observe que os usuários que estavam usando a [solução anterior](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) continuarão a vê-los em seus espaços de trabalho mesmo após a implantação da nova solução. No entanto, a solução antiga pode fornecer resultados imprecisos devido a algumas alterações de esquema secundárias. Os usuários são, portanto, necessários para implantar o novo modelo.
 
-Selecione um dos gráficos para abrir o **registos** secção da área de trabalho do Log Analytics. Na **registos** secção, editar as consultas e criar alertas nos mesmos.
+Depois que os dados estiverem dentro do espaço de trabalho Log Analytics, [implante um modelo do GitHub](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) para log Analytics para visualizar os dados. Para identificar corretamente o espaço de trabalho, certifique-se de dar a ele o mesmo grupo de recursos, nome do espaço de trabalho e local do espaço de trabalho. Em seguida, instale esse modelo no espaço de trabalho.
 
-![Criar um alerta numa área de trabalho do Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+### <a name="view-azure-backup-data-by-using-log-analytics"></a>Exibir dados de backup do Azure usando Log Analytics
 
-Quando seleciona **nova regra de alerta**, abre a página de criação do alerta do Monitor do Azure, conforme mostrado na imagem seguinte. Aqui o recurso já está marcado como área de trabalho do Log Analytics e integração de grupo de ação é fornecida.
+Depois que o modelo for implantado, a solução para monitoramento e relatórios no backup do Azure aparecerá na região de resumo do espaço de trabalho. Para ir até o resumo, siga um destes caminhos:
 
-![A página de criação do alerta do Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+- **Azure monitor**: Na seção  insights, selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
+- **Espaços de trabalho do log Analytics**: Selecione o espaço de trabalho relevante e, em **geral**, selecione **Resumo do espaço de trabalho**.
 
-#### <a name="alert-condition"></a>Condição do alerta
+![Os blocos de monitoramento e relatório de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-O traço que define de um alerta é sua condição de acionamento. Selecione **condição** para carregar automaticamente a consulta de Kusto na **registos** página conforme mostrado na imagem seguinte. Aqui pode editar a condição de acordo com as suas necessidades. Para obter mais informações, consulte [consultas de exemplo Kusto](#sample-kusto-queries).
+Ao selecionar qualquer um dos blocos de visão geral, você pode exibir mais informações. Aqui estão alguns dos relatórios que você verá:
 
-![Como configurar uma condição de alerta](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+* Trabalhos de backup sem log
 
-Se necessário, pode editar a consulta de Kusto. Escolha um limiar, o período e a frequência. O limiar determina quando o alerta vai ser gerado. O período é o período de tempo em que a consulta é executada. Por exemplo, se o limiar for superior a 0, o período de é de 5 minutos e a frequência é de 5 minutos, em seguida, a regra é executada a consulta a cada 5 minutos, revisão de cinco minutos anteriores. Se o número de resultados for maior que 0, receberá uma notificação através do grupo de ação selecionado.
+   ![Gráficos de Log Analytics para trabalhos de backup](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-#### <a name="alert-action-groups"></a>Grupos de ação do alerta
+* Alertas do backup de recursos do Azure
 
-Utilize um grupo de ação para especificar um canal de notificação. Para ver os mecanismos de notificação de disponibilidade, em **grupos de ação**, selecione **criar nova**.
+   ![Log Analytics grafo para trabalhos de restauração](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-![Mecanismos de notificação disponíveis na janela "Adicionar grupo de ação"](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+Da mesma forma, ao clicar nos outros blocos, você poderá ver relatórios sobre trabalhos de restauração, armazenamento em nuvem, itens de backup, alertas de backup de recursos locais e trabalhos de backup de log.
+ 
+Esses gráficos são fornecidos com o modelo. Você pode editar os grafos ou adicionar mais gráficos, se necessário.
 
-Pode atender a todos os alertas e monitorização de requisitos do Log Analytics individualmente ou pode utilizar o Log Analytics para complementar notificações incorporadas.
+### <a name="create-alerts-by-using-log-analytics"></a>Criar alertas usando Log Analytics
 
-Para obter mais informações, consulte [criar, ver e gerir alertas de registo com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [criar e gerir grupos de ação no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+No Azure Monitor, você pode criar seus próprios alertas em um espaço de trabalho do Log Analytics. No espaço de trabalho, você usa *grupos de ações do Azure* para selecionar o mecanismo de notificação preferencial. 
 
-### <a name="sample-kusto-queries"></a>Exemplos de consultas de Kusto
+> [!IMPORTANT]
+> Para obter informações sobre o custo de criação dessa consulta, consulte [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pode criar alertas. Também pode modificar as consultas para obter os dados que pretende ser alertado no. Cole as seguintes consultas de Kusto de exemplo no **registos** página e, em seguida, criar alertas nas consultas:
+Selecione qualquer um dos grafos para abrir a seção **logs** do espaço de trabalho log Analytics. Na seção **logs** , edite as consultas e crie alertas nelas.
 
-* Todas as tarefas de cópia de segurança com êxito
+![Criar um alerta em um espaço de trabalho Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+
+Quando você seleciona **nova regra de alerta**, a página Azure monitor criação de alertas é aberta, conforme mostrado na imagem a seguir. Aqui, o recurso já está marcado como o espaço de trabalho Log Analytics e a integração do grupo de ações é fornecida.
+
+![A página de criação de alertas de Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
+
+#### <a name="alert-condition"></a>Condição de alerta
+
+A característica de definição de um alerta é sua condição de disparo. Selecione a **condição** para carregar automaticamente a consulta Kusto na página **logs** , conforme mostrado na imagem a seguir. Aqui você pode editar a condição para atender às suas necessidades. Para obter mais informações, consulte [exemplos de consultas do Kusto](#sample-kusto-queries).
+
+![Configurando uma condição de alerta](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
+
+Se necessário, você pode editar a consulta Kusto. Escolha um limite, período e frequência. O limite determina quando o alerta será gerado. O período é a janela de tempo em que a consulta é executada. Por exemplo, se o limite for maior que 0, o período será de 5 minutos e a frequência será de 5 minutos, a regra executará a consulta a cada 5 minutos, examinando os 5 minutos anteriores. Se o número de resultados for maior que 0, você será notificado pelo grupo de ações selecionado.
+
+#### <a name="alert-action-groups"></a>Grupos de ação de alerta
+
+Use um grupo de ações para especificar um canal de notificação. Para ver os mecanismos de notificação disponíveis, em **grupos de ação**, selecione **criar novo**.
+
+![Mecanismos de notificação disponíveis na janela "Adicionar grupo de ações"](media/backup-azure-monitoring-laworkspace/LA-AzureBackup-ActionGroup.png)
+
+Você pode atender a todos os requisitos de alerta e monitoramento de Log Analytics sozinho ou pode usar Log Analytics para complementar as notificações internas.
+
+Para obter mais informações, consulte [criar, exibir e gerenciar alertas de log usando Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+
+### <a name="sample-kusto-queries"></a>Consultas Kusto de exemplo
+
+Os grafos padrão fornecem a você Kusto consultas para cenários básicos nos quais você pode criar alertas. Você também pode modificar as consultas para obter os dados que você deseja que sejam alertados. Cole as seguintes consultas Kusto de exemplo na página **logs** e, em seguida, crie alertas nas consultas:
+
+* Todos os trabalhos de backup bem-sucedidos
 
     ````Kusto
     AzureDiagnostics
@@ -142,7 +124,7 @@ Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pod
     | where JobStatus_s == "Completed"
     ````
     
-* Todos os falhados tarefas de cópia de segurança
+* Todos os trabalhos de backup com falha
 
     ````Kusto
     AzureDiagnostics
@@ -152,7 +134,7 @@ Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pod
     | where JobStatus_s == "Failed"
     ````
     
-* Todas as tarefas de cópia de segurança de VM do Azure com êxito
+* Todos os trabalhos de backup de VM do Azure bem-sucedidos
 
     ````Kusto
     AzureDiagnostics
@@ -175,7 +157,7 @@ Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pod
     | project-away Resource
     ````
 
-* Todas as tarefas concluídas com êxito SQL log cópia de segurança
+* Todos os trabalhos de backup de log SQL bem-sucedidos
 
     ````Kusto
     AzureDiagnostics
@@ -198,7 +180,7 @@ Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pod
     | project-away Resource
     ````
 
-* Todas as tarefas de agente de cópia de segurança do Azure com êxito
+* Todos os trabalhos do agente de backup do Azure bem-sucedidos
 
     ````Kusto
     AzureDiagnostics
@@ -223,52 +205,52 @@ Os gráficos padrão dão-lhe Kusto consultas para cenários básicos em que pod
 
 ### <a name="diagnostic-data-update-frequency"></a>Frequência de atualização de dados de diagnóstico
 
-Os dados de diagnóstico do Cofre é colocados na área de trabalho do Log Analytics com algum atraso. Cada evento chega à área de trabalho do Log Analytics *20 a 30 minutos* depois de esta é instalada a partir do Cofre de serviços de recuperação. Seguem-se mais detalhes sobre o atraso:
+Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de *20 a 30 minutos* após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
 
-- Em todas as soluções, alertas incorporados do serviço de cópia de segurança são enviados por push assim que forem criadas. Para que serem normalmente apresentados na área de trabalho do Log Analytics após 20 a 30 minutos.
-- Em todas as soluções, tarefas de cópia de segurança ad hoc e as tarefas de restauro são enviados por push logo que eles *concluir*.
-- Para todas as soluções, exceto a cópia de segurança do SQL, tarefas de cópia de segurança agendadas são enviados por push logo que eles *concluir*.
-- Para cópia de segurança do SQL, como backups de log podem ocorrer a cada 15 minutos, informações para todos os concluído trabalhos de backup agendados, incluindo registos, é em lotes e enviadas a cada 6 horas.
-- Em todas as soluções, outras informações como o item de cópia de segurança, política, pontos de recuperação, armazenamento e assim por diante são emitidos via push, pelo menos, *uma vez por dia.*
-- Uma alteração na configuração de cópia de segurança (por exemplo, alterar a política ou editar a política) aciona um push de todas as respetivas informações de cópia de segurança.
+- Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
+- Em todas as soluções, trabalhos de backup ad hoc e trabalhos de restauração são enviados por Push assim que forem concluídos.
+- Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem concluídos.
+- Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
+- Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos *uma vez por dia.*
+- Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
 
-## <a name="using-the-recovery-services-vaults-activity-logs"></a>Utilizar registos de atividades o Cofre dos serviços de recuperação
+## <a name="using-the-recovery-services-vaults-activity-logs"></a>Usando os logs de atividade do cofre dos serviços de recuperação
 
 > [!CAUTION]
-> Os seguintes passos aplicam-se apenas ao *cópias de segurança de VM do Azure.* Não é possível utilizar estes passos para obterem soluções como o agente de cópia de segurança do Azure, cópias de segurança do SQL no Azure ou ficheiros do Azure.
+> As etapas a seguir se aplicam somente a backups de *VM do Azure.* Você não pode usar estas etapas para soluções como o agente de backup do Azure, backups do SQL no Azure ou arquivos do Azure.
 
-Também pode utilizar os registos de atividades para receber a notificação de eventos, tais como o sucesso de cópia de segurança. Para começar, siga estes passos:
+Você também pode usar logs de atividade para obter notificações para eventos como o êxito do backup. Para começar, siga estas etapas:
 
-1. Inicie sessão no portal do Azure.
-1. Abra o Cofre de serviços de recuperação relevante. 
-1. Nas propriedades do cofre, abra a **registo de atividades** secção.
+1. Entre no portal do Azure.
+1. Abra o cofre dos serviços de recuperação relevante. 
+1. Nas propriedades do cofre, abra a seção **log de atividades** .
 
-Para identificar o registo adequado e criar um alerta:
+Para identificar o log apropriado e criar um alerta:
 
-1. Certifique-se de que está a receber os registos de atividades para cópias de segurança com êxito ao aplicar os filtros mostrados na imagem seguinte. Alteração da **Timespan** valor conforme necessário, para ver os registos.
+1. Verifique se você está recebendo logs de atividade para backups bem-sucedidos aplicando os filtros mostrados na imagem a seguir. Altere o valor de **TimeSpan** conforme necessário para exibir os registros.
 
-   ![Filtragem para localizar os registos de atividades para cópias de segurança de VM do Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
+   ![Filtragem para localizar logs de atividade para backups de VM do Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. Selecione o nome da operação para ver os detalhes relevantes.
-1. Selecione **nova regra de alerta** para abrir o **criar regra** página. 
-1. Criar um alerta ao seguir os passos em [criar, ver e gerir alertas de registo de atividade com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+1. Selecione **nova regra de alerta** para abrir a página **criar regra** . 
+1. Crie um alerta seguindo as etapas em [criar, exibir e gerenciar alertas do log de atividades usando Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nova regra de alerta](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Aqui, o recurso é o próprio Cofre de serviços de recuperação. Tem de repetir os mesmos passos para todos os cofres nos quais pretende ser notificado através de registos de atividade. A condição não terá um limiar, o período ou a frequência, uma vez que este alerta é baseado em eventos. Assim que o registo de atividades relevantes for gerado, o alerta é acionado.
+Aqui, o recurso é o cofre dos serviços de recuperação em si. Você deve repetir as mesmas etapas para todos os cofres nos quais você deseja ser notificado por meio dos logs de atividade. A condição não terá um limite, período ou frequência, pois esse alerta se baseia em eventos. Assim que o log de atividades relevante é gerado, o alerta é gerado.
 
-## <a name="using-log-analytics-to-monitor-at-scale"></a>Utilizar o Log Analytics para monitorizar à escala
+## <a name="using-log-analytics-to-monitor-at-scale"></a>Usando Log Analytics para monitorar em escala
 
-Pode ver todos os alertas criados a partir de registos de atividades e áreas de trabalho do Log Analytics no Azure Monitor. Basta abrir o **alertas** painel à esquerda.
+Você pode exibir todos os alertas criados de logs de atividade e Log Analytics espaços de trabalho no Azure Monitor. Basta abrir o painel **alertas** à esquerda.
 
-Embora possa obter notificações através de registos de atividades, é altamente recomendável utilizar o Log Analytics, em vez de registos de atividades para monitorizar à escala. Eis o porquê:
+Embora você possa obter notificações por meio de logs de atividade, é altamente recomendável usar Log Analytics em vez de logs de atividade para monitoramento em escala. Veja o porquê:
 
-- **Limitado a cenários**: Notificações através de registos de atividades aplicam-se apenas a cópias de segurança de VM do Azure. As notificações tem de ser definidas para cada Cofre de serviços de recuperação.
-- **Definição de acordo com as**: A atividade de cópia de segurança agendada não se ajusta com a definição mais recente de registos de atividade. Em vez disso, se alinha com [registos de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Este alinhamento faz com que os efeitos inesperados quando os dados que fluem através da atividade Registrar alterações de canal.
-- **Problemas com o canal de registo de atividade**: Nos cofres de serviços de recuperação, os registos de atividades que são colocados de cópia de segurança do Azure, siga um novo modelo. Infelizmente, essa alteração afeta a geração de registos de atividade no Azure Government, Azure Alemanha e Azure China 21Vianet. Se os utilizadores um destes serviços cloud criarem ou configurar alertas de registos de atividades no Azure Monitor, os alertas não são acionados. Além disso, em todas as regiões públicas do Azure, se um usuário [recolhe registos de atividades de serviços de recuperação numa área de trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), estes registos não são apresentados.
+- **Cenários limitados**: As notificações pelos logs de atividades se aplicam somente aos backups de VM do Azure. As notificações devem ser configuradas para cada cofre de serviços de recuperação.
+- **Ajuste de definição**: A atividade de backup agendada não se ajusta à definição mais recente dos logs de atividade. Em vez disso, ele se alinha com [os logs de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.
+- **Problemas com o canal do log de atividades**: Nos cofres dos serviços de recuperação, os logs de atividade que são bombeados do backup do Azure seguem um novo modelo. Infelizmente, essa alteração afeta a geração de logs de atividades no Azure governamental, no Azure Alemanha e no Azure China 21Vianet. Se os usuários desses serviços de nuvem criarem ou configurarem quaisquer alertas dos logs de atividade no Azure Monitor, os alertas não serão disparados. Além disso, em todas as regiões públicas do Azure, se um usuário [coletar logs de atividade dos serviços de recuperação em um espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), esses logs não aparecerão.
 
-Utilize uma área de trabalho do Log Analytics para monitorização e alertas em escala para todas as suas cargas de trabalho que estão protegidos pelo Azure Backup.
+Use um espaço de trabalho Log Analytics para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para criar consultas personalizadas, consulte [modelo de dados do Log Analytics](backup-azure-log-analytics-data-model.md).
+Para criar consultas personalizadas, consulte [modelo de dados do log Analytics](backup-azure-log-analytics-data-model.md).

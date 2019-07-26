@@ -1,19 +1,18 @@
 ---
 title: O que há de novo no Backup do Microsoft Azure Server
 description: O Backup do Microsoft Azure Server oferece recursos de backup aprimorados para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais. Saiba como instalar ou atualizar para o Servidor de Backup do Azure v3.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: a858ac84ec9181cef4703c8fe236b9a3513af9f5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 131f5ae31649bd1973a3048b8b52a451f27522b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234739"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464995"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Backup do Microsoft Azure Server
 
@@ -57,7 +56,7 @@ Encontre mais informações sobre as etapas de instalação/atualização para M
 >
 > MABS tem a mesma base de código que o System Center Data Protection Manager. MABS v3 é equivalente a Data Protection Manager 1807.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como preparar seu servidor ou começar a proteger uma carga de trabalho:
 - [Problemas conhecidos no MABS v3](backup-mabs-release-notes-v3.md)

@@ -1,6 +1,6 @@
 ---
-title: Utilizar o módulo de serviços - Azure Maps | Documentos da Microsoft
-description: Saiba como utilizar o módulo de serviços do Azure Maps.
+title: Usar o módulo de serviços – mapas do Azure | Microsoft Docs
+description: Saiba como usar o módulo de serviços do Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,40 +8,40 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: b56191bc93a91f944bb313b4ab9ad602da17dcf0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7baacd3bb64ad234e478d4c1f75e793c46ec321
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357645"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476775"
 ---
-# <a name="use-the-azure-maps-services-module"></a>Utilizar o módulo de serviços do Azure Maps
+# <a name="use-the-azure-maps-services-module"></a>Usar o módulo de serviços do Azure Maps
 
-O SDK de Web do Azure Maps fornece uma *módulo serviços*. Este módulo é uma biblioteca auxiliar que torna mais fácil de utilizar os serviços do Azure Maps REST na web ou aplicações node. js com JavaScript ou TypeScript.
+O SDK da Web do Azure Maps fornece um *módulo de serviços*. Esse módulo é uma biblioteca auxiliar que torna mais fácil usar os serviços REST do Azure Maps em aplicativos Web ou node. js usando JavaScript ou TypeScript.
 
-## <a name="use-the-services-module-in-a-webpage"></a>Utilizar o módulo de serviços numa página Web
+## <a name="use-the-services-module-in-a-webpage"></a>Usar o módulo serviços em uma página da Web
 
-1. Crie um novo ficheiro HTML.
-1. Carregar o módulo de serviços do Azure Maps. Pode carregá-lo em uma das seguintes formas:
-    - Utilize a versão de rede de entrega de conteúdos do Azure globalmente hospedada, do módulo de serviços do Azure Maps. Adicionar uma referência de script para o `<head>` elemento do arquivo:
+1. Crie um novo arquivo HTML.
+1. Carregue o módulo serviços do Azure Maps. Você pode carregá-lo de uma das duas maneiras:
+    - Use a versão de rede de distribuição de conteúdo do Azure hospedada globalmente do módulo serviços do Azure Maps. Adicione uma referência de script ao `<head>` elemento do arquivo:
 
         ```html
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
         ```
 
-    - Em alternativa, carregar o código de origem do SDK de Web de mapas do Azure localmente ao utilizar o [do azure maps-repouso](https://www.npmjs.com/package/azure-maps-rest) npm do pacote e, em seguida, hospedá-lo com a sua aplicação. Este pacote também inclui definições de TypeScript. Use este comando:
+    - Como alternativa, carregue o código-fonte do SDK da Web do Azure Maps localmente usando o pacote NPM [do Azure-Maps-REST](https://www.npmjs.com/package/azure-maps-rest) e, em seguida, hospede-o com seu aplicativo. Esse pacote também inclui definições de TypeScript. Use este comando:
     
-        > **npm install azure-maps-rest**
+        > **NPM instalar Azure-Maps – REST**
     
-        Em seguida, adicione uma referência de script para o `<head>` elemento do arquivo:
+        Em seguida, adicione uma referência de script `<head>` ao elemento do arquivo:
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
          ```
 
-1. Crie um pipeline de autenticação. Tem de criar o pipeline antes da inicialização de um ponto de extremidade do cliente de URL do serviço. Utilize a sua própria chave de conta do Azure Maps ou as credenciais do Azure Active Directory (Azure AD) para autenticar um cliente do serviço de pesquisa de mapas do Azure. Neste exemplo, o cliente de URL do serviço de pesquisa será criado. 
+1. Crie um pipeline de autenticação. Você deve criar o pipeline antes de poder inicializar um ponto de extremidade de cliente de URL de serviço. Use suas próprias credenciais de chave de conta do Azure Maps ou Azure Active Directory (Azure AD) para autenticar um cliente de serviço de pesquisa do Azure Maps. Neste exemplo, o cliente da URL do serviço de pesquisa será criado. 
 
-    Se usar uma chave de subscrição para a autenticação:
+    Se você usar uma chave de assinatura para autenticação:
 
     ```javascript
     // Get an Azure Maps key at https://azure.com/maps.
@@ -59,7 +59,7 @@ O SDK de Web do Azure Maps fornece uma *módulo serviços*. Este módulo é uma 
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
 
-    Se utilizar o Azure AD para autenticação:
+    Se você usar o Azure AD para autenticação:
 
     ```javascript
     // Enter your Azure AD client ID.
@@ -124,7 +124,7 @@ O SDK de Web do Azure Maps fornece uma *módulo serviços*. Este módulo é uma 
 
     Para obter mais informações, consulte [autenticação com o Azure Maps](azure-maps-authentication.md).
 
-1. O código seguinte utiliza o cliente URL do serviço Azure Search recentemente criado para geocode um endereço: "1 Microsoft Way, Redmond, WA". O código utiliza o `searchAddress` funcionar e exibe os resultados como uma tabela no corpo da página.
+1. O código a seguir usa o cliente da URL do serviço recém-criado do Azure Search para geocodificar um endereço: "1 Microsoft Way, Redmond, WA". O código usa a `searchAddress` função e exibe os resultados como uma tabela no corpo da página.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -154,17 +154,17 @@ O SDK de Web do Azure Maps fornece uma *módulo serviços*. Este módulo é uma 
     });
     ```
 
-    Aqui está o completo, a executar o exemplo de código:
+    Aqui está o exemplo de código completo em execução:
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utilizar o módulo de serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>utilizando o módulo de serviços</a> através do Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) na <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Usando o módulo de serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>usando o módulo serviços</a> pelo Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre as classes e métodos usados neste artigo:
+Saiba mais sobre as classes e os métodos usados neste artigo:
 
 > [!div class="nextstepaction"]
 > [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
@@ -181,13 +181,13 @@ Saiba mais sobre as classes e métodos usados neste artigo:
 > [!div class="nextstepaction"]
 > [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
 
-Para obter mais exemplos de código que utilizam o módulo de serviços, veja estes artigos:
+Para obter mais exemplos de código que usam o módulo serviços, consulte estes artigos:
 
 > [!div class="nextstepaction"]
 > [Mostrar resultados da pesquisa no mapa](./map-search-location.md)
 
 > [!div class="nextstepaction"]
-> [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
+> [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 
 > [!div class="nextstepaction"]
-> [Mostrar as direções da para B](./map-route.md)
+> [Mostrar instruções de a a B](./map-route.md)

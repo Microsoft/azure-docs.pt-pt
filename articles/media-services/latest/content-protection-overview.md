@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5d31e4a523fdedf9907e33c70638f07a08461ed1
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 174184993e40b60dc89022d360f0c09fb31bc60b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310310"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501274"
 ---
-# <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com criptografia dinâmica
+# <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Proteger seu conteúdo usando a criptografia dinâmica dos serviços de mídia
 
-Pode utilizar os serviços de multimédia do Azure para proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Com os serviços de mídia, você pode entregar seu conteúdo ao vivo e sob demanda criptografado dinamicamente com criptografia AES (AES-128) ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados. 
+Você pode usar os serviços de mídia do Azure para ajudar a proteger sua mídia desde o momento em que ele deixa o computador por meio de armazenamento, processamento e entrega. Com os serviços de mídia, você pode entregar seu conteúdo ao vivo e sob demanda criptografado dinamicamente com criptografia AES (AES-128) ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados.  
 
 No Media Services V3, uma chave de conteúdo é associada ao localizador de streaming (consulte [Este exemplo](protect-with-aes128.md)). Se estiver usando o serviço de distribuição de chaves dos serviços de mídia, você poderá permitir que os serviços de mídia do Azure gerem a chave de conteúdo para você. Você mesmo deve gerar a chave de conteúdo se estiver usando o serviço de distribuição de chaves próprio, ou se precisar lidar com um cenário de alta disponibilidade em que você precisa ter a mesma chave de conteúdo em dois data centers.
 
@@ -31,75 +31,89 @@ Quando um fluxo é solicitado por um jogador, serviços de multimédia utiliza a
 
 Pode utilizar a API REST ou uma biblioteca de cliente dos serviços de multimédia para configurar políticas de autorização e autenticação para as suas licenças e chaves.
 
-A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serviços de multimédia: 
+A imagem a seguir ilustra o fluxo de trabalho para proteção de conteúdo dos serviços de mídia:
 
-![Proteger conteúdo](./media/content-protection/content-protection.svg)
+![Fluxo de trabalho para proteção de conteúdo dos serviços de mídia](./media/content-protection/content-protection.svg)
+  
+&#42;*A criptografia dinâmica dá suporte ao AES-128 Clear Key, CBCs e Cenc. Para obter detalhes, consulte a [matriz de suporte](#streaming-protocols-and-encryption-types).*
 
-&#42;*encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. Para obter detalhes, consulte a matriz de suporte [aqui](#streaming-protocols-and-encryption-types).*
-
-Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services.
+Este artigo explica os conceitos e a terminologia que o ajudarão a entender a proteção de conteúdo com os serviços de mídia.
 
 ## <a name="main-components-of-a-content-protection-system"></a>Componentes principais de um sistema de proteção de conteúdo
 
-Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo", precisa compreender plenamente o âmbito do esforço. A lista seguinte fornece uma visão geral de três partes, que terá de implementar. 
-
-1. Código de serviços de multimédia do Azure
-  
-   O exemplo de [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) mostra como implementar o sistema de vários DRM com os serviços de mídia v3 usando o .net. Ele também mostra como usar a licença dos serviços de mídia/serviço de entrega de chave. Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
-  
-   O exemplo mostra como:
-
-   1. Criar e configurar [políticas de chave de conteúdo](content-key-policy-concept.md). Você cria uma **política de chave de conteúdo** para configurar como a chave de conteúdo (que fornece acesso seguro aos seus ativos) é entregue aos clientes finais.    
-
-      * Defina a autorização de entrega de licença, especificando a lógica da verificação de autorização com base em declarações em JWT.
-      * Configure as licenças [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md)e/ou [Fairplay](fairplay-license-overview.md) . Os modelos permitem que você configure direitos e permissões para cada um dos DRMs usados.
-
-        ```
-        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-        ```
-   2. Crie um [localizador de streaming](streaming-locators-concept.md) configurado para transmitir o ativo criptografado. 
-  
-      O **localizador de streaming** deve ser associado a uma [política de streaming](streaming-policy-concept.md). No exemplo, definimos StreamingLocator. StreamingPolicyName como a política "Predefined_MultiDrmCencStreaming". As criptografias PlayReady e Widevine são aplicadas, a chave é entregue ao cliente de reprodução com base nas licenças DRM configuradas. Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
-      
-      O localizador de streaming também está associado à **política de chave de conteúdo** que foi definida.
-    
-   3. Crie um token de teste.
-
-      O **GetTokenAsync** método mostra como criar um teste de token.
-   4. Crie o URL de transmissão em fluxo.
-
-      O **GetDASHStreamingUrlAsync** método mostra como criar o URL de transmissão em fluxo. Neste caso, os fluxos de URL a **DASH** conteúdo.
-
-2. Jogador com AES ou DRM cliente. Uma aplicação de leitor de vídeo com base num player SDK (nativo ou baseada no browser) tem de cumprir os seguintes requisitos:
-   * O SDK player suporta os clientes DRM necessários
-   * O SDK do Player dá suporte aos protocolos de streaming necessários: Smooth, DASH e/ou HLS
-   * O SDK player tem de ser capaz de lidar com a passagem de um token JWT no pedido de aquisição de licença
-  
-     Pode criar um leitor, utilizando o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
-
-     Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://aka.ms/azuremediaplayer). Certifique-se de que clicar em "Opções avançadas" e verifique as opções de encriptação.
-
-     Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](https://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. 
-    
-     Você precisa escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, Microsoft Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
-
-3. Proteger o serviço de Token (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos back-end. Pode utilizar os serviços de entrega de licença do AMS como o recurso de back-end. Tem um STS para definir o seguinte:
-
-   * Emissor e público-alvo (ou escopo)
-   * Afirmações, que são dependentes nos requisitos de negócios na proteção de conteúdo
-   * Verificação de simétrica ou assimétrica para verificação da assinatura
-   * Suporte de rollover de chave (se necessário)
-
-     Você pode usar [essa ferramenta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para testar o STS, que dá suporte a todos os três tipos de chave de verificação: simétrico, assimétrico ou Azure AD com substituição de chave. 
+Para concluir com êxito o seu sistema de proteção de conteúdo, você precisa compreender totalmente o escopo do esforço. As seções a seguir fornecem uma visão geral de três partes que você precisa implementar. 
 
 > [!NOTE]
-> É altamente recomendado para concentrar-se e testar totalmente a cada parte (descrito anteriormente) antes de passar para a parte seguinte. Para testar o seu sistema de "proteção de conteúdo", utilize as ferramentas especificadas na lista acima.  
+> É altamente recomendável que você focalize e teste completamente cada parte das seções a seguir antes de passar para a próxima parte. Para testar seu sistema de proteção de conteúdo, use as ferramentas especificadas nas seções.
+
+### <a name="media-services-code"></a>Código dos serviços de mídia
+  
+O [exemplo de DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) mostra como implementar um sistema de vários DRM com os serviços de mídia v3 usando o .net. Ele também mostra como usar o serviço de distribuição de chaves/licença dos serviços de mídia.   
+  
+Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Para ver o que faz sentido combinar, consulte [protocolos de streaming e tipos de criptografia](#streaming-protocols-and-encryption-types).
+
+O exemplo mostra como:
+
+1. Criar e configurar uma [política de chave de conteúdo](content-key-policy-concept.md).    
+
+   Você cria uma política de chave de conteúdo para configurar como a chave de conteúdo (que fornece acesso seguro aos seus ativos) é entregue aos clientes finais:  
+ 
+   * Defina a autorização de entrega de licença. Especifique a lógica da verificação de autorização com base em declarações no token Web JSON (JWT).
+   * Configure as licenças [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md)e/ou [Fairplay](fairplay-license-overview.md) . Os modelos permitem que você configure direitos e permissões para cada um dos DRMs.
+
+     ```
+     ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+     ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+     ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+     ```
+2. Crie um [localizador de streaming](streaming-locators-concept.md) configurado para transmitir o ativo criptografado. 
+  
+   O localizador de streaming deve ser associado a uma [política de streaming](streaming-policy-concept.md). No exemplo, definimos `StreamingLocator.StreamingPolicyName` a política "Predefined_MultiDrmCencStreaming". 
+      
+   As criptografias PlayReady e Widevine são aplicadas e a chave é entregue ao cliente de reprodução com base nas licenças DRM configuradas. Se você também quiser criptografar seu fluxo com CBCS (FairPlay), use a política "Predefined_MultiDrmStreaming".
+
+   O localizador de streaming também está associado à política de chave de conteúdo que você definiu.
+3. Crie um token de teste.
+
+   O `GetTokenAsync` método mostra como criar um token de teste.
+4. Crie o URL de transmissão em fluxo.
+
+   O `GetDASHStreamingUrlAsync` método mostra como criar a URL de streaming. Nesse caso, a URL transmite o conteúdo do traço.
+
+### <a name="player-with-an-aes-or-drm-client"></a>Player com um cliente AES ou DRM 
+
+Uma aplicação de leitor de vídeo com base num player SDK (nativo ou baseada no browser) tem de cumprir os seguintes requisitos:
+
+* O SDK do Player dá suporte aos clientes DRM necessários.
+* O SDK do Player dá suporte aos protocolos de streaming necessários: Smooth, DASH e/ou HLS.
+* O SDK do player pode lidar com a passagem de um token JWT em uma solicitação de aquisição de licença.
+
+Pode criar um leitor, utilizando o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
+
+Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://aka.ms/azuremediaplayer). Certifique-se de selecionar **Opções avançadas** e verifique suas opções de criptografia.
+
+Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](https://aka.ms/amtest). O Player dá suporte a Widevine, PlayReady e FairPlay DRMs, juntamente com criptografia de chave não criptografada AES-128. 
+
+Escolha o navegador certo para testar diferentes DRMs:
+
+* Chrome, Opera ou Firefox para Widevine
+* Microsoft Edge ou Internet Explorer 11 para PlayReady
+* Safari no macOS para FairPlay
+
+### <a name="security-token-service"></a>Serviço de token de segurança
+
+Um serviço de token de segurança (STS) emite JWT como o token de acesso para acesso a recursos de back-end. Você pode usar o serviço de entrega de chave/licença dos serviços de mídia do Azure como o recurso de back-end. Tem um STS para definir o seguinte:
+
+* Emissor e público-alvo (ou escopo)
+* Afirmações, que são dependentes nos requisitos de negócios na proteção de conteúdo
+* Verificação de simétrica ou assimétrica para verificação da assinatura
+* Suporte de rollover de chave (se necessário)
+
+Você pode usar [essa ferramenta STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) para testar o STS. Ele dá suporte a todos os três tipos de chaves de verificação: simétrico, assimétrico ou Azure Active Directory (Azure AD) com substituição de chave. 
 
 ## <a name="streaming-protocols-and-encryption-types"></a>Protocolos de transmissão em fluxo e tipos de encriptação
 
-Pode utilizar os serviços de multimédia para distribuir os seus conteúdos encriptados dinamicamente com a chave não encriptada AES ou encriptação de DRM com o PlayReady, Widevine e FairPlay. Atualmente, pode criptografar os formatos de HTTP Live Streaming (HLS), MPEG DASH e Smooth Streaming. Cada protocolo suporta os seguintes métodos de encriptação:
+Pode utilizar os serviços de multimédia para distribuir os seus conteúdos encriptados dinamicamente com a chave não encriptada AES ou encriptação de DRM com o PlayReady, Widevine e FairPlay. Atualmente, pode criptografar os formatos de HTTP Live Streaming (HLS), MPEG DASH e Smooth Streaming. Cada protocolo dá suporte aos seguintes métodos de criptografia.
 
 ### <a name="hls"></a>HLS
 
@@ -115,9 +129,9 @@ O protocolo HLS dá suporte aos seguintes formatos de contêiner e esquemas de c
 
 HLS/CMAF + FairPlay (incluindo HEVC/H. 265) tem suporte nos seguintes dispositivos:
 
-* iOS v11 ou superior 
-* iPhone 8 ou superior
-* MacOS High Sierra com a CPU Intel 7ª Gen
+* iOS 11 ou posterior 
+* iPhone 8 ou posterior
+* MacOS High Sierra com CPU Intel 7 geração
 
 ### <a name="mpeg-dash"></a>MPEG-DASH
 
@@ -145,20 +159,25 @@ Os navegadores comuns dão suporte aos seguintes clientes DRM:
 |Browser|Encriptação|
 |---|---|
 |Chrome|Widevine|
-|Microsoft Edge, IE 11|PlayReady|
+|Microsoft Edge, Internet Explorer 11|PlayReady|
 |Firefox|Widevine|
 |Opera|Widevine|
 |Safari|FairPlay|
 
-## <a name="control-content-access"></a>Controlar o acesso do conteúdo
+## <a name="controlling-content-access"></a>Controlando o acesso ao conteúdo
 
-Pode controlar quem tem acesso ao seu conteúdo ao configurar a política de chave de conteúdo. Os Media Services suportam várias formas de autorização de utilizadores que efetuam pedidos de chave. Tem de configurar a política de chave de conteúdo. O cliente (leitor) tem de cumprir a política antes da chave pode ser entregue ao cliente. A política de chave de conteúdo pode ter **abra** ou **token** restrição. 
+Pode controlar quem tem acesso ao seu conteúdo ao configurar a política de chave de conteúdo. Os Media Services suportam várias formas de autorização de utilizadores que efetuam pedidos de chave. Tem de configurar a política de chave de conteúdo. O cliente (leitor) tem de cumprir a política antes da chave pode ser entregue ao cliente. A política de chave de conteúdo pode ter *abra* ou *token* restrição. 
 
-Com uma conteúdo chave política de token restrito, a chave de conteúdo é enviada apenas para um cliente que apresenta um válido JSON Web Token (JWT) ou simple web tokens (SWT) no pedido de chaves/licenças. Este token deve ser emitido por um serviço de token de segurança (STS). Pode utilizar o Azure Active Directory como um STS ou implementar um STS personalizado. O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de entrega de chave de serviços de multimédia devolve a chave/licença pedida para o cliente se o token é válido e as afirmações no token corresponderem às configuradas para a chave/licença.
+Uma política de chave de conteúdo com restrição aberta pode ser usada quando você deseja emitir a licença para qualquer pessoa sem autorização. Por exemplo, se sua receita for baseada no AD e não for baseada em assinatura.  
 
-Ao configurar a política de token restrito, tem de especificar a chave de verificação primária, emissor e parâmetros de público-alvo. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o serviço de token seguro que emite o token. O público-alvo, às vezes chamado de âmbito, descreve a intenção do token ou o recurso o token de acesso a autoriza. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
+Com uma política de chave de conteúdo restrita por token, a chave de conteúdo é enviada somente para um cliente que apresenta um token JWT válido ou um token Web simples na solicitação de licença/chave. Esse token deve ser emitido por um STS. 
 
-Os clientes geralmente usam um STS personalizado para incluir declarações personalizadas no token para selecionar entre diferentes ContentKeyPolicyOptions com parâmetros de licença de DRM diferentes (uma licença de assinatura em vez de uma licença de aluguel) ou para incluir uma declaração representando a chave de conteúdo identificador da chave à qual o token concede acesso.
+Você pode usar o Azure AD como um STS ou implantar um STS personalizado. O STS deve ser configurado para criar um token assinado com as declarações de chave e o problema especificadas que especificou na configuração de restrição de token. O serviço de distribuição de chaves/licença dos serviços de mídia retorna a licença ou chave solicitada ao cliente se ambas as condições existirem:
+
+* O token é válido. 
+* As declarações no token correspondem àquelas configuradas para a licença ou chave.
+
+Ao configurar a política restrita por token, você deve especificar os parâmetros de chave de verificação primária, emissor e público. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o STS que emite o token. O público, às vezes chamado de escopo, descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves/licença dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
 ### <a name="token-replay-prevention"></a>Prevenção de reprodução de token
 
@@ -173,14 +192,43 @@ O recurso de *prevenção de reprodução de token* permite que os clientes dos 
 * Esse recurso pode ser usado para todo o conteúdo protegido existente (somente o token emitido precisa ser alterado).
 * Esse recurso funciona com o JWT e o SWT.
 
+## <a name="using-a-custom-sts"></a>Usando um STS personalizado
+
+Um cliente pode optar por usar um STS personalizado para fornecer tokens. Os motivos incluem:
+
+* O IDP utilizado pelo cliente não suporta o STS. Neste caso, um STS personalizado pode ser uma opção.
+* O cliente poderá ter um controlo para integrar o STS com o subscritor do cliente, sistema de faturação mais flexível ou maior. Por exemplo, um operador MVPD pode oferecer vários pacotes de subscritor OTT, como premium, básico e desporto. O operador deve-se de acordo com as afirmações num token com o pacote de um subscritor para que apenas o conteúdo num pacote específico é disponibilizado. Neste caso, um STS personalizado fornece a flexibilidade necessária e o controle.
+* Para incluir declarações personalizadas no token para selecionar entre diferentes ContentKeyPolicyOptions com parâmetros de licença de DRM diferentes (uma licença de assinatura em vez de uma licença de aluguel).
+* Para incluir uma declaração que representa o identificador de chave de conteúdo da chave à qual o token concede acesso.
+
+Quando utilizar um STS personalizado, duas alterações devem ser feitas:
+
+* Quando configurar o serviço de entrega de licença para um recurso, tem de especificar a chave de segurança utilizada para verificação pelo STS personalizado em vez da chave atual do Azure AD.
+* Quando é gerado um token JTW, é especificada uma chave de segurança em vez da chave privada do atual X509 certificado no Azure AD.
+
+Existem dois tipos de chaves de segurança:
+
+* Chave simétrica: A mesma chave é usada para gerar e verificar um JWT.
+* Chave assimétrica: Um par de chaves pública-privada em um certificado X509 é usado com uma chave privada para criptografar/gerar um JWT e com a chave pública para verificar o token.
+
+Se usar o .NET Framework / c# como sua plataforma de desenvolvimento, X509 certificado utilizado para uma chave assimétrica segurança tem de ter um comprimento de chave de, pelo menos, 2048. Este é um requisito da classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey no .NET Framework. Caso contrário, é gerada a seguinte exceção: IDX10630: O ' System. IdentityModel. Tokens. X509AsymmetricSecurityKey ' para assinatura não pode ser menor que ' 2048 ' bits.
+
 ## <a name="custom-key-and-license-acquisition-url"></a>URL de aquisição de licença e chave personalizada
 
-Use os modelos a seguir se desejar especificar um serviço de entrega de chave e licença diferente (não serviços de mídia). Os dois campos substituíveis nos modelos existem para que você possa compartilhar sua política de streaming em vários ativos, em vez de criar uma política de streaming por ativo. 
+Use os modelos a seguir se desejar especificar um serviço de entrega de chave/licença diferente (não serviços de mídia). Os dois campos substituíveis nos modelos existem para que você possa compartilhar sua política de streaming em vários ativos, em vez de criar uma política de streaming por ativo. 
 
-* EnvelopeEncryption. CustomKeyAcquisitionUrlTemplate-template para a URL do serviço personalizado que fornece chaves para os players do usuário final. Não é necessário ao usar os serviços de mídia do Azure para emitir chaves. O modelo oferece suporte a tokens substituíveis que o serviço atualizará em tempo de execução com o valor específico para a solicitação.  Os valores de token com suporte no momento são {AlternativeMediaId}, que é substituído pelo valor de StreamingLocatorId. AlternativeMediaId e {ContentKeyId}, que é substituído pelo valor do identificador da chave que está sendo solicitada.
-* StreamingPolicyPlayReadyConfiguration. CustomLicenseAcquisitionUrlTemplate-template para a URL do serviço personalizado que entrega licenças para players do usuário final. Não é necessário ao usar os serviços de mídia do Azure para a emissão de licenças. O modelo oferece suporte a tokens substituíveis que o serviço atualizará em tempo de execução com o valor específico para a solicitação. Os valores de token com suporte no momento são {AlternativeMediaId}, que é substituído pelo valor de StreamingLocatorId. AlternativeMediaId e {ContentKeyId}, que é substituído pelo valor do identificador da chave que está sendo solicitada. 
-* StreamingPolicyWidevineConfiguration. CustomLicenseAcquisitionUrlTemplate-o mesmo que acima, somente para Widevine. 
-* StreamingPolicyFairPlayConfiguration. CustomLicenseAcquisitionUrlTemplate-o mesmo que acima, somente para FairPlay.  
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: Modelo para a URL do serviço personalizado que fornece chaves para os players do usuário final. Ele não é necessário quando você está usando os serviços de mídia do Azure para emitir chaves. 
+
+   O modelo oferece suporte a tokens substituíveis que o serviço atualizará em tempo de execução com o valor específico para a solicitação.  Os valores de token com suporte no momento são:
+   * `{AlternativeMediaId}`, que é substituído pelo valor de StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, que é substituído pelo valor do identificador da chave solicitada.
+* `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: Modelo para a URL do serviço personalizado que entrega licenças para players do usuário final. Ele não é necessário quando você está usando os serviços de mídia do Azure para emitir licenças. 
+
+   O modelo oferece suporte a tokens substituíveis que o serviço atualizará em tempo de execução com o valor específico para a solicitação. Os valores de token com suporte no momento são:  
+   * `{AlternativeMediaId}`, que é substituído pelo valor de StreamingLocatorId. AlternativeMediaId.
+   * `{ContentKeyId}`, que é substituído pelo valor do identificador da chave solicitada. 
+* `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: O mesmo que o modelo anterior, somente para Widevine. 
+* `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: O mesmo que o modelo anterior, somente para FairPlay.  
 
 Por exemplo:
 
@@ -188,15 +236,15 @@ Por exemplo:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-O `ContentKeyId` tem um valor da chave que está sendo solicitada `AlternativeMediaId` e o pode ser usado se você quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, o `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
+`ContentKeyId`tem um valor da chave solicitada. Você pode usar `AlternativeMediaId` se quiser mapear a solicitação para uma entidade no seu lado. Por exemplo, `AlternativeMediaId` pode ser usado para ajudá-lo a Pesquisar permissões.
 
-Para obter exemplos de REST que usam URLs de chave personalizada e de aquisição de licença, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+ Para obter exemplos de REST que usam URLs de licença/chave personalizadas, consulte [políticas de streaming – criar](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Se você receber o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, certifique-se de especificar a política de streaming apropriada.
 
-Se você receber erros que terminam `_NOT_SPECIFIED_IN_URL`com o, certifique-se de especificar o formato de criptografia na URL. Por exemplo, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consulte [protocolos de streaming e tipos de criptografia](#streaming-protocols-and-encryption-types).
+Se você receber erros que terminam `_NOT_SPECIFIED_IN_URL`com o, certifique-se de especificar o formato de criptografia na URL. Um exemplo é `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consulte [protocolos de streaming e tipos de criptografia](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 

@@ -1,6 +1,6 @@
 ---
-title: Expressões de política de gestão de API do Azure | Documentos da Microsoft
-description: Saiba mais sobre expressões de política na gestão de API do Azure.
+title: Expressões de política de gerenciamento de API do Azure | Microsoft Docs
+description: Saiba mais sobre as expressões de política no gerenciamento de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 22be5509a93d0713b8113ba17debfda3cf576006
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 9a42028891f0a8677127221c8ed4cff73a22103a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508969"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498540"
 ---
-# <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
-Este artigo aborda as expressões de diretriz sintaxe é C# 7. Cada expressão tem acesso ao implicitamente fornecido [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitidos [subconjunto](api-management-policy-expressions.md#CLRTypes) de tipos do .NET Framework.
+# <a name="api-management-policy-expressions"></a>Expressões de política de gerenciamento de API
+Este artigo discute a sintaxe de expressões de C# política é 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) fornecida implicitamente e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de .NET Framework.
 
 Para obter mais informações:
 
-- Veja como fornecer informações de contexto ao seu serviço de back-end. Utilize o [defina o parâmetro de cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e [cabeçalho de HTTP definir](api-management-transformation-policies.md#SetHTTPheader) políticas para fornecer essas informações.
-- Veja como usar o [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) política para autorizar previamente o acesso às operações com base nas afirmações de token.
-- Veja como usar um [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) rastreio para ver como são avaliadas as políticas e os resultados de avaliações desses.
-- Veja como usar expressões com o [obter a partir do cache](api-management-caching-policies.md#GetFromCache) e [Store à cache](api-management-caching-policies.md#StoreToCache) políticas para configurar a cache de resposta de gestão de API. Definir um período de tempo que corresponde à cache de resposta do serviço de back-end conforme especificado pelo serviço de segurança `Cache-Control` diretiva.
-- Veja como realizar a filtragem de conteúdo. Remover elementos de dados da resposta recebida do back-end com o [controlar o fluxo](api-management-advanced-policies.md#choose) e [definir corpo](api-management-transformation-policies.md#SetBody) políticas.
-- Para transferir as instruções de políticas, consulte a [amostras/políticas de api-gestão](https://github.com/Azure/api-management-samples/tree/master/policies) repositório do GitHub.
+- Consulte como fornecer informações de contexto para seu serviço de back-end. Use o [parâmetro definir cadeia de caracteres de consulta](api-management-transformation-policies.md#SetQueryStringParameter) e defina as políticas de [cabeçalho http](api-management-transformation-policies.md#SetHTTPheader) para fornecer essas informações.
+- Consulte como usar a política [validar JWT](api-management-access-restriction-policies.md#ValidateJWT) para autorizar o acesso a operações com base em declarações de token.
+- Consulte como usar um rastreamento do [Inspetor de API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) para ver como as políticas são avaliadas e os resultados dessas avaliações.
+- Consulte como usar expressões com as políticas [obter do cache](api-management-caching-policies.md#GetFromCache) e [armazenar em cache](api-management-caching-policies.md#StoreToCache) para configurar o cache de resposta de gerenciamento de API. Defina uma duração que corresponda ao cache de resposta do serviço de back-end conforme especificado pela diretiva do `Cache-Control` serviço com suporte.
+- Consulte como executar a filtragem de conteúdo. Remova os elementos de dados da resposta recebida do back-end usando o [fluxo de controle](api-management-advanced-policies.md#choose) e defina as políticas de [corpo](api-management-transformation-policies.md#SetBody) .
+- Para baixar as instruções de política, consulte o repositório GitHub [API-Management-Samples/Policies](https://github.com/Azure/api-management-samples/tree/master/policies) .
 
 
-## <a name="Syntax"></a> Sintaxe
-Expressões de instrução única encontram-se entre `@(expression)`, onde `expression` é bem formado C# declaração da expressão.
+## <a name="Syntax"></a>Sintaxe
+Expressões de instrução única são incluídas `@(expression)`em, `expression` em que é uma instrução C# de expressão bem formada.
 
-Expressões com múltiplas instruções estão incluídas no `@{expression}`. Todos os caminhos de código nas expressões de várias declarações tem de terminar com um `return` instrução.
+Expressões de várias instruções são colocadas em `@{expression}`. Todos os caminhos de código dentro de expressões de várias instruções devem `return` terminar com uma instrução.
 
-## <a name="PolicyExpressionsExamples"></a> Exemplos
+## <a name="PolicyExpressionsExamples"></a>Disso
 
 ```
 @(true)
@@ -65,19 +65,19 @@ Expressões com múltiplas instruções estão incluídas no `@{expression}`. To
 }
 ```
 
-## <a name="PolicyExpressionsUsage"></a>Utilização
-Expressões podem ser utilizadas como valores de atributo ou valores de texto em qualquer gestão de API [políticas](api-management-policies.md) (a menos que a referência de política especifique o contrário).
+## <a name="PolicyExpressionsUsage"></a>Usos
+As expressões podem ser usadas como valores de atributo ou valores de texto em qualquer [política](api-management-policies.md) de gerenciamento de API (a menos que a referência de política especifique o contrário).
 
 > [!IMPORTANT]
-> Quando utilizar expressões de política, há apenas limitada verificação das expressões de política quando a política estiver definida. As expressões são executadas pelo gateway em tempo de execução, todas as exceções geradas pelo resultado de expressões de política num erro de tempo de execução.
+> Quando você usa expressões de política, há apenas uma verificação limitada das expressões de política quando a política é definida. As expressões são executadas pelo gateway em tempo de execução, todas as exceções geradas por expressões de política resultam em um erro de tempo de execução.
 
-## <a name="CLRTypes"></a> Tipos do .NET framework permitidos em expressões de política
-A tabela seguinte lista os tipos do .NET Framework e seus membros que são permitidos em expressões de política.
+## <a name="CLRTypes"></a>Tipos de .NET Framework permitidos em expressões de política
+A tabela a seguir lista os tipos de .NET Framework e seus membros que são permitidos em expressões de política.
 
-|Type|Membros suportados|
+|Type|Membros com suporte|
 |--------------|-----------------------|
 |Newtonsoft.Json.Formatting|Todos|
-|Newtonsoft.Json.JsonConvert|SerializeObject, DeserializeObject|
+|Newtonsoft.Json.JsonConvert|SerializeObject, desserializaobject|
 |Newtonsoft.Json.Linq.Extensions|Todos|
 |Newtonsoft.Json.Linq.JArray|Todos|
 |Newtonsoft.Json.Linq.JConstructor|Todos|
@@ -88,15 +88,15 @@ A tabela seguinte lista os tipos do .NET Framework e seus membros que são permi
 |Newtonsoft.Json.Linq.JToken|Todos|
 |Newtonsoft.Json.Linq.JTokenType|Todos|
 |Newtonsoft.Json.Linq.JValue|Todos|
-|System.Array|Todos|
+|System. array|Todos|
 |System.BitConverter|Todos|
 |System.Boolean|Todos|
 |System.Byte|Todos|
 |System.Char|Todos|
-|System.Collections.Generic.Dictionary<TKey, TValue>|Todos|
+|System. Collections. Generic. Dictionary < TKey, TValue >|Todos|
 |System.Collections.Generic.HashSet\<T>|Todos|
 |System.Collections.Generic.ICollection\<T>|Todos|
-|System.Collections.Generic.IDictionary<TKey, TValue>|Todos|
+|System. Collections. Generic. IDictionary < TKey, TValue >|Todos|
 |System.Collections.Generic.IEnumerable\<T>|Todos|
 |System.Collections.Generic.IEnumerator\<T>|Todos|
 |System.Collections.Generic.IList\<T>|Todos|
@@ -108,7 +108,7 @@ A tabela seguinte lista os tipos do .NET Framework e seus membros que são permi
 |System.Collections.Generic.Queue\<T>|Todos|
 |System.Collections.Generic.Stack\<T>|Todos|
 |System.Convert|Todos|
-|System.DateTime|(Construtor), adicionar, AddDays, AddHours, AddMilliseconds, AddMinutes, AddMonths, AddSeconds, AddTicks, AddYears, data, dia, DayOfWeek, DayOfYear, DaysInMonth, hora, IsDaylightSavingTime, IsLeapYear, MaxValue, milissegundo, minuto, MinValue, mês, agora , Análise, em segundo lugar, subtrair, Ticks, TimeOfDay, hoje, ToString, UtcNow, ano|
+|System.DateTime|(Construtor), adicionar, subdias, addhora, addmilésimos de segundo, addminutos, addmeses, adicionar, submarcações, AddYears, data, Day, DayOfWeek, DayOfYear, DaysInMonth, hora, IsDaylightSavingTime, IsLeapYear, MaxValue, milissegundo, minuto, MinValue, mês, agora , Análise, segundo, subtrair, tiques, TimeOfDay, hoje, ToString, UtcNow, year|
 |System.DateTimeKind|Utc|
 |System.DateTimeOffset|Todos|
 |System.Decimal|Todos|
@@ -156,7 +156,7 @@ A tabela seguinte lista os tipos do .NET Framework e seus membros que são permi
 |System.Security.Cryptography.SymmetricAlgorithm|Todos|
 |System.Security.Cryptography.X509Certificates.PublicKey|Todos|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Todos|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Todos|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Todos|
@@ -167,12 +167,12 @@ A tabela seguinte lista os tipos do .NET Framework e seus membros que são permi
 |System.StringComparison|Todos|
 |System.StringSplitOptions|Todos|
 |System.Text.Encoding|Todos|
-|System.Text.RegularExpressions.Capture|Valor de índice, comprimento,|
-|System.Text.RegularExpressions.CaptureCollection|Contagem de Item|
-|System.Text.RegularExpressions.Group|Capturas de sucesso|
-|System.Text.RegularExpressions.GroupCollection|Contagem de Item|
-|System.Text.RegularExpressions.Match|Resultado vazio, grupos,|
-|System.Text.RegularExpressions.Regex|(Construtor), IsMatch, correspondência, correspondências, substituir, Unescape, dividida|
+|System.Text.RegularExpressions.Capture|Índice, comprimento, valor|
+|System.Text.RegularExpressions.CaptureCollection|Contagem, item|
+|System.Text.RegularExpressions.Group|Capturas, êxito|
+|System.Text.RegularExpressions.GroupCollection|Contagem, item|
+|System.Text.RegularExpressions.Match|Vazio, grupos, resultado|
+|System.Text.RegularExpressions.Regex|(Construtor), IsMatch, corresponder, corresponder, substituir, cancelar escape, dividir|
 |System.Text.RegularExpressions.RegexOptions|Todos|
 |System.Text.StringBuilder|Todos|
 |System.TimeSpan|Todos|
@@ -205,52 +205,52 @@ A tabela seguinte lista os tipos do .NET Framework e seus membros que são permi
 |System.Xml.Linq.XText|Todos|
 |System.Xml.XmlNodeType|Todos|
 
-## <a name="ContextVariables"></a> Variável de contexto
-Uma variável chamada `context` implicitamente disponível em cada política [expressão](api-management-policy-expressions.md#Syntax). Seus membros fornecem informações pertinentes para o `\request`. Todos os `context` membros são só de leitura.
+## <a name="ContextVariables"></a>Variável de contexto
+Uma variável chamada `context` está implicitamente disponível em cada [expressão](api-management-policy-expressions.md#Syntax)de política. Seus membros fornecem informações pertinentes ao `\request`. Todos os membros são somente leitura. `context`
 
-|Variável de contexto|Permissão de métodos, propriedades e valores de parâmetros|
+|Variável de contexto|Métodos, propriedades e valores de parâmetro permitidos|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido: Período de tempo - intervalo de tempo entre o valor de Timestamp e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Produto](#ref-context-product)<br /><br /> [Pedido](#ref-context-request)<br /><br /> RequestId: GUID - identificador exclusivo do pedido<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Timestamp: DateTime - ponto anterior no tempo quando o pedido foi recebido<br /><br /> Rastreio: bool - indica se o rastreio está ativada ou desativada <br /><br /> [Utilizador](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): IReadOnlyDictionary < string, object ><br /><br /> void Trace(message: string)|
-|<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revisão: cadeia<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Versão: cadeia |
-|<a id="ref-context-deployment"></a>context.Deployment|Região: cadeia<br /><br /> ServiceName: string<br /><br /> Certificados: IReadOnlyDictionary<string, X509Certificate2>|
-|<a id="ref-context-lasterror"></a>context.LastError|Origem: cadeia<br /><br /> Reason: string<br /><br /> Mensagem: cadeia<br /><br /> Âmbito: cadeia<br /><br /> Secção: cadeia<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [tratamento de erros](api-management-error-handling-policies.md).|
-|<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Método: cadeia<br /><br /> Name: string<br /><br /> UrlTemplate: string|
-|<a id="ref-context-product"></a>context.Product|Apis: IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: booleano<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> Estado: enumeração ProductState {NotPublished, publicado}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: booleano|
-|<a id="ref-context-request"></a>context.Request|Corpo: [IMessageBody](#ref-imessagebody) ou `null` se o pedido não tem um corpo.<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> MatchedParameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
-|<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de pedido separada por vírgulas ou `defaultValue` se não for encontrado no cabeçalho.|
-|<a id="ref-context-response"></a>context.Response|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
-|<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de cabeçalho de resposta separados por vírgulas ou `defaultValue` se não for encontrado no cabeçalho.|
-|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime: DateTime<br /><br /> EndDate: DateTime?<br /><br /> Id: string<br /><br /> Chave: cadeia<br /><br /> Name: string<br /><br /> PrimaryKey: string<br /><br /> SecondaryKey: string<br /><br /> StartDate: DateTime?|
-|<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Identidades: IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Nota: cadeia<br /><br /> RegistrationDate: DateTime|
-|<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocolos: IEnumerable<string\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
-|<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false): Em que t: cadeia de caracteres, JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> O `context.Request.Body.As<T>` e `context.Response.Body.As<T>` métodos são utilizados para ler uma solicitação e resposta corpos das mensagens num tipo especificado `T`. Por predefinição, o método usa o fluxo de corpo de mensagem original e processa indisponível após ela retornar. Para evitar que fazendo com que o método operam numa cópia do fluxo de corpo, defina o `preserveContent` parâmetro `true`. Vá [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|
-|<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Porta: int<br /><br /> [Consulta](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: string<br /><br /> Scheme: string|
-|<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Fornecedor: cadeia|
-|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Cabeçalho: cadeia<br /><br /> Query: string|
-|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: string<br /><br /> Devolve os valores de parâmetros de consulta separados por vírgulas ou `defaultValue` se o parâmetro não for encontrado.|
-|<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> defaultValue: T<br /><br /> Devolve o valor da variável convertido para o tipo `T` ou `defaultValue` se a variável não for encontrada.<br /><br /> Esse método lança uma exceção se o tipo especificado não coincide com o tipo real da variável retornado.|
-|BasicAuthCredentials AsBasic(input: this string)|entrada: cadeia<br /><br /> Se o parâmetro de entrada contém um valor de cabeçalho do pedido de autorização de autenticação básica HTTP válido, o método retorna um objeto do tipo `BasicAuthCredentials`; caso contrário, o método devolverá um nulo.|
-|bool TryParseBasic (entrada: Esta cadeia de caracteres, o resultado: horizontalmente BasicAuthCredentials)|entrada: cadeia<br /><br /> resultado: horizontalmente BasicAuthCredentials<br /><br /> Se o parâmetro de entrada contém um valor válido para a autorização de autenticação básica HTTP no cabeçalho do pedido o método retorna `true` e o parâmetro de resultado contém um valor do tipo `BasicAuthCredentials`; caso contrário, o método retorna `false`.|
-|BasicAuthCredentials|Palavra-passe: cadeia<br /><br /> UserId: string|
-|Jwt AsJwt(input: this string)|entrada: cadeia<br /><br /> Se o parâmetro de entrada contém um valor de token JWT válido, o método retorna um objeto do tipo `Jwt`; caso contrário, o método retorna `null`.|
-|bool TryParseJwt (entrada: Esta cadeia de caracteres, o resultado: horizontalmente Jwt)|entrada: cadeia<br /><br /> resultado: horizontalmente Jwt<br /><br /> Se o parâmetro de entrada contém um valor de token JWT válido, o método retorna `true` e o parâmetro de resultado contém um valor do tipo `Jwt`; caso contrário, o método retorna `false`.|
-|Jwt|Algorithm: string<br /><br /> Público-alvo: IEnumerable<string\><br /><br /> Afirmações: IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime: DateTime?<br /><br /> Id: string<br /><br /> Emissor: cadeia<br /><br /> IssuedAt: DateTime?<br /><br /> NotBefore: DateTime?<br /><br /> Assunto: cadeia<br /><br /> Type: string|
-|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: string<br /><br /> Devolve separados por vírgulas de valores de afirmação ou `defaultValue` se não for encontrado no cabeçalho.|
-|byte[] Encrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|introdução - texto sem formatação seja encriptado<br /><br />alg - nome de um algoritmo de criptografia simétrica<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto não encriptado.|
-|byte [] Encrypt (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|introdução - texto sem formatação seja encriptado<br /><br />alg - algoritmo de encriptação<br /><br />Devolve texto não encriptado.|
-|byte [] Encrypt (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|introdução - texto sem formatação seja encriptado<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto não encriptado.|
-|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|introdução - texto de cifras para ser desencriptada<br /><br />alg - nome de um algoritmo de criptografia simétrica<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto sem formatação.|
-|byte [] desencriptação (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|introdução - texto de cifras para ser desencriptada<br /><br />alg - algoritmo de encriptação<br /><br />Devolve texto sem formatação.|
-|byte [] desencriptação (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|introdução - texto de cifras para ser desencriptada<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto sem formatação.|
-|bool VerifyNoRevocation (entrada: este System.Security.Cryptography.X509Certificates.X509Certificate2)|Executa uma validação da cadeia de X.509 sem verificar o estado de revogação de certificado.<br /><br />introdução - objeto de certificado<br /><br />Devolve `true` se a validação for bem-sucedida; `false` se a validação falhar.|
+|noticioso|[API](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [Implementação](#ref-context-deployment)<br /><br /> Decorrido TimeSpan-intervalo de tempo entre o valor de timestamp e a hora atual<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [Operação](#ref-context-operation)<br /><br /> [Remessa](#ref-context-product)<br /><br /> [Pedido](#ref-context-request)<br /><br /> RequestId GUID – identificador de solicitação exclusivo<br /><br /> [Resposta](#ref-context-response)<br /><br /> [Subscrição](#ref-context-subscription)<br /><br /> Carimbo de data/hora: DateTime – ponto no tempo em que a solicitação foi recebida<br /><br /> Rastreamento: bool – indica se o rastreamento está ativado ou desativado <br /><br /> [Usuário](#ref-context-user)<br /><br /> [Variáveis](#ref-context-variables): Cadeia de < IReadOnlyDictionary, objeto ><br /><br /> Rastreamento void (mensagem: cadeia de caracteres)|
+|<a id="ref-context-api"></a>context.Api|ID: cadeia de caracteres<br /><br /> IsCurrentRevision: bool<br /><br />  Nome: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> Revisão: cadeia de caracteres<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Versão: cadeia de caracteres |
+|<a id="ref-context-deployment"></a>context.Deployment|Região: cadeia de caracteres<br /><br /> ServiceName: string<br /><br /> Certificado IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Fonte: cadeia de caracteres<br /><br /> Motivo: cadeia de caracteres<br /><br /> Mensagem: cadeia de caracteres<br /><br /> Escopo: cadeia de caracteres<br /><br /> Seção: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> PolicyId: cadeia de caracteres<br /><br /> Para obter mais informações sobre o contexto. LastError, consulte [tratamento de erros](api-management-error-handling-policies.md).|
+|<a id="ref-context-operation"></a>noticioso. Operacional|ID: cadeia de caracteres<br /><br /> Método: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> UrlTemplate: string|
+|<a id="ref-context-product"></a>context.Product|API IEnumerable <[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> Estado: enum Productstate {canpublished, published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
+|<a id="ref-context-request"></a>noticioso. Quest|Corpo: [IMessageBody](#ref-imessagebody) ou `null` se a solicitação não tiver um corpo.<br /><br /> Certificado: System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [Cabeçalhos](#ref-context-request-headers): IReadOnlyDictionary<string, string[]><br /><br /> IpAddress: string<br /><br /> Rematchparameters: IReadOnlyDictionary<string, string><br /><br /> Método: cadeia de caracteres<br /><br /> OriginalUrl: [IUrl](#ref-iurl)<br /><br /> URL: [IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de cabeçalho de solicitação separados por `defaultValue` vírgula ou se o cabeçalho não for encontrado.|
+|<a id="ref-context-response"></a>noticioso. Responde|Corpo: [IMessageBody](#ref-imessagebody)<br /><br /> [Cabeçalhos](#ref-context-response-headers): IReadOnlyDictionary<string, string[]><br /><br /> StatusCode: int<br /><br /> StatusReason: string|
+|<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de cabeçalho de resposta separados por `defaultValue` vírgula ou se o cabeçalho não for encontrado.|
+|<a id="ref-context-subscription"></a>noticioso. Scriçõe|CreatedTime DateTime<br /><br /> Término Horário?<br /><br /> ID: cadeia de caracteres<br /><br /> Chave: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> PrimaryKey: cadeia de caracteres<br /><br /> SecondaryKey: cadeia de caracteres<br /><br /> Início Horário?|
+|<a id="ref-context-user"></a>noticioso. Usuário|Email: cadeia de caracteres<br /><br /> FirstName: string<br /><br /> Grupos: IEnumerable <[IGroup](#ref-igroup)\><br /><br /> ID: cadeia de caracteres<br /><br /> Identities IEnumerable <[IUserIdentity](#ref-iuseridentity)\><br /><br /> Sobrenome: cadeia de caracteres<br /><br /> Observação: cadeia de caracteres<br /><br /> RegistrationDate: DateTime|
+|<a id="ref-iapi"></a>IApi|ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> Protocolos IEnumerable < cadeia de caracteres\><br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|ID: cadeia de caracteres<br /><br /> Nome: cadeia de caracteres|
+|<a id="ref-imessagebody"></a>IMessageBody|Como < T\>(preserveContent: bool = false): Em que T: String, Byte [], JObject, JToken, JArray, XNode, XElement, XDocument<br /><br /> Os `context.Request.Body.As<T>` métodos `context.Response.Body.As<T>` e são usados para ler um corpo de mensagem de solicitação e resposta em um `T`tipo especificado. Por padrão, o método usa o fluxo do corpo da mensagem original e o torna indisponível depois de retornar. Para evitar isso fazendo com que o método opere em uma cópia do fluxo do corpo, defina `preserveContent` o parâmetro `true`como. Acesse [aqui](api-management-transformation-policies.md#SetBody) para ver um exemplo.|
+|<a id="ref-iurl"></a>IUrl|Host: cadeia de caracteres<br /><br /> Caminho: cadeia de caracteres<br /><br /> Porta: int<br /><br /> [Consulta](#ref-iurl-query): IReadOnlyDictionary<string, string[]><br /><br /> QueryString: cadeia de caracteres<br /><br /> Esquema: cadeia de caracteres|
+|<a id="ref-iuseridentity"></a>IUserIdentity|ID: cadeia de caracteres<br /><br /> Provedor: cadeia de caracteres|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Cabeçalho: cadeia de caracteres<br /><br /> Consulta: cadeia de caracteres|
+|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de parâmetros de consulta separados por `defaultValue` vírgula ou se o parâmetro não for encontrado.|
+|<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue: T)|variableName: string<br /><br /> ValorPadrão T<br /><br /> Retorna o valor da variável Cast `T` para `defaultValue` o tipo ou se a variável não for encontrada.<br /><br /> Esse método gera uma exceção se o tipo especificado não corresponde ao tipo real da variável retornada.|
+|BasicAuthCredentials asbasic (entrada: esta cadeia de caracteres)|entrada: cadeia de caracteres<br /><br /> Se o parâmetro de entrada contiver um valor válido de cabeçalho de solicitação de autorização de autenticação básica http, o `BasicAuthCredentials`método retornará um objeto do tipo; caso contrário, o método retornará NULL.|
+|bool TryParseBasic (entrada: esta cadeia de caracteres, resultado: out BasicAuthCredentials)|entrada: cadeia de caracteres<br /><br /> resultado: out BasicAuthCredentials<br /><br /> Se o parâmetro de entrada contiver um valor de autorização de autenticação básica http válido no cabeçalho de `true` solicitação, o método retornará e o parâmetro de `BasicAuthCredentials`resultado conterá um valor `false`do tipo; caso contrário, o método retornará.|
+|BasicAuthCredentials|Senha: cadeia de caracteres<br /><br /> UserId: string|
+|AsJwt JWT (entrada: esta cadeia de caracteres)|entrada: cadeia de caracteres<br /><br /> Se o parâmetro de entrada contiver um valor de token JWT válido, o método retornará um `Jwt`objeto do tipo; caso `null`contrário, o método retornará.|
+|bool TryParseJwt (entrada: esta cadeia de caracteres, resultado: out JWT)|entrada: cadeia de caracteres<br /><br /> resultado: out JWT<br /><br /> Se o parâmetro de entrada contiver um valor de token JWT válido, `true` o método retornará e o parâmetro de resultado conterá um valor do tipo `false` `Jwt`; caso contrário, o método retornará.|
+|Jwt|Algoritmo: cadeia de caracteres<br /><br /> Platéia IEnumerable < cadeia de caracteres\><br /><br /> Declarações IReadOnlyDictionary<string, string[]><br /><br /> ExpirationTime Horário?<br /><br /> ID: cadeia de caracteres<br /><br /> Emissor: cadeia de caracteres<br /><br /> IssuedAt Horário?<br /><br /> NotBefore Horário?<br /><br /> Assunto: cadeia de caracteres<br /><br /> Tipo: cadeia de caracteres|
+|string Jwt.Claims.GetValueOrDefault(claimName: string, defaultValue: string)|claimName: string<br /><br /> defaultValue: cadeia de caracteres<br /><br /> Retorna valores de declaração separados por vírgula `defaultValue` ou se o cabeçalho não for encontrado.|
+|Byte [] criptografar (entrada: este byte [], alg: String, Key: byte [], IV: byte [])|entrada-texto sem formatação a ser criptografado<br /><br />ALG-nome de um algoritmo de criptografia simétrica<br /><br />chave de criptografia de chave<br /><br />IV-vetor de inicialização<br /><br />Retorna texto sem formatação criptografado.|
+|Byte [] criptografar (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|entrada-texto sem formatação a ser criptografado<br /><br />ALG-algoritmo de criptografia<br /><br />Retorna texto sem formatação criptografado.|
+|Byte [] criptografar (entrada: este byte [], alg: System. Security. Cryptography. SymmetricAlgorithm, chave: byte [], IV: byte [])|entrada-texto sem formatação a ser criptografado<br /><br />ALG-algoritmo de criptografia<br /><br />chave de criptografia de chave<br /><br />IV-vetor de inicialização<br /><br />Retorna texto sem formatação criptografado.|
+|byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|entrada-texto criptografia a ser descriptografado<br /><br />ALG-nome de um algoritmo de criptografia simétrica<br /><br />chave de criptografia de chave<br /><br />IV-vetor de inicialização<br /><br />Retorna texto não criptografado.|
+|Byte [] descriptografar (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|entrada-texto criptografia a ser descriptografado<br /><br />ALG-algoritmo de criptografia<br /><br />Retorna texto não criptografado.|
+|Byte [] descriptografar (entrada: este byte [], alg: System. Security. Cryptography. SymmetricAlgorithm, chave: byte [], IV: byte [])|entrada-texto criptografia a ser descriptografado<br /><br />ALG-algoritmo de criptografia<br /><br />chave de criptografia de chave<br /><br />IV-vetor de inicialização<br /><br />Retorna texto não criptografado.|
+|bool VerifyNoRevocation (entrada: este System. Security. Cryptography. X509Certificates. X509Certificate2)|Executa uma validação de cadeia X. 509 sem verificar o status de revogação do certificado.<br /><br />objeto de entrada-certificado<br /><br />Retorna `true` se a validação for realizada com sucesso; `false` se a validação falhar.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações para trabalhar com políticas, consulte:
+Para obter mais informações sobre como trabalhar com políticas, consulte:
 
-+ [Políticas de gestão de API](api-management-howto-policies.md)
-+ [Transforme as APIs](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e suas configurações
++ [Políticas no gerenciamento de API](api-management-howto-policies.md)
++ [APIs de transformação](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa de instruções de política e suas configurações
 + [Exemplos de política](policy-samples.md)

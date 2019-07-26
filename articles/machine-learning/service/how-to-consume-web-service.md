@@ -1,7 +1,7 @@
 ---
-title: Criar cliente para consumir o serviço web implementado
+title: Criar cliente para consumir serviço Web implantado
 titleSuffix: Azure Machine Learning service
-description: Saiba como consumir um serviço web que foi gerado quando um modelo foi implementado com o modelo do Azure Machine Learning. O web service expõe uma API REST. Crie clientes para esta API com a linguagem de programação da sua preferência.
+description: Saiba como consumir um serviço Web que foi gerado quando um modelo foi implantado com Azure Machine Learning modelo. O serviço Web expõe uma API REST. Crie clientes para essa API usando a linguagem de programação de sua escolha.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 376be43a57783f537df81f0e97f005e2c46a710e
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797623"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68361010"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
-Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com o C#, Go, Java e Python.
+Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço Web usando C#o, o go, o Java e o Python.
 
-Criar um web service ao implementar uma imagem para o Azure Container Instances, Azure Kubernetes Service ou matrizes de porta de campos programáveis (FPGA). Criar imagens a partir de modelos de registado e classificação de ficheiros. Obter o URI utilizado para aceder a um serviço web utilizando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
+Você cria um serviço Web ao implantar uma imagem nas instâncias de contêiner do Azure, no serviço kubernetes do Azure ou em FPGA (matrizes de porta programável por campo). Você cria imagens de modelos registrados e arquivos de pontuação. Você recupera o URI usado para acessar um serviço Web usando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
 
-O fluxo de trabalho geral para a criação de um cliente que utiliza um serviço web machine learning é:
+O fluxo de trabalho geral para criar um cliente que usa um serviço Web do Machine Learning é:
 
-1. Utilize o SDK para obter as informações de ligação.
-1. Determine o tipo de dados de pedido utilizados pelo modelo.
-1. Crie uma aplicação que chama o serviço web.
+1. Use o SDK para obter as informações de conexão.
+1. Determine o tipo de dados de solicitação usados pelo modelo.
+1. Crie um aplicativo que chama o serviço Web.
 
 ## <a name="connection-information"></a>Informações da ligação
 
 > [!NOTE]
-> Utilize o SDK do Azure Machine Learning para obter as informações do serviço web. Trata-se de um SDK de Python. Pode usar qualquer linguagem para criar um cliente para o serviço.
+> Use o SDK do Azure Machine Learning para obter as informações do serviço Web. Trata-se de um SDK de Python. Você pode usar qualquer linguagem para criar um cliente para o serviço.
 
-O [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe fornece as informações necessárias criar um cliente. O seguinte `Webservice` propriedades são úteis para criar uma aplicação de cliente:
+A classe [azureml. Core. WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fornece as informações necessárias para criar um cliente. As propriedades `Webservice` a seguir são úteis para criar um aplicativo cliente:
 
 * `auth_enabled` -Se a autenticação estiver ativada, `True`; caso contrário, `False`.
 * `scoring_uri` -O endereço da REST API.
@@ -53,14 +53,14 @@ Para obter estas informações para os serviços web implementados, há um três
     print(service.scoring_uri)
     ```
 
-* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que podem ser filtradas no, consulte a [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) documentação de referência.
+* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que pode ser filtrado, consulte a documentação de referência do [WebService. List](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* Se souber o nome do serviço implementado, pode criar uma nova instância do `Webservice`e forneça o nome de área de trabalho e o serviço como parâmetros. O novo objeto contém informações sobre o serviço implementado.
+* Se você souber o nome do serviço implantado, poderá criar uma nova instância do `Webservice`e fornecer o espaço de trabalho e o nome do serviço como parâmetros. O novo objeto contém informações sobre o serviço implementado.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Para obter estas informações para os serviços web implementados, há um três
 
 ### <a name="authentication-key"></a>Chave de autenticação
 
-Quando ativar a autenticação para uma implementação, são criadas automaticamente as chaves de autenticação.
+Ao habilitar a autenticação para uma implantação, você cria automaticamente chaves de autenticação.
 
-* Autenticação está ativada por predefinição, quando estiver a implementar no serviço Kubernetes do Azure.
-* Autenticação está desativada por predefinição, quando estiver a implementar no Azure Container Instances.
+* A autenticação é habilitada por padrão quando você está implantando no serviço kubernetes do Azure.
+* A autenticação é desabilitada por padrão quando você está implantando em instâncias de contêiner do Azure.
 
-Para controlar a autenticação, use o `auth_enabled` parâmetro quando estiver a criar ou atualizar uma implementação.
+Para controlar a autenticação, use `auth_enabled` o parâmetro ao criar ou atualizar uma implantação.
 
 Se a autenticação estiver ativada, pode utilizar o `get_keys` método para recuperar uma chave de autenticação primária e secundária:
 
@@ -102,7 +102,7 @@ A API REST espera que o corpo da solicitação para ser um documento JSON com a 
 > [!IMPORTANT]
 > A estrutura dos dados tem de corresponder ao que a classificação script e o modelo no expect serviço. O script de classificação pode modificar os dados antes de o transmitir para o modelo.
 
-Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de 10 números. O script de classificação para este exemplo cria uma matriz de Numpy no pedido e o transmite para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
+Por exemplo, o modelo no [Train dentro do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) exemplo espera uma matriz de 10 números. O script de Pontuação para este exemplo cria uma matriz numpy da solicitação e a passa para o modelo. O exemplo seguinte mostra os dados que deste serviço de espera:
 
 ```json
 {
@@ -128,14 +128,16 @@ O serviço web pode aceitar vários conjuntos de dados numa solicitação. Ele r
 
 ### <a name="binary-data"></a>Dados binários
 
-Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Eis um exemplo de um `score.py` que aceita dados binários:
+Se o seu modelo aceita dados binários, como uma imagem, tem de modificar o `score.py` ficheiro utilizado para a sua implementação para aceitar pedidos HTTP não processados. Aqui está um exemplo de um `score.py` que aceita dados binários:
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -147,9 +149,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -157,9 +159,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> O `azureml.contrib` espaço de nomes são alterados com frequência, pois estamos a trabalhar para melhorar o serviço. Como tal, qualquer coisa neste espaço de nomes deve ser considerada como uma pré-visualização e não totalmente suportada pela Microsoft.
+> O `azureml.contrib` namespace é alterado com frequência, à medida que trabalhamos para melhorar o serviço. Assim, qualquer coisa neste namespace deve ser considerada como uma versão prévia e não tem suporte total da Microsoft.
 >
-> Se precisar de teste em seu ambiente de desenvolvimento local, pode instalar os componentes no `contrib` espaço de nomes utilizando o seguinte comando:
+> Se precisar testar isso em seu ambiente de desenvolvimento local, você poderá instalar os componentes no `contrib` namespace usando o seguinte comando:
 > 
 > ```shell
 > pip install azureml-contrib-services
@@ -440,45 +442,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 Os resultados retornados são semelhantes para o documento JSON seguinte:
@@ -487,10 +488,10 @@ Os resultados retornados são semelhantes para o documento JSON seguinte:
 [217.67978776218715, 224.78937091757172]
 ```
 
-## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço do Power BI
+## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço de Power BI
 
-O Power BI suporta o consumo de serviços da web do Azure Machine Learning para enriquecer os dados no Power BI com predições. 
+O Power BI dá suporte ao consumo de serviços Web Azure Machine Learning para enriquecer os dados em Power BI com previsões. 
 
-Para gerar um serviço web que é suportado para consumo no Power BI, o esquema tem de suportar o formato que seja necessária para o Power BI. [Saiba como criar um esquema de suporte do Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
+Para gerar um serviço Web com suporte para consumo no Power BI, o esquema deve dar suporte ao formato exigido pelo Power BI. [Saiba como criar um esquema com suporte a Power bi](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
-Assim que o serviço web é implementado, é consumo por parte dos fluxos de dados do Power BI. [Saiba como consumir um serviço web do Azure Machine Learning do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Depois que o serviço Web for implantado, ele será consumível de Power BI fluxos de os. [Saiba como consumir um serviço web Azure Machine Learning do Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 14f2e663e3db81684a73c4ea093ed0403cbb09ed
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 82e5221daefaecb687ad9feb79305e546d4ec17e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184417"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424154"
 ---
 > [!NOTE]
-> Uma aplicação web pode tempo limite após 20 minutos de inatividade. Apenas os pedidos para a aplicação web real redefiniria o temporizador. Visualizar a configuração da aplicação no portal do Azure ou para fazer pedidos para o site de ferramentas avançadas (`https://<app_name>.scm.azurewebsites.net`) não Redefina o temporizador. Se a aplicação for executada contínua ou trabalhos Web agendados, ative **Always On** para garantir que os trabalhos Web executam de forma fiável. Esta funcionalidade só está disponível no básico, Standard e Premium [escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+> Um aplicativo Web pode atingir o tempo limite após 20 minutos de inatividade. Somente as solicitações para o aplicativo Web real redefinem o temporizador. Exibir a configuração do aplicativo no portal do Azure ou fazer solicitações para o site de ferramentas avançadas (`https://<app_name>.scm.azurewebsites.net`) não redefine o timer. Se seu aplicativo executar trabalhos Web contínuos ou agendados (gatilho de temporizador), habilite **Always on** para garantir que os trabalhos Web sejam executados de forma confiável. Esse recurso está disponível apenas nos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)básico, Standard e Premium.

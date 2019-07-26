@@ -9,18 +9,21 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0c94e10a6f44a99c31e30c8f7df54e9441ce7a18
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4bd0b6f0652f49c16bd67bbca5a89d19e17a8b2c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311748"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498424"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
 Você pode usar a solução Gerenciamento de Atualizações na automação do Azure para gerenciar atualizações do sistema operacional para seus computadores Windows e Linux no Azure, em ambientes locais ou em outros provedores de nuvem. Pode rapidamente avaliar o estado das atualizações disponíveis em todos os computadores agente e gerir o processo de instalação de atualizações necessárias para os servidores.
 
 Você pode habilitar Gerenciamento de Atualizações para máquinas virtuais diretamente da sua conta de automação do Azure. Para saber como habilitar Gerenciamento de Atualizações para máquinas virtuais de sua conta de automação, consulte [gerenciar atualizações para várias máquinas virtuais](manage-update-multi.md). Você também pode habilitar Gerenciamento de Atualizações para uma máquina virtual na página de máquina virtual no portal do Azure. Esse cenário está disponível para máquinas virtuais [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) e [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) .
+
+> [!NOTE]
+> A solução Gerenciamento de Atualizações requer a vinculação de um espaço de trabalho Log Analytics à sua conta de automação. Para obter uma lista definitiva de regiões com suporte, consulte [./How-to/Region-Mappings.MD]. Os mapeamentos de região não afetam a capacidade de gerenciar máquinas virtuais em uma região separada do que a sua conta de automação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,7 +57,7 @@ A solução relata o quão atualizado o computador é baseado em qual fonte voc�
 
 Pode criar uma implementação agendada para implementar e instalar atualizações de software em computadores que precisam das atualizações. As atualizações classificadas como *opcionais* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação.
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, especificando explicitamente computadores ou selecionando um [grupo](../azure-monitor/platform/computer-groups.md) de computadores baseado em pesquisas de log de um conjunto específico de computadores ou uma [consulta do Azure](#azure-machines) Isso seleciona dinamicamente as VMs do Azure com base em critérios especificados. Esses grupos são diferentes da [configuração de escopo](../azure-monitor/insights/solution-targeting.md), que é usada apenas para determinar quais computadores obtêm os pacotes de gerenciamento que habilitam a solução. 
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, especificando explicitamente computadores ou selecionando um [grupo](../azure-monitor/platform/computer-groups.md) de computadores baseado em pesquisas de log de um conjunto específico de computadores ou uma [consulta do Azure](#azure-machines) Isso seleciona dinamicamente as VMs do Azure com base em critérios especificados. Esses grupos são diferentes da [configuração de escopo](../azure-monitor/insights/solution-targeting.md), que é usada apenas para determinar quais computadores obtêm os pacotes de gerenciamento que habilitam a solução.
 
 Você também especifica uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado de janela de manutenção. Dez minutos da janela de manutenção será reservado para reinicializações se uma reinicialização for necessária e você tiver selecionado a opção de reinicialização apropriada. Se a aplicação de patch demorar mais do que o esperado e houver menos de dez minutos na janela de manutenção, uma reinicialização não ocorrerá.
 
@@ -73,11 +76,14 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Dá suporte apenas a avaliações de atualização.         |
-|Windows Server 2008 R2 SP1 e posterior (incluindo o Windows Server 2012 e 2016)    |O .NET Framework 4.5.1 ou posterior é necessário. ([Baixar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> O Windows PowerShell 5,1 é recomendado para maior confiabilidade.  ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 e posterior.  |O .NET Framework 4.5.1 ou posterior é necessário. ([Baixar .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> O Windows PowerShell 4,0 ou posterior é necessário. ([Baixe o WMF 4,0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> O Windows PowerShell 5,1 é recomendado para maior confiabilidade.  ([Baixe o WMF 5,1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. A aplicação de patches baseada em classificação requer ' yum ' para retornar dados de segurança que o CentOS não está pronto para uso. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, consulte [Atualizar classificações no Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+
+> [!NOTE]
+> Os conjuntos de dimensionamento de máquinas virtuais do Azure podem ser gerenciados com Gerenciamento de Atualizações. Gerenciamento de Atualizações funciona nas próprias instâncias e não na imagem base. Você precisará agendar as atualizações de forma incremental, como não atualizar todas as instâncias de VM ao mesmo tempo.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -140,7 +146,7 @@ Para iniciar a aplicação de patches em sistemas, você precisa habilitar a sol
 * [De navegar por vários computadores](automation-onboard-solutions-from-browse.md)
 * [Da sua conta de automação](automation-onboard-solutions-from-automation-account.md)
 * [Com um runbook de automação do Azure](automation-onboard-solutions.md)
-  
+
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmar se os computadores não Azure estão integrados
 
 Para confirmar se os computadores conectados diretamente estão se comunicando com os logs de Azure Monitor, após alguns minutos, você pode executar uma das seguintes pesquisas de log.
@@ -229,9 +235,9 @@ Para criar uma nova implantação de atualização, selecione **agendar implanta
 |Sistema operativo| Linux ou Windows|
 | Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
 | Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md) |
-|Classificações de atualização|Selecione todas as classificações de atualização de que você precisa|
+|Classificações de atualizações|Selecione todas as classificações de atualização de que você precisa|
 |Incluir/excluir atualizações|Isso abre a página **incluir/excluir** . As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
-|Configurações de agendamento|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
+|Definições da agenda|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
 | Pré-scripts + pós-scripts|Selecione os scripts a serem executados antes e depois da implantação|
 | Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos e não mais do que 6 horas |
 | Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
@@ -265,7 +271,7 @@ Selecione a guia implantações de **atualização** para exibir a lista de impl
 
 Para exibir uma implantação de atualização da API REST, consulte [execuções de configuração de atualização de software](/rest/api/automation/softwareupdateconfigurationruns).
 
-## <a name="update-classifications"></a>Classificações de atualização
+## <a name="update-classifications"></a>Classificações de atualizações
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição para cada classificação.
 
@@ -278,7 +284,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 |Update rollups     | Um conjunto cumulativo de hotfixes que são empacotados em conjunto para facilitar a implantação.        |
 |Pacotes de funcionalidades     | Novos recursos do produto que são distribuídos fora de uma versão do produto.        |
 |Service packs     | Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo.        |
-|Atualizações de definições     | Uma atualização para vírus ou outros arquivos de definição.        |
+|Atualizações da definição     | Uma atualização para vírus ou outros arquivos de definição.        |
 |Ferramentas     | Um utilitário ou recurso que ajuda a concluir uma ou mais tarefas.        |
 |Atualizações     | Uma atualização para um aplicativo ou arquivo que está instalado no momento.        |
 
@@ -353,7 +359,7 @@ Para obter mais informações sobre as portas que o Hybrid Runbook Worker requer
 
 É recomendável usar os endereços listados ao definir exceções. Para endereços IP, você pode baixar os [intervalos de IP do Microsoft Azure datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e reflete os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 
-## <a name="search-logs"></a>Pesquisar logs
+## <a name="search-logs"></a>Pesquisar registos
 
 Além dos detalhes que são fornecidos no portal do Azure, você pode fazer pesquisas nos logs. Nas páginas da solução, selecione **log Analytics**. O painel **pesquisa de logs** é aberto.
 

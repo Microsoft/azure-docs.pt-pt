@@ -1,7 +1,7 @@
 ---
-title: Envio de pedidos de pesquisa para a API de pesquisa de vídeos do Bing
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre o envio de consultas de pesquisa para a API de pesquisa de vídeos do Bing.
+title: Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre como enviar consultas de pesquisa para o API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: bf0f74fe76ec7a83e0ce23ca83141276a677a5df
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: f1d433dd7d919aa5d11f2f59b74a5e3f2dca0b59
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868093"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500290"
 ---
-# <a name="search-for-videos-with-the-bing-video-search-api"></a>Procurar vídeos com a API de pesquisa de vídeos do Bing
+# <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com o API de Pesquisa de Vídeo do Bing
 
-A API de pesquisa de vídeos do Bing torna mais fácil de integrar as capacidades de pesquisa do Bing notícias cognitivos aos seus aplicativos. Embora a API principalmente localiza e devolve vídeos relevantes da web, fornece vários recursos pela obtenção de vídeo inteligente e focada na web.
+O API de Pesquisa de Vídeo do Bing facilita a integração dos recursos de pesquisa de notícias cognitivas do Bing em seus aplicativos. Embora a API Localize principalmente e retorne vídeos relevantes da Web, ela fornece vários recursos para recuperação de vídeo inteligente e focada na Web.
 
 ## <a name="getting-videos"></a>Obter vídeos
 
@@ -96,9 +96,9 @@ A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/co
 }
 ```
 
-## <a name="video-thumbnails"></a>Miniaturas de vídeos
+## <a name="video-thumbnails"></a>Miniaturas de vídeo
 
-Pode exibir todas ou um subconjunto de miniaturas de vídeos devolvido pela API de pesquisa de vídeos do Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte da API do Bing [utilizar e apresentam os requisitos](../UseAndDisplayRequirements.md), deverá exibir os vídeos na ordem disposta na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
+Você pode exibir todos ou um subconjunto das miniaturas de vídeo retornadas pelo API de Pesquisa de Vídeo do Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte dos [requisitos de uso e exibição](../UseAndDisplayRequirements.md)da API do Bing, você deve exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 À medida que o utilizador coloca o cursor sobre a miniatura, pode utilizar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
@@ -106,7 +106,7 @@ Pode exibir todas ou um subconjunto de miniaturas de vídeos devolvido pela API 
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Quando uma miniatura fosse clicada, existem três opções para ver o vídeo:
+Quando uma miniatura é clicada, há três opções para exibir o vídeo:
 
 - Utilize [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) para ver o vídeo no site anfitrião (por exemplo, o YouTube)
 - Utilize [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) para ver o vídeo no browser de vídeos do Bing
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandir a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta foi *limpeza Gutters*, as consultas expandidas poderão ser: Limpeza de medianiz **ferramentas**, limpeza Gutters **desde o**, limpeza medianiz **máquina**, e **fácil** medianiz limpeza.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta estivesse *limpando medianizes*, as consultas expandidas podem ser: **Ferramentas**de limpeza de medianiz, limpeza **de medianizes do zero**, **computador**de limpeza de medianiz e limpeza **fácil** de medianiz.
 
 O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 

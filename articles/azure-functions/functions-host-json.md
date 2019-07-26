@@ -1,6 +1,6 @@
 ---
-title: referência de Host. JSON para as funções do Azure 2.x
-description: Documentação de referência para o ficheiro de Host. JSON de funções do Azure com o tempo de execução do v2.
+title: referência de host. JSON para Azure Functions 2. x
+description: Documentação de referência para o arquivo Azure Functions host. JSON com o tempo de execução v2.
 services: functions
 author: ggailey777
 manager: jeconnoc
@@ -10,31 +10,31 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 89c4723e83979f89721677146810abdf99fb5d11
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67310471"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371688"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x"></a>referência de host. JSON para Azure Functions 2. x  
 
-> [!div class="op_single_selector" title1="Selecione a versão do runtime das funções do Azure que está a utilizar: "]
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
-O *Host. JSON* ficheiro de metadados contém opções de configuração globais que afetam todas as funções para uma aplicação de funções. Este artigo lista as definições que estão disponíveis para o tempo de execução do v2.  
+O arquivo de metadados *host. JSON* contém opções de configuração globais que afetam todas as funções de um aplicativo de funções. Este artigo lista as configurações que estão disponíveis para o tempo de execução v2.  
 
 > [!NOTE]
-> Este artigo é para as funções do Azure 2.x.  Para obter uma referência de Host. JSON nas funções 1.x, consulte [referência de Host. JSON para as funções do Azure 1.x](functions-host-json-v1.md).
+> Este artigo é para o Azure Functions 2. x.  Para obter uma referência de Host. JSON nas funções 1.x, consulte [referência de Host. JSON para as funções do Azure 1.x](functions-host-json-v1.md).
 
-Outras opções de configuração de aplicação de função são geridas no seu [as definições da aplicação](functions-app-settings.md).
+Outras opções de configuração de aplicativo de funções são gerenciadas em suas [configurações de aplicativo](functions-app-settings.md).
 
-Algumas definições de Host. JSON só são utilizadas quando em execução localmente na [Settings](functions-run-local.md#local-settings-file) ficheiro.
+Algumas configurações de host. JSON são usadas apenas ao executar localmente no arquivo [local. Settings. JSON](functions-run-local.md#local-settings-file) .
 
-## <a name="sample-hostjson-file"></a>Ficheiro de Host. JSON de exemplo
+## <a name="sample-hostjson-file"></a>Arquivo host. JSON de exemplo
 
-O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis especificadas.
+Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis especificadas.
 
 ```json
 {
@@ -88,17 +88,17 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
 }
 ```
 
-As secções seguintes deste artigo explicam cada propriedade de nível superior. Todas são opcionais, a menos que indicado de outra forma.
+As seções a seguir deste artigo explicam cada propriedade de nível superior. Todos são opcionais, salvo indicação em contrário.
 
-## <a name="aggregator"></a>aggregator
+## <a name="aggregator"></a>agregador
 
 [!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Esta definição é um elemento subordinado [registo](#logging).
+Essa configuração é um filho de [registro em log](#logging).
 
-Controles a [funcionalidade de amostragem no Application Insights](./functions-monitoring.md#configure-sampling).
+Controla o [recurso de amostragem no Application insights](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
@@ -112,32 +112,32 @@ Controles a [funcionalidade de amostragem no Application Insights](./functions-m
 ```
 
 > [!NOTE]
-> Amostragem de registo pode fazer com que algumas execuções a não aparecer no painel de monitorização do Application Insights.
+> A amostragem de log pode fazer com que algumas execuções não apareçam na folha Application Insights monitor.
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|isEnabled|true|Ativa ou desativa a amostragem.| 
-|maxTelemetryItemsPerSecond|5|O limiar em que amostragem começa.| 
+|isEnabled|true|Habilita ou desabilita a amostragem.| 
+|maxTelemetryItemsPerSecond|5|O limite no qual a amostragem começa.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-Definição de configuração pode ser encontrada na [Cosmos DB acionadores e enlaces](functions-bindings-cosmosdb-v2.md#host-json).
+O parâmetro de configuração pode ser encontrado em [Cosmos DB gatilhos e associações](functions-bindings-cosmosdb-v2.md#host-json).
 
 ## <a name="durabletask"></a>durableTask
 
-Definição de configuração pode ser encontrada na [enlaces para as funções duráveis](durable/durable-functions-bindings.md#host-json).
+O parâmetro de configuração pode ser encontrado em [associações para Durable Functions](durable/durable-functions-bindings.md#host-json).
 
 ## <a name="eventhub"></a>eventHub
 
-Definições de configuração podem ser encontradas na [Hub de eventos de acionadores e enlaces](functions-bindings-event-hubs.md#host-json). 
+As definições de configuração podem ser encontradas em [gatilhos e associações de Hub de eventos](functions-bindings-event-hubs.md#host-json). 
 
-## <a name="extensions"></a>Extensões
+## <a name="extensions"></a>WMZ
 
-Propriedade que retorna um objeto que contém todas as definições de ligação específica, como [http](#http) e [eventHub](#eventhub).
+Propriedade que retorna um objeto que contém todas as configurações específicas de associação, como [http](#http) e [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funções
 
-Uma lista de funções que o anfitrião de tarefa é executada. Uma matriz vazia significa executar todas as funções. Foi concebido para utilização apenas quando [em execução localmente](functions-run-local.md). Nas aplicações de função no Azure, em vez disso, deve seguir os passos em [como desativar funções nas funções do Azure](disable-function.md) para desativar funções específicas, em vez de utilizar esta definição.
+Uma lista de funções que o host de trabalho executa. Uma matriz vazia significa executar todas as funções. Destinado para uso somente quando [executado localmente](functions-run-local.md). Em aplicativos de funções no Azure, você deve seguir as etapas em [como desabilitar funções no Azure Functions](disable-function.md) para desabilitar funções específicas em vez de usar essa configuração.
 
 ```json
 {
@@ -147,7 +147,7 @@ Uma lista de funções que o anfitrião de tarefa é executada. Uma matriz vazia
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica o período de tempo limite para todas as funções. No plano de consumo sem servidor, o intervalo válido é entre 1 segundo para 10 minutos e o valor predefinido é de 5 minutos. Num plano de serviço de aplicações dedicado, não existe nenhum limite global e o valor predefinido é 30 minutos. Um valor de `-1` indica não vinculada de execução.
+Indica a duração do tempo limite para todas as funções. Em um plano de consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um plano do serviço de aplicativo, não há nenhum limite geral e o padrão depende da versão de tempo de execução. Na versão 2. x, o valor padrão de um plano do serviço de aplicativo é de 30 minutos. Na versão 1. x, é *nulo*, o que indica que não há tempo limite. Ele não pode ser definido como infinito. Se não estivermos definindo esse valor explicitamente, ele usará o valor padrão de 30 minutos.
 
 ```json
 {
@@ -157,7 +157,7 @@ Indica o período de tempo limite para todas as funções. No plano de consumo s
 
 ## <a name="healthmonitor"></a>healthMonitor
 
-Definições de configuração para [monitor de estado de funcionamento do anfitrião](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+Definições de configuração do [Monitor de integridade do host](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
 ```
 {
@@ -173,21 +173,21 @@ Definições de configuração para [monitor de estado de funcionamento do anfit
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|enabled|true|Especifica se a funcionalidade está ativada. | 
-|healthCheckInterval|10 segundos|Verifica o intervalo de tempo entre o estado de funcionamento periódica de segundo plano. | 
-|healthCheckWindow|2 minutos|Uma janela deslizante de tempo utilizada em conjunto com o `healthCheckThreshold` definição.| 
-|healthCheckThreshold|6|Número máximo de vezes que a verificação de estado de funcionamento pode falhar antes de uma reciclagem de anfitrião é iniciada.| 
-|counterThreshold|0.80|O limiar em que um contador de desempenho será considerado problemático.| 
+|enabled|true|Especifica se o recurso está habilitado. | 
+|healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade de segundo plano periódicas. | 
+|healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto `healthCheckThreshold` com a configuração.| 
+|healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes que uma reciclagem de host seja iniciada.| 
+|comlimite|0,80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
 ## <a name="http"></a>http
 
-Definições de configuração podem ser encontradas na [http acionadores e enlaces](functions-bindings-http-webhook.md).
+As definições de configuração podem ser encontradas em [gatilhos e associações http](functions-bindings-http-webhook.md).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>logout
 
-Controla os comportamentos de registo da aplicação de função, incluindo o Application Insights.
+Controla os comportamentos de log do aplicativo de funções, incluindo Application Insights.
 
 ```json
 "logging": {
@@ -207,14 +207,14 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------|
-|fileLoggingMode|debugOnly|Define o nível de registo de ficheiros está ativado.  As opções são `never`, `always`, `debugOnly`. |
-|logLevel|n/d|Objeto que define a categoria de registo de filtragem para as funções na aplicação. Versão 2.x segue o layout do ASP.NET Core para filtragem de categoria do registo. Isto permite-lhe filtrar o registo para funções específicas. Para obter mais informações, consulte [filtragem de Log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|fileLoggingMode|debugOnly|Define o nível de registro em log de arquivo habilitado.  As opções `never`são `always`, `debugOnly`,. |
+|logLevel|n/d|Objeto que define a filtragem de categoria de log para funções no aplicativo. A versão 2. x segue o layout de ASP.NET Core para filtragem de categorias de log. Isso permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [filtragem de log](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
 |console|n/d| O [console](#console) definição de registo. |
-|applicationInsights|n/d| O [Application Insights](#applicationinsights) definição. |
+|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights) . |
 
 ## <a name="console"></a>console
 
-Esta definição é um elemento subordinado [registo](#logging). Ele controla a consola do registo quando não estiver no modo de depuração.
+Essa configuração é um filho de [registro em log](#logging). Ele controla o log do console quando não está no modo de depuração.
 
 ```json
 {
@@ -230,23 +230,23 @@ Esta definição é um elemento subordinado [registo](#logging). Ele controla a 
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|isEnabled|false|Ativa ou desativa o registo da consola.| 
+|isEnabled|false|Habilita ou desabilita o log do console.| 
 
 ## <a name="queues"></a>filas
 
-Definições de configuração podem ser encontradas na [acionadores de fila de armazenamento e enlaces](functions-bindings-storage-queue.md#host-json).  
+As definições de configuração podem ser encontradas em [gatilhos e associações de fila de armazenamento](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
-Definição de configuração pode ser encontrada na [SendGrid acionadores e enlaces](functions-bindings-sendgrid.md#host-json).
+O parâmetro de configuração pode ser encontrado em [gatilhos e associações do SendGrid](functions-bindings-sendgrid.md#host-json).
 
 ## <a name="servicebus"></a>serviceBus
 
-Definição de configuração pode ser encontrada na [do Service Bus acionadores e enlaces](functions-bindings-service-bus.md#host-json).
+O parâmetro de configuração pode ser encontrado em [gatilhos e associações do barramento de serviço](functions-bindings-service-bus.md#host-json).
 
 ## <a name="singleton"></a>singleton
 
-Definições de configuração para o comportamento de bloqueio de Singleton. Para obter mais informações, consulte [problema do GitHub sobre o suporte de singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
+Definições de configuração para comportamento de bloqueio singleton. Para obter mais informações, consulte o [problema do GitHub sobre o suporte singleton](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
 {
@@ -262,19 +262,19 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|lockPeriod|00:00:15|O período de que os bloqueios de nível de função são utilizados para. Os bloqueios de renovação automática.| 
-|listenerLockPeriod|00:01:00|O período de que os bloqueios de serviço de escuta são utilizados para.| 
-|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo utilizado para a recuperação de bloqueio do serviço de escuta, se um bloqueio do serviço de escuta não foi possível adquirir na inicialização.| 
-|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo, que o tempo de execução irá tentar adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre tentativas de aquisição de bloqueio.| 
+|lockPeriod|00:00:15|O período em que os bloqueios de nível de função são obtidos. Os bloqueios são renovados automaticamente.| 
+|listenerLockPeriod|00:01:00|O período em que os bloqueios de ouvinte são obtidos.| 
+|listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para recuperação de bloqueio de ouvinte se um bloqueio de ouvinte não pôde ser adquirido na inicialização.| 
+|lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo que o tempo de execução tentará adquirir um bloqueio.| 
+|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
-## <a name="version"></a>versão
+## <a name="version"></a>version
 
-A cadeia de versão `"version": "2.0"` é necessária para uma aplicação de função que tenha como destino o tempo de execução do v2.
+A cadeia de `"version": "2.0"` caracteres de versão é necessária para um aplicativo de funções que tem como destino o tempo de execução v2.
 
 ## <a name="watchdirectories"></a>watchDirectories
 
-Um conjunto de [partilhados diretórios de código](functions-reference-csharp.md#watched-directories) que devem ser monitorizados para que as alterações.  Garante que quando o código desses diretórios é alterado, as alterações são captadas pelas suas funções.
+Um conjunto de [diretórios de código compartilhado](functions-reference-csharp.md#watched-directories) que deve ser monitorado para alterações.  Garante que, quando o código nesses diretórios for alterado, as alterações sejam coletadas por suas funções.
 
 ```json
 {
@@ -284,7 +284,7 @@ Um conjunto de [partilhados diretórios de código](functions-reference-csharp.m
 
 ## <a name="manageddependency"></a>managedDependency
 
-Dependência gerida é uma funcionalidade de pré-visualização que está atualmente apenas suportado com o PowerShell com base em funções. Permite que as dependências sejam gerenciados automaticamente pelo serviço. Quando a propriedade enabled está definida como true, o [requirements.psd1](functions-reference-powershell.md#dependency-management) ficheiro será processado. Dependências serão atualizadas quando são lançadas as versões secundárias.
+A dependência gerenciada é um recurso de visualização que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a propriedade Enabled é definida como true, o arquivo [requirements. psd1](functions-reference-powershell.md#dependency-management) será processado. As dependências serão atualizadas quando qualquer versão secundária for lançada.
 
 ```json
 {
@@ -297,7 +297,7 @@ Dependência gerida é uma funcionalidade de pré-visualização que está atual
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba como atualizar o ficheiro de Host. JSON](functions-reference.md#fileupdate)
+> [Saiba como atualizar o arquivo host. JSON](functions-reference.md#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Ver definições globais em variáveis de ambiente](functions-app-settings.md)
+> [Consulte Configurações globais em variáveis de ambiente](functions-app-settings.md)

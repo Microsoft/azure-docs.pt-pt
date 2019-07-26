@@ -10,16 +10,16 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 851943ad967a79a6800a899b31d0cf9f90a6889b
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312247"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385539"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnóstico e ativar alertas para aplicativos lógicos do Azure
 
-Depois de [criar e executar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md), você pode verificar seu histórico de execuções, o histórico de gatilho, o status e o desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnóstico](#azure-diagnostics) para seu aplicativo lógico. Dessa forma, você pode [encontrar e exibir eventos](#find-events), como eventos de gatilho, eventos de execução e eventos de ação. Você também pode usar esses [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o armazenamento do Azure e os hubs de eventos do Azure. 
+Depois de [criar e executar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md), pode verificar os respetivos histórico de execuções, histórico do acionador, estado e desempenho. Para monitoramento de eventos em tempo real e depuração mais avançada, configure o [log de diagnóstico](#azure-diagnostics) para seu aplicativo lógico. Desta forma, pode [localizar e ver eventos](#find-events), como eventos de acionador, eventos de execução e eventos de ação. Também pode utilizar estes [dados de diagnóstico com outros serviços](#extend-diagnostic-data), como o Armazenamento do Microsoft Azure e os Hubs de Eventos do Azure. 
 
 Para obter notificações sobre falhas ou outros possíveis problemas, configure [alertas](#add-azure-alerts). Por exemplo, você pode criar um alerta que detecta "quando mais de cinco execuções falham em uma hora". Você também pode configurar o monitoramento, o rastreamento e o registro em log de forma programática usando [diagnóstico do Azure configurações de evento e propriedades](#diagnostic-event-properties).
 
@@ -139,7 +139,7 @@ Para refinar sua consulta adicionando um filtro, escolha **+ Adicionar**.
    Este exemplo usa a palavra "status" para encontrar eventos com falha em **AzureDiagnostics**.
    Aqui, o filtro para **status_s** já está selecionado.
 
-   ![Selecionar filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Selecione um filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Na barra à esquerda, selecione o valor de filtro que você deseja usar e escolha **aplicar**.
 
@@ -291,8 +291,8 @@ Por exemplo, o `ActionCompleted` evento tem as `clientTrackingId` propriedades `
   }
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar modelos para implantação de aplicativo lógico e gerenciamento de liberação](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Cenários B2B com Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitorizar mensagens B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

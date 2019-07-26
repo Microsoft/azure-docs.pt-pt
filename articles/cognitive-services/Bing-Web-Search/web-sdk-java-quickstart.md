@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Utilizar a SDK de pesquisa Web Bing para Java'
+title: 'Início rápido: Usar o SDK do Pesquisa na Web do Bing para Java'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/25/2019
 ms.author: aahi
-ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d2c1ca439dbbbd79ddabd2ea7a4eb5298d1071a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344131"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500974"
 ---
-# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início rápido: Utilizar a SDK de pesquisa Web Bing para Java
+# <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Início rápido: Usar o SDK do Pesquisa na Web do Bing para Java
 
 O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação Java. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -35,9 +35,9 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 * O [Apache Maven](https://maven.apache.org/download.cgi) ou a sua ferramenta de automatização de compilação favorita
 * Uma chave de subscrição
 
-## <a name="create-a-project-and-set-up-your-pom-file"></a>Crie um projeto e configurar o ficheiro POM
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Criar um projeto e configurar seu arquivo POM
 
-Crie um novo projeto do Java com o Maven ou com a sua ferramenta de automatização de compilação favorita. Supondo que estiver a utilizar o Maven, adicione as seguintes linhas para sua [modelo de objeto de projeto (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) ficheiro. Substitua todas as instâncias de `mainClass` pela sua aplicação.
+Crie um novo projeto do Java com o Maven ou com a sua ferramenta de automatização de compilação favorita. Supondo que você esteja usando o Maven, adicione as seguintes linhas ao seu arquivo de [modelo de objeto de projeto (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) . Substitua todas as instâncias de `mainClass` pela sua aplicação.
 
 ```xml
 <build>
@@ -300,4 +300,4 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência a Java SDK do Azure](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/websearch)
+* [Referência a Java SDK do Azure](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)

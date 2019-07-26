@@ -1,6 +1,6 @@
 ---
-title: Filas de mensagens não entregues do Service Bus | Documentos da Microsoft
-description: Descrição geral de filas de mensagens não entregues do Azure Service Bus
+title: Filas de mensagens mortas do barramento de serviço | Microsoft Docs
+description: Visão geral das filas de mensagens mortas do barramento de serviço do Azure
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79bc5e640498788ef805d07a26dd29e943117b58
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003123"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68476965"
 ---
-# <a name="overview-of-service-bus-dead-letter-queues"></a>Descrição geral das filas de mensagens não entregues do Service Bus
+# <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de mensagens mortas do barramento de serviço
 
-As filas do Service Bus do Azure e subscrições de tópicos fornecem uma fila secundária secundária, chamada um *fila de mensagens não entregues* (DLQ). A fila de mensagens não entregues não precisa de ser explicitamente criado e não pode ser eliminado ou geridos caso contrário, independente da entidade principal.
+As filas do barramento de serviço do Azure e as assinaturas de tópico fornecem uma subfila secundária, chamada de DLQ ( *fila de mensagens mortas* ). A fila de mensagens mortas não precisa ser criada explicitamente e não pode ser excluída ou gerenciada de outra forma independentemente da entidade principal.
 
-Este artigo descreve as filas de mensagens não entregues no Service Bus. Grande parte da discussão é ilustrada pela [exemplo de filas de mensagens não entregues](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) no GitHub.
+Este artigo descreve as filas de mensagens mortas no barramento de serviço. Grande parte da discussão é ilustrada pelo [exemplo de filas de mensagens mortas](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) no github.
  
-## <a name="the-dead-letter-queue"></a>A fila de mensagens não entregues
+## <a name="the-dead-letter-queue"></a>A fila de mensagens mortas
 
-O objetivo da fila de mensagens não entregues é conter as mensagens que não não possível entregar a qualquer recetor ou mensagens que não foi possível processar. As mensagens, em seguida, podem ser removidas o DLQ e inspecioná-lo. Uma aplicação pode, com a ajuda de um operador, corrigir problemas e volte a submeter a mensagem, o fato de que ocorreu um erro de registo e tomar medidas corretivas. 
+A finalidade da fila de mensagens mortas é manter as mensagens que não podem ser entregues a nenhum receptor ou mensagens que não puderam ser processadas. As mensagens podem ser removidas do DLQ e inspecionadas. Um aplicativo pode, com a ajuda de um operador, corrigir problemas e reenviar a mensagem, registrar o fato de que houve um erro e tomar uma ação corretiva. 
 
-Da perspectiva de API e o protocolo, o DLQ principalmente é semelhante a qualquer outra fila, exceto pelo fato de mensagens só podem ser submetidas através da operação de mensagens não entregues da entidade principal. Além disso, a time-to-live não é observada, e não é possível entregar uma mensagem a partir de um DLQ. A fila de mensagens não entregues totalmente compatível com operações transacionais e a entrega de bloqueio de pré-visualização.
+De uma perspectiva de API e protocolo, o DLQ é principalmente semelhante a qualquer outra fila, exceto que as mensagens só podem ser enviadas por meio da operação de mensagens mortas da entidade pai. Além disso, o tempo de vida não é observado, e você não pode mensagens mortas de um DLQ. A fila de mensagens mortas dá suporte total às operações transacionais e de entrega de bloqueio de inspeção.
 
-Tenha em atenção que não existe nenhuma a limpeza automática do DLQ. Mensagens permanecem no DLQ até obter explicitamente da chamada e DLQ [concluir ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) na mensagem de mensagens não entregues.
+Observe que não há nenhuma limpeza automática do DLQ. As mensagens permanecem no DLQ até você recuperá-las explicitamente do DLQ e chamar [Complete ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) na mensagem de mensagens mortas.
 
-## <a name="moving-messages-to-the-dlq"></a>Passar mensagens para o DLQ
+## <a name="moving-messages-to-the-dlq"></a>Movendo mensagens para o DLQ
 
-Existem várias atividades no Service Bus com que as mensagens obter enviada por push para o DLQ de dentro do próprio mecanismo de mensagens. Um aplicativo também explicitamente pode mover as mensagens para o DLQ. 
+Há várias atividades no barramento de serviço que fazem com que as mensagens sejam enviadas por push para o DLQ de dentro do próprio mecanismo de mensagens. Um aplicativo também pode mover mensagens explicitamente para o DLQ. 
 
-Como a mensagem é movida pelo broker, duas propriedades são adicionadas à mensagem, como o Mediador de chamadas à sua versão interna dos [mensagens não entregues](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) método da mensagem: `DeadLetterReason` e `DeadLetterErrorDescription`.
+À medida que a mensagem é movida pelo agente, duas propriedades são adicionadas à mensagem, pois o agente chama sua versão interna [do método](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) inativa na mensagem `DeadLetterReason` : `DeadLetterErrorDescription`e.
 
-Aplicativos podem definir seus próprios códigos para o `DeadLetterReason` propriedade, mas o sistema define os seguintes valores.
+Os aplicativos podem definir seus próprios códigos para `DeadLetterReason` a propriedade, mas o sistema define os valores a seguir.
 
 | Condição | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
 | Sempre |HeaderSizeExceeded |A quota de tamanho deste fluxo foi excedida. |
-| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing e SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
+| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing e SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |A mensagem expirou e foi classificada como não entregue. |
-| SubscriptionDescription.RequiresSession |Id de sessão é nulo. |A entidade com sessão ativada não permite uma mensagem cujo identificador de sessão seja nulo. |
-| ! entregues fila |MaxTransferHopCountExceeded |Null |
-| Aplicação explícita lettering inutilizado |Especificado por aplicativo |Especificado por aplicativo |
+| SubscriptionDescription.RequiresSession |A ID da sessão é nula. |A entidade com sessão ativada não permite uma mensagem cujo identificador de sessão seja nulo. |
+| ! fila de mensagens mortas | MaxTransferHopCountExceeded | O número máximo de saltos permitidos ao encaminhar entre filas. O valor é definido como 4. |
+| Mensagens mortas explícitas do aplicativo |Especificado pelo aplicativo |Especificado pelo aplicativo |
 
-## <a name="exceeding-maxdeliverycount"></a>MaxDeliveryCount exceder
+## <a name="exceeding-maxdeliverycount"></a>Excedendo MaxDeliveryCount
 
-Filas e subscrições de ter uma [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) e [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) propriedade respectivamente; o valor predefinido é 10. Sempre que uma mensagem foi entregue num bloqueio ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), mas tem sido um explicitamente abandonada ou o bloqueio tiver expirado, a mensagem [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) é incrementado. Quando [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) excede [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), a mensagem é movida para o DLQ, especificando o `MaxDeliveryCountExceeded` código de razão.
+Filas e assinaturas têm, cada uma, uma propriedade [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) e [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) , respectivamente; o valor padrão é 10. Sempre que uma mensagem tiver sido entregue sob um bloqueio ([receivemode. Peeklock](/dotnet/api/microsoft.azure.servicebus.receivemode)), mas tiver sido explicitamente abandonada ou o bloqueio tiver expirado, a mensagem [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) será incrementada. Quando [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) excede [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), a mensagem é movida para o DLQ, especificando o `MaxDeliveryCountExceeded` código do motivo.
 
-Não é possível desativar esse comportamento, mas pode definir [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) para um número muito grande.
+Esse comportamento não pode ser desabilitado, mas você pode definir [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) como um número muito grande.
 
-## <a name="exceeding-timetolive"></a>TimeToLive exceder
+## <a name="exceeding-timetolive"></a>Excedendo TimeToLive
 
-Quando o [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) estiver definida como **true** (a predefinição é **false**), todas as mensagens prestes a expirar são movidas para o DLQ, especificando o `TTLExpiredException` código de razão.
+Quando a propriedade [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) ou [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é definida como **true** (o padrão é **false**), todas as mensagens expirando são movido para o DLQ, especificando o `TTLExpiredException` código do motivo.
 
-Tenha em atenção que mensagens expiradas são apenas removidas e movidas para o DLQ quando existe pelo menos um recetor ativo, extrair a partir da fila de principal ou a subscrição; esse comportamento é propositado.
+Observe que as mensagens expiradas são limpas apenas e movidas para o DLQ quando há pelo menos um receptor ativo recebendo da fila principal ou assinatura; Esse comportamento é por design.
 
-## <a name="errors-while-processing-subscription-rules"></a>Erros ao processar as regras de subscrição
+## <a name="errors-while-processing-subscription-rules"></a>Erros ao processar regras de assinatura
 
-Quando o [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) propriedade está ativada para uma subscrição, quaisquer erros que ocorrem enquanto executa a regra de filtro SQL de uma subscrição são capturados na DLQ ao longo com a mensagem incorreto.
+Quando a propriedade [SubscriptionDescription. habilitarmensagensmortasnaexceçãodeavaliaçãonofiltro](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) estiver habilitada para uma assinatura, todos os erros que ocorrerem durante a execução de uma regra de filtro SQL de uma assinatura serão capturados no DLQ junto com o incorreto Mensagem.
 
-## <a name="application-level-dead-lettering"></a>Nível de aplicativo de mensagens não entregues
+## <a name="application-level-dead-lettering"></a>Mensagens mortas no nível do aplicativo
 
-Além das funcionalidades de mensagens não entregues fornecidos pelo sistema, os aplicativos podem usar o DLQ explicitamente rejeite mensagens inaceitáveis. Isto pode incluir as mensagens que não não possível processar corretamente devido a qualquer tipo de problema no sistema, as mensagens que contêm payloads com formato incorreto ou mensagens que falham a autenticação quando é utilizada um esquema de segurança de nível de mensagem.
+Além dos recursos de mensagens mortas fornecidos pelo sistema, os aplicativos podem usar o DLQ para rejeitar explicitamente as mensagens inaceitáveis. Isso pode incluir mensagens que não podem ser processadas corretamente devido a qualquer tipo de problema do sistema, mensagens que mantêm cargas malformadas ou mensagens que falham na autenticação quando algum esquema de segurança no nível da mensagem é usado.
 
-## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Mensagens não entregues em cenários de ForwardTo ou SendVia
+## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Mensagens mortas nos cenários de Encaminhato ou SendVia
 
-As mensagens serão enviadas para a fila de mensagens não entregues de transferência nas seguintes condições:
+As mensagens serão enviadas para a fila de mensagens mortas de transferência sob as seguintes condições:
 
-- Uma mensagem passa por mais de 4 filas ou tópicos que são [encadeadas](service-bus-auto-forwarding.md).
-- A fila de destino ou um tópico, está desativado ou eliminado.
-- A fila de destino ou um tópico excede o tamanho máximo de entidade.
+- Uma mensagem passa por mais de 4 filas ou tópicos que são encadeados [juntos](service-bus-auto-forwarding.md).
+- A fila ou o tópico de destino está desabilitado ou excluído.
+- A fila ou o tópico de destino excede o tamanho máximo da entidade.
 
-Para obter essas mensagens lettered em papel já era, pode criar um recetor utilizando o [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) método utilitário.
+Para recuperar essas mensagens mortas, você pode criar um receptor usando o método utilitário [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) .
 
 ## <a name="example"></a>Exemplo
 
-O fragmento de código seguinte cria um recetor de mensagem. No loop de recebimento para a fila principal, o código obtém a mensagem com [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que pede o mediador instantaneamente retornar qualquer mensagem prontamente disponível ou a devolver com nenhum resultado. Se o código de receber uma mensagem, ele imediatamente abandona-lo, que incrementa a `DeliveryCount`. Depois do sistema move a mensagem para o DLQ, a fila principal está vazia e sai do loop, como [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) devolve **nulo**.
+O trecho de código a seguir cria um receptor de mensagem. No loop de recebimento da fila principal, o código recupera a mensagem com [Receive (TimeSpan. zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), que solicita que o agente retorne instantaneamente qualquer mensagem prontamente disponível ou para retornar sem nenhum resultado. Se o código receber uma mensagem, ele a abandonará imediatamente, o que incrementa o `DeliveryCount`. Depois que o sistema move a mensagem para o DLQ, a fila principal está vazia e o loop é encerrado, como [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) retorna **NULL**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -103,21 +103,21 @@ while(true)
 }
 ```
 
-## <a name="path-to-the-dead-letter-queue"></a>Caminho para a fila de mensagens não entregues
-Pode aceder a fila de mensagens não entregues, utilizando a seguinte sintaxe:
+## <a name="path-to-the-dead-letter-queue"></a>Caminho para a fila de mensagens mortas
+Você pode acessar a fila de mensagens mortas usando a seguinte sintaxe:
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscription/<subscription path>/$deadletterqueue
 ```
 
-Se estiver a utilizar o SDK de .NET, pode obter o caminho para a fila de mensagens não entregues ao utilizar o método SubscriptionClient.FormatDeadLetterPath(). Esse método usa o nome de nome/subscrição de tópico e sufixos com **/$DeadLetterQueue**.
+Se você estiver usando o SDK do .NET, poderá obter o caminho para a fila de mensagens mortas usando o método SubscriptionClient. FormatDeadLetterPath (). Esse método usa o nome do tópico/assinatura e sufixos com **/$DeadLetterQueue**.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja os artigos seguintes para obter mais informações sobre as filas do Service Bus:
+Consulte os seguintes artigos para obter mais informações sobre filas do barramento de serviço:
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Filas do Azure e do Service Bus filas em comparação comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+* [Filas do Azure e filas do barramento de serviço comparadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

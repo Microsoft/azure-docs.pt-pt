@@ -1,5 +1,5 @@
 ---
-title: Provisionar automaticamente dispositivos com DPS usando atestado de chave simétrica-Azure IoT Edge | Microsoft Docs
+title: Autoprovisionar dispositivos com DPS usando atestado de chave simétrica-Azure IoT Edge | Microsoft Docs
 description: Usar o atestado de chave simétrica para testar o provisionamento automático de dispositivos para Azure IoT Edge com o serviço de provisionamento de dispositivos
 author: kgremban
 manager: philmea
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a91162271bf36e1d68e087a60723497e7fc261ec
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275732"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414584"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Criar e provisionar um dispositivo IoT Edge usando o atestado de chave simétrica
 
-Dispositivos do IoT Edge do Azure podem ser aprovisionado automaticamente com o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de aprovisionamento automático, reveja os [conceitos de aprovisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Dispositivos do IoT Edge do Azure podem ser autoprovisioned utilizando o [serviço aprovisionamento de dispositivos](../iot-dps/index.yml) tal como os dispositivos que não são habilitados no edge. Se não estiver familiarizado com o processo de autoprovisioning, reveja os [autoprovisioning conceitos](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
 
 Este artigo mostra como criar um registro individual de serviço de provisionamento de dispositivos usando o atestado de chave simétrica em um dispositivo IoT Edge com as seguintes etapas:
 
@@ -165,8 +165,7 @@ Você precisará das seguintes informações ao provisionar seu dispositivo:
 
 Siga as instruções para a arquitetura do dispositivo. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual.
 
-* [Instalar o tempo de execução de Azure IoT Edge no Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Instalar o tempo de execução de Azure IoT Edge no Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Instalar o tempo de execução de Azure IoT Edge no Linux](how-to-install-iot-edge-linux.md)
 
 A seção no arquivo de configuração para provisionamento de chave simétrica tem esta aparência:
 
@@ -188,7 +187,7 @@ Substitua os valores de espaço `{scope_id}`reservado `{registration_id}`para, `
 
 Siga as instruções para instalar o IoT Edge tempo de execução no dispositivo para o qual você gerou uma chave de dispositivo derivada. Certifique-se configurar o runtime do IoT Edge para aprovisionamento automático e não manual.
 
-[Instalar e provisionar IoT Edge automaticamente](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+[Instalar e provisionar automaticamente IoT Edge no Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
 

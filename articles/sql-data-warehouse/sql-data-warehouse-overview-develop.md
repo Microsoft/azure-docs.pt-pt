@@ -1,8 +1,8 @@
 ---
-title: Recursos para desenvolver um armazém de dados no Azure | Documentos da Microsoft
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
+title: Recursos para o desenvolvimento de um data warehouse no Azure | Microsoft Docs
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,43 +10,43 @@ ms.subservice: development
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 613bcb05dab993989a2ae00b71fef95794953ab8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850740"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479476"
 ---
-# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para o SQL Data Warehouse
-Veja estes artigos de desenvolvimento para compreender melhor as principais decisões de design, recomendações e técnicas de codificação para o SQL Data Warehouse.
+# <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decisões de design e técnicas de codificação para SQL Data Warehouse
+Dê uma olhada nesses artigos de desenvolvimento para entender melhor as principais decisões de design, recomendações e técnicas de codificação para SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
-Os artigos seguintes realçam os conceitos e as decisões de design para o desenvolvimento de um armazém de dados distribuídos com o SQL Data Warehouse:
+Os artigos a seguir destacam os conceitos e as decisões de design para o desenvolvimento de um data warehouse distribuído usando SQL Data Warehouse:
 
-* [Ligações][connections]
-* [concurrency][concurrency]
-* [Transações][transactions]
-* [esquemas definidos pelo utilizador][user-defined schemas]
-* [distribuição da tabela][table distribution]
+* [conexões][connections]
+* [corrente][concurrency]
+* [transações][transactions]
+* [esquemas definidos pelo usuário][user-defined schemas]
+* [distribuição de tabela][table distribution]
 * [índices de tabela][table indexes]
-* [Partições de tabela][table partitions]
+* [partições de tabela][table partitions]
 * [CTAS][CTAS]
-* [Estatísticas][statistics]
+* [estatísticas][statistics]
 
-## <a name="development-recommendations-and-coding-techniques"></a>Recomendações para o desenvolvimento e técnicas de codificação
-Estes artigos realçam técnicas de codificação específicas, sugestões e recomendações para o desenvolvimento do SQL Data Warehouse:
+## <a name="development-recommendations-and-coding-techniques"></a>Recomendações de desenvolvimento e técnicas de codificação
+Estes artigos destacam técnicas de codificação, dicas e recomendações específicas para o desenvolvimento de seus SQL Data Warehouse:
 
-* [Procedimentos armazenados][stored procedures]
-* [labels][labels]
+* [procedimentos armazenados][stored procedures]
+* [las][labels]
 * [Modos de exibição][views]
-* [Tabelas temporárias][temporary tables]
-* [dynamic SQL][dynamic SQL]
-* [looping][looping]
+* [tabelas temporárias][temporary tables]
+* [SQL dinâmico][dynamic SQL]
+* [loop][looping]
 * [Agrupar por opções][group by options]
-* [atribuição de variáveis][variable assignment]
+* [atribuição de variável][variable assignment]
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações de referência, consulte [instruções T-SQL do armazém de dados SQL](sql-data-warehouse-reference-tsql-statements.md).
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações de referência, consulte [SQL data warehouse instruções T-SQL](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 

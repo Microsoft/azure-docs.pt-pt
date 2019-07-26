@@ -1,6 +1,6 @@
 ---
-title: Gerir dispositivos ligados a partir do portal do meu perfil (pré-visualização) - Azure Active Directory | Documentos da Microsoft
-description: Uma visão geral sobre a página de dispositivos do portal do meu perfil.
+title: Gerencie seus dispositivos conectados no portal meu perfil (versão prévia)-Azure Active Directory | Microsoft Docs
+description: Uma visão geral de alto nível sobre a página dispositivos do meu portal do meu perfil.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,41 +12,44 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9035d68e95798eb238c1836e617e485c39194c4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475878"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383029"
 ---
-# <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gerir dispositivos ligados a partir do portal do meu perfil (pré-visualização)
-Pode gerir os dispositivos que estiver ligado com a sua conta escolar ou profissional, desativar qualquer um que já não é proprietário, do **dispositivos** página do **meu perfil** portal.
+# <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gerenciar seus dispositivos conectados no portal meu perfil (versão prévia)
+
+Você pode gerenciar os dispositivos aos quais você está conectado usando sua conta corporativa ou de estudante, desabilitando as que você não possui mais, na página **dispositivos** do **meu portal do meu perfil** .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## <a name="view-your-connected-devices"></a>Ver os seus dispositivos ligados
-1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
+## <a name="view-your-connected-devices"></a>Exibir seus dispositivos conectados
 
-2. Selecione **dispositivos** do painel de navegação esquerda ou selecione o **gerir dispositivos** uma ligação a **dispositivos** bloco.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
 
-    ![Minha página de perfil, que mostra realçado ligações de dispositivos](media/myprofile-portal/myprofile-portal-devices.png)
+2. Selecione **dispositivos** no painel de navegação esquerdo ou selecione o link **gerenciar dispositivos** no bloco **dispositivos** .
 
-3. Reveja as informações para os seus dispositivos ligados, certificar-se de que reconhecer todos eles. 
+    ![Minha página de perfil, mostrando links de dispositivos realçados](media/myprofile-portal/myprofile-portal-devices.png)
 
-    ![Página de dispositivo, que mostra dispositivos de conexão](media/myprofile-portal/myprofile-portal-devices-page.png)
+3. Examine as informações de seus dispositivos conectados, assegurando que você os reconheça. 
 
-## <a name="disable-a-device"></a>Desativar um dispositivo
-Pode desativar qualquer um dos seus dispositivos ligados em qualquer altura. Isto é especialmente importante se um dispositivo não for familiar para ou se um dispositivo é perdido ou roubado. Depois de desativar um dispositivo, ele já não pode ser autenticado pela sua organização e que não poderá aceder a qualquer um dos recursos da sua organização.
+    ![Página do dispositivo, mostrando dispositivos conectados](media/myprofile-portal/myprofile-portal-devices-page.png)
+
+## <a name="disable-a-device"></a>Desabilitar um dispositivo
+
+Você pode desabilitar qualquer um dos seus dispositivos conectados a qualquer momento. Isso é especialmente importante se um dispositivo não estiver familiarizado com você ou se um dispositivo for perdido ou roubado. Depois de desabilitar um dispositivo, ele não poderá mais ser autenticado por sua organização e não poderá acessar nenhum dos recursos da sua organização.
 
 >[!Important]
->Se desativar um dispositivo por engano, não é possível-lo. Terá de contactar o administrador da organização para adicionar o dispositivo novamente.
+>Se você desabilitar um dispositivo por engano, não haverá como desfazê-lo. Você precisará entrar em contato com o administrador da sua organização para adicionar o dispositivo novamente.
 
-1. Selecione **desativar** do dispositivo que pretende remover.
+1. Selecione **desabilitar** no dispositivo que você deseja remover.
 
-    ![Página de dispositivo com a ligação de desativar realçada](media/myprofile-portal/myprofile-portal-devices-disable.png)
+    ![Página do dispositivo com o link desabilitar realçado](media/myprofile-portal/myprofile-portal-devices-disable.png)
 
-2. Selecione **Sim** para confirmar que pretende desativar o dispositivo.
+2. Selecione **Sim** para confirmar que deseja desabilitar o dispositivo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois de visualizar os seus dispositivos ligados, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), o seu [organizações](myprofile-portal-organizations-page.md), ou vista como sua organização [utiliza os dados](myprofile-portal-privacy-page.md).
+- Depois de exibir os dispositivos conectados, você pode optar por exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md), suas [organizações](myprofile-portal-organizations-page.md)ou exibir como sua organização [usa seus dados](myprofile-portal-privacy-page.md).

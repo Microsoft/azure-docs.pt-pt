@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Procurar vídeos usando a API de REST de pesquisa de vídeos do Bing e o PHP'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos de pesquisa de vídeos para o vídeo REST API de pesquisa Bing com PHP
+title: 'Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o PHP'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo para a API REST do Pesquisa de Vídeo do Bing usando PHP
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2e5d05c32c9c3271cfc49e7abd0609ec7b090778
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8ecbba5ef046a284e9b4134f8703580021adb9d8
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67435302"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500094"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início rápido: Procurar vídeos usando a API de REST de pesquisa de vídeos do Bing e o PHP
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o PHP
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de vídeos do Bing e exibe um resultado de pesquisa da resposta JSON. Esta aplicação simple de JavaScript envia uma consulta de pesquisa de vídeos de HTTP para a API e apresenta a resposta. Embora esse aplicativo é escrito em JavaScript e utiliza o node. js, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
+Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo JavaScript simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esse aplicativo seja escrito em JavaScript e use o Node. js, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 O código de exemplo foi escrito para ser executado com PHP 5.6.
 
 Veja a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* PHP 5.6 ou posterior
+* PHP 5,6 ou posterior
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -210,11 +210,11 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
 ## <a name="see-also"></a>Consulte também 
 
- [O que é a API de pesquisa de vídeos do Bing?](../overview.md)
+ [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)

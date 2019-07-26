@@ -1,79 +1,100 @@
 ---
-title: Inicie sessão com a validação em dois passos a verificação ou a segurança info - Azure Active Directory | Documentos da Microsoft
-description: Saiba mais sobre como iniciar sessão com os vários métodos de verificação de identidade das informações de segurança.
+title: Entrar com a verificação em duas etapas ou informações de segurança-Azure Active Directory | Microsoft Docs
+description: Saiba mais sobre como entrar usando os vários métodos de verificação de identidade em informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 07/18/2019
 ms.author: lizross
-ms.custom: user-help, seo-update-azuread-jan
+ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472978"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382280"
 ---
-# <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
-Depois de configurar a verificação de dois passos ou informações de segurança, poderá iniciar sessão na sua conta com o seu método de autenticação especificado.
+# <a name="sign-in-using-two-step-verification-or-security-info"></a>Entrar usando a verificação em duas etapas ou informações de segurança
+
+Depois de configurar a verificação em duas etapas ou as informações de segurança, você poderá entrar em sua conta usando o método de autenticação especificado.
 
 > [!Note]
-> Se ainda estiver a utilizar a experiência de verificação de dois passos, terá de configurar os métodos de autenticação ao seguir as instruções no [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md) artigo.
-> 
-> Se o administrador tiver ativado a experiência de informações de segurança, terá de definir os métodos de autenticação usando estes artigos passo a passo:<ul><li>[Definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Definir informações de segurança para utilizar uma chamada telefónica](security-info-setup-phone-number.md)</li></ul>
+> Se você ainda estiver usando a experiência de verificação em duas etapas, precisará configurar seus métodos de autenticação seguindo as instruções no artigo [configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) .
+>
+> Se o administrador tiver ativado a experiência de informações de segurança, você precisará definir seus métodos de autenticação usando estes artigos passo a passo:<ul><li>[Configurar informações de segurança para usar um aplicativo de autenticação](security-info-setup-auth-app.md)</li><li>[Configurar as informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md)</li><li>[Configurar informações de segurança para usar uma chamada telefônica](security-info-setup-phone-number.md)</li><li>[Configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md)</li></ul>
 
-## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicie sessão com uma notificação de aplicação de autenticador no seu dispositivo móvel
+## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Entrar usando uma notificação de aplicativo autenticador em seu dispositivo móvel
 
-1. Inicie sessão na sua conta com o seu nome de utilizador e palavra-passe.
+1. Entre em sua conta com seu nome de usuário e senha.
 
-2. Selecione **aprovar** da notificação de aprovação enviada para o seu dispositivo móvel.
+2. Selecione **aprovar** na notificação de aprovação enviada ao seu dispositivo móvel.
 
-## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Inicie sessão com um código de aplicação de autenticador no seu dispositivo móvel
+## <a name="sign-in-using-an-authenticator-app-code-on-your-mobile-device"></a>Entre usando um código de aplicativo autenticador em seu dispositivo móvel
 
-1. Inicie sessão na sua conta com o seu nome de utilizador e palavra-passe.
+1. Entre em sua conta com seu nome de usuário e senha.
 
-2. Abra a sua aplicação de autenticador e digite o código gerado aleatoriamente para a sua conta para o **introduza o código** caixa.
+2. Abra seu aplicativo autenticador e digite o código gerado aleatoriamente para sua conta na caixa de **código inserir** .
 
-## <a name="sign-in-using-your-phone-number"></a>Inicie sessão com o seu número de telefone
+## <a name="sign-in-using-your-phone-number"></a>Entre usando seu número de telefone
 
-1. Inicie sessão na sua conta com o seu nome de utilizador e palavra-passe.
+1. Entre em sua conta com seu nome de usuário e senha.
 
-2. Responder a seu telemóvel e siga as instruções.
+2. Responda ao seu telefone e siga as instruções.
 
-## <a name="sign-in-using-a-text-message"></a>Inicie sessão com uma mensagem de texto
+## <a name="sign-in-using-a-text-message"></a>Entrar usando uma mensagem de texto
 
-1. Inicie sessão na sua conta com o seu nome de utilizador e palavra-passe.
+1. Entre em sua conta com seu nome de usuário e senha.
 
-2. Abra a mensagem de texto e digite o código da sua mensagem de texto para o **introduza o código** caixa.
+2. Abra a mensagem de texto e digite o código da mensagem de texto na caixa de **código Enter** .
 
-## <a name="sign-in-using-another-verification-method"></a>Inicie sessão com outro método de verificação
-Se por algum motivo não é possível utilizar o seu principal método de início de sessão, pode usar outro método de verificação definido previamente.
+## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>Entrar usando uma chave de segurança na tela de bloqueio
 
-1. Inicie sessão na sua conta normalmente e, em seguida, escolha o **iniciar sessão de outra maneira** ligar sobre o **verificação em dois passos** página.
+1. Depois de registrar sua chave de segurança, selecione a imagem da chave de segurança na tela de bloqueio do Windows 10.
 
-    ![Alterar método de verificação de início de sessão](media/security-info/two-factor-auth-signin-another-way.png)
+2. Insira sua chave de segurança na porta USB do dispositivo e entre no Windows usando o PIN de chave de segurança.
+
+    ![Entrada de chave de segurança na tela de bloqueio do Windows 10](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>Entre usando uma chave de segurança e o navegador Microsoft Edge
+
+1. Depois de registrar sua chave de segurança, abra o navegador Microsoft Edge.
+
+2. Quando solicitado a entrar, insira sua chave de segurança na porta USB do dispositivo e entre no Windows usando o PIN de chave de segurança.
+
+    ![Entrada de chave de segurança usando o navegador Microsoft Edge](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >Para obter informações sobre como entrar usando o aplicativo Microsoft Authenticator, consulte o artigo, [entrar em suas contas usando o aplicativo Microsoft Authenticator](user-help-auth-app-sign-in.md).
+
+## <a name="sign-in-using-another-verification-method"></a>Entrar usando outro método de verificação
+
+Se, por alguma razão, você não conseguir usar seu método de entrada primário, poderá usar outro método de verificação configurado anteriormente.
+
+1. Entre em sua conta normalmente e, em seguida, escolha o link **entrar de outra maneira** na página de **verificação em duas etapas** .
+
+    ![Alterar método de verificação de entrada](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Se não vir a **iniciar sessão de outra maneira** link, significa que ainda não configurar outros métodos de verificação e que terá de contactar o administrador para obter ajuda a iniciar sessão na sua conta. Depois do administrador ajuda-o a iniciar sessão, certifique-se de que adicionar métodos de verificação adicional. Para obter mais informações sobre como adicionar métodos de verificação, consulte a [gerir as definições de verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md) artigo.
-    > 
-    >Se vir a **iniciar sessão de outra maneira** associar, mas ainda não vir quaisquer outros métodos de verificação, terá de contactar o administrador para obter ajuda a iniciar sessão na sua conta.
+    >Se você não vir o link **entrar de outra maneira** , isso significa que você não configurou nenhum outro método de verificação e que precisará entrar em contato com o administrador para obter ajuda para entrar em sua conta. Depois que o administrador ajuda você a entrar, certifique-se de adicionar métodos de verificação adicionais. Para obter mais informações sobre como adicionar métodos de verificação, consulte o artigo [gerenciar suas configurações para a verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md) .
+    >
+    >Se você vir o link **entrar de outra maneira** , mas ainda não vir nenhum outro método de verificação, será necessário entrar em contato com o administrador para obter ajuda para entrar na sua conta.
 
-2. Escolha seu método de verificação alternativo e continuar com o processo de verificação de dois passos.
+2. Escolha o método de verificação alternativo e continue com o processo de verificação em duas etapas.
 
-3. Depois que estiver na sua conta, pode atualizar seus métodos de verificação (se necessário). Para obter mais informações sobre adicionar ou alterar seus métodos, consulte a [gerir as definições de verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md) artigo.
+3. Depois de voltar à sua conta, você pode atualizar seus métodos de verificação (se necessário). Para obter mais informações sobre como adicionar ou alterar seus métodos, consulte o artigo [gerenciar suas configurações para a verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre as informações de segurança do [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md) artigo.
+- Saiba mais sobre informações de segurança no artigo [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md) .
 
-- Saiba mais sobre a verificação de dois passos no [descrição geral de verificação de dois passos](user-help-two-step-verification-overview.md) artigo. 
+- Saiba mais sobre a verificação em duas etapas no artigo [visão geral da verificação em duas etapas](user-help-two-step-verification-overview.md) .
 
-- Repor a palavra-passe, se tiver perdido ou esquecidas, da [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/)
+- Redefinir sua senha se você a tiver perdido ou esquecido, no portal de redefinição de [senha](https://passwordreset.microsoftonline.com/)
 
-- Obter solução de problemas dicas e ajuda para problemas de início de sessão no [não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.
+- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

@@ -1,6 +1,6 @@
 ---
-title: API da web - configuração de código de aplicação protegida | O Azure Active Directory
-description: Saiba como criar uma API web protegida e configurar o código de seu aplicativo.
+title: API Web protegida-configuração de código do aplicativo | Azure Active Directory
+description: Saiba como criar uma API Web protegida e configurar o código do aplicativo.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,24 +16,30 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ff03316a1f9409d4d6e4b7ddf52d0c8cc7a909
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: b249b99faa62e73b9aa3247f71f88767fca96f01
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551544"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488840"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>API web protegida: Adicionar autorização à sua API
+# <a name="protected-web-api-adding-authorization-to-your-api"></a>API Web protegida: Adicionando autorização à sua API
 
-Este artigo descreve como adicionar autorização para a API web. Esta proteção garante que a API é chamada apenas pelo:
+Este artigo descreve como você pode adicionar autorização à sua API Web. Essa proteção garante que a API seja chamada apenas por:
 
-- Aplicações em nome dos utilizadores que têm os âmbitos certos.
-- Aplicações daemon com as funções de aplicação correta.
+- Aplicativos em nome dos usuários que têm os escopos corretos.
+- Aplicativos de daemon que têm as funções de aplicativo corretas.
 
-Para proteger uma API web ASP.NET/ASP.NET Core, precisará adicionar o `[Authorize]` atributo em um dos seguintes:
+> [!NOTE]
+> Os trechos de código deste artigo são extraídos dos exemplos a seguir, que são totalmente funcionais
+>
+> - [Tutorial incremental da API Web do ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs#L37) no github
+> - [Exemplo de ASP.NET Web API](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/dfd0115533d5a230baff6a3259c76cf117568bd9/TodoListService/Controllers/TodoListController.cs#L48)
 
-- O próprio, se pretender que todas as ações do controlador a ser protegido de controlador
-- A ação de controlador individuais para a sua API
+Para proteger uma API Web do ASP.net/ASP.NET Core, você precisará adicionar o `[Authorize]` atributo em um destes:
+
+- O próprio controlador, se você quiser que todas as ações do controlador sejam protegidas
+- A ação do controlador individual para sua API
 
 ```CSharp
     [Authorize]
@@ -43,14 +49,14 @@ Para proteger uma API web ASP.NET/ASP.NET Core, precisará adicionar o `[Authori
     }
 ```
 
-Mas esta proteção não é suficiente. Esta ação garante apenas que ASP.NET/ASP.NET Core irá validar o token. A API tem de verificar que o token utilizado para chamar o web que API foi pedida com as declarações ele espera, em particular:
+Mas essa proteção não é suficiente. Ele garante apenas que o ASP.NET/ASP.NET Core validará o token. Sua API precisa verificar se o token usado para chamar sua API Web foi solicitado com as declarações esperadas, em particular:
 
-- O *âmbitos*, se a API é chamada em nome de um utilizador.
-- O *funções de aplicação*, se a API pode ser chamada a partir de uma aplicação de daemon.
+- Os escopos, se a API for chamada em nome de um usuário.
+- As *funções de aplicativo*, se a API puder ser chamada de um aplicativo daemon.
 
-## <a name="verifying-scopes-in-apis-called-on-behalf-of-users"></a>Verificação dos âmbitos em APIs chamados em nome dos utilizadores
+## <a name="verifying-scopes-in-apis-called-on-behalf-of-users"></a>Verificando escopos em APIs chamadas em nome dos usuários
 
-Se a sua API é chamado por um aplicativo do cliente em nome de um utilizador, tem de solicitar um token de portador que tenha específicos âmbitos para a API. (Consulte [configuração de código | Token de portador](scenario-protected-web-api-app-configuration.md#bearer-token).)
+Se sua API for chamada por um aplicativo cliente em nome de um usuário, precisará solicitar um token de portador que tenha escopos específicos para a API. (Consulte [configuração de código | Token](scenario-protected-web-api-app-configuration.md#bearer-token)de portador.)
 
 ```CSharp
 [Authorize]
@@ -76,8 +82,8 @@ public class TodoListController : Controller
 
 O `VerifyUserHasAnyAcceptedScope` método faria algo semelhante ao seguinte:
 
-- Certifique-se de que existe uma afirmação com o nome `http://schemas.microsoft.com/identity/claims/scope` ou `scp`.
-- Certifique-se de que a afirmação tenha um valor que contém o âmbito esperado pela API.
+- Verifique se há uma declaração denominada `http://schemas.microsoft.com/identity/claims/scope` ou `scp`.
+- Verifique se a declaração tem um valor que contém o escopo esperado pela API.
 
 ```CSharp
     /// <summary>
@@ -107,12 +113,12 @@ O `VerifyUserHasAnyAcceptedScope` método faria algo semelhante ao seguinte:
     }
 ```
 
-Este código de exemplo é para o ASP.NET Core. Para o ASP.NET, basta substituir `HttpContext.User` com `ClaimsPrincipal.Current`e substituir o tipo de afirmação `"http://schemas.microsoft.com/identity/claims/scope"` com `"scp"`. (Consulte também o trecho de código neste artigo.)
+Este [código de exemplo](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/02352945c1c4abb895f0b700053506dcde7ed04a/Microsoft.Identity.Web/Resource/ScopesRequiredByWebAPIExtension.cs#L47) é para ASP.NET Core. Para ASP.net, basta substituir `HttpContext.User` por `ClaimsPrincipal.Current`e substituir o tipo `"http://schemas.microsoft.com/identity/claims/scope"` de declaração por `"scp"`. (Consulte também o trecho de código mais adiante neste artigo.)
 
-## <a name="verifying-app-roles-in-apis-called-by-daemon-apps"></a>Verificação de aplicação de funções, em APIs chamadas por aplicações daemon
+## <a name="verifying-app-roles-in-apis-called-by-daemon-apps"></a>Verificando funções de aplicativo em APIs chamadas por aplicativos de daemon
 
-Se a API web é chamada por um [aplicação de daemon](scenario-daemon-overview.md), essa aplicação deve exigir uma permissão de aplicação para a API web. Já vimos [expor as permissões de aplicação (funções da aplicação)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) que a API expõe este tipo de permissões (por exemplo, o `access_as_application` função de aplicação).
-Agora tem de ter as suas APIs, certifique-se de que contém o token que recebeu o `roles` afirmação e que essa declaração tem o valor que ele espera. O código de fazer essa verificação é semelhante ao código que verifica permissões delegadas, exceto que, em vez de testar para `scopes`, a ação de controlador testará para `roles`:
+Se sua API Web for chamada por um [aplicativo de daemon](scenario-daemon-overview.md), esse aplicativo deverá exigir uma permissão de aplicativo para sua API da Web. Vimos na exposição de [permissões de aplicativo (funções de aplicativo)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) que sua API expõe essas permissões (por exemplo, a `access_as_application` função de aplicativo).
+Agora você precisa ter suas APIs para verificar se o token recebido contém a `roles` declaração e se essa declaração tem o valor esperado. O código que faz essa verificação é semelhante ao código que verifica as permissões delegadas, exceto que, em vez de testar `scopes`para, a ação do controlador será `roles`testada para:
 
 ```CSharp
 [Authorize]
@@ -125,7 +131,7 @@ public class TodoListController : ApiController
     }
 ```
 
-O `ValidateAppRole()` método pode ser algo semelhante a isto:
+O `ValidateAppRole()` método pode ser algo assim:
 
 ```CSharp
 private void ValidateAppRole(string appRole)
@@ -146,21 +152,21 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-Este código de exemplo é para o ASP.NET. Para o ASP.NET Core, Acabei de substituir `ClaimsPrincipal.Current` com `HttpContext.User`e substitua o `"roles"` afirmação nome com `"http://schemas.microsoft.com/identity/claims/roles"`. (Consulte também o trecho de código no início deste artigo.)
+Desta vez, o trecho de código é para ASP.NET. Por ASP.NET Core, basta substituir `ClaimsPrincipal.Current` por `HttpContext.User`e substituir o nome `"roles"` da declaração por `"http://schemas.microsoft.com/identity/claims/roles"`. (Consulte também o trecho de código anteriormente neste artigo.)
 
-### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Aceitação de tokens de só de aplicação se a API web deve ser chamada apenas por aplicações daemon
+### <a name="accepting-app-only-tokens-if-the-web-api-should-be-called-only-by-daemon-apps"></a>Aceitando tokens somente de aplicativo se a API Web deve ser chamada somente por aplicativos de daemon
 
-O `roles` afirmação também é utilizada para os utilizadores em padrões de atribuição do utilizador. (Consulte [como: Adicionar funções de aplicação na sua aplicação e recebê-las no token](howto-add-app-roles-in-azure-ad-apps.md).) Portanto, apenas a verificação de funções permitirá aplicações iniciar sessão como utilizadores e o caminho inverso, se as funções são atribuídas a ambos. Recomendamos que declarar funções diferentes para utilizadores e aplicações evitar essa confusão.
+A `roles` declaração também é usada para usuários em padrões de atribuição de usuário. (Consulte [como: Adicionar funções de aplicativo em seu aplicativo e recebê-las](howto-add-app-roles-in-azure-ad-apps.md)no token.) Portanto, apenas a verificação das funções permitirá que os aplicativos entrem como usuários e o contrário, se as funções forem atribuíveis a ambos. Recomendamos que você declare diferentes funções para usuários e aplicativos para evitar essa confusão.
 
-Se quiser permitir que apenas as aplicações de daemon de chamar a API web, adicione uma condição, ao validar a função de aplicação, que o token é um token de só de aplicação:
+Se você quiser permitir que somente aplicativos de daemon Chamem sua API da Web, adicione uma condição, ao validar a função de aplicativo, que o token é um token somente de aplicativo:
 
 ```CSharp
-string oid = ClaimsPrincipal.Current.FindFirst("oid");
-string sub = ClaimsPrincipal.Current.FindFirst("sub");
+string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
+string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;
 ```
 
-A verificação da condição inversa permitirá apenas as aplicações que iniciam sessão de um utilizador para chamar a API.
+A verificação da condição inversa permitirá apenas aplicativos que se conectam a um usuário para chamar sua API.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

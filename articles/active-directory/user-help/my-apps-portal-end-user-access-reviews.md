@@ -1,6 +1,6 @@
 ---
-title: Realizar uma revisão de acesso a partir do portal as minhas aplicações - Azure Active Directory | Documentos da Microsoft
-description: Saiba como ver e gerir o acesso de segurança para grupos e aplicações da sua organização.
+title: Executar uma revisão de acesso no portal meus aplicativos-Azure Active Directory | Microsoft Docs
+description: Saiba como exibir e gerenciar o acesso de segurança para os aplicativos e grupos da sua organização.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,67 +13,69 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482885"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383163"
 ---
-# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realizar uma revisão de acesso a partir do portal as minhas aplicações
-Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.
+# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Executar uma revisão de acesso no portal meus aplicativos
+
+Você pode usar sua conta corporativa ou de estudante com o portal **meus aplicativos** baseado na Web, para exibir e iniciar muitos dos aplicativos baseados em nuvem da sua organização, para atualizar algumas das informações de seu perfil e de sua conta, para ver as informações de seus **grupos** e para executar  **revisões de acesso** para seus aplicativos e grupos. Se você não tiver acesso ao portal **meus aplicativos** , deverá entrar em contato com a assistência técnica para obter permissão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações com base na cloud no [documentação de gestão de aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Este conteúdo destina-se aos utilizadores. Se você for um administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na documentação do gerenciamento de [aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="manage-access-reviews"></a>Gerir as revisões de acesso
-Se o administrador concedeu permissão para executar a suas própria revisões de acesso, pode gerir o acesso de grupos ou aplicações do **as revisões de acesso** mosaico a **as minhas aplicações** página do portal.
+## <a name="manage-access-reviews"></a>Gerenciar revisões de acesso
+
+Se o administrador tiver concedido permissão para realizar suas próprias revisões de acesso, você poderá gerenciar o acesso de seus grupos ou aplicativos no bloco de **revisões de acesso** na página do portal **meus aplicativos** .
 
 >[!Note]
->Se não vir a **as revisões de acesso** mosaico-lo a qualquer um dos meios que não tem permissão para efetuar as revisões de acesso ou que não tem quaisquer pendentes revisões à espera de aprovação. Se acha que deve ter acesso ao mosaico, contacte o suporte técnico para obter assistência.
+>Se você não vir o bloco **revisões de acesso** , significa que você não tem permissão para realizar revisões de acesso ou que você não tem nenhuma revisão pendente aguardando sua aprovação. Se você considerar que deve ter acesso ao bloco, entre em contato com o suporte técnico para obter ajuda.
 
 ### <a name="to-perform-your-access-reviews"></a>Para executar suas revisões de acesso
 
-1.  Inicie sessão na sua conta escolar ou profissional.
+1. Entre em sua conta corporativa ou de estudante.
 
-2.  Abra o browser e aceda a https://myapps.microsoft.com, ou utilize a ligação fornecida pela sua organização. Por exemplo, poderá ser direcionado para uma página personalizada para a sua organização, tais como https://myapps.microsoft.com/contoso.com.
+2. Abra o navegador da Web e vá https://myapps.microsoft.com para ou use o link fornecido pela sua organização. Por exemplo, você pode ser direcionado para uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
 
-    O **aplicações** é apresentada a página, que mostra todas as aplicações com base na cloud sejam propriedade de sua organização e estão disponíveis para utilização.
+    A página **aplicativos** é exibida, mostrando todos os aplicativos baseados em nuvem pertencentes à sua organização e disponíveis para uso.
 
-    ![Página de aplicações no portal minhas aplicações](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Página de aplicativos no portal meus aplicativos](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. Selecione o **as revisões de acesso** mosaico para ver uma lista de acesso a revisões à espera de aprovação.
+3. Selecione o bloco **revisões de acesso** para ver uma lista de revisões de acesso aguardando sua aprovação.
 
-    ![Página de revisões de acesso com pendentes revisões de acesso para a organização](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
+    ![Página de revisões de acesso com revisões de acesso pendentes para a organização](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Selecione **iniciar revisão** para iniciar sua revisão de acesso.
+4. Selecione **Iniciar revisão** para iniciar sua revisão de acesso.
 
-5. Rever o seu acesso e determinar se ele ainda é necessário.
+5. Examine seu acesso e determine se ele ainda é necessário.
 
-    ![Página de revisão de acesso, que mostra os detalhes de revisão](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
+    ![Página de revisão de acesso, mostrando os detalhes da revisão](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >Se for um administrador e que pode para rever o acesso a grupos e aplicações da sua organização, verá uma página diferente. Para obter mais informações sobre a revisão de grupos ou aplicações para a sua organização, consulte [rever o acesso a grupos ou aplicações nas revisões de acesso do Azure AD](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Se você for um administrador e tiver permissão para revisar o acesso de sua organização a grupos e aplicativos, você verá uma página diferente. Para obter mais informações sobre como revisar grupos ou aplicativos para sua organização, consulte [examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure ad](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
 
-6. Selecione **Sim** para manter o acesso ou **não** para remover o acesso do utilizador.
+6. Selecione **Sim** para manter seu acesso ou **não** para remover o acesso.
 
-    Se selecionou **Sim**, poderá ter de especificar uma justificativa no **motivo** caixa.
+    Se você selecionar **Sim**, talvez seja necessário especificar uma justificativa na caixa **motivo** .
 
-    ![Acesso reveja a página, que mostra a caixa de razão com texto de exemplo](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+    ![Página de revisão de acesso, mostrando a caixa de motivo com texto de exemplo](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. Selecione **submeter**.
 
-    Sua revisão de acesso está concluída e retornar para o **as minhas aplicações** portal.
+    Sua análise de acesso foi concluída e você retorna para o portal **meus aplicativos** .
 
     >[!Note]
-    >Pode alterar o acesso em qualquer altura até que o acesso ao rever terminar período. Se remover o acesso a uma aplicação ou grupo, não é removido imediatamente. A remoção ocorre quando o período de rever o acesso ou quando um administrador fecha a revisão. 
+    >Você pode alterar o acesso a qualquer momento até que o período de revisão de acesso termine. Se você remover o acesso a um aplicativo ou grupo, ele não será removido imediatamente. A remoção ocorre quando o período de revisão de acesso termina ou quando um administrador fecha a revisão.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Aceder e utilizar aplicações no portal minhas aplicações](my-apps-portal-end-user-access.md).
+- [Acesse e use aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).
 
-- [Alterar as informações de perfil](my-apps-portal-end-user-update-profile.md).
+- [Altere as informações do seu perfil](my-apps-portal-end-user-update-profile.md).
 
-- [Ver e atualizar as informações relacionadas com grupos](my-apps-portal-end-user-groups.md).
+- [Exiba e atualize suas informações relacionadas a grupos](my-apps-portal-end-user-groups.md).

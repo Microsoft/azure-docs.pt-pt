@@ -1,66 +1,66 @@
 ---
-title: Escolher o nível de consistência certo para a sua aplicação que utiliza o Azure Cosmos DB
-description: Escolher o nível de consistência certo para a sua aplicação no Azure Cosmos DB.
+title: Escolhendo o nível de consistência certo para seu aplicativo que usa Azure Cosmos DB
+description: Escolhendo o nível de consistência certo para seu aplicativo no Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b08f9a85b8c9f52724e2cd08eaf13eb1faae0977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243567"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384901"
 ---
 # <a name="choose-the-right-consistency-level"></a>Escolher o nível de consistência certo 
 
-Bases de dados distribuídas depender de replicação para elevada disponibilidade, latência baixa ou ambos, tornam o compromisso fundamental entre a consistência de leitura versus disponibilidade, latência e débito. A maioria dos comercialmente disponíveis bases de dados distribuídas perguntar aos desenvolvedores escolher entre os dois modelos de consistência extreme: *forte* consistência e *eventual* consistência. O Azure Cosmos DB permite aos desenvolvedores escolher entre os cinco modelos de consistência bem definidos: *forte*, *estagnação limitada*, *sessão*, *consistente prefixo* e *eventual*. Cada um desses modelos de consistência é bem definidos, intuitiva e pode ser utilizada para cenários específicos do mundo real. Cada um dos modelos de cinco consistência fornecer preciso [vantagens e desvantagens de desempenho e disponibilidade](consistency-levels-tradeoffs.md) e são apoiados por SLAs abrangentes. As seguintes considerações simples lhe ajudarão a tornar a opção certa em muitos cenários comuns.
+Os bancos de dados distribuídos que dependem da replicação para alta disponibilidade, baixa latência ou ambos, tornam a compensação fundamental entre a consistência de leitura versus disponibilidade, latência e taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de consistência é bem definido, intuitivo e pode ser usado para cenários do mundo real específicos. Cada um dos cinco modelos de consistência fornece compensações de [desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. As considerações simples a seguir o ajudarão a fazer a escolha certa em muitos cenários comuns.
 
-## <a name="sql-api-and-table-api"></a>SQL API e a API de tabela
+## <a name="sql-api-and-table-api"></a>API e API de Tabela do SQL
 
-Se seu aplicativo for criado usando a API de SQL ou a API de tabela, considere os seguintes pontos:
+Considere os seguintes pontos se seu aplicativo for criado usando a API do SQL ou API de Tabela:
 
-- Para muitos cenários do mundo real, consistência da sessão é o ideal e é a opção recomendada. Para obter mais informações, consulte, [procedimentos gerir o token de sessão para a sua aplicação](how-to-manage-consistency.md#utilize-session-tokens).
+- Para muitos cenários do mundo real, a consistência da sessão é ideal e é a opção recomendada. Para obter mais informações, consulte [como gerenciar o token de sessão para seu aplicativo](how-to-manage-consistency.md#utilize-session-tokens).
 
-- Se seu aplicativo exigir consistência forte, recomenda-se que utilize o nível de consistência de estagnação limitada.
+- Se seu aplicativo exigir uma consistência forte, é recomendável usar o nível de consistência de desatualização limitada.
 
-- Se precisar de mais estritas garante a consistência do que aqueles fornecidos com consistência de sessão e a latência de milissegundos de dígito único para escritas, recomenda-se que utilize limitado a nível de consistência vinculada.  
+- Se você precisar de garantias de consistência mais rígidas do que aquelas fornecidas pela consistência de sessão e latência de milissegundos de um dígito para gravações, é recomendável usar o nível de consistência de desatualização limitada.  
 
-- Se seu aplicativo exigir consistência eventual, recomenda-se que utilize o nível de consistência de prefixo consistente.
+- Se seu aplicativo exigir consistência eventual, é recomendável que você use o nível de consistência de prefixo consistente.
 
-- Se precisar de menos garantias de consistência rigorosa dos que foram fornecidas pelo consistência da sessão, é recomendado que utilize o nível de consistência de prefixo consistente.
+- Se você precisar de garantias de consistência menos rígidas do que aquelas fornecidas pela consistência de sessão, é recomendável usar o nível de consistência de prefixo consistente.
 
-- Se precisar da mais elevada disponibilidade e a latência mais baixa, em seguida, utilize o nível de consistência eventual.
+- Se você precisar da maior disponibilidade e da menor latência, use o nível de consistência eventual.
 
-- Se precisar de ainda mais elevada durabilidade de dados sem sacrificar o desempenho, pode criar um nível de consistência personalizada na camada da aplicação. Para obter mais informações, consulte [procedimentos personalizados de sincronização de implementar em seus aplicativos](how-to-custom-synchronization.md).
+- Se você precisar de uma durabilidade de dados ainda maior sem sacrificar o desempenho, poderá criar um nível de consistência personalizado na camada de aplicativo. Para obter mais informações, consulte [como implementar a sincronização personalizada em seus aplicativos](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-apis"></a>Cassandra, MongoDB e APIs do Gremlin
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>APIs Cassandra, MongoDB e Gremlin
 
-- Para obter detalhes sobre o mapeamento entre "o nível de consistência de leitura" oferecidos em níveis de consistência do Apache Cassandra e o Cosmos DB, consulte [níveis de consistência e APIs do Cosmos DB](consistency-levels-across-apis.md#cassandra-mapping).
+- Para obter detalhes sobre o mapeamento entre o "nível de consistência de leitura" oferecido no Apache Cassandra e os níveis de consistência Cosmos DB, consulte [níveis de consistência e APIs de Cosmos DB](consistency-levels-across-apis.md#cassandra-mapping).
 
-- Para obter detalhes sobre o mapeamento entre a "Preocupação de leitura" dos níveis de consistência do MongoDB e o Azure Cosmos DB, consulte [níveis de consistência e APIs do Cosmos DB](consistency-levels-across-apis.md#mongo-mapping).
+- Para obter detalhes sobre o mapeamento entre "preocupação de leitura" dos níveis de consistência do MongoDB e do Azure Cosmos DB, consulte [níveis de consistência e APIs de Cosmos DB](consistency-levels-across-apis.md#mongo-mapping).
 
 ## <a name="consistency-guarantees-in-practice"></a>Garantias de consistência na prática
 
-Na prática, muitas vezes, poderá receber mais garantias de consistência. Garantias de consistência para uma operação de leitura correspondem para a atualização e ordenação do Estado da base de dados que pedir. Consistência de leitura é associada às encomendas e a propagação das operações de escrita/atualização.  
+Na prática, muitas vezes você pode obter garantias de consistência mais fortes. As garantias de consistência para uma operação de leitura correspondem à atualização e à ordenação do estado do banco de dados solicitado. A consistência de leitura é vinculada à ordenação e à propagação das operações de gravação/atualização.  
 
-* Quando o nível de consistência é definido como **estagnação limitada**, Cosmos DB garante que os clientes sempre ler o valor de uma gravação anterior, com um atraso vinculado de acordo com a janela de limitada.
+* Quando o nível de consistência é definido como desatualização **limitada**, o cosmos DB garante que os clientes sempre leiam o valor de uma gravação anterior, com um retardo limitado pela janela de desatualização.
 
-* Quando o nível de consistência é definido como **forte**, a janela de envelhecimento é equivalente a zero e os clientes são garantidos para ler o valor mais recente consolidado da operação de escrita.
+* Quando o nível de consistência é definido como **forte**, a janela de desatualização é equivalente a zero e os clientes têm a garantia de ler o valor confirmado mais recente da operação de gravação.
 
-* Para obter os níveis de três consistência restantes, a janela de envelhecimento é amplamente dependente de sua carga de trabalho. Por exemplo, se existirem não existem operações de escrita na base de dados, uma operação de leitura com **eventual**, **sessão**, ou **prefixo consistente** níveis de consistência é provável que produzem os mesmos resultados como uma operação de leitura com o nível de consistência forte.
+* Para os três níveis de consistência restantes, a janela de desatualização é amplamente dependente de sua carga de trabalho. Por exemplo, se não houver nenhuma operação de gravação no banco de dados, uma operação de leitura com níveis de consistência **eventual**, de **sessão**ou de **prefixo consistente** provavelmente produzirá os mesmos resultados que uma operação de leitura com um nível de consistência forte.
 
-Se a sua conta do Cosmos do Azure está configurada com um nível de consistência que não seja a consistência forte, pode descobrir a probabilidade de que os clientes podem obter fortes e leituras consistentes das cargas de trabalho ao observar o *Roleta Estagnação limitada* métrica (PBS). Esta métrica está exposta no portal do Azure, para obter mais informações, consulte [métrica de Monitor Roleta estagnação limitada (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Se sua conta do Azure Cosmos estiver configurada com um nível de consistência diferente da consistência forte, você poderá descobrir a probabilidade de que os clientes possam obter leituras fortes e consistentes para suas cargas de trabalho examinando o *Probabilistic limitado* Métrica de desatualização (PBS). Essa métrica é exposta na portal do Azure para saber mais, consulte monitorar a [métrica do PBS (](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)desatualização vinculada Probabilistic).
 
-Probabilístico estagnação limitada mostra como eventual é a consistência eventual. Esta métrica fornece uma visão geral de quantas vezes pode obter uma consistência mais forte que o nível de consistência que tenha configurado atualmente na sua conta do Cosmos do Azure. Em outras palavras, pode ver a probabilidade (medida em milissegundos) de leituras fortemente consistentes para uma combinação de escrita de introdução e regiões de leitura.
+A desatualização limitada por probabilística mostra como sua consistência eventual é eventual. Essa métrica fornece uma percepção da frequência com que você pode obter uma consistência mais forte do que o nível de consistência configurado atualmente em sua conta do Azure Cosmos. Em outras palavras, você pode ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de gravação e leitura.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Leia mais sobre os níveis de consistência nos seguintes artigos:
 
-* [Mapeamento de nível de consistência entre as APIs do Cosmos DB](consistency-levels-across-apis.md)
+* [Mapeamento de nível de consistência entre Cosmos DB APIs](consistency-levels-across-apis.md)
 * [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
-* [Como gerir o token de sessão para a sua aplicação](how-to-manage-consistency.md#utilize-session-tokens)
-* [Monitorizar a métrica de Roleta estagnação limitada (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Como gerenciar o token de sessão para seu aplicativo](how-to-manage-consistency.md#utilize-session-tokens)
+* [Monitorar a métrica do PBS (desatualização limitada) do Probabilistic](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

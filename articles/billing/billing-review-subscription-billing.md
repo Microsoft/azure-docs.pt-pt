@@ -1,6 +1,6 @@
 ---
-title: Reveja os dados de faturação de subscrição do Azure com a REST API | Documentos da Microsoft
-description: Saiba como utilizar APIs REST do Azure para rever os detalhes de faturação de subscrição.
+title: Examinar os dados de cobrança da assinatura do Azure com a API REST | Microsoft Docs
+description: Saiba como usar as APIs REST do Azure para examinar detalhes de cobrança da assinatura.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192106"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443040"
 ---
-# <a name="review-subscription-billing-using-rest-apis"></a>Reveja a faturação de subscrição com REST APIs
+# <a name="review-subscription-billing-using-rest-apis"></a>Examinar a cobrança da assinatura usando as APIs REST
 
-Ajuda de APIs de relatórios do Azure, reveja e gira os seus custos do Azure.
+As APIs de relatórios do Azure ajudam você a revisar e gerenciar seus custos do Azure.
 
-Filtros de ajudar a personalizar os resultados para atender às suas necessidades.
+Os filtros ajudam a personalizar os resultados para atender às suas necessidades.
 
-Aqui, vai aprender a utilizar uma API REST para devolver os detalhes de faturação de subscrição para um determinado intervalo de datas.
+Aqui, você aprende a usar uma API REST para retornar detalhes de cobrança da assinatura para um determinado intervalo de datas.
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
@@ -37,22 +37,22 @@ Authorization: Bearer
 
 ## <a name="build-the-request"></a>Criar o pedido
 
-O `{subscriptionID}` parâmetro é necessário e identifica a subscrição de destino.
+O `{subscriptionID}` parâmetro é necessário e identifica a assinatura de destino.
 
-O `{billingPeriod}` parâmetro é necessário e especifica um atual [período de faturação](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+O `{billingPeriod}` parâmetro é obrigatório e especifica um [período de cobrança](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods)atual.
 
-O `${startDate}` e `${endDate}` parâmetros são necessários para este exemplo, mas opcional para o ponto final. Especifica o intervalo de datas como cadeias de caracteres no formato dd-MM-AAAA (exemplos: `'20180501'` e `'20180615'`).
+Os `${startDate}` parâmetros `${endDate}` e são necessários para este exemplo, mas opcional para o ponto de extremidade. Eles especificam o intervalo de datas como cadeias de caracteres no formato aaaa-mm-dd `'20180501'` ( `'20180615'`exemplos: e).
 
 Os seguintes cabeçalhos são necessários:
 
-|Cabeçalho do pedido|Descrição|
+|Cabeçalho da solicitação|Descrição|
 |--------------------|-----------------|
-|*Content-Type:*|Necessário. Definido como `application/json`.|
-|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Tipo de conteúdo:*|Necessário. Defina como `application/json`.|
+|*Authorization:*|Necessário. Defina como um token `Bearer` de [acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)válido. |
 
 ## <a name="response"></a>Resposta
 
-Código de estado 200 (OK) é devolvido para uma resposta com êxito, que contém uma lista dos custos detalhadas para a sua conta.
+O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de custos detalhados para sua conta.
 
 ``` json
 {
@@ -79,22 +79,22 @@ Código de estado 200 (OK) é devolvido para uma resposta com êxito, que conté
 }
 ```
 
-Cada item na **valor** representa um detalhes sobre a utilização de um serviço:
+Cada item em **valor** representa detalhes sobre o uso de um serviço:
 
 |Propriedade de resposta|Descrição|
 |----------------|----------|
-|**subscriptionGuid** | ID exclusivo global para a subscrição. |
-|**startDate** | Data a utilização iniciada. |
-|**endDate** | A utilização terminada de datas. |
+|**subscriptionGuid** | ID global exclusivo para a assinatura. |
+|**startDate** | Data em que o uso foi iniciado. |
+|**Término** | Data em que o uso terminou. |
 |**useageQuantity** | Quantidade usada. |
-|**billableQuantity** | Quantidade, na verdade, é cobrada. |
+|**billableQuantity** | Quantidade realmente cobrada. |
 |**pretaxCost** | Custo faturado, antes dos impostos aplicáveis. |
-|**meterDetails** | Obter informações detalhadas sobre a utilização. |
-|**nextLink**| Quando definida, especifica um URL para o próximo "page" dos detalhes. Em branco quando a página é o último. |
+|**meterDetails** | Informações detalhadas sobre o uso. |
+|**nextLink**| Quando definido, especifica uma URL para a próxima "página" de detalhes. Em branco quando a página for a última. |
 
-Neste exemplo é abreviado; ver [lista os detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) para obter uma descrição completa de cada campo de resposta.
+Este exemplo é abreviado; consulte [listar detalhes de uso](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) para obter uma descrição completa de cada campo de resposta.
 
-Outros códigos de estado indicam condições de erro. Nestes casos, o objeto de resposta explica por que o pedido falhou.
+Outros códigos de status indicam condições de erro. Nesses casos, o objeto de resposta explica por que a solicitação falhou.
 
 ``` json
 {
@@ -107,7 +107,7 @@ Outros códigos de estado indicam condições de erro. Nestes casos, o objeto de
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-- Revisão [Enterprise descrição geral dos relatórios](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigar [Enterprise REST API de faturação](https://docs.microsoft.com/rest/api/billing/)
+## <a name="next-steps"></a>Passos seguintes
+- Examinar [visão geral de relatórios empresariais](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
+- Investigar [API REST de cobrança Enterprise](https://docs.microsoft.com/rest/api/billing/)
 - [Introdução à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)

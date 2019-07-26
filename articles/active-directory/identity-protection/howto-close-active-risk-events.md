@@ -1,110 +1,89 @@
 ---
-title: Como fechar eventos de risco ativo no Azure Active Directory Identity Protection | Documentos da Microsoft
-description: Saiba mais sobre as opções que tem eventos de risco ativo fechar.
+title: Como fechar eventos de risco ativos no Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba mais sobre as opções de fechar eventos de risco ativos.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55c56674b04c4359fba741d10176fc91e3a991eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e24c12b72852ee7009533c8dc24d231fe636f2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109019"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333992"
 ---
 # <a name="how-to-close-active-risk-events"></a>Como: Fechar eventos de risco ativos
 
-Com o [eventos de risco](../reports-monitoring/concept-risk-events.md), Azure Active Directory Deteta indicadores para contas de utilizador potencialmente comprometidos. Como administrador, queira obter todos os eventos de risco fechados, para que os utilizadores afetados já não estão em risco.
+Com [eventos de risco](../reports-monitoring/concept-risk-events.md), Azure Active Directory detecta indicadores para contas de usuário potencialmente comprometidas. Como administrador, você deseja obter todos os eventos de risco fechados, para que os usuários afetados não estejam mais em risco.
 
-Este artigo fornece uma descrição geral das opções adicionais, que terá de fechar eventos de risco de Active Directory.
+Este artigo fornece uma visão geral das opções adicionais que você precisa para fechar os eventos de risco ativos.
 
 ## <a name="options-to-close-risk-events"></a>Opções para fechar eventos de risco 
 
-O estado de um evento de risco está **Active Directory** ou **fechado**. Todos os eventos de risco ativo contribuem para o cálculo de um valor chamado de nível de risco do utilizador. O nível de risco do utilizador é um indicador (baixa, média, alta) para indicar a probabilidade de que uma conta foi comprometida. 
+O status de um evento de risco é **ativo** ou **fechado**. Todos os eventos de risco ativos contribuem para o cálculo de um valor chamado nível de risco do usuário. O nível de risco do usuário é um indicador (baixo, médio, alto) para a probabilidade de que uma conta tenha sido comprometida. 
 
-Para fechar eventos de risco de Active Directory, tem as seguintes opções:
+Para fechar os eventos de risco ativos, você tem as seguintes opções:
 
-- Exigir palavra-passe de reposição com uma política de risco do utilizador
-
-- Manual de palavra-passe
- 
-- Dispensar todos os eventos de risco 
-
+- Exigir redefinição de senha com uma política de risco de usuário
+- Redefinição de senha manual
+- Ignorar todos os eventos de risco 
 - Fechar eventos de risco individuais manualmente
 
+## <a name="require-password-reset-with-a-user-risk-policy"></a>Exigir redefinição de senha com uma política de risco de usuário
 
-
-## <a name="require-password-reset-with-a-user-risk-policy"></a>Exigir palavra-passe de reposição com uma política de risco do utilizador
-
-Ao configurar o [política de acesso condicional do risco de utilizador](howto-user-risk-policy.md), pode exigir uma alteração de palavra-passe, se um nível de risco de utilizador especificado foi detectado automaticamente. 
+Ao configurar a [política de acesso condicional de risco do usuário](howto-user-risk-policy.md), você poderá exigir uma alteração de senha se um nível de risco do usuário especificado tiver sido detectado automaticamente. 
 
 ![Repor palavra-passe](./media/howto-close-active-risk-events/13.png)
 
-Uma reposição de palavra-passe fecha todos os eventos de riscos do Active Directory do utilizador relacionado e recupera a identidade para um estado seguro. Através de uma política de risco do utilizador é o método preferencial para fechar eventos de risco de Active Directory, porque este método é automatizado. Não há nenhuma interação necessária entre o suporte técnico ajuda e o utilizador afetado ou um administrador.
+Uma redefinição de senha fecha todos os eventos de riscos ativos do usuário relacionado e coloca a identidade novamente em um estado seguro. O uso de uma política de risco do usuário é o método preferencial para fechar os eventos de risco ativos, pois esse método é automatizado. Não há nenhuma interação necessária entre o usuário afetado e o suporte técnico ou um administrador.
 
-No entanto, através de uma política de risco de utilizador nem sempre é aplicável. Isto aplica-se, por exemplo, para:
+No entanto, o uso de uma política de risco do usuário nem sempre é aplicável. Isso se aplica, por exemplo, a:
 
-- Utilizadores que não tenham sido registrados para autenticação multifator (MFA).
-- Utilizadores com eventos de risco ativo que tem sido eliminados.
-- Uma investigação revela que um evento de risco comunicados foi realizado pelo usuário legítimo.
+- Usuários que não foram registrados para MFA (autenticação multifator).
+- Usuários com eventos de risco ativos que foram excluídos.
+- Uma investigação que revela que um evento de risco relatado foi executado pelo usuário legítimo.
 
+## <a name="manual-password-reset"></a>Redefinição de senha manual
 
-## <a name="manual-password-reset"></a>Manual de palavra-passe
-
-Se exigir uma palavra-passe através de uma política de risco de utilizador de reposição não é uma opção, pode obter todos os eventos de risco de um utilizador fechado com uma reposição de palavra-passe manual.
+Se exigir uma redefinição de senha usando uma política de risco do usuário não for uma opção, você poderá obter todos os eventos de risco de um usuário fechado com uma redefinição de senha manual.
 
 ![Repor palavra-passe](./media/howto-close-active-risk-events/04.png)
 
-
-A caixa de diálogo relacionada fornece dois métodos diferentes para repor uma palavra-passe:
+A caixa de diálogo relacionada fornece dois métodos diferentes para redefinir uma senha:
 
 ![Repor palavra-passe](./media/howto-close-active-risk-events/05.png)
 
+**Gerar uma senha temporária** , gerando uma senha temporária, você pode imediatamente colocar uma identidade de volta em um estado seguro. Esse método requer interação com os usuários afetados porque eles precisam saber qual é a senha temporária. Você pode, por exemplo, enviar a nova senha temporária para um endereço de email alternativo para o usuário ou para o gerente do usuário. Como a senha é temporária, o usuário é solicitado a alterar a senha durante a próxima entrada.
 
-**Gerar uma palavra-passe temporária** -ao gerar uma palavra-passe temporária, pode imediatamente recupera uma identidade para um estado seguro. Este método requer interação com os utilizadores afetados porque precisam saber qual é a palavra-passe temporária. Pode, por exemplo, enviar a nova palavra-passe temporária para um endereço de correio eletrónico alternativo para o utilizador ou para o Gestor do utilizador. Uma vez que a palavra-passe é temporária, é pedido ao utilizador para alterar a palavra-passe durante o próximo início de sessão.
+**Exigir que o usuário redefina a senha** – exigir que os usuários redefinam senhas permite a AutoRecuperação sem entrar em contato com o suporte técnico ou um administrador. Como no caso de uma política de risco de usuário, esse método só se aplica a usuários registrados para MFA. Para usuários que ainda não foram registrados para MFA, essa opção não está disponível.
 
+## <a name="dismiss-all-risk-events"></a>Ignorar todos os eventos de risco
 
-**Exigir que o utilizador para repor a palavra-passe** -que os utilizadores tenham de redefinir senhas permite auto-recuperação sem contatar o suporte técnico ou um administrador. Como no caso de uma política de risco do utilizador, este método só se aplica aos utilizadores que estão registados para o MFA. Para os utilizadores que não tenham sido registrados para o MFA ainda, esta opção não está disponível.
-
-
-## <a name="dismiss-all-risk-events"></a>Dispensar todos os eventos de risco
-
-Se uma palavra-passe reposição não é uma opção para, também pode dispensar todos os eventos de risco. 
+Se uma redefinição de senha não for uma opção para você, você também poderá ignorar todos os eventos de risco. 
 
 ![Repor palavra-passe](./media/howto-close-active-risk-events/03.png)
 
-Quando clica em **dispensar todos os eventos**, todos os eventos são fechados e o utilizador afectado já não está em risco. No entanto, como esse método não tem um impacto sobre a palavra-passe existente, ela não recupera as relacionadas com identidade para um estado seguro. A utilização preferencial para esse método é um utilizador eliminado com eventos de risco ativo. 
-
+Quando você clica em **ignorar todos os eventos**, todos os eventos são fechados e o usuário afetado não está mais em risco. No entanto, como esse método não tem um impacto na senha existente, ele não coloca a identidade relacionada novamente em um estado seguro. O caso de uso preferencial para esse método é um usuário excluído com eventos de risco ativo. 
 
 ## <a name="close-individual-risk-events-manually"></a>Fechar eventos de risco individuais manualmente
 
-Pode fechar eventos de risco individuais manualmente. Se fechar eventos de risco manualmente, pode reduzir o nível de risco do utilizador. Normalmente, os eventos de risco são fechados manualmente em resposta a uma investigação relacionada. Por exemplo, ao conversar com um utilizador revela que um evento de risco de Active Directory não é necessário, mais. 
+Você pode fechar os eventos de risco individuais manualmente. Ao fechar os eventos de risco manualmente, você pode diminuir o nível de risco do usuário. Normalmente, os eventos de risco são fechados manualmente em resposta a uma investigação relacionada. Por exemplo, quando conversar com um usuário revela que um evento de risco ativo não é mais necessário. 
  
-Ao fechar eventos de risco manualmente, pode optar por colocar qualquer uma das seguintes ações para alterar o estado de um evento de risco:
+Ao fechar eventos de risco manualmente, você pode optar por executar qualquer uma das seguintes ações para alterar o status de um evento de risco:
 
 ![Ações](./media/howto-close-active-risk-events/06.png)
 
-- **Resolver** - se depois de investigar um evento de risco, que realizou uma ação de remediação adequadas fora de proteção de identidade e considera que deve ser considerado o evento de risco fechado, marque o evento como resolvido. Resolver eventos irão definir o estado do evento de risco para fechado e o evento de risco já não irá contribuir para o risco de utilizador.
-
-- **Marcar como falso-positivos** -em alguns casos, pode investigar um evento de risco e detetar que incorretamente foi sinalizado como um risco. Pode ajudar a reduzir o número de tais ocorrências, marcando o evento de risco como falso positivo. Isso ajudará os algoritmos de machine learning para melhorar a classificação de eventos semelhantes no futuro. O estado de eventos de Falso-positivos é fechado e já não irão contribuir para o risco de utilizador.
-
-- **Ignorar** – se não tomar qualquer ação de remediação, mas o evento de risco a serem removidos da lista Active Directory, pode marcar um evento de risco ignorar e o estado do evento será fechado. Eventos ignorados não contribuem para o risco de utilizador. Esta opção deve ser usada apenas em circunstâncias invulgares.
-
-- **Reativar** -eventos de risco que foram fechados manualmente (escolhendo resolver, falso positivo ou ignorar) podem ser reativados, definir o estado do evento para o Active Directory. Eventos de risco reativado contribuem para o cálculo de nível de risco de utilizador. Eventos de risco fechados através de remediação (como repor uma palavra-passe segura) não podem ser reativados.
-  
+- **Resolver** – se, depois de investigar um evento de risco, você tomou uma ação de correção apropriada fora do Identity Protection e acreditar que o evento de risco deve ser considerado fechado, marcar o evento como resolvido. Os eventos resolvidos definirão o status do evento de risco como fechado e o evento de risco não contribuirá mais para o risco do usuário.
+- **Marcar como falso-positivo** -em alguns casos, você pode investigar um evento de risco e descobrir que ele foi sinalizado incorretamente como um risco. Você pode ajudar a reduzir o número de ocorrências desse tipo marcando o evento de risco como falso-positivo. Isso ajudará os algoritmos de aprendizado de máquina a melhorar a classificação de eventos semelhantes no futuro. O status de eventos falsos positivos é fechado e não contribuirá mais para o risco do usuário.
+- **Ignorar** – se você não executou nenhuma ação de correção, mas deseja que o evento de risco seja removido da lista ativa, você pode marcar um evento de risco como ignorar e o status do evento será fechado. Os eventos ignorados não contribuem para o risco do usuário. Essa opção só deve ser usada em circunstâncias incomuns.
+- **Reativar** -os eventos de risco que foram fechados manualmente (escolhendo resolver, falso positivo ou ignorar) podem ser reativados, definindo o status do evento de volta como ativo. Os eventos de risco reativados contribuem para o cálculo no nível de risco do usuário. Os eventos de risco fechados por meio da correção (como uma redefinição de senha segura) não podem ser reativados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [descrição geral do Azure AD Identity Protection](overview.md).
+Para obter uma visão geral do Azure AD Identity Protection, consulte a [visão geral Azure ad Identity Protection](overview.md).

@@ -12,12 +12,12 @@ ms.author: rohitna
 ms.reviewer: carlrab, vanto
 manager: craigg
 ms.date: 07/02/2019
-ms.openlocfilehash: 951481a7dd7d7a9cfd8c88f2cd8bbcaaec4df685
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 9dfc22be45b68ba4ff59d88810435db35bafc8b6
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320632"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494975"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -72,12 +72,12 @@ No futuro, adicionaremos mais gateways em cada região e desativaremos os gatewa
 | Canadá Central       | 40.85.224.249      |                 | |
 | Leste do Canadá          | 40.86.226.166      |                 | |
 | EUA Central           | 13.67.215.62, 52.182.137.15 | 23.99.160.139 | Nenhuma conexão após 1º de setembro de 2019 |
-| Leste da China 1         | 139.219.130.35     |                 | |
+| Leste da China           | 139.219.130.35     |                 | |
 | Leste da China 2         | 40.73.82.1         |                 | |
-| Norte da China 1        | 139.219.15.17      |                 | |
+| Norte da China          | 139.219.15.17      |                 | |
 | Norte da China 2        | 40.73.50.0         |                 | |
 | Ásia Oriental            | 191.234.2.139, 52.175.33.150 |       | |
-| Leste dos EUA 1            | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nenhuma conexão após 1º de setembro de 2019 |
+| East US              | 40.121.158.30, 40.79.153.12 | 191.238.6.43 | Nenhuma conexão após 1º de setembro de 2019 |
 | EUA Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0 | 191.239.224.107    | Nenhuma conexão após 1º de setembro de 2019 |
 | França Central       | 40.79.137.0, 40.79.129.1 |           | |
 | Alemanha Central      | 51.4.144.100       |                 | |
@@ -91,17 +91,17 @@ No futuro, adicionaremos mais gateways em cada região e desativaremos os gatewa
 | Coreia do Sul          | 52.231.200.86      |                 | |
 | EUA Centro-Norte     | 23.96.178.199      | 23.98.55.75     | Nenhuma conexão após 1º de setembro de 2019 |
 | Europa do Norte         | 40.113.93.91       | 191.235.193.75  | Nenhuma conexão após 1º de setembro de 2019 |
-| África do Sul, Norte   | 102.133.152.0      |                 | |
-| África do Sul, Oeste    | 102.133.24.0       |                 | |
+| Norte da África do Sul   | 102.133.152.0      |                 | |
+| Oeste da África do Sul    | 102.133.24.0       |                 | |
 | EUA Centro-Sul     | 13.66.62.124       | 23.98.162.75    | Nenhuma conexão após 1º de setembro de 2019 |
 | Sudeste Asiático      | 104.43.15.0        | 23.100.117.95   | Nenhuma conexão após 1º de setembro de 2019 |
-| EAU Central          | 20.37.72.64        |                 | |
-| Norte dos EAU            | 65.52.248.0        |                 | |
+| E.A.U. Central          | 20.37.72.64        |                 | |
+| Norte dos E.A.U.            | 65.52.248.0        |                 | |
 | Reino Unido Sul             | 51.140.184.11      |                 | |
 | Reino Unido Oeste              | 51.141.8.11        |                 | |
 | EUA Centro-Oeste      | 13.78.145.25       |                 | |
-| Europa Ocidental          | 191.237.232.75, 40.68.37.158 |       | |
-| Oeste dos EUA 1            | 23.99.34.75, 104.42.238.205 |        | |
+| Europa Ocidental          | 40.68.37.158       | 191.237.232.75  | Nenhuma conexão após 1º de setembro de 2019 |
+| EUA Oeste              | 104.42.238.205     | 23.99.34.75     | Nenhuma conexão após 1º de setembro de 2019 |
 | EUA Oeste 2            | 13.66.226.202      |                 | |
 |                      |                    |                 | |
 

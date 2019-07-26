@@ -1,6 +1,6 @@
 ---
-title: Configurar definições de utilização nos laboratórios de sala de aula do Azure Lab Services | Documentos da Microsoft
-description: Saiba como configurar o número de utilizadores para o laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais.
+title: Definir configurações de uso em laboratórios de sala de aula de Azure Lab Services | Microsoft Docs
+description: Saiba como configurar o número de usuários para o laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,129 +13,129 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f22864c416ad2a90bea09c02675d6eb3322308
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067344"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385609"
 ---
-# <a name="configure-usage-settings-and-policies"></a>Configurar as políticas e definições de utilização
-Este artigo descreve como adicionar utilizadores ao laboratório, obtê-los registado com o laboratório, controlar o número de horas que podem utilizar a VM e muito mais. 
+# <a name="configure-usage-settings-and-policies"></a>Definir configurações e políticas de uso
+Este artigo descreve como adicionar usuários ao laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais. 
 
 
-## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
-Se tiver o **restringir o acesso** ativado, adicione utilizadores (endereços de e-mail) à lista.
+## <a name="add-users-to-the-lab"></a>Adicionar usuários ao laboratório
+Se você tiver o **acesso restrito** habilitado, adicione usuários (endereços de email) à lista.
 
-1. Selecione **utilizadores** no menu da esquerda.
-2. Selecione **adicionar utilizadores** na barra de ferramentas. 
+1. Selecione **usuários** no menu à esquerda.
+2. Selecione **Adicionar usuários** na barra de ferramentas. 
 
-    ![Adicionar botão de utilizadores](../media/how-to-configure-student-usage/add-users-button.png)
-1. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
+    ![Botão Adicionar usuários](../media/how-to-configure-student-usage/add-users-button.png)
+1. Na página **Adicionar usuários** , insira os endereços de email dos usuários em linhas separadas ou em uma única linha separada por ponto e vírgula. 
 
-    ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 
+    ![Adicionar endereços de email do usuário](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Você vê os endereços de email dos usuários e seus status (registrados ou não) na lista. 
 
-    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="share-registration-link-with-students"></a>Ligação de registo da partilha com estudantes
-Para enviar a ligação de registo para estudantes, utilize um dos seguintes métodos. O primeiro método mostra-lhe como enviar e-mails para estudantes com a ligação de registo e uma mensagem opcional. O segundo método mostra como obter o link de registo que pode partilhar com outras pessoas como pretender. 
+## <a name="share-registration-link-with-students"></a>Compartilhar link de registro com alunos
+Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
-Se o **restringir o acesso** está ativada para o laboratório, apenas os utilizadores da lista de utilizadores podem utilizar a ligação de registo se registrar para o laboratório. Esta opção está ativada por predefinição. 
+Se o **acesso restrito** estiver habilitado para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
 
-### <a name="send-email-to-users"></a>Enviar e-mail para utilizadores
-O Azure Lab Services permite professores enviar um e-mail convites de laboratório para todos ou selecionados estudantes sem ter de utilizar outro cliente de e-mail. Professores podem pairar o rato sobre aluno na lista para ver o ícone de e-mail para cada aluno ou estudantes de um ou mais selecionados e utilize **Enviar convite** na barra de ferramentas. Esta funcionalidade envia um e-mail com uma ligação de registo e uma mensagem (se existirem) adicionados pelo professor. Depois do convite é enviado, o estado de convite é alterado para **convite enviado** para que os professores podem manter o controle de quais estudantes já recebeu a ligação de registo e a data em que foi enviado.
+### <a name="send-email-to-users"></a>Enviar email aos usuários
+Azure Lab Services permite que os professores enviem convites por email a todos ou a alunos selecionados sem precisar usar outro cliente de email. Os professores podem focalizar um aluno individual na lista para ver o ícone de email de cada aluno ou selecionar um ou mais alunos e usar **Enviar convite** na barra de ferramentas. Esse recurso envia um email com um link de registro e uma mensagem (se houver) adicionado pelo professor. Depois que o convite for enviado, o estado do convite será alterado para **convite enviado** para que os professores possam controlar quais alunos já receberam o link de registro e a data em que ele foi enviado.
 
-1. Mude para o **utilizadores** ver se ainda não está na página. 
-2. Na lista, selecione específicos ou todos os utilizadores. Para selecionar utilizadores específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os utilizadores, selecione a caixa de verificação na frente o título da primeira coluna (**nome**) ou selecione todas as caixas de verificação para todos os utilizadores na lista. Pode ver o estado do **estado de convite** nesta lista.  Na imagem seguinte, o estado de convite para todos os estudantes é definido como **convite não enviado**. 
+1. Alterne para a exibição de **usuários** se você ainda não estiver na página. 
+2. Selecione específico ou todos os usuários na lista. Para selecionar usuários específicos, marque as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente do título da primeira coluna (**nome**) ou marque todas as caixas de seleção para todos os usuários na lista. Você pode ver o status do **estado do convite** nesta lista.  Na imagem a seguir, o estado do convite para todos os alunos está definido como **convite não enviado**. 
 
-    ![Selecionar estudantes](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Selecione o **ícone de e-mail (envelope)** em uma das linhas (ou) select **Enviar convite** na barra de ferramentas. Também pode passar o mouse sobre um nome para estudantes na lista para ver o ícone de e-mail. 
+    ![Selecionar alunos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Selecione o **ícone de email (envelope)** em uma das linhas (ou) selecione **Enviar convite** na barra de ferramentas. Você também pode passar o mouse sobre um nome de aluno na lista para ver o ícone de email. 
 
-    ![Enviar ligação de registo por e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Sobre o **ligação de registo de enviar por e-mail** página, siga estes passos: 
-    1. Tipo de uma **mensagem opcional** que pretende enviar para os alunos. O e-mail inclui automaticamente a ligação de registo. 
-    2. Sobre o **ligação de registo de enviar por e-mail** página, selecione **enviar**. Verá o estado de convite para a alteração **Enviar convite** e clique em **convite enviado**. 
+    ![Enviar link de registro por email](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Na página **Enviar link de registro por email** , siga estas etapas: 
+    1. Digite uma **mensagem opcional** que você deseja enviar aos alunos. O email inclui automaticamente o link de registro. 
+    2. Na página **Enviar link de registro por email** , selecione **Enviar**. Você vê o status da alteração de convite para **Enviar convite** e, em seguida, para o **convite enviado**. 
         
         ![Convites enviados](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
-## <a name="get-registration-link"></a>Obter ligação de registo
-1. Mude para o **usuários** vista ao selecionar **utilizadores** no menu da esquerda. 
-2. Selecione **obter a ligação de registo** mosaico.
+## <a name="get-registration-link"></a>Obter link de registro
+1. Alterne para a exibição **usuários** selecionando **usuários** no menu à esquerda. 
+2. Selecione o bloco **obter link de registro** .
 
     ![Ligação de registo do aluno](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
 1. Na caixa de diálogo **Registo de utilizador**, selecione o botão **Copiar**. A ligação é copiada para a área de transferência. Cole-a num editor de e-mail e envie um e-mail para o aluno. 
 
     ![Ligação de registo do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Na caixa de diálogo **Registo de utilizador**, selecione **Fechar**. 
-4. Partilha a **ligação de registo** com um aluno, para que os estudantes podem registar para a classe. 
+4. Compartilhe o **link de registro** com um aluno para que o aluno possa se registrar para a classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Ver utilizadores registados no laboratório
 
-Selecione **utilizadores** no menu da esquerda para ver a lista de utilizadores registados com o laboratório. 
+Selecione **usuários** no menu à esquerda para ver a lista de usuários registrados no laboratório. 
 
-![Lista de utilizadores registados com o laboratório](../media/how-to-configure-student-usage/users-list-new.png)
+![Lista de usuários registrados com o laboratório](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-per-user"></a>Definir quotas por utilizador
-Pode definir quotas de por utilizador, utilizando os seguintes passos: 
+## <a name="set-quotas-for-users"></a>Definir cotas para usuários
+Você pode definir cotas por usuário usando as seguintes etapas: 
 
-1. Selecione **utilizadores** no menu da esquerda.
-2. Selecione **Quota por utilizador:** na barra de ferramentas. 
-3. Sobre o **Quota por utilizador** , especifique o número de horas que pretende dar a cada usuário (para estudantes): 
-    1. **0 horas (apenas para o agendamento)** . Os utilizadores podem utilizar as respetivas VMs apenas durante a hora agendada ou quando, como o proprietário de laboratório ativa de VMs para os mesmos.
+1. Selecione **usuários** no menu à esquerda se a página ainda não estiver ativa. 
+2. Selecionar **cota por usuário: 10 horas** na barra de ferramentas. 
+3. Na página **cota por usuário** , especifique o número de horas que você deseja dar a cada usuário (aluno): 
+    1. **Número total de horas de laboratório por usuário**. Os usuários podem usar suas VMs para o número definido de horas (especificado para esse campo) **além do horário agendado**. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
 
-        ![Horas de zero - apenas hora agendada](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Número total de horas de laboratório por utilizador**. Os utilizadores podem utilizar as respetivas VMs para o número de horas (especificado para este campo) definido **além da data agendada**. Se selecionar esta opção, introduza o **número de horas** na caixa de texto. 
+        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 horas (somente agenda)** . Os usuários podem usar suas VMs somente durante o horário agendado ou quando você, à medida que o proprietário do laboratório ativar as VMs para elas.
 
-        ![Número de horas por utilizador](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+        ![Zero horas-somente hora agendada](../media/how-to-configure-student-usage/zero-hours.png)
     4. Selecione **Guardar**. 
-5. Veja os valores alterados na barra de ferramentas agora: **Quota de por utilizador: &lt;número de horas&gt;** . 
+5. Você verá os valores alterados na barra de ferramentas agora: **Cota por usuário: &lt;número de horas&gt;** . 
 
-    ![Quota de por utilizador](../media/how-to-configure-student-usage/quota-per-user.png)
+    ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)
 
 
 
 > [!IMPORTANT]
-> Antes de enviar a ligação de registo para os alunos, professores devem definir a agenda para a classe, caso escolha 0 horas de quota ou especifique as horas de quota para o laboratório.
+> Antes de enviar o link de registro para os alunos, os professores deverão definir o agendamento da classe se escolherem 0 horas de cota ou especificar as horas de cota para o laboratório.
 >
-> O [agendada com tempo de VMs](how-to-create-schedules.md) não contam para a quota atribuída a um utilizador. A quota é para o tempo fora do horário de agenda que passa a um aluno em VMs. 
+> O [tempo de execução agendado das VMs](how-to-create-schedules.md) não conta a cota alocada para um usuário. A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs. 
 
-### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar utilizadores ao carregar um ficheiro CSV
-Também pode adicionar utilizadores ao carregar um ficheiro CSV com endereços de e-mail dos utilizadores.
+### <a name="add-users-by-uploading-a-csv-file"></a>Adicionar usuários carregando um arquivo CSV
+Você também pode adicionar usuários carregando um arquivo CSV com endereços de email de usuários.
 
-1. Crie um ficheiro CSV com endereços de e-mail dos utilizadores numa coluna.
+1. Crie um arquivo CSV com endereços de email de usuários em uma coluna.
 
-    ![Quota de por utilizador](../media/how-to-configure-student-usage/csv-file-with-users.png)
-2. Sobre o **os utilizadores** página o laboratório, selecione **carregar CSV** na barra de ferramentas.
+    ![Cota por usuário](../media/how-to-configure-student-usage/csv-file-with-users.png)
+2. Na página **usuários** do laboratório, selecione **carregar CSV** na barra de ferramentas.
 
-    ![Carregar o botão CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
-3. Selecione o ficheiro CSV com endereços de e-mail do utilizador. Quando seleciona **aberto** depois de selecionar o ficheiro CSV, consulte o seguinte **adicionar utilizadores** janela. A lista de endereços de e-mail é preenchida com endereços de e-mail a partir do ficheiro CSV. 
+    ![Botão carregar CSV](../media/how-to-configure-student-usage/upload-csv-button.png)
+3. Selecione o arquivo CSV com endereços de email do usuário. Ao selecionar **abrir** depois de selecionar o arquivo CSV, você verá a janela **Adicionar usuários** a seguir. A lista de endereços de email é preenchida com endereços de email do arquivo CSV. 
 
-    ![Adicionar a janela de utilizadores preenchida com os endereços de e-mail de um ficheiro CSV](../media/how-to-configure-student-usage/add-users-window.png)
-4. Selecione **salvar** no **adicionar utilizadores** janela. 
-5. Confirme que vê os utilizadores da lista de utilizadores. 
+    ![Janela Adicionar usuários populada com endereços de email do arquivo CSV](../media/how-to-configure-student-usage/add-users-window.png)
+4. Selecione **salvar** na janela **Adicionar usuários** . 
+5. Confirme que você vê os usuários na lista de usuários. 
 
-    ![Lista de utilizadores adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
+    ![Lista de usuários adicionados](../media/how-to-configure-student-usage/list-of-added-users.png)
 
-## <a name="manage-user-vms"></a>Gerir VMs do utilizador
-Assim que os estudantes registar com o Azure Lab Services usando o registro link fornecido aos mesmos, verá as VMs atribuídas aos estudantes na **máquinas virtuais** separador. 
+## <a name="manage-user-vms"></a>Gerenciar VMs do usuário
+Depois que os alunos se registrarem com Azure Lab Services usando o link de registro que você forneceu a eles, você verá as VMs atribuídas aos alunos na guia **máquinas virtuais** . 
 
-![Máquinas de virtuais atribuídas para estudantes](../media/how-to-manage-classroom-labs/virtual-machines-students.png)
+![Máquinas virtuais atribuídas a alunos](../media/how-to-manage-classroom-labs/virtual-machines-students.png)
 
-Pode efetuar as seguintes tarefas numa VM de estudante: 
+Você pode executar as seguintes tarefas em uma VM de aluno: 
 
-- Pare uma VM se a VM está em execução. 
-- Inicie uma VM se a VM é parada. 
+- Interrompa uma VM se a VM estiver em execução. 
+- Inicie uma VM se a VM for interrompida. 
 - Ligue à VM. 
-- Elimine a VM. 
-- Ver o número de horas que os utilizadores utilizaram a máquina virtual. 
+- Exclua a VM. 
+- Exiba o número de horas em que os usuários usaram a máquina virtual. 
 
-## <a name="update-number-of-virtual-machines-in-lab"></a>Atualizar o número de máquinas virtuais num laboratório
-Para atualizar o número de máquinas virtuais no laboratório, siga os passos seguintes **máquinas virtuais** página:
+## <a name="update-number-of-virtual-machines-in-lab"></a>Atualizar o número de máquinas virtuais no laboratório
+Para atualizar o número de máquinas virtuais no laboratório, execute as seguintes etapas na página **máquinas virtuais** :
 
-1. Selecione **máquinas virtuais** no menu da esquerda. 
-2. Selecione **capacidade de laboratório: &lt;número&gt; máquina (s)** na barra de ferramentas. 
-3. Introduza o **número** de máquinas virtuais.
+1. Selecione **máquinas virtuais** no menu à esquerda. 
+2. Selecione a **capacidade do &lt;laboratório&gt; : número de máquina (s)** na barra de ferramentas. 
+3. Insira o **número** de máquinas virtuais.
 4. Selecione **Guardar**.
 
     ![Máquinas virtuais no laboratório](../media/how-to-configure-student-usage/number-virtual-machines.png)
@@ -144,7 +144,7 @@ Para atualizar o número de máquinas virtuais no laboratório, siga os passos s
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:
 
-- [Como administrador, criar e gerir contas de laboratório](how-to-manage-lab-accounts.md)
-- [Como proprietário de um laboratório, criar e gerir laboratórios](how-to-manage-classroom-labs.md)
-- [Como proprietário de um laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
-- [Como um utilizador de laboratório, acessar os laboratórios de sala de aula](how-to-use-classroom-lab.md)
+- [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)
+- [Como proprietário de um laboratório, criar e gerenciar laboratórios](how-to-manage-classroom-labs.md)
+- [Como proprietário do laboratório, configurar e publicar modelos](how-to-create-manage-template.md)
+- [Como usuário do laboratório, acesse laboratórios da sala de aula](how-to-use-classroom-lab.md)

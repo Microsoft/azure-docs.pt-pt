@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e9c11613a9bdcaedad1a69662b2d6bd7bfefc3b
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 3661b3f7fd37a329857a74d32d292678d98f5aef
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867263"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499838"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerenciar dispositivos obsoletos no Azure AD
 
@@ -70,7 +70,7 @@ Para limpar eficazmente os dispositivos obsoletos no seu ambiente, deve definir 
 Para atualizar um dispositivo no Azure AD, precisa de uma conta com uma das seguintes funções atribuída:
 
 - Administrador Global
-- Administrador de Dispositivo na Cloud (função nova disponível agora!)
+- Administrador de Dispositivos de Cloud
 - Administrador de Serviços do Intune
 
 Na sua política de limpeza, selecione as contas que têm as funções necessárias atribuídas. 
@@ -165,6 +165,6 @@ Qualquer autenticação em que esteja a ser utilizado um dispositivo para autent
 - **Dispositivo associado ao Azure AD** - os utilizadores não podem utilizar o dispositivo para iniciarem sessão. 
 - **Dispositivos móveis** - o utilizador não pode aceder aos recursos do Azure AD, como o Office 365. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)

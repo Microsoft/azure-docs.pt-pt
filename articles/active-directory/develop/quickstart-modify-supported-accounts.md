@@ -1,5 +1,5 @@
 ---
-title: Modificar as contas suportadas por uma aplicação registada na plataforma de identidade da Microsoft | Azure
+title: Modificar as contas de aplicativo da plataforma Microsoft Identify | Azure
 description: Configure uma aplicação registada na plataforma de identidade da Microsoft para alterar quem ou que contas podem aceder à aplicação.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545732"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380772"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: Modificar as contas suportadas por uma aplicação
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: Modificar as contas com suporte de um aplicativo
 
 Quando registar uma aplicação na plataforma de identidade da Microsoft, poderá querer que a mesma seja acedida apenas pelos utilizadores da sua organização. Em alternativa, também pode querer que a aplicação seja acedida pelos utilizadores em organizações externas, ou por utilizadores em organizações externas e utilizadores que não fazem necessariamente parte de uma organização (contas pessoais).
 
@@ -44,7 +44,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações**.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
 1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
 1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).

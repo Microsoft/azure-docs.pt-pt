@@ -1,6 +1,6 @@
 ---
-title: Configurar palavras-passe de aplicação a partir da página de informações (pré-visualização) de segurança - Azure Active Directory | Documentos da Microsoft
-description: Configure gerado automaticamente palavras-passe (palavras-passe de aplicação) para utilizar com todas as aplicações não baseadas no browser ou qualquer aplicação que não suporta a verificação de dois fatores, na sua organização. Esta palavra-passe de aplicação está separado de uma palavra-passe normal e pode ser definida partir da página de informações de segurança.
+title: Configurar senhas de aplicativo da página informações de segurança (versão prévia)-Azure Active Directory | Microsoft Docs
+description: Configure senhas geradas automaticamente (senhas de aplicativo) para usar com qualquer aplicativo sem navegador ou qualquer aplicativo que não ofereça suporte à verificação de dois fatores em sua organização. Essa senha de aplicativo é separada de uma senha normal e pode ser configurada na página informações de segurança.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,74 +12,79 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d599607da6653d088f53490ea4d4b5f7f6d0f236
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475117"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382940"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerir palavras-passe de aplicação a partir da sua página de informações (pré-visualização) de segurança
-Certas aplicações, como o Outlook 2010, não oferecem suporte a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos na sua organização, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
+# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerenciar senhas de aplicativo de sua página de informações de segurança (versão prévia)
+
+Determinados aplicativos, como o Outlook 2010, não dão suporte à verificação em duas etapas. Essa falta de suporte significa que, se você estiver usando a verificação em duas etapas em sua organização, o aplicativo não funcionará. Para contornar esse problema, você pode criar uma senha gerada automaticamente para usar com cada aplicativo sem navegador, separado da sua senha normal.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->O administrador pode não permitir a utilização de palavras-passe de aplicação. Se não vir **palavras-passe de aplicação** como opção, eles não estão disponíveis na sua organização.
+>O administrador pode não permitir que você use senhas de aplicativo. Se você não vir **as senhas de aplicativo** como uma opção, elas não estão disponíveis em sua organização.
 
-Ao utilizar as palavras-passe de aplicação, é importante lembrar-se:
+Ao usar senhas de aplicativo, é importante lembrar:
 
-- As palavras-passe de aplicação são gerados automaticamente e apenas introduziu uma vez por aplicação.
+- As senhas de aplicativo são geradas automaticamente e inseridas apenas uma vez por aplicativo.
 
-- Existe um limite de 40 palavras-passe por utilizador. Se tentar criar uma após esse limite, será solicitado para eliminar uma palavra-passe existente antes de poder criar novo.
+- Há um limite de 40 senhas por usuário. Se você tentar criar uma após esse limite, será solicitado que você exclua uma senha existente antes de ter permissão para criar a nova.
 
-- Utilize uma palavra-passe aplicação por dispositivo, não por aplicação. Por exemplo, crie uma única palavra-passe para todas as aplicações no computador portátil e, em seguida, outra palavra-passe única para todas as aplicações no ambiente de trabalho.
+- Use uma senha de aplicativo por dispositivo, não por aplicativo. Por exemplo, crie uma única senha para todos os aplicativos em seu laptop e, em seguida, outra senha única para todos os aplicativos na área de trabalho.
 
     >[!Note]
-    >Novos protocolos de autenticação de suporte de clientes do Office 2013 (incluindo Outlook) e pode ser utilizado com verificação de dois passos. Esse suporte significa que após a verificação de dois passos está ativada, já não terá de palavras-passe de aplicação para clientes do Office 2013. Para obter mais informações, consulte a [como a autenticação moderna funciona para aplicações de cliente do Office 2013 e Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artigo.
+    >Os clientes do Office 2013 (incluindo o Outlook) dão suporte a novos protocolos de autenticação e podem ser usados com a verificação em duas etapas. Esse suporte significa que, após a verificação em duas etapas ser ativada, você não precisará mais de senhas de aplicativo para clientes do Office 2013. Para obter mais informações, consulte o artigo [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .
 
-## <a name="create-new-app-passwords"></a>Criar novas palavras-passe de aplicação
-Se usar a verificação de dois passos com a sua conta escolar ou profissional e o administrador tiver ativado a experiência de informações de segurança, pode criar e eliminar as palavras-passe de aplicação com o **informações de segurança** página.
+## <a name="create-new-app-passwords"></a>Criar novas senhas de aplicativo
+
+Se você usar a verificação em duas etapas com sua conta corporativa ou de estudante e o administrador tiver ativado a experiência de informações de segurança, você poderá criar e excluir suas senhas de aplicativo usando a página **informações de segurança** .
 
 >[!Note]
->Se o administrador não tenha ativado a experiência de informações de segurança, tem de seguir as instruções e informações da [gerir palavras-passe de aplicação para a verificação de](multi-factor-authentication-end-user-app-passwords.md) secção.
+>Se o administrador não ativou a experiência de informações de segurança, você deve seguir as instruções e informações na seção [gerenciar senhas de aplicativo para a verificação em duas etapas](multi-factor-authentication-end-user-app-passwords.md) .
 
-### <a name="to-create-a-new-app-password"></a>Para criar uma nova palavra-passe de aplicação
-1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
+### <a name="to-create-a-new-app-password"></a>Para criar uma nova senha de aplicativo
 
-    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
 
-2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
+    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
-    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou no link no bloco **informações de segurança** e, em seguida, selecione **Adicionar método** na página **informações de segurança** .
 
-3. Sobre o **adicione um método** página, selecione **palavra-passe de aplicação** na lista pendente e, em seguida, selecione **Add**.
+    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-    ![Adicionar a caixa de método, com a palavra-passe de aplicações selecionado](media/security-info/securityinfo-myprofile-addpassword.png)
+3. Na página **Adicionar um método** , selecione **senha do aplicativo** na lista suspensa e, em seguida, selecione **Adicionar**.
 
-4. Escreva o nome da aplicação que requer a palavra-passe de aplicação e, em seguida, selecione **seguinte**.
+    ![Caixa Adicionar método, com a senha de aplicativo selecionada](media/security-info/securityinfo-myprofile-addpassword.png)
 
-    ![Página de palavra-passe de aplicação, com o nome da aplicação](media/security-info/securityinfo-myprofile-password-appname.png)
+4. Digite o nome do aplicativo que requer a senha do aplicativo e, em seguida, selecione **Avançar**.
 
-5. Copie o texto dos **palavra-passe** caixa, cole a palavra-passe na área de palavra-passe da aplicação (neste exemplo, o Outlook 2010) e, em seguida, selecione **feito**.
+    ![Página senha do aplicativo, com o nome do aplicativo](media/security-info/securityinfo-myprofile-password-appname.png)
 
-    ![Página de palavra-passe de aplicação, com o nome da aplicação](media/security-info/securityinfo-myprofile-password-copytext.png)
-    
-    A palavra-passe é adicionada e pode iniciar sessão com êxito à sua aplicação no futuro.
+5. Copie o texto da caixa **senha** , Cole a senha na área senha do aplicativo (neste exemplo, Outlook 2010) e, em seguida, selecione **concluído**.
 
-## <a name="delete-your-app-passwords"></a>Eliminar as palavras-passe de aplicação
-Se já não precisar de utilizar uma aplicação que requer uma palavra-passe de aplicação, pode eliminar a palavra-passe de aplicação associada. A eliminar a palavra-passe de aplicação liberta a um dos pontos de palavra-passe de aplicação disponível para utilização no futuro.
+    ![Página senha do aplicativo, com o nome do aplicativo](media/security-info/securityinfo-myprofile-password-copytext.png)
+
+    A senha é adicionada e você pode fazer logon com êxito em seu aplicativo no futuro.
+
+## <a name="delete-your-app-passwords"></a>Excluir suas senhas de aplicativo
+
+Se você não precisar mais usar um aplicativo que exija uma senha de aplicativo, poderá excluir a senha de aplicativo associada. A exclusão da senha do aplicativo libera um dos pontos de senha de aplicativo disponíveis para uso no futuro.
 
 >[!Important]
->Se eliminar uma palavra-passe de aplicação por engano, não é possível-lo. Terá que criar uma nova palavra-passe de aplicação e volte a introduzir na aplicação, seguindo os passos a [criar novas palavras-passe de aplicação](#create-new-app-passwords) seção deste artigo.
+>Se você excluir uma senha de aplicativo por engano, não há como desfazê-la. Você precisará criar uma nova senha de aplicativo e inseri-la novamente no aplicativo, seguindo as etapas na seção [criar novas senhas de aplicativo](#create-new-app-passwords) deste artigo.
 
-### <a name="to-delete-an-app-password"></a>Para eliminar uma palavra-passe de aplicação
+### <a name="to-delete-an-app-password"></a>Para excluir uma senha de aplicativo
 
-1. Sobre o **informações de segurança** página, selecione a **eliminar** ligação junto ao **palavra-passe de aplicação** opção para a aplicação específica.
+1. Na página **informações de segurança** , selecione o link **excluir** ao lado da opção **senha de aplicativo** para o aplicativo específico.
 
-    ![Ligação para eliminar o método de palavra-passe de aplicação a partir de informações de segurança](media/security-info/securityinfo-myprofile-password-appdelete.png)
+    ![Link para excluir o método de senha de aplicativo das informações de segurança](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-2. Selecione **Sim** na caixa de confirmação para eliminar a **palavra-passe de aplicação**. Depois da palavra-passe de aplicação é eliminada, este é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página.
+2. Selecione **Sim** na caixa de confirmação para excluir a **senha do aplicativo**. Depois que a senha do aplicativo for excluída, ela será removida das informações de segurança e desaparecerá da página **informações de segurança** .
 
 ## <a name="for-more-information"></a>Para obter mais informações:
-- Para obter mais informações sobre o **informações de segurança** página e como configurá-lo, consulte [descrição geral de informações de segurança](user-help-security-info-overview.md)
+
+- Para obter mais informações sobre a página **informações de segurança** e como configurá-la, consulte [visão geral das informações de segurança](user-help-security-info-overview.md)

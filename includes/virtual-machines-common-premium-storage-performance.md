@@ -8,290 +8,290 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cbda7d9be1617617e173c68c3d2a4a95c255ae0
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673470"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386946"
 ---
-## <a name="application-performance-indicators"></a>Indicadores de desempenho da aplicação
+## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
-Vamos avaliar se o desempenho de uma aplicação bem ou não a utilizar como indicadores de desempenho, a rapidez uma aplicação está a processar um pedido de utilizador, a quantidade de dados está a processar uma aplicação por pedido, quantas solicitações é um aplicativo de processamento numa determinada período de tempo, que um usuário precisa esperar para obter uma resposta depois de submeter o pedido. São os termos de técnicos para estes indicadores de desempenho, IOPS, débito ou largura de banda e latência.
+Avaliamos se um aplicativo está funcionando bem ou não usando indicadores de desempenho como, com que velocidade um aplicativo está processando uma solicitação de usuário, quantos dados um aplicativo está processando por solicitação, quantas solicitações é um processamento de aplicativo em um específico período, por quanto tempo um usuário precisa esperar para obter uma resposta depois de enviar a solicitação. Os termos técnicos para esses indicadores de desempenho são, IOPS, taxa de transferência ou largura de banda e latência.
 
-Nesta seção, abordaremos os indicadores de desempenho comuns no contexto de armazenamento Premium. Na seção a seguir, os requisitos de aplicação de coleta, aprenderá como medir estes indicadores de desempenho para a sua aplicação. Mais tarde na otimização de desempenho do aplicativo, aprenderá sobre os fatores que afetam estes indicadores de desempenho e recomendações para otimizá-los.
+Nesta seção, discutiremos os indicadores comuns de desempenho no contexto do armazenamento Premium. Na seção a seguir, coletando requisitos de aplicativo, você aprenderá a medir esses indicadores de desempenho para seu aplicativo. Posteriormente, na otimização do desempenho do aplicativo, você aprenderá sobre os fatores que afetam esses indicadores de desempenho e recomendações para otimizá-los.
 
 ## <a name="iops"></a>IOPS
 
-IOPS ou entrada/saída operações por segundo, é o número de pedidos que a aplicação está a enviar para os discos de armazenamento num segundo. Uma operação de entrada/saída foi possível ler ou escrever, seqüencial ou aleatório. Os aplicativos de OLTP (transação) online como um Web site do setor do retalho online precisam processar muitos pedidos de utilizador em simultâneo imediatamente. Os pedidos de utilizador são inserir e atualizar as transações de base de dados com utilização intensiva, o que a aplicação deve processar rapidamente. Por conseguinte, os aplicativos de OLTP exigem muito elevado IOPS. Tais aplicativos lidar com milhões de pedidos de e/s pequenos e aleatórios. Se tiver uma aplicação desse tipo, deve conceber a infraestrutura de aplicações para otimizar o IOPS. Na seção posterior, *Otimizando o desempenho da aplicação*, vamos discutir detalhadamente todos os fatores que tem de considerar para obter elevado IOPS.
+IOPS, ou operações de entrada/saída por segundo, é o número de solicitações que seu aplicativo está enviando para os discos de armazenamento em um segundo. Uma operação de entrada/saída pode ser de leitura ou gravação, sequencial ou aleatória. Aplicativos OLTP (processamento de transações online) como um site de varejo online precisam processar muitas solicitações de usuário simultâneas imediatamente. As solicitações de usuário são as transações de banco de dados de inserção e atualização intensivas, que o aplicativo deve processar rapidamente. Portanto, os aplicativos OLTP exigem IOPS muito alta. Esses aplicativos lidam com milhões de solicitações de e/s pequenas e aleatórias. Se você tiver um aplicativo desse tipo, deverá projetar a infraestrutura do aplicativo para otimizar o IOPS. Na seção mais adiante, *otimizando o desempenho do aplicativo*, discutiremos em detalhes todos os fatores que você deve considerar para obter IOPS alto.
 
-Quando anexar um disco de armazenamento premium para a sua VM, de grande escala disposições do Azure para que um número garantido de IOPS de acordo com a especificação de disco. Por exemplo, um disco de P50 Aprovisiona 7500 IOPS. Cada grande escala de tamanho da VM também tem um limite IOPS específico que podem sustentar. Por exemplo, uma VM GS5 padrão tem 80 000 IOPS limitar.
+Quando você anexa um disco de armazenamento Premium à sua VM de alta escala, o Azure provisiona um número garantido de IOPS de acordo com a especificação do disco. Por exemplo, um disco P50 provisiona 7500 IOPS. Cada tamanho de VM de alta escala também tem um limite de IOPS específico que pode sustentar. Por exemplo, uma VM GS5 padrão tem um limite de 80.000 IOPS.
 
 ## <a name="throughput"></a>Débito
 
-Taxa de transferência ou largura de banda é a quantidade de dados que a aplicação estiver a enviar para os discos de armazenamento num intervalo especificado. Se a sua aplicação está a efetuar operações de entrada/saída com tamanhos de unidade de e/s grandes, ela exige um débito elevado. Aplicativos de armazém de dados tendem a emitir operações intensivas de análise de grandes partes de dados de aceder ao mesmo tempo e normalmente realizar operações em massa. Em outras palavras, esses aplicativos requerem um débito mais elevado. Se tiver uma aplicação desse tipo, deve conceber a sua infraestrutura para otimizar o débito. Na próxima seção, vamos abordar em detalhes os fatores que deve ajustar para atingir esse objetivo.
+Taxa de transferência ou largura de banda é a quantidade de dados que seu aplicativo está enviando para os discos de armazenamento em um intervalo especificado. Se seu aplicativo estiver executando operações de entrada/saída com tamanhos de unidade de e/s grandes, ele exigirá alta taxa de transferência. Os aplicativos de data warehouse tendem a emitir operações de verificação intensiva que acessam grandes partes de dados de cada vez e normalmente executam operações em massa. Em outras palavras, esses aplicativos exigem maior taxa de transferência. Se você tiver um aplicativo desse tipo, deverá criar sua infraestrutura para otimizar a taxa de transferência. Na próxima seção, discutiremos em detalhes os fatores que você deve ajustar para conseguir isso.
 
-Quando anexar um disco de armazenamento premium a uma escala elevada VM, débito de disposições do Azure de acordo com essa especificação de disco. Por exemplo, um disco de P50 Aprovisiona 250 MB por segundo de débito de disco. Cada grande escala de tamanho da VM também tem como limite de débito específicas que podem sustentar. Por exemplo, o padrão GS5 VM tem um débito máximo de 2000 MB por segundo.
+Quando você anexa um disco de armazenamento Premium a uma VM de alta escala, o Azure provisiona a taxa de transferência de acordo com essa especificação de disco. Por exemplo, um disco P50 provisiona 250 MB por segundo de taxa de transferência de disco. Cada tamanho de VM de alta escala também tem um limite de taxa de transferência específico que pode sustentar. Por exemplo, a VM GS5 padrão tem uma taxa de transferência máxima de 2.000 MB por segundo.
 
-Existe uma relação entre o débito e IOPS, como mostra a fórmula abaixo.
+Há uma relação entre taxa de transferência e IOPS, conforme mostrado na fórmula abaixo.
 
-![Relação de IOPS e débito](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relação de IOPS e taxa de transferência](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-Portanto, é importante determinar o débito ideal e o valor de iops que seu aplicativo requer. Ao testar otimizar um, o outro também obtém afetado. Numa seção posterior, *Otimizando o desempenho da aplicação*, abordaremos em mais detalhes sobre a otimização de IOPS e débito.
+Portanto, é importante determinar os valores de taxa de transferência e de IOPS ideais que seu aplicativo requer. Ao tentar otimizar um, o outro também é afetado. Em uma seção posterior, *otimizando o desempenho do aplicativo*, abordaremos mais detalhes sobre como otimizar a IOPS e a taxa de transferência.
 
 ## <a name="latency"></a>Latência
 
-A latência é o tempo que demora um aplicativo para receber um único pedido e enviá-lo para os discos de armazenamento e enviar a resposta ao cliente. Esta é uma medida crítica de desempenho de um aplicativo, além de IOPS e débito. A latência de um disco de armazenamento premium é o tempo que demora a recuperar as informações de um pedido e comunicá-la para a sua aplicação. O armazenamento Premium fornece baixas latências consistentes. Os discos Premium foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s. Se ativar a colocação em cache em discos de armazenamento premium de anfitrião de só de leitura, pode obter muito menor latência de leitura. Abordaremos colocação em cache do disco mais detalhadamente na seção posterior sobre *Otimizando o desempenho da aplicação*.
+Latência é o tempo que leva um aplicativo para receber uma única solicitação, enviá-lo aos discos de armazenamento e enviar a resposta para o cliente. Essa é uma medida crítica do desempenho de um aplicativo, além de IOPS e taxa de transferência. A latência de um disco de armazenamento Premium é o tempo necessário para recuperar as informações de uma solicitação e transmiti-las de volta ao seu aplicativo. O armazenamento Premium fornece latências baixas consistentes. Os discos Premium são projetados para fornecer latências de milissegundos de dígito único para a maioria das operações de e/s. Se você habilitar o cache de host ReadOnly em discos de armazenamento Premium, poderá obter latência de leitura muito menor. Abordaremos o cache de disco com mais detalhes na seção mais adiante sobre como *otimizar o desempenho do aplicativo*.
 
-Quando pretender otimizar seu aplicativo para obter uma maior IOPS e débito, afetará a latência da sua aplicação. Depois de ajuste do desempenho do aplicativo, avalie sempre a latência do aplicativo para evitar o comportamento inesperado de alta latência.
+Quando você estiver otimizando seu aplicativo para obter IOPS e taxa de transferência mais altas, isso afetará a latência do seu aplicativo. Depois de ajustar o desempenho do aplicativo, sempre avalie a latência do aplicativo para evitar um comportamento de alta latência inesperado.
 
-As seguintes operações de plano de controle em Managed Disks podem envolver o movimento do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que podem demorar várias horas a concluir, normalmente, menos de 24 horas, consoante a quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.
+As operações de plano de controle a seguir em Managed Disks podem envolver a movimentação do disco de um local de armazenamento para outro. Isso é orquestrado por meio da cópia em segundo plano dos dados que podem levar várias horas para serem concluídos, normalmente menos de 24 horas, dependendo da quantidade de dados nos discos. Durante esse tempo, seu aplicativo pode ficar mais alto do que a latência de leitura usual, já que algumas leituras podem ser redirecionadas para o local original e podem levar mais tempo para serem concluídas. Não há nenhum impacto na latência de gravação durante esse período.
 
 - Atualize o tipo de armazenamento.
-- Desanexar e anexar um disco a partir de uma VM para outra.
-- Crie um disco gerido a partir de um VHD.
-- Crie um disco gerido a partir de um instantâneo.
-- Converta discos não geridos para managed disks.
+- Desanexar e anexar um disco de uma VM para outra.
+- Crie um disco gerenciado com base em um VHD.
+- Crie um disco gerenciado com base em um instantâneo.
+- Converter discos não gerenciados em discos gerenciados.
 
-# <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicação de desempenho para discos
+# <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicativo de desempenho para discos
 
-A primeira etapa na criação de aplicativos de alto desempenho em execução no armazenamento Premium do Azure é compreender os requisitos de desempenho da sua aplicação. Depois dos requisitos de desempenho, pode otimizar a sua aplicação para alcançar o desempenho ideal.
+A primeira etapa na criação de aplicativos de alto desempenho em execução no armazenamento Premium do Azure está compreendendo os requisitos de desempenho do seu aplicativo. Depois de ter coletado os requisitos de desempenho, você pode otimizar seu aplicativo para obter o melhor desempenho.
 
-Na secção anterior, Explicamos os indicadores de desempenho comuns, IOPS, débito e latência. Tem de identificar que estes indicadores de desempenho são fundamentais para a sua aplicação para proporcionar a experiência de usuário que desejarem. Por exemplo, um IOPS é mais importante para aplicativos de OLTP processar milhões de transações num segundo. Ao passo que, débito elevado é fundamental para aplicativos de armazém de dados, processamento de grandes quantidades de dados num segundo. Latência extremamente baixa é crucial para aplicações em tempo real como Web sites de transmissão em fluxo de vídeo ao vivo.
+Na seção anterior, explicamos os indicadores comuns de desempenho, IOPS, taxa de transferência e latência. Você deve identificar quais desses indicadores de desempenho são essenciais para o seu aplicativo a fim de fornecer a experiência do usuário desejada. Por exemplo, o alto IOPS é mais importante para aplicativos OLTP processando milhões de transações em um segundo. Enquanto, a alta taxa de transferência é essencial para data warehouse aplicativos que processam grandes quantidades de dados em um segundo. A latência extremamente baixa é crucial para aplicativos em tempo real, como sites de streaming de vídeo ao vivo.
 
-Em seguida, medir os requisitos de desempenho máximo da sua aplicação durante seu ciclo de vida. Utilize a lista de verificação de exemplo abaixo como um começo. Registe os requisitos de desempenho máximo durante normal, pico e períodos de carga de trabalho do horário comercial. Ao identificar os requisitos para todos os níveis de cargas de trabalho, será capaz de determinar os requisitos de desempenho global do seu aplicativo. Por exemplo, a carga de trabalho normal de um site de comércio eletrônico será as transações funciona durante a maior parte dos dias num ano. A carga de trabalho de pico do Web site será as transações funciona durante a época festiva ou eventos de venda especial. O pico de carga de trabalho é normalmente experiente durante um período limitado, mas pode exigir a sua aplicação para expandir sua operação normal de dois ou mais vezes. Descubra o percentil de 50, percentil 90 e requisitos de percentil de 99. Isto ajuda a filtrar quaisquer exceções nos requisitos de desempenho e que se possa concentrar seus esforços na otimização para os valores de certos.
+Em seguida, meça os requisitos de desempenho máximo do seu aplicativo durante seu tempo de vida. Use a lista de verificação de exemplo abaixo como um início. Registre os requisitos máximos de desempenho durante períodos normais, de pico e fora do horário de carga de trabalho. Ao identificar os requisitos para todos os níveis de cargas de trabalho, você poderá determinar o requisito de desempenho geral do seu aplicativo. Por exemplo, a carga de trabalho normal de um site de comércio eletrônico será as transações que ele atende durante a maioria dos dias em um ano. A carga de trabalho de pico do site será as transações que ele atende durante a época de Natal ou eventos de venda especiais. A carga de trabalho de pico normalmente é experimentada por um período limitado, mas pode exigir que seu aplicativo dimensione duas ou mais vezes sua operação normal. Descubra os requisitos 50 percentil, 90 percentil e 99 percentil. Isso ajuda a filtrar as exceções nos requisitos de desempenho e você pode concentrar seus esforços na otimização dos valores corretos.
 
-## <a name="application-performance-requirements-checklist"></a>Lista de verificação de requisitos de desempenho de aplicações
+## <a name="application-performance-requirements-checklist"></a>Lista de verificação de requisitos de desempenho do aplicativo
 
-| **Requisitos de desempenho** | **Percentil de 50** | **Percentil 90** | **Percentil de 99** |
+| **Requisitos de desempenho** | **50 percentil** | **90 percentil** | **99 percentil** |
 | --- | --- | --- | --- |
 | Um máximo de Transações por segundo | | | |
-| Operações de leitura de % | | | |
-| Operações de escrita % | | | |
-| Operações de aleatório % | | | |
-| Operações de % sequenciais | | | |
-| Tamanho do pedido de e/s | | | |
-| Débito médio | | | |
+| % De operações de leitura | | | |
+| % De operações de gravação | | | |
+| % De operações aleatórias | | | |
+| % De operações sequenciais | | | |
+| Tamanho da solicitação de e/s | | | |
+| Taxa de transferência média | | | |
 | Um máximo de Débito | | | |
 | Min. Latência | | | |
 | Latência média | | | |
 | Um máximo de CPU | | | |
-| CPU média | | | |
+| CPU Média | | | |
 | Um máximo de Memória | | | |
-| Médio da memória | | | |
-| Profundidade de fila | | | |
+| Memória média | | | |
+| Profundidade da fila | | | |
 
 > [!NOTE]
-> Deve considerar o dimensionamento esses números com base no crescimento futuro esperado da sua aplicação. É uma boa idéia planeie o crescimento antes do tempo, uma vez que poderia ser mais difícil alterar a infraestrutura para melhorar o desempenho mais tarde.
+> Você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do seu aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho mais tarde.
 
-Se tiver uma aplicação existente e pretender mover para o armazenamento Premium, primeiro crie a lista de verificação acima para a aplicação existente. Em seguida, criar um protótipo de seu aplicativo no armazenamento Premium e projetar o aplicativo com base nas diretrizes descritas em *Otimizando o desempenho da aplicação* numa secção posterior deste documento. O artigo seguinte descreve as ferramentas que pode utilizar para reunir as medidas de desempenho.
+Se você tiver um aplicativo existente e quiser mudar para o armazenamento Premium, primeiro crie a lista de verificação acima para o aplicativo existente. Em seguida, crie um protótipo do seu aplicativo no armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em otimizando o *desempenho do aplicativo* em uma seção posterior deste documento. O próximo artigo descreve as ferramentas que você pode usar para reunir as medidas de desempenho.
 
-### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para medir os requisitos de desempenho de aplicações
+### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para medir os requisitos de desempenho do aplicativo
 
-A melhor forma de medir os requisitos de desempenho do seu aplicativo, é usar ferramentas de monitoramento de desempenho fornecidas pelo sistema operativo do servidor. Pode usar o PerfMon para Windows e iostat para Linux. Essas ferramentas capturam contadores correspondente a cada medida explicada na seção acima. Tem de capturar os valores desses contadores quando a aplicação está a executar o seu normal, pico e cargas de trabalho do horário comercial.
+A melhor maneira de medir os requisitos de desempenho do seu aplicativo é usar as ferramentas de monitoramento de desempenho fornecidas pelo sistema operacional do servidor. Você pode usar o PerfMon para Windows e iostat para Linux. Essas ferramentas capturam contadores correspondentes a cada medida explicada na seção acima. Você deve capturar os valores desses contadores quando seu aplicativo estiver executando suas cargas de trabalho normais, de pico e fora do horário comercial.
 
-Os contadores de PerfMon estão disponíveis para o processador, memória e cada disco lógico e o disco físico do seu servidor. Ao utilizar discos de armazenamento premium com uma VM, os contadores de disco físico são para cada disco de armazenamento premium e os contadores de disco lógico são para cada volume criado nos discos de armazenamento premium. Tem de capturar os valores para os discos que alojam a carga de trabalho de aplicação. Se existir um mapeamento um-para-um entre discos lógicos e físicos, pode consultar os contadores de discos físicos; caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização da CPU e disco. O relatório de utilização do disco fornece estatísticas por dispositivo físico ou partição. Se tiver um servidor de base de dados com os seus dados e registos em discos separados, recolha estes dados para os dois discos. Tabela a seguir descreve os contadores de discos, processadores e memória:
+Os contadores PerfMon estão disponíveis para processador, memória e, cada disco lógico e disco físico do servidor. Quando você usa discos de armazenamento Premium com uma VM, os contadores de disco físico são para cada disco de armazenamento Premium, e os contadores de disco lógico são para cada volume criado nos discos de armazenamento Premium. Você deve capturar os valores para os discos que hospedam a carga de trabalho do aplicativo. Se houver um mapeamento de um para um entre discos lógicos e físicos, você poderá consultar contadores de disco físico; caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização de CPU e disco. O relatório de utilização de disco fornece estatísticas por dispositivo físico ou partição. Se você tiver um servidor de banco de dados com seu log e seus logs em discos separados, colete esses dados para ambos os discos. A tabela abaixo descreve os contadores para discos, processadores e memória:
 
 | Contador | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS ou transações por segundo** |Número de pedidos de e/s emitida para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |tps <br> r/s <br> w/s |
-| **Leituras de disco e gravações** |% de leituras e escrever operações executadas no disco. |% De tempo de leitura de disco <br> % De tempo de escrita de disco |r/s <br> w/s |
-| **Débito** |Quantidade de dados lidas ou escritas para o disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
-| **Latência** |Tempo total para concluir um pedido de e/s de disco. |Média disco seg/leitura <br> Média disco seg/escritas |await <br> svctm |
-| **Tamanho de e/s** |O tamanho de e/s pedidos de problemas para os discos de armazenamento. |Bytes de média de disco/leitura <br> Disco de média de Bytes/escrita |avgrq-sz |
-| **Profundidade de fila** |Número de e/s pendentes pedidos à espera para ser lidas ou escritas no disco de armazenamento. |Comprimento de fila de disco atual |avgqu-sz |
-| **Máx. Memória** |Quantidade de memória necessária para executar a aplicação sem problemas |% Bytes dedicados em utilização |Utilizar vmstat |
-| **Máx. CPU** |Quantidade de CPU necessária para executar a aplicação sem problemas |% Tempo do processador |%util |
+| **IOPS ou transações por segundo** |Número de solicitações de e/s emitidas para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |TPS <br> r/s <br> w/s |
+| **Leituras e gravações de disco** |% de leituras e operações de gravação executadas no disco. |% De tempo de leitura de disco <br> % De tempo de gravação de disco |r/s <br> w/s |
+| **Débito** |Quantidade de dados lidos ou gravados no disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
+| **Latência** |Tempo total para concluir uma solicitação de e/s de disco. |Média de disco s/leitura <br> Média de disco s/gravação |expressões <br> svctm |
+| **Tamanho de e/s** |O tamanho dos problemas de solicitações de e/s para os discos de armazenamento. |Média de bytes de disco/leitura <br> Média de bytes de disco/gravação |avgrq-sz |
+| **Profundidade da fila** |Número de solicitações de e/s pendentes aguardando para serem lidas ou gravadas no disco de armazenamento. |Comprimento da fila de disco atual |avgqu-sz |
+| **Maximizar. Memória** |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
+| **Maximizar. CPU** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
 
-Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [Perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 
 
-## <a name="optimize-application-performance"></a>Otimizar o desempenho da aplicação
+## <a name="optimize-application-performance"></a>Otimizar o desempenho do aplicativo
 
-Os principais fatores que influenciam o desempenho de um aplicativo em execução no armazenamento Premium são pedidos de natureza de e/s, o tamanho da VM, o tamanho do disco, número de discos, o cache em disco, multithreading e a profundidade de fila. Pode controlar alguns desses fatores com botões fornecidos pelo sistema. A maioria dos aplicativos podem não oferecer a uma opção para alterar o tamanho de e/s e a profundidade de fila diretamente. Por exemplo, se estiver a utilizar o SQL Server, não é possível escolher a profundidade de fila e tamanho de e/s. SQL Server escolhe os ideal e/s tamanho e a fila de profundidade valores para o maioria de desempenho. É importante compreender os efeitos de ambos os tipos de fatores sobre o desempenho da aplicação, para que possa Aprovisionar recursos adequados para atender às necessidades de desempenho.
+Os principais fatores que influenciam o desempenho de um aplicativo em execução no armazenamento Premium são a natureza das solicitações de e/s, tamanho da VM, tamanho do disco, número de discos, cache de disco, multithread e profundidade da fila. Você pode controlar alguns desses fatores com botões fornecidos pelo sistema. A maioria dos aplicativos pode não lhe dar a opção de alterar o tamanho da e/s e a profundidade da fila diretamente. Por exemplo, se você estiver usando SQL Server, não será possível escolher o tamanho da e/s e a profundidade da fila. SQL Server escolhe o tamanho ideal de e/s e os valores de profundidade da fila para obter o máximo de desempenho. É importante entender os efeitos de ambos os tipos de fatores no desempenho do aplicativo, para que você possa provisionar os recursos apropriados para atender às necessidades de desempenho.
 
-Ao longo da seção, consulte a lista de verificação de requisitos de aplicação que criou, para identificar quanto de que precisa para otimizar o desempenho da aplicação. Baseado nisso, será capaz de determinar quais fatores nesta seção precisará ajustar. Observar os efeitos de cada fator sobre o desempenho da aplicação, execute as ferramentas de benchmark em sua configuração de aplicações. Consulte a seção de Benchmarking no final deste artigo para obter os passos executar as ferramentas de benchmark comuns no Windows e VMs do Linux.
+Ao longo desta seção, consulte a lista de verificação de requisitos do aplicativo que você criou, para identificar quanto você precisa para otimizar o desempenho do aplicativo. Com base nele, você poderá determinar quais fatores dessa seção precisará ajustar. Para testemunhar os efeitos de cada fator no desempenho do aplicativo, execute as ferramentas de benchmark na configuração do aplicativo. Consulte a seção de parâmetros de comparação no final deste artigo para obter as etapas para executar ferramentas comuns de benchmark em VMs Windows e Linux.
 
-### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Otimizar o IOPS, débito e latência de relance
+### <a name="optimize-iops-throughput-and-latency-at-a-glance"></a>Otimizar o IOPS, a taxa de transferência e a latência em um relance
 
-A tabela abaixo resume os fatores de desempenho e as etapas necessárias para otimizar o IOPS, débito e latência. As secções deste resumo a seguir descrevem cada fator é muito mais profundidade.
+A tabela a seguir resume os fatores de desempenho e as etapas necessárias para otimizar o IOPS, a taxa de transferência e a latência. As seções que seguem este resumo descreverão cada fator é muito mais aprofundada.
 
-Para obter mais informações sobre tamanhos de VM e sobre o IOPS, débito e latência disponível para cada tipo de VM, consulte [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md) ou [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md).
+Para obter mais informações sobre tamanhos de VM e sobre IOPS, taxa de transferência e latência disponíveis para cada tipo de VM, consulte [tamanhos de VM Linux](../articles/virtual-machines/linux/sizes.md) ou [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Débito** | **Latência** |
 | --- | --- | --- | --- |
-| **Cenário de exemplo** |Aplicativo de OLTP de Enterprise que exigem muito elevadas de transações por segundo taxa. |Aplicação processamento quantidades de dados de armazém de dados da empresa. |Quase em tempo real aplicativos que exigem respostas instantâneas às solicitações dos usuários, como jogos online. |
+| **Cenário de exemplo** |Aplicativo OLTP corporativo que requer taxa de transações muito altas por segundo. |Aplicativo Enterprise Data Warehousing processando grandes quantidades de dados. |Aplicativos quase em tempo real que exigem respostas instantâneas para solicitações de usuário, como jogos online. |
 | Fatores de desempenho | &nbsp; | &nbsp; | &nbsp; |
-| **Tamanho de e/s** |Tamanho de e/s mais pequeno produz IOPS superior. |Tamanho de e/s maior para produz um débito mais elevado. | &nbsp;|
-| **Tamanho da VM** |Utilize um tamanho VM que oferece maior do que as necessidades da sua aplicação de IOPS. |Utilize um tamanho de VM com o limite de débito superior a necessidades da sua aplicação. |Utilize um tamanho VM que ofertas aumentar os limites superiores a necessidades da sua aplicação. |
-| **Tamanho do disco** |Utilize um tamanho de disco que oferece maior do que as necessidades da sua aplicação de IOPS. |Utilize um tamanho de disco com limite de taxa de transferência maior do que as necessidades da sua aplicação. |Utilize um tamanho de disco que ofertas aumentar os limites superiores a necessidades da sua aplicação. |
-| **Limites de dimensionamento de disco e de VM** |Limite de IOPS do tamanho da VM escolhido deve ser superior a total de IOPS por discos de armazenamento premium ligados ao mesmo. |Limite de taxa de transferência do tamanho da VM escolhido deve ser superior a taxa de transferência total, orientada pelos discos de armazenamento premium ligados ao mesmo. |Limites de dimensionamento do tamanho da VM escolhida devem ser superiores a limites de dimensionamento de total de discos de armazenamento premium ligados. |
-| **Colocação em cache do disco** |Ative a Cache de só de leitura nos discos de armazenamento premium com operações pesadas de leitura para obter mais elevada IOPS de leitura. | &nbsp; |Ative a Cache de só de leitura nos discos de armazenamento premium com operações pesadas prontos para obter leitura muito baixa latências. |
-| **Repartição de disco** |Utilizar vários discos e da faixa de-los para obter um limite IOPS e débito mais elevado combinado. O limite de combinado por VM deve ser maior do que os limites combinados de discos premium ligados. | &nbsp; | &nbsp; |
-| **Tamanho do stripe** |Tamanho mais pequeno do stripe para o padrão de e/s pequenas aleatória visto em aplicativos de OLTP. Por exemplo, utilize o tamanho da faixa de 64 KB para a aplicação de OLTP do SQL Server. |Tamanho maior do stripe para o padrão de e/s grandes sequencial visto em aplicativos de armazém de dados. Por exemplo, utilize o tamanho da faixa de 256 KB para a aplicação do armazém de dados do SQL Server. | &nbsp; |
-| **Multithreading** |Utilização de multithreading para enviar o número mais elevado de pedidos para o armazenamento Premium que levará a maior IOPS e débito. Por exemplo, no SQL Server definir um valor MAXDOP elevado para alocar mais CPUs, ao SQL Server. | &nbsp; | &nbsp; |
-| **Profundidade de fila** |IOPS superior resulta em maior profundidade de fila. |Maior profundidade de fila produz um débito mais elevado. |Menor profundidade de fila produz latências mais baixas. |
+| **Tamanho de e/s** |O tamanho de e/s menor gera IOPS maiores. |Tamanho de e/s maior para gerar uma taxa de transferência mais alta. | &nbsp;|
+| **Tamanho da VM** |Use um tamanho de VM que ofereça IOPS maior do que o requisito do seu aplicativo. |Use um tamanho de VM com limite de taxa de transferência maior do que o requisito do aplicativo. |Use um tamanho de VM que ofereça limites de escala maiores do que o requisito do aplicativo. |
+| **Tamanho do disco** |Use um tamanho de disco que ofereça IOPS maior do que o requisito do seu aplicativo. |Use um tamanho de disco com limite de taxa de transferência maior do que o requisito do aplicativo. |Use um tamanho de disco que ofereça limites de escala maiores do que o requisito do seu aplicativo. |
+| **Limites de escala de VM e disco** |O limite de IOPS do tamanho da VM escolhido deve ser maior que o total de IOPS orientado por discos de armazenamento Premium anexados a ele. |O limite de taxa de transferência do tamanho da VM escolhido deve ser maior que a taxa de transferência total controlada por discos de armazenamento Premium anexados a ele. |Os limites de escala do tamanho da VM escolhido devem ser maiores que os limites de escala totais de discos de armazenamento Premium anexados. |
+| **Cache de disco** |Habilite o cache ReadOnly em discos de armazenamento Premium com operações de leitura intensa para obter IOPS de leitura mais alta. | &nbsp; |Habilite o cache ReadOnly em discos de armazenamento Premium com operações pesadas prontas para obter latências de leitura muito baixas. |
+| **Distribuição de disco** |Use vários discos e distribua-os juntos para obter um limite de IOPS e taxa de transferência mais alto combinado. O limite combinado por VM deve ser maior que os limites combinados de discos Premium anexados. | &nbsp; | &nbsp; |
+| **Tamanho da distribuição** |Tamanho de distribuição menor para o padrão de e/s pequeno aleatório visto em aplicativos OLTP. Por exemplo, use o tamanho de distribuição de 64 KB para SQL Server aplicativo OLTP. |Tamanho de distribuição maior para o padrão de e/s grande sequencial visto em aplicativos data warehouse. Por exemplo, use o tamanho de distribuição de 256 KB para SQL Server aplicativo de data warehouse. | &nbsp; |
+| **Multithreading** |Use multithreading para enviar um número maior de solicitações para o armazenamento Premium que levará a IOPS e taxa de transferência mais altas. Por exemplo, em SQL Server defina um valor de MAXDOP alto para alocar mais CPUs para SQL Server. | &nbsp; | &nbsp; |
+| **Profundidade da fila** |A profundidade de fila maior produz IOPS maiores. |A profundidade de fila maior produz uma taxa de transferência maior. |A profundidade de fila menor resulta em latências menores. |
 
-## <a name="nature-of-io-requests"></a>Natureza de pedidos de e/s
+## <a name="nature-of-io-requests"></a>Natureza das solicitações de e/s
 
-Um pedido de e/s é uma unidade de operação de entrada/saída que executará seu aplicativo. Identificando a natureza de pedidos de e/s, aleatórios ou sequenciais, de leitura ou escrita, pequena ou grande, irá ajudá-lo a determinar os requisitos de desempenho da sua aplicação. É importante compreender a natureza de pedidos de e/s, para tomar as decisões corretas ao conceber a sua infraestrutura de aplicações.
+Uma solicitação de e/s é uma unidade de operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de e/s, aleatória ou sequencial, leitura ou gravação, pequena ou grande, ajudará você a determinar os requisitos de desempenho do seu aplicativo. É importante entender a natureza das solicitações de e/s para tomar as decisões certas ao projetar sua infraestrutura de aplicativo.
 
-Tamanho de e/s é um dos fatores mais importantes. O tamanho de e/s é o tamanho do pedido de operação de entrada/saída gerado pela sua aplicação. O tamanho de e/s tem um impacto significativo no desempenho especialmente na IOPS e largura de banda que o aplicativo é capaz de alcançar. A fórmula seguinte mostra a relação entre o IOPS, o tamanho de e/s e largura de banda/débito.  
+O tamanho de e/s é um dos fatores mais importantes. O tamanho de e/s é o tamanho da solicitação de operação de entrada/saída gerada pelo seu aplicativo. O tamanho de e/s tem um impacto significativo no desempenho, especialmente no IOPS e na largura de banda que o aplicativo é capaz de alcançar. A fórmula a seguir mostra a relação entre IOPS, tamanho de e/s e largura de banda/taxa de transferência.  
     ![](media/premium-storage-performance/image1.png)
 
-Algumas aplicações permitem-lhe alterar o seu tamanho de e/s, enquanto alguns aplicativos não fazem. Por exemplo, o SQL Server determina o tamanho ideal de e/s em si e não fornece os utilizadores com qualquer botões para alterá-lo. Por outro lado, a Oracle disponibiliza a um parâmetro denominado [DB\_bloquear\_tamanho](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) com que pode configurar o tamanho do pedido de e/s da base de dados.
+Alguns aplicativos permitem que você altere seu tamanho de e/s, enquanto alguns aplicativos não têm. Por exemplo, SQL Server determina o tamanho de e/s ideal e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle fornece um parâmetro chamado [tamanho\_do\_bloco DB](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) usando o qual você pode configurar o tamanho da solicitação de e/s do banco de dados.
 
-Se estiver a utilizar uma aplicação, que não permite-lhe alterar o tamanho de e/s, utilize as diretrizes deste artigo para otimizar o desempenho de KPI que é mais relevante para seu aplicativo. Por exemplo,
+Se você estiver usando um aplicativo, que não permite alterar o tamanho de e/s, use as diretrizes neste artigo para otimizar o KPI de desempenho que é mais relevante para seu aplicativo. Por exemplo,
 
-* Um aplicativo de OLTP gera milhões de pedidos de e/s pequenos e aleatórios. Para lidar com esses tipos de pedidos de e/s, tem de criar sua infraestrutura de aplicações para obter mais elevada IOPS.  
-* Uma aplicação de armazém de dados gera solicitações de e/s grandes e sequenciais. Para lidar com esses tipos de pedidos de e/s, deve projetar sua infraestrutura de aplicações para obter maior largura de banda ou débito.
+* Um aplicativo OLTP gera milhões de solicitações de e/s pequenas e aleatórias. Para lidar com esses tipos de solicitações de e/s, você deve projetar a infraestrutura do aplicativo para obter um IOPS maior.  
+* Um aplicativo de data warehouse gera solicitações de e/s grandes e sequenciais. Para lidar com esses tipos de solicitações de e/s, você deve projetar sua infraestrutura de aplicativo para obter maior largura de banda ou taxa de transferência.
 
-Se estiver a utilizar uma aplicação, o que permite-lhe alterar o tamanho de e/s, utilize este princípio para o tamanho de e/s, além de outras diretrizes de desempenho,
+Se você estiver usando um aplicativo, que permite alterar o tamanho de e/s, use essa regra básica para o tamanho de e/s, além de outras diretrizes de desempenho,
 
-* Tamanho de e/s mais pequeno para obter mais IOPS. Por exemplo, 8 KB para uma aplicação de OLTP.  
-* Tamanho de e/s maior para obter a largura de banda/débito mais elevado. Por exemplo, 1024 KB para uma aplicação do armazém de dados.
+* Tamanho de e/s menor para obter IOPS mais alto. Por exemplo, 8 KB para um aplicativo OLTP.  
+* Tamanho de e/s maior para obter maior largura de banda/taxa de transferência. Por exemplo, 1024 KB para um aplicativo data warehouse.
 
-Eis um exemplo sobre como é possível calcular o IOPS e largura de banda/débito para a sua aplicação. Considere uma aplicação a utilizar um disco de P30. O máximo IOPS e débito/largura de banda de um disco de P30 podem alcançar é 5000 IOPS e 200 MB por segundo, respetivamente. Agora, se a sua aplicação requer o IOPS máximo do disco P30 e utilizar um tamanho mais pequeno de e/s, como de 8 KB, a largura de banda resultante será capaz de fazer é 40 MB por segundo. No entanto, se seu aplicativo requer a débito/largura de banda máxima do disco de P30, e utilizar um tamanho de e/s maior, como 1024 KB, o IOPS resultante será menos, 200 IOPS. Por conseguinte, ajuste o tamanho de e/s, de modo que ele cumpre o requisito de IOPS e largura de banda/débito de ambos os seu aplicativo. Tabela a seguir resume os diferentes tamanhos de e/s e seus correspondentes IOPS e débito para um disco de P30.
+Aqui está um exemplo de como você pode calcular a IOPS e a taxa de transferência/largura de banda para seu aplicativo. Considere um aplicativo usando um disco p30. O máximo de IOPS e taxa de transferência/largura de banda que um disco p30 pode atingir é de 5000 IOPS e 200 MB por segundo, respectivamente. Agora, se seu aplicativo exigir o máximo de IOPS do disco p30 e você usar um tamanho de e/s menor, como 8 KB, a largura de banda resultante que será capaz de obter será de 40 MB por segundo. No entanto, se seu aplicativo exigir a taxa de transferência/largura de banda máxima do disco p30 e você usar um tamanho de e/s maior, como 1024 KB, o IOPS resultante será menor, 200 IOPS. Portanto, ajuste o tamanho de e/s, de modo que atenda aos requisitos de IOPS e taxa de transferência/largura de banda do aplicativo. A tabela a seguir resume os diferentes tamanhos de e/s e seus IOPS e taxa de transferência correspondentes para um disco p30.
 
-| Requisito da aplicação | Tamanho de e/s | IOPS | Largura de banda/débito |
+| Requisito de aplicativo | Tamanho de e/s | IOPS | Taxa de transferência/largura de banda |
 | --- | --- | --- | --- |
-| IOPS máx |8 KB |5,000 |40 MB por segundo |
-| Débito máximo |1024 KB |200 |200 MB por segundo |
-| Débito máximo do + IOPS elevado |64 KB |3,200 |200 MB por segundo |
-| IOPS máx + alto débito |32 KB |5,000 |160 MB por segundo |
+| IOPS Máx. |8 KB |5,000 |40 MB por segundo |
+| Taxa de transferência máxima |1024 KB |200 |200 MB por segundo |
+| Taxa de transferência máxima + IOPS alto |64 KB |3,200 |200 MB por segundo |
+| IOPS máxima + alta taxa de transferência |32 KB |5,000 |160 MB por segundo |
 
-Para obter o IOPS e largura de banda superior ao valor máximo de um disco de armazenamento premium única, utilize vários discos premium repartidos em conjunto. Por exemplo, da faixa de dois discos de P30 para obter um IOPS combinado de IOPS 10 000 ou de um débito combinado de 400 MB por segundo. Conforme explicado na próxima seção, tem de utilizar um tamanho VM que suporte o combinado IOPS e débito de disco.
+Para obter IOPS e largura de banda maiores que o valor máximo de um único disco de armazenamento Premium, use vários discos Premium distribuídos juntos. Por exemplo, distribua dois discos p30 para obter um IOPS combinado de 10.000 IOPS ou uma taxa de transferência combinada de 400 MB por segundo. Conforme explicado na próxima seção, você deve usar um tamanho de VM que dá suporte à taxa de transferência e IOPS de disco combinados.
 
 > [!NOTE]
-> À medida que aumenta o IOPS ou o débito também aumenta a outra, certifique-se de que não se comunicam com débito ou limites de IOPS do disco ou VM ao aumentar a qualquer deles.
+> À medida que você aumenta o IOPS ou a taxa de transferência, o outro também aumenta, certifique-se de não atingir os limites de taxa de transferência ou de IOPS do disco ou da VM ao aumentar um deles.
 
-Observar os efeitos de tamanho de e/s no desempenho do aplicativo, pode executar ferramentas de benchmark na sua VM e os discos. Crie várias execuções de teste e utilize um tamanho de e/s diferente para cada execução para ver o impacto. Consulte a seção de Benchmarking no final deste artigo para obter mais detalhes.
+Para testemunhar os efeitos do tamanho de e/s no desempenho do aplicativo, você pode executar ferramentas de benchmark em sua VM e discos. Crie várias execuções de teste e use o tamanho de e/s diferente para cada execução para ver o impacto. Consulte a seção de parâmetros de comparação no final deste artigo para obter mais detalhes.
 
-## <a name="high-scale-vm-sizes"></a>Tamanhos de VM de grande escala
+## <a name="high-scale-vm-sizes"></a>Tamanhos de VM de alta escala
 
-Quando começa a projetar um aplicativo, uma das primeiras coisas a fazer é, escolha uma VM para alojar a sua aplicação. O armazenamento Premium é fornecido com tamanhos de VM de escala elevada que podem executar aplicações que requerem uma potência de computação e um elevado desempenho de e/s de disco local. Estas VMs fornecem processadores mais rápidos, um rácio de memória/núcleo superior e um Solid-State unidade (SSD) para o disco local. Os exemplos de alta de dimensionamento de VMs, que suporta o armazenamento Premium são a série DS, DSv2 e GS VMs.
+Quando você começa a criar um aplicativo, uma das primeiras coisas a fazer é escolher uma VM para hospedar seu aplicativo. O armazenamento Premium vem com tamanhos de VM de alta escala que podem executar aplicativos que exigem maior capacidade de computação e um alto desempenho de e/s de disco local. Essas VMs fornecem processadores mais rápidos, uma taxa maior de memória para núcleo e uma unidade de estado sólido (SSD) para o disco local. Exemplos de VMs de alta escala que dão suporte ao armazenamento Premium são as VMs da série DS, DSv2 e GS.
 
-Alta de dimensionamento de VMs estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e o tamanho do disco temporário. Cada tamanho de VM também tem o número máximo de discos de dados que podem ser anexadas à VM. Por conseguinte, o tamanho da VM escolhido afetará a quantidade de processamento, memória, e a capacidade de armazenamento está disponível para a sua aplicação. Também afeta a computação e custos de armazenamento. Por exemplo, seguem-se as especificações do maior tamanho VM numa série DS, série DSv2 e uma série GS:
+As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem o número máximo de discos de dados que você pode anexar à VM. Portanto, o tamanho escolhido da VM afetará a quantidade de capacidade de processamento, memória e armazenamento disponível para seu aplicativo. Ele também afeta o custo de computação e armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS, DSv2 Series e GS:
 
-| Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco VM | Um máximo de Discos de dados | Tamanho da cache | IOPS | Limites de e/s de Cache de largura de banda |
+| Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco de VM | Um máximo de discos de dados | Tamanho da cache | IOPS | Limites de es de cache de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB por segundo |4000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2\.000 MB por segundo |5000 IOPS e 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> SSD local = 224 GB |32 |576 GB |IOPS DE 50.000 <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |IOPS DE 80.000 <br> 2\.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
 
-Para ver uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de VM do Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que pode satisfazer e dimensionar-se aos seus requisitos de desempenho do aplicativo desejado. Além disso, tenha em conta considerações importantes sobre a seguir ao escolher tamanhos de VM.
+Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou tamanhos de VM do [Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que possa atender e dimensionar seus requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
-*Limites de dimensionamento*  
-Os limites IOPS máximos por VM e por disco são diferentes e independentes entre si. Certifique-se de que a aplicação está a orientar o IOPS dentro dos limites de VM, bem como os discos premium ligados à mesma. Caso contrário, desempenho de aplicações ultrapassado, origina limitação.
+*Limites de escala*  
+Os limites máximos de IOPS por VM e por disco são diferentes e independentes um do outro. Certifique-se de que o aplicativo está impulsionando o IOPS dentro dos limites da VM, bem como os discos Premium anexados a ele. Caso contrário, o desempenho do aplicativo apresentará limitação.
 
-Por exemplo, suponha que um requisito de aplicativo é um máximo de 4000 IOPS. Para conseguir isso, aprovisionar um disco de P30 numa DS1 VM. O disco de P30 pode fornecer até 5000 IOPS. No entanto, a VM de DS1 está limitada a 3,200 IOPS. Conseqüentemente, o desempenho da aplicação serão restritos pelo limite VM em 3,200 IOPS e haja degradação do desempenho. Para evitar essa situação, escolha um tamanho VM e disco que será ambos atender aos requisitos da aplicação.
+Por exemplo, suponha que um requisito de aplicativo seja um máximo de 4.000 IOPS. Para conseguir isso, você provisiona um disco p30 em uma VM DS1. O disco p30 pode fornecer até 5.000 IOPS. No entanto, a VM DS1 é limitada a 3.200 IOPS. Consequentemente, o desempenho do aplicativo será restrito pelo limite da VM em 3.200 IOPS e haverá degradação do desempenho. Para evitar essa situação, escolha uma VM e o tamanho do disco que atenderão aos requisitos do aplicativo.
 
 *Custo da operação*  
-Em muitos casos, é possível que os custos gerais de operação de utilizar o armazenamento Premium é inferior a utilização do armazenamento Standard.
+Em muitos casos, é possível que o custo geral da operação usando o armazenamento Premium seja menor do que o uso do armazenamento padrão.
 
-Por exemplo, considere um aplicativo exigir 16 000 IOPS. Para obter este desempenho, precisará de um padrão\_VM de IaaS do Azure de D14, que pode permitir que um IOPS máximo de 16.000 com 32 discos de 1 TB de armazenamento standard. Cada disco de 1 TB de armazenamento standard pode atingir o máximo de 500 IOPS. O custo estimado desta VM por mês será de US $1,570. O custo mensal de 32 discos de armazenamento standard será de US $1,638. O custo mensal total estimado será de US $3,208.
+Por exemplo, considere um aplicativo que requer 16.000 IOPS. Para atingir esse desempenho, você precisará de uma\_VM IaaS do Azure padrão D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento padrão de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de $1570. O custo mensal de 32 discos de armazenamento padrão será $1638. O custo mensal total estimado será de $3208.
 
-No entanto, se alojado no armazenamento Premium, a mesma aplicação, terá um tamanho VM mais pequeno e menos discos de armazenamento premium, reduzindo o custo geral. Um padrão\_DS13 VM podem satisfazer o requisito de IOPS de 16.000 utilizar quatro discos de P30. A VM de DS13 tem um IOPS máximo de 25,600 e cada disco P30 tem um IOPS máximo de 5000. Em geral, esta configuração pode alcançar 5.000 x 4 = 20.000 IOPS. O custo estimado desta VM por mês será de US $1,003. O custo mensal de quatro discos de armazenamento de premium P30 será de US $544.34. O custo mensal total estimado será de US $1,544.
+No entanto, se você tiver hospedado o mesmo aplicativo no armazenamento Premium, será necessário um tamanho de VM menor e menos discos de armazenamento Premium, reduzindo assim o custo geral. Uma VM\_DS13 padrão pode atender ao requisito de 16.000 IOPS usando quatro discos p30. A VM DS13 tem um máximo de IOPS de 25.600 e cada disco p30 tem um IOPS máximo de 5.000. Em geral, essa configuração pode atingir 5.000 x 4 = IOPS de 20.000. O custo estimado dessa VM por mês será de $1003. O custo mensal de quatro discos de armazenamento p30 Premium será $544.34. O custo mensal total estimado será de $1544.
 
-Tabela a seguir resume a análise detalhada do custo deste cenário para o Standard e o armazenamento Premium.
+A tabela a seguir resume a divisão de custo desse cenário para o armazenamento Standard e Premium.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Custo de VM por mês** |US $1,570.58 (standard\_D14) |US $1,003.66 (standard\_DS13) |
-| **Custo de discos por mês** |US $1,638.40 (32 x 1 TB de discos) |US $544.34 (4 x P30 discos) |
-| **Custo global por mês** |$3,208.98 |$1,544.34 |
+| **Custo da VM por mês** |$1570.58 (padrão\_D14) |$1003.66 (Standard\_DS13) |
+| **Custo de discos por mês** |$1638.40 (32 x 1 TB de discos) |$544.34 (4 x p30 discos) |
+| **Custo geral por mês** |$3,208.98 |$1,544.34 |
 
-*Distribuições do Linux*  
+*Distribuições Linux*  
 
-Com o armazenamento Premium do Azure, obtém o mesmo nível de desempenho para as VMs que executam o Windows e Linux. Damos suporte a muitos tipos de distribuições Linux, e pode ver a lista completa [aqui](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É importante observar que diferentes distros mais adequadas para diferentes tipos de cargas de trabalho. Verá diferentes níveis de desempenho, consoante a distribuição de que sua carga de trabalho está a ser executada. Teste as distribuições de Linux com a sua aplicação e escolher o método que funcionará melhor.
+Com o armazenamento Premium do Azure, você obtém o mesmo nível de desempenho para VMs que executam Windows e Linux. Damos suporte a vários tipos de distribuições do Linux e você pode ver a lista completa [aqui](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É importante observar que diferentes distribuições são mais adequadas para diferentes tipos de cargas de trabalho. Você verá níveis diferentes de desempenho dependendo do distribuição em que sua carga de trabalho está em execução. Teste o distribuições do Linux com seu aplicativo e escolha aquele que funciona melhor.
 
-Ao executar o Linux com o armazenamento Premium, verifique as atualizações mais recentes sobre os controladores necessários para garantir um desempenho elevado.
+Ao executar o Linux com o armazenamento Premium, verifique as atualizações mais recentes sobre os drivers necessários para garantir o alto desempenho.
 
 ## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco de armazenamento Premium
 
-Armazenamento Premium do Azure oferece três tamanhos de disco que estão atualmente em pré-visualização e oito tamanhos de disco de disponibilidade geral. Cada tamanho de disco tem um limite de escala diferente para armazenamento, IOPS e largura de banda. Escolha o melhor tamanho do disco de armazenamento Premium, consoante os requisitos de aplicação e a tamanho da VM de grande escala. A tabela abaixo mostra os tamanhos de 11 de discos e as respetivas funcionalidades. Tamanhos de P4, P6, P15, P60, P70 e P80 estão atualmente apenas suportado para discos geridos.
+O armazenamento Premium do Azure oferece oito tamanhos de disco de GA e três tamanhos de disco que estão na versão prévia, no momento. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho correto do disco de armazenamento Premium, dependendo dos requisitos do aplicativo e do tamanho da VM de alta escala. A tabela a seguir mostra os 11 tamanhos de discos e seus recursos. Os tamanhos P4, P6, P15, P60, P70 e P80 atualmente só têm suporte para Managed Disks.
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16,384 giB (TiB de 16)    | 32.767 giB (32 TiB)    |
+| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
 | IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15,000              | 20,000              |
-| Débito por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |MiB 125 por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+| Débito por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 
-Quantos discos que escolher depende do disco de tamanho de escolhida. Poderia usar um disco de P50 único ou vários discos de P10 para atender às necessidades da sua aplicação. Tenha em considerações de conta listadas abaixo, ao fazer a escolha.
+Quantos discos você escolher depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em consideração as considerações listadas abaixo ao fazer a escolha.
 
-*Limites de dimensionamento (IOPS e débito)*  
-Os limites IOPS e débito de cada tamanho de disco Premium é diferente e independente dos limites de dimensionamento VM. Certifique-se de que ao total de IOPS e débito dos discos estão dentro dos limites de dimensionamento do tamanho da VM escolhido.
+*Limites de escala (IOPS e taxa de transferência)*  
+Os limites de IOPS e taxa de transferência de cada tamanho de disco Premium são diferentes e independentes dos limites de escala da VM. Verifique se a IOPS e a taxa de transferência totais dos discos estão dentro dos limites de escala do tamanho da VM escolhida.
 
-Por exemplo, se um requisito de aplicativo é um máximo de 250 MB por segundo de débito e estiver a utilizar uma VM DS4 com um único disco P30. A VM DS4 pode permitir que até 256 MB/seg débito. No entanto, um único disco P30 tem o limite de taxa de transferência de 200 MB/seg. Conseqüentemente, a aplicação serão restritos em 200 MB por segundo devido ao limite de disco. Para superar esse limite, aprovisionar mais do que um discos de dados à VM ou redimensionar os seus discos P40 ou P50.
+Por exemplo, se um requisito de aplicativo for de, no máximo, 250 MB/s de taxa de transferência e você estiver usando uma VM DS4 com um único disco p30. A VM DS4 pode dar até 256 MB/s de taxa de transferência. No entanto, um único disco p30 tem o limite de taxa de transferência de 200 MB/s. Consequentemente, o aplicativo será restrito a 200 MB/s devido ao limite de disco. Para superar esse limite, provisione mais de um disco de dados para a VM ou redimensione seus discos para P40 ou P50.
 
 > [!NOTE]
-> Leituras servidas pela cache de não estão incluídas no disco IOPS e débito, pelo que não sujeita aos limites de disco. Cache tem o limite IOPS e débito separado por VM.
+> As leituras servidas pelo cache não são incluídas na IOPS e na taxa de transferência do disco, portanto, não estão sujeitas a limites de disco. O cache tem seu limite de IOPS e taxa de transferência separado por VM.
 >
-> Por exemplo, inicialmente sua leituras e gravações são 60MB/seg e 40MB/seg respetivamente. Ao longo do tempo, o cache warms cópia de segurança e serve mais e mais as leituras da cache. Em seguida, pode obter escrita mais alta débito do disco.
+> Por exemplo, inicialmente, suas leituras e gravações são 60 MB/s e 40/s, respectivamente. Com o tempo, o cache fica ativo e atende a cada vez mais das leituras do cache. Em seguida, você pode obter uma taxa de transferência de gravação maior do disco.
 
 *Número de discos*  
-Determine o número de discos, terá de avaliar os requisitos da aplicação. Cada tamanho de VM também tem um limite no número de discos que podem ser anexadas à VM. Normalmente, isto é duas vezes o número de núcleos. Certifique-se de que o tamanho da VM que escolher pode suportar o número de discos necessários.
+Determine o número de discos que você precisará avaliando os requisitos do aplicativo. Cada tamanho de VM também tem um limite no número de discos que você pode anexar à VM. Normalmente, esse é o dobro do número de núcleos. Verifique se o tamanho da VM escolhido pode dar suporte ao número de discos necessários.
 
-Lembre-se de que os discos de armazenamento Premium têm capacidades de desempenho superior em comparação com discos de armazenamento Standard. Por conseguinte, se estiver a migrar a aplicação de VM de IaaS do Azure com o armazenamento Standard para o armazenamento Premium, provavelmente precisará menos os discos premium para obter um desempenho igual ou superior para a sua aplicação.
+Lembre-se de que os discos de armazenamento Premium têm recursos de desempenho mais altos em comparação com os discos de armazenamento padrão. Portanto, se você estiver migrando seu aplicativo da VM IaaS do Azure usando o armazenamento Standard para o armazenamento Premium, provavelmente precisará de menos discos Premium para obter o mesmo desempenho ou mais alto para seu aplicativo.
 
-## <a name="disk-caching"></a>Colocação em cache do disco
+## <a name="disk-caching"></a>Cache de disco
 
-As VMs de escala elevada que tiram partido do armazenamento Premium do Azure têm uma tecnologia de colocação em cache de várias camada chamada BlobCache. BlobCache usa uma combinação da RAM da Máquina Virtual e local SSD para colocar em cache. Esta cache está disponível para os discos de persistentes do armazenamento Premium e os discos da VM locais. Por predefinição, esta definição de cache é definida como leitura/escrita para discos de SO e só de leitura para os discos de dados alojados no armazenamento Premium. Com disco à colocação em cache ativada nos discos de armazenamento Premium, a VMs de grande escala pode alcançar extremamente altos níveis de desempenho que excedem o desempenho de disco subjacente.
+As VMs de alta escala que aproveitam o armazenamento Premium do Azure têm uma tecnologia de cache de várias camadas chamada BlobCache. O BlobCache usa uma combinação da RAM da máquina virtual e do SSD local para cache. Esse cache está disponível para os discos persistentes de armazenamento Premium e os discos locais da VM. Por padrão, essa configuração de cache é definida como leitura/gravação para discos do sistema operacional e ReadOnly para discos de dados hospedados no armazenamento Premium. Com o cache de disco habilitado nos discos do armazenamento Premium, as VMs de alta escala podem atingir níveis extremamente altos de desempenho que excedem o desempenho de disco subjacente.
 
 > [!WARNING]
-> Colocação em cache do disco não é suportada para discos superiores a 4 TiB. Se vários discos estão anexados à sua VM, cada disco que é 4 TiB ou menores irá suportar a colocação em cache.
+> O cache de disco não tem suporte para discos 4 TiB e maiores. Se vários discos estiverem anexados à sua VM, cada disco com menos de 4 TiB dará suporte a cache.
 >
-> Alterar a definição de cache de um disco do Azure desliga e voltar anexa o disco de destino. Se for o disco do sistema operativo, a VM é reiniciada. Pare todos os aplicativos/serviços que possam ser afetados por este interrupção antes de alterar a definição de cache do disco.
+> A alteração da configuração de cache de um disco do Azure desanexa e anexa novamente o disco de destino. Se for o disco do sistema operacional, a VM será reiniciada. Interrompa todos os aplicativos/serviços que podem ser afetados por essa interrupção antes de alterar a configuração de cache de disco.
 
-Para saber mais sobre como funciona o BlobCache, consulte o interior [armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) postagem de blog.
+Para saber mais sobre como o BlobCache funciona, consulte a postagem no blog do [armazenamento Premium do Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
-É importante ativar a cache no conjunto certo de discos. Se deve ativar a colocação em cache do disco num disco premium ou não dependerá o padrão de carga de trabalho desse disco irá processar. Tabela a seguir mostra as predefinições de definições de cache para discos de SO e dados.
+É importante habilitar o cache no conjunto correto de discos. Se você deve habilitar o cache de disco em um disco Premium ou não dependerá do padrão de carga de trabalho que será manuseado pelo disco. A tabela abaixo mostra as configurações de cache padrão para o sistema operacional e OS discos de dados.
 
-| **Tipo de disco** | **Definição de cache predefinida** |
+| **Tipo de disco** | **Configuração de cache padrão** |
 | --- | --- |
-| Disco do SO |ReadWrite |
+| Disco do SO |Leitura/Escrita |
 | Disco de dados |ReadOnly |
 
-Seguem-se as definições de cache de disco recomendado para discos de dados,
+A seguir estão as configurações de cache de disco recomendadas para discos de dados,
 
-| **Definição de colocação em cache do disco** | **Recomendação sobre quando utilizar esta definição** |
+| **Configuração de cache de disco** | **recomendação sobre quando usar essa configuração** |
 | --- | --- |
-| Nenhum |Configure o cache do anfitrião como nenhum para discos de só de escrita e de escrita intensiva. |
-| ReadOnly |Configure o cache do anfitrião como só de leitura para os discos só de leitura e de leitura / escrita. |
-| ReadWrite |Configure o cache do anfitrião como ReadWrite apenas se o seu aplicativo manipula corretamente a escrita de dados em cache para discos persistentes quando necessário. |
+| Nenhum |Configure o cache de host como nenhum para discos somente gravação e de gravação intensa. |
+| ReadOnly |Configure o cache do host como ReadOnly para discos somente leitura e de leitura/gravação. |
+| Leitura/Escrita |Configure o cache do host como ReadWrite somente se seu aplicativo manipula corretamente a gravação de dados armazenados em cache em discos persistentes quando necessário. |
 
 *ReadOnly*  
-Ao configurar a colocação em cache em dados de armazenamento Premium discos de só de leitura, pode obter a baixa latência de leitura e obter muito elevada IOPS de leitura e de débito para a sua aplicação. Isso é devido a duas razões,
+Ao configurar o cache somente leitura em discos de dados de armazenamento Premium, você pode obter baixa latência de leitura e obter IOPS de leitura e taxa de transferência muito altas para seu aplicativo. Isso é devido a dois motivos,
 
-1. Leituras efetuada a partir de cache, o que está na memória da VM e local SSD, são muito mais rápidas do que de leituras de disco de dados, que é o armazenamento de Blobs do Azure.  
-1. O armazenamento Premium não conta as leituras servidas a partir da cache, para o disco IOPS e débito. Portanto, seu aplicativo é capaz de alcançar maior total de IOPS e débito.
+1. As leituras realizadas do cache, que estão na memória da VM e no SSD local, são muito mais rápidas do que as leituras do disco de dados, que está no armazenamento de BLOBs do Azure.  
+1. O armazenamento Premium não conta as leituras servidas do cache, em direção à taxa de transferência e IOPS de disco. Portanto, seu aplicativo é capaz de alcançar um total maior de IOPS e taxa de transferência.
 
 *ReadWrite*  
-Por predefinição, os discos de SO têm ReadWrite colocação em cache ativada. Adicionámos suporte para ReadWrite colocação em cache em dados de discos também recentemente. Se estiver a utilizar a colocação em cache do ReadWrite, tem de ter um modo adequado para escrever os dados da cache para discos persistentes. Por exemplo, o SQL Server processa escrever dados em cache para os discos de armazenamento persistente por conta própria. Utilizar a cache do ReadWrite com um aplicativo que não manipula a persistir os dados necessários pode levar a perda de dados, no caso de falha de VM.
+Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte para cache ReadWrite em discos de dados. Se você estiver usando o cache ReadWrite, deverá ter uma maneira adequada de gravar os dados do cache em discos persistentes. Por exemplo, SQL Server lida com a gravação de dados armazenados em cache nos discos de armazenamento persistentes por conta própria. O uso do cache ReadWrite com um aplicativo que não lida com a persistência dos dados necessários pode levar à perda de dados, se a VM falhar.
 
-Por exemplo, pode aplicar essas diretrizes para o SQL Server em execução no armazenamento Premium, ao fazer o seguinte,
+Por exemplo, você pode aplicar essas diretrizes para SQL Server em execução no armazenamento Premium fazendo o seguinte:
 
-1. Configure a cache de "Só de leitura" nos discos de armazenamento premium que alojem ficheiros de dados.  
-   a.  O fast lê a partir do cache inferior o tempo de consulta do SQL Server, uma vez que as páginas de dados são obtidas muito mais rapidamente a partir da cache em comparação com diretamente a partir dos dados de discos.  
-   b.  A servir leituras da cache, significa que há um débito adicionais disponíveis a partir de discos de dados premium. SQL Server pode utilizar este débito adicionais para obter mais páginas de dados e outras operações, como backup/restauração, carregamentos do batch e as recompilações de índice.  
-1. Configurar "None" em cache nos discos de armazenamento premium que aloja os ficheiros de registo.  
-   a.  Ficheiros de registo têm principalmente as operações de escrita intensiva. Por conseguinte, não beneficiam da cache só de leitura.
+1. Configure o cache "ReadOnly" em discos de armazenamento Premium que hospedam arquivos de dados.  
+   a.  As leituras rápidas do cache diminuem o tempo de consulta de SQL Server, pois as páginas de dados são recuperadas muito mais rapidamente do cache em comparação com os discos de dados.  
+   b.  Atendendo leituras do cache, significa que há uma taxa de transferência adicional disponível nos discos de dados Premium. SQL Server pode usar essa taxa de transferência adicional para recuperar mais páginas de dados e outras operações, como backup/restauração, cargas de lote e recompilações de índice.  
+1. Configure o cache "nenhum" em discos de armazenamento Premium que hospedam os arquivos de log.  
+   a.  Os arquivos de log têm principalmente operações de gravação pesada. Portanto, eles não se beneficiam do cache ReadOnly.
 
-## <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho em VMs do Linux
+## <a name="optimize-performance-on-linux-vms"></a>Otimizar o desempenho em VMs Linux
 
-Para todos os premium SSDs ou discos ultra com cache definido como **só de leitura** ou **nenhum**, tem de desativar "barreiras" ao montar o sistema de ficheiros. Não precisa barreiras neste cenário, uma vez que as gravações para discos de armazenamento premium são duráveis para estas definições de cache. Quando a solicitação de gravação for concluída com êxito, os dados tenham sido gravados no arquivo persistente. Para desativar "barreiras", utilize um dos seguintes métodos. Escolha o para o sistema de ficheiros:
+Para todos os SSDs ou ultra discos Premium com cache definido como **ReadOnly** ou **None**, você deve desabilitar "barreiras" ao montar o sistema de arquivos. Você não precisa de barreiras nesse cenário porque as gravações nos discos de armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída com êxito, os dados foram gravados no repositório persistente. Para desabilitar "barreiras", use um dos métodos a seguir. Escolha uma para o sistema de arquivos:
   
-* Para **reiserFS**para desativar as barreiras, utilize o `barrier=none` montar opção. (Para ativar as barreiras, utilize `barrier=flush`.)
-* Para **ext3/ext4**para desativar as barreiras, utilize o `barrier=0` montar opção. (Para ativar as barreiras, utilize `barrier=1`.)
-* Para **XFS**para desativar as barreiras, utilize o `nobarrier` montar opção. (Para ativar as barreiras, utilize `barrier`.)
-* Para o armazenamento premium discos com cache definido como **ReadWrite**, ative as barreiras para durabilidade de escrita.
-* Para procurar etiquetas de volume persistir depois de reiniciar a VM, tem de atualizar /etc/fstab. com as referências de identificador exclusivo universalmente (UUID) para os discos. Para obter mais informações, consulte [adicionar um disco gerido a uma VM do Linux](../articles/virtual-machines/linux/add-disk.md).
+* Para **reiserFS**, para desabilitar as barreiras, use `barrier=none` a opção de montagem. (Para habilitar as barreiras, `barrier=flush`use.)
+* Para **ext3/ext4**, para desabilitar as barreiras, use `barrier=0` a opção de montagem. (Para habilitar as barreiras, `barrier=1`use.)
+* Para **xfs**, para desabilitar as barreiras, use `nobarrier` a opção de montagem. (Para habilitar as barreiras, `barrier`use.)
+* Para discos de armazenamento Premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
+* Para que os rótulos de volume persistam depois de reiniciar a VM, você deve atualizar o/etc/fstab com as referências de UUID (identificador universal exclusivo) para os discos. Para obter mais informações, consulte [Adicionar um disco gerenciado a uma VM do Linux](../articles/virtual-machines/linux/add-disk.md).
 
-As distribuições de Linux seguintes foram validadas para os premium SSDs. Para obter um melhor desempenho e estabilidade com premium SSDs, recomendamos que Atualize as suas VMs para um destas versões ou posterior. 
+As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com o SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou posterior. 
 
-Algumas das versões requerem o mais recente Linux Integration Services (LIS), v4.0, para o Azure. Para transferir e instalar uma distribuição, siga o link listado na tabela seguinte. Podemos adicionar imagens à lista, à medida que concluir a validação. Nosso validações mostram que o desempenho varia para cada imagem. Desempenho depende de características de carga de trabalho e as definições de imagem. Diferentes imagens otimizadas para diferentes tipos de cargas de trabalho.
+Algumas das versões exigem o mais recente Integration Services do Linux (LIS), v 4.0, para o Azure. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Adicionamos imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia de acordo com cada imagem. O desempenho depende das características da carga de trabalho e das configurações da imagem. Imagens diferentes são ajustadas para diferentes tipos de cargas de trabalho.
 
-| Distribuição | Version | Kernel suportada | Detalhes |
+| Distribuição | Version | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
@@ -299,96 +299,96 @@ Algumas das versões requerem o mais recente Linux Integration Services (LIS), v
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-### <a name="lis-drivers-for-openlogic-centos"></a>Controladores LIS para OpenLogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para OpenLogic CentOS
 
-Se estiver a executar VMs do CentOS OpenLogic, execute o seguinte comando para instalar os controladores mais recentes:
+Se você estiver executando VMs OpenLogic CentOS, execute o seguinte comando para instalar os drivers mais recentes:
 
 ```
 sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
 ```
 
-Para ativar os novos controladores, reinicie a VM.
+Para ativar os novos drivers, reinicie a VM.
 
-## <a name="disk-striping"></a>Repartição de disco
+## <a name="disk-striping"></a>Distribuição de disco
 
-Quando uma escala elevada de que VM está ligada com vários discos persistentes de armazenamento premium, os discos podem repartidos em conjunto para agregar seus IOPs, a largura de banda e a capacidade de armazenamento.
+Quando uma VM de alta escala é anexada a vários discos persistentes de armazenamento Premium, os discos podem ser distribuídos em conjunto para agregar a capacidade de armazenamento, largura de banda e IOPs.
 
-No Windows, pode utilizar espaços de armazenamento para discos do stripe em conjunto. Tem de configurar uma coluna para cada disco num agrupamento. Caso contrário, o desempenho geral do volume repartido pode ser menor que o esperado devido a distribuição desigual de tráfego em todos os discos.
+No Windows, você pode usar espaços de armazenamento para distribuir discos juntos. Você deve configurar uma coluna para cada disco em um pool. Caso contrário, o desempenho geral do volume distribuído pode ser menor do que o esperado, devido à distribuição irregular do tráfego entre os discos.
 
-Importante: Através da IU do Gestor de servidor, pode definir o número total de colunas até 8 para um volume repartido. Ao anexar discos de mais de oito, utilize o PowerShell para criar o volume. Com o PowerShell, pode definir o número de colunas igual ao número de discos. Por exemplo, se existirem 16 discos num conjunto único stripe; especificar 16 colunas na *NumberOfColumns* parâmetro do *New-VirtualDisk* cmdlet do PowerShell.
+Importante: Usando a interface do usuário do Gerenciador do Servidor, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, você pode definir o número de colunas igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; Especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
-No Linux, utilize o utilitário MDADM para discos do stripe em conjunto. Para obter passos detalhados sobre os discos de repartição no Linux, consulte [configurar o RAID de Software no Linux](../articles/virtual-machines/linux/configure-raid.md).
+No Linux, use o utilitário MDADM para distribuir discos juntos. Para obter etapas detalhadas sobre a distribuição de discos no Linux, consulte [Configurar o RAID de software no Linux](../articles/virtual-machines/linux/configure-raid.md).
 
-*Tamanho do stripe*  
-Uma configuração importantes no repartição de disco é o tamanho do stripe. O tamanho da faixa ou o tamanho do bloco é a parte mais pequeno de dados que o aplicativo puder atender num volume repartido. O tamanho do stripe que configurar depende do tipo de aplicativo e seu padrão de solicitação. Se escolher o tamanho do stripe errado, ele poderia levar a alinhamento incorreto da e/s, que leva à degradação do desempenho da sua aplicação.
+*Tamanho da distribuição*  
+Uma configuração importante na distribuição de disco é o tamanho da distribuição. O tamanho da faixa ou o tamanho do bloco é a menor parte dos dados que o aplicativo pode tratar em um volume distribuído. O tamanho de distribuição que você configura depende do tipo de aplicativo e seu padrão de solicitação. Se você escolher o tamanho de distribuição errado, isso pode levar ao desalinhamento de e/s, o que leva à degradação do desempenho do seu aplicativo.
 
-Por exemplo, se um pedido de e/s gerado pela sua aplicação for maior do que o tamanho do stripe de disco, o sistema de armazenamento escreve-lo em limites de unidade repartidos em mais de um disco. Quando está na altura de aceder a esses dados, terá de procurar em mais do que um unidades do stripe para concluir o pedido. O efeito cumulativo desse comportamento pode levar a degradação do desempenho substanciais. Por outro lado, se o tamanho do pedido de e/s é menor do que o tamanho do stripe, e se é aleatório por natureza, os pedidos de e/s podem aumentar no mesmo disco provocar um estrangulamento e, por fim, degradar o desempenho de e/s.
+Por exemplo, se uma solicitação de e/s gerada pelo seu aplicativo for maior do que o tamanho de distribuição do disco, o sistema de armazenamento a gravará entre limites de unidade de distribuição em mais de um disco. Quando for o momento de acessar esses dados, será necessário buscar mais de uma unidade de distribuição para concluir a solicitação. O efeito cumulativo desse comportamento pode levar à degradação significativa do desempenho. Por outro lado, se o tamanho da solicitação de e/s for menor do que o tamanho da distribuição e, se for aleatório por natureza, as solicitações de e/s poderão ser adicionadas no mesmo disco causando um afunilamento e, conseqüentemente, degradando o desempenho de e/s.
 
-Dependendo do tipo de carga de trabalho de que seu aplicativo está em execução, escolha um tamanho adequado do stripe. Para pedidos de e/s pequenas aleatórios, utilize um tamanho mais pequeno do stripe. Enquanto que para o e/s sequenciais grandes pedidos de utilizar um tamanho maior do stripe. Descubra as stripe recomendações de tamanho para a aplicação que irá executar no armazenamento Premium. Para o SQL Server, configure o tamanho da faixa de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de armazenamento de dados. Ver [melhores práticas de desempenho para o SQL Server em VMs do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
+Dependendo do tipo de carga de trabalho que seu aplicativo está executando, escolha um tamanho de distribuição apropriado. Para solicitações aleatórias de pequena e/s, use um tamanho de distribuição menor. Ao passo que para solicitações de e/s sequenciais grandes, use um tamanho de distribuição maior. Descubra as recomendações de tamanho de distribuição para o aplicativo que será executado no armazenamento Premium. Para SQL Server, configure o tamanho de distribuição de 64 KB para cargas de trabalho OLTP e 256 KB para cargas de trabalho de data warehouse. Consulte [práticas recomendadas de desempenho para SQL Server em VMs do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para saber mais.
 
 > [!NOTE]
-> Pode do stripe em conjunto um máximo de 32 discos de armazenamento premium numa VM da série DS e de 64 discos de armazenamento premium numa VM da série GS.
+> Você pode distribuir um máximo de 32 discos de armazenamento Premium em uma VM da série DS e 64 discos de armazenamento Premium em uma VM da série GS.
 
-## <a name="multi-threading"></a>Vários segmentos
+## <a name="multi-threading"></a>Multithreading
 
-Azure foi concebido a plataforma de armazenamento Premium para ser paralelo em grande escala. Por conseguinte, um aplicativo multithreaded alcança um desempenho muito superior que um aplicativo de thread único. Um aplicativo multithreaded divida as respetivas tarefas entre vários threads e aumenta a eficiência de sua execução utilizando os recursos VM e de disco para o máximo.
+O Azure criou a plataforma de armazenamento Premium para ser massivamente paralela. Portanto, um aplicativo multi-threaded Obtém um desempenho muito maior do que um aplicativo de thread único. Um aplicativo multi-threaded divide suas tarefas em vários threads e aumenta a eficiência de sua execução utilizando a VM e os recursos de disco para o máximo.
 
-Por exemplo, se seu aplicativo é executado num único núcleo VM com dois threads, a CPU pode alternar entre os dois threads para obter eficiência. Enquanto um thread está aguardando num disco e/s para concluir, a CPU pode mudar para o outro thread. Dessa forma, dois threads podem ser feito mais do que faria com um único thread. Se a VM tiver mais de um núcleo, ela ainda mais diminui o tempo de execução, uma vez que cada núcleo pode executar tarefas em paralelo.
+Por exemplo, se seu aplicativo estiver sendo executado em uma única VM de núcleo usando dois threads, a CPU poderá alternar entre os dois threads para obter eficiência. Enquanto um thread está aguardando a conclusão de uma e/s de disco, a CPU pode mudar para o outro thread. Dessa forma, dois threads podem realizar mais do que um único thread. Se a VM tiver mais de um núcleo, diminuirá ainda mais o tempo de execução, pois cada núcleo pode executar tarefas em paralelo.
 
-Não poderá alterar a forma como um aplicativo comercial implementa único thread ou vários segmentos. Por exemplo, o SQL Server é capaz de processar com várias CPUS e com vários núcleos. No entanto, o SQL Server decide em quais condições aproveitará um ou mais threads para processar uma consulta. Ele pode executar consultas e criar índices com multithreading. Para uma consulta que envolve associar tabelas grandes e ordenar os dados antes de retornar ao usuário, o SQL Server utilizará provavelmente vários threads. No entanto, um utilizador não é possível controlar se o SQL Server executa uma consulta com um único thread ou vários threads.
+Talvez você não consiga alterar o modo como um aplicativo pronto para prateleira implementa thread único ou multithreading. Por exemplo, SQL Server é capaz de lidar com várias CPUs e vários núcleos. No entanto, SQL Server decide em quais condições ele usará um ou mais threads para processar uma consulta. Ele pode executar consultas e criar índices usando vários threads. Para uma consulta que envolve a junção de tabelas grandes e a classificação de dados antes de retornar ao usuário, SQL Server provavelmente usará vários threads. No entanto, um usuário não pode controlar se SQL Server executa uma consulta usando um único thread ou vários threads.
 
-Existem definições de configuração que é possível alterar a influenciar este multithreading ou paralela de processamento de um aplicativo. Por exemplo, no caso do SQL Server é a configuração de grau de paralelismo máxima. Esta definição chamada MAXDOP, permite-lhe configurar o número máximo de processadores que do SQL Server pode usar ao paralela de processamento. Pode configurar MAXDOP para consultas individuais ou operações de índice. Isso é benéfico quando deseja equilibrar recursos do seu sistema para um aplicativo essencial de desempenho.
+Há definições de configuração que você pode alterar para influenciar esse processamento paralelo ou multithread de um aplicativo. Por exemplo, no caso de SQL Server é a configuração de grau máximo de paralelismo. Essa configuração chamada MAXDOP, permite que você configure o número máximo de processadores SQL Server pode usar quando o processamento paralelo. Você pode configurar MAXDOP para consultas individuais ou operações de índice. Isso é benéfico quando você deseja balancear os recursos do seu sistema para um aplicativo de desempenho crítico.
 
-Por exemplo, digamos que seu aplicativo usando o SQL Server está a executar uma consulta grande e uma operação de índice ao mesmo tempo. Vamos assumir que queria que a operação de índice para ter um melhor desempenho em comparação com a consulta de grandes. Nesse caso, pode definir o valor MAXDOP da operação de índice seja maior do que o valor MAXDOP para a consulta. Dessa forma, o SQL Server tem mais de número de processadores que ele pode aproveitar para a operação de índice em comparação com o número de processadores, que ele pode dedicar à consulta de grandes dimensões. Lembre-se de que não controlar o número de threads do SQL Server irá utilizar para cada operação. Pode controlar o número máximo de processadores a ser dedicado para multithreading.
+Por exemplo, digamos que seu aplicativo usando SQL Server esteja executando uma consulta grande e uma operação de índice ao mesmo tempo. Vamos supor que você queria que a operação de índice fosse mais eficaz em comparação com a consulta grande. Nesse caso, você pode definir o valor MAXDOP da operação de índice para ser maior do que o valor MAXDOP da consulta. Dessa forma, SQL Server tem um número maior de processadores que ele pode aproveitar para a operação de índice em comparação com o número de processadores que ele pode dedicar à consulta grande. Lembre-se de que você não controla o número de threads que SQL Server será usado para cada operação. Você pode controlar o número máximo de processadores que estão sendo dedicados para vários threads.
 
-Saiba mais sobre [graus de paralelismo](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Saiba quais são essas configurações que influenciam o multithreading em seu aplicativo e suas configurações para otimizar o desempenho.
+Saiba mais sobre os [graus de paralelismo](https://technet.microsoft.com/library/ms188611.aspx) no SQL Server. Descubra essas configurações que influenciam multithreading em seu aplicativo e suas configurações para otimizar o desempenho.
 
-## <a name="queue-depth"></a>Profundidade de fila
+## <a name="queue-depth"></a>Profundidade da fila
 
-A profundidade de fila ou o comprimento da fila ou o tamanho da fila é o número de pedidos de e/s pendentes no sistema. O valor da profundidade de fila determina quantas operações de e/s que seu aplicativo pode alinhar, que irão processar os discos de armazenamento. Afeta todos os indicadores de desempenho do três aplicativo nós discutidos neste artigo viz., IOPS, débito e latência.
+A profundidade da fila ou o tamanho da fila ou do intervalo é o número de solicitações de e/s pendentes no sistema. O valor da profundidade da fila determina quantas operações de e/s o seu aplicativo pode alinhar, quais serão processadas pelos discos de armazenamento. Ele afeta todos os três indicadores de desempenho do aplicativo que discutimos neste artigo aula sobre visualização., IOPS, taxa de transferência e latência.
 
-Fila profundidade e vários segmentos estão intimamente relacionados. O valor de profundidade de fila indica quanto multithreading pode ser obtido pela aplicação. Se a profundidade de fila é grande, aplicativo pode executar outras operações ao mesmo tempo, em outras palavras, mais multithreading. Se a profundidade de fila é pequena, mesmo que a aplicação tem vários threads, ele não terá suficiente pedidos interessados para a execução simultânea.
+A profundidade da fila e multithreading estão profundamente relacionadas. O valor de profundidade da fila indica a quantidade de multithreading que pode ser obtida pelo aplicativo. Se a profundidade da fila for grande, o aplicativo poderá executar mais operações simultaneamente, em outras palavras, mais multithreading. Se a profundidade da fila for pequena, mesmo que o aplicativo tenha vários threads, ele não terá solicitações suficientes alinhadas para execução simultânea.
 
-Normalmente, a versão comercial aplicações não permitem que altere a profundidade de fila, porque se definir incorretamente fará mais mal do que bem. Aplicativos definirá o valor correto da profundidade de fila para obter o desempenho ideal. No entanto, é importante compreender esse conceito para que pode resolver problemas de desempenho com a sua aplicação. Também pode observar os efeitos da profundidade de fila ao executar as ferramentas de benchmark em seu sistema.
+Normalmente, os aplicativos de prateleira não permitem que você altere a profundidade da fila, porque se estiver definido incorretamente, ele fará mais danos do que o bom. Os aplicativos definirão o valor certo da profundidade da fila para obter o desempenho ideal. No entanto, é importante entender esse conceito para que você possa solucionar problemas de desempenho com seu aplicativo. Você também pode observar os efeitos da profundidade da fila executando ferramentas de benchmark em seu sistema.
 
-Alguns aplicativos fornecem definições para influenciar a profundidade de fila. Por exemplo, a definição de (grau máximo de paralelismo) MAXDOP no SQL Server é explicado na secção anterior. MAXDOP é uma forma para influenciar a profundidade de fila e multithreading, apesar de não alterar diretamente o valor de profundidade de fila do SQL Server.
+Alguns aplicativos fornecem configurações para influenciar a profundidade da fila. Por exemplo, a configuração MAXDOP (grau máximo de paralelismo) no SQL Server explicado na seção anterior. MAXDOP é uma maneira de influenciar a profundidade da fila e o multithreading, embora não altere diretamente o valor de profundidade da fila de SQL Server.
 
-*Profundidade de fila elevada*  
-Linhas de uma profundidade de fila de alta segurança mais operações no disco. O disco sabe a próxima solicitação na sua fila antes do tempo. Conseqüentemente, o disco pode agendar operações com antecedência e processá-las numa seqüência ideal. Uma vez que a aplicação está a enviar mais pedidos para o disco, o disco pode processar mais IOs paralelas. Por fim, a aplicação poderá atingir o IOPS superior. Uma vez que a aplicação está a processar mais pedidos, também aumenta o débito total da aplicação.
+*Profundidade de fila alta*  
+Uma profundidade de fila alta alinha mais operações no disco. O disco sabe a próxima solicitação em sua fila antes do tempo. Consequentemente, o disco pode agendar operações antecipadamente e processá-las em uma sequência ideal. Como o aplicativo está enviando mais solicitações ao disco, o disco pode processar mais IOs paralelos. Por fim, o aplicativo poderá alcançar um IOPS maior. Como o aplicativo está processando mais solicitações, a taxa de transferência total do aplicativo também aumenta.
 
-Normalmente, um aplicativo pode alcançar um débito máximo com 8-16 + e/s pendentes por disco ligado. Se uma profundidade de fila é um, aplicativo é não enviar suficiente IOs para o sistema e processará menor a quantidade de num determinado período. Em outras palavras, a menos débito.
+Normalmente, um aplicativo pode alcançar a taxa de transferência máxima com 8-16 + IOs pendente por disco anexado. Se uma profundidade de fila for uma, o aplicativo não está enviando o IOs suficiente para o sistema e processará menos valor em um determinado período. Em outras palavras, menos taxa de transferência.
 
-Por exemplo, no SQL Server, definindo o valor MAXDOP para uma consulta para "4" informa do SQL Server que pode utilizar até quatro núcleos para executar a consulta. SQL Server irá determinar o que é o melhor valor de profundidade de fila e o número de núcleos para a execução da consulta.
+Por exemplo, em SQL Server, definir o valor MAXDOP de uma consulta como "4" informa SQL Server que ele pode usar até quatro núcleos para executar a consulta. SQL Server determinará qual é o melhor valor de profundidade da fila e o número de núcleos para a execução da consulta.
 
 *Profundidade de fila ideal*  
-Valor de profundidade de fila muito alto também tem suas desvantagens. Se o valor de profundidade de fila é demasiado elevada, a aplicação irá tentar IOPS muito elevado da unidade. A menos que o aplicativo tem discos persistentes com IOPS aprovisionadas suficientes, isso pode afetar negativamente a latências de aplicação. Fórmula a seguir mostra a relação entre o IOPS, latência e a profundidade de fila.  
+Um valor de profundidade de fila muito alto também tem suas desvantagens. Se o valor de profundidade da fila for muito alto, o aplicativo tentará gerar IOPS muito alto. A menos que o aplicativo tenha discos persistentes com IOPS provisionados suficiente, isso pode afetar negativamente as latências do aplicativo. A fórmula a seguir mostra a relação entre IOPS, latência e profundidade de fila.  
     ![](media/premium-storage-performance/image6.png)
 
-Não deve configurar profundidade de fila para qualquer valor elevado, mas para um valor ideal, o que pode entregar suficiente IOPS para a aplicação sem afetar as latências. Por exemplo, se a latência de aplicação tem de ser 1 milissegundo, a profundidade de fila necessário para obter 5000 IOPS é, QD = 5000 x 0,001 = 5.
+Você não deve configurar a profundidade da fila para nenhum valor alto, mas para um valor ideal, que pode fornecer IOPS suficiente para o aplicativo sem afetar as latências. Por exemplo, se a latência do aplicativo precisa ser de 1 milissegundo, a profundidade da fila necessária para alcançar 5.000 IOPS é, QD = 5000 x 0, 1 = 5.
 
-*Profundidade de fila para volumes repartidos*  
-Para um volume repartido, manter uma profundidade de fila alto o suficiente, de modo a que cada disco tem uma profundidade de fila de pico individualmente. Por exemplo, considere um aplicativo que envia uma profundidade de fila de 2 e existem quatro discos no stripe. As duas solicitações de e/s serão feita dois discos e restantes dois discos de estar inativo. Por conseguinte, deve configure a profundidade de fila, de modo a que todos os discos podem estar ocupados. Fórmula abaixo mostra como determinar a profundidade de fila de volumes repartidos.  
+*Profundidade da fila para o volume distribuído*  
+Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente, de modo que cada disco tenha uma profundidade de fila de pico individualmente. Por exemplo, considere um aplicativo que envia uma profundidade de fila de 2 e que há quatro discos na faixa. As duas solicitações de e/s vão para dois discos e os dois discos restantes ficarão ociosos. Portanto, configure a profundidade da fila de modo que todos os discos possam estar ocupados. A fórmula abaixo mostra como determinar a profundidade da fila de volumes distribuídos.  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitação
 
-Disposições de armazenamento Premium do Azure especificado o número de IOPS e débito consoante os tamanhos VM e os tamanhos de disco. Sempre que seu aplicativo tenta unidade IOPS ou débito acima estes limites de que a VM ou disco pode lidar com, o armazenamento Premium acelerá-los. Isso se manifesta na forma de degradação do desempenho em seu aplicativo. Isso pode significar latência superior, inferior débito ou IOPS inferior. Se não limitar o armazenamento Premium, sua completamente poderá falhar por que excedem o que são capazes de atingir seus recursos. Portanto, para evitar problemas de desempenho devido à limitação, sempre Aprovisione recursos suficientes para a sua aplicação. Leve em consideração o que discutimos nas seções de tamanhos de disco acima e tamanhos de VM. Padrão de referência é a melhor forma de descobrir quais recursos precisará para alojar a sua aplicação.
+O armazenamento Premium do Azure provisiona o número especificado de IOPS e taxa de transferência, dependendo dos tamanhos de VM e tamanhos de disco que você escolher. Sempre que seu aplicativo tentar gerar IOPS ou taxa de transferência acima desses limites do que a VM ou o disco pode lidar, o armazenamento Premium o reduzirá. Isso se manifesta na forma de degradação do desempenho em seu aplicativo. Isso pode significar maior latência, taxa de transferência mais baixa ou IOPS menor. Se o armazenamento Premium não for limitado, o aplicativo poderá falhar completamente, excedendo o que seus recursos são capazes de alcançar. Portanto, para evitar problemas de desempenho devido à limitação, sempre provisione recursos suficientes para seu aplicativo. Leve em consideração o que discutimos nas seções tamanhos de VM e tamanhos de disco acima. O parâmetro de comparação é a melhor maneira de descobrir quais recursos serão necessários para hospedar seu aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre os tipos de disco disponível:
+Saiba mais sobre os tipos de disco disponíveis:
 
-* [Selecione um tipo de disco](../articles/virtual-machines/windows/disks-types.md)  
+* [Selecionar um tipo de disco](../articles/virtual-machines/windows/disks-types.md)  
 
-Para usuários do SQL Server, leia os artigos sobre melhores práticas de desempenho para o SQL Server:
+Para SQL Server usuários, leia os artigos sobre práticas recomendadas de desempenho para SQL Server:
 
-* [Melhores práticas de desempenho para SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Armazenamento Premium do Azure proporciona um desempenho mais elevado para o SQL Server na VM do Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Práticas recomendadas de desempenho para SQL Server em máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
+* [O armazenamento Premium do Azure fornece o melhor desempenho para SQL Server na VM do Azure](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 398b2236caa77e4aef5b471079407a5edeeeee2d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326941"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334594"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -23,8 +23,6 @@ O armazenamento do Azure fornece um modelo de segurança em camadas. Este modelo
 Uma aplicação que acede a uma conta de armazenamento quando as regras de rede estão em vigor requer autorização adequada no pedido. Há suporte para autorização com as credenciais do Azure Active Directory (Azure AD) para BLOBs e filas, com uma chave de acesso de conta válida ou com um token SAS.
 
 > [!IMPORTANT]
-> O Sincronização de Arquivos do Azure ainda não oferece suporte a firewalls e redes virtuais. Se você estiver usando Sincronização de Arquivos do Azure em sua conta de armazenamento e habilitá-las, Sincronização de Arquivos do Azure não serão sincronizadas.
->
 > Ativar as regras de firewall para a sua conta de armazenamento bloqueia pedidos de entrada de dados por predefinição, a menos que os pedidos provenientes de um serviço que está a funcionar dentro de uma rede Virtual do Azure (VNet). Pedidos que estão bloqueados incluem os de outros serviços do Azure, do portal do Azure, do Registro em log e serviços de métricas e assim por diante.
 >
 > Pode conceder acesso aos serviços do Azure que funcionam de dentro de uma VNet, permitindo que a sub-rede da instância do serviço. Ativar um número limitado de cenários por meio da [exceções](#exceptions) mecanismo descrito na secção seguinte. Para aceder ao portal do Azure, terá de estar numa máquina dentro do limite confiável (IP ou VNet) que configurou.

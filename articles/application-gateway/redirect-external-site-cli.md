@@ -1,6 +1,6 @@
 ---
-title: Criar um gateway de aplicação com o redirecionamento de tráfego externo - CLI do Azure | Documentos da Microsoft
-description: Saiba como criar um gateway de aplicação que redireciona o tráfego da web internos para o conjunto adequado, com a CLI do Azure.
+title: Criar um gateway de aplicativo com redirecionamento de tráfego externo-CLI do Azure | Microsoft Docs
+description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web interno para o pool apropriado usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1ddbc84004622c2a5fa9dc08d4396e1f300474f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1fb25a9d5bfe6538d081169d163d7b280733cc1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133871"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382009"
 ---
-# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento externo com a CLI do Azure
+# <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento externo usando o CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [redirecionamento de tráfego da web](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste tutorial, irá configurar uma regra que redireciona o tráfego da web que é recebido no gateway de aplicação para um site externo e o serviço de escuta.
+Você pode usar o CLI do Azure para configurar o redirecionamento de [tráfego da Web](multiple-site-overview.md) ao criar um [Gateway de aplicativo](overview.md). Neste tutorial, você configura um ouvinte e uma regra que redireciona o tráfego da Web que chega ao gateway de aplicativo para um site externo.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
-> * Criar uma regra de serviço de escuta e o redirecionamento
+> * Criar um ouvinte e uma regra de redirecionamento
 > * Criar um gateway de aplicação
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicação é atribuído a *myAGSubnet* e *myPublicIPAddress* que criou anteriormente. 
+Pode utilizar [az network application-gateway create](/cli/azure/network/application-gateway) para criar o gateway de aplicação denominado *myAppGateway*. Quando cria um gateway de aplicação com a CLI do Azure, especifica informações de configuração, tais como a capacidade, o sku e as definições de HTTP. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -93,7 +93,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicionar a configuração de redirecionamento que envia o tráfego a partir *www.consoto.org* para o serviço de escuta para *www.contoso.com* para o gateway de aplicação com [az network application-gateway Criar configuração de redirecionamento](/cli/azure/network/application-gateway/redirect-config).
+Adicione a configuração de redirecionamento que envia o tráfego de *consoto.org da\.www* para o ouvinte de *www\.contoso.com* para o gateway de aplicativo usando [AZ Network Application-Gateway Redirect-config Create ](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -104,9 +104,9 @@ az network application-gateway redirect-config create \
   --target-url "https://bing.com"
 ```
 
-### <a name="add-a-listener-and-routing-rule"></a>Adicionar um serviço de escuta e a regra de encaminhamento
+### <a name="add-a-listener-and-routing-rule"></a>Adicionar um ouvinte e uma regra de roteamento
 
-Um serviço de escuta é necessário para ativar o gateway de aplicação encaminhar o tráfego de forma adequada. Criar o serviço de escuta usando [criar gateway de aplicação de rede az http-listener](/cli/azure/network/application-gateway) com a porta de front-end criada com [az rede application-gateway frontend-port criar](/cli/azure/network/application-gateway). Uma regra é necessária para o serviço de escuta de saber para onde enviar o tráfego de entrada. Crie uma regra básica com o nome *redirectRule* usando [criar regra de gateway de aplicação de rede de az](/cli/azure/network/application-gateway).
+Um ouvinte é necessário para habilitar o gateway de aplicativo para rotear adequadamente o tráfego. Crie o ouvinte usando [AZ Network Application-Gateway http-Listener Create](/cli/azure/network/application-gateway) com a porta de front-end criada com [AZ Network Application-Gateway front-Port Create](/cli/azure/network/application-gateway). Uma regra é necessária para que o ouvinte saiba onde enviar o tráfego de entrada. Crie uma regra básica chamada *redirectrule,* usando [AZ Network Application-Gateway regra Create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,12 +133,12 @@ az network application-gateway rule create \
 
 Para obter o endereço IP público do gateway de aplicação, pode utilizar [az network public-ip show](/cli/azure/network/public-ip). Copie o endereço IP público e cole-o na barra de endereço do browser.
 
-Verá *bing.com* exibida no navegador.
+Você deve ver *Bing.com* aparecem no navegador.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
 > * Configurar a rede
-> * Criar uma regra de serviço de escuta e o redirecionamento
+> * Criar um ouvinte e uma regra de redirecionamento
 > * Criar um gateway de aplicação

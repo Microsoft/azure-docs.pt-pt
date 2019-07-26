@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/07/2019
+ms.date: 07/22/2019
 ms.author: raynew
-ms.openlocfilehash: f44cb90beb7c1c544cb135f277fc12f724769b65
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 819b0f94f2dc8742b658dbd3aaa87108f204d2a7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846984"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406076"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -48,7 +48,7 @@ Você pode replicar e recuperar VMs entre duas regiões no mesmo cluster geográ
 -- | --
 Estados | Leste do Canadá, centro-Canadá, Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos EUA 2, oeste dos EUA, oeste dos EUA 2, EUA Central, norte EUA Central
 Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, França central, sul da França, oeste da África do Sul, norte da África do Sul
-Ásia | Sul da Índia, Índia central, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia
+Ásia | Sul da Índia, Índia central, Índia ocidental, Sudeste Asiático, Ásia Oriental, leste do Japão, oeste do Japão, Coreia central, sul da Coreia, EAU Central, Norte dos EAU
 Austrália   | Leste da Austrália, sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | GOV-Virgínia, EUA GOV Iowa, US GOV-Arizona, US GOV Texas, US DOD leste, US DOD central 
 Alemanha | Centro da Alemanha, nordeste da Alemanha
@@ -182,7 +182,7 @@ Esta tabela resumiu suporte para o disco do sistema operacional de VM do Azure, 
 --- | --- | ---
 Tamanho máximo do disco do so | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) sobre os discos de VM.
 Disco temporário | Não suportado | O disco temporário sempre é excluído da replicação.<br/><br/> Não armazene dados persistentes no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md).
-Tamanho máximo do disco de dados | 4095 GB |
+Tamanho máximo do disco de dados | 8192 GB para discos gerenciados<br></br>4095 GB para discos não gerenciados|
 Tamanho mínimo do disco de dados | Nenhuma restrição para discos não gerenciados. 2 GB para discos gerenciados | 
 Número máximo do disco de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para o armazenamento Premium. Máximo de 2 MBps por disco para o armazenamento Standard. | Se a taxa média de alteração de dados no disco for continuamente maior do que o máximo, a replicação não será atualizada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a replicação poderá ser atualizada, mas você poderá ver pontos de recuperação ligeiramente atrasados.
@@ -251,7 +251,7 @@ Proxy autenticado | Não suportado | Se a VM estiver usando um proxy autenticado
 Conexão VPN site a site para local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Verifique se o UDRs e o NSGs estão configurados de forma que o tráfego de Site Recovery não seja roteado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Conexão VNET com VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Se você estiver restringindo o acesso à rede virtual a contas de armazenamento, verifique se os serviços confiáveis da Microsoft têm permissão de acesso à conta de armazenamento.
-Redes aceleradas | Suportadas | A rede acelerada deve estar habilitada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Funcionamento em rede acelerado | Suportadas | A rede acelerada deve estar habilitada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

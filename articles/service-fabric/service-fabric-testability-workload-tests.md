@@ -1,6 +1,6 @@
 ---
-title: Simular falhas nas aplicações do Azure Service Fabric | Documentos da Microsoft
-description: Como proteger os seus serviços contra falhas amigável e inesperados.
+title: Simular falhas nos aplicativos Service Fabric do Azure | Microsoft Docs
+description: Como proteger seus serviços contra falhas normais e não-cortesia.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb89b66231c949627c7ffbf99ebe9b5dd379ca2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60865277"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348715"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
-Os cenários de capacidade de teste no Azure Service Fabric permitem aos programadores não se preocupar sobre como lidar com falhas individuais. Existem cenários, no entanto, onde uma intercalação explícita de carga de trabalho do cliente e falhas pode ser necessários. A intercalação de carga de trabalho do cliente e falhas garante que o serviço é realmente executar alguma ação quando ocorre falha. Tendo em conta o nível de controle que fornece a capacidade de teste, podem ser momentos exatos da execução de carga de trabalho. Este induction de falhas em Estados diferentes do aplicativo pode encontrar bugs e melhorar a qualidade.
+Os cenários de possibilidade de teste no Azure Service Fabric permitem aos desenvolvedores não se preocupar em lidar com falhas individuais. No entanto, há cenários em que uma intercalação explícita de carga de trabalho e falhas de cliente pode ser necessária. A intercalação de carga de trabalho e falhas do cliente garante que o serviço esteja, na verdade, executando alguma ação quando ocorrer falha. Considerando o nível de controle que a capacidade de teste fornece, eles podem estar em pontos precisos da execução da carga de trabalho. Essa indução de falhas em Estados diferentes no aplicativo pode encontrar bugs e melhorar a qualidade.
 
-## <a name="sample-custom-scenario"></a>Cenário de exemplo de personalizado
-Este teste mostra um cenário que interleaves a carga de trabalho de negócios com [falhas amigável e inesperadas](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas no meio de operações de serviço ou de computação para obter melhores resultados.
+## <a name="sample-custom-scenario"></a>Cenário personalizado de exemplo
+Esse teste mostra um cenário que intercala a carga de trabalho de negócios com [falhas normais e sem carência](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). As falhas devem ser induzidas no meio de operações de serviço ou de computação para obter melhores resultados.
 
-Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou uma combinação. Para simplificar, vamos será abstrair as cargas de trabalho no nosso exemplo. As falhas de diferentes executadas neste exemplo são:
+Vamos examinar um exemplo de um serviço que expõe quatro cargas de trabalho: A, B, C e D. Cada uma corresponde a um conjunto de fluxos de trabalho e pode ser computação, armazenamento ou combinação. Por questões de simplicidade, abstrairemos as cargas de trabalho em nosso exemplo. As diferentes falhas executadas neste exemplo são:
 
-* RestartNode: Índice de falhas inesperado para simular um reinício do computador.
-* RestartDeployedCodePackage: Índice de falhas inesperado para simular o processo de host de serviço falha.
-* RemoveReplica: Índice de falhas normal para simular a remoção de réplica.
-* MovePrimary: Índice de falhas normal para simular a réplica move acionada pelo balanceador de carga do Service Fabric.
+* RestartNode Falha de cortesia para simular uma reinicialização do computador.
+* RestartDeployedCodePackage: Falha incortesia para simular falhas de processo de host de serviço.
+* RemoveReplica: Falha normal para simular a remoção da réplica.
+* MovePrimary: Falha normal para simular as movimentações de réplica disparadas pelo balanceador de carga Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -116,7 +116,7 @@ class Test
             // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
-            await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
+            await fabricClient.TestManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
             // Wait for the workload to finish successfully.
             await workloadTask;
@@ -128,16 +128,16 @@ class Test
         switch (fault)
         {
             case ServiceFabricFaults.RestartNode:
-                await client.ClusterManager.RestartNodeAsync(selector, CompletionMode.Verify);
+                await client.FaultManager.RestartNodeAsync(selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RestartCodePackage:
-                await client.ApplicationManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
+                await client.FaultManager.RestartDeployedCodePackageAsync(applicationName, selector, CompletionMode.Verify);
                 break;
             case ServiceFabricFaults.RemoveReplica:
-                await client.ServiceManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
+                await client.FaultManager.RemoveReplicaAsync(selector, CompletionMode.Verify, false);
                 break;
             case ServiceFabricFaults.MovePrimary:
-                await client.ServiceManager.MovePrimaryAsync(selector.PartitionSelector);
+                await client.FaultManager.MovePrimaryAsync(selector.PartitionSelector);
                 break;
         }
     }

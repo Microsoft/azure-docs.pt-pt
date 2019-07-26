@@ -1,132 +1,126 @@
 ---
-title: Tarefas de gestão do serviço de nuvem comuns | Documentos da Microsoft
-description: Saiba como gerir serviços Cloud no portal do Azure. Estes exemplos utilizam o portal do Azure.
+title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
+description: Saiba como gerenciar serviços de nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433967"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359609"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Gerir serviços Cloud no portal do Azure
-Na **serviços Cloud** área do portal do Azure, pode:
+# <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar serviços de nuvem no portal do Azure
+Na área **serviços de nuvem** da portal do Azure, você pode:
 
-* Atualize uma função de serviço ou uma implementação.
-* Promova uma implementação faseada para produção.
-* Ligar recursos ao seu serviço cloud, para que pode ver as dependências de recursos e dimensionar os recursos em conjunto.
-* Elimine um serviço cloud ou uma implementação.
+* Atualizar uma função de serviço ou uma implantação.
+* Promova uma implantação em etapas para a produção.
+* Vincule recursos ao seu serviço de nuvem para que você possa ver as dependências de recursos e dimensionar os recursos juntos.
+* Excluir um serviço de nuvem ou uma implantação.
 
-Para obter mais informações sobre como dimensionar o serviço de nuvem, consulte [configurar o dimensionamento automático para um serviço cloud no portal do](cloud-services-how-to-scale-portal.md).
+Para obter mais informações sobre como dimensionar seu serviço de nuvem, consulte [Configurar o dimensionamento automático para um serviço de nuvem no portal](cloud-services-how-to-scale-portal.md).
 
-## <a name="update-a-cloud-service-role-or-deployment"></a>Atualizar uma função de serviço na nuvem ou implementação
-Se precisar de atualizar o código de aplicação do serviço em nuvem, utilize **atualizar** no painel de serviço cloud. Pode atualizar uma função única ou todas as funções. Para atualizar, pode carregar um novo pacote de serviço ou o ficheiro de configuração do serviço.
+## <a name="update-a-cloud-service-role-or-deployment"></a>Atualizar uma função ou implantação de serviço de nuvem
+Se você precisar atualizar o código do aplicativo para seu serviço de nuvem, use **Atualizar** na folha do serviço de nuvem. Você pode atualizar uma única função ou todas as funções. Para atualizar, você pode carregar um novo pacote de serviço ou arquivo de configuração de serviço.
 
-1. Na [portal do Azure][Azure portal], selecione o serviço em nuvem que pretende atualizar. Este passo é aberto o painel de instância do serviço cloud.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Essa etapa abre a folha instância do serviço de nuvem.
 
-2. No painel, selecione **atualização**.
+2. Na folha, selecione **Atualizar**.
 
     ![Botão de atualização](./media/cloud-services-how-to-manage-portal/update-button.png)
 
-3. Atualize a implementação com um novo ficheiro de pacote de serviço (. cspkg) e o ficheiro de configuração de serviço (. cscfg).
+3. Atualize a implantação com um novo arquivo de pacote de serviço (. cspkg) e arquivo de configuração de serviço (. cscfg).
 
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
 
-4. Opcionalmente, atualize a conta de armazenamento e a etiqueta de implementação.
+4. Opcionalmente, atualize a conta de armazenamento e o rótulo de implantação.
 
-5. Se quaisquer funções tem apenas uma instância de função, selecione o **implementar mesmo que uma ou mais funções contenham uma única instância** caixa de verificação para ativar a atualização continuar.
+5. Se qualquer função tiver apenas uma instância de função, marque a caixa de seleção **implantar mesmo se uma ou mais funções contiverem uma única instância** para habilitar a atualização para continuar.
 
-    Azure pode garantir a disponibilidade do serviço de 99,95 por cento apenas durante uma atualização de serviço em nuvem se cada função tem, pelo menos, duas instâncias de função (máquinas virtuais). Com duas instâncias de função, uma máquina virtual processa os pedidos de cliente enquanto o outro está atualizado.
+    O Azure pode garantir apenas 99,95% de disponibilidade de serviço durante uma atualização de serviço de nuvem se cada função tiver pelo menos duas instâncias de função (máquinas virtuais). Com duas instâncias de função, uma máquina virtual processa solicitações de cliente enquanto a outra é atualizada.
 
-6. Selecione o **iniciar implementação** caixa de verificação para aplicar a atualização depois de terminar o carregamento do pacote.
+6. Marque a caixa de seleção **Iniciar implantação** para aplicar a atualização depois que o carregamento do pacote for concluído.
 
-7. Selecione **OK** para começar a atualizar o serviço.
+7. Selecione **OK** para iniciar a atualização do serviço.
 
-## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Trocar implementações para promover uma implementação faseada para produção
-Quando optar por implementar uma nova versão do serviço cloud, estágio e testar a nova versão no ambiente de teste do serviço na nuvem. Uso **trocar** para alternar os URLs através do qual as duas implementações são resolvidas e promovem uma nova versão para produção.
+## <a name="swap-deployments-to-promote-a-staged-deployment-to-production"></a>Permutar implantações para promover uma implantação em etapas para produção
+Quando você decidir implantar uma nova versão de um serviço de nuvem, prepare e teste sua nova versão no ambiente de preparo do serviço de nuvem. Use **swap** para alternar as URLs pelas quais as duas implantações são endereçadas e promover uma nova versão para produção.
 
-Pode trocar implementações a partir da **serviços Cloud** página ou dashboard.
+Você pode alternar as implantações da página de **serviços de nuvem** ou do painel.
 
-1. Na [portal do Azure][Azure portal], selecione o serviço em nuvem que pretende atualizar. Este passo é aberto o painel de instância do serviço cloud.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Essa etapa abre a folha instância do serviço de nuvem.
 
-2. No painel, selecione **trocar**.
+2. Na folha, selecione **alternar**.
 
-    ![Botão de comutação de serviços cloud](./media/cloud-services-how-to-manage-portal/swap-button.png)
+    ![Botão de permuta dos serviços de nuvem](./media/cloud-services-how-to-manage-portal/swap-button.png)
 
-3. Abre o pedido de confirmação seguinte:
+3. O prompt de confirmação a seguir é aberto:
 
-    ![Comutação de serviços cloud](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+    ![Troca de serviços de nuvem](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
 
-4. Depois de verificar as informações de implementação, selecione **OK** para trocar as implementações.
+4. Depois de verificar as informações de implantação, selecione **OK** para trocar as implantações.
 
-    A troca de implementação acontece rapidamente porque a única alteração é os endereços IP virtuais (VIPs) para as implementações.
+    A troca de implantação ocorre rapidamente porque a única coisa que é alterada são os VIPs (endereços IP virtuais) para as implantações.
 
-    Para reduzir os custos de computação, pode eliminar a implementação de teste depois de verificar se a implementação de produção está a funcionar conforme esperado.
+    Para economizar custos de computação, você pode excluir a implantação de preparo depois de verificar se sua implantação de produção está funcionando conforme o esperado.
 
-### <a name="common-questions-about-swapping-deployments"></a>Perguntas comuns sobre a troca de implementações
+### <a name="common-questions-about-swapping-deployments"></a>Perguntas comuns sobre a troca de implantações
 
-**Quais são os pré-requisitos para a troca de implementações?**
+**Quais são os pré-requisitos para a troca de implantações?**
 
-Existem dois pré-requisitos chave para uma troca de implementação com êxito:
+Há dois pré-requisitos principais para uma troca de implantação bem-sucedida:
 
-- Se pretender utilizar um endereço IP estático para o bloco de produção, tem de reservar um para o bloco de teste. Caso contrário, a troca falha.
+- Se você quiser usar um endereço IP estático para o slot de produção, deverá reservar um para o slot de preparo também. Caso contrário, a permuta falhará.
 
-- Tem de executar todas as instâncias de suas funções antes de realizar a troca. Pode verificar o estado das suas instâncias do **descrição geral** painel do portal do Azure. Em alternativa, pode utilizar o [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) comando no Windows PowerShell.
+- Todas as instâncias de suas funções devem estar em execução antes que você possa executar a permuta. Você pode verificar o status de suas instâncias na folha **visão geral** do portal do Azure. Como alternativa, você pode usar o comando [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) no Windows PowerShell.
 
-Tenha em atenção que as atualizações do SO convidado e o serviço de recuperação operações também podem causar trocas de implementação efetuar a ativação. Para obter mais informações, consulte [problemas de implementação de serviço de nuvem de resolução de problemas](cloud-services-troubleshoot-deployment-problems.md).
+Observe que as atualizações de SO convidado e as operações de recuperação de serviço também podem causar falha nas trocas de implantação. Para obter mais informações, consulte [solucionar problemas de implantação do serviço de nuvem](cloud-services-troubleshoot-deployment-problems.md).
 
-**Uma alternância de incorrer em períodos de indisponibilidade para a minha aplicação? Como posso manipulá-lo?**
+**Uma troca incorre em tempo de inatividade para meu aplicativo? Como devo tratá-lo?**
 
-Conforme descrito na secção anterior, uma alternância de implementação é normalmente rápida porque é apenas uma alteração de configuração no balanceador de carga do Azure. Em alguns casos, pode demorar 10 ou mais segundos e o resultado em falhas de conexão transitórias. Para limitar o impacto para os seus clientes, considere implementar [lógica de repetição do cliente](../best-practices-retry-general.md).
+Conforme descrito na seção anterior, uma troca de implantação é normalmente rápida porque é apenas uma alteração de configuração no Azure Load Balancer. Em alguns casos, pode levar 10 ou mais segundos e resultar em falhas de conexão transitórias. Para limitar o impacto aos seus clientes, considere implementar a [lógica de repetição do cliente](../best-practices-retry-general.md).
 
-## <a name="delete-deployments-and-a-cloud-service"></a>Eliminar as implementações e um serviço em nuvem
-Antes de poder eliminar um serviço em nuvem, tem de eliminar cada implementação existente.
+## <a name="delete-deployments-and-a-cloud-service"></a>Excluir implantações e um serviço de nuvem
+Para poder excluir um serviço de nuvem, você deve excluir cada implantação existente.
 
-Para reduzir os custos de computação, pode eliminar a implementação de teste depois de verificar se a implementação de produção está a funcionar conforme esperado. São faturados os custos de computação para as instâncias de função implantada, que são parados.
+Para economizar custos de computação, você pode excluir a implantação de preparo depois de verificar se sua implantação de produção está funcionando conforme o esperado. Você é cobrado por custos de computação para instâncias de função implantadas que são interrompidas.
 
-Utilize o procedimento seguinte para eliminar uma implementação ou o seu serviço cloud.
+Use o procedimento a seguir para excluir uma implantação ou seu serviço de nuvem.
 
-1. Na [portal do Azure][Azure portal], selecione o serviço em nuvem que pretende eliminar. Este passo é aberto o painel de instância do serviço cloud.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja excluir. Essa etapa abre a folha instância do serviço de nuvem.
 
-2. No painel, selecione **eliminar**.
+2. Na folha, selecione **excluir**.
 
-    ![Botão de eliminar serviços cloud](./media/cloud-services-how-to-manage-portal/delete-button.png)
+    ![Botão de exclusão de serviços de nuvem](./media/cloud-services-how-to-manage-portal/delete-button.png)
 
-3. Para eliminar o serviço em nuvem inteira, selecione o **Cloud service e as respetivas implementações** caixa de verificação. Ou pode escolher entre o **implementação de produção** ou o **implementação faseada** caixa de verificação.
+3. Para excluir o serviço de nuvem inteiro, marque a caixa de seleção **serviço de nuvem e suas** implantações. Ou você pode escolher a caixa de seleção **implantação de produção** ou **implantação de preparo** .
 
-    ![Eliminação de serviços cloud](./media/cloud-services-how-to-manage-portal/delete-blade.png)
+    ![Exclusão de serviços de nuvem](./media/cloud-services-how-to-manage-portal/delete-blade.png)
 
-4. Selecione **eliminar** na parte inferior.
+4. Selecione **excluir** na parte inferior.
 
-5. Para eliminar o serviço em nuvem, selecione **serviço de cloud de eliminação**. Em seguida, no prompt de confirmação, selecione **Sim**.
+5. Para excluir o serviço de nuvem, selecione **excluir serviço de nuvem**. Em seguida, no prompt de confirmação, selecione **Sim**.
 
 > [!NOTE]
-> Quando um serviço em nuvem é eliminado e monitorização verboso estiver configurado, tem de eliminar os dados manualmente da sua conta de armazenamento. Para obter informações sobre onde encontrar as tabelas de métricas, veja [introdução à monitorização do serviço de nuvem](cloud-services-how-to-monitor.md).
+> Quando um serviço de nuvem é excluído e o monitoramento detalhado é configurado, você deve excluir os dados manualmente de sua conta de armazenamento. Para obter informações sobre onde encontrar as tabelas de métricas, consulte [introdução ao monitoramento do serviço de nuvem](cloud-services-how-to-monitor.md).
 
 
-## <a name="find-more-information-about-failed-deployments"></a>Encontrar mais informações sobre implementações falhadas
-O **descrição geral** painel tem uma barra de status na parte superior. Quando seleciona a barra, um novo painel abre e apresenta as informações de erro. Se a implementação não contém quaisquer erros, o painel de informações está em branco.
+## <a name="find-more-information-about-failed-deployments"></a>Encontre mais informações sobre implantações com falha
+A folha de **visão geral** tem uma barra de status na parte superior. Quando você seleciona a barra, uma nova folha é aberta e exibe as informações de erro. Se a implantação não contiver erros, a folha informações ficará em branco.
 
-![Descrição geral dos serviços de cloud](./media/cloud-services-how-to-manage-portal/status-info.png)
+![Visão geral dos serviços de nuvem](./media/cloud-services-how-to-manage-portal/status-info.png)
 
 
 
 [Azure portal]: https://portal.azure.com
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configuração geral do seu serviço cloud](cloud-services-how-to-configure-portal.md).
-* Saiba como [implementar um serviço cloud](cloud-services-how-to-create-deploy-portal.md).
-* Configurar uma [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
+* [Configuração geral do seu serviço de nuvem](cloud-services-how-to-configure-portal.md).
+* Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
+* Configure um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).

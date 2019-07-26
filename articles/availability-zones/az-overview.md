@@ -1,6 +1,6 @@
 ---
-title: Quais são as zonas de disponibilidade do Azure? | Microsoft Docs
-description: Para criar aplicações de elevada disponibilidade e resilientes no Azure, as zonas de disponibilidade fornecer localizações fisicamente separadas, pode usar para executar seus recursos.
+title: O que são Zonas de Disponibilidade do Azure? | Microsoft Docs
+description: Para criar aplicativos altamente disponíveis e resilientes no Azure, Zonas de Disponibilidade fornecer locais fisicamente separados que você pode usar para executar seus recursos.
 services: ''
 documentationcenter: ''
 author: cynthn
@@ -16,30 +16,30 @@ ms.workload: na
 ms.date: 06/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 848d0eddb9870f7690989e5bfa01985883e4308e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 048a4dd9f35bd62886876f98bcbc5e6267cca6c8
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508854"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442238"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
-As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
+# <a name="what-are-availability-zones-in-azure"></a>O que são Zonas de Disponibilidade no Azure?
+Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade dentro de uma região protege aplicativos e dados de falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados em Zonas de Disponibilidade para proteger contra pontos únicos de falha. Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM melhor do setor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
-Uma zona de disponibilidade na região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se criar três ou mais VMs por zonas de três numa região do Azure, as suas VMs com eficiência são distribuídas entre três domínios de falha e três domínios de atualização. A plataforma do Azure reconhece essa distribuição em vários domínios de atualização para se certificar de que as VMs em diferentes horários não são atualizadas ao mesmo tempo.
+Uma zona de disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, suas VMs serão efetivamente distribuídas entre três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não sejam atualizadas ao mesmo tempo.
 
-Crie elevada disponibilidade em sua arquitetura de aplicativos ao colocalizar os recursos de computação, armazenamento, rede e dados dentro de uma zona e replicar noutras zonas. Serviços do Azure que suportam zonas de disponibilidade enquadram-se em duas categorias:
+Crie alta disponibilidade em sua arquitetura de aplicativos Colocalizando seus recursos de computação, armazenamento, rede e dados em uma zona e replicando em outras zonas. Os serviços do Azure que dão suporte a Zonas de Disponibilidade se enquadram em duas categorias:
 
-- **Serviços zonais** – afixar o recurso a uma zona específica (por exemplo, máquinas virtuais, discos geridos, endereços IP), ou
-- **Serviços com redundância de zona** – plataforma replica automaticamente os entre zonas (por exemplo, com redundância de zona de armazenamento, base de dados SQL).
+- **Serviços zonais** – você fixa o recurso em uma zona específica (por exemplo, máquinas virtuais, discos gerenciados, endereços IP) ou
+- **Serviços com redundância de zona** – a plataforma replica automaticamente entre zonas (por exemplo, armazenamento com redundância de zona, banco de dados SQL).
 
-Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquitetura de aplicativos usando a combinação das zonas de disponibilidade com pares de região do Azure. Pode replicar de modo síncrono suas aplicações e dados com as zonas de disponibilidade numa região do Azure para elevada disponibilidade e replicar de forma assíncrona entre regiões do Azure para a proteção de recuperação após desastre.
+Para obter uma continuidade de negócios abrangente no Azure, crie sua arquitetura de aplicativo usando a combinação de Zonas de Disponibilidade com pares de regiões do Azure. Você pode replicar de forma síncrona seus aplicativos e dados usando Zonas de Disponibilidade em uma região do Azure para alta disponibilidade e replicação assíncrona em regiões do Azure para proteção de recuperação de desastres.
  
-![Vista concetual da zona de uma direção para baixo numa região](./media/az-overview/az-graphic-two.png)
+![exibição conceitual de uma zona ficando inativa em uma região](./media/az-overview/az-graphic-two.png)
 
-## <a name="services-support-by-region"></a>Suporte de serviços por região
+## <a name="services-support-by-region"></a>Suporte a serviços por região
 
-As combinações de serviços do Azure e regiões que suportam as zonas de disponibilidade são:
+As combinações de serviços e regiões do Azure que oferecem suporte a Zonas de Disponibilidade são:
 
 
 |                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |
@@ -55,41 +55,42 @@ As combinações de serviços do Azure e regiões que suportam as zonas de dispo
 | **Redes**                     |            |              |           |           |                |              |          |             |            |                |
 | Endereço IP padrão        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Balanceador de Carga Standard     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Gateway de VPN                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
-| Gateway do ExpressRoute   | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Gateway de VPN   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;  | &#10003;     |   &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| Gateway de ExpressRoute   | &#10003;   |  &#10003;   | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |   &#10003;  | &#10003;       |
 | Gateway de Aplicação   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    | &#10003;       | &#10003;       |
 | Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | **Bases de dados**                     |            |              |           |           |                |              |          |             |            |                |
+| Azure Data Explorer                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
 | Cache do Azure para Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; |  |       |     | &#10003; |     |            | &#10003;       |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |
 | Hubs de Eventos                      | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
-| **Integração**                     |            |              |           |           |                |              |          |             |            |                |
-| O Service Bus (apenas no escalão Premium) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| **Integrar**                     |            |              |           |           |                |              |          |             |            |                |
+| Barramento de serviço (somente camada Premium) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
 
 
 ## <a name="services-resiliency"></a>Resiliência de serviços
-Todos os serviços de gestão do Azure têm uma arquitetura para ser resiliente de falhas de nível de região. O espectro de falhas, uma ou mais falhas de zona de disponibilidade numa região tem um raio de falha mais pequeno em comparação com uma falha de região inteira. Azure pode recuperar de uma falha de nível de zona dos serviços de gestão dentro da região ou em outra região do Azure. O Azure efetua a zona de uma manutenção crítica por vez numa região, para evitar quaisquer falhas que afetam o recursos de cliente implementados em zonas de disponibilidade numa região.
+Todos os serviços de gerenciamento do Azure são arquitetados para serem resilientes de falhas no nível de região. No espectro de falhas, uma ou mais falhas de zona de disponibilidade em uma região têm um raio de falha menor em comparação a uma falha de região inteira. O Azure pode se recuperar de uma falha no nível de zona dos serviços de gerenciamento dentro da região ou de outra região do Azure. O Azure realiza uma manutenção crítica em uma zona por vez dentro de uma região, para evitar falhas que afetem os recursos do cliente implantados em Zonas de Disponibilidade dentro de uma região.
 
 ## <a name="pricing"></a>Preços
-Não existe nenhum custo adicional para máquinas virtuais implementadas numa zona de disponibilidade. Tempo de atividade VM de 99,99% são oferecidos SLAS quando duas ou mais VMs são implementadas em duas ou mais zonas de disponibilidade numa região do Azure. Haverá adicionais custos de transferência de dados a VM para VM da zona de disponibilidade entre. Para obter mais informações, reveja os [preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) página.
+Não há nenhum custo adicional para máquinas virtuais implantadas em uma zona de disponibilidade. 99,99% de SLA de tempo de atividade de VM é oferecido quando duas ou mais VMs são implantadas em duas ou mais Zonas de Disponibilidade em uma região do Azure. Haverá encargos adicionais de transferência de dados da VM para a VM na zona de disponibilidade. Para obter mais informações, consulte a página de [preços de largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) .
 
 
-## <a name="get-started-with-availability-zones"></a>Introdução às zonas de disponibilidade
+## <a name="get-started-with-availability-zones"></a>Introdução ao Zonas de Disponibilidade
 - [Criar uma máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
-- [Adicionar um disco gerido com o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [Adicionar um disco gerenciado usando o PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Balancear carga de VMs por zonas com um balanceador de carga Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Balancear carga de VMs dentro de uma zona com um balanceador de carga Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [VMs de balanceamento de carga entre zonas usando um Standard Load Balancer com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [VMs de balanceamento de carga em uma zona usando um Standard Load Balancer com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy-zrs.md)
 - [Base de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Adicionar região com redundância de zona para o Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Introdução à Cache do Azure para zonas de disponibilidade de Redis](https://aka.ms/redis/az/getstarted)
+- [Adicionar região com redundância de zona para Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Introdução o cache do Azure para Redis Zonas de Disponibilidade](https://aka.ms/redis/az/getstarted)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Modelos de início rápido](https://aka.ms/azqs)

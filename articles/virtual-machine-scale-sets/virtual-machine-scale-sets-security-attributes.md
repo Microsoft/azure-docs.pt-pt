@@ -1,6 +1,6 @@
 ---
-title: Atributos de segurança comuns para conjuntos de dimensionamento de máquinas virtuais do Azure
-description: Uma lista de verificação de atributos comuns de segurança para avaliar os conjuntos de dimensionamento de máquinas virtuais do Azure
+title: Atributos de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar os conjuntos de dimensionamento de máquinas virtuais do Azure
 services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 42187ce1a3103ba037ba2e2c179c720e444ddc60
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 1e96d3d8ba909afdc4bb402f95c4f482f3ddf681
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296342"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444277"
 ---
-# <a name="common-security-attributes-for-azure-virtual-machine-scale-sets"></a>Atributos de segurança comuns para conjuntos de dimensionamento de máquinas virtuais do Azure
+# <a name="security-attributes-for-azure-virtual-machine-scale-sets"></a>Atributos de segurança para conjuntos de dimensionamento de máquinas virtuais do Azure
 
-Este artigo documenta os atributos comuns de segurança internos nos conjuntos de dimensionamento de máquinas virtuais do Azure.
+Este artigo documenta os atributos de segurança internos nos conjuntos de dimensionamento de máquinas virtuais do Azure.
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 

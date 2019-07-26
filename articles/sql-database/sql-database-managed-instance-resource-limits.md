@@ -1,6 +1,6 @@
 ---
-title: Limites de recursos de base de dados SQL do Azure - instância gerida | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos limites de recursos do SQL Database do Azure para instâncias geridas.
+title: Limites de recursos do banco de dados SQL do Azure – instância gerenciada | Microsoft Docs
+description: Este artigo fornece uma visão geral dos limites de recursos do banco de dados SQL do Azure para instâncias gerenciadas.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,140 +12,139 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 manager: craigg
 ms.date: 06/26/2019
-ms.openlocfilehash: f4e19b916553912e36f2c3beee3f6a518b244e4d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 29ece0677c71a2cb423e541cf2e9f4a06947e44c
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707009"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413380"
 ---
-# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Descrição geral do Azure SQL Database managed limites de recursos de instância
+# <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
-Este artigo fornece uma visão geral dos limites de recursos para a instância gerida da base de dados do Azure SQL e fornece informações sobre como pedir um aumento para estes limites.
+Este artigo fornece uma visão geral dos limites de recursos para a instância gerenciada do banco de dados SQL do Azure e fornece informações sobre como solicitar um aumento para esses limites.
 
 > [!NOTE]
-> Para diferenças em funcionalidades suportadas e T-SQL Consulte instruções [diferenças de funcionalidades](sql-database-features.md) e [suporte de instrução de T-SQL](sql-database-managed-instance-transact-sql-information.md).
+> Para obter diferenças em recursos com suporte e instruções T-SQL, consulte [diferenças de recursos](sql-database-features.md) e [suporte a instruções t-SQL](sql-database-managed-instance-transact-sql-information.md).
 
-## <a name="instance-level-resource-limits"></a>Limites de recursos de nível de instância
+## <a name="instance-level-resource-limits"></a>Limites de recursos em nível de instância
 
-A instância gerida tem características e os limites de recursos que dependem de arquitetura e infra-estrutura subjacente. Os limites dependem do escalão de serviço de geração e de hardware.
+A instância gerenciada tem características e limites de recursos que dependem da infraestrutura e da arquitetura subjacentes. Os limites dependem da geração de hardware e da camada de serviço.
 
 ### <a name="hardware-generation-characteristics"></a>Características de geração de hardware
 
-A instância gerida de base de dados SQL do Azure pode ser implementada em duas gerações de hardware: Gen4 e Gen5. As gerações de hardware têm características diferentes, conforme descrito na tabela a seguir:
+Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas gerações de hardware: Gen4 e Gen5. As gerações de hardware têm características diferentes, conforme descrito na tabela a seguir:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, vCore = 1 LP (hyper-thread) |
+| Hardware | Processadores Intel E5-2673 v3 (Haswell) 2,4-GHz, vCore de SSD anexado = 1 PP (núcleo físico) | Processadores Intel E5-2673 V4 (Broadwell) 2,3-GHz, SSD Fast NVMe, vCore = 1 LP (Hyper-thread) |
 | Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| Máx. de memória (memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5.1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
-| Memória de OLTP máximo em memória | Limite da instância: 3 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 8 GB por base de dados<br/> -16 núcleos: 20 GB por base de dados<br/> -24-core: 36 GB por base de dados | Limite da instância: 2,5 GB por vCore<br/>Limites de base de dados:<br/> -8 núcleos: 13 GB por base de dados<br/> -16 núcleos: 32 GB por base de dados |
-| Instância de Max reservado (para fins gerais) de armazenamento |  8 TB | 8 TB |
-| Instância de Max reservado (crítico para a empresa) de armazenamento | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Memória máxima (taxa de memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5,1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
+| Memória máxima OLTP na memória | Limite de instância: 3 GB por vCore<br/>Limites de banco de dados:<br/> -8-núcleo: 8 GB por banco de dados<br/> -16-núcleo: 20 GB por banco de dados<br/> -24-núcleo: 36 GB por banco de dados | Limite de instância: 2,5 GB por vCore<br/>Limites de banco de dados:<br/> -8-núcleo: 13 GB por banco de dados<br/> -16-núcleo: 32 GB por banco de dados |
+| Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
-> Novas Gen4 bases de dados já não são suportadas na região AustraliaEast.
+> Novos bancos de dados Gen4 não têm mais suporte na região AustraliaEast.
 
-### <a name="service-tier-characteristics"></a>Características de camada de serviço
+### <a name="service-tier-characteristics"></a>Características da camada de serviço
 
-A instância gerida tem dois escalões de serviço: Fins gerais e crítico para a empresa. Estes escalões oferecem recursos diferentes, conforme descrito na tabela abaixo:
+A instância gerenciada tem duas camadas de serviço: Uso Geral e Comercialmente Crítico. Essas camadas fornecem recursos diferentes, conforme descrito na tabela a seguir:
 
-| **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
+| **Funcionalidade** | **Uso Geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
-| Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Máx. de memória | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
-| Instância de Max reservado tamanho de armazenamento | -2 TB para 4 vCores (Gen5 apenas)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
-| Tamanho máx. da base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
-| Número máx. de bases de dados por instância | 100 | 100 |
-| Número máx. de ficheiros de base de dados por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Aumentar o tamanho do ficheiro para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore)<br/>Adicione mais vCores para obter um melhor desempenho de e/s. |
-| Limite de taxa de transferência de escrita de registo | 3 MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
-| Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Aumente o tamanho de ficheiro para obter um melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
-| Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
-| Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore)<br/>Adicione mais vCores para obter mais espaço de TempDB. | Limitado pelo tamanho de armazenamento máximo da instância. Tamanho do ficheiro de registo de TempDB está limitado a 24GB/vCore. |
-| Número máximo de sessões | 30000 | 30000 |
+| Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
+| Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 40,8 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
+| Tamanho máximo de armazenamento reservado de instância | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Tamanho máx. da base de dados | Determinado pelo tamanho máximo de armazenamento por instância | Determinado pelo tamanho máximo de armazenamento por instância |
+| Número máximo de bancos de dados por instância | 100 | 100 |
+| Número máximo de arquivos de banco de dados por instância | Até 280 | 32.767 arquivos por banco de dados |
+| IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| Limite de produtividade de gravação de log | 3 MB/s por vCore<br/>Máximo de 22 MB/s por instância | 4 MB/s por vCore<br/>Máximo de 48 MB/s por instância|
+| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
+| Tamanho máximo de tempDB | 192-1.920 GB (24 GB por vCore)<br/>Adicione mais vCores para obter mais espaço de TempDB. | Limitado pelo tamanho máximo de armazenamento da instância. O tamanho do arquivo de log de TempDB está limitado atualmente a 24 GB/vCore. |
+| Máx. de sessões | 30000 | 30000 |
 
 > [!NOTE]
-> - Tamanho do ficheiro de dados e de registo no utilizador e bases de dados do sistema estão incluídas no tamanho de armazenamento de instância é comparado com o limite de tamanho de armazenamento máximo. Uso <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">master_files</a> vista de sistema para determinar o total de espaço utilizado pelas bases de dados. Registos de erros não são persistentes e não incluídos no tamanho. As cópias de segurança não estão incluídas no tamanho de armazenamento.
-> - Débito e IOPS também dependem do tamanho de página que não está limitado explicitamente por instância gerida.
+> - Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">Sys. master_files</a> para determinar o total de espaço usado por bancos de dados. Os logs de erros não são persistidos e não são incluídos no tamanho. Os backups não são incluídos no tamanho do armazenamento.
+> - A taxa de transferência e o IOPS também dependem do tamanho da página que não é explicitamente limitado pela instância gerenciada.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Instâncias geridas podem ser criadas apenas no [regiões suportadas](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerida numa região que não é atualmente suportado, pode [enviar um pedido de suporte através do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+As instâncias gerenciadas podem ser criadas somente em [regiões com suporte](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Para criar uma instância gerenciada em uma região que não tem suporte no momento, você pode [Enviar uma solicitação de suporte por meio do portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
 
-## <a name="supported-subscription-types"></a>Tipos de subscrição de suporte
+## <a name="supported-subscription-types"></a>Tipos de assinatura com suporte
 
-Atualmente, a instância gerida suporta implementação apenas nos seguintes tipos de subscrições:
+Atualmente, a instância gerenciada dá suporte à implantação somente nos seguintes tipos de assinaturas:
 
-- [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
-- [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Fornecedor de serviços cloud (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
-- [Enterprise programador/teste](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Subscrições com o crédito do Azure mensal para subscritores do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
+- [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
+- [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Provedor de serviços de nuvem (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Desenvolvimento/teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [Desenvolvimento/teste pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Assinaturas com crédito Azure mensal para assinantes do Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
 
 ## <a name="regional-resource-limitations"></a>Limitações de recursos regionais
 
-Tipos de subscrição de suporte podem conter um número limitado de recursos por região. A instância gerida tem dois limites padrão por região do Azure, dependendo de um tipo de tipo de subscrição:
+Os tipos de assinatura com suporte podem conter um número limitado de recursos por região. A instância gerenciada tem dois limites padrão por região do Azure, dependendo de um tipo de assinatura:
 
-- **Limite de sub-redes**: O número máximo de sub-redes em que as instâncias geridas são implementadas numa única região.
-- **limite de vCore**: O número máximo de vCores que pode ser implantado em todas as instâncias numa única região.
+- **Limite de sub-rede**: O número máximo de sub-redes em que as instâncias gerenciadas são implantadas em uma única região.
+- **limite de vCore**: O número máximo de vCores que podem ser implantadas em todas as instâncias em uma única região.
 
 > [!Note]
-> Estes limites são as predefinições e limitações não técnicas. Os limites podem ser demanda aumentada através da criação de um especial [pedido de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se precisar de mais instâncias geridas na região atual. Como alternativa, pode criar novas instâncias geridas noutra região do Azure sem enviar pedidos de suporte.
+> Esses limites são configurações padrão e não limitações técnicas. Os limites podem ser aumentados sob demanda criando uma solicitação especial [de suporte no portal do Azure](#obtaining-a-larger-quota-for-sql-managed-instance) se você precisar de mais instâncias gerenciadas na região atual. Como alternativa, você pode criar novas instâncias gerenciadas em outra região do Azure sem enviar solicitações de suporte.
 
-A tabela seguinte mostra os limites de regionais padrão para subscrições de suporte:
+A tabela a seguir mostra os limites regionais padrão para assinaturas com suporte:
 
-|Tipo de subscrição| Número máx. de sub-redes de instância gerida | Número máximo de unidades de vCore * |
+|Tipo de subscrição| Número máximo de sub-redes de instância gerenciada | Número máximo de unidades vCore * |
 | :---| :--- | :--- |
 |"Pay-as-you-go"|3|320|
 |CSP |8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
-|Pay as you go programador/teste|3|320|
+|Desenvolvimento/teste pago conforme o uso|3|320|
 |Enterprise Dev/Test|3|320|
 |EA|8 (15 em algumas regiões * *)|960 (1440 em algumas regiões * *)|
 |Visual Studio Enterprise|2 |64|
-|Visual Studio Professional e MSDN Platform|2|32|
+|Visual Studio Professional e Plataformas MSDN|2|32|
 
-\* Ao planear as suas implementações, considere que um vCore comercial crítico (BC) (devido a redundância adicionado) consome 4 x de um vCore de fins gerais (GP) mais capacidade. Assim, para seus cálculos, 1 vCore GP = 1 vCore de unidade e 1 BC vCore = 4 unidades de vCore. Para simplificar a análise de consumo contra os limites predefinidos, resuma as unidades de vCore em todas as sub-redes na região em que as instâncias geridas são implementadas e comparam os resultados com os limites de unidade de instância para o seu tipo de subscrição. **Número máximo de unidades de vCore** limite aplica-se a cada subscrição numa região. Não existe nenhum limite por sub-redes individuais, exceto que a soma de todos os vCores implementado em várias sub-redes têm de ser inferior ou igual a **máximo de número de unidades de vCore**.
+\*Ao planejar suas implantações, considere que um vCore de Comercialmente Crítico (BC) (devido à redundância adicionada) consome 4x mais capacidade do que um vCore de Uso Geral (GP). Portanto, para seus cálculos, 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
-\*\* Maiores limites de sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, E.U.A. leste, E.U.A. Leste 2, Europa do Norte, EUA Centro-Sul, Sudeste asiático, do Reino Unido Sul, Europa Ocidental, E.U.A. oeste 2.
+\*\*Os limites de maior sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma quota maior para SQL instância gerida
+## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma cota maior para a instância gerenciada do SQL
 
-Se precisar de mais instâncias geridas no seu regiões atuais, envie um pedido de suporte para aumentar a quota com o portal do Azure.
-Para iniciar o processo de obtenção de uma quota maior:
+Se você precisar de mais instâncias gerenciadas em suas regiões atuais, envie uma solicitação de suporte para estender a cota usando o portal do Azure.
+Para iniciar o processo de obtenção de uma cota maior:
 
-1. Open **ajuda + suporte**e clique em **novo pedido de suporte**.
+1. Abra **ajuda + suporte**e clique em **nova solicitação de suporte**.
 
-   ![Ajuda e suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. Na guia Noções básicas para o novo pedido de suporte:
-   - Para **tipo de problema**, selecione **limites de serviço e subscrição (cotas)** .
+   ![Ajuda e Suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
+2. Na guia noções básicas da nova solicitação de suporte:
+   - Para **tipo de problema**, selecione **limites de serviço e de assinatura (cotas)** .
    - Em **Subscrição**, selecione a sua subscrição.
-   - Para **tipo de Quota**, selecione **SQL Database Managed Instance**.
-   - Para **plano de suporte**, selecione o seu plano de suporte.
+   - Para **tipo de cota**, selecione **instância gerenciada do banco de dados SQL**.
+   - Para o **plano de suporte**, selecione seu plano de suporte.
 
-     ![Quota de tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
+     ![Cota do tipo de problema](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
 
 3. Clique em **Seguinte**.
-4. Sobre o **separador problema** para o novo pedido de suporte:
-   - Para **gravidade**, selecione o nível de gravidade do problema.
-   - Para **detalhes**, fornecem informações adicionais sobre o problema, incluindo mensagens de erro.
-   - Para **carregamento de ficheiros**, anexar um ficheiro com mais informações (até 4 MB).
+4. Na **guia problema** da nova solicitação de suporte:
+   - Para **severidade**, selecione o nível de severidade do problema.
+   - Para obter **detalhes**, forneça informações adicionais sobre o problema, incluindo mensagens de erro.
+   - Para **upload de arquivo**, anexe um arquivo com mais informações (até 4 MB).
 
      ![Detalhes do problema](media/sql-database-managed-instance-resource-limits/problem-details.png)
 
      > [!IMPORTANT]
      > Uma solicitação válida deve incluir:
-     > - Região na qual assinatura limite tem de ser aumentados.
-     > - Aumentar o número necessário de vCores, por escalão de serviço em sub-redes existentes após a quota (se nenhuma das sub-redes existentes tem de ser expandido.
-     > - Necessário número de novas sub-redes e o número total de vCores por escalão de serviço dentro as novas sub-redes (se precisar de implementar instâncias geridas nas novas sub-redes).
+     > - Região na qual o limite de assinatura precisa ser aumentado.
+     > - Número necessário de vCores, por camada de serviço em sub-redes existentes após o aumento da cota (se qualquer uma das sub-redes existentes precisar ser expandida.
+     > - Número necessário de novas sub-redes e número total de vCores por camada de serviço nas novas sub-redes (se você precisar implantar instâncias gerenciadas em novas sub-redes).
 
 5. Clique em **Seguinte**.
-6. No separador de informações de contacto para o novo pedido de suporte, introduza o método preferencial de contacto (e-mail ou telefone) e os detalhes de contactos.
+6. Na guia informações de contato da nova solicitação de suporte, insira o método de contato preferencial (email ou telefone) e os detalhes de contato.
 7. Clique em **Criar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter mais informações sobre a instância gerida, veja [o que é uma instância gerida?](sql-database-managed-instance.md).
-- Para obter informações sobre preços, consulte [gerida de base de dados SQL a preços de instância](https://azure.microsoft.com/pricing/details/sql-database/managed/).
-- Para saber como criar a sua primeira instância gerida, veja [guia de início rápido](sql-database-managed-instance-get-started.md).
+- Para obter mais informações sobre a instância gerenciada, consulte [o que é uma instância gerenciada?](sql-database-managed-instance.md).
+- Para obter informações sobre preços, consulte [preços da instância gerenciada do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+- Para saber como criar sua primeira instância gerenciada, consulte [o guia de início rápido](sql-database-managed-instance-get-started.md).

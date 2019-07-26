@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verifique a ortografia com o SDK de verificação de ortografia para do Bing paraC#'
-titlesuffix: Azure Cognitive Services
-description: Começar a utilizar a API de REST de verificação do Bing ortográfica para verificar a ortografia e gramática.
+title: 'Início rápido: Verifique a ortografia com o SDK do Verificação Ortográfica do Bing paraC#'
+titleSuffix: Azure Cognitive Services
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,23 +10,23 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: adbb60c7ddbc72b8b7e5cb31c6909117ce3a10cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d98d00275cbd89702e4bae0c93aa262805617e59
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798368"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500788"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Início rápido: Verifique a ortografia com o SDK de verificação de ortografia para do Bing paraC#
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Início rápido: Verifique a ortografia com o SDK do Verificação Ortográfica do Bing paraC#
 
-Utilizar este início rápido para começar a ortográfica com o SDK de verificação de ortografia para do Bing para C#. Enquanto a verificação de ortografia do Bing tem uma API de REST compatível com a maioria das linguagens de programação, o SDK fornece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
+Use este guia de início rápido para iniciar a verificação ortográfica com C#o SDK do verificação ortográfica do Bing para o. Embora Verificação Ortográfica do Bing tenha uma API REST compatível com a maioria das linguagens de programação, o SDK fornece uma maneira fácil de integrar o serviço em seus aplicativos. O código-fonte para este exemplo pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/SpellCheck).
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-* Qualquer edição dos [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
-* A verificação de ortografia do Bing [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck)
+* Qualquer edição do [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
+* O [pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck) verificação ortográfica do Bing
 
-Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, selecione **gerir pacotes NuGet** partir **Explorador de soluções** no Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. O pacote também instala as seguintes dependências:
+Para adicionar o SDK do Verificação Ortográfica do Bing ao seu projeto, selecione **gerenciar pacotes NuGet** do **Gerenciador de soluções** no Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Language.SpellCheck`. O pacote também instala as seguintes dependências:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -36,7 +36,7 @@ Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, se
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. criar um novo C# consola de solução no Visual Studio. Em seguida, adicione o seguinte `using` instrução.
+1. Crie uma nova C# solução de console no Visual Studio. Em seguida, adicione `using` a instrução a seguir.
     
     ```csharp
     using System;
@@ -46,9 +46,9 @@ Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, se
     using Microsoft.Azure.CognitiveServices.Language.SpellCheck.Models;
     ```
 
-2. Crie uma nova classe. Em seguida, crie uma função assíncrona chamada `SpellCheckCorrection()` que usa uma chave de subscrição e envia o pedido de verificação ortográfica.
+2. Crie uma nova classe. Em seguida, crie uma função `SpellCheckCorrection()` assíncrona chamada que usa uma chave de assinatura e envia a solicitação de verificação ortográfica.
 
-3. Criar uma instância do cliente ao criar um novo `ApiKeyServiceClientCredentials` objeto. 
+3. Crie uma instância do cliente criando um `ApiKeyServiceClientCredentials` novo objeto. 
 
     ```csharp
     public static class SpellCheckSample{
@@ -59,15 +59,15 @@ Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, se
     }
     ```
 
-## <a name="send-the-request-and-read-the-response"></a>Enviar a solicitação e leio a resposta
+## <a name="send-the-request-and-read-the-response"></a>Enviar a solicitação e ler a resposta
 
-1. Na função criada acima, execute os seguintes passos. Envie o pedido de verificação ortográfica com o cliente. Adicione o texto a ser verificado para o `text` parâmetro e definir o modo como `proof`.  
+1. Na função criada acima, execute as etapas a seguir. Envie a solicitação de verificação ortográfica com o cliente. Adicione o texto a ser verificado ao `text` parâmetro e defina o modo como. `proof`  
     
     ```csharp
     var result = await client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof");
     ```
 
-2. Obtenha o resultado de verificação ortográfica primeiro, se existir um. A primeira palavra escrita incorretamente (token) devolvidas o tipo de token e o número de sugestões de impressão.
+2. Obtenha o primeiro resultado da verificação ortográfica, se houver um. Imprima a primeira palavra digitada incorretamente (token) retornada, o tipo de token e o número de sugestões.
 
     ```csharp
     if (firstspellCheckResult != null){
@@ -80,7 +80,7 @@ Para adicionar o SDK de verificação de ortográfica do Bing ao seu projeto, se
     }
     ```
 
-3. Obter a correção sugerida primeiro, se existir um. Imprima a pontuação de sugestão e a palavra sugerida. 
+3. Obtenha a primeira correção sugerida, se houver uma. Imprima a pontuação de sugestão e a palavra sugerida. 
 
     ```csharp
             var suggestions = firstspellCheckResult.Suggestions;

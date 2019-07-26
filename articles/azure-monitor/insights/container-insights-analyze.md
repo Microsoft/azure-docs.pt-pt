@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: magoedte
-ms.openlocfilehash: dc55e4999a09c45463ae75b05d610b290f5ff526
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: bbfc8cc61571de8b76ef1f7f0216501ef6d2cdee
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248322"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377482"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores 
 Com o Azure Monitor para contentores, pode utilizar os gráficos de desempenho e estado de funcionamento para monitorizar a carga de trabalho de seus clusters do Azure Kubernetes Service (AKS) de duas perspetivas, diretamente a partir de um cluster do AKS ou todos os clusters do AKS numa subscrição do Azure Monitorize. Visualização do Azure Container Instances (ACI) também é possível ao monitorizar um cluster do AKS específico.
@@ -38,9 +38,11 @@ As principais diferenças de monitoramento de um cluster do Windows Server com A
 - Com a versão de visualização, há suporte para um máximo de 30 contêineres do Windows Server. Essa limitação não se aplica a contêineres do Linux.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+
 Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de cluster multi do Azure Monitor 
+## <a name="multi-cluster-view-from-azure-monitor"></a>Vista de cluster multi do Azure Monitor
+
 Para ver o estado de funcionamento de todos os clusters do AKS implementados, selecione **Monitor** do painel esquerdo no portal do Azure.  Sob o **Insights** secção, selecione **contentores**.  
 
 ![Exemplo de dashboard de cluster multi de Monitor do Azure](./media/container-insights-analyze/azmon-containers-multiview.png)
@@ -89,6 +91,7 @@ A tabela seguinte fornece uma análise detalhada do cálculo controlando os Esta
 Na lista de clusters, pode desagregar para o **Cluster** página, ao clicar no nome do cluster, para o **nós** página de desempenho ao clicar no rollup de nós no **nós** coluna desse cluster específico, ou desagregar para o **controladores** página de desempenho ao clicar no rollup do **pods de utilizador** ou **pods de sistema**coluna.   
 
 ## <a name="view-performance-directly-from-an-aks-cluster"></a>Ver desempenho diretamente a partir de um cluster do AKS
+
 Acesso para o Azure Monitor para contentores está disponível diretamente a partir de um cluster do AKS, selecionando **Insights** no painel esquerdo. Ver informações sobre o seu cluster do AKS está organizado em quatro perspectivas:
 
 - Cluster
@@ -112,6 +115,7 @@ Você pode usar as teclas de seta para a esquerda/direita para percorrer cada po
 O Azure Monitor para contêineres também dá suporte a Azure Monitor [métricas Explorer](../platform/metrics-getting-started.md), onde você pode criar seus próprios gráficos de plotagem, correlacionar e investigar tendências e fixar em painéis. No Metrics Explorer, você também pode usar os critérios definidos para visualizar suas métricas como a base de uma regra de [alerta baseada em métrica](../platform/alerts-metric.md).  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>Exibir métricas de contêiner no Metrics Explorer
+
 No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod agregadas de Azure Monitor para contêineres. A tabela a seguir resume os detalhes para ajudá-lo a entender como usar os gráficos de métrica para visualizar as métricas de contêiner.
 
 |Espaço de Nomes | Métrica |
@@ -129,7 +133,7 @@ No Metrics Explorer, você pode exibir as métricas de utilização de nó e Pod
 
 Você pode aplicar a [divisão](../platform/metrics-charts.md#apply-splitting-to-a-chart) de uma métrica para exibi-la por dimensão e visualizar como os diferentes segmentos de ti se comparam entre si. Para um nó, você pode segmentar o gráfico pela dimensão do *host* e, a partir de um pod, você pode segmentá-lo pelas seguintes dimensões:
 
-* Controle
+* Controlador
 * Namespace kubernetes
 * Nó
 * Fase
@@ -273,20 +277,36 @@ Os ícones no campo status indicam os Estados online de pods, conforme descrito 
 | ![Ícone de estado terminada](./media/container-insights-analyze/containers-terminated-icon.png) | Parado ou falha ao parar com êxito|  
 | ![Ícone de estado com falhas](./media/container-insights-analyze/containers-failed-icon.png) | Estado de falha |  
 
-## <a name="disk-capacity-workbook"></a>Pasta de trabalho de capacidade de disco
+## <a name="workbooks"></a>Livros
+
 As pastas de trabalho combinam texto, [consultas de log](../log-query/query-language.md), [métricas](../platform/data-platform-metrics.md)e parâmetros em relatórios interativos sofisticados. As pastas de trabalho são editáveis por outros membros da equipe que têm acesso aos mesmos recursos do Azure.
 
-Azure Monitor para contêineres inclui uma pasta de trabalho para você começar, **capacidade de disco**.  Esta pasta de trabalho apresenta gráficos de uso de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
+Azure Monitor para contêineres inclui quatro pastas de trabalho para você começar:
 
-- % De uso do disco para todos os discos
-- Espaço livre em disco para todos os discos
-- Uma tabela que mostra para cada disco de nós, seu% espaço usado, tendência de% espaço usado, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela,% espaço usado e espaço livre em disco (GiB) é mostrado abaixo 
+- **Capacidade do disco**: Apresenta gráficos de uso de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
 
-Você acessa essa pasta de trabalho selecionando **capacidade de disco** na lista suspensa **exibir pastas de trabalho** .  
+    - % De uso do disco para todos os discos
+    - Espaço livre em disco para todos os discos
+    - Uma grade que mostra para cada disco de nós, seu% espaço usado, tendência de% espaço usado, espaço livre em disco (GiB) e tendência de espaço livre em disco (GiB). Quando uma linha é selecionada na tabela,% espaço usado e espaço livre em disco (GiB) é mostrado abaixo 
+
+- **E/s de disco**: Apresenta gráficos de utilização de disco interativo para cada disco apresentado ao nó dentro de um contêiner pelas seguintes perspectivas:
+
+    - E/s de disco resumida em todos os discos por meio de bytes de leitura/s, bytes de gravação/s e tendências de leitura e gravação de bytes/s 
+    - Oito gráficos de desempenho mostrando os principais indicadores de desempenho para ajudar a medir e identificar afunilamentos de e/s de disco.
+
+- **Kubelet**: Inclui duas grades que mostram as estatísticas operacionais do nó de chave:
+
+    - Visão geral por grade de nós resume a operação total, os erros totais e as operações bem-sucedidas por porcentagem e tendência para cada nó.
+    - Visão geral por tipo de operação resume para cada operação a operação total, os erros totais e as operações bem-sucedidas por porcentagem e tendência.
+
+- **Rede**: Apresenta gráficos de utilização de rede interativa para cada adaptador de rede de nós e uma grade apresentando os principais indicadores de desempenho para ajudar a medir o desempenho dos adaptadores de rede.  
+
+Você acessa essas pastas de trabalho selecionando cada uma na lista suspensa **exibir pastas de trabalho** .  
 
 ![Exibir lista suspensa de pastas de trabalho](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
-
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Examine [criar alertas de desempenho com Azure monitor para contêineres](container-insights-alerts.md) para saber como criar alertas para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps. 
+
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.

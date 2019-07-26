@@ -1,6 +1,6 @@
 ---
-title: Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor | Documentos da Microsoft
-description: Descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres em consultas de registo do Azure Monitor.
+title: Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor | Microsoft Docs
+description: Descreve como editar, comparar, Pesquisar e executar uma variedade de outras operações em cadeias de caracteres em Azure Monitor consultas de log.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,80 +13,84 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424708"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466958"
 ---
-# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor
+# <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de log de Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Este artigo descreve como editar, comparar, procurar e realizar uma variedade de outras operações em cadeias de caracteres.
+Este artigo descreve como editar, comparar, Pesquisar e executar uma variedade de outras operações em cadeias de caracteres.
 
-Cada caractere numa cadeia de caracteres tem um número de índice, de acordo com a localização. O primeiro caráter é no índice 0, o caráter seguinte é 1 e então, uma. Funções de cadeia de caracteres diferentes utilizam números de índice, conforme mostrado nas seções a seguir. Muitos dos exemplos seguintes utilizam o **imprimir** de comando para demonstrar a manipulação de cadeia de caracteres sem utilizar uma origem de dados específica.
+Cada caractere em uma cadeia de caracteres tem um número de índice, de acordo com seu local. O primeiro caractere está no índice 0, o próximo caractere é 1 e, portanto, um. Funções de cadeia de caracteres diferentes usam números de índice, conforme mostrado nas seções a seguir. Muitos dos exemplos a seguir usam o comando **Print** para para demonstrar a manipulação de cadeia de caracteres sem usar uma fonte de dados específica.
 
 
-## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e carateres de escape-los
-Valores de cadeia de caracteres são compactados com qualquer um deles com carateres de aspas simples ou duplas. Barra invertida (\) é utilizado para caracteres de escape para o caráter a seguir, como \t para o separador, \n para a nova linha, e \" o caráter de plica em si.
+## <a name="strings-and-escaping-them"></a>Cadeias de caracteres e saída
+Os valores de cadeia de caracteres são encapsulados com caracteres de aspas simples ou duplas. Barra invertida\) (é usada para escapar caracteres para o caractere após ele, como \t para Tab, \n para nova linha e \" o próprio caractere de aspas.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
-Para impedir a "\\"de atuar como um caráter de escape, adicionar"\@" como um prefixo para a cadeia de caracteres:
+```Kusto
+print 'this is a "string" literal in single \' quotes'
+```
+
+Para impedir que\\"" atue como um caractere de escape, adicione\@"" como um prefixo à cadeia de caracteres:
 
 ```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
 
-## <a name="string-comparisons"></a>Comparações de seqüência de caracteres
+## <a name="string-comparisons"></a>Comparações de cadeia de caracteres
 
-Operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (produz `true`)
+Operator       |Descrição                         |Diferenciar maiúsculas de minúsculas|Exemplo (rendimento `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
+`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
 `=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
-`!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
-`has`          |Direita lado é um termo todo no esquerdo lado |Não|`"North America" has "america"`
-`!has`         |Direita lado não é um termo completo na esquerdo lado       |Não            |`"North America" !has "amer"` 
-`has_cs`       |Direita lado é um termo todo no esquerdo lado |Sim|`"North America" has_cs "America"`
-`!has_cs`      |Direita lado não é um termo completo na esquerdo lado       |Sim            |`"North America" !has_cs "amer"` 
-`hasprefix`    |Direita lado é um prefixo de termo no esquerdo lado         |Não            |`"North America" hasprefix "ame"`
-`!hasprefix`   |Direita lado não é um prefixo de termo no esquerdo lado     |Não            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |Direita lado é um prefixo de termo no esquerdo lado         |Sim            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |Direita lado não é um prefixo de termo no esquerdo lado     |Sim            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |Direita lado é um sufixo de termo em esquerdo lado         |Não            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Direita lado não é um sufixo de termo em esquerdo lado     |Não            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |Direita lado é um sufixo de termo em esquerdo lado         |Sim            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Direita lado não é um sufixo de termo em esquerdo lado     |Sim            |`"North America" !hassuffix_cs "icA"`
-`contains`     |Direita lado ocorre como uma subsequente de esquerdo lado  |Não            |`"FabriKam" contains "BRik"`
-`!contains`    |Direita lado não ocorre em esquerdo lado           |Não            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |Direita lado ocorre como uma subsequente de esquerdo lado  |Sim           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |Direita lado não ocorre em esquerdo lado           |Sim           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |Direita lado é uma subsequente inicial de esquerdo lado|Não            |`"Fabrikam" startswith "fab"`
-`!startswith`  |Direita lado não é um subsequente inicial de esquerdo lado|Não        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |Direita lado é uma subsequente inicial de esquerdo lado|Sim            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |Direita lado não é um subsequente inicial de esquerdo lado|Sim        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |Direita lado é uma subsequente de fecho de esquerdo lado|Não             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |Direita lado não é um subsequente de fecho de esquerdo lado|Não         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Direita lado é uma subsequente de fecho de esquerdo lado|Sim             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Direita lado não é um subsequente de fecho de esquerdo lado|Sim         |`"Fabrikam" !endswith "brik"`
-`matches regex`|esquerdo lado contém uma correspondência para a direita lado        |Sim           |`"Fabrikam" matches regex "b.*k"`
-`in`           |É igual a para um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
+`!~`           |Diferente de                          |Não            |`"aBc" !~ "xyz"`
+`has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
+`!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
+`has_cs`       |O lado direito é um termo completo no lado esquerdo |Sim|`"North America" has_cs "America"`
+`!has_cs`      |O lado direito não é um termo completo no lado esquerdo       |Sim            |`"North America" !has_cs "amer"` 
+`hasprefix`    |O lado direito é um prefixo de termo no lado esquerdo         |Não            |`"North America" hasprefix "ame"`
+`!hasprefix`   |O lado direito não é um prefixo de termo no lado esquerdo     |Não            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |O lado direito é um prefixo de termo no lado esquerdo         |Sim            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |O lado direito não é um prefixo de termo no lado esquerdo     |Sim            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |O lado direito é um sufixo de termo no lado esquerdo         |Não            |`"North America" hassuffix "ica"`
+`!hassuffix`   |O lado direito não é um sufixo de termo no lado esquerdo     |Não            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |O lado direito é um sufixo de termo no lado esquerdo         |Sim            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |O lado direito não é um sufixo de termo no lado esquerdo     |Sim            |`"North America" !hassuffix_cs "icA"`
+`contains`     |O lado direito ocorre como uma subsequência do lado esquerdo  |Não            |`"FabriKam" contains "BRik"`
+`!contains`    |O lado direito não ocorre no lado esquerdo           |Não            |`"Fabrikam" !contains "xyz"`
+`contains_cs`   |O lado direito ocorre como uma subsequência do lado esquerdo  |Sim           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |O lado direito não ocorre no lado esquerdo           |Sim           |`"Fabrikam" !contains_cs "Kam"`
+`startswith`   |O lado direito é uma subsequência inicial do lado esquerdo|Não            |`"Fabrikam" startswith "fab"`
+`!startswith`  |O lado direito não é uma subsequência inicial do lado esquerdo|Não        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |O lado direito é uma subsequência inicial do lado esquerdo|Sim            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |O lado direito não é uma subsequência inicial do lado esquerdo|Sim        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Não             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Não         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |O lado direito é uma subsequência de fechamento do lado esquerdo|Sim             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |O lado direito não é uma subsequência de fechamento do lado esquerdo|Sim         |`"Fabrikam" !endswith "brik"`
+`matches regex`|o lado esquerdo contém uma correspondência para o lado direito        |Sim           |`"Fabrikam" matches regex "b.*k"`
+`in`           |É igual a um dos elementos       |Sim           |`"abc" in ("123", "345", "abc")`
 `!in`          |Não é igual a qualquer um dos elementos   |Sim           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof
 
-Contagem de ocorrências de uma subcadeia numa cadeia de caracteres. Pode corresponder a cadeias de caracteres sem formatação ou utilizar a regex. Correspondências de seqüência de caracteres simples se possam sobrepor enquanto não correspondências de regex.
+Conta ocorrências de uma subcadeia de caracteres em uma cadeia de caracteres. Pode corresponder a cadeias de caracteres sem formatação ou usar Regex. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto Regex não corresponde a.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -94,17 +98,17 @@ countof(text, search [, kind])
 ```
 
 ### <a name="arguments"></a>Argumentos:
-- `text` -A cadeia de entrada 
-- `search` -Seqüência de caracteres simples ou uma expressão regular para corresponder ao dentro de texto.
-- `kind` - _normal_ | _regex_ (predefinição: normal).
+- `text`-A cadeia de caracteres de entrada 
+- `search`-Cadeia de caracteres simples ou expressão regular para correspondência dentro do texto.
+- `kind` -  | _Regex_ normal (padrão: normal).
 
 ### <a name="returns"></a>Devolve
 
-O número de vezes que a cadeia de pesquisa que possa ter correspondente no contentor. Correspondências de seqüência de caracteres simples podem sobrepor-se ao regex correspondências contrário.
+O número de vezes que a cadeia de caracteres de pesquisa pode ser correspondida no contêiner. Correspondências de cadeia de caracteres simples podem se sobrepor enquanto o Regex faz a correspondência.
 
 ### <a name="examples"></a>Exemplos
 
-#### <a name="plain-string-matches"></a>Correspondências de cadeia de caracteres sem formatação
+#### <a name="plain-string-matches"></a>Correspondências de cadeia de caracteres simples
 
 ```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
@@ -114,7 +118,7 @@ print countof("ababa", "ab", "normal");  //result: 2
 print countof("ababa", "aba");  //result: 2
 ```
 
-#### <a name="regex-matches"></a>Correspondências de RegEx
+#### <a name="regex-matches"></a>Correspondências de Regex
 
 ```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
@@ -123,9 +127,9 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 ```
 
 
-## <a name="extract"></a>Extrair
+## <a name="extract"></a>auto-extraível
 
-Obtém uma correspondência para uma expressão regular de uma determinada seqüência de caracteres. Opcionalmente, também converte o extraídas de subcadeia o tipo especificado.
+Obtém uma correspondência para uma expressão regular de uma determinada cadeia de caracteres. Opcionalmente também converte a subcadeia de caracteres extraída do tipo especificado.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -135,18 +139,18 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex` -Uma expressão regular.
-- `captureGroup` -Uma constante de número inteiro positivo que indica o grupo de captura para extrair. 0 para a correspondência de toda, 1 para o valor correspondido pela primeira '(' Parêntese')' na expressão regular, 2 ou mais para parênteses subsequentes.
-- `text` -Uma cadeia de caracteres para pesquisar.
-- `typeLiteral` -Um literal de tipo opcional (por exemplo, typeof(long)). Se for fornecido, a subcadeia extraída é convertida para este tipo.
+- `regex`-Uma expressão regular.
+- `captureGroup`-Uma constante inteira positiva que indica o grupo de captura a ser extraído. 0 para a correspondência inteira, 1 para o valor correspondido pelo primeiro ' (' parêntese ') ' na expressão regular, 2 ou mais para parênteses subsequentes.
+- `text`-Uma cadeia de caracteres a ser pesquisada.
+- `typeLiteral`-Um literal de tipo opcional (por exemplo, typeof (Long)). Se fornecido, a subcadeia de caracteres extraída será convertida nesse tipo.
 
 ### <a name="returns"></a>Devolve
-A subcadeia comparada com captureGroup de grupo captura indicado, opcionalmente, convertido para typeLiteral.
-Se não há nenhuma correspondência ou a conversão de tipo falhar, vrátit hodnotu null.
+A subcadeia de caracteres correspondente ao grupo de captura de grupos de captura indicado, opcionalmente, convertida em typeLiteral.
+Se não houver correspondência ou a conversão de tipo falhar, retornará NULL.
 
 ### <a name="examples"></a>Exemplos
 
-O exemplo seguinte extrai o último octeto dos *ComputerIP* de um registo de heartbeat:
+O exemplo a seguir extrai o último octeto de *ComputerIP* de um registro de pulsação:
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -154,7 +158,7 @@ Heartbeat
 | project ComputerIP, last_octet=extract("([0-9]*$)", 1, ComputerIP) 
 ```
 
-O exemplo seguinte extrai o último octeto, converte-o para um *real* escreva (número) e calcula o seguinte valor IP
+O exemplo a seguir extrai o último octeto, converte-o em um tipo *real* (Number) e calcula o próximo valor de IP
 ```Kusto
 Heartbeat
 | where ComputerIP != "" 
@@ -164,7 +168,7 @@ Heartbeat
 | project ComputerIP, last_octet, next_ip
 ```
 
-No exemplo abaixo, a cadeia de caracteres *rastreio* é pesquisada para obter uma definição de "Duração". A correspondência é convertida em *reais* e multiplicado por uma constante de tempo (1 s) *que converte a duração para o tipo de período de tempo*.
+No exemplo a seguir, o *rastreamento* de cadeia de caracteres é pesquisado em busca de uma definição de "duração". A correspondência é convertida em *real* e multiplicada por uma constante de tempo (1 s) *que converte a duração para o tipo TimeSpan*.
 ```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
@@ -172,10 +176,10 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 ```
 
 
-## <a name="isempty-isnotempty-notempty"></a>IsEmpty isnotempty, notempty
+## <a name="isempty-isnotempty-notempty"></a>IsEmpty, IsNotEmpty, não vazio
 
-- *IsEmpty* retorna true se o argumento é uma cadeia vazia ou null (Consulte também *isnull*).
-- *isnotempty* retorna true se o argumento não é uma cadeia vazia ou um valor nulo (Consulte também *isnotnull*). alias: *notempty*.
+- *IsEmpty* retornará true se o argumento for uma cadeia de caracteres vazia ou NULL (consulte também *IsNull*).
+- *IsNotEmpty* retornará true se o argumento não for uma cadeia de caracteres vazia ou NULL (consulte também *IsNotNull*). alias: não *vazio*.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -201,7 +205,7 @@ Heartbeat | where isnotempty(ComputerIP) | take 1  // return 1 Heartbeat record 
 
 ## <a name="parseurl"></a>parseurl
 
-Divide um URL em partes (protocolo, anfitrião, porta, etc.) e retorna um objeto de dicionário que contém as partes como cadeias de caracteres.
+Divide uma URL em suas partes (protocolo, host, porta, etc.) e retorna um objeto Dictionary contendo as partes como cadeias de caracteres.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -230,9 +234,9 @@ O resultado será:
 ```
 
 
-## <a name="replace"></a>substituir
+## <a name="replace"></a>Substitua
 
-Substitui todas as correspondências de regex por outra cadeia. 
+Substitui todas as correspondências de Regex por outra cadeia de caracteres. 
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -242,12 +246,12 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex` -A expressão regular para corresponder ao. Pode conter grupos de captura parênteses' (' ')'.
-- `rewrite` -O regex de substituição para qualquer correspondência feita pelo regex correspondente. Utilize \0 para fazer referência a correspondência de toda, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subseqüente.
-- `input_text` -A cadeia de entrada para procurar no.
+- `regex`-A expressão regular a ser correspondente. Ele pode conter grupos de captura em ' (' parênteses ') '.
+- `rewrite`-O Regex de substituição para qualquer correspondência feita por Regex correspondente. Use \ 0 para se referir a toda a correspondência, \ 1 para o primeiro grupo de captura, \ 2, e assim por diante para grupos de captura subsequentes.
+- `input_text`-A cadeia de caracteres de entrada para pesquisa.
 
 ### <a name="returns"></a>Devolve
-O texto depois de substituir todas as correspondências de regex com avaliações de regravação. Correspondências não se sobrepõem.
+O texto depois de substituir todas as correspondências de Regex por avaliações de reescrita. As correspondências não se sobrepõem.
 
 ### <a name="examples"></a>Exemplos
 
@@ -260,14 +264,14 @@ SecurityEvent
 
 Pode ter os seguintes resultados:
 
-Atividade                                        |substituído
+Atividade                                        |substituição
 ------------------------------------------------|----------------------------------------------------------
-4663 - foi efetuada uma tentativa de acessar um objeto  |ID de atividade 4663: Foi efetuada uma tentativa de acessar um objeto.
+4663-foi feita uma tentativa de acessar um objeto  |ID da atividade 4663: Foi feita uma tentativa de acessar um objeto.
 
 
-## <a name="split"></a>dividir
+## <a name="split"></a>split
 
-Divide uma determinada seqüência de caracteres, de acordo com um delimitador especificado e retorna uma matriz de subcadeias de carateres resultantes.
+Divide uma determinada cadeia de caracteres de acordo com um delimitador especificado e retorna uma matriz das subcadeias de caracteres resultantes.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -276,9 +280,9 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source` -A cadeia a dividir, de acordo com o delimitador especificado.
-- `delimiter` -O delimitador que será utilizado para dividir a cadeia de caracteres de origem.
-- `requestedIndex` -Um índice baseado em zero opcional. Se for fornecido, a matriz de cadeia devolvida irá conter apenas esse item (se existir).
+- `source`-A cadeia de caracteres a ser dividida de acordo com o delimitador especificado.
+- `delimiter`-O delimitador que será usado para dividir a cadeia de caracteres de origem.
+- `requestedIndex`-Um índice opcional baseado em zero. Se fornecido, a matriz de cadeia de caracteres retornada manterá somente esse item (se existir).
 
 
 ### <a name="examples"></a>Exemplos
@@ -294,7 +298,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 
 ## <a name="strcat"></a>strcat
 
-Concatena argumentos de cadeia de caracteres (argumentos de suporta 1-16).
+Concatena argumentos de cadeia de caracteres (dá suporte a argumentos 1-16).
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -309,7 +313,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 ## <a name="strlen"></a>strlen
 
-Devolve o comprimento de uma cadeia de caracteres.
+Retorna o comprimento de uma cadeia de caracteres.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -322,9 +326,9 @@ print strlen("hello")   // result: 5
 ```
 
 
-## <a name="substring"></a>subcadeia
+## <a name="substring"></a>Subcadeia
 
-Extrai uma subcadeia de uma cadeia de caracteres de origem específica, começando no índice especificado. Opcionalmente, pode ser especificado o comprimento da subcadeia pedida.
+Extrai uma substring de uma determinada cadeia de caracteres de origem, iniciando no índice especificado. Opcionalmente, o comprimento da subcadeia de caracteres solicitada pode ser especificado.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -333,9 +337,9 @@ substring(source, startingIndex [, length])
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source` -A cadeia de origem a subcadeia será retirada da.
-- `startingIndex` -A com base em zero caractere posição inicial da subseqüência pedida.
-- `length` -Um parâmetro opcional que pode ser utilizado para especificar o tamanho pedido da subseqüência retornado.
+- `source`-A cadeia de caracteres de origem da qual a subcadeia de caracteres será retirada.
+- `startingIndex`-A posição de caractere inicial com base em zero da subcadeia de caracteres solicitada.
+- `length`-Um parâmetro opcional que pode ser usado para especificar o comprimento solicitado da subcadeia de caracteres retornada.
 
 ### <a name="examples"></a>Exemplos
 ```Kusto
@@ -346,9 +350,9 @@ print substring("ABCD", 0, 2);  // result: "AB"
 ```
 
 
-## <a name="tolower-toupper"></a>tolower, toupper
+## <a name="tolower-toupper"></a>ToLower, ToUpper
 
-Converte uma determinada seqüência de caracteres para todos os inferior ou maiúsculas.
+Converte uma determinada cadeia de caracteres em todas as letras minúsculas ou maiúsculas.
 
 ### <a name="syntax"></a>Sintaxe
 ```
@@ -364,11 +368,11 @@ print toupper("hello"); // result: "HELLO"
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Continue com os Tutoriais avançados:
+## <a name="next-steps"></a>Passos seguintes
+Continue com os tutoriais avançados:
 * [Funções de agregação](aggregations.md)
 * [Agregações avançadas](advanced-aggregations.md)
 * [Gráficos e diagramas](charts.md)
-* [Trabalhar com estruturas de dados e JSON](json-data-structures.md)
-* [Escrita de consultas avançado](advanced-query-writing.md)
-* [Associações - cruzada da análise](joins.md)
+* [Trabalhando com estruturas de dados e JSON](json-data-structures.md)
+* [Gravação de consulta avançada](advanced-query-writing.md)
+* [Junções – análise cruzada](joins.md)

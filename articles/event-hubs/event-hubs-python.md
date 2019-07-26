@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: 88fdaec9e19c082a6fe981dc4d9a0e015335f1e2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f86dc92b4df45119930970acfe9e173f32f894fb
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60202978"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356050"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>Como os Hubs de eventos do Azure através de uma aplicação Python
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para obter mais informações, consulte [introdução aos Hubs de eventos](event-hubs-what-is-event-hubs.md). 
@@ -29,10 +29,10 @@ Este artigo fornece ligações para artigos que mostram como realizar as seguint
 
 - [Enviar eventos para um hub de eventos](#send-events-to-event-hubs)
 - [Receber eventos de um hub de eventos](#receive-events-from-event-hubs)
-- Leitura capturados dados de eventos de um armazenamento do Azure. 
+- Ler dados de eventos capturados de um armazenamento do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Crie um hub de eventos ao seguir um dos seguintes inícios rápidos: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md). 
+- Crie um hub de eventos seguindo um destes inícios rápidos: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md) [Azure Resource Manager modelo](event-hubs-resource-manager-namespace-event-hub.md). 
 - Python 3.4 ou posterior instalado no seu computador.
 
 ## <a name="install-python-package"></a>Instalar pacote do Python
@@ -94,7 +94,8 @@ O código seguinte mostra como receber eventos de um hub de eventos a partir de 
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 
 # Add a receiver to the client
-receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+receiver = client.add_receiver(
+    CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
 
 # Run the Event Hubs client
 client.run()
@@ -112,7 +113,7 @@ client.stop()
 Para obter um tutorial completo sobre como receber eventos de um hub de eventos a partir de um aplicativo escrito em Python, consulte [neste artigo](event-hubs-python-get-started-receive.md)
 
 ## <a name="read-capture-event-data-from-azure-storage"></a>Dados de eventos de captura de leitura do armazenamento do Azure
-O código seguinte mostra como ler dados de eventos capturados que são armazenados num **armazenamento de Blobs do Azure** partir de uma aplicação de Python: Ativar **capturar** funcionalidade para o hub de eventos ao seguir as instruções de: [Ativar a captura de Hubs de eventos com o portal do Azure](event-hubs-capture-enable-through-portal.md). Em seguida, envie alguns eventos para o hub de eventos antes de testar o código. 
+O código a seguir mostra como ler dados de eventos capturados que são armazenados em um armazenamento de BLOBs do **Azure** de um aplicativo Python: Habilite o recurso de **captura** para o Hub de eventos seguindo as instruções de: [Habilite a captura de hubs de eventos usando o portal do Azure](event-hubs-capture-enable-through-portal.md). Em seguida, envie alguns eventos para o hub de eventos antes de testar o código. 
 
 ```python
 import os
@@ -156,7 +157,6 @@ def startProcessing(accountName, key, container):
             os.remove(cleanName)
         block_blob_service.delete_blob(container, blob.name)
 startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
-
 ```
 
 Para obter um tutorial completo sobre como ler dados de Hubs de eventos capturados num armazenamento de Blobs do Azure a partir de um aplicativo escrito em Python, consulte [neste artigo](event-hubs-capture-python.md)

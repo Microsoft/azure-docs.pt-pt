@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Ruby'
-titlesuffix: Azure Cognitive Services
-description: Começar a utilizar a API de REST de verificação do Bing ortográfica para verificar a ortografia e gramática.
+title: 'Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby'
+titleSuffix: Azure Cognitive Services
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: a3e65f9ad8e8a9c6876d1588ecaa94531206c6f4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 4c324bc013ccf339d19bb9dd7681909c4331db60
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389713"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500327"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: Verificar a ortografia com a API REST do Verificação Ortográfica do Bing e o Ruby
 
-Utilize este guia de introdução para efetuar a primeira chamada para o Bing REST API de verificação ortográfica com Ruby. Esta aplicação simple envia um pedido para a API e retorna uma lista de palavras, ele não reconhece, seguido de correção sugeridas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing usando Ruby. Esse aplicativo simples envia uma solicitação para a API e retorna uma lista de palavras que ela não reconheceu, seguida de correções sugeridas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior.
+* [Ruby 2,4](https://www.ruby-lang.org/en/downloads/) ou posterior.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro de Ruby no seu editor favorito ou IDE e adicione os seguintes requisitos. 
+1. Crie um novo arquivo Ruby em seu editor favorito ou IDE e adicione os requisitos a seguir. 
 
     ```javascript
     require 'net/http'
@@ -38,7 +38,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
     require 'json'
     ```
 
-2. Crie variáveis para a sua chave de subscrição, o URI do ponto final e o caminho. Criar os parâmetros do pedido, acrescentando a `mkt=` parâmetro para o mercado, e `&mode` para o `proof` modo prova.
+2. Crie variáveis para sua chave de assinatura, URI de ponto de extremidade e caminho. Crie seus parâmetros de solicitação acrescentando o `mkt=` parâmetro ao mercado e `&mode` ao modo de prova `proof` de prelo.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -47,9 +47,9 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
     params = 'mkt=en-us&mode=proof'
     ```
 
-## <a name="send-a-spell-check-request"></a>Enviar um pedido de verificação ortográfica
+## <a name="send-a-spell-check-request"></a>Enviar uma solicitação de verificação ortográfica
 
-1. Crie um URI de sua cadeia de caracteres do uri e parâmetros de caminho de anfitrião. Set-lo da consulta para conter o texto que pretende verificação ortográfica.
+1. Crie um URI do URI do host, do caminho e da cadeia de parâmetros. Defina a consulta para conter o texto que você deseja verificar na verificação ortográfica.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -59,7 +59,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
    })
    ```
 
-2. Crie um pedido com o URI construído acima. Adicionar a chave para o `Ocp-Apim-Subscription-Key` cabeçalho.
+2. Crie uma solicitação usando o URI construído acima. Adicione sua chave ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
     ```ruby
     request = Net::HTTP::Post.new(uri)
@@ -75,14 +75,14 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
     end
     ```
 
-4. Obtenha a resposta JSON e imprimi-lo na consola. 
+4. Obtenha a resposta JSON e imprima-a no console do. 
 
     ```ruby
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -127,7 +127,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

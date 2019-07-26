@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 854fd5ca2bb6c27b7f8815bf85e19c6cf147e475
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: a0da13e82811d500dee50c2231500245c7e011a6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278043"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383445"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -70,7 +70,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Armazenamento de BLOBs e Azure Data Lake Gen2
 
-A saída para Azure Data Lake Gen2 é oferecida como um recurso de visualização pública.
+A saída para Azure Data Lake Gen2 é oferecida como um recurso de visualização em regiões limitadas em todo o mundo. Você pode solicitar acesso à visualização fornecendo detalhes adicionais em nosso formulário de [solicitação](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
 
 O armazenamento de BLOBs do Azure oferece uma solução econômica e escalonável para armazenar grandes quantidades de dados não estruturados na nuvem. Para obter uma introdução sobre o armazenamento de BLOBs e seu uso, consulte [carregar, baixar e listar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -81,7 +81,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Alias de saída        | Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para este armazenamento de Blobs. |
 | Conta de armazenamento     | O nome da conta de armazenamento em que você está enviando a saída.               |
 | Chave da conta de armazenamento | A chave secreta associada à conta de armazenamento.                              |
-| Contêiner de armazenamento   | Um agrupamento lógico para BLOBs armazenados no serviço blob do Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob. |
+| Contentor de armazenamento   | Um agrupamento lógico para BLOBs armazenados no serviço blob do Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob. |
 | Padrão do caminho | Opcional. O padrão de caminho de arquivo que é usado para gravar seus BLOBs dentro do contêiner especificado. <br /><br /> No padrão de caminho, você pode optar por usar uma ou mais instâncias das variáveis de data e hora para especificar a frequência em que os BLOBs são gravados: <br /> {date}, {time} <br /><br />Você pode usar o particionamento de BLOBs personalizado para especificar um nome {Field} personalizado dos dados de evento para os blobs de partição. O nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Os nomes de campo não diferenciam maiúsculas de minúsculas. Por exemplo, o serviço não pode diferenciar entre a coluna "ID" e a coluna "ID".</li><li>Campos aninhados não são permitidos. Em vez disso, use um alias na consulta de trabalho para "Mesclar" o campo.</li><li>As expressões não podem ser usadas como um nome de campo.</li></ul> <br />Esse recurso permite o uso de configurações personalizadas de especificador de formato de data/hora no caminho. Personalizado data e hora formatos tem de ser especificado um de cada vez, entre o {datetime:\<especificador >} palavra-chave. As entradas permitidas \<para o especificador > são AAAA, mm, m, DD, d, hh, H, mm, M, SS ou s. A palavra-chave\<{DateTime: especificador >} pode ser usada várias vezes no caminho para formar configurações personalizadas de data/hora. <br /><br />Exemplos: <ul><li>Exemplo 1: cluster1/registos / {data} / {time}</li><li>Exemplo 2: cluster1/registos / {data}</li><li>Exemplo 3: CLUSTER1/{client_id}/{date}/{time}</li><li>Exemplo 4: CLUSTER1/{DateTime: SS}/{myField} em que a consulta é: Selecione Data. MyField como MyField da entrada;</li><li>Exemplo 5: CLUSTER1/year = {DateTime: aaaa}/month = {DateTime: MM}/Day = {DateTime: DD}</ul><br />O carimbo de data/hora da estrutura de pastas criada segue o UTC e não a hora local.<br /><br />A nomenclatura de arquivo usa a seguinte convenção: <br /><br />{Caminho Pattern}/schemaHashcode_Guid_Number.extension de prefixo<br /><br />Ficheiros de saída de exemplo:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Para obter mais informações sobre esse recurso, consulte [Azure Stream Analytics particionamento de saída de blob personalizado](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato de data em que os ficheiros estão organizados. Exemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
@@ -116,12 +116,12 @@ Você precisa de alguns parâmetros para configurar os fluxos de dados dos hubs 
 | Nome do hub de eventos | O nome da saída do hub de eventos. |
 | Nome de política do hub de eventos | A política de acesso compartilhado, que pode ser criada na guia **Configurar** do hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
 | Chave de política do hub de eventos | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do hub de eventos. |
-| Coluna de chave de partição | Opcional. Uma coluna que contém a chave de partição para saída do hub de eventos. |
+| Coluna da chave de partição | Opcional. Uma coluna que contém a chave de partição para saída do hub de eventos. |
 | Formato de serialização de eventos | O formato de serialização para dados de saída. JSON, CSV e Avro são suportados. |
 | Codificação | Para CSV e JSON, o UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador | Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato | Aplicável somente para serialização JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Essa matriz só é fechada quando as paradas de tarefa ou o Stream Analytics tem movido para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, pois não requer tratamento especial enquanto o arquivo de saída ainda está sendo gravado. |
-| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -137,7 +137,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para configu
 | Área de trabalho de Grupo |Para habilitar o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher **meu espaço de trabalho** se não quiser gravar em um grupo. A atualizar um grupo existente requer a autenticação do Power BI a renovar. |
 | Nome do conjunto de dados |Forneça um nome de conjunto de resultados que você deseja que a Power BI saída use. |
 | Nome da tabela |Forneça um nome de tabela em que o conjunto de dados de saída do Power BI. No momento, Power BI saída de trabalhos Stream Analytics pode ter apenas uma tabela em um conjunto de um. |
-| Autorizar conexão | Você precisa autorizar com Power BI para definir as configurações de saída. Depois de conceder esse acesso de saída ao seu painel de Power BI, você pode revogar o acesso alterando a senha da conta de usuário, excluindo a saída do trabalho ou excluindo o trabalho de Stream Analytics. | 
+| Autorizar ligação | Você precisa autorizar com Power BI para definir as configurações de saída. Depois de conceder esse acesso de saída ao seu painel de Power BI, você pode revogar o acesso alterando a senha da conta de usuário, excluindo a saída do trabalho ou excluindo o trabalho de Stream Analytics. | 
 
 Para obter uma explicação sobre como configurar um Power BI saída e painel, consulte o [Azure Stream Analytics e Power bi](stream-analytics-power-bi-dashboard.md) tutorial.
 
@@ -176,7 +176,7 @@ Valor de duplo | Valor de duplo | Cadeia | Cadeia | Valor de duplo
 Cadeia | String | String | String | Cadeia 
 Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Armazenamento de tabelas
 
 O [armazenamento de tabelas do Azure](../storage/common/storage-introduction.md) oferece armazenamento altamente disponível e amplamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda do usuário. O armazenamento de tabela é o repositório de chave/atributo NoSQL da Microsoft, que pode ser usado para dados estruturados com menos restrições no esquema. Armazenamento de tabelas do Azure pode ser utilizado para armazenar dados de persistência e obtenção de eficiente.
 
@@ -209,7 +209,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Codificação |Para CSV e JSON, o UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Aplicável somente para o tipo JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
-| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -228,7 +228,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são suportados. |
 | Codificação |Se você estiver usando o formato CSV ou JSON, uma codificação deverá ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). A chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -278,15 +278,15 @@ Além disso, em uma situação em que não há nenhuma aterrissagem de evento em
 Você pode anexar colunas de consulta como propriedades de usuário às suas mensagens de saída. Essas colunas não entram no conteúdo. As propriedades estão presentes na forma de um dicionário na mensagem de saída. *Key* é o nome da coluna e *Value* é o valor da coluna no dicionário Properties. Todos os tipos de dados de Stream Analytics têm suporte, exceto registro e matriz.  
 
 Saídas com suporte: 
-* Fila do barramento de serviço 
-* Tópico do barramento de serviço 
+* Fila do Service Bus 
+* Tópico do Service Bus 
 * Hub de eventos 
 
 No exemplo a seguir, adicionamos os dois campos `DeviceId` e `DeviceStatus` aos metadados. 
 * Consultá`select *, DeviceId, DeviceStatus from iotHubInput`
 * Configuração de saída:`DeviceId,DeviceStatus`
 
-![Colunas de propriedades](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+![Colunas de propriedade](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
 
 A captura de tela a seguir mostra as propriedades da mensagem de saída inspecionadas no EventHub por meio do [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 

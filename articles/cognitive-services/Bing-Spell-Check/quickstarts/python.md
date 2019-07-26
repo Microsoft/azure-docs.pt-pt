@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Python'
-titlesuffix: Azure Cognitive Services
-description: Começar a utilizar a API de REST de verificação do Bing ortográfica para verificar a ortografia e gramática.
+title: 'Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing e o Python'
+titleSuffix: Azure Cognitive Services
+description: Comece a usar a API REST do Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,33 +10,33 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: e74cc01d9104ed4f26d857f3a99eb21e312a7f59
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 90d026c12007d74de176d222e11b48d15c174855
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389737"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500985"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Python
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Início rápido: Verifique a ortografia com a API REST do Verificação Ortográfica do Bing e o Python
 
-Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Esta aplicação de Python simple envia um pedido para a API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
+Use este guia de início rápido para fazer sua primeira chamada para a API REST do Verificação Ortográfica do Bing. Esse aplicativo simples do Python envia uma solicitação para a API e retorna uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este aplicativo está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Python [3.x](https://www.python.org)
+* Python [3. x](https://www.python.org)
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Inicializar o aplicativo
 
-1. Criar um novo ficheiro de Python no seu IDE ou editor favorito e adicione a seguinte instrução de importação.
+1. Crie um novo arquivo Python em seu IDE ou editor favorito e adicione a seguinte instrução de importação.
 
    ```python
    import requests
    import json
    ```
 
-2. Crie variáveis para o texto que pretende esclarecer a verificação, a chave de subscrição e o ponto final de verificação ortográfica do Bing.
+2. Crie variáveis para o texto no qual você deseja verificar a ortografia, sua chave de assinatura e seu ponto de extremidade de Verificação Ortográfica do Bing.
 
     ```python
     api_key = "<ENTER-KEY-HERE>"
@@ -44,15 +44,15 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
     endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
     ```
 
-## <a name="create-the-parameters-for-the-request"></a>Criar os parâmetros para o pedido
+## <a name="create-the-parameters-for-the-request"></a>Criar os parâmetros para a solicitação
 
-1. Criar um novo dicionário com `text` como a chave e o seu texto como o valor.
+1. Crie um novo dicionário com `text` como a chave e o texto como o valor.
 
     ```python
     data = {'text': example_text}
     ```
 
-2. Adicione os parâmetros para o seu pedido. Acrescente o código de mercado após `mkt=`. O código de mercado é o país que fizer o pedido do. Além disso, acrescentar o modo de verificação de ortografia após `&mode=`. Modo está `proof` (captura a maioria dos erros de ortografia/gramática) ou `spell` (captura a maioria dos ortografia, mas não tantos erros de gramática).
+2. Adicione os parâmetros para sua solicitação. Acrescente seu código de mercado `mkt=`após. O código do mercado é o país do qual você faz a solicitação. Além disso, acrescente seu modo de verificação ortográfica `&mode=`após. O `proof` modo é (captura a maioria dos erros de ortografia/gramática `spell` ) ou (captura a maior parte da ortografia, mas não a quantidade de erros gramaticais).
 
     ```python
     params = {
@@ -61,7 +61,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
         }
     ```
 
-3. Adicionar uma `Content-Type` cabeçalho e a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Adicione um `Content-Type` cabeçalho e sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
 
     ```python
     headers = {
@@ -70,22 +70,22 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
         }
     ```
 
-## <a name="send-the-request-and-read-the-response"></a>Enviar a solicitação e leio a resposta
+## <a name="send-the-request-and-read-the-response"></a>Enviar a solicitação e ler a resposta
 
-1. Envie o pedido POST usando a biblioteca de pedidos.
+1. Envie a solicitação POST usando a biblioteca de solicitações.
 
     ```python
     response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Obtenha a resposta JSON e imprimi-lo.
+2. Obtenha a resposta JSON e imprima-a.
 
     ```python
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
     ```
 
-## <a name="example-json-response"></a>Resposta JSON de exemplo
+## <a name="example-json-response"></a>Exemplo de resposta JSON
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
@@ -130,7 +130,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
+> [Criar um aplicativo Web de página única](../tutorials/spellcheck.md)
 
-- [O que é a API de verificação de ortografia do Bing?](../overview.md)
+- [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

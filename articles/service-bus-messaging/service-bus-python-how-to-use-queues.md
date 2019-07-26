@@ -1,6 +1,6 @@
 ---
-title: Como utilizar as filas do Service bus do Azure com Python | Documentos da Microsoft
-description: Saiba como utilizar as filas de Azure Service Bus do Python.
+title: Como usar as filas do barramento de serviço do Azure com Python | Microsoft Docs
+description: Saiba como usar as filas do barramento de serviço do Azure do Python.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -14,87 +14,90 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: b74238ee49fe0d96d218f1800a33a9d60badc6d5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: fa3aedf138564fedafe555adfbaf6c56efc1813e
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341699"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360840"
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
+# <a name="how-to-use-service-bus-queues-with-python"></a>Como usar filas do barramento de serviço com o Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Neste tutorial, saiba como criar aplicações de Python para enviar mensagens para e receber mensagens de uma fila do Service Bus. 
+Neste tutorial, você aprenderá a criar aplicativos Python para enviar e receber mensagens de uma fila do barramento de serviço. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo.
-    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
-    2. Criar um barramento de serviço **espaço de nomes**. 
-    3. Obter o **cadeia de ligação**. 
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) de assinante do MSDN ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) .
+    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
+    2. Crie um **namespace**do barramento de serviço. 
+    3. Obter a **cadeia de conexão**. 
 
         > [!NOTE]
-        > Irá criar um **fila** no espaço de nomes do Service Bus com o Python neste tutorial. 
-1. Instalar o Python ou o [pacote de Python do Azure Service Bus][Python Azure Service Bus package], consulte a [guia de instalação do Python](../python-how-to-install.md). Consulte a documentação completa de Python SDK do Service Bus [aqui](/python/api/overview/azure/servicebus?view=azure-python).
+        > Você criará uma **fila** no namespace do barramento de serviço usando o Python neste tutorial. 
+1. Instale o Python ou o [pacote de barramento de serviço do Python Azure][Python Azure Service Bus package], consulte o [Guia de instalação do Python](../python-how-to-install.md). Consulte a documentação completa do SDK do Python do barramento de serviço [aqui](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O **ServiceBusClient** objeto permite-lhe trabalhar com as filas. Adicione o seguinte código perto da parte superior de qualquer ficheiro de Python no qual pretende aceder através de programação do Service Bus:
+O objeto **ServiceBusClient** permite que você trabalhe com filas. Adicione o código a seguir próximo à parte superior de qualquer arquivo Python no qual você deseja acessar o barramento de serviço programaticamente:
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-O código seguinte cria um **ServiceBusClient** objeto. Substitua `<CONNECTION STRING>` com sua connectionstring do servicebus.
+O código a seguir cria um objeto **ServiceBusClient** . Substitua `<CONNECTION STRING>` pela ConnectionString do ServiceBus.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
 ```
 
-Os valores para o nome da chave SAS e o valor podem ser encontrados na [portal do Azure][Azure portal] informações de ligação, ou no Visual Studio **propriedades** painel ao selecionar o espaço de nomes do Service Bus no Explorador de servidores (como mostrado na secção anterior).
+Os valores para o nome e o valor da chave SAS podem ser encontrados no [portal do Azure][Azure portal] informações de conexão ou no painel **Propriedades** do Visual Studio ao selecionar o namespace do barramento de serviço no Gerenciador de servidores (conforme mostrado na seção anterior).
 
 ```python
 sb_client.create_queue("taskqueue")
 ```
 
-O `create_queue` método também oferece suporte a opções adicionais, que permitem-lhe substituir as definições de fila padrão, como o tempo de live (TTL) ou o tamanho máximo da fila da mensagem. O exemplo seguinte define o tamanho máximo da fila para 5 GB e o valor TTL para 1 minuto:
+O `create_queue` método também dá suporte a opções adicionais, que permitem que você substitua as configurações padrão da fila, como TTL (vida útil da mensagem) ou tamanho máximo da fila. O exemplo a seguir define o tamanho máximo da fila como 5 GB e o valor de TTL como 1 minuto:
 
 ```python
-sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
+                       default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
-Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem numa fila do Service Bus, suas chamadas de aplicação do `send` método no `ServiceBusClient` objeto.
+Para enviar uma mensagem para uma fila do barramento de serviço, seu aplicativo `send` chama o método `ServiceBusClient` no objeto.
 
-O exemplo seguinte demonstra como enviar uma mensagem de teste para a fila com o nome `taskqueue` usando `send_queue_message`:
+O exemplo a seguir demonstra como enviar uma mensagem de teste para a fila `taskqueue` chamada `send_queue_message`usando:
 
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
 queue_client.send(msg)
 ```
 
-As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus][Service Bus quotas].
+As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte cotas do [barramento de serviço][Service Bus quotas].
 
-Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas a partir de um fila com o `get_receiver` método no `ServiceBusService` objeto:
+As mensagens são recebidas de uma fila `get_receiver` usando o método `ServiceBusService` no objeto:
 
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
-## Receive the message from the queue
+# Receive the message from the queue
 with queue_client.get_receiver() as queue_receiver:
     messages = queue_receiver.fetch_next(timeout=3)
     for message in messages:
@@ -102,31 +105,31 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
+Para obter mais informações, consulte a [documentação do Python do barramento de serviço do Azure](/python/api/overview/azure/servicebus?view=azure-python).
 
 
-As mensagens são eliminadas da fila, como eles são lidas quando o parâmetro `peek_lock` está definido como **False**. Pode ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo da fila definindo o parâmetro `peek_lock` para **True**.
+As mensagens são excluídas da fila, pois são lidas quando `peek_lock` o parâmetro é definido como **false**. Você pode ler (espiar) e bloquear a mensagem sem excluí-la da fila definindo o parâmetro `peek_lock` como **true**.
 
-O comportamento de leitura e a eliminação da mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+O comportamento de ler e excluir a mensagem como parte da operação de recebimento é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Como o barramento de serviço terá marcado a mensagem como sendo consumida, quando o aplicativo for reiniciado e começar a consumir mensagens novamente, ele terá perdido a mensagem que foi consumida antes da falha.
 
-Se o `peek_lock` parâmetro estiver definido como **True**, a receção torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar o **elimine** método no **mensagem** objeto. O **eliminar** método irá marcar a mensagem como consumida e removê-lo da fila.
+Se o `peek_lock` parâmetro for definido como **true**, o Receive se tornará uma operação de duas etapas, o que possibilitará o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando o método **delete** no objeto **Message** . O método **delete** marcará a mensagem como sendo consumida e a removerá da fila.
 
 ```python
 msg.delete()
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o **desbloquear** método no **mensagem** objeto. Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilizá-lo ser novamente recebida, pela mesma aplicação de consumo ou por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o método **Unlock** no objeto **Message** . Isso fará com que o barramento de serviço desbloqueie a mensagem na fila e disponibilize-a para ser recebida novamente, seja pelo mesmo aplicativo de consumo ou por outro aplicativo de consumo.
 
-Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus irá desbloquear automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a **eliminar** método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Isto é frequentemente chamado **processamento, pelo menos, uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Tal é, frequentemente, conseguido através da propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método **delete** seja chamado, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Isso é frequentemente chamado **de processamento de pelo menos uma vez**, ou seja, cada mensagem será processada pelo menos uma vez, mas, em determinadas situações, a mesma mensagem poderá ser entregue novamente. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Tal é, frequentemente, conseguido através da propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que aprendeu as noções básicas de filas do Service Bus, veja estes artigos para saber mais.
+Agora que você aprendeu os conceitos básicos das filas do barramento de serviço, consulte estes artigos para saber mais.
 
 * [Filas, tópicos e subscrições][Queues, topics, and subscriptions]
 

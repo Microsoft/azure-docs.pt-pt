@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: f9f182a459f9a38c96bdf923998d1cdfee8fc3ac
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277964"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422953"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre retransmissão do Azure
 
@@ -36,7 +36,7 @@ O [serviço de retransmissão do Azure](relay-what-is-it.md) facilita seus aplic
 Um [namespace](relay-create-namespace-portal.md) é um contêiner de escopo que você pode usar para endereçar recursos de retransmissão dentro de seu aplicativo. Você deve criar um namespace para usar a retransmissão. Esta é uma das primeiras etapas da introdução.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>O que aconteceu com o serviço de retransmissão do barramento de serviço?
-O serviço de retransmissão do barramento de serviço anteriormente chamado agora é chamado de [retransmissão do WCF](relay-wcf-dotnet-get-started.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos serviços BizTalk do Azure. Retransmissão do WCF e Conexões Híbridas continuam com suporte.
+O serviço de retransmissão do barramento de serviço anteriormente chamado agora é chamado de [retransmissão do WCF](service-bus-relay-tutorial.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos serviços BizTalk do Azure. Retransmissão do WCF e Conexões Híbridas continuam com suporte.
 
 ## <a name="pricing"></a>Preços
 Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de retransmissão. Você também pode ver as [perguntas frequentes](https://azure.microsoft.com/support/faq/) sobre o suporte do Azure para obter informações gerais sobre preços do Azure. Para obter informações completas sobre os preços de retransmissão, consulte [detalhes de preços do barramento de serviço][Pricing overview].
@@ -80,7 +80,7 @@ O envio de uma mensagem para uma retransmissão do barramento de serviço é tra
 As retransmissões que são abertas usando a associação do WCF **netTCPRelay** tratam mensagens não como mensagens individuais, mas como um fluxo de dados que fluem pelo sistema. Quando você usa essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay** , todos os dados são tratados como um fluxo para calcular mensagens faturáveis. Nesse caso, o barramento de serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual em uma base de 5 minutos. Em seguida, ele divide a quantidade total de dados de 64 KB para determinar o número de mensagens faturáveis para essa retransmissão durante esse período de tempo.
 
 ## <a name="quotas"></a>Quotas
-| Nome da cota | Scope |  Notas | Valor |
+| Nome da quota | Scope |  Notas | Value |
 | --- | --- | --- | --- |
 | Ouvintes simultâneos em uma retransmissão |Entidade |As solicitações subsequentes para conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Espaço de Nomes |- |5,000 |

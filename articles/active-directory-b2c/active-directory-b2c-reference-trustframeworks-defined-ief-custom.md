@@ -1,6 +1,6 @@
 ---
-title: Referência - estruturas de confiança no Azure Active Directory B2C | Documentos da Microsoft
-description: Um tópico sobre as políticas personalizadas do Azure Active Directory B2C e o Framework de experiência de identidade.
+title: Referência-estruturas confiáveis no Azure Active Directory B2C | Microsoft Docs
+description: Um tópico sobre Azure Active Directory B2C políticas personalizadas e a estrutura de experiência de identidade.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,118 +10,118 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508809"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500018"
 ---
-# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir as estruturas de confiança com o Framework de experiência de identidade do Azure AD B2C
+# <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas de confiança com Azure AD B2C estrutura de experiência de identidade
 
-O Azure Active Directory B2C (Azure AD B2C) políticas personalizadas que usam o Framework de experiência de identidade fornecem à sua organização com um serviço centralizado. Este serviço reduz a complexidade da Federação de identidades numa grande Comunidade de interesse. A complexidade é reduzida a uma relação de confiança único e uma troca de metadados de único.
+As políticas personalizadas de Azure Active Directory B2C (Azure AD B2C) que usam a estrutura de experiência de identidade fornecem à sua organização um serviço centralizado. Esse serviço reduz a complexidade da Federação de identidades em uma grande comunidade de interesse. A complexidade é reduzida a uma única relação de confiança e a uma única troca de metadados.
 
-O Azure AD B2C políticas personalizadas que utilizam o Framework de experiência de identidade para que possa responder às seguintes perguntas:
+Azure AD B2C políticas personalizadas usam a estrutura de experiência de identidade para permitir que você responda às seguintes perguntas:
 
-- Quais são legais, de segurança, privacidade e políticas de proteção de dados que devem ser seguidas?
-- Quem são os contatos e quais são os processos para se tornar um participante acreditado?
-- Quem são os fornecedores de informações de identidade acreditada (também conhecido como "fornecedores de afirmações") e o que fazer oferecem?
-- Quem são as entidades confiadoras autorizadas (e, opcionalmente, o que elas exigem)?
-- Quais são o technical "na conexão" requisitos de interoperabilidade para os participantes?
-- Quais são as regras de operacionais "runtime" que devem ser impostas para a troca de informações de identidade digital?
+- Quais são as políticas legais, de segurança, de privacidade e de proteção de dados que devem ser seguidas?
+- Quem são os contatos e quais são os processos para se tornar um participante reconhecido?
+- Quem são os provedores de informações de identidade credenciados (também conhecidos como "provedores de declarações") e o que eles oferecem?
+- Quem são as partes confiantes autorizadas (e, opcionalmente, o que precisam)?
+- Quais são os requisitos de interoperabilidade técnica "na transmissão" para os participantes?
+- Quais são as regras de "tempo de execução" operacionais que devem ser impostas para a troca de informações de identidade digital?
 
-Para responder a todas essas perguntas, construir as políticas personalizadas do Azure AD B2C que utilizam o uso de arquitetura de experiências de identidade a confiar Framework (TF). Vamos considerar essa construção e o que ele oferece.
+Para responder a todas essas perguntas, Azure AD B2C políticas personalizadas que usam a estrutura de experiência de identidade usam a construção da estrutura de confiança (TF). Vamos considerar esse constructo e o que ele fornece.
 
-## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Compreender as fundações de gestão de estrutura de confiança e a Federação
+## <a name="understand-the-trust-framework-and-federation-management-foundation"></a>Entender a estrutura confiável e o Federation Management Foundation
 
-A estrutura de confiança é uma especificação de escrita da identidade, segurança, privacidade e ao qual os participantes uma Comunidade de interesse devem estar em conformidade com políticas de proteção de dados.
+A estrutura confiável é uma especificação escrita de identidade, segurança, privacidade e políticas de proteção de dados para as quais os participantes de uma comunidade de interesse devem estar em conformidade.
 
-Identidade federada fornece uma base para atingir a garantia de identidade do utilizador final à escala da Internet. Delegação de gestão de identidades a terceiros, uma única identidade digital para um utilizador final pode ser reutilizada com várias entidades confiadoras.  
+A identidade federada fornece uma base para atingir a garantia de identidade do usuário final na escala da Internet. Ao delegar o gerenciamento de identidade a terceiros, uma única identidade digital para um usuário final pode ser reutilizada com várias partes confiáveis.  
 
-Garantia de identidade requer que Fornecedores de identidade (IdPs) e os fornecedores de atributo (AtPs) cumprem específicas de segurança, privacidade e políticas operacionais e práticas.  Se eles não podem realizar inspeções diretas, entidades confiadoras (RPs) devem desenvolver relações de confiança com os IdPs e AtPs que escolherem para trabalhar com.  
+O Identity Assurance requer que os provedores de identidade (IdPs) e os provedores de atributos (AtPs) obedeçam a segurança, privacidade e políticas operacionais e práticas específicas.  Se eles não conseguirem realizar inspeções diretas, o RPs (terceiras partes confiáveis) deve desenvolver relações de confiança com o IdPs e AtPs com as quais eles optam por trabalhar.  
 
-À medida que cresce o número de clientes e provedores de informações de identidade digital, é difícil continuar a gestão pairwise desses relacionamentos de confiança, ou até mesmo o exchange pairwise dos metadados técnicos necessários para conectividade de rede.  Os hubs de Federação obteve apenas limitado sucesso para resolver esses problemas.
+À medida que aumenta o número de consumidores e provedores de informações de identidade digital, é difícil continuar o gerenciamento de paridade dessas relações de confiança ou até mesmo a troca emparelhada dos metadados técnicos necessários para a conectividade de rede.  Os hubs de Federação atingiram apenas o êxito limitado na solução desses problemas.
 
-### <a name="what-a-trust-framework-specification-defines"></a>Define que uma especificação de estrutura de confiança
-TFs são linchpins do modelo de estrutura de confiança de Exchange aberto de identidade (OIX) em que cada Comunidade de interesse é regulada por uma determinada especificação TF. Define uma especificação de TF:
+### <a name="what-a-trust-framework-specification-defines"></a>O que uma especificação de estrutura confiável define
+O TFs é o base do modelo de estrutura confiável de OIX (Open Identity Exchange), em que cada comunidade de interesse é regida por uma determinada especificação de TF. Essa especificação de TF define:
 
-- **As métricas de segurança e privacidade para a Comunidade de interesse com a definição de:**
-    - Os níveis de garantia (LOA) que são oferecidos/necessária para os participantes; Por exemplo, um conjunto ordenado de classificações de confiança da autenticidade das informações de identidade digital.
-    - Os níveis de proteção (LOP) que são oferecidos/necessária para os participantes; Por exemplo, um conjunto ordenado de classificações de confiança para a proteção de informações de identidade digital que são processadas pelo participantes da Comunidade de interesse.
+- **As métricas de segurança e privacidade para a comunidade de interesse com a definição de:**
+    - Os níveis de garantia (LOA) que são oferecidos/exigidos pelos participantes; por exemplo, um conjunto ordenado de classificações de confiança para a autenticidade das informações de identidade digital.
+    - Os níveis de proteção (LOP) que são oferecidos/exigidos pelos participantes; por exemplo, um conjunto ordenado de classificações de confiança para a proteção de informações de identidade digital que é tratada pelos participantes da comunidade de interesse.
 
-- **A descrição, as informações de identidade digital que tem oferecido/necessária por participantes**.
+- **A descrição das informações de identidade digital que são oferecidas/exigidas pelos participantes**.
 
-- **As políticas de técnicas para a produção e o consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Estas políticas escritas incluem, geralmente, as seguintes categorias de políticas:**
-    - Identidade protegendo contra políticas, por exemplo: *Até que ponto são informações de identidade de uma pessoa examinadas?*
-    - Políticas de segurança, por exemplo: *Até que ponto são informações de integridade e a confidencialidade protegidos?*
-    - Políticas de privacidade, por exemplo: *Qual o controle um utilizador tem sobre informações de identificação pessoas (PII)* ?
-    - Políticas de persistência, por exemplo: *Se um fornecedor deixará de operações, como funciona a continuidade e a proteção da função PII?*
+- **As políticas técnicas para produção e consumo de informações de identidade digital e, portanto, para medir LOA e LOP. Essas políticas escritas normalmente incluem as seguintes categorias de políticas:**
+    - Políticas de verificação de identidade, por exemplo: *Quão forte é a verificados das informações de identidade de uma pessoa?*
+    - Políticas de segurança, por exemplo: *Quão fortemente é a integridade das informações e a confidencialidade protegidas?*
+    - Políticas de privacidade, por exemplo: *Que controle um usuário tem sobre informações de identificação pessoal (PII)* ?
+    - Políticas de sustentabilidade, por exemplo: *Se um provedor parar as operações, como a continuidade e a proteção da função PII?*
 
-- **Os perfis técnicos para a produção e o consumo de informações de identidade digital. Estes perfis incluem:**
-    - Interfaces de âmbito para os quais informações de identidade digital estão disponíveis num LOA especificado.
-    - Requisitos técnicos de interoperabilidade do on-the-wire.
+- **Os perfis técnicos para produção e consumo de informações de identidade digital. Esses perfis incluem:**
+    - Interfaces de escopo para as quais as informações de identidade digital estão disponíveis em um LOA especificado.
+    - Requisitos técnicos para interoperabilidade durante a transmissão.
 
-- **As descrições das várias funções que podem realizar os participantes da Comunidade e as qualificações necessárias para atender a essas funções.**
+- **As descrições das várias funções que os participantes da Comunidade podem executar e as qualificações necessárias para atender a essas funções.**
 
-Assim, uma especificação de TF controla como as informações de identidade são trocadas entre os participantes da Comunidade de interesse: entidades confiadoras, identidade e provedores de atributo e verificadores de atributo.
+Portanto, uma especificação de TF rege como as informações de identidade são trocadas entre os participantes da comunidade de interesse: terceiras partes confiáveis, identidade e provedores de atributos e verificadores de atributos.
 
-Uma especificação de TF é um ou vários documentos que servem como uma referência para a governação de Comunidade de interesse que regula a asserção e o consumo de informações de identidade digital na Comunidade. É um conjunto documentado de políticas e procedimentos criados para estabelecer confiança nas identidades digitais, que são utilizados para transações online entre os membros de uma Comunidade de interesse.  
+Uma especificação de TF é um ou vários documentos que servem como referência para a governança da comunidade de interesse que regula a asserção e o consumo de informações de identidade digital dentro da Comunidade. Trata-se de um conjunto documentado de políticas e procedimentos projetados para estabelecer confiança nas identidades digitais que são usadas para transações online entre membros de uma comunidade de interesse.  
 
-Em outras palavras, uma especificação de TF define as regras para a criação de um ecossistema de identidades federadas viável para uma Comunidade.
+Em outras palavras, uma especificação TF define as regras para criar um ecossistema de identidade federada viável para uma comunidade.
 
-Atualmente, não há amplo acordo sobre o benefício de tal abordagem. É claro que confiança especificações do framework facilitam o desenvolvimento de ecossistemas de identidade digital com verificáveis características de segurança, controle e a privacidade, que significa que eles podem ser reutilizados em várias comunidades de interesse.
+Atualmente, há um acordo generalizado sobre o benefício dessa abordagem. Não há dúvida de que as especificações da estrutura confiável facilitam o desenvolvimento de ecossistemas de identidade digital com segurança verificável, garantia e características de privacidade, o que significa que eles podem ser reutilizados em várias comunidades de interesse.
 
-Para que o motivo, as políticas personalizadas do Azure AD B2C que usam o Framework de experiência de identidade utiliza a especificação de como a base de sua representação de dados para um TF para facilitar a interoperabilidade.  
+Por esse motivo, Azure AD B2C políticas personalizadas que usam a estrutura de experiência de identidade usam a especificação como a base de sua representação de dados para uma TF a fim de facilitar a interoperabilidade.  
 
-Políticas do Azure AD B2C personalizado que tiram partido da arquitetura de experiências de identidade representam uma especificação de TF como uma combinação de dados humanas e legível por máquina. Algumas seções deste modelo (normalmente secções que são mais dedicadas a governação) são representadas como referências a documentação publicada de política de segurança e privacidade, juntamente com os procedimentos relacionados (se houver). Outras seções descrevem detalhadamente as regras de configuração do tempo de execução e metadados que facilitam a automatização operacional.
+Azure AD B2C políticas personalizadas que aproveitam a estrutura de experiência de identidade representam uma especificação de TF como uma combinação de dados humanos e legíveis por máquina. Algumas seções desse modelo (normalmente seções que são mais orientadas para governança) são representadas como referências à documentação de política de privacidade e segurança publicada junto com os procedimentos relacionados (se houver). Outras seções descrevem em detalhes os metadados de configuração e as regras de tempo de execução que facilitam a automação operacional.
 
-## <a name="understand-trust-framework-policies"></a>Compreender as políticas de estrutura de confiança
+## <a name="understand-trust-framework-policies"></a>Entender as políticas da estrutura de confiança
 
-Em termos de implementação, a especificação de TF consiste num conjunto de políticas que permitem o controle completo sobre as experiências e comportamentos de identidade.  Políticas do Azure AD B2C personalizadas que tiram partido da arquitetura de experiências de identidade permitem-lhe criar e criar seu próprio TF por meio dessas políticas declarativas que pode definir e configurar:
+Em termos de implementação, a especificação TF consiste em um conjunto de políticas que permite o controle completo sobre os comportamentos e as experiências de identidade.  Azure AD B2C as políticas personalizadas que aproveitam a estrutura de experiência de identidade permitem a criação e a criação de sua própria TF por meio de políticas declarativas que podem definir e configurar:
 
-- A referência de documento ou referências que definem o ecossistema de identidades federadas da Comunidade que se relaciona com o TF. Eles são links para a documentação de TF. As regras de operacionais (predefinidos) "runtime", ou as jornadas de utilizador que automatizarem e/ou controlam o exchange e o uso de afirmações. Estes jornadas de utilizador estão associadas um LOA (e um LOP). Uma política, por conseguinte, pode ter jornadas de utilizador com diferentes LOAs (e LOPs).
+- A referência de documento ou referências que definem o ecossistema de identidade federada da Comunidade que se relaciona com a TF. Eles são links para a documentação do TF. As regras de "tempo de execução" operacionais (predefinidas) ou as viagens do usuário que automatizam e/ou controlam a troca e o uso das declarações. Esses percursos do usuário estão associados a um LOA (e um LOP). Portanto, uma política pode ter percursos do usuário com diferentes LOAs (e LOPs).
 
-- Os fornecedores de identidade e o atributo ou os fornecedores de afirmações, da Comunidade de interesse e os perfis técnicos suportam juntamente com a acreditação LOA/LOP (fora de banda) que está relacionado aos mesmos.
+- Os provedores de identidade e de atributo, ou os provedores de declarações, na Comunidade de interesse e os perfis técnicos aos quais eles dão suporte, junto com a certificação de LOA/LOP (fora de banda) relacionada a eles.
 
-- A integração com o verificadores de atributo ou fornecedores de afirmações.
+- A integração com verificadores de atributo ou provedores de declarações.
 
-- As entidades confiadoras da Comunidade (por inferência de tipos).
+- As partes confiantes na Comunidade (por inferência).
 
-- Os metadados para estabelecer comunicações de rede entre os participantes. Estes metadados, juntamente com os perfis técnicos, são utilizados durante uma transação para ligar a "na conexão" interoperabilidade entre a entidade confiadora e outros participantes da Comunidade.
+- Os metadados para estabelecer comunicações de rede entre os participantes. Esses metadados, juntamente com os perfis técnicos, são usados durante uma transação para direcionar a interoperabilidade "na transmissão" entre a terceira parte confiável e outros participantes da Comunidade.
 
-- A conversão de protocolo, se houver (por exemplo, o SAML 2.0, o OAuth2, WS-Federation e OpenID Connect).
+- A conversão de protocolo, se houver (por exemplo, SAML 2,0, OAuth2, WS-Federation e OpenID Connect).
 
 - Os requisitos de autenticação.
 
-- A orquestração multifator se existirem.
+- A orquestração multifator, se houver.
 
-- Um esquema partilhado para todas as afirmações que estão disponíveis e mapeamentos aos participantes de uma Comunidade de interesse.
+- Um esquema compartilhado para todas as declarações que estão disponíveis e mapeamentos para os participantes de uma comunidade de interesse.
 
-- Todas as afirmações transformações, juntamente com a minimização de dados neste contexto, para manter o exchange e a utilização de afirmações.
+- Todas as transformações de declarações, juntamente com a possível minimização de dados neste contexto, para sustentar a troca e o uso das declarações.
 
-- A ligação e a encriptação.
+- A associação e a criptografia.
 
-- O armazenamento de afirmações.
+- O armazenamento de declarações.
 
-### <a name="understand-claims"></a>Compreender as afirmações
+### <a name="understand-claims"></a>Entender as declarações
 
 > [!NOTE]
-> Referimos coletivamente para todos os possíveis tipos de informações de identidade que podem ser trocadas como "afirmações": declarações sobre a credencial de autenticação do utilizador final, verificar a identidade, dispositivo de comunicação, localização física, atributos, de identificação pessoal e assim por diante.  
+> Coletivamente, nos referimos a todos os possíveis tipos de informações de identidade que podem ser trocadas como "declarações": declarações sobre a credencial de autenticação de um usuário final, identidade habilitação, dispositivo de comunicação, localização física, atributos de identificação pessoal, e assim por diante.  
 >
-> Usamos as termo "afirmações" – em vez de "atributos-", porque nas transações online, estes artefactos de dados não são fatos que podem ser verificados diretamente pela entidade confiadora. Em vez disso, eles são asserções ou declarações, sobre factos para o qual a entidade confiadora deve desenvolver uma segurança suficiente para conceder a transação de pedido do utilizador final.  
+> Usamos o termo "declarações", em vez de "atributos", porque em transações online, esses artefatos de dados não são fatos que podem ser verificados diretamente pela terceira parte confiável. Em vez disso, eles são asserções, ou declarações, sobre fatos para os quais a terceira parte confiável deve desenvolver confiança suficiente para conceder a transação solicitada do usuário final.  
 >
-> Também utilizamos o termo "afirmações" uma vez que as políticas personalizadas do Azure AD B2C que usam o Framework de experiência de identidade foram concebidas para simplificar a troca de todos os tipos de informações de identidade digital de forma consistente, independentemente se o protocolo subjacente é definido pela obtenção de autenticação ou o atributo de utilizador.  Da mesma forma, usamos o termo "fornecedores de afirmações" coletivamente referir-se a fornecedores de identidade, os provedores de atributo e verificadores de atributo, não queremos distinguir entre suas funções específicas.   
+> Também usamos o termo "declarações" porque Azure AD B2C políticas personalizadas que usam a estrutura de experiência de identidade foram projetadas para simplificar a troca de todos os tipos de informações de identidade digital de forma consistente, independentemente de o protocolo subjacente ser definido para a autenticação de usuário ou recuperação de atributo.  Da mesma forma, usamos o termo "provedores de declarações" para se referirmos coletivamente a provedores de identidade, provedores de atributos e verificadores de atributos quando não queremos distinguir entre suas funções específicas.   
 
-Assim, definem como as informações de identidade são trocadas entre uma entidade confiadora, identidade e provedores de atributo e verificadores de atributo. Elas controlam que identidade e provedores de atributo são necessários para a autenticação de uma terceira parte. Eles devem ser considerados como uma linguagem específica do domínio (DSL), ou seja, uma linguagem de computador que tem especializadas para um domínio de aplicativo em particular com a herança, *se* declarações, polimorfismo.
+Portanto, eles regem como as informações de identidade são trocadas entre uma terceira parte confiável, identidade e provedores de atributos e verificadores de atributos. Eles controlam quais identidade e provedores de atributo são necessários para a autenticação de uma terceira parte confiável. Elas devem ser consideradas como uma DSL (linguagem específica de domínio), ou seja, uma linguagem de computador especializada para um domínio de aplicativo específico com herança, instruções *If* , polimorfismo.
 
-Estas políticas constituem a parte legível por máquina a construção TF nas políticas de personalizado do Azure AD B2C, aproveitando o Framework de experiência de identidade. Eles incluem todos os detalhes operacionais, incluindo os metadados e perfis técnicos, definições de esquema de afirmações, as funções de transformação de afirmações e jornadas de utilizador que são preenchidas para facilitar a orquestração operacional e a automatização de fornecedores de afirmações.  
+Essas políticas constituem a parte legível por computador da construção TF em Azure AD B2C políticas personalizadas, aproveitando a estrutura de experiência de identidade. Eles incluem todos os detalhes operacionais, incluindo metadados de provedores de declarações e perfis técnicos, definições de esquema de declarações, funções de transformação de declarações e percursos do usuário que são preenchidos para facilitar a automação e a orquestração operacional.  
 
-Eles devem para ser *vida documentos* porque existe uma boa chance de que seu conteúdo será alterado ao longo do tempo sobre os Active Directory participantes declarados nas políticas. Também existe o potencial que poderão alterar os termos e condições, por ser um participante.  
+Eles são considerados *documentos vivos* porque há uma boa chance de que seu conteúdo seja alterado ao longo do tempo em relação aos participantes ativos declarados nas políticas. Também há o potencial de que os termos e condições para ser um participante possam mudar.  
 
-Configuração de Federação e de manutenção são simplificados amplamente por entidades confiadoras de Reconfigurações de confiança e a conectividade contínuas de proteção, como verificadores/fornecedores de afirmações diferentes aderir ou sair (a Comunidade representada pelo) o conjunto de políticas.
+A configuração e a manutenção da Federação são amplamente simplificadas por meio da blindagem de partes confiantes das reconfigurações de conectividade e de confiança contínuas como diferentes provedores de declarações/verificadores ingressam ou deixam (a Comunidade representada pelo) o conjunto de políticas.
 
-A interoperabilidade é outro desafio significativo. Verificadores/fornecedores de afirmações adicionais devem ser integradas, como entidades confiadoras são dificilmente oferecerá suporte a todos os protocolos necessários. As políticas personalizadas do Azure AD B2C resolvem esse problema, oferecendo suporte a protocolos de norma da indústria e aplicando jornadas de utilizador específico para transpor pedidos quando confiantes e provedores de atributo não suportam o mesmo protocolo.  
+A interoperabilidade é outro desafio significativo. Provedores/verificadores de declarações adicionais devem ser integrados, pois as terceiras partes confiáveis têm pouca probabilidade de dar suporte a todos os protocolos necessários. Azure AD B2C políticas personalizadas resolvem esse problema oferecendo suporte a protocolos padrão do setor e aplicando percursos do usuário específicos para transpor solicitações quando as partes confiáveis e os provedores de atributo não dão suporte ao mesmo protocolo.  
 
-Jornadas utilizador incluem perfis de protocolo e metadados que são utilizadas para ligar a "na conexão" interoperabilidade entre a entidade confiadora e outros participantes. Também existem regras de tempo de execução operacional que são aplicadas a mensagens da solicitação/resposta de exchange de informações de identidade para impor a conformidade com as políticas publicadas como parte da especificação TF. A idéia de jornadas de usuário é fundamental para a personalização da experiência do cliente. Ele também esclarece como o sistema funciona ao nível do protocolo.
+Os percursos do usuário incluem perfis de protocolo e metadados que são usados para encanar a interoperabilidade "na rede" entre a terceira parte confiável e outros participantes. Também há regras de tempo de execução operacional que são aplicadas a mensagens de solicitação/resposta de informações de identidade para impor a conformidade com as políticas publicadas como parte da especificação do TF. A ideia de percursos do usuário é fundamental para a personalização da experiência do cliente. Ele também esclarece a luz sobre como o sistema funciona no nível do protocolo.
 
-Dessa forma, portais e aplicações de terceiros entidade confiadora podem, dependendo de seu contexto, invocar as políticas personalizadas do Azure AD B2C que aproveitam o Framework de experiência de identidade, passando o nome de uma política específica e obter exatamente o comportamento e as informações do exchange eles querem sem qualquer tempo, a confusão ou o risco.
+Dessa forma, os portais e os aplicativos de terceira parte confiável podem, dependendo do contexto, invocar Azure AD B2C políticas personalizadas que aproveitam a estrutura de experiência de identidade, passando o nome de uma política específica e obter precisamente o comportamento e a troca de informações Eles querem sem qualquer problema, confusão ou risco.

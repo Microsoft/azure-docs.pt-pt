@@ -1,5 +1,5 @@
 ---
-title: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário do Azure AD (visualização pública)
+title: Personalizar declarações para um aplicativo em um locatário do Azure AD (visualização pública)
 description: Esta página descreve o mapeamento de declarações Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e923cde3cfcffe594226f6b8b665053d1fc584f6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324995"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381063"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -302,9 +302,9 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 | Utilizador | CompanyName| Nome da organização |
 | Utilizador | StreetAddress | Morada |
 | Utilizador | PostalCode | Código postal |
-| Utilizador | preferredlanguange | Idioma preferencial |
+| Utilizador | preferredlanguange | Idioma Preferencial |
 | Utilizador | onpremisesuserprincipalname | UPN local |
-| Utilizador | mailNickname | Apelido de email |
+| Utilizador | mailNickname | Alcunha de Correio |
 | Utilizador | extensionAttribute1 | Atributo de extensão 1 |
 | Utilizador | extensionAttribute2 | Atributo de extensão 2 |
 | Utilizador | extensionattribute3 | Atributo de extensão 3 |
@@ -325,11 +325,11 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 | Utilizador | city | City |
 | Utilizador | state | Estado |
 | Utilizador | JobTitle | Cargo |
-| Utilizador | employeeid | ID do funcionário |
+| Utilizador | employeeid | ID do Empregado |
 | Utilizador | facsimileTelephoneNumber | Número de telefone do fax |
 | aplicativo, recurso, público-alvo | displayName | Nome a Apresentar |
 | aplicativo, recurso, público-alvo | com objeto | ObjectID |
-| aplicativo, recurso, público-alvo | etiquetas | Marca da entidade de serviço |
+| aplicativo, recurso, público-alvo | tags | Marca da entidade de serviço |
 | Empresa | tenantcountry | País do locatário |
 
 **TransformationID** O elemento Transformation deve ser fornecido somente se o elemento Source estiver definido como "Transformation".
@@ -391,7 +391,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 | Utilizador | mail|Endereço de E-mail|
 | Utilizador | userprincipalname|Nome Principal de utilizador|
 | Utilizador | onpremisessamaccountname|Nome da conta Sam local|
-| Utilizador | employeeid|ID do funcionário|
+| Utilizador | employeeid|ID do Empregado|
 | Utilizador | extensionAttribute1 | Atributo de extensão 1 |
 | Utilizador | extensionAttribute2 | Atributo de extensão 2 |
 | Utilizador | extensionattribute3 | Atributo de extensão 3 |
@@ -412,7 +412,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 | TransformationMethod | Restrições |
 | ----- | ----- |
-| ExtractMailPrefix | Nenhuma |
+| ExtractMailPrefix | Nenhum |
 | Associar | O sufixo que está sendo Unido deve ser um domínio verificado do locatário do recurso. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada

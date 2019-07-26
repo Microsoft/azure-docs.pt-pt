@@ -1,7 +1,7 @@
 ---
 title: O que é a API de Verificação Ortográfica do Bing?
-titlesuffix: Azure Cognitive Services
-description: Saiba mais sobre a API de verificação do Bing ortográfica, que utiliza machine learning e estatísticos de tradução automática para verificação ortográfica contextual.
+titleSuffix: Azure Cognitive Services
+description: Saiba mais sobre a API Verificação Ortográfica do Bing, que usa o aprendizado de máquina e a tradução da máquina estatística para verificação ortográfica contextual.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,37 +10,37 @@ ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 22f75efb3cb4baa645030e7ad64072674de662ed
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 2cb5a7bbe4ef46c2ae0b7a6ad095c56dd21730ad
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60593213"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500343"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>O que é a API de Verificação Ortográfica do Bing?
 
-A API de verificação de ortografia do Bing permite-lhe realizar a gramática contextual e ortográfica no texto. Enquanto a maioria dos verificadores ortográficos dependem de conjuntos de regras com base no dicionário, o Verificador de ortografia do Bing utiliza machine learning e estatísticos de tradução automática para fornecer correções precisas e contextuais. 
+A API Verificação Ortográfica do Bing permite que você execute a gramática contextual e a verificação ortográfica no texto. Embora a maioria dos verificadores ortográficos dependam de conjuntos de regras baseados em dicionário, o verificador ortográfico do Bing aproveita o aprendizado de máquina e a tradução automática do computador para fornecer correções precisas e contextuais. 
 
 ## <a name="features"></a>Funcionalidades
 
 
 |  |  |
 |---------|---------|
-|Vários modos de verificação ortográfica     | Vários modos de verificação de ortografia permitem-lhe obter as correções se concentrou em gramática e/ou ortografia. |
-|Gíria e reconhecimento de linguagem informal     | Reconhece expressões comuns e termos informais utilizados no texto.         |
-|Distinção entre palavras semelhantes     | Encontrar a correta utilização entre as palavras isso parece semelhante, mas diferem no significado (por exemplo, "ver" e "mar")        |
-|Marca, o título e o suporte de utilização populares     | Reconhecer novas marcas, títulos e outras expressões populares que possam surgir |
+|Vários modos de verificação ortográfica     | Vários modos de verificação ortográfica permitem que você obtenha correções focadas na gramática e/ou na ortografia. |
+|Reconhecimento de idioma informal e gírias     | Reconheça expressões comuns e termos informais usados em texto.         |
+|Diferenciar entre palavras semelhantes     | Encontre o uso correto entre palavras que parecem semelhantes, mas que diferem no significado (por exemplo, "Veja" e "Sea")        |
+|Suporte de marca, título e uso popular     | Reconheça novas marcas, títulos e outras expressões populares à medida que elas surgirem |
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
-A API de verificação de ortografia do Bing é fácil chamar a partir de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar as respostas JSON. O serviço está acessível através da API REST ou os SDKs de verificação de ortografia do Bing. 
+A API de Verificação Ortográfica do Bing é fácil de chamar de qualquer linguagem de programação que possa fazer solicitações HTTP e analisar respostas JSON. O serviço pode ser acessado usando a API REST ou os SDKs de Verificação Ortográfica do Bing. 
 
-1. Crie uma [conta de API dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) com acesso às APIs de Pesquisa do Bing. Se não tiver uma subscrição do Azure, pode criar uma conta gratuita. 
-2. Envie um pedido para a API de pesquisa Web Bing.
+1. Crie uma [conta de API dos Serviços Cognitivos](../cognitive-services-apis-create-account.md) com acesso às APIs de Pesquisa do Bing. Se você não tiver uma assinatura do Azure, poderá criar uma conta gratuita. 
+2. Envie uma solicitação para o API de Pesquisa na Web do Bing.
 3. Analisar a resposta JSON
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em primeiro lugar, experimente a API de pesquisa do Bing de verificação de ortográfica [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/spell-check/) para ver como pode verificar rapidamente uma variedade de textos.
+Primeiro, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/spell-check/) da API de pesquisa verificação ortográfica do Bing para ver como você pode verificar rapidamente uma variedade de textos.
 
 Quando estiver pronto para chamar a API, crie uma [conta dos serviços cognitivos da API](../../cognitive-services/cognitive-services-apis-create-account.md). Se não tiver uma subscrição do Azure, pode [criar uma conta](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) gratuita.
