@@ -1,112 +1,112 @@
 ---
 title: Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
-description: Saiba como configurar o débito aprovisionado para contentores do Cosmos do Azure e bases de dados.
+description: Saiba como definir a taxa de transferência provisionada para seus contêineres e bancos de dados do Azure Cosmos.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: adf0891203321ca02c47494f1865ca78a833e301
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 2bcd428e2de90251d4d64111b1c3e6b6f812ac4c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561383"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467611"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar débito em contentores e bases de dados
 
 Uma base de dados do Cosmos do Azure é uma unidade de gestão para um conjunto de contentores. Uma base de dados consiste num conjunto de contentores de esquema desconhecido. Um contentor do Cosmos do Azure é a unidade de escalabilidade para o débito e armazenamento. Um contentor é particionado horizontalmente através de um conjunto de máquinas dentro de uma região do Azure e é distribuído por todas as regiões do Azure à sua conta do Cosmos do Azure.
 
-Com o Azure Cosmos DB, pode aprovisionar o débito em duas granularidades:
+Com Azure Cosmos DB, você pode provisionar a taxa de transferência em duas granularidades:
  
 - Contentores do Azure Cosmos
 - Bases de dados do Cosmos do Azure
 
-## <a name="set-throughput-on-a-container"></a>Definir débito num contentor  
+## <a name="set-throughput-on-a-container"></a>Definir a taxa de transferência em um contêiner  
 
-O débito aprovisionado num contentor do Cosmos do Azure é reservado exclusivamente para esse contentor. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para saber como configurar o débito num contentor, veja [débito de aprovisionar num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
+A taxa de transferência provisionada em um contêiner Cosmos do Azure é reservada exclusivamente para esse contêiner. O contentor recebe o débito aprovisionado o tempo todo. O débito aprovisionado num contentor com suporte financeiro suporte dos SLAs. Para saber como configurar a taxa de transferência em um contêiner, confira provisionar [taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
 
-Débito aprovisionado de definição num contêiner é a opção utilizada com mais frequência. Pode dimensionar o débito para um contentor ao aprovisionar qualquer quantidade de débito utilizando [unidades de pedido (RUs)](request-units.md). 
+Definir a taxa de transferência provisionada em um contêiner é a opção usada com mais frequência. Você pode dimensionar de forma elástica a taxa de transferência para um contêiner Provisionando qualquer quantidade de taxa de transferência usando as [unidades de solicitação (RUs)](request-units.md). 
 
-Débito aprovisionado num contentor do Cosmos do Azure é distribuído uniformemente por todas as partições lógicas do contentor. Seletivamente não é possível especificar a taxa de transferência para partições lógicas. Uma vez que um ou mais partições lógicas de um contentor são alojadas por uma partição física, as partições físicas pertencem exclusivamente para o contentor e suportam o débito aprovisionado no contentor. 
+A taxa de transferência provisionada em um contêiner Cosmos do Azure é distribuída uniformemente entre todas as partições lógicas do contêiner. Não é possível especificar seletivamente a taxa de transferência para partições lógicas. Como uma ou mais partições lógicas de um contêiner são hospedadas por uma partição física, as partições físicas pertencem exclusivamente ao contêiner e dão suporte à taxa de transferência provisionada no contêiner. 
 
-Se a carga de trabalho em execução numa partição lógica consome mais do que o débito que foi atribuído a essa partição lógica, as operações de obtém taxa limitado. Quando ocorre a limitação de velocidade, pode aumentar o débito aprovisionado para o contêiner inteiro ou repita as operações. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
+Se a carga de trabalho em execução em uma partição lógica consumir mais do que a taxa de transferência alocada para essa partição lógica, suas operações obterão uma taxa limitada. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência provisionada para todo o contêiner ou tentar novamente as operações. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
-Recomendamos que configure o débito com a granularidade de contentor quando pretender que o desempenho garantido para o contentor.
+Recomendamos que você configure a taxa de transferência na granularidade do contêiner quando desejar o desempenho garantido para o contêiner.
 
-A imagem seguinte mostra como uma partição física hospeda um ou mais partições lógicas de um contentor:
+A imagem a seguir mostra como uma partição física hospeda uma ou mais partições lógicas de um contêiner:
 
 ![Partição física](./media/set-throughput/resource-partition.png)
 
-## <a name="set-throughput-on-a-database"></a>Definir débito numa base de dados
+## <a name="set-throughput-on-a-database"></a>Definir a taxa de transferência em um banco de dados
 
-Quando aprovisionar o débito numa base de dados do Cosmos do Azure, o débito é compartilhado entre todos os contentores na base de dados. Uma exceção é se tiver especificado um débito aprovisionado em contentores específicos no banco de dados. O débito aprovisionado de nível de base de dados entre seus contêineres de partilha é análogo ao que aloja uma base de dados num cluster de máquinas. Uma vez que todos os contentores dentro de uma base de dados partilham os recursos disponíveis numa máquina, naturalmente não obtém um desempenho previsível em qualquer contentor específico. Para saber como configurar o débito aprovisionado num banco de dados, veja [configurar o débito aprovisionado numa base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+Quando você provisiona a taxa de transferência em um banco de dados Cosmos do Azure, a taxa de transferência é compartilhada entre todos os contêineres no banco de dados. Uma exceção é se você especificou uma taxa de transferência provisionada em contêineres específicos no banco de dados. O compartilhamento da taxa de transferência provisionada no nível de banco de dados entre seus contêineres é análogo à Hospedagem de um banco de dados em um cluster de máquinas. Como todos os contêineres em um banco de dados compartilham os recursos disponíveis em um computador, naturalmente, você não obtém um desempenho previsível em nenhum contêiner específico. Para saber como configurar a taxa de transferência provisionada em um banco de dados, consulte [Configurar a taxa de transferência provisionada em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
 
-Débito de definição numa base de dados do Cosmos do Azure garante que recebe o débito aprovisionado para essa base de dados o tempo todo. Uma vez que todos os contentores na base de dados partilham o débito aprovisionado, o Azure Cosmos DB não fornece que garantias de qualquer débito previsível para um determinado contêiner nessa base de dados. A parte da taxa de transferência que pode receber um contentor específico está dependente:
+Definir a taxa de transferência em um banco de dados Cosmos do Azure garante que você receba a taxa de transferência provisionada para esse banco de dados o tempo todo. Como todos os contêineres no banco de dados compartilham a taxa de transferência provisionada, Azure Cosmos DB não fornece nenhuma garantia de taxa de transferência previsível para um contêiner específico nesse banco de dados. A parte da taxa de transferência que pode receber um contentor específico está dependente:
 
-* O número de contentores.
-* A escolha das chaves de partição para vários contentores.
+* O número de contêineres.
+* A opção de chaves de partição para vários contêineres.
 * A distribuição da carga de trabalho em várias partições lógicas dos contentores. 
 
-Recomendamos que configure o débito numa base de dados quando pretende partilhar a taxa de transferência em vários contentores, mas não quer dedicar a taxa de transferência para qualquer determinado contentor. 
+Recomendamos que você configure a taxa de transferência em um banco de dados quando desejar compartilhar a taxa de transferência em vários contêineres, mas não quiser dedicar a taxa de transferência a nenhum contêiner específico. 
 
-Os exemplos seguintes demonstram onde preferível aprovisionar o débito ao nível da base de dados:
+Os exemplos a seguir demonstram onde é preferível provisionar a taxa de transferência no nível do banco de dados:
 
-* A partilha de débito aprovisionado de uma base de dados num conjunto de contentores é útil para uma aplicação multi-inquilino. Cada utilizador pode ser representado por um contentor do Azure Cosmos distinto.
+* O compartilhamento de uma taxa de transferência provisionada de um banco de dados em um conjunto de contêineres é útil para um aplicativo multilocatário. Cada utilizador pode ser representado por um contentor do Azure Cosmos distinto.
 
-* Partilhar o débito aprovisionado de uma base de dados num conjunto de contentores é útil ao migrar uma base de dados NoSQL, como o MongoDB ou Cassandra, alojadas num cluster de VMs ou a partir de servidores físicos no local ao Azure Cosmos DB. Considere o débito aprovisionado configurado na sua base de dados do Cosmos do Azure como um equivalente lógico, mas mais econômico e elástica, para que a capacidade de computação do seu cluster do MongoDB ou o Cassandra.  
+* O compartilhamento de uma taxa de transferência provisionada de um banco de dados em um conjunto de contêineres é útil quando você migra um banco de dados NoSQL, como MongoDB ou Cassandra, hospedado em um cluster de VMs ou em servidores físicos locais para Azure Cosmos DB. Considere a taxa de transferência provisionada configurada no banco de dados Cosmos do Azure como um equivalente lógico, mas mais econômica e elástica, para aquela da capacidade de computação do cluster MongoDB ou Cassandra.  
 
-Criado dentro de uma base de dados com débito aprovisionado de todos os contentores têm de ser criados com uma [chave de partição](partition-data.md). Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando tiver de contentores que partilhem o débito aprovisionado configurado numa base de dados, não pode aplicar seletivamente a taxa de transferência para um contentor específico ou de uma partição lógica. 
+Todos os contêineres criados dentro de um banco de dados com taxa de transferência provisionada devem ser criados com uma [chave de partição](partition-data.md). Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando você tem contêineres que compartilham a taxa de transferência provisionada configurada em um banco de dados, não é possível aplicar seletivamente a taxa de transferência a um contêiner específico ou a uma partição lógica. 
 
-Se a carga de trabalho numa partição lógica consome mais do que a taxa de transferência que é atribuída a uma partição lógica específica, suas operações são taxa limitado. Quando ocorre a limitação de velocidade, pode aumentar o débito para a base de dados ou repita as operações. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
+Se a carga de trabalho em uma partição lógica consumir mais do que a taxa de transferência alocada para uma partição lógica específica, suas operações serão limitadas por taxa. Quando a limitação de taxa ocorre, você pode aumentar a taxa de transferência do banco de dados inteiro ou tentar novamente as operações. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
-Várias partições lógicas que pertencem a contentores diferentes que partilham o débito aprovisionado para um banco de dados podem ser hospedadas numa única partição física. Embora uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição física, *"L"* partições lógicas entre *"C"* contentores que partilhem o débito aprovisionado das bases de dados podem ser mapeado e alojada num *"R"* partições físicas. 
+Várias partições lógicas que pertencem a contêineres diferentes que compartilham a taxa de transferência provisionada para um banco de dados podem ser hospedadas em uma única partição física. Embora uma única partição lógica de um contêiner sempre esteja no escopo de uma partição física, *"L"* partições lógicas entre os contêineres *"C"* que compartilham a taxa de transferência provisionada de um banco de dados podem ser mapeadas e hospedadas em *"R"* físicas Elas. 
 
-A imagem seguinte mostra como uma partição física pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
+A imagem a seguir mostra como uma partição física pode hospedar uma ou mais partições lógicas que pertencem a contêineres diferentes em um banco de dados:
 
 ![Partição física](./media/set-throughput/resource-partition2.png)
 
-## <a name="set-throughput-on-a-database-and-a-container"></a>Definir débito num banco de dados e um contentor
+## <a name="set-throughput-on-a-database-and-a-container"></a>Definir a taxa de transferência em um banco de dados e um contêiner
 
-Pode combinar os dois modelos. Aprovisionamento de débito no banco de dados e o contentor é permitido. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
+Você pode combinar os dois modelos. O provisionamento de taxa de transferência no banco de dados e no contêiner é permitido. O exemplo seguinte mostra como aprovisionar o débito numa base de dados do Cosmos do Azure e um contentor:
 
-* Pode criar uma base de dados do Cosmos do Azure com o nome *Z* com o débito aprovisionado de *"K"* RUs. 
-* Em seguida, cria cinco contentores com o nome *uma*, *B*, *C*, *1!d*, e *E* na base de dados. Ao criar o contentor B, certifique-se de habilitar **débito dedicado de aprovisionamento para este contentor** opção e configurar explicitamente *"P"* RUs do débito aprovisionado nesse contêiner. Tenha em atenção que pode configurar débito dedicado e partilhado apenas quando se cria a base de dados e o contentor. 
+* Você pode criar um banco de dados Cosmos do Azure chamado *Z* com taxa de transferência provisionada de *"K"* RUs. 
+* Em seguida, crie cinco contêineres chamados *a*, *B*, *C*, *D*e *e no banco* de dados. Ao criar o contêiner B, certifique-se de habilitar provisionar **taxa de transferência dedicada para essa** opção de contêiner e configurar explicitamente *"P"* RUs de taxa de transferência provisionada neste contêiner. Observe que você pode configurar a taxa de transferência compartilhada e dedicada somente ao criar o banco de dados e o contêiner. 
 
-   ![Definir a taxa de transferência ao nível do contentor](./media/set-throughput/coll-level-throughput.png)
+   ![Definindo a taxa de transferência no nível do contêiner](./media/set-throughput/coll-level-throughput.png)
 
-* O *"K"* RUs débito é compartilhado entre os contentores de quatro *uma*, *C*, *1!d*, e *E*. A quantidade exata de débito disponível para *uma*, *C*, *1!d*, ou *E* varia. Não há nenhum SLA para a taxa de transferência de cada contentor individuais.
-* O contentor com o nome *B* é garantida para obter o *"P"* RUs débito o tempo todo. Ele é suportado por SLAs.
+* A taxa de transferência de RUs *"K"* é compartilhada entre os quatro contêineres *a*, *C*, *D*e *e*. A quantidade exata de taxa de transferência disponível para *a*, *C*, *D*ou *E E* varia. Não há SLAs para a taxa de transferência de cada contêiner individual.
+* O contêiner chamado *B* tem a garantia de obter a taxa de transferência de RUs *"P"* o tempo todo. Ele é apoiado por SLAs.
 
-## <a name="update-throughput-on-a-database-or-a-container"></a>Débito de atualização num banco de dados ou um contentor
+## <a name="update-throughput-on-a-database-or-a-container"></a>Atualizar a taxa de transferência em um banco de dados ou em um contêiner
 
-Depois de criar um contentor do Cosmos do Azure ou uma base de dados, pode atualizar o débito aprovisionado. Não existe nenhum limite no débito aprovisionado máximo que pode configurar a base de dados ou o contentor. O débito aprovisionado mínimo depende dos seguintes fatores: 
+Depois de criar um contêiner Cosmos do Azure ou um banco de dados, você pode atualizar a taxa de transferência provisionada. Não há limite para a taxa de transferência máxima provisionada que você pode configurar no banco de dados ou no contêiner. A taxa de transferência mínima provisionada depende dos seguintes fatores: 
 
-* O tamanho máximo dos dados que alguma vez armazena no contentor
-* O débito máximo que Aprovisiona nunca no contentor
-* O número máximo de contentores do Azure Cosmos que nunca de criar uma base de dados com a taxa de transferência partilhada. 
+* O tamanho máximo de dados que você já armazenou no contêiner
+* A taxa de transferência máxima que você já provisiona no contêiner
+* O número máximo de contêineres de Cosmos do Azure que você já criou em um banco de dados com taxa de transferência compartilhada. 
 
-Pode obter o débito mínimo de um contentor ou uma base de dados por meio de programação através de SDKs ou ver o valor no portal do Azure. Ao utilizar o SDK de .NET, o [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) método permite-lhe ajustar o valor do débito aprovisionado. Ao utilizar o SDK de Java, o [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) método permite-lhe ajustar o valor do débito aprovisionado. 
+Você pode recuperar a taxa de transferência mínima de um contêiner ou de um banco de dados programaticamente usando os SDKs ou exibir o valor no portal do Azure. Ao usar o SDK do .NET, o método [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) permite que você dimensione o valor da taxa de transferência provisionada. Ao usar o SDK do Java, o método requestoptions [. setOfferThroughput](sql-api-java-samples.md#offer-examples) permite que você dimensione o valor de taxa de transferência provisionado. 
 
-Ao utilizar o SDK de .NET, o [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método permite-lhe obter o débito mínimo de um contentor ou uma base de dados. 
+Ao usar o SDK do .NET, o método [DocumentClient. ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) permite que você recupere a taxa de transferência mínima de um contêiner ou de um banco de dados. 
 
-Pode dimensionar o débito aprovisionado de um contentor ou uma base de dados em qualquer altura. Quando uma operação de dimensionamento é efetuada para aumentar o débito, pode demorar mais tempo devido às tarefas de sistema para aprovisionar os recursos necessários. Pode verificar o estado da operação de dimensionamento no portal do Azure ou programaticamente com os SDKs. Ao utilizar o SDK do .net, pode obter o estado da operação de dimensionamento com o `DocumentClient.ReadOfferAsync` método.
+Você pode dimensionar a taxa de transferência provisionada de um contêiner ou de um banco de dados a qualquer momento. Quando uma operação de dimensionamento é executada para aumentar a taxa de transferência, ela pode levar mais tempo devido às tarefas do sistema para provisionar os recursos necessários. Você pode verificar o status da operação de dimensionamento em portal do Azure ou programaticamente usando os SDKs. Ao usar o SDK do .net, você pode obter o status da operação de dimensionamento usando `DocumentClient.ReadOfferAsync` o método.
 
 ## <a name="comparison-of-models"></a>Comparação dos modelos
 
 |**Parâmetro**  |**Débito aprovisionado num banco de dados**  |**Débito aprovisionado num contentor**|
 |---------|---------|---------|
-|RUs mínimo |400 (após os primeiros quatro contentores, cada contentor adicional requer um mínimo de 100 RU por segundo.) |400|
+|RUs mínimo |400 (após os quatro primeiros contêineres, cada contêiner adicional requer um mínimo de 100 RUs por segundo.) |400|
 |RUs mínimas por contentor|100|400|
-|RUs máximos|Ilimitado, na base de dados.|Ilimitado, no contentor.|
-|RUs atribuídos ou disponíveis para um contentor específico|Não existem garantias. RUs atribuídos a um determinado contêiner dependem as propriedades. As propriedades podem ser a escolha de chaves de partição de contentores que partilhem o débito, a distribuição de carga de trabalho e o número de contentores. |Todos os RUs configurados no contentor exclusivamente estão reservados para o contentor.|
-|Armazenamento máximo para um contentor|Ilimitado.|Ilimitado.|
+|RUs máximos|Ilimitado, no banco de dados.|Ilimitado, no contêiner.|
+|RUs atribuído ou disponível para um contêiner específico|Não existem garantias. O RUs atribuído a um determinado contêiner depende das propriedades. As propriedades podem ser a opção de chaves de partição de contêineres que compartilham a taxa de transferência, a distribuição da carga de trabalho e o número de contêineres. |Todos os RUs configurados no contentor exclusivamente estão reservados para o contentor.|
+|Armazenamento máximo para um contentor|Inúmeros.|Inúmeros.|
 |Débito máximo por partição lógica de um contentor|10 mil RUs|10 mil RUs|
 |Armazenamento máximo (dados + índice) por partição lógica de um contentor|10 GB|10 GB|
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [partições lógicas](partition-data.md).
-* Saiba como [débito de aprovisionar num contentor do Azure Cosmos](how-to-provision-container-throughput.md).
-* Saiba como [débito de aprovisionar uma base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+* Saiba como provisionar a [taxa de transferência em um contêiner Cosmos do Azure](how-to-provision-container-throughput.md).
+* Saiba como provisionar a [taxa de transferência em um banco de dados Cosmos do Azure](how-to-provision-database-throughput.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Atributos de segurança para o Gateway de VPN do Azure
-description: Uma lista de verificação de atributos de segurança para avaliar o Gateway de VPN do Azure
+title: Atributos de segurança para o gateway de VPN do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar o gateway de VPN do Azure
 services: sql-database
 author: msmbaldwin
 manager: barbkess
@@ -8,62 +8,62 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0e58e7b3f77d9bb673e300aa60ad07ca9dba5153
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c355f70975f441609304a4c9ee2ead75f0e0ce25
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083135"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444593"
 ---
-# <a name="security-attributes-for-azure-vpn-gateway"></a>Atributos de segurança para o Gateway de VPN do Azure
+# <a name="security-attributes-for-azure-vpn-gateway"></a>Atributos de segurança para o gateway de VPN do Azure
 
-Este artigo documenta os atributos de segurança comuns incorporados no Gateway de VPN do Azure.
+Este artigo documenta os atributos de segurança internos do gateway de VPN do Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação em repouso (por exemplo, a encriptação do lado do servidor, a encriptação do lado do servidor com chaves geridas pelo cliente e a outros recursos de criptografia) | N/A | Dados de clientes de trânsito de gateway VPN, não armazena dados do cliente |
-| Encriptação em trânsito (por exemplo, a encriptação do ExpressRoute, na encriptação de VNet e a encriptação de VNet a VNet)| Sim | Gateway de VPN encriptar pacotes de cliente entre os gateways de VPN do Azure e de dispositivos VPN do cliente no local (S2S) ou de clientes VPN (P2S). Gateways de VPN também suportam a encriptação de VNet a VNet. |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não | Chaves pré-partilhadas especificada do cliente são encriptadas em inatividade; mas não integrado com CMK ainda. |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
-| Chamadas de API encriptadas| Sim | Por meio [o Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS  |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia) | N/A | Dados de cliente de trânsito de gateway de VPN, não armazena dados do cliente |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O gateway de VPN criptografa os pacotes do cliente entre os gateways de VPN do Azure e os dispositivos de VPN locais do cliente (S2S) ou clientes VPN (P2S). Os gateways de VPN também dão suporte à criptografia de VNet para VNet. |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não | As chaves pré-compartilhadas especificadas pelo cliente são criptografadas em repouso; Mas não integrado com o CMK ainda. |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
+| Chamadas de API criptografadas| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e https  |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| N/A | |
-| Suporte de injeção de VNet| N/A | . |
-| Suporte de isolamento de rede e Firewalling| Sim | Gateways de VPN são instâncias VM dedicadas para cada rede Virtual do cliente  |
-| Suporte de encapsulamento de forçado| Sim |  |
+| Suporte ao ponto de extremidade de serviço| N/A | |
+| Suporte à injeção de VNet| N/A | . |
+| Isolamento de rede e suporte de firewall| Sim | Gateways de VPN são instâncias de VM dedicadas para cada rede virtual de cliente  |
+| Suporte a túnel forçado| Sim |  |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Ver [registos de diagnóstico do Azure Monitor/alerta](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor/alerta de métricas](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [Azure monitor logs de diagnóstico/alerta](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure monitor métricas/alerta](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | [O Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) para gerir o serviço e configurar o gateway de VPN do Azure. |
-| Autorização| Sim | Suporta a autorização via [RBAC](../role-based-access-control/overview.md). |
+| Authentication| Sim | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) para gerenciar o serviço e configurar o gateway de VPN do Azure. |
+| Autorização| Sim | Suporte à autorização via [RBAC](../role-based-access-control/overview.md). |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim | Registo de atividades do Gestor de recursos do Azure. |
-| Auditoria e registo de plano de dados | Sim | [Registos de diagnóstico do Azure Monitor](../azure-resource-manager/resource-group-audit.md) para conectividade VPN, registro e auditoria. |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Log de atividades Azure Resource Manager. |
+| Log e auditoria do plano de dados | Sim | [Azure monitor logs de diagnóstico](../azure-resource-manager/resource-group-audit.md) para auditoria e log de conectividade de VPN. |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | Para operações de gestão, o estado de uma configuração de gateway de VPN do Azure pode ser exportado como um modelo Azure Resource Manager e com a versão ao longo do tempo. | 
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Para operações de gerenciamento, o estado de uma configuração de gateway de VPN do Azure pode ser exportado como um modelo de Azure Resource Manager e com controle de versão ao longo do tempo. | 

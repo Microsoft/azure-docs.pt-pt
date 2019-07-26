@@ -1,59 +1,55 @@
 ---
-title: Carregar um certificado de gestão de serviço do Azure | Documentos da Microsoft
-description: Saiba como carregar o certificado de gestão de serviço para o portal do Azure.
+title: Carregar um certificado de gerenciamento de serviços do Azure | Microsoft Docs
+description: Saiba como carregar o certificado de gerenciamento de serviços para o portal do Azure.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
+author: georgewallace
+manager: carmonm
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60742973"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359871"
 ---
-# <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
-Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação dos vários serviços do Azure. 
+# <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gerenciamento de serviços do Azure
+Os certificados de gerenciamento permitem autenticar com o modelo de implantação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de vários serviços do Azure. 
 
 > [!WARNING]
-> Tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que efetua a autenticação com os mesmos para gerir a subscrição na que qual estão associados.
+> Tenha cuidado! Esses tipos de certificados permitem que qualquer pessoa que se autentique com eles gerencie a assinatura à qual eles estão associados.
 >
 >
 
-Se desejar obter mais informações sobre certificados do Azure (incluindo a criar um certificado autoassinado), veja [descrição geral de certificados para serviços Cloud do Azure](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Se você quiser obter mais informações sobre os certificados do Azure (incluindo a criação de um certificado autoassinado), consulte [visão geral de certificados para serviços de nuvem do Azure](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-Também pode utilizar [do Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código de cliente para fins de automatização.
+Você também pode usar [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código do cliente para fins de automação.
 
-**Nota:** Tem de ser um coadministrador na subscrição para realizar quaisquer operações em certificados de gestão. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como adicionar ou remover Coadministradores do novo Portal do Azure 
+**Nota:** Você deve ser um coadministrador na assinatura para executar qualquer operação em certificados de gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como adicionar ou remover coadministradores do novo portal do Azure 
 
-## <a name="upload-a-management-certificate"></a>Carregar um certificado de gestão
-Depois de ter um certificado de gestão que criou, (ficheiro. cer com apenas a chave pública) pode carregá-lo no portal. Quando o certificado está disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode ligar através da API de gestão e aceder aos recursos para a subscrição associada.
+## <a name="upload-a-management-certificate"></a>Carregar um certificado de gerenciamento
+Depois de criar um certificado de gerenciamento (arquivo. cer com apenas a chave pública), você poderá carregá-lo no Portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado de correspondência (chave privada) poderá se conectar por meio da API de gerenciamento e acessar os recursos para a assinatura associada.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Clique em **todos os serviços** na lista de serviço do Azure na parte inferior, em seguida, selecione **subscrições** no _geral_ grupo do serviço.
+2. Clique em **todos os serviços** na lista inferior de serviços do Azure e, em seguida, selecione **assinaturas** no grupo de serviços _geral_ .
 
-    ![Menu de subscrição](./media/azure-api-management-certs/subscriptions_menu.png)
+    ![Menu assinatura](./media/azure-api-management-certs/subscriptions_menu.png)
 
-3. Certifique-se selecionar a subscrição correta que pretende associar ao certificado.     
-4. Depois de selecionar a subscrição correta, prima **certificados de gestão** no _definições_ grupo.
+3. Certifique-se de selecionar a assinatura correta que você deseja associar ao certificado.     
+4. Depois de selecionar a assinatura correta, pressione **certificados de gerenciamento** no grupo _configurações_ .
 
     ![Definições](./media/azure-api-management-certs/mgmtcerts_menu.png)
 
-5. Prima a **carregar** botão.
+5. Pressione o botão **carregar** .
 
-    ![Carregar a página de certificados](./media/azure-api-management-certs/certificates_page.png)
-6. Preencha as informações de caixa de diálogo e prima **carregar**.
+    ![Carregar na página certificados](./media/azure-api-management-certs/certificates_page.png)
+6. Preencha as informações da caixa de diálogo e pressione **carregar**.
 
     ![Definições](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que tem um certificado de gestão associado com uma subscrição, pode (depois de instalar o certificado correspondente localmente) por meio de programação ligar para o [REST API do modelo de implementação clássica](/azure/#pivot=sdkstools) e automatizar o vários recursos do Azure também estão associados essa subscrição.
+Agora que você tem um certificado de gerenciamento associado a uma assinatura, você pode (depois de ter instalado o certificado correspondente localmente) se conectar programaticamente à [API REST do modelo de implantação clássica](/azure/#pivot=sdkstools) e automatizar os vários recursos do Azure que também estão associados a essa assinatura.

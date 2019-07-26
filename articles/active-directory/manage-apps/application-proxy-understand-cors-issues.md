@@ -1,6 +1,6 @@
 ---
-title: Compreender e resolver problemas de CORS de Proxy de aplicações do Azure AD
-description: Fornece uma compreensão de CORS no Proxy de aplicações do Azure AD e como identificar e resolver problemas CORS.
+title: Entender e resolver problemas do Azure Proxy de Aplicativo do AD CORS
+description: Fornece uma compreensão do CORS no Azure Proxy de Aplicativo do AD e como identificar e resolver problemas de CORS.
 services: active-directory
 author: jeevanbisht
 manager: mtillman
@@ -11,110 +11,110 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: afc0bb990f69521efb2557a6a086c0de5126f82c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 265458066a528246cbfa7876bf61b02a0382581b
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67440423"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499608"
 ---
-# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Compreender e resolver problemas de CORS de Proxy de aplicações do Azure Active Directory
+# <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Entender e resolver problemas Proxy de Aplicativo do Azure Active Directory CORS
 
-[Recursos de várias origens (CORS) de partilha](https://www.w3.org/TR/cors/) , às vezes, pode apresentar desafios para as aplicações e APIs publicar através do Proxy de aplicações de diretório Active Directory do Azure. Este artigo aborda problemas de CORS de Proxy de aplicações do Azure AD e soluções.
+[O CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/) às vezes pode apresentar desafios para os aplicativos e as APIs que você publica por meio do proxy de aplicativo do Azure Active Directory. Este artigo aborda os problemas e as soluções do Azure Proxy de Aplicativo do AD CORS.
 
-Segurança do navegador geralmente impede que uma página da web realize pedidos de AJAX para outro domínio. Esta restrição é chamada de *política de mesma origem*e impede que um site malicioso leia dados confidenciais de outro site. No entanto, às vezes, pode querer permitir que outros sites chamar a API web. CORS é uma norma W3C que permite que um servidor reduzir a política de mesma origem e permitir que alguns pedidos de várias origens, ao mesmo tempo que rejeita outros.
+A segurança do navegador geralmente impede que uma página da Web faça solicitações AJAX para outro domínio. Essa restrição é chamada de *política de mesma origem*e impede que um site mal-intencionado leia dados confidenciais de outro site. No entanto, às vezes, talvez você queira permitir que outros sites Chamem sua API da Web. O CORS é um padrão W3C que permite que um servidor Relaxe a política de mesma origem e permita algumas solicitações entre origens enquanto rejeita outras.
 
-## <a name="understand-and-identify-cors-issues"></a>Compreender e a identificar problemas CORS
+## <a name="understand-and-identify-cors-issues"></a>Entender e identificar problemas de CORS
 
-Dois URLs têm a mesma origem se tiverem esquemas idênticas, anfitriões e as portas ([RFC 6454](https://tools.ietf.org/html/rfc6454)), tais como:
+Duas URLs têm a mesma origem se tiverem esquemas, hosts e portas idênticos ([RFC 6454](https://tools.ietf.org/html/rfc6454)), como:
 
 -   http:\//contoso.com/foo.html
 -   http:\//contoso.com/bar.html
 
-Os seguintes URLs têm diferentes origens anterior dois:
+As URLs a seguir têm origens diferentes das duas anteriores:
 
--   http:\//contoso.net - domínio diferente
--   http:\//contoso.com:9000/foo.html - porta diferente
--   https:\//contoso.com/foo.html - esquema diferente
--   http:\//www.contoso.com/foo.html - subdomínio diferente
+-   http:\//contoso.net-domínio diferente
+-   http:\//contoso.com:9000/foo.html-porta diferente
+-   https:\//contoso.com/foo.html-esquema diferente
+-   http:\//www.contoso.com/foo.html-subdomínio diferente
 
-Política de mesma origem impede as aplicações acedem aos recursos a partir de outras origens, a menos que eles usam os cabeçalhos de controlo de acesso correto. Se os cabeçalhos CORS ausentes ou incorretos, falharem pedidos de várias origens. 
+A política de mesma origem impede que os aplicativos acessem recursos de outras origens, a menos que usem os cabeçalhos de controle de acesso corretos. Se os cabeçalhos CORS estiverem ausentes ou incorretos, as solicitações entre origens falharão. 
 
-Pode identificar problemas CORS utilizando ferramentas de depuração de browser:
+Você pode identificar problemas de CORS usando as ferramentas de depuração do navegador:
 
-1. Inicie o browser e navegue para a aplicação web.
-1. Prima **F12** para abrir a consola de depuração.
-1. Tente reproduzir a transação e reveja a mensagem de consola. Uma violação de CORS produz um erro de consola sobre a origem.
+1. Inicie o navegador e navegue até o aplicativo Web.
+1. Pressione **F12** para abrir o console de depuração.
+1. Tente reproduzir a transação e examine a mensagem do console. Uma violação de CORS produz um erro de console sobre a origem.
 
-Captura de ecrã seguinte, selecionando o **experimentar** botão gerou uma mensagem de erro CORS que https:\//corswebclient-contoso.msappproxy.net não foi encontrado no cabeçalho Access-Control-Allow-Origin.
+Na captura de tela a seguir, a seleção do botão **experimentar** causou uma mensagem de erro CORS\/que https:/corswebclient-contoso.msappproxy.net não foi encontrada no cabeçalho Access-Control-Allow-Origin.
 
-![Problema CORS](./media/application-proxy-understand-cors-issues/image3.png)
+![Problema de CORS](./media/application-proxy-understand-cors-issues/image3.png)
 
-## <a name="cors-challenges-with-application-proxy"></a>Desafios CORS com o Proxy de aplicações
+## <a name="cors-challenges-with-application-proxy"></a>Desafios de CORS com o proxy de aplicativo
 
-O exemplo seguinte mostra um típico cenário de CORS de Proxy de aplicações do Azure AD. Os anfitriões de servidor interno uma **CORSWebService** controlador da web API e um **CORSWebClient** que chama **CORSWebService**. Há uma solicitação AJAX partir **CORSWebClient** ao **CORSWebService**.
+O exemplo a seguir mostra um cenário típico de CORS do Azure Proxy de Aplicativo do AD. O servidor interno hospeda um controlador de API Web **CORSWebService** e um **CORSWebClient** que chama **CORSWebService**. Há uma solicitação AJAX de **CORSWebClient** para **CORSWebService**.
 
-![Pedido de mesma origem no local](./media/application-proxy-understand-cors-issues/image1.png)
+![Solicitação de mesma origem local](./media/application-proxy-understand-cors-issues/image1.png)
 
-A aplicação de CORSWebClient funciona quando hospedá-lo no local, mas a falha para a carga ou erros de saída quando publicado através do Proxy de aplicações do Azure AD. Se publicou as aplicações CORSWebClient e CORSWebService separadamente como diferentes aplicações através do Proxy de aplicações, duas aplicações alojadas em domínios diferentes. Uma solicitação AJAX de CORSWebClient para CORSWebService é um pedido de várias origens e este falhar.
+O aplicativo CORSWebClient funciona quando você o hospeda localmente, mas falha ao carregar ou erros quando publicado por meio do Azure Proxy de Aplicativo do AD. Se você publicou os aplicativos CORSWebClient e CORSWebService separadamente como aplicativos diferentes por meio do proxy de aplicativo, os dois aplicativos serão hospedados em domínios diferentes. Uma solicitação AJAX de CORSWebClient para CORSWebService é uma solicitação entre origens e falha.
 
-![Pedido de CORS do Proxy de aplicação](./media/application-proxy-understand-cors-issues/image2.png)
+![Solicitação CORS do proxy de aplicativo](./media/application-proxy-understand-cors-issues/image2.png)
 
-## <a name="solutions-for-application-proxy-cors-issues"></a>Soluções para problemas de CORS do Proxy de aplicação
+## <a name="solutions-for-application-proxy-cors-issues"></a>Soluções para problemas de CORS de proxy de aplicativo
 
-Pode resolver o problema CORS anterior em qualquer uma das várias formas.
+Você pode resolver o problema de CORS anterior em qualquer uma das várias maneiras.
 
 ### <a name="option-1-set-up-a-custom-domain"></a>Opção 1: Configurar um domínio personalizado
 
-Utilizar um Proxy de aplicações do Azure AD [domínio personalizado](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) para publicar a partir da mesma origem, sem ter de fazer alterações às origens de aplicações, código ou cabeçalhos. 
+Use um [domínio personalizado](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) do Azure proxy de aplicativo do AD para publicar da mesma origem, sem precisar fazer alterações nas origens do aplicativo, código ou cabeçalhos. 
 
-### <a name="option-2-publish-the-parent-directory"></a>Opção 2: Publicar o diretório principal
+### <a name="option-2-publish-the-parent-directory"></a>Opção 2: Publicar o diretório pai
 
-Publica o diretório principal de ambas as aplicações. Esta solução funciona especialmente bem se tiver apenas duas aplicações no servidor web. Em vez de cada aplicação de publicação em separado, pode publicar o diretório principal comum, que resulta na mesma origem.
+Publicar o diretório pai de ambos os aplicativos. Essa solução funcionará especialmente bem se você tiver apenas dois aplicativos no servidor Web. Em vez de publicar cada aplicativo separadamente, você pode publicar o diretório pai comum, o que resulta na mesma origem.
 
-Os exemplos seguintes mostram o página de Proxy de aplicações do Azure AD para a aplicação de CORSWebClient do portal.  Quando o **URL interno** está definida como *contoso.com/CORSWebClient*, a aplicação não é possível efetuar pedidos com êxito para o *contoso.com/CORSWebService* directory, porque eles são várias origens. 
+Os exemplos a seguir mostram a página de Proxy de Aplicativo do AD do portal do Azure para o aplicativo CORSWebClient.  Quando a **URL interna** é definida como *contoso.com/CORSWebClient*, o aplicativo não pode fazer solicitações bem-sucedidas para o diretório *contoso.com/CORSWebService* , pois eles são entre origens. 
 
-![Publicar aplicação individualmente](./media/application-proxy-understand-cors-issues/image4.png)
+![Publicar aplicativo individualmente](./media/application-proxy-understand-cors-issues/image4.png)
 
-Em alternativa, defina o **URL interno** para publicar o diretório principal, que inclui ambos os *CORSWebClient* e *CORSWebService* diretórios:
+Em vez disso, defina a **URL interna** para publicar o diretório pai, que inclui os diretórios *CORSWebClient* e *CORSWebService* :
 
-![Publicar o diretório principal](./media/application-proxy-understand-cors-issues/image5.png)
+![Publicar diretório pai](./media/application-proxy-understand-cors-issues/image5.png)
 
-Os URLs da aplicação resultante efetivamente resolver o problema CORS:
+As URLs de aplicativo resultantes resolvem efetivamente o problema de CORS:
 
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebService
 - https:\//corswebclient-contoso.msappproxy.net/CORSWebClient
 
-### <a name="option-3-update-http-headers"></a>Opção 3: Atualizar os cabeçalhos HTTP
+### <a name="option-3-update-http-headers"></a>Opção 3: Atualizar cabeçalhos HTTP
 
-Adicione um cabeçalho de resposta HTTP personalizado no serviço web para comparar a solicitação de origem. Para Web sites em execução nos serviços de informação Internet (IIS), utilize o Gestor do IIS para modificar o cabeçalho:
+Adicione um cabeçalho de resposta HTTP personalizado no serviço Web para corresponder à solicitação de origem. Para sites em execução no Serviços de Informações da Internet (IIS), use o Gerenciador do IIS para modificar o cabeçalho:
 
-![Adicionar cabeçalho de resposta personalizada no Gerenciador do IIS](./media/application-proxy-understand-cors-issues/image6.png)
+![Adicionar cabeçalho de resposta personalizado no Gerenciador do IIS](./media/application-proxy-understand-cors-issues/image6.png)
 
-Essa modificação não requer quaisquer alterações de código. Pode verificá-lo nos rastreios de Fiddler:
+Essa modificação não requer nenhuma alteração de código. Você pode verificá-lo nos rastreamentos do Fiddler:
 
-**A adição de cabeçalho de mensagem**\
+**Postar a adição de cabeçalho**\
 HTTP/1.1 200 OK\
-Cache-Control: não-cache\
-Pragma: no-cache\
-Content-Type: text/plain; charset=utf-8\
-Expira:-1 \
-Variar: Encoding\ aceite
-Servidor: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**Access-Control-Allow-Origin: https://corswebclient-contoso.msappproxy.net** \
+Cache-Control: no-cache \
+Pragma: no-cache \
+Tipo de conteúdo: texto/simples; charset = utf-8 \
+Expira em:-1 \
+Varia Aceitar-codificação \
+Servidor: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0 \
+**Acesso-controle-permitir-origem: https\://corswebclient-contoso.msappproxy.net**\
 X-AspNet-Version: 4.0.30319\
-X-com tecnologia-por: ASP.NET\
+X-ligado por: ASP.NET\
 Content-Length: 17
 
-### <a name="option-4-modify-the-app"></a>Opção 4: Modificar a aplicação
+### <a name="option-4-modify-the-app"></a>Opção 4: Modificar o aplicativo
 
-Pode alterar a sua aplicação para suportar CORS ao adicionar o cabeçalho Access-Control-Allow-Origin, com os valores adequados. A maneira de adicionar o cabeçalho depende da linguagem de código da aplicação. Alterar o código é a opção menos recomendada, porque exige o maioria dos esforço.
+Você pode alterar seu aplicativo para dar suporte a CORS adicionando o cabeçalho Access-Control-Allow-Origin, com os valores apropriados. A maneira de adicionar o cabeçalho depende da linguagem de código do aplicativo. Alterar o código é a opção menos recomendada, pois requer mais esforço.
 
-### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>Opção 5: Expandir o tempo de vida do token de acesso
+### <a name="option-5-extend-the-lifetime-of-the-access-token"></a>Opção 5: Estender o tempo de vida do token de acesso
 
-Alguns problemas CORS não podem ser resolvidos, por exemplo, quando a sua aplicação redireciona para *login.microsoftonline.com* para autenticar, e o token de acesso expira. Os CORS chamar, em seguida, falhar. É uma solução para este cenário para expandir o tempo de vida do token de acesso, para que não expirar durante uma sessão de utilizador. Para obter mais informações sobre como fazer isso, consulte [durações de token configuráveis no Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
+Alguns problemas de CORS não podem ser resolvidos, como quando seu aplicativo redireciona para o *login.microsoftonline.com* para autenticar e o token de acesso expira. A chamada CORS falhará. Uma solução alternativa para esse cenário é estender o tempo de vida do token de acesso para impedir que ele expire durante a sessão de um usuário. Para obter mais informações sobre como fazer isso, consulte [tempos de vida de token configuráveis no Azure ad](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## <a name="see-also"></a>Consulte também
-- [Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory](application-proxy-add-on-premises-application.md) 
-- [Planear uma implementação do Proxy de aplicações do Azure AD](application-proxy-deployment-plan.md) 
-- [Acesso remoto às aplicações no local através do Proxy de aplicações do Azure Active Directory](application-proxy.md) 
+- [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md) 
+- [Planejar uma implantação de Proxy de Aplicativo do AD do Azure](application-proxy-deployment-plan.md) 
+- [Acesso remoto a aplicativos locais por meio de Proxy de Aplicativo do Azure Active Directory](application-proxy.md) 

@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79f5eba18e34f65f7bc8a625babca92b86e06b4c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ad2f25aac7f74c74eb63fd4666c5184ae751ec1f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867343"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499938"
 ---
 # <a name="enable-passwordless-sign-in-for-azure-ad-preview"></a>Habilitar entrada sem senha para o Azure AD (versão prévia)
 
 ## <a name="requirements"></a>Requisitos
 
-* Multi-Factor Authentication do Azure
-* Visualização de registro combinado
+* Azure Multi-Factor Authentication
+* Visualização de registro combinado com usuários habilitados para SSPR
 * A visualização da chave de segurança do FIDO2 requer chaves de segurança FIDO2 compatíveis
 * Webauthn requer o Microsoft Edge no Windows 10 versão 1809 ou superior
 * O logon do Windows baseado em FIDO2 requer o Azure AD ingressado no Windows 10 versão 1809 ou superior
@@ -59,7 +59,7 @@ Para direcionar grupos de dispositivos específicos para habilitar o provedor de
       1. Nome: Ativar as chaves de segurança do FIDO para entrar no Windows
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. Tipo de dados: Número inteiro
-      1. Valor 1 
+      1. Valor: 1 
 1. Essa política pode ser atribuída a usuários, dispositivos ou grupos específicos. Mais informações podem ser encontradas no artigo [atribuir perfis de usuário e de dispositivo no Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
 ![Criação de política de configuração de dispositivo personalizada do Intune](./media/howto-authentication-passwordless-enable/intune-custom-profile.png)
@@ -179,7 +179,7 @@ Os usuários que dependem do SSO do WIA que usam credenciais gerenciadas como ch
 
 Estamos trabalhando para dar suporte a um recurso que permita a alteração de UPN em dispositivos AADJ e AADJ híbridos. Se o UPN de um usuário for alterado, você não poderá mais modificar as chaves de segurança FIDO2 para considerar isso. Portanto, a única abordagem é redefinir o dispositivo e o usuário precisa se registrar novamente.
 
-### <a name="authenticator-app"></a>Aplicativo autenticador
+### <a name="authenticator-app"></a>Aplicação de autenticação
 
 #### <a name="ad-fs-integration"></a>Integração do AD FS
 
@@ -193,7 +193,7 @@ Os usuários finais que estão habilitados para MFA por meio do servidor Azure M
 
 Um dos pré-requisitos para criar essa nova credencial forte é que o dispositivo onde ele reside é registrado no locatário do Azure AD para um usuário individual. Devido a restrições de registro do dispositivo, um dispositivo só pode ser registrado em um único locatário. Esse limite significa que apenas uma conta corporativa ou de estudante no aplicativo Microsoft Authenticator pode ser habilitada para entrada pelo telefone.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre o registro de dispositivo](../devices/overview.md)
 

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Procurar vídeos usando a API de REST de pesquisa de vídeos do Bing e o Java'
-titlesuffix: Azure Cognitive Services
-description: Utilize este guia de introdução para enviar pedidos de pesquisa de vídeos para o vídeo REST API de pesquisa Bing através de Java.
+title: 'Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Java'
+titleSuffix: Azure Cognitive Services
+description: Use este guia de início rápido para enviar solicitações de pesquisa de vídeo para a API REST do Pesquisa de Vídeo do Bing usando Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: bb132aeee97da590f4e2bb7c3f96606c8c70aeaf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 0823c115f47bb6bff0396cd154164183cf46d8e4
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275911"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500704"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Início rápido: Procurar vídeos usando a API de REST de pesquisa de vídeos do Bing e o Java
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Início rápido: Pesquisar vídeos usando a API REST do Pesquisa de Vídeo do Bing e o Java
 
-Utilize este guia de introdução para efetuar a primeira chamada para a API de pesquisa de vídeos do Bing e exibe um resultado de pesquisa da resposta JSON. Esta aplicação de Java simple envia uma consulta de pesquisa de vídeos de HTTP para a API e apresenta a resposta. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte para este exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com tratamento de erros adicionais, recursos e anotações de código.
+Use este guia de início rápido para fazer sua primeira chamada para a API de Pesquisa de Vídeo do Bing e exibir um resultado de pesquisa da resposta JSON. Esse aplicativo Java simples envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta. Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código-fonte deste exemplo está disponível [no GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) com tratamento de erros adicional, recursos e anotações de código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* O [Kit(JDK) de desenvolvimento do Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+* O [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
 * A [Biblioteca de Gson](https://github.com/google/gson)
 
@@ -45,7 +45,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
     import com.google.gson.JsonParser;
     ```
 
-2. Criar uma nova classe denominada `SearchResults` para armazenar os cabeçalhos e a resposta JSON da API.
+2. Crie uma nova classe chamada `SearchResults` para armazenar os cabeçalhos e a resposta JSON da API.
 
     ```java
     // Container class for search results encapsulates relevant headers and JSON data
@@ -59,7 +59,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
     }
     ```
 
-3. Criar um novo método chamado `SearchVideos()` com variáveis para o anfitrião de ponto final de API e o caminho, a chave de subscrição e um termo de pesquisa. Ela retornará um `SearchResults` objeto. 
+3. Crie um novo método chamado `SearchVideos()` com variáveis para o host e o caminho do ponto de extremidade da API, sua chave de assinatura e um termo de pesquisa. Retornará um `SearchResults` objeto. 
 
     ```java
     public static SearchResults SearchVideos (String searchQuery) throws Exception {
@@ -70,11 +70,11 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
     }
     ```
 
-## <a name="construct-and-send-the-search-request"></a>Construir e enviar o pedido de pesquisa
+## <a name="construct-and-send-the-search-request"></a>Construir e enviar a solicitação de pesquisa
 
-1. No `SearchVideos()`, execute os seguintes passos:
+1. No `SearchVideos()`, execute as seguintes etapas:
 
-    1. Construa o URL para o seu pedido ao combinar a sua API anfitrião, caminho e consulta de pesquisa de codificação. Em seguida, utilize `openConnection()` para criar uma ligação e adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho.
+    1. Construa a URL para sua solicitação combinando seu host de API, caminho e codificando sua consulta de pesquisa. Em seguida `openConnection()` , use para criar uma conexão e adicione sua chave de assinatura `Ocp-Apim-Subscription-Key` ao cabeçalho.
 
         ```java
         URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
@@ -82,14 +82,14 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
         ```
 
-    2. Obtenha a resposta da API e armazenar a cadeia de caracteres do JSON.
+    2. Obtenha a resposta da API e armazene a cadeia de caracteres JSON.
 
         ```java
         InputStream stream = connection.getInputStream();
         String response = new Scanner(stream).useDelimiter("\\A").next();
         ```
 
-    3. Uso `getHeaderFields();` extraia os cabeçalhos HTTP da resposta e armazene os relacionados com o Bing no `results` objeto. Em seguida, feche o fluxo e retornar o resultado.
+    3. Use `getHeaderFields();` para extrair os cabeçalhos HTTP da resposta e armazenar os relacionados ao Bing `results` no objeto. Em seguida, feche o fluxo e retorne o resultado.
 
         ```java
         // extract Bing-related HTTP headers
@@ -106,7 +106,7 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
 
 ## <a name="format-the-response"></a>Formatar a resposta
 
-1. Crie um método chamado `prettify()` para formatar a resposta devolvida pelo API de vídeos do Bing. Utilize a biblioteca de Gson `JsonParser` pegar uma cadeia de caracteres do JSON e convertê-lo num objeto. Em seguida, utilize `GsonBuilder()` e `toJson()` para criar a cadeia de caracteres formatada. 
+1. Crie um método chamado `prettify()` para formatar a resposta retornada da API de vídeo do Bing. Use a biblioteca `JsonParser` Gson para pegar uma cadeia de caracteres JSON e convertê-la em um objeto. Em seguida `GsonBuilder()` , `toJson()` use e para criar a cadeia de caracteres formatada. 
 
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -118,9 +118,9 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
     }
     ```
 
-## <a name="send-the-request-and-print-the-response"></a>Enviar a solicitação e resposta de impressão
+## <a name="send-the-request-and-print-the-response"></a>Enviar a solicitação e imprimir a resposta
 
-1. O método principal de seu aplicativo, chame `SearchVideos` com o termo de pesquisa. em seguida, é possível imprimir os cabeçalhos HTTP armazenados na resposta, bem como a cadeia de caracteres do JSON devolvido pela API.
+1. No método principal do seu aplicativo, chame `SearchVideos` com o termo de pesquisa. Você pode imprimir os cabeçalhos HTTP armazenados na resposta, bem como a cadeia de caracteres JSON retornada pela API.
 
     ```java
     public static void main (String[] args) {
@@ -246,8 +246,8 @@ Utilize este guia de introdução para efetuar a primeira chamada para a API de 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
+> [Criar um aplicativo Web de página única](../tutorial-bing-video-search-single-page-app.md)
 
 ## <a name="see-also"></a>Consulte também 
 
- [O que é a API de pesquisa de vídeos do Bing?](../overview.md)
+ [O que é o API de Pesquisa de Vídeo do Bing?](../overview.md)

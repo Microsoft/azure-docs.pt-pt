@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso aos recursos do Azure com modelos RBAC e do Azure Resource Manager | Documentos da Microsoft
-description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos e aplicações que utilizam o controlo de acesso baseado em funções (RBAC) e os modelos Azure Resource Manager.
+title: Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager | Microsoft Docs
+description: Saiba como gerenciar o acesso aos recursos do Azure para usuários, grupos e aplicativos usando o controle de acesso baseado em função (RBAC) e modelos de Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,31 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 07/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 537ee35e96a41cd02605319e244d39c6567c3bf1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6511ff84c251577a5ff483f892387ab7d3d4d41
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344605"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360495"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerir o acesso aos recursos do Azure com modelos RBAC e do Azure Resource Manager
+# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
-[Controlo de acesso baseado em funções (RBAC)](overview.md) é a maneira que gerencie o acesso aos recursos do Azure. Além de utilizar o Azure PowerShell ou a CLI do Azure, pode gerir o acesso aos recursos do Azure através do RBAC e [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Modelos podem ser útil se precisar de implementar recursos de forma consistente e repetida. Este artigo descreve como pode gerir o acesso com RBAC e modelos.
+O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como você gerencia o acesso aos recursos do Azure. Além de usar Azure PowerShell ou o CLI do Azure, você pode gerenciar o acesso aos recursos do Azure usando os [modelos](../azure-resource-manager/resource-group-authoring-templates.md)RBAC e Azure Resource Manager. Os modelos podem ser úteis se você precisar implantar recursos de forma consistente e repetida. Este artigo descreve como você pode gerenciar o acesso usando RBAC e modelos.
 
-## <a name="example-template-to-create-a-role-assignment"></a>Modelo de exemplo para criar uma atribuição de função
+## <a name="assign-role-to-resource-group-or-subscription"></a>Atribuir função ao grupo de recursos ou à assinatura
 
-No RBAC, para conceder acesso, crie uma atribuição de função. O modelo seguinte demonstra:
-- Como atribuir uma função a um utilizador, grupo ou aplicação no âmbito do grupo de recursos
-- Como especificar as funções de proprietário, Contribuidor e leitor como um parâmetro
+No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seguir demonstra:
+- Como atribuir uma função a um usuário, grupo ou aplicativo no escopo do grupo de recursos ou da assinatura
+- Como especificar as funções de proprietário, colaborador e leitor como um parâmetro
 
-Para utilizar o modelo, tem de especificar as seguintes entradas:
-- O nome de um grupo de recursos
-- O identificador exclusivo de um utilizador, grupo ou aplicação para atribuir a função
-- A função para atribuir
-- Um identificador exclusivo que será utilizado para a atribuição de função
+Para usar o modelo, você deve especificar as seguintes entradas:
+- O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
+- A função a ser atribuída
+- Um identificador exclusivo que será usado para a atribuição de função ou você poderá usar o identificador padrão
 
 ```json
 {
@@ -60,6 +59,7 @@ Para utilizar o modelo, tem de especificar as seguintes entradas:
     },
     "roleNameGuid": {
       "type": "string",
+      "defaultValue": "[newGuid()]",
       "metadata": {
         "description": "A new GUID used to identify the role assignment"
       }
@@ -68,45 +68,132 @@ Para utilizar o modelo, tem de especificar as seguintes entradas:
   "variables": {
     "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
     "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
-    "scope": "[resourceGroup().id]"
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   },
   "resources": [
     {
       "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2017-05-01",
+      "apiVersion": "2018-09-01-preview",
       "name": "[parameters('roleNameGuid')]",
       "properties": {
         "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]",
-        "scope": "[variables('scope')]"
+        "principalId": "[parameters('principalId')]"
       }
     }
   ]
 }
 ```
 
-O código a seguir mostra um exemplo de um leitor de atribuição de função a um utilizador depois de implementar o modelo.
+Veja a seguir um exemplo de uma atribuição de função de leitor para um usuário para um grupo de recursos após a implantação do modelo.
 
-![Atribuição de função com um modelo](./media/role-assignments-template/role-assignment-template.png)
+![Atribuição de função usando um modelo](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="deploy-template-using-azure-powershell"></a>Implementar o modelo com o Azure PowerShell
+O escopo da atribuição de função é determinado do nível da implantação. Os comandos de implantação do grupo de recursos e do nível de assinatura são mostrados neste artigo.
+
+## <a name="assign-role-to-resource"></a>Atribuir função ao recurso
+
+Se você precisar criar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
+
+Para o tipo e o nome da atribuição de função, use o seguinte formato:
+
+```json
+"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
+"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
+```
+
+O modelo a seguir implanta uma conta de armazenamento e atribui uma função a ela. Você o implanta com os comandos do grupo de recursos.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "principalId": {
+      "type": "string",
+      "metadata": {
+        "description": "The principal to assign the role to"
+      }
+    },
+    "builtInRoleType": {
+      "type": "string",
+      "allowedValues": [
+        "Owner",
+        "Contributor",
+        "Reader"
+      ],
+      "metadata": {
+        "description": "Built-in role to assign"
+      }
+    },
+    "roleNameGuid": {
+      "type": "string",
+      "defaultValue": "[newGuid()]",
+      "metadata": {
+        "description": "A new GUID used to identify the role assignment"
+      }
+    },
+    "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "Owner": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+    "Contributor": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]",
+    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+          "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
+      "apiVersion": "2018-09-01-preview",
+      "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+      "dependsOn": [
+          "[variables('storageName')]"
+      ],
+      "properties": {
+        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+        "principalId": "[parameters('principalId')]"
+      }
+    }
+  ]
+}
+```
+
+Veja a seguir um exemplo de uma atribuição de função de colaborador para um usuário para uma conta de armazenamento após a implantação do modelo.
+
+![Atribuição de função usando um modelo](./media/role-assignments-template/role-assignment-template-resource.png)
+
+## <a name="deploy-template-using-azure-powershell"></a>Implantar modelo usando o Azure PowerShell
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-Para implementar o modelo anterior com o Azure PowerShell, siga estes passos.
+Para implantar o modelo anterior em um grupo de recursos ou uma assinatura usando Azure PowerShell, siga estas etapas.
 
-1. Crie um novo ficheiro designado rbac rg.json e copie o modelo anterior.
+1. Crie um novo arquivo chamado RBAC-RG. JSON e copie o modelo anterior.
 
 1. Iniciar sessão no [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Obter o identificador exclusivo de um utilizador, grupo ou aplicação. Por exemplo, pode utilizar o [Get-AzADUser](/powershell/module/az.resources/get-azaduser) command para listar os utilizadores do Azure AD.
+1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [Get-AzADUser](/powershell/module/az.resources/get-azaduser) para listar os usuários do Azure AD.
 
     ```azurepowershell
-    Get-AzADUser
+    $userid = (Get-AzADUser -DisplayName "{name}").id
     ```
 
-1. Utilize uma ferramenta GUID para gerar um identificador exclusivo que será utilizado para a atribuição de função. O identificador tem o formato: `11111111-1111-1111-1111-111111111111`
+1. O modelo gera um valor padrão para o GUID que é usado para identificar a atribuição de função. Se você precisar especificar um GUID específico, passe esse valor para para o parâmetro roleNameGuid. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
+
+Para atribuir a função no nível de um recurso ou grupo de recursos, siga estas etapas:
 
 1. Crie um grupo de recursos de exemplo.
 
@@ -114,23 +201,16 @@ Para implementar o modelo anterior com o Azure PowerShell, siga estes passos.
     New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. Utilize o [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) comando para iniciar a implementação.
+1. Use o comando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) para iniciar a implantação.
 
     ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
     ```
 
-    É-lhe perguntado para especificar os parâmetros necessários. O código a seguir mostra um exemplo da saída.
+    Veja a seguir um exemplo da saída.
 
     ```Output
-    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
-    
-    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
-    Supply values for the following parameters:
-    (Type !? for Help.)
-    principalId: 22222222-2222-2222-2222-222222222222
-    builtInRoleType: Reader
-    roleNameGuid: 11111111-1111-1111-1111-111111111111
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
     
     DeploymentName          : rbac-rg
     ResourceGroupName       : ExampleGroup
@@ -149,21 +229,31 @@ Para implementar o modelo anterior com o Azure PowerShell, siga estes passos.
     DeploymentDebugLogLevel :
     ```
 
-## <a name="deploy-template-using-the-azure-cli"></a>Implementar modelo com a CLI do Azure
+Para atribuir a função no nível de uma assinatura, use o comando [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) e especifique um local para a implantação.
 
-Para implementar o modelo anterior com a CLI do Azure, siga estes passos.
+```azurepowershell
+New-AzDeployment -Location centralus -TemplateFile rbac-rg.json -principalId $userid -builtInRoleType Reader
+```
 
-1. Crie um novo ficheiro designado rbac rg.json e copie o modelo anterior.
+Ele tem uma saída semelhante ao comando de implantação para grupos de recursos.
 
-1. Inicie sessão para o [CLI do Azure](/cli/azure/authenticate-azure-cli).
+## <a name="deploy-template-using-the-azure-cli"></a>Implantar modelo usando o CLI do Azure
 
-1. Obter o identificador exclusivo de um utilizador, grupo ou aplicação. Por exemplo, pode utilizar o [lista de utilizadores do ad az](/cli/azure/ad/user#az-ad-user-list) command para listar os utilizadores do Azure AD.
+Para implantar o modelo anterior usando o CLI do Azure para um grupo de recursos ou uma assinatura, siga estas etapas.
+
+1. Crie um novo arquivo chamado RBAC-RG. JSON e copie o modelo anterior.
+
+1. Entre no [CLI do Azure](/cli/azure/authenticate-azure-cli).
+
+1. Obtenha o identificador exclusivo de um usuário, grupo ou aplicativo. Por exemplo, você pode usar o comando [AZ ad User show](/cli/azure/ad/user#az-ad-user-show) para mostrar um usuário do Azure AD.
 
     ```azurecli
-    az ad user list
+    userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
     ```
 
-1. Utilize uma ferramenta GUID para gerar um identificador exclusivo que será utilizado para a atribuição de função. O identificador tem o formato: `11111111-1111-1111-1111-111111111111`
+1. O modelo gera um valor padrão para o GUID que é usado para identificar a atribuição de função. Se você precisar especificar um GUID específico, passe esse valor para para o parâmetro roleNameGuid. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
+
+Para atribuir a função no nível de um recurso ou grupo de recursos, siga estas etapas:
 
 1. Crie um grupo de recursos de exemplo.
 
@@ -171,23 +261,17 @@ Para implementar o modelo anterior com a CLI do Azure, siga estes passos.
     az group create --name ExampleGroup --location "Central US"
     ```
 
-1. Utilize o [criar a implementação do grupo az](/cli/azure/group/deployment#az-group-deployment-create) comando para iniciar a implementação.
+1. Use o comando [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) para iniciar a implantação.
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
+    az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
     ```
 
-    É-lhe perguntado para especificar os parâmetros necessários. O código a seguir mostra um exemplo da saída.
+    Veja a seguir um exemplo da saída.
 
     ```Output
-    C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json
-    Please provide string value for 'principalId' (? for help): 22222222-2222-2222-2222-222222222222
-    Please provide string value for 'builtInRoleType' (? for help):
-     [1] Owner
-     [2] Contributor
-     [3] Reader
-    Please enter a choice [1]: 3
-    Please provide string value for 'roleNameGuid' (? for help): 11111111-1111-1111-1111-111111111111
+    C:\Azure\Templates>az group deployment create --resource-group ExampleGroup --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
+    
     {
       "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleGroup/providers/Microsoft.Resources/deployments/rbac-rg",
       "name": "rbac-rg",
@@ -248,9 +332,17 @@ Para implementar o modelo anterior com a CLI do Azure, siga estes passos.
       "resourceGroup": "ExampleGroup"
     }
     ```
-    
-## <a name="next-steps"></a>Passos Seguintes
 
-- [Quickstart: Criar e implementar modelos Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+Para atribuir a função no nível de uma assinatura, use o comando [AZ Deployment Create](/cli/azure/deployment#az-deployment-create) e especifique um local para a implantação.
+
+```azurecli
+az deployment create --location centralus --template-file rbac-rg.json --parameters principalId=$userid builtInRoleType=Reader
+```
+
+Ele tem uma saída semelhante ao comando de implantação para grupos de recursos.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [Quickstart: Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

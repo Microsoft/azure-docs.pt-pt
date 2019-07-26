@@ -4,19 +4,19 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 642f63966533416be7b86bae362d24cd286706b3
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: c4c9476f4b29e004fba4bc5f754d6dbfa1f3a195
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68306123"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444235"
 ---
 ## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia) | Sim | Consulte [como criptografar uma máquina virtual do Linux no Azure](/azure/virtual-machines/linux/encrypt-disks) e [criptografar discos virtuais em uma VM do Windows](/azure/virtual-machines/windows/encrypt-disks). |
-| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNET. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | As máquinas virtuais do Azure dão suporte à criptografia de [ExpressRoute](/azure/expressroute) e VNet. Consulte [criptografia em trânsito em VMs](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Tratamento de chave de criptografia (CMK, BYOK, etc.)| Sim | As chaves gerenciadas pelo cliente são um cenário de criptografia do Azure com suporte; consulte [visão geral da criptografia do Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
 | Chamadas de API criptografadas| Sim | Via HTTPS e SSL. |

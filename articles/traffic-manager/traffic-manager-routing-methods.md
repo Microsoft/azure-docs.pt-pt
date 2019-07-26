@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: allensu
-ms.openlocfilehash: dd4b9f88e61396003a209b1b8edabb8c1564c761
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 305f24fc274ad48f5c60762223b7bf4e970fe083
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320091"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333747"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -148,6 +148,14 @@ Conforme explicado em [como funciona o Gerenciador de tráfego](traffic-manager-
 ## <a name = "multivalue"></a>Método de roteamento de tráfego de vários valores
 O método de roteamento de tráfego de **múltiplos valores** permite que você obtenha vários pontos de extremidade íntegros em uma única resposta de consulta DNS. Isso permite que o chamador faça repetições do lado do cliente com outros pontos de extremidade no caso de um ponto de extremidades retornado sem resposta. Esse padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada a uma nova consulta DNS para obter um ponto de extremidade íntegro. O método de roteamento de vários valores só funcionará se todos os pontos de extremidade do tipo ' external ' forem especificados como endereços IPv4 ou IPv6. Quando uma consulta é recebida para esse perfil, todos os pontos de extremidade íntegros são retornados e estão sujeitos a uma contagem de retorno máxima configurável.
 
+### <a name="faqs"></a>FAQs
+
+* [Quais são alguns casos de uso em que o roteamento de vários valores é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-multivalue-routing-is-useful)
+
+* [Quantos pontos de extremidade são retornados quando o roteamento de vários valores é usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-endpoints-are-returned-when-multivalue-routing-is-used)
+
+* [Eu receberei o mesmo conjunto de pontos de extremidade quando o roteamento de vários valores for usado?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used)
+
 ## <a name = "subnet"></a>Método de roteamento de tráfego de sub-rede
 O método de roteamento de tráfego de **sub-rede** permite mapear um conjunto de intervalos de endereços IP de usuários finais para pontos de extremidade específicos em um perfil. Depois disso, se o Gerenciador de tráfego receber uma consulta DNS para esse perfil, ele inspecionará o endereço IP de origem dessa solicitação (na maioria dos casos, esse será o endereço IP de saída do resolvedor de DNS usado pelo chamador), determinar a qual ponto de extremidade ele está mapeado e retornará t ponto de extremidade do Hat na resposta da consulta. 
 
@@ -155,6 +163,19 @@ O endereço IP a ser mapeado para um ponto de extremidade pode ser especificado 
 Se você definir um ponto de extremidade sem intervalo de endereços, isso funcionará como um fallback e assumirá o tráfego de quaisquer sub-redes restantes. Se nenhum ponto de extremidade de fallback for incluído, o Gerenciador de tráfego enviará uma resposta NODATA para quaisquer intervalos indefinidos. Portanto, é altamente recomendável que você defina um ponto de extremidade de fallback ou certifique-se de que todos os intervalos IP possíveis sejam especificados em seus pontos de extremidades.
 
 O roteamento de sub-rede pode ser usado para fornecer uma experiência diferente para os usuários que se conectam de um espaço IP específico. Por exemplo, usando o roteamento de sub-rede, um cliente pode fazer com que todas as solicitações de seu escritório corporativo sejam roteadas para um ponto de extremidade diferente, onde podem estar testando uma versão somente interna de seu aplicativo. Outro cenário é se você quiser fornecer uma experiência diferente aos usuários que se conectam de um ISP específico (por exemplo, bloquear usuários de um determinado ISP).
+
+### <a name="faqs"></a>FAQs
+
+* [Quais são alguns casos de uso em que o roteamento de sub-rede é útil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-some-use-cases-where-subnet-routing-is-useful)
+
+* [Como o Gerenciador de tráfego sabe o endereço IP do usuário final?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-know-the-ip-address-of-the-end-user)
+
+* [Como especificar endereços IP ao usar o roteamento de sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-ip-addresses-when-using-subnet-routing)
+
+* [Como posso especificar um ponto de extremidade de fallback ao usar o roteamento de sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing)
+
+* [O que acontece se um ponto de extremidade estiver desabilitado em um perfil de tipo de roteamento de sub-rede?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

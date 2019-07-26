@@ -1,114 +1,107 @@
 ---
-title: Dimensionar automaticamente um serviço em nuvem no portal do | Documentos da Microsoft
-description: Saiba como utilizar o portal para configurar regras de dimensionamento automático para uma função de web do serviço cloud ou a função de trabalho no Azure.
+title: Dimensionar automaticamente um serviço de nuvem no portal | Microsoft Docs
+description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função Web de serviço de nuvem ou função de trabalho no Azure.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: f5597773b3127852481d5e14844bed889c4d6f83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435321"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359616"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço em nuvem no portal
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço de nuvem no portal
 
-Condições podem ser definidas para uma função de trabalho do serviço de cloud que acionam um dimensionamento e reduzir a operação. As condições para a função podem basear-se a CPU, disco ou de carga na rede da função. Também pode definir uma condição com base numa fila de mensagens ou a métrica de alguns outros recursos do Azure associados à subscrição.
+As condições podem ser definidas para uma função de trabalho do serviço de nuvem que dispare uma operação de redução ou saída. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou na métrica de algum outro recurso do Azure associado à sua assinatura.
 
 > [!NOTE]
-> Este artigo se concentra em funções web e de trabalho do serviço Cloud. Quando cria uma máquina virtual (clássico) diretamente, está alojada num serviço cloud. Pode aumentar uma máquina virtual padrão por meio de associação com um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md) e transformá-los manualmente ou desativar.
+> Este artigo se concentra nas funções Web e de trabalho do serviço de nuvem. Quando você cria uma máquina virtual (clássica) diretamente, ela é hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão associando-a a um [conjunto de disponibilidade](../virtual-machines/windows/classic/configure-availability-classic.md) e ativá-las manualmente.
 
 ## <a name="considerations"></a>Considerações
-Deve considerar as seguintes informações antes de configurar o dimensionamento para a sua aplicação:
+Você deve considerar as seguintes informações antes de configurar o dimensionamento para seu aplicativo:
 
-* Dimensionamento é afetado pela utilização de núcleos.
+* O dimensionamento é afetado pelo uso de núcleo.
 
-    Maior instâncias de função utilizem mais núcleos. Pode dimensionar uma aplicação apenas dentro do limite de núcleos para a sua subscrição. Por exemplo, digamos que a sua subscrição tem um limite de 20 núcleos. Se executar um aplicativo com os dois serviços de cloud de médio porte (um total de 4 núcleos), pode apenas aumentar verticalmente outras implementações de serviços cloud na sua subscrição aos restantes 16 núcleos. Para obter mais informações sobre os tamanhos, veja [tamanhos do serviço Cloud](cloud-services-sizes-specs.md).
+    As instâncias de função maiores usam mais núcleos. Você pode dimensionar um aplicativo somente dentro do limite de núcleos para sua assinatura. Por exemplo, digamos que sua assinatura tenha um limite de 20 núcleos. Se você executar um aplicativo com dois serviços de nuvem de tamanho médio (um total de 4 núcleos), poderá escalar verticalmente outras implantações de serviço de nuvem em sua assinatura pelos 16 núcleos restantes. Para obter mais informações sobre tamanhos, consulte [tamanhos de serviço de nuvem](cloud-services-sizes-specs.md).
 
-* Pode dimensionar com base num limiar de mensagem de fila. Para obter mais informações sobre como utilizar as filas, veja [como utilizar o serviço de armazenamento de filas](../storage/queues/storage-dotnet-how-to-use-queues.md).
+* Você pode dimensionar com base em um limite de mensagem da fila. Para obter mais informações sobre como usar filas, consulte [como usar o serviço de armazenamento de filas](../storage/queues/storage-dotnet-how-to-use-queues.md).
 
-* Também pode escalar a outros recursos associados à subscrição.
+* Você também pode dimensionar outros recursos associados à sua assinatura.
 
-* Para ativar a elevada disponibilidade do seu aplicativo, deve garantir que é implementado com duas ou mais instâncias de função. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
+* Para habilitar a alta disponibilidade de seu aplicativo, você deve garantir que ele seja implantado com duas ou mais instâncias de função. Para obter mais informações, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/).
 
-* Dimensionamento automático só acontece quando todas as funções na **pronto** estado.  
+* O dimensionamento automático ocorre apenas quando todas as funções estão no estado **pronto** .  
 
 
-## <a name="where-scale-is-located"></a>Onde está localizado o dimensionamento
-Depois de selecionar o seu serviço cloud, deve ter o painel do serviço cloud visível.
+## <a name="where-scale-is-located"></a>Onde a escala está localizada
+Depois de selecionar o serviço de nuvem, você deve ter a folha serviço de nuvem visível.
 
-1. No painel do serviço cloud, sobre o **funções e instâncias** mosaico, selecione o nome do serviço cloud.   
-   **IMPORTANTE**: Lembre-se de que clique na função de serviço cloud, não a instância de função que é inferior a função.
+1. Na folha serviço de nuvem, no bloco **funções e instâncias** , selecione o nome do serviço de nuvem.   
+   **IMPORTANTE**: Certifique-se de clicar na função serviço de nuvem, não na instância de função que está abaixo da função.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
-2. Selecione o **dimensionamento** mosaico.
+2. Selecione o bloco **escala** .
 
     ![](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
-## <a name="automatic-scale"></a>Dimensionamento automático
-Pode configurar definições de dimensionamento para uma função com qualquer um dos dois modos **manual** ou **automática**. Manual é como poderia esperar, definir o número absoluto de instâncias. No entanto, automático permite-lhe o conjunto de regras que controlam como e por como muito que deve aumentar.
+## <a name="automatic-scale"></a>Escala automática
+Você pode definir configurações de escala para uma função com dois modos **manual** ou **automático**. Manual é como você esperaria, você define a contagem absoluta de instâncias. No entanto, o automático permite que você defina regras que regem como e por quanto você deve dimensionar.
 
-Definir o **Dimensionar** a opção de **regras de agendamento e desempenho**.
+Defina a opção **Dimensionar por** para **agendar e regras de desempenho**.
 
-![Definições de dimensionamento de serviços na cloud com o perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Configurações de escala dos serviços de nuvem com perfil e regra](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Um perfil existente.
-2. Adicione uma regra para o perfil de principal.
-3. Adicione outro perfil.
+2. Adicione uma regra para o perfil pai.
+3. Adicionar outro perfil.
 
-Selecione **adicionar perfil**. O perfil determina o modo de que pretende utilizar para a escala: **sempre**, **periodicidade**, **fixo data**.
+Selecione **Adicionar perfil**. O perfil determina qual modo você deseja usar para a escala: **sempre**, recorrência, **data fixa**.
 
-Depois de ter configurado o perfil e as regras, selecione o **guardar** na parte superior.
+Depois de configurar o perfil e as regras, selecione o ícone **salvar** na parte superior.
 
 #### <a name="profile"></a>Perfil
-O perfil define instâncias mínimas e máxima para a escala, e também quando está ativo neste intervalo da escala.
+O perfil define as instâncias mínima e máxima para a escala e também quando esse intervalo de escala está ativo.
 
 * **Sempre**
 
-    Tenha sempre este intervalo de instâncias disponíveis.  
+    Sempre mantenha esse intervalo de instâncias disponíveis.  
 
-    ![Serviço em nuvem que sempre se ajustam](./media/cloud-services-how-to-scale-portal/select-always.png)
+    ![Serviço de nuvem que sempre dimensiona](./media/cloud-services-how-to-scale-portal/select-always.png)
 * **Periodicidade**
 
     Escolha um conjunto de dias da semana para dimensionar.
 
-    ![Nível de serviço da cloud com uma agenda de periodicidade](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
+    ![Escala do serviço de nuvem com uma agenda de recorrência](./media/cloud-services-how-to-scale-portal/select-recurrence.png)
 * **Data fixa**
 
-    Um intervalo de datas fixo para aumentar a função.
+    Um intervalo de datas fixo para dimensionar a função.
 
-    ![Nível de serviço da cLoud com uma data fixa](./media/cloud-services-how-to-scale-portal/select-fixed.png)
+    ![Escala do serviço de nuvem com uma data fixa](./media/cloud-services-how-to-scale-portal/select-fixed.png)
 
-Depois de ter configurado o perfil, selecione o **OK** na parte inferior do painel do perfil.
+Depois de configurar o perfil, selecione o botão **OK** na parte inferior da folha do perfil.
 
 #### <a name="rule"></a>Regra
-As regras são adicionadas a um perfil e representam uma condição que aciona a escala.
+As regras são adicionadas a um perfil e representam uma condição que dispara a escala.
 
-O acionador de regra se baseia numa métrica do serviço cloud (utilização da CPU, a atividade do disco ou atividade de rede) ao qual pode adicionar um valor condicional. Além disso, pode ter o acionador com base numa fila de mensagens ou a métrica de alguns outros recursos do Azure associados à subscrição.
+O gatilho de regra é baseado em uma métrica do serviço de nuvem (uso da CPU, atividade de disco ou atividade de rede) à qual você pode adicionar um valor condicional. Além disso, você pode ter o gatilho baseado em uma fila de mensagens ou a métrica de algum outro recurso do Azure associado à sua assinatura.
 
 ![](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
-Depois de configurar a regra, selecione o **OK** na parte inferior do painel de regra.
+Depois de configurar a regra, selecione o botão **OK** na parte inferior da folha da regra.
 
 ## <a name="back-to-manual-scale"></a>Voltar ao dimensionamento manual
-Navegue para o [definições de dimensionamento](#where-scale-is-located) e defina a **Dimensionar por** a opção de **uma contagem de instâncias que introduzo manualmente**.
+Navegue até as [configurações de escala](#where-scale-is-located) e defina a opção **Dimensionar por** para **uma contagem de instâncias inserida manualmente**.
 
-![Definições de dimensionamento de serviços na cloud com o perfil e regra](./media/cloud-services-how-to-scale-portal/manual-basics.png)
+![Configurações de escala dos serviços de nuvem com perfil e regra](./media/cloud-services-how-to-scale-portal/manual-basics.png)
 
-Esta definição remove o dimensionamento automático da função e, em seguida, pode definir a contagem de instâncias diretamente.
+Essa configuração remove o dimensionamento automático da função e, em seguida, você pode definir a contagem de instâncias diretamente.
 
-1. A opção de (manuais ou automáticos) de dimensionamento.
-2. Um slider de instância de função para definir as instâncias para escalar até.
-3. Instâncias de função para escalar até.
+1. A opção escala (manual ou automatizada).
+2. Um controle deslizante de instância de função para definir as instâncias a serem dimensionadas.
+3. Instâncias da função para a qual dimensionar.
 
-Depois de ter configurado as definições de dimensionamento, selecione o **guardar** na parte superior.
+Depois de definir as configurações de escala, selecione o ícone **salvar** na parte superior.

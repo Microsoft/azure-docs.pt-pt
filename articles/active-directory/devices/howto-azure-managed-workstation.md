@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90687d0229d3ad74c287bb4aff4885dc26932e40
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
-ms.translationtype: HT
+ms.openlocfilehash: be9e6374d92fbb7bb1c4b5a2a9e154119c5baf87
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227276"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377489"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Implantar uma estação de trabalho segura e gerenciada pelo Azure
 
@@ -28,7 +28,7 @@ Você deve selecionar um perfil para poder implantar a solução. Você pode usa
 > [!NOTE]
 > Aplique qualquer um dos perfis conforme necessário por seus requisitos. Você pode mover para outro perfil atribuindo-o ao Intune.
 
-| Perfil | Baixa | Melhorada | Alta | Especializada | Devidamente | Isolado |
+| Perfil | Baixa | Melhorada | Alta | Especializada | Protegido | Plano Isolado |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Usuário no Azure AD | Sim | Sim | Sim | Sim | Sim | Sim |
 | Gerenciado pelo Intune | Sim | Sim | Sim | Sim | Sim | Sim |
@@ -120,7 +120,7 @@ No portal do Azure:
 
 Essas etapas permitem que você gerencie qualquer dispositivo com o Intune. Para obter mais informações, [consulte início rápido do Intune: Configure o registro automático para dispositivos](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment)Windows 10. Você cria políticas de conformidade e configuração do Intune em uma etapa futura.
 
-#### <a name="azure-ad-conditional-access"></a>Acesso Condicional no Azure AD
+#### <a name="azure-ad-conditional-access"></a>Acesso Condicional do Azure AD
 
 O acesso condicional do Azure AD pode ajudar a restringir tarefas administrativas privilegiadas a dispositivos em conformidade. Membros predefinidos do grupo de **usuários de estação de trabalho segura** são necessários para executar a autenticação multifator ao entrar em aplicativos de nuvem. Uma prática recomendada é excluir contas de acesso de emergência da política. Para obter mais informações, consulte [gerenciar contas de acesso de emergência no Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
 
@@ -134,7 +134,7 @@ Para configurar o acesso condicional do portal do Azure:
        * Incluir- **usuários e grupos** -selecione o grupo de **usuários de estação de trabalho segura** criado anteriormente.
        * Exclude- **usuários e grupos** -selecione as contas de acesso de emergência de sua organização.
      * **Aplicativos de nuvem** – inclua **todos os aplicativos de nuvem**.
-    * Controles de acesso
+    * Controlos de acesso
       * **Grant** -selecione o botão de opção **conceder acesso** .
         * **Exigir autenticação**multifator.
         * **Exigir que o dispositivo seja marcado como compatível**.
@@ -229,14 +229,14 @@ Para obter mais informações, consulte [proteção avançada contra ameaças do
 
 Para concluir com êxito a proteção da solução, baixe e execute o script apropriado. Localize os links de download para o **nível de perfil**desejado:
 
-| Perfil | Local de download | Nome do arquivo |
+| Perfil | Localização de transferência | Nome de ficheiro |
 | --- | --- | --- |
 | Baixa segurança | N/A |  N/A |
 | Segurança Melhorada | https://aka.ms/securedworkstationgit | Enhanced-Workstation-Windows10-(1809).ps1 |
 | Alta segurança  | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809).ps1 |
 | Especializada | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
 | Conformidade especializada * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10(1803).ps1 |
-| Devidamente | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
+| Protegido | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline.ps1 |
 
 \*A conformidade especializada é um script que impõe a configuração especializada fornecida no NCSC Windows10 SecurityBaseline.
 
@@ -245,7 +245,7 @@ Depois que o script for executado com êxito, você poderá fazer atualizações
 * Aqui está onde você pode encontrar os perfis de configuração de dispositivo do Intune criados pelos scripts: **Portal do Azure** **Microsoft Intune**perfis deconfiguração > de dispositivo. >  > 
 * Aqui está onde você pode encontrar as políticas de conformidade do dispositivo do Intune criadas pelos scripts: **Portal do Azure** **Microsoft Intune**políticas deconformidade > do dispositivo. >  > 
 
-Para examinar as alterações feitas pelos scripts, você pode exportar os perfis. Dessa forma, você pode determinar a proteção adicional que pode ser necessária, conforme descrito na documentação do SECCON.
+Para examinar as alterações feitas pelos scripts, você pode exportar os perfis. Dessa forma, você pode determinar a proteção adicional que pode ser necessária, conforme descrito na [documentação do SECCON](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Execute o script `DeviceConfiguration_Export.ps1` de exportação de dados do Intune do [repositório DeviceConfiguration GiuHub](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) para exportar todos os perfis atuais do Intune.
 

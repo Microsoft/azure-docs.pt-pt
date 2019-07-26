@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 7410240b0d8e6a63d39c90ead2875f315d995de0
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 73f9ee597682cc995f3a2cc783abeee92bf11bd2
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443801"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501145"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Iniciar a Leitura Avançada (Node.js)
 
@@ -122,7 +122,7 @@ router.get('/subdomain', function (req, res) {
 });
 ```
 
-O ponto de extremidade da API do **getimmersivereadertoken** deve ser protegido por alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que usuários não autorizados obtenham tokens para usar em seu serviço de leitura de imersão e cobrança; Esse trabalho está além do escopo deste tutorial.
+O ponto de extremidade da API do **getimmersivereadertoken** deve ser protegido por parte de alguma forma de autenticação (por exemplo, [OAuth](https://oauth.net/2/)) para impedir que usuários não autorizados obtenham tokens para uso no seu serviço de leitor de imersão e cobrança; Esse trabalho está além do escopo deste tutorial.
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Iniciar o leitor de imersão com conteúdo de exemplo
 
@@ -265,4 +265,4 @@ Você pode incluir conteúdo matemático no leitor de imersão usando o [MathML]
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Explore o [SDK do leitor de imersão](https://github.com/Microsoft/immersive-reader-sdk) e a [referência do SDK do leitor de imersão](./reference.md)
-* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/samples/advanced-csharp)
+* Exibir exemplos de código no [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/samples/advanced-csharp)

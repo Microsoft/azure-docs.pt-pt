@@ -1,6 +1,6 @@
 ---
-title: Configurar informações de segurança (pré-visualização) para usar chamadas de telefone - Azure Active Directory | Documentos da Microsoft
-description: Como configurar as informações de segurança para verificar a sua identidade através de chamadas de telefone.
+title: Configurar informações de segurança (versão prévia) para usar chamadas telefônicas-Azure Active Directory | Microsoft Docs
+description: Como configurar suas informações de segurança para verificar sua identidade usando chamadas telefônicas.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,102 +12,109 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fbac4f364dedc28f7d5f3e100481a56bde70b4d3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474998"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382919"
 ---
-# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Definir informações de segurança (pré-visualização) para utilizar chamadas telefónicas
-Pode seguir estes passos para adicionar a verificação de dois fatores e métodos de reposição de palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
+# <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configurar informações de segurança (versão prévia) para usar chamadas telefônicas
 
-Se lhe for pedido para configurá-la imediatamente depois de iniciar sessão sua conta escolar ou profissional, consulte os passos detalhados no [configurar as suas informações de segurança no prompt de página de início de sessão de](security-info-setup-signin.md) artigo.
+Você pode seguir estas etapas para adicionar os métodos de verificação de dois fatores e de redefinição de senha. Depois de configurar isso na primeira vez, você pode retornar à página informações de **segurança** para adicionar, atualizar ou excluir suas informações de segurança.
+
+Se você for solicitado a configurar isso imediatamente depois de entrar em sua conta corporativa ou de estudante, consulte as etapas detalhadas no artigo [configurar informações de segurança no prompt de página de entrada](security-info-setup-signin.md) .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 > [!Note]
-> Informações de segurança não suportam a utilização de extensões de telefone. Mesmo que adicione o formato correto, 4255551234 + 1 X 12345, as extensões são removidas antes da chamada é feita.
-> 
-> Se não vir uma opção para telemóveis, é possível que a sua organização não permite a utilização de um número de telefone para efeitos de verificação. Neste caso, precisará escolher outro método ou contacte o administrador para obter mais ajuda.
+> As informações de segurança não dão suporte ao uso de extensões de telefone. Mesmo que você adicione o formato apropriado, + 1 4255551234X12345, as extensões serão removidas antes de a chamada ser colocada.
+>
+> Se você não vir uma opção de telefone, é possível que sua organização não permita que você use um número de telefone para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurar chamadas de telefone da página de informações de segurança
-Dependendo das definições da sua organização, poderá usar chamadas de telefone como um dos métodos de informações de segurança.
+## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurar chamadas telefônicas na página informações de segurança
+
+Dependendo das configurações da sua organização, você poderá usar chamadas telefônicas como um dos seus métodos de informações de segurança.
 
 >[!Note]
->Se pretender receber uma mensagem de texto em vez de uma chamada telefónica, siga os passos a [definir informações de segurança para utilizar mensagens de texto](security-info-setup-text-msg.md) artigo.
+>Se você quiser receber uma mensagem de texto em vez de uma chamada telefônica, siga as etapas no artigo [configurar informações de segurança para usar mensagens de texto](security-info-setup-text-msg.md) .
 
-### <a name="to-set-up-phone-calls"></a>Para configurar chamadas telefónicas
+### <a name="to-set-up-phone-calls"></a>Para configurar chamadas telefônicas
 
-1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
 
-    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou no link no bloco **informações de segurança** e, em seguida, selecione **Adicionar método** na página **informações de segurança** .
 
-    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Sobre o **adicione um método** página, selecione **telefone** na lista pendente e, em seguida, selecione **Add**.
+3. Na página **Adicionar um método** , selecione **telefone** na lista suspensa e, em seguida, selecione **Adicionar**.
 
-    ![Adicionar caixa do método, com o telefone selecionado](media/security-info/securityinfo-myprofile-addphonetext.png)
+    ![Caixa Adicionar método, com telefone selecionado](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. Sobre o **telefone** página, escreva o número de telefone para o seu dispositivo móvel, escolha **telefonar-me**e, em seguida, selecione **seguinte**.
+4. Na página **telefone** , digite o número de telefone do seu dispositivo móvel, escolha **ligar para mim**e, em seguida, selecione **Avançar**.
 
-    ![Adicione o número de telefone e escolha chamadas telefónicas](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
+    ![Adicionar número de telefone e escolher chamadas telefônicas](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
-5. Atender a chamada verificação, enviada para o número de telefone que introduziu, e siga as instruções.
+5. Responda à chamada telefônica de verificação, enviada para o número de telefone que você inseriu e siga as instruções.
 
-    As alterações de página para mostrar o seu sucesso.
+    A página é alterada para mostrar o seu sucesso.
 
-    ![Número de notificação de êxito, ligar o telefone, a opção de receber chamadas telefónicas e a sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Notificação de êxito, conectando o número de telefone, a escolha para receber chamadas telefônicas e sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    As informações de segurança é atualizada e pode usar chamadas de telefone para verificar a sua identidade quando utilizar a reposição de palavra-passe ou a verificação em dois passos. Se pretender efetuar chamadas telefónicas seu método padrão, consulte a [alterar o seu método de informações de segurança padrão](#change-your-default-security-info-method) seção deste artigo.
+    Suas informações de segurança são atualizadas e você pode usar chamadas telefônicas para verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha. Se você quiser fazer com que o telefone chame o método padrão, consulte a seção [alterar o método de informações de segurança padrão](#change-your-default-security-info-method) deste artigo.
 
-## <a name="delete-phone-calls-from-your-security-info-methods"></a>Eliminar chamadas telefónicas de seus métodos de informações de segurança
-Se já não quiser usar chamadas de telefone como um método de informações de segurança, pode removê-lo a partir da **informações de segurança** página.
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>Excluir chamadas telefônicas de seus métodos de informações de segurança
+
+Se você não quiser mais usar chamadas telefônicas como um método de informações de segurança, poderá removê-la da página **informações de segurança** .
 
 >[!Important]
->Se excluir por engano chamadas telefónicas, não é possível-lo. Terá que adicionar o método novamente, seguindo os passos a [configurar chamadas telefónicas](#set-up-phone-calls-from-the-security-info-page) seção deste artigo.
+>Se você excluir chamadas telefônicas por engano, não há como desfazê-las. Você precisará adicionar o método novamente, seguindo as etapas na seção [Configurar chamadas telefônicas](#set-up-phone-calls-from-the-security-info-page) deste artigo.
 
-### <a name="to-delete-phone-calls"></a>Para eliminar as chamadas telefónicas
+### <a name="to-delete-phone-calls"></a>Para excluir chamadas telefônicas
 
-1. Sobre o **informações de segurança** página, selecione o **eliminar** ligação junto ao **Phone** opção.
+1. Na página **informações de segurança** , selecione o link **excluir** ao lado da opção **telefone** .
 
-    ![Ligação para eliminar o método de telefone de informações de segurança](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. Selecione **Sim** na caixa de confirmação para eliminar a **Phone** número. Depois do número de telefone é eliminado, este é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página. Se **Phone** é o método predefinido, a predefinição será alterado para outro método disponível.
-    
-## <a name="change-your-default-security-info-method"></a>Alterar o seu método de informações de segurança padrão
-Se pretender que as chamadas de telefone para ser o método predefinido utilizado quando iniciar sessão na sua conta escolar ou profissional com a verificação de dois fatores ou para pedidos de reposição de palavra-passe, pode defini-lo a partir da **informações de segurança** página.
+2. Selecione **Sim** na caixa de confirmação para excluir o número de **telefone** . Depois que o número de telefone for excluído, ele será removido das informações de segurança e desaparecerá da página **informações de segurança** . Se o **telefone** for seu método padrão, o padrão será alterado para outro método disponível.
+
+## <a name="change-your-default-security-info-method"></a>Alterar o método de informações de segurança padrão
+
+Se você quiser que as chamadas telefônicas sejam o método padrão usado quando entrar em sua conta corporativa ou de estudante usando a verificação de dois fatores ou para solicitações de redefinição de senha, você poderá defini-la na página **informações de segurança** .
 
 ### <a name="to-change-your-default-security-info-method"></a>Para alterar o método de informações de segurança padrão
 
-1. No **informações de segurança** página, selecione a **alteração** ligação junto aos **predefinido do método de início de sessão** informações.
+1. Na página **informações de segurança** , selecione o link **alterar** ao lado das informações do **método de entrada padrão** .
 
-    ![Alterar ligação para o método de início de sessão predefinido](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![Alterar o link para o método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **Phone - chamada ( *_your_phone_number_* )** na lista pendente de métodos disponíveis e, em seguida, selecione **confirmar**.
+2. Selecione **chamada telefônica ( *_your_phone_number_* )** na lista suspensa de métodos disponíveis e, em seguida, selecione **confirmar**.
 
-    ![Escolha o método predefinido para início de sessão](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+    ![Escolha o método para entrar no padrão](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    O método predefinido utilizado para alterações de início de sessão para **Phone - chamada ( *_your_phone_number_* )** .
+    O método padrão usado para alterações de entrada em **chamada telefônica ( *_your_phone_number_* )** .
 
-## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
-Tem opções adicionais para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:
+## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 
-- **Aplicação de autenticador.** Transferir e utilizar uma aplicação de autenticação para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md).
+Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
-- **Texto de dispositivos móveis.** Introduza o seu número de dispositivos móveis e obtenha um código que irá utilizar para verificação de dois passos ou palavra-passe de uma mensagem de reposição. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte [definir informações de segurança para utilizar mensagens de texto (SMS)](security-info-setup-text-msg.md).
+- **Aplicativo autenticador.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
 
-- **Endereço de e-mail.** Introduza o seu e-mail profissional ou escolar para receber um e-mail para a reposição de palavra-passe. Esta opção não está disponível para verificação de dois passos. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [definir informações de segurança para utilizar o e-mail](security-info-setup-email.md).
+- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para a sua organização. Esta opção só está disponível para a reposição de palavra-passe e não para verificação de dois passos. Para obter instruções passo a passo sobre como configurar a suas perguntas de segurança, consulte a [definir informações de segurança para utilizar perguntas de segurança](security-info-setup-questions.md) artigo.
-    
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+
+- **Endereço de email.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções detalhadas sobre como configurar seu email, consulte [configurar informações de segurança para usar email](security-info-setup-email.md).
+
+- **Perguntas de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md) .
+
     >[!Note]
-    >Se algumas dessas opções estão em falta, é mais provável porque a sua organização não permite que esses métodos. Se for este o caso, terá de escolher um método disponível ou contacte o administrador para obter mais ajuda.
+    >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Repor a palavra-passe, se tiver perdido ou esquecidas, do [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/) ou siga os passos a [repor a palavra-passe profissional ou escolar](user-help-reset-password.md) artigo.
+- Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
 
-- Obter solução de problemas dicas e ajuda para problemas de início de sessão no [não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.
+- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

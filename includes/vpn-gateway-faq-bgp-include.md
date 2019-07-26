@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7c1f3fc7861f5e1b895423d502218b9b07302c1c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 23386139364a72b0275936cdc458c8cd2a5771c9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659882"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68386948"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 Não, o BGP é suportado no Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** e nos gateways de VPN **HighPerformance**. O SKU **Básico** NÃO é suportado.
@@ -30,8 +30,8 @@ Não, os Gateways de VPN do Azure suportam ASNs de 16 bits, hoje.
 ### <a name="are-there-asns-reserved-by-azure"></a>Existem ASNs reservados pelo Azure?
 Sim, os seguintes ASNs são reservados pelo Azure para peerings internos e externos:
 
-* ASNs públicos: 8074, 8075, 12076
-* ASNs privados: 65515, 65517, 65518, 65519, 65520
+* ASNs público: 8074, 8075, 12076
+* ASNs particular: 65515, 65517, 65518, 65519, 65520
 
 Não pode especificar estes ASNs para os seus dispositivos VPN no local quando se liga a gateways de VPN do Azure.
 
@@ -50,8 +50,8 @@ O gateway de VPN do Azure irá anunciar as seguintes rotas para os seus disposit
 * Prefixos de endereços para cada Gateway de Rede Local ligado ao gateway de VPN do Azure
 * Rotas aprendidas de outras sessões de peering de BGP ligadas ao gateway de VPN do Azure, **exceto a rota ou as rotas predefinidas que se sobreponham a um prefixo VNet**.
 
-### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>O número de prefixos pode anunciar ao gateway de VPN do Azure?
-Suportamos até 4000 prefixos. A sessão de BGP é ignorada se o número de prefixos exceder o limite.
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Quantos prefixos posso anunciar no gateway de VPN do Azure?
+Damos suporte a até 4000 prefixos. A sessão de BGP é ignorada se o número de prefixos exceder o limite.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Posso anunciar a rota predefinida (0.0.0.0/0) para gateways de VPN do Azure?
 Sim.
@@ -85,10 +85,10 @@ Sim, mas pelo menos um dos gateways de rede virtual tem de estar na configuraç�
 Sim. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Que endereço utiliza o gateway de VPN do Azure para o IP do Elemento de Rede BGP?
-O gateway de VPN do Azure irá alocar um único endereço IP do intervalo GatewaySubnet para gateways de VPN ativo-em espera ou dois endereços IP para gateways VPN ativos-ativos. Pode obter os endereços IP de BGP real atribuído ao utilizar o PowerShell (Get-AzVirtualNetworkGateway, procure a propriedade de "bgpPeeringAddress") ou no portal do Azure (sob a propriedade de "Configurar ASN BGP" na página de configuração do Gateway).
+O gateway de VPN do Azure alocará um único endereço IP do intervalo de GatewaySubnet para gateways de VPN ativo-em espera ou dois endereços IP para gateways de VPN ativos-ativos. Você pode obter os endereços IP (es) BGP reais alocados usando o PowerShell (Get-AzVirtualNetworkGateway, procurar a propriedade "bgpPeeringAddress") ou na portal do Azure (na propriedade "configurar o ASN do BGP" na página configuração do gateway).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Quais são os requisitos dos endereços IP do Elemento de Rede BGP no meu dispositivo VPN?
-O seu endereço do elemento de rede BGP no local **NÃO DEVE** ser o mesmo que o endereço IP público do seu dispositivo VPN. Utilize um endereço IP diferente no dispositivo VPN do IP do Elemento de Rede BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo, mas note que não pode ser um endereço APIPA (169.254.x.x). Especifique este endereço no Gateway de Rede Local correspondente que representa a localização.
+Seu endereço de par de BGP local **não deve** ser o mesmo que o endereço IP público do seu dispositivo VPN ou o espaço de endereço de vnet do gateway de VPN. Utilize um endereço IP diferente no dispositivo VPN do IP do Elemento de Rede BGP. Pode ser um endereço atribuído à interface de loopback no dispositivo, mas note que não pode ser um endereço APIPA (169.254.x.x). Especifique este endereço no Gateway de Rede Local correspondente que representa a localização.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>O que devo especificar como prefixos de endereços para o Gateway de Rede Local ao utilizar o BGP?
 O Gateway de Rede Local do Azure especifica os prefixos de endereços iniciais da rede no local. Com o BGP, tem de alocar o prefixo de anfitrião (prefixo /32) do seu endereço IP do Elemento de Rede BGP como o espaço de endereços para essa rede no local. Se o IP do Elemento de Rede BGP for 10.52.255.254, deve especificar “10.52.255.254/32” como o localNetworkAddressSpace do Gateway de Rede Local que representa esta rede no local. Trata-se de garantir que o gateway de VPN do Azure estabelece a sessão BGP através do túnel VPN S2S.

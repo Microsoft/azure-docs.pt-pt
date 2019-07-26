@@ -4,34 +4,36 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 610f5fcf80db8ffa0c7207d459b98087cbb4773b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e427a7b80b28f1cc70a02890152f9f2247a8bcd2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66455190"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360277"
 ---
-A tabela seguinte lista os limites que se aplicam aos recursos de serviço de aprovisionamento de dispositivos do Azure IoT Hub.
+A tabela a seguir lista os limites que se aplicam aos recursos do serviço de provisionamento de dispositivos no Hub IoT do Azure.
 
 | Resource | Limite |
 | --- | --- |
-| Serviços por subscrição do Azure de aprovisionamento de dispositivos no máximo | 10 |
-| Número máximo de inscrições | 1 000 000 |
-| Número máximo de registos | 1 000 000 |
-| Número máximo de grupos de inscrição | 100 |
+| Serviços de provisionamento máximo de dispositivos por assinatura do Azure | 10 |
+| Número máximo de registros | 1 000 000 |
+| Número máximo de registros | 1 000 000 |
+| Número máximo de grupos de registro | 100 |
 | Número máximo de CAs | 25 |
-| Tamanho máximo de mensagem | 96 KB|
+| Número máximo de hubs IoT vinculados | 10 |
+| Tamanho máximo da mensagem | 96 KB|
+
 
 > [!NOTE]
-> Para aumentar o número de instâncias na sua subscrição, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
+> Para aumentar o número de instâncias em sua assinatura, entre em contato com [suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Para aumentar o número de inscrições e registos no seu serviço de aprovisionamento, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
+> Para aumentar o número de registros e inscrições no serviço de provisionamento, entre em contato com [suporte da Microsoft](https://azure.microsoft.com/support/options/).
 
-O serviço de aprovisionamento de dispositivos limita os pedidos quando as quotas seguintes são ultrapassadas.
+O serviço de provisionamento de dispositivos limita as solicitações quando as seguintes cotas são excedidas.
 
 | Limitação | Valor por unidade |
 | --- | --- |
 | Operações | 200/min/serviço |
 | Registos de dispositivos | 200/min/serviço |
-| Operação de consulta do dispositivo | 5/10 seg/dispositivo |
+| Operação de sondagem de dispositivo | 5/10 s/dispositivo |

@@ -1,110 +1,126 @@
 ---
-title: Devolver o seu dispositivo Edge de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve como devolver o dispositivo de limite de caixa de dados do Azure e exclusão do pedido para o dispositivo.
+title: Retornar ou substituir seu dispositivo de Azure Data Box Edge | Microsoft Docs
+description: Descreve como retornar ou substituir o dispositivo Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 07/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 9aeae0ab68d809b36a3316054f12a5a9657721f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468608"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356158"
 ---
-# <a name="return-your-azure-data-box-edge-device"></a>Devolver o seu dispositivo Edge de caixa de dados do Azure
+# <a name="return-or-replace-your-azure-data-box-edge-device"></a>Retornar ou substituir seu dispositivo Azure Data Box Edge
 
-Este artigo descreve como eliminar os dados e, em seguida, retornar o seu dispositivo Edge de caixa de dados do Azure. Depois de ter devolvido o dispositivo, também pode eliminar o recurso associado ao dispositivo.
+Este artigo descreve como apagar os dados e, em seguida, retornar o dispositivo Azure Data Box Edge. Depois de retornar o dispositivo, você também pode excluir o recurso associado ao dispositivo ou solicitar um dispositivo de substituição.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Eliminar os dados dos discos de dados no dispositivo
-> * Abra um pedido de suporte para retornar o seu dispositivo
-> * Pacote do dispositivo e agendar uma recolha
-> * Eliminar o recurso no portal do Azure
+> * Apagar os dados dos discos de dados no dispositivo
+> * Abrir um tíquete de suporte para retornar seu dispositivo
+> * Empacotar o dispositivo e agendar uma retirada
+> * Excluir o recurso no portal do Azure
+> * Obter um dispositivo de substituição
 
 ## <a name="erase-data-from-the-device"></a>Apagar dados do dispositivo
 
-Para eliminar os dados dos discos de dados do seu dispositivo, terá de repor o seu dispositivo. Pode repor o dispositivo através da IU da web local ou da interface do PowerShell.
+Para apagar os dados dos discos de dados do seu dispositivo, você precisa redefinir o dispositivo. Você pode redefinir o seu dispositivo usando a interface do usuário da Web local ou do PowerShell.
 
-Antes de repor, crie uma cópia dos dados locais no dispositivo se for necessário. Pode copiar os dados do dispositivo para um contentor de armazenamento do Azure.
+Antes de redefinir, crie uma cópia dos dados locais no dispositivo, se necessário. Você pode copiar os dados do dispositivo para um contêiner de armazenamento do Azure.
 
-Para repor o dispositivo através da IU da web local, siga os passos seguintes.
+Para redefinir o dispositivo usando a interface do usuário da Web local, execute as etapas a seguir.
 
-1. Na IU da web local, aceda a **manutenção > Repor o dispositivo**.
-2. Selecione **repor dispositivo**.
+1. Na interface do usuário da Web local, vá para **manutenção > dispositivo redefinir**.
+2. Selecione **Redefinir dispositivo**.
 
     ![Repor dispositivo](media/data-box-edge-return-device/device-reset-1.png)
 
-3. Quando lhe for pedida confirmação, reveja o aviso e selecione **Sim** para continuar.
+3. Quando a confirmação for solicitada, examine o aviso e selecione **Sim** para continuar.
 
-    ![Confirme a reposição](media/data-box-edge-return-device/device-reset-2.png)  
+    ![Confirmar redefinição](media/data-box-edge-return-device/device-reset-2.png)  
 
-A reposição apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados no seu dispositivo, este processo demora cerca de 30 e 40 minutos.
+A redefinição apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados em seu dispositivo, esse processo leva cerca de 30-40 minutos.
 
-Em alternativa, ligar a interface do PowerShell do dispositivo e utilizar o `Reset-HcsAppliance` cmdlet para apagar os dados dos discos de dados. Para obter mais informações, consulte [repor o seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
+Como alternativa, conecte-se à interface do PowerShell do dispositivo e use `Reset-HcsAppliance` o cmdlet para apagar os dados dos discos de dados. Para obter mais informações, consulte [redefinir seu dispositivo](data-box-edge-connect-powershell-interface.md#reset-your-device).
 
 > [!NOTE]
-> - Se estiver a troca ou a atualização para um novo dispositivo, recomendamos que redefina o seu dispositivo apenas depois que recebeu o novo dispositivo.
-> - O dispositivo Repor apenas elimina todos os dados locais fora do dispositivo. Os dados na cloud não são eliminados e recolhe [encargos](https://azure.microsoft.com/pricing/details/storage/). Estes dados precisam de eliminar separadamente com uma ferramenta de gerenciamento de armazenamento na cloud, como [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
+> - Se você estiver trocando ou atualizando para um novo dispositivo, recomendamos que você redefina seu dispositivo somente depois de receber o novo dispositivo.
+> - A redefinição do dispositivo somente exclui todos os dados locais do dispositivo. Os dados que estão na nuvem não são excluídos e coleta [cobranças](https://azure.microsoft.com/pricing/details/storage/). Esses dados precisam ser excluídos separadamente usando uma ferramenta de gerenciamento de armazenamento em nuvem como [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="open-a-support-ticket"></a>Abra um pedido de suporte
+## <a name="open-a-support-ticket"></a>Abrir um tíquete de suporte
 
-Para iniciar o processo de retorno, siga os passos seguintes.
+Para iniciar o processo de retorno, execute as etapas a seguir.
 
-1. Abra um pedido de suporte com Support da Microsoft com a indicação de que pretende devolver o dispositivo. Selecione o tipo de problema como **dados de caixa de borda Hardware**.
+1. Abra um tíquete de suporte com Suporte da Microsoft indicando que você deseja retornar o dispositivo. Selecione o tipo de problema como **Data Box Edge hardware**.
 
-    ![Abrir pedido de suporte](media/data-box-edge-return-device/open-support-ticket-1.png)  
+    ![Abrir tíquete de suporte](media/data-box-edge-return-device/open-support-ticket-1.png)  
 
-2. Um engenheiro de Support da Microsoft irá contactá-lo. Forneça os detalhes de envio.
-3. Se precisar de uma caixa de envio de retorna, podendo solicitá-la. Resposta **Sim** à pergunta **precisa de uma caixa vazia, devolver**.
-
-
-## <a name="schedule-a-pickup"></a>Agendar uma recolha
-
-1. Encerre o dispositivo. Na IU da web local, aceda a **manutenção > definições de energia**.
-2. Selecione **Encerrar**. Quando lhe for pedida confirmação, clique em **Sim** para continuar. Para obter mais informações, consulte [gerenciar a energia](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
-3. Desligue os cabos de energia e remova todos os cabos de rede do dispositivo.
-4. Prepare o pacote de envio utilizando a sua própria caixa ou caixa em branco que recebeu do Azure. Coloque o dispositivo e os cabos de energia que foram enviados com o dispositivo na caixa.
-5. Affix a etiqueta que recebeu do Azure no pacote.
-6. Agende uma recolha com a sua operadora regional. Se devolver o dispositivo nos EUA, a sua operadora é no-BREAK. Para agendar uma recolha:
-
-    1. Chame no-BREAK local (número gratuito de incidir específico do país).
-    2. Em sua chamada citar a remessa inversa número conforme mostrado na sua etiqueta impressa de controle.
-    3. Se o número de controlo não é indicado, UPS exigirá que paga um custo adicional durante a recolha.
-
-    Em vez da recolha de agendamento, também pode remover fora da área de caixa de dados no local de entrega mais próximo.
-
-## <a name="delete-the-resource"></a>Eliminar o recurso
-
-Depois do dispositivo é recebido no datacenter do Azure, o dispositivo é inspecionado para danos ou sinais de adulteração.
-
-- Se o dispositivo chega intactos e em bom estado, o contador de faturação será interrompido para esse recurso. Support da Microsoft irá contactá-lo para confirmar que o dispositivo foi devolvido. Em seguida, pode eliminar o recurso associado ao dispositivo no portal do Azure.
-- Se o dispositivo chega significativamente danificado, podem aplicar multas. Para obter detalhes, consulte a [perguntas frequentes sobre o dispositivo perdido ou danificado](https://azure.microsoft.com/pricing/details/databox/edge/) e [produto termos de serviço](https://www.microsoft.com/licensing/product-licensing/products).  
+2. Um engenheiro de Suporte da Microsoft entrará em contato com você. Forneça os detalhes de envio.
+3. Se você precisar de uma caixa de envio de retorno, poderá solicitá-la. Responda **Sim** para a pergunta **precisa de uma caixa vazia para retornar**.
 
 
-Pode eliminar o dispositivo no portal do Azure:
--   Depois de ter fez a encomenda e antes do dispositivo está preparado pela Microsoft.
--   Depois de ter devolvido o dispositivo para a Microsoft, ele passa a inspeção física no datacenter do Azure e Support da Microsoft chama para confirmar que o dispositivo foi devolvido.
+## <a name="schedule-a-pickup"></a>Agendar uma retirada
 
-Se ativar o dispositivo em relação a outra subscrição ou localização, o Microsoft irá mover o seu pedido para a nova subscrição ou localização num dia útil. Depois de mover a ordem, pode eliminar este recurso.
+1. Encerre o dispositivo. Na interface do usuário da Web local, vá para **manutenção > configurações de energia**.
+2. Selecione **desligar**. Quando a confirmação for solicitada, clique em **Sim** para continuar. Para obter mais informações, consulte [Manage Power](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+3. Desconecte os cabos de alimentação e remova todos os cabos de rede do dispositivo.
+4. Prepare o pacote de remessa usando sua própria caixa ou a caixa vazia que você recebeu do Azure. Coloque o dispositivo e os cabos de alimentação que foram enviados com o dispositivo na caixa.
+5. Fixar o rótulo de envio recebido do Azure no pacote.
+6. Agende um recebimento com sua operadora regional. Se retornar o dispositivo nos EUA, sua operadora será UPS. Para agendar uma retirada:
+
+    1. Chame o no-break local (número gratuito de telefone específico do país).
+    2. Em sua chamada, entre em contato com o número de rastreamento de remessa reversa, conforme mostrado no seu rótulo impresso.
+    3. Se o número de rastreamento não estiver entre aspas, o no break exigirá que você pague um encargo adicional durante a retirada.
+
+    Em vez de agendar a retirada, você também pode remover o Data Box Edge no local de distribuição mais próximo.
+
+## <a name="delete-the-resource"></a>Excluir o recurso
+
+Depois que o dispositivo é recebido no datacenter do Azure, o dispositivo é inspecionado quanto a danos ou sinais de violação.
+
+- Se o dispositivo chegar intacto e em bom formato, o medidor de cobrança será interrompido para esse recurso. Suporte da Microsoft entrará em contato com você para confirmar que o dispositivo foi retornado. Em seguida, você pode excluir o recurso associado ao dispositivo no portal do Azure.
+- Se o dispositivo chegar significativamente danificado, as multas poderão ser aplicadas. Para obter detalhes, consulte as [perguntas frequentes sobre o dispositivo perdido ou danificado](https://azure.microsoft.com/pricing/details/databox/edge/) e os [termos de serviço do produto](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
-Siga os passos seguintes para eliminar o dispositivo e o recurso no portal do Azure.
+Você pode excluir o dispositivo no portal do Azure:
+-   Depois de ter colocado o pedido e antes de o dispositivo ser preparado pela Microsoft.
+-   Depois de retornar o dispositivo à Microsoft, ele passa a inspeção física no datacenter do Azure e Suporte da Microsoft chamadas para confirmar que o dispositivo foi retornado.
 
-1. No portal do Azure, aceda ao seu recurso e clique em **descrição geral**. Na barra de comandos, selecione **eliminar**.
+Se você ativou o dispositivo em outra assinatura ou local, a Microsoft moverá seu pedido para a nova assinatura ou local dentro de um dia útil. Depois que a ordem for movida, você poderá excluir esse recurso.
 
-    ![Selecione delete](media/data-box-edge-return-device/delete-resource-1.png)
 
-2. Na **eliminar dispositivo** painel, escreva o nome do dispositivo que pretende eliminar e selecione **eliminar**.
+Execute as etapas a seguir para excluir o dispositivo e o recurso em portal do Azure.
+
+1. Na portal do Azure, vá para o recurso e, em seguida, para **visão geral**. Na barra de comandos, selecione **excluir**.
+
+    ![Selecione Excluir](media/data-box-edge-return-device/delete-resource-1.png)
+
+2. Na folha **excluir dispositivo** , digite o nome do dispositivo que você deseja excluir e selecione **excluir**.
 
     ![Confirmar eliminação](media/data-box-edge-return-device/delete-resource-2.png)
 
-Foi notificado depois do dispositivo e o recurso associado é eliminado com êxito.
+Você será notificado após o dispositivo e o recurso associado for excluído com êxito.
+
+## <a name="get-a-replacement-device"></a>Obter um dispositivo de substituição
+
+Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. Execute as seguintes etapas quando o dispositivo tiver um problema de hardware:
+
+1. [Abra um tíquete de suporte para o problema de hardware](#open-a-support-ticket). Suporte da Microsoft determinará se uma FRU (unidade de substituição de campo) não está disponível para esta instância ou se o dispositivo precisa de uma atualização de hardware. Em ambos os casos, o suporte solicitará um dispositivo de substituição.
+2. [Crie um novo recurso](data-box-edge-deploy-prep.md#create-a-new-resource) para o dispositivo de substituição. Certifique-se de marcar a caixa de seleção com **um dispositivo data Box Edge**. 
+3. Depois de receber um dispositivo de substituição, [Instale](data-box-edge-deploy-install.md) e [ative](data-box-edge-deploy-connect-setup-activate.md) o dispositivo de substituição no novo recurso.
+4. Siga todas as etapas para retornar o dispositivo original:
+    1. Abra outro tíquete para retornar o dispositivo original.
+    2. [Apague os dados no dispositivo](#erase-data-from-the-device).
+    3. [Agendar uma retirada](#schedule-a-pickup).
+    5. [Exclua o recurso](#delete-the-resource) associado ao dispositivo retornado.
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

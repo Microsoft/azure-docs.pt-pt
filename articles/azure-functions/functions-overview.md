@@ -13,22 +13,22 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4fbe3a5d308559a4ac9e1a781f3a4f385c767f90
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020286"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348191"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure  
-Funções do Azure é uma solução para uma fácil execução de pequenos blocos de código, ou "funções", na nuvem. É possível escrever apenas o código que necessita para o problema em questão, sem ter de se preocupar com toda a aplicação ou a infraestrutura para executá-la. As funções podem tornar o desenvolvimento ainda mais produtivo, e podem utilizar uma linguagem de desenvolvimento à sua escolha, tal como C#, F#, Node.js, Java ou PHP. Paga apenas para a hora que o seu código é executado e confie no Azure para dimensionar conforme necessário. As Funções do Azure permitem desenvolver aplicações [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
+Funções do Azure é uma solução para uma fácil execução de pequenos blocos de código, ou "funções", na nuvem. É possível escrever apenas o código que necessita para o problema em questão, sem ter de se preocupar com toda a aplicação ou a infraestrutura para executá-la. As funções podem tornar o desenvolvimento ainda mais produtivo e você pode usar a linguagem de desenvolvimento de sua escolha C#, como Java, JavaScript, Python ou php. Paga apenas para a hora que o seu código é executado e confie no Azure para dimensionar conforme necessário. As Funções do Azure permitem desenvolver aplicações [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
 
 Este tópico fornece uma descrição geral de alto nível das Funções do Azure. Se quiser iniciar de imediato e utilizar as Funções, comece por [Criar a sua primeira Função do Azure](functions-create-first-azure-function.md). Se estiver à procura de mais informações técnicas acerca das Funções, consulte a [referência para programadores](functions-reference.md).
 
 ## <a name="features"></a>Funcionalidades
 Seguem-se algumas funcionalidades-chave das Funções:
 
-* **Escolha da linguagem** - Escreva funções com C#, F# ou Javascript, conforme a sua escolha. Veja [Idiomas suportados](supported-languages.md) para outras opções.
+* **Opção de linguagem** – escreva funções usando sua escolha C#, Java, JavaScript, Python e outras linguagens. Consulte [idiomas com suporte](supported-languages.md) para obter a lista completa.
 * **Modelo de preços de pagamento por utilização** - Pague apenas o tempo despendido a executar o seu código. Veja a opção do plano de alojamento de Consumo na [secção preços](#pricing).  
 * **Traga as suas próprias dependências** - As funções são compatíveis com NuGet e NPM, pelo que pode utilizar as suas bibliotecas favoritas.  
 * **Segurança integrada** - Proteja as funções acionadas por HTTP com fornecedores de OAuth, como o Azure Active Directory, Facebook, Google, Twitter e Conta Microsoft.  
@@ -47,7 +47,7 @@ Funções fornece modelos para ajudar a começar com cenários-chave, que inclue
 * **BlobTrigger** - Processa blobs de armazenamento do Azure quando são adicionados a contentores. Pode utilizar esta função para redimensionar a imagem. Para obter mais informações, veja [Blob storage bindings (Enlaces de armazenamento de blobs)](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Responder a mensagens à medida que chegam a uma fila de Armazenamento do Azure. Para obter mais informações, veja [Enlaces do Armazenamento de filas do Azure](functions-bindings-storage-queue.md).
 * **EventGridTrigger** – Responder a eventos fornecidos a uma subscrição no Azure Event Grid. Suporta um modelo com base na subscrição para receber eventos, incluindo a filtragem. Uma boa solução para a criação de arquiteturas baseadas em eventos. Para obter um exemplo, veja [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
-* **EventHubTrigger** - Responder a eventos fornecidos a um Hub de Eventos do Azure. Particularmente útil em cenários de internet das coisas (IoT), de processamento de experiência ou fluxo de trabalho de utilizador e de instrumentação de aplicações. Para obter mais informações, veja [Event Hubs bindings (Enlaces de Hubs de Eventos)](functions-bindings-event-hubs.md).
+* **EventHubTrigger** - Responder a eventos fornecidos a um Hub de Eventos do Azure. Particularmente útil na instrumentação do aplicativo, na experiência do usuário ou no processamento de fluxo de trabalho e nos cenários de IoT (Internet das coisas). Para obter mais informações, veja [Event Hubs bindings (Enlaces de Hubs de Eventos)](functions-bindings-event-hubs.md).
 * **ServiceBusQueueTrigger** - Ligar o seu código a outros serviços do Azure ou serviços no local através da escuta de filas de mensagens. Para obter mais informações, veja [Service Bus bindings (Enlaces do Service Bus)](functions-bindings-service-bus.md).
 * **ServiceBusQueueTrigger** - Ligar o seu código a outros serviços do Azure ou serviços no local através da subscrição de tópicos. Para obter mais informações, veja [Service Bus bindings (Enlaces do Service Bus)](functions-bindings-service-bus.md).
 
@@ -59,7 +59,7 @@ Funções do Azure integra-se com vários serviços do Azure e de terceiros. Est
 * Azure Cosmos DB
 * Azure Event Hubs
 * Azure Event Grid
-* Azure Notification Hubs
+* Hubs de Notificação do Azure
 * Azure Service Bus (filas e tópicos)
 * Armazenamento do Azure (blob, filas e tabelas)
 * No local (utilizando o Service Bus)

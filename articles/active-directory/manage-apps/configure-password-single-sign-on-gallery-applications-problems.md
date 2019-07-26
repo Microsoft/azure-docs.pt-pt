@@ -1,6 +1,6 @@
 ---
-title: Problema ao configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD | Documentos da Microsoft
-description: Compreender os rostos de pessoas de problemas comuns durante a configuração do logon único de palavra-passe para aplicações que já estão listados na Galeria de aplicações do Azure AD
+title: Problemas ao configurar o logon único com senha para o aplicativo da galeria do Azure AD | Microsoft Docs
+description: Entenda os problemas comuns que as pessoas enfrentam ao configurar o logon único com senha para aplicativos que já estão listados na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -14,96 +14,96 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a35ef95074099499186eae0fadd37f1995d8e725
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190283"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381140"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar a palavra-passe início de sessão único para uma aplicação da galeria do Azure AD
+# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo da galeria do Azure AD
 
-Este artigo ajuda-o a compreender os rostos de pessoas de problemas comuns durante a configuração do **o início de sessão único de palavra-passe** com um aplicativo de galeria do Azure AD.
+Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam ao configurar o **logon único com senha** com um aplicativo da galeria do Azure AD.
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não submetê-las
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>As credenciais são preenchidas, mas a extensão não as envia
 
-Este problema ocorre, normalmente, se o fornecedor do aplicativo tiver alterado sua página de início de sessão recentemente para adicionar um campo, alterar um identificador usado para detectar os campos de nome de utilizador e palavra-passe ou modificado como o início de sessão experiência funciona para seus aplicativos. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente estes problemas.
+Esse problema normalmente acontece se o fornecedor do aplicativo alterou sua página de entrada recentemente para adicionar um campo, alterou um identificador usado para detectar os campos de nome de usuário e senha ou modificou como a experiência de entrada funciona para seu aplicativo. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver esses problemas rapidamente.
 
-Embora a Microsoft tem as tecnologias para detetar automaticamente quando integrações quebrar, pode não ser possível localizar os problemas imediatamente ou os problemas demoram algum tempo a corrigir. No caso de quando uma dessas integrações não funciona corretamente, abra um incidente de suporte para que pode ser corrigido mais rapidamente possível.
+Embora a Microsoft tenha tecnologias para detectar automaticamente quando as integrações são interrompidas, talvez não seja possível encontrar os problemas imediatamente, ou os problemas demoram algum tempo para serem corrigidos. No caso de uma dessas integrações não funcionar corretamente, abra um caso de suporte para que ele possa ser corrigido o mais rápido possível.
 
-**Se for contato com o fornecedor desse aplicativo,** enviá-los nossa maneira para que a Microsoft pode trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](../develop/howto-app-gallery-listing.md) para obtê-las iniciado.
+**Se você estiver em contato com o fornecedor deste aplicativo,** envie-o de nossa maneira para que a Microsoft possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Você pode enviar o fornecedor para a [listagem de seu aplicativo na Galeria de aplicativos Azure Active Directory](../develop/howto-app-gallery-listing.md) para que eles sejam iniciados.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas bem como submetidas, mas a página indica que as credenciais estão incorretas
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>As credenciais são preenchidas e enviadas, mas a página indica que as credenciais estão incorretas
 
-Para resolver este problema, tente primeiro essas coisas:
+Para resolver esse problema, primeiro tente estas coisas:
 
-- Peça ao utilizador que primeiro tente **entrar diretamente para o site de aplicativos** com as credenciais armazenadas para eles.
+- Faça com que o usuário primeiro tente **entrar no site do aplicativo diretamente** com as credenciais armazenadas para eles.
 
-  * Se o início de sessão funciona, em seguida, tem do usuário clique no **atualizar as credenciais** botão a **mosaico de aplicação** no **aplicações** secção do [acesso à aplicação Painel](https://myapps.microsoft.com/) atualizá-los para o trabalho nome de utilizador e palavra-passe mais recente conhecidos.
+  * Se a entrada funcionar, faça com que o usuário clique no botão **Atualizar credenciais** no **bloco do aplicativo** na seção **aplicativos** do painel de [acesso do aplicativo](https://myapps.microsoft.com/) para atualizá-los para o nome de usuário e a senha mais recentes conhecidos.
 
-  * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
+  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando nas **credenciais de atualização** botão.
 
-- Se o utilizador atribuído das suas próprias credenciais, peça ao utilizador **Certifique-se não se esqueça de que a palavra-passe não expirou no aplicativo** e, se assim for, **atualizar a palavra-passe expirada** ao iniciar sessão na aplicação diretamente.
+- Se o usuário tiver atribuído suas próprias credenciais, faça com que o usuário Verifique se a **senha não expirou no aplicativo** e, se estiver, **Atualize sua senha expirada** entrando diretamente no aplicativo.
 
-  * Depois da palavra-passe foi atualizada no aplicativo, solicitar o usuário clique a **atualizar as credenciais** botão a **mosaico de aplicação** no **aplicações** secção do [Painel de acesso de aplicação](https://myapps.microsoft.com/) atualizá-los para o trabalho nome de utilizador e palavra-passe mais recente conhecidos.
+  * Depois que a senha tiver sido atualizada no aplicativo, solicite que o usuário clique no botão **Atualizar credenciais** no **bloco do aplicativo** na seção **aplicativos** do painel de [acesso do aplicativo](https://myapps.microsoft.com/) para atualizá-los para a versão mais recente conhecida nome de usuário e senha de trabalho.
 
-  * Se ou outro administrador atribuir as credenciais para este utilizador, encontrar o utilizador ou a atribuição do grupo da aplicação ao navegar para o **utilizadores e grupos** separador da aplicação, selecionando a atribuição e clicar o  **Atualizar credenciais** botão.
+  * Se você ou outro administrador tiver atribuído as credenciais para esse usuário, localize a atribuição de aplicativo do usuário ou do grupo navegando até a guia **usuários & grupos** do aplicativo, selecionando a atribuição e clicando nas **credenciais de atualização** botão.
 
-- O utilizador atualizar a extensão de browser do painel de acesso ao seguir os passos abaixo a [como instalar a extensão de Browser do painel de acesso](#how-to-install-the-access-panel-browser-extension) secção.
+- Faça com que o usuário atualize a extensão do navegador do painel de acesso seguindo as etapas abaixo na seção [como instalar a extensão do navegador do painel de acesso](#how-to-install-the-access-panel-browser-extension) .
 
-- Certifique-se de que a extensão de browser do painel de acesso está em execução e ativado no browser do utilizador.
+- Verifique se a extensão do navegador do painel de acesso está em execução e habilitada no navegador do usuário.
 
-- Certifique-se de que os utilizadores não estão a tentar iniciar sessão para a aplicação do painel de acesso ao mesmo tempo no **modo inPrivate, incógnito ou privado**. A extensão do painel de acesso não é suportada nesses modos.
+- Verifique se os usuários não estão tentando entrar no aplicativo no painel de acesso enquanto estiver no **modo Incognito, InPrivate ou Private**. Não há suporte para a extensão do painel de acesso nesses modos.
 
-No caso de sugestões anteriores funcionar, pode ser o caso em que uma alteração ocorreu no lado do aplicativo que está temporariamente quebrado a integração do aplicativo com o Azure AD. Por exemplo, isto pode ocorrer quando o fornecedor do aplicativo introduz um script na respetiva página de que tem um comportamento diferente para o vs manuais automatizada de entrada, que faz com que automatizadas de integração, como o nosso próprio, interromper. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente estes problemas.
+Caso as sugestões anteriores não funcionem, pode ser o caso em que uma alteração ocorreu no lado do aplicativo que interrompeu temporariamente a integração do aplicativo com o Azure AD. Por exemplo, isso pode ocorrer quando o fornecedor do aplicativo apresenta um script em sua página que se comporta de forma diferente para a entrada manual vs automatizada, o que faz com que a integração automatizada, como a nossa, seja quebrada. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver esses problemas rapidamente.
 
-Embora a Microsoft tem as tecnologias para detetar automaticamente quando interromper integrações de aplicação, pode não ser possível localizar os problemas imediatamente ou os problemas poderão demorar algum tempo para corrigir. Quando uma integração não funciona corretamente, pode abrir um incidente de suporte para corrigir o mais rapidamente possível. 
+Embora a Microsoft tenha tecnologias para detectar automaticamente quando as integrações de aplicativos são interrompidas, talvez não seja possível encontrar os problemas imediatamente, ou os problemas podem levar algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para que ele seja corrigido o mais rápido possível. 
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](../develop/howto-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. Você pode enviar o fornecedor para a [listagem de seu aplicativo na Galeria de aplicativos Azure Active Directory](../develop/howto-app-gallery-listing.md) para que eles sejam iniciados.
 
-## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e Firefox, mas não no Internet Explorer
+## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>A extensão funciona no Chrome e no Firefox, mas não no Internet Explorer
 
-Existem duas das principais causas para este problema:
+Há duas causas principais para esse problema:
 
-- Dependendo das configurações de segurança ativadas no Internet Explorer, se o Web site não é parte de um **zona fidedignos**, às vezes, nosso script impedidos de execução para a aplicação.
+- Dependendo das configurações de segurança habilitadas no Internet Explorer, se o site não fizer parte de uma **zona confiável**, algumas vezes o script será impedido de ser executado para o aplicativo.
 
-  *  Para resolver este problema, indique o usuário **adicionar o site da aplicação** para o **Sites confiáveis** lista dentro de suas **definições de segurança do Internet Explorer**. Pode enviar os seus utilizadores para o [como adicionar um site à minha lista de sites fidedignos](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) artigo para obter instruções detalhadas.
+  *  Para resolver isso, instrua o usuário a **Adicionar o site do aplicativo** à lista de **sites confiáveis** em suas **configurações de segurança do Internet Explorer**. Você pode enviar seus usuários ao artigo [como adicionar um site à lista de sites confiáveis](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) para obter instruções detalhadas.
 
-- Em raras circunstâncias, validação de segurança do Internet Explorer, às vezes, pode fazer com que a página carregar mais lenta do que a execução do nosso script.
+- Em raras circunstâncias, a validação de segurança do Internet Explorer pode, às vezes, fazer com que a página seja carregada mais lentamente do que a execução do nosso script.
 
-  * Infelizmente, esta situação pode variar consoante a versão do navegador, a velocidade do computador ou a sites visitados. Neste caso, sugerimos que contacte o suporte para que possamos corrigir a integração para esta aplicação específica.
+  * Infelizmente, essa situação pode variar dependendo da versão do navegador, da velocidade do computador ou do site visitado. Nesse caso, sugerimos que você entre em contato com o suporte para que possamos corrigir a integração para esse aplicativo específico.
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](../develop/howto-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. Você pode enviar o fornecedor para a [listagem de seu aplicativo na Galeria de aplicativos Azure Active Directory](../develop/howto-app-gallery-listing.md) para que eles sejam iniciados.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verifique se a página de início de sessão da aplicação foi alterada recentemente ou requer um campo adicional
+## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Verificar se a página de logon do aplicativo foi alterada recentemente ou requer um campo adicional
 
-Se a página de início de sessão do aplicativo mudou drasticamente, às vezes, isso faz com que nosso integrações interromper. Um exemplo disso é quando um fornecedor de aplicativos adiciona um campo de início de sessão, um captcha ou a autenticação multifator para suas experiências. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver rapidamente estes problemas.
+Se a página de logon do aplicativo tiver mudado drasticamente, às vezes isso faz com que nossas integrações sejam interrompidas. Um exemplo disso é quando um fornecedor de aplicativos adiciona um campo de entrada, um captcha ou autenticação multifator às suas experiências. Felizmente, em muitos casos, a Microsoft pode trabalhar com fornecedores de aplicativos para resolver esses problemas rapidamente.
 
-Embora a Microsoft tem as tecnologias para detetar automaticamente quando interromper integrações de aplicação, pode não ser possível localizar os problemas imediatamente ou os problemas poderão demorar algum tempo para corrigir. Quando uma integração não funciona corretamente, pode abrir um incidente de suporte para corrigir o mais rapidamente possível. 
+Embora a Microsoft tenha tecnologias para detectar automaticamente quando as integrações de aplicativos são interrompidas, talvez não seja possível encontrar os problemas imediatamente, ou os problemas podem levar algum tempo para serem corrigidos. Quando uma integração não funciona corretamente, você pode abrir um caso de suporte para que ele seja corrigido o mais rápido possível. 
 
-Além disso, **se for contato com o fornecedor desse aplicativo,** **enviá-los nossa maneira** para que possa trabalhar com eles para integrar nativamente seus aplicativos com o Azure Active Directory. Pode enviar o fornecedor para o [listar a sua aplicação na Galeria de aplicações do Azure Active Directory](../develop/howto-app-gallery-listing.md) para obtê-las iniciado.
+Além disso, **se você estiver em contato com o fornecedor deste aplicativo,** **envie-os nossa maneira** para que possamos trabalhar com eles para integrar nativamente seu aplicativo com o Azure Active Directory. Você pode enviar o fornecedor para a [listagem de seu aplicativo na Galeria de aplicativos Azure Active Directory](../develop/howto-app-gallery-listing.md) para que eles sejam iniciados.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão de Browser do painel de acesso
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do navegador do painel de acesso
 
-Para instalar a extensão de Browser do painel de acesso, siga os passos abaixo:
+Para instalar a extensão do navegador do painel de acesso, siga as etapas abaixo:
 
-1.  Abra o [painel de acesso](https://myapps.microsoft.com) em um dos browsers suportados e inicie sessão como um **utilizador** no seu Azure AD.
+1.  Abra o [painel de acesso](https://myapps.microsoft.com) em um dos navegadores com suporte e entre como um **usuário** no Azure AD.
 
-2.  Clique num **aplicação SSO de palavra-passe** no painel de acesso.
+2.  clique em um **aplicativo de SSO de senha** no painel de acesso.
 
-3.  Na linha de comandos pedindo para instalar o software, selecione **instalar agora**.
+3.  No prompt solicitando a instalação do software, selecione **instalar agora**.
 
-4.  Com base no seu navegador, será direcionado para a ligação de transferência. **Adicionar** a extensão ao seu navegador.
+4.  Com base em seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
 
-5.  Se o browser pede-lhe, selecione a qualquer um **habilitar** ou **permitir** a extensão.
+5.  Se seu navegador perguntar, selecione para **habilitar** ou **permitir** a extensão.
 
-6.  Depois de instalada **reiniciar** a sessão do browser.
+6.  Depois de instalado  , reinicie a sessão do navegador.
 
-7.  Iniciar sessão no painel de acesso e veja se pode **inicie** seus aplicativos de SSO de palavra-passe
+7.  Entre no painel de acesso e veja se você pode **Iniciar** seus aplicativos de SSO de senha
 
-Também pode baixar a extensão para o Chrome e Firefox dos links diretos abaixo:
+Você também pode baixar a extensão para o Chrome e Firefox nos links diretos abaixo:
 
--   [Extensão de painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Extensão do painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
 -   [Extensão do painel de acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 

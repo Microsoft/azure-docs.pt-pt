@@ -2,24 +2,15 @@
 author: msmbaldwin
 ms.service: security
 ms.topic: include
-ms.date: 04/17/2019
+ms.date: 07/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 762393e501475001d2af6defc563b3e489788309
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4aea8c1d1d7112ac1f9ff9042ff01d173ed986c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795634"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440864"
 ---
-Um atributo de segurança é uma funcionalidade de um serviço do Azure ou de qualidade. Ele contribui para a capacidade do serviço de prevenir, detetar e responder a vulnerabilidades de segurança.
+Um atributo de segurança é uma qualidade ou um recurso de um serviço do Azure. Ele contribui para a capacidade do serviço de prevenir, detectar e responder a vulnerabilidades de segurança.
 
-Atributos de segurança são categorizados como:
-* Preventivas
-* Segmentação de rede
-* Deteção
-* Suporte para gestão de identidades e acesso
-* Registo de auditoria
-* Controlos de acesso (se utilizado)
-* Gestão de configuração (se utilizado)
-
-Cada categoria, vamos mostrar "Sim" ou "Não" para indicar se um atributo é utilizado. Para alguns serviços, vamos mostrar "N/d" para um atributo que não é aplicável. Também podemos fornecer uma nota ou uma ligação para obter mais informações sobre um atributo.
+Em cada categoria, mostramos "Sim" ou "não" para indicar se um atributo é usado. Para alguns serviços, mostramos "N/A" para um atributo que não é aplicável. Também poderemos fornecer uma observação ou um link para obter mais informações sobre um atributo.

@@ -1,6 +1,6 @@
 ---
-title: Criar um localizador de arquivo com o Azure Maps | Documentos da Microsoft
-description: Crie um localizador de arquivo com o Azure Maps.
+title: Criar um localizador de repositório usando o Azure Maps | Microsoft Docs
+description: Crie um localizador de repositório usando mapas do Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/15/2018
@@ -9,119 +9,119 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 0d7ca38ecb66dbf92678eae4da7d8706f68cbaa2
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 4cc21a4dbab7d5114eed8414c6530eab5f42bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273813"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478863"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
+# <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de repositório usando mapas do Azure
 
-Este tutorial orienta-o ao longo do processo de criação de um localizador de arquivo simples com o Azure Maps. Os localizadores Store são comuns. Muitos dos conceitos que são utilizados neste tipo de aplicação são aplicáveis a muitos outros tipos de aplicativos. Oferecer um localizador de loja para os clientes é essencial para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, ficará a saber como:
+Este tutorial orienta você pelo processo de criação de um localizador de repositório simples usando mapas do Azure. Os localizadores de repositório são comuns. Muitos dos conceitos que são usados nesse tipo de aplicativo são aplicáveis a muitos outros tipos de aplicativos. A oferta de um localizador de loja para os clientes é um necessário para a maioria das empresas que vendem diretamente aos consumidores. Neste tutorial, ficará a saber como:
     
 > [!div class="checklist"]
-> * Crie uma nova página Web com a API de controlo de mapas do Azure.
-> * Carregar dados personalizados de um arquivo e apresentá-lo num mapa.
-> * Utilize o serviço de pesquisa de mapas do Azure para localizar um endereço ou introduza uma consulta.
-> * Obter a localização do utilizador a partir do browser e mostrá-lo no mapa.
-> * Combine várias camadas para criar os símbolos personalizados no mapa.  
+> * Crie uma nova página da Web usando a API de Controle de Mapeamento do Azure.
+> * Carregar dados personalizados de um arquivo e exibi-los em um mapa.
+> * Use o serviço de pesquisa do Azure Maps para localizar um endereço ou inserir uma consulta.
+> * Obtenha o local do usuário no navegador e mostre-o no mapa.
+> * Combine várias camadas para criar símbolos personalizados no mapa.  
 > * Pontos de dados do cluster.  
 > * Adicione controles de zoom ao mapa.
 
 <a id="Intro"></a>
 
-Ir diretamente para o [exemplo de localizador de armazenamento em direto](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Vá direto para o exemplo ou [código-fonte](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)do localizador de [Live Store](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) . 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir os passos neste tutorial, tem primeiro de [criar a sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e [obter a chave de subscrição para a sua conta](./tutorial-search-location.md#getkey).
+Para concluir as etapas deste tutorial, primeiro você precisa [criar sua conta do Azure Maps](./tutorial-search-location.md#createaccount) e [obter a chave de assinatura para sua conta](./tutorial-search-location.md#getkey).
 
 ## <a name="design"></a>Design
 
-Antes de mergulhar no código, é uma boa idéia começar com um design. O localizador de arquivo pode ser tão simples ou complexo quanto quiser que ela seja. Neste tutorial, vamos criar um localizador de arquivo simples. Incluímos algumas dicas ao longo do caminho para o ajudar a estender algumas funcionalidades, se optar por. Vamos criar um localizador de arquivo para uma empresa fictícia denominada Contoso café. A figura seguinte mostra um modelo de arames do layout geral o localizador de loja que é criar neste tutorial:
+Antes de ir para o código, é uma boa ideia começar com um design. O localizador de armazenamento pode ser tão simples ou complexo quanto você desejar. Neste tutorial, criamos um localizador de repositório simples. Incluímos algumas dicas ao longo do caminho para ajudá-lo a estender algumas funcionalidades se você optar por. Criamos um localizador de repositório para uma empresa fictícia chamada contoso Coffee. A figura a seguir mostra um wireframe do layout geral do localizador de loja que criamos neste tutorial:
 
 <br/>
 <center>
 
-![Modelo de arames de um localizador de arquivo para localizações de café do café da Contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Wireframe de um localizador de loja para locais da oficina de café da contoso](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
-Para maximizar a utilidade deste localizador de arquivo, incluímos um esquema responsivo que ajusta quando a largura da tela de um utilizador é menor do que 700 pixels de largura. Um esquema reativo torna mais fácil de utilizar o localizador de arquivo num ecrã pequeno, como num dispositivo móvel. Este é um modelo de arames de um esquema de ecrã pequeno:  
+Para maximizar a utilidade desse localizador de loja, incluímos um layout responsivo que se ajusta quando a largura da tela de um usuário é menor que 700 pixels de largura. Um layout responsivo facilita o uso do localizador de armazenamento em uma tela pequena, como em um dispositivo móvel. Aqui está um wireframe de um layout de tela pequena:  
 
 <br/>
 <center>
 
-![Modelo de arames o café da Contoso armazenar localizador num dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Wireframe do localizador da loja da Contoso Coffee em um dispositivo móvel](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-Os wireframes mostram um aplicativo bem simples. O aplicativo tem uma caixa de pesquisa, uma lista das lojas próximas, um mapa que tem alguns marcadores (símbolos) e uma janela de pop-up que apresenta informações adicionais quando o usuário seleciona um marcador. Mais detalhadamente, aqui estão os recursos que criamos para este localizador de armazenamento neste tutorial:
+Os wireframes mostram um aplicativo razoavelmente simples. O aplicativo tem uma caixa de pesquisa, uma lista de lojas próximas, um mapa que tem alguns marcadores (símbolos) e uma janela pop-up que exibe informações adicionais quando o usuário seleciona um marcador. Mais detalhadamente, aqui estão os recursos que criamos neste localizador de armazenamento neste tutorial:
 
-* Todas as localizações a partir do ficheiro de dados importados delimitado por tabulação são carregadas no mapa.
-* O utilizador pode Panorâmica e zoom do mapa, efetua uma pesquisa e selecione o botão de minha localização GPS.
-* O layout da página ajusta-se com base na largura de ecrã do dispositivo.  
-* Um cabeçalho mostra o logótipo da loja.  
-* O utilizador pode utilizar uma caixa de pesquisa e um botão de pesquisa para procurar uma localização, como um endereço, código postal ou cidade. 
-* A `keypress` evento adicionado à caixa de pesquisa aciona uma pesquisa, se o usuário pressionar Enter. Esta funcionalidade é muitas vezes negligenciada, mas cria uma melhor experiência de utilizador.
-* Quando move o mapa, a distância para cada localização do centro do mapa é calculada. A lista de resultados é atualizada para apresentar as localizações mais próximas na parte superior do mapa.  
-* Quando seleciona um resultado na lista de resultados, o mapa centra-se sobre a localização selecionada e informações sobre o local é apresentado numa janela de pop-up.  
-* Também selecionar uma localização específica no mapa aciona uma janela de pop-up.
-* Quando o usuário amplia, localizações são agrupadas em clusters. Clusters são representados por um círculo com um número no interior do círculo. Clusters de formulário e separado como o utilizador altera o nível de zoom.
-* Selecionar um cluster aplica zoom sobre os dois níveis de mapa e centra-se sobre a localização do cluster.
+* Todos os locais do arquivo de dados não limitado por tabulação importado são carregados no mapa.
+* O usuário pode deslocar e aplicar zoom no mapa, executar uma pesquisa e selecionar o botão meu local de GPS.
+* O layout da página se ajusta com base na largura da tela do dispositivo.  
+* Um cabeçalho mostra o logotipo da loja.  
+* O usuário pode usar uma caixa de pesquisa e um botão Pesquisar para procurar um local, como um endereço, código postal ou cidade. 
+* Um `keypress` evento adicionado à caixa de pesquisa disparará uma pesquisa se o usuário pressionar Enter. Essa funcionalidade geralmente é ignorada, mas cria uma melhor experiência do usuário.
+* Quando o mapa é movido, a distância de cada local do centro do mapa é calculada. A lista de resultados é atualizada para exibir os locais mais próximos na parte superior do mapa.  
+* Quando você seleciona um resultado na lista de resultados, o mapa é centralizado sobre o local selecionado e as informações sobre o local são exibidas em uma janela pop-up.  
+* A seleção de um local específico no mapa também dispara uma janela pop-up.
+* Quando o usuário se reduz, os locais são agrupados em clusters. Os clusters são representados por um círculo com um número dentro do círculo. Os clusters formam e são separados conforme o usuário altera o nível de zoom.
+* A seleção de um cluster amplia o mapeamento de dois níveis e centraliza o local do cluster.
 
 <a id="create a data-set"></a>
 
-## <a name="create-the-store-location-dataset"></a>Criar o conjunto de dados de localização de armazenamento
+## <a name="create-the-store-location-dataset"></a>Criar o conjunto de armazenamento do local do repositório
 
-Antes de desenvolver um aplicativo de localizador de arquivo, é necessário criar um conjunto de dados de arquivos de que queremos exibir no mapa. Neste tutorial, utilizamos um conjunto de dados para um café fictícia chamada Contoso café. O conjunto de dados para este localizador de arquivo simples é gerenciado num livro do Excel. O conjunto de dados contém 10,213 localizações de café Contoso café espalhadas em nove países/regiões: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Eis uma captura de ecrã o que os dados é semelhante a:
+Antes de desenvolvermos um aplicativo de localizador de repositório, precisamos criar um conjunto de um dos armazenamentos que desejamos exibir no mapa. Neste tutorial, usamos um conjunto de um DataSet para uma cafeteria fictícia chamada contoso Coffee. O conjunto de armazenamento para esse localizador de repositório simples é gerenciado em uma pasta de trabalho do Excel. O conjunto de conjuntos contém 10.213 locais de loja de café da Contoso distribuídos em nove países/regiões: o Estados Unidos, o Canadá, o Reino Unido, a França, a Alemanha, a Itália, os Países Baixos, a Dinamarca e a Espanha. Aqui está uma captura de tela da aparência dos dados:
 
 <br/>
 <center>
 
-![Captura de ecrã dos dados de localizador de arquivo num livro do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+![Captura de tela dos dados do localizador da loja em uma pasta de trabalho do Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
-Pode [transferir o livro do Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
+Você pode [baixar a pasta de trabalho do Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
-Observando a captura de ecrã dos dados, podemos fazer as seguintes observações:
+Observando a captura de tela dos dados, podemos fazer as seguintes observações:
     
-* Informações de localização são armazenadas utilizando o **AddressLine**, **Cidade**, **município** (condados) **AdminDivision** (estado/província) , **PostCode** (código postal), e **país** colunas.  
-* O **Latitude** e **Longitude** colunas incluir as coordenadas para cada localização de café Contoso café. Se não tiver informações de coordenadas, pode utilizar os serviços de pesquisa no Azure Maps para determinar as coordenadas de localização.
-* Algumas colunas adicionais contêm os metadados relacionados com os cafés: um número de telefone, booleanas colunas para acessibilidade de ponto de acesso e wheelchair Wi-Fi e arquivo abrir e fechar vezes no formato de 24 horas. Pode criar suas próprias colunas que contêm metadados que são mais relevante para os dados de localização.
+* As informações de local são armazenadas usando as colunas Addressing, **City**, **Municipal** (County), **AdminDivision** (estado/província), **PostCode** (CEP) e **país** .  
+* As colunas de **latitude** e **longitude** contêm as coordenadas de cada local da loja de café da contoso. Se você não tiver informações de coordenadas, poderá usar os serviços de pesquisa no Azure Maps para determinar as coordenadas de local.
+* Algumas colunas adicionais contêm metadados relacionados às cafeterias: um número de telefone, as colunas booleanas para a acessibilidade Wi-Fi e o acesso a rodas, além de armazenar horários de abertura e fechamento no formato de 24 horas. Você pode criar suas próprias colunas que contêm metadados que são mais relevantes para seus dados de localização.
 
 > [!Note]
-> Mapas do Azure processa os dados na projeção Mercator esférica "EPSG:3857" mas lê os dados em "EPSG:4325" que utilizam a datum WGS84. 
+> O Azure Maps renderiza dados na projeção de Mercator esférica "EPSG: 3857", mas lê dados em "EPSG: 4325" que usam a referência de WGS84. 
 
-Existem várias maneiras de expor o conjunto de dados para a aplicação. Uma abordagem é carregar os dados para uma base de dados e expor um serviço web que consulta os dados e envia os resultados para o navegador do usuário. Esta opção é ideal para grandes conjuntos de dados ou para conjuntos de dados que são atualizados com frequência. No entanto, esta opção requer significativamente mais trabalho de desenvolvimento e tem um custo mais elevado. 
+Há várias maneiras de expor o conjunto de aplicativos ao aplicativo. Uma abordagem é carregar os dados em um banco de dado e expor um serviço Web que consulta os dados e envia os resultados para o navegador do usuário. Essa opção é ideal para grandes conjuntos de altos ou para conjuntos de de de valores que são atualizados com frequência. No entanto, essa opção requer muito mais trabalho de desenvolvimento e tem um custo mais alto. 
 
-Outra abordagem é converter este conjunto de dados num arquivo de texto simples que o navegador pode analisar facilmente. O próprio ficheiro pode ser hospedado com o restante do aplicativo. Esta opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados menores porque o utilizador transfere todos os dados. Utilizamos o arquivo de texto simples para este conjunto de dados porque o tamanho do ficheiro de dados é inferior a 1 MB.  
+Outra abordagem é converter esse conjunto de DataSet em um arquivo de texto simples que o navegador possa facilmente analisar. O próprio arquivo pode ser hospedado com o restante do aplicativo. Essa opção mantém as coisas simples, mas é uma boa opção apenas para conjuntos de dados menores, pois o usuário baixa todos eles. Usamos o arquivo de texto simples para este conjunto de dados porque o tamanho do arquivo é menor que 1 MB.  
 
-Para converter a pasta de trabalho para um arquivo de texto simples, guarde o livro como um ficheiro delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, que faz com que as colunas mais fácil de analisar no nosso código. Poderia usar o formato de valores separados por vírgulas (CSV), mas essa opção exige mais lógica de análise. Qualquer campo que tenha uma vírgula em torno dele poderia ser colado entre aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **guardar como**. Na **guardar como tipo** na lista pendente, selecione **texto (separador delimited)(*.txt)** . Nomeie o arquivo *ContosoCoffee.txt*. 
-
-<br/>
-<center>
-
-![Captura de ecrã do guardar como caixa de diálogo do tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
-
-Se abrir o ficheiro de texto no bloco de notas, o que é semelhante a figura a seguir:
+Para converter a pasta de trabalho em um arquivo de texto simples, salve a pasta de trabalho como um arquivo delimitado por tabulação. Cada coluna é delimitada por um caractere de tabulação, o que torna as colunas fáceis de analisar em nosso código. Você pode usar o formato CSV (valores separados por vírgula), mas essa opção requer mais lógica de análise. Qualquer campo que tenha uma vírgula em torno dele seria quebrado entre aspas. Para exportar esses dados como um arquivo delimitado por tabulação no Excel, selecione **salvar como**. Na lista suspensa **salvar como tipo** , selecione **texto (delimitado por tabulação) (*. txt)** . Nomeie o arquivo *ContosoCoffee. txt*. 
 
 <br/>
 <center>
 
-![Captura de ecrã de um ficheiro do bloco de notas que mostra um conjunto de dados delimitado por tabulação](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+![Captura de tela da caixa de diálogo Salvar como tipo](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+
+Se você abrir o arquivo de texto no bloco de notas, ele será semelhante à seguinte figura:
+
+<br/>
+<center>
+
+![Captura de tela de um arquivo do bloco de notas que mostra um conjunto de um DataSet separado por tabulação](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Configurar o projeto
 
-Para criar o projeto, pode usar [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código da sua preferência. Na pasta do projeto, crie três arquivos: *Index. HTML*, *index.css*, e *Index*. Estes ficheiros definem o layout, o estilo e a lógica para a aplicação. Crie uma pasta denominada *dados* e adicione *ContosoCoffee.txt* para a pasta. Criar outra pasta com o nome *imagens*. Podemos utilizar imagens de dez neste aplicativo para marcadores no mapa, botões e ícones. Pode [baixar essas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto deverá agora ser semelhante a figura a seguir:
+Para criar o projeto, você pode usar o [Visual Studio](https://visualstudio.microsoft.com) ou o editor de código de sua escolha. Na pasta do projeto, crie três arquivos: *index. html*, *index. css*e *index. js*. Esses arquivos definem o layout, o estilo e a lógica para o aplicativo. Crie uma pasta denominada *dados* e adicione *ContosoCoffee. txt* à pasta. Crie outra pasta chamada *imagens*. Usamos dez imagens neste aplicativo para ícones, botões e marcadores no mapa. Você pode [baixar essas imagens](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). A pasta do projeto agora deve ser parecida com a seguinte figura:
 
 <br/>
 <center>
 
-![Captura de ecrã da pasta de projeto do localizador de Store simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+![Captura de tela da pasta do projeto do localizador de repositório simples](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Criar a interface do usuário
 
-Para criar a interface do usuário, adicione código ao *Index*:
+Para criar a interface do usuário, adicione o código a *index. html*:
 
-1. Adicione o seguinte `meta` com as etiquetas para o `head` dos *Index*. As etiquetas definem o conjunto de caracteres (UTF-8), informar ao Internet Explorer e o Microsoft Edge para utilizar as versões mais recentes do navegador e especificar uma janela viewport que funciona bem para layouts de capacidade de resposta.
+1. Adicione as seguintes `meta` marcas `head` ao de *index. html*. As marcas definem o conjunto de caracteres (UTF-8), informe ao Internet Explorer e ao Microsoft Edge para usar as versões mais recentes do navegador e especifique um visor que funcione bem para layouts responsivos.
 
     ```HTML
     <meta charset="utf-8">
@@ -129,27 +129,27 @@ Para criar a interface do usuário, adicione código ao *Index*:
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
-1. Adicione referências ao controle da web do Azure Maps JavaScript e arquivos CSS:
+1. Adicione referências aos arquivos JavaScript e CSS do controle da Web do Azure Maps:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
-1. Adicione uma referência para o módulo de serviços de mapas do Azure. O módulo é uma biblioteca de JavaScript que encapsula os serviços do Azure Maps REST e os torna fáceis de usar em JavaScript. O módulo é útil para capacitar a funcionalidade de pesquisa.
+1. Adicione uma referência ao módulo de serviços do Azure Maps. O módulo é uma biblioteca JavaScript que encapsula os serviços REST do Azure Maps e torna-os fáceis de usar em JavaScript. O módulo é útil para ligar a funcionalidade de pesquisa.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Adicionar referências aos *Index* e *index.css*:
+1. Adicione referências a *index. js* e *index. css*:
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
     <script src="index.js"></script>
     ```
 
-1. No corpo do documento, adicione um `header` marca. Dentro do `header` etiqueta, adicione o nome de logotipo e da empresa.
+1. No corpo do documento, adicione uma `header` marca. Dentro da `header` marca, adicione o logotipo e o nome da empresa.
 
     ```HTML
     <header>
@@ -158,7 +158,7 @@ Para criar a interface do usuário, adicione código ao *Index*:
     </header>
     ```
 
-1. Adicionar um `main` Etiquetar e criar um painel de pesquisa que tem um botão de pesquisa e a caixa de texto. Além disso, adicione `div` referências para o mapa, o painel de lista e o botão de minha localização GPS.
+1. Adicione uma `main` marca e crie um painel de pesquisa que tenha uma caixa de texto e um botão de pesquisa. Além disso, `div` adicione referências para o mapa, o painel de lista e o botão de GPS meu local.
 
     ```HTML
     <main>
@@ -174,9 +174,9 @@ Para criar a interface do usuário, adicione código ao *Index*:
     </main>
     ```
 
-Quando tiver terminado, *Index. HTML* deve ser semelhante à [este ficheiro Index. HTML de exemplo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+Quando tiver terminado, o *index. html* deverá ser semelhante [a este arquivo index. html de exemplo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
 
-A próxima etapa é definir os estilos CSS. Estilos CSS definem como são apresentados os componentes da aplicação e a aparência do aplicativo. Open *index.css* e adicione o seguinte código ao mesmo. O `@media` estilo define as opções de estilos alternativas para utilizar quando a largura da tela é menor do que 700 pixels.  
+A próxima etapa é definir os estilos de CSS. Os estilos CSS definem como os componentes do aplicativo são dispostos e a aparência do aplicativo. Abra *index. css* e adicione o código a seguir a ele. O `@media` estilo define as opções de estilo alternativo a serem usadas quando a largura da tela for menor que 700 pixels.  
 
    ```CSS
     html, body {
@@ -381,13 +381,13 @@ A próxima etapa é definir os estilos CSS. Estilos CSS definem como são aprese
     }
    ```
 
-Se executar o aplicativo agora, verá o cabeçalho, a caixa de pesquisa e o botão de pesquisa, mas o mapa não é visível porque ainda não foi carregada. Se tentar fazer uma pesquisa, nada acontece. É necessário configurar a lógica de JavaScript que é descrita na secção seguinte para aceder a todas as funcionalidades do localizador de arquivo.
+Se você executar o aplicativo agora, verá o cabeçalho, a caixa de pesquisa e o botão Pesquisar, mas o mapa não será visível porque ainda não foi carregado. Se você tentar fazer uma pesquisa, nada acontecerá. Precisamos configurar a lógica JavaScript descrita na próxima seção para acessar toda a funcionalidade do localizador de loja.
 
-## <a name="wire-the-application-with-javascript"></a>Durante a transmissão do aplicativo com JavaScript
+## <a name="wire-the-application-with-javascript"></a>Conectar o aplicativo ao JavaScript
 
-Neste momento, tudo está configurado na interface do usuário. Agora, precisamos de adicionar o JavaScript para carregar e analisar os dados e, em seguida, renderizar os dados no mapa. Para começar, abra *Index* e adicione o código, conforme descrito nos passos seguintes.
+Neste ponto, tudo está configurado na interface do usuário. Agora, precisamos adicionar o JavaScript para carregar e analisar os dados e, em seguida, renderizar os dados no mapa. Para começar, abra *index. js* e adicione código a ele, conforme descrito nas etapas a seguir.
 
-1. Adicione opções globais para facilitar as definições atualizar. Além disso, defina variáveis para o mapa, uma janela de pop-up, uma origem de dados, uma camada de ícone, um marcador HTML que exibe o Centro de uma área de pesquisa e uma instância do cliente do serviço de pesquisa de mapas do Azure.
+1. Adicione opções globais para facilitar a atualização das configurações. Além disso, defina variáveis para o mapa, uma janela pop-up, uma fonte de dados, uma camada de ícone, um marcador HTML que exibe o centro de uma área de pesquisa e uma instância do cliente do serviço de pesquisa do Azure Maps.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -401,14 +401,14 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Adicione código ao *Index*. O código a seguir inicializa o mapa, adiciona uma [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que aguarda a conclusão da página de carregamento, conecta eventos a monitorizar o carregamento do mapa e alimenta o botão de pesquisa e o botão de localização de My.
+1. Adicione código a *index. js*. O código a seguir inicializa o mapa, adiciona um ouvinte de [eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que aguarda até que a página termine de ser carregada, conecta eventos para monitorar o carregamento do mapa e ativa o botão de pesquisa e o botão meu local.
 
-   Quando o utilizador seleciona o botão de pesquisa, ou quando o usuário pressiona Enter depois de introduzir uma localização na caixa de pesquisa, pesquisas difusas em relação a consulta do utilizador é iniciada. Passar uma matriz de país ISO 2 valores para o `countrySet` opção para limitar os resultados da pesquisa para os países/regiões. Limitar os países/regiões para pesquisar ajuda a aumentar a precisão dos resultados retornados. 
+   Quando o usuário seleciona o botão de pesquisa ou quando o usuário pressiona ENTER depois de inserir um local na caixa de pesquisa, uma pesquisa difusa em relação à consulta do usuário é iniciada. Transmita uma matriz de valores de país ISO 2 para `countrySet` a opção de limitar os resultados da pesquisa a esses países/regiões. Limitar os países/regiões a serem pesquisados ajuda a aumentar a precisão dos resultados retornados. 
   
-   Quando a pesquisa estiver concluída, levar o primeiro resultado e defina a câmara de mapa através dessa área. Quando o utilizador seleciona o botão de localização My, utilize a API de localização geográfica do HTML5 que está incorporado no browser para obter a localização do utilizador e centrar o mapa ao longo da respetiva localização.  
+   Quando a pesquisa for concluída, pegue o primeiro resultado e defina a câmera do mapa nessa área. Quando o usuário seleciona o botão meu local, use a API de localização geográfica do HTML5 que está incorporada ao navegador para recuperar o local do usuário e centralizar o mapa em seu local.  
 
    > [!Tip]
-   > Quando usa janelas pop-up, é melhor criar um único `Popup` de instância e reutilizar a instância ao atualizar o seu conteúdo e a posição. Para cada `Popup`instância adicionar ao seu código, vários elementos de DOM são adicionados à página. São os mais elementos DOM numa página, quanto mais coisas que o navegador precisa controlar. Se existirem demasiados itens, o navegador pode tornar-se lento.
+   > Quando você usa janelas pop-up, é melhor criar uma única `Popup` instância e reutilizar a instância atualizando seu conteúdo e posição. Para cada `Popup`instância que você adiciona ao seu código, vários elementos DOM são adicionados à página. Quanto mais elementos DOM houver em uma página, mais coisas o navegador precisa acompanhar. Se houver muitos itens, o navegador poderá ficar lento.
 
     ```JavaScript
     function initialize() {
@@ -516,7 +516,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     window.onload = initialize;
     ```
 
-1. O mapa `ready` serviço de escuta de eventos, adicione um controle de zoom e um marcador HTML para exibir o Centro de uma área de pesquisa.
+1. No ouvinte de `ready` eventos do mapa, adicione um controle de zoom e um marcador HTML para exibir o centro de uma área de pesquisa.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     map.markers.add(centerMarker);
     ```
 
-1. O mapa `ready` serviço de escuta de eventos, adicionar uma origem de dados. Em seguida, fazer uma chamada para carregar e analisar o conjunto de dados. Ative o clustering na origem de dados. Clustering nos dados em grupos de origem a sobreposição de pontos em conjunto num cluster. Os clusters separados para os pontos individuais que o utilizador amplia. Isso torna um experiência de usuário mais fluido e melhora o desempenho.
+1. No ouvinte de `ready` eventos do mapa, adicione uma fonte de dados. Em seguida, faça uma chamada para carregar e analisar o conjunto de os. Habilite o clustering na fonte de dados. O clustering nos grupos de fontes de dados sobrepõem pontos juntos em um cluster. Os clusters são separados em pontos individuais à medida que o usuário se amplia. Isso torna uma experiência de usuário mais fluida e melhora o desempenho.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,9 +548,9 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     loadStoreData();
     ```
 
-1. Depois que carregar o conjunto de dados do mapa `ready` serviço de escuta de eventos, definir um conjunto de camadas para processar os dados. Uma camada de bolha é utilizada para processar os pontos de dados em cluster. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolhas. Uma segunda camada de símbolo compõe um ícone personalizado para locais individuais no mapa.
+1. Depois de carregar o conjunto de dados no ouvinte de eventos do `ready` mapa, defina um conjunto de camadas para renderizar o dado. Uma camada de bolha é usada para renderizar pontos de dados clusterizados. Uma camada de símbolo é usada para renderizar o número de pontos em cada cluster acima da camada de bolha. Uma segunda camada de símbolo renderiza um ícone personalizado para locais individuais no mapa.
 
-   Adicione `mouseover` e `mouseout` eventos para as camadas de bolhas e ícone para alterar o cursor do rato quando o utilizador passa através de um cluster ou o ícone no mapa. Adicionar um `click` eventos para a camada de bolhas do cluster. Isso `click` evento amplia o mapa em dois níveis e centros de mapa através de um cluster, quando o usuário seleciona qualquer cluster. Adicionar um `click` eventos para a camada de ícone. Isso `click` eventos exibe uma janela de pop-up que mostra os detalhes de um café, quando um usuário selecionar um ícone de localização individuais. Adicione um evento para o mapa para monitorizar quando o mapa de conclusão da mudança. Quando este evento é disparado, atualize os itens no painel de lista.  
+   Adicione `mouseover` e`mouseout` eventos às camadas de bolha e ícone para alterar o cursor do mouse quando o usuário focaliza um cluster ou ícone no mapa. Adicione um `click` evento à camada de bolha do cluster. Esse `click` evento amplia o mapa em dois níveis e centraliza o mapa em um cluster quando o usuário seleciona qualquer cluster. Adicione um `click` evento à camada de ícone. Esse `click` evento exibe uma janela pop-up que mostra os detalhes de uma cafeteria quando um usuário seleciona um ícone de local individual. Adicione um evento ao mapa a ser monitorado quando o mapa terminar de ser movido. Quando esse evento for acionado, atualize os itens no painel de lista.  
 
     ```JavaScript
     //Create a bubble layer to render clustered data points.
@@ -633,7 +633,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     });
     ```
 
-1. Quando o conjunto de dados de café é carregado, primeiro deve ser transferido. Em seguida, o arquivo de texto têm de ser dividido em linhas. A primeira linha contém as informações de cabeçalho. Para facilitar o código a seguir, vamos analisar o cabeçalho num objeto, o que podemos usar para pesquisar o índice de célula de cada propriedade. Após a primeira linha, percorrer as linhas restantes e criar um recurso de ponto. Adicione a funcionalidade de ponto para a origem de dados. Por fim, atualize o painel de lista.
+1. Quando o conjunto de uma loja de café é carregado, primeiro ele deve ser baixado. Em seguida, o arquivo de texto deve ser dividido em linhas. A primeira linha contém as informações de cabeçalho. Para facilitar o acompanhamento do código, analisamos o cabeçalho em um objeto, que podemos usar para pesquisar o índice de célula de cada propriedade. Após a primeira linha, execute o loop pelas linhas restantes e crie um recurso de ponto. Adicione o recurso de ponto à fonte de dados. Por fim, atualize o painel de lista.
 
     ```JavaScript
     function loadStoreData() {
@@ -692,7 +692,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     }
     ```
 
-1. Quando o painel de lista é atualizado, a distância do centro do mapa a todas as funcionalidades de ponto na vista atual do mapa é calculada. As funcionalidades, em seguida, são ordenadas por distância. HTML é gerado para exibir cada localização no painel de lista.
+1. Quando o painel de lista é atualizado, a distância do centro do mapa para todos os recursos de ponto no modo de exibição de mapa atual é calculada. Os recursos são então classificados por distância. O HTML é gerado para exibir cada local no painel de lista.
 
     ```JavaScript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
@@ -830,7 +830,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     }
     ```
 
-1. Quando o usuário seleciona um item no painel de lista, a forma para que o item está relacionado é obtida a partir da origem de dados. Uma janela de pop-up é gerada com base nas informações de propriedade armazenadas na forma. O mapa centra-se sobre a forma. Se o mapa for inferior a 700 pixels de largura, a vista do mapa é de deslocamento para a janela de pop-up está visível.
+1. Quando o usuário seleciona um item no painel de lista, a forma à qual o item está relacionado é recuperada da fonte de dados. Uma janela pop-up é gerada com base nas informações de propriedade armazenadas na forma. O mapa é centralizado na forma. Se o mapa tiver menos de 700 pixels de largura, a exibição do mapa será deslocada para que a janela pop-up fique visível.
 
     ```JavaScript
     //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window.
@@ -926,47 +926,47 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
     }
     ```
 
-Agora, tem um localizador de arquivo totalmente funcional. Num browser, abra a *Index* ficheiro para o localizador de arquivo. Quando os clusters são apresentados no mapa, pode procurar uma localização utilizando a caixa de pesquisa, ao selecionar o botão de localização My, ao selecionar um cluster ou quando der zoom no mapa para ver localizações individuais.
+Agora, você tem um localizador de repositório totalmente funcional. Em um navegador da Web, abra o arquivo *index. html* do localizador da loja. Quando os clusters aparecem no mapa, você pode pesquisar um local usando a caixa de pesquisa, selecionando o botão meu local, selecionando um cluster ou ampliando o mapa para ver locais individuais.
 
-Na primeira vez que um utilizador seleciona o botão de localização meu, o browser apresenta um aviso de segurança que solicita permissão para aceder à localização do utilizador. Se o utilizador aceitar partilhar a sua localização, o mapa amplia na localização do utilizador e cafés próximos são mostrados. 
-
-<br/>
-<center>
-
-![Captura de ecrã do browser do pedido para aceder a localização do utilizador](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
-
-Quando aplica zoom no fechar suficiente numa área que possui locais de café, os clusters de separam em locais individuais. Selecione um dos ícones no mapa ou um item no painel do lado para ver uma janela de pop-up que mostra as informações para esse local.
+Na primeira vez que um usuário seleciona o botão meu local, o navegador exibe um aviso de segurança que solicita permissão para acessar o local do usuário. Se o usuário concordar em compartilhar seu local, o mapa ampliará o local do usuário e as lanchonetes próximas serão mostradas. 
 
 <br/>
 <center>
 
-![Captura de ecrã do localizador de arquivo concluído](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+![Captura de tela da solicitação do navegador para acessar o local do usuário](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-Se redimensiona a janela do browser para menos de 700 pixels de largura ou abrir a aplicação num dispositivo móvel, as alterações de esquema a ser melhores adequam para ecrãs mais pequenos. 
+Ao ampliar o suficiente em uma área que tem locais de cafeterias, os clusters são separados em locais individuais. Selecione um dos ícones no mapa ou selecione um item no painel lateral para ver uma janela pop-up que mostra informações para esse local.
 
 <br/>
 <center>
 
-![Captura de ecrã da versão ecrã pequeno do localizador de arquivo](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+![Captura de tela do localizador de loja concluído](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+
+Se você redimensionar a janela do navegador para menos de 700 pixels de largura ou abrir o aplicativo em um dispositivo móvel, o layout será alterado para ser mais adequado para telas menores. 
+
+<br/>
+<center>
+
+![Captura de tela da versão do localizador da loja para pequenas telas](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, saiba como criar um localizador de arquivo básico com o Azure Maps. O localizador de loja que vai criar neste tutorial, pode ter toda a funcionalidade de que precisa. Pode adicionar funcionalidades à sua localização de arquivo ou utilizar mais funcionalidades avançadas para uma experiência de usuário mais personalizada: 
+Neste tutorial, você aprenderá a criar um localizador de armazenamento básico usando o Azure Maps. O localizador de repositório criado neste tutorial pode ter toda a funcionalidade necessária. Você pode adicionar recursos ao seu localizador de armazenamento ou usar recursos mais avançados para uma experiência de usuário personalizada: 
 
 > [!div class="checklist"]
-> * Ativar [sugestões enquanto digita](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) na caixa de pesquisa.  
+> * Habilite [sugestões conforme você digita](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) na caixa de pesquisa.  
 > * Adicione [suporte para vários idiomas](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-> * Permitir que o usuário [filtrar localizações ao longo de uma rota](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-> * Adicionar a capacidade de [defina filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-> * Adicione suporte para especificar um valor inicial de pesquisa através de uma cadeia de consulta. Ao incluir esta opção na sua localização de arquivo, os usuários podem marcar e compartilhar pesquisas. Ele também fornece um método fácil para passe pesquisas para esta página a partir de outra página.  
-> * Implementar o localizador de arquivo como um [aplicação de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-> * Store seus dados numa base de dados e procure locais próximos. Para obter mais informações, consulte a [descrição geral de tipos de dados geográficos do SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [consultar dados geográficos para o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Permitir que o usuário [filtre os locais ao longo de uma rota](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Adicione a capacidade de [definir filtros](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+> * Adicione suporte para especificar um valor de pesquisa inicial usando uma cadeia de caracteres de consulta. Quando você inclui essa opção em seu localizador de armazenamento, os usuários podem marcar e compartilhar pesquisas. Ele também fornece um método fácil para você passar pesquisas para esta página de outra página.  
+> * Implante o localizador de repositório como um [aplicativo Web de serviço Azure app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Armazene seus dados em um banco de dado e pesquise locais próximos. Para saber mais, confira a [visão geral dos tipos de dados espaciais SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [dados espaciais de consulta para o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 > [!div class="nextstepaction"]
-> [Ver código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+> [Exibir código-fonte completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
 
 > [!div class="nextstepaction"]
-> [Ver exemplo em direto](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
+> [Exibir exemplo ao vivo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 
@@ -979,4 +979,4 @@ Para ver mais exemplos de código e uma experiência interativa de programação
 > [How to use the map control](how-to-use-map-control.md) (Como utilizar o controlo de mapa)
 
 > [!div class="nextstepaction"]
-> [Utilizar expressões de estilo condicionada por dados](data-driven-style-expressions-web-sdk.md)
+> [Usar expressões de estilo controladas por dados](data-driven-style-expressions-web-sdk.md)

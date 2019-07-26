@@ -1,7 +1,6 @@
 ---
 title: O que pode Servidor de Backup do Azure fazer backup
 description: Este artigo fornece uma matriz de suporte que lista todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
-services: backup
 author: rayne-wiselman
 ms.service: backup
 keywords: ''
@@ -9,12 +8,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: ad6d1b067e396b8f46578484d3c960372e51176c
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2e8004b07542efed3ddc2b5a390cfb12fd48cc1b
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234767"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465063"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
 

@@ -1,6 +1,6 @@
 ---
-title: Definir informações de segurança (pré-visualização) para utilizar as perguntas de segurança - Azure Active Directory | Documentos da Microsoft
-description: Como configurar as suas informações de segurança para verificar a sua identidade com definido previamente perguntas de segurança.
+title: Configurar informações de segurança (versão prévia) para usar suas perguntas de segurança-Azure Active Directory | Microsoft Docs
+description: Como configurar suas informações de segurança para verificar sua identidade usando perguntas de segurança predefinidas.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,82 +12,88 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1c375b64d93662ec50923078549c4f2153fba0a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474642"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382822"
 ---
-# <a name="set-up-security-info-preview-to-use-security-questions"></a>Definir informações de segurança (pré-visualização) para utilizar perguntas de segurança
-Pode seguir estes passos para adicionar o que método de repor a palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
+# <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurar informações de segurança (versão prévia) para usar perguntas de segurança
 
-Depois de configurar o método de repor a sua palavra-passe, tem também de configurar o método de verificação de dois fatores, usando uma [aplicação de autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md), ou uma [chamada telefónica](security-info-setup-phone-number.md).
+Você pode seguir estas etapas para adicionar o método de redefinição de senha. Depois de configurar isso na primeira vez, você pode retornar à página informações de **segurança** para adicionar, atualizar ou excluir suas informações de segurança.
+
+Depois de configurar o método de redefinição de senha, você também deve configurar o método de verificação de dois fatores, usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md)ou uma [chamada telefônica](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurar as perguntas de segurança a partir da página de informações de segurança
-Dependendo das definições da sua organização, poderá escolher e responder a algumas perguntas de segurança como um dos métodos de informações de segurança. O administrador configura o número de perguntas de segurança que tem de escolher e a responder.
+## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurar suas perguntas de segurança na página de informações de segurança
 
-Se utilizar perguntas de segurança, recomendamos que utilize-os em conjunto com outro método. Perguntas de segurança podem ser menos seguras do que outros métodos, porque algumas pessoas podem saber as respostas para suas perguntas.
+Dependendo das configurações da sua organização, você poderá escolher e responder algumas perguntas de segurança como um dos seus métodos de informações de segurança. O administrador configura o número de perguntas de segurança que você precisa escolher e responder.
+
+Se você usar perguntas de segurança, é recomendável usá-las em conjunto com outro método. As perguntas de segurança podem ser menos seguras do que outros métodos, pois algumas pessoas podem saber as respostas para suas perguntas.
 
 > [!Note]
-> Perguntas de segurança são armazenadas em privado e segura num objeto de utilizador no diretório e apenas podem ser respondidas por si durante o registo. Não é possível para o administrador para ler ou modificar as suas perguntas ou respostas.
-> 
-> Se não vir a opção de perguntas de segurança, é possível que a sua organização não permite-lhe utilizar perguntas de segurança para a verificação. Se for este o caso, terá de escolher outro método ou contacte o administrador para obter mais ajuda.
-> 
-> As contas de administrador não têm permissão para utilizar perguntas de segurança como método de reposição de uma palavra-passe. Se estiver conectado como uma conta de nível de administrador que não verá estas opções.
+> As perguntas de segurança são armazenadas de forma privada e segura em um objeto de usuário no diretório e só podem ser respondidas por você durante o registro. Não há como seu administrador ler ou modificar suas perguntas ou respostas.
+>
+> Se você não vir a opção de perguntas de segurança, é possível que sua organização não permita que você use perguntas de segurança para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
+>
+> As contas de administrador não têm permissão para usar perguntas de segurança como um método de redefinição de senha. Se você estiver conectado como uma conta de nível de administrador, essas opções não serão exibidas.
 
-### <a name="to-set-up-your-security-questions"></a>Para configurar as perguntas de segurança
+### <a name="to-set-up-your-security-questions"></a>Para configurar suas perguntas de segurança
 
-1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
 
-    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou no link no bloco **informações de segurança** e, em seguida, selecione **Adicionar método** na página **informações de segurança** .
 
-    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Sobre o **adicione um método** página, selecione **perguntas de segurança** na lista pendente e, em seguida, selecione **Add**.
+3. Na página **Adicionar um método** , selecione **perguntas de segurança** na lista suspensa e, em seguida, selecione **Adicionar**.
 
-    ![Adicionar a caixa de método, com perguntas de segurança selecionadas](media/security-info/securityinfo-myprofile-addquestions.png)
+    ![Caixa Adicionar método, com perguntas de segurança selecionadas](media/security-info/securityinfo-myprofile-addquestions.png)
 
-4. Sobre o **perguntas de segurança** página, escolha e responder a perguntas de segurança e, em seguida, selecione **guardar**.
+4. Na página **perguntas de segurança** , escolha e responda às suas perguntas de segurança e, em seguida, selecione **salvar**.
 
-    ![Adicione o número de telefone e escolha chamadas telefónicas](media/security-info/securityinfo-myprofile-securityquestions.png)
+    ![Adicionar número de telefone e escolher chamadas telefônicas](media/security-info/securityinfo-myprofile-securityquestions.png)
 
-    As informações de segurança é atualizada e pode utilizar as perguntas de segurança para verificar a sua identidade quando utilizar a reposição de palavra-passe.
+    Suas informações de segurança são atualizadas e você pode usar suas perguntas de segurança para verificar sua identidade ao usar a redefinição de senha.
 
-## <a name="delete-security-questions-from-your-security-info-methods"></a>Eliminar perguntas de segurança de seus métodos de informações de segurança
-Se já não pretender utilizar as perguntas de segurança como um método de informações de segurança, pode removê-los a partir da **informações de segurança** página.
+## <a name="delete-security-questions-from-your-security-info-methods"></a>Excluir perguntas de segurança de seus métodos de informações de segurança
+
+Se você não quiser mais usar suas perguntas de segurança como um método de informações de segurança, poderá removê-las da página de **informações de segurança** .
 
 >[!Important]
->Se eliminar as perguntas de segurança por engano, não é possível-lo. Terá que adicionar o método novamente, seguindo os passos a [configurar as perguntas de segurança](#set-up-your-security-questions-from-the-security-info-page) seção deste artigo.
+>Se você excluir suas perguntas de segurança por engano, não há como desfazê-las. Você precisará adicionar o método novamente, seguindo as etapas na seção [configurar suas perguntas de segurança](#set-up-your-security-questions-from-the-security-info-page) deste artigo.
 
-### <a name="to-delete-your-security-questions"></a>Para eliminar as perguntas de segurança
+### <a name="to-delete-your-security-questions"></a>Para excluir suas perguntas de segurança
 
-1. Sobre o **informações de segurança** página, selecione a **eliminar** ligação junto ao **perguntas de segurança** opção.
+1. Na página **informações de segurança** , selecione o link **excluir** ao lado da opção **perguntas de segurança** .
 
-    ![Ligação para eliminar o método de telefone de informações de segurança](media/security-info/securityinfo-myprofile-questionsdelete.png)
+    ![Link para excluir o método de telefone das informações de segurança](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
-2. Selecione **Sim** na caixa de confirmação ao eliminar a sua **perguntas de segurança**. Depois das perguntas de segurança são eliminadas, o método é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página.
+2. Selecione **Sim** na caixa de confirmação para excluir suas **perguntas de segurança**. Depois que suas perguntas de segurança são excluídas, o método é removido de suas informações de segurança e desaparece da página **informações de segurança** .
 
-## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
-Tem opções adicionais para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:
+## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 
-- **Aplicação de autenticador.** Transferir e utilizar uma aplicação de autenticação para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md).
+Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
-- **Texto de dispositivos móveis.** Introduza o seu número de dispositivos móveis e obtenha um código que irá utilizar para verificação de dois passos ou palavra-passe de uma mensagem de reposição. Para obter instruções passo a passo sobre como verificar a sua identidade com uma mensagem de texto (SMS), consulte [definir informações de segurança para utilizar mensagens de texto (SMS)](security-info-setup-text-msg.md).
+- **Aplicativo autenticador.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
 
-- **Dispositivo móvel ou de trabalho de chamadas telefónicas.** Introduza o seu número de dispositivos móveis e obtenha uma chamada telefónica para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [definir informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md).
+- **Texto do dispositivo móvel.** Insira o número do seu dispositivo móvel e obtenha um texto de um código que você usará para a verificação em duas etapas ou a redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma mensagem de texto (SMS), consulte [configurar informações de segurança para usar mensagens de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Endereço de e-mail.** Introduza o seu e-mail profissional ou escolar para receber um e-mail para a reposição de palavra-passe. Esta opção não está disponível para verificação de dois passos. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [definir informações de segurança para utilizar o e-mail](security-info-setup-email.md).
-   
+- **Chamada telefônica de dispositivo ou trabalho móvel.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
+
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+
+- **Endereço de email.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções detalhadas sobre como configurar seu email, consulte [configurar informações de segurança para usar email](security-info-setup-email.md).
+
     >[!Note]
-    >Se algumas dessas opções estão em falta, é mais provável porque a sua organização não permite que esses métodos. Se for este o caso, terá de escolher um método disponível ou contacte o administrador para obter mais ajuda.
+    >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Repor a palavra-passe, se tiver perdido ou esquecidas, do [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/) ou siga os passos a [repor a palavra-passe profissional ou escolar](user-help-reset-password.md) artigo.
+- Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
 
-- Obter solução de problemas dicas e ajuda para problemas de início de sessão no [não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.
+- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

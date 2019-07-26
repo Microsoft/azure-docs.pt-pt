@@ -3,23 +3,19 @@ title: Introdução ao Cloud Services do Azure e ao ASP.NET | Microsoft Docs
 description: Saiba como criar uma aplicação de várias camadas com o MVC do ASP.NET e o Azure. A aplicação é executada num serviço em nuvem, com a função da Web e a função de trabalho. Utiliza as filas e os blobs do Entity Framework, da SQL Database e do Storage do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595180"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359206"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
@@ -35,8 +31,8 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 
 A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
-## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de aplicações e WebJobs
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [App Service do Azure](/azure/app-service/) e utilizar os [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) funcionalidade para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de aplicativo e trabalhos Web
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [serviço Azure app](/azure/app-service/) e usar o recurso [webjobs](https://go.microsoft.com/fwlink/?LinkId=390226) para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adaptam ao seu cenário, consulte [comparação de serviço Azure app, serviços de nuvem e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -358,7 +354,7 @@ Após criar a solução, deverá consultar o código que é exclusivo para os pr
 
 ### <a name="set-project-references"></a>Definir referências do projeto
 1. No projeto ContosoAdsWeb, defina uma referência para o projeto ContosoAdsCommon. Clique com o botão direito do rato no projeto ContosoAdsWeb e, em seguida, em **Referências** - **Adicionar Referências**. Na caixa de diálogo **Gestor de Referências**, selecione **Solução – Projetos** no painel esquerdo, selecione **ContosoAdsCommon** e clique em **OK**.
-2. No projeto ContosoAdsWorker, defina uma referência ao projeto ContosoAdsCommon.
+2. No projeto ContosoAdsWorker, defina uma referência para o projeto ContosoAdsCommon.
 
     O ContosoAdsCommon conterá o modelo de dados e a classe de contexto do Entity Framework, que serão utilizados no front-end e back-end.
 3. No projeto ContosoAdsWorker, defina uma referência para `System.Drawing`.
@@ -381,7 +377,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 3. No projeto ContosoAdsCloudService, clique com o botão direito do rato em ContosoAdsWeb em **Funções** e, em seguida, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Na **ContosoAdsWeb [função]** janela Propriedades, clique no **definições** separador e, em seguida, clique em **Adicionar definição**.
+4. Na janela Propriedades de **ContosoAdsWeb [função]** , clique na guia **configurações** e, em seguida, clique em **Adicionar configuração**.
 
     Deixe **Configuração do Serviço** definida para **Todas as Configurações**.
 5. Adicione uma definição denominada *StorageConnectionString*. Defina o **Tipo** para *ConnectionString* e o **Valor** para *UseDevelopmentStorage = true*.
@@ -392,8 +388,8 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 8. Ainda na janela de propriedades **ContosoAdsWorker [Função]** , adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
-   * Escreva: String
-   * Valor: Cole a mesma cadeia de ligação utilizada para o projeto de função da web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
+   * Escreva: Cadeia
+   * Valor: Cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
 
        ```
        Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
@@ -408,9 +404,9 @@ Para adicionar ficheiros a um projeto ou a uma pasta, clique com o botão direit
 2. No projeto ContosoAdsWeb, adicione os seguintes ficheiros do projeto transferido.
 
    * *Global.asax.cs*.  
-   * Na *Views\Shared* pasta: *\_Layout.cshtml*.
-   * Na *vistas \ início* pasta: *Index. cshtml*.
-   * Na *controladores* pasta: *AdController.cs*.
+   * Na pasta *Views\Shared* : Layout. cshtml.  *\_*
+   * Na pasta *views\home* : *Index. cshtml*.
+   * Na pasta *controladores* : *AdController.cs*.
    * Na pasta *Vistas\Anúncio* (crie a pasta primeiro): cinco ficheiros *.cshtml*.
 3. No projeto ContosoAdsWorker, adicione *WorkerRole.cs* do projeto transferido.
 
@@ -776,7 +772,7 @@ Para obter uma introdução em vídeo aos padrões e melhores práticas do Stora
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Parte de serviços Cloud do Azure 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Serviços de nuvem do Azure parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

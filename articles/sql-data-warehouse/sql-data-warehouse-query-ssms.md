@@ -1,8 +1,8 @@
 ---
-title: Ligar ao armazém de dados SQL do Azure - SSMS | Documentos da Microsoft
-description: Utilize o SQL Server Management Studio (SSMS) para ligar e consultar o Azure SQL Data Warehouse.
+title: Conectar-se ao Azure SQL Data Warehouse-SSMS | Microsoft Docs
+description: Use o SQL Server Management Studio (SSMS) para se conectar e consultar o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,14 +10,14 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 64ea7c175b733f974eba6c081ee2c98814cbcda2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67707b64bb6018b322ba980535651c126a526eb7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873711"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479539"
 ---
-# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Ligar ao SQL Data Warehouse com o SQL Server Management Studio (SSMS)
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Conectar-se a SQL Data Warehouse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -27,18 +27,18 @@ ms.locfileid: "65873711"
 > 
 > 
 
-Utilize o SQL Server Management Studio (SSMS) para ligar e consultar o Azure SQL Data Warehouse. 
+Use o SQL Server Management Studio (SSMS) para se conectar e consultar o SQL Data Warehouse do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar este tutorial, precisa do seguinte:
 
-* Um SQL Data Warehouse existente. Para criar um, veja [Create a SQL Data Warehouse][Create a SQL Data Warehouse] (Criar um armazém do SQL Data Warehouse).
-* SQL Server Management Studio (SSMS) instalado. [Instalar o SSMS] [ Install SSMS] gratuitamente se não o tiver.
+* Um SQL Data Warehouse existente. Para criar um, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].
+* SQL Server Management Studio (SSMS) instalado. [Instale o SSMS][Install SSMS] gratuitamente se você ainda não o tiver.
 * O nome de servidor SQL completamente qualificado. Para o descobrir, veja [Ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Ligar ao seu SQL Data Warehouse
 1. Abra o SQL Server Management Studio.
-2. Abra o Explorador de objetos. Para tal, selecione **arquivo** > **ligar Object Explorer**.
+2. Abra o pesquisador de objetos. Para fazer isso, selecione **arquivo** > conectar pesquisador de**objetos**.
    
     ![SQL Server Object Explorer][1]
 3. Preencha os campos na janela Ligar ao Servidor.
@@ -65,7 +65,7 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta. Para tal, clique em `Execute` ou utilize o atalho seguinte: `F5`.
+4. Execute a consulta. Para fazer isso, clique `Execute` ou use o seguinte atalho: `F5`.
    
     ![Executar consulta][5]
 5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
@@ -73,9 +73,9 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
     ![Resultados da consulta][6]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que pode ligar e fazer consultas, experimente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
+Agora que pode ligar e efetuar consultas, experimente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
 
-Para configurar o seu ambiente para a autenticação do Azure Active Directory, veja [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse] (Autenticação no SQL Data Warehouse).
+Para configurar o ambiente para a autenticação do Azure Active Directory, veja [Authenticate to SQL Data Warehouse (Autenticação no SQL Data Warehouse)][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

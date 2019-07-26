@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas de degradação de estado no Gestor de tráfego do Azure
-description: Como resolver problemas de perfis do Gestor de tráfego quando ele mostra como degradado estado.
+title: Solucionando problemas de status degradado no Gerenciador de tráfego do Azure
+description: Como solucionar problemas de perfis do Gerenciador de tráfego quando ele aparece como status degradado.
 services: traffic-manager
 documentationcenter: ''
 author: chadmath
@@ -11,43 +11,43 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19a654215377ba0fac7dacf800bf87a3481679c0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60329756"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357218"
 ---
-# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Resolução de problemas do Estado no Gestor de tráfego do Azure degradado
+# <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solucionando problemas de estado degradado no Gerenciador de tráfego do Azure
 
-Este artigo descreve como resolver problemas de um perfil do Gestor de tráfego do Azure que está a mostrar o estado degradado. Para este cenário, considere que tiver configurado um perfil do Gestor de tráfego que aponta para alguns dos seus serviços cloudapp.net alojada. Se o estado de funcionamento do Gestor de tráfego apresenta um **Degraded** Estado, em seguida, o estado de um ou mais pontos de extremidade pode ser **Degraded**:
+Este artigo descreve como solucionar problemas de um perfil do Gerenciador de tráfego do Azure que está mostrando um status degradado. Como uma primeira etapa na solução de problemas de um estado degradado do Gerenciador de tráfego do Azure é habilitar o log de diagnóstico.  Consulte [Habilitar logs de diagnóstico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) para obter mais informações. Para este cenário, considere que você configurou um perfil do Gerenciador de tráfego apontando para alguns dos seus serviços hospedados do cloudapp.net. Se a integridade do seu Gerenciador de tráfego exibir  um status degradado, o status de um ou mais pontos de extremidade poderá ser **degradado**:
 
-![Estado do ponto final degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
+![status de ponto de extremidade degradado](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
-Se o estado de funcionamento do Gestor de tráfego apresenta uma **Inactive** Estado, em seguida, os dois pontos de extremidade pode ser **desativado**:
+Se a integridade do seu Gerenciador de tráfego exibir  um status inativo, ambos os pontos de extremidade poderão ser **desabilitados**:
 
-![Estado inativo do Gestor de tráfego](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
+![Status do Gerenciador de tráfego inativo](./media/traffic-manager-troubleshooting-degraded/traffic-manager-inactive.png)
 
-## <a name="understanding-traffic-manager-probes"></a>Sondas de noções básicas sobre o Gestor de tráfego
+## <a name="understanding-traffic-manager-probes"></a>Entendendo as investigações do Gerenciador de tráfego
 
-* O Gestor de tráfego considera um ponto final para estar ONLINE, apenas quando a sonda recebe uma resposta HTTP 200 volta do caminho de sonda. Qualquer resposta outra que não 200 é uma falha.
-* Um redirecionamento de 30 x falha, mesmo se o URL redirecionado retorna um 200.
-* Para sondas de HTTPs, erros de certificado são ignorados.
-* O conteúdo real do caminho da sonda não importa, enquanto um 200 é retornado. Pesquisa um URL para algum conteúdo estático, como "/ favicon.ico" é uma técnica comum. Conteúdo dinâmico, como as páginas ASP, pode não sempre retornar 200, mesmo quando a aplicação está em bom estada.
-* Uma melhor prática é definir o caminho de sonda para algo que tem suficiente lógica para determinar se o site é ou reduzir verticalmente. No exemplo anterior, definindo o caminho como "/ favicon.ico", são apenas testes que w3wp.exe está a responder. Esta pesquisa não pode indicar que a sua aplicação web está em bom estada. Uma opção melhor seria definir um caminho como uma algo como "/ Probe.aspx" que tem lógica para determinar o estado de funcionamento do site. Por exemplo, pode utilizar contadores de desempenho para a utilização da CPU ou medir o número de pedidos falhados. Ou poderia tentar aceder a recursos de base de dados ou estado da sessão para se certificar de que a aplicação web está a funcionar.
-* Se todos os pontos finais num perfil estão degradados, em seguida, o Gestor de tráfego trata todos os pontos de extremidade como bom estado de funcionamento e encaminha o tráfego para todos os pontos finais. Esse comportamento garante que os problemas com o mecanismo de pesquisa não resultar numa falha completa do seu serviço.
+* O Gerenciador de tráfego considera um ponto de extremidade como ONLINE somente quando a investigação recebe uma resposta HTTP 200 do caminho de investigação. Qualquer outra resposta diferente de 200 é uma falha.
+* Um redirecionamento de 30 vezes falha, mesmo que a URL redirecionada retorne um 200.
+* Para investigações HTTPs, os erros de certificado são ignorados.
+* O conteúdo real do caminho de investigação não importa, desde que um 200 seja retornado. Investigar uma URL para algum conteúdo estático como "/favicon.ico" é uma técnica comum. O conteúdo dinâmico, como as páginas ASP, nem sempre pode retornar 200, mesmo quando o aplicativo está íntegro.
+* Uma prática recomendada é definir o caminho de investigação para algo que tenha lógica suficiente para determinar se o site está ativo ou inativo. No exemplo anterior, ao definir o caminho para "/favicon.ico", você está testando apenas que w3wp. exe está respondendo. Essa investigação não pode indicar que seu aplicativo Web está íntegro. Uma opção melhor seria definir um caminho para algo como "/Probe.aspx" que tem lógica para determinar a integridade do site. Por exemplo, você pode usar contadores de desempenho para utilização da CPU ou medir o número de solicitações com falha. Ou você pode tentar acessar os recursos do banco de dados ou o estado da sessão para certificar-se de que o aplicativo Web está funcionando.
+* Se todos os pontos de extremidade em um perfil estiverem degradados, o Gerenciador de tráfego tratará todos os pontos de extremidade como íntegros e roteará o tráfego para todos os pontos de extremidade. Esse comportamento garante que os problemas com o mecanismo de investigação não resultem em uma interrupção completa do seu serviço.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Para resolver uma falha de pesquisa, precisa de uma ferramenta que mostra o código de estado HTTP devolvido do URL da sonda. Existem muitas ferramentas disponíveis que lhe mostram a resposta HTTP não processada.
+Para solucionar uma falha de investigação, você precisa de uma ferramenta que mostra o retorno do código de status HTTP da URL de investigação. Há muitas ferramentas disponíveis que mostram a resposta HTTP bruta.
 
 * [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
-Além disso, pode utilizar o separador rede as ferramentas de depuração de F12 no Internet Explorer para ver as respostas HTTP.
+Além disso, você pode usar a guia rede das ferramentas de depuração F12 no Internet Explorer para exibir as respostas HTTP.
 
-Neste exemplo, queremos ver a resposta do nosso URL de sonda: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo de PowerShell seguinte ilustra o problema.
+Para este exemplo, queremos ver a resposta de nossa URL de investigação: http:\//watestsdp2008r2.cloudapp.net:80/Probe. O exemplo do PowerShell a seguir ilustra o problema.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -59,9 +59,9 @@ Exemplo de saída:
     ---------- -----------------
            301 Moved Permanently
 
-Tenha em atenção que recebemos uma resposta de redirecionamento. Conforme indicado anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. O Gestor de tráfego altera o estado de ponto final para Offline. Para resolver o problema, verifique a configuração do Web site para se certificar de que o StatusCode adequado pode ser retornado do caminho de sonda. Reconfigure a sonda de Gestor de tráfego para apontar para um caminho que retorna um 200.
+Observe que recebemos uma resposta de redirecionamento. Como mencionado anteriormente, qualquer StatusCode diferente de 200 é considerado uma falha. O Gerenciador de tráfego altera o status do ponto de extremidade para offline. Para resolver o problema, verifique a configuração do site para garantir que o StatusCode apropriado possa ser retornado do caminho de investigação. Reconfigure a investigação do Traffic Manager para apontar para um caminho que retorna um 200.
 
-Se a sua pesquisa está a utilizar o protocolo HTTPS, terá de desativar a verificação para evitar erros SSL/TLS durante o teste de certificado. As seguintes declarações de PowerShell desativar a validação de certificado para a sessão atual do PowerShell:
+Se sua investigação estiver usando o protocolo HTTPS, talvez seja necessário desabilitar a verificação de certificado para evitar erros de SSL/TLS durante o teste. As instruções do PowerShell a seguir desabilitam a validação de certificado para a sessão atual do PowerShell:
 
 ```powershell
 add-type @"
@@ -80,9 +80,9 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[Sobre métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md)
+[Sobre métodos de roteamento de tráfego do Traffic Manager](traffic-manager-routing-methods.md)
 
-[O que é o Gestor de tráfego](traffic-manager-overview.md)
+[O que é o Gerenciador de tráfego](traffic-manager-overview.md)
 
 [Serviços Cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -90,6 +90,6 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets do Gestor de tráfego do Azure][1]
+[Cmdlets do Gerenciador de tráfego do Azure][1]
 
 [1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

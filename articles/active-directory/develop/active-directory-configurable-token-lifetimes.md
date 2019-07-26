@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9776126687832485bf329061dfeedce928918d9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 901cf3e25ed63421f7e07d7773b6381fc54ea8a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321147"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489119"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
@@ -40,6 +40,7 @@ Você pode designar uma política como a política padrão para sua organizaçã
 > Não há suporte para a política de tempo de vida de token configurável para o SharePoint Online.  Embora você tenha a capacidade de criar essa política por meio do PowerShell, o SharePoint Online não reconhecerá essa política. Consulte o [blog do SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) para saber mais sobre como configurar tempos limite de sessão ociosa.
 >* O tempo de vida padrão para o token de acesso do SharePoint Online é de 1 hora. 
 >* O tempo máximo inativo padrão do token de atualização do SharePoint Online é de 90 dias.
+
 
 ## <a name="token-types"></a>Tipos de token
 
@@ -80,7 +81,7 @@ Uma política de tempo de vida de token é um tipo de objeto de política que co
 ### <a name="configurable-token-lifetime-properties"></a>Propriedades de tempo de vida de token configuráveis
 | Propriedade | Cadeia de caracteres da propriedade de política | Prejudica | Predefinição | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
-| Tempo de vida do token de acesso |AccessTokenLifetime |Tokens de acesso, tokens de ID, tokens de SAML2 |1 hora |10 minutos |1 dia |
+| Tempo de vida do token de acesso |AccessTokenLifetime<sup>4</sup> |Tokens de acesso, tokens de ID, tokens de SAML2 |1 hora |10 minutos |1 dia |
 | Tempo máximo inativo de token de atualização |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
 | Idade máxima de token de atualização de fator único |MaxAgeSingleFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
 | Idade máxima de token de atualização multifator |MaxAgeMultiFactor |Tokens de atualização (para qualquer usuário) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
@@ -88,6 +89,7 @@ Uma política de tempo de vida de token é um tipo de objeto de política que co
 | Idade máxima de token de sessão multifator |MaxAgeSessionMultiFactor<sup>3</sup> |Tokens de sessão (persistentes e não persistentes) |Until-revogado |10 minutos |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 dias é o comprimento máximo explícito que pode ser definido para esses atributos.
+* <sup>4</sup> Para que o cliente Web do Microsoft Teams funcione, é recomendável definir AccessTokenLifetime para mais de 15 minutos para as equipes da Microsoft.
 
 ### <a name="exceptions"></a>Exceções
 | Propriedade | Prejudica | Predefinição |
@@ -492,7 +494,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Políticas de entidade de serviço
+### <a name="service-principal-policies"></a>Políticas de principal de serviço
 Você pode usar os cmdlets a seguir para as políticas de entidade de serviço.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy

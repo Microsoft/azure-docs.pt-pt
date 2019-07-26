@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/22/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7fd6128b9ac5a7a962d3dd6077ff88e23a83538a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 49f3f608ff34847905b219047af843db00da78c4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384627"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68480053"
 ---
 ::: zone target="docs"
 
@@ -307,7 +307,9 @@ Para obter mais informações sobre como configurar e desbloquear os discos, ace
 
 ::: zone-end
 
-## <a name="next-steps"></a>Passos Seguintes
+::: zone target="docs"
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box Disk, como:
 
@@ -322,4 +324,6 @@ Avance para o próximo tutorial para saber como copiar dados no Disco do Data Bo
 
 > [!div class="nextstepaction"]
 > [Copiar dados no Disco do Data Box](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 

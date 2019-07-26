@@ -1,29 +1,28 @@
 ---
-title: 'Cópia de segurança do Azure: Gerir tarefas de cópia de segurança com a REST API'
-description: gerir cópias de segurança e restaurar trabalhos de Backup do Azure com a REST API
-services: backup
+title: 'Backup do Azure: Gerenciar trabalhos de backup usando a API REST'
+description: gerenciar trabalhos de backup e restauração do backup do Azure usando a API REST
 author: pvrk
 manager: shivamg
-keywords: API DE REST; Cópia de segurança VM do Azure; Restauro de VMS do Azure;
+keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d497fc714e0ad5f61873d4c1f95ab35837532646
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646627"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466765"
 ---
-# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Controlar as tarefas de cópia de segurança e restauro com a REST API
+# <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhar trabalhos de backup e restauração usando a API REST
 
-O serviço de cópia de segurança do Azure aciona tarefas que são executadas em segundo plano em vários cenários, como acionar a cópia de segurança, restaurar as operações, desativar a cópia de segurança. Estas tarefas podem ser controladas com suas IDs.
+O serviço de backup do Azure dispara trabalhos que são executados em segundo plano em vários cenários, como o disparo de backup, operações de restauração, desabilitando o backup. Esses trabalhos podem ser rastreados usando suas IDs.
 
-## <a name="fetch-job-information-from-operations"></a>Obter informações da tarefa de operações
+## <a name="fetch-job-information-from-operations"></a>Buscar informações de trabalho de operações
 
-Uma operação como acionar a cópia de segurança devolverá sempre uma jobID. Para, por exemplo: A resposta final de um [acionar a operação de REST API de cópia de segurança](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é o seguinte:
+Uma operação, como disparar o backup, sempre retornará um jobID. Por exemplo: A resposta final de uma [operação de API REST de backup de gatilho](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
 
 ```http
 {
@@ -39,25 +38,25 @@ Uma operação como acionar a cópia de segurança devolverá sempre uma jobID. 
 }
 ```
 
-A tarefa de cópia de segurança de VM do Azure é identificada pelo campo "jobId" e podem ser controlada, como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando uma simples *obter* pedido.
+O trabalho de backup da VM do Azure é identificado pelo campo "jobId" e pode ser acompanhado como mencionado [aqui](https://docs.microsoft.com/rest/api/backup/jobdetails/) usando uma solicitação *Get* simples.
 
-## <a name="tracking-the-job"></a>A tarefa de controlo
+## <a name="tracking-the-job"></a>Acompanhando o trabalho
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
 ```
 
-O `{jobName}` "jobId" é mencionado acima. A resposta é sempre 200 OK com o campo de "status" indicando o estado atual da tarefa. Assim que é "Concluído" ou "CompletedWithWarnings", a seção 'extendedInfo' revela mais detalhes sobre a tarefa.
+O `{jobName}` é "JobID" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Depois de ser "concluído" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
 
 ### <a name="response"></a>Resposta
 
-|Name  |Tipo  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 
 #### <a name="example-response"></a>Resposta de exemplo
 
-Uma vez a *obter* URI é submetido, é devolvida uma resposta 200 (OK).
+Depois que o URI de *obtenção* é enviado, uma resposta de 200 (OK) é retornada.
 
 ```http
 HTTP/1.1 200 OK

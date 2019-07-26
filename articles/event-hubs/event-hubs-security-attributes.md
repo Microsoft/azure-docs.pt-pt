@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança para os Hubs de eventos do Azure
-description: Uma lista de verificação de atributos comuns de segurança para avaliar os Hubs de eventos do Azure
+title: Atributos de segurança para hubs de eventos do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar os hubs de eventos do Azure
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,61 +9,61 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2262609de774eb2b1334215bf46968b5554ed691
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247203"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442459"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Atributos comuns de segurança para os Hubs de eventos do Azure
+# <a name="security-attributes-for-azure-event-hubs"></a>Atributos de segurança para hubs de eventos do Azure
 
-Este artigo documenta os atributos comuns de segurança incorporados ao Event Hubs do Azure.
+Este artigo documenta os atributos de segurança internos nos hubs de eventos do Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>|  Sim | |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não |  |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
-| Chamadas de API encriptadas| Sim |  |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)|  Sim | |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
+| Chamadas de API criptografadas| Sim |  |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Sim |  |
-| suporte de injeção de vNET| Não | |
-| Isolamento de rede e o suporte de firewall| Sim |  |
-| Suporte de encapsulamento de forçado| Não |  |
+| Suporte ao ponto de extremidade de serviço| Sim |  |
+| Suporte à injeção de VNet| Não | |
+| Isolamento de rede e suporte de firewall| Sim |  |
+| Suporte a túnel forçado| Não |  |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | |
+| Authentication| Sim | |
 | Autorização|  Sim | |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim |  |
-| Auditoria e registo de plano de dados| Sim |   |
+| Registro e auditoria do plano de gerenciamento e controle| Sim |  |
+| Log e auditoria do plano de dados| Sim |   |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | |
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | |

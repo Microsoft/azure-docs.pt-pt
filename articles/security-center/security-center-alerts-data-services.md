@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 1cafd8a3c766e57aed67634d7da8498c9a6ee120
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295828"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68501472"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Detecção de ameaças para serviços de dados na central de segurança do Azure
 
@@ -27,6 +27,7 @@ ms.locfileid: "68295828"
 
 * [Banco de dados SQL do Azure e SQL Data Warehouse](#data-sql)
 * [Armazenamento do Azure](#azure-storage)
+* [BD do Cosmos](#cosmos-db)
 
 ## Banco de dados SQL do Azure e SQL Data Warehouse<a name="data-sql"></a>
 
@@ -46,7 +47,7 @@ Para obter mais informações sobre alertas de detecção de ameaças do SQL, co
 ## Armazenamento do Azure<a name="azure-storage"></a>
 
 >[!NOTE]
-> A proteção avançada contra ameaças para o armazenamento do Azure está disponível atualmente somente para armazenamento de BLOBs. 
+> A proteção avançada contra ameaças para o armazenamento do Azure está disponível atualmente somente para armazenamento de BLOBs.
 
 O Advanced Threat Protection para o Armazenamento do Azure proporciona uma camada adicional de inteligência de segurança que deteta tentativas invulgares e potencialmente danosas de acesso ou exploração de contas de armazenamento. Essa camada de proteção permite que você resolva as ameaças sem exigir que você seja um especialista em segurança e gerencie sistemas de monitoramento de segurança.
 
@@ -70,3 +71,14 @@ A central de segurança analisa os logs de diagnóstico de solicitações de lei
 >A proteção avançada contra ameaças para o armazenamento do Azure não está disponível atualmente nas regiões do Azure governamental e do soberanas Cloud.
 
 Para obter mais informações sobre os alertas de armazenamento, consulte o artigo [proteção avançada contra ameaças para armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) e examine a seção alertas de proteção.
+
+## Cosmos DB<a name="cosmos-db"></a>
+
+Os alertas a seguir são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de Azure Cosmos DB:
+
+|Alerta|Descrição|
+|---|---|
+|**Acesso de local incomum**|Indica que houve uma alteração no padrão de acesso para uma conta de Cosmos DB. Alguém acessou essa conta a partir de um endereço IP desconhecido, em comparação com a atividade recente. Um invasor acessou uma conta de Cosmos DB ou um usuário legítimo acessou a conta de Cosmos DB de uma localização geográfica nova e incomum. Por exemplo: uma nova manutenção de aplicativo ou desenvolvedor do remoto.|
+|**Vazamento de dados incomum**|Indica que houve uma alteração no padrão de extração de dados de uma conta de Cosmos DB. Alguém extraiu uma quantidade incomum de dados em comparação com a atividade recente. Um invasor extraiu uma grande quantidade de dados de um banco de dado Cosmos DB. Por exemplo: data vazamento/vazamento, transferência não autorizada de dados. Ou um usuário ou aplicativo legítimo extraiu uma quantidade incomum de dados de um contêiner. Por exemplo: atividade de backup de manutenção.|
+
+Para obter mais informações, consulte [proteção avançada contra ameaças para Azure Cosmos DB](../cosmos-db/cosmos-db-advanced-threat-protection.md).

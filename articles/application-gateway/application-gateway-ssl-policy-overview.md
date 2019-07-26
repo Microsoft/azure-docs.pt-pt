@@ -1,6 +1,6 @@
 ---
-title: Descrição geral da política SSL para o Gateway de aplicação do Azure | Documentos da Microsoft
-description: Saiba mais sobre como o Gateway de aplicação do Azure permite-lhe configurar a política de SSL
+title: Visão geral da política SSL para Aplicativo Azure gateway | Microsoft Docs
+description: Saiba mais sobre como Aplicativo Azure Gateway permite que você configure a política SSL
 services: application gateway
 documentationcenter: na
 author: amsriva
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122239"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359906"
 ---
-# <a name="application-gateway-ssl-policy-overview"></a>Descrição geral da política de SSL do Gateway de aplicação
+# <a name="application-gateway-ssl-policy-overview"></a>Visão geral da política de SSL do gateway de aplicativo
 
-Pode utilizar o Gateway de aplicação do Azure para centralizar a gestão de certificados SSL e reduzir a sobrecarga de encriptação e desencriptação de um farm de servidores de back-end. Este SSL centralizado manipulação também permite-lhe especificar uma política SSL central que é adequada aos seus requisitos de segurança organizacional. Isso ajuda-o a cumprir os requisitos de conformidade, bem como diretrizes de segurança e práticas recomendadas.
+Você pode usar Aplicativo Azure gateway para centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores back-end. Essa manipulação de SSL centralizado também permite especificar uma política de SSL central adequada para seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e práticas recomendadas.
 
-A política SSL inclui o controlo sobre a versão do protocolo SSL, bem como os conjuntos de cifras e a ordem em que as cifras são utilizadas durante um handshake SSL. Gateway de aplicação oferece dois mecanismos para controlar a política SSL. Pode utilizar uma política predefinida ou uma política personalizada.
+A política SSL inclui o controle da versão do protocolo SSL, bem como os conjuntos de codificação e a ordem em que as codificações são usadas durante um handshake SSL. O gateway de aplicativo oferece dois mecanismos para controlar a política SSL. Você pode usar uma política predefinida ou uma política personalizada.
 
 ## <a name="predefined-ssl-policy"></a>Política SSL predefinida
 
-Gateway de aplicação tem três políticas de segurança predefinidas. Pode configurar o gateway com qualquer uma destas políticas para obter o nível adequado de segurança. Os nomes de política são anotados pelo ano e mês em que foram configuradas. Cada política ofertas diferentes SSL as versões de protocolo e conjuntos de cifras. Recomendamos que utilize as políticas SSL mais recentes para garantir a melhor segurança SSL.
+O gateway de aplicativo tem três políticas de segurança predefinidas. Você pode configurar seu gateway com qualquer uma dessas políticas para obter o nível apropriado de segurança. Os nomes de política são anotados pelo ano e pelo mês em que foram configurados. Cada política oferece versões de protocolo SSL e conjuntos de codificação diferentes. Recomendamos que você use as políticas de SSL mais recentes para garantir a melhor segurança SSL.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
 |Propriedade  |Value  |
 |---|---|
-|Name     | AppGwSslPolicy20150501        |
+|Nome     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
-|Predefinição| VERDADEIRO (se não for especificada nenhuma política predefinida) |
+|Predefinição| True (se nenhuma política predefinida for especificada) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Propriedade  |Value  |
+|Propriedade  |Valor  |
 |   ---      |  ---       |
-|Name     | AppGwSslPolicy20170401        |
+|Nome     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|Predefinição| Falso |
+|Predefinição| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Propriedade  |Value  |
+|Propriedade  |Valor  |
 |---|---|
-|Name     | AppGwSslPolicy20170401S        |
+|Nome     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|Predefinição| Falso |
+|Predefinição| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
-## <a name="custom-ssl-policy"></a>Política SSL personalizada
+## <a name="custom-ssl-policy"></a>Política de SSL personalizada
 
-Se uma política SSL predefinida tem de ser configurado para os seus requisitos, deve definir a sua própria política SSL personalizada. Com uma política SSL personalizada, tem controle completo sobre a versão mínima do protocolo SSL para suportar, bem como os conjuntos de cifras suportados e sua ordem de prioridade.
+Se uma política SSL predefinida precisar ser configurada para seus requisitos, você deverá definir sua própria política SSL personalizada. Com uma política SSL personalizada, você tem controle total sobre a versão mínima do protocolo SSL para oferecer suporte, bem como os conjuntos de criptografia com suporte e sua ordem de prioridade.
  
-### <a name="ssl-protocol-versions"></a>Versões de protocolo SSL
+### <a name="ssl-protocol-versions"></a>Versões do protocolo SSL
 
-* SSL 2.0 e 3.0 estão desativados por predefinição para todos os gateways de aplicação. Estas versões de protocolo não são configuráveis.
-* Uma política personalizada do SSL dá-lhe a opção de selecionar qualquer um dos seguintes três protocolos como a versão de protocolo SSL mínima para o seu gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
-* Não se estiver definida nenhuma política SSL, todos os três protocolos (TLSv1_0, TLSv1_1, TLSv1_2) estão ativados.
+* O SSL 2,0 e o 3,0 estão desabilitados por padrão para todos os gateways de aplicativo. Essas versões de protocolo não são configuráveis.
+* Uma política SSL personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima do protocolo SSL para seu gateway: TLSv1_0, TLSv1_1 e TLSv1_2.
+* Se nenhuma política SSL for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) serão habilitados.
 
-### <a name="cipher-suites"></a>Conjuntos de cifras
+### <a name="cipher-suites"></a>Conjuntos de codificação
 
-Gateway de aplicação suporta os seguintes conjuntos de cifras partir da qual pode escolher a política personalizada. A ordenação dos conjuntos de cifras determina a ordem de prioridade durante a negociação de SSL.
+O gateway de aplicativo dá suporte aos seguintes conjuntos de codificação dos quais você pode escolher sua política personalizada. A ordenação dos conjuntos de codificação determina a ordem de prioridade durante a negociação SSL.
 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -102,6 +102,9 @@ Gateway de aplicação suporta os seguintes conjuntos de cifras partir da qual p
 - TLS_RSA_WITH_3DES_EDE_CBC_SHA
 - TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
+> [!NOTE]
+> Os conjuntos de codificação SSL usados para a conexão também são baseados no tipo de certificado que está sendo usado. No cliente para conexões de gateway de aplicativo, os conjuntos de codificação usados são baseados no tipo de certificados de servidor no ouvinte do gateway de aplicativo. No gateway de aplicativo para conexões de pool de back-end, os conjuntos de codificação usados são baseados no tipo de certificados de servidor nos servidores do pool de back-end.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser aprender a configurar uma política de SSL, consulte [política de configurar o SSL num gateway de aplicação](application-gateway-configure-ssl-policy-powershell.md).
+Se você quiser aprender a configurar uma política SSL, consulte [Configurar a política SSL em um gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md).

@@ -1,155 +1,154 @@
 ---
 title: Matriz de suporte do Azure Backup
-description: Fornece um resumo das definições de suporte e limitações para o serviço de cópia de segurança do Azure.
-services: backup
+description: Fornece um resumo das configurações de suporte e limitações para o serviço de backup do Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 99dd3c0b07307f2d0bf97dbff697e32e648705ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a6b7dfe8fb8ade7f84f41fb5602aff68b4f52cf2
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400167"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464825"
 ---
 # <a name="azure-backup-support-matrix"></a>Matriz de suporte do Azure Backup
 
-Pode usar [Azure Backup](backup-overview.md) para criar cópias de segurança para a plataforma de cloud do Microsoft Azure. Este artigo resume as definições de suporte gerais e limitações para cenários de cópia de segurança do Azure e implementações.
+Você pode usar o [backup do Azure](backup-overview.md) para fazer backup de dados para a plataforma de nuvem Microsoft Azure. Este artigo resume as configurações de suporte geral e as limitações para cenários e implantações de backup do Azure.
 
 Outras matrizes de suporte estão disponíveis:
 
-- Matriz de suporte para [cópia de segurança da máquina virtual do Azure (VM)](backup-support-matrix-iaas.md)
-- Matriz de suporte para cópia de segurança utilizando [System Center Data Protection Manager (DPM) / Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
-- Matriz de suporte para cópia de segurança utilizando o [agente dos serviços de recuperação do Azure (MARS) da Microsoft](backup-support-matrix-mars-agent.md)
+- Matriz de suporte para [backup de VM (máquina virtual) do Azure](backup-support-matrix-iaas.md)
+- Matriz de suporte para backup usando [o System Center Data Protection Manager (DPM)/Microsoft servidor de backup do Azure (mAbs)](backup-support-matrix-mabs-dpm.md)
+- Matriz de suporte para backup usando o [agente de serviços de recuperação do Microsoft Azure (MARS)](backup-support-matrix-mars-agent.md)
 
-## <a name="vault-support"></a>Suporte de cofre
+## <a name="vault-support"></a>Suporte do cofre
 
-O Azure Backup utiliza os cofres dos serviços de recuperação para orquestrar e gerir cópias de segurança. Ele também usa cofres para armazenar dados de cópia de segurança.
+O backup do Azure usa cofres dos serviços de recuperação para orquestrar e gerenciar backups. Ele também usa cofres para armazenar dados de backup.
 
-A tabela seguinte descreve as funcionalidades de cofres dos serviços de recuperação:
+A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação:
 
 **Funcionalidade** | **Detalhes**
 --- | ---
-**Cofres de subscrição** | Até 500 cofres de serviços de recuperação numa única subscrição.
-**Máquinas num cofre** | Até 1000 VMs do Azure num único cofre.<br/><br/> Até 50 MABS servidores podem ser registados num único cofre.
-**Origens de dados no armazenamento do Cofre** | GB 54,400 máximo. Não existe nenhum limite para cópias de segurança de VM do Azure.
-**Cópias de segurança para o Cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Máquinas protegidas pelo DPM/MABS:** Duas vezes por dia.<br/><br/> **Máquinas de cópia de segurança diretamente através do agente MARS:** Três vezes por dia.
-**Cópias de segurança entre cofres** | Cópia de segurança é dentro de uma região.<br/><br/> É necessário um cofre em cada região do Azure que contém as VMs que pretende criar cópias de segurança. Não é possível criar cópias de segurança para uma região diferente.
-**Cofres de movimentação** | Pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre subscrições ou entre grupos de recursos na mesma subscrição.
-**Mover dados entre cofres** | Mover dados de cópia de segurança entre cofres não é suportada.
-**Modificar o tipo de armazenamento do Cofre** | Pode modificar o tipo de replicação de armazenamento (armazenamento georredundante ou armazenamento localmente redundante) para um cofre, antes de cópias de segurança são armazenadas. Depois de iniciar as cópias de segurança no cofre, não é possível modificar o tipo de replicação.
+**Cofres na assinatura** | Até 500 cofres de serviços de recuperação em uma única assinatura.
+**Computadores em um cofre** | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
+**Fontes de dados no armazenamento do cofre** | Máximo de 54.400 GB. Não há limite para backups de VM do Azure.
+**Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos pelo DPM/MABS:** Duas vezes por dia.<br/><br/> **Backup de máquinas diretamente usando o agente MARS:** Três vezes por dia.
+**Backups entre cofres** | O backup está dentro de uma região.<br/><br/> Você precisa de um cofre em todas as regiões do Azure que contenham VMs das quais você deseja fazer backup. Não é possível fazer backup em uma região diferente.
+**Mover cofres** | Você pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura.
+**Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
+**Modificar tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes de os backups serem armazenados. Depois que os backups começam no cofre, o tipo de replicação não pode ser modificado.
 
-## <a name="on-premises-backup-support"></a>Suporte de cópia de segurança no local
+## <a name="on-premises-backup-support"></a>Suporte de backup local
 
-Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas no local:
+Veja os que têm suporte se você quiser fazer backup de computadores locais:
 
-**Machine** | **O que é uma cópia de segurança** | **Location** | **Funcionalidades**
+**Tradução** | **O que é feito backup** | **Location** | **Funcionalidades**
 --- | --- | --- | ---
-**Cópia de segurança direta da máquina do Windows com agente MARS** | Ficheiros, pastas, estado do sistema | Criar cópias de segurança para cofre dos serviços de recuperação. | Criar cópias de segurança três vezes por dia<br/><br/> Nenhuma cópia de segurança com suporte para a aplicação<br/><br/> Restaurar o ficheiro, pasta, volume
-**Cópia de segurança direta da máquina do Linux com o agente MARS** | Cópia de segurança não suportada
-**Cópia de segurança para DPM** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento do DPM local. O DPM, em seguida, efetua cópias de segurança para o cofre. | Instantâneos de deteção de aplicação<br/><br/> Granularidade de completa para cópia de segurança e recuperação<br/><br/> Linux suportada para VMs (Hyper-V/VMware)<br/><br/> Oracle não suportada
-**Cópia de segurança para o MABS** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento local do MABS. MABS, em seguida, efetua cópias de segurança no cofre. | Instantâneos de deteção de aplicação<br/><br/> Granularidade de completa para cópia de segurança e recuperação<br/><br/> Linux suportada para VMs (Hyper-V/VMware)<br/><br/> Oracle não suportada
+**Backup direto do computador Windows com o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre dos serviços de recuperação. | Fazer backup três vezes por dia<br/><br/> Nenhum backup com reconhecimento de aplicativo<br/><br/> Restaurar arquivo, pasta, volume
+**Backup direto do computador Linux com agente MARS** | Backup sem suporte
+**Fazer backup no DPM** | Arquivos, pastas, volumes, estado do sistema, dados de aplicativo | Faça backup no armazenamento local do DPM. Em seguida, o DPM faz backup no cofre. | Instantâneos com reconhecimento de aplicativo<br/><br/> Granularidade total para backup e recuperação<br/><br/> Linux com suporte para VMs (Hyper-V/VMware)<br/><br/> Oracle sem suporte
+**Fazer backup em MABS** | Arquivos, pastas, volumes, estado do sistema, dados de aplicativo | Faça backup no armazenamento local do MABS. Em seguida, o MABS faz backup para o cofre. | Instantâneos com reconhecimento de aplicativo<br/><br/> Granularidade total para backup e recuperação<br/><br/> Linux com suporte para VMs (Hyper-V/VMware)<br/><br/> Oracle sem suporte
 
-## <a name="azure-vm-backup-support"></a>Suporte de cópia de segurança de VM do Azure
+## <a name="azure-vm-backup-support"></a>Suporte de backup de VM do Azure
 
-### <a name="azure-vm-limits"></a>Limites VM do Azure
+### <a name="azure-vm-limits"></a>Limites de VM do Azure
 
 **Limite** | **Detalhes**
 --- | ---
-**Discos de dados VM do Azure** | Limite de 16
-**Tamanho do disco de dados VM do Azure** | Discos individuais podem ser até 4095 GB
+**Discos de dados de VM do Azure** | Limite de 16
+**Tamanho do disco de dados da VM do Azure** | Discos individuais podem ter até 4.095 GB
 
-### <a name="azure-vm-backup-options"></a>Opções de cópia de segurança de VM do Azure
+### <a name="azure-vm-backup-options"></a>Opções de backup da VM do Azure
 
-Eis o que é suportado se quiser fazer uma cópia de segurança de VMs do Azure:
+Aqui estão as suportadas se você quiser fazer backup de VMs do Azure:
 
-**Machine** | **O que é uma cópia de segurança** | **Location** | **Funcionalidades**
+**Tradução** | **O que é feito backup** | **Location** | **Funcionalidades**
 --- | --- | --- | ---
-**Cópia de segurança VM do Azure ao utilizar a extensão de VM** | VM inteira | Criar cópias de segurança para o cofre. | Extensão instalada quando ativar a cópia de segurança para uma VM.<br/><br/> Criar cópias de segurança uma vez por dia.<br/><br/> Aplicação com suporte para cópia de segurança para VMs do Windows; cópia de segurança consistente com ficheiros para VMs do Linux. Pode configurar a consistência de aplicação para computadores Linux ao utilizar scripts personalizados.<br/><br/> Restaure VM ou disco.<br/><br/> Não é possível fazer backup de uma VM do Azure para uma localização no local.
-**Cópia de segurança VM do Azure com o agente MARS** | Ficheiros, pastas, estado do sistema | Criar cópias de segurança para o cofre. | Criar cópias de segurança três vezes por dia.<br/><br/> Se pretender criar cópias de segurança específicos ficheiros ou pastas, em vez de toda a VM, pode executar o agente de MARS juntamente com a extensão de VM.
-**VM do Azure com o DPM** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento local de VM do Azure que está a executar o DPM. O DPM, em seguida, efetua cópias de segurança para o cofre. | Instantâneos de deteção de aplicação.<br/><br/> Granularidade de completa para cópia de segurança e recuperação.<br/><br/> Linux suportada para VMs (Hyper-V/VMware).<br/><br/> Oracle não suportada.
-**VM do Azure com o MABS** | Ficheiros, pastas, volumes, o estado do sistema, os dados da aplicação | Criar cópias de segurança para o armazenamento local de VM do Azure que está a executar o MABS. MABS, em seguida, efetua cópias de segurança no cofre. | Instantâneos de deteção de aplicação.<br/><br/> Granularidade de completa para cópia de segurança e recuperação.<br/><br/> Linux suportada para VMs (Hyper-V/VMware).<br/><br/> Oracle não suportada.
+**Backup de VM do Azure usando a extensão de VM** | VM inteira | Faça backup no cofre. | Extensão instalada quando você habilita o backup para uma VM.<br/><br/> Fazer backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com o arquivo para VMs Linux. Você pode configurar a consistência de aplicativos para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou o disco.<br/><br/> Não é possível fazer backup de uma VM do Azure em uma localização local.
+**Backup de VM do Azure usando o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre. | Faça backup três vezes por dia.<br/><br/> Se você quiser fazer backup de arquivos ou pastas específicas em vez de toda a VM, o agente MARS poderá ser executado junto com a extensão de VM.
+**VM do Azure com o DPM** | Arquivos, pastas, volumes, estado do sistema, dados de aplicativo | Faça backup no armazenamento local da VM do Azure que está executando o DPM. Em seguida, o DPM faz backup no cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa para backup e recuperação.<br/><br/> Linux com suporte para VMs (Hyper-V/VMware).<br/><br/> Oracle sem suporte.
+**VM do Azure com MABS** | Arquivos, pastas, volumes, estado do sistema, dados de aplicativo | Faça backup no armazenamento local da VM do Azure que está executando o MABS. Em seguida, o MABS faz backup para o cofre. | Instantâneos com reconhecimento de aplicativo.<br/><br/> Granularidade completa para backup e recuperação.<br/><br/> Linux com suporte para VMs (Hyper-V/VMware).<br/><br/> Oracle sem suporte.
 
-## <a name="linux-backup-support"></a>Suporte de cópia de segurança do Linux
+## <a name="linux-backup-support"></a>Suporte a backup do Linux
 
-Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas do Linux:
+Veja os que têm suporte se você quiser fazer backup de computadores Linux:
 
-**Tipo de cópia de segurança** | **Linux (aprovado pelo Azure)**
+**Tipo de backup** | **Linux (endossado pelo Azure)**
 --- | ---
-**Cópia de segurança direta da máquina no local que está a executar o Linux** | Não suportado. O agente de MARS pode ser instalado apenas em máquinas do Windows.
-**Usando a extensão do agente para fazer uma cópia de segurança de VM do Azure que está a executar o Linux** | Cópia de segurança consistente com a aplicação utilizando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação ao nível do ficheiro.<br/><br/> Restaure ao criar uma VM a partir de um ponto de recuperação ou disco.
-**Utilizar o DPM para criar cópias de segurança no local ou VM do Azure que está a executar o Linux** | Cópia de segurança consistente com ficheiros de VMs de convidado de Linux no Hyper-V e VMWare.<br/><br/> Restauro de VM de Hyper-V e VMs de convidado de Linux do VMWare.<br/><br/> Ficheiro de cópia de segurança consistente não está disponível para VM do Azure.
-**Usando o MABS para criar cópias de segurança no computador local ou VM do Azure que está a executar o Linux** | Cópia de segurança consistente com ficheiros de VMs de convidado de Linux no Hyper-V e VMWare.<br/><br/> Restauro de VM de Hyper-V e VMs de convidado de Linux do VMWare.<br/><br/> Ficheiro de cópia de segurança consistente não está disponível para VMs do Azure.
+**Backup direto do computador local que está executando o Linux** | Não suportado. O agente MARS só pode ser instalado em computadores Windows.
+**Usando a extensão do agente para fazer backup da VM do Azure que está executando o Linux** | Backup consistente com o aplicativo usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Recuperação em nível de arquivo.<br/><br/> Restaure criando uma VM de um ponto de recuperação ou disco.
+**Usando o DPM para fazer backup do local ou da VM do Azure que executa o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.<br/><br/> O backup consistente com o arquivo não está disponível para a VM do Azure.
+**Usando o MABS para fazer backup do computador local ou da VM do Azure que está executando o Linux** | Backup consistente com o arquivo de VMs de convidado do Linux no Hyper-V e no VMWare.<br/><br/> Restauração de VM de VMs do Hyper-V e do VMWare Linux convidadas.<br/><br/> O backup consistente com o arquivo não está disponível para VMs do Azure.
 
-## <a name="daylight-saving-time-support"></a>Suporte de horário de Verão
+## <a name="daylight-saving-time-support"></a>Suporte ao horário de verão
 
-O Azure Backup não suporta o ajuste automático de relógio para horário de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
+O backup do Azure não dá suporte ao ajuste de relógio automático para o horário de verão para backups de VM do Azure. Modifique as políticas de backup manualmente, conforme necessário.
 
-## <a name="disk-deduplication-support"></a>Suporte de eliminação de duplicados do disco
+## <a name="disk-deduplication-support"></a>Suporte à eliminação de duplicação de disco
 
-Suporte de eliminação de duplicados do disco é o seguinte:
+O suporte à eliminação de duplicação de disco é o seguinte:
 
-- A eliminação de duplicados do disco é suportado no local ao utilizar o DPM ou MABs para fazer uma cópia de segurança de VMs de Hyper-V que executem o Windows. Windows Server executa a eliminação de duplicados de dados (ao nível do anfitrião) em discos rígidos virtuais (VHDs) que estão ligados à VM como armazenamento de cópia de segurança.
-- A eliminação de duplicados não é suportada no Azure para qualquer componente de cópia de segurança. Quando o DPM e o MABS são implementadas no Azure, os discos de armazenamento ligados à VM não é possível ter duplicados eliminados.
+- A eliminação de duplicação de disco tem suporte no local quando você usa o DPM ou o MABs para fazer backup de VMs do Hyper-V que executam o Windows. O Windows Server executa a eliminação de duplicação de dados (no nível do host) em discos rígidos virtuais (VHDs) anexados à VM como armazenamento de backup.
+- A eliminação de duplicação não tem suporte no Azure para nenhum componente de backup. Quando o DPM e o MABS são implantados no Azure, os discos de armazenamento anexados à VM não podem ter eliminação de duplicação.
 
-## <a name="security-and-encryption-support"></a>Suporte de segurança e encriptação
+## <a name="security-and-encryption-support"></a>Suporte de segurança e criptografia
 
-O Azure Backup suporta a encriptação para dados em trânsito e em repouso.
+O backup do Azure dá suporte à criptografia para dados em trânsito e em repouso.
 
 ### <a name="network-traffic-to-azure"></a>Tráfego de rede para o Azure
 
-- Tráfego de cópia de segurança dos servidores para o Cofre dos serviços de recuperação é encriptado com o Advanced Encryption Standard 256.
-- Dados de cópia de segurança são enviados através de uma ligação HTTPS segura.
-- Dados de cópia de segurança são armazenados no cofre dos serviços de recuperação no formato encriptado.
-- O único a ter a frase de acesso para desbloquear estes dados. Microsoft não é possível desencriptar os dados de cópia de segurança em momento algum.
+- O tráfego de backup de servidores para o cofre dos serviços de recuperação é criptografado usando o criptografia AES 256.
+- Os dados de backup são enviados por um link HTTPS seguro.
+- Os dados de backup são armazenados no cofre dos serviços de recuperação em formato criptografado.
+- Somente você tem a frase secreta para desbloquear esses dados. A Microsoft não pode descriptografar os dados de backup a qualquer momento.
 
     > [!WARNING]
-    > Depois de configurar o cofre, apenas tem acesso à chave de encriptação. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave está no local incorreto, a Microsoft não é possível recuperar os dados de cópia de segurança.
+    > Depois de configurar o cofre, somente você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver incorreta, a Microsoft não poderá recuperar os dados de backup.
 
 ### <a name="data-security"></a>Segurança de dados
 
-- Quando estiver fazendo o backup de VMs do Azure, terá de configurar a encriptação *dentro de* a máquina virtual.
+- Quando estiver fazendo backup de VMs do Azure, você precisará configurar a criptografia *na* máquina virtual.
 - O Azure Backup suporta o Azure Disk Encryption, que utiliza o BitLocker nas máquinas virtuais do Windows e **dm-crypt** nas máquinas virtuais do Linux.
-- No back-end, o Azure Backup utiliza [do Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), que protege dados em repouso.
+- No back-end, o backup do Azure usa o [azure criptografia do serviço de armazenamento](../storage/common/storage-service-encryption.md), que protege os dados em repouso.
 
-**Machine** | **Em trânsito** | **Em repouso**
+**Tradução** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Máquinas do Windows sem DPM/MABS no local** | ![Sim][green] | ![Sim][green]
+**Computadores Windows locais sem o DPM/MABS** | ![Sim][green] | ![Sim][green]
 **VMs do Azure** | ![Sim][green] | ![Sim][green]
-**Máquinas do Windows no local ou VMs do Azure com o DPM** | ![Sim][green] | ![Sim][green]
-**Máquinas do Windows no local ou VMs do Azure com o MABS** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows locais ou VMs do Azure com o DPM** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows locais ou VMs do Azure com MABS** | ![Sim][green] | ![Sim][green]
 
 ## <a name="compression-support"></a>Suporte de compressão
 
-Cópia de segurança suporta a compactação do tráfego de cópia de segurança, conforme resumido na tabela seguinte.
+O backup dá suporte à compactação de tráfego de backup, conforme resumido na tabela a seguir.
 
-- Para VMs do Azure, a extensão da VM lê os dados diretamente a partir da conta de armazenamento do Azure através da rede de armazenamento, pelo que não é necessário comprimir este tráfego.
-- Se estiver a utilizar o DPM ou MABS, pode poupar largura de banda ao comprimir os dados antes de ele é uma cópia de segurança.
+- Para VMs do Azure, a extensão de VM lê os dados diretamente da conta de armazenamento do Azure pela rede de armazenamento, portanto, não é necessário compactar esse tráfego.
+- Se você estiver usando o DPM ou o MABS, poderá economizar largura de banda compactando os dados antes de fazer backup.
 
-**Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
+**Tradução** | **Compactar para MABS/DPM (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-**Cópia de segurança direta de máquinas do Windows no local** | N/D | ![Sim][green]
-**Cópia de segurança de VMs do Azure ao utilizar a extensão de VM** | N/D | N/D
-**Cópia de segurança em máquinas no local/Azure utilizando o MABS/DPM** | ![Sim][green] | ![Sim][green]
+**Backup direto de máquinas locais do Windows** | ND | ![Sim][green]
+**Backup de VMs do Azure usando a extensão de VM** | ND | ND
+**Backup em computadores locais/do Azure usando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
 **Definição** | **Limites**
 --- | ---
-**Máximo de pontos de recuperação por instância protegida (máquina ou carga de trabalho)** | 9,999
-**Hora de expiração máximo para um ponto de recuperação** | Sem limite
-**Frequência de cópia de segurança máxima para o DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
-**Frequência de cópia de segurança máxima para o Cofre** | **No local máquinas do Windows ou VMs do Azure a executar o MARS:** Três por dia<br/><br/> **O DPM/MABS:** Duas por dia<br/><br/> **Cópia de segurança VM do Azure:** Uma por dia
+**Máximo de pontos de recuperação por instância protegida (máquina ou carga de trabalho)** | 9\.999
+**Tempo máximo de expiração para um ponto de recuperação** | Sem limite
+**Frequência máxima de backup para o DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
+**Frequência máxima de backup para o cofre** | **Máquinas Windows locais ou VMs do Azure executando MARS:** Três por dia<br/><br/> **DPM/MABS:** Dois por dia<br/><br/> **Backup de VM do Azure:** Um por dia
 **Retenção do ponto de recuperação** | Diariamente, semanalmente, mensalmente, anualmente
 **Período de retenção máximo** | Depende da frequência da cópia de segurança
-**Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de ficheiros 448 para servidores de aplicações <br/><br/>Pontos de recuperação de banda ilimitado para o DPM no local
+**Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para o DPM local
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Matriz de suporte de revisão](backup-support-matrix-iaas.md) para cópia de segurança de VM do Azure.
+- [Examine a matriz de suporte](backup-support-matrix-iaas.md) para o backup de VM do Azure.
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

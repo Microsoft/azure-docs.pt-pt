@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11532fbae4565ec1fc3625abe60b98d2ccd26fec
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 01a9cc4ec4788422337b77b285ed8ee440f6acd4
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319752"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346901"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -135,11 +135,11 @@ Há dois instaladores necessários para a proteção de senha do Azure AD. Eles 
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária. Nesse caso, use um dos dois modos de autenticação anteriores ou use uma das soluções alternativas abaixo. Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
+        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
-        > Se sua conta do Azure estiver especificamente configurada para exigir MFA, você poderá usar uma conta diferente que não exija MFA.
+        > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse problema, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure. Para fazer isso, vá para o portal de gerenciamento do Azure, vá para Azure Active Directory, depois dispositivos, configurações do dispositivo e, em seguida, defina "exigir autenticação multifator para unir dispositivos" como não. Certifique-se de reconfigurar essa configuração de volta para Sim quando o registro for concluído.
         >
-        > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse problema, você pode usar uma conta diferente que não exija MFA ou pode relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure. Para fazer isso, vá para o portal de gerenciamento do Azure, vá para Azure Active Directory, depois dispositivos, configurações do dispositivo e, em seguida, defina "exigir autenticação multifator para unir dispositivos" como não.  Certifique-se de reconfigurar essa configuração de volta para Sim quando o registro for concluído.
+        > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 
        No momento, você não precisa especificar o parâmetro *-ForestCredential* , que é reservado para funcionalidade futura.
 
@@ -179,11 +179,11 @@ Há dois instaladores necessários para a proteção de senha do Azure AD. Eles 
         ```
 
         > [!NOTE]
-        > Esse modo falhará se a autenticação multifator do Azure for necessária. Nesse caso, use um dos dois modos de autenticação anteriores ou use uma das soluções alternativas abaixo. Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
+        > Esse modo falhará se a autenticação multifator do Azure for necessária para sua conta. Nesse caso, use um dos dois modos de autenticação anteriores ou, em vez disso, use uma conta diferente que não exija MFA.
         >
-        > Se sua conta do Azure estiver especificamente configurada para exigir MFA, você poderá usar uma conta diferente que não exija MFA.
+        > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse problema, você pode usar uma conta diferente que dá suporte a MFA com um dos dois modos de autenticação anteriores, ou pode também relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure. Para fazer isso, vá para o portal de gerenciamento do Azure, vá para Azure Active Directory, depois dispositivos, configurações do dispositivo e, em seguida, defina "exigir autenticação multifator para unir dispositivos" como não. Certifique-se de reconfigurar essa configuração de volta para Sim quando o registro for concluído.
         >
-        > Você também poderá ver a MFA necessária se o registro de dispositivo do Azure (que é usado na capa pela proteção de senha do Azure AD) tiver sido configurado para exigir globalmente a MFA. Para solucionar esse problema, você pode usar uma conta diferente que não exija MFA ou pode relaxar temporariamente o requisito de MFA de registro de dispositivo do Azure. Para fazer isso, vá para o portal de gerenciamento do Azure, vá para Azure Active Directory, depois dispositivos, configurações do dispositivo e, em seguida, defina "exigir autenticação multifator para unir dispositivos" como não.  Certifique-se de reconfigurar essa configuração de volta para Sim quando o registro for concluído.
+        > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 
        Esses exemplos só serão bem-sucedidos se o usuário conectado no momento for também um administrador de domínio Active Directory para o domínio raiz. Se esse não for o caso, você poderá fornecer credenciais de domínio alternativas por meio do parâmetro *-ForestCredential* .
 

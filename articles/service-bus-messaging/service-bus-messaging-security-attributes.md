@@ -1,6 +1,6 @@
 ---
-title: Atributos de segurança comuns para mensagens do Azure Service Bus
-description: Uma lista de verificação de atributos comuns de segurança para avaliar a mensagens do Azure Service Bus
+title: Atributos de segurança para mensagens do barramento de serviço do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar as mensagens do barramento de serviço do Azure
 services: service-bus-messaging
 ms.service: service-bus-messaging
 documentationcenter: ''
@@ -9,62 +9,62 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e1d6e041b47a261b549fb8b608cf09d0d6362dd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003115"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443903"
 ---
-# <a name="security-attributes-for-azure-service-bus-messaging"></a>Atributos de segurança de mensagens do Azure Service Bus
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Atributos de segurança para mensagens do barramento de serviço do Azure
 
-Este artigo documenta os atributos de segurança integrados de mensagens do Azure Service Bus.
+Este artigo documenta os atributos de segurança internos no sistema de mensagens do barramento de serviço do Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>|  Sim para servidor encriptação em repouso, por predefinição. | Chaves gerida pelo cliente e a BYOK ainda não são suportadas. Encriptação do lado do cliente é responsabilidade do cliente |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim | Suporta o mecanismo HTTPS/TLS padrão. |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não |   |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
-| Chamadas de API encriptadas| Sim | Chamadas de API são feitas através de [do Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)|  Sim, para criptografia do lado do servidor, em repouso, por padrão. | As chaves gerenciadas pelo cliente e BYOK ainda não têm suporte. A criptografia do lado do cliente é a responsabilidade do cliente |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Dá suporte ao mecanismo HTTPS/TLS padrão. |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |   |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
+| Chamadas de API criptografadas| Sim | As chamadas à API são feitas por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Sim (apenas no escalão Premium) | Pontos finais de serviço de VNet são suportados para [escalão Premium do Service Bus](service-bus-premium-messaging.md) apenas. |
-| Suporte de injeção de VNet| Não | |
-| Isolamento de rede e o suporte de firewall| Sim (apenas no escalão Premium) |  |
-| Suporte de encapsulamento de forçado| Não |  |
+| Suporte ao ponto de extremidade de serviço| Sim (somente camada Premium) | Os pontos de extremidade do serviço VNet têm suporte somente para a [camada Premium do barramento de serviço](service-bus-premium-messaging.md) . |
+| Suporte à injeção de VNet| Não | |
+| Isolamento de rede e suporte de firewall| Sim (somente camada Premium) |  |
+| Suporte a túnel forçado| Não |  |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Suportado através de [o Azure Monitor e alertas](service-bus-metrics-azure-monitor.md). |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Com suporte via [Azure monitor e alertas](service-bus-metrics-azure-monitor.md). |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | Gerido através de [do Azure Active Directory identidade do serviço gerido](service-bus-managed-service-identity.md); consulte [barramento de serviço de autenticação e autorização](service-bus-authentication-and-authorization.md).|
-| Autorização| Sim | Suporta a autorização via [RBAC](service-bus-role-based-access-control.md) (pré-visualização) e o token de SAS; consulte [do Service Bus autenticação e autorização](service-bus-authentication-and-authorization.md). |
+| Authentication| Sim | Gerenciado por meio de [Azure Active Directory identidade de serviço gerenciada](service-bus-managed-service-identity.md); consulte [autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md).|
+| Autorização| Sim | Dá suporte à autorização via [RBAC](service-bus-role-based-access-control.md) (visualização) e token SAS; consulte [autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md). |
 
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim | Os registos de operações estão disponíveis; ver [registos de diagnóstico do Service Bus](service-bus-diagnostic-logs.md).  |
-| Auditoria e registo de plano de dados| Não |  |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Os logs de operações estão disponíveis; consulte [os logs de diagnóstico do barramento de serviço](service-bus-diagnostic-logs.md).  |
+| Log e auditoria do plano de dados| Não |  |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | Suporta o controlo de versões de fornecedor de recursos através da [API do Azure Resource Manager](/rest/api/resources/).|
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Dá suporte ao controle de versão do provedor de recursos por meio da [API Azure Resource Manager](/rest/api/resources/).|

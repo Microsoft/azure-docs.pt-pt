@@ -1,38 +1,38 @@
 ---
-title: 'Tutorial: Ligar ao serviço de análise de texto com os serviços ligados no Visual Studio'
+title: 'Tutorial: Conectar-se ao serviço de Análise de Texto com serviços conectados no Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Saiba como ligar à análise de texto a partir de uma aplicação web ASP.NET Core.
+description: Saiba como se conectar a Análise de Texto de um aplicativo Web ASP.NET Core.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860478"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478462"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Ligar ao serviço de análise de texto com os serviços ligados no Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conectar-se ao serviço de Análise de Texto com serviços conectados no Visual Studio
 
 Ao utilizar o Serviço de Análise de Texto, pode extrair informações detalhadas para categorizar e processar dados do elemento visual e para realizar moderação assistida por computador de imagens para ajudar a organizar os seus serviços.
 
-Este artigo e os respetivos artigos complementares fornecem detalhes para utilizar a funcionalidade de Serviço Ligado do Visual Studio para o Serviço de Análise de Texto. A capacidade está disponível em ambos os Visual Studio de 2019 ou posterior, com a extensão de serviços cognitivos instalada.
+Este artigo e os respetivos artigos complementares fornecem detalhes para utilizar a funcionalidade de Serviço Ligado do Visual Studio para o Serviço de Análise de Texto. A funcionalidade está disponível no Visual Studio 2019 ou posterior, com a extensão de serviços cognitivas instalada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio de 2019, com a carga de trabalho de desenvolvimento para a Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019, com a carga de trabalho de desenvolvimento da Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Adicionar suporte ao seu projeto para o Serviço de Análise de Texto
 
-1. Crie um novo projeto Web do ASP.NET Core chamado TextAnalyticsDemo. Utilize o modelo de projeto Aplicação Web (Model-View-Controller), com todas as predefinições. É importante atribuir o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto.  O exemplo nestes artigos utiliza o MVC, mas pode utilizar o Serviço Ligado de Análise de Texto com qualquer tipo de projeto do ASP.NET.
+1. Crie um novo projeto Web do ASP.NET Core chamado TextAnalyticsDemo. Utilize o modelo de projeto Aplicação Web (Model-View-Controller), com todas as predefinições. É importante que atribua o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto.  O exemplo neste artigo usa MVC, mas você pode usar o serviço conectado do Análise de Texto com qualquer tipo de projeto ASP.NET.
 
 1. No **Explorador de Soluções**, faça duplo clique no item **Connected Service** (Serviço Ligado).
    É apresentada a página Connected Service (Serviço Ligado), com os serviços que pode adicionar ao seu projeto.
@@ -54,7 +54,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
    Siga a ligação para obter detalhes sobre os escalões de preço.
 
 1. Selecione **Add** (Adicionar) para adicionar suporte para o Serviço Ligado.
-   O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para suportar uma ligação ao Serviço de Análise de Texto. A **Janela de Saída** mostra o registo do que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
+   O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para suportar uma ligação ao Serviço de Análise de Texto. A **Janela de Saída** mostra o registo do que está a acontecer ao seu projeto. A saída deve ser semelhante à seguinte:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
       }
    ```
 
-1. Adicione um ficheiro de classe na pasta Controllers denominada DemoTextAnalyzeController e substitua os respetivos conteúdos pelo seguinte código:
+1. Adicione um arquivo de classe na pasta *controladores* chamada `DemoTextAnalyzeController` e substitua seu conteúdo pelo código a seguir:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
     }
     ```
     
-    O código inclui GetTextAnalyzeClient para obter o objeto de cliente que pode utilizar para chamar a API de Análise de Texto e um processador de pedidos que chama DetectLanguage num determinado texto.
+    O código inclui `GetTextAnalyzeClient` para obter o objeto de cliente para fazer chamadas para o API de análise de texto e um manipulador de solicitação que chama DetectLanguage em um determinado texto.
 
 1. Adicione a classe de programa auxiliar de MyHandler que é utilizada pelo código anterior.
 
@@ -171,7 +171,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
         }
     ```
 
-1. Na pasta Modelos, adicione uma classe para o modelo.
+1. Na pasta *modelos* , adicione uma classe para o modelo.
 
     ```csharp
     using System;
@@ -263,7 +263,7 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste tutorial nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
-3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
+3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso a aplicações com o Azure AD | Documentos da Microsoft
-description: Descreve como o Azure Active Directory permite às organizações especificar as aplicações a que cada utilizador tem acesso.
+title: Gerenciando o acesso a aplicativos usando o Azure AD | Microsoft Docs
+description: Descreve como Azure Active Directory permite que as organizações especifiquem os aplicativos aos quais cada usuário tem acesso.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -14,45 +14,45 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108189"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477114"
 ---
-# <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
-Gestão de acesso contínuo, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação é integrada ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de realizar uma função ativa em curso no gerenciamento de acesso às suas aplicações. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisão. Muitas vezes, a decisão de atribuição se destina a ser designado como o tomador de decisões de negócios, que requerem a sua aprovação antes de IT facilita a atribuição.  Outras organizações investem na integração com um automatizada identidades e acessos sistema de gerenciamento existente, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributo (ABAC). A integração e o desenvolvimento de regra tendem a ser dispendiosos e especializados. Monitorização ou relatórios sobre qualquer uma das abordagens de gerenciamento são o seu próprio investimento separado, dispendioso e complexo.
+# <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
+O gerenciamento de acesso contínuo, a avaliação de uso e os relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, os administradores de ti ou o helpdesk precisam fazer uma função ativa contínua no gerenciamento de acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de ti geral ou de divisões. Muitas vezes, a decisão de atribuição deve ser delegada ao tomador de decisões de negócios, exigindo sua aprovação antes de fazer a atribuição.  Outras organizações investem em integração com um sistema de gerenciamento de acesso e identidade automatizado existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributo). A integração e o desenvolvimento de regras tendem a ser especializados e caros. O monitoramento ou relatório sobre qualquer abordagem de gerenciamento é seu próprio investimento separado, dispendioso e complexo.
 
-## <a name="how-does-azure-active-directory-help"></a>Como o Azure Active Directory ajuda a?
- O Azure AD suporta a gestão de acesso abrangente para aplicações configuradas, que permite às organizações poderiam ser obtidas facilmente as políticas de acesso correto, desde a atribuição automática, baseadas em atributos (cenários de ABAC ou RBAC) por meio de delegação e incluindo gestão de administrador. Com o Azure AD, pode facilmente obter políticas complexas, combinar vários modelos de gestão para um único aplicativo e pode até reutilizar as regras de gestão em todos os aplicativos com os mesmo públicos.
+## <a name="how-does-azure-active-directory-help"></a>Como Azure Active Directory ajuda?
+ O Azure AD dá suporte ao gerenciamento de acesso extensivo para aplicativos configurados, permitindo que as organizações alcancem facilmente as políticas de acesso corretas, desde a atribuição automática, baseada em atributo (cenários ABAC ou RBAC) por meio de delegação e incluindo gerenciamento de administradores. Com o Azure AD, você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento para um único aplicativo e pode até mesmo reutilizar regras de gerenciamento em aplicativos com o mesmo público.
 
-* [A adicionar novas ou aplicações existentes](configure-single-sign-on-portal.md)
+* [Adicionando aplicativos novos ou existentes](add-gallery-app.md)
 
-  Atribuição de aplicações do Azure AD se concentra em dois modos de atribuição principal:
+  A atribuição de aplicativo do Azure AD enfoca dois modos de atribuição principais:
 
-* **Atribuição individual** administrador de TI um com permissões de Administrador Global do diretório pode selecionar as contas de utilizador individuais e conceder-lhes acesso à aplicação.
-* **Atribuição baseada em grupo (paga apenas do Azure AD)** administrador de TI um com permissões de Administrador Global do diretório pode atribuir um grupo à aplicação. Acesso de utilizadores específicos é determinado pelo serem membros do grupo no momento que tentam aceder à aplicação. Em outras palavras, um administrador pode, efetivamente, criar uma regra de atribuição que diz "qualquer membro atual do grupo atribuído tem acesso à aplicação". Utilizar esta opção de atribuição, os administradores podem se beneficiar qualquer uma das opções de gestão de grupo do Azure AD, incluindo [grupos dinâmicos baseados em atributo](../fundamentals/active-directory-groups-create-azure-portal.md), grupos de sistema externo (por exemplo, no local do Active Directory ou Workday), ou grupos de administrador-gerida ou self-service. Um único grupo pode ser facilmente atribuído a várias aplicações, tornando-se de que os aplicativos com afinidade de atribuição podem partilhar as regras de atribuição, reduzindo a complexidade de gestão geral. Tenha em atenção que as associações a grupos aninhados não são suportadas para atribuição de grupo para aplicações neste momento.
+* **Atribuição individual** Um administrador de ti com permissões de administrador global de diretório pode selecionar contas de usuário individuais e conceder a elas acesso ao aplicativo.
+* **Atribuição baseada em grupo (somente Azure ad pago)** Um administrador de ti com permissões de administrador global de diretório pode atribuir um grupo ao aplicativo. O acesso de usuários específicos é determinado pelo fato de eles serem membros do grupo no momento em que tentam acessar o aplicativo. Em outras palavras, um administrador pode efetivamente criar uma regra de atribuição informando "qualquer membro atual do grupo atribuído tem acesso ao aplicativo". Usando essa opção de atribuição, os administradores podem se beneficiar de qualquer uma das opções de gerenciamento de grupo do Azure AD, incluindo [grupos dinâmicos baseados em atributo](../fundamentals/active-directory-groups-create-azure-portal.md), grupos de sistemas externos (por exemplo, Active Directory local ou workday) ou Grupos gerenciados por autoatendimento ou gerenciados pelo administrador. Um único grupo pode ser facilmente atribuído a vários aplicativos, certificando-se de que os aplicativos com afinidade de atribuição possam compartilhar regras de atribuição, reduzindo a complexidade geral do gerenciamento. Observe que as associações de grupo aninhadas não têm suporte para atribuição baseada em grupo para aplicativos no momento.
 
-Usando esses modos de atribuição de dois, os administradores podem obter qualquer abordagem de gestão de atribuição desejável.
+Usando esses dois modos de atribuição, os administradores podem obter qualquer abordagem de gerenciamento de atribuição desejável.
 
-Com o Azure AD, utilização e a atribuição de relatórios está totalmente integrado, permitindo que os administradores facilmente um relatório sobre o estado de atribuição, erros de atribuição e da utilização até mesmo.
+Com o Azure AD, os relatórios de uso e atribuição são totalmente integrados, permitindo que os administradores relatem facilmente o estado de atribuição, erros de atribuição e até mesmo o uso.
 
-## <a name="complex-application-assignment-with-azure-ad"></a>Atribuição de aplicações complexas com o Azure AD
-Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente pelas equipes de marketing e vendas. Muitas vezes, os membros da equipe de marketing tem altamente acesso privilegiado ao Salesforce, enquanto os membros da equipe de vendas tem acesso limitado. Em muitos casos, uma vasta população de operadores de informações tem acesso restrito à aplicação. Exceções a essas regras complicam as coisas. Geralmente é prerogative das equipes de liderança de marketing ou vendas para conceder um acesso de utilizador ou alterar as suas funções, independentemente destas regras genéricas.
+## <a name="complex-application-assignment-with-azure-ad"></a>Atribuição de aplicativo complexo com o Azure AD
+Considere um aplicativo como o Salesforce. Em muitas organizações, o Salesforce é usado principalmente pelas equipes de marketing e vendas. Muitas vezes, os membros da equipe de marketing têm acesso altamente privilegiado ao Salesforce, enquanto os membros da equipe de vendas têm acesso limitado. Em muitos casos, uma população ampla de operadores de informações restringiu o acesso ao aplicativo. As exceções a essas regras complicam as coisas. Geralmente, as equipes de liderança de marketing ou vendas do prerrogativa concedem a um usuário acesso ou alteram suas funções independentemente dessas regras genéricas.
 
-Com o Azure AD, os aplicativos como o Salesforce podem de ser previamente configurados para início de sessão único (SSO) e o aprovisionamento automatizado. Assim que a aplicação está configurada, um administrador pode executar a ação única para criar e atribuir grupos adequados. Neste exemplo, um administrador pode executar as atribuições de seguintes:
+Com o Azure AD, aplicativos como o Salesforce podem ser pré-configurados para SSO (logon único) e provisionamento automatizado. Depois que o aplicativo é configurado, um administrador pode executar a ação única para criar e atribuir os grupos apropriados. Neste exemplo, um administrador pode executar as seguintes atribuições:
 
-* [Grupos dinâmicos](../fundamentals/active-directory-groups-create-azure-portal.md) podem ser definidos para representar automaticamente todos os membros das equipes de marketing e vendas, usando atributos, como o departamento ou função:
+* [Grupos dinâmicos](../fundamentals/active-directory-groups-create-azure-portal.md) podem ser definidos para representar automaticamente todos os membros das equipes de marketing e vendas usando atributos como departamento ou função:
   
   * Todos os membros de grupos de marketing seriam atribuídos à função de "marketing" no Salesforce
-  * Todos os membros da equipa de vendas grupos seriam atribuídos à função de "venda", no Salesforce. Um refinamento adicional poderia usar vários grupos que representam as equipas de vendas regionais atribuídas a diferentes funções do Salesforce.
-* Para ativar o mecanismo de exceção, poderia ser criado um grupo de self-service para cada função. Por exemplo, o grupo de "Exceção de marketing de Salesforce" pode ser criado como um grupo de gestão personalizada. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode ser feita proprietário. Membros da equipe de liderança do marketing poderiam adicionar ou remover utilizadores, definir uma política de associação, ou até mesmo aprovar ou negar pedidos de utilizadores individuais para associar. Esse mecanismo é oferecido por meio de uma experiência adequado dos operadores de informações que não necessita de treinamento especializado para os proprietários ou membros.
+  * Todos os membros de grupos de equipe de vendas seriam atribuídos à função de "vendas" no Salesforce. Um refinamento adicional poderia usar vários grupos que representam equipes de vendas regionais atribuídas a diferentes funções do Salesforce.
+* Para habilitar o mecanismo de exceção, um grupo de autoatendimento pode ser criado para cada função. Por exemplo, o grupo "exceção de marketing do Salesforce" pode ser criado como um grupo de autoatendimento. O grupo pode ser atribuído à função de marketing do Salesforce e a equipe de liderança de marketing pode tornar-se proprietário. Os membros da equipe de liderança de marketing podem adicionar ou remover usuários, definir uma política de junção ou até mesmo aprovar ou negar as solicitações de usuários individuais para ingressar. Esse mecanismo tem suporte por meio de uma experiência apropriada do operador de informações que não requer treinamento especializado para proprietários ou membros.
 
-Neste caso, todos os utilizadores atribuídos poderiam ser aprovisionados automaticamente para o Salesforce, à medida que são adicionados a grupos diferentes, que seria possível atualizar a respetiva atribuição de função no Salesforce. Os utilizadores seria capazes de detetar e aceder ao Salesforce, através do painel de acesso de aplicações Microsoft, clientes do Office web, ou até mesmo ao navegar para a página de início de sessão do Salesforce organizacional. Os administradores conseguirão ver facilmente o estado de utilização e a atribuição com relatórios do Azure AD.
+Nesse caso, todos os usuários atribuídos seriam provisionados automaticamente para o Salesforce, pois eles são adicionados a diferentes grupos em que sua atribuição de função seria atualizada no Salesforce. Os usuários poderão descobrir e acessar o Salesforce por meio do painel de acesso do aplicativo da Microsoft, clientes do Office Web ou até mesmo navegando até a página de logon do Salesforce organizacional. Os administradores poderão exibir facilmente o status de uso e atribuição usando os relatórios do Azure AD.
 
-Os administradores podem ser empregadas [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) para definir políticas de acesso para funções específicas. Estas políticas podem incluir se o acesso é permitido fora do ambiente Corporativo e até mesmo os requisitos multi-factor Authentication ou dispositivo para obter acesso em vários casos.
+Os administradores podem empregar o [acesso condicional do Azure ad](../active-directory-conditional-access-azure-portal.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo os requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Proteger aplicações com acesso condicional](../active-directory-conditional-access-azure-portal.md)
-* [Gestão/SSAA de grupos self-service](../users-groups-roles/groups-self-service-management.md)
+* [Protegendo aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
+* [Gerenciamento de grupo de autoatendimento/SSAA](../users-groups-roles/groups-self-service-management.md)

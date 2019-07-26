@@ -1,5 +1,5 @@
 ---
-title: Publicação de aplicações em redes separadas e localizações com grupos de conexão no Proxy de aplicação do Azure AD | Documentos da Microsoft
+title: Publicar aplicativos em redes separadas com Aplicativo Azure AD grupos de conectores de proxy | Microsoft Docs
 description: Aborda como criar e gerir grupos de conectores no Proxy de aplicações do Azure AD.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 574ce6def407f302439f6c53356fe69259240b2e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702485"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381497"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes separadas e localizações através de grupos de conectores
 
@@ -44,7 +44,7 @@ Utilize estes passos para criar grupos de conectores tantas quanto quiser.
 1. Selecione **do Azure Active Directory** > **aplicações empresariais** > **proxy de aplicações**.
 1. Selecione **novo grupo conector**. No painel do novo grupo conector aparece.
 
-   ![Mostra a tela para selecionar um novo grupo conector](./media/application-proxy-connector-groups/new-group.png)
+   ![Mostra a tela para selecionar um novo grupo de conectores](./media/application-proxy-connector-groups/new-group.png)
 
 1. Dê um nome ao seu novo grupo do conector e, em seguida, utilize o menu pendente para selecionar quais conectores pertencem neste grupo.
 1. Selecione **Guardar**.
@@ -77,11 +77,11 @@ Para aplicativos instalados no IaaS para acesso à nuvem, os grupos de conector 
 
 Veja como um exemplo de uma organização que tenha várias máquinas de virtuais ligadas à sua própria IaaS alojados de rede virtual. Para permitir que os funcionários usem estas aplicações, estas redes privadas estão ligadas à rede empresarial através de VPN de site a site. Isso fornece uma boa experiência para os funcionários que estão localizados no local. Mas, talvez não seja ideal para os empregados remotos, porque requer mais infraestrutura no local para encaminhar o acesso, como pode ver no diagrama abaixo:
 
-![Diagrama que ilustra a rede de IaaS do Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
+![Diagrama que ilustra a rede IaaS do Azure AD](./media/application-proxy-connector-groups/application-proxy-iaas-network.png)
   
 Com os grupos de conector de Proxy de aplicações do Azure AD, pode ativar a um serviço comum proteger o acesso a todas as aplicações sem a criação de dependência adicional na sua rede empresarial:
 
-![Fornecedores de Cloud de vários de IaaS do Azure AD](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
+![Vários fornecedores de nuvem do Azure AD IaaS](./media/application-proxy-connector-groups/application-proxy-multiple-cloud-vendors.png)
 
 ### <a name="multi-forest--different-connector-groups-for-each-forest"></a>Várias florestas – grupos de conectores diferentes para cada floresta
 
@@ -108,7 +108,7 @@ Alguns exemplos que pode implementar, incluem os seguintes grupos de conector.
 
 Se não utilizar grupos de conexão, a configuração teria o seguinte aspeto:
 
-![Exemplo do Azure AD não existem grupos de conector](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
+![Exemplo do Azure AD sem grupos de conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
 
 Esta configuração é suficiente para testes e Implantações pequenas. Ela também funcionará bem se sua organização tiver uma topologia de rede simples.
 
@@ -116,7 +116,7 @@ Esta configuração é suficiente para testes e Implantações pequenas. Ela tam
 
 Esta configuração é uma evolução do predefinido, em que é uma aplicação específica que é executado numa rede isolada, tais como a rede virtual do IaaS:
 
-![Grupos de conectores não de exemplo do Azure AD e uma rede isolada](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
+![Exemplo do Azure AD sem grupos de conectores e uma rede isolada](./media/application-proxy-connector-groups/application-proxy-sample-config-2.png)
 
 ### <a name="recommended-configuration--several-specific-groups-and-a-default-group-for-idle"></a>Configuração – recomendada para vários grupos específicos e um grupo padrão para inativo
 
@@ -124,9 +124,9 @@ A configuração recomendada para organizações grandes e complexas é fazer co
 
 No exemplo abaixo, a empresa tem dois centros de dados, A e B, com dois conectores que servem de cada site. Cada site tem diferentes aplicativos executados nele.
 
-![Exemplo da empresa com centros de 2 dados e 2 conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
+![Exemplo de empresa com 2 data centers e 2 conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender os conectores de Proxy de aplicações do Azure AD](application-proxy-connectors.md)
 * [Ativar o início de sessão único](what-is-single-sign-on.md)

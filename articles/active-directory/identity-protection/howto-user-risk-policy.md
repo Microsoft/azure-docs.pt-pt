@@ -1,119 +1,105 @@
 ---
-title: Como configurar a política de risco do utilizador no Azure Active Directory Identity Protection | Documentos da Microsoft
-description: Saiba como configurar a política de risco de utilizador do Azure AD Identity Protection.
+title: Como configurar a política de risco do usuário no Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba como configurar a política de risco de usuário do Azure AD Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108921"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335450"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de utilizador de risco
 
-Com o risco de utilizador, o Azure AD Deteta a probabilidade de que uma conta de utilizador foi comprometida. Como administrador, pode configurar um política de acesso condicional, responder automaticamente a um nível de risco de utilizador específico do risco de utilizador.
+Com o risco do usuário, o Azure AD detecta a probabilidade de que uma conta de usuário tenha sido comprometida. Como administrador, você pode configurar uma política de acesso condicional de risco do usuário para responder automaticamente a um nível de risco do usuário específico.
  
-Este artigo fornece as informações necessárias configurar uma política de risco do utilizador.
+Este artigo fornece as informações necessárias para configurar uma política de risco do usuário.
 
+## <a name="what-is-a-user-risk-policy"></a>O que é uma política de risco de usuário?
 
-## <a name="what-is-a-user-risk-policy"></a>O que é uma política de risco do utilizador?
+O Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que venham junto com a entrada. No Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como eventos de risco. Embora alguns eventos de risco possam ser detectados em tempo real, também há eventos de risco que exigem mais tempo. Por exemplo, para detectar uma viagem impossível para locais atípicoss, o sistema requer um período de aprendizado inicial de 14 dias para aprender sobre o comportamento regular de um usuário. Há várias opções para resolver os eventos de risco detectados. Por exemplo, você pode resolver manualmente os eventos de risco individuais ou pode obtê-los resolvidos usando um risco de entrada ou uma política de acesso condicional de risco do usuário.
 
-O Azure AD analisa cada início de sessão de um utilizador. É o objetivo da análise detetar as ações suspeitas que acompanham o início de sessão. No Azure AD, as ações suspeitas que consegue detetar o sistema também são conhecidos como eventos de risco. Embora alguns riscos eventos podem ser detectados em tempo real, também existem eventos de risco que exigem mais tempo. Por exemplo, para detectar uma deslocação impossível para localizações atípicas, o sistema exige um período de aprendizagem inicial de 14 dias para saber mais sobre o comportamento normal de um utilizador. Existem várias opções para resolver eventos de risco detetados. Por exemplo, pode resolver eventos de risco individuais manualmente ou pode obtê-las resolvido através de um risco de início de sessão ou um política de acesso condicional do risco de utilizador.
+Todos os eventos de risco que foram detectados para um usuário e que não foram resolvidos são conhecidos como eventos de risco ativos. Os eventos de risco ativos associados a um usuário são conhecidos como risco do usuário. Com base no risco do usuário, o Azure AD calcula uma probabilidade (baixa, média, alta) de que um usuário foi comprometido. A probabilidade é chamada de nível de risco do usuário.
 
-Todos os eventos de risco que foram detetados para um utilizador e não são resolvidos são conhecidos como eventos de risco de Active Directory. Os eventos de risco de Active Directory que estão associados um utilizador são conhecidos como risco de utilizador. Com base no risco do utilizador, o Azure AD calcula uma probabilidade (baixa, média, alta) que um utilizador foi comprometido. A probabilidade é chamada de nível de risco do utilizador.
+![Riscos do usuário](./media/howto-user-risk-policy/1031.png)
 
-![Riscos de utilizador](./media/howto-user-risk-policy/1031.png)
+A política de risco do usuário é uma resposta automatizada que você pode configurar para um nível de risco de usuário específico. Com uma política de risco do usuário, você pode bloquear o acesso aos seus recursos ou exigir uma alteração de senha para que uma conta de usuário volte a um estado limpo.
 
-A política de risco do utilizador é uma resposta automática, que pode configurar para um nível de risco de utilizador específico. Com uma política de risco do utilizador, pode bloquear o acesso aos seus recursos ou exigir uma alteração de palavra-passe para obter uma conta de utilizador de volta num estado limpo.
-
-
-## <a name="how-do-i-access-the-user-risk-policy"></a>Como posso aceder a política de risco do utilizador?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Como fazer acessar a política de risco do usuário?
    
-A política de risco de início de sessão está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+A política de risco de entrada está na seção **Configurar** na [página Azure ad Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Política de risco do utilizador](./media/howto-user-risk-policy/1014.png)
-
-
+![Política de risco de utilizador](./media/howto-user-risk-policy/1014.png)
 
 ## <a name="policy-settings"></a>Definições de política
 
-Ao configurar a política de risco de início de sessão, tem de definir:
+Ao configurar a política de risco de entrada, você precisa definir:
 
-- Os utilizadores e grupos que a política aplica-se a:
+- Os usuários e grupos aos quais a política se aplica:
 
     ![Utilizadores e grupos](./media/howto-user-risk-policy/11.png)
 
-- O nível de risco de início de sessão que aciona a política:
+- O nível de risco de entrada que dispara a política:
 
-    ![Nível de risco do utilizador](./media/howto-user-risk-policy/12.png)
+    ![O utilizador tem um nível de risco elevado](./media/howto-user-risk-policy/12.png)
 
-- O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
+- O tipo de acesso que você deseja impor quando o nível de risco de entrada tiver sido atendido:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![Aceder](./media/howto-user-risk-policy/13.png)
 
-- O estado da política:
+- O estado da sua política:
 
-    ![Impor a política](./media/howto-user-risk-policy/14.png)
+    ![Impor política](./media/howto-user-risk-policy/14.png)
 
-A caixa de diálogo de configuração de política fornece uma opção para calcular o impacto da sua configuração.
+A caixa de diálogo configuração de política fornece uma opção para estimar o impacto da sua configuração.
 
 ![Impacto estimado](./media/howto-user-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-Pode definir uma política de segurança de risco do utilizador para impedir que os utilizadores após o início de sessão dependendo do nível de risco.
+Você pode definir uma política de segurança de risco do usuário para bloquear os usuários após a entrada, dependendo do nível de risco.
 
-![Bloquear](./media/howto-user-risk-policy/16.png)
+![Bloqueio](./media/howto-user-risk-policy/16.png)
 
+Bloqueando uma entrada:
 
-Bloquear um início de sessão:
-
-* Impede que a geração de novos eventos de risco de utilizador para o utilizador afectado
-* Permite aos administradores manualmente remediar os eventos de risco que afetam a identidade do utilizador e restaurá-lo para um estado seguro
+* Impede a geração de novos eventos de risco do usuário para o usuário afetado
+* Permite aos administradores corrigir manualmente os eventos de risco que afetam a identidade do usuário e restaurá-los para um estado seguro
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Escolher uma **elevada** limiar reduz o número de vezes que uma política é acionada e minimiza o impacto para os utilizadores.
-No entanto, exclui **baixa** e **médio** utilizadores sinalizados para risco da política, que pode não proteger identidades ou dispositivos que foram anteriormente suspeita ou conhecidos por ser comprometido.
+Escolher um limite **alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.
+No entanto, ele exclui usuários **baixos** e **médios** sinalizados para risco da política, o que pode não proteger identidades ou dispositivos que foram suspeitos ou comprometidos anteriormente.
 
-Ao definir a política
+Ao definir a política,
 
-* Excluir utilizadores que têm propensão para gerar muitos falsos positivos (desenvolvedores, analistas de segurança)
-* Excluir os usuários em localidades onde o ativar a política não é prático (por exemplo, sem acesso ao suporte técnico)
-* Utilize um **elevada** limiar durante o política inicial com, ou se deve minimizar desafios vistos pelos utilizadores finais.
-* Utilize um **baixa** limiar se a sua organização precisar de maior segurança. Selecionar uma **baixa** limiar introduz utilizador adicional início de sessão desafios, mas uma maior segurança.
+* Exclua os usuários que provavelmente gerarão muitos falsos positivos (desenvolvedores, analistas de segurança)
+* Excluir usuários em localidades em que a habilitação da política não é prática (por exemplo, sem acesso ao helpdesk)
+* Use um limite **alto** durante a distribuição da política inicial ou se você precisar minimizar os desafios vistos pelos usuários finais.
+* Use um limite **baixo** se sua organização exigir maior segurança. A seleção de um limite **baixo** apresenta desafios de entrada de usuário adicionais, mas aumentou a segurança.
 
-A predefinição recomendada na maioria das organizações é configurar uma regra para um **médio** limiar para encontrar o equilíbrio entre segurança e usabilidade.
+O padrão recomendado para a maioria das organizações é configurar uma regra para um limite **médio** para um equilíbrio entre a usabilidade e a segurança.
 
-Para uma descrição geral da experiência do usuário relacionadas, consulte:
+Para obter uma visão geral da experiência do usuário relacionada, consulte:
 
-* [Comprometido de fluxo de recuperação de conta](flows.md#compromised-account-recovery).  
-* [Comprometido fluxo conta bloqueada](flows.md#compromised-account-blocked).  
+* [Fluxo de recuperação da conta comprometida](flows.md#compromised-account-recovery).  
+* [Fluxo bloqueado da conta comprometida](flows.md#compromised-account-blocked).  
 
-**Para abrir a caixa de diálogo de configuração relacionados**:
+**Para abrir a caixa de diálogo de configuração relacionada**:
 
-- Sobre o **Azure AD Identity Protection** painel, na **configurar** secção, clique em **política de risco do utilizador**.
+- Na folha **Azure ad Identity Protection** , na seção **Configurar** , clique em **política de risco do usuário**.
 
-    ![Política de risco do utilizador](./media/howto-user-risk-policy/1009.png "política de risco do utilizador")
-
-
-
+    ![Política de risco do usuário](./media/howto-user-risk-policy/1009.png "Política de risco do usuário")
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [descrição geral do Azure AD Identity Protection](overview.md).
+Para obter uma visão geral do Azure AD Identity Protection, consulte a [visão geral Azure ad Identity Protection](overview.md).

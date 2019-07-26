@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança para o Azure ExpressRoute
-description: Uma lista de verificação de atributos comuns de segurança para avaliar o Azure ExpressRoute
+title: Atributos de segurança para o Azure ExpressRoute
+description: Uma lista de verificação de atributos de segurança para avaliar o Azure ExpressRoute
 services: expressroute
 ms.service: expressroute
 documentationcenter: ''
@@ -9,61 +9,61 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6156715fb87831d465197fd8eec59d245221e48
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c9a46497c18b99ad7774036fd92e63d024b47045
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083278"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442189"
 ---
-# <a name="common-security-attributes-for-azure-expressroute"></a>Atributos comuns de segurança para o Azure ExpressRoute
+# <a name="security-attributes-for-azure-expressroute"></a>Atributos de segurança para o Azure ExpressRoute
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos comuns de segurança integrados do Azure ExpressRoute.
+Este artigo documenta os atributos de segurança internos do Azure ExpressRoute.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>|  N/A | ExpressRoute não armazena dados do cliente. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Não | |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| N/A |  |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
-| Chamadas de API encriptadas| Sim | Por meio [o Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)|  N/A | O ExpressRoute não armazena dados do cliente. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Não | |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| N/A |  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
+| Chamadas de API criptografadas| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml) e HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| N/A |  |
-| suporte de injeção de vNET| N/A | |
-| Isolamento de rede e o suporte de firewall| Sim | Cada cliente está contido em seu próprio domínio de encaminhamento e de túnel para a sua própria VNet |
-| Suporte de encapsulamento de forçado| N/A | Por meio do Border Gateway Protocol (BGP). |
+| Suporte ao ponto de extremidade de serviço| N/A |  |
+| Suporte à injeção de VNet| N/A | |
+| Isolamento de rede e suporte de firewall| Sim | Cada cliente está contido em seu próprio domínio de roteamento e encapsulado para sua própria VNet |
+| Suporte a túnel forçado| N/A | Via Border Gateway Protocol (BGP). |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Ver [ExpressRoute monitorização, métricas e alertas](expressroute-monitoring-metrics-alerts.md).|
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Consulte [monitoramento, métricas e alertas do ExpressRoute](expressroute-monitoring-metrics-alerts.md).|
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | Conta de serviço para o Gateway para a Microsoft (GWM) (controlador); Just-in-Time (JIT) de acesso para desenvolvimento e OP. |
-| Autorização|  Sim |Conta de serviço para o Gateway para a Microsoft (GWM) (controlador); Just-in-Time (JIT) de acesso para desenvolvimento e OP. |
+| Authentication| Sim | Conta de serviço do gateway para Microsoft (GWM) (controlador); Acesso JIT (just in time) para desenvolvimento e OP. |
+| Autorização|  Sim |Conta de serviço do gateway para Microsoft (GWM) (controlador); Acesso JIT (just in time) para desenvolvimento e OP. |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas| 
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim |  |
-| Auditoria e registo de plano de dados| Não |   |
+| Registro e auditoria do plano de gerenciamento e controle| Sim |  |
+| Log e auditoria do plano de dados| Não |   |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | Através do fornecedor de recursos de rede (NRP). |
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Por meio do NRP (provedor de recursos de rede). |

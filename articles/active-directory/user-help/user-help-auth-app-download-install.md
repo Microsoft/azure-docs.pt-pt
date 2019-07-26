@@ -1,6 +1,6 @@
 ---
-title: Transferir e instalar a aplicação Microsoft Authenticator - Azure Active Directory | Documentos da Microsoft
-description: Como transferir, instalar e utilizar a aplicação Microsoft Authenticator para verificação de dois fatores.
+title: Baixar e instalar o Microsoft Authenticator app-Azure Active Directory | Microsoft Docs
+description: Como baixar, instalar e usar o aplicativo Microsoft Authenticator para verificação de dois fatores.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,45 +13,47 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473826"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382423"
 ---
-# <a name="download-and-install-the-microsoft-authenticator-app"></a>Transferir e instalar a aplicação Microsoft Authenticator
+# <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
+
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
+O aplicativo Microsoft Authenticator ajuda você a entrar em suas contas se usar a verificação de dois fatores. A verificação de dois fatores ajuda você a acessar suas contas com mais segurança, especialmente ao mesmo tempo em que exibe informações confidenciais. Como as senhas podem ser esquecidas, roubadas ou comprometidas, a verificação de dois fatores é uma etapa de segurança adicional que ajuda a proteger sua conta, dificultando a interrupção de outras pessoas.
 
-Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
+Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, incluindo:
 
-- **Verificação de dois fatores.** O método de verificação padrão, onde um dos fatores é a palavra-passe. Depois que iniciar sessão com o seu nome de utilizador e palavra-passe, pode aprovar uma notificação ou introduza um código de verificação fornecido.
+- **Verificação de dois fatores.** O método de verificação padrão, em que um dos fatores é sua senha. Depois de entrar usando seu nome de usuário e senha, você pode aprovar uma notificação ou inserir um código de verificação fornecido.
 
-- **Início de sessão no telefone.** Uma versão de verificação de dois fatores, que lhe permite início de sessão sem exigir uma palavra-passe, com o seu nome de utilizador e dispositivo móvel com a impressão digital, face ou o PIN.
+- **Entrada pelo telefone.** Uma versão da verificação de dois fatores que permite que você entre sem exigir uma senha, usando seu nome de usuário e seu dispositivo móvel com sua impressão digital, face ou PIN.
 
-- **Geração de código.** Como um gerador de código para outras contas que suportam aplicações de autenticação.
+- **Geração de código.** Como um gerador de código para outras contas que dão suporte a aplicativos autenticadores.
 
 > [!Important]
-> A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
-> 
-> Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
+> O aplicativo Microsoft Authenticator funciona com qualquer conta que usa a verificação de dois fatores e dá suporte aos padrões TOTP (senha de uso único) com base no tempo.
+>
+> Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa aparecer no aplicativo, a conta não está realmente configurada para atuar como um método de verificação até que você conclua o processo de registro. Para obter mais informações, consulte [adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
 > 
 > [!NOTE]
-> Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
+> Se você estiver tendo problemas para entrar em sua conta, consulte [quando não é possível entrar em seu conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer ao receber a mensagem ["esse conta Microsoft não existe"](https://support.microsoft.com/help/13811) ao tentar entrar no seu conta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Transferir e instalar a aplicação
-Instale a versão mais recente da aplicação Microsoft Authenticator, com base no seu sistema operativo:
 
-- **Google Android.** No seu dispositivo Android, aceda à Google Play para [transferir e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
+Instale a versão mais recente do aplicativo Microsoft Authenticator, com base no seu sistema operacional:
 
-- **Apple iOS.** No seu dispositivo iOS da Apple, vá para o Store da aplicação para [transferir e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
+- **Google Android.** Em seu dispositivo Android, vá para Google Play para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
+
+- **Apple iOS.** No seu dispositivo iOS da Apple, vá para a loja de aplicativos para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se não estiver atualmente no seu dispositivo móvel, continua a poder aceder a aplicação Microsoft Authenticator, enviando-se uma ligação de transferência a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois de transferir e instalar a aplicação, tem de adicionar as suas várias contas. Para obter mais informações, consulte [adicionar as suas contas](user-help-auth-app-add-account-overview.md).
+- Depois de baixar e instalar o aplicativo, você deve adicionar suas várias contas. Para obter mais informações, consulte [adicionar suas contas](user-help-auth-app-add-account-overview.md).

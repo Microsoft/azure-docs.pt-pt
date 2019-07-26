@@ -1,6 +1,6 @@
 ---
-title: Ligar o Azure HDInsight à sua rede no local
-description: Saiba como criar um cluster de HDInsight numa rede Virtual do Azure e, em seguida, ligá-la à sua rede no local. Saiba como configurar a resolução de nome entre o HDInsight e a sua rede no local ao utilizar um servidor DNS personalizado.
+title: Conectar o Azure HDInsight à sua rede local
+description: Saiba como criar um cluster HDInsight em uma rede virtual do Azure e, em seguida, conecte-o à sua rede local. Saiba como configurar a resolução de nomes entre o HDInsight e sua rede local usando um servidor DNS personalizado.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,125 +8,125 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 52fe8c05101f9647549acec276f0bdb9fa52d1c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ced0655d2e8ff012b3043dd123a8483674b4c472
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60537909"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404539"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
-Saiba como ligar o HDInsight à sua rede no local através de redes virtuais do Azure e um gateway de VPN. Este documento fornece informações de planeamento sobre:
+Saiba como conectar o HDInsight à sua rede local usando redes virtuais do Azure e um gateway de VPN. Este documento fornece informações de planejamento sobre:
 
-* Utilizar o HDInsight numa rede Virtual do Azure que liga à sua rede no local.
-* Configurar a resolução de nomes DNS entre a rede virtual e a sua rede no local.
-* Configurar grupos de segurança de rede para restringir o acesso à internet para o HDInsight.
+* Usando o HDInsight em uma rede virtual do Azure que se conecta à sua rede local.
+* Configurar a resolução de nomes DNS entre a rede virtual e a rede local.
+* Configurar grupos de segurança de rede para restringir o acesso à Internet para o HDInsight.
 * Portas fornecidas pelo HDInsight na rede virtual.
 
 ## <a name="overview"></a>Descrição geral
 
-Para permitir que o HDInsight e os recursos da rede associados a um para se comunicar por nome, tem de efetuar as seguintes ações:
+Para permitir que o HDInsight e os recursos na rede unida se comuniquem por nome, você deve executar as seguintes ações:
 
-* Crie rede Virtual do Azure.
-* Crie um servidor DNS personalizado na rede Virtual do Azure.
-* Configure a rede virtual para utilizar o servidor DNS personalizado em vez da predefinição resolvedor recursivo de Azure.
-* Configure o reencaminhamento entre o servidor DNS personalizado e o seu servidor DNS no local.
+* Crie uma rede virtual do Azure.
+* Crie um servidor DNS personalizado na rede virtual do Azure.
+* Configure a rede virtual para usar o servidor DNS personalizado em vez do resolvedor recursivo padrão do Azure.
+* Configure o encaminhamento entre o servidor DNS personalizado e o servidor DNS local.
 
-Esta configuração permite que o comportamento seguinte:
+Essa configuração habilita o seguinte comportamento:
 
-* Pedidos para nomes de domínio completamente qualificado que têm o sufixo DNS __para a rede virtual__ são reencaminhados para o servidor DNS personalizado. O servidor DNS personalizado, em seguida, encaminha estes pedidos para o Resolvedor de recursiva do Azure, que retorna o endereço IP.
-* Todos os outros pedidos são reencaminhados para o servidor DNS no local. Até mesmo solicitações de recursos de internet público, como o microsoft.com são reencaminhadas para o servidor DNS no local para resolução de nomes.
+* As solicitações de nomes de domínio totalmente qualificados que têm o sufixo DNS __para a rede virtual__ são encaminhadas para o servidor DNS personalizado. Em seguida, o servidor DNS personalizado encaminha essas solicitações para o resolvedor recursivo do Azure, que retorna o endereço IP.
+* Todas as outras solicitações são encaminhadas para o servidor DNS local. Até mesmo solicitações de recursos públicos da Internet, como microsoft.com, são encaminhadas para o servidor DNS local para resolução de nomes.
 
-No diagrama seguinte, o verde linhas são pedidos de recursos que terminam no sufixo DNS da rede virtual. Linhas azuis são pedidos de recursos na rede no local ou na internet pública.
+No diagrama a seguir, as linhas verdes são solicitações de recursos que terminam no sufixo DNS da rede virtual. As linhas azuis são solicitações de recursos na rede local ou na Internet pública.
 
-![Diagrama de como são resolvidos os pedidos DNS na configuração utilizada neste documento](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+![Diagrama de como as solicitações DNS são resolvidas na configuração usada neste documento](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Se utilizar o PowerShell, terá do [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Se o que pretendem utilizar o CLI do Azure e ainda não instalou-lo, consulte [instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](./hdinsight-hadoop-linux-use-ssh-unix.md).
+* Se estiver usando o PowerShell, você precisará do [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Se desejar usar CLI do Azure e você ainda não o tiver instalado, consulte [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Criar configuração de rede virtual
 
-Utilize os seguintes documentos para saber como criar uma rede Virtual do Azure que está ligada à sua rede no local:
+Use os documentos a seguir para saber como criar uma rede virtual do Azure que está conectada à sua rede local:
 
 * [Com o Portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Utilizar o Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Utilizar a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
-## <a name="create-custom-dns-server"></a>Criar o servidor DNS personalizado
+## <a name="create-custom-dns-server"></a>Criar servidor DNS personalizado
 
 > [!IMPORTANT]  
-> Tem de criar e configurar o servidor DNS antes de instalar HDInsight numa rede virtual.
+> Você deve criar e configurar o servidor DNS antes de instalar o HDInsight na rede virtual.
 
-Estes passos utilizam o [portal do Azure](https://portal.azure.com) para criar uma Máquina Virtual do Azure. Para outras formas de criar uma máquina virtual, consulte [criar VM - CLI do Azure](../virtual-machines/linux/quick-create-cli.md) e [criar VM - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Para criar uma VM do Linux que utiliza a [vincular](https://www.isc.org/downloads/bind/) software DNS, utilize os seguintes passos:
+Essas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma máquina virtual do Azure. Para outras maneiras de criar uma máquina virtual, consulte [criar VM-CLI do Azure](../virtual-machines/linux/quick-create-cli.md) e [criar VM-Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Para criar uma VM do Linux que usa o software DNS de [ligação](https://www.isc.org/downloads/bind/) , use as seguintes etapas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
   
-2. No menu à esquerda, navegue até **+ criar um recurso** > **computação** > **LTS do Ubuntu Server 18.04**.
+2. No menu à esquerda, navegue até **+ criar um recurso** > **computação** > **Ubuntu Server 18, 4 LTS**.
 
     ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-3. Partir do __Noções básicas__ separador, introduza as seguintes informações:  
+3. Na guia __noções básicas__ , insira as seguintes informações:  
   
-    | Campo | Value |
+    | Campo | Valor |
     | --- | --- |
-    |Subscrição |Selecione a subscrição adequada.|
-    |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual que criou anteriormente.|
-    |Nome da máquina virtual | Introduza um nome amigável que identifica esta máquina virtual. Este exemplo utiliza **DNSProxy**.|
-    |Região | Selecione a mesma região que a rede virtual que criou anteriormente.  Nem todos os tamanhos VM estão disponíveis em todas as regiões.  |
-    |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece uma gama de opções para gerir a disponibilidade e resiliência para as suas aplicações.  Arquitete a sua solução para utilizar as VMs replicadas em zonas de disponibilidade ou conjuntos de disponibilidade para proteger as aplicações e dados de falhas de datacenter e de eventos de manutenção. Este exemplo utiliza **nenhuma redundância de infraestrutura necessária**. |
-    |Image | Deixe **LTS do Ubuntu Server 18.04**. |
-    |Tipo de autenticação | __Palavra-passe__ ou __chave pública SSH__: O método de autenticação para a conta SSH. Recomendamos a utilização de chaves públicas, como eles são mais seguros. Este exemplo utiliza **palavra-passe**.  Para obter mais informações, consulte a [criar e utilizar chaves SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md) documento.|
-    |Nome de utilizador |Introduza o nome de utilizador de administrador para a VM.  Este exemplo utiliza **sshuser**.|
-    |Chave pública de palavra-passe ou SSH | O campo disponível é determinado à sua escolha para **tipo de autenticação**.  Introduza o valor apropriado.|
-    |Portas de entrada públicas|Selecione **permitir portas selecionadas**. Em seguida, selecione **SSH (22)** partir a **Selecione as portas de entrada** na lista pendente.|
+    |Subscription |Selecione sua assinatura apropriada.|
+    |Resource group |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
+    |Nome da máquina virtual | Insira um nome amigável que identifique essa máquina virtual. Este exemplo usa **DNSProxy**.|
+    |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
+    |Opções de disponibilidade |  Selecione o nível de disponibilidade desejado.  O Azure oferece uma variedade de opções para gerenciar a disponibilidade e a resiliência para seus aplicativos.  Projete sua solução para usar VMs replicadas em conjuntos de Zonas de Disponibilidade ou de disponibilidade para proteger seus aplicativos e dados de eventos de manutenção e interrupções do datacenter. Este exemplo **não usa nenhuma redundância de infraestrutura necessária**. |
+    |Image | Deixe no **Ubuntu Server 18, 4 LTS**. |
+    |Tipo de autenticação | __Senha__ ou __chave pública SSH__: O método de autenticação para a conta SSH. É recomendável usar chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [criar e usar chaves SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md) .|
+    |Nome de utilizador |Insira o nome de usuário do administrador para a VM.  Este exemplo usa **sshuser**.|
+    |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha para o **tipo de autenticação**.  Insira o valor apropriado.|
+    |Portas de entrada públicas|Selecione **permitir portas selecionadas**. Em seguida, selecione **SSH (22)** na lista suspensa **selecionar portas de entrada** .|
 
     ![Configuração básica da máquina virtual](./media/connect-on-premises-network/vm-basics.png)
 
-    Deixe as outras entradas com os valores predefinidos e, em seguida, selecione o **redes** separador.
+    Deixe outras entradas com os valores padrão e, em seguida, selecione a guia **rede** .
 
-4. Partir do **redes** separador, introduza as seguintes informações:
+4. Na guia **rede** , insira as seguintes informações:
 
-    | Campo | Value |
+    | Campo | Valor |
     | --- | --- |
-    |Rede virtual | Selecione a rede virtual que criou anteriormente.|
-    |Subrede | Selecione a sub-rede de predefinição para a rede virtual que criou anteriormente. Fazer __não__ selecione a sub-rede utilizada pelo gateway de VPN.|
-    |IP público | Utilize o valor de preenchido automaticamente.  |
+    |Rede virtual | Selecione a rede virtual que você criou anteriormente.|
+    |Subnet | Selecione a sub-rede padrão para a rede virtual que você criou anteriormente. __Não__ selecione a sub-rede usada pelo gateway de VPN.|
+    |IP Público | Use o valor preenchido automaticamente.  |
 
-    ![Definições de rede virtual](./media/connect-on-premises-network/virtual-network-settings.png)
+    ![Configurações de rede virtual](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Deixe as outras entradas com os valores predefinidos e, em seguida, selecione o **rever + criar**.
+    Deixe outras entradas com os valores padrão e, em seguida, selecione a **revisão + criar**.
 
-5. Do **rever + criar** separador, selecione **criar** para criar a máquina virtual.
+5. Na guia **revisar + criar** , selecione **criar** para criar a máquina virtual.
 
-### <a name="review-ip-addresses"></a>Reveja os endereços IP
-Quando a máquina virtual tiver sido criada, receberá um **implementação concluída com êxito** notificação com uma **Ir para recurso** botão.  Selecione **Ir para recurso** para aceder à sua nova máquina virtual.  A vista predefinida para a sua nova máquina virtual, siga estes passos para identificar os endereços IP associados:
+### <a name="review-ip-addresses"></a>Examinar endereços IP
+Depois que a máquina virtual tiver sido criada, você receberá uma notificação de **implantação bem-sucedida** com um botão **ir para recurso** .  Selecione **ir para o recurso** para ir para a nova máquina virtual.  Do modo de exibição padrão para sua nova máquina virtual, siga estas etapas para identificar os endereços IP associados:
 
-1. Partir **configurações**, selecione **propriedades**.
+1. Em **configurações**, selecione **Propriedades**.
 
-2. Tenha em atenção os valores para **etiqueta de nome de DNS/endereço IP público** e **PRIVATE IP ADDRESS** para utilização posterior.
+2. Observe os valores para **endereço IP público/rótulo de nome DNS** e **endereço IP privado** para uso posterior.
 
    ![Endereços IP públicos e privados](./media/connect-on-premises-network/vm-ip-addresses.png)
 
-### <a name="install-and-configure-bind-dns-software"></a>Instalar e configurar o enlace (software DNS)
+### <a name="install-and-configure-bind-dns-software"></a>Instalar e configurar o BIND (software DNS)
 
-1. Utilize SSH para ligar para o __endereço IP público__ da máquina virtual. Substitua `sshuser` com a conta de utilizador SSH que especificou quando criou a VM. O exemplo seguinte liga a uma máquina virtual em 40.68.254.142:
+1. Use o SSH para se conectar ao __endereço IP público__ da máquina virtual. Substitua `sshuser` pela conta de usuário SSH que você especificou ao criar a VM. O exemplo a seguir se conecta a uma máquina virtual em 40.68.254.142:
 
     ```bash
     ssh sshuser@40.68.254.142
     ```
 
-2. Para instalar o enlace, utilize os seguintes comandos a partir da sessão SSH:
+2. Para instalar o BIND, use os seguintes comandos da sessão SSH:
 
     ```bash
     sudo apt-get update -y
     sudo apt-get install bind9 -y
     ```
 
-3. Para configurar o enlace para reencaminhar pedidos de resolução de nome ao seu servidor DNS no local, utilize o seguinte texto como conteúdo do `/etc/bind/named.conf.options` ficheiro:
+3. Para configurar o BIND para encaminhar solicitações de resolução de nomes para o servidor DNS local, use o seguinte texto como o `/etc/bind/named.conf.options` conteúdo do arquivo:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -153,25 +153,25 @@ Quando a máquina virtual tiver sido criada, receberá um **implementação conc
         };
 
     > [!IMPORTANT]  
-    > Substitua os valores no `goodclients` secção com o intervalo de endereços IP da rede virtual e rede no local. Esta secção define os endereços que aceita os pedidos deste servidor DNS.
+    > Substitua os valores na `goodclients` seção pelo intervalo de endereços IP da rede virtual e da rede local. Esta seção define os endereços dos quais esse servidor DNS aceita solicitações.
     >
-    > Substitua a `192.168.0.1` entrada no `forwarders` secção com o endereço IP do servidor DNS no local. Esta entrada encaminha os pedidos DNS para o seu servidor DNS no local para a resolução.
+    > Substitua a `192.168.0.1` entrada `forwarders` na seção pelo endereço IP do seu servidor DNS local. Essa entrada roteia as solicitações DNS para o servidor DNS local para resolução.
 
-    Para editar este ficheiro, utilize o seguinte comando:
+    Para editar esse arquivo, use o seguinte comando:
 
     ```bash
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl + X__, __Y__e, em seguida __Enter__.
+    Para salvar o arquivo, use __Ctrl + X__, __Y__e, em seguida, __Enter__.
 
-4. A partir da sessão SSH, utilize o seguinte comando:
+4. Na sessão SSH, use o seguinte comando:
 
     ```bash
     hostname -f
     ```
 
-    Este comando devolve um valor semelhante ao seguinte texto:
+    Esse comando retorna um valor semelhante ao seguinte texto:
 
     ```output
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
@@ -179,7 +179,7 @@ Quando a máquina virtual tiver sido criada, receberá um **implementação conc
 
     O `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` texto é o __sufixo DNS__ para esta rede virtual. Guarde este valor, porque vai ser utilizado mais tarde.
 
-5. Para configurar o enlace para resolver os nomes DNS para recursos dentro da rede virtual, utilize o seguinte texto como conteúdo do `/etc/bind/named.conf.local` ficheiro:
+5. Para configurar o BIND para resolver nomes DNS para recursos na rede virtual, use o seguinte texto como o conteúdo do `/etc/bind/named.conf.local` arquivo:
 
         // Replace the following with the DNS suffix for your virtual network
         zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
@@ -188,23 +188,23 @@ Quando a máquina virtual tiver sido criada, receberá um **implementação conc
         };
 
     > [!IMPORTANT]  
-    > Tem de substituir o `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` com o sufixo DNS que obteve anteriormente.
+    > Você deve substituir o `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` pelo sufixo DNS que você recuperou anteriormente.
 
-    Para editar este ficheiro, utilize o seguinte comando:
+    Para editar esse arquivo, use o seguinte comando:
 
     ```bash
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Para guardar o ficheiro, utilize __Ctrl + X__, __Y__e, em seguida __Enter__.
+    Para salvar o arquivo, use __Ctrl + X__, __Y__e, em seguida, __Enter__.
 
-6. Para iniciar a ligação, utilize o seguinte comando:
+6. Para iniciar a ligação, use o seguinte comando:
 
     ```bash
     sudo service bind9 restart
     ```
 
-7. Para verificar essa associação pode resolver os nomes de recursos na sua rede no local, utilize os seguintes comandos:
+7. Para verificar se o BIND pode resolver os nomes dos recursos em sua rede local, use os seguintes comandos:
 
     ```bash
     sudo apt install dnsutils
@@ -212,11 +212,11 @@ Quando a máquina virtual tiver sido criada, receberá um **implementação conc
     ```
 
     > [!IMPORTANT]  
-    > Substitua `dns.mynetwork.net` com o nome de domínio completamente qualificado (FQDN) de um recurso na sua rede no local.
+    > Substitua `dns.mynetwork.net` pelo FQDN (nome de domínio totalmente qualificado) de um recurso em sua rede local.
     >
-    > Substitua `10.0.0.4` com o __endereço IP interno__ do seu servidor DNS personalizado na rede virtual.
+    > Substitua `10.0.0.4` pelo __endereço IP interno__ do seu servidor DNS personalizado na rede virtual.
 
-    A resposta parece ser semelhante ao seguinte texto:
+    A resposta é semelhante ao seguinte texto:
 
     ```output
     Server:         10.0.0.4
@@ -227,83 +227,83 @@ Quando a máquina virtual tiver sido criada, receberá um **implementação conc
     Address: 192.168.0.4
     ```
 
-## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Configurar a rede virtual para utilizar o servidor DNS personalizado
+## <a name="configure-virtual-network-to-use-the-custom-dns-server"></a>Configurar a rede virtual para usar o servidor DNS personalizado
 
-Para configurar a rede virtual para utilizar o servidor DNS personalizado em vez do resolvedor recursivo do Azure, utilize os passos seguintes a [portal do Azure](https://portal.azure.com):
+Para configurar a rede virtual para usar o servidor DNS personalizado em vez do resolvedor recursivo do Azure, use as seguintes etapas do [portal do Azure](https://portal.azure.com):
 
 1. No menu à esquerda, navegue até **todos os serviços** > **rede** > **redes virtuais**.
 
-2. Selecione a rede virtual a partir da lista, que irá abrir a vista predefinida para a rede virtual.  
+2. Selecione sua rede virtual na lista, que abrirá a exibição padrão para sua rede virtual.  
 
-3. A vista predefinida, em **configurações**, selecione **servidores DNS**.  
+3. Na exibição padrão, em **configurações**, selecione **servidores DNS**.  
 
-4. Selecione __personalizados__e introduza o **PRIVATE IP ADDRESS** do servidor DNS personalizado.   
+4. Selecione __personalizado__e insira o **endereço IP privado** do servidor DNS personalizado.   
 
 5. Selecione __Guardar__.  <br />  
 
-    ![Defina o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
+    ![Definir o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
 
-## <a name="configure-on-premises-dns-server"></a>Configurar o servidor DNS no local
+## <a name="configure-on-premises-dns-server"></a>Configurar servidor DNS local
 
-Na secção anterior, configurou o servidor DNS personalizado para encaminhar pedidos para o servidor DNS no local. Em seguida, tem de configurar o servidor DNS no local para reencaminhar pedidos para o servidor DNS personalizado.
+Na seção anterior, você configurou o servidor DNS personalizado para encaminhar solicitações para o servidor DNS local. Em seguida, você deve configurar o servidor DNS local para encaminhar solicitações para o servidor DNS personalizado.
 
-Para obter passos específicos sobre como configurar seu servidor DNS, consulte a documentação para o seu software de servidor DNS. Procure os passos sobre como configurar uma __reencaminhador condicional__.
+Para obter etapas específicas sobre como configurar o servidor DNS, consulte a documentação do software do servidor DNS. Procure as etapas de como configurar um encaminhador __condicional__.
 
-Um reencaminhamento condicional apenas reencaminha os pedidos para um sufixo DNS específico. Neste caso, deve configurar um encaminhador para o sufixo DNS da rede virtual. Pedidos para este sufixo devem ser reencaminhados para o endereço IP do servidor DNS personalizado. 
+Um encaminhamento condicional apenas encaminha solicitações para um sufixo DNS específico. Nesse caso, você deve configurar um encaminhador para o sufixo DNS da rede virtual. As solicitações para esse sufixo devem ser encaminhadas para o endereço IP do servidor DNS personalizado. 
 
-O texto seguinte é um exemplo de uma configuração de reencaminhador condicional para o **vincular** software DNS:
+O texto a seguir é um exemplo de uma configuração de encaminhador condicional para o software DNS de **ligação** :
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
         type forward;
         forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
     };
 
-Para obter informações sobre como utilizar o DNS no **Windows Server 2016**, consulte a [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentação...
+Para obter informações sobre como usar o DNS no **Windows Server 2016**, consulte a documentação do [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) ...
 
-Assim que tiver configurado o servidor DNS no local, pode utilizar `nslookup` da rede no local para verificar que pode resolver os nomes na rede virtual. O exemplo seguinte 
+Depois de configurar o servidor DNS local, você pode usar `nslookup` a partir da rede local para verificar se você pode resolver nomes na rede virtual. O exemplo a seguir 
 
 ```bash
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.4
 ```
 
-Este exemplo utiliza o servidor DNS no local em 196.168.0.4 para resolver o nome do servidor DNS personalizado. Substitua o endereço IP para o servidor DNS no local. Substitua o `dnsproxy` endereço com o nome de domínio completamente qualificado do servidor DNS personalizado.
+Este exemplo usa o servidor DNS local em 196.168.0.4 para resolver o nome do servidor DNS personalizado. Substitua o endereço IP por um para o servidor DNS local. Substitua o `dnsproxy` endereço pelo nome de domínio totalmente qualificado do servidor DNS personalizado.
 
 ## <a name="optional-control-network-traffic"></a>Opcional: Controlar o tráfego de rede
 
-Pode utilizar grupos de segurança de rede (NSG) ou rotas definidas pelo utilizador (UDR) para controlar o tráfego de rede. Os NSGs permitem-lhe filtrar o tráfego de entrada e saído e permitir ou negar o tráfego. As UDRs permitem-lhe controlar a forma como o tráfego flui entre os recursos da rede virtual, a internet e a rede no local.
+Você pode usar NSG (grupos de segurança de rede) ou UDR (rotas definidas pelo usuário) para controlar o tráfego de rede. O NSGs permite filtrar o tráfego de entrada e de saída e permitir ou negar o tráfego. O UDRs permite controlar como o tráfego flui entre os recursos na rede virtual, a Internet e a rede local.
 
 > [!WARNING]  
-> HDInsight requer acesso de entrada de endereços IP específicos na cloud do Azure e o acesso sem restrições de saída. Quando utilizar NSGs ou UDRs para controlar o tráfego, tem de efetuar os seguintes passos:
+> O HDInsight requer acesso de entrada de endereços IP específicos na nuvem do Azure e acesso irrestrito de saída. Ao usar NSGs ou UDRs para controlar o tráfego, você deve executar as seguintes etapas:
 
-1. Localize os endereços IP para a localização que contém a sua rede virtual. Para obter uma lista de IPs necessária por localização, consulte [endereços IP necessários](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
+1. Localize os endereços IP para o local que contém sua rede virtual. Para obter uma lista de IPs necessários por local, consulte [endereços IP necessários](./hdinsight-management-ip-addresses.md).
 
-2. Para os endereços IP identificados na etapa 1, permitir o tráfego de entrada desse IP endereços.
+2. Para os endereços IP identificados na etapa 1, permita o tráfego de entrada dos endereços IP.
 
-   * Se estiver a utilizar __NSG__: Permitir __entrada__ tráfego na porta __443__ para endereços de IP.
-   * Se estiver a utilizar __UDR__: Definir o __próximo salto__ tipo de rota para __Internet__ para endereços de IP.
+   * Se você estiver usando __NSG__: Permita o tráfego de __entrada__ na porta __443__ para os endereços IP.
+   * Se você estiver usando __UDR__: Defina o tipo do __próximo salto__ da rota para a __Internet__ para os endereços IP.
 
-Para obter um exemplo de utilização do Azure PowerShell ou a CLI do Azure para criar NSGs, consulte a [estender o HDInsight com redes virtuais do Azure](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) documento.
+Para obter um exemplo de como usar Azure PowerShell ou o CLI do Azure para criar NSGs, consulte o documento [estender o HDInsight com redes virtuais do Azure](hdinsight-create-virtual-network.md#hdinsight-nsg) .
 
-## <a name="create-the-hdinsight-cluster"></a>Criar o cluster do HDInsight
-
-> [!WARNING]  
-> Tem de configurar o servidor DNS personalizado antes de instalar HDInsight na rede virtual.
-
-Utilize os passos no [criar um cluster do HDInsight com o portal do Azure](./hdinsight-hadoop-create-linux-clusters-portal.md) documento para criar um cluster do HDInsight.
+## <a name="create-the-hdinsight-cluster"></a>Criar o cluster HDInsight
 
 > [!WARNING]  
-> * Durante a criação do cluster, tem de escolher a localização que contém a sua rede virtual.
-> * Na __definições avançadas__ parte da configuração, tem de selecionar a rede virtual e a sub-rede que criou anteriormente.
+> Você deve configurar o servidor DNS personalizado antes de instalar o HDInsight na rede virtual.
 
-## <a name="connecting-to-hdinsight"></a>Ligar ao HDInsight
+Use as etapas no documento [criar um cluster hdinsight usando o portal do Azure](./hdinsight-hadoop-create-linux-clusters-portal.md) para criar um cluster hdinsight.
 
-A maioria dos documentação no HDInsight assume que tem acesso ao cluster através da internet. Por exemplo, que pode ligar ao cluster em `https://CLUSTERNAME.azurehdinsight.net`. Este endereço utiliza o gateway público, que não está disponível se tiver utilizado os NSGs ou UDRs para restringir o acesso a partir da internet.
+> [!WARNING]  
+> * Durante a criação do cluster, você deve escolher o local que contém sua rede virtual.
+> * Na parte __Configurações avançadas__ da configuração, você deve selecionar a rede virtual e a sub-rede que você criou anteriormente.
 
-Também faz referência a alguma documentação `headnodehost` quando ligar ao cluster a partir de uma sessão SSH. Este endereço só está disponível a partir de nós num cluster e não pode ser utilizado nos clientes ligados através da rede virtual.
+## <a name="connecting-to-hdinsight"></a>Conectando-se ao HDInsight
 
-Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguintes passos:
+A maioria das documentações no HDInsight pressupõe que você tenha acesso ao cluster pela Internet. Por exemplo, que pode ligar ao cluster em `https://CLUSTERNAME.azurehdinsight.net`. Esse endereço usa o gateway público, que não estará disponível se você tiver usado NSGs ou UDRs para restringir o acesso da Internet.
 
-1. Para descobrir os nomes de domínio completamente qualificado interno de nós de cluster do HDInsight, utilize um dos seguintes métodos:
+Algumas documentações também `headnodehost` fazem referência ao se conectar ao cluster de uma sessão SSH. Esse endereço só está disponível em nós em um cluster e não pode ser usado em clientes conectados pela rede virtual.
+
+Para se conectar diretamente ao HDInsight por meio da rede virtual, use as seguintes etapas:
+
+1. Para descobrir os nomes de domínio totalmente qualificados internos dos nós do cluster HDInsight, use um dos seguintes métodos:
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -325,19 +325,19 @@ Para ligar diretamente ao HDInsight através da rede virtual, utilize os seguint
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-2. Para determinar a porta que um serviço está disponível em, veja a [portas utilizadas pelos serviços do Apache Hadoop no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) documento.
+2. Para determinar a porta em que um serviço está disponível, consulte o documento [portas usadas pelo Apache Hadoop Services no HDInsight](./hdinsight-hadoop-port-settings-for-services.md) .
 
     > [!IMPORTANT]  
-    > Alguns serviços alojados nos nós principais são apenas o Active Directory num nó de cada vez. Se tentar acessar um serviço num nó principal e este falhar, mude para o outro nó principal.
+    > Alguns serviços hospedados nos nós de cabeçalho estão ativos apenas em um nó por vez. Se você tentar acessar um serviço em um nó de cabeçalho e ele falhar, alterne para o outro nó de cabeçalho.
     >
-    > Por exemplo, Apache Ambari só está ativo no nó principal um cada vez. Se tentar acessar Ambari num nó principal e retorna um erro 404, em seguida, ele é executado no nó principal.
+    > Por exemplo, o Apache Ambari está ativo apenas em um nó de cabeçalho por vez. Se você tentar acessar o Ambari em um nó de cabeçalho e ele retornar um erro 404, ele será executado no outro nó de cabeçalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para obter mais informações sobre como utilizar o HDInsight numa rede virtual, consulte [expandir HDInsight ao utilizar redes virtuais do Azure](./hdinsight-extend-hadoop-virtual-network.md).
+* Para obter mais informações sobre como usar o HDInsight em uma rede virtual, consulte [planejar uma implantação de rede virtual para clusters do Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md).
 
-* Para obter mais informações sobre redes virtuais do Azure, consulte a [descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
+* Para obter mais informações sobre redes virtuais do Azure, consulte [visão geral da rede virtual do Azure](../virtual-network/virtual-networks-overview.md).
 
 * Para obter mais informações sobre grupos de segurança de rede, consulte [grupos de segurança de rede](../virtual-network/security-overview.md).
 
-* Para obter mais informações sobre as rotas definidas pelo utilizador, consulte [rotas definidas pelo utilizador e reencaminhamento IP](../virtual-network/virtual-networks-udr-overview.md).
+* Para obter mais informações sobre rotas definidas pelo usuário, consulte [rotas definidas pelo usuário e encaminhamento de IP](../virtual-network/virtual-networks-udr-overview.md).

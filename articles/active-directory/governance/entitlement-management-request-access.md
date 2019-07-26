@@ -1,10 +1,10 @@
 ---
-title: Pedir acesso a um pacote de acesso na gestão de direitos do Azure AD (pré-visualização) - Azure Active Directory
-description: Saiba como utilizar o portal de acesso My para solicitar acesso a um pacote de acesso na gestão de direitos do Azure Active Directory (pré-visualização).
+title: Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
+description: Saiba como usar o portal meu acesso para solicitar acesso a um pacote do Access no gerenciamento de direitos Azure Active Directory (versão prévia).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,88 +13,88 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/19/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a50240b4360c5b4adcd6020c2b80b0f06315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541559"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489048"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Pedir acesso a um pacote de acesso na gestão de direitos do Azure AD (pré-visualização)
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
-> Gestão de direitos do Active Directory (Azure AD) do Azure está atualmente em pré-visualização pública.
+> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="sign-in-to-the-my-access-portal"></a>Inicie sessão portal do meu acesso
+## <a name="sign-in-to-the-my-access-portal"></a>Entrar no meu portal de acesso
 
-A primeira etapa é iniciar sessão portal do meu acesso onde pode solicitar acesso a um pacote de acesso.
+A primeira etapa é entrar no portal meu acesso, em que você pode solicitar acesso a um pacote do Access.
 
-**Função de pré-requisitos:** Requerente
+**Função de pré-requisito:** Solicitante
 
-1. Procure uma mensagem de e-mail ou uma mensagem do Gestor de projeto ou da empresa que estiver a trabalhar com. O e-mail deve incluir uma ligação para o pacote de acesso, terá acesso a. A ligação terá início com:
+1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link será iniciado com:
 
     `https://myaccess.microsoft.com`
 
-1. Abra a ligação.
+1. Abra o link.
 
-1. Inicie sessão no portal do meu acesso.
+1. Entre no portal meu acesso.
 
-    Certifique-se de que utilize a sua conta organizacional. Se não souber, verifique com seu gerente de projeto ou empresa.
+    Certifique-se de usar sua conta institucional. Se você não tiver certeza, verifique com seu projeto ou gerente de negócios.
 
-## <a name="request-an-access-package"></a>Pedido de um pacote de acesso
+## <a name="request-an-access-package"></a>Solicitar um pacote de acesso
 
-Depois de encontrar o pacote de acesso no portal do meu acesso, pode submeter um pedido.
+Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar uma solicitação.
 
-**Função de pré-requisitos:** Requerente
+**Função de pré-requisito:** Solicitante
 
-1. Clique na marca de verificação para selecionar o pacote de acesso.
+1. Clique na marca de seleção para selecionar o pacote de acesso.
 
-    ![Meu portal de acesso - pacotes de acesso](./media/entitlement-management-shared/my-access-access-packages.png)
+    ![Meu Portal de acesso-pacotes de acesso](./media/entitlement-management-shared/my-access-access-packages.png)
 
-1. Clique em **pedir acesso** para abrir o painel de acesso do pedido.
+1. Clique em **solicitar acesso** para abrir o painel solicitar acesso.
 
-1. Se o **justificativa comercial** é apresentada a caixa, escreva uma justificação para precisar de acesso.
+1. Se a caixa de justificativa de **negócios** for exibida, digite uma justificativa para a necessidade de acesso.
 
-1. Se **pedir para o período específico?** está ativada, selecione **Sim** ou **não**.
+1. Se **a solicitação de período específico** for habilitada, selecione **Sim** ou **não**.
 
-1. Se necessário, especifique a data de início e data de fim.
+1. Se necessário, especifique a data de início e a data de término.
 
-    ![Meu portal de acesso – pedir acesso](./media/entitlement-management-shared/my-access-request-access.png)
+    ![Meu Portal de acesso-solicitar acesso](./media/entitlement-management-shared/my-access-request-access.png)
 
-1. Quando terminar, clique em **submeter** para submeter o pedido.
+1. Quando terminar, clique em **Enviar** para enviar sua solicitação.
 
-1. Clique em **histórico de pedidos** para ver uma lista dos seus pedidos e o estado.
+1. Clique em **histórico de solicitações** para ver uma lista de suas solicitações e o status.
 
-    Se o pacote de acesso necessitar de aprovação, o pedido está agora num Estado de aprovação pendentes.
+    Se o pacote de acesso exigir aprovação, a solicitação estará agora em um estado de aprovação pendente.
 
-## <a name="cancel-a-request"></a>Cancelar um pedido
+## <a name="cancel-a-request"></a>Cancelar uma solicitação
 
-Se enviar um pedido de acesso e o pedido é ainda na **com aprovação pendente** de estado, pode cancelar o pedido.
+Se você enviar uma solicitação de acesso e a solicitação ainda estiver no estado de **aprovação pendente** , você poderá cancelar a solicitação.
 
-**Função de pré-requisitos:** Requerente
+**Função de pré-requisito:** Solicitante
 
-1. No portal do meu acesso, no lado esquerdo, clique em **histórico de pedidos** para ver uma lista dos seus pedidos e o estado.
+1. No portal meu acesso, à esquerda, clique em **histórico de solicitações** para ver uma lista de suas solicitações e o status.
 
-1. Clique nas **vista** ligação para o pedido de que pretende cancelar.
+1. Clique no link **Exibir** para a solicitação que você deseja cancelar.
 
-1. Se a solicitação for ainda na **com aprovação pendente** de estado, pode clicar em **pedido de cancelamento** para cancelar o pedido.
+1. Se a solicitação ainda estiver no estado de **aprovação pendente** , você poderá clicar em **Cancelar solicitação** para cancelar a solicitação.
 
-    ![Meu portal de acesso - pedido de cancelamento](./media/entitlement-management-request-access/my-access-cancel-request.png)
+    ![Meu Portal de acesso-Cancelar solicitação](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
-1. Clique em **histórico de pedidos** para confirmar se o pedido foi cancelado.
+1. Clique em **histórico de solicitações** para confirmar que a solicitação foi cancelada.
 
 ## <a name="select-a-policy"></a>Selecionar uma política
 
-Se está a solicitar acesso a um pacote de acesso que tem várias políticas que se aplicam, poderá ser-lhe pedido para selecionar uma política. Por exemplo, um Gestor de pacotes de acesso pode configurar um pacote de acesso com duas políticas para dois grupos de empregados internos. A primeira diretiva pode permitir o acesso durante 60 dias e exigir a aprovação. A segunda política pode permitir o acesso de 2 dias e requer aprovação. Se encontrar neste cenário, tem de selecionar a política que pretende utilizar.
+Se você estiver solicitando acesso a um pacote de acesso que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
 
-**Função de pré-requisitos:** Requerente
+**Função de pré-requisito:** Solicitante
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)
-- [Processo e notificações de e-mail do pedido](entitlement-management-process.md)
+- [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)
+- [Solicitar notificações de processo e email](entitlement-management-process.md)

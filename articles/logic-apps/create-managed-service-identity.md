@@ -1,6 +1,6 @@
 ---
-title: Autenticar com identidades geridas - Azure Logic Apps | Documentos da Microsoft
-description: Para se autenticar sem iniciar sessão, pode criar uma identidade gerida (anteriormente denominadas identidade do serviço gerido ou MSI), para a sua aplicação lógica pode aceder a recursos em outro Azure Active Directory (Azure AD) inquilinos sem credenciais ou segredos
+title: Autenticar com identidades gerenciadas-aplicativos lógicos do Azure | Microsoft Docs
+description: Para autenticar sem entrar, você pode criar uma identidade gerenciada (anteriormente chamada de Identidade de Serviço Gerenciada ou MSI) para que seu aplicativo lógico possa acessar recursos em outros locatários do Azure Active Directory (AD do Azure) sem credenciais ou segredos
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
@@ -9,66 +9,66 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b157db5032bd62ab443209f201b4ceded6e44cb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416138"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385564"
 ---
-# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
+# <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e acessar recursos com identidades gerenciadas em aplicativos lógicos do Azure
 
-Para aceder a recursos em outros inquilinos do Azure Active Directory (Azure AD) e autenticar a sua identidade sem iniciar sessão, a sua aplicação lógica pode utilizar um [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecido como identidade do serviço gerido ou MSI), em vez as credenciais ou segredos. O Azure gere esta identidade para si e ajuda a proteger as suas credenciais, porque não precisa fornecer ou girar segredos. Este artigo mostra como pode configurar e utilizar uma identidade gerida atribuído de sistema para a aplicação lógica. Para obter mais informações sobre identidades geridas, consulte [o que há de identidades geridas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
+Para acessar recursos em outros locatários do Azure Active Directory (AD do Azure) e autenticar sua identidade sem entrar, seu aplicativo lógico pode usar uma [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como identidade de serviço gerenciada ou msi), em vez de credenciais ou segredos. O Azure gerencia essa identidade para você e ajuda a proteger suas credenciais porque você não precisa fornecer ou girar segredos. Este artigo mostra como você pode configurar e usar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico. Para obter mais informações sobre identidades gerenciadas, consulte [o que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> A aplicação lógica pode utilizar identidades geridas apenas com os conectores que suportam identidades geridas. Atualmente, apenas o conector do HTTP suporta identidades geridas.
+> Seu aplicativo lógico pode usar identidades gerenciadas somente com conectores que dão suporte a identidades gerenciadas. Atualmente, somente o conector HTTP dá suporte a identidades gerenciadas.
 >
-> Pode atualmente ter até 10 logic app fluxos de trabalho com atribuído o sistema gerido identidades em cada subscrição do Azure.
+> No momento, você pode ter até 10 fluxos de trabalho de aplicativo lógico com identidades gerenciadas atribuídas pelo sistema em cada assinatura do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure, ou se não tiver uma subscrição <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
+* Uma assinatura do Azure, ou se você não tiver uma assinatura, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se para obter uma conta gratuita do Azure</a>.
 
-* A aplicação lógica em que pretende utilizar o sistema-atribuídas a identidade gerida. Se não tiver uma aplicação lógica, consulte [criar seu primeiro fluxo de trabalho de aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* O aplicativo lógico no qual você deseja usar a identidade gerenciada atribuída pelo sistema. Se você não tiver um aplicativo lógico, consulte [criar seu primeiro fluxo de trabalho do aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="enable-identity"></a>
 
-## <a name="enable-managed-identity"></a>Ativar a identidade gerida
+## <a name="enable-managed-identity"></a>Habilitar identidade gerenciada
 
-Para identidades geridas atribuído de sistema, não é necessário que criar manualmente essa identidade. Para configurar uma identidade gerida atribuído de sistema para a aplicação lógica, pode usar essas formas: 
+Para identidades gerenciadas atribuídas pelo sistema, você não precisa criar essa identidade manualmente. Para configurar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico, você pode usar estas maneiras: 
 
-* [Portal do Azure](#azure-portal) 
-* [Modelos Azure Resource Manager](#template) 
+* [Azure portal](#azure-portal) 
+* [Modelos de Azure Resource Manager](#template) 
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
 
 <a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para ativar uma identidade gerida atribuído de sistema para a sua aplicação lógica no portal do Azure, ative o **sistema atribuído** definição nas definições de identidade da sua aplicação lógica.
+Para habilitar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico por meio do portal do Azure, ative a configuração **atribuída pelo sistema** nas configurações de identidade do aplicativo lógico.
 
-1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. No menu da aplicação lógica, sob **configurações**, selecione **identidade**. 
+1. No menu do aplicativo lógico, em **configurações**, selecione **identidade**. 
 
-1. Sob **sistema atribuído** > **estado**, escolha **no**. Em seguida, escolha **salvar** > **Sim**.
+1. Em**status** **atribuído** > pelo sistema, escolha **ativado**. Em seguida, escolha **salvar** > **Sim**.
 
-   ![Ativar a definição de identidade gerida](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![Ativar configuração de identidade gerenciada](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   A aplicação lógica agora tem uma identidade gerida atribuído de sistema registrada no Azure Active Directory:
+   Seu aplicativo lógico agora tem uma identidade gerenciada atribuída pelo sistema registrada em Azure Active Directory:
 
-   ![GUIDs para o ID de objeto](./media/create-managed-service-identity/object-id.png)
+   ![GUIDs da ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------| 
-   | **ID de objeto** | <*identity-resource-ID*> | Um identificador exclusivo global (GUID) que representa o atribuído de sistema gerido identidade para a sua aplicação lógica no inquilino do Azure AD | 
+   | **ID do objeto** | <*identity-resource-ID*> | Um GUID (identificador global exclusivo) que representa a identidade gerenciada atribuída pelo sistema para seu aplicativo lógico em um locatário do Azure AD | 
    ||| 
 
 <a name="template"></a>
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-Quando deseja automatizar a criação e a implementar recursos do Azure como o logic apps, pode utilizar [modelos Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Para criar uma identidade gerida atribuído de sistema para a sua aplicação lógica com o modelo, adicione a `"identity"` elemento e `"type"` propriedade para a definição de fluxo de trabalho de aplicação lógica no seu modelo de implementação: 
+Quando desejar automatizar a criação e implantação de recursos do Azure, como aplicativos lógicos, você pode usar [modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). Para criar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico por meio de um modelo `"identity"` , adicione `"type"` o elemento e a propriedade à definição de fluxo de trabalho do aplicativo lógico em seu modelo de implantação: 
 
 ```json
 "identity": {
@@ -101,7 +101,7 @@ Por exemplo:
 }
 ```
 
-Quando o Azure cria a aplicação lógica, a definição de fluxo de trabalho essa aplicação lógica inclui estas propriedades adicionais:
+Quando o Azure cria seu aplicativo lógico, a definição de fluxo de trabalho do aplicativo lógico inclui estas propriedades adicionais:
 
 ```json
 "identity": {
@@ -113,90 +113,90 @@ Quando o Azure cria a aplicação lógica, a definição de fluxo de trabalho es
 
 | Propriedade | Value | Descrição | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Um identificador exclusivo global (GUID) que representa a aplicação lógica no inquilino do Azure AD e, às vezes, é apresentada como uma "ID de objeto" ou `objectID` | 
-| **tenantId** | <*Azure-AD-tenant-ID*> | Um identificador exclusivo global (GUID) que representa o inquilino do Azure AD em que a aplicação lógica agora é um membro. Dentro de inquilino do Azure AD, o principal de serviço tem o mesmo nome que a instância da aplicação lógica. | 
+| **principalId** | <*principal-ID*> | Um GUID (identificador global exclusivo) que representa o aplicativo lógico no locatário do Azure AD e, às vezes, aparece como uma "ID de objeto" ou`objectID` | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | Um GUID (identificador global exclusivo) que representa o locatário do Azure AD em que o aplicativo lógico agora é um membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. | 
 ||| 
 
 <a name="access-other-resources"></a>
 
-## <a name="access-resources-with-managed-identity"></a>Aceder a recursos com a identidade gerida
+## <a name="access-resources-with-managed-identity"></a>Acessar recursos com identidade gerenciada
 
-Depois de criar uma identidade gerida atribuído de sistema para a aplicação lógica, poderá [conceder esse acesso de identidades para outros recursos do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Em seguida, pode usar essa identidade para a autenticação, como qualquer outro [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md). 
+Depois de criar uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico, você pode [conceder a essa identidade acesso a outros recursos do Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Em seguida, você pode usar essa identidade para autenticação, assim como qualquer outra [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md). 
 
 > [!NOTE]
-> A identidade gerida atribuído de sistema e o recurso onde pretende atribuir acesso tem de ter a mesma subscrição do Azure.
+> Tanto a identidade gerenciada atribuída pelo sistema quanto o recurso ao qual você deseja atribuir acesso devem ter a mesma assinatura do Azure.
 
-### <a name="assign-access-to-managed-identity"></a>Atribuir acesso a identidade gerida
+### <a name="assign-access-to-managed-identity"></a>Atribuir acesso à identidade gerenciada
 
-Para dar acesso a outro recurso do Azure para a identidade gerida de atribuído de sistema da sua aplicação lógica, siga estes passos:
+Para conceder acesso a outro recurso do Azure para a identidade gerenciada atribuída pelo sistema de seu aplicativo lógico, siga estas etapas:
 
-1. No portal do Azure, vá para o recurso do Azure onde pretende atribuir acesso para a sua identidade gerida. 
+1. Na portal do Azure, vá para o recurso do Azure no qual você deseja atribuir acesso à sua identidade gerenciada. 
 
-1. No menu do recurso, selecione **controlo de acesso (IAM)** . Na barra de ferramentas, escolha **Add** > **adicionar atribuição de função**.
+1. No menu do recurso, selecione **controle de acesso (iam)** . Na barra de ferramentas, escolha **Adicionar** > **Adicionar atribuição de função**.
 
    ![Adicionar atribuição de função](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. Sob **adicionar atribuição de função**, selecione a **função** pretende para a identidade. 
+1. Em **Adicionar atribuição de função**, selecione a **função** desejada para a identidade. 
 
-1. Na **atribuir acesso aos** propriedade, selecione **utilizador, grupo ou principal de serviço do Azure AD**, se ainda não estiver selecionado.
+1. Na propriedade **atribuir acesso a** , selecione **usuário, grupo ou entidade de serviço do Azure ad**, se ainda não tiver selecionado.
 
-1. Na **selecione** caixa, começando com o primeiro caráter no nome da sua aplicação lógica, introduza o nome da sua aplicação lógica. Quando for apresentada a sua aplicação lógica, selecione a aplicação lógica.
+1. Na caixa **selecionar** , começando com o primeiro caractere no nome do aplicativo lógico, insira o nome do aplicativo lógico. Quando o aplicativo lógico for exibido, selecione o aplicativo lógico.
 
-   ![Selecione a aplicação lógica com a identidade gerida](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
+   ![Selecionar aplicativo lógico com identidade gerenciada](./media/create-managed-service-identity/add-permissions-select-logic-app.png)
 
 1. Quando tiver terminado, escolha **Save** (Guardar).
 
-### <a name="authenticate-with-managed-identity-in-logic-app"></a>Autenticar com uma identidade gerida na aplicação lógica
+### <a name="authenticate-with-managed-identity-in-logic-app"></a>Autenticar com identidade gerenciada no aplicativo lógico
 
-Depois de configurar a aplicação lógica com um atribuído de sistema de identidade gerido e atribuído o acesso ao recurso que pretende para essa identidade, agora, pode utilizar essa identidade para a autenticação. Por exemplo, pode utilizar uma ação de HTTP para que a sua aplicação lógica pode enviar uma solicitação HTTP ou ligue a esse recurso. 
+Depois de configurar seu aplicativo lógico com uma identidade gerenciada atribuída pelo sistema e o acesso atribuído ao recurso desejado para essa identidade, agora você poderá usar essa identidade para autenticação. Por exemplo, você pode usar uma ação HTTP para que seu aplicativo lógico possa enviar uma solicitação HTTP ou chamar para esse recurso. 
 
-1. Na sua aplicação lógica, adicione a **HTTP** ação.
+1. Em seu aplicativo lógico, adicione a ação **http** .
 
-1. Forneça os detalhes necessários para esta ação, por exemplo, a solicitação **método** e **URI** localização do recurso que pretende chamar.
+1. Forneça os detalhes necessários para essa ação, como o **método** de solicitação e o local do **URI** para o recurso que você deseja chamar.
 
-   Por exemplo, suponha que estiver usando a autenticação do Azure Active Directory (Azure AD) com [um destes serviços do Azure que suportam o Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   Na **URI** , introduza o URL de ponto final para esse serviço do Azure. 
-   Então, se estiver a utilizar o Azure Resource Manager, introduza este valor na **URI** propriedade:
+   Por exemplo, suponha que você esteja usando a autenticação do Azure Active Directory (Azure AD) com [um desses serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   Na caixa **URI** , insira a URL do ponto de extremidade para o serviço do Azure. 
+   Portanto, se você estiver usando Azure Resource Manager, insira esse valor na propriedade **URI** :
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
-1. Na ação de HTTP, escolha **Mostrar opções avançadas**.
+1. Na ação HTTP, escolha **Mostrar opções avançadas**.
 
-1. Partir do **autenticação** lista, selecione **identidade gerido**. Depois de selecionar esta autenticação, o **público-alvo** propriedade é apresentada com o valor de ID de recurso predefinido:
+1. Na lista **autenticação** , selecione **identidade gerenciada**. Depois de selecionar essa autenticação, a propriedade **Audience** aparece com o valor de ID de recurso padrão:
 
-   ![Selecione "Identidade gerida"](./media/create-managed-service-identity/select-managed-service-identity.png)
+   ![Selecione "identidade gerenciada"](./media/create-managed-service-identity/select-managed-service-identity.png)
 
    > [!IMPORTANT]
    > 
-   > Na **público-alvo** propriedade, o valor de ID de recurso deve corresponder exatamente o que espera que o Azure AD, incluindo quaisquer necessários à direita de barras. 
-   > Pode encontrar estes valores de ID de recurso desta [que suportam o Azure AD dos serviços de tabela que descreve Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
-   > Por exemplo, se estiver a utilizar o ID de recurso do Gestor de recursos do Azure, certifique-se de que o URI tem uma barra à direita.
+   > Na propriedade **Audience** , o valor da ID de recurso deve corresponder exatamente ao que o Azure ad espera, incluindo as barras à direita necessárias. 
+   > Você pode encontrar esses valores de ID de recurso nesta [tabela que descrevem os serviços do Azure que dão suporte ao Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
+   > Por exemplo, se você estiver usando a ID de recurso do Gerenciador de recurso do Azure, verifique se o URI tem uma barra à direita.
 
-1. Continue a criar a aplicação lógica à sua maneira.
+1. Continue criando o aplicativo lógico da maneira desejada.
 
 <a name="remove-identity"></a>
 
-## <a name="remove-managed-identity"></a>Remover a identidade gerida
+## <a name="remove-managed-identity"></a>Remover identidade gerenciada
 
-Para desativar uma identidade gerida atribuído de sistema na sua aplicação lógica, pode seguir os passos semelhantes para a forma como configura a identidade através do portal do Azure, modelos de implementação Azure Resource Manager ou do Azure PowerShell.
+Para desabilitar uma identidade gerenciada atribuída pelo sistema em seu aplicativo lógico, você pode seguir as etapas semelhantes a como você configura a identidade por meio do portal do Azure, Azure Resource Manager modelos de implantação ou Azure PowerShell.
 
-Ao eliminar a aplicação lógica, o Azure remove automaticamente a identidade de sistema atribuído da sua aplicação lógica do Azure AD.
+Quando você exclui seu aplicativo lógico, o Azure remove automaticamente a identidade atribuída pelo sistema de seu aplicativo lógico do Azure AD.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para remover uma identidade gerida atribuído de sistema para a sua aplicação lógica no portal do Azure, desative a **sistema atribuído** definição nas definições de identidade da sua aplicação lógica.
+Para remover uma identidade gerenciada atribuída pelo sistema para seu aplicativo lógico por meio do portal do Azure, desative a configuração **atribuída pelo sistema** nas configurações de identidade do aplicativo lógico.
 
-1. Na [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer de aplicativo lógico.
 
-1. No menu da aplicação lógica, sob **configurações**, selecione **identidade**. 
+1. No menu do aplicativo lógico, em **configurações**, selecione **identidade**. 
 
-1. Sob **sistema atribuído** > **estado**, escolha **desativar**. Em seguida, escolha **salvar** > **Sim**.
+1. Em**status** **atribuído** > pelo sistema, escolha **desativado**. Em seguida, escolha **salvar** > **Sim**.
 
-   ![Desativar a definição de identidade gerida](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Desativar configuração de identidade gerenciada](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
 ### <a name="deployment-template"></a>Modelo de implementação
 
-Se tiver criado a identidade gerida de sistema atribuído a aplicação lógica com um modelo de implementação Azure Resource Manager, defina o `"identity"` do elemento `"type"` propriedade `"None"`. Esta ação também elimina o ID de principal do Azure AD.
+Se você criou a identidade gerenciada atribuída pelo sistema do aplicativo lógico com um modelo de implantação Azure Resource Manager, `"identity"` defina a `"type"` Propriedade do `"None"`elemento como. Essa ação também exclui a ID da entidade de segurança do Azure AD.
 
 ```json
 "identity": {

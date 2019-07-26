@@ -1,7 +1,7 @@
 ---
-title: Alterar as chaves de acesso da conta de armazenamento
+title: Alterar chaves de acesso da conta de armazenamento
 titleSuffix: Azure Machine Learning service
-description: Saiba como alterar as chaves de acesso para a conta de armazenamento do Azure utilizada pela sua área de trabalho. O serviço do Azure Machine Learning utiliza uma conta de armazenamento do Azure para armazenar dados e modelos. Quando voltar a gerar a chave de acesso para a conta de armazenamento, tem de atualizar o serviço de Azure Machine Learning para utilizar as novas chaves.
+description: Saiba como alterar as chaves de acesso para a conta de armazenamento do Azure usada pelo seu espaço de trabalho. Azure Machine Learning serviço usa uma conta de armazenamento do Azure para armazenar dados e modelos. Ao regenerar a chave de acesso para a conta de armazenamento, você deve atualizar o serviço de Azure Machine Learning para usar as novas chaves.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,37 +10,37 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 488a032e177897caf2897ba6335f4e7f64dc0e4d
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543834"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358765"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regenerar chaves de acesso da conta de armazenamento
 
-Saiba como alterar as chaves de acesso para contas de armazenamento do Azure utilizadas pelo serviço Azure Machine Learning. O Azure Machine Learning pode utilizar contas de armazenamento para armazenar dados ou modelos de formação.
+Saiba como alterar as chaves de acesso para contas de armazenamento do Azure usadas pelo serviço de Azure Machine Learning. Azure Machine Learning pode usar contas de armazenamento para armazenar dados ou modelos treinados.
 
-Por motivos de segurança, terá de alterar as chaves de acesso para uma conta de armazenamento do Azure. Ao regenerar a chave de acesso, o Azure Machine Learning tem de ser atualizado para utilizar a nova chave. O Azure Machine Learning podem estar usando a conta de armazenamento para ambos os armazenamento de modelo e como um arquivo de dados.
+Para fins de segurança, talvez seja necessário alterar as chaves de acesso de uma conta de armazenamento do Azure. Quando você regenera a chave de acesso, Azure Machine Learning deve ser atualizado para usar a nova chave. Azure Machine Learning pode estar usando a conta de armazenamento para o armazenamento de modelo e como um repositório de armazenamento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte a [criar uma área de trabalho](setup-create-workspace.md) artigo.
+* Uma área de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](setup-create-workspace.md) .
 
-* O [do Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* O [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* O [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* A [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
 <a id="whattoupdate"></a> 
 
 ## <a name="what-needs-to-be-updated"></a>O que precisa ser atualizado
 
-Contas de armazenamento podem ser utilizadas pela área de trabalho de serviço do Azure Machine Learning (armazenamento de registos, modelos, instantâneos, etc.) e como um arquivo de dados. O processo para atualizar a área de trabalho é um único comando da CLI do Azure e pode ser executado depois de atualizar a chave de armazenamento. O processo de atualização de arquivos de dados é mais envolvido e requer a descobrir quais arquivos de dados estão atualmente a utilizar a conta de armazenamento e, em seguida, registe-los novamente.
+As contas de armazenamento podem ser usadas pelo espaço de trabalho do Azure Machine Learning Service (armazenando logs, modelos, instantâneos, etc.) e como um repositório de armazenamento. O processo para atualizar o espaço de trabalho é um único CLI do Azure comando e pode ser executado após a atualização da chave de armazenamento. O processo de atualização de repositórios de armazenamento é mais envolvido e requer a descoberta de quais armazenamentos de armazenamento estão usando a conta de armazenagem no momento e, em seguida, o registro deles novamente.
 
 > [!IMPORTANT]
-> Atualize a área de trabalho com a CLI do Azure e os arquivos de dados com o Python, ao mesmo tempo. A atualizar apenas um ou outro não é suficiente e pode causar erros até que ambos sejam atualizadas.
+> Atualize o espaço de trabalho usando o CLI do Azure e os repositórios de armazenamento que usam o Python, ao mesmo tempo. Atualizar apenas um ou outro não é suficiente e pode causar erros até que ambos sejam atualizados.
 
-Para detetar as contas de armazenamento que são utilizadas pelos seus arquivos de dados, utilize o seguinte código:
+Para descobrir as contas de armazenamento que são usadas por seus repositórios de armazenamento, use o seguinte código:
 
 ```python
 import azureml.core
@@ -49,54 +49,56 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
     if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+        print("datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
-Esse código procura por quaisquer arquivos de dados registados que utilizem o armazenamento do Azure e lista as informações seguintes:
+Esse código procura por todos os armazenamentos de dados registrados que usam o armazenamento do Azure e lista as seguintes informações:
 
-* Nome do arquivo de dados: O nome do arquivo de dados que a conta de armazenamento está registada.
-* Nome da conta de armazenamento: O nome da conta do Storage do Azure.
-* Contentor: O contentor na conta de armazenamento que é utilizada por esse Registro.
+* Nome do repositório de armazenamento: O nome do armazenamento de datastore no qual a conta de armazenamento está registrada.
+* Nome da conta de armazenamento: O nome da conta de armazenamento do Azure.
+* Container O contêiner na conta de armazenamento que é usado por esse registro.
 
-Se houver uma entrada para a conta de armazenamento que pretende regenerar chaves de acesso para, guarde o nome de arquivo de dados, o nome da conta de armazenamento e o nome de contentor.
+Se existir uma entrada para a conta de armazenamento para a qual você planeja regenerar chaves de acesso, salve o nome do repositório de armazenamento, o nome da conta e o nome do contêiner.
 
 ## <a name="update-the-access-key"></a>Atualizar a chave de acesso
 
-Para atualizar o serviço Azure Machine Learning para utilizar a nova chave, utilize os seguintes passos:
+Para atualizar Azure Machine Learning serviço para usar a nova chave, use as seguintes etapas:
 
 > [!IMPORTANT]
-> Execute todos os passos, ambos atualizar área de trabalho utilizando a CLI e os arquivos de dados com o Python. A atualizar apenas um ou outro, pode provocar erros até que ambos sejam atualizadas.
+> Execute todas as etapas, atualizando o espaço de trabalho usando a CLI e os repositórios de armazenamento usando o Python. Atualizar apenas um ou outro pode causar erros até que ambos sejam atualizados.
 
-1. Regenere a chave. Para obter informações sobre a regenerar uma chave de acesso, consulte a [gerir uma conta de armazenamento](/azure/storage/common/storage-account-manage#access-keys) artigo. Guarde a nova chave.
+1. Gere novamente a chave. Para obter informações sobre como regenerar uma chave de acesso, consulte o artigo [gerenciar uma conta de armazenamento](/azure/storage/common/storage-account-manage#access-keys) . Salve a nova chave.
 
-1. Para atualizar a área de trabalho para utilizar a nova chave, utilize os seguintes passos:
+1. Para atualizar o espaço de trabalho para usar a nova chave, use as seguintes etapas:
 
-    1. Para iniciar sessão para a subscrição do Azure que contém a área de trabalho utilizando o seguinte comando da CLI do Azure:
+    1. Para entrar na assinatura do Azure que contém seu espaço de trabalho usando o seguinte comando de CLI do Azure:
 
         ```azurecli-interactive
         az login
         ```
 
-    1. Para instalar a extensão do Azure Machine Learning, utilize o seguinte comando:
+    1. Para instalar a extensão de Azure Machine Learning, use o seguinte comando:
 
         ```azurecli-interactive
         az extension add -n azure-cli-ml 
         ```
 
-    1. Para atualizar a área de trabalho para utilizar a nova chave, utilize o seguinte comando. Substitua `myworkspace` com o seu nome de área de trabalho do Azure Machine Learning e substitua `myresourcegroup` com o nome do grupo de recursos do Azure que contém a área de trabalho.
+    1. Para atualizar o espaço de trabalho para usar a nova chave, use o comando a seguir. Substitua `myworkspace` pelo nome do espaço de trabalho Azure Machine Learning e `myresourcegroup` substitua pelo nome do grupo de recursos do Azure que contém o espaço de trabalho.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
 
-        Este comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure utilizada pela área de trabalho.
+        Esse comando sincroniza automaticamente as novas chaves para a conta de armazenamento do Azure usada pelo espaço de trabalho.
 
-1. Para voltar a registar datastore(s) que usam a conta de armazenamento, utilize os valores do [o que precisa ser atualizado](#whattoupdate) secção e a chave do passo 1 com o código a seguir:
+1. Para registrar novamente os repositórios de os que usam a conta de armazenamento, use os valores da seção [o que precisa ser atualizado](#whattoupdate) e a chave da etapa 1 com o seguinte código:
 
     ```python
     ds = Datastore.register_azure_blob_container(workspace=ws, 
@@ -107,8 +109,8 @@ Para atualizar o serviço Azure Machine Learning para utilizar a nova chave, uti
                                               overwrite=True)
     ```
 
-    Uma vez que `overwrite=True` for especificado, este código substitui o registo existente e atualiza-o para utilizar a nova chave.
+    Como `overwrite=True` é especificado, esse código substitui o registro existente e o atualiza para usar a nova chave.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o registo de arquivos de dados, consulte a [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) referência de classe.
+Para obter mais informações sobre como registrar armazenamentos de dados, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) consulte a referência de classe.

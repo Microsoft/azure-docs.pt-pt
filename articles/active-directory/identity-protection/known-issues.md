@@ -1,94 +1,79 @@
 ---
-title: FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory | Documentos da Microsoft
-description: FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory.
+title: Perguntas frequentes e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory | Microsoft Docs
+description: Perguntas frequentes e problemas conhecidos com a proteção de identidade (atualizada) em Azure Active Directory.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452689"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333902"
 ---
-# <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
+# <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Perguntas frequentes e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
 
+## <a name="dismiss-user-risk-known-issues"></a>Ignorar problemas conhecidos de risco do usuário
 
-## <a name="dismiss-user-risk-known-issues"></a>Dispensar o risco de utilizador problemas conhecidos
+**Ignorar o risco do usuário** na proteção de identidade clássica define o ator no histórico de risco do usuário no Identity Protection (atualizado) para o **Azure ad**.
 
-**Dispensar o risco de utilizador** clássica Identity Protection define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **do Azure AD**.
+**Ignorar o risco do usuário** na proteção de identidade (atualizada) define o ator no histórico de risco do usuário em identidade Protection (atualizado) para  **\<o nome do administrador com um hiperlink apontando para a folha\>do usuário**.
 
+Há um problema atual conhecido causando latências no fluxo de perda de risco do usuário. Se você tiver uma "política de risco do usuário", essa política deixará de ser aplicada a usuários ignorados em minutos após o clique em "ignorar risco do usuário". No entanto, há atrasos conhecidos com o UX atualizando o "estado de risco" de usuários ignorados. Como alternativa, atualize a página no nível do navegador para ver o último usuário "estado de risco".
 
-**Dispensar o risco de utilizador** Identity Protection (atualizadas) define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **\<nome do administrador com um hiperlink que aponta para o painel do utilizador\>** .
+## <a name="risky-users-report-known-issues"></a>Os usuários arriscados relatam problemas conhecidos
 
-Existe um problema conhecido atual, fazendo com que latências no fluxo de exoneração do risco de utilizador. Se tiver uma "política de risco do utilizador", esta política irá deixar de aplicar-se aos utilizadores ignorados dentro de minutos de clicar em "Dispensar o risco de utilizador". No entanto, são conhecidos atrasos com a experiência do Usuário atualizando o "Estado de risco" de utilizadores ignorados. Como solução, atualize a página no nível do navegador para ver o utilizador mais recente "Estado de risco".
+As consultas no campo nome de **usuário** diferenciam maiúsculas de minúsculas, enquanto as consultas no campo **nome** não diferenciam maiúsculas de minúsculas.
 
+A alternância de **Mostrar datas como** oculta a coluna **risco da última atualização** . Para ler a coluna, clique em **colunas** na parte superior da folha usuários arriscados.
 
-## <a name="risky-users-report-known-issues"></a>Problemas conhecidos de relatórios de utilizadores de risco
+**Ignorar todos os eventos** no clássico identidade Protection define o status dos eventos de risco como **fechados (resolvido)** .
 
-Consulta a **nome de utilizador** campo diferenciam maiúsculas de minúsculas, ao mesmo tempo consultas no **nome** campo são agnóstico do caso.
+## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
 
-Alternar **Mostrar datas como** oculta a **última ATUALIZAÇÃO do risco** coluna. Para readd a coluna, clique em **colunas** na parte superior do painel de utilizadores de risco.
-
-**Dispensar todos os eventos** clássica Identity Protection define o estado dos eventos de risco para **fechado (resolvido)** .
-
-
-## <a name="risky-sign-ins-report-known-issues"></a>Relatório de inícios de sessão arriscados problemas conhecidos
-
-**Resolver** num risco de evento define o estado como **utilizadores foram aprovados na MFA por política com base em riscos**.
-
+**Resolver** em um evento de risco define o status para **os usuários passaram pela MFA controlada pela política baseada em risco**.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Por que não é possível definir os meus próprios níveis de risco para cada evento de risco?
+### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-event"></a>Por que não posso definir meus próprios níveis de risco para cada evento de risco?
 
-Níveis de risco no Identity Protection são baseiam a precisão da deteção de e com tecnologia nosso supervisionado machine learning. Para personalizar o que os utilizadores de experiência são apresentados, administrador pode incluir/excluir determinados utilizadores/grupos do risco de utilizador e políticas de risco de início de sessão.
+Os níveis de risco na proteção de identidade baseiam-se na precisão da detecção e da plataforma de aprendizado de máquina supervisionado. Para personalizar a experiência que os usuários são apresentados, o administrador pode incluir/excluir determinados usuários/grupos das políticas de risco do usuário e de entrada.
 
+### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Por que o local de uma entrada não corresponde onde o usuário realmente se conectou?
 
-### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Por que a localização de um início de sessão não corresponde em que o usuário realmente iniciou sessão a partir?
+O mapeamento de localização geográfica de IP é um desafio em todo o setor. Se você sentir que o local listado no relatório de entradas não corresponde ao local real, entre em contato com o suporte. 
 
-Mapeamento de localização geográfica IP é um desafio de toda a indústria. Se sentir que a localização listada no relatório de inícios de sessão não corresponde a localização real, contacte o suporte. 
+### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Como funciona o mecanismo de comentários no Identity Protection?
 
+**Confirmar comprometido** (em uma entrada) – informa Azure AD Identity Protection que a entrada não foi executada pelo proprietário da identidade e indica um comprometimento.
 
-### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Como funcionam os mecanismos de comentários no Identity Protection?
+- Ao receber esses comentários, movemos o estado de entrada e de risco do usuário para o nível de risco e **comprometido confirmado** como **alto**.
 
-**Confirmar comprometido** (num início de sessão) – informa o Azure AD Identity Protection, que o início de sessão não foi efetuada pelo proprietário de identidade e indica um comprometimento.
-
-- Após receber seus comentários, podemos mover o estado do risco de início de sessão e utilizador para **Confirmed comprometido** e o risco de nível para **elevada**.
-
-- Além disso, fornecemos as informações para nossos sistemas para futuras melhorias na avaliação de riscos de aprendizagem automática.
+- Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para aprimoramentos futuros na avaliação de riscos.
 
     > [!NOTE]
-    > Se o utilizador já é corrigido, não clique **confirmar comprometido** uma vez que ele se mova o estado do risco de início de sessão e utilizador para **Confirmed comprometido** e o risco de nível para **elevada**.
+    > Se o usuário já foi corrigido, não clique em **confirmar comprometido** porque ele move a entrada e o estado de risco do usuário para o nível de risco e **comprometido confirmado** para **alto**.
 
-**Confirmar seguro** (num início de sessão) – informa o Azure AD Identity Protection, que o início de sessão foi realizado pelo proprietário de identidade e não indica um comprometimento.
+**Confirmar segurança** (em uma entrada) – informa Azure AD Identity Protection que a entrada foi executada pelo proprietário da identidade e não indica um comprometimento.
 
-- Após receber seus comentários, foi possível mover o início de sessão (e não pelo usuário) o estado para o risco **Confirmed safe** e o nível de risco para **-** .
+- Ao receber esses comentários, movemos o estado de risco de entrada (não o usuário) para o qual foi **confirmado** o nível **-** de risco e a segurança.
 
-- Além disso, fornecemos as informações para nossos sistemas para futuras melhorias na avaliação de riscos de aprendizagem automática.
+- Além disso, fornecemos as informações para nossos sistemas de aprendizado de máquina para aprimoramentos futuros na avaliação de riscos.
 
     > [!NOTE]
-    > Se acreditar que o utilizador não for comprometido, utilize **dispensar o risco de utilizador** no nível do usuário em vez de usar **Confirmed safe** no nível de início de sessão. R **dispensar o risco de utilizador** no utilizador nível fecha o risco de utilizador e todos os anteriores inícios de sessão de risco e eventos de risco.
+    > Se você acreditar que o usuário não está comprometido, use **ignorar o risco do usuário** no nível do usuário, em vez de usar a segurança confirmada no nível de entrada. Um **risco de ignorar usuário** no nível do usuário fecha o risco do usuário e todos os eventos de risco e entradas arriscados anteriores.
 
+### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Por que estou vendo um usuário com uma pontuação de risco baixa (ou acima), mesmo que nenhuma entrada arriscada ou evento de risco seja mostrado na proteção de identidade?
 
+Considerando que o risco do usuário é cumulativo por natureza e não expira, um usuário pode ter um risco de usuário baixo ou superior, mesmo que não haja entradas arriscadas recentes ou eventos de risco mostrados na proteção de identidade. Isso pode acontecer se a única atividade mal-intencionada em um usuário fosse feita além do período de tempo para o qual armazenamos os detalhes de entradas arriscadas e eventos de risco. Não expiramos o risco do usuário porque os atores inválidos permanecem no ambiente dos clientes em mais de 140 dias atrás de uma identidade comprometida antes de aumentar o ataque. Os clientes podem examinar a linha do tempo de risco do usuário para entender por que um usuário está em risco, acessando:`Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
-### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Por que estou a ver uma pontuação de risco do utilizador com um pouco (ou superior), mesmo que não existem inícios de sessão arriscados ou eventos de risco são mostrados no Identity Protection?
+### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que uma entrada tem uma pontuação alta de "risco de entrada (agregada)" quando as detecções associadas a ela são de risco baixo ou médio?
 
-Tendo em conta o usuário não expira e é a natureza cumulativo de risco, um usuário pode ter um risco de utilizador de menor ou acima, mesmo se não há recentes risco inícios de sessão ou eventos de risco, mostrados na proteção de identidade. Isto pode acontecer se a atividade maliciosa apenas num utilizador ocorria além do período de tempo para as quais podemos armazenar os detalhes de inícios de sessão de risco e eventos de risco. Não podemos expirar o risco de utilizador porque mal-intencionadas já são conhecidas para manter o ambiente dos clientes mais de 140 dias atrás de uma identidade comprometido antes aumentando gradualmente seus ataques. Os clientes podem rever a linha cronológica de risco do utilizador para compreender por que um utilizador está em risco indo para: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
-
-### <a name="why-does-a-sign-in-have-a-sign-in-risk-aggregate-score-of-high-when-the-detections-associated-with-it-are-of-low-or-medium-risk"></a>Por que motivo o um início de sessão tem uma "início de sessão (agregar)" pontuação de risco alta quando as deteções associadas, pelo que são de risco baixo ou médio?
-
-A pontuação de risco elevado de agregação pode ser baseada em outros recursos de entrada ou o fato de que mais do que uma deteção acionados para esse início de sessão. E, por outro lado, um início de sessão pode ter um início de sessão risco (agregação) média, mesmo que as deteções associadas com o início de sessão são de alto risco. 
+A pontuação de risco de agregação alta pode ser baseada em outros recursos da entrada ou no fato de que mais de uma detecção foi acionada para essa entrada. E, por outro lado, uma entrada pode ter um risco de entrada (agregação) de médio, mesmo se as detecções associadas à entrada forem de alto risco. 
