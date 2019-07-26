@@ -1,70 +1,70 @@
 ---
-title: Configurar a conectividade SSL para ligar em segurança à base de dados do Azure para MariaDB
-description: Instruções sobre como configurar corretamente a base de dados do Azure para MariaDB e os aplicativos associados corretamente utilizar ligações SSL
+title: Configurar a conectividade SSL para se conectar com segurança ao banco de dados do Azure para MariaDB
+description: Instruções sobre como configurar corretamente o banco de dados do Azure para MariaDB e os aplicativos associados para usar corretamente as conexões SSL
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.openlocfilehash: 2c1b7e8f777f1975a20bbf63919a3dbfe543e683
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: e57371bb7598a92f35dd4fd0ec22a55fad722987
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537716"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360498"
 ---
-# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurar a conectividade SSL na sua aplicação para ligar em segurança à base de dados do Azure para MariaDB
-Oferece suporte a base de dados do Azure para MariaDB, ligar a sua base de dados do Azure para MariaDB server para as aplicações de cliente, utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
+# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configurar a conectividade SSL em seu aplicativo para se conectar com segurança ao banco de dados do Azure para MariaDB
+O banco de dados do Azure para MariaDB dá suporte à conexão do banco de dados do Azure para o servidor MariaDB para aplicativos cliente usando o protocolo SSL (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
-## <a name="obtain-ssl-certificate"></a>Obter o certificado SSL
-Transferir o certificado necessário para se comunicar através de SSL com a base de dados do Azure para MariaDB servidor a partir [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e guarde o ficheiro de certificado no disco local (Este tutorial utiliza c:\ssl por exemplo).
-**Para o Microsoft Internet Explorer e o Microsoft Edge:** Após a conclusão do download, mudar o nome do certificado para BaltimoreCyberTrustRoot.crt.pem.
+## <a name="obtain-ssl-certificate"></a>Obter certificado SSL
+Baixe o certificado necessário para se comunicar por SSL com o banco de dados do Azure [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) para MariaDB Server do e salve o arquivo de certificado em sua unidade local (este tutorial usa o c:\ssl, por exemplo).
+**Para o Microsoft Internet Explorer e o Microsoft Edge:** Após a conclusão do download, renomeie o certificado para BaltimoreCyberTrustRoot. CRT. PEM.
 
-## <a name="bind-ssl"></a>Enlace SSL
+## <a name="bind-ssl"></a>Associar SSL
 
-### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>A ligar ao servidor com o MySQL Workbench através de SSL
-Configure o MySQL Workbench ligar de forma segura através de SSL. 
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>Conectando ao servidor usando o MySQL Workbench sobre SSL
+Configure o MySQL Workbench para se conectar com segurança via SSL. 
 
-1. A caixa de diálogo Configurar ligação nova, navegue para o **SSL** separador. 
+1. Na caixa de diálogo Configurar nova conexão, navegue até a guia **SSL** . 
 
-1. Atualização do **usar SSL** campo para "Require".
+1. Atualize o campo **usar SSL** para "exigir".
 
-1. Na **arquivo da AC de SSL:** campo, introduza a localização do ficheiro da **BaltimoreCyberTrustRoot.crt.pem**. 
+1. No campo **arquivo de AC SSL:** , insira o local do arquivo de **BaltimoreCyberTrustRoot. CRT. pem**. 
     
-    ![Guardar a configuração de SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+    ![Salvar configuração SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
-Para as ligações existentes, pode fazer a ligação SSL ao clicar no ícone de conexão e selecione edit. Em seguida, navegue para o **SSL** separador e vincular o ficheiro de certificado.
+Para conexões existentes, você pode associar o SSL clicando com o botão direito do mouse no ícone de conexão e escolhendo Editar. Em seguida, navegue até a guia **SSL** e associe o arquivo de certificado.
 
-### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>A ligar ao servidor com a CLI de MySQL através de SSL
-Outra maneira de vincular o certificado SSL é usar a interface de linha de comandos do MySQL ao executar os seguintes comandos. 
+### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Conectando-se ao servidor usando a CLI do MySQL sobre SSL
+Outra maneira de associar o certificado SSL é usar a interface de linha de comando do MySQL executando os comandos a seguir. 
 
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
 > [!NOTE]
-> Ao utilizar a interface de linha de comandos do MySQL no Windows, poderá receber um erro `SSL connection error: Certificate signature check failed`. Se isto ocorrer, substitua a `--ssl-mode=REQUIRED --ssl-ca={filepath}` parâmetros com `--ssl`.
+> Ao usar a interface de linha de comando do MySQL no Windows, você pode receber `SSL connection error: Certificate signature check failed`um erro. Se isso ocorrer, substitua os `--ssl-mode=REQUIRED --ssl-ca={filepath}` parâmetros por `--ssl`.
 
-## <a name="enforcing-ssl-connections-in-azure"></a>A imposição de ligações de SSL no Azure 
+## <a name="enforcing-ssl-connections-in-azure"></a>Impondo conexões SSL no Azure 
 ### <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
-Utilizar o portal do Azure, visite a sua base de dados do Azure para MariaDB server e, em seguida, clique em **segurança de ligação**. Utilize o botão de alternar para ativar ou desativar a **ligação impor SSL** definição e, em seguida, clique em **guardar**. A Microsoft recomenda-se para sempre habilitar a **ligação impor SSL** definição para uma maior segurança.
+Usando o portal do Azure, visite o banco de dados do Azure para o servidor MariaDB e clique em **segurança de conexão**. Use o botão de alternância para habilitar ou desabilitar a configuração **impor conexão SSL** e, em seguida, clique em **salvar**. A Microsoft recomenda sempre habilitar a configuração **impor conexão SSL** para aumentar a segurança.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
-Pode ativar ou desativar a **imposição de ssl** parâmetro utilizando valores habilitado ou desabilitado respectivamente na CLI do Azure.
+Você pode habilitar ou desabilitar o parâmetro de imposição de **SSL** usando valores habilitados ou desabilitados, respectivamente em CLI do Azure.
 ```azurecli-interactive
 az mariadb server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
-## <a name="verify-the-ssl-connection"></a>Verificar a ligação de SSL
-Executar o mysql **estado** comando para verificar se tem ser ligada ao seu servidor de MariaDB com SSL:
+## <a name="verify-the-ssl-connection"></a>Verificar a conexão SSL
+Execute o comando de **status** do MySQL para verificar se você se conectou ao seu servidor MARIADB usando SSL:
 ```sql
 status
 ```
-Confirme que a conexão seja criptografada revisando a saída, o que deve mostrar:  **SSL: Cifras em utilização é AES256 SHA** 
+Confirme se a conexão está criptografada examinando a saída, que deve mostrar:  **SSL A codificação em uso é AES256-SHA** 
 
 ## <a name="sample-code"></a>Código de exemplo
-Para estabelecer uma ligação segura à base de dados do Azure para MariaDB através de SSL através da aplicação, consulte os seguintes exemplos de código:
+Para estabelecer uma conexão segura com o banco de dados do Azure para MariaDB sobre SSL do seu aplicativo, consulte os exemplos de código a seguir:
 
 ### <a name="php"></a>PHP
 ```php
@@ -78,21 +78,21 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mariadb.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mariadb.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mariadb.database.azure.com', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mariadb.database.azure.com',
+                       ssl={'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
 ```ruby

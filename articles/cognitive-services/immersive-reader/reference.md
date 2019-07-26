@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 67da7d67a3165583a872c2b435c3cdca9763d4dd
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 22860e0798ec852b6d25da27e108befe8a3089a2
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443809"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488818"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Referência do SDK do leitor de imersão
 
@@ -37,7 +37,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Nome | Tipo | Descrição |
 | ---- | ---- |------------ |
-| `token` | cadeia | O token de autenticação do Azure AD. Consulte o [tutorial de autenticação do Azure ad](./azure-active-directory-authentication.md). |
+| `token` | Cadeia de caracteres | O token de autenticação do Azure AD. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
 | `subdomain` | Cadeia de caracteres | O subdomínio personalizado do seu recurso de leitor de imersão no Azure. Consulte o [How-to de autenticação do Azure ad](./azure-active-directory-authentication.md). |
 | `content` | [Conteúdo](#content) | Um objeto que contém o conteúdo a ser mostrado no leitor de imersão. |
 | `options` | [Opções](#options) | Opções para configurar determinados comportamentos do leitor de imersão. Opcional. |

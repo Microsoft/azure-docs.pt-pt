@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 0239111ca56dfe431a00eee83c79eedccc66c927
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b0cf6eab86b0b932e44b6824305c23df01f35808
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226141"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383814"
 ---
 # <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selecione o SKU de VM correto para o cluster de Data Explorer do Azure 
 
@@ -39,11 +39,11 @@ O Azure Data Explorer oferece dois tipos de clusters:
 
 Ao criar um cluster de Data Explorer do Azure, selecione o SKU de VM *ideal* para a carga de trabalho planejada. O Azure Data Explorer tem duas famílias de SKU das quais escolher:
 
-* **D_V2**: A SKU **D** é otimizada para computação e fornecida em dois tipos.
+* **D_V2**: A SKU D é otimizada para computação e fornecida em dois tipos.
     * Própria VM
     * VM agrupada com discos de armazenamento Premium
 
-* **LS**: A SKU **L** é otimizada para armazenamento. Ele tem um tamanho de SSD muito maior do que o SKU **D** com preço semelhante.
+* **LS**: A SKU L é otimizada para armazenamento. Ele tem um tamanho de SSD muito maior do que o SKU **D** com preço semelhante.
 
 A tabela a seguir fornece as principais diferenças entre os tipos de SKU disponíveis:
  

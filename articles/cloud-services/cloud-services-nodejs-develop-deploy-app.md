@@ -3,23 +3,18 @@ title: Guia de Introdução do Node.js
 description: Saiba como criar uma aplicação Web Node.js simples e implementá-la num serviço em nuvem do Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: e235af8ae35a6ff8e310bac802484e6c3d0f5397
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506944"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359542"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilar e implementar uma aplicação Node.js num Serviço em Nuvem do Azure
 
@@ -60,8 +55,8 @@ Execute as seguintes tarefas para criar um novo projeto do Serviço em Nuvem do 
 
     O cmdlet cria os seguintes ficheiros:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef**: Ficheiros de específicos do Azure necessários para a publicação da sua aplicação. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
-   * **deploymentSettings.json**: Armazena as definições locais que são utilizadas pelos cmdlets de implementação do Azure PowerShell.
+   * Não **configuração. Cloud. cscfg**, **inconfiguration. local. cscfg** e o indefinition **. csdef**: Arquivos específicos do Azure necessários para publicar seu aplicativo. Para obter mais informações, consulte [Descrição Geral da Criação de um Serviço Alojado do Azure].
+   * **deploymentSettings.json**: Armazena configurações locais que são usadas pelos cmdlets de implantação Azure PowerShell.
 4. Introduza o comando seguinte para adicionar uma nova função da Web:
 
        Add-AzureNodeWebRole
@@ -159,7 +154,7 @@ Depois de implementar a aplicação, poderá pretender desativá-la, para evitar
    > [!NOTE]
    > A eliminação do serviço não elimina a conta do Storage que foi criada quando o serviço foi inicialmente publicado. por isso, continuará a ser-lhe cobrado o armazenamento utilizado. Se mais nada estiver a utilizar o armazenamento, poderá querer eliminá-lo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte o [Centro de Programadores do Node.js].
 
 <!-- URL List -->

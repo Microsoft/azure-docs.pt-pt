@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 9cd2965e64806dded0e5c688b70d07dfcd763f46
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309750"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356544"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -174,7 +174,7 @@ Conforme mencionado na saída `docker push` quando envia a primeira imagem fiáv
 ~/.docker/trust/private
 ```
 
-Para criar uma cópia de segurança das chaves raiz e do repositório, comprima-as num arquivo e armazene-o em segurança offline (como num dispositivo de armazenamento USB). Por exemplo, no Bash:
+Faça backup das chaves raiz e do repositório compactando-as em um arquivo morto e armazenando-as em um local seguro. Por exemplo, no Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -195,7 +195,9 @@ Para desativar a confiança do conteúdo no seu registo, navegue para o mesmo no
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Consulte [Content Trust in Docker][docker-content-trust] para obter informações adicionais sobre a confiança de conteúdo. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
+* Consulte [Content Trust in Docker][docker-content-trust] para obter informações adicionais sobre a confiança de conteúdo. Embora este artigo tenha abordado vários pontos importantes, a confiança do conteúdo é um tópico extenso e é descrito mais pormenorizadamente na documentação do Docker.
+
+* Consulte a documentação do [Azure pipelines](/azure/devops/pipelines/build/content-trust) para obter um exemplo de como usar a confiança de conteúdo ao criar e enviar por push uma imagem do Docker.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

@@ -1,6 +1,6 @@
 ---
-title: Compreender a sua utilização detalhada e custos | Documentos da Microsoft
-description: Saiba como ler e compreender a sua utilização detalhada e custos
+title: Entenda seu uso e cobranças detalhados | Microsoft Docs
+description: Saiba como ler e entender seu uso e encargos detalhados
 author: bandersmsft
 manager: micflan
 tags: billing
@@ -11,115 +11,124 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 2eb9f8e19be2a7b6220bc34bf4ce0c72c4ac0b4f
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 66b54c027cde6341b23aef2c10b43fa21bf357da
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67275062"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383457"
 ---
-# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Compreender os termos no seu ficheiro de utilização e os encargos do Azure
+# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Entenda os termos em seu arquivo de cobrança e uso do Azure
 
-O ficheiro de utilização e os encargos detalhado contém a utilização de mais votada diária com base nas tarifas negociadas e reembolsos compras (por exemplo, as reservas, markeplace) durante o período especificado.
-As tarifas não incluem créditos, impostos, ou outros custos ou descontos.
-A tabela seguinte aborda o que estão incluídas para cada tipo de conta.
+O arquivo detalhado de uso e encargos contém uso com classificação diária com base em taxas negociadas, compras (por exemplo, reservas, taxas do Marketplace) e reembolsos para o período especificado.
+As tarifas não incluem créditos, impostos ou outros encargos ou descontos.
+A tabela a seguir aborda quais encargos são incluídos para cada tipo de conta.
 
-Tipo de conta | Utilização do Azure | Utilização do Marketplace | Compras | Reembolsos
+Tipo de conta | Uso do Azure | Uso do Marketplace | Jurídica | Reembolsos
 --- | --- | --- | --- | ---
 Contrato Enterprise (EA) | Sim | Sim | Sim | Não
 Contrato de Cliente Microsoft (MCA) | Sim | Sim | Sim | Sim
-Pay as you go (PAYG) | Sim | Não | Não | Não
+Pré-pago (PAYG) | Sim | Não | Não | Não
 
-Para saber mais sobre pedidos de Marketplace (também conhecidos como serviços externos), veja [compreender os encargos de serviços externos do Azure](billing-understand-your-azure-marketplace-charges.md).
+Para saber mais sobre pedidos do Marketplace (também conhecidos como serviços externos), confira [entender os encargos do serviço externo do Azure](billing-understand-your-azure-marketplace-charges.md).
 
-Ver [como obter a faturação da nota fiscal e diário de dados de utilização do Azure](billing-download-azure-invoice-daily-usage-date.md) para obter instruções de download.
-O ficheiro de utilização e a cobrança está disponível num formato de ficheiro de valores separados por vírgulas (. csv), que pode abrir num aplicativo de folha de cálculo.
+Para obter instruções de download, consulte [como obter sua fatura de cobrança do Azure e dados de uso diário](billing-download-azure-invoice-daily-usage-date.md).
+Você pode abrir o arquivo CSV de uso e encargos no Microsoft Excel ou em outro aplicativo de planilha.
 
-## <a name="list-of-terms-and-descriptions"></a>Lista de termos e as descrições
+## <a name="list-of-terms-and-descriptions"></a>Lista de termos e descrições
 
-A tabela seguinte descreve termos importantes utilizados na versão mais recente do ficheiro de utilização e os encargos do Azure.
-A lista cobrirá pay as you go (PAYG), Enterprise Agreement (EA) e contas de contrato de cliente da Microsoft (MCA).
+A tabela a seguir descreve os termos importantes usados na versão mais recente do arquivo de encargos e uso do Azure.
+A lista abrange as contas pré-pagas (PAYG), Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA).
 
 Termo | Tipo de conta | Descrição
 --- | --- | ---
-AccountName | EA | Nome a apresentar da conta de inscrição.
-AccountOwnerId | EA | Identificador exclusivo para a conta de inscrição.
-AdditionalInfo | Todos | Metadados de serviço específicos. Por exemplo, um tipo de imagem para uma máquina virtual.
-BillingAccountId | EA, MCA | Identificador exclusivo para a conta de faturação de raiz.
-BillingAccountName | EA, MCA | Nome da conta de cobrança.
-BillingCurrency | EA, MCA | Moeda associada com a conta de cobrança.
-BillingPeriod | EA | O período de faturação do custo.
-BillingPeriodEndDate | EA, MCA | A data de fim do período de faturação.
-billingPeriodStartDate | EA, MCA | A data de início do período de faturação.
-BillingProfileId | EA, MCA | Identificador exclusivo da inscrição EA ou MCA perfil de faturação.
-BillingProfileName | EA, MCA | Nome da inscrição EA ou MCA perfil de faturação.
-ChargeType | EA, MCA | Indica se o valor cobrado pelo representa utilização (**utilização**), uma compra (**comprar**), ou o reembolso (**reembolso**).
-ConsumedQuantity | PAYG | Ver a quantidade.
-ConsumedService | Todos | Nome do serviço a cobrança está associada.
-Custo | EA | Ver CostInBillingCurrency.
-CostCenter | EA, MCA | O Centro de custos definido para a subscrição para controlar os custos (disponíveis apenas em períodos de faturação abertos para contas MCA).
-CostInBillingCurrency | MCA | Custo do custo na moeda de faturação antes de créditos ou outros impostos.
-CostInPricingCurrency | MCA | Custo do custo na moeda preços antes de créditos ou outros impostos.
-Moeda | PAYG | Ver BillingCurrency.
-Date | EA, MCA | A data de utilização ou compra do custo.
-ExchangeRateDate | MCA | Data que a taxa de câmbio foi estabelecida.
-ExchangeRatePricingToBilling | MCA | Taxa de câmbio utilizada para converter o custo na moeda preços para a moeda de faturação.
-Frequência | EA, MCA | Indica se uma cobrança é esperada para repetir. Os custos pode um acontece uma vez (**OneTime**), repita numa base mensal ou anualmente (**periódico**), ou ser com base na utilização (**UsageBased**).
-includedQuantity | PAYG | A quantidade do medidor de que está incluída sem custos no período de faturação atual.
-InstanceId | PAGY | Ver ResourceId.
-InvoiceId | EA, MCA | O ID exclusivo do documento listado da nota fiscal PDF.
-InvoiceSection | MCA | Ver InvoiceSectionName.
-InvoiceSectionId | EA, MCA | Identificador exclusivo para o departamento de EA ou secção da nota fiscal MCA.
-InvoiceSectionName | EA, MCA | Nome do departamento de EA ou secção da nota fiscal MCA.
-IsAzureCreditEligible | EA, MCA | Indica se o custo é elegível para ser pagas com créditos do Azure (valores: TRUE, False).
-IsEstimated | Todos | Indica se o período de faturação é fechado/finalizado. Dados de utilização podem mudar ao longo do período de faturação até que a nota fiscal é gerada. Estes registos são marcados como "estimado".
-Location | EA, MCA | Localização do Datacenter onde o recurso está em execução.
-MeterCategory | Todos | Nome da categoria de classificação para o medidor. Por exemplo, *serviços Cloud* e *Networking*.
+Nome da Conta | EA, PAYG | Nome de exibição da conta de registro de EA ou conta de cobrança PAYG.
+AccountOwnerId | EA, PAYG | Identificador exclusivo para a conta de registro EA ou conta de cobrança PAYG.
+Informações Adicionais | Todos | Metadados específicos do serviço. Por exemplo, um tipo de imagem para uma máquina virtual.
+BillingAccountId | Todos | Identificador exclusivo da conta de cobrança raiz.
+BillingAccountName | Todos | Nome da conta de cobrança.
+BillingCurrency | Todos | Moeda associada à conta de cobrança.
+BillingPeriod | EA, PAYG | O período de cobrança do encargo.
+BillingPeriodEndDate | Todos | A data de término do período de cobrança.
+BillingPeriodStartDate | Todos | A data de início do período de cobrança.
+BillingProfileId | Todos | Identificador exclusivo do registro de EA, da assinatura PAYG, do perfil de cobrança MCA ou da conta consolidada AWS.
+BillingProfileName | Todos | Nome do registro de EA, assinatura PAYG, perfil de cobrança MCA ou conta consolidada AWS.
+Encargotype | Todos | Indica se a cobrança representa o uso (**uso**), uma compra (**compra**) ou um reembolso (**reembolso**).
+Serviço Consumido | Todos | Nome do serviço ao qual a cobrança está associada.
+CostCenter | EA, MCA | O centro de custo definido para a assinatura para controlar os custos (disponível somente em períodos de cobrança abertos para contas MCA).
+Custo | EA, PAYG | Consulte CostInBillingCurrency.
+CostInBillingCurrency | MCA | Custo da cobrança na moeda de cobrança antes dos créditos ou dos impostos.
+CostInPricingCurrency | MCA | Custo da cobrança na moeda de preços antes dos créditos ou dos impostos.
+Currency | EA, PAYG | Consulte BillingCurrency.
+Date | Todos | A data de uso ou de compra do encargo.
+EffectivePrice | Todos | Preço unitário combinado do período. Os preços misturados são a média de qualquer flutuação no preço unitário, como camadas graduadas, o que reduz o preço à medida que a quantidade aumenta com o passar do tempo.
+ExchangeRateDate | MCA | Data em que a taxa de câmbio foi estabelecida.
+ExchangeRatePricingToBilling | MCA | Taxa de câmbio usada para converter o custo na moeda de preço para a moeda de cobrança.
+Frequência | Todos | Indica se espera-se que uma cobrança se repita. Os encargos podem ocorrer uma vez (**OneTime**), repetir em uma base mensal ou anual (recorrente) ou se basear no uso (**UsageBased**).
+IncludedQuantity | PAYG | O valor do medidor que está incluído sem encargos no período de cobrança atual.
+InstanceId | PAGY | Consulte ResourceId.
+Faturaid | PAYG, MCA | A ID de documento exclusiva listada no PDF da nota fiscal.
+InvoiceSection | MCA | Consulte InvoiceSectionName.
+InvoiceSectionId | EA, MCA | Identificador exclusivo para a seção do departamento de EA ou da fatura de MCA.
+InvoiceSectionName | EA, MCA | Nome da seção do departamento de EA ou da fatura de MCA.
+IsAzureCreditEligible | Todos | Indica se o encargo está qualificado para ser pago pelo uso de créditos do Azure (valores: True, false).
+Location | MCA | Local do datacenter em que o recurso está em execução.
+Categoria do Medidor | Todos | Nome da categoria de classificação para o medidor. Por exemplo, *serviços de nuvem* e *rede*.
 MeterId | Todos | O identificador exclusivo para o medidor.
 MeterName | Todos | O nome do medidor.
-MeterRegion | Todos | Nome da localização do datacenter para serviços cujo preço tem com base na localização. Ver a localização.
-MeterSubCategory | Todos | Nome da categoria de subclassification medidor.
-OfferId | EA, MCA | Nome da oferta comprada.
-PartNumber | EA | Identificador utilizado para obter preços de medidor específico.
-PlanName | EA | Nome do plano do Marketplace.
-PreviousInvoiceId | MCA | Referência para uma nota fiscal original se este item de linha é um reembolso.
-pricingCurrency | MCA | Moeda utilizada quando a classificação com base nos preços negociados.
-Product | MCA | Ver ProductName.
-productId | EA, MCA | Identificador exclusivo para o produto.
-ProductName | EA | Nome do produto.
-ProductOrderId | EA, MCA | Identificador exclusivo para a ordem de produto.
-ProductOrderName | EA, MCA | Nome exclusivo para a ordem de produto.
-Nome do Editor | EA, MCA | Publicador para os serviços do Marketplace.
-PublisherType | EA, MCA | Tipo de publicador (valores: firstParty thirdPartyReseller, thirdPartyAgency).
-Quantidade | EA, MCA | O número de unidades compradas ou consumidos.
-Tarifa | PAYG | Ver UnitPrice.
-ReservationId | EA, MCA | Identificador exclusivo para a instância de reserva comprada.
-ReservationName | EA, MCA | Nome da instância de reserva comprada.
-ResourceGroupId | EA, MCA | Identificador exclusivo para o [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) o recurso está no.
-ResourceGroupName | EA, MCA | Nome da [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) o recurso está no.
-ResourceId | EA, MCA | Identificador exclusivo dos [do Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) recursos.
-ResourceLocation | EA, MCA | Localização do Datacenter onde o recurso está em execução. Ver a localização.
-ResourceName | EA | Nome do recurso.
+MeterRegion | Todos | Nome do local do datacenter para serviços com o preço baseado no local. Consulte local.
+Sub-categoria do Medidor | Todos | Nome da categoria de subclasse de medidor.
+OfferId | Todos | Nome da oferta adquirida.
+PartNumber | EA, PAYG | Identificador usado para obter preços específicos do medidor.
+PlanName | EA, PAYG | Nome do plano do Marketplace.
+PreviousInvoiceId | MCA | Referência a uma fatura original se este item de linha for um reembolso.
+PricingCurrency | MCA | Moeda usada durante a classificação com base em preços negociados.
+Produto | Todos | Nome do produto.
+Id do Produto | MCA | Identificador exclusivo do produto.
+ProductOrderId | Todos | Identificador exclusivo para a ordem do produto.
+ProductOrderName | Todos | Nome exclusivo da ordem do produto.
+Nome do Editor | Todos | Publicador para serviços do Marketplace.
+PublisherType | Todos | Tipo de Publicador (valores: **Azure**, **AWS**, **Marketplace**).
+Quantidade | Todos | O número de unidades adquiridas ou consumidas.
+ReservationId | EA, MCA | Identificador exclusivo da instância de reserva comprada.
+ReservationName | EA, MCA | Nome da instância de reserva adquirida.
+GrupoRecursos | Todos | Nome do [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) no qual o recurso está.
+ResourceId | Todos | Identificador exclusivo do recurso de [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) .
+ResourceLocation | Todos | Local do datacenter em que o recurso está em execução. Consulte local.
+ResourceName | EA, PAYG | Nome do recurso.
 ResourceType | MCA | Tipo de instância de recurso.
-ServiceFamily | EA, MCA | Família de serviços de que o serviço pertence.
-ServiceInfo1 | Todos | Metadados de serviço específicos.
-ServiceInfo2 | Todos | Campo legado com metadados opcionais de serviços específicos.
-ServicePeriodEndDate | MCA | A data de fim do período de classificação que definidos e bloqueada de preços do serviço do consumidos ou serão comprado.
-ServicePeriodStartDate | MCA | A data de início do período de classificação que definidos e bloqueada de preços do serviço do consumidos ou serão comprado.
-SubscriptionId | Todos | Identificador exclusivo para a subscrição.
-SubscriptionName | Todos | Nome da subscrição.
-Tags | Todos | Etiquetas atribuídas ao recurso. Não inclui os sinalizadores de grupo de recursos. Pode ser utilizado para agrupar ou distribuir os custos de estorno interno. Para obter mais informações, consulte [organizar os recursos do Azure com etiquetas](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
-Unidade | PAYG | Ver UnitOfMeasure.
-UnitOfMeasure | Todos | A unidade de medida para uma faturação para o serviço. Por exemplo, os serviços de computação são faturados por hora.
-unitPrice | EA | O preço por unidade para a cobrança.
-UsageDate | PAYG | Ver a data.
+ServiceFamily | MCA | Família de serviços à qual o serviço pertence.
+Informações de Serviço 1 | Todos | Metadados específicos do serviço.
+Informações de Serviço 2 | Todos | Campo herdado com metadados específicos do serviço opcionais.
+ServicePeriodEndDate | MCA | A data de término do período de classificação que definiu e bloqueou o preço do serviço consumido ou adquirido.
+ServicePeriodStartDate | MCA | A data de início do período de classificação que definiu e bloqueou o preço do serviço consumido ou adquirido.
+SubscriptionId | Todos | Identificador exclusivo para a assinatura do Azure.
+SubscriptionName | Todos | Nome da assinatura do Azure.
+Tags | Todos | Marcas atribuídas ao recurso. Não inclui marcas de grupo de recursos. Pode ser usado para agrupar ou distribuir custos para o estorno interno. Para obter mais informações, consulte [organizar seus recursos do Azure com marcas](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+UnitOfMeasure | Todos | A unidade de medida para cobrança do serviço. Por exemplo, os serviços de computação são cobrados por hora.
+PreçoUnitário | EA, PAYG | O preço por unidade do encargo.
 
-Tenha em atenção de que alguns campos podem ser diferentes em maiúsculas/minúsculas e o espaçamento entre os tipos de conta.
-As versões mais antigas dos ficheiros de utilização de pay as you go tem seções separadas para a instrução e uma utilização diária.
+Observe que alguns campos podem diferir em maiúsculas e minúsculas entre os tipos de conta.
+As versões mais antigas dos arquivos de uso pré-pago têm seções separadas para a instrução e o uso diário.
 
-## <a name="ensure-that-your-charges-are-correct"></a>Certifique-se de que as cobranças são corretas
+### <a name="list-of-terms-from-older-apis"></a>Lista de termos de APIs mais antigas
+A tabela a seguir mapeia os termos usados em APIs mais antigas para os novos termos. Consulte a tabela acima para obter essas descrições.
 
-Para saber mais sobre a utilização detalhada e os encargos, leia sobre como compreender seu [pay as you go](./billing-understand-your-bill.md) ou [contrato de cliente da Microsoft](billing-mca-understand-your-bill.md) nota fiscal.
+Termo antigo | Novo termo
+--- | ---
+Quantidade Consumida | Quantidade
+IncludedQuantity | N/A
+InstanceId | ResourceId
+Tarifa | EffectivePrice
+Unidade | UnitOfMeasure
+UsageDate | Date
+UsageEnd | Date
+UsageStart | Date
+
+
+## <a name="ensure-charges-are-correct"></a>Garantir que as cobranças estejam corretas
+
+Para saber mais sobre o uso e os encargos detalhados, leia sobre como entender sua fatura de contrato de [cliente](billing-mca-understand-your-bill.md) [pré-pago](./billing-understand-your-bill.md) ou Microsoft.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
@@ -127,5 +136,5 @@ Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Ver e transferir a fatura do Microsoft Azure](billing-download-azure-invoice.md)
-- [Ver e transferir a sua utilização do Microsoft Azure e a cobrança](billing-download-azure-daily-usage.md)
+- [Exibir e baixar sua fatura de Microsoft Azure](billing-download-azure-invoice.md)
+- [Exibir e baixar seu uso de Microsoft Azure e encargos](billing-download-azure-daily-usage.md)

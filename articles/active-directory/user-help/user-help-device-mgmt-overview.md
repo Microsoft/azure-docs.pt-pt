@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99488025dc79a16006af4088555a67b23704cb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd89d70bfe7a7f5e72e7fcabe167bafac5777672
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473741"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382249"
 ---
 # <a name="manage-my-devices-overview"></a>Descrição geral de Gerir os meus dispositivos
 
@@ -28,5 +28,5 @@ Certifique-se de que pode aceder a todos os recursos potencialmente restritos da
 
 |Artigo |Descrição |
 |------|------------|
-|[Associar o seu dispositivo de trabalho](user-help-join-device-on-network.md)|Aprenda a associar o seu dispositivo de trabalho à rede da sua organização.|
-|[Registar o seu dispositivo pessoal](user-help-register-device-on-network.md)|Aprenda a registar o seu dispositivo pessoal à rede da sua organização.|
+| [Ingressar no seu dispositivo de trabalho](user-help-join-device-on-network.md) ] Saiba como unir seu dispositivo de propriedade corporativa à rede da sua organização.|
+| [Registrar seu dispositivo pessoal](user-help-register-device-on-network.md) ] Saiba como registrar seu dispositivo pessoal na rede da sua organização.|

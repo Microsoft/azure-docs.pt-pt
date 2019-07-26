@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 76d4fbaaea987b5d935d09b7ff1c490b6003a489
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
-ms.translationtype: HT
+ms.openlocfilehash: 0c7fbe209a20182ac2a17fcdb467d1f2a03183e5
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68260359"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370724"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
@@ -50,7 +50,7 @@ Os gatilhos têm esses elementos de nível superior, embora alguns sejam opciona
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*trigger-name*> | Cadeia | O nome do gatilho | 
 | <*trigger-type*> | Cadeia | O tipo de gatilho, como "http" ou "ApiConnection" | 
@@ -75,7 +75,7 @@ Cada tipo de gatilho tem uma interface e entradas diferentes que definem o compo
 
 ### <a name="built-in-triggers"></a>Gatilhos internos
 
-| Tipo de gatilho | Descrição | 
+| Tipo de acionador | Descrição | 
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Verifica ou *sonda* qualquer ponto de extremidade. Esse ponto de extremidade deve estar em conformidade com um contrato de gatilho específico usando um padrão assíncrono "202" ou retornando uma matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Cria um ponto de extremidade chamável para seu aplicativo lógico, mas chama a URL especificada para registrar ou cancelar o registro. |
@@ -85,7 +85,7 @@ Cada tipo de gatilho tem uma interface e entradas diferentes que definem o compo
 
 ### <a name="managed-api-triggers"></a>Gatilhos de API gerenciada
 
-| Tipo de gatilho | Descrição | 
+| Tipo de acionador | Descrição | 
 |--------------|-------------| 
 | [**ApiConnection**](#apiconnection-trigger) | Verifica ou *sonda* um ponto de extremidade usando [APIs gerenciadas pela Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-trigger) | Cria um ponto de extremidade chamável para seu aplicativo lógico chamando [APIs gerenciadas pela Microsoft](../connectors/apis-list.md) para assinar e cancelar a assinatura. | 
@@ -130,7 +130,7 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*APIConnection_trigger_name*> | Cadeia | O nome do gatilho | 
 | <*nome da conexão*> | Cadeia | O nome da conexão com a API gerenciada que o fluxo de trabalho usa | 
@@ -156,9 +156,9 @@ Esse gatilho verifica ou *sonda* um ponto de extremidade usando [APIs gerenciada
  
 | Elemento | Type | Descrição |
 |---------|------|-------------|
-| Conector | Objeto JSON | Os cabeçalhos da resposta |
-| Conteúdo | Objeto JSON | O corpo da resposta |
-| Código de status | Número inteiro | O código de status da resposta |
+| conector | Objeto JSON | Os cabeçalhos da resposta |
+| corpo | Objeto JSON | O corpo da resposta |
+| código de status | Número inteiro | O código de status da resposta |
 |||| 
 
 *Exemplo*
@@ -224,7 +224,7 @@ Esse gatilho envia uma solicitação de assinatura para um ponto de extremidade 
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*nome da conexão*> | Cadeia | O nome da conexão com a API gerenciada que o fluxo de trabalho usa | 
 | <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar como carga para a API gerenciada | 
@@ -232,7 +232,7 @@ Esse gatilho envia uma solicitação de assinatura para um ponto de extremidade 
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*comportamento de repetição*> | Objeto JSON | Personaliza o comportamento de repetição para falhas intermitentes, que têm o código de status 408, 429 e 5XX e quaisquer exceções de conectividade. Para obter mais informações, consulte [políticas de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objeto JSON | Qualquer parâmetro de consulta a ser incluído com a chamada à API <p>Por exemplo, o `"queries": { "api-version": "2018-01-01" }` objeto é `?api-version=2018-01-01` adicionado à chamada. | 
@@ -271,7 +271,7 @@ Essa definição de gatilho assina a API do Outlook do Office 365, fornece uma U
 
 <a name="http-trigger"></a>
 
-### <a name="http-trigger"></a>Acionador HTTP
+### <a name="http-trigger"></a>Accionador HTTP
 
 Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na agenda de recorrência especificada. A resposta do ponto de extremidade determina se o fluxo de trabalho é executado.
 
@@ -303,7 +303,7 @@ Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na a
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia | O método HTTP a ser usado para sondar o ponto de extremidade especificado: "GET", "PUT", "POST", "PATCH", "DELETE" | 
 | <*endpoint-URL*> | Cadeia | A URL HTTP ou HTTPS para o ponto de extremidade para sondagem <p>Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -313,7 +313,7 @@ Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na a
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*header-content*> | Objeto JSON | Os cabeçalhos a serem enviados com a solicitação <p>Por exemplo, para definir o idioma e o tipo de uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Cadeia | O conteúdo da mensagem a ser enviada como carga com a solicitação | 
@@ -329,16 +329,16 @@ Esse gatilho verifica ou sonda o ponto de extremidade especificado com base na a
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Conector | Objeto JSON | Os cabeçalhos da resposta | 
-| Conteúdo | Objeto JSON | O corpo da resposta | 
-| Código de status | Número inteiro | O código de status da resposta | 
+| conector | Objeto JSON | Os cabeçalhos da resposta | 
+| corpo | Objeto JSON | O corpo da resposta | 
+| código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Requisitos para solicitações de entrada*
 
 Para funcionar bem com seu aplicativo lógico, o ponto de extremidade deve estar em conformidade com um padrão ou contrato de gatilho específico e reconhecer essas propriedades:  
   
-| Resposta | Necessário | Descrição | 
+| Resposta | Requerido | Descrição | 
 |----------|----------|-------------| 
 | Código de estado | Sim | O código de status "200 OK" inicia uma execução. Qualquer outro código de status não inicia uma execução. | 
 | Cabeçalho repetir-após | Não | O número de segundos até o aplicativo lógico sondar o ponto de extremidade novamente | 
@@ -400,7 +400,7 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia | O método HTTP a ser usado para a solicitação de assinatura: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*endpoint-subscribe-URL*> | Cadeia | A URL do ponto de extremidade para onde enviar a solicitação de assinatura | 
@@ -424,9 +424,9 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 | Elemento | Type | Descrição |
 |---------|------|-------------| 
-| Conector | Objeto JSON | Os cabeçalhos da resposta | 
-| Conteúdo | Objeto JSON | O corpo da resposta | 
-| Código de status | Número inteiro | O código de status da resposta | 
+| conector | Objeto JSON | Os cabeçalhos da resposta | 
+| corpo | Objeto JSON | O corpo da resposta | 
+| código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Exemplo*
@@ -494,7 +494,7 @@ Esse gatilho é executado com base na agenda de recorrência especificada e forn
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*time-unit*> | Cadeia | A unidade de tempo que descreve a frequência com que o gatilho é acionado: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
 | <*number-of-time-units*> | Número inteiro | Um valor que especifica com que frequência o gatilho é acionado com base na frequência, que é o número de unidades de tempo a aguardar até que o gatilho seja acionado novamente <p>Aqui estão os intervalos mínimo e máximo: <p>Mês 1-16 meses </br>Diário 1-500 dias </br>Dia 1 a 12000 horas </br>Demorar 1 a 72000 minutos </br>Microssegundo 1 a 9999999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "month", a recorrência será a cada seis meses. | 
@@ -603,7 +603,7 @@ Para chamar esse gatilho, você deve usar a `listCallbackUrl` API, que é descri
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*nome da propriedade*> | Cadeia | O nome de uma propriedade no esquema JSON, que descreve a carga | 
 | <*property-type*> | Cadeia | O tipo da propriedade | 
@@ -776,7 +776,7 @@ As ações têm esses elementos de alto nível, embora alguns sejam opcionais:
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|
 | <*nome da ação*> | Cadeia | O nome da ação | 
 | <*action-type*> | Cadeia | O tipo de ação, por exemplo, "http" ou "ApiConnection"| 
@@ -981,7 +981,7 @@ Alguns valores, como < > do*tipo de método*, estão disponíveis para os `"subs
 
 *Adicional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*api-unsubscribe-URL*> | Cadeia | O URI a ser usado para cancelar a da API | 
 | <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados na solicitação <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
@@ -1073,7 +1073,7 @@ Essa ação executa um trecho de código JavaScript e retorna os resultados por 
 
 *Necessário*
 
-| Value | Type | Descrição |
+| Valor | Type | Descrição |
 |-------|------|-------------|
 | <*JavaScript-code-snippet*> | Varia | O código JavaScript que você deseja executar. Para obter os requisitos de código e mais informações, consulte [Adicionar e executar trechos de código com código embutido](../logic-apps/logic-apps-add-run-inline-code.md). <p>No atributo, seu trecho de código pode usar o objeto somente `workflowContext` leitura como entrada. `code` Esse objeto tem subpropriedades que dão ao seu código acesso aos resultados do gatilho e ações anteriores em seu fluxo de trabalho. Para obter mais informações sobre `workflowContext` o objeto, consulte [gatilho de referência e resultados de ação em seu código](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
@@ -1084,7 +1084,7 @@ O `explicitDependencies` atributo especifica que você deseja incluir explicitam
 
 Para o `includeTrigger` atributo, você pode especificar `true` ou `false` valores.
 
-| Valor | Type | Descrição |
+| Value | Type | Descrição |
 |-------|------|-------------|
 | <*ações anteriores*> | Matriz de cadeia de caracteres | Uma matriz com os nomes de ação especificados. Use os nomes de ação que aparecem na definição de fluxo de trabalho em que os nomes de ação usam sublinhados (_), não espaços (""). |
 ||||
@@ -1150,7 +1150,7 @@ Essa ação chama uma [função do Azure](../azure-functions/functions-create-fi
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------|  
 | <*Azure-function-ID*> | Cadeia | A ID de recurso para a função do Azure que você deseja chamar. Este é o formato para este valor:<p>"/subscriptions/<*Azure-Subscription-ID*>/ResourceGroups/<*Azure-resource-group*>/Providers/Microsoft.Web/sites/<*Azure-function-app-Name*>/Functions/<*Azure-function-name*> " | 
 | <*tipo de método*> | Cadeia | O método HTTP a ser usado para chamar a função: "GET", "PUT", "POST", "PATCH" ou "DELETE" <p>Se não for especificado, o padrão será o método "POST". | 
@@ -1158,7 +1158,7 @@ Essa ação chama uma [função do Azure](../azure-functions/functions-create-fi
 
 *Adicional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a chamada <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar na solicitação | 
@@ -1221,7 +1221,7 @@ Essa ação envia uma solicitação para o ponto de extremidade especificado e v
 
 *Necessário*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*tipo de método*> | Cadeia | O método a ser usado para enviar a solicitação: "GET", "PUT", "POST", "PATCH" ou "DELETE" | 
 | <*HTTP-or-HTTPS-endpoint-URL*> | Cadeia | O ponto de extremidade HTTP ou HTTPS para chamar. Tamanho máximo da cadeia de caracteres: 2 KB | 
@@ -1459,7 +1459,7 @@ Essa ação cria a carga para a resposta a uma solicitação HTTP.
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*response-status-code*> | Número inteiro | O código de status HTTP que é enviado para a solicitação de entrada. O código padrão é "200 OK", mas o código pode ser qualquer código de status válido que comece com 2xx, 4xx ou 5xx, mas não com 3xxx. | 
 |||| 
@@ -1632,7 +1632,7 @@ Essa ação cria uma tabela CSV ou HTML de uma matriz. Para matrizes com objetos
 
 *Necessário* 
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | \<> CSV *ou* HTML| Cadeia | O formato da tabela que você deseja criar | 
 | <*array*> | Array | A matriz ou expressão que fornece os itens de origem para a tabela <p>**Nota**: Se a matriz de origem estiver vazia, a ação criará uma tabela vazia. | 
@@ -1745,7 +1745,7 @@ Essa ação interrompe a execução de uma instância de fluxo de trabalho, canc
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*status*> | Cadeia | O status a ser retornado para a execução: "Falha", "cancelado" ou "êxito" |
 |||| 
@@ -1754,7 +1754,7 @@ Essa ação interrompe a execução de uma instância de fluxo de trabalho, canc
 
 As propriedades do objeto "runStatus" aplicam-se somente quando a propriedade "runStatus" está definida como status "falha".
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*error-code-or-name*> | Cadeia | O código ou o nome do erro |
 | <*error-message*> | Cadeia | A mensagem ou o texto que descreve o erro e as ações que o usuário do aplicativo pode executar | 
@@ -1815,7 +1815,7 @@ Essa ação pausa a execução do fluxo de trabalho para o intervalo especificad
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*number-of-units*> | Número inteiro | Para a ação de **atraso** , o número de unidades a esperar | 
 | <*interval*> | Cadeia | Para a ação de **atraso** , o intervalo a aguardar: "Segundo", "minuto", "hora", "dia", "semana", "mês" | 
@@ -1888,7 +1888,7 @@ O mecanismo de aplicativos lógicos verifica o acesso ao gatilho que você desej
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*nested-logic-app-name*> | Cadeia | O nome do aplicativo lógico que você deseja chamar | 
 | <*trigger-name*> | Cadeia | O nome do gatilho no aplicativo lógico aninhado que você deseja chamar | 
@@ -1899,7 +1899,7 @@ O mecanismo de aplicativos lógicos verifica o acesso ao gatilho que você desej
 
 *Adicional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------|  
 | <*header-content*> | Objeto JSON | Todos os cabeçalhos a serem enviados com a chamada | 
 | <*body-content*> | Objeto JSON | Qualquer conteúdo de mensagem para enviar com a chamada | 
@@ -1974,7 +1974,7 @@ Essa ação de loop itera por meio de uma matriz e executa ações em cada item 
 
 *Adicional*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*count*> | Número inteiro | Por padrão, as iterações de loop "for each" são executadas ao mesmo tempo ou em paralelo até o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para alterar esse limite definindo um novo valor de >*contagem*de <, consulte [alterar a simultaneidade de loop "for each"](#change-for-each-concurrency). | 
 | <*operation-option*> | Cadeia | Para executar um loop "for each" sequencialmente, em vez de em paralelo, defina <*opção Operation-Option*> `Sequential` ou `1`<*Count*>, mas não ambos. Para obter mais informações, consulte [executar loops "for each" sequencialmente](#sequential-for-each). | 
@@ -2038,7 +2038,7 @@ Essa ação, que é uma *instrução condicional*, avalia uma expressão que rep
 }
 ```
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*problema*> | Objeto JSON | A condição, que pode ser uma expressão, para avaliar | 
 | <*ação-1*> | Objeto JSON | A ação a ser executada quando <*condição*> avaliada como true | 
@@ -2169,7 +2169,7 @@ Essa ação, também conhecida como *instrução switch*, organiza outras açõe
 
 *Necessário*
 
-| Valor | Type | Descrição | 
+| Value | Type | Descrição | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varia | A expressão, o objeto JSON ou o token a ser avaliado | 
 | <*nome da ação*> | Cadeia | O nome da ação a ser executada para o caso de correspondência | 
@@ -2179,7 +2179,7 @@ Essa ação, também conhecida como *instrução switch*, organiza outras açõe
 
 *Adicional*
 
-| Value | Type | Descrição | 
+| Valor | Type | Descrição | 
 |-------|------|-------------| 
 | <*default-action-name*> | Cadeia | O nome da ação padrão a ser executada quando não houver nenhum caso correspondente | 
 | <*default-action-definition*> | Objeto JSON | A definição da ação a ser executada quando não houver nenhum caso correspondente | 
@@ -2376,10 +2376,11 @@ Você pode alterar o comportamento de tempo de execução padrão para gatilhos 
 
 | Propriedade | Tipo | Descrição | Gatilho ou ação | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo ou em paralelo. Esse valor pode ajudar a limitar o número de solicitações que os sistemas de back-end recebem. <p>Definir a `runs` propriedade para `1` funciona da mesma maneira `SingleInstance`que definir a `operationOptions` Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar](#change-trigger-concurrency) a simultaneidade de gatilho ou [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem esperar para serem executadas quando o fluxo de trabalho já estiver executando o máximo de instâncias simultâneas. Você pode alterar o limite de simultaneidade `concurrency.runs` na propriedade. <p>Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | Todos os gatilhos | 
+| `runtimeConfiguration.concurrency.runs` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo ou em paralelo. Esse valor pode ajudar a limitar o número de solicitações que os sistemas de back-end recebem. <p>Definir a `runs` propriedade para `1` funciona da mesma maneira `SingleInstance`que definir a `operationOptions` Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar](#change-trigger-concurrency) a simultaneidade de gatilho ou [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os acionadores | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem esperar para serem executadas quando o fluxo de trabalho já estiver executando o máximo de instâncias simultâneas. Você pode alterar o limite de simultaneidade `concurrency.runs` na propriedade. <p>Para alterar o limite padrão, consulte [alterar o limite](#change-waiting-runs)de execuções em espera. | Todos os acionadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Altere o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de iterações de loop "for each" que podem ser executadas ao mesmo tempo ou em paralelo. <p>Definir a `repetitions` propriedade para `1` funciona da mesma maneira `SingleInstance`que definir a `operationOptions` Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [alterar "para cada" simultaneidade](#change-for-each-concurrency) ou [executar "loop for each" em sequência](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Número inteiro | Para ações específicas que dão suporte e têm a paginação ativada, esse valor especifica o número *mínimo* de resultados a serem recuperados. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados usando](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) paginação | Ação: Variado |
+| `runtimeConfiguration.secureData.properties` | Array | Em muitos gatilhos e ações, essas configurações ocultam entradas, saídas ou ambos do histórico de execução do aplicativo lógico. <p>Para proteger esses dados, consulte [ocultar entradas e saídas do histórico de execuções](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | Maioria dos gatilhos e ações |
 | `runtimeConfiguration.staticResult` | Objeto JSON | Para ações que dão suporte e têm a configuração de [resultado estático](../logic-apps/test-logic-apps-mock-data-static-results.md) ativada `staticResult` , o objeto tem estes atributos: <p>- `name`, que faz referência ao nome de definição de resultado estático da ação atual, que `staticResults` aparece dentro do atributo no atributo do `definition` fluxo de trabalho do aplicativo lógico. Para obter mais informações, consulte [resultados estáticos-referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, que especifica se os resultados estáticos são `Enabled` ou não para a ação atual. <p>Para ativar os resultados estáticos, consulte [testar aplicativos lógicos com dados fictícios Configurando resultados estáticos](../logic-apps/test-logic-apps-mock-data-static-results.md) | Ação: Variado |
 ||||| 
 
@@ -2394,7 +2395,7 @@ Você pode alterar o comportamento padrão para gatilhos e ações com `operatio
 | `DisableAsyncPattern` | Cadeia | Execute ações baseadas em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir essa opção, consulte [executar ações](#asynchronous-patterns)de forma síncrona. | Ações <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Resposta](#response-action) | 
 | `OptimizedForHighThroughput` | Cadeia | Altere o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) no número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir essa opção, consulte [executar no modo de alta taxa de transferência](#run-high-throughput-mode). | Todas as ações | 
 | `Sequential` | Cadeia | Execute "para cada" iterações de loop, uma de cada vez, em vez de todas ao mesmo tempo em paralelo. <p>Essa opção funciona da mesma maneira que definir a `runtimeConfiguration.concurrency.repetitions` `1`Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p><p>Para definir essa opção, consulte [executar loops "for each" sequencialmente](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | Cadeia | Execute o gatilho para cada instância de aplicativo lógico sequencialmente e aguarde até que a execução ativa anteriormente seja acionada antes de disparar a próxima instância de aplicativo lógico. <p><p>Essa opção funciona da mesma maneira que definir a `runtimeConfiguration.concurrency.runs` `1`Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para definir essa opção, confira [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os gatilhos | 
+| `SingleInstance` | Cadeia | Execute o gatilho para cada instância de aplicativo lógico sequencialmente e aguarde até que a execução ativa anteriormente seja acionada antes de disparar a próxima instância de aplicativo lógico. <p><p>Essa opção funciona da mesma maneira que definir a `runtimeConfiguration.concurrency.runs` `1`Propriedade como. Você pode definir qualquer propriedade, mas não ambos. <p>Para definir essa opção, confira [instâncias de gatilho sequencialmente](#sequential-trigger). | Todos os acionadores | 
 ||||
 
 <a name="change-trigger-concurrency"></a>
@@ -2663,7 +2664,7 @@ Aqui estão os tipos de autenticação que você pode configurar:
 
 Para a [autenticação básica](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) usando Azure Active Directory, sua definição de gatilho ou ação pode incluir `authentication` um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). 
 
-| Propriedade | Necessário | Value | Descrição | 
+| Propriedade | Requerido | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **type** | Sim | Basic | O tipo de autenticação a ser usado, que é "básico" aqui | 
 | **username** | Sim | "@parameters(' userNameParam ')" | O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
@@ -2697,7 +2698,7 @@ Nesta definição de ação http de exemplo, `authentication` a seção `Basic` 
 
 Para a [autenticação baseada em certificado](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) usando Azure Active Directory, sua definição de gatilho ou ação pode `authentication` incluir um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). Para obter limites sobre o número de certificados de cliente que você pode usar, consulte [limites e configuração para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md).
 
-| Propriedade | Necessário | Value | Descrição |
+| Propriedade | Requerido | Value | Descrição |
 |----------|----------|-------|-------------|
 | **type** | Sim | "ClientCertificate" | O tipo de autenticação a ser usado para certificados de cliente protocolo SSL (SSL). Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
 | **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado em Base64 de um arquivo de troca de informações pessoais (PFX) |
@@ -2731,7 +2732,7 @@ Nesta definição de ação http de exemplo, `authentication` a seção `ClientC
 
 Para a [Autenticação OAuth do Azure ad](../active-directory/develop/authentication-scenarios.md), sua definição de gatilho ou ação `authentication` pode incluir um objeto JSON, que tem as propriedades especificadas pela tabela a seguir. Para acessar valores de parâmetro em tempo de execução, você `@parameters('parameterName')` pode usar a expressão, que é fornecida pela [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs).
 
-| Propriedade | Necessário | Value | Descrição |
+| Propriedade | Requerido | Value | Descrição |
 |----------|----------|-------|-------------|
 | **type** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
 | **autoridades** | Não | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 3bc67d7fdc582b6d45596b152bb5d58e41152a46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70dc458e341024797761262cd9a4fd1b3eb23ec3
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428110"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359791"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Windows
 
@@ -27,10 +27,10 @@ ms.locfileid: "66428110"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Para executar uma aplicação existente num contentor do Windows num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo explica como criar uma imagem do Docker que contém um Python [Flask](http://flask.pocoo.org/) web application e implantá-lo para um cluster do Service Fabric em execução no seu computador local. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](/azure/container-registry/). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
+Para executar uma aplicação existente num contentor do Windows num cluster do Service Fabric, não precisa de fazer quaisquer alterações à sua aplicação. Este artigo orienta você pela criação de uma imagem do Docker que contém um aplicativo Web Python [Flask](http://flask.pocoo.org/) e sua implantação em um Cluster Service Fabric em execução no computador local. Também vai partilhar a sua aplicação contentorizada através do [Azure Container Registry](/azure/container-registry/). Este artigo pressupõe uma compreensão básica do Docker. Para saber mais sobre o Docker, leia a [Descrição Geral do Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
-> Este artigo aplica-se para um ambiente de desenvolvimento do Windows.  O tempo de execução do cluster do Service Fabric e o tempo de execução do Docker tem de ser executado no mesmo SO.  Não é possível executar contentores do Windows num cluster do Linux.
+> Este artigo se aplica a um ambiente de desenvolvimento do Windows.  O tempo de execução de Cluster Service Fabric e o tempo de execução do Docker devem estar em execução no mesmo sistema operacional.  Você não pode executar contêineres do Windows em um cluster do Linux.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -42,23 +42,23 @@ Para executar uma aplicação existente num contentor do Windows num cluster do 
   * [SDK e ferramentas do Service Fabric](service-fabric-get-started.md).
   *  Docker para Windows. [Obtenha o Docker CE para Windows (estável)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Depois de instalar e iniciar o Docker, clique com o botão direito do rato no ícone de tabuleiro e selecione **Mudar para os contentores do Windows**. Este passo é necessário para executar imagens do Docker baseadas no Windows.
 
-* Um cluster do Windows com três ou mais nós em execução no Windows Server com contentores. 
+* Um cluster do Windows com três ou mais nós em execução no Windows Server com contêineres. 
 
-  Neste artigo, a versão (compilação) do Windows Server com contentores em execução em nós do cluster tem de corresponder no computador de desenvolvimento. Isto acontece porque criar a imagem do docker no seu computador de desenvolvimento e existem restrições de compatibilidade entre versões do contentor do sistema operacional e o SO do host no qual está implementada. Para obter mais informações, consulte [contentor do Windows Server SO e o host de compatibilidade do SO](#windows-server-container-os-and-host-os-compatibility). 
+  Para este artigo, a versão (compilação) do Windows Server com contêineres em execução em seus nós de cluster deve corresponder à do seu computador de desenvolvimento. Isso ocorre porque você cria a imagem do Docker em seu computador de desenvolvimento e há restrições de compatibilidade entre as versões do sistema operacional do contêiner e o sistema operacional do host no qual ele está implantado. Para obter mais informações, consulte [sistema operacional de contêiner do Windows Server e compatibilidade do sistema operacional do host](#windows-server-container-os-and-host-os-compatibility). 
   
-Para determinar a versão do Windows Server com contentores, precisa para o seu cluster, execute o `ver` comando num prompt de comando do Windows no computador de desenvolvimento:
+Para determinar a versão do Windows Server com contêineres necessários para o cluster, execute o `ver` comando em um prompt de comando do Windows em seu computador de desenvolvimento:
 
-* Se a versão contém *x.x.14323.x*, em seguida, selecione *WindowsServer 2016 Datacenter com contentores* para o sistema operativo quando [criação de um cluster](service-fabric-cluster-creation-via-portal.md).
-  * Se a versão contém *x.x.16299.x*, em seguida, selecione *WindowsServerSemiAnnual Datacenter-Core-1709-com-contentores* para o sistema operativo quando [criar um cluster](service-fabric-cluster-creation-via-portal.md).
+* Se a versão contiver *x. x. 14323. x*, selecione *WindowsServer 2016-datacenter-com-containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
+  * Se a versão contiver *x. x. 16299. x*, selecione *WindowsServerSemiAnnual datacenter-Core-1709-with-containers* para o sistema operacional ao [criar um cluster](service-fabric-cluster-creation-via-portal.md).
 
 * Um registo no Azure Container Registry - [Criar um registo de contentor](../container-registry/container-registry-get-started-portal.md) na sua subscrição do Azure.
 
 > [!NOTE]
-> A implementação de contentores para um cluster do Service Fabric em execução no Windows 10 é suportada.  Ver [este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contentores do Windows.
+> Há suporte para a implantação de contêineres em um Cluster Service Fabric em execução no Windows 10.  Consulte [Este artigo](service-fabric-how-to-debug-windows-containers.md) para obter informações sobre como configurar o Windows 10 para executar contêineres do Windows.
 >   
 
 > [!NOTE]
-> Versões de Service Fabric 6.2 e versões posteriores dão suporte a implementação de contentores para clusters em execução no Windows Server versão 1709.  
+> Service Fabric versões 6,2 e posteriores dão suporte à implantação de contêineres em clusters em execução no Windows Server versão 1709.  
 > 
 
 ## <a name="define-the-docker-container"></a>Definir o contentor do Docker
@@ -107,10 +107,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
 
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -156,7 +158,7 @@ Se esse comando não devolver nada, execute o seguinte comando e inspecione o el
 docker inspect my-web-site
 ```
 
-Ligue-se ao contentor em execução. Abra um browser que aponte para o endereço IP devolvido, por exemplo "http:\//172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
+Ligue-se ao contentor em execução. Abra um navegador da Web apontando para o endereço IP retornado, por exemplo, "\/http:/172.31.194.61". Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
 Para parar o contentor, execute:
 
@@ -175,9 +177,9 @@ docker rm my-web-site
 
 Depois de confirmar que o contentor é executado no seu computador de programação, envie a imagem para o seu registo no Azure Container Registry.
 
-Execute ``docker login`` para iniciar sessão no registo de contentores com sua [as credenciais do registo](../container-registry/container-registry-authentication.md).
+Execute ``docker login`` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Em alternativa, pode iniciar sessão com o nome de utilizador de registo e a palavra-passe.
+O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Ou, você pode entrar usando o nome de usuário e a senha do registro.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -215,7 +217,7 @@ O serviço de contentor precisa de um ponto final para comunicação. Adicione u
 </Resources>
 ```
 > [!NOTE]
-> Pontos finais adicionais para um serviço podem ser adicionados ao declarar os elementos de ponto final adicionais com valores de propriedade aplicável. Cada porta só pode declarar um valor de protocolo.
+> Pontos de extremidade adicionais para um serviço podem ser adicionados por meio da declaração de elementos de EndPoint adicionais com valores de propriedade aplicáveis. Cada porta só pode declarar um valor de protocolo.
 
 Ao definir um ponto final, o Service Fabric publica o ponto final no serviço de Nomes. Este contentor pode ser resolvido por outros serviços em execução no cluster. Também pode realizar comunicação de contentor para contentor através do [proxy inverso](service-fabric-reverseproxy.md). Para realizar a comunicação, forneça a porta de escuta HTTP do proxy inverso e o nome dos serviços com os quais quer comunicar como variáveis de ambiente.
 
@@ -261,7 +263,7 @@ Configure uma porta de anfitrião utilizada para comunicar com o contentor. O en
 </ServiceManifestImport>
 ```
 > [!NOTE]
-> PortBindings adicionais para um serviço podem ser adicionados ao declarar elementos PortBinding adicionais com valores de propriedade aplicável.
+> PortBindings adicionais para um serviço podem ser adicionados declarando elementos Portbinding adicionais com valores de propriedade aplicáveis.
 
 ## <a name="configure-container-registry-authentication"></a>Configurar a autenticação do registo de contentor
 
@@ -336,11 +338,11 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
-### <a name="configure-cluster-wide-credentials"></a>Configurar as credenciais de todo o cluster
+### <a name="configure-cluster-wide-credentials"></a>Configurar credenciais em todo o cluster
 
-Começando com o tempo de execução 6.3, Service Fabric permite-lhe configurar as credenciais de todo o cluster que podem ser utilizadas como credenciais do padrão repositório pelos aplicativos.
+A partir do tempo de execução de 6,3, Service Fabric permite que você configure credenciais em todo o cluster, que podem ser usadas como credenciais de repositório padrão por aplicativos.
 
-Pode ativar ou desativar a funcionalidade ao adicionar o `UseDefaultRepositoryCredentials` para o atributo `ContainerHostPolicies` em applicationmanifest. XML com um `true` ou `false` valor.
+Você pode habilitar ou desabilitar o `UseDefaultRepositoryCredentials` recurso adicionando o atributo a `ContainerHostPolicies` em ApplicationManifest. XML com um `true` valor ou `false` .
 
 ```xml
 <ServiceManifestImport>
@@ -354,14 +356,14 @@ Pode ativar ou desativar a funcionalidade ao adicionar o `UseDefaultRepositoryCr
 </ServiceManifestImport>
 ```
 
-O Service Fabric, em seguida, utiliza as credenciais de repositório predefinidas que pode ser especificada em ClusterManifest sob o `Hosting` secção.  Se `UseDefaultRepositoryCredentials` é `true`, Service Fabric lê os seguintes valores do ClusterManifest:
+Em seguida, Service Fabric usa as credenciais de repositório padrão que você pode especificar no ClusterManifest `Hosting` na seção.  Se `UseDefaultRepositoryCredentials` for`true`, Service Fabric lerá os seguintes valores do ClusterManifest:
 
 * DefaultContainerRepositoryAccountName (string)
-* DefaultContainerRepositoryPassword (string)
+* DefaultContainerRepositoryPassword (cadeia de caracteres)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType (cadeia)---suportada ao iniciar com o tempo de execução 6.4
+* DefaultContainerRepositoryPasswordType (cadeia de caracteres)---com suporte a partir do tempo de execução 6,4
 
-Eis um exemplo de como pode adicionar dentro do `Hosting` seção no arquivo ClusterManifestTemplate.json. O `Hosting` secção pode ser adicionada durante a criação de cluster ou, mais tarde uma atualização de configuração. Para obter mais informações, consulte [definições do cluster de alteração do Azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [segredos da aplicação de gerir o Azure Service Fabric](service-fabric-application-secret-management.md)
+Aqui está um exemplo do que você pode adicionar dentro da `Hosting` seção no arquivo ClusterManifestTemplate. JSON. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. Para obter mais informações, consulte [alterar configurações de cluster do azure Service Fabric](service-fabric-cluster-fabric-settings.md) e [gerenciar segredos do aplicativo de Service Fabric do Azure](service-fabric-application-secret-management.md)
 
 ```json
 "fabricSettings": [
@@ -395,7 +397,7 @@ Eis um exemplo de como pode adicionar dentro do `Hosting` seção no arquivo Clu
 ```
 
 ## <a name="configure-isolation-mode"></a>Configurar o modo de isolamento
-O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. No modo de isolamento de processo, todos os contentores em execução no mesmo computador anfitrião partilham o kernel com o anfitrião. No modo de isolamento de Hyper-V, os kernels estão isolados entre cada contentor de Hyper-V e o anfitrião do contentor. O modo de isolamento está especificado no elemento `ContainerHostPolicies` no ficheiro de manifesto de aplicação. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. A predefinição é o modo de isolamento do processo em anfitriões do Windows Server. Modo de isolamento de Hyper-V apenas é suportado em anfitriões do Windows 10, pelo que o contentor é executado no modo de isolamento de Hyper-V, independentemente de sua definição do modo de isolamento. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
+O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V. No modo de isolamento de processo, todos os contentores em execução no mesmo computador anfitrião partilham o kernel com o anfitrião. No modo de isolamento de Hyper-V, os kernels estão isolados entre cada contentor de Hyper-V e o anfitrião do contentor. O modo de isolamento está especificado no elemento `ContainerHostPolicies` no ficheiro de manifesto de aplicação. Os modos de isolamento que pode especificar são `process`, `hyperv` e `default`. O padrão é o modo de isolamento do processo nos hosts do Windows Server. Em hosts do Windows 10, há suporte apenas para o modo de isolamento do Hyper-V, portanto, o contêiner é executado no modo de isolamento do Hyper-V, independentemente da configuração do modo de isolamento. O fragmento seguinte mostra como o modo de isolamento é especificado no ficheiro de manifesto de aplicação.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -406,7 +408,7 @@ O Windows suporta dois modos de isolamento para contentores: processo e Hyper-V.
    >
 
 ## <a name="configure-resource-governance"></a>Configurar a governação de recursos
-A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Limites de recursos podem ser definidas para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo de CPU), MemoryReservationInMB, BlkioWeight (relativo de blockio). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
+A [governação de recursos](service-fabric-resource-governance.md) restringe os recursos que o contentor pode utilizar no anfitrião. O elemento `ResourceGovernancePolicy`, que está especificado no manifesto de aplicação, é utilizado para declarar os limites de recursos para um pacote do código do serviço. Os limites de recursos podem ser definidos para os seguintes recursos: Memória, MemorySwap, CpuShares (peso relativo da CPU), MemoryReservationInMB, BlkioWeight (peso relativo de BlockIO). Neste exemplo, o Guest1Pkg do pacote de serviço obtém um núcleo nos nós de cluster onde está colocado. Os limites de memória são absolutos, pelo que o pacote do código está limitado a 1024 MB de memória (e uma reserva de garantia com o mesmo valor). Os pacotes do código (contentores ou processos) não conseguem alocar mais memória para além deste limite. Tentar fazê-lo resulta numa exceção de memória esgotada. Para que a imposição dos limites de recursos funcione, todos os pacotes do código dentro de um pacote de serviço devem ter limites de memória especificados.
 
 ```xml
 <ServiceManifestImport>
@@ -421,7 +423,7 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
 
 A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
 
-A partir da versão de atualização mais recente de v6.4, tem a opção para especificar que as avaliações do docker HEALTHCHECK devem ser relatadas como um erro. Se esta opção estiver ativada, um **OK** relatório de estado de funcionamento aparecerá quando *health_status* é *bom estado de funcionamento* e **erro** aparecerá quando *health_status* é *mau estado de funcionamento*.
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor.
 
@@ -445,11 +447,11 @@ Pode configurar o comportamento de **HEALTHCHECK** para cada contentor, especifi
     </Policies>
 </ServiceManifestImport>
 ```
-Por predefinição *IncludeDockerHealthStatusInSystemHealthReport* está definida como **true**, *RestartContainerOnUnhealthyDockerHealthStatus* está definido como  **FALSE**, e *TreatContainerUnhealthyStatusAsError* está definido como **falso**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido **como true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
 
 Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro**, um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* está definida como **true**, **erro** relatórios de estado de funcionamento serão apresentado quando o contentor *health_status*é *mau estado de funcionamento*.
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
 Se pretender desativar a integração de **HEALTHCHECK** em todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **falso**.
 
@@ -460,9 +462,9 @@ No **Ponto Final da Ligação**, introduza o ponto final de gestão para o clust
 
 Clique em **Publicar**.
 
-O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implementação da aplicação. A aplicação implementada, mas fica em estado de erro até que a imagem é transferida em nós de cluster (o que podem demorar algum tempo, consoante o tamanho da imagem): ![Error][1]
+O [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) é uma ferramenta baseada na Web utilizada para inspecionar e gerir aplicações e nós num cluster do Service Fabric. Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ e siga a implementação da aplicação. O aplicativo é implantado, mas está em um estado de erro até que a imagem seja baixada nos nós de cluster (o que pode levar algum tempo, dependendo do tamanho da imagem): ![Ao][1]
 
-A aplicação está pronta quando estiver a ser ```Ready``` Estado: ![Pronto][2]
+O aplicativo está pronto quando está no ```Ready``` Estado: ![Esteja][2]
 
 Abra um browser e navegue para http://containercluster.westus2.cloudapp.azure.com:8081. Deverá ver o cabeçalho "Hello World!" apresentado no browser.
 
@@ -477,34 +479,34 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="windows-server-container-os-and-host-os-compatibility"></a>Contentor do Windows Server SO e o host de compatibilidade do SO
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Compatibilidade do so do Windows Server e do sistema operacional do host
 
-Contentores do Windows Server não são compatíveis entre todas as versões de um sistema operacional host. Por exemplo:
+Os contêineres do Windows Server não são compatíveis em todas as versões de um sistema operacional host. Por exemplo:
  
-- Contentores do Windows Server criados com a versão 1709 do Windows Server não funcionam num anfitrião com o Windows Server versão 2016. 
-- Contentores do Windows Server criados com o Windows Server 2016 funcionam no modo de isolamento de Hyper-V apenas num anfitrião com o Windows Server versão 1709. 
-- Com contentores do Windows Server criados com o Windows Server 2016, poderá ser necessário para se certificar de que a revisão do contentor de sistema operacional e o sistema operacional host são os mesmos quando em execução no modo de isolamento do processo num anfitrião com o Windows Server 2016.
+- Os contêineres do Windows Server criados usando o Windows Server versão 1709 não funcionam em um host que executa o Windows Server versão 2016. 
+- Os contêineres do Windows Server criados usando o Windows Server 2016 funcionam no modo de isolamento do Hyper-V somente em um host que executa o Windows Server versão 1709. 
+- Com contêineres do Windows Server criados usando o Windows Server 2016, pode ser necessário garantir que a revisão do sistema operacional do contêiner e do sistema operacional do host seja a mesma ao executar no modo de isolamento do processo em um host que executa o Windows Server 2016.
  
-Para obter mais informações, consulte [compatibilidade de versões do contentor Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+Para saber mais, consulte [compatibilidade de versão do contêiner do Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
-Considere a compatibilidade do sistema operacional host e o contentor do sistema operacional ao criar e implementar contentores no cluster do Service Fabric. Por exemplo:
+Considere a compatibilidade do sistema operacional do host e do seu sistema operacional de contêiner ao compilar e implantar contêineres no Cluster Service Fabric. Por exemplo:
 
-- Certifique-se de que implementa contentores com um sistema operacional compatível com o SO em nós do cluster.
-- Certifique-se de que o modo de isolamento especificado para a sua aplicação de contentor é consistente com suporte para o contentor de sistema operacional no nó onde está a ser implementado.
-- Considere como as atualizações de SO para os nós de cluster ou contentores podem afetar seus de compatibilidade. 
+- Certifique-se de implantar contêineres com um sistema operacional compatível com o sistema operacional em seus nós de cluster.
+- Verifique se o modo de isolamento especificado para seu aplicativo de contêiner é consistente com o suporte para o sistema operacional do contêiner no nó em que está sendo implantado.
+- Considere como as atualizações do sistema operacional para os nós ou contêineres de cluster podem afetar sua compatibilidade. 
 
-Recomendamos as seguintes práticas para se certificar de que a contentores são implementados corretamente no seu cluster do Service Fabric:
+Recomendamos as seguintes práticas para garantir que os contêineres sejam implantados corretamente em seu cluster de Service Fabric:
 
-- Utilize a marcação de imagem explícita com as imagens do Docker para especificar a versão do SO do Windows Server que é criado um contentor a partir. 
-- Uso [SO marcação](#specify-os-build-specific-container-images) no seu ficheiro de manifesto de aplicação para se certificar de que seu aplicativo é compatível em diferentes versões do Windows Server e as atualizações.
+- Use marcação de imagem explícita com suas imagens do Docker para especificar a versão do sistema operacional do Windows Server da qual um contêiner é criado. 
+- Use a [marcação do sistema operacional](#specify-os-build-specific-container-images) no arquivo de manifesto do aplicativo para garantir que seu aplicativo seja compatível em diferentes versões e atualizações do Windows Server.
 
 > [!NOTE]
-> Com o Service Fabric versão 6.2 e versões posterior, pode implementar contentores com base no Windows Server 2016 localmente num anfitrião com o Windows 10. No Windows 10, pode executar os contentores no modo de isolamento de Hyper-V, independentemente do modo de isolamento definido no manifesto do aplicativo. Para obter mais informações, consulte [modo de isolamento de configurar](#configure-isolation-mode).   
+> Com Service Fabric versão 6,2 e posterior, você pode implantar contêineres com base no Windows Server 2016 localmente em um host do Windows 10. No Windows 10, os contêineres são executados no modo de isolamento do Hyper-V, independentemente do modo de isolamento definido no manifesto do aplicativo. Para saber mais, confira [Configurar o modo de isolamento](#configure-isolation-mode).   
 >
  
 ## <a name="specify-os-build-specific-container-images"></a>Indicar imagens de contentor específicas da compilação de SO 
 
-Contentores do Windows Server podem não ser compatíveis entre diferentes versões do sistema operacional. Por exemplo, contentores do Windows Server criados com o Windows Server 2016 não funcionam no Windows Server versão 1709 no modo de isolamento do processo. Por conseguinte, se nós de cluster forem atualizados para a versão mais recente, os serviços de contentores criados com as versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6.1 do tempo de execução e mais recente, o Service Fabric suporta a especificação de várias imagens de sistema operacional por contentor e marcá-los com as versões de compilação do sistema operacional no manifesto do aplicativo. Pode obter a versão de compilação do SO, executando `winver` num prompt de comando do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
+Os contêineres do Windows Server podem não ser compatíveis em diferentes versões do sistema operacional. Por exemplo, os contêineres do Windows Server criados usando o Windows Server 2016 não funcionam no Windows Server versão 1709 no modo de isolamento do processo. Portanto, se os nós de cluster forem atualizados para a versão mais recente, os serviços de contêiner criados usando as versões anteriores do sistema operacional poderão falhar. Para contornar isso com a versão 6,1 do tempo de execução e mais recente, Service Fabric dá suporte à especificação de várias imagens de sistema operacional por contêiner e marcação delas com as versões de compilação do sistema operacional no manifesto do aplicativo. Você pode obter a versão de compilação do sistema operacional executando `winver` em um prompt de comando do Windows. Antes de atualizar o SO nos nós, atualize os manifestos da aplicação e especifique a substituições de imagem por versão de SO. O fragmento seguinte mostra como especificar várias imagens de contentor no manifesto da aplicação, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -632,7 +634,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Configurar o intervalo de tempo antes do contentor ser forçado a terminar
 
-Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. O `Hosting` secção pode ser adicionada durante a criação de cluster ou, mais tarde uma atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
+Pode configurar um intervalo de tempo para o tempo de execução para aguardar antes do contentor ser removido após a eliminação do serviço (ou uma mudança para outro nó) ser iniciada. Configurar o intervalo de tempo envia o comando `docker stop <time in seconds>` para o contentor.  Para obter mais detalhes, veja [paragem do docker](https://docs.docker.com/engine/reference/commandline/stop/). O intervalo de tempo de espera é especificado na secção `Hosting`. A `Hosting` seção pode ser adicionada na criação do cluster ou posteriormente em uma atualização de configuração. O fragmento do manifesto do cluster seguinte mostra como definir o intervalo de espera:
 
 ```json
 "fabricSettings": [
@@ -654,7 +656,7 @@ O intervalo de tempo predefinido está definido para 10 segundos. Uma vez que es
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurar o tempo de execução para remover as imagens do contentor não utilizadas
 
-Pode configurar o cluster do Service Fabric para remover as imagens do contentor não utilizadas do nó. Esta configuração permite que o espaço em disco seja recapturado se existirem demasiadas imagens do contentor no nó. Para ativar esta funcionalidade, atualize o [alojamento](service-fabric-cluster-fabric-settings.md#hosting) secção manifesto do cluster, conforme mostrado no seguinte fragmento: 
+Pode configurar o cluster do Service Fabric para remover as imagens do contentor não utilizadas do nó. Esta configuração permite que o espaço em disco seja recapturado se existirem demasiadas imagens do contentor no nó. Para habilitar esse recurso, atualize a seção de [hospedagem](service-fabric-cluster-fabric-settings.md#hosting) no manifesto do cluster, conforme mostrado no trecho a seguir: 
 
 
 ```json
@@ -731,7 +733,7 @@ Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemo
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).
 * Leia o tutorial [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) (Implementar uma aplicação .NET num contentor).
 * Saiba mais sobre o [ciclo de vida das aplicações](service-fabric-application-lifecycle.md) do Service Fabric.

@@ -12,12 +12,12 @@ ms.date: 07/17/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3b23aa7db29390ef50a72f73fb153fef5301b92
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ddbb233bb9d0970169f040e3040b44a0b75aa1f8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304839"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477184"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 
@@ -71,9 +71,9 @@ Baseado em SAML início de sessão único é suportada para aplicações que uti
 - SAML 2.0
 - WS-Federation
 
-Para configurar um aplicativo SaaS para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-portal.md). Além disso, muitos aplicativos SaaS (software como serviço) têm um [tutorial específico do aplicativo](../saas-apps/tutorial-list.md) que o orienta pela configuração do logon único baseado em SAML.
+Para configurar um aplicativo SaaS para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Além disso, muitos aplicativos SaaS (software como serviço) têm um [tutorial específico do aplicativo](../saas-apps/tutorial-list.md) que o orienta pela configuração do logon único baseado em SAML.
 
-Para configurar um aplicativo para o WS-Federation, siga as mesmas diretrizes para configurar o aplicativo para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-portal.md). Na etapa de configurar o aplicativo para usar o Azure AD, você precisará substituir a URL de logon do Azure AD para o ponto `https://login.microsoftonline.com/<tenant-ID>/wsfed`de extremidade do WS-Federation.
+Para configurar um aplicativo para o WS-Federation, siga as mesmas diretrizes para configurar o aplicativo para logon único baseado em SAML, consulte [Configurar logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md). Na etapa de configurar o aplicativo para usar o Azure AD, você precisará substituir a URL de logon do Azure AD para o ponto `https://login.microsoftonline.com/<tenant-ID>/wsfed`de extremidade do WS-Federation.
 
 Para configurar um aplicativo local para logon único baseado em SAML, consulte [logon único do SAML para aplicativos locais com o proxy de aplicativo](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -100,7 +100,7 @@ Com base em palavra-passe de início de sessão único é suportado para qualque
 - No Windows 7 ou posterior e no MacOS X ou posterior do Chrome
 - Firefox 26.0 ou posterior no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
 
-Para configurar uma aplicação na cloud para baseado em palavra-passe de início de sessão único, consulte [configurar a aplicação para a palavra-passe início de sessão único](application-sign-in-problem-password-sso-gallery.md#configure-the-app-for-password-sso).
+Para configurar um aplicativo de nuvem para logon único baseado em senha, consulte [Configurar logon único com senha](configure-password-single-sign-on-non-gallery-applications.md).
 
 Para configurar uma aplicação no local para o início de sessão único através do Proxy de aplicações, consulte [vaulting para início de sessão único com o Proxy da aplicação de palavra-passe](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -127,8 +127,7 @@ Quando o utilizador final gere as credenciais:
 - Os administradores são ainda pode definir novas credenciais para a aplicação.
 
 ## <a name="linked-sign-on"></a>Logon vinculado
-
-O início de sessão ligado permite ao Azure AD fornecer início de sessão único para uma aplicação que já está configurada para início de sessão único em outro serviço. O aplicativo vinculado pode aparecer aos utilizadores finais no portal do Office 365 ou portal do Azure AD MyApps. Por exemplo, um utilizador pode iniciar uma aplicação que está configurada para início de sessão único no Active Directory Federation Services 2.0 (AD FS) no portal do Office 365. Relatórios adicionais também estão disponíveis para aplicações ligadas que são iniciadas a partir do portal do Office 365 ou do portal do Azure AD MyApps.
+O início de sessão ligado permite ao Azure AD fornecer início de sessão único para uma aplicação que já está configurada para início de sessão único em outro serviço. O aplicativo vinculado pode aparecer aos utilizadores finais no portal do Office 365 ou portal do Azure AD MyApps. Por exemplo, um utilizador pode iniciar uma aplicação que está configurada para início de sessão único no Active Directory Federation Services 2.0 (AD FS) no portal do Office 365. Relatórios adicionais também estão disponíveis para aplicações ligadas que são iniciadas a partir do portal do Office 365 ou do portal do Azure AD MyApps. Para configurar um aplicativo para logon vinculado, consulte [Configurar logon vinculado](configure-linked-sign-on.md).
 
 ### <a name="linked-sign-on-for-application-migration"></a>Logon vinculado para migração de aplicativo
 
@@ -189,8 +188,9 @@ Como esse cenário é oferecido por meio de uma parceria entre o Azure AD e o Pi
 Para obter mais informações, consulte [Edições do Azure Active Directory](../fundamentals/active-directory-whatis.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
-
-- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Tutorial para configurar o início de sessão único](configure-single-sign-on-portal.md)
-- [Introdução à gestão do acesso a aplicações](what-is-access-management.md)
-- Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan)
+* [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Configurando o logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
+* [Configurando o logon único baseado em senha](configure-password-single-sign-on-non-gallery-applications.md)
+* [Configurando o logon vinculado](configure-linked-sign-on.md)
+* [Introdução à gestão do acesso a aplicações](what-is-access-management.md)
+* Link de download: [Plano de implantação de logon único](https://aka.ms/SSODeploymentPlan).

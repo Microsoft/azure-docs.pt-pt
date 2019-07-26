@@ -1,19 +1,18 @@
 ---
 title: Usar Servidor de Backup do Azure para fazer backup de cargas de trabalho no Azure
 description: Use Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho para o portal do Azure.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: 12ec1ce4a774178be621d7d8626ead7f1b106189
-ms.sourcegitcommit: 20bb149fe74459e59b648361235324b0674fe55b
+ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298532"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466381"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 > [!div class="op_single_selector"]
@@ -339,7 +338,7 @@ Use as seguintes etapas para atualizar o MABS:
 Se Backup do Microsoft Azure servidor falhar com erros durante a fase de configuração (ou backup ou restauração), consulte este [documento de códigos de erro](https://support.microsoft.com/kb/3041338) para obter mais informações.
 Você também pode consultar as [perguntas frequentes relacionadas ao backup do Azure](backup-azure-backup-faq.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Você pode obter informações detalhadas sobre como [preparar seu ambiente para o DPM](https://technet.microsoft.com/library/hh758176.aspx) no site do Microsoft TechNet. Ele também contém informações sobre as configurações com suporte nas quais Servidor de Backup do Azure podem ser implantadas e usadas. Você pode usar uma série de [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016) para executar várias operações.
 
 Você pode usar esses artigos para obter uma compreensão mais profunda da proteção de carga de trabalho usando o Backup do Microsoft Azure Server.

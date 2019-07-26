@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: edf120fa7997cf2d0381dcb7cd3ee0d4e16dd72b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321413"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405554"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versões do SO convidado do Azure e matriz de compatibilidade do SDK
 Fornece informações atualizadas sobre as versões mais recentes do sistema operacional convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar o caminho de atualização antes que um sistema operacional convidado seja desabilitado. Se você configurar suas funções para usar  atualizações automáticas do sistema operacional convidado, conforme descrito em [configurações de atualização do SO convidado do Azure][Azure Guest OS Update Settings], não é vital que você leia esta página.
@@ -96,7 +96,7 @@ O sistema operacional convidado de setembro foi lançado.
 >
 
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
 | WA-GUEST-OS-6.8_201906-01 |8 de julho de 2019 |Post 6,10 |
 | WA-GUEST-OS-6.7_201905-01 |6 de junho de 2019 |Post 6,9 |
@@ -110,14 +110,14 @@ O sistema operacional convidado de setembro foi lançado.
 ## <a name="family-5-releases"></a>Versões da família 5
 **Windows Server 2016**
 
-.NET Framework instalado: 3,5, 4.6.2, 4.7.2
+.NET Framework instalado: 3,5, 4,6
 
 > [!NOTE]
 > A senha RDP para a família de sistemas operacionais 5 deve ter no mínimo 10 caracteres.
 >
 
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
 | WA-GUEST-OS-5.32_201906-01 |8 de julho de 2019 |Post 5,34 |
 | WA-GUEST-OS-5.31_201905-01 |6 de junho de 2019 |Post 5,33 |
@@ -135,7 +135,7 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3.5, 4.5.1, 4.5.2
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
 | WA-GUEST-OS-4.67_201906-01 |8 de julho de 2019 |Post 4,69 |
 | WA-GUEST-OS-4.66_201905-01 |6 de junho de 2019 |Post 4,68 |
@@ -153,7 +153,7 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5, 4,5
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
 | WA-GUEST-OS-3.74_201906-01 |8 de julho de 2019 |Post 3,76 |
 | WA-GUEST-OS-3.73_201905-01 |6 de junho de 2019 |Post 3,75 |
@@ -171,7 +171,7 @@ O sistema operacional convidado de setembro foi lançado.
 
 .NET Framework instalado: 3,5 (inclui 2,0 e 3,0), 4,5
 
-| Cadeia de caracteres de configuração | Data da versão | Data de desabilitação |
+| Cadeia de caracteres de configuração | Data de lançamento | Data de desabilitação |
 | --- | --- | --- |
 | WA-GUEST-OS-2.87_201906-01 |8 de julho de 2019 |Post 2,89 |
 | WA-GUEST-OS-2.86_201905-01 |6 de junho de 2019 |Post 2,88 |

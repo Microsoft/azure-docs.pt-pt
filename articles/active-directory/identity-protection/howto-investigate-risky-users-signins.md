@@ -1,261 +1,187 @@
 ---
-title: Como investigar a utilizadores de risco e inícios de sessão na proteção de identidade do Azure Active Directory (atualizada) | Documentos da Microsoft
-description: Saiba como investigar a utilizadores de risco e inícios de sessão na proteção de identidade do Azure Active Directory (atualizado).
+title: Como investigar usuários arriscados e entradas no Azure Active Directory a proteção de identidade (atualizada) | Microsoft Docs
+description: Saiba como investigar usuários e entradas arriscadas no Azure Active Directory Identity Protection (atualizado).
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.author: joflore
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
+ms.topic: conceptual
 ms.date: 01/25/2019
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89658e962654f005eaee5ceff220d5fb343e86e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108957"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370319"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Como: Investigar utilizadores e inícios de sessão de risco 
 
+Usando os relatórios de entradas arriscadas e usuários arriscados, você pode investigar e obter informações sobre riscos em seu ambiente. Com a capacidade de filtrar e classificar as entradas e os usuários arriscados, você pode entender melhor a possibilidade de invasão em sua organização. 
 
-Utilizar os relatórios de inícios de sessão de risco e utilizadores de risco pode investigar e obtenha uma perceção de risco no seu ambiente. Com a capacidade de filtrar e ordenar os inícios de sessão de risco e usuários, possa entender melhor intrusões potenciais na sua organização. 
+## <a name="risky-users-report"></a>Relatório dos utilizadores de risco
 
+Com as informações fornecidas pelo relatório de usuários arriscados, você pode encontrar respostas para perguntas como:
 
-## <a name="risky-users-report"></a>Relatório de utilizadores de risco
+- Quais usuários são de alto risco?
+- Quais usuários têm um estado de risco corrigido?
 
-Com as informações fornecidas pelo relatório de utilizadores de risco, pode encontrar respostas a perguntas como:
+Seu primeiro ponto de entrada para esse relatório é a seção **investigar** na página segurança.
 
-- Os utilizadores que são de alto risco?
-- Os utilizadores que têm o estado de risco remediado?
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/01.png)
 
+O relatório usuários arriscados tem uma exibição padrão que mostra:
 
-
-O primeiro ponto de entrada para este relatório é o **investigar** secção na página de segurança.
-
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/01.png)
-
-
-O relatório de utilizadores de risco tem uma vista predefinida que mostra:
-
-- Name
-
+- Nome
 - Estado de risco
-
 - Nível de risco
-
-- Detalhes de risco
-
+- Detalhe de risco
 - Última atualizado de risco
-
-- Tipo
-
+- Type
 - Estado
- 
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/03.png)
-
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/03.png)
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/04.png)
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/04.png)
 
-A caixa de diálogo colunas permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
+A caixa de diálogo colunas permite exibir campos adicionais ou remover campos que já são exibidos.
 
 Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/05.png)
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/05.png)
 
-
-Os detalhes ver mostra:
+A exibição de detalhes mostra:
 
 - Informações básicas
-
-- Recentes risco inícios de sessão
-
-- Não associados a um início de sessão de eventos de risco
-
+- Inícios de sessão arriscados recentes
+- Eventos de risco que não estão ligados a um início de sessão
 - Histórico de risco
 
+Além disso, você pode:
 
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/08.png)
 
-Além disso, pode:
+- Veja o atalho de todas as entradas para exibir o relatório de entradas para esse usuário.
+- Exiba todas as entradas arriscadas para exibir todas as entradas desse usuário que foram sinalizadas como arriscadas.
+- Redefina a senha de um usuário se você acreditar que a identidade do usuário foi comprometida.
+- Ignore o risco do usuário se você pensar que os eventos de risco ativos de um usuário são falsos positivos. Para obter mais informações, consulte o artigo [fornecer comentários sobre eventos de risco em Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/08.png)
+### <a name="filter-risky-users"></a>Filtrar usuários arriscados
 
-- Ver todos os inícios de sessão atalho para ver o relatório de inícios de sessão desse utilizador.
+Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de usuário arriscados usando os seguintes campos padrão:
 
-- Ver todos os risco inícios de sessão para ver todos os inícios de sessão para que o utilizador que foram sinalizados como perigoso.
-
-- Repor palavra-passe de um usuário se considerar que a identidade do utilizador foi comprometida.
-
-- Dispensa o risco de utilizador se considera que os eventos de risco ativo de um utilizador falsos positivos. Para obter mais informações, consulte [como melhorar a precisão de deteção](howto-improve-detection-accuracy.md).
-
-
-
-### <a name="filter-risky-users"></a>Filtrar utilizadores de risco
-
-Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados de utilizador de risco através dos seguintes campos predefinidos:
-
-- Name
-
+- Nome
 - Nome de utilizador
-
 - Estado de risco
-
 - Nível de risco
-
-- Tipo
-
+- Type
 - Estado
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/06.png)
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/06.png)
 
+O filtro de **nome** permite que você especifique o nome ou o UPN (nome principal do usuário) do usuário ao qual você se preocupa.
 
-
-O **nome** filtro permite-lhe especificar o nome ou o nome principal de utilizador (UPN) do utilizador que mais lhe interessa.
-
-
-O **corre o risco de estado** filtro permite-lhe selecionar:
+O filtro de **estado de risco** permite que você selecione:
 
 - Em risco
 - Corrigido
-- Dispensado
+- Eliminado
 
-
-O **nível de risco** filtro permite-lhe selecionar:
+O filtro de **nível de risco** permite que você selecione:
 
 - Alta
 - Médio
 - Baixa
 
-
-O **tipo** filtro permite-lhe selecionar:
+O filtro **tipo** permite que você selecione:
 
 - Convidado
 - Membro
 
-O **estado** filtro permite-lhe selecionar:
+O filtro de **status** permite que você selecione:
 
 - Eliminado
-- Ativa
+- Active
 
+### <a name="download-risky-users-data"></a>Baixar dados de usuários arriscados
 
-### <a name="download-risky-users-data"></a>Transferir dados de utilizadores de risco
+Você pode baixar os dados de usuários arriscados se quiser trabalhar com eles fora do portal do Azure. Clicar em baixar cria um arquivo CSV dos registros 2.500 mais recentes. 
 
-Pode transferir os dados de utilizadores de risco, se quiser trabalhar com eles fora do portal do Azure. Clicar no Download cria um ficheiro CSV, os registos de 2.500 mais recente. 
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/07.png)
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/07.png)
-
-
-Pode personalizar a vista de lista ao clicar em colunas na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em colunas na barra de ferramentas.
  
 Isto permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
  
-Para saber mais sobre um utilizador de risco, clique na gaveta de detalhes para expandi-lo
-
- 
-
-
+Para saber mais sobre um usuário arriscado, clique na gaveta de detalhes para expandi-lo
 
 ## <a name="risky-sign-ins-report"></a>Relatório de inícios de sessão de risco
 
-Com as informações fornecidas pelo relatório de inícios de sessão de risco, pode encontrar respostas a perguntas como:
+Com as informações fornecidas pelo relatório de entradas arriscadas, você pode encontrar respostas para perguntas como:
 
-- Quantos inícios de sessão bem-sucedido estavam lá que tinha eventos de risco de endereço IP anónimos na última semana?
+- Quantas entradas bem-sucedidas estavam com eventos de risco de endereço IP anônimo na última semana?
+- Quais usuários foram confirmados comprometidos no último mês?
+- Quais usuários tinham entradas arriscadas no portal do Office 365?
 
-- Os utilizadores que foram confirmados comprometido no último mês?
-
-- Os utilizadores que tinham risco inícios de sessão no portal do Office 365?
-
-
-
-
-O primeiro ponto de entrada para este relatório é o **investigar** secção na página de segurança.
+Seu primeiro ponto de entrada para esse relatório é a seção **investigar** na página segurança.
 
 ![Relatório de inícios de sessão de risco](./media/howto-investigate-risky-users-signins/02.png)
 
-O relatório de inícios de sessão arriscados tem uma vista predefinida que mostra:
+O relatório de entradas arriscadas tem uma exibição padrão que mostra:
 
 - Date
-
 - Utilizador
-
 - Aplicação
-
 - Estado de início de sessão
-
 - Estado de risco
-
-- Nível de risco (agregar)
-
+- Nível de risco (agregação)
 - Nível de risco (em tempo real)
-
 - Acesso Condicional
-
-- MFA necessário  
- 
+- MFA necessária  
 
 ![Relatório de inícios de sessão de risco](./media/howto-investigate-risky-users-signins/09.png)
 
-
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/11.png)
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/11.png)
 
-A caixa de diálogo colunas permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
+A caixa de diálogo colunas permite exibir campos adicionais ou remover campos que já são exibidos.
 
 Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
 
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/12.png)
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/12.png)
 
-
-Os detalhes ver mostra:
+A exibição de detalhes mostra:
 
 - Informações básicas
-
 - Informações do dispositivo
-
 - Informações de risco
-
-- Informações MFA
-
+- Informações da MFA
 - Acesso Condicional
 
+Além disso, você pode:
 
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/13.png)
 
-
-
-Além disso, pode:
-
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/13.png)
-
-- Confirmar comprometida 
-
+- Confirmar comprometido 
 - Confirmar seguro
 
-Para obter mais informações, consulte [como melhorar a precisão de deteção](howto-improve-detection-accuracy.md).
+Para obter mais informações, consulte o artigo [fornecer comentários sobre eventos de risco em Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
+### <a name="filter-risky-sign-ins"></a>Filtrar entradas arriscadas
 
-
-
-### <a name="filter-risky-sign-ins"></a>Filtrar inícios de sessão arriscados
-
-Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados de utilizador de risco através dos seguintes campos predefinidos:
+Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de usuário arriscados usando os seguintes campos padrão:
 
 - Utilizador
 - Aplicação
 - Estado de início de sessão
 - Estado de risco
-- Nível de risco (agregar)
+- Nível de risco (agregação)
 - Nível de risco (em tempo real)
 - Acesso Condicional
 - Date
@@ -263,11 +189,9 @@ Para limitar os dados comunicados para um nível que funcione para si, pode filt
 
 ![Relatório de inícios de sessão de risco](./media/howto-investigate-risky-users-signins/14.png)
 
+O filtro de **nome** permite que você especifique o nome ou o UPN (nome principal do usuário) do usuário ao qual você se preocupa.
 
-
-O **nome** filtro permite-lhe especificar o nome ou o nome principal de utilizador (UPN) do utilizador que mais lhe interessa.
-
-O **aplicativo** filtro permite-lhe especificar a aplicação na cloud, o utilizador tentou aceder.
+O filtro de **aplicativo** permite que você especifique o aplicativo de nuvem que o usuário tentou acessar.
 
 O filtro **Estado do início de sessão** permite-lhe selecionar:
 
@@ -275,57 +199,47 @@ O filtro **Estado do início de sessão** permite-lhe selecionar:
 - Êxito
 - Falha
 
-
-O **corre o risco de estado** filtro permite-lhe selecionar:
+O filtro de **estado de risco** permite que você selecione:
 
 - Em risco
-- Confirmar comprometida
-- Confirmar seguro
-- Dispensado
+- Confirmar comprometido
+- Confirmado (seguro)
+- Eliminado
 - Corrigido
 
-
-O **(agregar) de nível de risco** filtro permite-lhe selecionar:
-
-- Alta
-- Médio
-- Baixa
-
-O **(em tempo real) de nível de risco** filtro permite-lhe selecionar:
+O filtro de **nível de risco (agregação)** permite que você selecione:
 
 - Alta
 - Médio
 - Baixa
 
+O filtro de **nível de risco (em tempo real)** permite que você selecione:
 
-O **acesso condicional** filtro permite-lhe selecionar:
+- Alta
+- Médio
+- Baixa
+
+O filtro de **acesso condicional** permite que você selecione:
 
 - Todos
 - Não aplicado
 - Êxito
 - Falha
 
-
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.
 Os valores possíveis são:
 
-- Último 1 mês
+- Último mês
 - Últimos 7 dias
 - Últimas 24 horas
-- Intervalo de tempo personalizado
+- Intervalo de Tempo Personalizado
 
+### <a name="download-risky-sign-ins-data"></a>Baixar dados de entradas arriscadas
 
+Você pode baixar os dados de entradas arriscadas se quiser trabalhar com eles fora do portal do Azure. Clicar em baixar cria um arquivo CSV dos registros 2.500 mais recentes. 
 
-
-
-### <a name="download-risky-sign-ins-data"></a>Transferir dados de inícios de sessão arriscados
-
-Pode transferir os dados de inícios de sessão arriscados se quiser trabalhar com eles fora do portal do Azure. Clicar no Download cria um ficheiro CSV, os registos de 2.500 mais recente. 
-
-![Relatório de utilizadores de risco](./media/howto-investigate-risky-users-signins/15.png)
-
-
+![Relatório dos utilizadores de risco](./media/howto-investigate-risky-users-signins/15.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [descrição geral do Azure AD Identity Protection](overview-v2.md).
+Para obter uma visão geral do Azure AD Identity Protection, consulte a [visão geral Azure ad Identity Protection](overview-v2.md).

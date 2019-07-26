@@ -1,5 +1,5 @@
 ---
-title: Criar uma aplicação iOS que se integra com o Azure AD para início de sessão e faz chamadas a APIs protegidas com OAuth 2.0 | Microsoft Docs
+title: Compilar um aplicativo iOS integrado ao Azure AD para entrar usando o OAuth 2,0 | Microsoft Docs
 description: Saiba como iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação iOS.
 services: active-directory
 documentationcenter: ios
@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6274557ede35d7640eba37e5777cb0cb67d459a
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 8a82a7cad9b9176589824b6febb5cfdde89fce8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66497088"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380872"
 ---
-# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação iOS
+# <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Conectar usuários e chamar a API de Microsoft Graph de um aplicativo iOS
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -52,7 +52,7 @@ Para começar, conclua estes pré-requisitos:
 > [!TIP]
 > Experimente o [portal do programador](https://identity.microsoft.com/Docs/iOS) para começar a trabalhar com o Azure AD em apenas alguns minutos. O portal do programador orienta-o ao longo do processo de registo de uma aplicação e de integração do Azure AD no seu código. Quando terminar, terá uma aplicação simples na qual poderá autenticar utilizadores no seu inquilino e um back-end que pode aceitar tokens e executar a validação.
 
-## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passo 1: Determinar quais seu redirecionamento URI é para iOS
+## <a name="step-1-determine-what-your-redirect-uri-is-for-ios"></a>Passo 1: Determinar qual é o URI de redirecionamento para iOS
 
 Para iniciar em segurança as suas aplicações em alguns cenários de SSO, terá de criar um *URI de redirecionamento* num formato específico. Um URI de redirecionamento serve para garantir que os tokens voltam à aplicação correta que os pediu.
 
@@ -69,22 +69,22 @@ Um exemplo deste código de início rápido:
 
 ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
-## <a name="step-2-register-the-directorysearcher-application"></a>Passo 2: Registar a aplicação de DirectorySearcher
+## <a name="step-2-register-the-directorysearcher-application"></a>Passo 2: Registrar o aplicativo DirectorySearcher
 
 Para configurar a aplicação para obter tokens, terá de registar a aplicação no seu inquilino do Azure AD e conceder-lhe permissão para aceder à Graph API do Azure AD.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, selecione a sua conta. Na lista **Diretório**, escolha o inquilino do Active Directory onde pretende registar a aplicação.
 3. Selecione **Todos os serviços** no painel de navegação mais à esquerda e, em seguida, selecione **Azure Active Directory**.
-4. Selecione **registos de aplicações**e, em seguida, selecione **novo registo**.
-5. Siga as instruções para criar uma nova aplicação de cliente.
+4. Selecione **registros de aplicativo**e, em seguida, selecione **novo registro**.
+5. Siga os prompts para criar um novo aplicativo cliente.
     * **Nome** é o nome da aplicação e descreve a sua aplicação aos utilizadores finais.
-    * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor que seja específico da sua aplicação e que se baseie nas informações do URI de redirecionamento anterior. Selecione também **cliente público (ambiente de trabalho e móvel)** na lista pendente.
+    * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor que seja específico da sua aplicação e que se baseie nas informações do URI de redirecionamento anterior. Selecione também **cliente público (móvel e área de trabalho)** na lista suspensa.
 6. Depois de concluir o registo, o Azure AD atribui um ID exclusivo à sua aplicação. Este valor vai ser preciso nas secções seguintes, por isso, copie-o a partir do separador da aplicação.
-7. Partir do **permissões de API** página, selecione **adicionar uma permissão**. Dentro **selecionar uma API** selecionar ***Microsoft Graph***.
-8. Sob **permissões delegadas**, selecione a permissão **User.Read**, em seguida, prima **Add** para guardar. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
+7. Na página **permissões de API** , selecione **Adicionar uma permissão**. Dentro **de selecionar uma API** , selecione ***Microsoft Graph***.
+8. Em **permissões delegadas**, selecione a permissão **usuário. ler**e, em seguida, clique em **Adicionar** para salvar. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
 
-## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instale e configure a ADAL
+## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instalar e configurar a ADAL
 
 Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o seu código relacionado com identidade. Para que a ADAL comunique com o Azure AD, terá de fornecer algumas informações sobre o registo da sua aplicação.
 
@@ -117,7 +117,7 @@ Agora que já tem uma aplicação no Azure AD, pode instalar a ADAL e escrever o
     * `clientId` é o ID de cliente da sua aplicação que copiou do portal.
     * `redirectUri` é o URL de redirecionamento que registou no portal.
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passo 4: Utilizar a ADAL para obter os tokens do Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passo 4: Usar a ADAL para obter tokens do Azure AD
 
 O princípio básico subjacente à ADAL é o de que, sempre que a sua aplicação precisar de um token de acesso, basta chamar um completionBlock `+(void) getToken :` e a ADAL trata do resto.
 

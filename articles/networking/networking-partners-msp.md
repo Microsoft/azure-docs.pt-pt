@@ -1,34 +1,34 @@
 ---
-title: 'Parceiros do funcionamento em rede: Redes do Azure | Documentos da Microsoft'
-description: Este artigo fornece uma lista de redes de MSP parceiros
+title: 'Parceiros de rede: Rede do Azure | Microsoft Docs'
+description: Este artigo fornece uma lista de parceiros de rede MSP
 services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 922749591bdc9222e5f97b2bb6828c5660c0dbac
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ffcfd48d9a93ee7c73e2597ff9bea704e0378440
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840330"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385208"
 ---
-# <a name="about-azure-networking-msp-partners"></a>Sobre parceiros de MSP das redes do Azure
+# <a name="about-azure-networking-msp-partners"></a>Sobre os parceiros MSP de rede do Azure
 
-Os serviços de rede de permite que o programa de parceiros do Azure de rede geridos pelo serviço fornecedor (MSP) voltada para MSPs Telcos e integradores de sistemas (SIs) para oferecer serviços centralizados de rede de híbridas e na cloud em todo o portefólio do Azure de produtos das redes e serviços.
+O programa de parceiro MSP (provedor de serviços gerenciados) de rede do Azure permite que serviços de rede focados em MSPs, telcos e SIs (integradores de sistemas) ofereçam serviços de rede híbrida e de nuvem centrados no portfólio do Azure de produtos de rede e serviços.
 
-MSPs de rede do Azure são um conjunto especializado de fornecedores de serviços geridos que resolvem os desafios e as necessidades de rede empresarial na cloud em todos os aspetos da nuvem e de rede híbrida. Os serviços de rede geridos incluem um ou mais dos seguintes serviços: arquitetura, planejamento, implementação, operações, manutenção e a otimização de rede.
+As MSPs de rede do Azure são um conjunto especializado de provedores de serviços gerenciados que abordam as necessidades e os desafios da rede em nuvem empresarial em todos os aspectos da nuvem e da rede híbrida. Os serviços de rede gerenciados incluem um ou mais dos seguintes serviços: arquitetura de rede, planejamento, implantação, operações, manutenção e otimização.
 
 ![MSP][0]
 
-Os clientes podem comprar ofertas de serviços geridos pelo MSP no Azure Marketplace ou diretamente a partir de MSP. Os MSP podem implementar e gerir recursos de rede do Azure em subscrições e grupos de recursos dos clientes com o Azure Lighthouse.
+Os clientes podem comprar ofertas de serviços gerenciados por MSP no Azure Marketplace ou diretamente do MSP. O MSPs pode implantar e gerenciar recursos de rede do Azure nas assinaturas e nos grupos de recursos dos clientes usando o Azure Lighthouse.
 
 ## <a name="msp"></a>Parceiros MSP
 
-Use os links nesta secção para obter mais informações sobre gerida na cloud de serviços oferecidos por parceiros de MSP funcionamento em rede do Azure de rede. Se o seu parceiro de serviços de rede na cloud não está listado na secção abaixo, tem o fornecedor contacte-nos. Pode contactar-ao enviar um e-mail para ManagedVirtualWAN@microsoft.com. 
+Use os links nesta seção para obter mais informações sobre os serviços de rede em nuvem gerenciados oferecidos pelos parceiros MSP de rede do Azure. Se o seu parceiro de serviços de rede de nuvem não estiver listado na seção abaixo, peça ao provedor entre em contato conosco. Eles podem entrar em contato conosco enviando um email ManagedVirtualWAN@microsoft.compara. 
 
-[Redes Aryaka](https://www.aryaka.com/)
+[Redes aryaka Networks](https://www.aryaka.com/)
 
 [BT](https://www.bt.com/)
 
@@ -38,7 +38,7 @@ Use os links nesta secção para obter mais informações sobre gerida na cloud 
 
 [InterCloud](https://www.intercloud.com/)
 
-[IIJ](https://www.riverbed.com/go/steelconnect-azurewan.html)
+[IIJ](https://www.iij.ad.jp/en/)
 
 [Megaport](https://www.megaport.com/)
 
@@ -46,11 +46,11 @@ Use os links nesta secção para obter mais informações sobre gerida na cloud 
 
 ## <a name="expressroute"></a>Parceiros do ExpressRoute
 
-Para obter informações sobre parceiros, consulte [ExpressRoute parceiros e localizações de](../expressroute/expressroute-locations-providers.md).
+Para obter informações sobre parceiros, consulte [locais e parceiros do ExpressRoute](../expressroute/expressroute-locations-providers.md).
 
-## <a name="vwan"></a>Parceiros WAN virtual
+## <a name="vwan"></a>Parceiros de WAN virtual
 
-Para obter informações sobre parceiros, consulte [Virtual WAN parceiros e fornecedores](../virtual-wan/virtual-wan-locations-partners.md).
+Para obter informações sobre parceiros, consulte [provedores e parceiros de WAN virtual](../virtual-wan/virtual-wan-locations-partners.md).
 
 <!--Image References-->
 [0]: ./media/networking-partners-msp/msp.png "Descrição do programa MSP"

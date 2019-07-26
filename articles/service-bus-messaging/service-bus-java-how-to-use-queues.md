@@ -1,6 +1,6 @@
 ---
-title: Como utilizar as filas do Service bus do Azure com Java | Documentos da Microsoft
-description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de códigos escritos em Java.
+title: Como usar as filas do barramento de serviço do Azure com Java | Microsoft Docs
+description: Saiba como utilizar as filas do Service Bus no Azure. Exemplos de código escritos em Java.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -14,36 +14,36 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: cd1db615b11259bcf1d8aff988d2817e08065ca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7e6e86be8b6fc901d9637c85794cdfe1f744fd4
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991741"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360809"
 ---
-# <a name="how-to-use-service-bus-queues-with-java"></a>Como utilizar filas do Service Bus com Java
+# <a name="how-to-use-service-bus-queues-with-java"></a>Como usar filas do barramento de serviço com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-Neste tutorial, saiba como criar aplicações Java para enviar mensagens e receber mensagens de uma fila do Service Bus. 
+Neste tutorial, você aprenderá a criar aplicativos Java para enviar e receber mensagens de uma fila do barramento de serviço. 
 
 > [!NOTE]
-> Pode encontrar exemplos de Java no GitHub no [repositório azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+> Você pode encontrar exemplos de Java no GitHub no [repositório Azure-Service-Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
-    1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
-    2. Criar um barramento de serviço **espaço de nomes**. 
-    3. Obter o **cadeia de ligação**.
-    4. Criar um barramento de serviço **fila**.
-3. Instale [Azure SDK para Java][Azure SDK for Java]. 
+1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) de assinante do MSDN ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila.
+    1. Leia a **visão geral** rápida das **filas**do barramento de serviço. 
+    2. Crie um **namespace**do barramento de serviço. 
+    3. Obter a **cadeia de conexão**.
+    4. Criar uma **fila**do barramento de serviço.
+3. Instale o [SDK do Azure para Java][Azure SDK for Java]. 
 
 
-## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus
-Certifique-se de que instalou o [Azure SDK para Java] [ Azure SDK for Java] antes de criar este exemplo. Se estiver a utilizar Eclipse, pode instalar o [Azure Toolkit para Eclipse] [ Azure Toolkit for Eclipse] que inclui o Azure SDK para Java. Em seguida, pode adicionar os **bibliotecas do Microsoft Azure para Java** ao seu projeto:
+## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o barramento de serviço
+Verifique se você instalou o [SDK do Azure para Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] que inclui o SDK do Azure para Java. Em seguida, você pode adicionar as **bibliotecas de Microsoft Azure para Java** ao seu projeto:
 
-![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Captura de tela da guia bibliotecas onde você pode adicionar bibliotecas](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Adicione o seguinte `import` declarações na parte superior do ficheiro Java:
+Adicione as seguintes `import` instruções à parte superior do arquivo Java:
 
 ```java
 // Include the following imports to use Service Bus APIs
@@ -63,7 +63,7 @@ import org.apache.commons.cli.*;
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar mensagens para uma fila do Service Bus, seu aplicativo cria uma instância de um **QueueClient** de objeto e envia mensagens de forma assíncrona. O código seguinte mostra como enviar uma mensagem para uma fila que foi criada através do portal.
+Para enviar mensagens para uma fila do barramento de serviço, seu aplicativo instancia um objeto **QueueClient** e envia mensagens de forma assíncrona. O código a seguir mostra como enviar uma mensagem para uma fila que foi criada por meio do Portal.
 
 ```java
 public void run() throws Exception {
@@ -111,20 +111,20 @@ public void run() throws Exception {
 
 ```
 
-As mensagens enviadas para e recebidos do Service Bus filas são instâncias do [mensagem](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) classe. Objetos de mensagens têm um conjunto de propriedades padrão (como a etiqueta e TimeToLive), um dicionário utilizado para reter propriedades personalizadas de específico do aplicativo e um corpo de dados arbitrários da aplicação. Uma aplicação pode definir o corpo da mensagem, passando qualquer objeto serializável para o construtor da mensagem e, em seguida, será utilizado o serializador apropriado para serializar o objeto. Em alternativa, pode fornecer um **java. E/S. InputStream** objeto.
+As mensagens enviadas para e recebidas das filas do barramento de serviço são instâncias da classe de [mensagem](/java/api/com.microsoft.azure.servicebus.message?view=azure-java-stable) . Os objetos de mensagem têm um conjunto de propriedades padrão (como Label e TimeToLive), um dicionário que é usado para manter Propriedades personalizadas específicas do aplicativo e um corpo de dados arbitrários do aplicativo. Um aplicativo pode definir o corpo da mensagem passando qualquer objeto serializável para o construtor da mensagem, e o serializador apropriado será usado para serializar o objeto. Como alternativa, você pode fornecer um **Java. I. Objeto InputStream** .
 
 
 As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-A principal maneira de receber mensagens de uma fila é utilizar um **ServiceBusContract** objeto. As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **PeekLock**.
+A maneira primária de receber mensagens de uma fila é usar um objeto **ServiceBusContract** . As mensagens recebidas podem funcionar em dois modos diferentes: **ReceiveAndDelete** e **Peeklock**.
 
-Ao utilizar o **ReceiveAndDelete** modo, receber é uma operação única - ou seja, quando o Service Bus recebe um pedido de leitura para uma mensagem numa fila, marca a mensagem como consumida e devolve a mesma à aplicação. **ReceiveAndDelete** modo (que é o modo predefinido) é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
-Porque o Service Bus marcou a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, ele tem estado em falta a mensagem consumida antes da falha de sistema.
+Ao usar o modo **ReceiveAndDelete** , Receive é uma operação única, ou seja, quando o barramento de serviço recebe uma solicitação de leitura de uma mensagem em uma fila, ele marca a mensagem como sendo consumida e a retorna ao aplicativo. O modo **ReceiveAndDelete** (que é o modo padrão) é o modelo mais simples e funciona melhor em cenários nos quais um aplicativo pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento.
+Como o barramento de serviço marcou a mensagem como sendo consumida, quando o aplicativo é reiniciado e começa a consumir mensagens novamente, ele perdeu a mensagem que foi consumida antes da falha.
 
-Na **PeekLock** modo, receber torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar **eliminar** à mensagem recebida. Quando o Service Bus vê a **eliminar** chamada, ela marca a mensagem como consumida e removê-lo da fila.
+No modo **Peeklock** , Receive se torna uma operação de dois estágios, o que possibilita o suporte a aplicativos que não podem tolerar mensagens ausentes. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois que o aplicativo termina de processar a mensagem (ou a armazena de forma confiável para processamento futuro), ele conclui o segundo estágio do processo de recebimento chamando **delete** na mensagem recebida. Quando o barramento de serviço vê a chamada de **exclusão** , ele marca a mensagem como sendo consumida e a remove da fila.
 
-O exemplo seguinte demonstra como as mensagens podem ser recebidas e processados usando **PeekLock** modo (não o modo predefinido). O exemplo a seguir faz um loop infinito e processa mensagens à medida que chegam à nossa `TestQueue`:
+O exemplo a seguir demonstra como as mensagens podem ser recebidas e processadas usando o modo **Peeklock** (não o modo padrão). O exemplo a seguir faz um loop infinito e processa as mensagens à medida que `TestQueue`elas chegam ao nosso:
 
 ```java
     public void run() throws Exception {
@@ -177,17 +177,17 @@ O exemplo seguinte demonstra como as mensagens podem ser recebidas e processados
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o **unlockMessage** método à mensagem recebida (em vez do **deleteMessage** método). Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se um aplicativo receptor não puder processar a mensagem por algum motivo, ele poderá chamar o método **unlockMessage** na mensagem recebida (em vez do método **deleteMessage** ). Tal faz com que o Service Bus desbloqueie a mensagem na fila e torna a mesma disponível para ser novamente recebida, quer pela mesma aplicação de consumo quer por outra aplicação de consumo.
 
-Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus desbloqueia automaticamente a mensagem e torna disponível para ser recebida novamente.
+Também há um tempo limite associado a uma mensagem bloqueada na fila e, se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio (por exemplo, se o aplicativo falhar), o barramento de serviço desbloqueará a mensagem automaticamente e a tornará disponível para ser recebido novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a **deleteMessage** solicitação é emitida, em seguida, a mensagem é reenviada para a aplicação quando esta reiniciar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isto é, frequentemente, conseguido através da **getMessageId** método da mensagem, que permanece constante nas tentativas de entrega.
+Caso o aplicativo falhe após o processamento da mensagem, mas antes que a solicitação **deleteMessage** seja emitida, a mensagem será entregue novamente ao aplicativo quando ele reiniciar. Tal é, frequentemente, designado *Processar Pelo Menos Uma Vez*; ou seja, cada mensagem é processada pelo menos uma vez, contudo, em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Isso geralmente é obtido usando o  método getmessageid da mensagem, que permanece constante nas tentativas de entrega.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Próximos Passos
-Agora que aprendeu as noções básicas de filas do Service Bus, veja [filas, tópicos e subscrições] [ Queues, topics, and subscriptions] para obter mais informações.
+Agora que você aprendeu os conceitos básicos das filas do barramento de serviço, consulte [filas, tópicos e assinaturas][Queues, topics, and subscriptions] para obter mais informações.
 
 Para obter mais informações, veja [Centro para Programadores do Java](https://azure.microsoft.com/develop/java/).
 
