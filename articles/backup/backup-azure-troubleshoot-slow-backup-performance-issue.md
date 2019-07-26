@@ -1,19 +1,18 @@
 ---
 title: Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa de problemas de desempenho de backup do Azure
-services: backup
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: saurse
-ms.openlocfilehash: 592a46077bb9e3469f3a42a95173af1b6db93510
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "67704926"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465343"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 Este artigo fornece orientação para a solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup para arquivos e pastas quando você estiver usando o backup do Azure. Quando você usa o agente de backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
@@ -38,7 +37,7 @@ O Windows fornece uma ferramenta interna chamada Perfmon ( [Monitor de desempenh
 
 Aqui estão alguns contadores de desempenho e intervalos que podem ser úteis para diagnosticar afunilamentos para backups ideais.
 
-| Neutraliza | Estado |
+| Contador | Estado |
 | --- | --- |
 | Disco lógico (disco físico)--% ocioso |• 100% ociosos a 50% ocioso = íntegro</br>• 49% ociosos a 20% ociosos = aviso ou monitor</br>• 19% de ociosidade a 0% ocioso = crítico ou fora de especificação |
 | Disco lógico (disco físico)--% Méd. Leitura ou gravação de disco s |• 0, 1 ms a 0, 15 ms = íntegro</br>• 0, 15 ms a 0, 25 MS = aviso ou monitor</br>• 0, 26 MS ou maior = crítico ou fora de especificação |
@@ -83,7 +82,7 @@ The following indicators can help you understand the bottleneck and accordingly 
 * **UI is showing progress for the data transfer**. The data is still being transferred. The network bandwidth or the size of data might be causing delays.
 * **UI is not showing progress for the data transfer**. Open the logs located at C:\Program Files\Microsoft Azure Recovery Services Agent\Temp, and then check for the FileProvider::EndData entry in the logs. This entry signifies that the data transfer finished and the catalog operation is happening. Don't cancel the backup jobs. Instead, wait a little longer for the catalog operation to finish. If the problem persists, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support).Processador--\`tempo do processador (todas as instâncias)es and folders in Azure Backup
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
-services: backup
+
 author: saurabhsensharma
 manager: saurabhsensharma
 ms.service: backup

@@ -10,10 +10,10 @@ ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 18dc1bd2eea232d0c2eb73d496dd4bd9d2d5016e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "64707802"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos Azure Managed disks

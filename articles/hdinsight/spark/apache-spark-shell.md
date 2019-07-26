@@ -1,73 +1,73 @@
 ---
-title: Utilizar uma Shell interativa do Spark no HDInsight do Azure
-description: Uma Shell interativa do Spark fornece um processo de impressão leitura executar para executar o Spark comandos um por vez e observando os resultados.
+title: Usar um shell do Spark interativo no Azure HDInsight
+description: Um shell do Spark interativo fornece um processo de leitura-execução-impressão para executar comandos do Spark um de cada vez e ver os resultados.
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aac2812787a7c14d99377754a4f85e699ef3f09
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696809"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441898"
 ---
-# <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark a partir da Shell do Spark
+# <a name="run-apache-spark-from-the-spark-shell"></a>Executar Apache Spark do shell do Spark
 
-Interativo [Apache Spark](https://spark.apache.org/) Shell fornece um ambiente REPL (leitura-executar-print loop) para executar o Spark comandos um por vez e observando os resultados. Este processo é útil para desenvolvimento e depuração. Spark fornece um shell para cada um dos seus idiomas suportados: Scala, Python e R.
+Um shell [Apache Spark](https://spark.apache.org/) interativo fornece um ambiente repl (Read-execute-Print loop) para executar comandos do Spark um de cada vez e ver os resultados. Esse processo é útil para desenvolvimento e depuração. O Spark fornece um shell para cada um dos seus idiomas com suporte: Escala, Python e R.
 
-## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Obter uma Shell do Apache Spark com SSH
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>Obter um shell de Apache Spark com SSH
 
-Aceda a uma Shell do Apache Spark no HDInsight ao ligar ao nó principal primário do cluster através de SSH:
+Acesse um shell do Apache Spark no HDInsight conectando-se ao nó principal primário do cluster usando o SSH:
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
-Pode obter o comando SSH completado para o seu cluster no portal do Azure:
+Você pode obter o comando SSH completo para o cluster do portal do Azure:
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. Navegue para o painel para o seu cluster do HDInsight Spark.
-3. Select Secure Shell (SSH).
+2. Navegue até o painel do cluster HDInsight Spark.
+3. Selecione Secure Shell (SSH).
 
-    ![Painel de HDInsight no portal do Azure](./media/apache-spark-shell/hdinsight-spark-blade.png)
+    ![Painel do HDInsight no portal do Azure](./media/apache-spark-shell/hdinsight-spark-blade.png)
 
-4. Copie o comando SSH apresentado e executá-lo no seu terminal.
+4. Copie o comando SSH exibido e execute-o em seu terminal.
 
-    ![SSH do HDInsight painel no portal do Azure](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
+    ![Painel do SSH do HDInsight no portal do Azure](./media/apache-spark-shell/hdinsight-spark-ssh-blade.png)
 
-Para obter detalhes sobre como utilizar o SSH para ligar ao HDInsight, consulte [utilizar o SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Para obter detalhes sobre como usar o SSH para se conectar ao HDInsight, consulte [usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="run-an-apache-spark-shell"></a>Executar uma Shell do Apache Spark
+## <a name="run-an-apache-spark-shell"></a>Executar um Apache Spark Shell
 
-Spark fornece shells para Scala (spark-shell), o Python (pyspark) e R (sparkR). Na sua sessão SSH para o nó principal do cluster do HDInsight, introduza um dos seguintes comandos:
+O Spark fornece shells para escalabilidade (Spark-Shell), Python (pyspark) e R (sparkr). Em sua sessão SSH no nó principal do cluster HDInsight, insira um dos seguintes comandos:
 
     ./bin/spark-shell
     ./bin/pyspark
     ./bin/sparkR
 
-Agora pode inserir comandos do Spark no idioma apropriado.
+Agora você pode inserir comandos do Spark no idioma apropriado.
 
-## <a name="sparksession-and-sparkcontext-instances"></a>Instâncias SparkSession e SparkContext
+## <a name="sparksession-and-sparkcontext-instances"></a>Instâncias de SparkSession e SparkContext
 
-Por predefinição quando executa o Shell do Spark, instâncias de SparkSession e SparkContext são automaticamente instanciadas para.
+Por padrão, quando você executa o Shell do Spark, as instâncias de SparkSession e SparkContext são instanciadas automaticamente para você.
 
-Para acessar a instância de SparkSession, introduza `spark`. Para acessar a instância de SparkContext, introduza `sc`.
+Para acessar a instância do SparkSession, `spark`digite. Para acessar a instância do SparkContext, `sc`digite.
 
-## <a name="important-shell-parameters"></a>Parâmetros de shell importante
+## <a name="important-shell-parameters"></a>Parâmetros de shell importantes
 
-O comando do Shell do Spark (`spark-shell`, `pyspark`, ou `sparkR`) oferece suporte a muitos parâmetros da linha de comandos. Para ver uma lista completa de parâmetros, inicie a Shell do Spark com o comutador `--help`. Tenha em atenção que alguns desses parâmetros talvez só se aplicam a `spark-submit`, que encapsula o Shell do Spark.
+O comando do shell do`spark-shell`Spark `pyspark`(, `sparkR`ou) dá suporte a muitos parâmetros de linha de comando. Para ver uma lista completa de parâmetros, inicie o Shell do Spark com a `--help`opção. Observe que alguns desses parâmetros só podem ser aplicados a `spark-submit`, que o Shell do Spark encapsula.
 
-| Comutador | description | Exemplo |
+| comutador | description | Exemplo |
 | --- | --- | --- |
-| --master MASTER_URL | Especifica o URL principal. No HDInsight, este valor é sempre `yarn`. | `--master yarn`|
-| --jars JAR_LIST | Lista separada por vírgulas de jars locais para incluir nos caminhos de controlador e do executor. No HDInsight, esta lista é composta por caminhos para o sistema de ficheiros predefinido no armazenamento do Azure ou o armazenamento do Data Lake. | `--jars /path/to/examples.jar` |
-| – MAVEN_COORDS de pacotes | Lista separada por vírgulas de coordenadas do maven do Intune para incluir nos caminhos de controlador e do executor. Procura o repositório local maven, em seguida, maven central, em seguida, quaisquer repositórios remotos adicionais especificados com `--repositories`. É o formato para as coordenadas *groupId*:*artifactId*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
-| LISTA de ficheiros – py | Para Python apenas, uma lista separada por vírgulas de ficheiros. zip, .egg ou. PY para colocar no PYTHONPATH. | `--pyfiles "samples.py"` |
+| --MASTER_URL mestre | Especifica a URL mestra. No HDInsight, esse valor é sempre `yarn`. | `--master yarn`|
+| --jars JAR_LIST | Lista separada por vírgulas de JARs locais para incluir nos classpaths do driver e do executor. No HDInsight, essa lista é composta de caminhos para o sistema de arquivos padrão no armazenamento do Azure ou Data Lake Storage. | `--jars /path/to/examples.jar` |
+| --pacotes MAVEN_COORDS | Lista separada por vírgulas de coordenadas do Maven de jars para incluir nos classpaths do driver e do executor. Pesquisa o repositório Maven local e, em seguida, o Maven central, em seguida, todos os `--repositories`repositórios remotos adicionais especificados com o. O formato das coordenadas é *GroupId*:*artefatoid*:*versão*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
+| --py-lista de arquivos | Somente para Python, uma lista separada por vírgulas de arquivos. zip,. ovo ou. py a serem colocados no PYTHONPATH. | `--pyfiles "samples.py"` |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Ver [introdução ao Apache Spark no Azure HDInsight](apache-spark-overview.md) para uma descrição geral.
-- Ver [criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters do Spark e SparkSQL.
-- Ver [o que é o Apache Spark Structured Streaming?](apache-spark-streaming-overview.md) para escrever aplicativos que processam dados de transmissão em fluxo com o Spark.
+- Consulte [introdução ao Apache Spark no Azure HDInsight](apache-spark-overview.md) para obter uma visão geral.
+- Consulte [criar um cluster apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.
+- Veja [o que é Apache Spark o streaming estruturado?](apache-spark-streaming-overview.md) para escrever aplicativos que processam dados de streaming com o Spark.

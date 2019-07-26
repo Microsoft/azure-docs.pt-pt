@@ -1,6 +1,6 @@
 ---
-title: Atributos de segurança para o Azure Cosmos DB
-description: Uma lista de verificação de atributos de segurança para avaliar o Azure Cosmos DB
+title: Atributos de segurança para Azure Cosmos DB
+description: Uma lista de verificação de atributos de segurança para avaliar Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: msmbaldwin
@@ -9,67 +9,67 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ffeb60f5476a540e3da46a82c240b0dda9aa6be2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50711f8675e1b8aca6b9f90925ea921d22020ddd
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480475"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442560"
 ---
-# <a name="security-attributes-for-azure-cosmos-db"></a>Atributos de segurança para o Azure Cosmos DB
+# <a name="security-attributes-for-azure-cosmos-db"></a>Atributos de segurança para Azure Cosmos DB
 
-Este artigo documenta os atributos comuns de segurança integrados do Azure Cosmos DB.
+Este artigo documenta os atributos de segurança internos no Azure Cosmos DB.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/não | Notas |
 |---|---|--|
-| Encriptação em repouso (por exemplo, a encriptação do lado do servidor, a encriptação do lado do servidor com chaves geridas pelo cliente e a outros recursos de criptografia) | Sim | Todas as bases de dados do Cosmos DB e as cópias de segurança são criptografadas por padrão. ver [encriptação de dados no Azure Cosmos DB](database-encryption-at-rest.md). Encriptação do lado do servidor com chaves geridas pelo cliente não é suportada. |
-| Encriptação em trânsito (por exemplo, a encriptação do ExpressRoute, na encriptação de Vnet e a encriptação de VNet a VNet)| Sim | Todos os dados do Azure Cosmos DB são encriptados em trânsito. |
-| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Não |  |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| Sim | Apenas no Premium de API de tabelas. Nem todas as APIs suportam esta funcionalidade. Consulte [introdução ao Azure Cosmos DB: API de tabela](table-introduction.md). |
-| Chamadas de API encriptadas| Sim | Todas as ligações ao Azure Cosmos DB suportam HTTPS. O Azure Cosmos DB também suporta ligações de TLS 1.2, mas isso não é imposto ainda. Se os clientes desativar de nível inferior TLS no respetivo fim, pode certificar-se para ligar ao Cosmos DB.  |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia) | Sim | Todos os bancos de dados e backups do Cosmos DB são criptografados por padrão; consulte [criptografia de dados em Azure Cosmos DB](database-encryption-at-rest.md). Não há suporte para a criptografia do lado do servidor com chaves gerenciadas pelo cliente. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Todos os dados de Azure Cosmos DB são criptografados em trânsito. |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| Sim | Somente na API de tabelas Premium. Nem todas as APIs dão suporte a esse recurso. Consulte [introdução ao Azure Cosmos DB: API de Tabela](table-introduction.md). |
+| Chamadas de API criptografadas| Sim | Todas as conexões com Azure Cosmos DB dão suporte a HTTPS. O Azure Cosmos DB também dá suporte a conexões TLS 1,2, mas isso ainda não é imposto. Se os clientes desligarem o TLS de nível inferior em seu final, eles poderão se conectar ao Cosmos DB.  |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Sim |  |
-| suporte de Injeção de vNET| Sim | Com o ponto final de serviço de VNet, pode configurar uma conta do Azure Cosmos DB para permitir o acesso apenas a partir de uma sub-rede específica de uma rede virtual (VNet). Também pode combinar o acesso de VNet com regras de firewall.  Ver [acesso do Azure Cosmos DB a partir de redes virtuais](vnet-service-endpoint.md). |
-| Suporte de isolamento de rede e Firewalling| Sim | Com o suporte de firewall, pode configurar a sua conta do Cosmos do Azure para permitir o acesso apenas a partir de um conjunto aprovado de endereços IP, um intervalo de endereços IP e/ou serviços em nuvem. Ver [firewall do IP de configurar no Azure Cosmos DB](how-to-configure-firewall.md).|
-| Suporte para protocolo de túnel forçado | Sim | Pode ser configurado no lado do cliente na VNET onde estão localizadas as máquinas virtuais.   |
+| Suporte ao ponto de extremidade de serviço| Sim |  |
+| Suporte à injeção de VNet| Sim | Com o ponto de extremidade do serviço VNet, você pode configurar uma conta de Azure Cosmos DB para permitir o acesso somente de uma sub-rede específica de uma rede virtual (VNet). Você também pode combinar o acesso VNet com as regras de firewall.  Consulte [acessar Azure Cosmos DB de redes virtuais](VNet-service-endpoint.md). |
+| Isolamento de rede e suporte de firewall| Sim | Com o suporte a firewall, você pode configurar sua conta do Azure Cosmos para permitir o acesso somente de um conjunto aprovado de endereços IP, um intervalo de endereços IP e/ou serviços de nuvem. Consulte [Configurar o firewall de IP no Azure Cosmos DB](how-to-configure-firewall.md).|
+| Suporte a túnel forçado| Sim | Pode ser configurado no lado do cliente na VNet em que as máquinas virtuais estão localizadas.   |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Todos os pedidos que são enviados para o Azure Cosmos DB são registados. [Monitorização do Azure](../azure-monitor/overview.md), métricas do Azure, o registo de auditoria do Azure são suportados.  Pode iniciar sessão informações correspondentes para pedidos de plano de dados, as estatísticas de tempo de execução de consulta, texto da consulta, o MongoDB pedidos. Também pode configurar alertas. |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Todas as solicitações enviadas para Azure Cosmos DB são registradas. Há suporte para o [monitoramento do Azure](../azure-monitor/overview.md), as métricas do Azure, o log de auditoria do Azure.  Você pode registrar informações correspondentes às solicitações de plano de dados, estatísticas de tempo de execução de consulta, texto de consulta, solicitações do MongoDB. Você também pode configurar alertas. |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/não | Notas|
 |---|---|--|
-| Autenticação| Sim | Sim ao nível da conta de base de dados; no nível de plano de dados, o Cosmos DB utiliza tokens de recurso e o acesso à chave. |
-| Autorização| Sim | Suportada na conta do Cosmos do Azure com chaves mestras (primário e secundário) e tokens de recursos. Pode obter de leitura/escrita ou apenas o acesso aos dados com o mestre de chaves de leitura. Os tokens de recursos permitem acesso de tempo limitado a recursos como documentos e contentores. |
+| Authentication| Sim | Sim, no nível da conta do banco de dados; no nível do plano de dados, Cosmos DB usa tokens de recurso e acesso à chave. |
+| Autorização| Sim | Com suporte na conta do Azure cosmos com chaves mestras (primária e secundária) e tokens de recurso. Você pode obter acesso de leitura/gravação ou somente leitura aos dados com chaves mestras. Tokens de recurso permitem acesso de tempo limitado a recursos como documentos e contêineres. |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/não | Notas|
 |---|---|--|
-| Planear a gestão/controlo e auditoria do registo| Sim | Registo de atividades do Azure para operações de nível de conta, tais como Firewalls, VNets, acesso a chaves e IAM. |
-| Registo e auditoria do plano de dados | Sim | Como o registo para operações de nível de contêiner de monitoramento de diagnósticos criar contentor, débito de aprovisionamento, a indexação de políticas e as operações de CRUD em documentos. |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Log de atividades do Azure para operações de nível de conta, como firewalls, VNets, acesso de chaves e IAM. |
+| Log e auditoria do plano de dados | Sim | Diagnóstico monitoramento de log para operações em nível de contêiner, como criar contêiner, provisionar taxa de transferência, políticas de indexação e operações CRUD em documentos. |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Não  | | 
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Não  | | 
 
-## <a name="additional-security-attributes-for-cosmos-db"></a>Atributos de segurança adicional para o Cosmos DB
+## <a name="additional-security-attributes-for-cosmos-db"></a>Atributos de segurança adicionais para Cosmos DB
 
 | Atributo de segurança | Sim/não | Notas|
 |---|---|--|
-| Cruzada (CORS) de partilha de recursos de origem | Sim | Ver [configurar recursos de várias origens (CORS) de partilha](how-to-configure-cross-origin-resource-sharing.md). |
+| CORS (compartilhamento de recursos entre origens) | Sim | Consulte [Configurar o CORS (compartilhamento de recursos entre origens)](how-to-configure-cross-origin-resource-sharing.md). |

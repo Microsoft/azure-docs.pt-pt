@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integrar o Power BI com o serviço cognitivos de análise de texto'
+title: 'Tutorial: Integrar Power BI com o serviço de Análise de Texto cognitiva'
 titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a Análise de Texto para extrair expressões-chave de textos armazenados no Power BI.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 705e637235eb81be29a2ea0d7d68ccd000ea0470
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: e56926b9a23e0dd649fb85347e521a6dda7863a3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626024"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479878"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o serviço cognitivos de análise de texto
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar Power BI com o serviço de Análise de Texto cognitiva
 
 O Microsoft Power BI Desktop é uma aplicação gratuita que lhe permite ligar-se, transformar e visualizar os seus dados. O serviço de Análise de Texto, que faz parte dos Serviços Cognitivos do Microsoft Azure, oferece processamento de linguagem natural. Ao ser-lhe dado texto bruto não estruturado, ele consegue extrair as expressões mais importantes, analisar sentimentos e identificar entidades conhecidas, como marcas. Em conjunto, estas ferramentas podem ajudá-lo a ver rapidamente aquilo de que os seus clientes estão a falar e como se sentem em relação a esse assunto.
 
@@ -94,7 +94,7 @@ A [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/ser
 | | |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro do pedido. A resposta também contém este campo. Desta forma, se processar mais do que um documento, poderá associar facilmente as expressões-chave extraídas ao documento do qual provêm. Neste tutorial, uma vez que está a processar apenas um documento por pedido, pode codificar o valor de `id` para ser o mesmo para cada pedido.|
-| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API de expressões chave requer que estes dados não ter mais de aproximadamente 5,120 carateres.|
+| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API de frases-chave exige que esses dados não tenham mais de cerca de 5.120 caracteres.|
 | `language` | O código para o idioma natural em que o documento está escrito. Todas as mensagens nos dados de exemplo estão em inglês, pelo que pode codificar o valor `en` para este campo.|
 
 ## <a name="create-a-custom-function"></a>Criar uma função personalizada
@@ -285,7 +285,7 @@ Por fim, segue-se uma variação da função Key Phrases já apresentada que dev
 in  keyphrases
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 <a name="NextSteps"></a>
 
 Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula M no Power Query ou o Power BI.

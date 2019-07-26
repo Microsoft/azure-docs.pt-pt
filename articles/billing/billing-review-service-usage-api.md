@@ -1,6 +1,6 @@
 ---
-title: Reveja a utilização de recursos de serviço do Azure com a REST API | Documentos da Microsoft
-description: Saiba como utilizar APIs REST do Azure para rever a utilização de recursos de serviço do Azure.
+title: Examinar o uso de recursos do serviço do Azure com a API REST | Microsoft Docs
+description: Saiba como usar as APIs REST do Azure para examinar o uso de recursos de serviço do Azure.
 services: billing
 documentationcenter: na
 author: lleonard-msft
@@ -12,26 +12,26 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
-ms.author: erikre
-ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 47e19fae26d6e3bc465799980c587d7bb7ed5e92
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370990"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443071"
 ---
-# <a name="review-azure-resource-usage-using-the-rest-api"></a>Reveja a utilização de recursos do Azure com a API REST
+# <a name="review-azure-resource-usage-using-the-rest-api"></a>Examinar o uso de recursos do Azure usando a API REST
 
-Ajuda de APIs de gestão de custos do Azure, reveja e gira o consumo de recursos do Azure.
+As APIs de gerenciamento de custos do Azure ajudam você a revisar e gerenciar o consumo de seus recursos do Azure.
 
-Neste artigo, irá aprender a criar um relatório diário que irá gerar um documento de valores separados por vírgulas com suas informações de utilização por hora e, em seguida, como utilizar filtros para personalizar o relatório para que pode consultar a utilização de máquinas virtuais, bases de dados e etiquetados recursos num grupo de recursos do Azure.
+Neste artigo, você aprenderá a criar um relatório diário que irá gerar um documento de valor separado por vírgula com suas informações de uso por hora e como usar filtros para personalizar o relatório para que você possa consultar o uso de máquinas virtuais, bancos de dados e marcas recursos em um grupo de recursos do Azure.
 
 >[!NOTE]
-> A API de gestão de custos está atualmente em pré-visualização privada.
+> A API de gerenciamento de custos está atualmente em visualização privada.
 
-## <a name="create-a-basic-cost-management-report"></a>Criar um relatório de gestão de custos básico
+## <a name="create-a-basic-cost-management-report"></a>Criar um relatório de gerenciamento de custo básico
 
-Utilize o `reports` operação na API de gestão de custos para definir como os relatórios de custo é gerado e onde os relatórios serão publicados.
+Use a `reports` operação na API de gerenciamento de custos para definir como o relatório de custos é gerado e para onde os relatórios serão publicados.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionGuid}/providers/Microsoft.CostManagement/reports/{reportName}?api-version=2018-09-01-preview
@@ -39,16 +39,16 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-O `{subscriptionGuid}` parâmetro é obrigatório e deve conter um ID de subscrição que pode ser lidos com as credenciais fornecidas no token de API. o `{reportName}`
+O `{subscriptionGuid}` parâmetro é necessário e deve conter uma ID de assinatura que pode ser lida usando as credenciais fornecidas no token da API. Dos`{reportName}`
 
 Os seguintes cabeçalhos são necessários: 
 
-|Cabeçalho do pedido|Descrição|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*| Necessário. Definido como `application/json`. |  
-|*Authorization:*| Necessário. Definido como válido `Bearer` token. |
+|*Tipo de conteúdo:*| Necessário. Defina como `application/json`. |  
+|*Authorization:*| Necessário. Defina como um token `Bearer` válido. |
 
-Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaixo, o relatório está definido para gerar todos os dias, quando é um ficheiro CSV escrito para um contentor de BLOBs de armazenamento do Azure Active Directory e contém informações de custo para todos os recursos no grupo de recursos de hora a hora `westus`.
+Configure os parâmetros do relatório no corpo da solicitação HTTP. No exemplo a seguir, o relatório é definido para gerar todos os dias quando ativo, é um arquivo CSV gravado em um contêiner de blobs de armazenamento do Azure e contém informações de custo por hora para `westus`todos os recursos no grupo de recursos.
 
 ```json
 {
@@ -91,13 +91,13 @@ Configure os parâmetros do relatório no corpo do pedido HTTP. No exemplo abaix
 
 O
 
-## <a name="filtering-reports"></a>Filtragem de relatórios
+## <a name="filtering-reports"></a>Filtrando relatórios
 
-O `filter` e `dimensions` seção do corpo do pedido durante a criação de um relatório permitem-lhe focam-se nos custos para tipos de recurso específico. O corpo do pedido anterior mostra como filtrar por todos os recursos numa região. 
+A `filter` seção `dimensions` e do corpo da solicitação ao criar um relatório permite que você se concentre nos custos de tipos de recursos específicos. O corpo da solicitação anterior mostra como filtrar por todos os recursos em uma região. 
 
-### <a name="get-all-compute-usage"></a>Obter todas as utilizações de computação
+### <a name="get-all-compute-usage"></a>Obter todo o uso de computação
 
-Utilize o `ResourceType` dimensão para comunicar os custos de máquina virtual do Azure na sua subscrição em todas as regiões.
+Use a `ResourceType` dimensão para relatar os custos da máquina virtual do Azure em sua assinatura em todas as regiões.
 
 ```json
 "filter": {
@@ -112,9 +112,9 @@ Utilize o `ResourceType` dimensão para comunicar os custos de máquina virtual 
 }
 ```
 
-### <a name="get-all-database-usage"></a>Obter toda a utilização da base de dados
+### <a name="get-all-database-usage"></a>Obter todo o uso do banco de dados
 
-Utilize o `ResourceType` dimensão para os custos da base de dados do Azure SQL de relatório na sua subscrição em todas as regiões.
+Use a `ResourceType` dimensão para relatar os custos do banco de dados SQL do Azure em sua assinatura em todas as regiões.
 
 ```json
 "filter": {
@@ -128,9 +128,9 @@ Utilize o `ResourceType` dimensão para os custos da base de dados do Azure SQL 
 }
 ```
 
-### <a name="report-on-specific-instances"></a>Relatório sobre instâncias específicas
+### <a name="report-on-specific-instances"></a>Relatório em instâncias específicas
 
-O `Resource` dimensão permite-lhe comunicar os custos para recursos específicos.
+A `Resource` dimensão permite que você relate os custos para recursos específicos.
 
 ```json
 "filter": {
@@ -144,9 +144,9 @@ O `Resource` dimensão permite-lhe comunicar os custos para recursos específico
 }
 ```
 
-### <a name="changing-timeframes"></a>Alterar os períodos de tempo
+### <a name="changing-timeframes"></a>Alterando os períodos de tempo
 
-Definir o `timeframe` definição para `Custom` para definir um período de tempo fora da semana para a data e mês para as opções incorporadas de data.
+Defina a `timeframe` definição como `Custom` para definir um período de tempo fora das opções da semana até a data e do mês até a data interna.
 
 ```json
 "timeframe": "Custom",

@@ -1,92 +1,91 @@
 ---
-title: Resolver problemas relacionados com o System Center Data Protection Manager com o Azure Backup
-description: Resolva problemas no System Center Data Protection Manager.
-services: backup
+title: Solucionar problemas do System Center Data Protection Manager com o backup do Azure
+description: Solucionar problemas no System Center Data Protection Manager.
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5e4aa113eda6ea53c520e6de52e4fa17d75f4095
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236203"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465383"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Resolver Problemas do System Center Data Protection Manager
 
-Este artigo descreve as soluções para problemas que poderá encontrar ao utilizar o Data Protection Manager.
+Este artigo descreve soluções para problemas que você pode encontrar ao usar Data Protection Manager.
 
-Para obter notas de versão mais recente para o System Center Data Protection Manager, veja a [documentação do System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Pode saber mais sobre o suporte para o Data Protection Manager no [essa matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+Para obter as notas de versão mais recentes do System Center Data Protection Manager, consulte a [documentação do System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Você pode saber mais sobre o suporte para Data Protection Manager nesta [matriz](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
 
 ## <a name="error-replica-is-inconsistent"></a>Erro: A réplica está inconsistente
 
 Uma réplica pode ser inconsistente pelos seguintes motivos:
-- A tarefa de criação de réplica falhar.
-- Existem problemas com o diário de alterações.
-- O bitmap do filtro de nível de volume contém erros.
-- A máquina de origem for encerrado inesperadamente.
+- Falha no trabalho de criação de réplica.
+- Há problemas com o diário de alterações.
+- O bitmap de filtro de nível de volume contém erros.
+- O computador de origem é desligado inesperadamente.
 - O log de sincronização estoura.
-- A réplica está inconsistente verdadeiramente.
+- A réplica está verdadeiramente inconsistente.
 
-Para resolver este problema, execute as seguintes ações:
-- Para remover o estado inconsistente, execute a verificação de consistência manualmente ou agendar uma verificação de consistência diária.
-- Certifique-se de que está a utilizar a versão mais recente do Microsoft Azure Backup Server e Data Protection Manager.
-- Certifique-se de que o **consistência automáticas** definição está ativada.
-- Tente reiniciar os serviços no prompt de comando. Utilize o `net stop dpmra` comando seguido `net start dpmra`.
-- Certifique-se de que está a cumprir os requisitos de conectividade e largura de banda de rede.
-- Verifique se a máquina de origem foi encerrada inesperadamente.
-- Certifique-se de que o disco está em bom estado e que existe espaço suficiente para a réplica.
-- Certifique-se de que não há nenhuma tarefa de cópia de segurança duplicada que está em execução em simultâneo.
+Para resolver esse problema, execute as seguintes ações:
+- Para remover o status inconsistente, execute a verificação de consistência manualmente ou agende uma verificação de consistência diária.
+- Verifique se você está usando a versão mais recente do Backup do Microsoft Azure Server e Data Protection Manager.
+- Verifique se a configuração de **consistência automática** está habilitada.
+- Tente reiniciar os serviços no prompt de comando. Use o `net stop dpmra` comando seguido por `net start dpmra`.
+- Verifique se você está atendendo aos requisitos de conectividade e largura de banda da rede.
+- Verifique se o computador de origem foi desligado inesperadamente.
+- Verifique se o disco está íntegro e se há espaço suficiente para a réplica.
+- Verifique se não há nenhum trabalho de backup duplicado em execução simultaneamente.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Erro: Falha na criação do ponto de recuperação online
+## <a name="error-online-recovery-point-creation-failed"></a>Erro: Falha na criação de ponto de recuperação online
 
-Para resolver este problema, execute as seguintes ações:
-- Certifique-se de que está a utilizar a versão mais recente do agente do Backup do Azure.
-- Tente criar manualmente um ponto de recuperação na área de tarefas de proteção.
-- Certifique-se de que execute uma verificação de consistência na origem de dados.
-- Certifique-se de que está a cumprir os requisitos de conectividade e largura de banda de rede.
-- Quando os dados de réplica estão num estado inconsistente, crie um ponto de recuperação do disco desta origem de dados.
-- Certifique-se de que a réplica está presente e não tem em falta.
-- Certifique-se de que a réplica tem espaço suficiente para criar o diário de número (USN) de sequência de atualização.
+Para resolver esse problema, execute as seguintes ações:
+- Verifique se você está usando a versão mais recente do agente de backup do Azure.
+- Tente criar um ponto de recuperação manualmente na área de tarefa proteção.
+- Certifique-se de executar uma verificação de consistência na fonte de dados.
+- Verifique se você está atendendo aos requisitos de conectividade e largura de banda da rede.
+- Quando os dados da réplica estiverem em um estado inconsistente, crie um ponto de recuperação de disco dessa fonte de dados.
+- Verifique se a réplica está presente e não está ausente.
+- Verifique se a réplica tem espaço suficiente para criar o diário de número de sequência de atualização (USN).
 
 ## <a name="error-unable-to-configure-protection"></a>Erro: Não é possível configurar a proteção
 
-Este erro ocorre quando o servidor do Data Protection Manager não consegue contactar o servidor protegido. 
+Esse erro ocorre quando o servidor de Data Protection Manager não pode contatar o servidor protegido. 
 
-Para resolver este problema, execute as seguintes ações:
-- Certifique-se de que está a utilizar a versão mais recente do agente do Backup do Azure.
-- Certifique-se de que existe conectividade (rede/firewall/proxy) entre o servidor do Data Protection Manager e o servidor protegido.
-- Se estiver a proteger um SQL server, certifique-se de que o **propriedades de início de sessão** > **NT AUTHORITY\SYSTEM** propriedade mostra o **sysadmin** definição ativada.
+Para resolver esse problema, execute as seguintes ações:
+- Verifique se você está usando a versão mais recente do agente de backup do Azure.
+- Verifique se há conectividade (rede/firewall/proxy) entre o servidor de Data Protection Manager e o servidor protegido.
+- Se você estiver protegendo um SQL Server, verifique se a propriedade **Propriedades** > de logon**NT AUTHORITY\SYSTEM** mostra a configuração **sysadmin** habilitada.
 
-## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Erro: Servidor não registado conforme especificado no ficheiro de credenciais do Cofre
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Erro: Servidor não registrado como especificado no arquivo de credencial do cofre
 
-Este erro ocorre durante o processo de recuperação para dados do servidor de cópia de segurança do Data Protection Manager/do Azure. O ficheiro de credenciais de cofre que é utilizado no processo de recuperação não pertence ao Cofre de serviços de recuperação para o servidor de cópia de segurança do Data Protection Manager/do Azure.
+Esse erro ocorre durante o processo de recuperação para dados do servidor de backup Data Protection Manager/do Azure. O arquivo de credencial do cofre que é usado no processo de recuperação não pertence ao cofre dos serviços de recuperação para o Data Protection Manager/servidor de backup do Azure.
 
-Para resolver este problema, execute estes passos:
-1. Transferir o ficheiro de credenciais do cofre a partir do Cofre de serviços de recuperação para o qual o servidor de cópia de segurança do Data Protection Manager/Azure está registado.
-2. Tente registar o servidor com o cofre com o ficheiro de credenciais do cofre transferido mais recentemente.
+Para resolver esse problema, execute estas etapas:
+1. Baixe o arquivo de credencial do cofre do cofre dos serviços de recuperação no qual o servidor de backup do Data Protection Manager/Azure está registrado.
+2. Tente registrar o servidor com o cofre usando o arquivo de credencial do cofre baixado mais recentemente.
 
-## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Erro: Não existem dados recuperáveis ou o servidor selecionado não um servidor do Data Protection Manager
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Erro: Nenhum dado recuperável ou servidor selecionado não é um servidor Data Protection Manager
 
-Este erro ocorre pelos seguintes motivos:
-- Não existem outros servidores de cópia de segurança do Data Protection Manager/Azure são registados no Cofre de serviços de recuperação.
-- Os servidores ainda ainda não carregou os metadados.
-- O servidor selecionado não é um servidor de cópia de segurança do Data Protection Manager/do Azure.
+Esse erro ocorre pelos seguintes motivos:
+- Nenhum outro servidor de backup Data Protection Manager/Azure está registrado no cofre dos serviços de recuperação.
+- Os servidores ainda não carregaram os metadados.
+- O servidor selecionado não é um servidor de backup Data Protection Manager/do Azure.
 
-Quando outros servidores de cópia de segurança do Data Protection Manager/Azure são registados no Cofre de serviços de recuperação, execute estes passos para resolver o problema:
-1. Certifique-se de que o agente de cópia de segurança do Azure mais recente está instalado.
-2. Depois de assegurar que o agente mais recente está instalado, aguarde um dia antes de iniciar o processo de recuperação. A tarefa de cópia de segurança noturna carrega os metadados para todas as cópias de segurança protegidas para a cloud. Os dados de cópia de segurança, em seguida, estão disponíveis para recuperação.
+Quando outros servidores de backup do Data Protection Manager/do Azure estiverem registrados no cofre dos serviços de recuperação, execute estas etapas para resolver o problema:
+1. Verifique se o agente de backup do Azure mais recente está instalado.
+2. Depois de garantir que o agente mais recente esteja instalado, aguarde um dia antes de iniciar o processo de recuperação. O trabalho de backup noturno carrega os metadados de todos os backups protegidos para a nuvem. Os dados de backup ficam disponíveis para recuperação.
 
-## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Erro: Frase de acesso de encriptação fornecido não corresponde à frase de acesso para servidor
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Erro: A senha de criptografia fornecida não corresponde à senha do servidor
 
-Este erro ocorre durante o processo de encriptação quando recuperar dados do Data Protection Manager/Azure Backup server. A frase de acesso de encriptação que é utilizado no processo de recuperação não corresponde à frase de acesso de encriptação do servidor. Como resultado, o agente não é possível desencriptar os dados e a recuperação falhará.
+Esse erro ocorre durante o processo de criptografia ao recuperar dados do servidor de backup Data Protection Manager/do Azure. A senha de criptografia usada no processo de recuperação não corresponde à senha de criptografia do servidor. Como resultado, o agente não pode descriptografar os dados e a recuperação falha.
 
 > [!IMPORTANT]
-> Se esquece ou perde a frase de acesso de encriptação, não há nenhum outros métodos para recuperar os dados. A única opção é voltar a gerar a frase de acesso. Utilize a nova frase de acesso para encriptar os dados de cópia de segurança futuros.
+> Se você esquecer ou perder a senha de criptografia, não haverá nenhum outro método para recuperar os dados. A única opção é regenerar a frase secreta. Use a nova senha para criptografar dados de backup futuros.
 >
-> Quando estiver a recuperar dados, sempre forneça a frase de acesso de encriptação mesmo que tenha associado ao servidor de cópia de segurança do Data Protection Manager/do Azure. 
+> Quando você estiver recuperando dados, sempre forneça a mesma senha de criptografia associada ao Data Protection Manager/servidor de backup do Azure. 
 >

@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança para o reencaminhamento do Azure Service Bus
-description: Uma lista de verificação de atributos comuns de segurança para avaliar o reencaminhamento do Azure Service Bus
+title: Atributos de segurança para retransmissão do barramento de serviço do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar a retransmissão do barramento de serviço do Azure
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -9,60 +9,60 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2047f64914d4a286e6de38b7b2c8524d98eba562
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000153"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443873"
 ---
-# <a name="security-attributes-for-azure-service-bus-relay"></a>Atributos de segurança de reencaminhamento do Azure Service Bus
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Atributos de segurança para retransmissão do barramento de serviço do Azure
 
-Este artigo documenta os atributos de segurança incorporados no reencaminhamento do Azure Service Bus.
+Este artigo documenta os atributos de segurança internos na retransmissão do barramento de serviço do Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>|  N/A | Reencaminhamento é um soquete de web e não persiste dados. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim | O serviço precisa TLS. |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não | Utiliza certificados de Microsoft TLS apenas.  |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
-| Chamadas de API encriptadas| Sim | HTTPS. |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)|  N/A | A retransmissão é um soquete da Web e não mantém os dados. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | O serviço requer TLS. |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não | Usa somente certificados TLS da Microsoft.  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A | |
+| Chamadas de API criptografadas| Sim | HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Não |  |
-| Isolamento de rede e o suporte de firewall| Não |  |
-| Suporte de encapsulamento de forçado| N/A | O reencaminhamento é o túnel TLS  |
+| Suporte ao ponto de extremidade de serviço| Não |  |
+| Isolamento de rede e suporte de firewall| Não |  |
+| Suporte a túnel forçado| N/A | Retransmissão é o túnel TLS  |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | Através de SAS. |
-| Autorização|  Sim | Através de SAS. |
+| Authentication| Sim | Via SAS. |
+| Autorização|  Sim | Via SAS. |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim | Por meio [o Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Auditoria e registo de plano de dados| Sim | Êxito de ligação / falhas e erros e registado.  |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Log e auditoria do plano de dados| Sim | Êxito na conexão/falha e erros e registrados.  |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | Por meio [o Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | Por meio de [Azure Resource Manager](../azure-resource-manager/index.yml).|

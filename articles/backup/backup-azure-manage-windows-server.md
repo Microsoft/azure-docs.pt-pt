@@ -1,104 +1,103 @@
 ---
-title: Gerir servidores e cofres dos serviços de recuperação do Azure
-description: Gerir tarefas e alertas num cofre dos serviços de recuperação do Azure.
-services: backup
+title: Gerenciar servidores e cofres dos serviços de recuperação do Azure
+description: Gerencie trabalhos e alertas em um cofre dos serviços de recuperação do Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: b447290a6910d144703bb796290908d0fc21b924
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705145"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466360"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorizar e gerir cofres dos Serviços de Recuperação
 
-Este artigo explica como utilizar o Cofre dos serviços de recuperação **descrição geral** dashboard para monitorizar e gerir os cofres de serviços de recuperação. Quando abre um cofre dos serviços de recuperação na lista, o **descrição geral** dashboard do cofre selecionado, é aberto. O dashboard fornece vários detalhes sobre o cofre. Existem *mosaicos* que mostram: o estado de críticas e alertas de aviso, tarefas de cópia de segurança em curso e com falha e a quantidade de armazenamento localmente redundante (LRS) e o armazenamento georredundante (GRS) utilizado. Se efetuar cópias de segurança de VMs do Azure para o cofre, o [ **estado de pré-verificação de cópia de segurança** mosaico apresenta todos os itens críticos ou de aviso](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). A imagem seguinte é o **descrição geral** dashboard para **Contoso-cofre**. O **itens de cópia de segurança** mosaico mostra há nove itens registados no cofre.
+Este artigo explica como usar o painel **visão geral** do cofre dos serviços de recuperação para monitorar e gerenciar seus cofres dos serviços de recuperação. Quando você abre um cofre dos serviços de recuperação na lista, o painel de **visão geral** do cofre selecionado é aberto. O painel fornece vários detalhes sobre o cofre. Há *blocos* que mostram: o status de alertas críticos e de aviso, trabalhos de backup em andamento e com falha e a quantidade de armazenamento com redundância local (LRS) e grs (armazenamento com redundância geográfica) usados. Se você fizer backup de VMs do Azure no cofre, o bloco de [ **status de pré-verificação de backup** exibirá os itens críticos ou de aviso](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). A imagem a seguir é o painel de **visão geral** do **contoso-Vault**. O bloco **itens de backup** mostra que há nove itens registrados no cofre.
 
-![dashboard do Cofre de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
-Os pré-requisitos para este artigo são: pelo menos um item de cópia de segurança configurado para o Cofre de é de uma subscrição do Azure e que existe um cofre dos serviços de recuperação.
+Os pré-requisitos para este artigo são: uma assinatura do Azure, um cofre dos serviços de recuperação e que há pelo menos um item de backup configurado para o cofre.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 
-## <a name="open-a-recovery-services-vault"></a>Abra um cofre dos serviços de recuperação
+## <a name="open-a-recovery-services-vault"></a>Abrir um cofre dos serviços de recuperação
 
-Para monitorizar alertas, ou ver os dados de gestão sobre um cofre dos serviços de recuperação, abra o cofre.
+Para monitorar alertas ou exibir dados de gerenciamento sobre um cofre dos serviços de recuperação, abra o cofre.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com a sua subscrição do Azure.
+1. Entre no [portal do Azure](https://portal.azure.com/) usando sua assinatura do Azure.
 
 2. No portal, clique em **todos os serviços**.
 
-   ![Abra a lista de cofres de serviços de recuperação passo 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
+   ![Abra a lista de cofres dos serviços de recuperação etapa 1](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-3. Na **todos os serviços** caixa de diálogo, escreva **dos serviços de recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Quando o **cofres dos serviços de recuperação** opção é apresentada, clique nele para abrir a lista de cofres dos serviços de recuperação na sua subscrição.
+3. Na caixa de diálogo **todos os serviços** , digite **serviços de recuperação**. À medida que começa a escrever, a lista filtra com base na sua entrada. Quando a opção **cofres dos serviços de recuperação** for exibida, clique nela para abrir a lista de cofres dos serviços de recuperação em sua assinatura.
 
     ![Passo 1 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Na lista de cofres, clique num cofre para abrir o respetivo **descrição geral** dashboard.
+4. Na lista de cofres, clique em um cofre para abrir seu painel de **visão geral** .
 
-    ![dashboard do Cofre de serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![painel do cofre dos serviços de recuperação](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
-    O dashboard de descrição geral utiliza mosaicos para fornecer alertas e dados da tarefa de cópia de segurança.
+    O painel Visão geral usa blocos para fornecer alertas e dados de trabalho de backup.
 
-## <a name="monitor-backup-jobs-and-alerts"></a>Monitorizar tarefas de cópia de segurança e alertas
+## <a name="monitor-backup-jobs-and-alerts"></a>Monitorar trabalhos e alertas de backup
 
-O Cofre dos serviços de recuperação **descrição geral** dashboard fornece mosaicos para informações de monitorização e a utilização. Os mosaicos na exibição de secção monitorização crítico e alertas de aviso e, em curso e tarefas com falhas. Clique numa tarefa para abrir o menu de alertas de cópia de segurança ou tarefas de cópia de segurança, filtrado para essa tarefa ou um alerta ou alerta específico.
+O painel **visão geral** do cofre dos serviços de recuperação fornece blocos para informações de monitoramento e uso. Os blocos na seção monitoramento exibem alertas críticos e de aviso e, em andamento e trabalhos com falha. Clique em um alerta ou trabalho específico para abrir o menu alertas de backup ou trabalhos de backup, filtrados para esse trabalho ou alerta.
 
-![Tarefas do dashboard de cópia de segurança](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
+![Tarefas do painel de backup](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
-A secção de monitorização mostra os resultados de predefinidos **alertas de cópia de segurança** e **as tarefas de cópia de segurança** consultas. Os mosaicos de monitorização fornecem informações atualizadas sobre:
+A seção monitoramento mostra os resultados de **alertas de backup** predefinidos e consultas de **trabalhos de backup** . Os blocos de monitoramento fornecem informações atualizadas sobre:
 
-* Alertas de críticas e de aviso para tarefas de cópia de segurança (nas últimas 24 horas)
-* Estado de pré-verificação para VMs do Azure - para obter informações completas sobre o estado de pré-verificação, consulte a [blogue de cópia de segurança no estado de pré-verificação de cópia de segurança](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
-* As tarefas de cópia de segurança em curso e tarefas que falharam (nas últimas 24 horas).
+* Alertas críticos e de aviso para trabalhos de backup (nas últimas 24 horas)
+* Status de pré-verificação para VMs do Azure – para obter informações completas sobre o status de pré-verificação, consulte o [blog de backup em status de pré-verificação de backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* Os trabalhos de backup em andamento e trabalhos que falharam (nas últimas 24 horas).
 
-Fornecem os mosaicos de utilização:
+Os blocos de uso fornecem:
 
-* O número de itens de cópia de segurança configurados para o cofre.
-* O armazenamento do Azure (separado por LRS e GRS) consumido por cofre.
+* O número de itens de backup configurados para o cofre.
+* O armazenamento do Azure (separado por LRS e GRS) consumido pelo cofre.
 
-Clique em mosaicos (exceto o armazenamento de cópia de segurança) para abrir o menu associado. Na imagem acima, o mosaico alertas de cópia de segurança mostra três alertas críticos. Clicar na linha de alertas críticos no mosaico alertas de cópia de segurança, abre-se os alertas de cópia de segurança filtrada para os alertas críticos.
+Clique nos blocos (exceto armazenamento de backup) para abrir o menu associado. Na imagem acima, o bloco alertas de backup mostra três alertas críticos. Clicar na linha alertas críticos no bloco alertas de backup abre os alertas de backup filtrados para alertas críticos.
 
-![Menu de alertas de cópia de segurança filtrada para os alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
+![Menu alertas de backup filtrados para alertas críticos](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-O menu de alertas de cópia de segurança, na imagem acima, é filtrado por: Estado está ativa, é de gravidade crítica e tempo é de 24 horas anteriores.
+O menu alertas de backup, na imagem acima, é filtrado por: O status é ativo, a severidade é crítica e a hora é as 24 horas anteriores.
 
-## <a name="manage-backup-alerts"></a>Gerir alertas de cópia de segurança
+## <a name="manage-backup-alerts"></a>Gerenciar alertas de backup
 
-Para aceder ao menu de alertas de cópia de segurança, no menu do cofre dos serviços de recuperação, clique em **alertas de cópia de segurança**.
+Para acessar o menu alertas de backup, no menu cofre de serviços de recuperação, clique em **alertas de backup**.
 
-![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
+![Alertas de backup](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-O relatório de alertas de cópia de segurança apresenta os alertas para o cofre.
+O relatório alertas de backup lista os alertas para o cofre.
 
-![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/backup-alerts.png)
+![Alertas de backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
 ### <a name="alerts"></a>Alertas
 
-A lista de alertas de cópia de segurança apresenta as informações selecionadas para os alertas filtrados. No menu alertas de cópia de segurança, pode filtrar alertas críticas ou de aviso.
+A lista alertas de backup exibe as informações selecionadas para os alertas filtrados. No menu alertas de backup, você pode filtrar alertas críticos ou de aviso.
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítico | Receber críticas de alertas quando: As tarefas de cópia de segurança falhar, as tarefas de recuperação a falharem, e quando parar a proteção num servidor, mas manter os dados.|
-| Aviso | Recebe o aviso de alertas quando: Tarefas de cópia de segurança concluída com avisos, por exemplo quando menos de 100 ficheiros não são uma cópia de segurança devido a problemas de Corrupção, ou quando maior que 1 000 000 ficheiros são guardados com êxito). |
-| Informativo | Atualmente, não existem alertas informativos estão em utilização. |
+| Crítico | Você receberá alertas críticos quando: Os trabalhos de backup falham, os trabalhos de recuperação falham e quando você interrompe a proteção em um servidor, mas mantém os dados.|
+| Aviso | Você recebe alertas de aviso quando: Trabalhos de backup concluídos com avisos, por exemplo, quando menos de 100 arquivos não são submetidos a backup devido a problemas de corrupção ou quando mais de 1 milhão arquivos são submetidos a backup com êxito). |
+| Informativo | no momento, nenhum alerta informativo está em uso. |
 
-### <a name="viewing-alert-details"></a>Visualizar detalhes do alerta
+### <a name="viewing-alert-details"></a>Exibindo detalhes do alerta
 
-O relatório de alertas de cópia de segurança controla os oito detalhes sobre cada alerta. Utilize o **escolher colunas** botão para editar os detalhes no relatório.
+O relatório de alertas de backup acompanha oito detalhes sobre cada alerta. Use o botão **escolher colunas** para editar os detalhes no relatório.
 
-![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/backup-alerts.png)
+![Alertas de backup](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-Por predefinição, todos os detalhes, exceto **hora da última ocorrência**, são apresentados no relatório.
+Por padrão, todos os detalhes, exceto o **último tempo de ocorrência**, aparecem no relatório.
 
 * Alerta
-* Item de cópia de segurança
+* Item de backup
 * Servidor protegido
 * Severity
 * Duration
@@ -108,107 +107,107 @@ Por predefinição, todos os detalhes, exceto **hora da última ocorrência**, s
 
 ### <a name="change-the-details-in-alerts-report"></a>Alterar os detalhes no relatório de alertas
 
-1. Para alterar as informações de relatório, o **alertas de cópia de segurança** menu, clique em **escolher colunas**.
+1. Para alterar as informações do relatório, no menu **alertas de backup** , clique em **escolher colunas**.
 
-   ![Alertas de cópia de segurança](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
+   ![Alertas de backup](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
 
-   O **escolher colunas** é aberto o menu.
+   O menu **escolher colunas** é aberto.
 
-2. Na **escolher colunas** menu, escolha os detalhes que pretende apresentar no relatório.
+2. No menu **escolher colunas** , escolha os detalhes que você deseja exibir no relatório.
 
-    ![Escolha o menu de colunas](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
+    ![Menu escolher colunas](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
 
-3. Clique em **feito** para guardar as alterações e fechar o menu de colunas de escolha.
+3. Clique em **concluído** para salvar as alterações e fechar o menu escolher colunas.
 
-   Se efetuar alterações, mas não quer manter as alterações, clique em **repor** retornar o selecionado para a última Guardar configuração.
+   Se você fizer alterações, mas não quiser manter as alterações, clique em **Redefinir** para retornar a selecionada para a última configuração salva.
 
 ### <a name="change-the-filter-in-alerts-report"></a>Alterar o filtro no relatório de alertas
 
-Utilize o **filtro** menu para alterar a gravidade, estado, a hora de início e a hora de fim para os alertas.
+Use o menu **Filtrar** para alterar a gravidade, o status, a hora de início e a hora de término dos alertas.
 
 > [!NOTE]
-> Editar os alertas de cópia de segurança do filtro não altera os alertas críticas ou de aviso do dashboard de descrição geral do cofre.
+> Editar o filtro de alertas de backup não altera os alertas críticos ou de aviso no painel Visão geral do cofre.
 >  
 
-1. Para alterar o filtro de alertas de cópia de segurança, no menu alertas de cópia de segurança, clique em **filtro**.
+1. Para alterar o filtro de alertas de backup, no menu alertas de backup, clique em **Filtrar**.
 
-   ![Escolha o menu de filtro](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
+   ![Escolher menu de filtro](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
 
-   É apresentado o menu de filtro.
+   O menu Filtrar é exibido.
 
-   ![Escolha o menu de filtro](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
+   ![Escolher menu de filtro](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
 
-2. Editar a gravidade, estado, a hora de início ou a hora de fim e clique em **feito** para guardar as alterações.
+2. Edite a gravidade, o status, a hora de início ou a hora de término e clique em **concluído** para salvar as alterações.
 
-## <a name="configuring-notifications-for-alerts"></a>Configurar notificações de alertas
+## <a name="configuring-notifications-for-alerts"></a>Configurando notificações para alertas
 
-Configure notificações para gerar mensagens de correio eletrónico quando ocorrer um alerta de aviso ou crítico. Pode enviar alertas por e-mail a cada hora, ou quando ocorre um alerta específico.
+Configure notificações para gerar emails quando um alerta de aviso ou crítico ocorrer. Você pode enviar alertas por email a cada hora ou quando ocorrer um alerta específico.
 
    ![Filtrar alertas](./media/backup-azure-manage-windows-server/configure-notification.png)
 
-Por predefinição, as notificações de E-Mail estão **no**. Clique em **desativar** para parar as notificações por e-mail.
+Por padrão, as notificações por email estão ativadas. Clique em **desativado** para interromper as notificações por email.
 
-Na **notificar** controlar, escolha **por alerta** se não quiser agrupamento ou não tem muitos itens que podem gerar alertas. Cada alerta resulta numa notificação (a predefinição) e é enviado um e-mail de resolução imediatamente.
+No controle **notificar** , escolha **por alerta** se não desejar agrupar ou não tiver muitos itens que possam gerar alertas. Cada alerta resulta em uma notificação (a configuração padrão) e um email de resolução é enviado imediatamente.
 
-Se selecionou **resumo de hora a hora**, é enviado um e-mail aos destinatários que explica os alertas não resolvidos gerados na última hora. É enviada uma mensagem de e-mail de resolução no fim da hora.
+Se você selecionar **Resumo por hora**, um email será enviado aos destinatários explicando os alertas não resolvidos gerados na última hora. Um email de resolução é enviado ao final da hora.
 
-Escolha a gravidade do alerta (crítico ou de aviso) utilizada para gerar o e-mail. Atualmente, existem não existem alertas de informações.
+Escolha a severidade do alerta (crítico ou aviso) usada para gerar email. No momento, não há alertas de informações.
 
-## <a name="manage-backup-items"></a>Gerir itens de cópia de segurança
+## <a name="manage-backup-items"></a>Gerenciar itens de backup
 
-Um cofre dos serviços de recuperação contém muitos tipos de dados de cópia de segurança. [Saiba mais](backup-overview.md#what-can-i-back-up) sobre o que pode criar cópias de segurança. Para gerir vários servidores, computadores, bases de dados e cargas de trabalho, clique a **itens de cópia de segurança** mosaico para ver os conteúdos do cofre.
+Um cofre dos serviços de recuperação mantém muitos tipos de dados de backup. [Saiba mais](backup-overview.md#what-can-i-back-up) sobre o que você pode fazer backup. Para gerenciar os vários servidores, computadores, bancos de dados e cargas de trabalho, clique no bloco **itens de backup** para exibir o conteúdo do cofre.
 
-![Mosaico de itens de cópia de segurança](./media/backup-azure-manage-windows-server/backup-items.png)
+![Bloco de itens de backup](./media/backup-azure-manage-windows-server/backup-items.png)
 
-A lista de itens de cópia de segurança, organizados por tipo de gestão de cópia de segurança, é aberto.
+A lista de itens de backup, organizados por tipo de gerenciamento de backup, é aberta.
 
-![lista de itens de cópia de segurança](./media/backup-azure-manage-windows-server/list-backup-items.png)
+![lista de itens de backup](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-Para explorar um tipo específico de instância protegida, clique no item na coluna tipo de gestão de cópia de segurança. Por exemplo, na imagem acima, existem duas máquinas virtuais do Azure protegidas neste cofre. Clicar **Máquina Virtual do Azure**, abre-se a lista de máquinas virtuais protegidas neste cofre.
+Para explorar um tipo específico de instância protegida, clique no item na coluna tipo de gerenciamento de backup. Por exemplo, na imagem acima, há duas máquinas virtuais do Azure protegidas neste cofre. Clicar em **máquina virtual do Azure**abre a lista de máquinas virtuais protegidas neste cofre.
 
-![lista de tipo de cópia de segurança](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
+![lista de tipos de backup](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-A lista de máquinas virtuais tem dados úteis: o grupo de recursos associados, anterior [pré-verificação de cópia de segurança](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/), estado da última cópia de segurança e a data do ponto de restauro mais recente. O botão de reticências na última coluna, abre o menu para acionar tarefas comuns. Os dados úteis fornecidos nas colunas, é diferente para cada tipo de cópia de segurança.
+A lista de máquinas virtuais tem dados úteis: o grupo de recursos associado, [pré-verificação de backup](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/)anterior, status do último backup e a data do ponto de restauração mais recente. As reticências, na última coluna, abrem o menu para disparar tarefas comuns. Os dados úteis fornecidos em colunas são diferentes para cada tipo de backup.
 
-![lista de tipo de cópia de segurança](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
+![lista de tipos de backup](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
 ## <a name="manage-backup-jobs"></a>Gerir Tarefas de cópia de segurança
 
-O **tarefas de cópia de segurança** mosaico no dashboard do cofre mostra o número de tarefas que estão em progresso ou com falhas nas últimas 24 horas. O mosaico fornece uma visão rápida no menu tarefas de cópia de segurança.
+O bloco **trabalhos de backup** no painel do cofre mostra o número de trabalhos que estão em andamento ou que falharam nas últimas 24 horas. O bloco fornece uma visão do menu de trabalhos de backup.
 
-![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-Para ver detalhes adicionais sobre as tarefas, clique em **em curso** ou **falha** para abrir o menu de tarefas de cópia de segurança filtrado para esse Estado.
+Para ver detalhes adicionais sobre os trabalhos, clique **em em andamento** ou **falha** ao abrir o menu trabalhos de backup filtrado para esse estado.
 
-### <a name="backup-jobs-menu"></a>Menu de tarefas de cópia de segurança
+### <a name="backup-jobs-menu"></a>Menu de trabalhos de backup
 
-O **tarefas de cópia de segurança** menu apresenta informações sobre o Item tipo, operação, estado, hora de início e a duração.  
+O menu **trabalhos de backup** exibe informações sobre o tipo de item, a operação, o status, a hora de início e a duração.  
 
-Para abrir o menu de tarefas de cópia de segurança, no menu principal do cofre, clique em **tarefas de cópia de segurança**.
+Para abrir o menu trabalhos de backup, no menu principal do cofre, clique em **trabalhos de backup**.
 
-![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
-É aberta a lista de tarefas de cópia de segurança.
+A lista de trabalhos de backup é aberta.
 
-![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Itens de backup de configurações](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
-O menu de tarefas de cópia de segurança mostra o estado para todas as operações, em todos os tipos de cópia de segurança, nas últimas 24 horas. Uso **filtro** para alterar os filtros. Os filtros são explicados nas seções a seguir.
+O menu trabalhos de backup mostra o status de todas as operações, em todos os tipos de backup, nas últimas 24 horas. Use **Filtrar** para alterar os filtros. Os filtros são explicados nas seções a seguir.
 
 Para alterar os filtros:
 
-1. No menu de tarefas de cópia de segurança do cofre, clique em **filtro**.
+1. No menu trabalhos de backup do cofre, clique em **Filtrar**.
 
-   ![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Itens de backup de configurações](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
-    É aberto o menu de filtro.
+    O menu Filtrar é aberto.
 
-   ![Itens de cópia de segurança das definições](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Itens de backup de configurações](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
-2. Escolha as definições de filtro e clique em **feito**. As atualizações de lista filtrada com base nas definições de novo.
+2. Escolha as configurações de filtro e clique em **concluído**. A lista filtrada é atualizada com base nas novas configurações.
 
 #### <a name="item-type"></a>Tipo de item
 
-O tipo de Item é o tipo de gestão de cópia de segurança da instância protegida. Há quatro tipos; ver a lista a seguir. Pode ver todos os tipos de item ou tipo de um item. Não é possível selecionar dois ou três tipos de item. Os tipos de Item disponíveis são:
+O tipo de item é o tipo de gerenciamento de backup da instância protegida. Há quatro tipos; consulte a lista a seguir. Você pode exibir todos os tipos de item ou um tipo de item. Não é possível selecionar dois ou três tipos de item. Os tipos de item disponíveis são:
 
 * Todos os tipos de item
 * Máquina virtual do Azure
@@ -218,64 +217,64 @@ O tipo de Item é o tipo de gestão de cópia de segurança da instância proteg
 
 #### <a name="operation"></a>Operação
 
-Pode ver uma operação ou todas as operações. Não é possível selecionar dois ou três operações. As operações disponíveis são:
+Você pode exibir uma operação ou todas as operações. Você não pode selecionar duas ou três operações. As operações disponíveis são:
 
 * Todas as Operações
-* Registar
+* Registo
 * Configurar a cópia de segurança
-* Cópia de segurança
-* Restauro
-* Desativar cópia de segurança
+* Criar cópia de segurança
+* Restaurar
+* Desabilitar backup
 * Eliminar dados de cópia de segurança
 
 #### <a name="status"></a>Estado
 
-Pode ver todos os Estados ou um. Não é possível selecionar dois ou três Estados. Os Estados disponíveis são:
+Você pode exibir todo o status ou um. Não é possível selecionar dois ou três status. Os status disponíveis são:
 
-* Todos os Estados
+* Todos os status
 * Concluído
 * Em curso
 * Com Falhas
 * Cancelado
-* Foi concluída com avisos
+* Concluído com avisos
 
 #### <a name="start-time"></a>Hora de início
 
-O dia e hora em que a consulta começa. A predefinição é um período de 24 horas.
+O dia e a hora em que a consulta começa. O padrão é um período de 24 horas.
 
 #### <a name="end-time"></a>Hora de fim
 
-O dia e hora quando termina a consulta.
+O dia e a hora em que a consulta termina.
 
 ### <a name="export-jobs"></a>Exportar tarefas
 
-Uso **exportar tarefas** para criar uma folha de cálculo que contém todas as informações de menu de tarefas. A folha de cálculo tem uma folha de cálculo que contém um resumo de todas as tarefas e folhas individuais para cada tarefa.
+Use **trabalhos de exportação** para criar uma planilha que contém todas as informações do menu de trabalhos. A planilha tem uma planilha que contém um resumo de todos os trabalhos e planilhas individuais para cada trabalho.
 
-Para exportar as informações de tarefas para uma folha de cálculo, clique em **exportar tarefas**. O serviço cria uma folha de cálculo com o nome do cofre e data, mas pode alterar o nome.
+Para exportar as informações de trabalhos para uma planilha, clique em **Exportar trabalhos**. O serviço cria uma planilha usando o nome do cofre e a data, mas você pode alterar o nome.
 
-## <a name="monitor-backup-usage"></a>Monitorizar a utilização de cópia de segurança
+## <a name="monitor-backup-usage"></a>Monitorar o uso de backup
 
-O mosaico de armazenamento de cópia de segurança no dashboard mostra o armazenamento consumido no Azure. Utilização do armazenamento é fornecida para:
+O bloco armazenamento de backup no painel mostra o armazenamento consumido no Azure. O uso de armazenamento é fornecido para:
 
-* Utilização do armazenamento na cloud LRS associada ao Cofre
-* Utilização do armazenamento na cloud GRS associada ao Cofre
+* Uso do armazenamento LRS de nuvem associado ao cofre
+* Uso do armazenamento GRS de nuvem associado ao cofre
 
 
-## <a name="troubleshooting-monitoring-issues"></a>Resolução de problemas de monitorização
+## <a name="troubleshooting-monitoring-issues"></a>Solucionando problemas de monitoramento
 
-**Problema:** Tarefas de e/ou alertas a partir do agente de cópia de segurança do Azure não aparecem no portal.
+**Problema:** Trabalhos e/ou alertas do agente de backup do Azure não aparecem no Portal.
 
-**Passos de resolução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia os dados de tarefa e alerta para o serviço de cópia de segurança do Azure. Ocasionalmente, este processo pode ficar bloqueado ou encerramento.
+**Etapas de solução de problemas:** O processo, ```OBRecoveryServicesManagementAgent```, envia os dados de alerta e de trabalho para o serviço de backup do Azure. Ocasionalmente, esse processo pode ficar preso ou desligado.
 
-1. Para verificar o processo não está em execução, abra **Gerenciador de tarefas**e verificar ```OBRecoveryServicesManagementAgent``` está em execução.
+1. Para verificar se o processo não está em execução, abra o Gerenciador ```OBRecoveryServicesManagementAgent``` de **tarefas**e verifique se está em execução.
 
-2. Se o processo não está em execução, abra **painel de controlo**e procure na lista de serviços. Iniciar ou reiniciar **agente de gestão de serviços de recuperação do Microsoft Azure**.
+2. Se o processo não estiver em execução, abra o **painel de controle**e procure a lista de serviços. Inicie ou reinicie **serviços de recuperação do Microsoft Azure agente de gerenciamento**.
 
-    Para obter mais informações, procure os registos em:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Por exemplo:<br/>
+    Para obter mais informações, procure os logs em:<br/>
+   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`Por exemplo:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Restaurar o Windows Server ou cliente Windows do Azure](backup-azure-restore-windows-server.md)
-* Para saber mais sobre o Azure Backup, consulte [descrição geral de cópia de segurança do Azure](backup-introduction-to-azure-backup.md)
-* Visite o [fórum de cópia de segurança do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+## <a name="next-steps"></a>Passos seguintes
+* [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
+* Para saber mais sobre o backup do Azure, consulte [visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
+* Visite o [Fórum do backup do Azure](https://go.microsoft.com/fwlink/p/?LinkId=290933)

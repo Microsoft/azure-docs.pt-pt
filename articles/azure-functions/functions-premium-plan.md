@@ -1,6 +1,6 @@
 ---
-title: O plano Premium de funções do Azure (pré-visualização) | Documentos da Microsoft
-description: Planear a detalhes e opções de configuração (VNet, não arranque a frio, a duração de execução ilimitado) para o Premium de funções do Azure.
+title: Azure Functions plano Premium (visualização) | Microsoft Docs
+description: Detalhes e opções de configuração (VNet, sem início frio, duração de execução ilimitada) para o plano Azure Functions Premium.
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -10,45 +10,47 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: dab7561db8f223bff87f41ef756605359c3478e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad09550e572c98931346b44a6c6f84da29a85e4
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492705"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443968"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Plano Premium de funções do Azure (pré-visualização)
+# <a name="azure-functions-premium-plan-preview"></a>Azure Functions plano Premium (versão prévia)
 
-O plano Premium de funções do Azure é uma opção de hospedagem para aplicações de funções. O plano Premium fornece recursos como a conectividade VNet, não arranque a frio e premium hardware.  Várias aplicações de funções podem ser implementadas para o mesmo plano Premium e o plano permite-lhe configurar o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para uma comparação do plano Premium e outro plano e tipos de alojamento, veja [funcionar dimensionamento e as opções de hospedagem](functions-scale.md).
-
-> [!NOTE]
-> Atualmente, a pré-visualização de plano Premium suporta as funções em execução no .NET, de nó ou de Java através da infraestrutura do Windows.
+O plano Premium Azure Functions é uma opção de hospedagem para aplicativos de funções. O plano Premium fornece recursos como conectividade VNet, sem início frio e hardware Premium.  Vários aplicativos de funções podem ser implantados no mesmo plano Premium e o plano permite que você configure o tamanho da instância de computação, o tamanho do plano base e o tamanho máximo do plano.  Para obter uma comparação do plano Premium e outros tipos de plano e hospedagem, consulte [Opções de escala e Hospedagem de função](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Criar um plano Premium
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-Também pode criar um plano Premium do Azure CLI
+Você também pode criar um plano Premium usando [AZ functionapp Plan Create](/cli/azure/functionapp/plan#az-functionapp-plan-create) na CLI do Azure. O exemplo a seguir cria um plano de camada _Premium 1 elástico_ :
 
 ```azurecli-interactive
-az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
+--location <REGION> --sku EP1
 ```
+
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [suporte `<REGION>` ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, `--is-linux` inclua a opção.
+
+Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. 
 
 ## <a name="features"></a>Funcionalidades
 
-As seguintes funcionalidades estão disponíveis para aplicações de funções implementadas num plano Premium.
+Os recursos a seguir estão disponíveis para aplicativos de funções implantados em um plano Premium.
 
-### <a name="pre-warmed-instances"></a>Instâncias previamente preparadas
+### <a name="pre-warmed-instances"></a>Instâncias pré-passivas
 
-Se não existem eventos e execuções de hoje ocorrem no plano de consumo, a aplicação pode reduzir verticalmente para zero instâncias. Quando chegarem novos eventos, uma nova instância tem de ser especializadas com a sua aplicação em execução no mesmo.  Specializace novas instâncias podem demorar algum tempo consoante a aplicação.  Esta latência adicional na primeira chamada é frequentemente designada a frio de aplicação.
+Se nenhum evento e execução ocorrer hoje no plano de consumo, seu aplicativo poderá reduzir verticalmente até zero instâncias. Quando novos eventos chegam, uma nova instância precisa ser especializada em seu aplicativo em execução.  A especialização de novas instâncias pode levar algum tempo, dependendo do aplicativo.  Essa latência adicional na primeira chamada geralmente é chamada de inicialização a frio do aplicativo.
 
-No plano Premium, pode ter a aplicação previamente começando num número de instâncias, até o tamanho mínimo de plano especificado.  Instâncias preparadas previamente também permitem-lhe pré-dimensionar uma aplicação antes de carga elevada. Como a aplicação aumenta horizontalmente, dimensiona-se em primeiro lugar para as instâncias warmed previamente. Instâncias adicionais continuam a memória intermédia de saída e quente imediatamente em preparação para a próxima operação de dimensionamento. Ao ter uma memória intermédia de instâncias preparadas previamente, pode evitar efetivamente latências de arranque a frio.  Instâncias preparadas previamente é um recurso do plano Premium e precisa ter, pelo menos, uma instância em execução e está disponível em todas as vezes que o plano ativa.
+No plano Premium, você pode fazer com que seu aplicativo fique quente em um número especificado de instâncias, até o tamanho mínimo do plano.  As instâncias pré-configuradas também permitem que você dimensione previamente um aplicativo antes da alta carga. À medida que o aplicativo é dimensionado, ele é dimensionado primeiro para as instâncias pré-configuradas. As instâncias adicionais continuam a ficar em buffer e ficam quentes imediatamente em preparação para a próxima operação de escala. Tendo um buffer de instâncias pré-configuradas, você pode evitar latências de início frio.  As instâncias pré-configuradas são um recurso do plano Premium, e você precisa manter pelo menos uma instância em execução e disponível sempre que o plano estiver ativo.
 
-Pode configurar o número de instâncias preparadas previamente no Azure portal selecionado por seu **aplicação de funções**, daqui para o **recursos da plataforma** separador e ao selecionar o **aumentar horizontalmente**opções. Na janela de edição da aplicação de função, instâncias preparadas previamente é específico para essa aplicação, mas as instâncias de mínimas e máxima são aplicáveis ao seu plano de todo.
+Você pode configurar o número de instâncias pré-configuradas no portal do Azure selecionando sua **aplicativo de funções**, acessando a guia recursos da **plataforma** e selecionando as opções de **scale out** . Na janela Editar do aplicativo de funções, as instâncias pré-configuradas são específicas para esse aplicativo, mas as instâncias mínima e máxima se aplicam ao seu plano inteiro.
 
-![Definições de dimensionamento flexível](./media/functions-premium-plan/scale-out.png)
+![Configurações de escala elástica](./media/functions-premium-plan/scale-out.png)
 
-Também pode configurar previamente preparadas instâncias para uma aplicação com a CLI do Azure
+Você também pode configurar instâncias pré-configuradas para um aplicativo com o CLI do Azure
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -56,79 +58,81 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ### <a name="private-network-connectivity"></a>Conectividade de rede privada
 
-As funções do Azure implementadas num plano Premium tira partido das [nova integração de VNet para aplicações web](../app-service/web-sites-integrate-with-vnet.md).  Quando configurado, a aplicação pode comunicar com os recursos da sua VNet ou protegido por pontos finais de serviço.  Restrições de IP também estão disponíveis na aplicação para restringir o tráfego de entrada.
+Azure Functions implantadas em um plano Premium aproveita a [nova integração de VNet para aplicativos Web](../app-service/web-sites-integrate-with-vnet.md).  Quando configurado, seu aplicativo pode se comunicar com recursos em sua VNet ou protegidos por meio de pontos de extremidade de serviço.  As restrições de IP também estão disponíveis no aplicativo para restringir o tráfego de entrada.
 
-Ao atribuir uma sub-rede para a aplicação de funções num plano Premium, precisa de uma sub-rede com endereços IP suficientes para cada instância de potencial. Embora o número máximo de instâncias pode variar durante a pré-visualização, é necessário um bloco IP com, pelo menos, 100 endereços disponíveis.
+Ao atribuir uma sub-rede ao seu aplicativo de funções em um plano Premium, você precisa de uma sub-rede com endereços IP suficientes para cada instância em potencial. Embora o número máximo de instâncias possa variar durante a visualização, exigimos um bloco de IP com pelo menos 100 endereços disponíveis.
 
-Obter mais informações, consulte [integrar a sua aplicação de função com uma VNet](functions-create-vnet.md).
+Para obter mais informações, consulte [integrar seu aplicativo de funções a uma VNet](functions-create-vnet.md).
 
-### <a name="rapid-elastic-scale"></a>Dimensionamento elástico rápido
+### <a name="rapid-elastic-scale"></a>Escala elástica rápida
 
-Instâncias de computação adicionais são adicionadas automaticamente para a sua aplicação utilizar a mesma lógica de dimensionamento rápida como o plano de consumo.  Para saber mais sobre como dimensionar funciona, veja [dimensionamento e alojamento de função](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+Instâncias de computação adicionais são adicionadas automaticamente para seu aplicativo usando a mesma lógica de dimensionamento rápido que o plano de consumo.  Para saber mais sobre como o dimensionamento funciona, consulte [escala de funções e hospedagem](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### <a name="unbounded-run-duration"></a>Unbounded a duração da execução
+### <a name="unbounded-run-duration"></a>Duração da execução não associada
 
-As funções do Azure num plano de consumo estão limitadas a 10 minutos para uma única execução.  No plano Premium, a duração de execução padrão é 30 minutos para impedir a fuga de execuções. No entanto, pode [modificar a configuração de Host. JSON](./functions-host-json.md#functiontimeout) para que isso não vinculado para aplicações de plano Premium.
+Azure Functions em um plano de consumo são limitados a 10 minutos para uma única execução.  No plano Premium, o padrão de duração da execução é de 30 minutos para evitar execuções de fuga. No entanto, você pode [Modificar a configuração de host. JSON](./functions-host-json.md#functiontimeout) para torná-la desassociada para aplicativos de plano Premium.
 
-Em pré-visualização, a sua duração não é garantida últimos 12 minutos e terá a melhor chance de executar para além de 30 minutos, se a sua aplicação não é dimensionada para além de sua contagem mínima de trabalho.
+Na visualização, sua duração não é garantida após 12 minutos e terá a melhor chance de executar além de 30 minutos se seu aplicativo não for dimensionado além de sua contagem mínima de trabalhadores.
 
-## <a name="plan-and-sku-settings"></a>Definições de plano e SKU
+## <a name="plan-and-sku-settings"></a>Configurações de plano e SKU
 
-Ao criar o plano, configurar duas definições: o número mínimo de instâncias (ou tamanho de plano) e o limite máximo de rajada.  As instâncias mínimas para um plano Premium é 1 e o fluxo máximo durante a pré-visualização é 20.  As instâncias mínimo são reservados e sempre em execução.
+Ao criar o plano, você define duas configurações: o número mínimo de instâncias (ou o tamanho do plano) e o limite máximo de intermitência.  As instâncias mínimas para um plano Premium são 1, e a intermitência máxima durante a visualização é 20.  As instâncias mínimas são reservadas e sempre em execução.
 
 > [!IMPORTANT]
-> É-lhe cobrada cada instância alocada na contagem de instâncias mínima independentemente se as funções estão em execução ou não.
+> Você é cobrado por cada instância alocada na contagem mínima de instâncias, independentemente de as funções serem executadas ou não.
 
-Se a sua aplicação precisar de instâncias para além do tamanho do seu plano, ele pode continuar a aumentar horizontalmente até que o número de instâncias atinge o limite máximo de rajada.  É-lhe cobrada para instâncias além do tamanho do seu plano apenas enquanto eles estão em execução e alugados para.  Faremos dentro dos melhor esforços em dimensionando a sua aplicação, o seu limite máximo definido, ao passo que as instâncias de plano mínimo são garantidas para a sua aplicação.
+Se seu aplicativo exigir instâncias além do tamanho do plano, ele poderá continuar a escalar horizontalmente até que o número de instâncias atinja o limite máximo de intermitência.  Você será cobrado por instâncias além do tamanho do plano somente enquanto eles estiverem em execução e alugados para você.  Faremos um melhor esforço em dimensionar seu aplicativo para o limite máximo definido, enquanto que as instâncias de plano mínimas são garantidas para seu aplicativo.
 
-Pode configurar o tamanho de plano e valores máximos no portal do Azure ao selecionar o **aumentar horizontalmente** opções no plano ou de uma aplicação de funções implementadas para esse plano (sob **recursos da plataforma**).
+Você pode configurar o tamanho do plano e os máximos no portal do Azure selecionando as opções de **scale out** no plano ou um aplicativo de funções implantado nesse plano (em **recursos da plataforma**).
 
-Também pode aumentar o limite máximo de rajada partir da CLI do Azure:
+Você também pode aumentar o limite máximo de intermitência do CLI do Azure:
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
-### <a name="available-instance-skus"></a>SKUs de instância disponível
+### <a name="available-instance-skus"></a>SKUs da instância disponível
 
-Ao criar ou dimensionar o seu plano, pode escolher entre três tamanhos de instância.  Será ser cobrado o número total de núcleos e memória consumidas por segundo.  A aplicação automaticamente pode aumentar horizontalmente para várias instâncias conforme necessário.  
+Ao criar ou dimensionar seu plano, você pode escolher entre três tamanhos de instância.  Você será cobrado pelo número total de núcleos e memória consumida por segundo.  Seu aplicativo pode ser dimensionado automaticamente para várias instâncias, conforme necessário.  
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
-|EP1|1|3.5 GB|250 GB|
-|EP2|2|7GB|250 GB|
-|EP3|4|14GB|250 GB|
+|EP1|1|3,5 GB|250 GB|
+|EP2|2|7 GB|250 GB|
+|EP3|4|14 GB|250 GB|
 
 ## <a name="regions"></a>Regiões
 
-Seguem-se as regiões atualmente suportadas para a pré-visualização pública.
+Abaixo estão as regiões com suporte no momento para a visualização pública para cada sistema operacional.
 
-|Região|
-|--|
-|Leste da Austrália|
-|Sudeste da Austrália|
-|Canadá Central|
-|EUA Central|
-|Ásia Oriental|
-|EUA Leste 2|
-|França Central|
-|Oeste do Japão|
-|Coreia do Sul Central|
-|EUA Centro-Norte|
-|Europa do Norte|
-|EUA Centro-Sul|
-|Sul da Índia|
-|Sudeste Asiático|
-|Reino Unido Oeste|
-|Europa Ocidental|
-|Oeste da Índia|
-|EUA Oeste|
+|Região| Windows | Linux |
+|--| -- | -- |
+|Leste da Austrália| ✔ | |
+|Sudeste da Austrália | ✔ | ✔ |
+|Canadá Central| ✔ |  |
+|EUA Central| ✔ |  |
+|Ásia Oriental| ✔ |  |
+|East US | | ✔ |
+|EUA Leste 2| ✔ |  |
+|França Central| ✔ |  |
+|Leste do Japão|  | ✔ |
+|Oeste do Japão| ✔ | |
+|Coreia do Sul Central| ✔ |  |
+|EUA Centro-Norte| ✔ |  |
+|Europa do Norte| ✔ | ✔ |
+|EUA Centro-Sul| ✔ |  |
+|Sul da Índia | ✔ | |
+|Sudeste Asiático| ✔ | ✔ |
+|Reino Unido Oeste| ✔ |  |
+|Europa Ocidental| ✔ | ✔ |
+|Oeste da Índia| ✔ |  |
+|EUA Oeste| ✔ | ✔ |
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 
-Pode controlar o estado dos problemas conhecidos do [pré-visualização pública no GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
+Você pode acompanhar o status de problemas conhecidos da [Visualização pública no GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Compreender as funções do Azure dimensionamento e as opções de hospedagem](functions-scale.md)
+> [Entender Azure Functions escala e opções de hospedagem](functions-scale.md)

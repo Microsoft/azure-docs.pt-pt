@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c61d54fc49ddd0a8a9ac5063c1a2a3edea66a899
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: e34beba32eace370664893225dd85b6f4b79c886
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326217"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424098"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Solução de problemas Status Monitor v2
 
@@ -78,11 +78,13 @@ Depois de executar o comando Enable, conclua estas etapas:
 
 ### <a name="iis-nested-applications"></a>Aplicativos aninhados do IIS
 
-Não instrumento aplicativos aninhados no IIS na versão 1,0 estamos acompanhando esse problema [aqui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
+Não instrumento aplicativos aninhados no IIS na versão 1,0.
+Estamos acompanhando esse problema [aqui](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### <a name="advanced-sdk-configuration-isnt-available"></a>A configuração avançada do SDK não está disponível.
 
-A configuração do SDK não é exposta ao usuário final na versão 1,0 que estamos acompanhando este problema [aqui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
+A configuração do SDK não é exposta ao usuário final na versão 1,0.
+Estamos acompanhando esse problema [aqui](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
     
     
@@ -116,7 +118,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Determinar a versão atual do módulo Status Monitor v2
-Execute o `Get-ApplicationInsightsMonitoringStatus` comando para exibir as seguintes informações sobre o módulo:
+Execute o `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando para exibir as seguintes informações sobre o módulo:
    - Versão do módulo do PowerShell
    - Versão do SDK do Application Insights
    - Caminhos de arquivo do módulo do PowerShell
@@ -148,7 +150,7 @@ Examine a [referência da API](status-monitor-v2-api-get-status.md) para obter u
 5. Defina estes **provedores adicionais**:`61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 
 
-#### <a name="collecting-logs"></a>Coletando logs
+#### <a name="collecting-logs"></a>A recolher registos
 
 1. Em um console de comando com privilégios de administrador, `iisreset /stop` execute o comando para desligar o IIS e todos os aplicativos Web.
 2. Em PerfView, selecione **Iniciar coleta**.
