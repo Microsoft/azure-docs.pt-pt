@@ -1,138 +1,105 @@
 ---
-title: Como melhorar a precisão de deteção no Azure Active Directory Identity Protection (atualizadas) | Documentos da Microsoft
-description: Como melhorar a precisão de deteção no Azure Active Directory Identity Protection (atualizados).
+title: Como melhorar a precisão de detecção no Azure Active Directory Identity Protection (atualizado) | Microsoft Docs
+description: Como melhorar a precisão de detecção no Azure Active Directory Identity Protection (atualizado).
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7724d69a9294b420ca061d5ad26ad64826372203
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32bb8de7970fc167a6a95e9d9c3c71e4e1dc0150
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453298"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333951"
 ---
-# <a name="how-to-improve-the-detection-accuracy"></a>Como: Melhorar a exatidão da deteção 
+# <a name="how-to-improve-the-detection-accuracy"></a>Como: Melhorar a precisão da detecção 
 
-Identity Protection fornece mecanismos para enviar comentários para o Azure AD nas deteções de risco no seu ambiente. Para enviar comentários, pode confirmar o estado de utilizador de risco detetado ou evento de início de sessão. Os utilizadores do Microsoft seus comentários para tomar medidas em deteções de risco atual e melhorar a precisão de deteções futuras. 
-
+A proteção de identidade fornece mecanismos para fornecer comentários ao Azure AD sobre as detecções de risco em seu ambiente. Para fornecer comentários, você pode confirmar o status do usuário arriscado ou evento de entrada detectado. Os usuários da Microsoft têm esse feedback para tomar medidas sobre as detecções atuais de riscos e melhorar a precisão das detecções futuras. 
 
 ## <a name="what-is-detection"></a>O que é detecção?
 
-A deteção é o processo de identificar atividades suspeitas em conjunto com as contas de utilizador. As atividades suspeitas do Azure AD pode detetar são chamadas [evento de risco](../reports-monitoring/concept-risk-events.md). O processo de deteção baseia-se de machine learning e heurística para detetar eventos de risco para os utilizadores de algoritmos.
+Detecção é o processo de identificar atividades suspeitas em conjunto com suas contas de usuário. As atividades suspeitas que o Azure AD pode detectar são chamadas de [evento de risco](../reports-monitoring/concept-risk-events.md). O processo de detecção é baseado em algoritmos de aprendizado de máquina adaptáveis e heurística para detectar eventos de risco para os usuários.
 
-Os resultados de deteção são utilizados para determinar se os utilizadores e inícios de sessão estão em risco. 
+Os resultados da detecção são usados para determinar se os usuários e as entradas estão em risco. 
 
+## <a name="how-can-i-improve-the-detection-accuracy"></a>Como posso melhorar a precisão da detecção?
 
-## <a name="how-can-i-improve-the-detection-accuracy"></a>Como posso melhorar a precisão de deteção?
+Como a detecção é um processo automatizado, é possível que o Azure AD relate falsos positivos. Você pode melhorar a precisão da detecção ao fornecer comentários ao Azure AD sobre os resultados da detecção.
 
-Uma vez que a deteção é um processo automatizado, é possível que o Azure AD reporta falsos positivos. Pode melhorar a precisão de deteção, fornecendo comentários ao Azure AD sobre os resultados de deteção.
+Há três maneiras de melhorar a precisão da detecção: Confirme a entrada comprometida, confirme a entrada segura e ignore o risco do usuário. Você pode fazer isso nos seguintes relatórios:
 
-Existem três formas de aumentar a exatidão da deteção: Confirme comprometido início de sessão, comfirm seguro início de sessão e descartar o risco de utilizador. Pode fazê-lo dos seguintes relatórios:
+- **Relatório de entradas arriscadas-** No relatório de entradas arriscadas, você pode confirmar se as entradas estão seguras ou comprometidas
+- **Relatório de usuários arriscados-** No relatório usuários arriscados, você pode ignorar o risco do usuário 
 
-- **Relatório de inícios de sessão arriscados -** no relatório de inícios de sessão de risco, pode confirmar que os inícios de sessão estão seguros ou comprometido
+Seus comentários são processados pelo Azure AD para melhorar a precisão dos resultados da detecção. Normalmente, você fornece comentários como parte de um risco de usuário ou uma investigação de risco de entrada. Para obter mais informações, consulte [como investigar usuários e entradas arriscadas](howto-investigate-risky-users-signins.md).
 
-- **Relatório de utilizadores de risco -** no relatório de utilizadores de risco, pode ignorar o risco de utilizador 
+## <a name="confirm-compromised"></a>Confirmar comprometido
 
-Seus comentários é processado pelo Azure AD para melhorar a precisão dos resultados da deteção. Normalmente, fornecer comentários como parte de um risco de utilizador ou a investigação de risco de início de sessão. Para obter mais informações, consulte [como investigar a utilizadores de risco e inícios de sessão](howto-investigate-risky-users-signins.md).
+Confirmando um evento de entrada como sinais comprometidos ao Azure AD que a entrada não foi autorizada pelo proprietário da identidade. Quando você selecionar "confirmar comprometido", o Azure AD
 
+- Aumente o risco de usuário do usuário afetado para alta.
+- Ajuda para otimizar o aprendizado de máquina que detecta eventos de risco
+- Execute medidas adicionais para proteger ainda mais sua organização
 
-## <a name="confirm-compromised"></a>Confirmar comprometida
+Para confirmar uma entrada comprometida:
 
-Confirmar um evento de início de sessão como comprometido sinaliza para o Azure AD, que o início de sessão não foi autorizado pelo proprietário de identidade. Ao selecionar "Confirmar comprometido", do Azure AD irá
+- **O relatório de entradas arriscadas** -essa opção permite que você confirme uma entrada comprometida para um ou mais eventos de entrada.
 
-- Aumente o risco de utilizador do utilizador afetado como alto.
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/07.png)
 
-- Ajudar a otimizar o machine learning que Deteta eventos de risco
- 
-- Executar medidas adicionais para proteger ainda mais a sua organização
+- **A exibição de detalhes do relatório de entradas arriscadas** -essa opção permite que você confirme uma conta comprometida para o evento de entrada selecionado no relatório de entradas arriscadas. 
 
-
-
-Para confirmar um comprometido início de sessão:
-
-- **O relatório de inícios de sessão arriscados** -esta opção permite-lhe confirmar um comprometido início de sessão para um ou mais início de sessão eventos.
-
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/07.png)
-
-- **A vista de detalhes do relatório de inícios de sessão arriscados** -esta opção permite-lhe confirmar uma conta comprometida para o evento selecionado início de sessão no relatório de inícios de sessão de risco. 
-
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/04.png)
-
-
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/04.png)
  
 ## <a name="confirm-safe"></a>Confirmar seguro
 
+Confirmando um evento de logon como um sinal seguro para o Azure AD que a entrada **foi** autorizada pelo respectivo proprietário de identidade. Quando você seleciona "confirmar segurança", o Azure AD irá:
 
-Confirmar um evento de início de sessão como sinais seguros para o Azure AD que o início de sessão **foi** autorizada pelo proprietário do respectivo de identidade. Ao selecionar "Confirmar seguro", do Azure AD irá:
-
-- Reverter a contribuição de risco de utilizador de inícios de sessão selecionados
-
-- Fechar eventos de risco subjacentes
-
-- Ajudar a otimizar o machine learning que Deteta eventos de risco
-
-- Executar medidas adicionais para proteger ainda mais a sua organização
+- Reverter a contribuição de risco do usuário das entradas selecionadas
+- Fechar os eventos de risco subjacentes
+- Ajuda para otimizar o aprendizado de máquina que detecta eventos de risco
+- Execute medidas adicionais para proteger ainda mais sua organização
  
+Para confirmar uma entrada segura no:
 
-Para confirmar um seguro início de sessão em:
+- **O relatório de entradas arriscadas** -essa opção permite que você confirme uma entrada segura para um ou mais eventos de entrada.
 
-- **O relatório de inícios de sessão arriscados** -esta opção permite-lhe confirmar um seguro início de sessão para um ou mais início de sessão eventos.
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/08.png)
 
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/08.png)
+- **A exibição de detalhes do relatório de entradas arriscadas** -essa opção permite que você confirme uma entrada segura para o evento de entrada selecionado no relatório de entradas arriscadas. 
 
-- **A vista de detalhes do relatório de inícios de sessão arriscados** -esta opção permite-lhe confirmar um seguro início de sessão para o evento selecionado início de sessão no relatório de inícios de sessão de risco. 
-
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/05.png)
-
-
-
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/05.png)
 
 ## <a name="dismiss-user-risk"></a>Dispensar o risco de utilizador
 
-Se já efetuou ações de remediação para um utilizador de risco, ou se considerar que incorretamente foram marcados como perigoso, que pode ignorar o risco de um utilizador. A dispensar o risco de um utilizador restaura o utilizador para um Estado não risco. Todas as anteriores inícios de sessão de risco e o risco, eventos para o utilizador selecionado serão ser descartados.
+Se você já executou ações de correção para um usuário de risco ou acredita que elas foram erroneamente marcadas como arriscadas, você pode descartar o risco de um usuário. Ignorar o risco de um usuário restaura o usuário para um estado não arriscado. Todos os eventos de risco e entradas arriscados anteriores para o usuário selecionado serão ignorados.
 
+Você pode ignorar o risco do usuário relatado em:
 
-Pode ignorar o risco de utilizador comunicadas em:
+- **O relatório usuários arriscados** -essa opção permite que você ignore o risco do usuário para um ou mais usuários selecionados.
 
-- **O relatório de utilizadores de risco** – esta opção permite-lhe a ignorar o risco de utilizador para um ou mais utilizadores selecionados.
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/02.png)
 
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/02.png)
+- **A exibição de detalhes** – essa opção permite que você ignore o risco do usuário selecionado no relatório de risco do usuário. 
 
-- **A vista de detalhes** -esta opção permite-lhe descartar o risco de utilizador para o utilizador selecionado no relatório de risco do utilizador. 
+   ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/01.png)
 
-    ![Dispensar o risco de utilizador](./media/howto-improve-detection-accuracy/01.png)
+**O que você deve saber:**
 
-
-**O que deve saber:**
-
-- Não é possível reverter esta ação.
-
-- Pode demorar alguns minutos para que esta ação seja concluída, por isso, não deverá submeter novamente o pedido.
-
-- Só pode efetuar esta ação se AD gere as credenciais do utilizador. 
-
-
+- Você não pode reverter esta ação.
+- Pode levar alguns minutos para que essa ação seja concluída, motivo pelo qual você não deve reenviar sua solicitação.
+- Você só poderá executar essa ação se o AD gerenciar as credenciais do usuário. 
 
 ## <a name="best-practices"></a>Melhores práticas
 
-A dispensar o risco de um utilizador é uma forma de desbloqueá-los, se o ter sido bloqueados pela política de risco de utilizador e não é possível auto-remediar devido a não ter a reposição de palavra-passe e/ou MFA ativada. Nesta situação, é melhor garantir que o utilizador, então, registra para obter a MFA e de reposição de palavra-passe, para que sejam capazes de Self-remediar quaisquer eventos de risco futuras.
-
+Ignorar o risco de um usuário é uma maneira de desbloqueá-los se eles tiverem sido bloqueados pela política de risco do usuário e não puderem ser remediados por não ter a redefinição de senha e/ou a MFA habilitada. Nessa situação, é melhor garantir que o usuário se registre para redefinição de senha e MFA para que eles possam remediar todos os futuros eventos de risco.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [descrição geral do Azure AD Identity Protection](overview-v2.md).
-
-
+Para obter uma visão geral do Azure AD Identity Protection, consulte a [visão geral Azure ad Identity Protection](overview-v2.md).

@@ -1,6 +1,6 @@
 ---
-title: Como configurar a palavra-passe início de sessão único para um applicationn externas à Galeria | Documentos da Microsoft
-description: Como configurar uma aplicação de externas à Galeria personalizada para segura baseada em palavra-passe de início de sessão único, quando não está listado na Galeria de aplicações do Azure AD
+title: Como configurar o logon único com senha para aplicativos do Azure AD | Microsoft Docs
+description: Como configurar o SSO (logon único) com senha para seus aplicativos empresariais do Azure AD na plataforma Microsoft Identity (Azure AD)
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,184 +8,91 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df52e0c25ecaff451f133e3a9207fb04b11f4a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824937"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422633"
 ---
-# <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
+# <a name="configure-password-single-sign-on"></a>Configurar o logon único com senha
 
-Além das escolhas encontradas dentro da Galeria de aplicações do Azure AD, tem também a opção de adicionar uma **aplicações externas à galeria** quando a aplicação que quer não está listada aqui. Através desta funcionalidade, pode adicionar qualquer aplicação que já existe na sua organização ou qualquer aplicativo de terceiros que poderá utilizar de um fornecedor que não esteja já faz parte dos [Galeria de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Quando você [adiciona um aplicativo de galeria](add-gallery-app.md) ou um [aplicativo Web que não é da Galeria](add-non-gallery-app.md) a seus aplicativos empresariais do Azure AD, uma das opções de logon único disponíveis para você é [logon único baseado em senha](what-is-single-sign-on.md#password-based-sso). Essa opção está disponível para qualquer Web com uma página de entrada HTML. O SSO baseado em senha, também conhecido como cofre de senhas, permite que você gerencie o acesso do usuário e as senhas para aplicativos Web que não dão suporte à Federação de identidade. Também é útil para cenários em que vários usuários precisam compartilhar uma única conta, como as contas de aplicativo de mídia social da sua organização. 
 
-Depois de adicionar uma aplicação de externas à galeria, em seguida, pode configurar a método de início de início de sessão único esta aplicação utiliza ao selecionar o **início de sessão único** item de navegação num aplicativo empresarial a [deportaldoAzure](https://portal.azure.com/).
+O SSO baseado em senha é uma ótima maneira de começar a integrar aplicativos ao Azure AD rapidamente e permite que você:
 
-Um dos início de sessão único métodos disponíveis para é o [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) opção. Com o **adicionar uma aplicação de externas à galeria** experiência, pode integrar qualquer aplicativo que processa um nome de utilizador baseada em HTML e a palavra-passe de entrada campo, mesmo que não está no nosso conjunto de aplicações previamente integradas.
+-   Habilite **o logon único para seus usuários** armazenando e reproduzindo com segurança nomes de usuário e senhas para o aplicativo que você integrou ao Azure AD
 
-A maneira como isso funciona é uma tecnologia que faz parte da extensão do painel de acesso que permite-nos campos de entrada de nome de utilizador e palavra-passe de deteção automática, armazená-los de forma segura para a instância da aplicação específico de recorte de página. Em seguida, reproduza com segurança nomes de utilizador e palavras-passe para esses campos quando um utilizador navega para essa aplicação no painel de acesso de aplicações.
+-   **Suporte a aplicativos que exigem vários campos de entrada** para aplicativos que exigem mais do que apenas campos de nome de usuário e senha para entrar
 
-Esta é uma ótima maneira de começar a integrar rapidamente qualquer tipo de aplicativo para o Azure AD e permite-lhe:
+-   **Personalize os rótulos** dos campos de entrada de nome de usuário e senha que os usuários veem no [painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando inserem suas credenciais
 
--   Integre **qualquer aplicativo no mundo** com o seu inquilino do Azure AD, desde que compõe um campo de entrada HTML nome de utilizador e palavra-passe
+-   Permitir que **os usuários** forneçam seus próprios nomes de usuário e senhas para as contas de aplicativos existentes que estão digitando manualmente no [painel de acesso do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
--   Ativar **início de sessão único para os seus utilizadores** ao armazenar e reproduzir os nomes de utilizador e palavras-passe para a aplicação de forma segura que já integrado com o Azure AD
+-   Permitir que um **membro do grupo de negócios** especifique os nomes de usuários e senhas atribuídos a um usuário usando o recurso de [acesso de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) de autoatendimento
 
--   **Deteção automática de entrada** campos para qualquer aplicação e permitem-lhe detetar manualmente esses campos com a extensão de Browser do painel de acesso, no caso de deteção automática não encontrá-los
+-   Permitir que um **administrador** especifique um nome de usuário e uma senha a serem usados por indivíduos ou grupos ao entrar no aplicativo usando o recurso atualizar credenciais 
 
--   **Suporte a aplicativos que necessitam de vários campos de início de sessão** para aplicações que requerem mais do que apenas nome de utilizador e palavra-passe campos para iniciar sessão
+## <a name="before-you-begin"></a>Antes de começar
 
--   **Personalizar as etiquetas** os nome de utilizador e palavra-passe dos campos de entrada nos seus utilizadores verão a [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) quando eles introduzam as respetivas credenciais
+Se o aplicativo não tiver sido adicionado ao seu locatário do Azure AD, consulte [Adicionar um aplicativo da Galeria](add-gallery-app.md) ou [Adicionar um aplicativo](add-non-gallery-app.md)inexistente na galeria.
 
--   Permitir que sua **usuários** para fornecer seus próprios nomes de utilizador e palavras-passe para as contas de aplicação existentes que estão escrevendo manualmente no [painel de acesso de aplicação](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+## <a name="open-the-app-and-select-password-single-sign-on"></a>Abra o aplicativo e selecione logon único com senha
 
--   Permitir que um **membro do grupo de negócio** para especificar os nomes de utilizador e palavras-passe atribuídas a um utilizador utilizando o [acesso da aplicação Self-Service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) funcionalidade
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador de aplicativo de nuvem ou um administrador de aplicativo para seu locatário do Azure AD.
 
--   Permitir que um **administrador** para especificar os nomes de utilizador e palavras-passe atribuídas a um utilizador ao utilizar a funcionalidade das credenciais de atualização quando atribuir um utilizador a uma aplicação
+2. Navegue até **Azure Active Directory** > **aplicativos empresariais**. Uma amostra aleatória dos aplicativos no seu locatário do Azure AD é exibida. 
 
--   Permitir que um **administrador** para especificar o nome de utilizador partilhada ou a palavra-passe utilizada por um grupo de pessoas com as credenciais de atualização de funcionalidades quando [atribuir um grupo a uma aplicação](#assign-an-application-to-a-group-directly)
+3. No menu **tipo de aplicativo** , selecione **todos os aplicativos**e, em seguida, selecione **aplicar**.
 
-A seguinte secção descreve como pode permitir [baseado em palavra-passe de início de sessão único](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) a qualquer aplicativo que adicionar usando o **adicionar uma aplicação de externas à galeria** experiência.
+4. Insira o nome do aplicativo na caixa de pesquisa e, em seguida, selecione o aplicativo nos resultados.
 
-## <a name="overview-of-steps-required"></a>Descrição geral dos passos necessários
+5. Na seção **gerenciar** , selecione **logon único**. 
 
-Para configurar uma aplicação da galeria do Azure AD, que tem de:
+6. Selecione **baseado em senha**.
 
--   [Adicionar uma aplicação de externas à Galeria](#add-a-non-gallery-application)
+7. Insira a URL da página de entrada baseada na Web do aplicativo. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada nome de usuário.
 
--   [Configurar a aplicação para a palavra-passe início de sessão único](#configure-the-application-for-password-single-sign-on)
+   ![Início de sessão único baseado em palavra-passe](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
--   Atribuir a aplicação a um utilizador ou um grupo
+8. Selecione **Guardar**. O Azure AD tenta analisar a página de entrada para obter uma entrada de nome de usuário e uma entrada de senha. Se a tentativa for bem-sucedida, você terminará. 
+ 
+> [!NOTE]
+> A próxima etapa é [atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md). Depois de atribuir usuários e grupos, você pode fornecer credenciais a serem usadas em nome de um usuário quando eles entrarem no aplicativo. Selecione **usuários e grupos**, marque a caixa de seleção da linha do usuário ou do grupo e clique em **Atualizar credenciais**. Em seguida, insira o nome de usuário e a senha a serem usados em nome do grupo de usuários ou grupos. Caso contrário, os usuários serão solicitados a inserir as próprias credenciais na inicialização.
+ 
 
-    -   [Atribuir um utilizador a uma aplicação diretamente](#assign-a-user-to-an-application-directly)
+## <a name="manual-configuration"></a>Configuração manual
 
-    -   [Atribuir diretamente uma aplicação a um grupo](#assign-an-application-to-a-group-directly)
+Se a tentativa de análise do Azure AD falhar, você poderá configurar o logon manualmente.
 
-## <a name="add-a-non-gallery-application"></a>Adicionar uma aplicação de externas à Galeria
+1. **Em\<nome do aplicativo > configuração**, **selecione \<configurar nome do aplicativo > senha configurações de logon único** para exibir a página **Configurar logon** . 
 
-Para adicionar uma aplicação da galeria do Azure AD, siga estes passos:
+2. Selecione **detectar manualmente os campos de entrada**. São exibidas instruções adicionais que descrevem a detecção manual de campos de entrada.
 
-1.  Abra o [portal do Azure](https://portal.azure.com) e inicie sessão como um **Administrador Global** ou **coadministrador**
+   ![Configuração manual de logon único baseado em senha](./media/configure-password-single-sign-on/password-configure-sign-on.png)
+3. Selecione **capturar campos de entrada**. Uma página de status de captura é aberta em uma nova guia, mostrando que a captura de metadados de mensagem **está em andamento no momento**.
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+4. Se a caixa **extensão do painel de acesso necessária** aparecer em uma nova guia, selecione **instalar agora** para instalar a extensão do navegador de **extensão de entrada segura dos meus aplicativos** . (A extensão do navegador requer o Microsoft Edge, o Chrome ou o Firefox.) Em seguida, instale, inicie e habilite a extensão e atualize a página de status de captura.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+   A extensão do navegador abre outra guia que exibe a URL inserida.
+5. Na guia com a URL inserida, percorra o processo de entrada. Preencha os campos de nome de usuário e senha e tente entrar. (Você não precisa fornecer a senha correta.)
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+   Um prompt solicita que você salve os campos de entrada capturados.
+6. Selecione **OK**. A extensão do navegador atualiza a página de status de captura com os metadados da mensagem **foram atualizados para o aplicativo**. A guia navegador é fechada.
 
-5.  Clique nas **Add** botão no canto superior direito a **aplicações empresariais** painel.
+7. Na página de **logon configurar** do Azure AD, selecione **OK, eu consegui entrar no aplicativo com êxito**.
 
-6.  Clique em **aplicação da Galeria não**.
+8. Selecione **OK**.
 
-7.  Introduza o nome da sua aplicação no **nome** caixa de texto. Selecione **adicionar.**
+Após a captura da página de entrada, você pode atribuir usuários e grupos e pode configurar políticas de credenciais como [aplicativos de SSO de senha](what-is-single-sign-on.md)regular.
 
-Após um curto período, poderá ver o painel de configuração do aplicativo.
-
-## <a name="configure-the-application-for-password-single-sign-on"></a>Configurar a aplicação para a palavra-passe início de sessão único
-
-Para configurar o início de sessão único para uma aplicação, siga estes passos:
-
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
-
-2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
-
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
-
-4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
-
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
-
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
-
-6. Selecione a aplicação que pretende configurar o início de sessão único.
-
-7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
-
-8. Selecione o modo **baseado em palavra-passe de início de sessão.**
-
-9. Introduza o **URL de início de sessão**. Este é o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão no. Certifique-se de que os campos de início de sessão são visíveis no URL.
-
-10. Atribua utilizadores à aplicação.
-
-11. Além disso, também pode fornecer as credenciais em nome do utilizador ao selecionar as linhas dos utilizadores e clicar em **as credenciais de atualização** e introduzindo o nome de utilizador e palavra-passe em nome dos utilizadores. Caso contrário, ser pedido aos utilizadores para introduzir as credenciais durante a inicialização propriamente ditas.
-
-
-## <a name="assign-a-user-to-an-application-directly"></a>Atribuir um utilizador a uma aplicação diretamente
-
-Para atribuir diretamente um ou mais utilizadores a uma aplicação, siga estes passos:
-
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
-
-2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
-
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
-
-4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
-
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
-
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
-
-6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
-
-7. Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
-
-8. Para abrir o **adicionar atribuição** painel, clique nas **Add** botão na parte superior do **utilizadores e grupos** lista.
-
-9. Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
-
-10. Escreva o **nome completo** ou **endereço de e-mail** do utilizador estiver interessado em atribuir para o **procurar por nome ou endereço de e-mail** caixa de pesquisa.
-
-11. Paire o rato sobre o **usuário** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil do usuário ou a logótipo para adicionar o utilizador para o **selecionados** lista.
-
-12. **Opcional:** Se quiser **adicionar mais de um usuário**, tipo em outro **nome completo** ou **endereço de e-mail** para o **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este utilizador para o **selecionados** lista.
-
-13. Quando tiver terminado de selecionar utilizadores, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
-
-14. **Opcional:** clique a **selecionar função** Seletor no **adicionar atribuição** painel para selecionar uma função para atribuir aos utilizadores que selecionou.
-
-15. Clique nas **atribuir** botão para atribuir a aplicação aos utilizadores selecionados.
-
-## <a name="assign-an-application-to-a-group-directly"></a>Atribuir diretamente uma aplicação a um grupo
-
-Para atribuir um ou mais grupos diretamente a uma aplicação, siga estes passos:
-
-1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global.**
-
-2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
-
-3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
-
-4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
-
-5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
-
-   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
-
-6. Selecione a aplicação que pretende atribuir um utilizador a partir da lista.
-
-7. Assim que o aplicativo é carregado, clique em **utilizadores e grupos** no menu de navegação do lado esquerdo da aplicação.
-
-8. Para abrir o **adicionar atribuição** painel, clique nas **Add** botão na parte superior do **utilizadores e grupos** lista.
-
-9. Clique nas **utilizadores e grupos** Seletor da **adicionar atribuição** painel.
-
-10. Escreva o **nome do grupo completo** do grupo estiver interessado em atribuir para o **pesquisar por nome ou endereço de e-mail** caixa de pesquisa.
-
-11. Paire o rato sobre o **grupo** na lista para revelar uma **caixa de verificação**. Clique na caixa de verificação junto a fotografia do perfil ou à logótipo para adicionar o utilizador para o grupo de **selecionados** lista.
-
-12. **Opcional:** Se quiser **adicionar mais de um grupo**, tipo em outro **nome do grupo completo** no **procurar por nome ou endereço de e-mail** caixa de pesquisa e clique na caixa de verificação para adicionar este grupo para o **selecionados** lista.
-
-13. Quando tiver terminado de selecionar os grupos, clique nas **selecione** botão para adicioná-los à lista de utilizadores e grupos que devem ser atribuídos à aplicação.
-
-14. **Opcional:** clique a **selecionar função** Seletor no **adicionar atribuição** painel para selecionar uma função para atribuir aos grupos que selecionou.
-
-15. Clique nas **atribuir** botão para atribuir a aplicação aos grupos selecionados.
-
-Após um curto período, os utilizadores que selecionou ser capaz de iniciar estas aplicações no painel de acesso.
+> [!NOTE]
+> Você pode carregar um logotipo de bloco para o aplicativo usando o botão **carregar logotipo** na guia **Configurar** do aplicativo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Fornecer início de sessão único às suas aplicações com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md)
+
+- [Atribuir usuários ou grupos ao aplicativo](methods-for-assigning-users-and-groups.md)
+- [Configurar o provisionamento automático de conta de usuário](configure-automatic-user-provisioning-portal.md)

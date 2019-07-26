@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc5c356ea5a542fdc12b11aff236c56b146b3d5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825584"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477248"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalhar com aplicações com suporte para afirmações no Proxy de aplicações
 [Aplicações com suporte para afirmações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) efetuar um redirecionamento para o serviço STS (Security Token). O STS solicita credenciais do usuário em troca de um token e, em seguida, redireciona o utilizador para a aplicação. Existem algumas formas de ativar o Proxy de aplicações para trabalhar com esses redirecionamentos. Utilize este artigo para configurar a sua implementação para aplicações com suporte para afirmações. 
@@ -55,7 +55,7 @@ Se todos os URLs internos para as suas aplicações são totalmente qualificado 
    ![Adicionar um ponto final - definir o valor de URL fidedigno - captura de ecrã](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Ativar o início de sessão único em](configure-single-sign-on-portal.md) para aplicativos que não são compatíveis com declarações
+* [Ativar o início de sessão único em](configure-single-sign-on-non-gallery-applications.md) para aplicativos que não são compatíveis com declarações
 * [Permitir que as aplicações de cliente nativo interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md)
 
 

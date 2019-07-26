@@ -83,7 +83,7 @@ As seguintes limitações aplicam-se para as regras CORS:
 * O comprimento de um cabeçalho permitido, cabeçalho exposto ou origem permitida não deve exceder os 256 carateres.
 * Cabeçalhos permitidos e cabeçalhos expostos podem-se a:
   * Cabeçalhos de literais, onde o nome de cabeçalho exata é fornecido, tal como **x-ms-meta-processados**. Um máximo de 64 cabeçalhos literais pode ser especificado no pedido.
-  * O prefixo cabeçalhos, onde um prefixo do cabeçalho é fornecido, tal como **x-ms-meta-dados***. Especificar um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos com prefixo pode ser especificado no pedido.
+  * O prefixo cabeçalhos, onde um prefixo do cabeçalho é fornecido, tal como **x-ms-meta-dados** *. Especificar um prefixo dessa maneira permite ou expõe qualquer cabeçalho que começa com o prefixo especificado. Um máximo de dois cabeçalhos com prefixo pode ser especificado no pedido.
 * Os métodos (ou verbos HTTP) especificado na **AllowedMethods** elemento tem de estar em conformidade com os métodos suportados pelo APIs de serviço de armazenamento do Azure. Métodos suportados são DELETE, GET, HEAD, MERGE, POST, opções e PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Compreender a lógica de avaliação da regra CORS

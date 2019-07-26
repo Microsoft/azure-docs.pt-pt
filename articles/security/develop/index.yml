@@ -34,6 +34,13 @@ sections:
             image:
               src: /media/common/i_learn-about.svg
             title: Desenvolva as suas competências com o Microsoft Learn
+  - title: Exemplos de aplicação seguros
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Aplicação Web num contentor do Linux</a>
   - title: Conceitos
     items:
       - type: list
