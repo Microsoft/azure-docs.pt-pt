@@ -7,7 +7,7 @@ metadata:
   description: 'Os Serviços de Voz permitem aos programadores adicionar com facilidade poderosas funcionalidades compatíveis com voz às aplicações. Os exemplos incluem o controlo e diálogo por comando de voz, conversa de discurso natural, transcrição e ditado de voz e tradução de voz.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service
@@ -285,7 +285,7 @@ sections:
               <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
           - title: PowerShell
             html: |
-              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+              <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">O Azure PowerShell</a></p>
           - title: CLI
             html: |
               <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>

@@ -1,39 +1,39 @@
 ---
-title: 'Início rápido: Criar um projeto de deteção de objeto com o SDK de visão personalizada para Go'
+title: 'Início rápido: Criar um projeto de detecção de objeto com o SDK do Visão Personalizada para go'
 titlesuffix: Azure Cognitive Services
-description: Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e detetar objetos usando o SDK do Go.
+description: Crie um projeto, adicione marcas, carregue imagens, treine seu projeto e detecte objetos usando o SDK do go.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: daauld
-ms.openlocfilehash: 8e31e2c053f7712843e48ebb40fb7280444480c4
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 500a8fcc4d218742b9f39834259e6a7a85ce14c2
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277601"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517213"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início rápido: Criar um projeto de deteção de objeto com o SDK de Go de visão personalizada
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>Início rápido: Criar um projeto de detecção de objeto com o SDK do Visão Personalizada go
 
-Este artigo fornece informações e código de exemplo para ajudá-lo a começar a utilizar o SDK de visão personalizada com o Go para criar um modelo de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição publicados do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo como modelo para criar a sua própria aplicação Go.
+Este artigo fornece informações e código de exemplo para ajudá-lo a começar a usar o SDK do Visão Personalizada com o Go para criar um modelo de detecção de objeto. Depois de criado, você pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão publicada do projeto e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo como um modelo para criar seu próprio aplicativo go.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Go 1.8 +](https://golang.org/doc/install)
+- [Ir para 1,8 +](https://golang.org/doc/install)
 
 ## <a name="install-the-custom-vision-sdk"></a>Instalar o SDK da Visão Personalizada
 
-Para instalar o serviço de visão personalizada SDK para Go, execute o seguinte comando no PowerShell:
+Para instalar o SDK do serviço de Visão Personalizada para o go, execute o seguinte comando no PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
 ```
 
-ou se usar `dep`, dentro do seu repositório, execute:
+ou, se você `dep`usar, em seu repositório, execute:
 ```shell
 dep ensure -add github.com/Azure/azure-sdk-for-go
 ```
@@ -44,7 +44,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 ## <a name="add-the-code"></a>Adicionar o código
 
-Crie um novo ficheiro chamado *Sample* no seu diretório de projeto preferencial.
+Crie um novo arquivo chamado *Sample. vá* em seu diretório de projeto preferencial.
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
 
@@ -96,7 +96,7 @@ func main() {
 
 ### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
-Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao final da *Sample*:
+Para criar marcas de classificação para seu projeto, adicione o seguinte código ao final do *exemplo. go*:
 
 ```Go
 # Make two tags in the new project
@@ -160,7 +160,7 @@ scissorsImageRegions := map[string][4]float64{
 Em seguida, utilize este mapa de associações para carregar cada imagem de exemplo com as suas coordenadas de região. Adicione o seguinte código.
 
 > [!NOTE]
-> Terá de alterar o caminho para as imagens com base em onde transferiu o projeto de exemplos de SDK Go Cognitive Services anteriormente.
+> Você precisará alterar o caminho para as imagens, de acordo com o local em que você baixou o projeto de exemplos do SDK de serviços cognitivas go anteriormente.
 
 ```Go
 // Go through the data table above and create the images
@@ -220,9 +220,9 @@ if (!*scissor_batch.IsBatchSuccessful) {
 }     
 ```
 
-### <a name="train-the-project-and-publish"></a>O projeto de formar e publicar
+### <a name="train-the-project-and-publish"></a>Treinar o projeto e publicar
 
-Este código cria a primeira iteração no projeto e, em seguida, publica iteração para o ponto final de predição. O nome para a iteração publicada pode ser utilizado para enviar pedidos de predição. Uma iteração não está disponível o ponto final de predição até que seja publicada.
+Esse código cria a primeira iteração no projeto e, em seguida, publica essa iteração no ponto de extremidade de previsão. O nome fornecido para a iteração publicada pode ser usado para enviar solicitações de previsão. Uma iteração não está disponível no ponto de extremidade de previsão até que seja publicada.
 
 ```go
 iteration, _ := trainer.TrainProject(ctx, *project.ID)
@@ -239,7 +239,7 @@ for {
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e utilizar a iteração publicada no ponto de final de predição
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto de extremidade de previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -267,7 +267,7 @@ Para enviar uma imagem para o ponto final de predição e obter a mesma, adicion
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute *Sample*.
+Execute o *exemplo. go*.
 
 ```shell
 go run sample.go

@@ -1,83 +1,83 @@
 ---
 title: Registo de diagnósticos
 titleSuffix: Azure Cognitive Services
-description: Este guia fornece instruções passo a passo para ativar o registo de diagnóstico para um serviço cognitivos do Azure. Estes registos fornecem dados avançados e frequentes sobre o funcionamento de um recurso que são utilizados para identificação de problemas e depuração.
+description: Este guia fornece instruções passo a passo para habilitar o log de diagnóstico para um serviço de cognitiva do Azure. Esses logs fornecem dados avançados e frequentes sobre a operação de um recurso que são usados para identificação e depuração de problemas.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 3be912f053bf206999546678e1e407548af181bf
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657686"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516361"
 ---
-# <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Ativar o registo de diagnóstico para os serviços cognitivos do Azure
+# <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitar o log de diagnóstico para serviços cognitivas do Azure
 
-Este guia fornece instruções passo a passo para ativar o registo de diagnóstico para um serviço cognitivos do Azure. Estes registos fornecem dados avançados e frequentes sobre o funcionamento de um recurso que são utilizados para identificação de problemas e depuração. Antes de continuar, tem de ter uma conta do Azure com uma subscrição, pelo menos, um serviço cognitivos, como [pesquisa Web Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [serviços de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview), ou [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
+Este guia fornece instruções passo a passo para habilitar o log de diagnóstico para um serviço de cognitiva do Azure. Esses logs fornecem dados avançados e frequentes sobre a operação de um recurso que são usados para identificação e depuração de problemas. Antes de continuar, você deve ter uma conta do Azure com uma assinatura para pelo menos um serviço cognitiva, como [pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)ou [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para ativar o registo de diagnósticos, será necessário em algum lugar para armazenar os dados de registo. Este tutorial utiliza o armazenamento do Azure e o Log Analytics.
+Para habilitar o log de diagnóstico, você precisará de algum lugar para armazenar os dados de log. Este tutorial usa o armazenamento do Azure e o Log Analytics.
 
-* [O armazenamento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) -mantém registos de diagnóstico para auditoria de política, análise estática ou cópia de segurança. A conta de armazenamento não tem de estar na mesma subscrição que o recurso emite os registos, desde que o utilizador que configura a definição possui acesso RBAC adequado para ambas as subscrições.
-* [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -uma ferramenta de análise e pesquisa de registo flexível que permite a análise de registos não processados gerados pelo recurso do Azure.
-
-> [!NOTE]
-> Opções de configuração adicionais estão disponíveis. Para obter mais informações, consulte [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
-
-## <a name="enable-diagnostic-log-collection"></a>Ativar a recolha de registo de diagnóstico  
-
-Vamos começar por ativar o diagnóstico de registo no portal do Azure.
+* [Armazenamento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – mantém os logs de diagnóstico para auditoria de política, análise estática ou backup. A conta de armazenamento não precisa estar na mesma assinatura que o recurso que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
+* [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) -uma ferramenta de análise e pesquisa de logs flexível que permite a análise de logs brutos gerados por um recurso do Azure.
 
 > [!NOTE]
-> Para ativar esta funcionalidade com o PowerShell ou a CLI do Azure, utilize as instruções fornecidas [recolher e consumir dados de registo dos seus recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Opções de configuração adicionais estão disponíveis. Para saber mais, consulte [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
-1. Navegue para o portal do Azure. Em seguida, localize e selecione um recurso dos serviços cognitivos. Por exemplo, a subscrição de pesquisa Web Bing.   
-2. Em seguida, no menu de navegação do lado esquerdo, localize **monitorização** e selecione **das definições de diagnóstico**. Este ecrã contém todas as definições de diagnóstico criadas anteriormente para este recurso.
-3. Se existir um recurso criado anteriormente que gostaria de utilizar, pode selecioná-lo agora. Caso contrário, selecione **+ Adicionar definição de diagnóstico**.
-4. Introduza um nome para a definição. Em seguida, selecione **arquivo para uma conta de armazenamento** e **enviar para o log Analytics**.
-5. Quando lhe for pedido para configurar, selecione a conta de armazenamento e a área de trabalho do OMS que pretende utilizar para armazenar os registos de diagnóstico. **Nota**: Se não tiver uma conta de armazenamento ou a área de trabalho do OMS, siga as instruções para criar um.
-6. Selecione **auditoria**, **operace RequestResponse**, e **AllMetrics**. Em seguida, defina o período de retenção para os seus dados de registo de diagnóstico. Se uma política de retenção é definida como zero, os eventos para essa categoria de registo são armazenados indefinidamente.
+## <a name="enable-diagnostic-log-collection"></a>Habilitar coleta de log de diagnóstico  
+
+Vamos começar habilitando o log de diagnóstico usando o portal do Azure.
+
+> [!NOTE]
+> Para habilitar esse recurso usando o PowerShell ou o CLI do Azure, use as instruções fornecidas em [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+
+1. Navegue até a portal do Azure. Em seguida, localize e selecione um recurso de serviços cognitivas. Por exemplo, sua assinatura para Pesquisa na Web do Bing.   
+2. Em seguida, no menu de navegação à esquerda, localize **monitoramento** e selecione **configurações de diagnóstico**. Esta tela contém todas as configurações de diagnóstico criadas anteriormente para esse recurso.
+3. Se houver um recurso criado anteriormente que você gostaria de usar, você poderá selecioná-lo agora. Caso contrário, selecione **+ Adicionar configuração de diagnóstico**.
+4. Insira um nome para a configuração. Em seguida, selecione **arquivar em uma conta de armazenamento** e **Enviar para o log Analytics**.
+5. Quando for solicitado a configurar, selecione a conta de armazenamento e o espaço de trabalho do OMS que você gostaria de usar para armazenar os logs de diagnóstico. **Nota**: Se você não tiver uma conta de armazenamento ou espaço de trabalho do OMS, siga os prompts para criar uma.
+6. Selecione **auditoria**, **RequestResponse**e biométricas. Em seguida, defina o período de retenção para seus dados de log de diagnóstico. Se uma política de retenção for definida como zero, os eventos dessa categoria de log serão armazenados indefinidamente.
 7. Clique em **Guardar**.
 
-Pode demorar até duas horas antes dos dados de registo estão disponíveis para consultar e analisar. Portanto, não se preocupe se não vir qualquer coisa imediatamente.
+Pode levar até duas horas antes que os dados de log estejam disponíveis para consulta e análise. Portanto, não se preocupe se não vir nada imediatamente.
 
-## <a name="view-and-export-diagnostic-data-from-azure-storage"></a>Ver e exportar dados de diagnóstico do armazenamento do Azure
+## <a name="view-and-export-diagnostic-data-from-azure-storage"></a>Exibir e exportar dados de diagnóstico do armazenamento do Azure
 
-Armazenamento do Azure é uma solução de armazenamento de objeto robusto que está otimizada para armazenar grandes quantidades de dados não estruturados. Nesta secção, irá aprender a consultar a sua conta de armazenamento para o total de transações durante um período de tempo de 30 dias e exportar dados para o excel.
+O armazenamento do Azure é uma solução de armazenamento de objetos robusta que é otimizada para armazenar grandes quantidades de dados não estruturados. Nesta seção, você aprenderá a consultar sua conta de armazenamento para obter as transações totais em um período de 30 dias e exportar os dados para o Excel.
 
-1. No portal do Azure, localize o recurso de armazenamento do Azure que criou na última secção.
-2. No menu de navegação do lado esquerdo, localize **monitorização** e selecione **métricas**.
-3. Utilize as listas pendentes disponíveis para configurar a sua consulta. Neste exemplo, vamos definir o intervalo de tempo **últimos 30 dias** e a métrica para **transação**.
-4. Quando a consulta estiver concluída, verá uma visualização de transação durante os últimos 30 dias. Para exportar estes dados, utilize o **exportar para Excel** botão na parte superior da página.
+1. No portal do Azure, localize o recurso de armazenamento do Azure que você criou na última seção.
+2. No menu de navegação à esquerda, localize **monitoramento** e selecione **métricas**.
+3. Use os menus suspensos disponíveis para configurar sua consulta. Para este exemplo, vamos definir o intervalo de tempo para os **últimos 30 dias** e a métrica para **Transaction**.
+4. Quando a consulta for concluída, você verá uma visualização da transação nos últimos 30 dias. Para exportar esses dados, use o botão **exportar para o Excel** localizado na parte superior da página.
 
-Saiba mais sobre o que pode fazer com dados de diagnóstico no [armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Saiba mais sobre o que você pode fazer com dados de diagnóstico no [armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
 
 ## <a name="view-logs-in-log-analytics"></a>Ver registos no Log Analytics
 
-Siga estas instruções para explorar dados do log analytics para o seu recurso.
+Siga estas instruções para explorar os dados do log Analytics para seu recurso.
 
-1. A partir do portal do Azure, localize e selecione **do Log Analytics** no menu de navegação do lado esquerdo.
-2. Localize e selecione o recurso que criou quando ativar os diagnósticos.
-3. Sob **gerais**, localize e selecione **registos**. Nesta página, pode executar consultas nos seus registos.
+1. Na portal do Azure, localize e selecione **log Analytics** no menu de navegação à esquerda.
+2. Localize e selecione o recurso que você criou ao habilitar o diagnóstico.
+3. Em **geral**, localize e selecione **logs**. Nessa página, você pode executar consultas em seus logs.
 
 ### <a name="sample-queries"></a>Amostras de consultas
 
-Aqui estão algumas consultas de Kusto básicas que pode usar para explorar os seus dados de registo.
+Aqui estão algumas consultas Kusto básicas que você pode usar para explorar os dados de log.
 
-Execute esta consulta para registos de diagnóstico de todos os serviços cognitivos do Azure durante um período de tempo especificado:
+Execute esta consulta para todos os logs de diagnóstico dos serviços cognitivas do Azure por um período de tempo especificado:
 
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES"
 ```
 
-Execute esta consulta para ver os registos mais recentes 10:
+Execute esta consulta para ver os 10 logs mais recentes:
 
 ```kusto
 AzureDiagnostics
@@ -85,14 +85,14 @@ AzureDiagnostics
 | take 10
 ```
 
-Executar esta consulta para as operações de grupo através da **recursos**:
+Execute esta consulta para agrupar operações por **recurso**:
 
 ```kusto
 AzureDiagnostics
 | where ResourceProvider == "MICROSOFT.COGNITIVESERVICES" |
 summarize count() by Resource
 ```
-Execute esta consulta para encontrar o tempo médio necessário para realizar uma operação:
+Execute esta consulta para localizar o tempo médio necessário para executar uma operação:
 
 ```kusto
 AzureDiagnostics
@@ -101,7 +101,7 @@ AzureDiagnostics
 by OperationName
 ```
 
-Execute esta consulta para ver o volume de operações ao longo do tempo dividir por OperationName com contagens de posicionado para cada 10s.
+Execute esta consulta para exibir o volume de operações ao longo do tempo dividido por OperationName com contagens compartimentalizados para cada 10s.
 
 ```kusto
 AzureDiagnostics
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para compreender como ativar o registo e também as categorias de métricas e registos que são suportadas por vários serviços do Azure, leia ambos os [descrição geral das métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) no Microsoft Azure e [descrição geral do Azure os registos de diagnóstico ](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) artigos.
+* Para entender como habilitar o registro em log e também as métricas e as categorias de log com suporte nos vários serviços do Azure, leia a [visão geral das métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) nos artigos Microsoft Azure e [visão geral dos logs de diagnóstico do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) .
 * Leia os seguintes artigos para saber mais sobre os hubs de eventos:
   * [O que é o Event Hubs do Azure?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
   * [Introdução ao Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
 * Leia [transferir registos de diagnóstico e métricas do armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
-* Leia [pesquisas de registos de compreender nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).
+* Leia [entender as pesquisas de log nos logs de Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).

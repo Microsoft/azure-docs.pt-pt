@@ -1,5 +1,5 @@
 ---
-title: Criar aplicativo Web Java no serviço Linux-Azure App
+title: Criar um aplicativo Web Java no serviço Linux-Azure App
 description: Neste início rápido, implemente o seu primeiro Hello World Java no Serviço de Aplicações do Azure no Linux, em apenas alguns minutos.
 keywords: Azure, serviço de aplicativo, aplicativo Web, Linux, Java, Maven, início rápido
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.custom: mvc, seo-java-july2019
+ms.openlocfilehash: f42cb361bbef028aa2e9afec87972a907c048a1b
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297247"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68514080"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início rápido: Criar um aplicativo Java no serviço de aplicativo no Linux
 
@@ -116,7 +116,7 @@ Confirm (Y/N)? : Y
 
 Navegue para `pom.xml` novamente para ver se a configuração do plug-in está atualizada, você pode modificar outras configurações do serviço de aplicativo diretamente em seu arquivo POM, se necessário, algumas comuns estão listadas abaixo:
 
- Propriedade | Necessário | Descrição | Version
+ Propriedade | Requerido | Descrição | Version
 ---|---|---|---
 `<schemaVersion>` | false | Especifique a versão do esquema de configuração. Os valores com suporte `v1`são `v2`:,. | 1.5.2
 `<resourceGroup>` | true | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0 +
@@ -150,7 +150,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 
 Este comando pode demorar alguns minutos a ser executado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicativo empresarial Java com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)

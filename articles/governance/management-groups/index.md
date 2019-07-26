@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237168"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516979"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -98,7 +98,7 @@ A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos
 |Leitor                      |        |        |        |        |               |               | X     |
 |Leitor MG*                  |        |        |        |        |               |               | X     |
 |Contribuidor de Política de Recursos |        |        |        |        |               | X             |       |
-|Administrador de Acesso de Utilizador   |        |        |        |        | X             |               |       |
+|Administrador de Acesso de Utilizador   |        |        |        |        | X             | X             |       |
 
 *: As funções de Contribuinte MG e Leitor MG apenas permitem aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
 **: As Atribuições de Funções no grupo de gestão de Raiz não são necessárias para mover uma subscrição ou um grupo de gestão de e para o grupo.  Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.

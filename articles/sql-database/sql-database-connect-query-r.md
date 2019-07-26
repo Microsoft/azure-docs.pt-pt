@@ -1,7 +1,7 @@
 ---
-title: Utilizar R para consultar a base de dados do Azure SQL
+title: Usar o R com Serviços de Machine Learning para consultar o banco de dados SQL do Azure
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Este artigo mostra-lhe como utilizar um script R para ligar a uma base de dados SQL do Azure e a consulta com instruções Transact-SQL.
+description: Este artigo mostra como usar um script R com o banco de dados SQL do Azure Serviços de Machine Learning para se conectar a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,16 +13,16 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: 1d4b17cf1e0349bf877c676cb4e591fc20ad4113
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416358"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514848"
 ---
-# <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Início rápido: Utilizar R para consultar uma base de dados SQL do Azure (pré-visualização)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Início rápido: Usar R com Serviços de Machine Learning para consultar um banco de dados SQL do Azure (versão prévia)
 
- Este início rápido demonstra como usar [R](https://www.r-project.org/) com Machine Learning Services para ligar a uma base de dados SQL do Azure e utilizar instruções Transact-SQL para consultar dados. Serviços de Machine Learning é um recurso do Azure SQL Database, utilizado para a execução de scripts do R na base de dados. Para obter mais informações, consulte [serviços do Azure SQL Database Machine Learning com R (pré-visualização)](sql-database-machine-learning-services-overview.md).
+Este guia de início rápido demonstra como usar o [R](https://www.r-project.org/) com o serviços de Machine Learning para se conectar a um banco de dados SQL do Azure e usar instruções TRANSACT-SQL para consultar o dado. Serviços de Machine Learning é um recurso do banco de dados SQL do Azure, usado para executar scripts R no banco de dados. Para obter mais informações, consulte [serviços de Machine Learning do banco de dados SQL do Azure com R (versão prévia)](sql-database-machine-learning-services-overview.md).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "66416358"
 
 Para concluir este início rápido, certifique-se de que tem o seguinte:
 
-- Uma base de dados SQL do Azure. Pode utilizar um dos seguintes inícios rápidos para criar e, em seguida, configurar uma base de dados na base de dados do Azure SQL:
+- Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
 <!-- Managed instance is not supported during the preview
   || Single database | Managed instance |
@@ -50,44 +50,44 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
   | Criar| [Portal](sql-database-single-database-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | Configurar | [regra de firewall do IP ao nível do servidor](sql-database-server-level-firewall-rule.md) |
-  | Carregar dados | A Adventure Works carregados por início rápido |
+  | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md) |
+  | Carregar dados | Adventure Works carregado por início rápido |
   |||
 
   > [!NOTE]
-  > Durante a pré-visualização do Azure SQL da base de dados dos serviços Machine Learning com R, a opção de implementação de instância gerida não é suportada.
+  > Durante a versão prévia do banco de dados SQL do Azure Serviços de Machine Learning com o R, não há suporte para a opção de implantação de instância gerenciada.
 
 <!-- Managed instance is not supported during the preview
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 -->
 
-- Serviços de Machine Learning (com R) ativado. Durante a pré-visualização pública, Microsoft irá carregar e ativar o machine learning para a base de dados nova ou existente. Siga os passos em [Inscreva-se na pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+- Serviços de Machine Learning (com R) habilitado. Durante a visualização pública, a Microsoft integrará você e habilitará o aprendizado de máquina para seu banco de dados novo ou existente. Siga as etapas em [inscrever-se para a versão prévia](sql-database-machine-learning-services-overview.md#signup).
 
-- A versão mais recente [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Pode executar scripts R com outro gestão de bases de dados ou ferramentas de consulta, mas este início rápido irá utilizar o SSMS.
+- O SSMS ( [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) mais recente). Você pode executar scripts do R usando outras ferramentas de consulta e gerenciamento de banco de dados, mas neste guia de início rápido você usará o SSMS.
 
-## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
+## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
-Obtenha as informações de ligação que tem de se ligar à base de dados SQL do Azure. Precisará do nome de servidor completamente qualificado ou nome de anfitrião, nome de base de dados e informações de início de sessão para os próximos procedimentos.
+Obtenha as informações de conexão necessárias para se conectar ao banco de dados SQL do Azure. Você precisará do nome do servidor totalmente qualificado ou nome do host, nome do banco de dados e informações de logon para os próximos procedimentos.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue para o **bases de dados SQL** ou **instâncias geridas SQL** página.
+2. Navegue até a página **bancos de dados SQL** ou **instâncias gerenciadas do SQL** .
 
-3. Sobre o **descrição geral** , reveja o nome de servidor completamente qualificado junto a **nome do servidor de** para uma base de dados ou o servidor completamente qualificado nome junto a **anfitrião** para um instância. Para copiar o nome do servidor ou o nome de anfitrião, coloque o cursor sobre ela e selecione o **cópia** ícone.
+3. Na página **visão geral** , examine o nome do servidor totalmente qualificado ao lado de **nome do servidor** para um único banco de dados ou o nome do servidor totalmente qualificado ao lado de **host** para uma instância gerenciada. Para copiar o nome do servidor ou o nome do host, passe o mouse sobre ele e selecione o ícone de **cópia** .
 
-## <a name="create-code-to-query-your-sql-database"></a>Criar código para consultar a base de dados SQL
+## <a name="create-code-to-query-your-sql-database"></a>Criar código para consultar seu banco de dados SQL
 
 1. Abra o **SQL Server Management Studio** e ligue à sua base de dados SQL.
 
-   Se precisar de ajuda com a ligação, veja [início rápido: Utilizar o SQL Server Management Studio para se ligar e consultar uma base de dados SQL do Azure](sql-database-connect-query-ssms.md).
+   Se precisar de ajuda para se conectar [, consulte início rápido: Use SQL Server Management Studio para se conectar e consultar um banco de](sql-database-connect-query-ssms.md)dados SQL do Azure.
 
-1. Passar o script R completo para o [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedimento armazenado.
+1. Passe o script R completo para o procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
 
-   O script é transmitido a `@script` argumento. Tudo dentro do `@script` argumento tem de ser um código de R válido.
+   O script é passado pelo `@script` argumento. Tudo dentro do `@script` argumento deve ser um código R válido.
    
    >[!IMPORTANT]
-   >O código neste exemplo utiliza os dados de AdventureWorksLT de exemplo, o que pode escolher como origem ao criar a sua base de dados. Se a sua base de dados tiver dados diferentes, utilize a consulta SELECT tabelas da sua própria base de dados. 
+   >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -97,17 +97,17 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
     ```
 
    > [!NOTE]
-   > Se receber um erro, poderá ser porque a pré-visualização pública do Machine Learning Services (com R) não está ativada para a sua Base de Dados SQL. Ver [pré-requisitos](#prerequisites) acima.
+   > Se receber um erro, poderá ser porque a pré-visualização pública do Machine Learning Services (com R) não está ativada para a sua Base de Dados SQL. Consulte [pré-requisitos](#prerequisites) acima.
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Executar o [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedimento armazenado.
+1. Execute o procedimento armazenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
 
-1. Certifique-se de que as linhas de categoria/produto 20 melhores são retornadas no **mensagens** janela.
+1. Verifique se as 20 principais linhas de categoria/produto são retornadas na janela **mensagens** .
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
-- [SQL do Azure da base de dados serviços de Machine Learning (com R)](sql-database-machine-learning-services-overview.md)
-- [Criar e executar scripts simples do R no SQL da base de dados serviços Azure Machine Learning (pré-visualização)](sql-database-quickstart-r-create-script.md)
-- [Escrever funções avançadas do R na base de dados do SQL Azure com serviços do Machine Learning (pré-visualização)](sql-database-machine-learning-services-functions.md)
+- [Serviços de Machine Learning do banco de dados SQL do Azure (com R)](sql-database-machine-learning-services-overview.md)
+- [Criar e executar scripts R simples no Serviços de Machine Learning do banco de dados SQL do Azure (versão prévia)](sql-database-quickstart-r-create-script.md)
+- [Escrever funções de R avançadas no banco de dados SQL do Azure usando Serviços de Machine Learning (versão prévia)](sql-database-machine-learning-services-functions.md)

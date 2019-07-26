@@ -6,7 +6,7 @@ metadata:
   description: Saiba como utilizar o Reconhecedor de Formato para extrair dados de chave-valor de forma inteligente dos seus documentos de formulário.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: forms-recognizer
   ms.tgt_pltfrm: na

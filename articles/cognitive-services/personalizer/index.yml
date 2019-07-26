@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizador – Tutoriais, Inícios Rápidos, Referência da API'
   description: 'Saiba como utilizar o serviço Personalizador para permitir que a sua aplicação escolha a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -57,6 +57,6 @@ sections:
           - title: APIs REST
             html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082">API do Personalizador</a></p>'
           - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">O Azure PowerShell</a></p>'
           - title: CLI
             html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI do Azure</a></p>'

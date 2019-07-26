@@ -6,7 +6,7 @@ metadata:
   description: Saiba como utilizar a Imagem Digitalizada para processar imagens e devolver informações. Os tutoriais mostram-lhe como criar aplicações que utilizam a API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: computer-vision
   ms.tgt_pltfrm: na

@@ -7,7 +7,7 @@ metadata:
   description: Saiba como utilizar a API de Pesquisa de Imagens do Bing para pesquisar imagens na Web.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-image-search
   ms.tgt_pltfrm: na

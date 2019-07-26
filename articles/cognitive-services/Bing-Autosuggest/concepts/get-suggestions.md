@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 1fc2311610dd45025ddb71cdf005a6e87381ee95
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 428756588152ff2c2deb2e3a123bcffc1cb605d7
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405395"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517040"
 ---
 # <a name="suggesting-query-terms"></a>Sugerir termos de consulta
 
@@ -55,6 +55,6 @@ O exemplo a seguir mostra uma caixa de pesquisa suspensa com os termos de consul
 
 Se o utilizador selecionar uma consulta sugerida na lista pendente, utilizará o termo de consulta no campo `query` para chamar a [API de Pesquisa na Web do Bing](../../bing-web-search/search-the-web.md) e apresentar os resultados. Em alternativa, pode utilizar o URL no campo `url` para direcionar o utilizador para a página de resultados da pesquisa do Bing.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o API de Sugestão Automática do Bing?](../get-suggested-search-terms.md)

@@ -6,7 +6,7 @@ metadata:
   title: 'Language Understanding (LUIS) - Tutoriais, Inícios Rápidos, Referência da API'
   description: Saiba como utilizar o serviço Language Understanding para que a sua aplicação compreenda o que uma pessoa quer nas suas próprias palavras.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -109,6 +109,6 @@ sections:
           - title: SDKs
             html: '<p><a href="https://aka.ms/luis-endpoint-sdk">SDK .NET Endpoint</a></p><p><a href="https://aka.ms/luis-authoring-sdk">SDK .NET Authoring</a></p>'
           - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">O Azure PowerShell</a></p>'
           - title: CLI
             html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI do Azure</a></p>'

@@ -7,7 +7,7 @@ metadata:
   description: 'Saiba como utilizar a API de Pesquisa na Web do Bing para pesquisar páginas Web, imagens, vídeos, notícias e muito mais na Web.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-web-search
   ms.tgt_pltfrm: na
