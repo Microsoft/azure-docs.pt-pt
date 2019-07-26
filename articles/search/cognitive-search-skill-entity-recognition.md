@@ -1,6 +1,6 @@
 ---
-title: Habilidade de pesquisa cognitiva de reconhecimento de entidade - Azure Search
-description: Extrair a diferentes tipos de entidades de texto num pipeline do Azure Search pesquisa cognitiva.
+title: Habilidades de pesquisa cognitiva de reconhecimento de entidade-Azure Search
+description: Extrair diferentes tipos de entidades do texto em um pipeline de pesquisa Azure Search cognitiva.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,40 +11,40 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f05161dbbfd9293cd7b1cbf447bb7ca1c313250c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ca3b953f84677c13908028af968d5a2bf28b57c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023451"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347742"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
+#    <a name="entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade
 
-O **reconhecimento de entidades** habilidade extrai entidades de diferentes tipos de texto. Essa habilidade usa os modelos de machine learning fornecidos pela [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos serviços cognitivos.
+A habilidade de **reconhecimento de entidade** extrai entidades de tipos diferentes do texto. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em serviços cognitivas.
 
 > [!NOTE]
-> Como expandir âmbito ao aumento da frequência de processamento, adicionar mais documentos ou adicionar mais algoritmos de IA, precisará [anexar um recurso dos serviços cognitivos cobrar](cognitive-search-attach-cognitive-services.md). Os encargos acumulam ao chamar APIs serviços cognitivos e para extração de imagem como parte da fase de aberturas de documentos no Azure Search. Não existem custos para extração de texto de documentos.
+> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
 >
-> Execução de habilidades internas é cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registo deve ser 50.000 carateres conforme medido pela `String.Length`. Se tiver de dividir os dados antes de os enviar para o extrator de expressões-chave, considere utilizar o [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o extrator de frases-chave, considere usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Parâmetros de habilidades
+## <a name="skill-parameters"></a>Parâmetros de habilidade
 
-Parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
+Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categories    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
-|defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `de, en, es, fr, it`|
-|minimumPrecision | Não utilizado. Reservado para utilização futura. |
-|includeTypelessEntities | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. 
-Estes são entidades que são bem conhecidas, mas não classificadas como parte das atuais suportadas "categorias". Por exemplo "Windows 10" é uma entidade bem conhecida (um produto), mas "Produtos" não estão nas categorias atualmente suportadas. A predefinição é `false` |
+| categorias    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"` `"Organization"`, ,,`"Quantity"`,, ,.`"Email"` `"URL"` `"Datetime"` Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
+|defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas:`de, en, es, fr, it`|
+|minimumPrecision | Não utilizado. Reservado para uso futuro. |
+|includeTypelessEntities | Quando definido como true se o texto contiver uma entidade bem conhecida, mas não puder ser Categorizado em uma das categorias com suporte, ele será retornado como parte do `"entities"` campo de saída complexo. 
+Essas são entidades que são bem conhecidas, mas não classificadas como parte das "categorias" com suporte atual. Por exemplo, "Windows 10" é uma entidade bem conhecida (um produto), mas "produtos" não estão nas categorias com suporte atualmente. O padrão é`false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -52,24 +52,24 @@ Estes são entidades que são bem conhecidas, mas não classificadas como parte 
 | Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
-| texto          | O texto a analisar.          |
+| text          | O texto a analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
-> Nem todas as categorias de entidade são suportadas para todos os idiomas. Apenas _en_, _es_ suporta a extração de `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"` tipos.
+> Nem todas as categorias de entidade têm suporte para todos os idiomas. Somente _en_, _es_ dão suporte à `"Quantity"`extração `"URL"`de `"Email"` tipos, `"Datetime"`,,.
 
-| Nome de saída     | Descrição                   |
+| Nome da saída     | Descrição                   |
 |---------------|-------------------------------|
-| pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa o nome de uma pessoa. |
-| locations  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma localização. |
-| organizações  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma organização. |
-| quantidades  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma quantidade. |
-| dateTimes  | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um DateTime (tal como aparece no texto) valor. |
-| urls | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa um URL |
-| mensagens de correio eletrónico | Uma matriz de cadeias de caracteres em que cada cadeia de caracteres representa uma mensagem de e-mail |
-| namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>category</li> <li>valor (o nome de entidade real)</li><li>deslocamento (localização onde foi encontrado no texto)</li><li>confiança (não utilizados por agora. Será definido como um valor de -1)</li></ul> |
-| Entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídos de texto, com os seguintes campos <ul><li> nome (o nome de entidade real. Isso representa um formulário de "normalizado")</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (uma ligação para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>Subtipo (disponível apenas para determinadas categorias, isso dá uma vista mais granular do tipo de entidade)</li><li> corresponde a (uma coleção complexa que contém)<ul><li>texto (o texto não processado para a entidade)</li><li>deslocamento (localização onde foi encontrado)</li><li>comprimento (o comprimento do texto de entidade não processados)</li></ul></li></ul> |
+| pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia representa o nome de uma pessoa. |
+| locations  | Uma matriz de cadeias de caracteres em que cada cadeia representa um local. |
+| organizações  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma organização. |
+| volumes  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma quantidade. |
+| dateTimes  | Uma matriz de cadeias de caracteres em que cada cadeia representa um DateTime (como aparece no valor de texto). |
+| URLs | Uma matriz de cadeias de caracteres em que cada cadeia representa uma URL |
+| e-mails | Uma matriz de cadeias de caracteres em que cada cadeia representa um email |
+| namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usada por enquanto. Será definido como um valor de-1)</li></ul> |
+| entidades | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídas do texto, com os campos a seguir <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipédiaid</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subtipo (disponível somente para determinadas categorias, isso fornece uma exibição mais granular do tipo de entidade)</li><li> corresponde (uma coleção complexa que contém)<ul><li>texto (o texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto da entidade)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 
@@ -192,9 +192,9 @@ Estes são entidades que são bem conhecidas, mas não classificadas como parte 
 
 
 ## <a name="error-cases"></a>Casos de erro
-Se o código de idioma para o documento não é suportado, é devolvido um erro e não existem entidades são extraídas.
+Se não houver suporte para o código de idioma do documento, um erro será retornado e nenhuma entidade será extraída.
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

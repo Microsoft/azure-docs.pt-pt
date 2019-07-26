@@ -10,12 +10,12 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: d57a65bd7c9e5eefdf35b53b210585001be8a2a8
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
-ms.translationtype: HT
+ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876771"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385457"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros para aplicativos lógicos
 
@@ -53,7 +53,7 @@ A primeira etapa é criar o aplicativo lógico e abrir o aplicativo no designer 
 
 Como vamos registrar o registro que sai do Dynamics CRM Online, vamos começar na parte superior. Devemos usar um gatilho de **solicitação** porque o aplicativo lógico pai dispara esse filho.
 
-### <a name="logic-app-trigger"></a>Gatilho de aplicativo lógico
+### <a name="logic-app-trigger"></a>Acionador da aplicação lógica
 
 Estamos usando um gatilho de **solicitação** , conforme mostrado no exemplo a seguir:
 
@@ -485,4 +485,4 @@ O código-fonte para o aplicativo de API de gerenciamento de exceções de aplic
 
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre como monitorar aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Criar modelos de implantação automatizados para aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

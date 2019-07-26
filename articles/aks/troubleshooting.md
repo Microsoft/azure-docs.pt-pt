@@ -1,132 +1,132 @@
 ---
-title: Resolver problemas comuns do serviço Kubernetes do Azure
-description: Saiba como resolver problemas comuns ao utilizar o Azure Kubernetes Service (AKS)
+title: Solucionar problemas comuns do serviço kubernetes do Azure
+description: Saiba como solucionar problemas comuns ao usar o serviço de kubernetes do Azure (AKS)
 services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966392"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381960"
 ---
-# <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
+# <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
-Quando criar ou gerir os clusters do Azure Kubernetes Service (AKS), ocasionalmente, poderá ter problemas. Este artigo fornece detalhes sobre alguns problemas comuns e passos de resolução de problemas.
+Ao criar ou gerenciar clusters do AKS (serviço kubernetes do Azure), ocasionalmente, você pode encontrar problemas. Este artigo fornece detalhes sobre alguns problemas comuns e etapas de solução de problemas.
 
-## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Em geral, onde posso encontrar informações sobre a depuração de problemas do Kubernetes?
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Em geral, onde encontro informações sobre a depuração de problemas do kubernetes?
 
-Experimente o [guia oficial para resolução de problemas de clusters do Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
-Há também uma [guia de resolução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), publicados por um engenheiro da Microsoft para resolução de problemas de pods, nós, clusters e outros recursos.
+Experimente o [guia oficial para solucionar problemas](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)de clusters do kubernetes.
+Há também um [Guia de solução de problemas](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), publicado por um engenheiro da Microsoft para solucionar problemas de pods, nós, clusters e outros recursos.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de "quota excedida" durante a criação ou atualização. O que devo fazer? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Estou recebendo um erro de "cota excedido" durante a criação ou a atualização. O que devo fazer? 
 
-Precisa [pedir núcleos](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Você precisa [solicitar núcleos](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>O que é a configuração máxima de pods por nó para o AKS?
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Qual é a configuração máxima de pods por nó para AKS?
 
-A configuração de pods por nó máxima é 30 por predefinição, se implementar um cluster do AKS no portal do Azure.
-A configuração de pods por nó máxima é 110 por predefinição, se implementar um cluster do AKS na CLI do Azure. (Certifique-se de que está a utilizar a versão mais recente da CLI do Azure). Essa configuração padrão pode ser alterada utilizando o `–-max-pods` sinalizar no `az aks create` comando.
+A configuração de pods máxima por nó será de 30 por padrão se você implantar um cluster AKS no portal do Azure.
+A configuração de pods máxima por nó será 110 por padrão se você implantar um cluster AKS no CLI do Azure. (Verifique se você está usando a versão mais recente do CLI do Azure). Essa configuração padrão pode ser alterada usando o `–-max-pods` sinalizador `az aks create` no comando.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo um erro de insufficientSubnetSize durante a implementação de um cluster do AKS com a rede avançada. O que devo fazer?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Estou recebendo um erro de insufficientSubnetSize ao implantar um cluster AKS com rede avançada. O que devo fazer?
 
-Se for utilizado CNI do Azure (sistema de rede avançado), o AKS preallocates IP resolvido com base no "max-pods" por nó configurado. O número de nós num cluster do AKS pode ser qualquer número entre 1 e 110. Com base nos pods máximos configurados por nó, o tamanho da sub-rede deve ser superior a "produto do número de nós e o pod máximo por nó". A equação básica seguinte descreve isto:
+Se o Azure CNI (rede avançada) for usado, o AKS prefixará o IP endereçado com base no "Max-pods" por nó configurado. O número de nós em um cluster AKS pode ser de qualquer lugar entre 1 e 110. Com base no máximo de pods configurado por nó, o tamanho da sub-rede deve ser maior que o "produto do número de nós e o Pod máximo por nó". A equação básica a seguir descreve isso:
 
-Tamanho da sub-rede > número de nós do cluster (levando em consideração os requisitos de dimensionamento futuros) * max pods por nó.
+O tamanho da sub-rede > número de nós no cluster (levando em consideração os requisitos de dimensionamento futuros) * máximo de pods por nó.
 
-Para obter mais informações, consulte [endereçamento IP planear para o seu cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+Para obter mais informações, consulte [planejar o endereçamento de IP para o cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Meu pod está bloqueada no modo de CrashLoopBackOff. O que devo fazer?
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Meu pod está preso no modo CrashLoopBackOff. O que devo fazer?
 
-Pode haver vários motivos para o pod bloqueados nesse modo. Procurar em:
+Pode haver vários motivos para o Pod estar preso nesse modo. Você pode examinar:
 
-* O pod em si, ao utilizar `kubectl describe pod <pod-name>`.
-* Os registos, utilizando `kubectl log <pod-name>`.
+* O próprio Pod, usando `kubectl describe pod <pod-name>`.
+* Os logs, usando `kubectl log <pod-name>`.
 
-Para obter mais informações sobre como solucionar problemas de pod, consulte [depurar aplicativos](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+Para obter mais informações sobre como solucionar problemas de Pod, consulte [depurar aplicativos](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou a tentar ativar o RBAC num cluster existente. Como posso fazer isso?
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estou tentando habilitar o RBAC em um cluster existente. Como posso fazer isso?
 
-Infelizmente, ativar o controlo de acesso baseado em funções (RBAC) em clusters existentes não é suportada neste momento. Tem de criar explicitamente novos clusters. Se utilizar a CLI, RBAC está ativado por predefinição. Se utilizar o portal do AKS, um botão de alternância para ativar o RBAC está disponível no fluxo de trabalho de criação.
+Infelizmente, não há suporte para habilitar o controle de acesso baseado em função (RBAC) em clusters existentes no momento. Você deve criar explicitamente novos clusters. Se você usar a CLI, o RBAC será habilitado por padrão. Se você usar o portal do AKS, um botão de alternância para habilitar o RBAC estará disponível no fluxo de trabalho de criação.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com RBAC ativado ao utilizar a CLI do Azure com as predefinições ou o portal do Azure e, agora posso ver muitos avisos no dashboard do Kubernetes. O dashboard utilizado para funcionar sem quaisquer avisos. O que devo fazer?
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Criei um cluster com o RBAC habilitado usando o CLI do Azure com os padrões ou o portal do Azure, e agora vejo muitos avisos no painel do kubernetes. O painel usado para funcionar sem avisos. O que devo fazer?
 
-O motivo para os avisos no dashboard é que o cluster está agora ativado com RBAC e acesso a ele foi desabilitado por predefinição. Em geral, essa abordagem é uma prática recomendada, uma vez que a exposição de predefinição do dashboard para todos os utilizadores do cluster pode levar a ameaças de segurança. Se pretender continuar a ativar o dashboard, siga os passos em [nesta mensagem de blogue](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+O motivo para os avisos no painel é que o cluster agora está habilitado com RBAC e o acesso a ele foi desabilitado por padrão. Em geral, essa abordagem é uma boa prática porque a exposição padrão do painel a todos os usuários do cluster pode levar a ameaças de segurança. Se você ainda quiser habilitar o painel, siga as etapas nesta postagem no [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo ligar ao dashboard. O que devo fazer?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Não consigo me conectar ao painel. O que devo fazer?
 
-A maneira mais fácil acesso ao seu serviço fora do cluster é executar `kubectl proxy`, quais solicitações de proxies enviados para a localhost a porta 8001 para o servidor de API do Kubernetes. A partir daí, o servidor de API pode proxy ao seu serviço: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+A maneira mais fácil de acessar o serviço fora do cluster é executar `kubectl proxy`, quais proxies são enviados para a porta localhost 8001 para o servidor de API kubernetes. A partir daí, o servidor de API pode fazer proxy para `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`seu serviço:.
 
-Se não vir o dashboard do Kubernetes, verifique se o `kube-proxy` pod está em execução `kube-system` espaço de nomes. Se não estiver num Estado de execução, elimine o pod e ele será reiniciado.
+Se você não vir o painel kubernetes, verifique se o `kube-proxy` Pod está em execução `kube-system` no namespace. Se não estiver em um estado de execução, exclua o pod e ele será reiniciado.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Eu não é possível obter os registos ao utilizar o kubectl registos ou não consigo ligar ao servidor de API. Estou a receber "erro do servidor: back-end de discagem de erro: marque o tcp...". O que devo fazer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter logs usando logs do kubectl ou não consigo me conectar ao servidor de API. Estou recebendo "erro do servidor: erro ao discar back-end: discar TCP...". O que devo fazer?
 
-Certifique-se de que o grupo de segurança de rede predefinido não é modificado e que a porta 22 está aberta para ligação ao servidor de API. Verifique se o `tunnelfront` pod está em execução *kube system* usando o espaço de nomes a `kubectl get pods --namespace kube-system` comando. Se não estiver, force a eliminação do pod e ele será reiniciado.
+Verifique se o grupo de segurança de rede padrão não foi modificado e se a porta 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se o `tunnelfront` Pod está em execução no namespace *Kube-System* usando o `kubectl get pods --namespace kube-system` comando. Se não estiver, force a exclusão do pod e ela será reiniciada.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Eu estou tentando atualizar ou dimensionar e estou recebendo uma "mensagem: Erro não é permitido alterar a propriedade 'imageReference' ". Como corrigir esse problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Estou tentando atualizar ou dimensionar e estou recebendo uma mensagem: Erro ao alterar a propriedade ' imageReference ' não é permitido. Como fazer corrigir esse problema?
 
-Poderá ser a obter este erro pois modificar as etiquetas em nós de agente dentro do cluster do AKS. Modificar e eliminar as etiquetas e outras propriedades de recursos no grupo de recursos MC_ * podem levar a resultados inesperados. Modificação de recursos sob o grupo MC_ * do AKS cluster divide o objetivo de nível de serviço (SLO).
+Você pode estar recebendo esse erro porque modificou as marcas nos nós de agente dentro do cluster AKS. Modificar e excluir marcas e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos no grupo MC_ * no cluster AKS interrompe o SLO (objetivo de nível de serviço).
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou a receber erros que meu cluster está no Estado com falhas e atualizar ou dimensionamento não funcionará até ser corrigido
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido
 
-*Esse recurso de resolução de problemas é direcionado a partir de https://aka.ms/aks-cluster-failed*
+*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-cluster-failed*
 
-Este erro ocorre quando clusters entrar num Estado com falhas por vários motivos. Siga os passos abaixo para resolver o seu estado de falha de cluster antes de repetir a operação que falhou anteriormente:
+Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
 
-1. Até que o cluster é de `failed` Estado, `upgrade` e `scale` operações não ter êxito. Problemas de raiz comuns e resoluções incluem:
-    * Dimensionar com **quota insuficiente de computação (CRP)** . Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga estes [aumentam de passos para pedir uma quota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
-    * Dimensionar um cluster com o advanced networking e **recursos de sub-rede insuficiente (redes)** . Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga [estas etapas para pedir uma quota de recursos aumentam](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
-2. Uma vez resolvida a causa da falha de atualização, o cluster deve estar num Estado com êxito. Depois de verificar um Estado com êxito, repita a operação original.
+1. Até que o cluster esteja fora `failed` do `upgrade` estado e `scale` as operações não tenham sucesso. As resoluções e problemas de raiz comuns incluem:
+    * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede)** insuficientes. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou a receber erros ao tentar fazer a atualização ou de escala que meu cluster de estado está a ser atualmente sendo atualizado ou falha na atualização
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar o estado em que meu cluster está sendo atualizado no momento ou com falha na atualização
 
-*Esse recurso de resolução de problemas é direcionado a partir de https://aka.ms/aks-pending-upgrade*
+*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-pending-upgrade*
 
-Operações de cluster estão limitadas quando ocorrem operações de atualização de Active Directory ou uma atualização foi tentada, mas, em seguida, falhou. Para diagnosticar o problema, execute `az aks show -g myResourceGroup -n myAKSCluster -o table` para obter o estado detalhado no seu cluster. Com base no resultado:
+As operações de cluster são limitadas quando as operações de atualização ativa estão ocorrendo ou uma tentativa de atualização foi tentada, mas subsequentemente falhou. Para diagnosticar a execução `az aks show -g myResourceGroup -n myAKSCluster -o table` do problema para recuperar o status detalhado no cluster. Com base no resultado:
 
-* Se o cluster é atualizar de forma ativa, aguarde até concluir a operação. Se tiver êxito, tente a operação que falhou anteriormente novamente.
-* Se a falha na atualização do cluster, siga os passos descritos acima
+* Se o cluster estiver sendo atualizado ativamente, aguarde até que a operação seja encerrada. Se tiver êxito, tente a operação anteriormente com falha novamente.
+* Se o cluster tiver falhado na atualização, siga as etapas descritas acima
 
-## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover o meu cluster para uma subscrição diferente ou a minha subscrição com o meu cluster para um novo inquilino?
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover meu cluster para uma assinatura diferente ou minha assinatura com meu cluster para um novo locatário?
 
-Se moveu o cluster do AKS para uma subscrição diferente ou o cluster de proprietário da subscrição para um novo inquilino, o cluster irá perder funcionalidades devido a direitos de principais de serviço e perdedora atribuições de funções. **AKS não suporta clusters movimentação entre subscrições ou inquilinos** devido a esta restrição.
+Se você moveu o cluster AKS para uma assinatura diferente ou o cluster que possui a assinatura para um novo locatário, o cluster perderá a funcionalidade devido à perda de atribuições de função e aos direitos de entidades de serviço. **AKs não dá suporte à movimentação de clusters entre assinaturas ou locatários** devido a essa restrição.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou a receber erros ao tentar utilizar funcionalidades que requerem conjuntos de dimensionamento de máquina virtual
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou recebendo erros ao tentar usar recursos que exigem conjuntos de dimensionamento de máquinas virtuais
 
-*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-vmss-ativação*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-vmss-enablement*
 
-Poderá receber erros que indicam que o cluster do AKS não se encontra num conjunto de dimensionamento de máquinas virtuais, como o exemplo seguinte:
+Você pode receber erros que indicam que o cluster AKS não está em um conjunto de dimensionamento de máquinas virtuais, como o exemplo a seguir:
 
-**AgentPool 'agentpool' definiu como ativada de dimensionamento automático, mas não está em conjuntos de dimensionamento de Máquina Virtual**
+**O AgentPool ' AgentPool ' definiu o dimensionamento automático como habilitado, mas não está em conjuntos de dimensionamento de máquinas virtuais**
 
-Para usar recursos como o dimensionamento automático de cluster ou nó de vários conjuntos, devem ser criados clusters do AKS que utilizam conjuntos de dimensionamento de máquina virtual. Se tentar usar funcionalidades que dependem de conjuntos de dimensionamento de máquina virtual e um cluster AKS do conjunto de dimensionamento regulares, a máquina de virtual de destino, são devolvidos erros. Suporte de conjunto de dimensionamento de máquina virtual está atualmente em pré-visualização no AKS.
+Para usar recursos como os pools de dimensionamento de vários nós ou do cluster, os clusters AKS devem ser criados para usar conjuntos de dimensionamento de máquinas virtuais. Os erros são retornados se você tentar usar recursos que dependem de conjuntos de dimensionamento de máquinas virtuais e você tiver como alvo um cluster AKS de conjunto de dimensionamento de máquinas não virtuais regular. O suporte ao conjunto de dimensionamento de máquinas virtuais está atualmente em visualização no AKS.
 
-Siga os *antes de começar* passos no documento apropriado para registrar corretamente para o dimensionamento de máquinas virtuais do conjunto de funcionalidades de pré-visualização e criar um cluster do AKS:
+Siga as etapas *antes de começar* no documento apropriado para se registrar corretamente na visualização do recurso do conjunto de dimensionamento de máquinas virtuais e criar um cluster AKs:
 
-* [Utilizar o dimensionamento automático de cluster](cluster-autoscaler.md)
-* [Criar e utilizar vários conjuntos de nós](use-multiple-node-pools.md)
+* [Usar o dimensionamento de cluster](cluster-autoscaler.md)
+* [Criar e usar vários pools de nós](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Que restrições de nomenclatura são impostas para recursos do AKS e parâmetros?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Quais restrições de nomenclatura são impostas para recursos e parâmetros AKS?
 
-*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-naming-regras*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-naming-rules*
 
-Restrições de nomenclatura são implementadas com a plataforma Azure e o AKS. Se um nome de recurso ou o parâmetro interromper uma destas restrições, é devolvido um erro que solicita a que fornecer uma entrada de diferente. As seguintes diretrizes de nomenclatura comuns aplicam-se:
+As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
-* O AKS *MC_* nome do grupo de recursos combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerado automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` deve ter mais de 80 carateres. Se for necessário, reduza o comprimento do seu nome de grupo de recursos ou o nome do cluster AKS.
-* O *dnsPrefix* deve começar e terminar com valores de alfanuméricos. Carateres válidos incluem valores de alfanuméricos e hífenes (-). O *dnsPrefix* não pode incluir carateres especiais, como um ponto (.).
+* O nome do grupo de recursos AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
+* O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, dimensionar, eliminar ou atualizar o cluster, o que a operação não é permitida porque está em curso outra operação.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
 
-*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-pendente-operação*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-pending-operation*
 
-Operações de cluster estão limitadas quando uma operação anterior ainda está em curso. Para obter um estado detalhado do seu cluster, utilize o `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Utilize o seu próprio grupo de recursos e o nome do cluster AKS conforme necessário.
+As operações de cluster são limitadas quando uma operação anterior ainda está em andamento. Para recuperar um status detalhado do cluster, use o `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Use seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
 
-Com base no resultado do Estado do cluster:
+Com base na saída do status do cluster:
 
-* Se o cluster está num Estado de aprovisionamento que *bem-sucedido* ou *com falhas*, esperar até a operação (*atualizar / atualizar / criar / dimensionamento / eliminar / migrar*) encerrado. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
+* Se o cluster estiver em qualquer estado de provisionamento diferente de *êxito* ou *falha*, aguarde até que a operação (*atualização/atualização/criação/dimensionamento/exclusão/migração*) seja encerrada. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
 
-* Se o cluster tem uma atualização falhada, siga os passos descritos [estou a receber erros que meu cluster está no Estado com falhas e atualizar ou dimensionamento não funcionará até ser corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Se o cluster tiver uma falha de atualização, siga as etapas descritas estou [recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

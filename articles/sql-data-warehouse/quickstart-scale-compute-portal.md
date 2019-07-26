@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Dimensionar a computação no Azure SQL Data Warehouse - portal do Azure | Documentos da Microsoft'
+title: 'Início rápido: Escalar horizontalmente a computação no Azure SQL Data Warehouse-portal do Azure | Microsoft Docs'
 description: Dimensionar a computação do Azure SQL Data Warehouse no portal do Azure. Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: jrasnick
-ms.openlocfilehash: b02259e2eaf497fb1bfefc4c1ed7611a22394d48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3e48cc57613b107e82cb0fbcb7d69aceb6cf0a
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475437"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479266"
 ---
-## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação do Azure SQL Data Warehouse no portal do Azure
+## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse no portal do Azure
 
 Dimensionar a computação do Azure SQL Data Warehouse no portal do Azure. [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
 
@@ -29,14 +29,14 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Pode dimensionar um armazém de dados que já tem, ou utilize [início rápido: criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados com o nome **mySampleDataWarehouse**.  Este início rápido dimensiona **mySampleDataWarehouse**.
+Você pode dimensionar um data warehouse que você já tem ou usar o [início rápido: criar e conectar – portal](create-data-warehouse-portal.md) para criar um data warehouse chamado **mySampleDataWarehouse**.  Este início rápido dimensiona **mySampleDataWarehouse**.
 
 >[!Note]
->O armazém de dados tem de estar online para dimensionamento. 
+>Seu data warehouse deve estar online para ser dimensionado. 
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
-Recursos de computação do SQL Data Warehouse podem ser dimensionados mediante aumenta ou reduz as unidades do data warehouse. O [criar e ligar - portal] quickstart(create-data-warehouse-portal.md) criada **mySampleDataWarehouse** e inicializou-o com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
+SQL Data Warehouse recursos de computação podem ser dimensionados aumentando ou diminuindo as unidades de data warehouse. O início rápido do [Create and Connect-portal] (Create-data-warehouse-portal.md) criou **mySampleDataWarehouse** e o inicializou com 400 DWUs. Os seguintes passos ajustam as DWUs para **mySampleDataWarehouse**.
 
 Para alterar as unidades do data warehouse:
 
@@ -56,8 +56,8 @@ Para alterar as unidades do data warehouse:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora já aprendeu a dimensionar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
+## <a name="next-steps"></a>Passos seguintes
+Agora você aprendeu a dimensionar a computação para seu data warehouse. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
 >[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

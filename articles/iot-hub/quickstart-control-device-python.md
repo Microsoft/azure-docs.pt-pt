@@ -10,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9c9b892f7d1f992210a18f2290bb199d12aeaf49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330501"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355020"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Início rápido: Controlar um dispositivo ligado a um IoT hub (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Início rápido: Controlar um dispositivo conectado a um hub IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -35,23 +35,23 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Python. Atualmente, os SDKs IoT do Microsoft Azure para Python suporta apenas as versões específicas do Python para cada plataforma. Para obter mais informações, consulte a [Leiame do SDK de Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Python. Atualmente, o Microsoft Azure SDKs do IoT para Python dão suporte apenas a versões específicas do Python para cada plataforma. Para saber mais, confira o Leiame do [SDK do Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Este guia de introdução pressupõe que está a utilizar uma máquina de desenvolvimento do Windows. Para sistemas Windows, só [Python 3.6.x](https://www.python.org/downloads/release/python-368/) é suportada. O instalador do Python que escolher deve basear-se na arquitetura do sistema com o qual está a trabalhar. Se o seu sistema de arquitetura de CPU é de 32 bits, em seguida, instalador de download x86; para a arquitetura de 64 bits, transfira o instalador de x86 64. Além disso, certifique-se de que o [Microsoft Visual C++ Redistributable para Visual Studio 2015, 2017 e 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) está instalado para a sua arquitetura (x86 ou x64).
+Este guia de início rápido pressupõe que você está usando um computador de desenvolvimento do Windows. Para sistemas Windows, há suporte apenas para [Python 3.6. x](https://www.python.org/downloads/release/python-368/) . O instalador do Python que escolher deve basear-se na arquitetura do sistema com o qual está a trabalhar. Se a arquitetura de CPU do sistema for de 32 bits, baixe o instalador x86; para a arquitetura de 64 bits, baixe o instalador x86-64. Além disso, verifique se o [Microsoft C++ Visual redistribuível para Visual Studio 2015, 2017 e 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) está instalado para sua arquitetura (x86 ou x64).
 
-Pode transferir o Python para outras plataformas partir [Python.org](https://www.python.org/downloads/).
+Você pode baixar o Python para outras plataformas do [Python.org](https://www.python.org/downloads/).
 
 Pode verificar qual a versão atual do Python no seu computador de desenvolvimento através de um dos seguintes comandos:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
-Execute o seguinte comando para adicionar a extensão de IoT do Microsoft Azure para a CLI do Azure à sua instância do Cloud Shell. A extensão de IOT adiciona comandos específicos de IoT Hub, o IoT Edge e o serviço aprovisionamento de dispositivos IoT (DPS) para a CLI do Azure.
+Execute o comando a seguir para adicionar a extensão de IoT Microsoft Azure para CLI do Azure à sua instância de Cloud Shell. A extensão de IOT adiciona comandos específicos do serviço de provisionamento de dispositivos IOT, IoT Edge e do Hub IoT a CLI do Azure.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -61,21 +61,21 @@ Se ainda não o fez, transfira o projeto Python de exemplo do https://github.com
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md), pode ignorar este passo.
+Se você concluiu o [início rápido anterior: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-python.md)IOT, você pode ignorar esta etapa.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
-Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-python.md), pode ignorar este passo.
+Se você concluiu o [início rápido anterior: Enviar telemetria de um dispositivo para um hub](quickstart-send-telemetry-python.md)IOT, você pode ignorar esta etapa.
 
 É necessário registar um dispositivo no hub IoT antes de o mesmo se poder ligar. Neste início rápido, vai utilizar o Azure Cloud Shell para registar um dispositivo simulado.
 
-1. Execute o seguinte comando no Azure Cloud Shell para criar a identidade de dispositivo.
+1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-    **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+    **Nomedoseuhubiot** : Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-    **MyPythonDevice** : Este é o nome fornecido para o dispositivo registado. Utilize MyPythonDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
+    **MyPythonDevice** : Este é o nome fornecido para o dispositivo registrado. Utilize MyPythonDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
@@ -83,7 +83,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-    **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
+    **Nomedoseuhubiot** : Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
@@ -97,7 +97,7 @@ Se concluiu o anterior [início rápido: Enviar telemetria a partir de um dispos
 
 3. Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-    **YourIoTHubName** : Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.
+    **Nomedoseuhubiot** : Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
@@ -172,11 +172,11 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, chamou um método direto num dispositivo a partir de uma aplicação back-end e respondeu a uma chamada de método direto numa aplicação de dispositivo simulado.
 
 Para saber como encaminhar mensagens do dispositivo para a cloud para diferentes destinos na cloud, avance para o tutorial seguinte.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Telemetria de rota para diferentes pontos de extremidade para processamento](tutorial-routing.md)
+> [Tutorial: Rotear telemetria para diferentes pontos de extremidade para processamento](tutorial-routing.md)

@@ -1,82 +1,81 @@
 ---
-title: Cópia de segurança do Azure, FAQ de alerta de monitorização
-description: 'Respostas a perguntas comuns sobre: O alerta de monitorização de cópia de segurança do Azure'
-services: backup
+title: Perguntas frequentes de alerta de monitoramento de backup do Azure
+description: 'Respostas para perguntas comuns sobre: O alerta de monitoramento do backup do Azure'
 author: srinathvasireddy
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: srinathv
-ms.openlocfilehash: bb684f65539b4429862b2dce0e378d8f659d2975
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: dc68b68ffa0ae2ee4f1bdd8f2c7ac0d7ff5ebb8c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705035"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465843"
 ---
-# <a name="azure-backup-monitoring-alert---faq"></a>Cópia de segurança do Azure alerta - FAQ de monitorização
-Este artigo responde a perguntas comuns sobre o alerta de monitorização do Azure.
+# <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
+Este artigo responde a perguntas comuns sobre o alerta de monitoramento do Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Como posso ver se os dados de relatórios foi iniciada a ser encaminhados para uma conta de armazenamento?
-Vá para a conta de armazenamento que configurou e selecionar contentores. Se o contentor tem uma entrada para insights-logs-azurebackupreport, ele indica que dados de relatórios foi iniciada a fluir.
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Como fazer verificar se os dados de relatório começaram a fluir para uma conta de armazenamento?
+Vá para a conta de armazenamento que você configurou e selecione contêineres. Se o contêiner tiver uma entrada para insights-logs-azurebackupreport, isso indica que os dados de relatório começaram a fluir.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>O que é a frequência de push de dados para uma conta de armazenamento e o pacote de conteúdos de cópia de segurança do Azure no Power BI?
-  Para os utilizadores de dia 0, demora cerca de 24 horas para enviar dados para uma conta de armazenamento. Após a conclusão deste push inicial, os dados são atualizados com frequência mostrada na figura a seguir.
+### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Qual é a frequência de envio de dados por push para uma conta de armazenamento e o pacote de conteúdo do backup do Azure no Power BI?
+  Para usuários do dia 0, leva cerca de 24 horas para enviar dados por push a uma conta de armazenamento. Após a conclusão desse Push inicial, os dados são atualizados com a frequência mostrada na figura a seguir.
 
-  * Dados relacionados com **trabalhos**, **alertas**, **itens de cópia de segurança**, **cofres**, **servidores protegidos**e  **Políticas** são emitidos via push para uma conta de armazenamento do cliente como e quando é registado.
+  * Os dados relacionados a **trabalhos**, **alertas**, **itens de backup**, **cofres**, **servidores protegidos**e **políticas** são enviados por push para uma conta de armazenamento de cliente como e quando são registrados.
 
-  * Dados relacionados com **armazenamento** são emitidos via push para uma conta de armazenamento do cliente a cada 24 horas.
+  * Os dados relacionados ao **armazenamento** são enviados por push para uma conta de armazenamento do cliente a cada 24 horas.
 
-       ![Frequência de push de dados de relatórios de cópia de segurança do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+       ![Frequência de envio de dados de relatórios de backup do Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
 
-  * O Power BI tem um [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Pode efetuar uma atualização manual dos dados no Power BI para o pacote de conteúdos.
+  * Power BI tem uma [atualização agendada uma vez por dia](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Você pode executar uma atualização manual dos dados em Power BI para o pacote de conteúdo.
 
-### <a name="how-long-can-i-retain-reports"></a>Quanto posso manter relatórios?
-Ao configurar uma conta de armazenamento, pode selecionar um período de retenção de dados do relatório na conta de armazenamento. Siga etapa 6 a [configurar a conta de armazenamento para relatórios](backup-azure-configure-reports.md#configure-storage-account-for-reports) secção. Também pode [analise relatórios no Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, com base nas suas necessidades.
+### <a name="how-long-can-i-retain-reports"></a>Por quanto tempo posso reter relatórios?
+Ao configurar uma conta de armazenamento, você pode selecionar um período de retenção para dados de relatório na conta de armazenamento. Siga a etapa 6 na seção [configurar conta de armazenamento para relatórios](backup-azure-configure-reports.md#configure-storage-account-for-reports) . Você também pode [analisar relatórios no Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) e salvá-los por um período de retenção mais longo, com base em suas necessidades.
 
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Irei ver todos os meus dados em relatórios depois de configurar a conta de armazenamento?
- Todos os dados gerados depois de configurar uma conta de armazenamento são emitidos via push para a conta de armazenamento e está disponíveis nos relatórios. Tarefas em curso não são enviados por push para relatórios. Depois da tarefa é concluída ou falha, ele é enviado para relatórios.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Eu verá todos os meus dados em relatórios depois de configurar a conta de armazenamento?
+ Todos os dados gerados após a configuração de uma conta de armazenamento são enviados por push para a conta de armazenamento e estão disponíveis em relatórios. Trabalhos em andamento não são enviados por push para relatórios. Depois que o trabalho for concluído ou falhar, ele será enviado aos relatórios.
 
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se eu já configurado a conta de armazenamento para ver relatórios, posso alterar a configuração para utilizar outra conta de armazenamento?
-Sim, pode alterar a configuração para apontar para uma conta de armazenamento diferente. Utilize a conta de armazenamento recentemente configurado enquanto se conectar ao pacote de conteúdos do Azure Backup. Além disso, após a configuração de uma conta de armazenamento diferentes, novos fluxos de dados nesta conta de armazenamento. Os dados mais antigos (antes de alterar a configuração) ainda permanecem na conta de armazenamento mais antiga.
+### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Se eu já configurei a conta de armazenamento para exibir relatórios, posso alterar a configuração para usar outra conta de armazenamento?
+Sim, você pode alterar a configuração para apontar para uma conta de armazenamento diferente. Use a conta de armazenamento recém configurada enquanto você se conecta ao pacote de conteúdo do backup do Azure. Além disso, após a configuração de uma conta de armazenamento diferente, novos fluxos de dados nessa conta de armazenamento. Os dados mais antigos (antes de alterar a configuração) ainda permanecem na conta de armazenamento mais antiga.
 
-### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Pode visualizar relatórios em cofres e subscrições?
-Sim, pode configurar a mesma conta de armazenamento em vários cofres para ver relatórios de cross-cofre. Além disso, pode configurar a mesma conta de armazenamento para cofres entre subscrições. Em seguida, pode utilizar esta conta de armazenamento enquanto se conectar ao pacote de conteúdos de cópia de segurança do Azure no Power BI para visualizar os relatórios. A conta de armazenamento selecionada tem de ser na mesma região que o Cofre de serviços de recuperação.
+### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso exibir relatórios em cofres e assinaturas?
+Sim, você pode configurar a mesma conta de armazenamento em vários cofres para exibir relatórios de cofres cruzados. Além disso, você pode configurar a mesma conta de armazenamento para cofres entre assinaturas. Em seguida, você pode usar essa conta de armazenamento enquanto se conecta ao pacote de conteúdo do backup do Azure no Power BI para exibir os relatórios. A conta de armazenamento selecionada deve estar na mesma região que o cofre dos serviços de recuperação.
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora para o estado da tarefa de agente de cópia de segurança do Azure refletir no portal?
-O portal do Azure pode demorar até 15 minutos para refletir o estado da tarefa de agente de cópia de segurança do Azure.
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para o status do trabalho do agente de backup do Azure refletir no portal?
+O portal do Azure pode levar até 15 minutos para refletir o status do trabalho do agente de backup do Azure.
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando uma tarefa de cópia de segurança falhar, o tempo que demora para emitir um alerta?
-Um alerta é gerado dentro de 20 minutos da falha de cópia de segurança do Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo leva para gerar um alerta?
+Um alerta é gerado dentro de 20 minutos da falha do backup do Azure.
 
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe um caso onde não ser enviado um e-mail se estiverem configuradas notificações?
-Sim. Nas seguintes situações, não são enviadas notificações.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
+Sim. Nas situações a seguir, as notificações não são enviadas.
 
-* Se as notificações estão configuradas por hora e um alerta for emitido e resolvido dentro da hora
-* Quando uma tarefa é cancelada
-* Se uma segunda tarefa de cópia de segurança falhar porque a tarefa de cópia de segurança original está em curso
+* Se as notificações estiverem configuradas por hora, e um alerta for gerado e resolvido dentro da hora
+* Quando um trabalho é cancelado
+* Se um segundo trabalho de backup falhar porque o trabalho de backup original está em andamento
 
 ## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo demora para o estado da tarefa de agente de cópia de segurança do Azure refletir no portal?
-O portal do Azure pode demorar até 15 minutos para refletir o estado da tarefa de agente de cópia de segurança do Azure.
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para o status do trabalho do agente de backup do Azure refletir no portal?
+O portal do Azure pode levar até 15 minutos para refletir o status do trabalho do agente de backup do Azure.
 
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando uma tarefa de cópia de segurança falhar, o tempo que demora para emitir um alerta?
-Um alerta é gerado dentro de 20 minutos da falha de cópia de segurança do Azure.
+### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo leva para gerar um alerta?
+Um alerta é gerado dentro de 20 minutos da falha do backup do Azure.
 
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Existe um caso onde não ser enviado um e-mail se estiverem configuradas notificações?
-Sim. Nas seguintes situações, não são enviadas notificações.
+### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
+Sim. Nas situações a seguir, as notificações não são enviadas.
 
-* Se as notificações estão configuradas por hora e um alerta for emitido e resolvido dentro da hora
-* Quando uma tarefa é cancelada
-* Se uma segunda tarefa de cópia de segurança falhar porque a tarefa de cópia de segurança original está em curso
+* Se as notificações estiverem configuradas por hora, e um alerta for gerado e resolvido dentro da hora
+* Quando um trabalho é cancelado
+* Se um segundo trabalho de backup falhar porque o trabalho de backup original está em andamento
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Leia as perguntas frequentes:
+Leia as outras perguntas frequentes:
 
-- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre cópias de segurança de VM do Azure.
-- [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente de cópia de segurança do Azure
+- [Perguntas comuns](backup-azure-vm-backup-faq.md) sobre backups de VM do Azure.
+- [Perguntas comuns](backup-azure-file-folder-backup-faq.md) sobre o agente de backup do Azure

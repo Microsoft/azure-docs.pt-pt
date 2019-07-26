@@ -1,6 +1,6 @@
 ---
-title: Acesso condicional para utilizadores de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
-description: A colaboração B2B do Active Directory do Azure suporta a autenticação multifator (MFA) para acesso seletivo às suas aplicações empresariais
+title: Acesso condicional para usuários de colaboração B2B-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory colaboração B2B dá suporte à autenticação multifator (MFA) para acesso seletivo aos seus aplicativos corporativos
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,40 +11,40 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c012ebfb00b57079e43b74b4f6570744db980860
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113164"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357128"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
+# <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para usuários de colaboração B2B
 
-## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticação multifator para utilizadores B2B
-Com a colaboração B2B do Azure AD, as organizações podem impor políticas de autenticação multifator (MFA) para utilizadores B2B. Estas políticas podem ser impostas no inquilino, a aplicação ou o nível de usuário individual, da mesma forma que eles estão ativados para funcionários a tempo inteiro e membros da organização. As políticas MFA são impostas na organização de recursos.
+## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticação multifator para usuários B2B
+Com a colaboração B2B do Azure AD, as organizações podem impor políticas de MFA (autenticação multifator) para usuários B2B. Essas políticas podem ser impostas no nível de locatário, aplicativo ou usuário individual, da mesma maneira que são habilitadas para funcionários e membros de tempo integral da organização. As políticas de MFA são impostas na organização de recursos.
 
 Exemplo:
-1. Trabalhador de informações ou administrador de empresa A convida utilizadores da empresa B para um aplicativo *Foo* na empresa A.
-2. Aplicativo *Foo* da empresa A está configurada para exigir a MFA no acesso.
-3. Quando o utilizador da empresa B tenta aceder à aplicação *Foo* na empresa um inquilino, é-lhes pedido para concluir um desafio MFA.
-4. O utilizador pode definir a respetiva MFA com a empresa e escolhe terão a opção de MFA.
-5. Esse cenário funciona para qualquer identidade (Azure AD ou MSA, por exemplo, se os utilizadores na empresa B autenticar com o ID de redes sociais)
-6. Empresa A tem de ter licenças suficientes do Premium do Azure AD que suportam a MFA. O utilizador da empresa B consome esta licença da empresa A.
+1. O administrador ou operador de informações na empresa A convida o usuário da empresa B para um aplicativo *foo* na empresa a.
+2. O aplicativo *foo* na empresa A é configurado para exigir MFA no acesso.
+3. Quando o usuário da empresa B tenta acessar o aplicativo *foo* no locatário da empresa a, ele é solicitado a concluir um desafio de MFA.
+4. O usuário pode configurar a MFA com a empresa A e escolhe sua opção de MFA.
+5. Esse cenário funciona para qualquer identidade (Azure AD ou MSA, por exemplo, se os usuários na empresa B autenticarem usando a ID social)
+6. A empresa A deve ter licenças Premium do Azure AD suficientes que dão suporte a MFA. O usuário da empresa B consome essa licença da empresa A.
 
-O inquilino de convite é responsável por MFA para os utilizadores da organização parceira, sempre, mesmo que a organização parceira tenha capacidades MFA.
+O aluguel de convite é sempre responsável pela MFA para usuários da organização parceira, mesmo que a organização parceira tenha recursos de MFA.
 
-### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configurar a MFA para utilizadores de colaboração B2B
-Para descobrir como é fácil configurar a MFA para utilizadores de colaboração B2B, consulte como no vídeo seguinte:
+### <a name="setting-up-mfa-for-b2b-collaboration-users"></a>Configurando a MFA para usuários de colaboração B2B
+Para descobrir como é fácil configurar a MFA para usuários de colaboração B2B, consulte como no vídeo a seguir:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
 
-### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Utilizadores B2B MFA experiência para oferecem resgate
-Confira a animação seguinte para ver o resgate experiência:
+### <a name="b2b-users-mfa-experience-for-offer-redemption"></a>Experiência de MFA de usuários B2B para resgate de oferta
+Confira a animação a seguir para ver a experiência de resgate:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
 
-### <a name="mfa-reset-for-b2b-collaboration-users"></a>MFA repor para utilizadores de colaboração B2B
-Atualmente, o administrador pode exigir utilizadores de colaboração do B2B para prova de cópia de segurança novamente apenas ao utilizar os seguintes cmdlets do PowerShell:
+### <a name="mfa-reset-for-b2b-collaboration-users"></a>Redefinição de MFA para usuários de colaboração B2B
+Atualmente, o administrador pode exigir que os usuários de colaboração B2B façam a verificação novamente somente usando os seguintes cmdlets do PowerShell:
 
 1. Ligar ao Azure AD
 
@@ -52,7 +52,7 @@ Atualmente, o administrador pode exigir utilizadores de colaboração do B2B par
    $cred = Get-Credential
    Connect-MsolService -Credential $cred
    ```
-2. Obter todos os utilizadores com prova de métodos
+2. Obter todos os usuários com métodos de verificação
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -63,47 +63,51 @@ Atualmente, o administrador pode exigir utilizadores de colaboração do B2B par
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
 
-3. Repor o método MFA de um utilizador específico exigir que o utilizador de colaboração do B2B definir métodos de verificação de segurança novamente. Exemplo:
+3. Redefina o método MFA de um usuário específico para exigir que o usuário de colaboração B2B defina os métodos de verificação novamente. Exemplo:
 
    ```
    Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
    ```
 
-### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Por que podemos executar MFA em inquilinos do recurso?
+### <a name="why-do-we-perform-mfa-at-the-resource-tenancy"></a>Por que executamos a MFA na locação de recursos?
 
-Na versão atual, o MFA está sempre em inquilinos de recursos, por motivos de previsibilidade. Por exemplo, vamos supor que um utilizador Contoso (Sally) é convidado a Fabrikam e Fabrikam tiver ativado a MFA para utilizadores B2B.
+Na versão atual, a MFA está sempre na locação de recursos, por motivos de previsibilidade. Por exemplo, digamos que um usuário da Contoso (Sally) seja convidado para a Fabrikam e a Fabrikam habilitou a MFA para usuários B2B.
 
-Se a Contoso tiver a política MFA ativada para App1, mas não App2, em seguida, se observarmos a afirmação de MFA de Contoso no token, poderá vemos o seguinte problema:
+Se a Contoso tiver a política de MFA habilitada para App1, mas não para App2, se olharmos a declaração de MFA da Contoso no token, poderemos ver o seguinte problema:
 
-* Dia 1: Um utilizador tiver a MFA na Contoso e está a aceder ao App1, em seguida, sem MFA adicional prompt é mostrado na Fabrikam.
+* Dia 1: Um usuário tem MFA na contoso e está acessando o App1; em seguida, nenhum prompt adicional do MFA é mostrado na Fabrikam.
 
-* Dia 2: O usuário acessa aplicação 2 na Contoso, portanto, agora ao aceder a Fabrikam, tem de se registar para MFA lá.
+* Dia 2: O usuário acessou o aplicativo 2 na contoso, portanto, agora, ao acessar a Fabrikam, ele deve se registrar para o MFA.
 
-Este processo pode ser confuso e poderia levar a remover o início de sessão conclusões.
+Esse processo pode ser confuso e pode levar a uma queda nas conclusões de entrada.
 
-Além disso, mesmo que a Contoso tem capacidade MFA, nem sempre é que o caso, a Fabrikam seria confiar a política da MFA de Contoso.
+Além disso, mesmo que a contoso tenha capacidade de MFA, nem sempre é o caso em que a Fabrikam confiaria na política de MFA da contoso.
 
-Por fim, o inquilino de recursos MFA também funciona para MSAs e identidades sociais e para organizações de parceiros que não têm MFA que configurar.
+Por fim, o MFA do locatário de recursos também funciona para MSAs e IDs sociais e para organizações de parceiros que não têm a MFA configurada.
 
-Portanto, a recomendação para a MFA para utilizadores B2B é sempre exigir a MFA no inquilino do convite. Este requisito pode levar a MFA duplo em alguns casos, mas sempre que aceder ao inquilino de convite, a experiência de usuários finais é previsível: Sally tem de registar para MFA ao inquilino de convite.
+Portanto, a recomendação para MFA para usuários B2B é sempre exigir MFA no locatário que está convidando. Esse requisito pode levar à MFA dupla em alguns casos, mas sempre que acessar o locatário que está convidando, a experiência dos usuários finais é previsível: Sally deve se registrar para MFA com o locatário que está convidando.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional com base no dispositivo, com base na localização e com base no risco para utilizadores B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Acesso condicional baseado no dispositivo, baseado no local e em risco para usuários B2B
 
-Quando Contoso permite que as políticas de acesso condicional com base no dispositivo para os seus dados empresariais, o acesso é impedido de dispositivos que não são geridos pela Contoso e não em conformidade com as políticas de dispositivos da Contoso.
+Quando a contoso habilita políticas de acesso condicional com base no dispositivo para seus dados corporativos, o acesso é impedido de dispositivos que não são gerenciados pela contoso e não são compatíveis com as políticas de dispositivo da contoso.
 
-Se o dispositivo do utilizador B2B não é gerido pelo Contoso, acesso de utilizadores B2B das organizações de parceiro é bloqueado no qualquer contexto que estas políticas são impostas. No entanto, a Contoso pode criar listas de exclusão que contém utilizadores de parceiros específicos para os excluir da política de acesso condicional com base no dispositivo.
+Se o dispositivo do usuário B2B não for gerenciado pela contoso, o acesso de usuários B2B das organizações parceiras será bloqueado em qualquer contexto em que essas políticas forem impostas. No entanto, a Contoso pode criar listas de exclusão que contenham usuários de parceiros específicos para excluí-las da política de acesso condicional com base no dispositivo.
 
-#### <a name="location-based-conditional-access-for-b2b"></a>Com base na localização de acesso condicional para B2B
+#### <a name="mobile-application-management-policies-for-b2b"></a>Políticas de gerenciamento de aplicativo móvel para B2B
 
-Políticas de acesso condicional com base na localização podem ser impostas para utilizadores B2B, se a organização que o convidou é capaz de criar um intervalo de endereços IP fidedigno que define suas organizações de parceiro.
+As políticas de proteção de aplicativo de acesso condicional não podem ser aplicadas a usuários B2B porque a organização que está convidando não tem visibilidade da organização inicial do usuário B2B.
 
-#### <a name="risk-based-conditional-access-for-b2b"></a>Acesso condicional com base no risco para B2B
+#### <a name="location-based-conditional-access-for-b2b"></a>Acesso condicional baseado em local para B2B
 
-Atualmente, não não possível aplicar políticas baseadas no risco de início de sessão para utilizadores B2B, porque a avaliação de risco é efetuada na organização da página principal do utilizador B2B.
+As políticas de acesso condicional com base no local podem ser impostas para usuários B2B se a organização que convida for capaz de criar um intervalo de endereços IP confiável que define suas organizações parceiras.
+
+#### <a name="risk-based-conditional-access-for-b2b"></a>Acesso condicional com base em risco para B2B
+
+Atualmente, as políticas de entrada baseadas em risco não podem ser aplicadas a usuários B2B porque a avaliação de risco é realizada na organização inicial do usuário B2B.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja os artigos seguintes na colaboração B2B do Azure AD:
+Consulte os seguintes artigos sobre a colaboração B2B do Azure AD:
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Licenciamento de colaboração B2B do Azure AD](licensing-guidance.md)

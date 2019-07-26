@@ -1,7 +1,7 @@
 ---
-title: Gerir funções numa área de trabalho do Azure Machine Learning
+title: Gerenciar funções em um espaço de trabalho Azure Machine Learning
 titleSuffix: Azure Machine Learning service
-description: Saiba como aceder a uma área de trabalho de serviço do Azure Machine Learning com o controlo de acesso baseado em funções (RBAC).
+description: Saiba como acessar um espaço de trabalho de serviço do Azure Machine Learning usando o RBAC (controle de acesso baseado em função).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,48 +11,48 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4a5723b2ffbd34fd7cf022bf747b4504b3bdac53
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 0f28397717d5c89e5a5bcd5e7bdc17b4feb49577
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797664"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467982"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
 
-Neste artigo, irá aprender a gerir o acesso a uma área de trabalho do Azure Machine Learning. [Controlo de acesso baseado em funções (RBAC)](/azure/role-based-access-control/overview) é utilizado para gerir o acesso aos recursos do Azure. Os utilizadores no Azure Active Directory são atribuídos a funções específicas, o qual concedem acesso a recursos. O Azure fornece funções incorporadas e a capacidade de criar funções personalizadas.
+Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [RBAC (controle de acesso baseado em função)](/azure/role-based-access-control/overview) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
 
-## <a name="default-roles"></a>Funções predefinidas
+## <a name="default-roles"></a>Funções padrão
 
-Uma área de trabalho do Azure Machine Learning é um recurso do Azure. Como os outros recursos do Azure, quando é criada uma nova área de trabalho do Azure Machine Learning, ele vem com três funções padrão. Pode adicionar utilizadores à área de trabalho e atribuí-las a uma destas funções incorporadas.
+Um espaço de trabalho Azure Machine Learning é um recurso do Azure. Assim como outros recursos do Azure, quando um novo espaço de trabalho Azure Machine Learning é criado, ele vem com três funções padrão. Você pode adicionar usuários ao espaço de trabalho e atribuí-los a uma dessas funções internas.
 
 | Role | Nível de acesso |
 | --- | --- |
-| **Leitor** | Ações de só de leitura na área de trabalho. Os leitores podem listar e ver ativos na área de trabalho, mas não é possível criar ou atualizar estes recursos. |
-| **Contribuidor** | Ver, criar, editar ou eliminar (quando aplicável) ativos numa área de trabalho. Por exemplo, os contribuintes podem criar uma experimentação, criar ou anexar um cluster de cálculo, submeter uma execução e implementar um serviço web. |
-| **Proprietário** | Acesso total a área de trabalho, incluindo a capacidade de ver, criar, editar ou eliminar (quando aplicável) ativos numa área de trabalho. Além disso, pode alterar as atribuições de funções. |
+| **Leitor** | Ações somente leitura no espaço de trabalho. Os leitores podem listar e exibir ativos em um espaço de trabalho, mas não podem criar ou atualizar esses ativos. |
+| **Contribuidor** | Exiba, crie, edite ou exclua (onde aplicável) ativos em um espaço de trabalho. Por exemplo, os colaboradores podem criar um experimento, criar ou anexar um cluster de computação, enviar uma execução e implantar um serviço Web. |
+| **Proprietário** | Acesso completo ao espaço de trabalho, incluindo a capacidade de exibir, criar, editar ou excluir ativos (onde aplicável) em um espaço de trabalho. Além disso, você pode alterar as atribuições de função. |
 
 > [!IMPORTANT]
-> Acesso de função pode ser confinado a vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a uma área de trabalho pode não ter acesso de proprietário para o grupo de recursos que contém a área de trabalho. Para obter mais informações, consulte [funciona como o RBAC](/azure/role-based-access-control/overview#how-rbac-works).
+> O acesso à função pode ser definido para vários níveis no Azure. Por exemplo, alguém com acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Para obter mais informações, consulte [como o RBAC funciona](/azure/role-based-access-control/overview#how-rbac-works).
 
-Para obter mais informações sobre as funções incorporadas específicas, consulte [funções incorporadas para o Azure](/azure/role-based-access-control/built-in-roles).
+Para obter mais informações sobre funções internas específicas, consulte [funções internas do Azure](/azure/role-based-access-control/built-in-roles).
 
-## <a name="manage-workspace-access"></a>Gerir o acesso de área de trabalho
+## <a name="manage-workspace-access"></a>Gerenciar o acesso ao espaço de trabalho
 
-Se for um proprietário de uma área de trabalho, pode adicionar e remover funções para a área de trabalho. Também pode atribuir funções a utilizadores. Utilize as seguintes ligações para saber como gerir o acesso:
-- [Portal do Azure da interface do Usuário](/azure/role-based-access-control/role-assignments-portal)
+Se você for um proprietário de um espaço de trabalho, poderá adicionar e remover funções para o espaço de trabalho. Você também pode atribuir funções a usuários. Use os links a seguir para descobrir como gerenciar o acesso:
+- [Interface do usuário do portal do Azure](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
+- [Modelos de Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
-Se tiver instalado o [da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), também pode utilizar comandos da CLI para atribuir funções a utilizadores.
+Se você instalou a [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md), também poderá usar um comando da CLI para atribuir funções aos usuários.
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-O `user` campo é o endereço de e-mail de um utilizador existente na instância do Azure Active Directory onde reside a subscrição de principal de área de trabalho. Eis um exemplo de como utilizar este comando:
+O `user` campo é o endereço de email de um usuário existente na instância do Azure Active Directory em que a assinatura pai do espaço de trabalho reside. Aqui está um exemplo de como usar este comando:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -60,12 +60,12 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="create-custom-role"></a>Criar função personalizada
 
-Se as funções incorporadas não são suficientes, pode criar funções personalizadas. Funções personalizadas podem ter ler, escrever, eliminar e permissões de recursos nessa área de trabalho de computação. Pode disponibilizar a função num nível de área de trabalho específica, um nível de grupo de recursos específico ou um nível de subscrição específica.
+Se as funções internas forem insuficientes, você poderá criar funções personalizadas. As funções personalizadas podem ter permissões de recurso de leitura, gravação, exclusão e computação nesse espaço de trabalho. Você pode tornar a função disponível em um nível de espaço de trabalho específico, um nível de grupo de recursos específico ou um nível de assinatura específico.
 
 > [!NOTE]
-> Tem de ser um proprietário do recurso nesse nível para criar funções personalizadas dentro desse recurso.
+> Você deve ser um proprietário do recurso nesse nível para criar funções personalizadas dentro desse recurso.
 
-Para criar uma função personalizada, primeiro construa um ficheiro JSON de definição de função que especifica a permissão e o âmbito para a função. O exemplo seguinte define uma função personalizada com o nome "Cientista de dados" no escopo num nível de área de trabalho específica:
+Para criar uma função personalizada, primeiro Construa um arquivo JSON de definição de função que especifique a permissão e o escopo para a função. O exemplo a seguir define uma função personalizada denominada "cientista de dados" com escopo em um nível de espaço de trabalho específico:
 
 `data_scientist_role.json` :
 ```json
@@ -86,25 +86,25 @@ Para criar uma função personalizada, primeiro construa um ficheiro JSON de def
 }
 ```
 
-Pode alterar o `AssignableScopes` campo para definir o âmbito desta função personalizada ao nível da subscrição, a nível do grupo de recursos ou um nível de área de trabalho específica.
+Você pode alterar o `AssignableScopes` campo para definir o escopo dessa função personalizada no nível da assinatura, no nível do grupo de recursos ou em um nível de espaço de trabalho específico.
 
-Esta função personalizada pode fazer tudo na área de trabalho, exceto as seguintes ações:
+Essa função personalizada pode fazer tudo no espaço de trabalho, exceto pelas seguintes ações:
 
-- Ela não é possível criar ou atualizar um recurso de computação.
-- Ele não é possível eliminar um recurso de computação.
-- Não é possível adicionar, eliminar ou alterar as atribuições de funções.
-- Ele não é possível eliminar a área de trabalho.
+- Ele não pode criar ou atualizar um recurso de computação.
+- Ele não pode excluir um recurso de computação.
+- Ele não pode adicionar, excluir ou alterar atribuições de função.
+- Ele não pode excluir o espaço de trabalho.
 
-Para implementar esta função personalizada, utilize o seguinte comando da CLI do Azure:
+Para implantar essa função personalizada, use o seguinte comando de CLI do Azure:
 
 ```azurecli-interactive 
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Após a implementação, esta função fica disponível na área de trabalho especificada. Agora pode adicionar e atribuir esta função no portal do Azure. Em alternativa, pode atribuir esta função a um utilizador, utilizando o `az ml workspace share` comando da CLI:
+Após a implantação, essa função fica disponível no espaço de trabalho especificado. Agora você pode adicionar e atribuir essa função no portal do Azure. Ou, você pode atribuir essa função a um usuário usando o comando `az ml workspace share` da CLI:
 
 ```azurecli-interactive
-az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
 
@@ -112,6 +112,6 @@ Para obter mais informações, consulte [funções personalizadas para recursos 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Descrição geral da segurança da empresa](concept-enterprise-security.md)
-- [Executar com segurança experimentações e inferência de tipos/pontuação numa rede virtual](how-to-enable-virtual-network.md)
-- [Tutorial: Preparação de modelos](tutorial-train-models-with-aml.md)
+- [Visão geral de segurança corporativa](concept-enterprise-security.md)
+- [Executar experimentos e inferência/Pontuação com segurança dentro de uma rede virtual](how-to-enable-virtual-network.md)
+- [Tutorial: Treinar modelos](tutorial-train-models-with-aml.md)

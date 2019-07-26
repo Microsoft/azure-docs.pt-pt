@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Domain Services: Ativar a sincronização de palavra-passe | Documentos da Microsoft'
+title: 'Azure AD Domain Services: Habilitar a sincronização de senha | Microsoft Docs'
 description: Introdução aos Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: e252774d99eecac3623fcbae4ce9fdc0e1591672
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 3ea4ebe652679ee9e4c0a165493fa86756ca7868
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67474098"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494559"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de palavras-passe para o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de credenciais necessários para a autenticação NTLM (NT LAN Manager) e Kerberos para sincronizar com os Serviços de Domínio do Azure AD. Assim que a sincronização de credenciais estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -41,7 +41,7 @@ Os passos envolvidos são diferentes para contas de utilizador apenas na cloud v
 Um inquilino do Azure AD sincronizado é definido para sincronizar com o diretório local da sua organização com o Azure AD Connect. Por predefinição, o Azure AD Connect não faz a sincronização de hashes de credenciais NTLM e Kerberos com o Azure AD. Para utilizar os Serviços de Domínio do Azure AD, tem de configurar o Azure AD Connect para sincronizar os hashes de credenciais necessários para a autenticação NTLM e Kerberos. Os passos seguintes ativam a sincronização dos hashes de credenciais necessários do seu diretório no local com o seu inquilino do Azure AD.
 
 > [!NOTE]
-> **Se a organização tiver contas de utilizador que são sincronizadas a partir do seu diretório no local, tem de ativar a sincronização de hashes NTLM e Kerberos para poder utilizar o domínio gerido.** Uma conta de utilizador sincronizada é uma conta que foi criada no seu diretório no local e está sincronizada com o seu inquilino do Azure AD através do Azure AD Connect.
+> **Se a organização tiver contas de utilizador que são sincronizadas a partir do seu diretório no local, tem de ativar a sincronização de hashes NTLM e Kerberos para poder utilizar o domínio gerido.** Uma conta de utilizador sincronizada é uma conta que foi criada no seu diretório no local e está sincronizada com o seu inquilino do Azure AD através do Azure AD Connect.  A sincronização de hash de senha é um processo diferente da sincronização de usuário/objeto. Você precisa desabilitar/habilitar a sincronização de hash de senha para obter a sincronização de senha completa e, em seguida, verá as atualizações de hash de senha do lote no log de eventos do aplicativo.
 >
 >
 
@@ -50,7 +50,7 @@ Instale a versão mais recente recomendada do Azure AD Connect num computador as
 
 **[Transferir o Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Versão recomendada: **1.1.614.0** - publicada em 5 de Setembro de 2017.
+Versão recomendada: **1.1.614.0** – publicado em 5 de setembro de 2017.
 
 > [!WARNING]
 > TEM de instalar a versão mais recente recomendada do Azure AD Connect para permitir que as credenciais de palavra-passe legadas (necessárias para a autenticação NTLM e Kerberos) sejam sincronizadas com o seu inquilino do Azure AD. Esta funcionalidade não está disponível em versões anteriores do Azure AD Connect ou com a ferramenta DirSync legada.
@@ -78,8 +78,11 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Dependendo do tamanho do seu diretório (número de utilizadores, grupos, etc.), a sincronização de credenciais com o Azure AD é demorada. As palavras-passe poderão ser usadas no domínio gerido dos Serviços de Domínio do Azure AD pouco tempo depois dos hashes de credencial serem sincronizados para o Azure AD.
 
+> [!NOTE]
+> A **sincronização de hash de senha** é um processo diferente da sincronização de usuário/objeto. Você precisa desabilitar/habilitar a sincronização de hash de senha para obter a sincronização de senha completa e, em seguida, verá as atualizações de hash de senha do lote no log de eventos do aplicativo.
+
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Ativar a sincronização de palavras-passe para os Serviços de Domínio do AAD para um diretório do Azure AD apenas na nuvem](active-directory-ds-getting-started-password-sync.md)
-* [Gerir um domínio do Azure AD Domain Services](manage-domain.md)
+* [Gerenciar um domínio de Azure AD Domain Services](manage-domain.md)
 * [Associar uma máquina virtual do Windows a um domínio gerido dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Associar uma máquina virtual do Red Hat Enterprise Linux a um domínio gerido dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

@@ -1,20 +1,20 @@
 ---
-title: FAQ de WAN Virtual do Azure | Documentos da Microsoft
-description: FAQ sobre a Virtual WAN
+title: Perguntas frequentes sobre a WAN virtual do Azure | Microsoft Docs
+description: Perguntas frequentes sobre WAN virtual
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
-ms.openlocfilehash: cdb4a7ff76ce9d2f5efee2d37cc4d678a1dd81a0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e586f188979b8db349d4f43f6a826ba345ce3775
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077481"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444553"
 ---
-# <a name="virtual-wan-faq"></a>FAQ de WAN virtual
+# <a name="virtual-wan-faq"></a>Perguntas frequentes sobre WAN virtual
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]

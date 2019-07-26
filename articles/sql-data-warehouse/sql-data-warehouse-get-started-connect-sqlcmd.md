@@ -1,8 +1,8 @@
 ---
 title: Ligar ao Azure SQL Data Warehouse sqlcmd | Microsoft Docs
-description: Utilize o utilitário sqlcmd de linha de comando para ligar e consultar um Azure SQL Data Warehouse.
+description: Use o utilitário de linha de comando sqlcmd para se conectar e consultar um SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 72760c5123703a664695c1be4d286a38e96ecc3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b93660fb9f8f3b0bfdddc37105b9e998ed9eee
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873327"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479508"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Ligar ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
@@ -27,19 +27,19 @@ ms.locfileid: "65873327"
 > 
 > 
 
-Utilize o utilitário de linha de comandos [sqlcmd][sqlcmd] para ligar e consultar um Azure SQL Data Warehouse.  
+Use o utilitário de linha de comando [sqlcmd][sqlcmd] para se conectar e consultar um SQL data warehouse do Azure.  
 
 ## <a name="1-connect"></a>1. Ligar
 Para começar a utilizar o [sqlcmd][sqlcmd], abra a linha de comandos e escreva **sqlcmd**, seguido da cadeia de ligação da sua base de dados SQL Data Warehouse. A cadeia de ligação requer os parâmetros seguintes:
 
-* **Servidor (-S):** Servidor sob a forma `<`nome do servidor`>`. database.windows.net
-* **Base de dados (-1!d):** Nome da base de dados.
-* **Enable Quoted identificadores (-Me):** Identificadores delimitados por aspas tem de estar ativadas para ligar a uma instância do SQL Data Warehouse.
+* **Servidor (-S):** Servidor na forma `<`nome`>`do servidor. Database.Windows.net
+* **Banco de dados (-d):** Nome do banco de dados.
+* **Habilitar identificadores entre aspas (-I):** Identificadores entre aspas devem ser habilitados para se conectar a uma instância de SQL Data Warehouse.
 
 Para utilizar a Autenticação do SQL Server tem de adicionar os parâmetros de nome de utilizador/palavra-passe:
 
-* **Utilizador (-U):** Utilizador do servidor sob a forma `<`utilizador`>`
-* **Palavra-passe (-P):** Palavra-passe associado ao utilizador.
+* **Usuário (-U):** Usuário do servidor no formulário `<`usuário`>`
+* **Senha (-P):** Senha associada ao usuário.
 
 Por exemplo, a cadeia de ligação poderá ter o seguinte aspeto:
 
@@ -83,7 +83,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Veja a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
+Consulte a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as opções disponíveis no sqlcmd.
 
 <!--Image references-->
 

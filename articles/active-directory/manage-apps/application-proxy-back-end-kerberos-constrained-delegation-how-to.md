@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações | Documentos da Microsoft
+title: Solucionar problemas de configurações de delegação restrita de Kerberos para o proxy de aplicativo | Microsoft Docs
 description: Resolver problemas de configurações de delegação restrita de Kerberos para o Proxy de aplicações
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c758b473dcdf36456bcc3569c18849488ad14983
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702647"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381517"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Resolver problemas de configurações de delegação restringida de Kerberos para o Proxy de aplicações
 
@@ -46,7 +46,7 @@ Por esse motivo, é melhor para se certificar de que cumpriu todos os pré-requi
 
 - Não é incomum para um servidor de membro de domínio abrir uma caixa de diálogo de canal seguro com um controlador de domínio específico (DC). Em seguida, o servidor pode ser movida para outra caixa de diálogo em qualquer momento. Então, anfitriões de conector não são restritos a comunicação com o site local específico apenas controladores de domínio.
 - Cenários entre domínios contam com referências que direcionam um anfitrião do conector para controladores de domínio que podem estar fora do perímetro de rede local. Nestes casos, é igualmente importante para também enviar tráfego ou superior para DCs que representam outros respectivos domínios. Caso contrário, ocorre uma falha de delegação.
-- Sempre que possível, evite colocar quaisquer dispositivos ativos de IPS ou IDS entre anfitriões de conector e controladores de domínio. Estes dispositivos, às vezes, são demasiado intrusivos e interfiram com core tráfego RPC.
+- Sempre que possível, evite colocar quaisquer dispositivos ativos de IPS ou IDS entre anfitriões de conector e controladores de domínio. Esses dispositivos são, às vezes, muito invasivos e interferem no tráfego principal de RPC.
 
 Delegação de teste em cenários simples. As variáveis mais introduz, quanto mais talvez tenha que ser seguidas. Para economizar tempo, limite o teste com um único conector. Adicione conectores adicionais depois do problema foi resolvido.
 
@@ -60,7 +60,7 @@ O que mostra um problema KCD? Existem vários indicações comuns KCD SSO com fa
 
 ![Exemplo: Autorização falhou devido a permissões em falta](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
-Ambas essas imagens mostram o sintoma mesmo: Falha SSO. É negado o acesso de utilizador à aplicação.
+Essas duas imagens mostram o mesmo sintoma: Falha de SSO. É negado o acesso de utilizador à aplicação.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -129,7 +129,7 @@ O consumidor do tíquete Kerberos fornecido pelo conector. Nesta fase, esperar q
 
      *Conector do Proxy de aplicações do Microsoft AAD não é possível autenticar o utilizador porque o servidor de back-end reage a tentativas de autenticação de Kerberos com um erro de HTTP 401.*
 
-      ![Mostra 401 HTTTP proibido erro](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
+      ![Mostra o erro proibido do HTTTP 401](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
 
    - Verifique o aplicativo do IIS. Certifique-se de que o conjunto aplicacional configurado e o SPN estão configurados para utilizar a mesma conta no Azure AD. Navegue no IIS, conforme mostrado na ilustração seguinte:
 
@@ -165,8 +165,8 @@ Se ainda não o conseguir progresso, o suporte da Microsoft pode ajudá-lo. Crie
 
 ## <a name="other-scenarios"></a>Outros cenários
 
-- Proxy de aplicações do Azure solicita um tíquete Kerberos antes de enviar sua solicitação para uma aplicação. Este método de autenticação não gostam de algumas aplicações de terceiros. Esses aplicativos esperam que a negociações mais convencionais para ter lugar. A primeira solicitação é anônima, o que permite que o aplicativo responder com os tipos de autenticação que ele oferece suporte por meio de um erro 401.
-- Multi-HOP autenticação é frequentemente utilizada em cenários em que um aplicativo está em camadas, com um back-end e front-end, em que ambos requerem a autenticação, como o SQL Server Reporting Services. Para configurar o cenário de multi-HOP, consulte o artigo de suporte [restrita delegação pode exigir transição do protocolo Kerberos em cenários de multi-HOP](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
+- Proxy de aplicações do Azure solicita um tíquete Kerberos antes de enviar sua solicitação para uma aplicação. Alguns aplicativos de terceiros não gostam desse método de autenticação. Esses aplicativos esperam que a negociações mais convencionais para ter lugar. A primeira solicitação é anônima, o que permite que o aplicativo responder com os tipos de autenticação que ele oferece suporte por meio de um erro 401.
+- Multi-HOP autenticação é frequentemente utilizada em cenários em que um aplicativo está em camadas, com um back-end e front-end, em que ambos requerem a autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte a [delegação restrita de Kerberos pode exigir a transição de protocolo em cenários de multi-hop](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

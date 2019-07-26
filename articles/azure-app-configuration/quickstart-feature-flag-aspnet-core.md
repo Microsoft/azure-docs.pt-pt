@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 38cfabc703b7578d3b5fede9d6a99fe8a33c93a4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
-ms.translationtype: HT
+ms.openlocfilehash: 41947de18ae27b41d046fd4358f0039a1b56374d
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326546"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347923"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -132,7 +132,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 1. Abra *Startup.cs*e adicione referências ao Gerenciador de recursos do .NET Core:
 
     ```csharp
-    using Microsoft.FeatureManagement.AspNetCore;
+    using Microsoft.FeatureManagement;
     ```
 
 1. Atualize o `ConfigureServices` método para adicionar suporte ao sinalizador de recurso chamando `services.AddFeatureManagement()` o método. Opcionalmente, você pode incluir qualquer filtro a ser usado com sinalizadores de recurso chamando `services.AddFeatureFilter<FilterType>()`:

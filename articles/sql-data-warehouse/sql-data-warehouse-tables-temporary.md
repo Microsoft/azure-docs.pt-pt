@@ -1,8 +1,8 @@
 ---
-title: Tabelas temporárias no SQL Data Warehouse | Documentos da Microsoft
-description: Documentação de orientação essencial para utilizar tabelas temporárias e destaca os princípios de tabelas temporárias ao nível de sessão.
+title: Tabelas temporárias em SQL Data Warehouse | Microsoft Docs
+description: Diretrizes essenciais para usar tabelas temporárias e destacar os princípios de tabelas temporárias em nível de sessão.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 32830039c62f7ff68137e704b2562269fd4ad2c7
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466120"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479834"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
-Este artigo contém orientações essenciais para a utilização de tabelas temporárias e realça os princípios de tabelas temporárias ao nível de sessão. Usando as informações deste artigo pode ajudá-lo a modulariza o código, melhorando a capacidade de reutilização e facilidade de manutenção do seu código.
+Este artigo contém diretrizes essenciais para o uso de tabelas temporárias e realça os princípios de tabelas temporárias em nível de sessão. O uso das informações neste artigo pode ajudá-lo a modularizar seu código, melhorando a reusabilidade e a facilidade de manutenção do seu código.
 
 ## <a name="what-are-temporary-tables"></a>O que são tabelas temporárias?
-Tabelas temporárias são úteis durante o processamento de dados - especialmente durante a transformação em que os resultados intermediários são transitórios. No SQL Data Warehouse, as tabelas temporárias existem no nível da sessão.  Eles só estão visíveis para a sessão em que foram criados e são automaticamente removidos quando termina a sessão.  Tabelas temporárias oferecem um benefício de desempenho, pois seus resultados são escritos para o local em vez de armazenamento remoto.
+As tabelas temporárias são úteis durante o processamento de dados – especialmente durante a transformação em que os resultados intermediários são transitórios. Em SQL Data Warehouse, existem tabelas temporárias no nível da sessão.  Eles só ficam visíveis para a sessão na qual foram criados e são descartados automaticamente quando a sessão faz logoff.  As tabelas temporárias oferecem um benefício de desempenho porque seus resultados são gravados em local, em vez de armazenamento remoto.
 
 ## <a name="create-a-temporary-table"></a>Criar uma tabela temporária
-Tabelas temporárias são criadas atribuindo o nome de tabela com um `#`.  Por exemplo:
+As tabelas temporárias são criadas por meio da prefixação `#`do nome da tabela com um.  Por exemplo:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -44,7 +44,7 @@ WITH
 )
 ```
 
-Tabelas temporárias também podem ser criadas com um `CTAS` usando exatamente a mesma abordagem:
+As tabelas temporárias também podem ser criadas `CTAS` com um usando exatamente a mesma abordagem:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -85,12 +85,12 @@ GROUP BY
 ``` 
 
 > [!NOTE]
-> `CTAS` é um comando poderosas e tem a vantagem adicional de que está a ser eficiente na sua utilização do espaço de registo de transação. 
+> `CTAS`é um comando poderoso e tem a vantagem adicional de ser eficiente em seu uso do espaço de log de transações. 
 > 
 > 
 
-## <a name="dropping-temporary-tables"></a>Remover tabelas temporárias
-Quando é criada uma nova sessão, não tabelas temporárias devem existir.  No entanto, se chamasse o mesmo procedimento armazenado, que cria uma temporária com o mesmo nome, para garantir que seus `CREATE TABLE` instruções são com êxito uma verificação de pré-existência simples com um `DROP` pode ser utilizado como no exemplo seguinte:
+## <a name="dropping-temporary-tables"></a>Descartando tabelas temporárias
+Quando uma nova sessão é criada, nenhuma tabela temporária deve existir.  No entanto, se você estiver chamando o mesmo procedimento armazenado, que cria um temporário com o mesmo nome, para garantir `CREATE TABLE` que suas instruções sejam bem-sucedidas, uma simples verificação de existência `DROP` com um pode ser usada como no exemplo a seguir:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -99,14 +99,14 @@ BEGIN
 END
 ```
 
-Para codificar a consistência, é uma boa prática utilizar este padrão para tabelas e tabelas temporárias.  Também é uma boa idéia usar `DROP TABLE` para remover as tabelas temporárias quando tiver terminado com eles em seu código.  No desenvolvimento de procedimento armazenado, é comum ver que os comandos de menu agrupadas no final de um procedimento para garantir que esses objetos são limpos.
+Para a consistência de codificação, é uma boa prática usar esse padrão para tabelas e tabelas temporárias.  Também é uma boa ideia usar `DROP TABLE` para remover tabelas temporárias quando você terminar com elas em seu código.  No desenvolvimento de procedimentos armazenados, é comum ver os comandos de remoção agrupados no final de um procedimento para garantir que esses objetos sejam limpos.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
-## <a name="modularizing-code"></a>Código modularizando
-Uma vez que as tabelas temporárias podem ser vistas em qualquer lugar numa sessão de utilizador, eles podem ser explorados para o ajudar a modularizar o código da aplicação.  Por exemplo, o seguinte procedimento armazenado gera DDL para atualizar todas as estatísticas na base de dados pelo nome da estatística.
+## <a name="modularizing-code"></a>Modularizando o código
+Como as tabelas temporárias podem ser vistas em qualquer lugar em uma sessão de usuário, isso pode ser explorado para ajudá-lo a modularizar o código do aplicativo.  Por exemplo, o procedimento armazenado a seguir gera DDL para atualizar todas as estatísticas no banco de dados pelo nome da estatística.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -180,7 +180,7 @@ FROM    t1
 GO
 ```
 
-Nesta fase, a única ação que tenha ocorrido é a criação de um procedimento armazenado que gera uma tabela temporária, stats_ddl #, com instruções DDL.  Este procedimento armazenado ignora #stats_ddl se já existe para garantir que ele não falha se mais de uma vez executado dentro de uma sessão.  No entanto, uma vez que não existe nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado é concluído, ele deixa a tabela criada para que possa ser lido fora o procedimento armazenado.  No SQL Data Warehouse, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora o procedimento que o criou.  Tabelas temporárias do SQL Data Warehouse podem ser utilizadas **em qualquer lugar** dentro da sessão. Isso pode levar a mais modular e gerenciável de código como no exemplo seguinte:
+Nesse estágio, a única ação que ocorreu é a criação de um procedimento armazenado que gera uma tabela temporária, #stats_ddl, com instruções DDL.  Esse procedimento armazenado descartará #stats_ddl se ele já existir para garantir que ele não falhe se for executado mais de uma vez em uma sessão.  No entanto, como não `DROP TABLE` há no final do procedimento armazenado, quando o procedimento armazenado for concluído, ele deixará a tabela criada para que possa ser lida fora do procedimento armazenado.  Em SQL Data Warehouse, ao contrário de outros bancos de dados do SQL Server, é possível usar a tabela temporária fora do procedimento que o criou.  SQL Data Warehouse tabelas temporárias podem ser usadas **em qualquer lugar** dentro da sessão. Isso pode levar a um código mais modular e gerenciável, como no exemplo a seguir:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -201,9 +201,9 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-## <a name="temporary-table-limitations"></a>Limitações de tabela temporária
-O SQL Data Warehouse impõe algumas limitações na implementação de tabelas temporárias.  Atualmente, apenas a sessão de tabelas temporárias de âmbito são suportadas.  Tabelas temporárias globais não são suportadas.  Além disso, não não possível criar vistas de tabelas temporárias.  Só é possível criar tabelas temporárias com distribuição hash ou round robin.  Distribuição da tabela temporária replicadas não é suportada. 
+## <a name="temporary-table-limitations"></a>Limitações da tabela temporária
+SQL Data Warehouse impõe algumas limitações ao implementar tabelas temporárias.  Atualmente, há suporte apenas para tabelas temporárias com escopo de sessão.  Não há suporte para tabelas temporárias globais.  Além disso, as exibições não podem ser criadas em tabelas temporárias.  As tabelas temporárias só podem ser criadas com a distribuição hash ou round robin.  Não há suporte para a distribuição de tabela temporária replicada. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber mais sobre o desenvolvimento de tabelas, veja a [descrição geral da tabela](sql-data-warehouse-tables-overview.md).
+Para saber mais sobre o desenvolvimento de tabelas, consulte a [visão geral da tabela](sql-data-warehouse-tables-overview.md).
 

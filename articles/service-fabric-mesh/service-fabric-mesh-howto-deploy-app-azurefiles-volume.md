@@ -1,6 +1,6 @@
 ---
-title: Usar um volume de ficheiros do Azure com base num aplicativo de malha do Service Fabric | Documentos da Microsoft
-description: Saiba como armazenar o estado num aplicativo de malha do Azure Service Fabric ao montar um volume de ficheiros do Azure com base no interior de um serviço com a CLI do Azure.
+title: Usar um volume baseado em arquivos do Azure em um aplicativo de malha Service Fabric | Microsoft Docs
+description: Saiba como armazenar o estado em um aplicativo de malha de Service Fabric do Azure montando um volume baseado em arquivos do Azure dentro de um serviço usando o CLI do Azure.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -15,34 +15,45 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa078f17768d4885403f2f3e3d6b91251f0aaced
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9f21ad737fdcd0bcdc77394096308e47a4fb5a00
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419378"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371117"
 ---
-# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monte um volume de ficheiros do Azure com base num aplicativo de malha do Service Fabric 
+# <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Montar um volume baseado em arquivos do Azure em um aplicativo de malha Service Fabric 
 
-Este artigo descreve como montar um volume de ficheiros do Azure com base num serviço de um aplicativo de malha do Service Fabric.  O driver de volume de ficheiros do Azure é um driver de volume do Docker usado para montar uma partilha de ficheiros do Azure para um contentor, o que utilizar para persistir o estado do serviço. Volumes dão-lhe o armazenamento de ficheiros para fins gerais e permitem-lhe ler/escrever ficheiros através de APIs de ficheiros de e/s de disco normal.  Para obter mais informações sobre volumes e as opções para armazenar os dados da aplicação, leia [armazenando o estado](service-fabric-mesh-storing-state.md).
+Este artigo descreve como montar um volume baseado em arquivos do Azure em um serviço de um aplicativo de malha Service Fabric.  O driver de volume do Azure Files é um driver de volume do Docker usado para montar um compartilhamento de arquivos do Azure para um contêiner, que você usa para manter o estado do serviço. Os volumes oferecem armazenamento de arquivos de uso geral e permitem que você leia/grave arquivos usando APIs normais de arquivo de e/s de disco.  Para saber mais sobre volumes e opções para armazenar dados de aplicativos, leia o [estado de armazenamento](service-fabric-mesh-storing-state.md).
 
-Para montar um volume num serviço, criar um recurso de volume na sua aplicação Mesh de recursos de infraestrutura do serviço e, em seguida, fazer referência a esse volume no seu serviço.  Declarando o recurso de volume e fazer referência a ele no recurso de serviço podem ser feitos qualquer um do [arquivos de recursos com base em YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou o [modelo de implementação baseados em JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar o volume, primeiro crie uma conta de armazenamento do Azure e um [partilha de ficheiros nos ficheiros do Azure](/azure/storage/files/storage-how-to-create-file-share).
+Para montar um volume em um serviço, crie um recurso de volume em seu aplicativo de Service Fabric malha e, em seguida, faça referência a esse volume em seu serviço.  Declarar o recurso de volume e fazer referência a ele no recurso de serviço pode ser feito nos [arquivos de recurso baseados em YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou no modelo de [implantação baseado em JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Antes de montar o volume, primeiro crie uma conta de armazenamento do Azure e um [compartilhamento de arquivos nos arquivos do Azure](/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+> [!NOTE]
+> **Problema conhecido com a implantação no computador de desenvolvimento RS5 do Windows:** Há um bug aberto com o cmdlet do PowerShell New-SmbGlobalMapping em computadores com Windows RS5 que impede a montagem de volumes do Azurefile. Abaixo está um erro de exemplo que é encontrado quando o volume baseado no Azure está sendo montado no computador de desenvolvimento local.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+A solução alternativa para o problema é 1) executar o comando a seguir como administrador do PowerShell e 2) reinicializar o computador.
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
 
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este artigo. 
+Você pode usar o Azure Cloud Shell ou uma instalação local do CLI do Azure para concluir este artigo. 
 
-Para utilizar a CLI do Azure localmente neste artigo, certifique-se de que `az --version` retorna, pelo menos, `azure-cli (2.0.43)`.  Instalar (ou atualizar) o módulo de extensão de CLI de malha do Azure Service Fabric através destas [instruções](service-fabric-mesh-howto-setup-cli.md).
+Para usar o CLI do Azure localmente com este artigo, certifique- `az --version` se de que `azure-cli (2.0.43)`o retorne pelo menos.  Instale (ou atualize) o módulo de extensão da CLI da malha de Service Fabric do Azure seguindo estas [instruções](service-fabric-mesh-howto-setup-cli.md).
 
-Para iniciar sessão no Azure e definir a subscrição:
+Para entrar no Azure e definir sua assinatura:
 
 ```azurecli
 az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-a-storage-account-and-file-share-optional"></a>Criar uma partilha de ficheiro e da conta de armazenamento (opcional)
-Montar um volume de ficheiros do Azure requer uma partilha de ficheiro e da conta de armazenamento.  Pode utilizar uma partilha de ficheiro e da conta de armazenamento do Azure existente ou criar recursos:
+## <a name="create-a-storage-account-and-file-share-optional"></a>Criar uma conta de armazenamento e um compartilhamento de arquivos (opcional)
+A montagem de um volume de arquivos do Azure requer uma conta de armazenamento e um compartilhamento de arquivos.  Você pode usar uma conta de armazenamento do Azure e um compartilhamento de arquivos existentes ou criar recursos:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -54,36 +65,36 @@ $current_env_conn_string=$(az storage account show-connection-string -n myStorag
 az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
 ```
 
-## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Obter o nome da conta de armazenamento e a chave e o nome da partilha de ficheiros
-O nome da conta de armazenamento, conta de armazenamento e o nome da partilha de ficheiros que são referenciadas como `<storageAccountName>`, `<storageAccountKey>`, e `<fileShareName>` nas seções a seguir. 
+## <a name="get-the-storage-account-name-and-key-and-the-file-share-name"></a>Obter o nome da conta de armazenamento e a chave e o nome do compartilhamento de arquivos
+O nome da conta de armazenamento, a chave da conta de armazenamento e o nome do `<storageAccountName>`compartilhamento `<storageAccountKey>`de arquivos `<fileShareName>` são referenciados como, e nas seções a seguir. 
 
-Listar as contas de armazenamento e obter o nome da conta de armazenamento com a partilha de ficheiros que pretende utilizar:
+Liste suas contas de armazenamento e obtenha o nome da conta de armazenamento com o compartilhamento de arquivos que você deseja usar:
 ```azurecli-interactive
 az storage account list
 ```
 
-Obter o nome da partilha de ficheiros:
+Obtenha o nome do compartilhamento de arquivos:
 ```azurecli-interactive
 az storage share list --account-name <storageAccountName>
 ```
 
-Obter a chave de conta de armazenamento ("key1"):
+Obtenha a chave da conta de armazenamento ("key1"):
 ```azurecli-interactive
 az storage account keys list --account-name <storageAccountName> --query "[?keyName=='key1'].value"
 ```
 
-Também pode encontrar estes valores no [portal do Azure](https://portal.azure.com):
-* `<storageAccountName>` – Em **contas de armazenamento**, o nome da conta de armazenamento utilizado para criar a partilha de ficheiros.
-* `<storageAccountKey>` -Selecione a sua conta de armazenamento sob **contas de armazenamento** e, em seguida, selecione **chaves de acesso** e utilizar o valor sob **chave1**.
-* `<fileShareName>` -Selecione a sua conta de armazenamento sob **contas de armazenamento** e, em seguida, selecione **ficheiros**. O nome a utilizar é o nome da partilha de ficheiros que criou.
+Você também pode encontrar esses valores no [portal do Azure](https://portal.azure.com):
+* `<storageAccountName>`-Em **contas de armazenamento**, o nome da conta de armazenamento usada para criar o compartilhamento de arquivos.
+* `<storageAccountKey>`-Selecione sua conta de armazenamento em **contas de armazenamento** e, em seguida, selecione chaves de **acesso** e use o valor em **key1**.
+* `<fileShareName>`-Selecione sua conta de armazenamento em **contas de armazenamento** e, em seguida, selecione **arquivos**. O nome a ser usado é o nome do compartilhamento de arquivos que você criou.
 
-## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declare um recurso de volume e atualizar o recurso de serviço (JSON)
+## <a name="declare-a-volume-resource-and-update-the-service-resource-json"></a>Declarar um recurso de volume e atualizar o recurso de serviço (JSON)
 
-Adicionar parâmetros para o `<fileShareName>`, `<storageAccountName>`, e `<storageAccountKey>` valores encontrados num passo anterior. 
+Adicione parâmetros para os `<fileShareName>`valores `<storageAccountName>`, e `<storageAccountKey>` encontrados em uma etapa anterior. 
 
-Crie um recurso de Volume como um par do recurso de aplicação. Especifique um nome e o fornecedor ("SFAzureFile" para utilizar o volume de ficheiros do Azure com base). Na `azureFileParameters`, especifique os parâmetros para o `<fileShareName>`, `<storageAccountName>`, e `<storageAccountKey>` valores encontrados num passo anterior.
+Crie um recurso de volume como um par do recurso de aplicativo. Especifique um nome e o provedor ("SFAzureFile" para usar o volume baseado em arquivos do Azure). No `azureFileParameters`, especifique os parâmetros para os `<fileShareName>`valores `<storageAccountName>`, e `<storageAccountKey>` encontrados em uma etapa anterior.
 
-Para montar o volume no seu serviço, adicione uma `volumeRefs` para o `codePackages` elemento do serviço.  `name` é o ID de recurso para o volume (ou um parâmetro de modelo de implementação para o recurso de volume) e o nome do volume declarado no arquivo de recursos de volume.yaml.  `destinationPath` é o diretório de local que o volume será montado para.
+Para montar o volume em seu serviço, adicione um `volumeRefs` `codePackages` ao elemento do serviço.  `name`é a ID de recurso para o volume (ou um parâmetro de modelo de implantação para o recurso de volume) e o nome do volume declarado no arquivo de recurso volume. YAML.  `destinationPath`é o diretório local no qual o volume será montado.
 
 ```json
 {
@@ -191,9 +202,9 @@ Para montar o volume no seu serviço, adicione uma `volumeRefs` para o `codePack
 }
 ```
 
-## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Declare um recurso de volume e atualizar o recurso de serviço (YAML)
+## <a name="declare-a-volume-resource-and-update-the-service-resource-yaml"></a>Declarar um recurso de volume e atualizar o recurso de serviço (YAML)
 
-Adicionar um novo *volume.yaml* de ficheiros a *recursos de aplicação* diretório para a sua aplicação.  Especifique um nome e o fornecedor ("SFAzureFile" para utilizar o volume de ficheiros do Azure com base). `<fileShareName>`, `<storageAccountName>`, e `<storageAccountKey>` são os valores encontrados num passo anterior.
+Adicione um novo arquivo *volume. YAML* no diretório de *recursos de aplicativo* para seu aplicativo.  Especifique um nome e o provedor ("SFAzureFile" para usar o volume baseado em arquivos do Azure). `<fileShareName>`, `<storageAccountName>` e`<storageAccountKey>` são os valores encontrados em uma etapa anterior.
 
 ```yaml
 volume:
@@ -208,7 +219,7 @@ volume:
         accountKey: <storageAccountKey>
 ```
 
-Atualização do *service.yaml* do ficheiro no *recursos de serviço* diretório para montar o volume no seu serviço.  Adicionar a `volumeRefs` elemento para a `codePackages` elemento.  `name` é o ID de recurso para o volume (ou um parâmetro de modelo de implementação para o recurso de volume) e o nome do volume declarado no arquivo de recursos de volume.yaml.  `destinationPath` é o diretório de local que o volume será montado para.
+Atualize o arquivo *Service. YAML* no diretório de *recursos de serviço* para montar o volume em seu serviço.  Adicione o `volumeRefs` elemento `codePackages` ao elemento.  `name`é a ID de recurso para o volume (ou um parâmetro de modelo de implantação para o recurso de volume) e o nome do volume declarado no arquivo de recurso volume. YAML.  `destinationPath`é o diretório local no qual o volume será montado.
 
 ```yaml
 ## Service definition ##
@@ -246,6 +257,6 @@ application:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Ver a aplicação de exemplo do volume de ficheiros do Azure no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
+- Exiba o aplicativo de exemplo de volume de arquivos do Azure no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Para saber mais sobre o Modelo de Recursos do Service Fabric, consulte [Modelo de Recursos do Service Fabric Mesh](service-fabric-mesh-service-fabric-resources.md).
 - Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).

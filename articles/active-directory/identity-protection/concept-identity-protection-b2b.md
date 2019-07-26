@@ -4,19 +4,19 @@ description: Usando a proteção de identidade com usuários B2B como ele funcio
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32b664fcf12db4e75afc5ab32c7f9868d4d7870f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278567"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334053"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilizadores de proteção de identidade e B2B
 

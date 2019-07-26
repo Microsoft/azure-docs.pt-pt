@@ -12,12 +12,12 @@ ms.date: 06/18/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efe9ac4580afc066c3addfd6e19004d0562284c4
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 1bdf275bbafa9c46cfc4577ac2843da0be74c7ef
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68425952"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477273"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Adicionar um aplicativo da Galeria à sua organização do Azure AD
 
@@ -102,7 +102,7 @@ O Azure Active Directory (AD do Azure) tem uma galeria que contém milhares de a
 
 Agora que você adicionou o aplicativo à sua organização do Azure AD, [escolha um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method) que você deseja usar e consulte o artigo apropriado abaixo:
 
-- [Configurar o logon único baseado em SAML](configure-single-sign-on-portal.md)
+- [Configurar o logon único baseado em SAML](configure-single-sign-on-non-gallery-applications.md)
 - [Configurar o logon único com senha](configure-password-single-sign-on-non-gallery-applications.md)
 - [Configurar logon vinculado](configure-linked-sign-on.md)
 

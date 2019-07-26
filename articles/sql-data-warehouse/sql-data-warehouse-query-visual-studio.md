@@ -2,7 +2,7 @@
 title: Ligar ao Azure SQL Data Warehouse - VSTS| Microsoft Docs
 description: Consultar o SQL Data Warehouse com o Visual Studio.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873735"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479446"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Ligar ao SQL Data Warehouse com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -32,8 +32,8 @@ Utilize o Visual Studio para consultar o Azure SQL Data Warehouse em apenas algu
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar este tutorial, precisa do seguinte:
 
-* Um SQL Data Warehouse existente. Para criar um, veja [Create a SQL Data Warehouse][Create a SQL Data Warehouse] (Criar um armazém do SQL Data Warehouse).
-* SSDT para Visual Studio. Se tiver o Visual Studio, provavelmente já os tem. Para obter instruções e opções de instalação, veja [Installing Visual Studio and SSDT][Installing Visual Studio and SSDT] (Instalar o Visual Studio e o SSDT).
+* Um SQL Data Warehouse existente. Para criar um, consulte [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].
+* SSDT para Visual Studio. Se tiver o Visual Studio, provavelmente já os tem. Para instruções e opções de instalação, consulte [Instalar o Visual Studio e SSDT][Installing Visual Studio and SSDT].
 * O nome de servidor SQL completamente qualificado. Para o descobrir, veja [Ligar ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Ligar ao seu SQL Data Warehouse
@@ -76,9 +76,9 @@ Agora que foi estabelecida uma ligação à base de dados, vamos escrever uma co
     ![Resultados da consulta][7]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que pode ligar e fazer consultas, experimente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
+Agora que pode ligar e efetuar consultas, experimente [visualizar os dados com o PowerBI][visualizing the data with PowerBI].
 
-Para configurar o seu ambiente para a autenticação do Azure Active Directory, veja [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse] (Autenticação no SQL Data Warehouse).
+Para configurar o ambiente para a autenticação do Azure Active Directory, veja [Authenticate to SQL Data Warehouse (Autenticação no SQL Data Warehouse)][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
 [Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md

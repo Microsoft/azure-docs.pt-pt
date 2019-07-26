@@ -1,10 +1,10 @@
 ---
-title: Pedir o processo e notificações de e-mail na gestão de direitos do Azure AD (pré-visualização) - Azure Active Directory
-description: Saiba mais sobre o processo de pedido para um pacote de acesso e quando são enviadas notificações de e-mail na gestão de direitos do Azure Active Directory (pré-visualização).
+title: Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
+description: Saiba mais sobre o processo de solicitação de um pacote do Access e quando as notificações por email são enviadas no gerenciamento de direitos de Azure Active Directory (versão prévia).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,85 +13,85 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 05/30/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aede5e315141251026867f7028ebf989d44da4d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473042"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489091"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Pedir o processo e notificações de e-mail na gestão de direitos do Azure AD (pré-visualização)
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Solicitar notificações de processo e email no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
-> Gestão de direitos do Active Directory (Azure AD) do Azure está atualmente em pré-visualização pública.
+> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Quando um utilizador submete um pedido para um pacote de acesso, um processo é iniciado para fornecer essa solicitação. A gestão de direitos do Azure AD também envia notificações por e-mail para os aprovadores e requerentes quando ocorrem eventos de chaves durante o processo.
+Quando um usuário envia uma solicitação para um pacote do Access, um processo é iniciado para entregar essa solicitação. O gerenciamento de direitos do Azure AD também envia notificações por email a Aprovadores e solicitantes quando ocorrem eventos de chave durante o processo.
 
-Este artigo descreve o processo de pedido e as notificações de e-mail que são enviadas.
+Este artigo descreve o processo de solicitação e as notificações de email que são enviadas.
 
-## <a name="request-process"></a>Processo de pedido
+## <a name="request-process"></a>Processo de solicitação
 
-Um utilizador que precisa de acesso a um pacote de acesso pode submeter um pedido de acesso. Dependendo da configuração da política, o pedido pode exigir uma aprovação. Quando um pedido for aprovado, um processo é iniciado atribuir o acesso de utilizador para cada recurso do pacote de acesso. O diagrama seguinte mostra uma descrição geral do processo e os Estados diferentes.
+Um usuário que precisa acessar um pacote do Access pode enviar uma solicitação de acesso. Dependendo da configuração da política, a solicitação pode exigir uma aprovação. Quando uma solicitação é aprovada, um processo começa a atribuir o acesso do usuário a cada recurso no pacote do Access. O diagrama a seguir mostra uma visão geral do processo e os diferentes Estados.
 
-![Diagrama do processo de aprovação](./media/entitlement-management-process/request-process.png)
+![Diagrama de processo de aprovação](./media/entitlement-management-process/request-process.png)
 
 | Estado | Descrição |
 | --- | --- |
-| Submetido | Utilizador submete um pedido. |
-| Aprovação pendente | Se a política para um pacote de acesso necessita de aprovação, move de um pedido para aguardar a aprovação. |
-| Fora do prazo | Se não os aprovadores aprovar um pedido dentro do tempo de limite do pedido de aprovação, o pedido expira. Para tentar novamente, o utilizador terá de voltar a submeter o pedido. |
-| Negado | Aprovador nega um pedido. |
-| Aprovado | Um pedido de aprovação do aprovador. |
-| Entrega | O utilizador tem **não** foi atribuído acesso a todos os recursos do pacote de acesso. Se se tratar de um utilizador externo, o utilizador ainda não tem acedidos no diretório de recursos e aceite o pedido de permissões. |
-| Entregue | Foi atribuído acesso a todos os recursos no pacote de acesso do utilizador. |
-| Acesso estendido | Se as extensões são permitidas na política, o utilizador estendido a atribuição. |
-| Acesso expirado | Acesso de utilizador para o pacote de acesso a expirou. Para obter acesso mais uma vez, o utilizador terá que submeter um pedido. |
+| Submetido | O usuário envia uma solicitação. |
+| Aprovação pendente | Se a política para um pacote de acesso exigir aprovação, uma solicitação será movida para aprovação pendente. |
+| Fora do prazo | Se nenhum Aprovador aprovar uma solicitação dentro do tempo limite da solicitação de aprovação, a solicitação expirará. Para tentar novamente, o usuário precisará reenviar a solicitação. |
+| Negada | O aprovador nega uma solicitação. |
+| Aprovado | O aprovador aprova uma solicitação. |
+| A entregar | O usuário **não** recebeu acesso a todos os recursos no pacote de acesso. Se esse for um usuário externo, o usuário ainda não acessou o diretório de recursos e aceitou o prompt de permissões. |
+| Entregue | O usuário recebeu acesso a todos os recursos no pacote de acesso. |
+| Acesso estendido | Se as extensões forem permitidas na política, o usuário estendeu a atribuição. |
+| Acesso expirado | O acesso do usuário ao pacote de acesso expirou. Para obter acesso novamente, o usuário precisará enviar uma solicitação. |
 
-## <a name="email-notifications"></a>Notificações por e-mail
+## <a name="email-notifications"></a>Notificações de e-mail
 
-Se for um aprovador, são enviadas notificações por e-mail quando tem de aprovar um pedido de acesso e quando um pedido de acesso foi concluído. Se for um requerente, são enviadas notificações de e-mail que indicam o estado do seu pedido. O diagrama seguinte mostra quando estas notificações por e-mail é enviado.
+Se você for um aprovador, receberá notificações por email quando precisar aprovar uma solicitação de acesso e quando uma solicitação de acesso tiver sido concluída. Se você for um solicitante, receberá notificações por email que indicam o status de sua solicitação. O diagrama a seguir mostra quando essas notificações de email são enviadas.
 
-![Processo de correio eletrónico de gestão de direitos](./media/entitlement-management-process/email-notifications.png)
+![Processo de email de gerenciamento de direitos](./media/entitlement-management-process/email-notifications.png)
 
-A tabela seguinte fornece mais detalhes sobre cada uma dessas notificações de e-mail.
+A tabela a seguir fornece mais detalhes sobre cada uma dessas notificações por email.
 
-| # | Assunto do e-mail | Quando enviados | Enviado para |
+| # | Assunto da mensagem de e-mail | Quando enviado | Enviado para |
 | --- | --- | --- | --- |
-| 1 | Ação necessária: Analisar pedido de acesso de *[requerente]* ao *[pacote acesso]* por *[date]* | Quando um solicitante envia uma solicitação para um pacote de acesso | Todos os aprovadores |
-| 2 | Ação necessária: Analisar pedido de acesso de *[requerente]* ao *[pacote acesso]* por *[date]* | Tempo limite do pedido de X dias antes da aprovação | Todos os aprovadores |
-| 3 | Notificação de estado: *[requerente]* do pedido de acesso ao *[pacote acesso]* expirou | Quando os aprovadores não aprovar ou negar um pedido de acesso dentro da duração do pedido | Requerente |
-| 4 | Notificação de estado: *[requerente]* pedido de acesso ao *[pacote acesso]* foi concluída | Quando o primeiro aprovador aprova ou nega um pedido de acesso | Todos os aprovadores |
-| 5 | Foi negado acesso a *[pacote acesso]* | Quando um requerente foi negado acesso ao pacote de acesso | Requerente |
-| 6 | Agora tem acesso a *[pacote acesso]*  | Quando um solicitante tenha sido concedido acesso a todos os recursos do pacote de acesso | Requerente |
-| 7 | O acesso ao *[pacote acesso]* expira em X dia (s) | X dias antes de acesso do requerente para o pacote de acesso expira | Requerente |
-| 8 | O acesso ao *[pacote acesso]* expirou | Quando o acesso do requerente a um pacote de acesso expira | Requerente |
+| 1 | Ação necessária: Examinar a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | Quando um solicitante envia uma solicitação para um pacote de acesso | Todos os aprovadores |
+| 2 | Ação necessária: Examinar a solicitação de acesso de *[solicitante]* para *[pacote do Access]* por *[data]* | X dias antes do tempo limite da solicitação de aprovação | Todos os aprovadores |
+| 3 | Notificação de status: a solicitação de acesso *[solicitante]* do *[pacote de acesso]* expirou | Quando os aprovadores não aprovam ou negam uma solicitação de acesso dentro da duração da solicitação | Requerente |
+| 4 | Notificação de status: *[solicitante]* a solicitação de acesso ao *[pacote do Access]* foi concluída | Quando o primeiro aprovador aprova ou nega uma solicitação de acesso | Todos os aprovadores |
+| 5 | Você teve o acesso negado ao *[pacote do Access]* | Quando um solicitante teve o acesso negado ao pacote de acesso | Requerente |
+| 6 | Agora você tem acesso ao *[pacote do Access]*  | Quando um solicitante tiver recebido acesso a todos os recursos no pacote de acesso | Requerente |
+| 7 | Seu acesso ao *[pacote do Access]* expira em X dia (s) | X dias antes que o acesso do solicitante ao pacote de acesso expire | Requerente |
+| 8 | Seu acesso ao *[pacote do Access]* expirou | Quando o acesso do solicitante a um pacote de acesso expira | Requerente |
 
-### <a name="access-request-emails"></a>Mensagens de e-mail de pedido de acesso
+### <a name="access-request-emails"></a>Emails de solicitação de acesso
 
-Quando um solicitante envia um pedido de acesso para um pacote de acesso que está configurado para exigir a aprovação, todos os aprovadores configurados na política de recebem uma notificação por e-mail com detalhes do pedido. Detalhes incluem o nome do requerente, organização, aceder a data de início e fim se for fornecido, justificação de negócio, quando o pedido foi submetido, e quando o pedido irá expirar. O e-mail inclui uma ligação em que os aprovadores podem aprovar ou negar o pedido de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada para um aprovador quando um solicitante envia um pedido de acesso.
+Quando um solicitante envia uma solicitação de acesso para um pacote de acesso configurado para exigir aprovação, todos os aprovadores configurados na política recebem uma notificação por email com detalhes da solicitação. Os detalhes incluem o nome do solicitante, organização, data de início e de término do acesso, se fornecido, justificativa de negócios, quando a solicitação foi enviada e quando a solicitação expirará. O email inclui um link em que os aprovadores podem aprovar ou negar a solicitação de acesso. Aqui está um exemplo de notificação por email que é enviada para um Aprovador quando um solicitante envia uma solicitação de acesso.
 
-![E-mail de pedido de acesso de revisão](./media/entitlement-management-shared/email-approve-request.png)
+![Examinar o email de solicitação de acesso](./media/entitlement-management-shared/email-approve-request.png)
 
-### <a name="approved-or-denied-emails"></a>Mensagens de correio eletrónico aprovadas ou negadas
+### <a name="approved-or-denied-emails"></a>Emails aprovados ou negados
 
-Requerentes são notificados quando o pedido de acesso é aprovado e disponíveis para acesso, ou quando o pedido de acesso é negado. Quando um aprovador recebe um pedido de acesso enviado por um requerente, pode aprovar ou negar o pedido de acesso. O aprovador tem de adicionar uma justificativa comercial para a sua decisão.
+Os solicitantes são notificados quando sua solicitação de acesso é aprovada e está disponível para acesso ou quando sua solicitação de acesso é negada. Quando um Aprovador recebe uma solicitação de acesso enviada por um solicitante, ele pode aprovar ou negar a solicitação de acesso. O aprovador precisa adicionar uma justificativa de negócios para sua decisão.
 
-Quando for aprovado um pedido de acesso, gestão de direitos inicia o processo de conceder o acesso de requerente para cada um dos recursos do pacote de acesso. Depois do requerente tem sido concedido acesso a todos os recursos do pacote de acesso, é enviada uma notificação por e-mail para o requerente do que o seu pedido de acesso foi aprovado e se têm agora acesso ao pacote de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada para um requerente quando eles recebem acesso a um pacote de acesso.
+Quando uma solicitação de acesso é aprovada, o gerenciamento de direitos inicia o processo de concessão do acesso do solicitante a cada um dos recursos no pacote de acesso. Depois que o solicitante tiver recebido acesso a todos os recursos no pacote de acesso, uma notificação por email será enviada ao solicitante de que sua solicitação de acesso foi aprovada e que agora terá acesso ao pacote de acesso. Aqui está um exemplo de notificação por email que é enviada para um solicitante quando recebe acesso a um pacote de acesso.
 
-Quando um pedido de acesso é negado, é enviada uma notificação de e-mail para o requerente. Aqui está uma notificação de e-mail de exemplo que é enviada para um requerente quando o pedido de acesso é negado.
+Quando uma solicitação de acesso é negada, uma notificação por email é enviada ao solicitante. Aqui está um exemplo de notificação por email que é enviada para um solicitante quando sua solicitação de acesso é negada.
 
-### <a name="expired-access-request-emails"></a>Expirado mensagens de e-mail de pedido de acesso
+### <a name="expired-access-request-emails"></a>Emails de solicitação de acesso expirados
 
-Requerentes são notificados quando o pedido de acesso tiver expirado. Quando um solicitante envia um pedido de acesso, o pedido tem uma duração de pedido após a qual expira. Se não houver nenhum aprovadores que submeter uma decisão de aprovar/negar, continua a solicitação permaneça num Estado de aprovação pendentes. Quando o pedido atinge sua duração de expiração configurada, o pedido expirar e já não ser aprovado ou negado por aprovadores. Neste caso, o pedido entra num estado expirado. Já não pode ser aprovado ou negado um pedido expirado. Uma notificação por e-mail é enviada para o requerente do pedido de acesso tiver expirado, e que precisam para submeter novamente o pedido de acesso. Aqui está uma notificação de e-mail de exemplo que é enviada para um requerente quando o pedido de acesso tiver expirado.
+Os solicitantes são notificados quando sua solicitação de acesso expirou. Quando um solicitante envia uma solicitação de acesso, a solicitação tem uma duração de solicitação após a qual ela expira. Se não houver Aprovadores que enviem uma decisão aprovar/negar, a solicitação continuará a permanecer em um estado de aprovação pendente. Quando a solicitação atinge sua duração de expiração configurada, a solicitação expira e não pode mais ser aprovada ou negada pelos aprovadores. Nesse caso, a solicitação entra em um estado expirado. Uma solicitação expirada não pode mais ser aprovada ou negada. Uma notificação por email é enviada ao solicitante que sua solicitação de acesso expirou e que precisa reenviar a solicitação de acesso. Aqui está um exemplo de notificação por email que é enviada para um solicitante quando sua solicitação de acesso expirou.
 
-![E-mail de pedido de acesso de expiração](./media/entitlement-management-process/email-expired-access-request.png)
+![Email de solicitação de acesso expirado](./media/entitlement-management-process/email-expired-access-request.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pedir acesso a um pacote de acesso](entitlement-management-request-access.md)
-- [Aprovar ou negar pedidos de acesso](entitlement-management-request-approve.md)
+- [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
+- [Aprovar ou negar solicitações de acesso](entitlement-management-request-approve.md)

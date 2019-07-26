@@ -1,6 +1,6 @@
 ---
-title: FAQs sobre a configuração - serviço de aplicações do Azure | Documentos da Microsoft
-description: Obtenha respostas às perguntas mais frequentes sobre problemas de configuração e gestão para a funcionalidade de aplicações Web do serviço de aplicações do Azure.
+title: Perguntas frequentes sobre configuração-serviço de Azure App | Microsoft Docs
+description: Obtenha respostas para perguntas frequentes sobre problemas de configuração e gerenciamento do recurso de aplicativos Web do serviço de Azure App.
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,134 +15,134 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ec2580f0c71c98c7a03f3326cb1b8ff539109ee0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720022"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489442"
 ---
-# <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQs sobre a configuração e gestão de aplicações Web no Azure
+# <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gerenciamento para aplicativos Web no Azure
 
-Este artigo tem respostas a perguntas mais frequentes (FAQ) sobre problemas de configuração e gestão para o [funcionalidade de aplicações Web do serviço de aplicações do Azure](https://azure.microsoft.com/services/app-service/web/).
+Este artigo tem respostas para perguntas frequentes sobre problemas de configuração e gerenciamento para o [recurso de aplicativos Web do serviço de Azure app](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Existem limitações que deve ter conhecimento se eu quiser mover os recursos de serviço de aplicações?
+## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Há limitações que devo saber se eu quiser mover os recursos do serviço de aplicativo?
 
-Se pretender mover os recursos de serviço de aplicações para um novo grupo de recursos ou subscrição, existem algumas limitações a ter em consideração. Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Se você planeja mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
-## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como posso utilizar um nome de domínio personalizado para a minha aplicação web?
+## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como fazer usar um nome de domínio personalizado para meu aplicativo Web?
 
-Para respostas a perguntas comuns sobre como utilizar um nome de domínio personalizado com a sua aplicação web do Azure, consulte o nosso vídeo de sete minutos [adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). O vídeo oferece instruções sobre como adicionar um nome de domínio personalizado. Ele descreve como utilizar o seu URL em vez do *. URL azurewebsites.net com a sua aplicação web do serviço de aplicações. Também pode ver um passo a passo detalhada da [como mapear um nome de domínio personalizado](app-service-web-tutorial-custom-domain.md).
-
-
-## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Como posso comprar um domínio personalizado novo para a minha aplicação web?
-
-Para saber como comprar e configurar um domínio personalizado para a sua aplicação web do serviço de aplicações, veja [comprar e configurar um nome de domínio personalizado no serviço de aplicações](manage-custom-dns-buy-domain.md).
+Para obter respostas a perguntas comuns sobre como usar um nome de domínio personalizado com seu aplicativo Web do Azure, consulte nosso vídeo de sete minutos [Adicionar um nome de domínio personalizado](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name). O vídeo oferece uma explicação sobre como adicionar um nome de domínio personalizado. Ele descreve como usar sua própria URL em vez da URL *. azurewebsites.net com seu aplicativo Web do serviço de aplicativo. Você também pode ver uma explicação detalhada de [como mapear um nome de domínio personalizado](app-service-web-tutorial-custom-domain.md).
 
 
-## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como carregar e configurar um certificado SSL existente para a minha aplicação web?
+## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Como fazer comprar um novo domínio personalizado para meu aplicativo Web?
 
-Para saber como carregar e configurar um certificado SSL personalizado já existente, veja [vincular um certificado SSL personalizado já existente a uma aplicação web do Azure](app-service-web-tutorial-custom-ssl.md#upload).
-
-
-## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Como comprar e configurar um novo certificado SSL no Azure para a minha aplicação web?
-
-Para saber como comprar e configurar um certificado SSL para a sua aplicação web do serviço de aplicações, veja [adicionar um certificado SSL ao seu serviço de aplicações](web-sites-purchase-ssl-web-site.md).
+Para saber como comprar e configurar um domínio personalizado para seu aplicativo Web do serviço de aplicativo, consulte [comprar e configurar um nome de domínio personalizado no serviço de aplicativo](manage-custom-dns-buy-domain.md).
 
 
-## <a name="how-do-i-move-application-insights-resources"></a>Como faço para mover recursos do Application Insights?
+## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Como fazer carregar e configurar um certificado SSL existente para meu aplicativo Web?
 
-Atualmente, o Azure Application Insights não suporta a operação de movimentação. Se o seu grupo de recursos original inclui um recurso do Application Insights, não é possível mover esse recurso. Se incluir o recurso do Application Insights ao tentar mover uma aplicação de serviço de aplicações, toda a mover a falha da operação. No entanto, o Application Insights e o plano de serviço de aplicações não é necessário estar no mesmo grupo de recursos que a aplicação para a aplicação a funcionar corretamente.
+Para saber como carregar e configurar um certificado SSL personalizado existente, consulte [associar um certificado SSL personalizado existente a um aplicativo Web do Azure](app-service-web-tutorial-custom-ssl.md#upload).
 
-Para obter mais informações, consulte [limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
-## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de orientação e saiba mais sobre os recursos a mover operações?
+## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Como fazer comprar e configurar um novo certificado SSL no Azure para meu aplicativo Web?
 
-[Limitações do serviço de aplicações](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostra como mover recursos para uma nova subscrição ou para um novo grupo de recursos na mesma subscrição. Pode obter informações sobre a lista de verificação de movimentação do recurso, saiba quais os serviços que suportam a operação de movimentação e saber mais sobre as limitações de serviço de aplicações e outros tópicos.
+Para saber como comprar e configurar um certificado SSL para seu aplicativo Web do serviço de aplicativo, consulte [Adicionar um certificado SSL ao seu aplicativo do serviço de aplicativo](web-sites-purchase-ssl-web-site.md).
 
-## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como posso definir o fuso horário do servidor para a minha aplicação web?
 
-Para definir o fuso horário do servidor para a sua aplicação web:
+## <a name="how-do-i-move-application-insights-resources"></a>Como fazer mover Application Insights recursos?
 
-1. No portal do Azure, na sua subscrição do serviço de aplicações, vá para o **as definições da aplicação** menu.
-2. Sob **as definições da aplicação**, adicione esta definição:
+Atualmente, o Aplicativo Azure insights não dá suporte à operação de movimentação. Se o grupo de recursos original incluir um recurso de Application Insights, você não poderá mover esse recurso. Se você incluir o recurso de Application Insights quando tentar mover um aplicativo do serviço de aplicativo, toda a operação de movimentação falhará. No entanto, Application Insights e o plano do serviço de aplicativo não precisam estar no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
+
+Para obter mais informações, consulte [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+
+## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de diretrizes e saber mais sobre as operações de movimentação de recursos?
+
+As [limitações do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostram como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saiba quais serviços dão suporte à operação de movimentação e saiba mais sobre as limitações do serviço de aplicativo e outros tópicos.
+
+## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como fazer definir o fuso horário do servidor para meu aplicativo Web?
+
+Para definir o fuso horário do servidor para seu aplicativo Web:
+
+1. Na portal do Azure, em sua assinatura do serviço de aplicativo, vá para o menu **configurações do aplicativo** .
+2. Em **configurações do aplicativo**, adicione esta configuração:
     * Key = WEBSITE_TIME_ZONE
-    * Valor = *o fuso horário que pretende*
+    * Valor = *o fuso horário que você deseja*
 3. Selecione **Guardar**.
 
-Consulte a **fuso horário** coluna na [predefinido fusos horários](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) artigo para valores aceites.
+Consulte a coluna **timezone** no artigo [fusos horários padrão](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) para obter os valores aceitos.
 
-## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que minha WebJobs contínuos, às vezes, falhar?
+## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Por que meus trabalhos Web contínuos às vezes falham?
 
-Por predefinição, aplicações web são descarregadas que estejam Inativos durante um determinado período de tempo. Isso permite que o sistema poupar recursos. Nos planos básico e Standard, pode ativar a **Always On** definição para que o aplicativo web carregado o tempo todo. Se a sua aplicação web executa trabalhos Web contínuos, deve ativar **Always On**, ou os trabalhos Web poderão não ser fiável. Para obter mais informações, consulte [criar um WebJob em execução contínua](webjobs-create.md#CreateContinuous).
+Por padrão, os aplicativos Web serão descarregados se estiverem ociosos por um período de tempo definido. Isso permite ao sistema conservar recursos. Em planos básico e padrão, você pode ativar a configuração de **Always on** para manter o aplicativo Web carregado o tempo todo. Se seu aplicativo Web executar webjobs contínuos, você deverá ativar **Always on**ou os trabalhos Web poderão não ser executados de forma confiável. Para obter mais informações, consulte [criar um WebJob de execução contínua](webjobs-create.md#CreateContinuous).
 
-## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como posso obter o endereço IP de saída para a minha aplicação web?
+## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como fazer obter o endereço IP de saída para meu aplicativo Web?
 
-Para obter a lista de endereços IP de saída para a sua aplicação web:
+Para obter a lista de endereços IP de saída para seu aplicativo Web:
 
-1. No portal do Azure, no painel da aplicação web, vá para o **propriedades** menu.
-2. Procure **endereços ip de saída**.
+1. Na portal do Azure, na folha do seu aplicativo Web, vá para o menu **Propriedades** .
+2. Procure **endereços IP de saída**.
 
-É apresentada a lista de endereços IP de saída.
+A lista de endereços IP de saída é exibida.
 
-Para saber como obter o endereço IP de saída, se seu Web site estiver alojado num ambiente de serviço de aplicações, veja [endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Para saber como obter o endereço IP de saída se seu site estiver hospedado em um Ambiente do Serviço de Aplicativo, consulte [endereços de rede de saída](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
-## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como posso obter um endereço IP entrado reservado ou dedicado para a minha aplicação web?
+## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Como fazer obter um endereço IP de entrada dedicado ou reservado para meu aplicativo Web?
 
-Para configurar um endereço IP reservado ou dedicado para chamadas de entrada feitas ao seu Web site de aplicações do Azure, instalar e configurar um certificado SSL baseado em IP.
+Para configurar um endereço IP dedicado ou reservado para chamadas de entrada feitas no site do aplicativo do Azure, instale e configure um certificado SSL baseado em IP.
 
-Tenha em atenção que para utilizar um endereço IP reservado ou dedicado para chamadas de entrada, seu plano do serviço de aplicações tem de ser num plano do serviço básico ou superior.
+Observe que para usar um endereço IP dedicado ou reservado para chamadas de entrada, seu plano do serviço de aplicativo deve estar em um plano de serviço básico ou superior.
 
-## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Pode exportar meu certificado de serviço de aplicações para utilizar fora do Azure, tal como para um Web site alojado noutro local? 
+## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>Posso exportar meu certificado do serviço de aplicativo para uso fora do Azure, como para um site hospedado em outro lugar? 
 
-Certificados de serviço de aplicações são considerados de recursos do Azure. Estas não recomendações pretendem para utilizar fora de seus serviços do Azure. Não é possível exportar-os para utilizar fora do Azure. Para obter mais informações, consulte [FAQs para certificados de serviço de aplicações e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Os certificados do serviço de aplicativo são considerados recursos do Azure. Eles não se destinam a usar fora dos serviços do Azure. Você não pode exportá-los para uso fora do Azure. Para obter mais informações, consulte [perguntas frequentes para certificados do serviço de aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
-## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Pode exportar meu certificado de serviço de aplicações para utilizar com outros serviços cloud do Azure?
+## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Posso exportar meu certificado do serviço de aplicativo para usar com outros serviços de nuvem do Azure?
 
-O portal fornece uma experiência de primeira classe para implementar um certificado de serviço de aplicações através do Azure Key Vault para aplicações de serviço de aplicações. No entanto, temos sido contactados pedidos de clientes para utilizar estes certificados fora da plataforma de serviço de aplicações, por exemplo, com máquinas virtuais do Azure. Para saber como criar uma cópia PFX local do seu certificado de serviço de aplicações, pelo que pode utilizar o certificado com outros recursos do Azure, veja [criar uma cópia PFX local de um certificado de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+O portal fornece uma experiência de primeira classe para implantar um certificado do serviço de aplicativo por meio de Azure Key Vault para aplicativos do serviço de aplicativo. No entanto, recebemos solicitações de clientes para usar esses certificados fora da plataforma do serviço de aplicativo, por exemplo, com máquinas virtuais do Azure. Para saber como criar uma cópia local do PFX do seu certificado do serviço de aplicativo para que você possa usar o certificado com outros recursos do Azure, consulte [criar uma cópia do pfx local de um certificado do serviço de aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 
-Para obter mais informações, consulte [FAQs para certificados de serviço de aplicações e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Para obter mais informações, consulte [perguntas frequentes para certificados do serviço de aplicativo e domínios personalizados](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 
-## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Por que vejo a mensagem "Êxito parcial" quando tento fazer cópias de segurança da minha aplicação web?
+## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>Por que vejo a mensagem "parcialmente bem-sucedida" quando tento fazer backup do meu aplicativo Web?
 
-Uma causa comum de falha de cópia de segurança é que alguns ficheiros estão em utilização pela aplicação. Ficheiros que estão em utilização são bloqueados enquanto executa a cópia de segurança. Isso impede que esses arquivos a cópia de segurança e poderá resultar num Estado de "Êxito parcial". Pode potencialmente impedir que tal aconteça excluindo ficheiros do processo de cópia de segurança. Pode optar por criar cópias de segurança apenas o que é necessário. Para obter mais informações, consulte [apenas as partes importantes do seu site com aplicações web do Azure de cópia de segurança](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
+Uma causa comum da falha de backup é que alguns arquivos estão em uso pelo aplicativo. Os arquivos que estão em uso são bloqueados enquanto você executa o backup. Isso impede que esses arquivos sejam copiados em backup e possam resultar em um status "parcialmente bem-sucedido". Potencialmente, você pode impedir que isso ocorra excluindo arquivos do processo de backup. Você pode optar por fazer backup apenas do que é necessário. Para obter mais informações, consulte [fazer backup apenas das partes importantes do seu site com os aplicativos Web do Azure](https://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/).
 
-## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como posso remover um cabeçalho de resposta HTTP?
+## <a name="how-do-i-remove-a-header-from-the-http-response"></a>Como fazer remover um cabeçalho da resposta HTTP?
 
-Para remover os cabeçalhos de resposta HTTP, atualize o ficheiro Web. config de seu site. Para obter mais informações, consulte [remover os cabeçalhos de servidor padrão em Web sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
+Para remover os cabeçalhos da resposta HTTP, atualize o arquivo Web. config do seu site. Para obter mais informações, consulte [remover cabeçalhos de servidor padrão em seus sites do Azure](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/).
 
-## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>É o serviço de aplicações em conformidade com PCI 3.0 de padrão e 3.1?
+## <a name="is-app-service-compliant-with-pci-standard-30-and-31"></a>O serviço de aplicativo é compatível com PCI Standard 3,0 e 3,1?
 
-Atualmente, a funcionalidade de aplicações Web do serviço de aplicações do Azure está em conformidade com a versão do PCI Data Security Standard (DSS) 3.0 nível 1. PCI DSS versão 3.1 está no nosso plano. Planejamento já está em andamento para como irá continuar a adoção do padrão mais recente.
+Atualmente, o recurso de aplicativos Web do serviço de Azure App está em conformidade com o PCI Data Security Standard (DSS) versão 3,0 nível 1. PCI DSS versão 3,1 está em nosso roteiro. O planejamento já está em andamento para como a adoção do padrão mais recente continuará.
 
-Certificação de versão 3.1 da PCI DSS requer a desativação de Transport Layer Security (TLS) 1.0. Atualmente, a desativação de TLS 1.0 não é uma opção para a maioria dos planos do serviço de aplicações. No entanto, se utilizar o ambiente de serviço de aplicações ou está disposto a migrar a sua carga de trabalho para o ambiente de serviço de aplicações, pode obter maior controle do seu ambiente. Isso envolve desabilitar o TLS 1.0 ao contactar o suporte do Azure. Em breve, planeamos disponibilizar estas definições aos utilizadores.
+A certificação PCI DSS versão 3,1 requer a desabilitação do protocolo TLS 1,0. Atualmente, desabilitar o TLS 1,0 não é uma opção para a maioria dos planos do serviço de aplicativo. No entanto, se você usar Ambiente do Serviço de Aplicativo ou estiver disposto a migrar sua carga de trabalho para Ambiente do Serviço de Aplicativo, poderá obter maior controle do seu ambiente. Isso envolve desabilitar o TLS 1,0 entrando em contato com o suporte do Azure. Em breve, planejamos tornar essas configurações acessíveis para os usuários.
 
-Para obter mais informações, consulte [compatibilidade das aplicações de web do serviço de aplicações do Microsoft Azure com 3.0 padrão da PCI e 3.1](https://support.microsoft.com/help/3124528).
+Para obter mais informações, consulte [Microsoft Azure aplicativo Web do serviço de aplicativo conformidade com PCI Standard 3,0 e 3,1](https://support.microsoft.com/help/3124528).
 
-## <a name="how-do-i-use-the-staging-environment-and-deployment-slots"></a>Como utilizo os blocos de implementação e de ambiente de teste?
+## <a name="how-do-i-use-the-staging-environment-and-deployment-slots"></a>Como fazer usar o ambiente de preparo e os slots de implantação?
 
-Nos planos Standard e Premium do serviço de aplicações, quando implementar a aplicação web no serviço de aplicações, pode implementar para um bloco de implementação separados em vez de para o bloco de produção predefinido. Blocos de implementação são aplicações web em direto com seus próprios nomes de anfitrião. Elementos de conteúdo e a configuração da aplicação Web podem ser trocados entre duas ranhuras de implementação, incluindo o bloco de produção.
+Nos planos do serviço de aplicativo Standard e Premium, ao implantar seu aplicativo Web no serviço de aplicativo, você pode implantar em um slot de implantação separado em vez de no slot de produção padrão. Os slots de implantação são aplicativos Web dinâmicos que têm seus próprios nomes de host. Elementos de configuração e conteúdo do aplicativo Web podem ser trocados entre dois slots de implantação, incluindo o slot de produção.
 
-Para obter mais informações sobre como utilizar blocos de implementação, consulte [configurar um ambiente de teste no serviço de aplicações](deploy-staging-slots.md).
+Para obter mais informações sobre como usar slots de implantação, consulte [configurar um ambiente de preparo no serviço de aplicativo](deploy-staging-slots.md).
 
-## <a name="how-do-i-access-and-review-webjob-logs"></a>Como aceder e reveja a registos WebJob?
+## <a name="how-do-i-access-and-review-webjob-logs"></a>Como fazer acessar e examinar os logs do WebJob?
 
-Para rever a registos WebJob:
+Para examinar os logs do WebJob:
 
-1. Inicie sessão no seu [Web site do Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selecione o WebJob.
-3. Selecione o **saída de alternância** botão.
-4. Para transferir o ficheiro de saída, selecione o **transferir** ligação.
-5. Para execuções de individuais, selecione **invocar individuais**.
-6. Selecione o **saída de alternância** botão.
-7. Selecione o link de download.
+3. Selecione o botão **alternar saída** .
+4. Para baixar o arquivo de saída, selecione o link **baixar** .
+5. Para execuções individuais, selecione **invocar individual**.
+6. Selecione o botão **alternar saída** .
+7. Selecione o link baixar.
 
-## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou a tentar utilizar ligações híbridas com o SQL Server. Por que razão vejo a mensagem "System.OverflowException: Operação aritmética resultou num estouro"?
+## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Estou tentando usar Conexões Híbridas com SQL Server. Por que vejo a mensagem "System. OverflowException: A operação aritmética resultou em um estouro "?
 
-Se utilizar ligações híbridas para aceder ao SQL Server, uma atualização do Microsoft .NET em 10 de Maio de 2016, pode fazer com que as ligações efetuar a ativação. Poderá ver esta mensagem:
+Se você usar Conexões Híbridas para acessar SQL Server, uma atualização de Microsoft .NET em 10 de maio de 2016 poderá causar falha nas conexões. Você pode ver esta mensagem:
 
 ```
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
@@ -150,127 +150,124 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Resolução
 
-A exceção foi causada por um problema com o Gestor de ligações híbridas que que foi então corrigida. Não se esqueça [atualizar o seu Gestor de ligações híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver este problema.
+A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas que foi corrigido desde então. Certifique-se de [atualizar seu Gerenciador de conexões híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver esse problema.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Como adicionar ou editar uma regra de reescrita de URL?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como fazer adicionar uma regra de regravação de URL?
 
-Para adicionar ou editar uma regra de reescrita de URL:
+Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, [consulte serviços de Azure App: Entendendo a regravação](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)de URL.
 
-1. Configure o Gestor de serviços de informação Internet (IIS), de modo a que se liga à sua aplicação web do serviço de aplicações. Para saber como ligar o Gestor do IIS ao serviço de aplicações, veja [administração remota do Web sites do Azure utilizando o Gestor de IIS](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. No Gestor de IIS, adicionar ou editar uma regra de reescrita de URL. Para saber como adicionar ou editar uma regra de reescrita de URL, veja [criar regras de reescrita para o URL rewrite módulo](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como fazer controlar o tráfego de entrada para o serviço de aplicativo?
 
-## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como posso controlar o tráfego de entrada no serviço de aplicações?
+No nível do site, você tem duas opções para controlar o tráfego de entrada para o serviço de aplicativo:
 
-Ao nível do site, tem duas opções para controlar o tráfego de entrada no serviço de aplicações:
+* Ative as restrições de IP dinâmico. Para saber como ativar as restrições de IP dinâmico, consulte [restrições de IP e de domínio para sites do Azure](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
+* Ative a segurança do módulo. Para saber como ativar a segurança do módulo, consulte [Firewall do aplicativo Web do ModSecurity nos sites do Azure](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
 
-* Ative restrições de IP dinâmicas. Para saber como ativar restrições de IP dinâmicas, consulte [restrições de IP e domínio nos Web sites Azure](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/).
-* Ative o módulo de segurança. Para saber como ativar o módulo de segurança, veja [ModSecurity firewall de aplicações web em Web sites do Azure](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/).
+Se você usar Ambiente do Serviço de Aplicativo, poderá usar o [Firewall do Barracuda](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
 
-Se utilizar o ambiente de serviço de aplicações, pode utilizar [Barracuda firewall](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/).
+## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Como fazer bloquear portas em um aplicativo Web do serviço de aplicativo?
 
-## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Como posso bloquear portas numa aplicação web do serviço de aplicações?
+No ambiente de locatário compartilhado do serviço de aplicativo, não é possível bloquear portas específicas devido à natureza da infraestrutura. As portas TCP 4016, 4018 e 4020 também podem estar abertas para depuração remota do Visual Studio.
 
-No ambiente de inquilino partilhado do serviço de aplicações, não é possível bloquear portas específicas devido à natureza da infraestrutura. As portas TCP 4016, 4018 e 4020 também podem ser abertas para a depuração remota do Visual Studio.
+No Ambiente do Serviço de Aplicativo, você tem controle total sobre o tráfego de entrada e de saída. Você pode usar grupos de segurança de rede para restringir ou bloquear portas específicas. Para obter mais informações sobre Ambiente do Serviço de Aplicativo, consulte [introdução a ambiente do serviço de aplicativo](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
-No ambiente de serviço de aplicações, tem controlo total sobre o tráfego de entrada e saído. Pode utilizar grupos de segurança de rede para restringir ou bloquear portas específicas. Para obter mais informações sobre o ambiente de serviço de aplicações, consulte [introdução ao ambiente de serviço de aplicações](https://azure.microsoft.com/blog/introducing-app-service-environment/).
+## <a name="how-do-i-capture-an-f12-trace"></a>Como fazer capturar um rastreamento F12?
 
-## <a name="how-do-i-capture-an-f12-trace"></a>Como posso capturar um rastreamento de F12?
+Você tem duas opções para capturar um rastreamento F12:
 
-Tem duas opções para capturar um rastreamento de F12:
+* Rastreamento de HTTP F12
+* Saída do console F12
 
-* Rastreio de HTTP de F12
-* Resultado da consola de F12
+### <a name="f12-http-trace"></a>Rastreamento de HTTP F12
 
-### <a name="f12-http-trace"></a>Rastreio de HTTP de F12
+1. No Internet Explorer, vá para seu site. É importante entrar antes de executar as próximas etapas. Caso contrário, o rastreamento F12 captura dados de entrada confidenciais.
+2. Pressione F12.
+3. Verifique se a guia **rede** está selecionada e, em seguida, selecione o botão verde **executar** .
+4. Execute as etapas que reproduzem o problema.
+5. Selecione o botão de **parada** vermelha.
+6. Selecione o botão **salvar** (ícone de disco) e salve o arquivo Har (no Internet Explorer e Microsoft Edge) *ou* clique com o botão direito do mouse no arquivo Har e selecione **salvar como Har com conteúdo** (no Chrome).
 
-1. No Internet Explorer, aceda ao seu Web site. É importante iniciar sessão antes de efetuar os passos seguintes. Caso contrário, o rastreio de F12 captura dados de início de sessão confidenciais.
-2. Premir a tecla F12.
-3. Certifique-se de que o **rede** separador está selecionado e, em seguida, selecione o verde **reproduzir** botão.
-4. Siga os passos que reproduza o problema.
-5. Selecione o vermelho **parar** botão.
-6. Selecione o **salvar** botão (ícone de disco) e guarde o ficheiro HAR (no Internet Explorer e o Microsoft Edge) *ou* o ficheiro HAR com o botão direito e, em seguida, selecione **guardar como HAR com conteúdo**(no Chrome).
+### <a name="f12-console-output"></a>Saída do console F12
 
-### <a name="f12-console-output"></a>Resultado da consola de F12
+1. Selecione a guia **console** .
+2. Para cada guia que contenha mais de zero itens, selecione a guia (**erro**, **aviso**ou **informações**). Se a guia não estiver selecionada, o ícone de guia ficará cinza ou preto quando você mover o cursor para longe dele.
+3. Clique com o botão direito do mouse na área de mensagem do painel e selecione **copiar tudo**.
+4. Cole o texto copiado em um arquivo e salve o arquivo.
 
-1. Selecione o **consola** separador.
-2. Para cada separador que contém mais do que zero itens, selecione o separador (**erro**, **aviso**, ou **informações**). Se o separador não estiver selecionado, o ícone de separador é preto ou branco cinzento ao mover o cursor para fora.
-3. Faça duplo clique na área de mensagens do painel e, em seguida, selecione **copie todos os**.
-4. Colar o texto copiado num arquivo e, em seguida, guarde o ficheiro.
+Para exibir um arquivo HAR, você pode usar o [Visualizador Har](https://www.softwareishard.com/har/viewer/).
 
-Para ver um ficheiro HAR, pode utilizar o [Visualizador HAR](https://www.softwareishard.com/har/viewer/).
+## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Por que recebo um erro quando tento conectar um aplicativo Web do serviço de aplicativo a uma rede virtual que está conectada ao ExpressRoute?
 
-## <a name="why-do-i-get-an-error-when-i-try-to-connect-an-app-service-web-app-to-a-virtual-network-that-is-connected-to-expressroute"></a>Por que motivo recebo um erro quando tento me conectar um serviço de aplicações web de aplicação a uma rede virtual que está ligada ao ExpressRoute?
+Se você tentar conectar um aplicativo Web do Azure a uma rede virtual que está conectada ao Azure ExpressRoute, ele falhará. É apresentada a seguinte mensagem: "O gateway não é um gateway de VPN."
 
-Se tentar ligar a uma aplicação web do Azure a uma rede virtual que tenha ligado ao Azure ExpressRoute, falhará. É apresentada a seguinte mensagem: "Gateway não é um gateway de VPN."
+No momento, não é possível ter conexões VPN ponto a site com uma rede virtual conectada ao ExpressRoute. Uma VPN ponto a site e o ExpressRoute não podem coexistir para a mesma rede virtual. Para obter mais informações, veja [limites e limitações de conexões VPN site a](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations)site e de ExpressRoute.
 
-Atualmente, não pode ter ligações de VPN ponto a site a uma rede virtual que está ligada ao ExpressRoute. Um ponto-para-site VPN e ExpressRoute não podem coexistir para a mesma rede virtual. Para obter mais informações, consulte [ExpressRoute e VPN site a site limites de ligações e limitações](../expressroute/expressroute-howto-coexist-classic.md#limits-and-limitations).
+## <a name="how-do-i-connect-an-app-service-web-app-to-a-virtual-network-that-has-a-static-routing-policy-based-gateway"></a>Como fazer conectar um aplicativo Web do serviço de aplicativo a uma rede virtual que tem um gateway de roteamento estático (baseado em políticas)?
 
-## <a name="how-do-i-connect-an-app-service-web-app-to-a-virtual-network-that-has-a-static-routing-policy-based-gateway"></a>Como posso ligar uma aplicação do serviço de aplicações web a uma rede virtual que tenha um gateway (baseado em políticas) de encaminhamento estático?
+Atualmente, não há suporte para a conexão de um aplicativo Web do serviço de aplicativo a uma rede virtual que tenha um gateway de roteamento estático (baseado em políticas). Se a rede virtual de destino já existir, ela deverá ter uma VPN ponto a site habilitada, com um gateway de roteamento dinâmico, antes que possa ser conectada a um aplicativo. Se o gateway estiver definido como roteamento estático, você não poderá habilitar uma VPN ponto a site. 
 
-Atualmente, uma aplicação do serviço de aplicações web a ligar a uma rede virtual que tenha um gateway (baseado em políticas) de encaminhamento estático não é suportada. Se a rede virtual de destino já existir, tem de ter ativado, com um gateway de encaminhamento dinâmico, antes de ele pode ser conectado a uma aplicação VPN de ponto a site. Se o gateway estiver definido como encaminhamento estático, não é possível ativar uma VPN ponto a site. 
+Para obter mais informações, consulte [integrar um aplicativo a uma rede virtual do Azure](web-sites-integrate-with-vnet.md#getting-started).
 
-Para obter mais informações, consulte [integrar uma aplicação com uma Azure virtual network](web-sites-integrate-with-vnet.md#getting-started).
+## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Em minha Ambiente do Serviço de Aplicativo, por que posso criar apenas um plano do serviço de aplicativo, embora tenha dois trabalhadores disponíveis?
 
-## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>No meu ambiente de serviço de aplicações, por que é possível criar apenas um plano de serviço de aplicações, embora tenha dois trabalhos disponíveis?
+Para fornecer tolerância a falhas, Ambiente do Serviço de Aplicativo requer que cada pool de trabalho precise de pelo menos um recurso de computação adicional. O recurso de computação adicional não pode ser atribuído a uma carga de trabalho.
 
-Para fornecer tolerância a falhas, o ambiente de serviço de aplicações requer que cada conjunto de trabalho necessita de pelo menos um recurso de computação adicionais. O recurso de computação adicionais não pode ser atribuído uma carga de trabalho.
+Para obter mais informações, consulte [como criar um ambiente do serviço de aplicativo](environment/app-service-web-how-to-create-an-app-service-environment.md).
 
-Para obter mais informações, consulte [como criar um ambiente de serviço de aplicações](environment/app-service-web-how-to-create-an-app-service-environment.md).
+## <a name="why-do-i-see-timeouts-when-i-try-to-create-an-app-service-environment"></a>Por que vejo tempos limite quando tento criar um Ambiente do Serviço de Aplicativo?
 
-## <a name="why-do-i-see-timeouts-when-i-try-to-create-an-app-service-environment"></a>Por que vejo tempos limite ao tentar criar um ambiente de serviço de aplicações?
-
-Às vezes, a criação de um ambiente de serviço de aplicação falha. Nesse caso, verá o seguinte erro nos registos de atividade:
+Às vezes, a criação de um Ambiente do Serviço de Aplicativo falha. Nesse caso, você verá o seguinte erro nos logs de atividade:
 ```
 ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
 Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
 ```
 
-Para resolver este problema, certifique-se de que nenhuma das condições seguintes forem verdadeiras:
-* A sub-rede é demasiado pequena.
+Para resolver isso, certifique-se de que nenhuma das condições a seguir seja verdadeira:
+* A sub-rede é muito pequena.
 * A sub-rede não está vazia.
-* ExpressRoute impede que os requisitos de conectividade de rede de um ambiente de serviço de aplicações.
-* Um grupo de segurança de rede ruim impede que os requisitos de conectividade de rede de um ambiente de serviço de aplicações.
-* O túnel forçado é ativado.
+* O ExpressRoute impede os requisitos de conectividade de rede de um Ambiente do Serviço de Aplicativo.
+* Um grupo de segurança de rede inadequado impede os requisitos de conectividade de rede de um Ambiente do Serviço de Aplicativo.
+* O túnel forçado está ativado.
 
-Para obter mais informações, consulte [problemas frequentes ao implementar (criar) um novo ambiente do serviço de aplicações do Azure](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+Para obter mais informações, consulte [problemas frequentes ao implantar (criar) um novo ambiente do serviço de aplicativo do Azure](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
 
-## <a name="why-cant-i-delete-my-app-service-plan"></a>Por que não é possível eliminar o meu plano de serviço de aplicações?
+## <a name="why-cant-i-delete-my-app-service-plan"></a>Por que não posso excluir meu plano do serviço de aplicativo?
 
-Não é possível eliminar um plano do serviço de aplicações se todas as aplicações de serviço de aplicações estão associadas com o plano do serviço de aplicações. Antes de eliminar um plano do serviço de aplicações, remova todas as aplicações de serviço de aplicações associadas do plano de serviço de aplicações.
+Você não poderá excluir um plano do serviço de aplicativo se algum aplicativo do serviço de aplicativo estiver associado ao plano do serviço de aplicativo. Antes de excluir um plano do serviço de aplicativo, remova todos os aplicativos do serviço de aplicativo associados do plano do serviço de aplicativo.
 
-## <a name="how-do-i-schedule-a-webjob"></a>Como faço para agendar um trabalho Web?
+## <a name="how-do-i-schedule-a-webjob"></a>Como fazer agendar um WebJob?
 
-Pode criar um WebJob agendado com expressões Cron:
+Você pode criar um WebJob agendado usando expressões cron:
 
-1. Crie um ficheiro Settings.
-2. Neste ficheiro de JSON, incluem uma propriedade de agenda, utilizando uma expressão Cron: 
+1. Crie um arquivo Settings. Job.
+2. Nesse arquivo JSON, inclua uma propriedade de agendamento usando uma expressão cron: 
     ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
     ```
 
-Para obter mais informações sobre trabalhos Web agendados, consulte [criar um WebJob agendado com uma expressão Cron](webjobs-create.md#CreateScheduledCRON).
+Para obter mais informações sobre trabalhos Web agendados, consulte [criar um WebJob agendado usando uma expressão cron](webjobs-create.md#CreateScheduledCRON).
 
-## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como posso executar testes para a minha aplicação de serviço de aplicações de penetração?
+## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Como fazer executar testes de penetração para meu aplicativo do serviço de aplicativo?
 
-Para executar testes de penetração [submeter um pedido](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+Para executar o teste de penetração, [envie uma solicitação](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
-## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como posso configurar um nome de domínio personalizado para uma aplicação de web do serviço de aplicações que utiliza o Gestor de tráfego?
+## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Como fazer configurar um nome de domínio personalizado para um aplicativo Web do serviço de aplicativo que usa o Gerenciador de tráfego?
 
-Para saber como utilizar um nome de domínio personalizado com uma aplicação de serviço de aplicações que utiliza o Gestor de tráfego do Azure para o balanceamento de carga, veja [configurar um nome de domínio personalizado para uma aplicação web do Azure com o Gestor de tráfego](web-sites-traffic-manager-custom-domain-name.md).
+Para saber como usar um nome de domínio personalizado com um aplicativo do serviço de aplicativo que usa o Gerenciador de tráfego do Azure para balanceamento de carga, consulte [configurar um nome de domínio personalizado para um aplicativo Web do Azure com o Gerenciador de tráfego](web-sites-traffic-manager-custom-domain-name.md).
 
-## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Meu certificado de serviço de aplicações é sinalizado por fraude. Como posso resolver isto?
+## <a name="my-app-service-certificate-is-flagged-for-fraud-how-do-i-resolve-this"></a>Meu certificado do serviço de aplicativo está sinalizado para fraude. Como fazer resolver isso?
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Durante a verificação de domínio de uma compra do certificado de serviço de aplicações, poderá ver a mensagem seguinte:
+Durante a verificação de domínio de uma compra de certificado do serviço de aplicativo, você poderá ver a seguinte mensagem:
 
-"O certificado foi sinalizado como possível fraude. O pedido está atualmente a ser analisadas. Se o certificado se tornar utilizável dentro de 24 horas, contacte o suporte do Azure."
+"Seu certificado foi sinalizado para uma possível fraude. A solicitação está em análise no momento. Se o certificado não se tornar utilizável dentro de 24 horas, entre em contato com o suporte do Azure.
 
-Como a mensagem indica, este processo de verificação de fraude poderá demorar até 24 horas a concluir. Durante este período, irá continuar a ver a mensagem.
+Como a mensagem indica, esse processo de verificação de fraude pode levar até 24 horas para ser concluído. Durante esse tempo, você continuará a ver a mensagem.
 
-Se o certificado do serviço de aplicação continua a mostrar esta mensagem após 24 horas, execute o seguinte script do PowerShell. Os contactos do script da [fornecedor de certificados](https://www.godaddy.com/) diretamente para resolver o problema.
+Se o seu certificado de serviço de aplicativo continuar a mostrar esta mensagem após 24 horas, execute o seguinte script do PowerShell. O script entra em contato diretamente com o [provedor de certificados](https://www.godaddy.com/) para resolver o problema.
 
 ```powershell
 Connect-AzAccount
@@ -281,38 +278,38 @@ $actionProperties = @{
 Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
-## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como a autenticação e autorização funcionam no serviço de aplicações?
+## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Como funciona a autenticação e a autorização no serviço de aplicativo?
 
-Para obter documentação detalhada para autenticação e autorização no serviço de aplicações, consulte documentos para vários identificar inícios de sessão do fornecedor:
+Para obter a documentação detalhada para autenticação e autorização no serviço de aplicativo, consulte documentos para várias entradas de provedor de identidade:
 * [Azure Active Directory](configure-authentication-provider-aad.md)
 * [Facebook](configure-authentication-provider-facebook.md)
 * [Google](configure-authentication-provider-google.md)
 * [Conta Microsoft](configure-authentication-provider-microsoft.md)
 * [Twitter](configure-authentication-provider-twitter.md)
 
-## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o padrão *. domínio azurewebsites.net para o domínio personalizado da minha aplicação web do Azure?
+## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como fazer redirecionar o domínio padrão *. azurewebsites.net para o domínio personalizado do meu aplicativo Web do Azure?
 
-Quando cria um novo Web site através da utilização de aplicações Web no Azure, um padrão *sitename*. domínio azurewebsites.net é atribuído ao seu site. Se adicionar um nome de anfitrião personalizado ao seu site e não quiser que os utilizadores possam acessar seu padrão *. domínio azurewebsites.net, pode redirecionar o URL predefinido. Para saber como redirecionar todo o tráfego de domínio do seu Web site predefinido ao seu domínio personalizado, veja [redirecionar o domínio predefinido para o seu domínio personalizado em aplicações web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando você cria um novo site usando aplicativos Web no Azure, um domínio padrão *SiteName*. azurewebsites.net é atribuído ao seu site. Se você adicionar um nome de host personalizado ao seu site e não quiser que os usuários possam acessar seu domínio padrão *. azurewebsites.net, você poderá redirecionar a URL padrão. Para saber como redirecionar todo o tráfego do domínio padrão do seu site para seu domínio personalizado, consulte redirecionar [o domínio padrão para seu domínio personalizado nos aplicativos Web do Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
-## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como posso determinar qual é a versão do .NET está instalada a versão no serviço de aplicações?
+## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como fazer determinar qual versão da versão do .NET está instalada no serviço de aplicativo?
 
-É a forma mais rápida para localizar a versão do Microsoft .NET que está instalado no serviço de aplicações utilizando a consola Kudu. Pode aceder a consola Kudu a partir do portal ou utilizando o URL da sua aplicação de serviço de aplicações. Para obter instruções detalhadas, consulte [determinar a versão instalada do .NET no serviço de aplicações](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+A maneira mais rápida de localizar a versão do Microsoft .NET que está instalada no serviço de aplicativo é usando o console do kudu. Você pode acessar o console do kudu no portal ou usando a URL do seu aplicativo do serviço de aplicativo. Para obter instruções detalhadas, consulte [determinar a versão do .net instalada no serviço de aplicativo](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
 
-## <a name="why-isnt-autoscale-working-as-expected"></a>Por que o dimensionamento automático não está funcionando como esperado?
+## <a name="why-isnt-autoscale-working-as-expected"></a>Por que o dimensionamento automático não funciona conforme o esperado?
 
-Se o dimensionamento automático do Azure ainda não reduzido horizontalmente ou aumentar horizontalmente a instância da aplicação web conforme esperado, pode estar em execução num cenário em que podemos intencionalmente optar por não ser dimensionado para evitar um loop infinito devido a "em oscilação." Normalmente, isso acontece quando existem não é uma margem adequada entre os limiares de aumento horizontal e a redução horizontal. Para saber como evitar "em oscilação" e leia sobre outras práticas recomendadas de dimensionamento automático, veja [melhores práticas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Se o dimensionamento automático do Azure não tiver sido dimensionado ou dimensionado horizontalmente na instância do aplicativo Web conforme o esperado, você poderá estar se esgotando em um cenário no qual escolhemos intencionalmente não dimensionar para evitar um loop infinito devido à "oscilação". Isso geralmente acontece quando não há uma margem adequada entre os limites de expansão e redução. Para saber como evitar "oscilação" e ler sobre outras práticas recomendadas de dimensionamento automático, consulte [práticas recomendadas de dimensionamento automático](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
 
-## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que motivo dimensionamento automático, às vezes, dimensionar apenas parcialmente?
+## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que o dimensionamento automático às vezes dimensiona apenas parcialmente?
 
-Dimensionamento automático é acionado quando métricas excederem os limites pré-configurada. Às vezes, pode observar que a capacidade é apenas parcialmente preenchida em comparação com o que esperava. Esta situação pode ocorrer quando o número de instâncias que pretende que não está disponível. Nesse cenário, o dimensionamento automático parcialmente preenche com o número de disponibilidade de instâncias. Dimensionamento automático, em seguida, executa a lógica de rebalanceamento para obter mais capacidade. Ele aloca as muitas instâncias remanescentes. Tenha em atenção que esta operação pode demorar alguns minutos.
+O dimensionamento automático é disparado quando as métricas excedem os limites pré-configurados. Às vezes, você pode notar que a capacidade é apenas parcialmente preenchida em comparação com o esperado. Isso pode ocorrer quando o número de instâncias que você deseja não está disponível. Nesse cenário, o dimensionamento automático é preenchido parcialmente com o número disponível de instâncias. O dimensionamento automático executa a lógica de rebalanceamento para obter mais capacidade. Ele aloca as instâncias restantes. Observe que isso pode levar alguns minutos.
 
-Se não vir o número de instâncias esperado após alguns minutos, poderá ser porque o refill parcial foi suficiente para dar as métricas de dentro dos limites. Em alternativa, dimensionamento automático pode ter reduzido porque atingiu o limite de métrica mais baixo.
+Se você não vir o número esperado de instâncias depois de alguns minutos, pode ser porque o reabastecimento parcial era suficiente para trazer as métricas dentro dos limites. Ou, o dimensionamento automático pode ter sido reduzido porque atingiu o limite de métricas menores.
 
-Se nenhuma dessas condições aplicam-se e o problema persistir, submeta um pedido de suporte.
+Se nenhuma dessas condições se aplicar e o problema persistir, envie uma solicitação de suporte.
 
-## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Como posso ativá compactação HTTP para o meu conteúdo?
+## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Como fazer ativar a compactação HTTP para meu conteúdo?
 
-Para ativar a compressão para tipos de conteúdos estáticos e dinâmicos, adicione o seguinte código ao ficheiro Web. config de nível de aplicativo:
+Para ativar a compactação para tipos de conteúdo estáticos e dinâmicos, adicione o seguinte código ao arquivo Web. config no nível de aplicativo:
 
 ```xml
 <system.webServer>
@@ -320,8 +317,8 @@ Para ativar a compressão para tipos de conteúdos estáticos e dinâmicos, adic
 </system.webServer>
 ```
 
-Também pode especificar os tipos de MIME estáticos e dinâmicos específicos que pretende comprimir. Para obter mais informações, consulte a resposta a uma pergunta do fórum no [httpCompression definições num Web site do Azure simple](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
+Você também pode especificar os tipos MIME dinâmicos e estáticos específicos que deseja compactar. Para obter mais informações, consulte nossa resposta a uma pergunta de fórum em [configurações de httpCompression em um site simples do Azure](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).
 
-## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como posso migrar de um ambiente no local para o serviço de aplicações?
+## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como fazer migrar de um ambiente local para o serviço de aplicativo?
 
-A migrar os sites dos servidores de web do Windows e Linux para o serviço de aplicações, pode utilizar Azure App Service Migration Assistant. A ferramenta de migração cria aplicações web e bases de dados no Azure conforme necessário e, em seguida, publica o conteúdo. Para obter mais informações, consulte [Assistente de migração de serviço do Azure aplicações](https://www.migratetoazure.net/).
+Para migrar sites de servidores Web do Windows e Linux para o serviço de aplicativo, você pode usar Azure App Assistente de Migração de serviço. A ferramenta de migração cria aplicativos Web e bancos de dados no Azure conforme necessário e, em seguida, publica o conteúdo. Para obter mais informações, consulte [Azure app de serviço assistente de migração](https://www.migratetoazure.net/).

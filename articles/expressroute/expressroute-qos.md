@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos do QoS - ExpressRoute: Azure | Microsoft Docs'
+title: 'Requisitos de QoS – ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece os requisitos detalhados para configurar e gerir o QoS. Skype para serviços de negócios/voz são discutidos.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712323"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385133"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
 O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do QoS diferenciado. Se planear consumir serviços de voz através do ExpressRoute, deve cumprir os requisitos descritos abaixo.
@@ -25,18 +25,18 @@ O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do
 > 
 > 
 
-A tabela seguinte fornece uma lista de marcações DSCP utilizadas pelo Microsoft Teams e o Skype para empresas. Para obter mais informações, veja [Gerir QoS para Skype para Empresas](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS).
+A tabela a seguir fornece uma lista de marcações DSCP usadas pelo Microsoft Teams e pelo Skype for Business. Para obter mais informações, veja [Gerir QoS para Skype para Empresas](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS).
 
-| **Classe de Tráfego** | **Tratamento (Marcação DSCP)** | **Microsoft Teams e o Skype para cargas de trabalho empresariais** |
+| **Classe de Tráfego** | **Tratamento (Marcação DSCP)** | **Cargas de trabalho do Microsoft Teams e do Skype for Business** |
 | --- | --- | --- |
-| **Voz** |EF (46) |Voz do Skype/Lync |
+| **Voz** |EF (46) |Skype/Microsoft Teams/Lync Voice |
 | **Interativo** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |Partilha de aplicações | 
 | **Predefinição** |AF11 (10) |Transferência de ficheiros |
 | |CS0 (0) |Tudo o resto |
 
 * Deve classificar as cargas de trabalho e marcar os valores DSCP corretos. Siga as orientações fornecidas [aqui](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) para saber como configurar as marcações DSCP na sua rede.
-* Deve configurar e suportar várias filas do QoS na rede. Voz tem de ser uma classe autónoma e receber o tratamento EF especificado no [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
+* Deve configurar e suportar várias filas do QoS na rede. A voz deve ser uma classe autônoma e receber o tratamento do EF especificado no [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt). 
 * Pode decidir o mecanismo de colocação em fila, a política de deteção de congestionamento e a alocação de largura de banda por classe de tráfego. No entanto, a marcação DSCP para cargas de trabalho do Skype para Empresas tem de ser preservada. Se estiver a utilizar marcações DSCP não listadas acima, por exemplo, AF31 (26), terá de reescrever este valor DSCP para 0 antes de enviar o pacote à Microsoft. A Microsoft só envia pacotes marcados com o valor DSCP mostrado na tabela acima. 
 
 ## <a name="next-steps"></a>Passos Seguintes

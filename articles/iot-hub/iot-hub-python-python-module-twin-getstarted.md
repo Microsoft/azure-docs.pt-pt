@@ -1,6 +1,6 @@
 ---
-title: Introdução ao IoT Hub do Azure módulo identidade e o módulo duplo (Python) | Documentos da Microsoft
-description: Saiba como criar a identidade do módulo e atualizar o módulo duplo com os SDKs para Python.
+title: Introdução à identidade do módulo do Hub IoT do Azure e ao módulo (Python) | Microsoft Docs
+description: Saiba como criar a identidade do módulo e atualizar o módulo/atualização usando SDKs de IoT para Python.
 author: chrissie926
 ms.service: iot-hub
 services: iot-hub
@@ -8,44 +8,50 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: f887fbd4f82e59c02d6a5b69d0d5b43b426a39bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 428f13c1c70171404da4cbb6f731d95056813914
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441227"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402326"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introdução ao IoT Hub módulo identidade e o módulo duplo com Python back-end e de dispositivo Python
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Introdução à identidade do módulo do Hub IoT e ao módulo "cópia" usando o back-end do Python e o dispositivo Python
 
 > [!NOTE]
 > As [identidades de módulo e os módulos duplos](iot-hub-devguide-module-twins.md) assemelham-se à identidade do dispositivo e ao dispositivo duplo do Hub IoT do Azure, exceto no facto de oferecerem melhor granularidade. Enquanto a identidade do dispositivo e o dispositivo duplo do Hub IoT do Azure permitem que a aplicação de back-end configure um dispositivo e conferem visibilidade às condições do dispositivo, uma identidade de módulo e o módulo duplo fornecem estas capacidades para componentes individuais de um dispositivo. Em dispositivos compatíveis com vários componentes, tais como dispositivos baseados no sistema operativo ou dispositivos de firmware, permitem a configuração e condições isoladas para cada componente.
 >
 
-No final deste tutorial, tem duas aplicações Python:
+No final deste tutorial, você tem dois aplicativos Python:
 
 * **CreateIdentities**, que cria uma identidade de dispositivo, uma identidade de módulo e a chave de segurança associada para ligar os clientes do dispositivo e do módulo.
 
 * **UpdateModuleTwinReportedProperties**, que envia as propriedades reportadas do módulo duplo atualizadas para o Hub IoT.
 
 > [!NOTE]
-> Para obter informações sobre os SDKs IoT do Azure que pode utilizar para criar quer as aplicações a executar em dispositivos e a sua solução de back-end, consulte [do Azure IoT SDKs](iot-hub-devguide-sdks.md).
+> Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar ambos os aplicativos para execução em dispositivos e o back-end da solução, consulte [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
 >
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
-* Um Hub IoT.
+* Instale o [SDK do Python](https://github.com/Azure/azure-iot-sdk-python)mais recente.
 
-* Instalar a versão mais recente [SDK de Python](https://github.com/Azure/azure-iot-sdk-python).
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-Criou o seu hub IoT e tem agora o nome de anfitrião e a cadeia de ligação do Hub IoT de que precisa para concluir este tutorial.
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade de dispositivo e uma identidade de módulo no IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
 
-Nesta secção, vai criar uma aplicação de Python que cria uma identidade de dispositivo e uma identidade de módulo no registo de identidade do IoT hub. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, consulte a secção "Registo de identidade" a [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md). Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
 
-Adicione o seguinte código ao seu ficheiro de Python:
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade de dispositivo e uma identidade de módulo no Hub IoT
+
+Nesta seção, você cria um aplicativo Python que cria uma identidade de dispositivo e uma identidade de módulo no registro de identidade em seu hub IoT. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, consulte a seção "registro de identidade" do [Guia do desenvolvedor do Hub IOT](iot-hub-devguide-identity-registry.md). Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
+
+Adicione o seguinte código ao seu arquivo Python:
 
 ```python
 import sys
@@ -64,34 +70,38 @@ try:
     primary_key = ""
     secondary_key = ""
     auth_method = IoTHubRegistryManagerAuthMethod.SHARED_PRIVATE_KEY
-    new_device = iothub_registry_manager.create_device(DEVICE_ID, primary_key, secondary_key, auth_method)
-    print("new_device <" + DEVICE_ID + "> has primary key = " + new_device.primaryKey)
+    new_device = iothub_registry_manager.create_device(
+        DEVICE_ID, primary_key, secondary_key, auth_method)
+    print("new_device <" + DEVICE_ID +
+          "> has primary key = " + new_device.primaryKey)
 
     # CreateModule
-    new_module = iothub_registry_manager.create_module(DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
-    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID + "> has primary key = " + new_module.primaryKey)
+    new_module = iothub_registry_manager.create_module(
+        DEVICE_ID, primary_key, secondary_key, MODULE_ID, auth_method)
+    print("device/new_module <" + DEVICE_ID + "/" + MODULE_ID +
+          "> has primary key = " + new_module.primaryKey)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "IoTHubRegistryManager sample stopped" )
+    print("IoTHubRegistryManager sample stopped")
 ```
 
-Esta aplicação cria uma identidade de dispositivo com o ID **myFirstDevice** e uma identidade de módulo com o ID **myFirstModule** em dispositivos **myFirstDevice**. (Se o ID desse módulo já existir no registo de identidade, o código apenas obtém as informações do módulo existente.) De seguida, a aplicação irá apresentar a chave primária para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
+Este aplicativo cria uma identidade de dispositivo com a ID **myFirstDevice** e uma identidade de módulo com ID **MyFirstModule** em dispositivo **myFirstDevice**. (Se o ID desse módulo já existir no registo de identidade, o código apenas obtém as informações do módulo existente.) De seguida, a aplicação irá apresentar a chave primária para essa identidade. Esta chave vai ser utilizada na aplicação do módulo simulado para ligar ao seu hub IoT.
 
 > [!NOTE]
-> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação. Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, consulte [Guia do programador do IoT Hub](iot-hub-devguide-identity-registry.md).
+> O registo de identidade do Hub IoT apenas armazena identidades de dispositivos e módulos para permitir um acesso seguro ao hub IoT. O registo de identidades armazena os IDs de dispositivo e as chaves para utilizar como credenciais de segurança. O registo de identidades também armazena um sinalizador ativado/desativado para cada dispositivo que pode utilizar para desativar o acesso a esse dispositivo. Se a sua aplicação tiver de armazenar outros metadados específicos do dispositivo, deverá utilizar um armazenamento específico da aplicação. Não existe nenhum sinalizador ativado/desativado para identidades de módulo. Para obter mais informações, consulte [Guia do desenvolvedor do Hub IOT](iot-hub-devguide-identity-registry.md).
 >
 
-## <a name="update-the-module-twin-using-python-device-sdk"></a>Atualizar o módulo duplo usando o SDK de dispositivo Python
+## <a name="update-the-module-twin-using-python-device-sdk"></a>Atualizar o módulo "/" usando o SDK do dispositivo Python
 
-Nesta secção, vai criar um Python propriedades comunicadas de aplicação no seu dispositivo simulado que atualiza o duplo do módulo.
+Nesta seção, você cria um aplicativo Python no dispositivo simulado que atualiza as propriedades relatadas do módulo.
 
-1. **Obter a cadeia de ligação do módulo** – agora, se iniciar sessão no [portal do Azure](https://portal.azure.com/). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Encontre myFirstDevice, abra-lo e ver myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
+1. **Obtenha a cadeia de conexão do módulo** – agora se você entrar no [portal do Azure](https://portal.azure.com/). Navegue até ao seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice, abra-o e você verá que o myFirstModule foi criado com êxito. Copie a cadeia de ligação do módulo. É necessária para o próximo passo.
 
    ![Detalhe do módulo no portal do Azure](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
-2. **Criar aplicação UpdateModuleTwinReportedProperties**
+2. **Criar aplicativo UpdateModuleTwinReportedProperties**
 
    Adicione as seguinte declarações `using` na parte superior do ficheiro **Program.cs**:
 
@@ -129,7 +139,7 @@ Este código de exemplo mostra como obter o módulo duplo e atualizar as proprie
 
 ## <a name="get-updates-on-the-device-side"></a>Obter atualizações no lado do dispositivo
 
-Além do código acima, pode adicionar abaixo do bloco de código para colocar a atualização de duplo mensagem no seu dispositivo.
+Além do código acima, você pode adicionar o bloco de código abaixo para obter a mensagem de atualização de mensagens em um dispositivo.
 
 ```python
 import random
@@ -141,32 +151,34 @@ from iothub_client import IoTHubModuleClient, IoTHubClientError, IoTHubTransport
 PROTOCOL = IoTHubTransportProvider.AMQP
 CONNECTION_STRING = ""
 
+
 def module_twin_callback(update_state, payload, user_context):
-    print ("")
-    print ("Twin callback called with:")
-    print ("updateStatus: %s" % update_state )
-    print ("context: %s" % user_context )
-    print ("payload: %s" % payload )
+    print("")
+    print("Twin callback called with:")
+    print("updateStatus: %s" % update_state)
+    print("context: %s" % user_context)
+    print("payload: %s" % payload)
+
 
 try:
     module_client = IoTHubModuleClient(CONNECTION_STRING, PROTOCOL)
     module_client.set_module_twin_callback(module_twin_callback, 1234)
 
-    print ("Waiting for incoming twin messages.  Hit Control-C to exit.")
+    print("Waiting for incoming twin messages.  Hit Control-C to exit.")
     while True:
 
         time.sleep(1000000)
 
 except IoTHubError as iothub_error:
-    print ( "Unexpected error {0}".format(iothub_error) )
+    print("Unexpected error {0}".format(iothub_error))
 except KeyboardInterrupt:
-    print ( "module client sample stopped" )
+    print("module client sample stopped")
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, veja:
 
-* [Introdução à gestão de dispositivos](iot-hub-node-node-device-management-get-started.md)
+* [Introdução ao gerenciamento de dispositivos](iot-hub-node-node-device-management-get-started.md)
 
 * [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

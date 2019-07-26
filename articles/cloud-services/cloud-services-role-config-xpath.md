@@ -1,129 +1,122 @@
 ---
-title: Cloud Services função config notas de XPath | Documentos da Microsoft
-description: As várias configurações de XPath pode utilizar a configuração de função de serviço em nuvem para expor as definições como uma variável de ambiente.
+title: Folha de consulta XPath de configuração de função de serviços de nuvem | Microsoft Docs
+description: As várias configurações XPath que podem ser usadas na configuração da função de serviço de nuvem para expor as configurações como uma variável de ambiente.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: cd2bdc4fc4b2a135907851ca4d3034430618e0cd
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60527301"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359015"
 ---
-# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exponha as definições de configuração de função como uma variável de ambiente com XPath
-No ficheiro de definição de serviço de função web ou função de trabalho de serviço de nuvem, pode expor os valores de configuração de tempo de execução como variáveis de ambiente. Os seguintes valores de XPath são suportados (que correspondem aos valores de API).
+# <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Expor definições de configuração de função como uma variável de ambiente com XPath
+No trabalho do serviço de nuvem ou no arquivo de definição de serviço de função Web, você pode expor valores de configuração de tempo de execução como variáveis de ambiente. Há suporte para os seguintes valores XPath (que correspondem aos valores de API).
 
-Estes valores de XPath também estão disponíveis através da [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) biblioteca. 
+Esses valores XPath também estão disponíveis por meio da biblioteca [Microsoft. WindowsAzure. inruntime](/previous-versions/azure/reference/ee773173(v=azure.100)) . 
 
-## <a name="app-running-in-emulator"></a>Aplicação em execução no emulador
-Indica que a aplicação está em execução no emulador.
+## <a name="app-running-in-emulator"></a>Aplicativo em execução no emulador
+Indica que o aplicativo está em execução no emulador.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@emulated" |
-| Código |var x = RoleEnvironment.IsEmulated; |
+| Código |var x = RoleEnvironment. isemulated; |
 
-## <a name="deployment-id"></a>ID de implementação
-Obtém o ID de implementação para a instância.
+## <a name="deployment-id"></a>ID de Implementação
+Recupera a ID de implantação da instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/Deployment/@id" |
 | Código |var deploymentId = RoleEnvironment.DeploymentId; |
 
-## <a name="role-id"></a>ID de função
-Obtém o ID de função atual para a instância.
+## <a name="role-id"></a>ID de Função
+Recupera a ID da função atual para a instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@id" |
-| Código |var id = RoleEnvironment.CurrentRoleInstance.Id; |
+| Código |var ID = RoleEnvironment.CurrentRoleInstance.Id; |
 
-## <a name="update-domain"></a>Atualizar domínio
-Obtém o domínio de atualização da instância.
+## <a name="update-domain"></a>Atualizar domínio
+Recupera o domínio de atualização da instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | Código |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
 
-## <a name="fault-domain"></a>Domínio de falha
-Obtém o domínio de falhas da instância.
+## <a name="fault-domain"></a>Domínio de falhas
+Recupera o domínio de falha da instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | Código |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
 ## <a name="role-name"></a>Nome da função
-Obtém o nome de função das instâncias.
+Recupera o nome da função das instâncias.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
 | Código |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
-## <a name="config-setting"></a>Definição de configuração
-Obtém o valor da definição de configuração especificado.
+## <a name="config-setting"></a>Configuração
+Recupera o valor da definição de configuração especificada.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/ConfigurationSettings/ConfigurationSetting[@name='Setting1']/@value" |
 | Código |var setting = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
 ## <a name="local-storage-path"></a>Caminho de armazenamento local
-Obtém o caminho de armazenamento local para a instância.
+Recupera o caminho de armazenamento local da instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@path" |
 | Código |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1").RootPath; |
 
-## <a name="local-storage-size"></a>Tamanho de armazenamento local
-Obtém o tamanho do armazenamento local para a instância.
+## <a name="local-storage-size"></a>Tamanho do armazenamento local
+Recupera o tamanho do armazenamento local para a instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='LocalStore1']/@sizeInMB" |
 | Código |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1").MaximumSizeInMegabytes; |
 
-## <a name="endpoint-protocol"></a>Protocolo de ponto final
-Obtém o protocolo de ponto final para a instância.
+## <a name="endpoint-protocol"></a>Protocolo de ponto de extremidade
+Recupera o protocolo de ponto de extremidade para a instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@protocol" |
 | Código |var prot = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].Protocol; |
 
-## <a name="endpoint-ip"></a>Ponto final de IP
+## <a name="endpoint-ip"></a>IP do ponto de extremidade
 Obtém o endereço IP do ponto de extremidade especificado.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@address" |
 | Código |var address = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Address |
 
-## <a name="endpoint-port"></a>Porta de ponto final
-Obtém a porta de ponto final para a instância.
+## <a name="endpoint-port"></a>Porta do ponto de extremidade
+Recupera a porta do ponto de extremidade para a instância.
 
-| Tipo | Exemplo |
+| Type | Exemplo |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/Endpoints/Endpoint[@name='Endpoint1']/@port" |
-| Código |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"].IPEndpoint.Port; |
+| Código |var Port = RoleEnvironment. CurrentRoleInstance. InstanceEndpoints ["Endpoint1"]. IPEndpoint. Port; |
 
 ## <a name="example"></a>Exemplo
-Eis um exemplo de uma função de trabalho que cria uma tarefa de arranque com uma variável de ambiente com o nome `TestIsEmulated` definido como o [ @emulated xpath valor](#app-running-in-emulator). 
+Aqui está um exemplo de uma função de trabalho que cria uma tarefa de inicialização com uma variável `TestIsEmulated` de ambiente nomeada definida como o [ @emulated valor XPath](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -163,9 +156,9 @@ Eis um exemplo de uma função de trabalho que cria uma tarefa de arranque com u
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre o [serviceconfiguration. Cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) ficheiro.
+Saiba mais sobre o arquivo [onconfiguration. cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) .
 
-Criar uma [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) pacote.
+Criar um pacote do pacote [. cspkg](cloud-services-model-and-package.md#servicepackagecspkg) .
 
-Ativar [ambiente de trabalho remoto](cloud-services-role-enable-remote-desktop-new-portal.md) para uma função.
+Habilite a [área de trabalho remota](cloud-services-role-enable-remote-desktop-new-portal.md) para uma função.
 

@@ -1,44 +1,44 @@
 ---
-title: O Azure Cosmos DB, políticas de indexação
-description: Saiba como configurar e alterar a predefinição de política para indexação automática e melhor desempenho no Azure Cosmos DB de indexação.
+title: Políticas de indexação de Azure Cosmos DB
+description: Saiba como configurar e alterar a política de indexação padrão para indexação automática e melhor desempenho no Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 791779bfc2262bb13dc2c3a192d9c74ae69cb30e
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 01e3e1f1c9bffee0604de1260e8e466f5b1d229d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722547"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467881"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
-No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contentor devem ser indexados. A predefinição de política para de indexação recentemente criado índices de contentores todas as propriedades de cada item, a imposição de índices de intervalo para qualquer cadeia de caracteres ou um número e os índices espaciais para qualquer objeto GeoJSON do ponto de tipo. Isto permite-lhe obter o desempenho de consulta elevado sem ter de pensar a respeito de indexação e a gestão de índices de antemão.
+No Azure Cosmos DB, cada contêiner tem uma política de indexação que determina como os itens do contêiner devem ser indexados. A política de indexação padrão para contêineres recém-criados indexa cada propriedade de cada item, impondo índices de intervalo para qualquer cadeia de caracteres ou número e índices espaciais para qualquer objeto geojson do tipo Point. Isso permite que você obtenha alto desempenho de consulta sem precisar pensar na indexação e no gerenciamento de índice antecipadamente.
 
-Em algumas situações, talvez queira substituir este comportamento automático para se adequar melhor às suas necessidades. Pode personalizar a política de indexação de um contentor ao definir seu *modo de indexação*e incluir ou excluir *caminhos de propriedade*.
+Em algumas situações, talvez você queira substituir esse comportamento automático para atender melhor às suas necessidades. Você pode personalizar a política de indexação de um contêiner definindo seu *modo*de indexação e incluir ou excluir os *caminhos de propriedade*.
 
 > [!NOTE]
-> O método de atualização de políticas de indexação descritas neste artigo aplica-se apenas para o Azure Cosmos DB SQL API (principal).
+> O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB.
 
 ## <a name="indexing-mode"></a>Modo de indexação
 
-O Azure Cosmos DB suporta dois modos de indexação:
+O Azure Cosmos DB dá suporte a dois modos de indexação:
 
-- **Consistente**: Se a política de indexação de um contentor é definida como consistência, o índice é atualizado de forma síncrona como criar, atualizar ou eliminar itens. Isso significa que a consistência das suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
+- **Consistente**: Se a política de indexação de um contêiner estiver definida como consistente, o índice será atualizado de forma síncrona à medida que você criar, atualizar ou excluir itens. Isso significa que a consistência de suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
 
-- **Nenhum**: Se a política de indexação de um contentor é definida como None, a indexação efetivamente está desativada nesse contentor. Isto é normalmente utilizado quando um contentor é utilizado como um arquivo de chave-valor puro, sem a necessidade de índices secundários. Também pode ajudar a acelerar a massa operações de inserção.
+- **Nenhum**: Se a política de indexação de um contêiner estiver definida como nenhum, a indexação será efetivamente desabilitada nesse contêiner. Isso é normalmente usado quando um contêiner é usado como um repositório de chave-valor puro sem a necessidade de índices secundários. Ele também pode ajudar a acelerar as operações de inserção em massa.
 
-## <a name="including-and-excluding-property-paths"></a>Incluir e excluir caminhos de propriedade
+## <a name="including-and-excluding-property-paths"></a>Incluindo e excluindo caminhos de propriedade
 
-Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, pode reduzir a quantidade de armazenamento utilizado pelo seu contentor e melhorar a latência das operações de escrita. Estes caminhos são definidos a seguir [o método descrito na secção de descrição geral de indexação](index-overview.md#from-trees-to-property-paths) com as seguintes adições:
+Uma política de indexação personalizada pode especificar caminhos de propriedade que são explicitamente incluídos ou excluídos da indexação. Ao otimizar o número de caminhos que são indexados, você pode diminuir a quantidade de armazenamento usada pelo seu contêiner e melhorar a latência de operações de gravação. Esses caminhos são definidos seguindo [o método descrito na seção visão geral](index-overview.md#from-trees-to-property-paths) da indexação com as seguintes adições:
 
-- um caminho para um valor escalar (cadeia de caracteres ou número) termina com `/?`
-- elementos de uma matriz são abordados em conjunto através de `/[]` notação (em vez de `/0`, `/1` etc.)
-- o `/*` com carateres universais que podem ser utilizado para corresponder a todos os elementos abaixo do nó
+- um caminho que leva a um valor escalar (cadeia de caracteres ou número) termina com`/?`
+- os elementos de uma matriz são abordados em `/[]` conjunto por meio da `/0`notação (em vez de, `/1` etc.)
+- o `/*` curinga pode ser usado para corresponder qualquer elemento abaixo do nó
 
-Colocar novamente o mesmo exemplo:
+Dando o mesmo exemplo novamente:
 
     {
         "locations": [
@@ -52,52 +52,52 @@ Colocar novamente o mesmo exemplo:
         ]
     }
 
-- o `headquarters`do `employees` caminho é `/headquarters/employees/?`
-- o `locations`' `country` caminho é `/locations/[]/country/?`
-- o caminho para nada em `headquarters` é `/headquarters/*`
+- o `headquarters`caminho `employees` do é`/headquarters/employees/?`
+- o `locations`' `country` caminho ' é`/locations/[]/country/?`
+- o caminho para qualquer coisa `headquarters` em é`/headquarters/*`
 
-Quando um caminho é explicitamente incluído na política de indexação, ele também deve definir os tipos de índice devem ser aplicados para esse caminho e para cada tipo de índice, o tipo de dados, este índice aplica-se a:
+Quando um caminho é incluído explicitamente na política de indexação, ele também precisa definir quais tipos de índice devem ser aplicados a esse caminho e para cada tipo de índice, o tipo de dados ao qual este índice se aplica:
 
 | Tipo de índice | Tipos de dados de destino permitidos |
 | --- | --- |
-| Intervalo | Cadeia de caracteres ou um número |
+| Intervalo | Cadeia de caracteres ou número |
 | Espacial | Ponto, LineString ou polígono |
 
-Por exemplo, pode incluir a `/headquarters/employees/?` caminho e especificar que um `Range` índice deve ser aplicado nesse caminho para ambos `String` e `Number` valores.
+Por exemplo, `/headquarters/employees/?` poderíamos incluir o caminho e especificar que um `Range` índice deve ser aplicado nesse caminho para ambos os `String` valores e `Number` .
 
-### <a name="includeexclude-strategy"></a>Incluir/excluir estratégia
+### <a name="includeexclude-strategy"></a>Estratégia de inclusão/exclusão
 
-Qualquer política de indexação tem de incluir o caminho de raiz `/*` como um incluída ou um caminho excluído.
+Qualquer política de indexação deve incluir o caminho `/*` raiz como um caminho incluído ou excluído.
 
-- Inclua o caminho de raiz para seletivamente excluir caminhos que não necessitam de ser indexados. Esta é a abordagem recomendada, já que permite a qualquer nova propriedade, que pode ser adicionada ao seu modelo de índice proativamente o Azure Cosmos DB.
-- Exclua o caminho de raiz para seletivamente incluem caminhos que têm de ser indexados.
+- Inclua o caminho raiz para excluir seletivamente os caminhos que não precisam ser indexados. Essa é a abordagem recomendada, pois ela permite que Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
+- Exclua o caminho raiz para incluir seletivamente os caminhos que precisam ser indexados.
 
-- Para os caminhos com caracteres regulares que incluem: carateres alfanuméricos e _ (caráter de sublinhado), não precisa de escape a cadeia de caminho em torno de aspas duplas (por exemplo, "/ caminho /?"). Para os caminhos com outros caracteres especiais, precisa escapar a cadeia de caminho em torno de aspas duplas (por exemplo, "/\"caminho abc\"/?"). Se necessitar de carateres especiais no seu caminho, pode escapar cada caminho para segurança. Funcionalmente não faz nenhuma diferença se de que cada caminho Vs apenas aqueles que têm carateres especiais de escape.
+- Para caminhos com caracteres regulares que incluem: caracteres alfanuméricos e _ (sublinhado), você não precisa escapar da cadeia de caracteres do caminho em volta de aspas duplas (por exemplo, "/Path/?"). Para caminhos com outros caracteres especiais, você precisa escapar da cadeia de caracteres de caminho em aspas duplas (por exemplo\", "/\"Path-ABC/?"). Se você espera caracteres especiais em seu caminho, pode escapar de cada caminho para segurança. Funcionalmente não faz nenhuma diferença se você escapa de todos os caminhos, e não apenas aqueles com caracteres especiais.
 
-- A propriedade do sistema "etag" foi excluída da indexação por predefinição, a menos que a etag é adicionada ao caminho incluído para indexar o limite de tempo.
+- A propriedade do sistema "ETag" é excluída da indexação por padrão, a menos que a ETag seja adicionada ao caminho incluído para indexação.
 
-Ver [esta secção](how-to-manage-indexing-policy.md#indexing-policy-examples) para exemplos de política de indexação.
+Consulte [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para obter exemplos de política de indexação.
 
 ## <a name="composite-indexes"></a>Índices compostos
 
-Consulta que `ORDER BY` dois ou mais propriedades requerem um índice composto. Atualmente, os índices compostos apenas são utilizados por várias `ORDER BY` consultas. Por predefinição, não existem índices compostos são definidos para que deve [adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+Consulta se `ORDER BY` duas ou mais propriedades exigem um índice composto. Atualmente, os índices compostos são utilizados apenas por várias `ORDER BY` consultas. Por padrão, nenhum índice composto é definido, portanto, você deve [Adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
 
-Ao definir um índice composto, tem de especificar:
+Ao definir um índice composto, você especifica:
 
-- Dois ou mais caminhos de propriedade. A seqüência na qual propriedade caminhos são definidos nos interessa.
-- A ordem (ordem crescente ou decrescente).
+- Dois ou mais caminhos de propriedade. A sequência na qual os caminhos de propriedade são definidos é importante.
+- A ordem (crescente ou decrescente).
 
-As considerações seguintes são utilizadas quando utiliza os índices compostos:
+As seguintes considerações são usadas ao usar índices compostos:
 
-- Se os caminhos de índice composto não corresponderem a seqüência de propriedades na cláusula ORDER BY, em seguida, o índice composto não suporta a consulta
+- Se os caminhos do índice composto não corresponderem à sequência das propriedades na cláusula ORDER BY, o índice composto não poderá dar suporte à consulta
 
-- A ordem dos caminhos de índice composto (ordem crescente ou decrescente) também deve corresponder à ordem na cláusula ORDER BY.
+- A ordem dos caminhos de índice composto (crescente ou decrescente) também deve corresponder à ordem na cláusula ORDER BY.
 
-- O índice composto também suporta uma cláusula ORDER BY com a ordem oposta em todos os caminhos.
+- O índice composto também dá suporte a uma cláusula ORDER BY com a ordem oposta em todos os caminhos.
 
-Considere o exemplo seguinte, em que um índice composto é definido nas propriedades a, b e c:
+Considere o exemplo a seguir em que um índice composto é definido nas propriedades a, b e c:
 
-| **Índice composto**     | **Exemplo `ORDER BY` consulta**      | **Suportado pelo índice?** |
+| **Índice composto**     | **Consulta `ORDER BY` de exemplo**      | **Com suporte do índice?** |
 | ----------------------- | -------------------------------- | -------------- |
 | ```(a asc, b asc)```         | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
@@ -106,41 +106,41 @@ Considere o exemplo seguinte, em que um índice composto é definido nas proprie
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
 | ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
 
-Deve personalizar a sua política de indexação para que possa servir necessária `ORDER BY` consultas.
+Você deve personalizar a política de indexação para que possa atender a `ORDER BY` todas as consultas necessárias.
 
-## <a name="modifying-the-indexing-policy"></a>Modificar a política de indexação
+## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
 
-Política de indexação de um contentor pode ser atualizada em qualquer altura [utilizando o portal do Azure ou um dos SDKs suportados](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação aciona uma transformação do índice antiga para a nova, que é realizada online e no local (para que não existe espaço de armazenamento adicional é consumido durante a operação). Índice da política antigo com eficiência é transformada para a nova política sem afetar a disponibilidade de escrita ou o débito aprovisionado no contentor. Transformação de índice é uma operação assíncrona e o tempo que demora a concluir depende do débito aprovisionado, o número de itens e seu tamanho. 
+A política de indexação de um contêiner pode ser atualizada a qualquer momento [usando o portal do Azure ou um dos SDKs com suporte](how-to-manage-indexing-policy.md). Uma atualização para a política de indexação dispara uma transformação do índice antigo para o novo, que é executado online e em vigor (portanto, nenhum espaço de armazenamento adicional é consumido durante a operação). O índice antigo da política é transformado com eficiência na nova política sem afetar a disponibilidade de gravação ou a taxa de transferência provisionada no contêiner. A transformação de índice é uma operação assíncrona e o tempo necessário para concluir depende da taxa de transferência provisionada, do número de itens e de seu tamanho. 
 
 > [!NOTE]
-> Enquanto a reindexação está em curso, consultas podem não devolver todos os resultados correspondentes e façam isso sem devolver erros. Isso significa que os resultados da consulta poderão não ser consistente com até a transformação de índice está concluída. É possível controlar o progresso da transformação de índice [utilizando um dos SDKs](how-to-manage-indexing-policy.md).
+> Enquanto a reindexação está em andamento, as consultas podem não retornar todos os resultados correspondentes e farão isso sem retornar erros. Isso significa que os resultados da consulta podem não ser consistentes até que a transformação do índice seja concluída. É possível acompanhar o progresso da transformação de índice [usando um dos SDKs](how-to-manage-indexing-policy.md).
 
-Se o modo da nova política de indexação está definido para consistência, nenhuma outra alteração de política de indexação pode ser aplicada quando a transformação de índice, está em curso. Uma transformação de índice em execução pode ser cancelada através da definição de modo a política de indexação para None (que imediatamente irá remover o índice).
+Se o modo da nova política de indexação for definido como consistente, nenhuma outra alteração de política de indexação poderá ser aplicada enquanto a transformação do índice estiver em andamento. Uma transformação índice em execução pode ser cancelada definindo o modo da política de indexação como None (o que descartará imediatamente o índice).
 
 ## <a name="indexing-policies-and-ttl"></a>Políticas de indexação e TTL
 
-O [Time-to-Live (TTL) funcionalidade](time-to-live.md) requer a indexação para ser o Active Directory no contentor está ligado. Isso significa que:
+O [recurso TTL (vida útil)](time-to-live.md) requer que a indexação esteja ativa no contêiner em que está ativada. Isso significa que:
 
-- Não é possível ativar o TTL num contêiner em que o modo de indexação está definido como None,
-- Não é possível definir o modo de indexação para nenhum num contêiner em que o valor de TTL é ativado.
+- Não é possível ativar o TTL em um contêiner em que o modo de indexação está definido como nenhum,
+- Não é possível definir o modo de indexação como None em um contêiner em que TTL está ativado.
 
-Para cenários em que nenhum caminho de propriedade tem de ser indexados, mas é necessário o valor de TTL, pode utilizar uma política de indexação com:
+Para cenários em que nenhum caminho de propriedade precisa ser indexado, mas o TTL é necessário, você pode usar uma política de indexação com:
 
-- um modo de indexação definido a consistência, e
-- nenhum caminho incluído, e
-- `/*` como o único caminho excluído.
+- um modo de indexação definido como consistente e
+- nenhum caminho incluído e
+- `/*`como o único caminho excluído.
 
 ## <a name="obsolete-attributes"></a>Atributos obsoletos
 
-Ao trabalhar com políticas de indexação, pode encontrar os seguintes atributos que agora são obsoletos:
+Ao trabalhar com políticas de indexação, você pode encontrar os seguintes atributos que agora são obsoletos:
 
-- `automatic` um valor booleano está definida na raiz de uma política de indexação. Ele agora é ignorado e pode ser definido como `true`, quando a ferramenta está a utilizar o exigir.
-- `precision` um número é definido ao nível do índice para os caminhos incluídos. Ele agora é ignorado e pode ser definido como `-1`, quando a ferramenta está a utilizar o exigir.
-- `hash` é um tipo de índice é agora substituído pelo tipo de intervalo.
+- `automatic`é um booliano definido na raiz de uma política de indexação. Ele agora é ignorado e pode ser definido como `true`, quando a ferramenta que você está usando exigir.
+- `precision`é um número definido no nível de índice para caminhos incluídos. Ele agora é ignorado e pode ser definido como `-1`, quando a ferramenta que você está usando exigir.
+- `hash`é um tipo de índice que agora é substituído pelo tipo de intervalo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Leia mais sobre a indexação nos seguintes artigos:
 
-- [Descrição geral de indexação](index-overview.md)
-- [Como gerir a política de indexação](how-to-manage-indexing-policy.md)
+- [Visão geral da indexação](index-overview.md)
+- [Como gerenciar a política de indexação](how-to-manage-indexing-policy.md)

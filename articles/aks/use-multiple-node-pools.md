@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 4ba9840d745995fdf7b8b14889a0c021917f0ec3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 72f34d9711e1ba4658288bfdeb847632d32d0fcf
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278176"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478333"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Visualização – criar e gerenciar vários pools de nós para um cluster no serviço kubernetes do Azure (AKS)
 
@@ -145,7 +145,9 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## <a name="upgrade-a-node-pool"></a>Atualizar um pool de nós
 
-Quando o cluster AKs foi criado na primeira etapa, um `--kubernetes-version` de *1.13.5* foi especificado. Vamos atualizar o *mynodepool* para kubernetes *1.13.7*. Use o comando [AZ AKs node pool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
+Quando o cluster AKs foi criado na primeira etapa, um `--kubernetes-version` de *1.13.5* foi especificado. Isso define a versão kubernetes para o plano de controle e o pool de nós inicial. Há comandos diferentes para atualizar a versão kubernetes do plano de controle e o pool de nós. O `az aks upgrade` comando é usado para atualizar o plano de controle, enquanto `az aks nodepool upgrade` o é usado para atualizar um pool de nós individual.
+
+Vamos atualizar o *mynodepool* para kubernetes *1.13.7*. Use o comando [AZ AKs node pool upgrade][az-aks-nodepool-upgrade] para atualizar o pool de nós, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -155,6 +157,9 @@ az aks nodepool upgrade \
     --kubernetes-version 1.13.7 \
     --no-wait
 ```
+
+> [!Tip]
+> Para atualizar o plano de controle para *1.13.7*, `az aks upgrade -k 1.13.7`execute.
 
 Liste o status dos pools de nós novamente usando o comando [AZ AKs node pool List][az-aks-nodepool-list] . O exemplo a seguir mostra que *mynodepool* está no estado *atualizando* para *1.13.7*:
 
@@ -170,6 +175,15 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 Leva alguns minutos para atualizar os nós para a versão especificada.
 
 Como prática recomendada, você deve atualizar todos os pools de nós em um cluster AKS para a mesma versão kubernetes. A capacidade de atualizar pools de nós individuais permite executar uma atualização sem interrupção e agendar pods entre pools de nós para manter o tempo de atividade do aplicativo.
+
+> [!NOTE]
+> Kubernetes usa o esquema de controle de versão de [controle semântico](https://semver.org/) de versão padrão. O número de versão é expresso como *x. y. z*, em que *x* é a versão principal, *y* é a versão secundária e *z* é a versão do patch. Por exemplo, na versão *1.12.6*, 1 é a versão principal, 12 é a versão secundária e 6 é a versão do patch. A versão kubernetes do plano de controle, bem como o pool de nós inicial, é definida durante a criação do cluster. Todos os pools de nós adicionais têm sua versão kubernetes definida quando são adicionados ao cluster. As versões do kubernetes podem ser diferentes entre pools de nós, bem como entre um pool de nós e o plano de controle, mas as restrições a seguir se aplicam:
+> 
+> * A versão do pool de nós deve ter a mesma versão principal que o plano de controle.
+> * A versão do pool de nós pode ser uma versão secundária menor que a versão do plano de controle.
+> * A versão do pool de nós pode ser qualquer versão de patch contanto que as outras duas restrições sejam seguidas.
+> 
+> Para atualizar a versão kubernetes do plano de controle, use `az aks upgrade`. Se o cluster tiver apenas um pool de nós, `az aks upgrade` o comando também atualizará a versão kubernetes do pool de nós.
 
 ## <a name="scale-a-node-pool"></a>Dimensionar um pool de nós
 
@@ -440,7 +454,7 @@ Para excluir o próprio cluster, use o comando [AZ Group Delete][az-group-delete
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a criar e gerenciar vários pools de nós em um cluster AKS. Para obter mais informações sobre como controlar os pods nos pools de nós, consulte [práticas recomendadas para recursos avançados do Agendador no AKs][operator-best-practices-advanced-scheduler].
 

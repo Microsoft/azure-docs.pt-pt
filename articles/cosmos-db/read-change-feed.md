@@ -1,42 +1,42 @@
 ---
-title: Aceder ao alterar feed no Azure Cosmos DB do Azure Cosmos DB
-description: Este artigo descreve as diferentes opções disponíveis para ler e aceder a alterar feed no Azure Cosmos DB do Azure Cosmos DB.
+title: Acessando o feed de alterações no Azure Cosmos DB Azure Cosmos DB
+description: Este artigo descreve as diferentes opções disponíveis para ler e acessar o feed de alterações no Azure Cosmos DB Azure Cosmos DB.
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: e008b44ee2859f319d0250658d7c2beb190af1c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967168"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467674"
 ---
-# <a name="reading-azure-cosmos-db-change-feed"></a>Feed de alterações de leitura do Azure Cosmos DB
+# <a name="reading-azure-cosmos-db-change-feed"></a>Lendo Azure Cosmos DB feed de alterações
 
-Pode trabalhar com o feed de alterações do Azure Cosmos DB através de qualquer uma das seguintes opções:
+Você pode trabalhar com o Azure Cosmos DB o feed de alterações usando qualquer uma das seguintes opções:
 
-* Com as funções do Azure
-* Usando a alteração de biblioteca processador do feed
-* Utilizar o SDK do Azure Cosmos DB SQL API
+* Usando Azure Functions
+* Usando a biblioteca do processador do feed de alterações
+* Usando o SDK da API do SQL Azure Cosmos DB
 
-## <a name="using-azure-functions"></a>Com as funções do Azure
+## <a name="using-azure-functions"></a>Usando Azure Functions
 
-As funções do Azure é a opção mais simples e recomendada. Quando cria um acionador do Azure Cosmos DB numa aplicação de funções do Azure, pode selecionar o contentor para se ligar e a função do Azure é acionada sempre que houver uma alteração para o contentor. Acionadores podem ser criados com o portal de funções do Azure, o portal do Azure Cosmos DB ou programaticamente com os SDKs. O Visual Studio e o VS Code fornecem suporte para escrever funções do Azure e pode até mesmo usar a CLI de funções do Azure para desenvolvimento Multiplataforma. Pode escrever e depurar o código no seu ambiente de trabalho e, em seguida, implementar a função com um só clique. Ver [computação de base de dados sem servidor com funções do Azure](serverless-computing-database.md) e [usar alterar feed com as funções do Azure](change-feed-functions.md)) artigos para saber mais.
+Azure Functions é a opção mais simples e recomendada. Ao criar um gatilho de Azure Functions para Cosmos DB, você pode selecionar o contêiner a ser conectado e a função do Azure é disparada sempre que há uma alteração no contêiner. Os gatilhos podem ser criados usando o portal de Azure Functions, o portal de Azure Cosmos DB ou programaticamente com SDKs. O Visual Studio e o VS Code fornecem suporte para escrever Azure Functions, e você pode até mesmo usar a CLI do Azure Functions para o desenvolvimento de plataforma cruzada. Você pode escrever e depurar o código na área de trabalho e, em seguida, implantar a função com um clique. Consulte [computação de banco de dados sem servidor usando Azure Functions](serverless-computing-database.md) e [usando o feed de alterações com Azure Functions](change-feed-functions.md)) artigos para saber mais.
 
-## <a name="using-the-change-feed-processor-library"></a>Usando a alteração de biblioteca processador do feed
+## <a name="using-the-change-feed-processor-library"></a>Usando a biblioteca do processador do feed de alterações
 
-A alteração biblioteca processador do feed oculta a complexidade e ainda lhe oferece um controlo total sobre o feed de alterações. A biblioteca segue o padrão observer, onde a sua função de processamento é chamada pela biblioteca. Se tiver um feed de alterações de alto débito, pode instanciar vários clientes para ler o feed de alterações. Como está usando a biblioteca de processamento de feed de alterações, ele dividirá automaticamente a carga entre os clientes diferentes sem ter de voltar a implementar esta lógica. Toda aquela complexidade é manipulada pela biblioteca. Se deseja ter seu próprio Balanceador de carga, então pode implementar `IPartitionLoadBalancingStrategy` para uma partição personalizada feed estratégia para processar a alteração. Para obter mais informações, consulte [usando a alteração de biblioteca processador do feed](change-feed-processor.md).
+A biblioteca do processador do feed de alterações oculta a complexidade e ainda oferece um controle completo do feed de alterações. A biblioteca segue o padrão observador, em que a função de processamento é chamada pela biblioteca. Se você tiver um feed de alterações de alta taxa de transferência, poderá criar uma instância de vários clientes para ler o feed de alterações. Como você está usando a biblioteca do processador do feed de alterações, ela dividirá automaticamente a carga entre os diferentes clientes sem a necessidade de implementar essa lógica. Toda a complexidade é tratada pela biblioteca. Se você quiser ter seu próprio balanceador de carga, poderá implementar `IPartitionLoadBalancingStrategy` para uma estratégia de partição personalizada para processar o feed de alterações. Para saber mais, consulte [usando a biblioteca do processador do feed de alterações](change-feed-processor.md).
 
-## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Utilizar o SDK do Azure Cosmos DB SQL API
+## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Usando o SDK da API do SQL Azure Cosmos DB
 
-Com o SDK, obtém um controlo de nível baixo de feed de alterações. Pode gerir o ponto de verificação, etc de chave, uma partição lógica específica de acesso. Se tiver vários leitores, pode usar `ChangeFeedOptions` distribuam a carga de leitura para diferentes threads ou de diferentes clientes. 
+Com o SDK, você obtém um controle de baixo nível do feed de alterações. Você pode gerenciar o ponto de verificação, acessar uma chave de partição lógica específica, etc. Se você tiver vários leitores, poderá usar `ChangeFeedOptions` o para distribuir a carga de leitura para diferentes threads ou clientes diferentes. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora, pode avançar para saber mais sobre a alteração do feed nos seguintes artigos:
 
-* [Descrição geral do feed de alterações](change-feed.md)
+* [Visão geral do feed de alterações](change-feed.md)
 * [Usando a alteração do feed com as funções do Azure](change-feed-functions.md)
 * [Usando a alteração de biblioteca processador do feed](change-feed-processor.md)

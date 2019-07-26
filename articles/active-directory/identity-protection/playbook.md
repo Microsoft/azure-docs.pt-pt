@@ -1,178 +1,148 @@
 ---
-title: Playbook do Azure Active Directory Identity Protection | Documentos da Microsoft
-description: Saiba como o Azure AD Identity Protection permite-lhe limitar a capacidade de um atacante explore uma identidade comprometida ou dispositivo e para proteger uma identidade ou um dispositivo que foi anteriormente suspeita ou conhecido por ser comprometido.
+title: Guia estratégico de Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba como Azure AD Identity Protection permite limitar a capacidade de um invasor explorar uma identidade ou um dispositivo comprometido e proteger uma identidade ou um dispositivo que foi suspeito ou comprometido anteriormente.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, da cloud discovery, gerenciamento de aplicativos, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108832"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333922"
 ---
-# <a name="azure-active-directory-identity-protection-playbook"></a>Playbook do Azure Active Directory Identity Protection
+# <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico de Azure Active Directory Identity Protection
 
-Este playbook ajuda-o a:
+Este guia estratégico ajuda você a:
 
-* Preencher os dados no ambiente do Identity Protection ao simular eventos de risco e vulnerabilidades
-* Configurar políticas de acesso condicional com base no risco e teste o impacto destas políticas
+* Popular dados no ambiente de proteção de identidade por meio da simulação de eventos e vulnerabilidades de risco
+* Configurar políticas de acesso condicional com base em risco e testar o impacto dessas políticas
 
+## <a name="simulating-risk-events"></a>Simulando eventos de risco
 
-## <a name="simulating-risk-events"></a>Simular eventos de risco
+Esta seção fornece etapas para simular os seguintes tipos de evento de risco:
 
-Esta secção fornece passos para simular os seguintes tipos de eventos de risco:
+* Entradas de endereços IP anônimos (fácil)
+* Entradas de locais desconhecidos (moderado)
+* Viagem impossível a locais atípicoss (difícil)
 
-* Inícios de sessão de endereços IP anónimos (simples)
-* Inícios de sessão de localizações desconhecidas (moderado)
-* Deslocação impossível para localizações atípicas (difícil)
-
-Não podem ser simulados outros eventos de risco de forma segura.
+Outros eventos de risco não podem ser simulados de maneira segura.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inícios de sessão de endereços IP anónimos
 
-Para obter mais informações sobre este evento de risco, consulte [inícios de sessão de endereços IP anónimos](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
+Para obter mais informações sobre esse evento de risco, consulte [entradas de endereços IP anônimos](../reports-monitoring/concept-risk-events.md#sign-ins-from-anonymous-ip-addresses). 
 
-Concluir o procedimento seguinte requer a utilização:
+A conclusão do procedimento a seguir exige que você use:
 
-- O [Browser de Tor](https://www.torproject.org/projects/torbrowser.html.en) para simular a endereços IP anónimos. Poderá ter de utilizar uma máquina virtual, se sua organização restringe a utilização do browser de Tor.
-- Uma conta de teste que ainda não está registrada na autenticação multifator.
+- O [navegador Tor](https://www.torproject.org/projects/torbrowser.html.en) para simular endereços IP anônimos. Talvez seja necessário usar uma máquina virtual se sua organização restringir o uso do navegador Tor.
+- Uma conta de teste que ainda não está registrada para autenticação multifator.
 
-**Para simular um início de sessão de um IP anónimo, execute os seguintes passos**:
+**Para simular uma entrada de um IP anônimo, execute as seguintes etapas**:
 
-1. Utilizar o [Browser de Tor](https://www.torproject.org/projects/torbrowser.html.en), navegue até à [ https://myapps.microsoft.com ](https://myapps.microsoft.com).   
-2. Introduza as credenciais da conta que pretende ver apresentado na **inícios de sessão de endereços IP anónimos** relatório.
+1. Usando o [navegador Tor](https://www.torproject.org/projects/torbrowser.html.en), navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+2. Insira as credenciais da conta que você deseja exibir no relatório **entradas de endereços IP anônimos** .
 
-O início de sessão aparece no dashboard do Identity Protection dentro de 10 a 15 minutos. 
+A entrada aparece no painel do Identity Protection dentro de 10-15 minutos. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Inícios de sessão de localizações desconhecidas
 
-Para obter mais informações sobre este evento de risco, consulte [inícios de sessão de localizações desconhecidas](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations). 
+Para obter mais informações sobre esse evento de risco, consulte [entradas de locais](../reports-monitoring/concept-risk-events.md#sign-in-from-unfamiliar-locations)desconhecidos. 
 
-Para simular localizações desconhecidas, terá de iniciar sessão a partir de uma localização e a sua conta de teste tem não iniciou sessão a partir antes do dispositivo.
+Para simular locais desconhecidos, você precisa entrar de um local e dispositivo no qual sua conta de teste não tenha se conectado antes.
 
-O procedimento a seguir utiliza um recentemente criado:
+O procedimento a seguir usa um recém-criado:
 
-- Ligação de VPN, para simular a nova localização.
+- Conexão VPN, para simular novo local.
+- Máquina virtual, para simular um novo dispositivo.
 
-- Máquina virtual, para simular um dispositivo novo.
+A conclusão do procedimento a seguir exige que você use uma conta de usuário que tenha:
 
-Concluir o procedimento seguinte requer a utilização de uma conta de utilizador que tem:
+- Pelo menos um histórico de entrada de 30 dias.
+- Autenticação multifator habilitada.
 
-- Pelo menos, 30 dias-histórico de sessão.
-- Autenticação multifator ativada.
+**Para simular uma entrada de um local desconhecido, execute as seguintes etapas**:
 
+1. Ao entrar com sua conta de teste, reprovará o desafio de MFA não passando o desafio de MFA.
+2. Usando sua nova VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da sua conta de teste.
 
-**Para simular um início de sessão de uma localização desconhecida, execute os seguintes passos**:
+A entrada aparece no painel do Identity Protection dentro de 10-15 minutos.
 
-1. Quando iniciar sessão com a sua conta de teste, efetue a ativação a submissão da MFA, não passando o desafio MFA.
-2. Com a VPN novo, navegue até [ https://myapps.microsoft.com ](https://myapps.microsoft.com) e introduza as credenciais da sua conta de teste.
-   
+### <a name="impossible-travel-to-atypical-location"></a>Viagem impossível para o local atípicos
 
-O início de sessão aparece no dashboard do Identity Protection dentro de 10 a 15 minutos.
+Para obter mais informações sobre esse evento de risco, consulte [viagem impossível para o local atípicos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
-### <a name="impossible-travel-to-atypical-location"></a>Deslocação impossível para localização atípica
+A simulação da condição de viagem impossível é difícil porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, como viagens impossíveis de dispositivos conhecidos ou entradas de VPNs que são usadas por outros usuários no diretório. Além disso, o algoritmo requer um histórico de entrada de 14 dias e 10 logons do usuário antes de começar a gerar eventos de risco. Devido aos modelos complexos de aprendizado de máquina e às regras acima, há a possibilidade de que as etapas a seguir não levem a um evento de risco. Talvez você queira replicar essas etapas para várias contas do Azure AD para publicar este evento de risco.
 
-Para obter mais informações sobre este evento de risco, consulte [de viagem impossível para localização atípica](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
+**Para simular uma viagem impossível para o local atípicos, execute as seguintes etapas**:
 
-Simulando a condição de deslocação impossível é difícil, porque o algoritmo utiliza machine learning para eliminar falsos positivos, como deslocação impossível dos dispositivos familiarizados ou inícios de sessão de VPNs que são utilizados por outros utilizadores no diretório. Além disso, o algoritmo necessita um histórico de início de sessão de 14 dias e 10 inícios de sessão do utilizador, antes de ele começa a gerar eventos de risco. Devido o modelos de aprendizagem complexos e superior regras, é provável que os seguintes passos não irão causar um evento de risco. Poderá pretender replicar estes passos para várias contas do Azure AD publicar este evento de risco.
+1. Usando seu navegador padrão, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+2. Insira as credenciais da conta para a qual você deseja gerar um evento de risco de viagem impossível.
+3. Altere o agente do usuário. Você pode alterar o agente do usuário no Internet Explorer de Ferramentas para Desenvolvedores ou alterar o agente do usuário no Firefox ou no Chrome usando um complemento de seletor de agente do usuário.
+4. Altere seu endereço IP. Você pode alterar seu endereço IP usando uma VPN, um complemento Tor ou girando um novo computador no Azure em um data center diferente.
+5. Entre no [https://myapps.microsoft.com](https://myapps.microsoft.com) usando as mesmas credenciais de antes e em alguns minutos após a entrada anterior.
 
+A entrada aparece no painel do Identity Protection dentro de 2-4 horas.
 
-**Para simular uma deslocação impossível para localização atípica, execute os seguintes passos**:
+## <a name="simulating-vulnerabilities"></a>Simulando vulnerabilidades
+Vulnerabilidades são pontos fracos em um ambiente do Azure AD que podem ser explorados por um ator inadequado. Atualmente, três tipos de vulnerabilidades são exibidos em Azure AD Identity Protection que aproveitam outros recursos do Azure AD. Essas vulnerabilidades serão exibidas no painel de proteção de identidade automaticamente depois que esses recursos forem configurados.
 
-1. Com o seu navegador padrão, navegue até [ https://myapps.microsoft.com ](https://myapps.microsoft.com).  
-2. Introduza as credenciais da conta que pretende gerar um evento de risco de deslocação impossível para.
-3. Altere o seu agente de utilizador. Pode alterar o agente de utilizador no Internet Explorer a partir das ferramentas de programador ou alterar o seu agente de utilizador no Firefox ou o Chrome usando um suplemento de comutador de agente do usuário.
-4. Altere o seu endereço IP. Pode alterar seu endereço IP utilizando uma VPN, um complemento de Tor, ou criar uma nova máquina no Azure num centro de dados diferentes.
-5. Iniciar sessão no [ https://myapps.microsoft.com ](https://myapps.microsoft.com) com as mesmas credenciais, como antes e em poucos minutos após o início de sessão-in anterior.
+* [Autenticação](../authentication/multi-factor-authentication.md) multifator do Azure AD
+* [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/)do Azure AD.
+* [Privileged Identity Management](../privileged-identity-management/pim-configure.md)do Azure AD. 
 
-O início de sessão aparece no dashboard do Identity Protection dentro de 2 a 4 horas.
+## <a name="testing-security-policies"></a>Testando políticas de segurança
 
-## <a name="simulating-vulnerabilities"></a>Simulação de vulnerabilidades
-Vulnerabilidades são pontos fracos do ambiente do Azure AD que podem ser explorados por um ator indevido. Atualmente 3 tipos de vulnerabilidades aparecem no Azure AD Identity Protection, que tiram partido de outras funcionalidades do Azure AD. Essas vulnerabilidades serão exibidas no dashboard do Identity Protection automaticamente assim que estas funcionalidades são configuradas.
+Esta seção fornece etapas para testar o risco do usuário e a política de segurança de risco de entrada.
 
-* O Azure AD [multi-factor Authentication](../authentication/multi-factor-authentication.md)
-* O Azure AD [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/).
-* O Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
-
-
-## <a name="testing-security-policies"></a>Teste as políticas de segurança
-
-Esta secção fornece passos para testar o risco de utilizador e a política de segurança de risco de início de sessão.
-
-
-### <a name="user-risk-security-policy"></a>Política de segurança de risco do utilizador
+### <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
 
 Para obter mais informações, veja [Como configurar a política de risco de utilizador](howto-user-risk-policy.md).
 
-![Risco de utilizador](./media/playbook/02.png "Playbook")
+![Risco do usuário](./media/playbook/02.png "Guia estratégico")
 
+**Para testar uma política de segurança de risco do usuário, execute as seguintes etapas**:
 
-**Para testar uma política de segurança de risco do utilizador, execute os seguintes passos**:
+1. Entre no [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+2. Navegue até **identidade proteção**. 
+3. Na página **Azure ad Identity Protection** , clique em **política de risco do usuário**.
+4. Na seção **atribuições** , selecione os usuários desejados (e grupos) e o nível de risco do usuário.
 
-1. Iniciar sessão no [ https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global do seu inquilino.
-2. Navegue para **Identity Protection**. 
-3. Sobre o **do Azure AD Identity Protection** página, clique em **política de risco do utilizador**.
-4. Na **atribuições** secção, selecione os usuários desejados (e grupos) e o nível de risco do utilizador.
+    ![Risco do usuário](./media/playbook/03.png "Guia estratégico")
 
-    ![Risco de utilizador](./media/playbook/03.png "Playbook")
+5. Na seção controles, selecione o controle de acesso desejado (por exemplo, exigir alteração de senha).
+5. Como **impor política**, selecione **desativado**.
+6. Eleve o risco do usuário de uma conta de teste, por exemplo, simulando um dos eventos de risco algumas vezes.
+7. Aguarde alguns minutos e verifique se o nível do usuário para o seu usuário é médio. Caso contrário, simule mais eventos de risco para o usuário.
+8. Como **impor política**, selecione **ativado**.
+9. Agora você pode testar o acesso condicional baseado em risco do usuário entrando usando um usuário com um nível de risco elevado.
 
-5. Na secção de controles, selecione o controle de acesso desejado (por exemplo, exigir alteração de palavra-passe).
-5. Como **impor a política**, selecione **desativar**.
-6. Eleve o risco de utilizador de uma conta de teste por, por exemplo, simulando um dos eventos de risco algumas vezes.
-7. Aguarde alguns minutos e, em seguida, certifique-se de que o nível de usuário para o utilizador é médio. Caso contrário, simular mais eventos de risco para o utilizador.
-8. Como **impor a política**, selecione **no**.
-9. Pode testar utilizador acesso condicional com base no risco ao iniciar sessão com um utilizador com um nível de risco elevado.
-    
-    
-
-### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de início de sessão
+### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
 
 Para obter mais informações, veja [Como configurar a política de risco de início de sessão](howto-sign-in-risk-policy.md).
 
-![Início de sessão de risco](./media/playbook/01.png "Playbook")
+![Risco de entrada](./media/playbook/01.png "Guia estratégico")
 
+**Para testar uma política de risco de entrada, execute as seguintes etapas:**
 
-**Para testar um início de sessão na política de risco, execute os seguintes passos:**
+1. Entre no [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
+2. Navegue até **Azure ad Identity Protection**.
+3. Na página principal do **Azure ad Identity Protection** , clique em **política de risco de entrada**. 
+4. Na seção **atribuições** , selecione os usuários desejados (e grupos) e o nível de risco de entrada.
 
-1. Iniciar sessão no [ https://portal.azure.com ](https://portal.azure.com) com credenciais de administrador global do seu inquilino.
+    ![Risco de entrada](./media/playbook/04.png "Guia estratégico")
 
-2. Navegue para **do Azure AD Identity Protection**.
-
-3. No principal **do Azure AD Identity Protection** página, clique em **política de risco de início de sessão**. 
-
-4. Na **atribuições** secção, selecione os usuários desejados (e grupos) e início de sessão no nível de risco.
-
-    ![Início de sessão de risco](./media/playbook/04.png "Playbook")
-
-
-5. Na **controles** secção, selecione o controle de acesso desejado (por exemplo, **exigir autenticação multifator**). 
-
-6. Como **impor a política**, selecione **no**.
-
+5. Na seção **controles** , selecione o controle de acesso desejado (por exemplo, **exigir autenticação**multifator). 
+6. Como **impor política**, selecione **ativado**.
 7. Clique em **Guardar**.
-
-8. Agora pode testar início de sessão baseado no risco de acesso condicional ao iniciar sessão com uma sessão arriscada (por exemplo, ao utilizar o browser de Tor). 
-
- 
-
-
-
+8. Agora você pode testar o acesso condicional com base em risco de entrada, entrando usando uma sessão arriscada (por exemplo, usando o navegador Tor). 
 
 ## <a name="see-also"></a>Consulte também
 
-- [O Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-
+- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

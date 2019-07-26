@@ -1,6 +1,6 @@
 ---
-title: Por meio de programação monitorizar uma fábrica de dados do Azure | Documentos da Microsoft
-description: Saiba como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs).
+title: Monitorar programaticamente uma data factory do Azure | Microsoft Docs
+description: Saiba como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,28 +11,28 @@ ms.date: 01/16/2018
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 035e12da67d28e8e3fb46ac295717dd6b579922c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4538cb987d88c92e379640e69b29ad5c8c75a520
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66167059"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360398"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Por meio de programação monitorizar uma fábrica de dados do Azure
-Este artigo descreve como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs). 
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorar programaticamente uma data factory do Azure
+Este artigo descreve como monitorar um pipeline em um data factory usando SDKs (Software Development Kits) diferentes. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="data-range"></a>Intervalo de dados
 
-Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Quando consulta por meio de programação para dados sobre execuções de pipeline do Data Factory - por exemplo, com o comando do PowerShell `Get-AzDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar os dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de execução de dados dos últimos 45 dias.
+Data Factory só armazena dados de execução de pipeline por 45 dias. Quando você consulta programaticamente dados sobre execuções de pipeline de data Factory, por exemplo, `Get-AzDataFactoryV2PipelineRun` com o comando do PowerShell, não há nenhuma `LastUpdatedAfter` data `LastUpdatedBefore` máxima para os parâmetros e opcionais. Mas se você consultar dados para o ano passado, por exemplo, a consulta não retornará um erro, mas somente retornará dados de execução de pipeline dos últimos 45 dias.
 
-Se pretender manter os dados por mais de 45 dias de execução do pipeline, configurar o seu próprio log de diagnóstico com [do Azure Monitor](monitor-using-azure-monitor.md).
+Se você quiser manter os dados de execução do pipeline por mais de 45 dias, configure seu próprio log de diagnóstico com [Azure monitor](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-Para obter instruções completas de criar e monitorizar um pipeline com o SDK de .NET, consulte [criar uma fábrica de dados e um pipeline com o .NET](quickstart-create-data-factory-dot-net.md).
+Para obter uma explicação completa de como criar e monitorar um pipeline usando o SDK do .NET, consulte [criar um data Factory e um pipeline usando o .net](quickstart-create-data-factory-dot-net.md).
 
-1. Adicione o seguinte código para verificar continuamente o estado do pipeline executar até terminar de copiar os dados.
+1. Adicione o código a seguir para verificar continuamente o status da execução do pipeline até que ele termine de copiar os dados.
 
     ```csharp
     // Monitor the pipeline run
@@ -49,7 +49,7 @@ Para obter instruções completas de criar e monitorizar um pipeline com o SDK d
     }
     ```
 
-2. Adicione o seguinte código para esse obtém cópia da execução da atividade obter detalhes, por exemplo, o tamanho dos dados lidos/escritos.
+2. Adicione o código a seguir a que recupera os detalhes da execução da atividade de cópia, por exemplo, o tamanho dos dados lidos/gravados.
 
     ```csharp
     // Check the copy activity run details
@@ -65,26 +65,28 @@ Para obter instruções completas de criar e monitorizar um pipeline com o SDK d
     Console.ReadKey();
     ```
 
-Para obter documentação completa sobre o SDK de .NET, consulte [referência SDK .NET do Data Factory](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+Para obter a documentação completa sobre o SDK do .NET, consulte [Data Factory referência do SDK do .net](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-Para obter instruções completas de criar e monitorizar um pipeline com o SDK de Python, veja [criar uma fábrica de dados e um pipeline com o Python](quickstart-create-data-factory-python.md).
+Para obter uma explicação completa de como criar e monitorar um pipeline usando o SDK do Python, consulte [criar um data Factory e um pipeline usando o Python](quickstart-create-data-factory-python.md).
 
-Para monitorizar a execução de pipeline, adicione o seguinte código:
+Para monitorar a execução do pipeline, adicione o seguinte código:
 
 ```python
-#Monitor the pipeline run
+# Monitor the pipeline run
 time.sleep(30)
-pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+pipeline_run = adf_client.pipeline_runs.get(
+    rg_name, df_name, run_response.run_id)
 print("\n\tPipeline run status: {}".format(pipeline_run.status))
-activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
+    rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Para obter documentação completa sobre o SDK de Python, veja [referência SDK de Python de fábrica de dados](/python/api/overview/azure/datafactory?view=azure-python).
+Para obter a documentação completa sobre o SDK do Python, consulte [Data Factory referência do SDK do Python](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>API REST
-Para obter instruções completas de criar e monitorizar um pipeline com a REST API, consulte [criar uma fábrica de dados e um pipeline com a REST API](quickstart-create-data-factory-rest-api.md).
+Para obter uma explicação completa de como criar e monitorar um pipeline usando a API REST, consulte [criar um data Factory e um pipeline usando a API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -111,10 +113,10 @@ Para obter instruções completas de criar e monitorizar um pipeline com a REST 
     $response | ConvertTo-Json
     ```
 
-Para obter documentação completa sobre a REST API, consulte [referência de API de REST do Data Factory](/rest/api/datafactory/).
+Para obter a documentação completa sobre a API REST, consulte [Data Factory referência da API REST](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Para obter instruções completas de criar e monitorizar um pipeline com o PowerShell, consulte [criar uma fábrica de dados e um pipeline com o PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter uma explicação completa de como criar e monitorar um pipeline usando o PowerShell, consulte [criar um data Factory e um pipeline usando o PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -148,8 +150,8 @@ Para obter instruções completas de criar e monitorizar um pipeline com o Power
     $result.Error -join "`r`n"
     ```
 
-Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets do PowerShell da fábrica de dados](/powershell/module/az.datafactory).
+Para obter a documentação completa sobre os cmdlets do PowerShell, consulte [Data Factory referência de cmdlet do PowerShell](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ver [monitorizar pipelines com o Azure Monitor](monitor-using-azure-monitor.md) artigo para saber como utilizar o Azure Monitor para monitorizar os pipelines do Data Factory. 
+Consulte [monitorar pipelines usando Azure monitor](monitor-using-azure-monitor.md) artigo para saber mais sobre como usar Azure monitor para monitorar data Factory pipelines. 
 

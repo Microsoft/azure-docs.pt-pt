@@ -1,6 +1,6 @@
 ---
-title: Infraestrutura de Service Fabric como código de melhores práticas do Azure | Documentos da Microsoft
-description: Melhores práticas para gerir recursos de infraestrutura do serviço como infraestrutura como código.
+title: Infraestrutura de Service Fabric do Azure como práticas recomendadas de código | Microsoft Docs
+description: Práticas recomendadas para o gerenciamento de Service Fabric como infraestrutura como código.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1cd0912733116dce1b550dd937cc9fc5f8737b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237424"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359768"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
-Num cenário de produção, crie clusters do Azure Service Fabric com modelos do Resource Manager. Modelos do Resource Manager fornecem maior controle das propriedades de recurso e certifique-se de que tem um modelo de recursos consistentes.
+Em um cenário de produção, crie clusters de Service Fabric do Azure usando modelos do Resource Manager. Os modelos do Resource Manager fornecem um controle maior das propriedades de recurso e garantem que você tenha um modelo de recurso consistente.
 
-Modelos do Gestor de recursos de exemplo estão disponíveis para Windows e Linux no [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estes modelos podem ser utilizados como ponto de partida para o modelo de cluster. Baixe `azuredeploy.json` e `azuredeploy.parameters.json` e editá-los para satisfazer os seus requisitos personalizados.
+Os modelos do Resource Manager de exemplo estão disponíveis para Windows e Linux nos [exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Esses modelos podem ser usados como um ponto de partida para o modelo de cluster. Baixe `azuredeploy.json` e`azuredeploy.parameters.json` edite-os para atender aos seus requisitos personalizados.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para implementar o `azuredeploy.json` e `azuredeploy.parameters.json` modelos que transferiu anteriormente, utilize os seguintes comandos do CLI do Azure:
+Para implantar os `azuredeploy.json` modelos `azuredeploy.parameters.json` e que você baixou acima, use os seguintes comandos de CLI do Azure:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -39,7 +39,7 @@ az group create --name $ResourceGroupName --location $Location
 az group deployment create --name $ResourceGroupName  --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
-Criação de um recurso com o Powershell
+Criando um recurso usando o PowerShell
 
 ```powershell
 $ResourceGroupName="sfclustergroup"
@@ -51,9 +51,9 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## <a name="azure-service-fabric-resources"></a>Recursos de infraestrutura de serviço do Azure
+## <a name="azure-service-fabric-resources"></a>Recursos de Service Fabric do Azure
 
-Pode implementar serviços e aplicações no seu cluster do Service Fabric através do Azure Resource Manager. Ver [gerenciar aplicativos e serviços como recursos do Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter detalhes. Seguem-se melhor prática Service Fabric application recursos específicos para incluir nos seus recursos de modelo do Resource Manager.
+Pode implementar serviços e aplicações no seu cluster do Service Fabric através do Azure Resource Manager. Consulte [gerenciar aplicativos e serviços como Azure Resource Manager recursos](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) para obter detalhes. Veja a seguir uma prática recomendada Service Fabric recursos específicos do aplicativo a serem incluídos em seus recursos de modelo do Resource Manager.
 
 ```json
 {
@@ -82,23 +82,25 @@ Pode implementar serviços e aplicações no seu cluster do Service Fabric atrav
 }
 ```
 
-Para implementar a aplicação com o Azure Resource Manager, primeiro tem de [criar um sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) pacote de aplicação do Service Fabric. O script de python seguinte é um exemplo de como criar um sfpkg:
+Para implantar seu aplicativo usando Azure Resource Manager, primeiro você deve [criar um pacote de](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) aplicativo do sfpkg Service Fabric. O script Python a seguir é um exemplo de como criar um sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
-microservices_sfpkg = zipfile.ZipFile(self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
+microservices_sfpkg = zipfile.ZipFile(
+    self.microservices_app_package_name, 'w', zipfile.ZIP_DEFLATED)
 package_length = len(self.microservices_app_package_path)
 
 for root, dirs, files in os.walk(self.microservices_app_package_path):
     root_folder = root[package_length:]
     for file in files:
-        microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
+        microservices_sfpkg.write(os.path.join(
+            root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
 ```
 
-## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração de atualização automática da sistema operativo a Máquina Virtual do Azure 
-A atualização de suas máquinas virtuais é uma operação iniciada pelo utilizador e é recomendado que utilize [Máquina Virtual de dimensionamento definido automática atualização do sistema operativo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para gerenciamento de patches do host; de clusters do Azure Service Fabric Patch Orchestration Application é uma solução alternativa que destina-se estiverem alojados fora do Azure, embora POA pode ser utilizado no Azure, com custos gerais de hospedagem POA no Azure que está a ser um motivo comum para dar preferência a Máquina Virtual a atualização automática do sistema operativo ao longo do POA. Seguem-se as propriedades do modelo de computação Máquina Virtual de dimensionamento definido do Resource Manager para ativar a atualização de SO automática:
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração de atualização automática do sistema operacional da máquina virtual do Azure 
+A atualização de suas máquinas virtuais é uma operação iniciada pelo usuário e é recomendável que você use a [atualização do sistema operacional automático do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para o gerenciamento de patches do host do Azure Service Fabric clusters; O aplicativo de orquestração de patch é uma solução alternativa destinada a quando hospedado fora do Azure, embora POA possa ser usado no Azure, com sobrecarga de Hospedagem de POA no Azure sendo um motivo comum para preferir a atualização automática do sistema operacional da máquina virtual em POA. A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para habilitar a atualização automática do sistema operacional:
 
 ```json
 "upgradePolicy": {
@@ -109,11 +111,11 @@ A atualização de suas máquinas virtuais é uma operação iniciada pelo utili
     }
 },
 ```
-Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada um domínio de atualização em simultâneo para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para utilizar as atualizações automáticas de SO no Service Fabric cluster tem de ser configurado para utilizar o escalão de durabilidade Silver ou superior.
+Ao usar atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é distribuída em um domínio de atualização por vez para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric o cluster deve ser configurado para usar a camada de durabilidade prateada ou superior.
 
-Certifique-se de que a seguinte chave de registo é definido como falso para impedir que as máquinas de host windows iniciar coordenadas atualizações: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+Verifique se a seguinte chave do registro está definida como false para impedir que suas máquinas host do Windows iniciem atualizações não coordenadas: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
 
-Seguem-se as propriedades do modelo de computação Máquina Virtual de dimensionamento definido do Resource Manager para definir a chave de registo WindowsUpdate como false:
+A seguir estão as propriedades do modelo do Gerenciador de recursos do conjunto de dimensionamento de máquinas virtuais de computação para definir a chave do registro do WindowsUpdate como false:
 ```json
 "osProfile": {
         "computerNamePrefix": "{vmss-name}",
@@ -126,12 +128,12 @@ Seguem-se as propriedades do modelo de computação Máquina Virtual de dimensio
       },
 ```
 
-## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de atualização de Cluster do Azure Service Fabric
-Segue-se a propriedade de modelo do Resource Manager para ativar a atualização automática do cluster do Service Fabric:
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de atualização de cluster do Azure Service Fabric
+A seguir está a Service Fabric propriedade de modelo do Gerenciador de recursos de cluster para habilitar a atualização automática:
 ```json
 "upgradeMode": "Automatic",
 ```
-Para atualizar manualmente o cluster, transfira a distribuição do cab/deb a uma máquina virtual de cluster e, em seguida, invoque o PowerShell seguinte:
+Para atualizar manualmente o cluster, baixe a distribuição cab/Deb para uma máquina virtual de cluster e, em seguida, invoque o PowerShell a seguir:
 ```powershell
 Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
 Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
@@ -140,6 +142,6 @@ Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Crie um cluster em VMs ou computadores que executam o Windows Server: [Criação do cluster do Service Fabric para o Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Crie um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* Criar um cluster em VMs ou computadores que executam o Windows Server: [Service Fabric a criação do cluster para Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Criar um cluster em VMs ou computadores que executam o Linux: [Criar um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Saiba mais sobre as [opções de suporte do Service Fabric](service-fabric-support.md)

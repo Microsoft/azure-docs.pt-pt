@@ -1,6 +1,6 @@
 ---
-title: Padrões de consulta comuns no Azure Stream Analytics
-description: Este artigo descreve um número de padrões de consulta comuns e estruturas que são úteis para tarefas do Azure Stream Analytics.
+title: Padrões comuns de consulta no Azure Stream Analytics
+description: Este artigo descreve vários padrões de consulta e designs comuns que são úteis em trabalhos de Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,30 +8,30 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 88df7ae0d4e6054d82302ad5f0adabcf656cb0f5
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620808"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413375"
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Consultar os exemplos de padrões de utilização comuns do Stream Analytics
+# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemplos de consulta para padrões comuns de uso de Stream Analytics
 
-Consultas no Azure Stream Analytics são expressos numa linguagem de consulta do tipo SQL. As construções de linguagem estão documentadas no [referência de linguagem de consulta do Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference) guia. 
+As consultas em Azure Stream Analytics são expressas em uma linguagem de consulta do tipo SQL. As construções de linguagem são documentadas no guia de [referência da linguagem de consulta Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference) . 
 
-O design de consulta pode expressar a lógica de pass-through simple para mover dados de eventos de um fluxo de entrada para um arquivo de dados de saída, ou ele pode fazer a análise correspondente e temporais avançado padrão para calcular os agregados ao longo de várias janelas de tempo como no [criar um IoT solução com o Stream Analytics](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guia. Pode associar dados a partir de várias entradas para combinar os eventos de transmissão em fluxo e, pode fazer pesquisas em relação a dados de referência estáticos para enriquecer os valores de eventos. Também pode escrever dados para várias saídas.
+O design de consulta pode expressar a lógica de passagem simples para mover dados de um fluxo de entrada para um armazenamento de dados de saída ou pode fazer uma correspondência de padrão avançada e análise temporal para calcular agregações em várias janelas de tempo como na [criação de uma solução de IOT usando](stream-analytics-build-an-iot-solution-using-stream-analytics.md) o guia Stream Analytics. Você pode unir dados de várias entradas para combinar eventos de streaming e pode fazer pesquisas em dados de referência estática para enriquecer os valores de evento. Você também pode gravar dados em várias saídas.
 
-Este artigo descreve as soluções para vários padrões comuns de consulta com base em cenários reais.
+Este artigo descreve soluções para vários padrões de consulta comuns com base em cenários do mundo real.
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>Trabalhar com Tipos de Dados complexos em JSON e AVRO
 
-O Azure Stream Analytics suporta o processamento de eventos em formatos de dados do CSV, JSON e Avro.
+Azure Stream Analytics dá suporte ao processamento de eventos em formatos de dados CSV, JSON e Avro.
 
-JSON e Avro podem conter tipos complexos, como objetos aninhados (registos) ou matrizes. Para obter mais informações sobre como trabalhar com esses tipos de dados complexas, consulte a [dados JSON de análise e AVRO](stream-analytics-parsing-json.md) artigo.
+JSON e Avro podem conter tipos complexos, como objetos aninhados (registros) ou matrizes. Para obter mais informações sobre como trabalhar com esses tipos de dados complexos, consulte o artigo [analisando dados JSON e Avro](stream-analytics-parsing-json.md) .
 
 ## <a name="query-example-convert-data-types"></a>Exemplo de consulta: Converter tipos de dados
 
-**Descrição**: Defina os tipos de propriedades no fluxo de entrada. Por exemplo, o peso de carro estará disponível no fluxo de entrada como cadeias de caracteres e tem de ser convertida **INT** para efetuar **soma**.
+**Descrição**: Defina os tipos de propriedades no fluxo de entrada. Por exemplo, o peso do carro está chegando no fluxo de entrada como cadeias de caracteres e precisa ser convertido em **int** para executar **sum**.
 
 **Entrada**:
 
@@ -59,12 +59,12 @@ JSON e Avro podem conter tipos complexos, como objetos aninhados (registos) ou m
         TumblingWindow(second, 10)
 ```
 
-**EXPLICAÇÃO**: Utilize um **CAST** instrução no **peso** campo para especificar o respetivo tipo de dados. Ver a lista de tipos de dados suportados no [tipos de dados (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
+**Explicação**: Use uma instrução **Cast** no campo **Weight** para especificar seu tipo de dados. Consulte a lista de tipos de dados com suporte em [tipos de dados (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exemplo de consulta: Utilize LIKE/NOT como para o padrão de correspondência
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exemplo de consulta: Usar LIKE/não gostar de fazer correspondência de padrões
 
-**Descrição**: Verifique que um valor de campo no evento corresponde a um determinado padrão.
-Por exemplo, verifique que o resultado retorna pratos de licença que começam por A e terminar com 9.
+**Descrição**: Verifique se um valor de campo no evento corresponde a um determinado padrão.
+Por exemplo, verifique se o resultado retorna placas de licença que começam com um e terminam com 9.
 
 **Entrada**:
 
@@ -92,11 +92,11 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
         LicensePlate LIKE 'A%9'
 ```
 
-**EXPLICAÇÃO**: Utilize o **, como** instrução para verificar a **LicensePlate** campo valor. Deve começar com a letra A, depois, ter qualquer cadeia de caracteres de zero ou mais e, em seguida, terminar com o número 9. 
+**Explicação**: Use a instrução **like** para verificar o valor do campo **placadecarro** . Ele deve começar com a letra A e, em seguida, ter qualquer cadeia de caracteres de zero ou mais e terminar com o número 9. 
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exemplo de consulta: Especifique a lógica para diferentes casos/valores (declarações CASE)
+## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exemplo de consulta: Especificar a lógica para casos/valores diferentes (instruções CASE)
 
-**Descrição**: Fornecem uma computação diferente de um campo, com base num determinado critério. Por exemplo, fornece uma descrição de cadeia de caracteres para tornam o número de carros do mesmo passado, com um caso especial para 1.
+**Descrição**: Forneça um cálculo diferente para um campo, com base em um critério específico. Por exemplo, forneça uma descrição de cadeia de caracteres para quantos carros da mesma marca passaram, com um caso especial para 1.
 
 **Entrada**:
 
@@ -121,7 +121,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp() AS Time
+        System.TimeStamp() AS AsaTime
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -129,11 +129,11 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
         TumblingWindow(second, 10)
 ```
 
-**EXPLICAÇÃO**: O **caso** expressão compara uma expressão a um conjunto de simples expressões para determinar o resultado. Neste exemplo, veículo torna-se com uma contagem de devolveu uma descrição de cadeia de caracteres diferentes que torna o veículo com uma contagem diferente de 1 de 1.
+**Explicação**: A expressão **Case** compara uma expressão a um conjunto de expressões simples para determinar o resultado. Neste exemplo, o veículo faz com uma contagem de 1 retornou uma descrição de cadeia de caracteres diferente da que o veículo faz com uma contagem diferente de 1.
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Exemplo de consulta: Enviar dados para várias saídas
 
-**Descrição**: Envie dados para vários destinos de saída de uma única tarefa. Por exemplo, analise dados de um alerta baseadas em limiares e arquivar todos os eventos para o armazenamento de Blobs.
+**Descrição**: Enviar dados para vários destinos de saída de um único trabalho. Por exemplo, analise dados para um alerta baseado em limite e arquive todos os eventos no armazenamento de BLOBs.
 
 **Entrada**:
 
@@ -145,7 +145,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 | Toyota |2015-01-01T00:00:02.0000000Z |
 | Toyota |2015-01-01T00:00:03.0000000Z |
 
-**Output1**:
+**Saída1**:
 
 | Criar | Time |
 | --- | --- |
@@ -173,7 +173,7 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
 
     SELECT
         Make,
-        System.TimeStamp() AS Time,
+        System.TimeStamp() AS AsaTime,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -186,9 +186,9 @@ Por exemplo, verifique que o resultado retorna pratos de licença que começam p
         [Count] >= 3
 ```
 
-**EXPLICAÇÃO**: O **INTO** cláusula informa ao Stream Analytics que as saídas para escrever os dados a partir esta instrução. A primeira consulta é um pass-through dos dados recebidos para uma saída com o nome **ArchiveOutput**. A segunda consulta faz algumas agregação simples e filtragem e envia os resultados para um sistema de alerta downstream **AlertOutput**.
+**Explicação**: A cláusula **into** informa Stream Analytics qual das saídas para gravar os dados dessa instrução. A primeira consulta é uma passagem dos dados recebidos para uma saída chamada **saídadearquivos**. A segunda consulta faz uma agregação e filtragem simples e envia os resultados para um sistema de alerta downstream, **AlertOutput**.
 
-Tenha em atenção que também é possível reutilizar os resultados das expressões de tabela comuns (as CTEs) (como **WITH** instruções) em várias instruções de saída. Esta opção tem o benefício adicional de abrir os leitores menos para a origem de entrada.
+Observe que você também pode reutilizar os resultados das CTEs (expressões de tabela comuns) (como instruções **with** ) em várias instruções de saída. Essa opção tem o benefício adicional de abrir menos leitores para a fonte de entrada.
 
 Por exemplo: 
 
@@ -205,9 +205,9 @@ Por exemplo:
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 ```
 
-## <a name="query-example-count-unique-values"></a>Exemplo de consulta: Contagem de valores exclusivos
+## <a name="query-example-count-unique-values"></a>Exemplo de consulta: Contar valores exclusivos
 
-**Descrição**: Conte o número de valores de campos exclusivos que aparecem no fluxo durante um período de tempo. Por exemplo, o número exclusivo faz de carros transmitidos através do pedágio numa janela de 2 segundos?
+**Descrição**: Conta o número de valores de campo exclusivos que aparecem no fluxo dentro de uma janela de tempo. Por exemplo, quantas criações exclusivas de carros passaram pelo estande de chamada em uma janela de dois segundos?
 
 **Entrada**:
 
@@ -226,12 +226,12 @@ Por exemplo:
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
 
-**Solução:**
+**Soluções**
 
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS TIME
+     System.TIMESTAMP() AS AsaTIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -239,11 +239,11 @@ GROUP BY
 
 
 **Explicação:** 
-**CONTAGEM (não distintos)** devolve o número de valores distintos no **tornar** coluna durante um período de tempo.
+a**contagem (diferenciada de make)** retorna o número de valores distintos na coluna **Make** dentro de uma janela de tempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Exemplo de consulta: Determinar se um valor foi alterado
 
-**Descrição**: Ver um valor anterior para determinar se é diferente do valor atual. Por exemplo, é o carro anterior na estrada incidir a mesma marca como o carro atual?
+**Descrição**: Examine um valor anterior para determinar se ele é diferente do valor atual. Por exemplo, o carro anterior na estrada de chamada é o mesmo que o carro atual?
 
 **Entrada**:
 
@@ -270,11 +270,11 @@ GROUP BY
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-**EXPLICAÇÃO**: Uso **ATRASO** para dar uma espiada no fluxo de entrada um evento volta e obter o **tornar** valor. Em seguida, compare-o para o **tornar** valor no evento atual e o evento de saída, se forem diferentes.
+**Explicação**: Use **lag** para inspecionar o fluxo de entrada um evento e obter o valor **Make** . Em seguida, compare-o com o valor **Make** no evento atual e gere o evento se eles forem diferentes.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Exemplo de consulta: Encontrar o primeiro evento numa janela
+## <a name="query-example-find-the-first-event-in-a-window"></a>Exemplo de consulta: Localizar o primeiro evento em uma janela
 
-**Descrição**: Encontre o primeiro carro em cada intervalo de 10 minutos.
+**Descrição**: Localize o primeiro carro em cada intervalo de 10 minutos.
 
 **Entrada**:
 
@@ -308,7 +308,7 @@ GROUP BY
         IsFirst(minute, 10) = 1
 ```
 
-Agora vamos alterar o problema e localize o carro primeiro de uma marca específica em cada intervalo de 10 minutos.
+Agora, vamos alterar o problema e encontrar o primeiro carro de uma marca específica em cada intervalo de 10 minutos.
 
 | LicensePlate | Criar | Time |
 | --- | --- | --- |
@@ -331,9 +331,9 @@ Agora vamos alterar o problema e localize o carro primeiro de uma marca específ
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 ```
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Exemplo de consulta: Encontrar o último evento numa janela
+## <a name="query-example-find-the-last-event-in-a-window"></a>Exemplo de consulta: Localizar o último evento em uma janela
 
-**Descrição**: Encontre o carro último em cada intervalo de 10 minutos.
+**Descrição**: Localize o último carro em cada intervalo de 10 minutos.
 
 **Entrada**:
 
@@ -377,12 +377,11 @@ Agora vamos alterar o problema e localize o carro primeiro de uma marca específ
         AND Input.Time = LastInWindow.LastEventTime
 ```
 
-**EXPLICAÇÃO**: Existem dois passos da consulta. Primeiro localiza o carimbo de hora mais recente do windows 10 minutos. A segunda etapa associa os resultados da consulta primeiro com o fluxo original para localizar os eventos que correspondem os última carimbos de hora em cada janela. 
+**Explicação**: Há duas etapas na consulta. A primeira encontra o carimbo de data/hora mais recente em janelas de 10 minutos. A segunda etapa une os resultados da primeira consulta com o fluxo original para localizar os eventos que correspondem aos últimos carimbos de data e hora em cada janela. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Exemplo de consulta: Detetar a ausência de eventos
+## <a name="query-example-locate-correlated-events-in-a-stream"></a>Exemplo de consulta: Localizar eventos correlacionados em um fluxo
 
-**Descrição**: Certifique-se de que um fluxo não tem nenhum valor que corresponde a um determinado critério.
-Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do processo incidir nos últimos 90 segundos?
+**Descrição**: Localizar eventos correlacionados em um fluxo. Por exemplo, ter dois carros consecutivos da mesma marca foram inseridos na estrada nos últimos 90 segundos?
 
 **Entrada**:
 
@@ -414,11 +413,11 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-**EXPLICAÇÃO**: Uso **ATRASO** para dar uma espiada no fluxo de entrada um evento volta e obter o **tornar** valor. Compare-o para o **tornar** valor no evento atual e, em seguida, o evento de saída se eles forem iguais. Também pode utilizar **ATRASO** para obter dados sobre o carro anterior.
+**Explicação**: Use **lag** para inspecionar o fluxo de entrada um evento e obter o valor **Make** . Compare-o com o valor **Make** no evento atual e, em seguida, gere o evento se eles forem iguais. Você também pode usar o **retardo** para obter dados sobre o carro anterior.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Exemplo de consulta: Detetar a duração entre os eventos
+## <a name="query-example-detect-the-duration-between-events"></a>Exemplo de consulta: Detectar a duração entre os eventos
 
-**Descrição**: Encontre a duração de um evento específico. Por exemplo, dada uma clickstream da web, determine o tempo gasto num recurso.
+**Descrição**: Localize a duração de um determinado evento. Por exemplo, considerando um cliques da Web, determine o tempo gasto em um recurso.
 
 **Entrada**:  
 
@@ -448,11 +447,11 @@ Por exemplo, 2 carros consecutivos desde a mesma introduzidas ao longo do proces
         Event = 'end'
 ```
 
-**EXPLICAÇÃO**: Utilize o **último** função para recuperar a última **tempo** valor quando o tipo de evento foi **iniciar**. O **último** função utiliza **PARTITION BY [utilizador]** para indicar que o resultado é calculado por utilizador exclusivo. A consulta tem um limite de máximo de 1 hora para a diferença de tempo entre **começar** e **parar** eventos, mas pode ser configurado conforme necessário **(limite DURATION(hour, 1)** .
+**Explicação**: Use a função **Last** para recuperar o último valor de **hora** em que o tipo de evento foi **iniciado**. A função **Last** usa **Partition by [User]** para indicar que o resultado é calculado por usuário exclusivo. A consulta tem um limite máximo de 1 hora para a diferença de tempo entre os eventos de **início** e de **parada** , mas é configurável conforme necessário **(limite de duração (hora, 1)** .
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Exemplo de consulta: Detetar a duração de uma condição
-**Descrição**: Descobrir o tempo que ocorreu uma condição.
-Por exemplo, suponha que um bug resultou em todos os carros ter um peso incorreto (acima de 20 000 libras) e a duração desse bug deve ser calculada.
+## <a name="query-example-detect-the-duration-of-a-condition"></a>Exemplo de consulta: Detectar a duração de uma condição
+**Descrição**: Descubra por quanto tempo uma condição ocorreu.
+Por exemplo, suponha que um bug resultou em todos os carros com peso incorreto (acima de 20.000 libras) e a duração desse bug deve ser computada.
 
 **Entrada**:
 
@@ -494,11 +493,11 @@ Por exemplo, suponha que um bug resultou em todos os carros ter um peso incorret
         AND previousWeight > 20000
 ```
 
-**EXPLICAÇÃO**: Uso **ATRASO** para ver o fluxo de entrada de 24 horas e procurar instâncias onde **StartFault** e **StopFault** são abrangido pelo peso < 20000.
+**Explicação**: Use o **retardo** para exibir o fluxo de entrada por 24 horas e procure instâncias nas quais **StartFault** e **StopFault** são distribuídas pelo peso < 20000.
 
-## <a name="query-example-fill-missing-values"></a>Exemplo de consulta: Preencher valores em falta
+## <a name="query-example-fill-missing-values"></a>Exemplo de consulta: Preencher valores ausentes
 
-**Descrição**: Para a transmissão de eventos que tenham valores em falta, produza um fluxo de eventos com intervalos regulares. Por exemplo, gere um evento em 5 segundos, que informa o ponto de dados mais recentemente visto.
+**Descrição**: Para o fluxo de eventos que têm valores ausentes, produz um fluxo de eventos com intervalos regulares. Por exemplo, gere um evento a cada 5 segundos que relate o ponto de dados visto mais recentemente.
 
 **Entrada**:
 
@@ -513,7 +512,7 @@ Por exemplo, suponha que um bug resultou em todos os carros ter um peso incorret
 
 **Saída (primeiras 10 linhas)** :
 
-| windowend | lastevent.t | lastevent.value |
+| windowEnd | lastevent. t | lastevent.value |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000Z |2014-01-01T14:01:00.000Z |1 |
 | 2014-01-01T14:01:05.000Z |2014-01-01T14:01:05.000Z |2 |
@@ -537,41 +536,41 @@ Por exemplo, suponha que um bug resultou em todos os carros ter um peso incorret
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**EXPLICAÇÃO**: Esta consulta gera eventos a cada cinco segundos e devolve o último evento de que recebeu anteriormente. O [Hopping janela](/stream-analytics-query/hopping-window-azure-stream-analytics) duração determina até que ponto back-a consulta de procura para localizar o evento mais recente (300 segundos neste exemplo).
+**Explicação**: Essa consulta gera eventos a cada 5 segundos e gera o último evento recebido anteriormente. A duração da [janela de salto](/stream-analytics-query/hopping-window-azure-stream-analytics) determina quanto tempo a consulta procura localizar o evento mais recente (300 segundos neste exemplo).
 
 
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemplo de consulta: Correlacione os dois tipos de evento dentro do mesmo fluxo
+## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemplo de consulta: Correlacione dois tipos de evento dentro do mesmo fluxo
 
-**Descrição**: Por vezes, alertas tem de ser gerados com base em vários tipos de eventos que ocorreram num determinado intervalo de tempo. Por exemplo, num cenário de IoT para ovens iniciais, deve ser gerado um alerta quando a temperatura ventoinha é inferior a 40 e a capacidade máxima durante os últimos 3 minutos é inferior a 10.
+**Descrição**: Às vezes, os alertas precisam ser gerados com base em vários tipos de eventos que ocorreram em um determinado intervalo de tempo. Por exemplo, em um cenário de IoT para fornos residenciais, um alerta deve ser gerado quando a temperatura do ventilador for menor que 40 e a potência máxima durante os últimos 3 minutos for menor que 10.
 
 **Entrada**:
 
 | time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
-| "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:02:00" | "Oven1" | "temp" |100 |
-| "2018-01-01T16:02:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:03:00" | "Oven1" | "temp" |70 |
-| "2018-01-01T16:03:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:04:00" | "Oven1" | "temp" |50 |
-| "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
-| "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
-| "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
-| "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
+| "2018-01-01T16:01:00" | "Oven1" | Temp |120 |
+| "2018-01-01T16:01:00" | "Oven1" | alimentar |15 |
+| "2018-01-01T16:02:00" | "Oven1" | Temp |100 |
+| "2018-01-01T16:02:00" | "Oven1" | alimentar |15 |
+| "2018-01-01T16:03:00" | "Oven1" | Temp |70 |
+| "2018-01-01T16:03:00" | "Oven1" | alimentar |15 |
+| "2018-01-01T16:04:00" | "Oven1" | Temp |50 |
+| "2018-01-01T16:04:00" | "Oven1" | alimentar |15 |
+| "2018-01-01T16:05:00" | "Oven1" | Temp |30 |
+| "2018-01-01T16:05:00" | "Oven1" | alimentar |8 |
+| "2018-01-01T16:06:00" | "Oven1" | Temp |20 |
+| "2018-01-01T16:06:00" | "Oven1" | alimentar |8 |
+| "2018-01-01T16:07:00" | "Oven1" | Temp |20 |
+| "2018-01-01T16:07:00" | "Oven1" | alimentar |8 |
+| "2018-01-01T16:08:00" | "Oven1" | Temp |20 |
+| "2018-01-01T16:08:00" | "Oven1" | alimentar |8 |
 
 **Saída**:
 
-| eventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
+| eventTime | deviceId | Temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | "Oven1" |30 | "Curto-circuito aquecer elementos" |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20 | "Curto-circuito aquecer elementos" |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20 | "Curto-circuito aquecer elementos" |15 |
+| "2018-01-01T16:05:00" | "Oven1" |30 | "Elementos de aquecimento de circuito pequeno" |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 | "Elementos de aquecimento de circuito pequeno" |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 | "Elementos de aquecimento de circuito pequeno" |15 |
 
 **Solução**:
 
@@ -611,11 +610,11 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**EXPLICAÇÃO**: A primeira consulta `max_power_during_last_3_mins`, utiliza o [deslizantes janela](/stream-analytics-query/sliding-window-azure-stream-analytics) para determinar o valor máximo do sensor de alimentação para todos os dispositivos, durante os últimos 3 minutos. A segunda consulta é associada à primeira consulta para encontrar o valor de energia na janela do mais recente relevantes para o evento atual. E, em seguida, desde que as condições são cumpridas, é gerado um alerta para o dispositivo.
+**Explicação**: A primeira consulta `max_power_during_last_3_mins`usa a [janela deslizante](/stream-analytics-query/sliding-window-azure-stream-analytics) para localizar o valor máximo do sensor de energia para cada dispositivo, durante os últimos 3 minutos. A segunda consulta é unida à primeira consulta para localizar o valor de energia na janela mais recente relevante para o evento atual. E, em seguida, desde que as condições sejam atendidas, um alerta é gerado para o dispositivo.
 
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemplo de consulta: Processar eventos independentes de dispositivo inclinar do relógio (subfluxos)
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemplo de consulta: Processar eventos independentemente da distorção do relógio do dispositivo (subfluxos)
 
-**Descrição**: Eventos podem se atrasam ou fora de ordem devido a desvios de relógio entre produtores de eventos, o relógio inclina entre partições ou latência de rede. No exemplo a seguir, o relógio do dispositivo para TollID 2 é cinco segundos por trás TollID 1 e o relógio do dispositivo para TollID 3 é dez segundos atrás TollID 1. 
+**Descrição**: Os eventos podem chegar atrasados ou fora de ordem devido a distorções de relógio entre produtores de eventos, distorções de relógio entre partições ou latência de rede. No exemplo a seguir, o relógio do dispositivo para a chamada de Tarifaid 2 é de cinco segundos atrás da chamada 1 e o relógio do dispositivo para o Chamadaid 3 é de dez segundos atrás da chamada 1. 
 
 **Entrada**:
 
@@ -652,15 +651,15 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**EXPLICAÇÃO**: O [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) cláusula examina cada linha cronológica de dispositivo separadamente com subfluxos. Os eventos de saída para cada TollID são gerados como eles são computados, que significa que os eventos estão na ordem em relação a cada TollID em vez de que está a ser reordenadas como se todos os dispositivos foram no relógio do mesmo.
+**Explicação**: O [carimbo de data/hora por cláusula over](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examina cada linha do tempo de dispositivo separadamente usando subfluxos. Os eventos de saída para cada Tarifaid são gerados à medida que são computados, o que significa que os eventos estão em ordem em relação a cada Tarifaid em vez de serem reordenados como se todos os dispositivos estivessem no mesmo relógio.
 
-## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exemplo de consulta: Remover duplicados eventos numa janela
+## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exemplo de consulta: Remover eventos duplicados em uma janela
 
-**Descrição**: Ao realizar uma operação como calcular médias sobre eventos numa janela de tempo especificado, os eventos duplicados devem ser filtrados. No exemplo a seguir, o segundo evento é um duplicado da primeira.
+**Descrição**: Ao executar uma operação, como calcular as médias sobre eventos em uma determinada janela de tempo, os eventos duplicados devem ser filtrados. No exemplo a seguir, o segundo evento é uma duplicata do primeiro.
 
 **Entrada**:  
 
-| DeviceId | Time | Atributo | Value |
+| DeviceId | Time | Atributo | Valor |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Temperatura |50 |
@@ -671,7 +670,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Saída**:  
 
-| AverageValue | DeviceId |
+| Médiavalue | DeviceId |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -699,16 +698,16 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**EXPLICAÇÃO**: [CONTAGEM (distinta hora)](/stream-analytics-query/count-azure-stream-analytics) devolve o número de valores distintos da coluna de tempo durante um período de tempo. Em seguida, pode utilizar a saída deste passo para calcular a média por dispositivo ao rejeitar duplicatas.
+**Explicação**: [Contagem (hora distinta)](/stream-analytics-query/count-azure-stream-analytics) retorna o número de valores distintos na coluna hora dentro de uma janela de tempo. Você pode usar a saída desta etapa para calcular a média por dispositivo descartando duplicatas.
 
-## <a name="geofencing-and-geospatial-queries"></a>Consultas de barreira geográfica e geoespaciais
-O Azure Stream Analytics fornece funções geoespaciais incorporadas que podem ser utilizadas para implementar cenários, tais como a gestão de frotas, é garantida de partilha, veículos e acompanhamento de recursos. Dados Geoespaciais podem ser ingeridos em formatos GeoJSON ou WKT como parte do fluxo de eventos ou dados de referência. Para obter mais informações, consulte a [cenários de agregação de barreira geográfica e geoespaciais com o Azure Stream Analytics](geospatial-scenarios.md) artigo.
+## <a name="geofencing-and-geospatial-queries"></a>Doisolamento geográfico e consultas geoespaciais
+O Azure Stream Analytics fornece funções geoespaciais internas que podem ser usadas para implementar cenários como gerenciamento de frota, compartilhamento de Rides, carros conectados e acompanhamento de ativos. Os dados geoespaciais podem ser ingeridos em formatos geojson ou WKT como parte do fluxo de eventos ou de dados de referência. Para obter mais informações, consulte os cenários de Unificação [geográfica e agregação geoespacial com Azure Stream Analytics](geospatial-scenarios.md) artigo.
 
-## <a name="language-extensibility-through-javascript-and-c"></a>Extensibilidade de idioma por meio de JavaScript eC#
-Langugae de consulta do Stream Ananlytics do Azure pode ser estendido com funções personalizadas escritas no JavaScript ou C# idiomas. Para obter mais informações, consulte os artigos de foolowing:
-* [Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure](stream-analytics-javascript-user-defined-functions.md)
-* [Azure agregações definidas pelo utilizador do JavaScript do Stream Analytics](stream-analytics-javascript-user-defined-aggregates.md)
-* [Desenvolver as funções definidas pelo utilizador .NET padrão, para as tarefas do Edge do Azure Stream Analytics](stream-analytics-edge-csharp-udf-methods.md)
+## <a name="language-extensibility-through-javascript-and-c"></a>Extensibilidade de linguagem por meio de JavaScript eC#
+O Azure Stream Ananlytics Query langugae pode ser estendido com funções personalizadas escritas em C# JavaScript ou linguagens. Para obter mais informações, consulte os artigos foolowing:
+* [Azure Stream Analytics funções definidas pelo usuário do JavaScript](stream-analytics-javascript-user-defined-functions.md)
+* [Azure Stream Analytics agregações definidas pelo usuário do JavaScript](stream-analytics-javascript-user-defined-aggregates.md)
+* [Desenvolver .NET Standard funções definidas pelo usuário para trabalhos do Azure Stream Analytics Edge](stream-analytics-edge-csharp-udf-methods.md)
 
 ## <a name="get-help"></a>Obter ajuda
 

@@ -2,7 +2,7 @@
 title: Ligar ao Azure SQL Data Warehouse | Microsoft Docs
 description: Conecte-se ao Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,20 +10,20 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873654"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479737"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Ligar ao Azure SQL Data Warehouse
 Conecte-se ao Azure SQL Data Warehouse.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
-O nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descubra o nome de servidor completamente qualificado:
+O nome do servidor no exemplo a seguir é samplesvr.database.windows.net. Descubra o nome de servidor completamente qualificado:
 
-1. Aceda ao [portal do Azure][Azure portal].
+1. Aceda ao [Portal do Azure][Azure portal].
 2. Clique em **Armazéns de dados SQL**.
 3. Clique no armazém de dados à qual se quer ligar.
 4. Localize o nome do servidor completo.
@@ -31,7 +31,7 @@ O nome do servidor no exemplo seguinte é samplesvr.database.windows.net. Descub
     ![Nome de servidor completo][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
-O Azure SQL Data Warehouse suporta [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. Para localizar a versão mais recente e a documentação, clique dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal do Azure, clique nas **Mostrar cadeias de ligação de base de dados** do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
+O Azure SQL data warehouse dá suporte a [ADO.net][ADO.NET], [ODBC][ODBC], [php][php]e [JDBC][JDBC]. Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores. Para gerar automaticamente a cadeia de conexão para o driver que você está usando na portal do Azure, clique em **Mostrar cadeias de conexão de banco de dados** do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
 
 > [!NOTE]
 > Considere definir o tempo limite da ligação como 300 segundos, para permitir que a ligação sobreviva a curtos períodos de indisponibilidade.
@@ -63,13 +63,13 @@ O SQL Data Warehouse uniformiza algumas definições durante a ligação e a cri
 
 | Definição de base de dados | Value |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ON |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ON |
+| [ANSI_NULLS][ANSI_NULLS] |ATIVADO |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATIVADO |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, veja [Authentication to Azure SQL Data Warehouse (Autenticação no Azure SQL Data Warehouse)][Authentication to Azure SQL Data Warehouse].
+Para se conectar e consultar com o Visual Studio, consulte [consultar com o Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

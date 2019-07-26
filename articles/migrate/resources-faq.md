@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: snehaa
-ms.openlocfilehash: e5b4777adfcbb5babbf5db792a10d025c79b1a8b
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302377"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372481"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Migrações para Azure-perguntas frequentes (FAQ)
 
@@ -20,20 +20,8 @@ Este artigo inclui perguntas frequentes sobre as migrações para Azure. Se voc�
 ## <a name="general"></a>Geral
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Quais geografias do Azure são compatíveis com as migrações para Azure?
-Atualmente, as migrações para Azure dão suporte a várias regiões geográficas nas quais um projeto de migrações para Azure pode ser criado. Mesmo que você só possa criar projetos nessas regiões, você ainda pode avaliar ou migrar seus computadores para outros locais de destino. A geografia do projeto é usada somente para armazenar os metadados descobertos.
 
-
-**Geografia** | **Local de armazenamento de metadados**
---- | ---
-Azure Government | Gov (US) - Virginia
-Ásia | Sudeste da Ásia ou Ásia Oriental
-Europa | Sul da Europa ou Europa Ocidental
-Reino Unido | Sul do Reino Unido ou Oeste do Reino Unido
-Estados Unidos | EUA Central ou oeste dos EUA 2
-
-
-> [!NOTE]
-> No momento, o suporte para Azure governamental está disponível apenas para a [versão mais antiga](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) das migrações para Azure.
+Você pode encontrar a lista para [VMware aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) e para o [Hyper-V aqui](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Como as migrações para Azure são diferentes de Azure Site Recovery?
 
@@ -51,7 +39,7 @@ Para as URLs e portas necessárias para que as migrações para Azure se comuniq
 
 ### <a name="can-i-harden-the-appliance-vm-i-set-up-with-the-template"></a>Posso proteger a VM do dispositivo que configurei com o modelo?
 
-Os componentes adicionais (por exemplo, antivírus) podem ser adicionados ao modelo, desde que as regras de comunicação e firewall necessárias para o dispositivo de migrações para Azure sejam redeixadas como estão.   
+Os componentes adicionais (por exemplo, antivírus) podem ser adicionados ao modelo, desde que as regras de comunicação e de firewall necessárias para o dispositivo de migrações para Azure sejam deixadas como estão.   
 
 ### <a name="what-data-is-collected-by-azure-migrate-appliance"></a>Quais dados são coletados pelo dispositivo de migrações para Azure?
 

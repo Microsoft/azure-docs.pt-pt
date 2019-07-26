@@ -1,141 +1,141 @@
 ---
-title: Introdução ao Log Analytics do Azure Monitor | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o Log Analytics no portal do Azure para escrever consultas.
+title: Introdução ao Azure Monitor Log Analytics | Microsoft Docs
+description: Este artigo fornece um tutorial para usar Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
 author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: 2e2d13e6923535a8993a6477cbbfb921f6092d66
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565594"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348079"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introdução ao Log Analytics no Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender como utilizar o Log Analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a usar Log Analytics na portal do Azure para gravar Azure Monitor consultas de log. Ele ensinará como:
 
-- Utilizar o Log Analytics para escrever uma consulta simples
-- Compreender o esquema dos seus dados
-- Filtrar, ordenar e resultados de grupo
-- Aplicam-se de um intervalo de tempo
+- Usar Log Analytics para escrever uma consulta simples
+- Entender o esquema de seus dados
+- Filtrar, classificar e agrupar resultados
+- Aplicar um intervalo de tempo
 - Criar gráficos
-- Guardar e carregar consultas
-- Exportar e partilhar consultas
+- Salvar e carregar consultas
+- Exportar e compartilhar consultas
 
-Para obter um tutorial sobre como escrever consultas de registo, consulte [introdução às consultas de registo no Azure Monitor](get-started-queries.md).<br>
-Para obter mais detalhes sobre as consultas de registo, consulte [descrição geral do registo de consultas no Azure Monitor](log-query-overview.md).
+Para obter um tutorial sobre como escrever consultas de log, consulte Introdução [às consultas de log em Azure monitor](get-started-queries.md).<br>
+Para obter mais detalhes sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](log-query-overview.md).
 
-## <a name="meet-log-analytics"></a>Conheça o Log Analytics
-O log Analytics é uma ferramenta de web utilizada para criar e executar consultas de registo do Azure Monitor. Abri-lo selecionando **registos** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
+## <a name="meet-log-analytics"></a>Atender Log Analytics
+Log Analytics é uma ferramenta da Web usada para gravar e executar Azure Monitor consultas de log. Abra-o selecionando **logs** no menu Azure monitor. Ele começa com uma nova consulta em branco.
 
-![Página de boas-vindas](media/get-started-portal/homepage.png)
+![Home page](media/get-started-portal/homepage.png)
 
 ## <a name="firewall-requirements"></a>Requisitos de firewall
-Para utilizar o Log Analytics, o seu browser requer acesso para os seguintes endereços. Se o browser estiver acessando o portal do Azure através de uma firewall, tem de ativar o acesso a estes endereços.
+Para usar Log Analytics, seu navegador requer acesso aos endereços a seguir. Se o seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
 
 | URI | IP | Portas |
 |:---|:---|:---|
-| portal.loganalytics.io | Dinâmica | 80,443 |
-| api.loganalytics.io | Dinâmica | 80,443 |
-| docs.loganalytics.io | Dinâmica | 80,443 |
+| portal.loganalytics.io | Dinâmico | 80,443 |
+| api.loganalytics.io | Dinâmico | 80,443 |
+| docs.loganalytics.io | Dinâmico | 80,443 |
 
 ## <a name="basic-queries"></a>Consultas básicas
-Consultas podem ser usadas para termos de pesquisa, identificar tendências, analisar padrões e fornecem várias outras informações com base nos seus dados. Começar com uma consulta básica:
+As consultas podem ser usadas para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base em seus dados. Comece com uma consulta básica:
 
 ```Kusto
 Event | search "error"
 ```
 
-Essa consulta pesquisa o _evento_ tabela de registos que contêm o termo _erro_ em qualquer propriedade.
+Essa consulta pesquisa a tabela de _eventos_ em busca de registros que contenham o termo _erro_ em qualquer propriedade.
 
-Consultas podem começar com o nome de uma tabela ou um [pesquisa](/azure/kusto/query/searchoperator) comando. O exemplo anterior começa com o nome da tabela _evento_, que obtém todos os registos da tabela de eventos. O caráter de pipe (|) separa comandos, para que o resultado do primeiro serve como a entrada do comando seguinte. Pode adicionar qualquer número de comandos para uma única consulta.
+As consultas podem começar com um nome de tabela ou um comando de [pesquisa](/azure/kusto/query/searchoperator) . O exemplo acima começa com o _evento_table name, que recupera todos os registros da tabela de eventos. O caractere de pipe (|) separa os comandos, de modo que a saída do primeiro serve como entrada do comando a seguir. Você pode adicionar qualquer número de comandos a uma única consulta.
 
-Outra forma de escrever essa mesma consulta deve ser:
+Outra maneira de escrever essa mesma consulta seria:
 
 ```Kusto
 search in (Event) "error"
 ```
 
-Neste exemplo, **pesquisa** tem como escopo o _evento_ tabela e todos os registos na tabela serão pesquisados durante o prazo _erro_.
+Neste exemplo, a **pesquisa** tem o escopo definido para a tabela de _eventos_ , e todos os registros nessa tabela são pesquisados para o termo _erro_.
 
-## <a name="running-a-query"></a>Execução de uma consulta
-Executar uma consulta ao clicar o **execute** botão ou prima **Shift + Enter**. Considere os seguintes detalhes que determinam o código que será executado e os dados que são devolvidos:
+## <a name="running-a-query"></a>Executando uma consulta
+Execute uma consulta clicando no botão **executar** ou pressionando **Shift + Enter**. Considere os seguintes detalhes que determinam o código que será executado e os dados retornados:
 
-- Quebras de linha: Uma única quebra torna sua consulta mais fácil de ler. Quebras de linha de vários dividi-la em consultas separadas.
-- Cursor: Coloque o cursor em algum lugar dentro da consulta para executá-lo. A consulta atual é considerada o código até que uma linha em branco é encontrada.
-- Intervalo - um intervalo de hora de tempo _últimas 24 horas_ é definido por padrão. Para utilizar um intervalo diferente, utilize o Seletor de tempo ou adicionar um período de tempo explícito filtro de intervalo para a sua consulta.
+- Quebras de linha: Uma única quebra torna sua consulta mais fácil de ler. Várias quebras de linha a dividem em consultas separadas.
+- Posição Coloque o cursor em algum lugar dentro da consulta para executá-lo. A consulta atual é considerada como o código até que uma linha em branco seja encontrada.
+- Intervalo de tempo-um intervalo de tempo das _últimas 24 horas_ é definido por padrão. Para usar um intervalo diferente, use o seletor de tempo ou adicione um filtro de intervalo de tempo explícito à sua consulta.
 
 
 ## <a name="understand-the-schema"></a>Compreender o esquema
-O esquema é uma coleção de tabelas visualmente agrupados numa categoria de lógica. Várias categorias são de soluções de monitorização. O _LogManagement_ categoria contém dados comuns, como Windows e eventos do Syslog, dados de desempenho e agente executa heartbeat.
+O esquema é uma coleção de tabelas agrupadas visualmente em uma categoria lógica. Várias das categorias são de monitoramento de soluções. A categoria _LogManagement_ contém dados comuns, como eventos do Windows e syslog, dados de desempenho e pulsações do agente.
 
 ![Esquema](media/get-started-portal/schema.png)
 
-Em cada tabela, os dados são organizados em colunas com tipos de dados diferentes, conforme indicado pelo ícones junto ao nome da coluna. Por exemplo, o _evento_ tabela mostrada na captura de ecrã contém colunas como _computador_ que é o texto, _se nos_ que é um número, e _TimeGenerated_ que é a data/hora.
+Em cada tabela, os dados são organizados em colunas com tipos de dados diferentes, conforme indicado pelos ícones ao lado do nome da coluna. Por exemplo, o _evento_ tabela mostrada na captura de ecrã contém colunas como _computador_ que é o texto, _se nos_ que é um número, e _TimeGenerated_ que é a data/hora.
 
 ## <a name="filter-the-results"></a>Filtrar os resultados
-Comece por obter tudo _evento_ tabela.
+Comece obtendo tudo na tabela de _eventos_ .
 
 ```Kusto
 Event
 ```
 
-O log Analytics examina automaticamente os resultados por:
+Log Analytics os resultados de escopos automaticamente por:
 
-- Intervalo de tempo:  Por predefinição, consultas estão limitadas para as últimas 24 horas.
-- Número de resultados: Os resultados estão limitados ao máximo de 10 000 registos.
+- Intervalo de tempo:  Por padrão, as consultas são limitadas às últimas 24 horas.
+- Número de resultados: Os resultados são limitados ao máximo de 10.000 registros.
 
-Esta consulta é muito geral e retorna demasiados resultados para ser útil. Pode filtrar os resultados por meio dos elementos de tabela ou adicionando explicitamente um filtro à consulta. Filtragem de resultados por meio dos elementos de tabela aplica-se para o conjunto de resultados existente, enquanto um filtro para a própria consulta irá devolver um resultado filtrado novo definido e, portanto, conseguiu produzir resultados mais precisos.
+Essa consulta é muito geral e retorna muitos resultados para serem úteis. Você pode filtrar os resultados por meio dos elementos da tabela ou adicionando explicitamente um filtro à consulta. A filtragem de resultados por meio dos elementos da tabela aplica-se ao conjunto de resultados existente, enquanto um filtro para a consulta em si retornará um novo conjunto de resultados filtrados e, portanto, poderá produzir resultados mais precisos.
 
 ### <a name="add-a-filter-to-the-query"></a>Adicionar um filtro à consulta
-Há uma seta à esquerda de cada registo. Clique nesta seta para abrir os detalhes de um registo específico.
+Há uma seta à esquerda de cada registro. Clique nesta seta para abrir os detalhes de um registo específico.
 
-Coloque o cursor acima um nome de coluna para o "+" e "-" ícones para exibir. Para adicionar um filtro que retorna apenas os registos com o mesmo valor, clique o sinal "+". Clique em "-" para excluir registros com este valor e, em seguida, clique em **executar** para executar a consulta novamente.
+Passe o mouse sobre um nome de coluna para os ícones "+" e "-" para exibir. Para adicionar um filtro que retornará apenas registros com o mesmo valor, clique no sinal "+". Clique em "-" para excluir registros com esse valor e clique em **executar** para executar a consulta novamente.
 
 ![Adicionar filtro à consulta](media/get-started-portal/add-filter.png)
 
-### <a name="filter-through-the-table-elements"></a>Filtrar por meio dos elementos de tabela
-Agora vamos nos concentrar em eventos com uma gravidade de _erro_. Isso é especificado numa coluna chamada _EventLevelName_. Terá de deslocar para a direita para ver esta coluna.
+### <a name="filter-through-the-table-elements"></a>Filtrar pelos elementos da tabela
+Agora, vamos nos concentrar nos eventos com uma severidade de _erro_. Isso é especificado em uma coluna chamada _EventLevelName_. Você precisará rolar para a direita para ver esta coluna.
 
-Clique no ícone de filtro ao lado do título de coluna e, na janela de pop-up selecionar valores que _começa com_ o texto _erro_:
+Clique no ícone de filtro ao lado do título da coluna e, na janela pop-up, selecione os valores que _começam com_ o _erro_de texto:
 
 ![Filtro](media/get-started-portal/filter.png)
 
 
-## <a name="sort-and-group-results"></a>Ordenar e agrupar resultados
-Os resultados são agora reduzidos para incluir apenas os eventos de erro do SQL Server, criado nas últimas 24 horas. No entanto, os resultados não são ordenados de forma alguma. Para ordenar os resultados por uma coluna de específica, tal como _timestamp_ por exemplo, clique no título de coluna. Um clique Ordena por ordem ascendente, enquanto um segundo clique para ordenar por descendente.
+## <a name="sort-and-group-results"></a>Classificar e agrupar resultados
+Os resultados agora são refinados para incluir apenas eventos de erro de SQL Server, criados nas últimas 24 horas. No entanto, os resultados não são classificados de forma alguma. Para classificar os resultados por uma coluna específica, como _carimbo de data/hora_ , por exemplo, clique no título da coluna. Um clique classifica em ordem crescente, enquanto um segundo clique será classificado em decrescente.
 
-![Coluna de ordenação](media/get-started-portal/sort-column.png)
+![Classificar coluna](media/get-started-portal/sort-column.png)
 
-Outra forma de organizar os resultados é por grupos. Para resultados de grupo por uma coluna de específico, simplesmente arraste o cabeçalho da coluna acima as outras colunas. Para criar subgrupos, arraste as outras colunas a barra superior também.
+Outra maneira de organizar os resultados é por grupos. Para agrupar os resultados por uma coluna específica, basta arrastar o cabeçalho da coluna para cima das outras colunas. Para criar subgrupos, arraste outras colunas também a barra superior.
 
 ![Grupos](media/get-started-portal/groups.png)
 
-## <a name="select-columns-to-display"></a>Selecione as colunas a apresentar
-A tabela de resultados, muitas vezes, inclui muitas colunas. Pode achar que algumas das colunas devolvidas não são apresentadas por predefinição, ou pode querer remover algumas colunas que são apresentadas. Para selecionar as colunas para mostrar, clique no botão de colunas:
+## <a name="select-columns-to-display"></a>Selecionar colunas para exibir
+A tabela de resultados geralmente inclui muitas colunas. Você pode achar que algumas das colunas retornadas não são exibidas por padrão, ou talvez você queira remover algumas das colunas que são exibidas. Para selecionar as colunas a serem mostradas, clique no botão colunas:
 
 ![Selecionar colunas](media/get-started-portal/select-columns.png)
 
 
-## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
-Por predefinição, o Log Analytics aplica-se a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
+## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
+Por padrão, Log Analytics aplica o intervalo de hora das _últimas 24 horas_ . Para usar um intervalo diferente, selecione outro valor por meio do seletor de tempo e clique em **executar**. Além dos valores predefinidos, você pode usar a opção _intervalo de tempo personalizado_ para selecionar um intervalo absoluto para a consulta.
 
-![Selecionador de hora](media/get-started-portal/time-picker.png)
+![Seletor de hora](media/get-started-portal/time-picker.png)
 
-Ao selecionar um intervalo de tempo personalizado, os valores selecionados estão em UTC, o que pode ser diferente de seu fuso horário local.
+Ao selecionar um intervalo de tempo personalizado, os valores selecionados estão em UTC, que podem ser diferentes do seu fuso horário local.
 
-Se a consulta contém explicitamente um filtro para _TimeGenerated_, a hora irá mostrar o título de Seletor _definir na consulta_. Seleção manual será desativada para evitar um conflito.
+Se a consulta contiver explicitamente um filtro para TimeGenerated, o título do seletor de tempo mostrará _definido em consulta_. A seleção manual será desabilitada para evitar um conflito.
 
 
 ## <a name="charts"></a>Gráficos
-Para além de retornar resultados numa tabela, é possível apresentar os resultados da consulta formatos visual. Utilize a consulta seguinte como exemplo:
+Além de retornar resultados em uma tabela, os resultados da consulta podem ser apresentados em formatos visuais. Use a consulta a seguir como exemplo:
 
 ```Kusto
 Event 
@@ -144,55 +144,58 @@ Event
 | summarize count() by Source 
 ```
 
-Por predefinição, os resultados são exibidos numa tabela. Clique em _gráfico_ para ver os resultados numa exibição de gráfico:
+Por padrão, os resultados são exibidos em uma tabela. Clique em _gráfico_ para ver os resultados em uma exibição gráfica:
 
 ![Gráfico de barras](media/get-started-portal/bar-chart.png)
 
-Os resultados são apresentados num gráfico de barras empilhado. Clique em _colunas empilhadas_ e selecione _circular_ para mostrar a outra exibição dos resultados:
+Os resultados são mostrados em um gráfico de barras empilhadas. Clique em _coluna_ empilhada e selecione _pizza_ para mostrar outra exibição dos resultados:
 
 ![Gráfico circular](media/get-started-portal/pie-chart.png)
 
-Propriedades diferentes do view, como x e y eixos, ou de agrupamento e a divisão de preferências, podem ser alterados manualmente a partir da barra de controle.
+Propriedades diferentes da exibição, como eixos x e y, ou preferências de agrupamento e divisão, podem ser alteradas manualmente na barra de controle.
 
-Também pode definir a vista preferida na consulta em si, usando o operador de composição.
+Você também pode definir o modo de exibição preferencial na própria consulta, usando o operador render.
 
 ### <a name="smart-diagnostics"></a>Diagnóstico inteligente
-No Pego, se houver um pico ou passo nos seus dados, poderá ver um ponto de realçado na linha. Isto indica que _diagnóstico inteligente_ identificou uma combinação de propriedades que filtrar a alteração repentina. Clique no ponto para obter mais detalhes no filtro e, para ver a versão filtrada. Isso pode ajudá-lo a identificar o que causou a alteração:
+Em um gráfico de tempo, se houver um pico repentino ou uma etapa em seus dados, você poderá ver um ponto realçado na linha. Isso indica que o _Smart Diagnostics_ identificou uma combinação de propriedades que filtram a alteração repentina. Clique no ponto para obter mais detalhes sobre o filtro e para ver a versão filtrada. Isso pode ajudá-lo a identificar o que causou a alteração:
 
 ![Diagnóstico inteligente](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Afixar ao dashboard
-Para afixar um diagrama ou tabela para um dos dashboards partilhados do Azure, clique no ícone de pin.
+Para fixar um diagrama ou tabela em um dos seus painéis compartilhados do Azure, clique no ícone de pino.
 
 ![Afixar ao dashboard](media/get-started-portal/pin-dashboard.png)
 
-Algumas simplificações aplicadas a um gráfico quando afixá-la a um dashboard:
+Determinadas simplificações são aplicadas a um gráfico quando você a fixa em um painel:
 
-- Colunas de tabelas e linhas: Para poder afixar uma tabela ao dashboard, tem de ter quatro ou menos colunas. São apresentadas apenas as sete linhas superiores.
-- Restrição de tempo: As consultas são automaticamente limitadas a dos últimos 14 dias.
-- Restrição de contagem de bin: Se exibir um gráfico que tem muitas das discretizações discretas, menos discretizações preenchidas automaticamente são agrupadas num único _outros_ bin.
+- Linhas e colunas de tabela: Para fixar uma tabela no painel, ela deve ter quatro ou menos colunas. Somente as sete primeiras linhas são exibidas.
+- Restrição de tempo: As consultas são limitadas automaticamente aos últimos 14 dias.
+- Restrição de contagem de compartimentos: Se você exibir um gráfico com muitos compartimentos discretos, os compartimentos menos preenchidos serão automaticamente agrupados em uma única bandeja de _outros_ .
 
 ## <a name="save-queries"></a>Guardar consultas
-Depois de criar uma consulta útil, pode querer guardá-lo ou partilhar com outras pessoas. O **guardar** é de ícone na barra superior.
+Depois de criar uma consulta útil, talvez você queira salvá-la ou compartilhá-la com outras pessoas. O ícone **salvar** está na barra superior.
 
-Pode salvar a página de consulta inteira ou uma única consulta como uma função. As funções são consultas que também podem ser referenciadas por outras consultas. Para guardar uma consulta como uma função, tem de fornecer um alias de função, o que é o nome usado para chamar esta consulta quando referenciado por outras consultas.
+Você pode salvar a página de consulta inteira ou uma única consulta como uma função. Funções são consultas que também podem ser referenciadas por outras consultas. Para salvar uma consulta como uma função, você deve fornecer um alias de função, que é o nome usado para chamar essa consulta quando referenciado por outras consultas.
 
-![Guardar a função](media/get-started-portal/save-function.png)
+![Salvar função](media/get-started-portal/save-function.png)
 
-Consultas de análise de registo são sempre guardadas para uma área de trabalho selecionada e compartilhadas com outros usuários da área de trabalho.
+>[!NOTE]
+>Os caracteres a seguir têm suporte `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` -no campo **nome** ao salvar ou editar a consulta salva.
 
-## <a name="load-queries"></a>Consultas de carga
-O ícone do Explorador de consultas está na área superior direito. Lista todas as consultas guardadas por categoria. Ele também permite marcar consultas específicas como favoritos rapidamente encontrá-los no futuro. Clique duas vezes numa consulta guardada para adicioná-lo para a janela atual.
+Log Analytics consultas são sempre salvas em um espaço de trabalho selecionado e compartilhadas com outros usuários desse espaço de trabalho.
+
+## <a name="load-queries"></a>Carregar consultas
+O ícone do Gerenciador de consultas está na área superior direita. Isso lista todas as consultas salvas por categoria. Ele também permite marcar consultas específicas como favoritos para encontrá-las rapidamente no futuro. Clique duas vezes em uma consulta salva para adicioná-la à janela atual.
 
 ![Explorador de consultas](media/get-started-portal/query-explorer.png)
 
-## <a name="export-and-share-as-link"></a>A exportação e partilha de ligação
-O log Analytics suporta vários métodos de exportação:
+## <a name="export-and-share-as-link"></a>Exportar e compartilhar como link
+O Log Analytics dá suporte a vários métodos de exportação:
 
-- Excel: Guarde os resultados como um ficheiro CSV.
-- Power BI: Exporte os resultados para o Power BI. Ver [dados de registo de importação do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.
-- Partilhe uma ligação: A consulta em si pode ser compartilhada como um link que, em seguida, pode ser enviado e executado por outros utilizadores que têm acesso à mesma área de trabalho.
+- Excel: Salve os resultados como um arquivo CSV.
+- Power BI: Exporte os resultados para Power BI. Consulte [importar Azure monitor dados de log no Power bi](../../azure-monitor/platform/powerbi.md) para obter detalhes.
+- Compartilhar um link: A própria consulta pode ser compartilhada como um link que pode ser enviada e executada por outros usuários que têm acesso ao mesmo espaço de trabalho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [escrever consultas de registo do Azure Monitor](get-started-queries.md).
+- Saiba mais sobre como [gravar Azure monitor consultas de log](get-started-queries.md).

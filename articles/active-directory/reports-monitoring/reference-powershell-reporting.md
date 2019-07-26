@@ -17,21 +17,18 @@ ms.date: 07/12/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa3d7be5238527f86e9dfde3be70ae09259d69
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 2d9d5fdb9091d51c67fd5d778bac189c08647741
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302742"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359764"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
-Com os relatórios do Azure Active Directory (Azure AD), você pode obter as informações necessárias para determinar o funcionamento do seu ambiente. Você pode recuperar dados de relatório usando os cmdlets do PowerShell do Azure AD para relatórios.
+Com os relatórios do Azure Active Directory (Azure AD), você pode obter detalhes sobre as atividades em todas as operações de gravação em sua direção (logs de auditoria) e dados de autenticação (logs de entrada). Embora as informações estejam disponíveis usando o MS API do Graph, agora você pode recuperar os mesmos dados usando os cmdlets do PowerShell do Azure AD para relatórios.
 
-Este artigo fornece uma visão geral do cmdlet.
-
-
-
+Este artigo fornece uma visão geral dos cmdlets do PowerShell a serem usados para logs de auditoria e logs de entrada.
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
@@ -63,7 +60,7 @@ Você obtém acesso aos logs de entrada usando o cmdlet ' Get-AzureADAuditSignIn
 
 | Cenário                      | Comando do PowerShell |
 | :--                           | :--                |
-| Nome de exibição do usuário             | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins '" |
+| Nome a Apresentar do Utilizador             | Get-AzureADAuditSignInLogs-filtro "UserDisplayName EQ ' Timothy Perkins '" |
 | Criar data e hora              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tudo desde 5:30 PM em 4/18) |
 | Estado                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
 | Nome de exibição do aplicativo      | Get-AzureADAuditSignInLogs-filtrar "appDisplayName EQ ' StoreFrontStudio [WSFED habilitado] '" |
@@ -76,7 +73,7 @@ A imagem a seguir mostra um exemplo desse comando.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral dos relatórios do Azure ad](overview-reports.md).
 - [Relatório de logs de auditoria](concept-audit-logs.md). 

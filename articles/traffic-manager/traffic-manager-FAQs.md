@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: c2bff5749ab833efcb252d3fafb5d38cfbc8691e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310268"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335808"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Traffic Manager
 
@@ -300,7 +300,7 @@ Você pode desativar Exibição de Tráfego para qualquer perfil usando o portal
 
 Exibição de Tráfego preço é baseado no número de pontos de dados usados para criar a saída. Atualmente, o único tipo de dados com suporte é as consultas que seu perfil recebe. Além disso, você será cobrado apenas pelo processamento feito quando Exibição de Tráfego habilitado. Isso significa que, se você habilitar Exibição de Tráfego por algum período de tempo em um mês e desativá-lo durante outros horários, somente os pontos de dados processados enquanto você tiver a contagem de recursos habilitados em direção à sua fatura.
 
-## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
+## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
 
 ### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Posso usar o Gerenciador de tráfego com pontos de extremidade de várias assinaturas?
 
@@ -382,7 +382,7 @@ Quando uma consulta é recebida em um perfil, o Gerenciador de tráfego primeiro
 
 Para perfis com qualquer método de roteamento diferente de vários valores:
 
-|Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
+|Solicitação de consulta de entrada|    Tipo de ponto final|  Resposta fornecida|
 |--|--|--|
 |OUTRO |  A/AAAA/CNAME |  Ponto de extremidade de destino| 
 |A |    A/CNAME | Ponto de extremidade de destino|
@@ -395,7 +395,7 @@ Para perfis com qualquer método de roteamento diferente de vários valores:
 
 Para perfis com o método de roteamento definido como vários valores:
 
-|Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
+|Solicitação de consulta de entrada|    Tipo de ponto final | Resposta fornecida|
 |--|--|--|
 |OUTRO |  Combinação de A e AAAA | Pontos de extremidade de destino|
 |A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
@@ -438,7 +438,7 @@ As configurações de monitoramento do Traffic Manager estão em um nível por p
 O Gerenciador de tráfego permite que você especifique cabeçalhos personalizados nas verificações de integridade de HTTP (S) que ele inicia em seus pontos de extremidade. Se você quiser especificar um cabeçalho personalizado, poderá fazer isso no nível do perfil (aplicável a todos os pontos de extremidade) ou especificá-lo no nível do ponto de extremidades. Se um cabeçalho for definido em ambos os níveis, o especificado no nível do ponto de extremidade substituirá o nível do perfil.
 Um caso de uso comum para isso é especificar cabeçalhos de host para que as solicitações do Gerenciador de tráfego possam ser roteadas corretamente para um ponto de extremidade hospedado em um ambiente de vários locatários. Outro caso de uso disso é identificar as solicitações do Gerenciador de tráfego dos logs de solicitação de HTTP (S) de um ponto de extremidade
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Qual cabeçalho de host as verificações de integridade do ponto de extremidade usam?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Qual cabeçalho de host as verificações de integridade do ponto de extremidade usam?
 
 Se nenhuma configuração de cabeçalho de host personalizado for fornecida, o cabeçalho de host usado pelo Gerenciador de tráfego será o nome DNS do destino do ponto de extremidade configurado no perfil, se disponível.
 

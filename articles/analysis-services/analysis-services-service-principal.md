@@ -1,6 +1,6 @@
 ---
-title: Automatizar tarefas de Azure Analysis Services com principais de serviço | Documentos da Microsoft
-description: Saiba como criar principais de serviço para automatizar tarefas de Azure Analysis Services.
+title: Automatizar tarefas de Azure Analysis Services com entidades de serviço | Microsoft Docs
+description: Saiba como criar entidades de serviço para automatizar tarefas de Azure Analysis Services.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
@@ -8,52 +8,52 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518168"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347966"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
-Os principais de serviço são um recurso de aplicações do Azure Active Directory que pode criar no seu inquilino para efetuar operações automáticas de recursos e níveis de serviço. Eles são um tipo exclusivo de *identidade do usuário* com um ID de aplicação e a palavra-passe ou o certificado. Um principal de serviço tem apenas essas permissões necessárias para efetuar tarefas definidas para as funções e permissões para o qual está atribuída. 
+Os principais de serviço são um recurso de aplicações do Azure Active Directory que pode criar no seu inquilino para efetuar operações automáticas de recursos e níveis de serviço. Eles são um tipo exclusivo de *identidade de usuário* com uma ID de aplicativo e senha ou certificado. Uma entidade de serviço tem apenas as permissões necessárias para executar tarefas definidas pelas funções e permissões para as quais ela está atribuída. 
 
-No Analysis Services, os principais de serviço são utilizados com a automatização do Azure, modo autônomo do PowerShell, aplicativos de cliente personalizadas e aplicações web para automatizar tarefas comuns. Por exemplo, servidores de aprovisionamento, implementação de modelos, atualização de dados, dimensionamento, e colocar em pausa/retomar podem todos ser automatizado através da utilização de principais de serviço. As permissões estão atribuídas a principais de serviço através da associação de função, muito à semelhança de contas do Azure AD UPN regulares.
+Em Analysis Services, as entidades de serviço são usadas com a automação do Azure, o modo autônomo do PowerShell, aplicativos cliente personalizados e aplicativos Web para automatizar tarefas comuns. Por exemplo, o provisionamento de servidores, implantação de modelos, atualização de dados, escala vertical/redução e pausa/retomada pode ser automatizado usando entidades de serviço. As permissões são atribuídas às entidades de serviço por meio da Associação de função, assim como contas de UPN do Azure AD regulares.
 
-Analysis Services também suporta operações executadas pelo identidades geridas utilizando principais de serviço. Para obter mais informações, consulte [geridos identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Azure dos serviços de que a autenticação de suporte do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+O Analysis Services também dá suporte a operações executadas por identidades gerenciadas usando entidades de serviço. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
-Principais de serviço podem ser criados no portal do Azure ou através do PowerShell. Para saber mais, consulte:
+As entidades de serviço podem ser criadas no portal do Azure ou usando o PowerShell. Para saber mais, consulte:
 
-[Criar principal de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
-## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Store ativos de certificado e a credencial na automatização do Azure
+## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar a credencial e os ativos de certificado na automação do Azure
 
-Credenciais do principal de serviço e os certificados podem ser armazenados em segurança na automatização do Azure para operações de runbooks. Para saber mais, consulte:
+As credenciais da entidade de serviço e os certificados podem ser armazenados com segurança na automação do Azure para operações de runbook. Para saber mais, consulte:
 
-[Ativos de credencial na automatização do Azure](../automation/automation-credentials.md)   
+[Ativos de credencial na automação do Azure](../automation/automation-credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
 
-## <a name="add-service-principals-to-server-admin-role"></a>Adicionar principais de serviço à função de administrador do servidor
+## <a name="add-service-principals-to-server-admin-role"></a>Adicionar entidades de serviço à função de administrador do servidor
 
-Antes de poder utilizar um principal de serviço para operações de gestão de servidor do Analysis Services, tem de o adicionar à função de administradores do servidor. Para obter mais informações, consulte [adicionar um principal de serviço para a função de administrador de servidor](analysis-services-addservprinc-admins.md).
+Antes de usar uma entidade de serviço para operações de gerenciamento do Analysis Services Server, você deve adicioná-la à função Administradores do servidor. Para saber mais, consulte [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md).
 
-## <a name="service-principals-in-connection-strings"></a>Principais de serviço em cadeias de ligação
+## <a name="service-principals-in-connection-strings"></a>Entidades de serviço em cadeias de conexão
 
-AppID de principal de serviço e uma palavra-passe ou certificado pode ser utilizado na ligação de cadeias de caracteres semelhante a um UPN.
+A appID de entidade de serviço e a senha ou o certificado podem ser usados em cadeias de conexão de forma muito semelhante a um UPN.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Utilizar o módulo de Az.AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo AZ. AnalysisServices
 
-Quando utilizar um principal de serviço para operações de gestão de recursos com o [Az.AnalysisServices](/powershell/module/az.analysisservices) módulo, utilize `Connect-AzAccount` cmdlet. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` o cmdlet. 
 
-No exemplo seguinte, a appID e uma palavra-passe são utilizados para executar operações de plano de controlo para a sincronização de réplicas só de leitura e aumentar verticalmente/horizontalmente:
+No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
 
 ```powershell
 Param (
@@ -74,9 +74,9 @@ Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/
 Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
 ```
 
-#### <a name="using-sqlserver-module"></a>Através do módulo SQLServer
+#### <a name="using-sqlserver-module"></a>Usando o módulo do SQLServer
 
-No exemplo seguinte, a appID e uma palavra-passe são utilizados para efetuar uma operação de atualização de base de dados do modelo:
+No exemplo a seguir, appID e uma senha são usados para executar uma operação de atualização de banco de dados modelo:
 
 ```powershell
 Param (
@@ -93,11 +93,11 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao ligar-se com aplicações de cliente e aplicações web, [bibliotecas de cliente AMO e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instaláveis superior do NuGet de suporte principais de serviço nas cadeias de ligação com a seguinte sintaxe: `app:AppID` e a palavra-passe ou `cert:thumbprint`. 
+Ao se conectar com aplicativos cliente e aplicativos Web, as [bibliotecas de cliente amo e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instaláveis mais altos do NuGet dão suporte a entidades de serviço em cadeias de conexão usando a seguinte sintaxe: `app:AppID` e senha ou `cert:thumbprint`. 
 
-No exemplo a seguir `appID` e um `password` são utilizados para efetuar uma operação de atualização de base de dados do modelo:
+No exemplo a seguir, `appID` e um `password` é usado para executar uma operação de atualização de banco de dados modelo:
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";
@@ -109,6 +109,6 @@ tbl.RequestRefresh(RefreshType.Full);
 db.Model.SaveChanges();
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-[Inicie sessão com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Adicionar um principal de serviço para a função de administrador do servidor](analysis-services-addservprinc-admins.md)   
+## <a name="next-steps"></a>Passos seguintes
+[Entrar com Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
+[Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)   

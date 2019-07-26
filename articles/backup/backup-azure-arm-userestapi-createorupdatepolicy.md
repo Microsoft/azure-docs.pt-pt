@@ -1,72 +1,71 @@
 ---
-title: 'Cópia de segurança do Azure: Criar políticas de cópia de segurança com a REST API'
-description: Gerir políticas de cópia de segurança (agendamento e retenção) com a REST API
-services: backup
+title: 'Backup do Azure: Criar políticas de backup usando a API REST'
+description: Gerenciar políticas de backup (agendamento e retenção) usando a API REST
 author: pvrk
 manager: shivamg
-keywords: API DE REST; Cópia de segurança VM do Azure; Restauro de VMS do Azure;
+keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0729a49c3dc72a28431d711e6783abda96d2ce3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648810"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466823"
 ---
-# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de cópia de segurança de serviços de recuperação do Azure com a REST API
+# <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup dos serviços de recuperação do Azure usando a API REST
 
-Os passos para criar uma política de cópia de segurança para um cofre dos serviços de recuperação do Azure descritos na [documento da REST API de política](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Diga-nos Utilize este documento como uma referência para criar uma política de cópia de segurança de VM do Azure.
+As etapas para criar uma política de backup para um cofre dos serviços de recuperação do Azure são descritas no [documento da API REST da política](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como uma referência para criar uma política para o backup de VM do Azure.
 
-## <a name="backup-policy-essentials"></a>Essentials de política de cópia de segurança
+## <a name="backup-policy-essentials"></a>Conceitos básicos da política de backup
 
-- É criada uma política de cópia de segurança por cofre.
-- É possível criar uma política de cópia de segurança para a cópia de segurança de cargas de trabalho seguintes
+- Uma política de backup é criada por cofre.
+- Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho
   - VM do Azure
-  - SQL numa VM do Azure
+  - SQL na VM do Azure
   - Partilha de Ficheiros do Azure
-- Uma política pode ser atribuída a vários recursos. Uma política de cópia de segurança de VM do Azure pode ser utilizada para proteger o número de VMs do Azure.
+- Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
 - Uma política consiste em dois componentes
-  - Agenda: Quando efetuar a cópia de segurança
-  - Retenção: Durante quanto tempo deve ser mantida cada cópia de segurança.
-- Agenda pode ser definida como "diariamente" ou "semanalmente" com um ponto específico de tempo.
-- Retenção pode ser definida para "diário", "semanal", "mensal", "anuais" pontos de cópia de segurança.
-- "semanal" se refere a uma cópia de segurança num determinado dia da semana, "mensal" significa uma cópia de segurança num determinado dia do mês e "anuais" se refere a uma cópia de segurança num determinado dia do ano.
-- Período de retenção de pontos de cópia de segurança "mensais", "anuais" é referido como "LongTermRetention".
-- Quando é criado um cofre, uma política de cópias de segurança de VM do Azure chamado "DefaultPolicy" também é criada e pode ser utilizado para VMs de cópia de segurança do Azure.
+  - Agendamento Quando fazer o backup
+  - Políticas Por quanto tempo cada backup deve ser retido.
+- A agenda pode ser definida como "diária" ou "semanal" com um ponto de tempo específico.
+- A retenção pode ser definida para pontos de backup "diários", "semanais", "mensais" e "anuais".
+- "semanalmente" refere-se a um backup em um determinado dia da semana, "mensal" significa um backup em um determinado dia do mês e "anual" refere-se a um backup em um determinado dia do ano.
+- A retenção de pontos de backup "mensais" e "anuais" é conhecida como "LongTermRetention".
+- Quando um cofre é criado, uma política para backups de VM do Azure chamada "DefaultPolicy" também é criada e pode ser usada para fazer backup de VMs do Azure.
 
-Para criar ou atualizar uma política de cópia de segurança do Azure, utilize o seguinte procedimento *colocar* operação
+Para criar ou atualizar uma política de backup do Azure, use a seguinte operação *Put*
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
 ```
 
-O `{policyName}` e `{vaultName}` são fornecidos no URI. São fornecidas informações adicionais no corpo do pedido.
+O `{policyName}` e`{vaultName}` são fornecidos no URI. Informações adicionais são fornecidas no corpo da solicitação.
 
-## <a name="create-the-request-body"></a>Criar o corpo do pedido
+## <a name="create-the-request-body"></a>Criar o corpo da solicitação
 
-Por exemplo, para criar uma política de cópia de segurança de VM do Azure, seguem-se os componentes do corpo do pedido.
+Por exemplo, para criar uma política para o backup de VM do Azure, veja a seguir os componentes do corpo da solicitação.
 
-|Name  |Necessário  |Tipo  |Descrição  |
+|Nome  |Requerido  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
-|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
-|tags     |         | Object        |  Etiquetas de recursos       |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|tags     |         | Objeto        |  Etiquetas de recursos       |
 
-Para obter a lista completa das definições no corpo do pedido, consulte a [documento da REST API de política de cópia de segurança](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
+Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate).
 
-### <a name="example-request-body"></a>Corpo do pedido de exemplo
+### <a name="example-request-body"></a>Corpo da solicitação de exemplo
 
-O corpo do pedido seguinte define uma política de cópia de segurança para cópias de segurança de VM do Azure.
+O corpo da solicitação a seguir define uma política de backup para backups de VM do Azure.
 
 A política diz:
 
-- Faça uma cópia de segurança semanal cada segunda-feira, quarta-feira, Quinta-feira às 10:00 hora padrão do Pacífico.
-- Manter as cópias de segurança criadas em cada segunda-feira, quarta-feira, Quinta-feira para uma semana.
-- Manter as cópias de segurança criadas em cada primeiro quarta-feira e terceiro Quinta-feira do mês durante dois meses (substituições as condições de retenção anteriores, se houver).
-- Manter as cópias de segurança criadas na segunda quarta e a quarta Quinta-feira em Fevereiro e Novembro há quatro anos (substituições as condições de retenção anteriores, se houver).
+- Faça um backup semanal a cada segunda-feira, quarta-feira, às 10:00, hora oficial do Pacífico.
+- Mantenha os backups feitos em todas as segundas-feiras, quartas-feiras por uma semana.
+- Mantenha os backups feitos em todas as primeiras quartas e terceira quinta-feira de um mês por dois meses (Substitui as condições de retenção anteriores, se houver).
+- Mantenha os backups feitos na quarta segunda-feira e na quarta quinta-feira em fevereiro e novembro por quatro anos (Substitui as condições de retenção anteriores, se houver).
 
 ```json
 {
@@ -150,22 +149,22 @@ A política diz:
 ```
 
 > [!IMPORTANT]
-> Os formatos de hora para agendamento e retenção suportam apenas DateTime. Eles não suportam o formato de hora sozinho.
+> Os formatos de hora para agendamento e retenção dão suporte apenas a DateTime. Eles não dão suporte apenas ao formato de hora.
 
 ## <a name="responses"></a>Responses
 
-A criação/atualização da política de cópia de segurança é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que esta operação cria outra operação que tem de ser registados em separado.
+A criação/atualização da política de backup é uma [operação assíncrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Isso significa que essa operação cria outra operação que precisa ser controlada separadamente.
 
-Devolve duas respostas: 202 (aceite) quando outra operação é criada e, em seguida, 200 (OK) quando essa operação é concluída.
+Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e 200 (OK) quando essa operação é concluída.
 
-|Name  |Tipo  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
-|200 OK     |    [Proteção PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
-|Aceite 202     |         |     Aceite    |
+|200 OK     |    [PolicyResource de proteção](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
+|202 aceito     |         |     Aceite    |
 
 ### <a name="example-responses"></a>Respostas de exemplo
 
-Assim que submeter o *colocar* pedido para a criação da política ou a atualização, a resposta inicial é 202 (aceite) com um cabeçalho de localização ou o cabeçalho de async do Azure.
+Depois de enviar a solicitação *Put* para criação ou atualização de política, a resposta inicial é 202 (aceita) com um cabeçalho de local ou Azure-Async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -185,13 +184,13 @@ Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000
 X-Powered-By: ASP.NET
 ```
 
-Em seguida, controlar a operação resultante com o cabeçalho de localização ou o cabeçalho do Azure-AsyncOperation com um simples *obter* comando.
+Em seguida, acompanhe a operação resultante usando o cabeçalho Location ou o cabeçalho Azure-AsyncOperation com um comando *Get* simples.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
 ```
 
-Depois de concluída a operação, devolverá 200 (OK) com o conteúdo de política no corpo da resposta.
+Quando a operação for concluída, ela retornará 200 (OK) com o conteúdo da política no corpo da resposta.
 
 ```json
 {
@@ -279,13 +278,13 @@ Depois de concluída a operação, devolverá 200 (OK) com o conteúdo de polít
 }
 ```
 
-Se uma política já está a ser utilizada para proteger um item, qualquer atualização na política irá resultar em [modificar proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) para todos esses itens associados.
+Se uma política já estiver sendo usada para proteger um item, qualquer atualização na política resultará na [modificação da proteção](backup-azure-arm-userestapi-backupazurevms.md#changing-the-policy-of-protection) para todos esses itens associados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Ativar a proteção para uma VM do Azure não protegido](backup-azure-arm-userestapi-backupazurevms.md).
+[Habilite a proteção para uma VM do Azure desprotegida](backup-azure-arm-userestapi-backupazurevms.md).
 
-Para obter mais informações sobre as APIs de REST de cópia de segurança do Azure, consulte os seguintes documentos:
+Para obter mais informações sobre as APIs REST do backup do Azure, consulte os seguintes documentos:
 
-- [API de REST do fornecedor de serviços de recuperação do Azure](/rest/api/recoveryservices/)
+- [API REST do provedor de serviços de recuperação do Azure](/rest/api/recoveryservices/)
 - [Introdução à API REST do Azure](/rest/api/azure/)

@@ -3,17 +3,17 @@ title: Descrição Geral do Serviço Aprovisionamento de Dispositivos no Hub IoT
 description: Descreve o aprovisionamento de dispositivos no Azure com o Serviço de Aprovisionamento de Dispositivos e o Hub IoT
 author: nberdy
 ms.author: nberdy
-ms.date: 12/05/2017
+ms.date: 04/04/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60746116"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360284"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Aprovisionar dispositivos com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de cloud pública integrada para todas as suas necessidades de solução IoT. O Serviço Aprovisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toques e just-in-time no hub IoT certo sem que seja necessária a intervenção humana, permitindo aos clientes aprovisionar milhões de dispositivos de forma segura e dimensionável.
@@ -108,8 +108,9 @@ Existe um Contrato de Nível de Serviço de 99,9% para o Serviço de Aprovisiona
 ## <a name="quotas"></a>Quotas
 Cada subscrição do Azure possui limites de quota predefinidos que podem afetar o âmbito da sua solução de IoT. O limite atual por subscrição é de 10 Serviços de Aprovisionamento de Dispositivos por subscrição.
 
-Para obter mais detalhes sobre os limites de quotas:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+Para obter mais detalhes sobre os limites de quotas:
 * [Limites do Serviço das Subscrições do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes do Azure relacionados

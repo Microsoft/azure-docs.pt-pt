@@ -1,10 +1,10 @@
 ---
-title: Aprovar ou negar pedidos de acesso na gestão de direitos do Azure AD (pré-visualização) - Azure Active Directory
-description: Saiba como utilizar o portal de acesso My para aprovar ou recusar pedidos para um pacote de acesso na gestão de direitos do Azure Active Directory (pré-visualização).
+title: Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
+description: Saiba como usar o portal meu acesso para aprovar ou negar solicitações a um pacote do Access no gerenciamento de direitos Azure Active Directory (versão prévia).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,72 +13,72 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 04/18/2019
-ms.author: rolyon
+ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b2d07638f6c6f153ee3640273fbee5e56df0ab2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541529"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488989"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Aprovar ou negar pedidos de acesso na gestão de direitos do Azure AD (pré-visualização)
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Aprovar ou negar solicitações de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
-> Gestão de direitos do Active Directory (Azure AD) do Azure está atualmente em pré-visualização pública.
+> O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com a gestão de direitos do Azure AD, pode configurar políticas para exigir a aprovação para pacotes de acesso e escolha um ou mais aprovadores. Este artigo descreve como designados aprovadores pode aprovar ou recusar pedidos para os pacotes de acesso.
+Com o gerenciamento de direitos do Azure AD, você pode configurar políticas para exigir aprovação para pacotes de acesso e escolher um ou mais aprovadores. Este artigo descreve como os aprovadores designados podem aprovar ou negar solicitações de pacotes do Access.
 
-## <a name="open-request"></a>Pedido aberto
+## <a name="open-request"></a>Abrir solicitação
 
-A primeira etapa para aprovar ou recusar pedidos de acesso é para encontrar e abrir o pedido de acesso com aprovação pendente. Existem duas formas de abrir o pedido de acesso.
+A primeira etapa para aprovar ou negar solicitações de acesso é localizar e abrir a solicitação de acesso com aprovação pendente. Há duas maneiras de abrir a solicitação de acesso.
 
-**Função de pré-requisitos:** Aprovador
+**Função de pré-requisito:** Aprovador
 
-1. Procure uma mensagem de e-mail do Microsoft Azure que lhe pede para aprovar ou recusar um pedido. Eis um e-mail de exemplo:
+1. Procure um email de Microsoft Azure que solicita que você aprove ou negue uma solicitação. Aqui está um exemplo de email:
 
-    ![Aprovar o pedido para aceder ao e-mail do pacote](./media/entitlement-management-shared/email-approve-request.png)
+    ![Aprovar solicitação para acessar email de pacote](./media/entitlement-management-shared/email-approve-request.png)
 
-1. Clique nas **aprovar ou negar o pedido** link para abrir o pedido de acesso.
+1. Clique no link **aprovar ou negar solicitação** para abrir a solicitação de acesso.
 
-1. Inicie sessão no portal do meu acesso.
+1. Entre no portal meu acesso.
 
-Se não tiver o e-mail, pode encontrar os pedidos de acesso com aprovação pendente ao seguir estes passos.
+Se você não tiver o email, poderá encontrar as solicitações de acesso que aguardam sua aprovação seguindo estas etapas.
 
-1. Inicie sessão no portal do meu acesso em [ https://myaccess.microsoft.com ](https://myaccess.microsoft.com).
+1. Entre no portal meu acesso em [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
-1. No menu à esquerda, clique em **aprovações** para ver uma lista de pedidos de acesso com aprovação pendente.
+1. No menu à esquerda, clique  em aprovações para ver uma lista de solicitações de acesso com aprovação pendente.
 
-1. Sobre o **pendente** separador, encontrar o pedido.
+1. Na guia **pendente** , localize a solicitação.
 
-## <a name="approve-or-deny-request"></a>Aprovar ou negar pedido
+## <a name="approve-or-deny-request"></a>Aprovar ou negar solicitação
 
-Depois de abrir um pedido de acesso com aprovação pendente, pode ver detalhes que irão ajudá-lo a fazer um aprovar ou negar a decisão.
+Depois de abrir uma solicitação de acesso com aprovação pendente, você poderá ver detalhes que o ajudarão a tomar uma decisão de aprovar ou negar.
 
-**Função de pré-requisitos:** Aprovador
+**Função de pré-requisito:** Aprovador
 
-1. Clique nas **vista** link para abrir o painel de pedido de acesso.
+1. Clique no link **Exibir** para abrir o painel solicitação de acesso.
 
-1. Clique em **detalhes** para ver detalhes sobre o pedido de acesso.
+1. Clique em **detalhes** para ver detalhes sobre a solicitação de acesso.
 
-    Os detalhes incluem o nome do utilizador, organização, aceder a data de início e fim se for fornecido, justificação de negócio, quando o pedido foi submetido, e quando o pedido irá expirar.
+    Os detalhes incluem o nome do usuário, organização, data de início e de término do acesso, se fornecido, justificativa de negócios, quando a solicitação foi enviada e quando a solicitação expirará.
 
 1. Clique em **aprovar** ou **negar**.
 
-1. Se necessário, introduza um motivo.
+1. Se necessário, insira um motivo.
 
-    ![Meu portal de acesso - pedido de acesso](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![Meu Portal de acesso-solicitação de acesso](./media/entitlement-management-shared/my-access-approve-request.png)
 
-1. Clique em **submeter** para submeter a sua decisão.
+1. Clique em **Enviar** para enviar sua decisão.
 
-    Se uma política estiver configurada com vários aprovadores, apenas um aprovador precisa tomar uma decisão sobre a aprovação pendente. Depois de um aprovador submeteu seus decisão ao pedido de acesso, o pedido é concluído e já não está disponível para os outros aprovadores aprovar ou negar o pedido. Os outros aprovadores podem ver a decisão de pedido e o tomador de decisões no seu portal de acesso My. Neste momento, a aprovação de fase única só é suportada.
+    Se uma política estiver configurada com vários Aprovadores, apenas um aprovador precisa tomar uma decisão sobre a aprovação pendente. Depois que um Aprovador tiver enviado sua decisão para a solicitação de acesso, a solicitação será concluída e não estará mais disponível para os outros Aprovadores aprovarem ou negarem a solicitação. Os outros Aprovadores podem ver a decisão de solicitação e o tomador de decisão em seu portal meu acesso. Neste momento, há suporte apenas para aprovação de estágio único.
 
-    Se nenhum dos aprovadores configurados conseguem aprovar ou recusar o pedido de acesso, o pedido expira após a duração do pedido configurado. O utilizador é notificado de que o seu pedido de acesso tiver expirado e que têm de voltar a submeter o pedido de acesso.
+    Se nenhum dos aprovadores configurados for capaz de aprovar ou negar a solicitação de acesso, a solicitação expirará após a duração da solicitação configurada. O usuário é notificado de que sua solicitação de acesso expirou e que precisa enviar novamente a solicitação de acesso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Pedir acesso a um pacote de acesso](entitlement-management-request-access.md)
-- [Processo e notificações de e-mail do pedido](entitlement-management-process.md)
+- [Solicitar acesso a um pacote de acesso](entitlement-management-request-access.md)
+- [Solicitar notificações de processo e email](entitlement-management-process.md)

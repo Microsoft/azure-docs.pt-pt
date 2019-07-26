@@ -1,127 +1,105 @@
 ---
-title: Como configurar a política de risco de início de sessão no Azure Active Directory Identity Protection | Documentos da Microsoft
-description: Saiba como configurar a política de risco de início de sessão do Azure AD Identity Protection.
+title: Como configurar a política de risco de entrada no Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba como configurar a política de risco de entrada do Azure AD Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0645e01c8ad9c620b77abd9af6cf7fe7c26ab4ea
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294671"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335407"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Como: Configurar a política de início de sessão de risco
 
-O Azure Active Directory Deteta [tipos de eventos de risco](../reports-monitoring/concept-risk-events.md#risk-event-types) no offline e em tempo real. Cada evento de risco que foi detetado um início de sessão de um utilizador contribui para um conceito lógico chamado o início de sessão arriscado. Um risco início de sessão é um indicador de uma tentativa de início de sessão não poderão ter sido executada pelo proprietário legítimo de uma conta de utilizador.
+Azure Active Directory detecta [tipos de eventos de risco](../reports-monitoring/concept-risk-events.md#risk-event-types) em tempo real e offline. Cada evento de risco que foi detectado para uma entrada de um usuário contribui para um conceito lógico chamado de entrada arriscada. Uma entrada arriscada é um indicador de uma tentativa de entrada que pode não ter sido executada pelo proprietário legítimo de uma conta de usuário.
 
+## <a name="what-is-the-sign-in-risk-policy"></a>O que é a política de risco de entrada?
 
-## <a name="what-is-the-sign-in-risk-policy"></a>O que é a política de risco de início de sessão?
+O Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que venham junto com a entrada. Por exemplo, a entrada é feita usando um endereço IP anônimo ou a entrada foi iniciada a partir de um local desconhecido? No Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como eventos de risco. Com base nos eventos de risco que foram detectados durante uma entrada, o Azure AD calcula um valor. O valor representa a probabilidade (baixa, média, alta) que a entrada não é executada pelo usuário legítimo. A probabilidade é chamada de **nível de risco de entrada**.
 
-O Azure AD analisa cada início de sessão de um utilizador. É o objetivo da análise detetar as ações suspeitas que acompanham o início de sessão. Por exemplo, o início de sessão efetuado com um endereço IP anónimo, ou o início de sessão iniciado a partir de uma localização não familiar? No Azure AD, as ações suspeitas que consegue detetar o sistema também são conhecidos como eventos de risco. Com base em eventos de risco que foram detetados durante um início de sessão, do Azure AD calcula um valor. O valor representa a probabilidade (baixa, média, alta) que o início de sessão não é efetuado pelo usuário legítimo. Denomina-se a probabilidade **nível de risco de início de sessão**.
-
-A política de risco de início de sessão é uma resposta automática, que pode configurar para um nível de risco de início de sessão específicos. Em sua resposta, pode bloquear o acesso aos seus recursos ou exigir passando um desafio de autenticação multifator (MFA) para obter acesso.
-
+A política de risco de entrada é uma resposta automatizada que você pode configurar para um nível de risco de entrada específico. Em sua resposta, você pode bloquear o acesso aos seus recursos ou exigir a passagem de um desafio de MFA (autenticação multifator) para obter acesso.
    
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como posso aceder a política de risco de início de sessão?
+## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Como fazer acessar a política de risco de entrada?
    
-A política de risco de início de sessão está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+A política de risco de entrada está na seção **Configurar** na [página Azure ad Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
-![Política de início de sessão de risco](./media/howto-sign-in-risk-policy/1014.png "política de risco de início de sessão")
-
+![Política de risco de entrada](./media/howto-sign-in-risk-policy/1014.png "Política de risco de entrada")
 
 ## <a name="policy-settings"></a>Definições de política
 
-Ao configurar a política de risco de início de sessão, tem de definir:
+Ao configurar a política de risco de entrada, você precisa definir:
 
-- Os utilizadores e grupos que a política aplica-se a:
+- Os usuários e grupos aos quais a política se aplica:
 
     ![Utilizadores e grupos](./media/howto-sign-in-risk-policy/11.png)
 
-- O nível de risco de início de sessão que aciona a política:
+- O nível de risco de entrada que dispara a política:
 
-    ![Nível de risco de início de sessão](./media/howto-sign-in-risk-policy/12.png)
+    ![Nível de risco do início de sessão](./media/howto-sign-in-risk-policy/12.png)
 
-- O tipo de acesso que pretende ser imposta quando tiver sido cumprido o seu nível de risco de início de sessão:  
+- O tipo de acesso que você deseja impor quando o nível de risco de entrada tiver sido atendido:  
 
-    ![Access](./media/howto-sign-in-risk-policy/13.png)
+    ![Aceder](./media/howto-sign-in-risk-policy/13.png)
 
-- O estado da política:
+- O estado da sua política:
 
-    ![Impor a política](./media/howto-sign-in-risk-policy/14.png)
+    ![Impor política](./media/howto-sign-in-risk-policy/14.png)
 
-
-A caixa de diálogo de configuração de política fornece uma opção para calcular o impacto de reconfiguração.
+A caixa de diálogo configuração de política fornece uma opção para estimar o impacto da reconfiguração.
 
 ![Impacto estimado](./media/howto-sign-in-risk-policy/15.png)
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-Pode configurar uma política de segurança de risco de início de sessão para exigir a MFA:
+Você pode configurar uma política de segurança de risco de entrada para exigir MFA:
 
 ![Requerer MFA](./media/howto-sign-in-risk-policy/16.png)
 
-No entanto, por motivos de segurança, esta definição só funciona para os utilizadores que já tenham sido registados para a MFA. Proteção de identidade bloqueia os utilizadores com um requisito de MFA se eles não estão registados para o MFA ainda.
+No entanto, por motivos de segurança, essa configuração só funciona para usuários que já foram registrados para MFA. A proteção de identidade bloqueia os usuários com um requisito de MFA se eles ainda não estiverem registrados para MFA.
 
-Se quiser exigir a MFA para inícios de sessão de risco, deve:
+Se você quiser exigir MFA para entradas arriscadas, deverá:
 
-1. Ativar a [política de registo de autenticação multifator](howto-mfa-policy.md) para os utilizadores afetados.
+1. Habilite a [política de registro da autenticação](howto-mfa-policy.md) multifator para os usuários afetados.
+2. Exigir que os usuários afetados entrem em uma sessão não arriscada para executar um registro de MFA.
 
-2. Requer que os utilizadores afetados iniciar sessão a uma sessão não risco para efetuar um registo na MFA.
+A conclusão dessas etapas garante que a autenticação multifator seja necessária para uma entrada arriscada.
 
-Concluir estes passos garante que a autenticação multifator é necessária um risco para início de sessão.
+A política de risco de entrada é:
 
-A política de risco de início de sessão é:
+- Aplicado a todo o tráfego e entradas do navegador usando a autenticação moderna.
+- Não aplicado a aplicativos que usam protocolos de segurança mais antigos desabilitando o ponto de extremidade WS-Trust no IDP federado, como o ADFS.
 
-- Aplicadas a todo o tráfego de navegador e inícios de sessão que utilizam autenticação moderna.
+Para obter uma visão geral da experiência do usuário relacionada, consulte:
 
-- Não é aplicada a aplicações através de protocolos de segurança mais antigos, desativando o ponto de extremidade do WS-Trust no IDP federado, por exemplo, o AD FS.
-
-
-Para uma descrição geral da experiência do usuário relacionadas, consulte:
-
-* [Recuperação de início de sessão arriscada](flows.md#risky-sign-in-recovery)
-* [Risco início de sessão bloqueado](flows.md#risky-sign-in-blocked)  
-* [Experiências de início de sessão com o Azure AD Identity Protection](flows.md)  
+* [Recuperação de entrada arriscada](flows.md#risky-sign-in-recovery)
+* [Entrada arriscada bloqueada](flows.md#risky-sign-in-blocked)  
+* [Experiências de entrada com Azure AD Identity Protection](flows.md)  
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Escolher uma **elevada** limiar reduz o número de vezes que uma política é acionada e minimiza o impacto para os utilizadores.  
+Escolher um limite **alto** reduz o número de vezes que uma política é disparada e minimiza o impacto para os usuários.  
 
-No entanto, exclui **baixa** e **médio** inícios de sessão sinalizados para risco da política, que não pode bloquear um invasor a exploração de uma identidade comprometida.
+No entanto, ele  exclui entradas baixas e **médias** sinalizadas para risco da política, o que pode não impedir que um invasor Explore uma identidade comprometida.
 
-Ao definir a política
+Ao definir a política,
 
-- Excluir os usuários que não o fizer / não é possível ter a autenticação multifator
+- Excluir usuários que não têm/não podem ter a autenticação multifator
+- Excluir usuários em localidades em que a habilitação da política não é prática (por exemplo, sem acesso ao helpdesk)
+- Excluir usuários que provavelmente gerarão muitos falsos positivos (desenvolvedores, analistas de segurança)
+- Use um limite **alto** durante a distribuição de política inicial ou se você precisar minimizar os desafios vistos pelos usuários finais.
+- Use um limite **baixo** se sua organização exigir maior segurança. A seleção de um limite **baixo** apresenta desafios de entrada de usuário adicionais, mas aumentou a segurança.
 
-- Excluir os usuários em localidades onde o ativar a política não é prático (por exemplo, sem acesso ao suporte técnico)
-
-- Excluir utilizadores que têm propensão para gerar vários falso-positivos (desenvolvedores, analistas de segurança)
-
-- Utilize um **elevada** limiar durante a política inicial faseada, ou se deve minimizar desafios vistos pelos utilizadores finais.
-
-- Utilize um **baixa** limiar se a sua organização precisar de maior segurança. Selecionar uma **baixa** limiar introduz utilizador adicional início de sessão desafios, mas uma maior segurança.
-
-A predefinição recomendada na maioria das organizações é configurar uma regra para um **médio** limiar para encontrar o equilíbrio entre segurança e usabilidade.
-
-
-
-
-
+O padrão recomendado para a maioria das organizações é configurar uma regra para um limite **médio** para um equilíbrio entre a usabilidade e a segurança.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter uma visão geral do Azure AD Identity Protection, consulte a [descrição geral do Azure AD Identity Protection](overview.md).
+Para obter uma visão geral do Azure AD Identity Protection, consulte a [visão geral Azure ad Identity Protection](overview.md).

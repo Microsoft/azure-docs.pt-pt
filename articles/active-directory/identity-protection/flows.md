@@ -1,114 +1,109 @@
 ---
-title: Experiências de início de sessão com o Azure AD Identity Protection | Documentos da Microsoft
-description: Fornece uma descrição geral da experiência do usuário quando Identity Protection tem atenuados ou remediar a um utilizador ou quando necessita de uma política de autenticação multifator.
+title: Experiências de entrada com Azure AD Identity Protection | Microsoft Docs
+description: Fornece uma visão geral da experiência do usuário quando a proteção de identidade diminuiu ou corrigiu um usuário ou quando a autenticação multifator é exigida por uma política.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295356"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335490"
 ---
-# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de início de sessão com o Azure AD Identity Protection
-Com o Azure Active Directory Identity Protection, pode:
+# <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com Azure AD Identity Protection
 
-* exigir que os utilizadores se registarem na autenticação multifator
-* lidar com o risco de inícios de sessão e utilizadores comprometidos
+Com Azure Active Directory Identity Protection, você pode:
 
-A resposta do sistema a essas questões tem um impacto na experiência de início de sessão do utilizador, porque diretamente iniciar sessão, fornecendo um nome de utilizador e uma palavra-passe não será possível deixa de poder. São necessários passos adicionais para obter um utilizador com segurança sobre o negócio.
+* exigir que os usuários se registrem para autenticação multifator
+* manipular entradas arriscadas e usuários comprometidos
 
-Este artigo fornece uma descrição geral da experiência de início de sessão do utilizador para todos os casos que podem ocorrer.
+A resposta do sistema para esses problemas tem um impacto na experiência de entrada de um usuário, pois entrar diretamente fornecendo um nome de usuário e uma senha não será mais possível. Etapas adicionais são necessárias para tornar um usuário com segurança de volta para o negócio.
+
+Este artigo fornece uma visão geral da experiência de entrada de um usuário para todos os casos que podem ocorrer.
 
 **Multi-Factor Authentication**
 
-* Registo de autenticação multifator
+* Registro de autenticação multifator
 
-**Início de sessão em risco**
+**Entrar em risco**
 
-* Recuperação de início de sessão arriscada
-* Risco início de sessão bloqueado
-* Registo de autenticação multifator durante um risco início de sessão
+* Recuperação de entrada arriscada
+* Entrada arriscada bloqueada
+* Registro de autenticação multifator durante uma entrada arriscada
 
-**Utilizadores em risco**
+**Usuário em risco**
 
 * Recuperação de conta comprometida
 * Conta comprometida bloqueada
 
-## <a name="multi-factor-authentication-registration"></a>Registo de autenticação multifator
-A melhor experiência de utilizador para ambos, o fluxo de recuperação de conta comprometida e risco fluxo início de sessão, é quando o utilizador Self-pode recuperar. Se os utilizadores estiverem registados para autenticação multifator, que já têm um número de telefone associado à sua conta que pode ser usada para passar os desafios de segurança. Nenhum envolvimento de suporte técnico ou o administrador de ajuda é necessário para recuperar a partir de comprometimento de conta. Portanto, é altamente recomendado para obter os seus utilizadores se registou para o multi-factor authentication. 
+## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
+A melhor experiência de usuário para ambos, o fluxo de recuperação de conta comprometida e o fluxo de entrada arriscado, é quando o usuário pode se recuperar automaticamente. Se os usuários estiverem registrados para a autenticação multifator, eles já terão um número de telefone associado à sua conta que pode ser usada para passar desafios de segurança. Nenhum suporte técnico ou de administrador é necessário para recuperar-se do comprometimento da conta. Portanto, é altamente recomendável que os usuários sejam registrados para autenticação multifator. 
 
-Os administradores podem definir uma política que requer que os utilizadores configurar as suas contas para verificação de segurança adicional. Esta política permite aos utilizadores ignorar o registo de autenticação multifator durante 14 dias. O período de tolerância de 14 dias não é configurável.
+Os administradores podem definir uma política que exige que os usuários configurem suas contas para verificação de segurança adicional. Essa política permite que os usuários ignorem o registro da autenticação multifator por até 14 dias. O período de carência de 14 dias não é configurável.
 
-**O registo de autenticação multifator tem três passos:**
+**O registro da autenticação multifator tem três etapas:**
 
-1. No primeiro passo, o utilizador recebe uma notificação sobre o requisito para definir a conta para multi-factor authentication. 
+1. Na primeira etapa, o usuário recebe uma notificação sobre a necessidade de definir a conta para a autenticação multifator. 
    
-    ![Remediação](./media/flows/140.png "remediação")
-2. Para configurar a autenticação multifator, terá de permitir que o sistema sabe como pretende ser contactado.
+    ![Correção](./media/flows/140.png "Correção")
+2. Para configurar a autenticação multifator, você precisa permitir que o sistema saiba como você deseja entrar em contato.
    
-    ![Remediação](./media/flows/141.png "remediação")
-3. O sistema envia um desafio para e precisa responder.
+    ![Correção](./media/flows/141.png "Correção")
+3. O sistema envia um desafio para você e você precisa responder.
    
-    ![Remediação](./media/flows/142.png "remediação")
+    ![Correção](./media/flows/142.png "Correção")
 
-## <a name="risky-sign-in-recovery"></a>Recuperação de início de sessão arriscada
-Quando um administrador tiver configurado uma política para os riscos de início de sessão, os utilizadores afetados são notificados quando o utilizador tentar iniciar sessão. 
+## <a name="risky-sign-in-recovery"></a>Recuperação de entrada arriscada
+Quando um administrador configurou uma política para riscos de entrada, os usuários afetados são notificados quando tentam entrar. 
 
-**O fluxo de início de sessão arriscado tem duas etapas:** 
+**O fluxo de entrada arriscada tem duas etapas:** 
 
-1. O usuário será informado de que algo invulgar foi detetado sobre o início de sessão, tais como iniciar sessão a partir de uma nova localização, dispositivo ou aplicação. 
+1. O usuário é informado de que algo incomum foi detectado sobre sua entrada, como entrar de um novo local, dispositivo ou aplicativo. 
    
-    ![Remediação](./media/flows/120.png "remediação")
-2. O utilizador é obrigado a provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado na autenticação multifator que precisam para arredondar enganar um código de segurança para o número de telefone. Como essa é apenas um risco início de sessão e não uma conta comprometida, o utilizador não terá de alterar a palavra-passe neste fluxo. 
+    ![Correção](./media/flows/120.png "Correção")
+2. O usuário precisa provar sua identidade resolvendo um desafio de segurança. Se o usuário estiver registrado para autenticação multifator, precisará fazer ida e volta um código de segurança para seu número de telefone. Como essa é apenas uma entrada arriscada e não uma conta comprometida, o usuário não precisará alterar a senha nesse fluxo. 
    
-    ![Remediação](./media/flows/121.png "remediação")
+    ![Correção](./media/flows/121.png "Correção")
 
-## <a name="risky-sign-in-blocked"></a>Risco início de sessão bloqueado
-Os administradores também podem optar por definir uma política de início de sessão de risco para bloquear os utilizadores durante o início de sessão dependendo do nível de risco. Para obter desbloqueado, os utilizadores finais têm de contactar um administrador ou o suporte técnico ou podem tentar iniciar sessão a partir de um dispositivo ou localização familiar. A Self-recuperação por resolver a autenticação multifator não é uma opção em vez disso.
+## <a name="risky-sign-in-blocked"></a>Entrada arriscada bloqueada
+Os administradores também podem optar por definir uma política de risco de entrada para bloquear os usuários após a entrada, dependendo do nível de risco. Para serem desbloqueados, os usuários finais devem entrar em contato com um administrador ou um suporte técnico ou podem tentar entrar de um dispositivo ou local conhecido. A recuperação automática ao resolver a autenticação multifator não é uma opção nesse caso.
 
-![Remediação](./media/flows/200.png "remediação")
+![Correção](./media/flows/200.png "Correção")
 
 ## <a name="compromised-account-recovery"></a>Recuperação de conta comprometida
-Quando tiver sido configurada uma política de segurança de risco do utilizador, os utilizadores que o utilizador de cumprir os especificado na política de nível de risco (e, portanto, pressupõe-se comprometido) deve passar pelo fluxo de recuperação de comprometimento de utilizador antes de poderem iniciar sessão. 
+Quando uma política de segurança de risco do usuário é configurada, os usuários que atendem ao nível de risco do usuário especificado na política (e, portanto, são considerados comprometidos) devem passar pelo fluxo de recuperação de comprometimento do usuário antes que possam entrar. 
 
-**O fluxo de recuperação de comprometimento de usuário tem três passos:**
+**O fluxo de recuperação de comprometimento do usuário tem três etapas:**
 
-1. O usuário será informado de que a segurança de conta está em risco devido a atividade suspeita ou fuga de credenciais.
+1. O usuário é informado de que sua segurança de conta está em risco devido à atividade suspeita ou credenciais vazadas.
    
-    ![Remediação](./media/flows/101.png "remediação")
-2. O utilizador é obrigado a provar a sua identidade por resolver um desafio de segurança. Se o utilizador está registado na autenticação multifator Self-eles podem recuperar sejam comprometidos. Eles precisam arredondar enganar um código de segurança para o número de telefone. 
+    ![Correção](./media/flows/101.png "Correção")
+2. O usuário precisa provar sua identidade resolvendo um desafio de segurança. Se o usuário estiver registrado para a autenticação multifator, ele poderá se recuperar do comprometimento. Eles precisarão fazer ida e volta um código de segurança para seu número de telefone. 
    
-   ![Remediação](./media/flows/110.png "remediação")
-3. Por fim, o utilizador é forçado a alterar a palavra-passe, uma vez que outra pessoa poderá ter tido acesso à sua conta. 
-   Capturas de ecrã desta experiência de estão abaixo.
+   ![Correção](./media/flows/110.png "Correção")
+3. Por fim, o usuário é forçado a alterar sua senha, já que outra pessoa pode ter tido acesso à sua conta. 
+   As capturas de tela dessa experiência estão abaixo.
    
-   ![Remediação](./media/flows/111.png "remediação")
+   ![Correção](./media/flows/111.png "Correção")
 
 ## <a name="compromised-account-blocked"></a>Conta comprometida bloqueada
-Para obter um utilizador que foi bloqueado por uma política de segurança de risco do utilizador desbloqueada, o utilizador tem de contactar um administrador ou suporte técnico. A Self-recuperação por resolver a autenticação multifator não é uma opção em vez disso.
+Para obter um usuário que foi bloqueado por uma política de segurança de risco do usuário desbloqueada, o usuário deve entrar em contato com um administrador ou assistência técnica. A recuperação automática ao resolver a autenticação multifator não é uma opção nesse caso.
 
-![Remediação](./media/flows/104.png "remediação")
+![Correção](./media/flows/104.png "Correção")
 
 ## <a name="reset-password"></a>Repor palavra-passe
-Se comprometido utilizadores são impedidos de iniciar sessão, um administrador pode gerar uma palavra-passe temporária para os mesmos. Os utilizadores têm de alterar a palavra-passe durante o início de um próximo início de sessão.
+Se os usuários comprometidos estiverem impedidos de entrar, um administrador poderá gerar uma senha temporária para eles. Os usuários terão que alterar sua senha durante a próxima entrada.
 
-![Remediação](./media/flows/160.png "remediação")
+![Correção](./media/flows/160.png "Correção")
 
 ## <a name="see-also"></a>Consulte também
-* [O Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

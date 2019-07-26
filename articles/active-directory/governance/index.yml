@@ -6,14 +6,14 @@ metadata:
   title: Documentação do Azure Active Directory Identity Governance | Microsoft Docs
   description: 'Saiba mais sobre a governação do ciclo de vida de identidade, aceder à governação do ciclo de vida e garantir a administração entre funcionários e parceiros.'
   services: active-directory
-  author: rolyon
-  manager: mtillman
+  author: msaburnley
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/18/2019
-  ms.author: rolyon
+  ms.author: ajburnle
 abstract:
   description: 'O Azure Active Directory (Azure AD) Identity Governance proporciona às organizações a capacidade de governar o ciclo de vida de identidade e de acesso, bem como proteger a administração entre colaboradores e parceiros.'
   aside:

@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança para o Azure Service Fabric
-description: Uma lista de verificação de atributos comuns de segurança para avaliar o Azure Service Fabric
+title: Atributos de segurança para o Azure Service Fabric
+description: Uma lista de verificação de atributos de segurança para avaliar o Azure Service Fabric
 services: service-fabric
 documentationcenter: ''
 author: msmbaldwin
@@ -9,61 +9,61 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c1718298c3f7c3fea28fa0b18569085f071696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23c7f8bdcf67d59ccdd5cd0b00bc0e0960ba1d8f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003064"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443860"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Atributos de segurança para o Azure Service Fabric
 
-Este artigo documenta os atributos de segurança integrados do Azure Service Fabric. 
+Este artigo documenta os atributos de segurança internos do Azure Service Fabric. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim |  |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
-| Chamadas de API encriptadas| Sim | Chamadas de API do Service Fabric são feitas através do Gestor de recursos do Azure. Um válido JSON web tokens (JWT) é necessário. |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)| Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim |  |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Sim | O cliente possui o cluster e o conjunto de dimensionamento de máquinas virtuais no qual o cluster foi criado. A criptografia de disco do Azure pode ser habilitada no conjunto de dimensionamento de máquinas virtuais. |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/A |  |
+| Chamadas de API criptografadas| Sim | Service Fabric chamadas à API são feitas por meio de Azure Resource Manager. Um JWT (token Web JSON) válido é necessário. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Sim |  |
-| Suporte de injeção de VNet| Sim |  |
-| Isolamento de rede e o suporte de firewall| Sim | Utilizar grupos de segurança de rede (NSG). |
-| Suporte de encapsulamento de forçado| Sim | Redes do Azure fornecem um túnel forçado. |
+| Suporte ao ponto de extremidade de serviço| Sim |  |
+| Suporte à injeção de VNet| Sim |  |
+| Isolamento de rede e suporte de firewall| Sim | Usando NSG (grupos de segurança de rede). |
+| Suporte a túnel forçado| Sim | A rede do Azure fornece túnel forçado. |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Usando o suporte de terceiros e de suporte de monitorização do Azure. |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Usando o suporte ao monitoramento do Azure e o suporte de terceiros. |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | A autenticação é através do Azure Active Directory. |
-| Autorização| Sim | Gestão identidades e acessos (IAM) para chamadas via SFRP. Chamadas diretamente para o ponto de final de cluster suporta duas funções: Utilizador e administrador. O cliente pode mapear as APIs para cada função. |
+| Authentication| Sim | A autenticação é por meio de Azure Active Directory. |
+| Autorização| Sim | IAM (gerenciamento de acesso e identidade) para chamadas via SFRP. As chamadas diretamente para o ponto de extremidade de cluster dão suporte a duas funções: Usuário e administrador. O cliente pode mapear as APIs para qualquer função. |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim | Todas as operações do painel de controle executadas através de processos de auditoria e aprovações. |
-| Auditoria e registo de plano de dados| N/A | Cliente é o proprietário do cluster.  |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as operações do plano de controle são executadas por meio de processos para auditoria e aprovações. |
+| Log e auditoria do plano de dados| N/A | O cliente possui o cluster.  |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | |
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim | |

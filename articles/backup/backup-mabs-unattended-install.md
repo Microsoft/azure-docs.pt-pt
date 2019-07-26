@@ -1,31 +1,30 @@
 ---
-title: Instalação silenciosa do V2 de servidor de cópia de segurança do Azure
-description: Utilize um script do PowerShell para instalar automaticamente a V2 de servidor de cópia de segurança do Azure. Este tipo de instalação também é chamado uma instalação autónoma.
-services: backup
+title: Instalação silenciosa do Servidor de Backup do Azure v2
+description: Use um script do PowerShell para instalar silenciosamente o Servidor de Backup do Azure v2. Esse tipo de instalação também é chamado de instalação autônoma.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: raynew
-ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: add1f4057b5b52310f53553dcd23e3357fb1ee29
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253844"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465017"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autónoma do Azure Backup Server
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>Executar uma instalação autônoma do Servidor de Backup do Azure
 
-Saiba como executar uma instalação autónoma do servidor de cópia de segurança do Azure.
+Saiba como executar uma instalação autônoma do Servidor de Backup do Azure.
 
-Estes passos não se aplicam se estiver a instalar o Azure Backup Server V1.
+Essas etapas não se aplicam se você estiver instalando o Servidor de Backup do Azure v1.
 
-## <a name="install-backup-server"></a>Instalar o servidor de cópia de segurança
+## <a name="install-backup-server"></a>Instalar servidor de backup
 
-1. No servidor que aloja a V2 de servidor de cópia de segurança do Azure ou posterior, crie um ficheiro de texto. (Pode criar o ficheiro no bloco de notas ou em outro editor de texto.) Guarde o ficheiro como MABSSetup.ini.
+1. No servidor que hospeda Servidor de Backup do Azure v2 ou posterior, crie um arquivo de texto. (Você pode criar o arquivo no bloco de notas ou em outro editor de texto.) Salve o arquivo como MABSSetup. ini.
 
-2. Cole o seguinte código no ficheiro MABSSetup.ini. Substitua o texto dentro dos parênteses Retos (\< \>) com valores do seu ambiente. O texto seguinte é um exemplo:
+2. Cole o código a seguir no arquivo MABSSetup. ini. Substitua o texto dentro dos colchetes (\< \>) por valores do seu ambiente. O texto a seguir é um exemplo:
 
    ```
    [OPTIONS]
@@ -48,22 +47,22 @@ Estes passos não se aplicam se estiver a instalar o Azure Backup Server V1.
    UseExistingSQL=<1/0 use or do not use existing SQL>
    ```
 
-3. Guarde o ficheiro. Em seguida, na linha de comandos elevada no servidor de instalação, introduza este comando:
+3. Guarde o ficheiro. Em seguida, em um prompt de comando com privilégios elevados no servidor de instalação, digite este comando:
 
    ```
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 
-Pode utilizar estes sinalizadores para a instalação:</br>
-**/f**: caminho do ficheiro. ini</br>
-**/l**: Caminho do registo</br>
-**/i**: Caminho de instalação</br>
-**/x**: Desinstalar o caminho</br>
+Você pode usar esses sinalizadores para a instalação:</br>
+**/f**:. ini caminho do arquivo</br>
+**/l**: Caminho do log</br>
+**/i**: Caminho da instalação</br>
+**/x**: Caminho de desinstalação</br>
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de instalar o servidor de cópia de segurança, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
+Depois de instalar o servidor de backup, saiba como preparar o servidor ou começar a proteger uma carga de trabalho.
 
-- [Preparar as cargas de trabalho do servidor de cópia de segurança](backup-azure-microsoft-azure-backup.md)
-- [Utilizar o servidor de cópia de segurança para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
-- [Utilizar o servidor de cópia de segurança para criar cópias de segurança do SQL Server](backup-azure-sql-mabs.md)
-- [Adicionar armazenamento de cópia de segurança moderno ao servidor de cópia de segurança](backup-mabs-add-storage.md)
+- [Preparar cargas de trabalho do servidor de backup](backup-azure-microsoft-azure-backup.md)
+- [Usar o servidor de backup para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md)
+- [Usar o servidor de backup para fazer backup de SQL Server](backup-azure-sql-mabs.md)
+- [Adicionar Armazenamento de Backup Moderno ao servidor de backup](backup-mabs-add-storage.md)

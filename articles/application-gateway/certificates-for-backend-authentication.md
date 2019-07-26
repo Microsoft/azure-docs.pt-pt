@@ -1,41 +1,41 @@
 ---
-title: Certificados necessários para o back-ends de listas de permissões no Gateway de aplicação do Azure
-description: Este artigo fornece exemplos de como um certificado SSL pode ser convertido para o certificado de autenticação e o certificado de raiz fidedigna que são necessários para as instâncias de back-end de lista de permissões no Gateway de aplicação do Azure
+title: Certificados necessários para back-ends de lista de permissões no gateway Aplicativo Azure
+description: Este artigo fornece exemplos de como um certificado SSL pode ser convertido em um certificado de autenticação e um certificado raiz confiável que são necessários para instâncias de back-end de lista de permissões no gateway Aplicativo Azure
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/14/2019
+ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 72ee9123ad959c0c7240d4f7a906adc1a4dd1a93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60831727"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382052"
 ---
-# <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>Criar certificados para o back-end de lista de permissões com o Gateway de aplicação do Azure
+# <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Criar certificados para permitir o back-end com Aplicativo Azure gateway
 
-Para efetuar o SSL ponto a ponto, o gateway de aplicação requer as instâncias de back-end de permissões através do carregamento de certificados de raiz fidedigna/autenticação. No caso do SKU v1, precisa dos certificados de autenticação, ao passo que com o SKU v2 precisa dos certificados de raiz fidedignos para colocar os certificados na lista de permissões
+Para fazer SSL de ponta a ponta, o gateway de aplicativo requer que as instâncias de back-end sejam permitidas carregando autenticação/certificados raiz confiáveis. Para a SKU v1, os certificados de autenticação são necessários, mas para os certificados de raiz confiáveis de SKU v2 são necessários para permitir os certificados.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
-> - Exportar o certificado de autenticação a partir de um certificado de back-end (para o SKU de v1)
-> - Exportar o certificado de raiz fidedigna a partir de um certificado de back-end (para o SKU de v2)
+> - Exportar o certificado de autenticação de um certificado de back-end (para SKU v1)
+> - Exportar certificado raiz confiável de um certificado de back-end (para SKU v2)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário um certificado de back-end existente para gerar os certificados de autenticação ou certificados de raiz fidedigna necessários para instâncias de back-end de lista de permissões com o gateway de aplicação. O certificado de back-end pode ser o mesmo que o certificado SSL ou diferentes para aumentar a segurança. Gateway de aplicação não fornecem qualquer mecanismo para criar ou comprar um certificado SSL. Para fins de teste, pode criar um certificado autoassinado mas não deve usá-lo para cargas de trabalho de produção. 
+Um certificado de back-end existente é necessário para gerar os certificados de autenticação ou certificados raiz confiáveis necessários para permitir instâncias de back-end com o gateway de aplicativo. O certificado de back-end pode ser igual ao certificado SSL ou diferente para segurança adicional. O gateway de aplicativo não fornece a você nenhum mecanismo para criar ou comprar um certificado SSL. Para fins de teste, você pode criar um certificado autoassinado, mas não deve usá-lo para cargas de trabalho de produção. 
 
-## <a name="export-authentication-certificate-for-v1-sku"></a>Exportar o certificado de autenticação (para o SKU de v1)
+## <a name="export-authentication-certificate-for-v1-sku"></a>Exportar certificado de autenticação (para SKU v1)
 
-Certificado de autenticação é necessário para instâncias de back-end de lista de permissões no v1 do gateway de aplicação SKU. Certificado de autenticação é a chave pública de certificados de servidor de back-end na Base 64 com codificação X.509 (. Formato CER). Neste exemplo, iremos utilizar um certificado SSL para o certificado de back-end e exportar a sua chave pública para ser utilizado como a certificação de autenticação. Além disso, neste exemplo, utilizamos a ferramenta de Gestor de certificados do Windows para exportar os certificados necessários. Pode optar por usar qualquer outra ferramenta de acordo com a sua comodidade.
+Um certificado de autenticação é necessário para permitir instâncias de back-end no SKU do gateway de aplicativo v1. O certificado de autenticação é a chave pública de certificados de servidor de back-end em X. 509 codificado em base-64 (. CER) formato. Neste exemplo, você usará um certificado SSL para o certificado de back-end e exportará sua chave pública para ser usada como certificação de autenticação. Além disso, neste exemplo, você usará a ferramenta Gerenciador de certificados do Windows para exportar os certificados necessários. Você pode optar por usar qualquer outra ferramenta que seja conveniente.
 
-Do seu certificado SSL, exporte o ficheiro. cer de chave pública (não a chave privada). Os passos seguintes ajuda exporta-a. cer X.509 com codificação de ficheiro em Base-64 (. Formato CER) para o seu certificado:
+Em seu certificado SSL, exporte o arquivo. cer de chave pública (não a chave privada). As etapas a seguir ajudam a exportar o arquivo. cer em X. 509 codificado em base-64 (. CER) formato para seu certificado:
 
-1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado, normalmente em 'Certificates - user\personal\certificates' atual' e, com o botão direito. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não encontrar o certificado em User\Personal\Certificates atual, pode ter abriu acidentalmente "Certificados – Local computador", em vez de "Certificados – utilizador atual"). Se quiser abrir o Gestor de certificados no âmbito do utilizador atual com o PowerShell, que escreve *certmgr* na janela da consola.
+1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado, normalmente em ' Certificates-Current User\Personal\Certificates ' e clique com o botão direito do mouse. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se você não encontrar o certificado no User\Personal\Certificates atual, poderá ter aberto acidentalmente "certificados – computador local", em vez de "certificados – usuário atual"). Se você quiser abrir o Gerenciador de certificados no escopo do usuário atual usando o PowerShell, digite *certmgr* na janela do console.
 
    ![Exportar](./media/certificates-for-backend-authentication/export.png)
 
@@ -45,13 +45,13 @@ Do seu certificado SSL, exporte o ficheiro. cer de chave pública (não a chave 
 
 3. Selecione **Não, não exportar a chave privada** e, em seguida, clique em **Seguinte**.
 
-   ![Não exporte a chave privada](./media/certificates-for-backend-authentication/notprivatekey.png)
+   ![Não exportar a chave privada](./media/certificates-for-backend-authentication/notprivatekey.png)
 
 4. Na página **Formato do Ficheiro de Exportação**, selecione **X.509 codificado com Base-64 (.CER).** e, em seguida, clique em **Seguinte**.
 
-   ![Com codificação base 64](./media/certificates-for-backend-authentication/base64.png)
+   ![Base-64 codificado](./media/certificates-for-backend-authentication/base64.png)
 
-5. Para **ficheiro a exportar**, **procurar** para a localização para o qual pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Clique depois em **Seguinte**.
+5. Para o **arquivo a ser**exportado, **navegue** até o local para o qual você deseja exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Clique depois em **Seguinte**.
 
    ![Procurar](./media/certificates-for-backend-authentication/browse.png)
 
@@ -59,50 +59,50 @@ Do seu certificado SSL, exporte o ficheiro. cer de chave pública (não a chave 
 
    ![Concluir](./media/certificates-for-backend-authentication/finish.png)
 
-7. O certificado é exportado com êxito.
+7. Seu certificado foi exportado com êxito.
 
    ![Êxito](./media/certificates-for-backend-authentication/success.png)
 
-   O certificado exportado será semelhante ao seguinte:
+   O certificado exportado é semelhante a este:
 
-   ![Exportados](./media/certificates-for-backend-authentication/exported.png)
+   ![Exportado](./media/certificates-for-backend-authentication/exported.png)
 
-8. Se abrir o certificado exportado usando o bloco de notas, verá algo semelhante a este exemplo. A seção em azul contém as informações que são carregadas para o gateway de aplicação. Se abrir o certificado com o bloco de notas e não ser semelhante ao seguinte, normalmente, isso significa que não exportá-lo utilizando a Base 64 com codificação X.509 (. Formato CER). Além disso, se pretender utilizar um editor de texto diferente, compreenda que podem apresentar alguns editores de formatação não-intencionais em segundo plano. Isto pode provocar problemas quando carregado o texto deste certificado para o Azure.
+8. Se você abrir o certificado exportado usando o bloco de notas, verá algo semelhante a este exemplo. A seção em azul contém as informações que são carregadas no gateway de aplicativo. Se você abrir seu certificado com o bloco de notas e ele não for semelhante a este, normalmente isso significa que você não o exportou usando o X. 509 codificado em base-64 (. CER) formato. Além disso, se você quiser usar um editor de texto diferente, entenda que alguns editores podem introduzir formatação não intencional em segundo plano. Isso pode criar problemas ao carregar o texto desse certificado para o Azure.
 
    ![Abrir com o bloco de notas](./media/certificates-for-backend-authentication/format.png)
 
-## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportar o certificado de raiz fidedigna (para o SKU de v2)
+## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportar certificado raiz confiável (para SKU v2)
 
-Fidedigno o certificado de raiz é necessário para instâncias de back-end de lista de permissões no v2 do gateway de aplicação SKU. O certificado de raiz é X.509 com codificação de Base-64 (. Certificado de raiz do formato CER) de certificados de servidor de back-end. Neste exemplo, iremos utilizar um certificado SSL para o certificado de back-end, exportar a sua chave pública e, em seguida, exporte o certificado de raiz da AC fidedigna a partir da chave pública no formato codificado em base64 para obter o certificado de raiz fidedigna. 
+Um certificado raiz confiável é necessário para permitir instâncias de back-end no SKU do gateway de aplicativo v2. O certificado raiz é um X. 509 codificado em base-64 (. CER) formato de certificado raiz dos certificados do servidor de back-end. Neste exemplo, você usará um certificado SSL para o certificado de back-end e exportará sua chave pública. Em seguida, você vai exportar o certificado raiz da autoridade de certificação confiável da chave pública no formato codificado em base64 para obter o certificado raiz confiável. 
 
-Os passos seguintes ajudam-na exportar o ficheiro. cer para o seu certificado:
+As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
-1. Utilize os passos 1 a 9, mencionado na secção **exportar o certificado de autenticação de um certificado de back-end (para a v1 SKU)** acima para exportar a chave pública do seu certificado de back-end.
+1. Use as etapas 1-9 mencionadas na seção **Exportar certificado de autenticação de um certificado de back-end (para SKU v1)** acima para exportar a chave pública do seu certificado de back-end.
 
-2. Depois da chave pública tenha sido exportada, abra o ficheiro.
+2. Depois que a chave pública tiver sido exportada, abra o arquivo.
 
-   ![Certificado de autorização aberto](./media/certificates-for-backend-authentication/openAuthcert.png)
+   ![Abrir certificado de autorização](./media/certificates-for-backend-authentication/openAuthcert.png)
 
    ![sobre o certificado](./media/certificates-for-backend-authentication/general.png)
 
-3. Mova para o caminho de certificação vista para visualizar a autoridade de certificação.
+3. Vá para a exibição do caminho de certificação para exibir a autoridade de certificação.
 
-   ![Detalhes do certificado](./media/certificates-for-backend-authentication/certdetails.png)
+   ![detalhes do certificado](./media/certificates-for-backend-authentication/certdetails.png)
 
-4. Selecione o certificado de raiz e clique em **Ver certificado**.
+4. Selecione o certificado raiz e clique em **Exibir certificado**.
 
    ![caminho do certificado](./media/certificates-for-backend-authentication/rootcert.png)
 
-   Deverá conseguir ver os detalhes do certificado de raiz.
+   Você deve ver os detalhes do certificado raiz.
 
    ![informações de certificado](./media/certificates-for-backend-authentication/rootcertdetails.png)
 
-5. Mover para o **detalhes** visualizar e clique em **copiar para ficheiro...**
+5. Vá para o modo de exibição de **detalhes** e clique em **copiar para arquivo...**
 
-   ![certificado de raiz de cópia](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
+   ![copiar certificado raiz](./media/certificates-for-backend-authentication/rootcertcopytofile.png)
 
-6. Neste momento, extrair os detalhes do certificado de raiz do certificado de back-end. Verá a **Assistente para exportar certificados**. Agora, utilize os passos 2 a 9, mencionado na secção **exportar o certificado de autenticação de um certificado de back-end (para a v1 SKU)** acima para a raiz fidedigna de exportar certificado na Base 64 com codificação X.509 (. Formato CER).
+6. Neste ponto, você extraiu os detalhes do certificado raiz do certificado de back-end. Você verá o **Assistente para exportação de certificados**. Agora, use as etapas 2-9 mencionadas na seção **exportar o certificado de autenticação de um certificado de back-end (para SKU v1)** acima para exportar o certificado raiz confiável no X. 509 codificado em Base-64 (. CER) formato.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora tem a autenticação de certificado/considerado fidedigno o certificado de raiz na Base 64 codificada X.509 (. Formato CER). Pode adicionar isso ao gateway de aplicação à lista de permissões os servidores de back-end para encriptação SSL de ponta a ponta. Ver [como configurar a encriptação SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicioná-lo ao gateway de aplicativo para permitir os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 606cab09debf760d1b101390b2a19a1a090bb4c3
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e749138cd28f7bd8faf10ca1087a73f323533a25
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234568"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335663"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Excluir atividade no Azure Data Factory
 
@@ -79,14 +79,14 @@ Aqui estão algumas recomendações para usar a atividade de exclusão:
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | DataSet | Fornece a referência do conjunto de consulta para determinar quais arquivos ou pastas serão excluídos | Sim |
 | recursive | Indica se os arquivos são excluídos recursivamente das subpastas ou somente da pasta especificada.  | Não. A predefinição é `false`. |
 | maxConcurrentConnections | O número de conexões para se conectar ao armazenamento de armazenamento ao mesmo tempo para excluir pastas ou arquivos.   |  Não. A predefinição é `1`. |
 | enablelogging | Indica se você precisa registrar os nomes de pasta ou arquivo que foram excluídos. Se for verdadeiro, você precisará fornecer uma conta de armazenamento para salvar o arquivo de log, para que possa acompanhar os comportamentos da atividade de exclusão lendo o arquivo de log. | Não |
 | logStorageSettings | Aplicável somente quando EnableLogging = true.<br/><br/>Um grupo de propriedades de armazenamento que pode ser especificado onde você deseja salvar o arquivo de log que contém os nomes de pasta ou arquivo que foram excluídos pela atividade de exclusão. | Não |
-| linkedServiceName | Aplicável somente quando EnableLogging = true.<br/><br/>O serviço vinculado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o arquivo de log que contém os nomes de pasta ou arquivo que foram excluídos pela atividade de exclusão. | Não |
+| linkedServiceName | Aplicável somente quando EnableLogging = true.<br/><br/>O serviço vinculado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties), [Azure data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties)ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o arquivo de log que contém os nomes de pasta ou arquivo que foram excluídos pela atividade de exclusão. Lembre-se de que ele deve ser configurado com o mesmo tipo de Integration Runtime de um usado pela atividade de exclusão para excluir arquivos. | Não |
 | path | Aplicável somente quando EnableLogging = true.<br/><br/>O caminho para salvar o arquivo de log em sua conta de armazenamento. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não |
 
 ## <a name="monitoring"></a>Monitorização
@@ -572,7 +572,7 @@ Você também pode obter o modelo para mover os arquivos [aqui](solution-templat
 
 -   Ao usar o filtro de atributo de arquivo: modifiedDatetimeStart e modifiedDatetimeEnd para selecionar os arquivos a serem excluídos, certifique-se de definir "fileName": "*" no DataSet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como mover arquivos no Azure Data Factory.
 

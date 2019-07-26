@@ -1,6 +1,6 @@
 ---
-title: Configurar informações de segurança (pré-visualização) para utilizar mensagens de texto - Azure Active Directory | Documentos da Microsoft
-description: Como configurar as informações de segurança para verificar a sua identidade com mensagens de texto e o seu dispositivo móvel.
+title: Configurar informações de segurança (versão prévia) para usar mensagens de texto – Azure Active Directory | Microsoft Docs
+description: Como configurar suas informações de segurança para verificar sua identidade usando mensagens de texto e seu dispositivo móvel.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,102 +12,109 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea9e4ae21ecc6538b33aed1566c10ddcd22b86c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7c1c6aadcf8fb247a7c2a53cef7d1ed0c85cf374
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60482272"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382831"
 ---
-# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Definir informações de segurança (pré-visualização) para utilizar mensagens de texto
-Pode seguir estes passos para adicionar a verificação de dois fatores e métodos de reposição de palavra-passe. Depois de ter configurado isso pela primeira vez, pode retornar para o **informações de segurança** página para adicionar, atualizar ou eliminar as suas informações de segurança.
+# <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurar informações de segurança (versão prévia) para usar mensagens de texto
 
-Se lhe for pedido para configurá-la imediatamente depois de iniciar sessão sua conta escolar ou profissional, consulte os passos detalhados no [configurar as suas informações de segurança no prompt de página de início de sessão de](security-info-setup-signin.md) artigo.
+Você pode seguir estas etapas para adicionar os métodos de verificação de dois fatores e de redefinição de senha. Depois de configurar isso na primeira vez, você pode retornar à página informações de **segurança** para adicionar, atualizar ou excluir suas informações de segurança.
+
+Se você for solicitado a configurar isso imediatamente depois de entrar em sua conta corporativa ou de estudante, consulte as etapas detalhadas no artigo [configurar informações de segurança no prompt de página de entrada](security-info-setup-signin.md) .
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Se não vir uma opção para telemóveis, é possível que a sua organização não permite a utilização de um número de telefone para efeitos de verificação. Neste caso, precisará escolher outro método ou contacte o administrador para obter mais ajuda.
+>Se você não vir uma opção de telefone, é possível que sua organização não permita que você use um número de telefone para verificação. Nesse caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
 
-## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurar mensagens de texto da página de informações de segurança
-Dependendo das definições da sua organização, poderá utilizar como um dos métodos de informações de segurança de mensagens de texto. A opção de mensagem de texto é uma parte da opção para telemóveis, portanto, definirá todas as opções da mesma forma que faria para o número de telefone, mas em vez de ter o Microsoft contactá-lo, irá optar por utilizar uma mensagem de texto.
+## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurar mensagens de texto na página informações de segurança
+
+Dependendo das configurações da sua organização, você poderá usar mensagens de texto como um dos seus métodos de informações de segurança. A opção de mensagem de texto é uma parte da opção de telefone, portanto, você definirá tudo da mesma maneira que faria para seu número de telefone, mas em vez de fazer com que a Microsoft chame você, você optará por usar uma mensagem de texto.
 
 >[!Note]
->Se pretender receber uma chamada telefónica, em vez de uma mensagem de texto, siga os passos a [definir informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md) artigo.
+>Se você quiser receber uma chamada telefônica em vez de uma mensagem de texto, siga as etapas no artigo [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md) .
 
 ### <a name="to-set-up-text-messages"></a>Para configurar mensagens de texto
 
-1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
+1. Entre em sua conta corporativa ou de estudante e, em seguida, https://myprofile.microsoft.com/ vá para a página.
 
-    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
+    ![Minha página de perfil, mostrando links de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
-2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
+2. Selecione **informações de segurança** no painel de navegação esquerdo ou no link no bloco **informações de segurança** e, em seguida, selecione **Adicionar método** na página **informações de segurança** .
 
-    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Página informações de segurança com a opção Adicionar método realçado](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. Sobre o **adicione um método** página, selecione **telefone** na lista pendente e, em seguida, selecione **Add**.
+3. Na página **Adicionar um método** , selecione **telefone** na lista suspensa e, em seguida, selecione **Adicionar**.
 
-    ![Adicionar caixa do método, com o telefone selecionado](media/security-info/securityinfo-myprofile-addphonetext.png)
+    ![Caixa Adicionar método, com telefone selecionado](media/security-info/securityinfo-myprofile-addphonetext.png)
 
-4. Sobre o **telefone** página, escreva o número de telefone para o seu dispositivo móvel, escolha **texto-me um código**e, em seguida, selecione **seguinte**.
+4. Na página **telefone** , digite o número de telefone do seu dispositivo móvel, escolha **texto para mim em um código**e, em seguida, selecione **Avançar**.
 
-    ![Adicione o número de telefone e escolha as mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Adicionar número de telefone e escolher mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
-5. Escreva o código é enviado a por meio de mensagem de texto para o seu dispositivo móvel e, em seguida, selecione **seguinte**.
+5. Digite o código enviado a você por meio de mensagem de texto para seu dispositivo móvel e, em seguida, selecione **Avançar**.
 
-    ![Adicione o número de telefone e escolha as mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
+    ![Adicionar número de telefone e escolher mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
 
-    As alterações de página para mostrar o seu sucesso.
+    A página é alterada para mostrar o seu sucesso.
 
-    ![Número de notificação de êxito, ligar o telefone, a opção de receber messags de texto e a sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
+    ![Notificação de êxito, conectando o número de telefone, a escolha para receber mensagens de texto e sua conta](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    As informações de segurança é atualizada e pode usar para verificar a sua identidade quando utilizar a reposição de palavra-passe ou a verificação em dois passos de mensagens de texto. Se quiser tornar o seu método de padrão de mensagens de texto, consulte a [alterar o seu método de informações de segurança padrão](#change-your-default-security-info-method) seção deste artigo.
+    Suas informações de segurança são atualizadas e você pode usar mensagens de texto para verificar sua identidade ao usar a verificação em duas etapas ou a redefinição de senha. Se você quiser fazer mensagens de texto como seu método padrão, consulte a seção [alterar o método de informações de segurança padrão](#change-your-default-security-info-method) deste artigo.
 
-## <a name="delete-text-messaging-from-your-security-info-methods"></a>Eliminar a partir de seus métodos de informações de segurança de mensagens de texto
-Se já não quiser utilizar mensagens de texto como um método de informações de segurança, pode removê-lo a partir da **informações de segurança** página.
+## <a name="delete-text-messaging-from-your-security-info-methods"></a>Excluir mensagens de texto de seus métodos de informações de segurança
+
+Se você não quiser mais usar mensagens de texto como um método de informações de segurança, poderá removê-la da página de **informações de segurança** .
 
 >[!Important]
->Se excluir por engano de mensagens de texto, não é possível-lo. Terá que adicionar o método novamente, seguindo os passos a [configurar mensagens de texto](#set-up-text-messages-from-the-security-info-page) seção deste artigo.
+>Se você excluir mensagens de texto por engano, não será possível desfazê-las. Você precisará adicionar o método novamente, seguindo as etapas na seção [Configurar mensagens de texto](#set-up-text-messages-from-the-security-info-page) deste artigo.
 
-### <a name="to-delete-text-messaging"></a>Eliminar mensagens de texto
+### <a name="to-delete-text-messaging"></a>Para excluir mensagens de texto
 
-1. Sobre o **informações de segurança** página, selecione o **eliminar** ligação junto ao **Phone** opção.
+1. Na página **informações de segurança** , selecione o link **excluir** ao lado da opção **telefone** .
 
-    ![Ligação para eliminar o telefone e o método a partir de informações de segurança de mensagens de texto](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Link para excluir o telefone e o método de mensagens de texto das informações de segurança](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-2. Selecione **Sim** na caixa de confirmação para eliminar a **Phone** número. Depois do número de telefone é eliminado, este é removido do suas informações de segurança e, este desaparece dos **informações de segurança** página. Se **Phone** é o método predefinido, a predefinição será alterado para outro método disponível.
+2. Selecione **Sim** na caixa de confirmação para excluir o número de **telefone** . Depois que o número de telefone for excluído, ele será removido das informações de segurança e desaparecerá da página **informações de segurança** . Se o **telefone** for seu método padrão, o padrão será alterado para outro método disponível.
 
-## <a name="change-your-default-security-info-method"></a>Alterar o seu método de informações de segurança padrão
-Se pretender que o texto de mensagens para ser o método predefinido utilizado quando iniciar sessão na sua conta escolar ou profissional com a verificação de dois fatores ou para pedidos de reposição de palavra-passe, pode defini-lo a partir da **informações de segurança** página.
+## <a name="change-your-default-security-info-method"></a>Alterar o método de informações de segurança padrão
+
+Se você quiser que o sistema de mensagens de texto seja o método padrão usado ao entrar em sua conta corporativa ou de estudante usando a verificação de dois fatores ou para solicitações de redefinição de senha, você poderá defini-lo na página **informações de segurança** .
 
 ### <a name="to-change-your-default-security-info-method"></a>Para alterar o método de informações de segurança padrão
 
-1. No **informações de segurança** página, selecione a **alteração** ligação junto aos **predefinido do método de início de sessão** informações.
+1. Na página **informações de segurança** , selecione o link **alterar** ao lado das informações do **método de entrada padrão** .
 
-    ![Alterar ligação para o método de início de sessão predefinido](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![Alterar o link para o método de entrada padrão](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selecione **Phone - texto ( *_your_phone_number_* )** na lista pendente de métodos disponíveis e, em seguida, selecione **confirmar**.
+2. Selecione **texto de telefone ( *_your_phone_number_* )** na lista suspensa de métodos disponíveis e, em seguida, selecione **confirmar**.
 
-    ![Escolha o método predefinido para início de sessão](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
+    ![Escolha o método para entrar no padrão](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 
-    O método predefinido utilizado para alterações de início de sessão para **Phone - texto ( *_your_phone_number_* )** .
+    O método padrão usado para alterações de entrada em **texto de telefone ( *_your_phone_number_* )** .
 
-## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
-Tem opções adicionais para como os contactos de organização para verificar a sua identidade, com base no que é que está tentando fazer. As opções incluem:
+## <a name="additional-security-info-methods"></a>Métodos adicionais de informações de segurança
 
-- **Aplicação de autenticador.** Transferir e utilizar uma aplicação de autenticação para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como configurar e utilizar a aplicação Microsoft Authenticator, consulte [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md).
+Você tem opções adicionais de como sua organização entra em contato com você para verificar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
-- **Dispositivo móvel ou de trabalho de chamadas telefónicas.** Introduza o seu número de dispositivos móveis e obtenha uma chamada telefónica para a reposição de palavra-passe ou a verificação em dois passos. Para obter instruções passo a passo sobre como verificar a sua identidade com um número de telefone, consulte [definir informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md).
+- **Aplicativo autenticador.** Baixe e use um aplicativo autenticador para obter uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
 
-- **Endereço de e-mail.** Introduza o seu e-mail profissional ou escolar para receber um e-mail para a reposição de palavra-passe. Esta opção não está disponível para verificação de dois passos. Para obter instruções passo a passo sobre como configurar o seu e-mail, consulte [definir informações de segurança para utilizar o e-mail](security-info-setup-email.md).
+- **Chamada telefônica de dispositivo ou trabalho móvel.** Insira o número do seu dispositivo móvel e obtenha uma chamada telefônica para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
-- **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para a sua organização. Esta opção só está disponível para a reposição de palavra-passe e não para verificação de dois passos. Para obter instruções passo a passo sobre como configurar a suas perguntas de segurança, consulte a [definir informações de segurança para utilizar perguntas de segurança](security-info-setup-questions.md) artigo.
-    
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+
+- **Endereço de email.** Insira seu endereço de email corporativo ou de estudante para obter um email para redefinição de senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções detalhadas sobre como configurar seu email, consulte [configurar informações de segurança para usar email](security-info-setup-email.md).
+
+- **Perguntas de segurança.** Responda a algumas perguntas de segurança criadas pelo administrador da sua organização. Essa opção só está disponível para a redefinição de senha e não para a verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md) .
+
     >[!Note]
-    >Se algumas dessas opções estão em falta, é mais provável porque a sua organização não permite que esses métodos. Se for este o caso, terá de escolher um método disponível ou contacte o administrador para obter mais ajuda.
+    >Se algumas dessas opções estiverem ausentes, isso provavelmente ocorrerá porque sua organização não permite esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Repor a palavra-passe, se tiver perdido ou esquecidas, do [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com/) ou siga os passos a [repor a palavra-passe profissional ou escolar](user-help-reset-password.md) artigo.
+- Redefina sua senha se você a tiver perdido ou esquecido, no [portal](https://passwordreset.microsoftonline.com/) de redefinição de senha ou siga as etapas no artigo [redefinir sua senha corporativa ou de estudante](user-help-reset-password.md) .
 
-- Obter solução de problemas dicas e ajuda para problemas de início de sessão no [não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artigo.
+- Obtenha dicas de solução de problemas e ajuda para problemas de conexão no artigo [não é possível entrar no seu conta Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) .

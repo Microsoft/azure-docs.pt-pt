@@ -17,12 +17,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5955be5670759329e42ec24999d73df977c665e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: fd29c24aa0da83b67f0c0d943312adc5c2558f8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276849"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335576"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar Microsoft Graph API de um aplicativo de console usando a identidade do aplicativo
 
@@ -110,7 +110,7 @@ Este início rápido requer o [.NET Core 2,2](https://www.microsoft.com/net/down
     > > [!TIP]
     > > Para localizar os valores de **ID do aplicativo (cliente)** , **ID do diretório (locatário)** , vá para a página **visão geral** do aplicativo na portal do Azure. Para gerar uma nova chave, acesse **certificados & página segredos** .
     
-#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento do administrador
+#### <a name="step-4-admin-consent"></a>Passo 4: Consentimento de admin
 
 Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403-Proibido* : `Insufficient privileges to complete the operation`. Isso acontece porque qualquer *permissão somente de aplicativo* requer o consentimento do administrador, o que significa que um administrador global do seu diretório deve dar consentimento ao seu aplicativo. Selecione uma das opções abaixo, dependendo da sua função:
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte a [documentação de referência `Acquir
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplo de daemon do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
@@ -236,3 +236,8 @@ Para saber mais sobre o fluxo de autenticação para este cenário, consulte o f
 
 > [!div class="nextstepaction"]
 > [Fluxos de credencial do cliente com MSAL.NET](https://aka.ms/msal-net-client-credentials)
+
+Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa sobre plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

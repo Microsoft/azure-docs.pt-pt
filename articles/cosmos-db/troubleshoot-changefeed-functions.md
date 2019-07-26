@@ -1,26 +1,26 @@
 ---
-title: Diagnosticar e solucionar problemas ao usar o gatilho de Azure Cosmos DB no Azure Functions
-description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Cosmos DB com Azure Functions
+title: Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
+description: Problemas comuns, soluções alternativas e etapas de diagnóstico, ao usar o gatilho de Azure Functions para Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9c728a735e56e461e49dd3f594186c9c0192a3f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250018"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335749"
 ---
-# <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Cosmos DB no Azure Functions
+# <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e solucionar problemas ao usar o gatilho de Azure Functions para Cosmos DB
 
-Este artigo aborda problemas comuns, soluções alternativas e etapas de diagnóstico, quando você usa o [gatilho de Azure Cosmos DB](change-feed-functions.md) com Azure functions.
+Este artigo aborda problemas comuns, soluções alternativas e etapas de diagnóstico, quando você usa o [gatilho de Azure Functions para Cosmos DB](change-feed-functions.md).
 
 ## <a name="dependencies"></a>Dependências
 
-O gatilho Azure Cosmos DB e as associações dependem dos pacotes de extensão sobre o tempo de execução de Azure Functions base. Sempre mantenha esses pacotes atualizados, pois eles podem incluir correções e novos recursos que podem solucionar possíveis problemas encontrados:
+O gatilho Azure Functions e as associações para Cosmos DB dependem dos pacotes de extensão no tempo de execução de Azure Functions base. Sempre mantenha esses pacotes atualizados, pois eles podem incluir correções e novos recursos que podem solucionar possíveis problemas encontrados:
 
 * Para Azure Functions v2, consulte [Microsoft. Azure. webjobs. Extensions. CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * Para Azure Functions v1, consulte [Microsoft. Azure. webjobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -29,7 +29,7 @@ Este artigo sempre fará referência a Azure Functions v2 sempre que o tempo de 
 
 ## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir o SDK do Azure Cosmos DB de forma independente
 
-A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho de Azure Cosmos DB e associações. Ele também inclui o [SDK do .net Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com Azure Cosmos DB programaticamente sem usar o gatilho e as associações.
+A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho de Azure Functions e associações para Cosmos DB. Ele também inclui o [SDK do .net Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com Azure Cosmos DB programaticamente sem usar o gatilho e as associações.
 
 Se quiser usar o SDK do Azure Cosmos DB, certifique-se de não adicionar ao seu projeto outra referência de pacote NuGet. Em vez disso, **permita que a referência do SDK seja resolvida por meio do pacote de extensão do Azure Functions**. Consumir o SDK do Azure Cosmos DB separadamente do gatilho e das associações
 
@@ -81,7 +81,7 @@ Se algumas alterações estiverem ausentes no destino, isso pode significar que 
 Nesse cenário, o melhor curso de ação é adicionar `try/catch blocks` seu código e dentro dos loops que possam estar processando as alterações, para detectar qualquer falha em um determinado subconjunto de itens e tratá-los adequadamente (enviá-los para outro armazenamento para mais análise ou tentar novamente). 
 
 > [!NOTE]
-> Por padrão, o gatilho de Azure Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
+> Por padrão, o gatilho de Azure Functions para Cosmos DB não repetirá um lote de alterações se houver uma exceção sem tratamento durante a execução do código. Isso significa que o motivo pelo qual as alterações não chegaram no destino é porque você está falhando em processá-las.
 
 Se você descobrir que algumas alterações não foram recebidas por seu gatilho, o cenário mais comum é que há **outra função do Azure em execução**. Pode ser outra função do Azure implantada no Azure ou uma função do Azure em execução localmente na máquina de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo contêineres monitorados e de concessão), e essa função do Azure está roubando um subconjunto das alterações que você esperaria que sua função do Azure fosse processada.
 
@@ -95,7 +95,7 @@ Esse erro ocorrerá se seu projeto Azure Functions (ou qualquer projeto referenc
 
 Para solucionar essa situação, remova a referência manual do NuGet que foi adicionada e permita que o Azure Cosmos DB referência do SDK seja resolvido por meio do pacote de extensão Azure Functions Cosmos DB.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Habilitar o monitoramento para seu Azure Functions](../azure-functions/functions-monitoring.md)
 * [Solução de problemas do SDK do .NET Azure Cosmos DB](./troubleshoot-dot-net-sdk.md)

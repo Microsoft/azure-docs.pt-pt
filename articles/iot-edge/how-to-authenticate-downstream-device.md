@@ -1,6 +1,6 @@
 ---
-title: Autenticar dispositivos downstream - Azure IoT Edge | Documentos da Microsoft
-description: Como autenticar dispositivos downstream ou dispositivos de folha para o IoT Hub e encaminhar a sua ligação de rede através de dispositivos de gateway do Azure IoT Edge.
+title: Autenticar dispositivos downstream-Azure IoT Edge | Microsoft Docs
+description: Como autenticar dispositivos downstream ou dispositivos de folha no Hub IoT e rotear sua conexão por meio de dispositivos Azure IoT Edge gateway.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,97 +9,97 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5785b0260474bd0eb861236a0bd78066475baacd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d6c7665d281ff7c27fd8b61537804b6803b3b43
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082394"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360165"
 ---
-# <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um downstream dispositivo hub IoT do Azure
+# <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
-Num cenário de gateway transparente, dispositivos downstream (às vezes chamados dispositivos de folha ou dispositivos de subordinado) tem de identidades do IoT Hub, como qualquer outro dispositivo. Este artigo explica as opções para a autenticação de um dispositivo de downstream no IoT Hub e, em seguida, demonstra como declarar a ligação de gateway.
+Em um cenário de gateway transparente, dispositivos downstream (às vezes chamados de dispositivos folha ou dispositivos filho) precisam de identidades no Hub IoT como qualquer outro dispositivo. Este artigo percorre as opções de autenticação de um dispositivo downstream no Hub IoT e demonstra como declarar a conexão de gateway.
 
-Existem três passos gerais para configurar uma ligação de gateway transparente com êxito. Este artigo abrange a segunda etapa:
+Há três etapas gerais para configurar uma conexão de gateway transparente bem-sucedida. Este artigo aborda a segunda etapa:
 
-1. O dispositivo de gateway tem de ser capaz de ligar a dispositivos downstream, receber comunicações a partir de dispositivos de downstream, e encaminhar mensagens para o destino correto. Para obter mais informações, consulte [configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md).
-2. **O dispositivo de downstream tem de ter uma identidade de dispositivo para ser capaz de autenticar com o IoT Hub e saber para se comunicar por meio do seu dispositivo de gateway.**
-3. O dispositivo de downstream tem de conseguir ligar de forma segura para o seu dispositivo de gateway. Para obter mais informações, consulte [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).
+1. O dispositivo de gateway precisa ser capaz de se conectar com segurança a dispositivos downstream, receber comunicações de dispositivos downstream e rotear mensagens para o destino adequado. Para obter mais informações, consulte [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md).
+2. **O dispositivo downstream precisa ter uma identidade de dispositivo para ser capaz de autenticar com o Hub IoT e saber se comunicar por meio de seu dispositivo de gateway.**
+3. O dispositivo downstream precisa ser capaz de se conectar com segurança ao seu dispositivo de gateway. Para obter mais informações, consulte [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).
 
-Dispositivos Downstream podem autenticar com o IoT Hub com um dos três métodos: as chaves simétricas (por vezes referidas como chaves de acesso partilhado), X.509 os certificados autoassinados ou certificados X.509 assinado de autoridade de certificados. Os passos de autenticação são semelhantes aos passos utilizados para configurar a qualquer dispositivo de não-IoT-Edge com o IoT Hub, com pequenas diferenças para declarar a relação de gateway.
+Os dispositivos downstream podem se autenticar no Hub IoT usando um dos três métodos: chaves simétricas (às vezes chamadas de chaves de acesso compartilhado), X. 509 certificados autoassinados ou certificados assinados por AC (autoridade de certificação) X. 509. As etapas de autenticação são semelhantes às etapas usadas para configurar qualquer dispositivo não IoT Edge com o Hub IoT, com pequenas diferenças para declarar a relação de gateway.
 
-Os passos neste artigo mostram aprovisionamento de dispositivos manual, não com o serviço de aprovisionamento de dispositivos do Azure IoT Hub o aprovisionamento automático. 
+As etapas neste artigo mostram o provisionamento manual de dispositivos, não o provisionamento automático com o serviço de provisionamento de dispositivos no Hub IoT do Azure. 
 
 ## <a name="symmetric-key-authentication"></a>Autenticação de chave simétrica
 
-Autenticação de chave simétrica, ou autenticação de chave de acesso partilhado, é a forma mais simples para autenticar com o IoT Hub. Com a autenticação de chave simétrica, uma chave de base64 é associada ao seu ID de dispositivo do IoT no IoT Hub. Incluir essa chave nas suas aplicações de IoT para que o seu dispositivo pode apresentá-los quando se liga ao IoT Hub. 
+A autenticação de chave simétrica ou a autenticação de chave de acesso compartilhado é a maneira mais simples de autenticar com o Hub IoT. Com a autenticação de chave simétrica, uma chave Base64 é associada à ID do dispositivo IoT no Hub IoT. Você inclui essa chave em seus aplicativos de IoT para que seu dispositivo possa apresentá-lo quando se conectar ao Hub IoT. 
 
-### <a name="create-the-device-identity"></a>Criar a identidade de dispositivo 
+### <a name="create-the-device-identity"></a>Criar a identidade do dispositivo 
 
-Adicione um novo dispositivo de IoT no seu hub IoT, usando o portal do Azure, CLI do Azure ou a extensão de IoT para o Visual Studio Code. Lembre-se de que os dispositivos jusante precisam ser identificadas no IoT Hub como dispositivo de IoT regular, não os dispositivos do IoT Edge. 
+Adicione um novo dispositivo IoT em seu hub IoT, usando o portal do Azure, CLI do Azure ou a extensão de IoT para Visual Studio Code. Lembre-se de que os dispositivos downstream precisam ser identificados no Hub IoT como dispositivo IoT regular, não IoT Edge dispositivos. 
 
-Ao criar a nova identidade de dispositivo, forneça as seguintes informações: 
+Ao criar a nova identidade do dispositivo, forneça as seguintes informações: 
 
-* Crie um ID para o seu dispositivo.
+* Crie uma ID para seu dispositivo.
 
 * Selecione **chave simétrica** como o tipo de autenticação. 
 
-* Opcionalmente, optar por **definir um dispositivo principal** e selecione o dispositivo de gateway do IoT Edge deste dispositivo downstream estabelecerão ligação através de. Este passo é opcional para autenticação de chave simétrica, mas é recomendado porque a definição de um dispositivo principal permite [recursos offline](offline-capabilities.md) para o seu dispositivo de downstream. Pode atualizar os detalhes do dispositivo para adicionar ou alterar o elemento principal mais tarde. 
+* Opcionalmente, escolha **definir um dispositivo pai** e selecione o IOT Edge dispositivo de gateway ao qual esse dispositivo downstream se conectará. Essa etapa é opcional para a autenticação de chave simétrica, mas é recomendável porque a configuração de um dispositivo pai habilita [recursos offline](offline-capabilities.md) para seu dispositivo downstream. Você sempre pode atualizar os detalhes do dispositivo para adicionar ou alterar o pai mais tarde. 
 
    ![Criar ID do dispositivo com autenticação de chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-Pode utilizar o [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação. O exemplo seguinte cria um novo dispositivo de IoT com autenticação de chave simétrica e atribui um dispositivo principal: 
+Você pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação. O exemplo a seguir cria um novo dispositivo IoT com autenticação de chave simétrica e atribui um dispositivo pai: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID}
 ```
 
-Para obter mais informações sobre os comandos da CLI do Azure para criação de dispositivo e a gestão de pai/filho, consulte o conteúdo de referência para [az iot hub-identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) comandos.
+Para obter mais informações sobre os comandos de CLI do Azure para a criação de dispositivos e o gerenciamento de pai/filho, consulte o conteúdo de referência para os comandos de [identidade de dispositivo do Hub IOT para AZ](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) .
 
-### <a name="connect-to-iot-hub-through-a-gateway"></a>Ligar ao IoT Hub através de um gateway
+### <a name="connect-to-iot-hub-through-a-gateway"></a>Conectar-se ao Hub IoT por meio de um gateway
 
-O mesmo processo é utilizado para autenticar regular IoT dispositivos ao IoT Hub com chaves simétricas também se aplica a dispositivos de downstream. A única diferença é que precisa adicionar um ponteiro para o dispositivo de gateway para encaminhar a ligação ou, em cenários offline, para lidar com a autenticação em nome do IoT Hub. 
+O mesmo processo é usado para autenticar dispositivos IoT regulares no Hub IoT com chaves simétricas também se aplica a dispositivos downstream. A única diferença é que você precisa adicionar um ponteiro ao dispositivo de gateway para rotear a conexão ou, em cenários offline, para lidar com a autenticação em nome do Hub IoT. 
 
-Para autenticação de chave simétrica, não existe nenhum passos adicionais que necessitar de colocar no seu dispositivo para o mesmo autenticar com o IoT Hub. Ainda precisa os certificados no local para que o seu dispositivo downstream pode ligar ao seu dispositivo de gateway, conforme descrito em [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).
+Para a autenticação de chave simétrica, não há etapas adicionais que você precise executar em seu dispositivo para que ele se autentique no Hub IoT. Você ainda precisa dos certificados em vigor para que seu dispositivo downstream possa se conectar ao seu dispositivo de gateway, conforme descrito em [conectar um dispositivo downstream a um gateway de Azure IOT Edge](how-to-connect-downstream-device.md).
 
-Depois de criar uma identidade de dispositivo do IoT no portal, pode obter as chaves primárias ou secundárias. Um destas chaves precisa ser incluído na cadeia de ligação que devem ser incluídos em qualquer aplicativo que se comunica com o IoT Hub. Para autenticação de chave simétrica, o IoT Hub fornece a cadeia de ligação totalmente formada nos detalhes do dispositivo para sua comodidade. Tem de adicionar informações adicionais sobre o dispositivo de gateway para a cadeia de ligação. 
+Depois de criar uma identidade de dispositivo IoT no portal, você pode recuperar suas chaves primárias ou secundárias. Uma dessas chaves precisa ser incluída na cadeia de conexão que você inclui em qualquer aplicativo que se comunica com o Hub IoT. Para a autenticação de chave simétrica, o Hub IoT fornece a cadeia de conexão totalmente formada nos detalhes do dispositivo para sua conveniência. Você precisa adicionar informações extras sobre o dispositivo de gateway à cadeia de conexão. 
 
-Cadeias de ligação da chave simétrica para dispositivos downstream tem os seguintes componentes: 
+As cadeias de conexão de chave simétrica para dispositivos downstream precisam dos seguintes componentes: 
 
-* O IoT hub que o dispositivo estabelece ligação: `Hostname={iothub name}.azure-devices.net`
-* O ID de dispositivo registado com o hub: `DeviceID={device ID}`
-* Qualquer um da chave primária ou secundária: `SharedAccessKey={key}`
-* O dispositivo de gateway que o dispositivo estabelece ligação através de. Forneça o **hostname** valor a partir do ficheiro de config.yaml o dispositivo de gateway de IoT Edge: `GatewayHostName={gateway hostname}`
+* O Hub IoT ao qual o dispositivo se conecta:`Hostname={iothub name}.azure-devices.net`
+* A ID do dispositivo registrada com o Hub:`DeviceID={device ID}`
+* A chave primária ou secundária:`SharedAccessKey={key}`
+* O dispositivo de gateway ao qual o dispositivo se conecta. Forneça o valor do **nome do host** do arquivo config. YAML do dispositivo de gateway de IOT Edge:`GatewayHostName={gateway hostname}`
 
-Tudo isso, uma cadeia de ligação completa é semelhante a:
+Juntos, uma cadeia de conexão completa é semelhante a:
 
 ``` 
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Se estabelecer uma relação de pai/filho para este dispositivo downstream, pode simplificar a cadeia de ligação ao chamar o gateway diretamente como o anfitrião de ligação. Por exemplo: 
+Se você estabeleceu uma relação pai/filho para esse dispositivo downstream, você pode simplificar a cadeia de conexão chamando o gateway diretamente como o host de conexão. Por exemplo: 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 
-## <a name="x509-authentication"></a>Autenticação de X.509 
+## <a name="x509-authentication"></a>Autenticação X. 509 
 
-Existem duas formas de autenticar um dispositivo de IoT utilizando certificados X.509. Qualquer forma, optar por autenticar, os passos para ligar o seu dispositivo ao IoT Hub são os mesmos. Escolha os certificados autoassinados ou assinado pela AC para autenticação, em seguida, continue a aprender a ligar ao IoT Hub. 
+Há duas maneiras de autenticar um dispositivo IoT usando certificados X. 509. Independentemente da maneira que você escolher autenticar, as etapas para conectar seu dispositivo ao Hub IoT são as mesmas. Escolha certificados autoassinados ou assinados por AC para autenticação e continue a aprender a se conectar ao Hub IoT. 
 
-Para obter mais informações sobre como o IoT Hub utiliza autenticação X.509, consulte os artigos seguintes: 
-* [Autenticação do dispositivo usando certificados X.509 de AC](../iot-hub/iot-hub-x509ca-overview.md)
-* [Compreensão conceptual de certificados X.509 de AC no setor de IoT](../iot-hub/iot-hub-x509ca-concept.md)
+Para obter mais informações sobre como o Hub IoT usa a autenticação X. 509, consulte os seguintes artigos: 
+* [Autenticação de dispositivo usando certificados de autoridade de certificação X. 509](../iot-hub/iot-hub-x509ca-overview.md)
+* [Compreensão conceitual dos certificados de autoridade de certificação X. 509 no setor IoT](../iot-hub/iot-hub-x509ca-concept.md)
 
-### <a name="create-the-device-identity-with-x509-self-signed-certificates"></a>Criar a identidade de dispositivo com certificados autoassinados X.509
+### <a name="create-the-device-identity-with-x509-self-signed-certificates"></a>Criar a identidade do dispositivo com os certificados autoassinados X. 509
 
-Para a autenticação autoassinada X.509, às vezes chamada de autenticação de thumbprint, terá de criar novos certificados para colocar no seu dispositivo IoT. Estes certificados têm um thumbprint neles que partilha com o IoT Hub para a autenticação. 
+Para a autenticação autoassinada X. 509, às vezes conhecida como autenticação de impressão digital, você precisa criar novos certificados para serem colocados em seu dispositivo IoT. Esses certificados têm uma impressão digital neles que você compartilha com o Hub IoT para autenticação. 
 
-A maneira mais fácil para testar este cenário é usar o mesmo computador que utilizou para criar certificados no [configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md). Essa máquina deve já ser integrada com a ferramenta correta, o certificado de AC de raiz e o certificado de AC intermediária para criar os certificados de dispositivo do IoT. Pode copiar os certificados finais e as respetivas chaves privadas através de para o seu dispositivo downstream posteriormente. Seguindo estes passos no artigo de gateway, configurar openssl no seu computador, em seguida, clonar o repositório do IoT Edge para scripts de criação do certificado de acesso. Em seguida, o que fez um diretório de trabalho que chamamos  **\<WRKDIR >** para armazenar os certificados. Os certificados de predefinição destinam-se para o desenvolvimento e teste, por isso, apenas os últimos 30 dias. Deverá ter criado um certificado de AC de raiz e um certificado intermédio. 
+A maneira mais fácil de testar esse cenário é usar o mesmo computador usado para criar certificados em [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md). Esse computador já deve estar configurado com a ferramenta correta, o certificado de autoridade de certificação raiz e o certificado de autoridade de certificação intermediário para criar os certificados de dispositivo IoT. Você pode copiar os certificados finais e suas chaves privadas para o dispositivo downstream posteriormente. Seguindo as etapas no artigo do gateway, você configura o OpenSSL em seu computador e, em seguida, clonou o repositório de IoT Edge para acessar os scripts de criação de certificado. Em seguida, você criou um diretório de trabalho que chamamos  **\<de WRKDIR >** para manter os certificados. Os certificados padrão destinam-se ao desenvolvimento e ao teste, portanto, somente os últimos 30 dias. Você deve ter criado um certificado de autoridade de certificação raiz e um certificado intermediário. 
 
-1. Navegue para o seu diretório de trabalho num bash ou janela do PowerShell. 
+1. Navegue até seu diretório de trabalho em uma janela do bash ou do PowerShell. 
 
-2. Crie dois certificados (primários e secundários) para o dispositivo de downstream. Forneça o nome do seu dispositivo e, em seguida, a etiqueta principal ou secundária. Estas informações são utilizadas para nomear os arquivos para que pode manter o controle de certificados para vários dispositivos. 
+2. Crie dois certificados (primário e secundário) para o dispositivo downstream. Forneça o nome do dispositivo e o rótulo primário ou secundário. Essas informações são usadas para nomear os arquivos para que você possa manter o controle de certificados para vários dispositivos. 
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -111,21 +111,21 @@ A maneira mais fácil para testar este cenário é usar o mesmo computador que u
    ./certGen.sh create_device_certificate "<device name>-secondary"
    ```
 
-3. Obter a identificação digital de SHA1 (chamada de um thumbprint na interface do IoT Hub) de cada certificado, o que é uma cadeia de 40 carateres hexadecimais. Utilize o seguinte comando de openssl para ver o certificado e descobrir a identificação digital:
+3. Recupere a impressão digital SHA1 (chamada de impressão digital na interface do Hub IoT) de cada certificado, que é uma cadeia de caracteres hexadecimal 40. Use o comando openssl a seguir para exibir o certificado e encontrar a impressão digital:
 
    ```PowerShell/bash
    openssl x509 -in <WORKDIR>/certs/iot-device-<device name>-primary.cert.pem -text -fingerprint | sed 's/[:]//g'
    ```
 
-4. Navegue até ao seu hub IoT no portal do Azure e criar uma nova identidade de dispositivo de IoT com os seguintes valores: 
+4. Navegue até o Hub IoT no portal do Azure e crie uma nova identidade de dispositivo IoT com os seguintes valores: 
 
-   * Selecione **X.509 Autoassinado** como o tipo de autenticação.
-   * Cole as cadeias de caracteres hexadecimal que copiou do certificados primário e secundário do seu dispositivo.
-   * Selecione **definir um dispositivo principal** e escolha um dispositivo de gateway que este dispositivo downstream estabelecerão ligação através do IoT Edge. Um dispositivo principal é necessário para a autenticação de X.509 de um dispositivo de downstream. 
+   * Selecione **X. 509 autoassinado** como o tipo de autenticação.
+   * Cole as cadeias de caracteres hexadecimais que você copiou dos certificados primários e secundários de seu dispositivo.
+   * Selecione **definir um dispositivo pai** e escolha o IOT Edge dispositivo de gateway ao qual este dispositivo downstream se conectará. Um dispositivo pai é necessário para a autenticação X. 509 de um dispositivo downstream. 
 
-   ![Criar ID do dispositivo com autenticação de autoassinado X.509 no portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
+   ![Criar ID do dispositivo com a autenticação autoassinada X. 509 no portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
-5. Copie os seguintes ficheiros para qualquer diretório no seu dispositivo downstream:
+5. Copie os seguintes arquivos para qualquer diretório em seu dispositivo downstream:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device name>*.cert.pem`
@@ -133,28 +133,28 @@ A maneira mais fácil para testar este cenário é usar o mesmo computador que u
    * `<WRKDIR>\certs\iot-device-<device name>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device name>*.key.pem`
 
-   Vai fazer referência a esses arquivos nos aplicativos de dispositivos de folha que ligar ao IoT Hub. Pode utilizar um serviço como [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [cópia seguro protoco](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Você fará referência a esses arquivos nos aplicativos de dispositivo folha que se conectam ao Hub IoT. Você pode usar um serviço como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [Protocol de cópia segura](https://www.ssh.com/ssh/scp/) para mover os arquivos de certificado.
 
-Pode utilizar o [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a operação de criação do mesmo dispositivo. O exemplo seguinte cria um novo dispositivo de IoT com a autenticação de X.509 autoassinada e atribui um dispositivo principal: 
+Você pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação de criação de dispositivo. O exemplo a seguir cria um novo dispositivo IoT com a autenticação autoassinada X. 509 e atribui um dispositivo pai: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Para obter mais informações sobre os comandos da CLI do Azure para a criação do dispositivo, a geração do certificado e a gestão de principais e subordinados, consulte o conteúdo de referência para [az iot hub-identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) comandos.
+Para obter mais informações sobre os comandos de CLI do Azure para a criação de dispositivos, a geração de certificados e o gerenciamento pai e filho, consulte o conteúdo de referência para comandos de [identidade de dispositivo do Hub IOT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) .
 
-### <a name="create-the-device-identity-with-x509-ca-signed-certificates"></a>Criar o dispositivo identidade com a AC X.509 assinado certificados
+### <a name="create-the-device-identity-with-x509-ca-signed-certificates"></a>Criar a identidade do dispositivo com certificados assinados por AC X. 509
 
-Para X.509 autoridade (CA) assinada autenticação de certificados, é necessário um certificado de AC de raiz registado no IoT Hub que utiliza para assinar certificados para o seu dispositivo IoT. Qualquer dispositivo com um certificado que foi problemas, o certificado de AC de raiz ou qualquer um dos seus certificados intermédios será permitido para autenticar. 
+Para autenticação assinada da AC (autoridade de certificação) X. 509, você precisa de um certificado de autoridade de certificação raiz registrado no Hub IoT que você usa para assinar certificados para seu dispositivo IoT. Qualquer dispositivo que use um certificado que foi emitido pelo certificado de autoridade de certificação raiz ou qualquer um de seus certificados intermediários terá permissão para autenticar. 
 
-Esta secção baseia-se as instruções detalhadas no artigo do IoT Hub [configurar a segurança X.509 no seu hub IoT do Azure](../iot-hub/iot-hub-security-x509-get-started.md). Siga os passos nesta secção para saber quais valores a utilizar para configurar um dispositivo de downstream que se liga através de um gateway. 
+Esta seção se baseia nas instruções detalhadas no artigo do Hub IoT [Configurar a segurança X. 509 no Hub IOT do Azure](../iot-hub/iot-hub-security-x509-get-started.md). Siga as etapas nesta seção para saber quais valores usar para configurar um dispositivo downstream que se conecta por meio de um gateway. 
 
-A maneira mais fácil para testar este cenário é usar o mesmo computador que utilizou para criar certificados no [configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md). Essa máquina deve já ser integrada com a ferramenta correta, o certificado de AC de raiz e o certificado de AC intermediária para criar os certificados de dispositivo do IoT. Pode copiar os certificados finais e as respetivas chaves privadas através de para o seu dispositivo downstream posteriormente. Seguindo estes passos no artigo de gateway, configurar openssl no seu computador, em seguida, clonar o repositório do IoT Edge para scripts de criação do certificado de acesso. Em seguida, o que fez um diretório de trabalho que chamamos  **\<WRKDIR >** para armazenar os certificados. Os certificados de predefinição destinam-se para o desenvolvimento e teste, por isso, apenas os últimos 30 dias. Deverá ter criado um certificado de AC de raiz e um certificado intermédio. 
+A maneira mais fácil de testar esse cenário é usar o mesmo computador usado para criar certificados em [configurar um dispositivo de IOT Edge para atuar como um gateway transparente](how-to-create-transparent-gateway.md). Esse computador já deve estar configurado com a ferramenta correta, o certificado de autoridade de certificação raiz e o certificado de autoridade de certificação intermediário para criar os certificados de dispositivo IoT. Você pode copiar os certificados finais e suas chaves privadas para o dispositivo downstream posteriormente. Seguindo as etapas no artigo do gateway, você configura o OpenSSL em seu computador e, em seguida, clonou o repositório de IoT Edge para acessar os scripts de criação de certificado. Em seguida, você criou um diretório de trabalho que chamamos  **\<de WRKDIR >** para manter os certificados. Os certificados padrão destinam-se ao desenvolvimento e ao teste, portanto, somente os últimos 30 dias. Você deve ter criado um certificado de autoridade de certificação raiz e um certificado intermediário. 
 
-1. Siga as instruções no [certificados de AC de X.509 registe-se ao seu hub IoT](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) secção *configurar a segurança X.509 no seu hub IoT do Azure*. Nesta secção, execute os seguintes passos: 
+1. Siga as instruções na seção [registrar certificados de autoridade de certificação x. 509 em seu hub IOT](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) de *Configurar a segurança x. 509 em seu hub IOT do Azure*. Nessa seção, você executa as seguintes etapas: 
 
-   1. Carregar um certificado de AC de raiz. Se estiver a utilizar os certificados que criou neste artigo gateway transparente, carregue  **\<WRKDIR > /certs/azure-iot-test-only.root.ca.cert.pem** como o ficheiro de certificado de raiz. 
-   2. Certifique-se de que seu esse certificado de AC de raiz. Pode verificar posse com as ferramentas de certificado no \<WRKDIR >. 
+   1. Carregue um certificado de autoridade de certificação raiz. Se você estiver usando os certificados que criou no artigo gateway Transparent, carregue  **\<WRKDIR >/certs/Azure-IOT-Test-only.root.ca.cert.pem** como o arquivo de certificado raiz. 
+   2. Verifique se você possui esse certificado de autoridade de certificação raiz. Você pode verificar a posse com as ferramentas de \<certificado no WRKDIR >. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -164,12 +164,12 @@ A maneira mais fácil para testar este cenário é usar o mesmo computador que u
       ./certGen.sh create_verification_certificate <verification code from Azure portal>"
       ```
 
-2. Siga as instruções no [criar um dispositivo X.509 para o seu hub IoT](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) secção *configurar a segurança X.509 no seu hub IoT do Azure*. Nesta secção, execute os seguintes passos: 
+2. Siga as instruções na seção [criar um dispositivo X. 509 para o Hub IOT](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) de *Configurar a segurança x. 509 em seu hub IOT do Azure*. Nessa seção, você executa as seguintes etapas: 
 
-   1. Adicione um novo dispositivo. Forneça um nome em minúsculas para **ID do dispositivo**e escolha o tipo de autenticação **assinado de AC X.509**. 
-   2. Defina um dispositivo principal. Para dispositivos downstream, selecione **definir um dispositivo principal** e escolha o IoT Edge dispositivo de gateway que irá fornecer a ligação ao IoT Hub. 
+   1. Adicionar um novo dispositivo. Forneça um nome em minúsculas para a **ID do dispositivo**e escolha o tipo de autenticação **X. 509 AC assinado**. 
+   2. Definir um dispositivo pai. Para dispositivos downstream, selecione **definir um dispositivo pai** e escolha o IOT Edge dispositivo de gateway que fornecerá a conexão ao Hub IOT. 
 
-3. Crie uma cadeia de certificados para o seu dispositivo de downstream. Utilize o mesmo certificado de AC de raiz que carregou para o IoT Hub para fazer esta cadeia. Utilize o mesmo ID de dispositivo em minúsculas, que deu para sua identidade de dispositivo no portal.
+3. Crie uma cadeia de certificados para seu dispositivo downstream. Use o mesmo certificado de autoridade de certificação raiz que você carregou no Hub IoT para fazer essa cadeia. Use a mesma ID de dispositivo em minúsculas que você atribuiu à identidade do dispositivo no Portal.
 
    ```powershell
    New-CACertsDevice "<device id>"
@@ -179,7 +179,7 @@ A maneira mais fácil para testar este cenário é usar o mesmo computador que u
    ./certGen.sh create_device_certificate "<device id>"
    ```
 
-4. Copie os seguintes ficheiros para qualquer diretório no seu dispositivo downstream: 
+4. Copie os seguintes arquivos para qualquer diretório em seu dispositivo downstream: 
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
    * `<WRKDIR>\certs\iot-device-<device id>*.cert.pem`
@@ -187,33 +187,33 @@ A maneira mais fácil para testar este cenário é usar o mesmo computador que u
    * `<WRKDIR>\certs\iot-device-<device id>*-full-chain.cert.pem`
    * `<WRKDIR>\private\iot-device-<device id>*.key.pem`
 
-   Vai fazer referência a esses arquivos nos aplicativos de dispositivos de folha que ligar ao IoT Hub. Pode utilizar um serviço como [do Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [cópia seguro protoco](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Você fará referência a esses arquivos nos aplicativos de dispositivo folha que se conectam ao Hub IoT. Você pode usar um serviço como [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como [Protocol de cópia segura](https://www.ssh.com/ssh/scp/) para mover os arquivos de certificado.
 
-Pode utilizar o [extensão de IoT para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a operação de criação do mesmo dispositivo. O exemplo seguinte cria um novo dispositivo de IoT com a autenticação de AC X.509 assinada e atribui um dispositivo principal: 
+Você pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação de criação de dispositivo. O exemplo a seguir cria um novo dispositivo IoT com autenticação assinada da AC X. 509 e atribui um dispositivo pai: 
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Para obter mais informações sobre os comandos da CLI do Azure para criação de dispositivo e a gestão de pai/filho, consulte o conteúdo de referência para [az iot hub-identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) comandos.
+Para obter mais informações sobre os comandos de CLI do Azure para a criação de dispositivos e o gerenciamento de pai/filho, consulte o conteúdo de referência para os comandos de [identidade de dispositivo do Hub IOT para AZ](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) .
 
 
-### <a name="connect-to-iot-hub-through-a-gateway"></a>Ligar ao IoT Hub através de um gateway
+### <a name="connect-to-iot-hub-through-a-gateway"></a>Conectar-se ao Hub IoT por meio de um gateway
 
-Cada SDK do IoT do Azure processa a autenticação de X.509 de maneira um pouco diferente. No entanto, o mesmo processo serve para autenticar regular IoT dispositivos ao IoT Hub com certificados X.509 também se aplica a dispositivos de downstream. A única diferença é que precisa adicionar um ponteiro para o dispositivo de gateway para encaminhar a ligação ou, em cenários offline, para lidar com a autenticação em nome do IoT Hub. Em geral, pode seguir os mesmos passos de autenticação X.509 para todos os dispositivos do IoT Hub, em seguida, simplesmente substitua o valor de **Hostname** na cadeia de ligação para ser o nome de anfitrião do seu dispositivo de gateway. 
+Cada SDK do Azure IoT manipula a autenticação X. 509 um pouco diferente. No entanto, o mesmo processo é usado para autenticar dispositivos IoT regulares no Hub IoT com certificados X. 509 também se aplicam a dispositivos downstream. A única diferença é que você precisa adicionar um ponteiro ao dispositivo de gateway para rotear a conexão ou, em cenários offline, para lidar com a autenticação em nome do Hub IoT. Em geral, você pode seguir as mesmas etapas de autenticação X. 509 para todos os dispositivos do Hub IoT e, em seguida, simplesmente substituir o valor do **nome do host** na cadeia de conexão para ser o nome do host do seu dispositivo de gateway. 
 
-As secções seguintes mostram alguns exemplos para idiomas diferentes do SDK. 
+As seções a seguir mostram alguns exemplos de diferentes idiomas do SDK. 
 
 >[!IMPORTANT]
->Os exemplos seguintes demonstram como os SDKs do IoT Hub utilizar certificados para autenticar os dispositivos. Numa implementação de produção, deve armazenar todos os segredos, como privada ou chaves SAS num módulo de segurança de hardware (HSM). 
+>Os exemplos a seguir demonstram como os SDKs do Hub IoT usam certificados para autenticar dispositivos. Em uma implantação de produção, você deve armazenar todos os segredos, como chaves privadas ou SAS, em um módulo de hardware seguro (HSM). 
 
 #### <a name="net"></a>.NET
 
-Para obter um exemplo de um C# programa de autenticação para o IoT Hub com certificados X.509, consulte [configurar a segurança X.509 no seu hub IoT do Azure](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates). Algumas das principais linhas desse exemplo são incluídas aqui para demonstrar o processo de autenticação.
+Para obter um exemplo de C# um programa que se autentica no Hub IOT com certificados X. 509, consulte [Configurar a segurança x. 509 no Hub IOT do Azure](../iot-hub/iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates). Algumas das principais linhas desse exemplo estão incluídas aqui para demonstrar o processo de autenticação.
 
-Ao declarar o nome de anfitrião para a sua instância de DeviceClient, utilize o nome de anfitrião do dispositivo de gateway do IoT Edge. O nome de anfitrião pode ser encontrada no arquivo de config.yaml do dispositivo de gateway. 
+Ao declarar o nome do host para sua instância do DeviceClient, use o nome do host do dispositivo IoT Edge gateway. O nome do host pode ser encontrado no arquivo config. YAML do dispositivo de gateway. 
 
-Se estiver a utilizar os certificados de teste fornecidos no repositório de git do IoT Edge, a chave para os certificados é **1234**.
+Se você estiver usando os certificados de teste fornecidos pelo repositório Git do IoT Edge, a chave para os certificados será **1234**.
 
 ```csharp
 try
@@ -242,9 +242,9 @@ catch (Exception ex)
 
 #### <a name="c"></a>C
 
-Para obter um exemplo de um programa em C, a autenticação no IoT Hub com certificados X.509, consulte o SDK de IoT de C [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample) exemplo. Algumas das principais linhas desse exemplo são incluídas aqui para demonstrar o processo de autenticação.
+Para obter um exemplo de um programa do C Autenticando no Hub IoT com certificados X. 509, consulte a amostra [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/x509_edge_bugbash/iothub_client/samples/iotedge_downstream_device_sample) do SDK do IOT do c. Algumas das principais linhas desse exemplo estão incluídas aqui para demonstrar o processo de autenticação.
 
-Ao definir a cadeia de ligação para o seu dispositivo downstream, utilize o nome de anfitrião do dispositivo de gateway do IoT Edge para o **HostName** parâmetro. O nome de anfitrião pode ser encontrada no arquivo de config.yaml do dispositivo de gateway. 
+Ao definir a cadeia de conexão para o dispositivo downstream, use o nome do host do dispositivo IoT Edge gateway para o parâmetro **hostname** . O nome do host pode ser encontrado no arquivo config. YAML do dispositivo de gateway. 
 
 ```C
 // If your downstream device uses X.509 authentication (self signed or X.509 CA) then
@@ -290,11 +290,11 @@ int main(void)
 
 #### <a name="nodejs"></a>Node.js
 
-Para obter um exemplo de um programa de node. js, a autenticação no IoT Hub com certificados X.509, consulte o SDK de IoT de node. js [simple_sample_device_x509.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js) exemplo. Algumas das principais linhas desse exemplo são incluídas aqui para demonstrar o processo de autenticação.
+Para obter um exemplo de um programa node. js Autenticando no Hub IoT com certificados X. 509, consulte o exemplo de [simple_sample_device_x509. js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js) do SDK do IOT do node. js. Algumas das principais linhas desse exemplo estão incluídas aqui para demonstrar o processo de autenticação.
 
-Ao definir a cadeia de ligação para o seu dispositivo downstream, utilize o nome de anfitrião do dispositivo de gateway do IoT Edge para o **HostName** parâmetro. O nome de anfitrião pode ser encontrada no arquivo de config.yaml do dispositivo de gateway. 
+Ao definir a cadeia de conexão para o dispositivo downstream, use o nome do host do dispositivo IoT Edge gateway para o parâmetro **hostname** . O nome do host pode ser encontrado no arquivo config. YAML do dispositivo de gateway. 
 
-Se estiver a utilizar os certificados de teste fornecidos no repositório de git do IoT Edge, a chave para os certificados é **1234**.
+Se você estiver usando os certificados de teste fornecidos pelo repositório Git do IoT Edge, a chave para os certificados será **1234**.
 
 ```node
 // String containing Hostname and Device Id in the following format:
@@ -319,9 +319,9 @@ client.setOptions(options);
 
 #### <a name="python"></a>Python
 
-Para obter um exemplo de um programa de Python a autenticação no IoT Hub com certificados X.509, consulte o SDK de IoT de Java [iothub_client_sample_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) exemplo. Algumas das principais linhas desse exemplo são incluídas aqui para demonstrar o processo de autenticação.
+Para obter um exemplo de um programa Python Autenticando no Hub IoT com certificados X. 509, consulte o exemplo [iothub_client_sample_x509. py](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) do Java IOT SDK. Algumas das principais linhas desse exemplo estão incluídas aqui para demonstrar o processo de autenticação.
 
-Ao definir a cadeia de ligação para o seu dispositivo downstream, utilize o nome de anfitrião do dispositivo de gateway do IoT Edge para o **HostName** parâmetro. O nome de anfitrião pode ser encontrada no arquivo de config.yaml do dispositivo de gateway. 
+Ao definir a cadeia de conexão para o dispositivo downstream, use o nome do host do dispositivo IoT Edge gateway para o parâmetro **hostname** . O nome do host pode ser encontrado no arquivo config. YAML do dispositivo de gateway. 
 
 ```python
 # String containing Hostname, Device Id in the format:
@@ -350,6 +350,7 @@ X509_PRIVATEKEY = (
     "-----END RSA PRIVATE KEY-----"
 )
 
+
 def iothub_client_init():
     # prepare iothub client
     client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
@@ -363,9 +364,9 @@ def iothub_client_init():
 
 #### <a name="java"></a>Java
 
-Para obter um exemplo de um programa de Java a autenticação no IoT Hub com certificados X.509, consulte o SDK de IoT de Java [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) exemplo. Algumas das principais linhas desse exemplo são incluídas aqui para demonstrar o processo de autenticação.
+Para obter um exemplo de uma autenticação de programa Java no Hub IoT com certificados X. 509, consulte o exemplo [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-python/blob/master/device/samples/iothub_client_sample_x509.py) do SDK do Java IOT. Algumas das principais linhas desse exemplo estão incluídas aqui para demonstrar o processo de autenticação.
 
-Ao definir a cadeia de ligação para o seu dispositivo downstream, utilize o nome de anfitrião do dispositivo de gateway do IoT Edge para o **HostName** parâmetro. O nome de anfitrião pode ser encontrada no arquivo de config.yaml do dispositivo de gateway. 
+Ao definir a cadeia de conexão para o dispositivo downstream, use o nome do host do dispositivo IoT Edge gateway para o parâmetro **hostname** . O nome do host pode ser encontrado no arquivo config. YAML do dispositivo de gateway. 
 
 ```java
 //PEM encoded representation of the public key certificate
@@ -394,6 +395,6 @@ private static String privateKeyString =
 DeviceClient client = new DeviceClient(connectionString, protocol, publicKeyCertificateString, false, privateKeyString, false);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Ao concluir neste artigo, deve ter um dispositivo IoT Edge como gateway transparente a funcionar e um dispositivo de downstream registado com um hub IoT. Em seguida, terá de configurar os seus dispositivos jusante para o dispositivo de gateway de confiança e enviar mensagens ao mesmo. Para obter mais informações, consulte [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).
+Ao concluir este artigo, você deve ter um dispositivo IoT Edge funcionando como um gateway transparente e um dispositivo downstream registrado com um hub IoT. Em seguida, você precisa configurar seus dispositivos downstream para confiar no dispositivo de gateway e enviar mensagens para ele. Para obter mais informações, consulte [ligar um dispositivo jusante a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).

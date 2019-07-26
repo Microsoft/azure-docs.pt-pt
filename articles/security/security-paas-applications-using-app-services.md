@@ -1,6 +1,6 @@
 ---
-title: Proteger o PaaS web e móveis com o serviço de aplicações do Azure | Documentos da Microsoft
-description: 'Saiba mais sobre a segurança do serviço de aplicações do Azure melhores práticas para proteger as suas aplicações móveis e web de PaaS. '
+title: Protegendo aplicativos Web e móveis de PaaS usando o serviço de Azure App | Microsoft Docs
+description: 'Saiba mais sobre as práticas recomendadas de segurança de serviço do Azure App para proteger seus aplicativos móveis e Web de PaaS. '
 services: security
 documentationcenter: na
 author: techlake
@@ -12,35 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 6e5034d0ff8f14a9fc381f6fd1a214a91ad4d1ed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e81a7daad8ae565d177fc06970f06fe2c6b3829
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60444406"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335767"
 ---
-# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Melhores práticas para proteger o PaaS web e móveis com o serviço de aplicações do Azure
+# <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Práticas recomendadas para proteger aplicativos Web e móveis de PaaS usando o serviço Azure App
 
-Neste artigo, discutimos a uma coleção de [App Service do Azure](../app-service/overview.md) melhores práticas de segurança para proteger as suas aplicações móveis e web de PaaS. Essas práticas recomendadas são derivadas da nossa experiência com o Azure e as experiências dos clientes, como.
+Neste artigo, discutiremos uma coleção de Azure App práticas recomendadas de segurança de [serviço](../app-service/overview.md) para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam de nossa experiência com o Azure e as experiências de clientes como você.
 
-Serviço de aplicações do Azure é uma oferta de plataforma-como-serviço (PaaS) que lhe permite criar aplicações web e móveis para qualquer plataforma ou dispositivo e ligue-se aos dados em qualquer local e na cloud ou no local. Serviço de aplicações inclui as capacidades web e móveis que anteriormente foram entregues em separado como Web sites do Azure e serviços móveis do Azure. Também inclui novas capacidades para automatizar processos de negócio e o alojar APIs da nuvem. Como um serviço integrado único, o serviço de aplicações fornece um conjunto avançado de capacidades para a web, móveis e cenários de integração.
+O serviço de Azure App é uma oferta de PaaS (plataforma como serviço) que permite criar aplicativos Web e móveis para qualquer plataforma ou dispositivo e conectar-se a dados em qualquer lugar, na nuvem ou no local. O serviço de aplicativo inclui os recursos Web e móveis que foram fornecidos anteriormente separadamente como sites do Azure e serviços móveis do Azure. Também inclui novas capacidades para automatizar processos de negócio e o alojar APIs da nuvem. Como um único serviço integrado, o serviço de aplicativo traz um rico conjunto de recursos para cenários da Web, móveis e de integração.
 
-## <a name="authenticate-through-azure-active-directory-ad"></a>Autenticar através do Azure Active Directory (AD)
-Serviço de aplicações fornece um serviço OAuth 2.0 para o seu fornecedor de identidade. OAuth 2.0 se concentra na simplicidade de desenvolvedor do cliente ao mesmo tempo, os fluxos de autorização específico para aplicações web, aplicativos de desktop e celulares. Azure AD utiliza o OAuth 2.0 para lhe permitir autorizar o acesso a dispositivos móveis e aplicações web. Para obter mais informações, consulte [autenticação e autorização no serviço de aplicações do Azure](../app-service/overview-authentication-authorization.md).
+## <a name="authenticate-through-azure-active-directory-ad"></a>Autenticar por meio de Azure Active Directory (AD)
+O serviço de aplicativo fornece um serviço OAuth 2,0 para seu provedor de identidade. O OAuth 2,0 concentra-se na simplicidade do desenvolvedor do cliente ao fornecer fluxos de autorização específicos para aplicativos Web, aplicativos de área de trabalho e celulares. O Azure AD usa o OAuth 2,0 para permitir que você autorize o acesso a aplicativos móveis e Web. Para saber mais, confira [autenticação e autorização no serviço Azure app](../app-service/overview-authentication-authorization.md).
 
-## <a name="restrict-access-based-on-role"></a>Restringir o acesso com base na função 
-Restringir o acesso é fundamental para as organizações que desejam aplicar políticas de segurança para acesso a dados. Pode utilizar o controlo de acesso baseado em funções (RBAC) para atribuir permissões a utilizadores, grupos e aplicações num determinado âmbito, como a necessidade de conhecer e princípios de segurança de privilégio mínimo. Para saber mais sobre como conceder aos utilizadores acesso a aplicações, veja [o que é o controlo de acesso baseado em funções](../role-based-access-control/overview.md).
+## <a name="restrict-access-based-on-role"></a>Restringir o acesso com base na função
+Restringir o acesso é imperativo para organizações que desejam impor políticas de segurança para acesso a dados. Você pode usar o RBAC (controle de acesso baseado em função) para atribuir permissões a usuários, grupos e aplicativos em um determinado escopo, como a necessidade de conhecer os princípios de segurança de privilégios mínimos. Para saber mais sobre como conceder acesso a aplicativos aos usuários, confira [o que é controle de acesso baseado em função](../role-based-access-control/overview.md).
 
-## <a name="protect-your-keys"></a>Proteger as suas chaves
-Não importa quão bom é de sua segurança se perder as suas chaves de subscrição. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Com o Key Vault, pode encriptar chaves e segredos (tal como chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados. Ficheiros PFX e palavras-passe) utilizando as teclas que estão protegidas por módulos de segurança de hardware (HSMs). Para maior segurança, pode importar ou gerar chaves nos HSMs. Também pode utilizar o Key Vault para gerir os certificados TLS com renovação automática. Ver [o que é o Azure Key Vault](../key-vault/key-vault-whatis.md) para saber mais. 
+## <a name="protect-your-keys"></a>Proteger suas chaves
+Não importa a qualidade de sua segurança se você perder suas chaves de assinatura. O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em cloud e pelos serviços. Com o Key Vault, você pode criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados,. Arquivos PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para maior segurança, pode importar ou gerar chaves nos HSMs. Você também pode usar Key Vault para gerenciar seus certificados TLS com renovação automática. Consulte [o que é Azure Key Vault](../key-vault/key-vault-whatis.md) para saber mais.
 
-## <a name="restrict-incoming-source-ip-addresses"></a>Restringir os endereços IP de origem recebidos
-[Ambientes de serviço de aplicações](../app-service/environment/intro.md) tem um recurso de integração de rede virtual que lhe permite restringir os endereços IP de origem recebidos por meio dos grupos de segurança de rede (NSGs). Se não estiver familiarizado com as redes virtuais do Azure (VNETs), isso é uma funcionalidade que permite que colocar muitos dos seus recursos do Azure numa rede não internet encaminhável que controlam o acesso a. Para obter mais informações, consulte [integrar a sua aplicação com uma rede Virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).
+## <a name="restrict-incoming-source-ip-addresses"></a>Restringir os endereços IP de origem de entrada
+Os [ambientes do serviço de aplicativo](../app-service/environment/intro.md) têm um recurso de integração de rede virtual que ajuda a restringir endereços IP de origem de entrada por meio de NSGs (grupos de segurança de rede). Se você não estiver familiarizado com as redes virtuais do Azure (VNETs), essa é uma funcionalidade que permite que você coloque muitos dos seus recursos do Azure em uma rede que não é roteável pela Internet para a qual você controla o acesso. Para saber mais, consulte [integrar seu aplicativo a uma rede virtual do Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-Este artigo apresentou-a uma coleção de serviço de aplicações práticas recomendada de segurança para proteger as suas aplicações móveis e web de PaaS. Para saber mais sobre como proteger as suas implementações de PaaS, consulte:
+Para o serviço de aplicativo no Windows, você também pode restringir os endereços IP dinamicamente Configurando o Web. config. Para obter mais informações, consulte [segurança de IP dinâmico](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+
+
+## <a name="next-steps"></a>Passos seguintes
+Este artigo apresentou a você uma coleção de práticas recomendadas de segurança do serviço de aplicativo para proteger seus aplicativos móveis e Web de PaaS. Para saber mais sobre como proteger suas implantações de PaaS, confira:
 
 - [Proteger implementações PaaS](security-paas-deployments.md)
-- [Protegendo bancos de dados de PaaS no Azure](security-paas-applications-using-sql.md)
+- [Protegendo bancos de dados PaaS no Azure](security-paas-applications-using-sql.md)

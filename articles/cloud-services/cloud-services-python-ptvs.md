@@ -3,23 +3,18 @@ title: Introdução a Python e aos Serviços Cloud do Azure | Microsoft Docs
 description: Descrição geral da utilização das Ferramentas do Python para Visual Studio para a criação de Cloud Services do Azure, incluindo funções da Web e funções de trabalho.
 services: cloud-services
 documentationcenter: python
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125445"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359569"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
 
@@ -28,15 +23,15 @@ Este artigo fornece uma descrição geral da utilização de funções da Web e 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Ferramentas do Python para Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Ferramentas do Azure SDK para VS 2013][Azure SDK Tools for VS 2013] ou  
-[Ferramentas do Azure SDK para VS 2015][Azure SDK Tools for VS 2015] ou  
-[Ferramentas do Azure SDK para VS 2017][Azure SDK Tools for VS 2017]
+* [SDK Tools do Azure para VS 2013][Azure SDK Tools for VS 2013] or  
+[Azure SDK Tools for VS 2015][Azure SDK Tools for VS 2015] ou  
+[SDK Tools do Azure para VS 2017] [SDK Tools do Azure para VS 2017]
 * [Python 2.7 de 32 bits][Python 2.7 32-bit] ou [Python 3.5 de 32 bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>O que são as funções da Web e de trabalho do Python?
-O Azure fornece três modelos de computação para executar aplicações: [Funcionalidade de aplicações Web no serviço de aplicações do Azure][execution model-web sites], [máquinas virtuais do Azure][execution model-vms], e [serviços Cloud do Azure] [execution model-cloud services]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)* . Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
+O Azure fornece três modelos de computação para executar aplicações: [Recurso de aplicativos Web no serviço][execution model-web sites], [Azure Virtual Machines][execution model-vms]de Azure app e modelo de execução de [serviços de nuvem do Azure][-serviços de nuvem]. Os três modelos suportam o Python. Os Cloud Services, que incluem funções da Web e de trabalho, fornecem uma *Plataforma como Serviço (PaaS)* . Dentro de um serviço cloud, uma função da Web fornece um servidor Web de Serviços de Informação Internet (IIS) dedicado para alojar as aplicações Web front-end, enquanto uma função de trabalho pode executar tarefas assíncronas, de execução longa ou perpétuas, independentes da interação ou intervenção do utilizador.
 
 Para obter mais informações, consulte [O que é um Serviço em Nuvem?].
 
@@ -330,10 +325,10 @@ A implementação demora alguns minutos a ser concluída. Em seguida, as funçõ
 ### <a name="investigate-logs"></a>Investigar registos
 Depois de a máquina virtual do serviço de nuvem arrancar e instalar o Python, pode procurar nos registos para localizar todas as mensagens de falha. Estes registos estão localizados na pasta **C:\Resources\Directory\\{role}\LogFiles**. **PrepPython.err.txt** tem, pelo menos, um erro quando o script tenta detetar se o Python está instalado e o **PipInstaller.err.txt** pode queixar-se de uma versão desatualizada do pip.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações mais detalhadas sobre como trabalhar com funções da Web e de trabalho nas Ferramentas do Python para Visual Studio, consulte a documentação das PTVS:
 
-* [Projetos do Serviço Cloud][Cloud Service Projects]
+* [Projetos de Serviço Cloud][Cloud Service Projects]
 
 Para obter mais detalhes sobre a utilização de serviços do Azure a partir das suas funções da Web e de trabalho, tais como utilizar o Armazenamento do Azure ou o Service Bus, consulte os seguintes artigos:
 

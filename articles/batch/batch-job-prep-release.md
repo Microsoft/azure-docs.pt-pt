@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 75ff3bdf7a0900c32feb7090e0c24af748080a76
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a85ced787529db7e6d607665d81632ab1c450dfe
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323490"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466979"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação de trabalho em nós de computação do lote
 
@@ -58,7 +58,7 @@ Talvez você queira manter uma cópia dos arquivos de log que suas tarefas geram
 > 
 > 
 
-## <a name="job-preparation-task"></a>Tarefa de preparação do trabalho
+## <a name="job-preparation-task"></a>Tarefa de preparação de Trabalho
 Antes da execução das tarefas de um trabalho, o lote executa a tarefa de preparação de trabalho em cada nó de computação agendado para executar uma tarefa. Por padrão, o serviço de lote aguarda a conclusão da tarefa de preparação do trabalho antes de executar as tarefas agendadas para execução no nó. No entanto, você pode configurar o serviço para não aguardar. Se o nó for reiniciado, a tarefa de preparação do trabalho será executada novamente, mas você também poderá desabilitar esse comportamento.
 
 A tarefa de preparação de trabalho é executada somente em nós que estão agendados para executar uma tarefa. Isso impede a execução desnecessária de uma tarefa de preparação no caso de um nó não ser atribuído a uma tarefa. Isso pode ocorrer quando o número de tarefas de um trabalho é menor que o número de nós em um pool. Ele também se aplica quando a [execução de tarefas simultâneas](batch-parallel-node-tasks.md) está habilitada, o que deixa alguns nós ociosos se a contagem de tarefas é menor do que o total possível de tarefas simultâneas. Ao não executar a tarefa de preparação de trabalho em nós ociosos, você pode gastar menos dinheiro em encargos de transferência de dados.
@@ -68,11 +68,13 @@ A tarefa de preparação de trabalho é executada somente em nós que estão age
 > 
 > 
 
-## <a name="job-release-task"></a>Tarefa de liberação de trabalho
+## <a name="job-release-task"></a>Tarefa de lançamento de Trabalho
 Quando um trabalho é marcado como concluído, a tarefa de liberação de trabalho é executada em cada nó no pool que executou pelo menos uma tarefa. Você marca um trabalho como concluído emitindo uma solicitação de encerramento. Em seguida, o serviço de lote define o estado do trabalho como encerrando, encerra todas as tarefas ativas ou em execução associadas ao trabalho e executa a tarefa de liberação do trabalho. Em seguida, o trabalho passa para o estado *concluído* .
 
 > [!NOTE]
 > A exclusão de trabalhos também executa a tarefa de liberação de trabalho. No entanto, se um trabalho já tiver sido encerrado, a tarefa de liberação não será executada uma segunda vez se o trabalho for excluído posteriormente.
+
+Tarefas de liberação de trabalhos podem ser executadas por um máximo de 15 minutos antes de serem encerradas pelo serviço de lote. Para obter mais informações, consulte a [documentação de referência da API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 

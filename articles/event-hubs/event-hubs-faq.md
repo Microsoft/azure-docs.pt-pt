@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: e1ec6987f1a142e9bf9cd4413cfb4444bde1b7dd
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797004"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479154"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -24,14 +24,14 @@ ms.locfileid: "67797004"
 ### <a name="what-is-an-event-hubs-namespace"></a>O que é um espaço de nomes de Hubs de eventos?
 Um espaço de nomes é um contentor de âmbito para tópicos do Event Hub/Kafka. Ele fornece um exclusivo [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Um espaço de nomes serve como um contêiner de aplicativo que pode alojar vários tópicos do Event Hub/Kafka. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando crio um novo namespace vs. Utilize um espaço de nomes existente?
-Alocações de capacidade ([unidades de débito (n)](#throughput-units)) são faturadas ao nível do espaço de nomes. Um espaço de nomes está também associado uma região.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando crio um novo namespace versus uso um namespace existente?
+As alocações de capacidade ([Tus)](#throughput-units)são cobradas no nível do namespace. Um namespace também está associado a uma região.
 
-Pode querer criar um novo espaço de nomes em vez de usar um um existente num dos seguintes cenários: 
+Talvez você queira criar um novo namespace em vez de usar um existente em um dos seguintes cenários: 
 
-- Precisa de um Hub de eventos associados a uma nova região.
-- Precisa de um Hub de eventos associados a uma subscrição diferente.
-- Precisa de um Hub de eventos com uma alocação de capacidade distintos (ou seja, a capacidade necessários para o espaço de nomes com o hub de eventos foi adicionado iria exceder o limiar de 40 TU e não pretende ir para o cluster dedicado)  
+- Você precisa de um hub de eventos associado a uma nova região.
+- Você precisa de um hub de eventos associado a uma assinatura diferente.
+- Você precisa de um hub de eventos com uma alocação de capacidade distinta (ou seja, a capacidade necessária para o namespace com o Hub de eventos adicionado excederia o limite de 40 TU e você não quer ir para o cluster dedicado)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>O que é a diferença entre os escalões Standard e Hubs de eventos básico?
 
@@ -60,46 +60,46 @@ Escalão Standard dos Hubs de eventos, atualmente, suporta um período de reten�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como posso monitorizar o meu Hubs de eventos?
 Os Hubs de eventos emite métricas exaustivas que fornecem o estado dos seus recursos para [do Azure Monitor](../azure-monitor/overview.md). Eles também permitem avaliar o estado de funcionamento geral do serviço Hubs de eventos não apenas ao nível do espaço de nomes, mas também no nível de entidade. Saiba mais sobre o que monitorizar é oferecido para [os Hubs de eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso abrir na firewall? 
-Pode utilizar os seguintes protocolos com o Azure Service Bus para enviar e receber mensagens:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
+Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
-- Avançadas Message Queuing Protocol (AMQP)
+- Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Veja a seguinte tabela para as portas de saída que é necessário abrir para utilizar estes protocolos para comunicar com os Hubs de eventos do Azure. 
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
 | Protocol | Portas | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [dos Hubs de eventos de utilização de aplicações do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Consulte [usar hubs de eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP é necessário à lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões para as suas ligações, siga estes passos:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
-1. Execute o seguinte comando numa linha de comandos: 
+1. Execute o seguinte comando em um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP devolvido na `Non-authoritative answer`. O único ponto no tempo que ele seria alterado é se restaurar o espaço de nomes para um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
 
-Se utilizar a redundância de zona para o espaço de nomes, precisa fazer algumas etapas adicionais: 
+Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
-1. Em primeiro lugar, execute nslookup no espaço de nomes.
+1. Primeiro, execute nslookup no namespace.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na **resposta não autoritativa** seção, que se encontra dos seguintes formatos: 
+2. Anote o nome na seção de **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todos os três instâncias em execução em três zonas de disponibilidade, 
+3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 ## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 
@@ -115,7 +115,7 @@ Exemplo:
 
 bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule necessário o nome de utilizador = "$ ConnectionString"password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
 
-Nota: Se sasl.jaas.config não é uma configuração suportada no sua estrutura, encontre as configurações que são utilizadas para definir o nome de utilizador do SASL e a palavra-passe e utilizá-los em vez disso. Defina o nome de utilizador para $ConnectionString e a palavra-passe para a cadeia de ligação dos Hubs de eventos.
+Nota: Se SASL. JAAS. config não for uma configuração com suporte em sua estrutura, localize as configurações usadas para definir o nome de usuário e a senha SASL e use-os em vez disso. Defina o nome de utilizador para $ConnectionString e a palavra-passe para a cadeia de ligação dos Hubs de eventos.
 
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>O que é o tamanho de mensagens/eventos para Hubs de eventos de Kafka-ativado?
 O tamanho máximo permitido para os Hubs de eventos habilitado para o Kafka é 1MB.
@@ -185,8 +185,9 @@ Criar um cluster dedicado de Hubs de eventos ao enviar um [pedido de suporte de 
 ## <a name="best-practices"></a>Melhores práticas
 
 ### <a name="how-many-partitions-do-i-need"></a>O número de partições é necessário?
+O número de partições é especificado durante a criação e deve ser entre 2 e 32. O número de partições não é alterável, pelo que deve considerar uma escala a longo prazo quando definir o número de partições. As partições são um mecanismo de organização de dados relacionado com o paralelismo a jusante necessário nas aplicações de consumo. O número de partições num hub de eventos está diretamente relacionado com o número de leitores simultâneos que espera ter. Para obter mais informações sobre partições, consulte [partições](event-hubs-features.md#partitions).
 
-O número de partições num hub de eventos não pode ser modificado após a configuração. Com isso em mente, é importante pensar sobre quantas partições terá antes de começar. 
+Talvez você queira defini-lo para ser o maior valor possível, que é 32, no momento da criação. Lembre-se de que ter mais de uma partição resultará em eventos enviados a várias partições sem reter o pedido, a menos que você configure os remetentes para enviar somente para uma única partição fora do 32 deixando as 31 restantes de partições redundantes. No primeiro caso, você terá que ler eventos em todas as partições 32. No último caso, não há nenhum custo adicional óbvio da configuração extra que você precisa fazer no host do processador de eventos.
 
 Os Hubs de eventos foi concebido para permitir que um leitor de partição única por grupo de consumidores. Na maioria dos casos de utilização, a predefinição de quatro partições é suficiente. Se estiver à procura de dimensionar o processamento de eventos, poderá querer considerar a adição de partições adicionais. Não existe nenhum limite de taxa de transferência específico numa partição, no entanto, o débito agregado em seu espaço de nomes é limitado pelo número de unidades de débito. À medida que aumenta o número de unidades de débito no seu espaço de nomes, pode desejar partições adicionais para permitir que os leitores simultâneos alcançar um débito máximo seus próprios.
 
@@ -232,8 +233,8 @@ Para obter uma lista de todas as quotas de Hubs de eventos, consulte [quotas](ev
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que motivo não consigo criar um espaço de nomes depois excluí-lo a partir de outra subscrição? 
-Quando elimina um espaço de nomes de uma subscrição, aguarde até quatro horas antes de recriá-lo com o mesmo nome noutra subscrição. Caso contrário, poderá receber a seguinte mensagem de erro: `Namespace already exists`. 
+### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não consigo criar um namespace depois de excluí-lo de outra assinatura? 
+Quando você exclui um namespace de uma assinatura, aguarde 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, você pode receber a seguinte mensagem de `Namespace already exists`erro:. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelo Hubs de eventos e respetivas ações sugeridas?
 

@@ -1,6 +1,6 @@
 ---
-title: As políticas de rede de Kubernetes do Azure | Documentos da Microsoft
-description: Saiba mais sobre sobre o Kubernetes políticas de rede para proteger o seu cluster de Kubernetes.
+title: Políticas de rede kubernetes do Azure | Microsoft Docs
+description: Saiba mais sobre as políticas de rede kubernetes para proteger o cluster kubernetes.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,35 +16,35 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824906"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494955"
 ---
-# <a name="azure-kubernetes-network-policies-overview"></a>Kubernetes rede políticas descrição geral do Azure
+# <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede kubernetes do Azure
 
-Políticas de rede fornecem microssegmentação para pods, tal como grupos de segurança de rede (NSGs) fornecem microssegmentação para as VMs. A implementação de política de rede do Azure suporta a especificação de política de rede do Kubernetes padrão. Pode utilizar etiquetas para selecionar um grupo de pods e definir uma lista de regras de entrada e saída que especificam o tipo de tráfego que tem permissão de e para estes pods. Saiba mais sobre as políticas de rede do Kubernetes no [documentação do Kubernetes](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
+As políticas de rede fornecem a microsegmentação para pods, assim como NSGs (grupos de segurança de rede) fornecem o micro segmentação para VMs. A implementação da política de rede do Azure dá suporte à especificação de política de rede kubernetes padrão. Você pode usar rótulos para selecionar um grupo de pods e definir uma lista de regras de entrada e saída que especificam o tipo de tráfego que é permitido para e desse pods. Saiba mais sobre as políticas de rede kubernetes na [documentação do kubernetes](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
 
-![Descrição geral das políticas de rede de Kubernetes](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
+![Visão geral das políticas de rede do kubernetes](./media/kubernetes-network-policies/kubernetes-network-policies-overview.png)
 
-Políticas de rede do Azure trabalham em conjunto com o Azure CNI que fornece integração de VNet para contentores. É suportada apenas em nós do Linux hoje. As implementações configurar regras de tabela de IP do Linux com base nas políticas definidas para impor a filtragem de tráfego.
+As políticas de rede do Azure funcionam em conjunto com o Azure CNI que fornece integração VNet para contêineres. Atualmente, há suporte apenas em nós do Linux. As implementações configuram as regras de tabela IP do Linux com base nas políticas definidas para impor a filtragem de tráfego.
 
-## <a name="planning-security-for-your-kubernetes-cluster"></a>Planejamento de segurança para o seu cluster do Kubernetes
-Durante a implementação de segurança para o seu cluster, utilize a rede grupos de segurança (NSGs) para filtrar o tráfego de Norte-Sul, ou seja, tráfego que entra e sai da sub-rede do cluster e utilizar políticas de rede do Kubernetes para o tráfego este-oeste, o que é. tráfego entre pods no seu cluster.
+## <a name="planning-security-for-your-kubernetes-cluster"></a>Planejando a segurança para o cluster kubernetes
+Ao implementar a segurança para o cluster, use NSGs (grupos de segurança de rede) para filtrar o tráfego Norte-Sul, ou seja, o tráfego que entra e sai da sub-rede do cluster e usa políticas de rede kubernetes para o tráfego leste-oeste, ou seja, o tráfego entre pods seu cluster.
 
-## <a name="using-azure-kubernetes-network-policies"></a>Através de políticas de rede de Kubernetes do Azure
-Políticas de rede do Azure pode ser usadas das seguintes formas para fornecer microssegmentação de pods.
+## <a name="using-azure-kubernetes-network-policies"></a>Usando as políticas de rede kubernetes do Azure
+As políticas de rede do Azure podem ser usadas das seguintes maneiras para fornecer a microsegmentação para pods.
 
-### <a name="acs-engine"></a>Motor de ACS
-Motor de ACS é uma ferramenta que gera um modelo do Azure Resource Manager para a implementação de um cluster de Kubernetes no Azure. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa das definições de cluster suportadas e suas descrições, consulte o motor do Microsoft Azure Container Service - a definição do Cluster.
+### <a name="acs-engine"></a>ACS-mecanismo
+O ACS-Engine é uma ferramenta que gera um modelo de Azure Resource Manager para a implantação de um cluster kubernetes no Azure. A configuração do cluster está especificada num ficheiro JSON transmitido à ferramenta ao gerar o modelo. Para saber mais sobre a lista completa de configurações de cluster com suporte e suas descrições, consulte Microsoft Azure mecanismo de serviço de contêiner-definição de cluster.
 
-Para ativar as políticas em clusters implementados através de motor de acs, especifique o valor da definição networkPolicy no arquivo de definição do cluster seja "azure".
+Para habilitar políticas em clusters implantados usando o ACS-Engine, especifique o valor da configuração networkPolicy no arquivo de definição de cluster como "Azure".
 
 #### <a name="example-configuration"></a>Configuração de exemplo
 
-O abaixo JSON a configuração de exemplo cria uma nova rede virtual e uma sub-rede e implementa um cluster de Kubernetes no mesmo com CNI do Azure. Recomendamos que utilize "Bloco de notas" para editar o ficheiro JSON. 
+A configuração de exemplo JSON abaixo cria uma nova rede virtual e sub-rede e implanta um cluster kubernetes nela com o Azure CNI. Recomendamos que você use o "bloco de notas" para editar o arquivo JSON. 
 ```json
 {
   "apiVersion": "vlabs",
@@ -86,20 +86,20 @@ O abaixo JSON a configuração de exemplo cria uma nova rede virtual e uma sub-r
 }
 
 ```
-### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Criar seu próprio cluster do Kubernetes no Azure
-A implementação pode ser usada para fornecer as diretivas de rede para Pods em clusters do Kubernetes que implemente por conta própria, sem depender de ferramentas como o motor de ACS. Neste caso, primeiro instalar o plug-in de CNI e ativá-lo em todas as máquinas virtuais num cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+### <a name="creating-your-own-kubernetes-cluster-in-azure"></a>Criando seu próprio cluster kubernetes no Azure
+A implementação pode ser usada para fornecer políticas de rede para pods em clusters kubernetes que você mesmo implanta, sem depender de ferramentas como o ACS-Engine. Nesse caso, primeiro instale o plug-in CNI e habilite-o em todas as máquinas virtuais em um cluster. Para obter instruções detalhadas, veja [Implementar o plug-in para um cluster do Kubernetes que implementar por conta própria](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 
-Depois do cluster é implementado, execute o seguinte `kubectl` comando para transferir e aplicar a política de rede do Azure *daemonset* ao cluster.
+Depois que o cluster for implantado `kubectl` , execute o comando a seguir para baixar e aplicar o *daemonset* de política de rede do Azure ao cluster.
 
   ```
   kubectl apply -f https://raw.githubusercontent.com/Azure/acs-engine/master/parts/k8s/addons/kubernetesmasteraddons-azure-npm-daemonset.yaml
 
   ```
-A solução também é parte do código-fonte aberto e o código está disponível na [repositório de redes de contentor do Azure](https://github.com/Azure/azure-container-networking/tree/master/npm).
+A solução também é de código-fonte aberto e o código está disponível no [repositório de rede de contêiner do Azure](https://github.com/Azure/azure-container-networking/tree/master/npm).
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [serviço Kubernetes do Azure](../aks/intro-kubernetes.md).
--  Saiba mais sobre [rede contentor](container-networking-overview.md).
-- [Implementar o plug-in](deploy-container-networking.md) para clusters de Kubernetes ou de contentores do Docker.
+- Saiba mais sobre o [serviço kubernetes do Azure](../aks/intro-kubernetes.md).
+-  Saiba mais sobre a [rede](container-networking-overview.md)de contêineres.
+- [Implante o plug-in](deploy-container-networking.md) para clusters kubernetes ou contêineres do Docker.

@@ -1,6 +1,6 @@
 ---
-title: Criar acionadores baseados em eventos no Azure Data Factory | Documentos da Microsoft
-description: Saiba como criar um acionador no Azure Data Factory que executa um pipeline em resposta a um evento.
+title: Criar gatilhos baseados em evento no Azure Data Factory | Microsoft Docs
+description: Saiba como criar um gatilho no Azure Data Factory que executa um pipeline em resposta a um evento.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,85 +11,97 @@ ms.date: 10/18/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 94c9c3f997143d72262c1ba3d8dbfea90d6f920c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf4dc55d0ec17daf4c611563dd7aee3a06aa192b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347726"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68384725"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
+# <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento
 
-Este artigo descreve os acionadores baseados em eventos que podem ser criados em seus pipelines do Data Factory.
+Este artigo descreve os gatilhos baseados em evento que você pode criar em seus pipelines de Data Factory.
 
-Arquitetura condicionada por eventos (EDA) é um padrão de integração de dados comum, que envolve a produção, de deteção, de consumo e de reação a eventos. Cenários de integração de dados requerem muitas vezes, os clientes do Data Factory acionar pipelines com base em eventos. Fábrica de dados está agora integrada [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), que permite acionar pipelines num evento.
+A EDA (arquitetura orientada a eventos) é um padrão comum de integração de dados que envolve produção, detecção, consumo e reação a eventos. Cenários de integração de dados geralmente exigem que Data Factory clientes disparem pipelines com base em eventos como a chegada ou a exclusão de um arquivo em sua conta de armazenamento do Azure. O Data Factory agora está integrado à [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/), que permite disparar pipelines em um evento.
 
-Para obter uma introdução de dez minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+Para obter uma introdução e uma demonstração de dez minutos desse recurso, Assista ao vídeo a seguir:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
 
 > [!NOTE]
-> A integração descrita neste artigo depende [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Certifique-se de que a sua subscrição está registada com o fornecedor de recursos do Event Grid. Para mais informações, veja [fornecedores de recursos e os tipos de](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+> A integração descrita neste artigo depende da [grade de eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se sua assinatura está registrada com o provedor de recursos da grade de eventos. Para obter mais informações, consulte [provedores de recursos e tipos](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 
-### <a name="create-a-new-event-trigger"></a>Criar um novo disparador de eventos
+Esta seção mostra como criar um gatilho de evento dentro da interface Azure Data Factory usuário.
 
-Um evento típico é a chegada de um ficheiro ou a eliminação de um arquivo, na sua conta de armazenamento do Azure. Pode criar um acionador que responda a este evento no seu pipeline de fábrica de dados.
+1. Ir para a **tela de criação**
 
-> [!NOTE]
-> Esta integração suporta apenas a versão 2 contas de armazenamento (para fins gerais).
+2. No canto inferior esquerdo, clique no botão gatilhos
 
-![Criar novo acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image1.png)
+3. Clique em **+ novo** , que abrirá a navegação lateral do gatilho criar
 
-### <a name="configure-the-event-trigger"></a>Configurar o acionador de eventos
+4. Selecionar **evento** de tipo de gatilho
 
-Com o **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, pode especificar os contentores, pastas e nomes de BLOBs para o qual pretende receber eventos. Pode usar a variedade de padrões para ambos **caminho do Blob começa com** e **caminho do Blob termina com** propriedades, conforme mostrado nos exemplos neste artigo. Pelo menos uma destas propriedades é necessária.
+![Criar novo gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-![Configurar o acionador de eventos](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+5. Selecione sua conta de armazenamento na lista suspensa assinatura do Azure ou manualmente usando sua ID de recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
 
-### <a name="select-the-event-trigger-type"></a>Selecione o tipo de Acionador do evento
+   > [!NOTE]
+   > O gatilho de evento atualmente dá suporte apenas às contas de armazenamento da versão 2 (uso geral).
 
-Assim que o ficheiro é recebido no seu local de armazenamento e o blob correspondente é criado, este evento aciona e executa o pipeline de fábrica de dados. Pode criar um acionador que responde a um evento de criação de blob, um evento de eliminação de BLOBs ou os dois eventos, em seus pipelines do Data Factory.
+   > [!NOTE]
+   > Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 gatilhos de eventos por conta de armazenamento.
 
-![Tipo de Acionador Selecione como evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+6. O **caminho do blob começa com** e o **caminho do blob termina com** as propriedades permitem que você especifique os contêineres, as pastas e os nomes de BLOB para os quais deseja receber eventos. Seu gatilho de evento requer que pelo menos uma dessas propriedades seja definida. Você pode usar uma variedade de padrões para o **caminho de blob começa com** e o **caminho de blob termina com** Propriedades, conforme mostrado nos exemplos mais adiante neste artigo.
 
-### <a name="map-trigger-properties-to-pipeline-parameters"></a>Mapear as propriedades de Acionador para parâmetros do pipeline
+    * **O caminho do blob começa com:** O caminho do blob deve começar com um caminho de pasta. Os valores válidos `2018/` incluem `2018/april/shoes.csv`e. Este campo não poderá ser selecionado se um contêiner não estiver selecionado.
+    * **O caminho do blob termina com:** O caminho do blob deve terminar com um nome de arquivo ou extensão. Os valores válidos `shoes.csv` incluem `.csv`e. O nome do contêiner e da pasta são opcionais, mas, quando especificados, eles `/blobs/` devem ser separados por um segmento. Por exemplo, um contêiner chamado ' Orders ' pode ter um valor `/orders/blobs/2018/april/shoes.csv`de. Para especificar uma pasta em qualquer contêiner, omita o caractere '/' à esquerda. Por exemplo, `april/shoes.csv` disparará um evento em qualquer arquivo `shoes.csv` chamado na pasta a, chamada ' abril ', em qualquer contêiner. 
 
-Quando um evento é acionado para um blob específico, o evento captura o nome de ficheiro e caminho de pasta do blob para as propriedades `@triggerBody().folderPath` e `@triggerBody().fileName`. Para utilizar os valores dessas propriedades num pipeline, tem de mapear as propriedades para parâmetros do pipeline. Depois de mapear as propriedades para parâmetros, pode aceder os valores capturados pelo acionador através do `@pipeline().parameters.parameterName` expressão em todo o pipeline.
+7. Selecione se o gatilho responderá a um evento de **blob criado** , evento **excluído de blob** ou ambos. No local de armazenamento especificado, cada evento irá disparar os pipelines de Data Factory associados ao gatilho.
 
-![O mapeamento de propriedades para parâmetros do pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+    ![Configurar o gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image2.png)
 
-Por exemplo, na captura de ecrã anterior. o acionador está configurado para acionar quando um caminho de blob que termine em `.csv` é criado na conta de armazenamento. Como resultado, quando um blob com o `.csv` extensão é criada em qualquer lugar na conta de armazenamento, o `folderPath` e `fileName` propriedades capturar a localização do blob novo. Por exemplo, `@triggerBody().folderPath` tem um valor como `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` tem um valor como `filename.csv`. Estes valores são mapeados no exemplo para os parâmetros do pipeline `sourceFolder` e `sourceFile`. Pode usá-los em todo o pipeline como `@pipeline().parameters.sourceFolder` e `@pipeline().parameters.sourceFile` , respetivamente.
+8. Depois de configurar o gatilho, clique em **avançar: Visualização**de dados. Esta tela mostra os BLOBs existentes que correspondem à sua configuração de gatilho de evento. Verifique se você tem filtros específicos. A configuração de filtros muito amplos pode corresponder a um grande número de arquivos criados/excluídos e pode impactar significativamente o seu custo. Depois que as condições de filtro tiverem sido verificadas, clique em **concluir**.
+
+    ![Visualização de dados do gatilho de evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+
+9. Para anexar um pipeline a esse gatilho, vá para a tela de pipeline e clique em **Adicionar gatilho** e selecione **novo/editar**. Quando a navegação lateral for exibida, clique na lista suspensa **escolher gatilho...** e selecione o gatilho que você criou. Clique **em Avançar: Visualização** de dados para confirmar se a configuração está correta e, em seguida, ao **lado** de validar, a visualização de dados está correta.
+
+10. Se o pipeline tiver parâmetros, você poderá especificá-los na barra de navegação do lado do parâmetro do gatilho. O gatilho de evento captura o caminho da pasta e o nome do arquivo do blob nas `@triggerBody().folderPath` propriedades `@triggerBody().fileName`e. Para usar os valores dessas propriedades em um pipeline, você deve mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, você pode acessar os valores capturados pelo gatilho `@pipeline().parameters.parameterName` por meio da expressão em todo o pipeline. Clique em **concluir** quando terminar.
+
+    ![Mapeando Propriedades para parâmetros de pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+No exemplo anterior, o gatilho é configurado para ser acionado quando um caminho de blob terminando em. csv é criado na pasta-teste de evento no contêiner de exemplo-dados. As propriedades **FolderPath** e **filename** capturam o local do novo BLOB. Por exemplo, quando MoviesDB. csv é adicionado ao caminho de exemplo-dados/teste de evento, `@triggerBody().folderPath` tem um valor de `sample-data/event-testing` e `@triggerBody().fileName` tem um valor de `moviesDB.csv`. Esses `sourceFolder` valores são mapeados no exemplo para os parâmetros de pipeline e `sourceFile` que podem ser usados em todo o pipeline `@pipeline().parameters.sourceFile` como `@pipeline().parameters.sourceFolder` e, respectivamente.
 
 ## <a name="json-schema"></a>JSON schema
 
-A tabela seguinte fornece uma descrição geral dos elementos do esquema relacionados com acionadores baseados em eventos:
+A tabela a seguir fornece uma visão geral dos elementos de esquema relacionados a gatilhos baseados em evento:
 
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | String | ID de Gestor de recursos do Azure | Sim |
-| **events** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
-| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, `/records/blobs/december/` só é acionado o acionador para blobs no `december` pasta sob o `records` contentor. | String   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
-| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, `december/boxes.csv` só é acionado o acionador para blobs com o nome `boxes` num `december` pasta. | String   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **scope** | A ID de recurso Azure Resource Manager da conta de armazenamento. | Cadeia | ID de Azure Resource Manager | Sim |
+| **LostFocus** | O tipo de eventos que fazem com que esse gatilho seja acionado. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação desses valores. |
+| **blobPathBeginsWith** | O caminho do blob deve começar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `/records/blobs/december/` só dispara o gatilho para BLOBs `december` na pasta sob o `records` contêiner. | Cadeia   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou. `blobPathEndsWith` |
+| **blobPathEndsWith** | O caminho do blob deve terminar com o padrão fornecido para o gatilho ser acionado. Por exemplo, `december/boxes.csv` só dispara o gatilho para BLOBs nomeados `boxes` em `december` uma pasta. | Cadeia   | | Você precisa fornecer um valor para pelo menos uma dessas propriedades: `blobPathBeginsWith` ou. `blobPathEndsWith` |
 
-## <a name="examples-of-event-based-triggers"></a>Exemplos de acionadores baseados em eventos
+## <a name="examples-of-event-based-triggers"></a>Exemplos de gatilhos baseados em eventos
 
-Esta secção fornece exemplos de definições do acionador baseado em evento.
+Esta seção fornece exemplos de configurações de gatilho com base em eventos.
 
 > [!IMPORTANT]
-> Tem de incluir o `/blobs/` segmento do caminho, conforme mostrado nos exemplos a seguir, sempre que especifique o contentor e pasta, contentor e a pasta de ficheiro ou contêiner e de ficheiros.
+> Você precisa incluir o segmento `/blobs/` do caminho, conforme mostrado nos exemplos a seguir, sempre que especificar o contêiner e a pasta, o contêiner e o arquivo, o contêiner, a pasta e o arquivo. Para **blobPathBeginsWith**, a interface do usuário do data Factory `/blobs/` será adicionada automaticamente entre o nome da pasta e do contêiner no gatilho JSON.
 
 | Propriedade | Exemplo | Descrição |
 |---|---|---|
-| **Caminho do blob começa com** | `/containername/` | Recebe eventos para qualquer blob no contentor. |
-| **Caminho do blob começa com** | `/containername/blobs/foldername/` | Recebe eventos para os blobs existentes no `containername` contentor e `foldername` pasta. |
-| **Caminho do blob começa com** | `/containername/blobs/foldername/subfoldername/` | Também pode referenciar uma subpasta. |
-| **Caminho do blob começa com** | `/containername/blobs/foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` no `foldername` pasta sob o `containername` contentor. |
-| **Caminho do blob termina com** | `file.txt` | Recebe eventos para um blob com o nome `file.txt` em qualquer caminho. |
-| **Caminho do blob termina com** | `/containername/blobs/file.txt` | Recebe eventos para um blob com o nome `file.txt` no contentor `containername`. |
-| **Caminho do blob termina com** | `foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` em `foldername` pasta em qualquer contentor. |
+| **O caminho do blob começa com** | `/containername/` | Recebe eventos para qualquer blob no contêiner. |
+| **O caminho do blob começa com** | `/containername/blobs/foldername/` | Recebe eventos para todos os BLOBs no `containername` contêiner e `foldername` na pasta. |
+| **O caminho do blob começa com** | `/containername/blobs/foldername/subfoldername/` | Você também pode fazer referência a uma subpasta. |
+| **O caminho do blob começa com** | `/containername/blobs/foldername/file.txt` | Recebe eventos para um blob chamado `file.txt` `foldername` na pasta sob o `containername` contêiner. |
+| **O caminho do blob termina com** | `file.txt` | Recebe eventos para um blob chamado `file.txt` em qualquer caminho. |
+| **O caminho do blob termina com** | `/containername/blobs/file.txt` | Recebe eventos para um blob nomeado `file.txt` em contêiner `containername`. |
+| **O caminho do blob termina com** | `foldername/file.txt` | Recebe eventos para um blob denominado `file.txt` na `foldername` pasta sob qualquer contêiner. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter informações detalhadas sobre os acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
+Para obter informações detalhadas sobre gatilhos, consulte [execução de pipeline e gatilhos](concepts-pipeline-execution-triggers.md#triggers).

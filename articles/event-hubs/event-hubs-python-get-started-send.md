@@ -1,6 +1,6 @@
 ---
-title: Enviar ou receber eventos com Python - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece um passo a passo para criar uma aplicação de Python para enviar eventos para Hubs de eventos do Azure.
+title: Enviar ou receber eventos usando Python-hubs de eventos do Azure | Microsoft Docs
+description: Este artigo fornece instruções para a criação de um aplicativo Python que envia eventos para os hubs de eventos do Azure.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -9,18 +9,18 @@ ms.workload: core
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9018df73c85486f5ffc9b16c1dbb70d4d99fcc65
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60461455"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360176"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Enviar eventos para ou receber eventos dos Hubs de eventos com o Python
+# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Enviar eventos para ou receber eventos de hubs de eventos usando o Python
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial descreve como criar aplicações de Python para enviar eventos para ou receber eventos de um hub de eventos. 
+Este tutorial descreve como criar aplicativos Python para enviar eventos ou receber eventos de um hub de eventos. 
 
 > [!NOTE]
 > Pode transferir este início rápido como uma amostra a partir do [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), substituir as cadeias de carateres `EventHubConnectionString` e `EventHubName` pelos seus valores de hub de eventos e executá-la. Em alternativa, pode seguir os passos neste tutorial para criar a sua própria.
@@ -31,7 +31,7 @@ Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 - Python 3.4 ou posterior.
-- Utilize o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de eventos e obter as credenciais de gestão a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md). Em seguida, obter o valor da chave de acesso para o hub de eventos ao seguir as instruções do artigo: [Obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave predefinida é: **RootManageSharedAccessKey**.
+- Use o [portal do Azure](https://portal.azure.com) para criar um namespace do tipo hubs de eventos e obter as credenciais de gerenciamento que seu aplicativo precisa para se comunicar com o Hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md). Em seguida, obtenha o valor da chave de acesso para o Hub de eventos seguindo as instruções do artigo: [Obter cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave padrão é: **RootManageSharedAccessKey**.
 
 ## <a name="install-python-package"></a>Instalar pacote do Python
 
@@ -47,7 +47,7 @@ pip install azure-eventhub
 
 Em seguida, crie uma aplicação de Python para enviar eventos para um hub de eventos:
 
-1. Abra o seu editor favorito do Python, tais como [Visual Studio Code](https://code.visualstudio.com/)
+1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/)
 2. Criar um script chamado **send.py**. Este script para enviar eventos de 100 para o hub de eventos.
 3. Cole o seguinte código no send.py, substituindo os valores de endereço, utilizador e a chave com os valores que obteve a partir do portal do Azure na secção anterior: 
 
@@ -113,7 +113,7 @@ Parabéns! Enviou agora mensagens para um hub de eventos.
 
 Em seguida, crie uma aplicação de Python que recebe eventos de um hub de eventos:
 
-1. Abra o seu editor favorito do Python, tais como [Visual Studio Code](https://code.visualstudio.com/)
+1. Abra seu editor de Python favorito, como [Visual Studio Code](https://code.visualstudio.com/)
 2. Criar um script chamado **recv.py**.
 3. Cole o seguinte código no recv.py, substituindo os valores de endereço, utilizador e a chave com os valores que obteve a partir do portal do Azure na secção anterior: 
 
@@ -144,7 +144,8 @@ last_sn = -1
 last_offset = "-1"
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 try:
-    receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+    receiver = client.add_receiver(
+        CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
     client.run()
     start_time = time.time()
     for event_data in receiver.receive(timeout=100):
@@ -173,9 +174,9 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>Passos Seguintes
-Leia os artigos seguintes:
+Leia os seguintes artigos:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funcionalidades e a terminologia nos Hubs de eventos do Azure](event-hubs-features.md)
+- [Funcionalidades e terminologia nos Hubs de Eventos do Azure](event-hubs-features.md)
 - [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 

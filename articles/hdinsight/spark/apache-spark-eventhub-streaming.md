@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
-ms.openlocfilehash: e121568ce4841e884dddc7c5adff89830a883e93
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: fef551c254eb4fa212333a55bde3d642645a16b6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377465"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489797"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
 
@@ -48,7 +48,7 @@ Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instru
     |---|---|
     |Nome|Forneça o nome do aplicativo. O valor usado para este tutorial é **HDISparkStreamApp0423**. Esse nome deve ser um nome exclusivo.|
     |Descrição|Forneça uma breve descrição do aplicativo. O valor usado para este tutorial é **um aplicativo simples de streaming do HDInsight Spark**.|
-    |Web site|Forneça o site do aplicativo. Ele não precisa ser um site válido.  O valor usado para este tutorial é **http:\//www.contoso.com**.|
+    |Web site|Forneça o site do aplicativo. Ele não precisa ser um site válido.  O valor usado para este tutorial é `http://www.contoso.com`.|
     |Url de chamada de retorno|Você pode deixá-lo em branco.|
 
 1. Selecione **Sim, li e concordo com o contrato de desenvolvedor do Twitter**e, em seguida, selecione **criar seu aplicativo do Twitter**.
@@ -80,7 +80,7 @@ Você usa esse Hub de eventos para armazenar tweets.
 
 5. Insira os seguintes valores para o novo namespace de hubs de eventos:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |---|---|
     |Nome|Insira um nome para o Hub de eventos.  O valor usado para este tutorial é **myeventhubns20180403**.|
     |Escalão de preço|Selecione **padrão**.|

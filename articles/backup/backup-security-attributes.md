@@ -1,68 +1,67 @@
 ---
-title: Atributos comuns de segurança para o Azure Backup
-description: Uma lista de verificação de atributos comuns de segurança para avaliar o Azure Backup
-services: backup
+title: Atributos de segurança para o backup do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar o backup do Azure
 author: utraghuv
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 595cc4eff70e2df4cb6d7f1d6a0c1a2748b34bf2
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: c2500c6c9ff6882e521f4edce02426a92a0bd39f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565622"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464933"
 ---
-# <a name="security-attributes-for-azure-backup"></a>Atributos de segurança para o Azure Backup
+# <a name="security-attributes-for-azure-backup"></a>Atributos de segurança para o backup do Azure
 
-Este artigo documenta os atributos de segurança integrados do Azure Backup. 
+Este artigo documenta os atributos de segurança internos do backup do Azure. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-## <a name="preventative"></a>Preventivas
+## <a name="preventative"></a>Preventiva
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | A utilizar a encriptação do serviço de armazenamento para as contas de armazenamento. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Não | Através de HTTPS. |
-| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não |  |
-| Encriptação de nível de coluna (Serviços de dados do Azure)| Não |  |
-| Chamadas de API encriptadas| Sim |  |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)| Sim | Usando a criptografia do serviço de armazenamento para contas de armazenamento. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Não | Usando HTTPS. |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| Não |  |
+| Chamadas de API criptografadas| Sim |  |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
-| Suporte de ponto final de serviço| Não |  |
-| Suporte de injeção de VNet| Não |  |
-| Isolamento de rede e o suporte de firewall| Sim | O túnel forçado é suportado para cópia de segurança VM. O túnel forçado não é suportado para cargas de trabalho em execução em VMs. |
-| Suporte de encapsulamento de forçado| Não |  |
+| Suporte ao ponto de extremidade de serviço| Não |  |
+| Suporte à injeção de VNet| Não |  |
+| Isolamento de rede e suporte de firewall| Sim | O túnel forçado tem suporte para backup de VM. O túnel forçado não tem suporte para cargas de trabalho em execução dentro de VMs. |
+| Suporte a túnel forçado| Não |  |
 
 ## <a name="detection"></a>Deteção
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | O log Analytics é suportado através de registos de diagnóstico. Ver [cargas de trabalho utilizar o Log Analytics de protegidas de cópia de segurança do Azure Monitor](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Há suporte para Log Analytics por meio dos logs de diagnóstico. Consulte [monitorar cargas de trabalho protegidas de backup do Azure usando log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
 
 ## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Autenticação| Sim | A autenticação é através do Azure Active Directory. |
-| Autorização| Sim | Cliente criada e funções RBAC incorporadas são usadas. Ver [Use Role-Based o controlo de acesso para gerir pontos de recuperação de cópia de segurança do Azure](/azure/backup/backup-rbac-rs-vault) para obter mais informações. |
+| Authentication| Sim | A autenticação é por meio de Azure Active Directory. |
+| Autorização| Sim | As funções RBAC criadas e internas do cliente são usadas. Consulte [usar o controle de acesso baseado em função para gerenciar pontos de recuperação de backup do Azure](/azure/backup/backup-rbac-rs-vault) para obter mais informações. |
 
 
-## <a name="audit-trail"></a>Registo de auditoria
+## <a name="audit-trail"></a>Trilha de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Auditoria e registo de plano de controlo e gestão| Sim | Todas as ações de cliente acionada no portal do Azure são registadas nos registos de atividade. |
-| Auditoria e registo de plano de dados| Não | Não é possível aceder diretamente ao plano de dados de cópia de segurança do Azure.  |
+| Registro e auditoria do plano de gerenciamento e controle| Sim | Todas as ações disparadas pelo cliente da portal do Azure são registradas em logs de atividades. |
+| Log e auditoria do plano de dados| Não | O plano de dados do backup do Azure não pode ser acessado diretamente.  |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim|  |
+| Suporte ao gerenciamento de configuração (controle de versão de configuração, etc.)| Sim|  |

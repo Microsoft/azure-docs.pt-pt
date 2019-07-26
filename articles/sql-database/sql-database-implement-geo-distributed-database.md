@@ -1,6 +1,6 @@
 ---
-title: Implementar uma solução de base de dados SQL do Azure distribuída geograficamente | Documentos da Microsoft
-description: Saiba como configurar a sua base de dados SQL do Azure e a aplicação para ativação pós-falha para uma base de dados replicada e ativação pós-falha de teste.
+title: Implementar uma solução de banco de dados SQL do Azure distribuída geograficamente | Microsoft Docs
+description: Saiba como configurar seu banco de dados SQL do Azure e o aplicativo para failover para um banco de dados replicado e failover de teste.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -12,20 +12,20 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338994"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444531"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar uma base de dados distribuída geograficamente
 
-Configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e um plano de ativação pós-falha de teste. Saiba como:
+Configure um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e teste um plano de failover. Saiba como:
 
 > [!div class="checklist"]
-> - Criar um [grupo de ativação pós-falha](sql-database-auto-failover-group.md)
-> - Executar uma aplicação de Java para consultar uma base de dados SQL do Azure
+> - Criar um [grupo de failover](sql-database-auto-failover-group.md)
+> - Executar um aplicativo Java para consultar um banco de dados SQL do Azure
 > - Ativação pós-falha de teste
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -34,34 +34,34 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
-Para concluir o tutorial, certifique-se de que instalou os seguintes itens:
+Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Uma base de dados SQL do Azure. Para criar um uso,
+- Um banco de dados individual no banco de dados SQL do Azure. Para criar um uso,
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
   > [!NOTE]
-  > O tutorial utiliza a *AdventureWorksLT* base de dados de exemplo.
+  > O tutorial usa o banco de dados de exemplo *AdventureWorksLT* .
 
-- Java e Maven, consulte [criar uma aplicação com o SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), realçar **Java** e selecione o seu ambiente, em seguida, siga os passos.
+- Java e Maven, consulte [criar um aplicativo usando SQL Server](https://www.microsoft.com/sql-server/developer-get-started/), realçar **Java** e selecionar seu ambiente e, em seguida, siga as etapas.
 
 > [!IMPORTANT]
-> Certifique-se de que configurar regras de firewall para utilizar o endereço IP público do computador em que estiver a efetuar os passos neste tutorial. Nível de base de dados firewall regras irão replicar automaticamente para o servidor secundário.
+> Certifique-se de configurar as regras de firewall para usar o endereço IP público do computador no qual você está executando as etapas neste tutorial. As regras de firewall no nível de banco de dados serão replicadas automaticamente para o servidor secundário.
 >
-> Para obter informações, consulte [criar uma regra de firewall ao nível da base de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP utilizado para a regra de firewall ao nível do servidor para o seu computador veja [criar uma firewall ao nível do servidor](sql-database-server-level-firewall-rule.md).  
+> Para obter informações, consulte [criar uma regra de firewall no nível de banco de dados](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou para determinar o endereço IP usado para a regra de firewall no nível de servidor para seu computador, consulte [criar um firewall de nível de servidor](sql-database-server-level-firewall-rule.md).  
 
-## <a name="create-a-failover-group"></a>Criar um grupo de ativação pós-falha
+## <a name="create-a-failover-group"></a>Criar um grupo de failover
 
-Com o Azure PowerShell, crie [grupos de ativação pós-falha](sql-database-auto-failover-group.md) entre um servidor SQL do Azure existente e um novo servidor SQL do Azure noutra região. Em seguida, adicione a base de dados de exemplo para o grupo de ativação pós-falha.
+Usando Azure PowerShell, crie [grupos de failover](sql-database-auto-failover-group.md) entre um SQL Server do Azure existente e um novo SQL Server do Azure em outra região. Em seguida, adicione o banco de dados de exemplo ao grupo de failover.
 
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
-Para criar um grupo de ativação pós-falha, execute o seguinte script:
+Para criar um grupo de failover, execute o seguinte script:
 
    ```powershell
     # Set variables for your server and database
@@ -102,19 +102,19 @@ Para criar um grupo de ativação pós-falha, execute o seguinte script:
        -FailoverGroupName $myfailovergroupname
    ```
 
-Definições de replicação geográfica também podem ser alteradas no portal do Azure, ao selecionar a sua base de dados, em seguida, **configurações** > **Georreplicação**.
+As configurações de replicação geográfica também podem ser alteradas no portal do Azure, selecionando seu banco de dados e, em seguida, **configurações** > de**replicação geográfica**.
 
-![Definições de replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
+![Configurações de replicação geográfica](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
-## <a name="run-the-sample-project"></a>Execute o projeto de exemplo
+## <a name="run-the-sample-project"></a>Executar o projeto de exemplo
 
-1. Na consola, crie um projeto Maven com o seguinte comando:
+1. No console do, crie um projeto Maven com o seguinte comando:
 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Tipo **Y** e prima **Enter**.
+1. Digite **Y** e pressione **Enter**.
 
 1. Altere os diretórios para o novo projeto.
 
@@ -122,9 +122,9 @@ Definições de replicação geográfica também podem ser alteradas no portal d
    cd SqlDbSample
    ```
 
-1. Com o seu editor favorito, abra a *pom* ficheiro na pasta do projeto.
+1. Usando seu editor favorito, abra o arquivo *pom. xml* na pasta do projeto.
 
-1. Adicionar o controlador Microsoft JDBC para dependência do SQL Server adicionando o seguinte `dependency` secção. A dependência tem de ser colada na maior `dependencies` secção.
+1. Adicione a dependência do Microsoft JDBC Driver para SQL Server adicionando a seção `dependency` a seguir. A dependência deve ser colada na seção maior `dependencies` .
 
    ```xml
    <dependency>
@@ -134,7 +134,7 @@ Definições de replicação geográfica também podem ser alteradas no portal d
    </dependency>
    ```
 
-1. Especifique a versão de Java, adicionando a `properties` secção após o `dependencies` secção:
+1. Especifique a versão do Java adicionando a `properties` seção após a `dependencies` seção:
 
    ```xml
    <properties>
@@ -143,7 +143,7 @@ Definições de replicação geográfica também podem ser alteradas no portal d
    </properties>
    ```
 
-1. Suporta ficheiros de manifesto, adicionando a `build` secção após o `properties` secção:
+1. Dê suporte a arquivos de manifesto `build` adicionando a seção `properties` após a seção:
 
    ```xml
    <build>
@@ -164,9 +164,9 @@ Definições de replicação geográfica também podem ser alteradas no portal d
    </build>
    ```
 
-1. Guarde e feche o *pom* ficheiro.
+1. Salve e feche o arquivo *pom. xml* .
 
-1. Abra o *App* ficheiros localizados em.... \SqlDbSample\src\main\java\com\sqldbsamples e substitua os conteúdos com o código a seguir:
+1. Abra o arquivo *app. java* localizado em.. \SqlDbSample\src\main\java\com\sqldbsamples e substitua o conteúdo pelo código a seguir:
 
    ```java
    package com.sqldbsamples;
@@ -272,15 +272,15 @@ Definições de replicação geográfica também podem ser alteradas no portal d
    }
    ```
 
-1. Guarde e feche o *App* ficheiro.
+1. Salve e feche o arquivo *app. java* .
 
-1. Na consola de comandos, execute o seguinte comando:
+1. No console de comando, execute o seguinte comando:
 
    ```bash
    mvn package
    ```
 
-1. Inicie a aplicação que vai ser executado para cerca de 1 hora, até serem parados manualmente, permitindo que o tempo para executar o teste de ativação pós-falha.
+1. Inicie o aplicativo que será executado por cerca de 1 hora até ser interrompido manualmente, permitindo que você execute o teste de failover.
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -299,9 +299,9 @@ Definições de replicação geográfica também podem ser alteradas no portal d
 
 ## <a name="test-failover"></a>Ativação pós-falha de teste
 
-Execute os scripts seguintes para simular uma ativação pós-falha e observe os resultados da aplicação. Observe como alguns inserções e seleciona irá falhar durante a migração de base de dados.
+Execute os scripts a seguir para simular um failover e observar os resultados do aplicativo. Observe como algumas inserções e seleções falharão durante a migração do banco de dados.
 
-Também pode verificar a função de servidor de recuperação após desastre durante o teste com o seguinte comando:
+Você também pode verificar a função do servidor de recuperação de desastre durante o teste com o seguinte comando:
 
    ```powershell
    (Get-AzSqlDatabaseFailoverGroup `
@@ -310,9 +310,9 @@ Também pode verificar a função de servidor de recuperação após desastre du
       -ServerName $mydrservername).ReplicationRole
    ```
 
-Para testar uma ativação pós-falha:
+Para testar um failover:
 
-1. Inicie uma ativação pós-falha manual do grupo de ativação pós-falha:
+1. Inicie um failover manual do grupo de failover:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup `
@@ -321,7 +321,7 @@ Para testar uma ativação pós-falha:
       -FailoverGroupName $myfailovergroupname
    ```
 
-1. Reverta o grupo de ativação pós-falha para o servidor primário:
+1. Reverter grupo de failover de volta para o servidor primário:
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup `
@@ -330,16 +330,16 @@ Para testar uma ativação pós-falha:
       -FailoverGroupName $myfailovergroupname
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, configurou uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e testado um plano de ativação pós-falha. Aprendeu a:
+Neste tutorial, você configurou um banco de dados SQL do Azure e um aplicativo para failover para uma região remota e testou um plano de failover. Aprendeu a:
 
 > [!div class="checklist"]
 > - Criar um grupo de ativação pós-falha de georreplicação
-> - Executar uma aplicação de Java para consultar uma base de dados SQL do Azure
+> - Executar um aplicativo Java para consultar um banco de dados SQL do Azure
 > - Ativação pós-falha de teste
 
-Avance para o próximo tutorial sobre como migrar com o DMS.
+Avance para o próximo tutorial sobre como migrar usando o DMS.
 
 > [!div class="nextstepaction"]
-> [Migrar o SQL Server para a instância de gerida de base de dados de SQL do Azure com o DMS](../dms/tutorial-sql-server-to-managed-instance.md)
+> [Migrar SQL Server para a instância gerenciada do banco de dados SQL do Azure usando DMS](../dms/tutorial-sql-server-to-managed-instance.md)

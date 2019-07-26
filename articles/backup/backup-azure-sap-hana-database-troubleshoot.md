@@ -1,19 +1,18 @@
 ---
 title: Solucionar erros ao fazer backup de bancos de dados do SAP HANA usando o backup do Azure | Microsoft Docs
 description: Descreve como solucionar erros comuns que podem ocorrer quando você usa o backup do Azure para fazer backup de bancos de dados do SAP HANA.
-services: backup
 author: pvrk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: pullabhk
-ms.openlocfilehash: 32e814ea83f30b48af5ce507ce250f37a34390da
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 221b669c141681749709d6a5a406c78499f21032
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249494"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465479"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup de bancos de dados SAP HANA no Azure
 
@@ -61,12 +60,12 @@ Depois que um banco de dados é escolhido para backup, o serviço de backup do A
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 
-data| Mensagem de erro | Possíveis causas | Ação recomendada |
+data| Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Falha ao conectar ao sistema HANA. Verifique se o sistema está em execução.| O serviço de backup do Azure não pode se conectar ao HANA porque o banco de dados do HANA está inoperante. Ou o HANA está em execução, mas não permite que o serviço de backup do Azure se conecte. | Verifique se o serviço ou banco de dados HANA está inoperante. Se o banco de dados ou serviço do HANA estiver em execução, verifique se [todas as permissões estão definidas](#setting-up-permissions). Se a chave estiver ausente, execute novamente o script de auto-registro para criar uma nova chave. |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
-| Mensagem de erro | Possíveis causas | Ação recomendada |
+| Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Configuração de BACKINT inválida detectada. Interrompa a proteção e reconfigure o banco de dados.| Os parâmetros backInt estão especificados incorretamente para o backup do Azure. | Verifique se [os parâmetros estão definidos](#setting-up-backint-parameters). Se os parâmetros baseados em backInt estiverem presentes no HOST, remova-os. Se os parâmetros não estiverem presentes no nível do HOST, mas tiverem sido modificados manualmente em um nível de banco de dados, reverta-os para os valores apropriados, conforme descrito anteriormente. Ou execute o **Stop Protection e mantenha os dados de backup** do portal do Azure e selecione retomar **backup**.|

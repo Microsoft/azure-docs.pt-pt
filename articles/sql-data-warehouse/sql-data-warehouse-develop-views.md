@@ -1,8 +1,8 @@
 ---
-title: Utilizar vistas de T-SQL no Azure SQL Data Warehouse | Documentos da Microsoft
-description: Sugestões para utilizar vistas de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+title: Usando modos de exibição T-SQL no Azure SQL Data Warehouse | Microsoft Docs
+description: Dicas para usar modos de exibição T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,34 +10,34 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e8d516cfd764f947bd2fe7fc25f6394c313c0d9a
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595504"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479529"
 ---
-# <a name="views-in-azure-sql-data-warehouse"></a>Modos de exibição no armazém de dados SQL do Azure
-Sugestões para utilizar vistas de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções. 
+# <a name="views-in-azure-sql-data-warehouse"></a>Modos de exibição no Azure SQL Data Warehouse
+Dicas para usar modos de exibição T-SQL no Azure SQL Data Warehouse para desenvolver soluções. 
 
-## <a name="why-use-views"></a>Por que usar modos de exibição?
-Modos de exibição podem ser usados num número de diferentes formas de melhorar a qualidade da sua solução.  Este artigo destaca alguns exemplos de como enriquecer a sua solução com vistas, bem como as limitações de que precisam ser consideradas.
+## <a name="why-use-views"></a>Por que usar exibições?
+As exibições podem ser usadas de várias maneiras diferentes para melhorar a qualidade de sua solução.  Este artigo destaca alguns exemplos de como enriquecer sua solução com exibições, bem como as limitações que precisam ser consideradas.
 
 
 > [!IMPORTANT]
-> Veja a nova sintaxe de vista materializada na [CREATE MATERIALIZADA vista AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Para obter mais informações, consulte a [notas de versão](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+> Consulte a nova sintaxe de exibição materializada em [criar exibição materializada como SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Para obter mais informações, consulte as [notas de versão](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
 >
 
 
 > [!NOTE]
-> Sintaxe para criar vista não é abordada neste artigo. Para obter mais informações, consulte a [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentação.
+> A sintaxe para CREATE VIEW não é discutida neste artigo. Para obter mais informações, consulte a documentação [criar exibição](/sql/t-sql/statements/create-view-transact-sql) .
 > 
 
-## <a name="architectural-abstraction"></a>Abstração de arquitetura
+## <a name="architectural-abstraction"></a>Abstração da arquitetura
 
-Um padrão de aplicação comum é voltar a criar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido de um objeto mudar o nome padrão ao carregamento de dados.
+Um padrão de aplicativo comum é recriar tabelas usando CREATE TABLE como SELECT (CTAS) seguido por um padrão de renomeação de objeto durante o carregamento de dados.
 
-O exemplo seguinte adiciona registos nova data a uma dimensão de data. Tenha em atenção a como uma nova tabela, DimDate_New, é criada pela primeira vez e, em seguida, o nome mudada para substituir a versão original da tabela.
+O exemplo a seguir adiciona novos registros de data a uma dimensão de data. Observe como uma nova tabela, DimDate_New, é criada primeiro e, em seguida, renomeada para substituir a versão original da tabela.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -57,19 +57,19 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-No entanto, essa abordagem pode resultar em tabelas aparecendo e desaparecendo na vista de um utilizador, bem como as mensagens de erro "a tabela não existe". Vistas podem ser utilizadas para fornecer aos utilizadores com uma camada de apresentação consistente, lidando simultaneamente e os objetos subjacentes são renomeados. Ao fornecer acesso aos dados através de vistas, os utilizadores não têm visibilidade para as tabelas subjacentes. Esta camada oferece uma experiência de usuário consistente enquanto garantir que o armazém de dados designers pode evoluir o modelo de dados. A capacidade de evoluir as tabelas subjacentes significa que os designers podem usar CTAS para maximizar o desempenho durante o processo de carregamento de dados.   
+No entanto, essa abordagem pode resultar em tabelas aparecendo e desaparecendo da exibição de um usuário, bem como das mensagens de erro "a tabela não existe". As exibições podem ser usadas para fornecer aos usuários uma camada de apresentação consistente, enquanto os objetos subjacentes são renomeados. Ao fornecer acesso aos dados por meio de exibições, os usuários não precisam de visibilidade para as tabelas subjacentes. Essa camada fornece uma experiência de usuário consistente, garantindo que os designers de data warehouse possam desenvolver o modelo de dados. Ser capaz de desenvolver as tabelas subjacentes significa que os designers podem usar o CTAS para maximizar o desempenho durante o processo de carregamento de dados.   
 
-## <a name="performance-optimization"></a>Otimização do desempenho
-Modos de exibição também podem ser utilizados para impor as associações entre as tabelas com otimização de desempenho. Por exemplo, uma exibição pode incorporar uma chave de distribuição redundantes como parte dos critérios de junção para minimizar o movimento de dados. Outra vantagem de um modo de exibição poderia ser forçar uma consulta específica ou uma sugestão de junção. Utilizar vistas desta forma garante que as associações são sempre executadas de forma ideal, evitando a necessidade dos utilizadores memorizem a construção correta para suas associações.
+## <a name="performance-optimization"></a>Otimização de desempenho
+As exibições também podem ser utilizadas para impor junções otimizadas de desempenho entre tabelas. Por exemplo, um modo de exibição pode incorporar uma chave de distribuição redundante como parte dos critérios de junção para minimizar a movimentação de dados. Outro benefício de uma exibição pode ser forçar uma consulta específica ou uma dica de junção. Usar modos de exibição dessa maneira garante que as junções sejam sempre executadas de maneira ideal, evitando a necessidade de os usuários se lembrarem da construção correta para suas junções.
 
 ## <a name="limitations"></a>Limitações
-Modos de exibição no SQL Data Warehouse são armazenados como apenas metadados. Consequentemente, não estão disponíveis as seguintes opções:
+Os modos de exibição no SQL Data Warehouse são armazenados somente como metadados. Consequentemente, as seguintes opções não estão disponíveis:
 
-* Não existe nenhuma opção de vinculação de esquema
-* Tabelas-base não podem ser atualizadas através da vista
-* Modos de exibição não não possível criar sobre as tabelas temporárias
-* Não há suporte para o expandir / sugestões NOEXPAND
-* Não há nenhum modos de exibição indexados no SQL Data Warehouse
+* Não há opção de associação de esquema
+* As tabelas base não podem ser atualizadas por meio da exibição
+* As exibições não podem ser criadas em tabelas temporárias
+* Não há suporte para as dicas expandir/desexpandir
+* Não há exibições indexadas no SQL Data Warehouse
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para mais sugestões de desenvolvimento, consulte [Descrição geral do desenvolvimento no SQL Data Warehouse](sql-data-warehouse-overview-develop.md).

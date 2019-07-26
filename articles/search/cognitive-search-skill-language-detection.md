@@ -1,6 +1,6 @@
 ---
-title: Habilidade de pesquisa cognitiva de deteção de idioma - Azure Search
-description: Avalia a texto não estruturado e para cada registo, devolve um identificador de idioma com uma pontuação indicando a força da análise num pipeline de enriquecimento de Azure Search.
+title: Habilidades de pesquisa cognitiva de detecção de idioma – Azure Search
+description: Avalia o texto não estruturado e, para cada registro, retorna um identificador de idioma com uma pontuação indicando a força da análise em um pipeline de enriquecimento de Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,48 +11,48 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a076eee9818f294a8e5c4b10cebbcb9e5a55d80c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3685e2f2a212591788c62ba4f0384ae320d89824
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021853"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347762"
 ---
-#   <a name="language-detection-cognitive-skill"></a>Habilidade de cognitiva de deteção de idioma
+#   <a name="language-detection-cognitive-skill"></a>Habilidade cognitiva de detecção de linguagem
 
-O **deteção de idioma** habilidade Deteta o idioma de texto de entrada e comunica um código de idioma único para cada documento enviado no pedido. O código de idioma é emparelhado com uma pontuação indicando a força da análise. Essa habilidade usa os modelos de machine learning fornecidos pela [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos serviços cognitivos.
+A **detecção de idioma** habilidade detecta o idioma do texto de entrada e relata um único código de idioma para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a força da análise. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em serviços cognitivas.
 
-Esta capacidade é especialmente útil quando tem de indicar o idioma do texto como entrada para outras habilidades (por exemplo, o [habilidade de análise de sentimentos](cognitive-search-skill-sentiment.md) ou [habilidade de divisão de texto](cognitive-search-skill-textsplit.md)).
+Esse recurso é especialmente útil quando você precisa fornecer o idioma do texto como entrada para outras habilidades (por exemplo, a habilidade de [análise de sentimento](cognitive-search-skill-sentiment.md) ou [habilidade de divisão de texto](cognitive-search-skill-textsplit.md)).
 
-Deteção de idioma tira partido das bibliotecas de processamento de linguagem natural do Bing, que excede o número de [idiomas e regiões com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listados para análise de texto. A lista exata de idiomas não está publicada, mas inclui todos os idiomas amplamente falado, além de variantes, dialetos e alguns idiomas regionais e culturais. Se tiver conteúdo expresso numa linguagem utilizada com menos frequência, pode [experimentar a API de deteção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ele retorna um código. A resposta para idiomas que não puderem ser detetadas está `unknown`.
+A detecção de idioma aproveita as bibliotecas de processamento de idioma natural do Bing, que excedem o número de [idiomas e regiões com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) listados para análise de texto. A lista exata de idiomas não é publicada, mas inclui todas as linguagens amplamente faladas, além de variantes, dialetos e algumas linguagens regionais e culturais. Se você tiver conteúdo expresso em uma linguagem usada com menos frequência, poderá [tentar a API detecção de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) para ver se ela retorna um código. A resposta para idiomas que não podem ser detectados é `unknown`.
 
 > [!NOTE]
-> Como expandir âmbito ao aumento da frequência de processamento, adicionar mais documentos ou adicionar mais algoritmos de IA, precisará [anexar um recurso dos serviços cognitivos cobrar](cognitive-search-attach-cognitive-services.md). Os encargos acumulam ao chamar APIs serviços cognitivos e para extração de imagem como parte da fase de aberturas de documentos no Azure Search. Não existem custos para extração de texto de documentos.
+> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
 >
-> Execução de habilidades internas é cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registo deve ser 50.000 carateres conforme medido pela `String.Length`. Se tiver de dividir os dados antes de os enviar para o analisador de sentimentos, pode utilizar o [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, você poderá usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-Parâmetros diferenciam maiúsculas de minúsculas.
+Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Entradas     | Descrição |
 |--------------------|-------------|
-| texto | O texto a ser analisados.|
+| text | O texto a ser analisado.|
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída    | Descrição |
+| Nome da saída    | Descrição |
 |--------------------|-------------|
-| languageCode | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, "pt". |
-| languageName | O nome de idioma. Por exemplo, "inglês". |
-| pontuação | Um valor entre 0 e 1. A probabilidade de que o idioma é identificado corretamente. A classificação pode ser inferior a 1, se a frase tem misto de idiomas.  |
+| languageCode | O código de idioma ISO 6391 para o idioma identificado. Por exemplo, "en". |
+| LanguageName | O nome do idioma. Por exemplo, "inglês". |
+| pontuação | Um valor entre 0 e 1. A probabilidade de o idioma ser identificado corretamente. A pontuação pode ser inferior a 1 se a frase tiver idiomas mistos.  |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 
@@ -135,9 +135,9 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 
 ## <a name="error-cases"></a>Casos de erro
-Se o texto é expressa num idioma não suportado, é gerado um erro e não é devolvido nenhum identificador de idioma.
+Se o texto for expresso em um idioma sem suporte, um erro será gerado e nenhum identificador de idioma será retornado.
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Competências predefinidas](cognitive-search-predefined-skills.md)
-+ [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
++ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

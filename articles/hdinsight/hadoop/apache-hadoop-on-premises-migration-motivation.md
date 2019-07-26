@@ -1,6 +1,6 @@
 ---
-title: Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
-description: Aprenda a motivação e os benefícios para migrar clusters do Hadoop no local para Azure HDInsight.
+title: Migrar clusters de Apache Hadoop locais para o Azure HDInsight-motivação e benefícios
+description: Conheça a motivação e os benefícios para migrar clusters Hadoop locais para o Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -8,199 +8,199 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058570"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442081"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight-motivação e benefícios
 
-Este artigo é a primeira de uma série sobre melhores práticas para a migração de implementações no local Apache Hadoop ao meio ambiente do sistema para o Azure HDInsight. Esta série de artigos destina-se a pessoas que são responsáveis pelo design, implementação e migração de soluções do Apache Hadoop no HDInsight do Azure. As funções que podem tirar partido destes artigos incluem arquitetos de cloud, os administradores do Hadoop e engenheiros de DevOps. Os desenvolvedores de software, os engenheiros de dados e os cientistas de dados devem também se beneficiar a explicação de diferentes tipos de clusters de trabalho na cloud.
+Este artigo é o primeiro de uma série sobre as práticas recomendadas para migrar implantações locais de Apache Hadoop de sistemas de eco para o Azure HDInsight. Esta série de artigos destina-se a pessoas responsáveis pelo design, implantação e migração de soluções de Apache Hadoop no Azure HDInsight. As funções que podem se beneficiar desses artigos incluem arquitetos de nuvem, administradores do Hadoop e engenheiros de DevOps. Os desenvolvedores de software, os engenheiros de dados e os cientistas de dados também devem se beneficiar da explicação de como os diferentes tipos de clusters funcionam na nuvem.
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Por que migrar para o Azure HDInsight
 
-O Azure HDInsight é uma distribuição de nuvem de componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. HDInsight inclui as arquiteturas de código-fonte aberto mais populares, tais como:
+O Azure HDInsight é uma distribuição em nuvem de componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e rentável processar quantidades enormes de dados. O HDInsight inclui as estruturas de código aberto mais populares, como:
 
 - Apache Hadoop
 - Apache Spark
-- Apache Hive com o LLAP
+- Apache Hive com LLAP
 - Apache Kafka
 - Apache Storm
 - Apache HBase
 - R
 
-## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>O Azure HDInsight vantagens em relação ao Hadoop no local
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Vantagens do Azure HDInsight em relação ao Hadoop local
 
-- **Baixo custo** -os custos podem ser reduzidos através de [criar clusters a pedido](../hdinsight-hadoop-create-linux-clusters-adf.md) e pagando apenas aquilo que utiliza. Computação e armazenamento desacoplados proporciona flexibilidade ao manter o volume de dados independente do tamanho do cluster.
+- Custos **baixos** podem ser reduzidos com a [criação de clusters sob demanda](../hdinsight-hadoop-create-linux-clusters-adf.md) e o pagamento apenas pelo que você usa. A computação e o armazenamento dissociados fornecem flexibilidade mantendo o volume de dados independente do tamanho do cluster.
 
-- **Automatizada de criação do cluster** - automatizada criação do cluster requer configuração mínima e a configuração. Automatização pode ser utilizada para clusters a pedido.
+- **Criação automatizada de cluster** -a criação automatizada de clusters requer configuração e configuração mínimas. A automação pode ser usada para clusters sob demanda.
 
-- **Geridos hardware e configuração** -não é necessário se preocupar sobre o hardware físico ou a infraestrutura com um cluster do HDInsight. Especifique apenas a configuração do cluster, e o Azure o configura.
+- **Hardware e configuração gerenciados** – não há necessidade de se preocupar com o hardware ou a infraestrutura física com um cluster HDInsight. Basta especificar a configuração do cluster e o Azure o configura.
 
-- **Facilmente escalável** -HDInsight permite-lhe [dimensionamento](../hdinsight-administer-use-portal-linux.md) cargas de trabalho ou reduzir verticalmente. Azure se encarrega de redistribuição de dados e a carga de trabalho reequilibrar sem interromper as tarefas de processamento de dados.
+- **Facilmente escalonável** – o HDInsight permite [](../hdinsight-administer-use-portal-linux.md) que você dimensione as cargas de trabalho para cima ou para baixo. O Azure cuida da redistribuição de dados e do rebalanceamento de carga de trabalho sem interromper os trabalhos de processamento de dados.
 
-- **Disponibilidade global** -HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) que qualquer outra oferta de análise de macrodados. O Azure HDInsight também está disponível no Azure Government, na China e na Alemanha, o que lhe permite satisfazer as suas necessidades empresariais nas principais áreas soberanas.
+- **Disponibilidade global** – o HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de Big Data. O Azure HDInsight também está disponível no Azure Government, na China e na Alemanha, o que lhe permite satisfazer as suas necessidades empresariais nas principais áreas soberanas.
 
-- **Segura e em conformidade** -HDInsight permite-lhe proteger seus ativos de dados empresariais com [rede Virtual do Azure](../hdinsight-extend-hadoop-virtual-network.md), [encriptação](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)e a integração com [Active Directory do Azure Diretório](../domain-joined/apache-domain-joined-introduction.md). HDInsight também cumpre os mais populares da indústria e governamentais [normas de conformidade](https://azure.microsoft.com/overview/trusted-cloud).
+- **Seguro e compatível** – o HDInsight permite que você proteja seus ativos de dados corporativos com a rede virtual, [criptografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)e integração [do Azure](../hdinsight-plan-virtual-network-deployment.md)com o [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). O HDInsight também atende aos [padrões de conformidade](https://azure.microsoft.com/overview/trusted-cloud)mais populares do setor e do governo.
 
-- **Gerenciamento de versão simplificado** -Azure HDInsight gere a versão dos componentes do Hadoop ao meio ambiente do sistema e as mantém atualizadas. Atualizações de software são, normalmente, um processo complexo para implementações no local.
+- **Gerenciamento de versão simplificado** – o Azure HDInsight gerencia a versão dos componentes do sistema de eco do Hadoop e os mantém atualizados. Atualizações de software geralmente são um processo complexo para implantações locais.
 
-- **Clusters menores otimizadas para cargas de trabalho específicas com menos dependências entre os componentes** -uma configuração de Hadoop típico no local utiliza um cluster único que tem muitas finalidades. Com o Azure HDInsight, é possível criar clusters de carga de trabalho específica. Criação de clusters para cargas de trabalho específicas, remove a complexidade de manter um único cluster com a crescente complexidade.
+- **Clusters menores otimizados para cargas de trabalho específicas com menos dependências entre componentes** – uma configuração do Hadoop local típica usa um único cluster que atende a muitas finalidades. Com o Azure HDInsight, os clusters específicos da carga de trabalho podem ser criados. A criação de clusters para cargas de trabalho específicas elimina a complexidade de manter um único cluster com complexidade crescente.
 
-- **Produtividade** -pode utilizar várias ferramentas para o Hadoop e Spark no seu ambiente de desenvolvimento preferido.
+- **Produtividade** – você pode usar várias ferramentas para Hadoop e Spark em seu ambiente de desenvolvimento preferido.
 
-- **Extensibilidade com ferramentas personalizadas ou aplicações de terceiros** -clusters do HDInsight podem ser estendidas com componentes instalados e também pode ser integrados com as outras soluções de macrodados utilizando [num único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  implementações a partir do mercado do Azure.
+- **Extensibilidade com ferramentas personalizadas ou aplicativos** de terceiros-os clusters HDInsight podem ser estendidos com componentes instalados e também podem ser integrados a outras soluções de Big data usando implantações com [um clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Market Place.
 
-- **Facilitar a gestão, administração e monitoramento** -Azure HDInsight integra-se [registos do Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma única interface com a qual pode monitorizar todos os clusters.
+- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) de Azure monitor para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
 
-- **Integração com outros serviços do Azure** -HDInsight pode ser facilmente integrado com outros serviços do Azure populares, como o seguinte:
+- **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como o seguinte:
 
     - Azure Data Factory (ADF)
     - Armazenamento de Blobs do Azure
-    - Armazenamento do Azure Data Lake Ger2
+    - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
     - Base de Dados SQL do Azure
     - Azure Analysis Services
 
-- **Autorrecuperação processos e componentes** -HDInsight verifique constantemente os componentes de infraestrutura e o código-fonte aberto com a própria infraestrutura de monitorização. Ele também automaticamente recupera falhas críticas, como indisponibilidade de componentes de código aberto e nós. Alertas são acionados no Ambari se qualquer componente de sistemas operacionais falhou.
+- **Processos e componentes** de auto-recuperação – o HDInsight verifica constantemente a infraestrutura e os componentes de software livre usando sua própria infraestrutura de monitoramento. Ele também recupera automaticamente falhas críticas, como indisponibilidade de nós e componentes de software livre. Os alertas serão disparados em Ambari se algum componente do OSS falhar.
 
-Para obter mais informações, consulte o artigo [o que é o Azure HDInsight e a pilha de tecnologia do Apache Hadoop](../hadoop/apache-hadoop-introduction.md).
+Para obter mais informações, consulte o artigo [o que é o Azure HDInsight e a pilha de tecnologia Apache Hadoop](../hadoop/apache-hadoop-introduction.md).
 
 ## <a name="migration-planning-process"></a>Processo de planejamento de migração
 
-Os seguintes passos são recomendados para planejar uma migração de clusters do Hadoop no local para Azure HDInsight:
+As etapas a seguir são recomendadas para planejar uma migração de clusters Hadoop locais para o Azure HDInsight:
 
-1. Compreenda a implementação de no local atual e topologias.
-2. Compreenda o escopo do projeto atual, as linhas do tempo e conhecimentos de equipe.
-3. Compreenda os requisitos do Azure.
-4. Crie um plano detalhado, com base nas práticas recomendadas.
+1. Entenda a implantação e as topologias locais atuais.
+2. Entenda o escopo atual do projeto, as linhas do tempo e a experiência da equipe.
+3. Entenda os requisitos do Azure.
+4. Crie um plano detalhado com base nas práticas recomendadas.
 
-## <a name="gathering-details-to-prepare-for-a-migration"></a>Detalhes para se preparar para uma migração de recolha
+## <a name="gathering-details-to-prepare-for-a-migration"></a>Coletando detalhes para se preparar para uma migração
 
-Esta seção fornece questionários de modelo para o ajudar a reunir informações importantes sobre:
+Esta seção fornece questionários de modelo para ajudar a coletar informações importantes sobre:
 
-- A implementação no local
+- A implantação local
 - Detalhes do projeto
 - Requisitos do Azure
 
-### <a name="on-premises-deployment-questionnaire"></a>Questionário de implementação no local
+### <a name="on-premises-deployment-questionnaire"></a>Questionário de implantação local
 
-| **Pergunta** | **Exemplo** | **Resposta** |
+| **Pergunta** | **Exemplo** | **Atenda** |
 |---|---|---|
-|**tópico**: **Environment**|||
-|Versão de distribuição do cluster|HDP 2.6.5, CDH 5.7|
-|Grandes componentes do sistema ao meio ambiente de dados|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
+|**Tópico**: **Ambiente**|||
+|Versão de distribuição do cluster|HDP 2.6.5, CDH 5,7|
+|Componentes de sistema de eco de Big data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
+|Tipos de cluster|Hadoop, Spark, Kafkas, Storm, Solr|
 |Número de clusters|4|
-|Número de nós principais|2|
+|Número de nós mestres|2|
 |Número de nós de trabalho|100|
-|Número de nós de extremidade| 5|
-|Total de espaço em disco|100 TB|
-|Configuração do nó principal|m/y, cpu, disk, etc.|
+|Número de nós de borda| 5|
+|Espaço total em disco|100 TB|
+|Configuração do nó mestre|m/y, cpu, disk, etc.|
 |Configuração de nós de dados|m/y, cpu, disk, etc.|
-|Configuração de nós de extremidade|m/y, cpu, disk, etc.|
-|Encriptação de HDFS?|Sim|
-|Elevada Disponibilidade|HA do HDFS, Metastore HA|
-|Recuperação após desastre / cópia de segurança|Cluster de cópia de segurança?|  
-|Sistemas que são dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
+|Configuração de nós de borda|m/y, cpu, disk, etc.|
+|Criptografia HDFS?|Sim|
+|Elevada Disponibilidade|HDFS de alta disponibilidade, metastore HA|
+|Recuperação de desastre/backup|Cluster de backup?|  
+|Sistemas que dependem do cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrações de terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**tópico**: **Segurança**|||
+|**Tópico**: **Segurança**|||
 |Segurança de perímetro|Firewalls|
-|Cluster de autenticação e autorização|Active Directory, Ambari, Cloudera o Gestor de diretório, sem autenticação|
-|Controlo de acesso do HDFS|  Manual, ssh utilizadores|
-|Ramo de registo de autenticação e autorização|Sentry, LDAP, AD com o Kerberos, o Ranger|
-|Auditoria|Ambari, navegador Cloudera, Ranger|
-|Monitorização|Graphite, recolhidos, statsd, Telegraf, InfluxDB|
+|Autenticação de cluster & autorização|Active Directory, Ambari, Cloudera Manager, sem autenticação|
+|Controle de acesso do HDFS|  Usuários do SSH e manuais|
+|Autenticação do hive & autorização|Sentry, LDAP, AD com Kerberos, Ranger|
+|Auditoria|Ambari, Cloudera Navigator, Ranger|
+|Monitorização|Graphite, Collected, stated, Telegraf, InfluxDB|
 |Alertas|Kapacitor, Prometheus, Datadog|
 |Duração da retenção de dados| 3 anos, 5 anos|
-|Administradores de cluster|Administrador de único, vários administradores|
+|Administradores de cluster|Administrador único, vários administradores|
 
-### <a name="project-details-questionnaire"></a>Questionário de detalhes do projeto
+### <a name="project-details-questionnaire"></a>Questionário detalhes do projeto
 
-|**Pergunta**|**Exemplo**|**Resposta**|
+|**Pergunta**|**Exemplo**|**Atenda**|
 |---|---|---|
-|**tópico**: **Cargas de trabalho e a frequência**|||
-|Tarefas de MapReduce|10 tarefas – duas vezes por dia||
-|Tarefas do Hive|100 tarefas – cada hora||
-|Tarefas de lote do Spark|50 tarefas – a cada 15 minutos||
-|Tarefas de transmissão em fluxo do Spark|5 tarefas – a cada 3 minutos||
-|Tarefas de transmissão em fluxo estruturada|5 tarefas – a cada minuto||
-|Tarefas de formação do modelo de ML|2 tarefas, uma vez numa semana||
-|Linguagens de Programação|Python, Scala, Java||
-|Scripts|Shell, Python||
-|**tópico**: **Dados**|||
-|Origens de dados|Arquivos simples, Json, Kafka, RDBMS||
-|Orquestração de dados|Fluxos de trabalho do Oozie, ventilação||
-|Em pesquisas de memória|Apache Ignite, Redis||
+|**Tópico**: **Cargas de trabalho e frequência**|||
+|Trabalhos MapReduce|10 trabalhos--duas vezes por dia||
+|Trabalhos do hive|100 trabalhos--a cada hora||
+|Trabalhos em lotes do Spark|50 trabalhos--a cada 15 minutos||
+|Trabalhos de streaming do Spark|5 trabalhos--a cada 3 minutos||
+|Trabalhos de streaming estruturados|5 trabalhos--a cada minuto||
+|Trabalhos de treinamento do modelo ML|2 trabalhos – uma vez em uma semana||
+|Linguagens de Programação|Python, escala, Java||
+|Processamento de Scripts|Shell, Python||
+|**Tópico**: **Dados**|||
+|Origens de dados|Arquivos simples, JSON, Kafka, RDBMS||
+|Orquestração de dados|Fluxos de trabalho do Oozie, fluxo de ar||
+|Pesquisas em memória|Apache Ignite, Redis||
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
-|**tópico**: **Metadados**|||
-|Tipo de BD do Hive|Mysql, Postgres||
-|Não. de metastores do Hive|2||
-|Não. de tabelas do Hive|100||
+|**Tópico**: **Metadados**|||
+|Tipo de BD do hive|Mysql, Postgres||
+|Não. de metastores do hive|2||
+|Não. de tabelas do hive|100||
 |Não. de políticas do Ranger|20||
-|Não. dos fluxos de trabalho do Oozie|100||
-|**tópico**: **Dimensionamento**|||
-|Volume de dados, incluindo a replicação|100 TB||
-|Volume de ingestão de diário|50 GB||
+|Não. de fluxos de trabalho do Oozie|100||
+|**Tópico**: **Dimensionamento**|||
+|Volume de dados incluindo replicação|100 TB||
+|Volume de ingestão diário|50 GB||
 |Taxa de crescimento de dados|10% por ano||
 |Taxa de crescimento de nós de cluster|5% por ano
-|**tópico**: **Utilização do cluster**|||
-|Média de CPU de % utilizada|60%||
-|Média % de memória utilizada|75%||
+|**Tópico**: **Utilização do cluster**|||
+|% De média de CPU usada|60%||
+|% De memória média usada|75%||
 |Espaço em disco utilizado|75%||
-|Média de rede de % utilizada|25%
-|**tópico**: **Staff**|||
+|% De rede média usada|25%
+|**Tópico**: **Receber**|||
 |Não. de administradores|2||
 |Não. de desenvolvedores|10||
-|Não. dos utilizadores finais|100||
-|Habilidades|Hadoop, Spark||
-|Não. de recursos disponíveis para iniciativas de migração|2||
-|**tópico**: **Limitações**|||
-|Limitações atuais|Latência é elevada||
+|Não. de usuários finais|100||
+|Competências|Hadoop, Spark||
+|Não. de recursos disponíveis para os esforços de migração|2||
+|**Tópico**: **Limitações**|||
+|Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
 
 ### <a name="azure-requirements-questionnaire"></a>Questionário de requisitos do Azure
 
-|**tópico**: **Infraestrutura** |||
+|**Tópico**: **Infra-estruturas** |||
 |---|---|---|
-|**Pergunta**|**Exemplo**|**Resposta**|
-| Região preferencial|E.U.A Leste||
-|VNet preferido?|Sim||
-|HA / DR necessária?|Sim||
-|Integração com outros serviços em nuvem?|ADF, CosmosDB||
-|**tópico**:   **Movimento de Dados**  |||
-|Preferência de carregamento inicial|DistCp, dados de caixa, ADF, WANDisco||
-|Diferenças de transferência de dados|DistCp, o AzCopy||
-|Transferência de dados incrementais em curso|DistCp, Sqoop||
-|**tópico**:   **Monitorização e alertas** |||
-|Utilizar a monitorização de terceiros de monitorização do Azure & alertas integrar o Vs|Utilizar o Azure, monitorização e alertas||
-|**tópico**:   **Preferências de segurança** |||
-|Pipeline de dados particulares e protegidos?|Sim||
-|Cluster de associado de domínio (ESP)?|     Sim||
-|No local sincronização do AD para a Cloud?|     Sim||
-|Não. de utilizadores do AD para sincronizar?|          100||
-|OK para sincronizar as palavras-passe para a cloud?|    Sim||
-|Apenas utilizadores de cloud?|                 Sim||
-|MFA necessário?|                       Não|| 
+|**Pergunta**|**Exemplo**|**Atenda**|
+| Região Preferencial|Leste dos E.U.A.||
+|VNet preferencial?|Sim||
+|HA/DR necessários?|Sim||
+|Integração com outros serviços de nuvem?|ADF, CosmosDB||
+|**Tópico**:   **Movimento de Dados**  |||
+|Preferência de carregamento inicial|DistCp, data Box, ADF, WANDisco||
+|Delta de transferência de dados|DistCp, AzCopy||
+|Transferência de dados incremental em andamento|DistCp, Sqoop||
+|**Tópico**:   **Monitoramento & alertas** |||
+|Usar o monitoramento do Azure & alertas do vs integrar o monitoramento de terceiros|Usar o monitoramento do Azure & alertas||
+|**Tópico**:   **Preferências de segurança** |||
+|Pipeline de dados particular e protegido?|Sim||
+|ESP (cluster ingressado no domínio)?|     Sim||
+|AD Sync local para nuvem?|     Sim||
+|Não. de usuários do AD para sincronizar?|          100||
+|OK para sincronizar as senhas com a nuvem?|    Sim||
+|Somente usuários de nuvem?|                 Sim||
+|MFA necessária?|                       Não|| 
 |Requisitos de autorização de dados?|  Sim||
-|Controlo de acesso baseado em funções?|        Sim||
-|Auditoria necessário?|                  Sim||
-|Encriptação de dados Inativos?|          Sim||
-|Encriptação de dados em trânsito?|       Sim||
-|**tópico**:   **Preferências de Rearquitetura** |||
-|Tipos de clusters específicos do cluster único vs|Tipos de clusters específicos||
-|Armazenamento remoto do Vs de armazenamento colocalizados?|Armazenamento remoto||
-|Tamanho de cluster mais pequeno que dados é armazenado remotamente?|Tamanho de cluster mais pequeno||
-|Utilizar vários clusters menores em vez de um único cluster grande?|Utilizar vários clusters menores||
-|Utilizar um metastore remoto?|Sim||
-|Partilhar metastores entre clusters diferentes?|Sim||
-|Eles possuem de desconstruir cargas de trabalho?|Substitua as tarefas do Hive com tarefas do Spark||
-|Utilizar o ADF para orquestração de dados?|Não||
+|Controle de acesso baseado em função?|        Sim||
+|A auditoria é necessária?|                  Sim||
+|Criptografia de dados em repouso?|          Sim||
+|Criptografia de dados em trânsito?|       Sim||
+|**Tópico**:   **Preferências de rearquitetura** |||
+|Cluster único vs. tipos de cluster específicos|Tipos de cluster específicos||
+|Armazenamento colocalizado versus armazenamento remoto?|Armazenamento remoto||
+|Tamanho de cluster menor, pois os dados são armazenados remotamente?|Tamanho de cluster menor||
+|Usar vários clusters menores em vez de um único cluster grande?|Usar vários clusters menores||
+|Usar um metastore remoto?|Sim||
+|Compartilhar metastores entre clusters diferentes?|Sim||
+|Cargas de trabalho do desconstruir?|Substituir trabalhos do hive por trabalhos do Spark||
+|Usar o ADF para orquestração de dados?|Não||
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Leia o artigo seguinte nesta série:
+Leia o próximo artigo desta série:
 
-- [Práticas recomendadas de arquitetura para no local para migração do Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-architecture.md)
+- [Práticas recomendadas de arquitetura para migração local para Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-architecture.md)

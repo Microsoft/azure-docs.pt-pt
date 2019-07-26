@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b8780ae0c24ca2b037211f7cb977f0cacee0f9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 3ca7e7f282d63160cd1f729fba00f6d7d7704270
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325380"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334127"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Início rápido: Conectar usuários e adquirir um token de acesso de um aplicativo de página única do JavaScript
 
@@ -264,7 +264,7 @@ myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
 > [!NOTE]
 > Este guia de início `loginRedirect` rápido `acquireTokenRedirect` usa os métodos e com o Microsoft Internet Explorer, devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado à manipulação de janelas pop-up do Internet Explorer.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter um guia passo a passo mais detalhado sobre como criar o aplicativo para este início rápido, consulte:
 
@@ -275,3 +275,8 @@ Para procurar o repositório MSAL para documentação, perguntas frequentes, pro
 
 > [!div class="nextstepaction"]
 > [Repositório GitHub do MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+
+Ajude-nos a melhorar a plataforma Microsoft Identity. Diga-nos o que você imagina ao concluir uma pesquisa curta de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa sobre plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

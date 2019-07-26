@@ -1,19 +1,18 @@
 ---
 title: Solucionar problemas do agente de backup do Azure
 description: Solucionar problemas de instalação e registro do agente de backup do Azure
-services: backup
 author: saurabhsensharma
 manager: sivan
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: saurse
-ms.openlocfilehash: a791773a3e9cc0b75c626b622070b29c9779c453
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 6dc56e4eccbad0de986551e055e877d3d051b145
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249544"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465973"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -81,19 +80,19 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao definir a chave de criptografia para backups seguros
 
-| Erro | Possíveis causas | Ações recomendadas |
+| Erro | Causas possíveis | Ações recomendadas |
 | ---     | ---     | ---    |
 | <br />Falha ao definir a chave de criptografia para backups seguros. A ativação não foi concluída com êxito, mas a senha de criptografia foi salva no arquivo a seguir. |<li>O servidor já está registrado com outro cofre.<li>Durante a configuração, a senha foi corrompida.| Cancele o registro do servidor do cofre e registre-o novamente com uma nova senha.
 
 ## <a name="the-activation-did-not-complete-successfully"></a>A ativação não foi concluída com êxito
 
-| Erro  | Possíveis causas | Ações recomendadas |
+| Erro  | Causas possíveis | Ações recomendadas |
 |---------|---------|---------|
 |<br />A ativação não foi concluída com êxito. A operação atual falhou devido a um erro de serviço interno [0x1FC07]. Repita a operação após algum tempo. Se o problema persistir, contacte o suporte da Microsoft.     | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup. KEK está ausente.         | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente Mars.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verifique se o arquivo OnlineBackup. KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>Senha de criptografia não configurada corretamente
 
-| Erro  | Possíveis causas | Ações recomendadas |
+| Erro  | Causas possíveis | Ações recomendadas |
 |---------|---------|---------|
 | <br />Erro 34506. A senha de criptografia armazenada neste computador não está configurada corretamente.    | <li> A pasta de rascunho está localizada em um volume que não tem espaço suficiente. <li> A pasta de rascunho foi movida incorretamente. <li> O arquivo OnlineBackup. KEK está ausente.        | <li>Atualize para a [versão mais recente](https://aka.ms/azurebackup_agent) do agente Mars.<li>Mova a pasta de rascunho ou o local do cache para um volume com espaço livre entre 5% e 10% do tamanho total dos dados de backup. Para mover corretamente o local do cache, consulte as etapas em [perguntas comuns sobre como fazer backup de arquivos e pastas](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Verifique se o arquivo OnlineBackup. KEK está presente. <br>*O local padrão para a pasta de rascunho ou o caminho do cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 

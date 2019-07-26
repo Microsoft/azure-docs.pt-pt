@@ -1,6 +1,6 @@
 ---
-title: Enterprise APIs de faturação do Azure | Documentos da Microsoft
-description: Saiba mais sobre as APIs de relatórios de mensagens em fila para que os clientes do Enterprise Azure extrair dados de consumo por meio de programação.
+title: APIs empresariais de cobrança do Azure | Microsoft Docs
+description: Saiba mais sobre as APIs de relatório que permitem aos clientes corporativos do Azure efetuar pull de dados de consumo programaticamente.
 services: ''
 documentationcenter: ''
 author: mumami
@@ -14,53 +14,53 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: erikre
-ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244823"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443220"
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
-As APIs de relatórios permitem que os clientes do Azure do Enterprise programaticamente extrair dados de faturas e de consumo para ferramentas de análise de dados preferencial. Os clientes empresariais iniciaram uma [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para tornar negociados compromissos monetários e obter acesso aos preços personalizados para recursos do Azure.
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Visão geral das APIs de relatórios para clientes empresariais
+As APIs de relatório permitem que os clientes corporativos do Azure recebam programaticamente dados de consumo e cobrança em ferramentas de análise de dados preferenciais. Os clientes corporativos assinaram um [Enterprise Agreement (ea)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para fazer compromissos monetários negociados e obter acesso a preços personalizados para recursos do Azure.
 
-## <a name="enabling-data-access-to-the-api"></a>Ativar o acesso de dados para a API
-* **Gerar ou obter a chave de API** -inicie sessão no portal da empresa e navegue até aos relatórios > Transferir utilização > chave de acesso de API para gerar ou obter a chave de API.
-* **Passando chaves na API** -chave de API a precisa de ser transmitidos para cada chamada para autenticação e autorização. A seguinte propriedade tem de ser para os cabeçalhos HTTP
+## <a name="enabling-data-access-to-the-api"></a>Habilitando o acesso a dados para a API
+* **Gerar ou recuperar a chave de API** – faça logon no Enterprise Portal e navegue até relatórios > Baixe o uso > chave de acesso da API para gerar ou recuperar a chave de API.
+* **Passando chaves na API** -a chave de API precisa ser passada para cada chamada para autenticação e autorização. A propriedade a seguir precisa ser para os cabeçalhos HTTP
 
-|Chave de cabeçalho do pedido | Value|
+|Chave de cabeçalho de solicitação | Valor|
 |-|-|
-|Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador eyr... 09| 
+|Autorização| Especifique o valor neste formato: **portador {api_key}** <br/> Exemplo: portador e... 9| 
 
 ## <a name="consumption-apis"></a>APIs de consumo
-Um ponto de final de Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descrito abaixo que deverá ativar fácil introspeção da API e a capacidade de gerar SDKs de cliente a utilizar [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](https://swagger.io/swagger-codegen/). Dados a partir de 1 de Maio de 2014 estão disponíveis através desta API. 
+Um ponto de extremidade do Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descritas abaixo, que devem habilitar a introspecção fácil da API e a capacidade de gerar SDKs do [cliente usando o](https://github.com/Azure/AutoRest) CodeGen e o [Swagger](https://swagger.io/swagger-codegen/). Os dados que começam em 1º de maio de 2014 estão disponíveis por essa API. 
 
-* **Saldo e o resumo** – a [saldo e o resumo de API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal de informações sobre os saldos, novas compras, os encargos de serviços do Azure Marketplace, ajustes e custos de utilização excedida.
+* **Saldo e Resumo** -a [API de saldo e Resumo](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal das informações sobre saldos, novas compras, encargos de serviço do Azure Marketplace, ajustes e encargos excedentes.
 
-* **Detalhes de utilização** – a [API de detalhes de utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma análise detalhada diária das quantidades consumidas e estimativa de custos por uma inscrição. O resultado também inclui informações sobre instâncias, medidores e departamentos. A API pode ser consultada por período de faturação ou por uma data de início e de fim especificada. 
+* **Detalhes de uso** -a [API de detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma análise diária de quantidades consumidas e encargos estimados por um registro. O resultado também inclui informações sobre instâncias, medidores e departamentos. A API pode ser consultada por período de cobrança ou por uma data de início e de término especificada. 
 
-* **Cobrança de Marketplace Store** – a [API de encargos do Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) devolve a divisão de encargos do marketplace com base na utilização por dia para o período de faturação especificado ou datas de início e de fim (taxas de uma vez não são incluídas).
+* **Encargo da loja do Marketplace** -a [API de encargo da loja do Marketplace](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) retorna a divisão de encargos do Marketplace com base no uso por dia para o período de cobrança especificado ou datas de início e término (uma taxa de tempo não são incluídas).
 
-* **Folha de preços** – a [API da folha de preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a taxa aplicável para cada contador para a inscrição e o período de faturação determinado.
+* **Folha de preços** -a [API da folha de preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a taxa aplicável para cada medidor para o registro e o período de cobrança fornecidos.
 
-* **Reservado detalhes da instância** – a [API de utilização de instância reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devolve a compra de utilização da instância reservada. O [API os custos de instância reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mostra as transações de faturas feitas. 
+* **Detalhes da instância reservada** -a [API de uso da instância reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) retorna o uso das compras da instância reservada. A [API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) de encargos da instância reservada mostra as transações de cobrança feitas. 
 
-## <a name="data-freshness"></a>Atualização dos dados
-Etags vai ser devolvidas na resposta de toda a API acima. Uma alteração na Etag indica que os dados tiverem sido atualizados.  As chamadas subseqüentes para a mesma API usando os mesmos parâmetros, passa a Etag capturada com a chave "If-None-Match" no cabeçalho de pedido de http. O código de estado de resposta seria "NotModified" se os dados não tiverem sido atualizados de qualquer outra e não existem dados vão ser devolvidos. API irá devolver o conjunto de dados completo para o período necessário sempre que houver uma alteração de etag.
+## <a name="data-freshness"></a>Atualização de Dados
+As ETags serão retornadas na resposta de toda a API acima. Uma alteração na ETag indica que os dados foram atualizados.  Nas chamadas subsequentes para a mesma API usando os mesmos parâmetros, passe o ETag capturado com a chave "If-None-Match" no cabeçalho da solicitação HTTP. O código de status de resposta seria "não modificado" se os dados não tiverem sido atualizados mais adiante e nenhum dado será retornado. A API retornará o conjunto de um inteiro para o período necessário sempre que houver uma alteração de eTag.
 
 ## <a name="helper-apis"></a>APIs auxiliares
- **Lista de períodos de faturação** – a [API de períodos de faturação](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos de faturação que tem dados de consumo para a inscrição especificada por ordem cronológica reversa. Cada período contém uma propriedade que aponta para a rota de API para os quatro conjuntos de dados - BalanceSummary, UsageDetails, encargos do Marketplace e folha de preços.
+ **Listar períodos de cobrança** -a [API de períodos de cobrança](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retorna uma lista de períodos de cobrança que têm dados de consumo para o registro especificado em ordem cronológica inversa. Cada período contém uma propriedade que aponta para a rota da API para os quatro conjuntos de dados-: Balancesummary, UsageDetails, encargos do Marketplace e folha de preços.
 
 
-## <a name="api-response-codes"></a>Códigos de resposta de API   
-|Código de estado de resposta|Message|Descrição|
+## <a name="api-response-codes"></a>Códigos de resposta da API   
+|Código de status de resposta|Message|Descrição|
 |-|-|-|
-|200| OK|Nenhum erro|
-|401| Não autorizado| Chave de API não encontrado, inválido, expirou etc.|
-|404| Não disponível| Ponto final de relatório não foi encontrado|
-|400| Pedido Inválido| Parâmetros inválidos – intervalos de datas, números EA etc.|
-|500| Erro de servidor| Erro inesperado ao processar o pedido| 
+|200| OK|Sem erros|
+|401| Não autorizado| Chave de API não encontrada, inválida, expirada, etc.|
+|404| Não disponível| Ponto de extremidade de relatório não encontrado|
+|400| Pedido Inválido| Parâmetros inválidos – intervalos de datas, números de EA, etc.|
+|500| Erro do Servidor| Erro inesperado ao processar solicitação| 
 
 
 

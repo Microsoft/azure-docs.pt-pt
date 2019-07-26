@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Dimensionar a computação no Azure SQL Data Warehouse - T-SQL | Documentos da Microsoft'
+title: 'Início rápido: Expandir a computação no Azure SQL Data Warehouse-T-SQL | Microsoft Docs'
 description: Dimensionar a computação no Azure SQL Data Warehouse com T-SQL e SQL Server Management Studio (SSMS). Dimensionar a computação para um melhor desempenho ou a escalar a computação novamente para reduzir os custos.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: Anthony.vanGemert
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5f3eb8a8e323add287dba8d9c590e89ea4e1fa7
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475495"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479241"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início rápido: Dimensionar a computação do Azure SQL Data Warehouse com T-SQL
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início rápido: Dimensionar a computação no Azure SQL Data Warehouse usando o T-SQL
 
 Dimensionar a computação no Azure SQL Data Warehouse com T-SQL e SQL Server Management Studio (SSMS). [Dimensionar a computação](sql-data-warehouse-manage-compute-overview.md) para um melhor desempenho ou a escalar a computação novamente para reduzir os custos. 
 
@@ -43,7 +43,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
    | Nome do servidor | O nome de servidor completamente qualificado | Segue-se um exemplo: **mynewserver-20171113.database.windows.net**. |
-   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+   | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
    | Iniciar sessão | A conta de administrador do servidor | A conta que especificou quando criou o servidor. |
    | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 
@@ -92,7 +92,7 @@ Para alterar as unidades do data warehouse:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

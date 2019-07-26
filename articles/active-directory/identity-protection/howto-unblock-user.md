@@ -1,64 +1,61 @@
 ---
-title: Como desbloquear utilizadores com o Azure Active Directory Identity Protection | Documentos da Microsoft
-description: Saiba como desbloquear utilizadores que foram bloqueados por uma política do Azure Active Directory Identity Protection.
+title: Como desbloquear usuários com Azure Active Directory Identity Protection | Microsoft Docs
+description: Saiba como desbloquear usuários que foram bloqueados por uma política de Azure Active Directory Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, desbloquear utilizador
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d22fa7fd3964f99c426e8e21d34dcfdea6d1b36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c28e30b8e44b6888cdb7416b9c7b563b955a68ce
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60294426"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335371"
 ---
 # <a name="how-to-unblock-users"></a>Como: Desbloquear utilizadores
 
-Com o Azure Active Directory Identity Protection, pode configurar políticas para impedir que os utilizadores se as condições configuradas são cumpridas. Normalmente, um utilizador bloqueado contactos suporte técnico para se tornar desbloqueado. Este artigo explica os passos que pode efetuar para desbloquear um utilizador bloqueado.
+Com Azure Active Directory Identity Protection, você pode configurar políticas para bloquear os usuários se as condições configuradas forem satisfeitas. Normalmente, um usuário bloqueado entra em contato com o suporte técnico para tornar-se desbloqueado. Este artigo explica as etapas que você pode executar para desbloquear um usuário bloqueado.
 
-## <a name="determine-the-reason-for-blocking"></a>Determinar a razão para bloquear
-Como primeiro passo para desbloquear um utilizador, terá de determinar o tipo de política que bloqueou o utilizador porque os passos seguintes são depender.
-Com o Azure Active Directory Identity Protection, um utilizador pode optar por bloqueado por uma política de risco de início de sessão ou uma política de risco do utilizador.
+## <a name="determine-the-reason-for-blocking"></a>Determinar o motivo do bloqueio
 
-Pode obter o tipo de política que bloqueou a um utilizador a partir do cabeçalho na caixa de diálogo que foi apresentado ao utilizador durante uma tentativa de início de sessão:
+Como uma primeira etapa para desbloquear um usuário, você precisa determinar o tipo de política que bloqueou o usuário, pois suas próximas etapas estão dependendo dela.
+Com o Azure Active Directory Identity Protection, um usuário pode ser bloqueado por uma política de risco de entrada ou uma política de risco do usuário.
 
-| Política | Caixa de diálogo de utilizador |
+Você pode obter o tipo de política que bloqueou um usuário do cabeçalho na caixa de diálogo que foi apresentada ao usuário durante uma tentativa de entrada:
+
+| Política | Caixa de diálogo usuário |
 | --- | --- |
-| Início de sessão de risco |![O início de sessão bloqueado](./media/howto-unblock-user/02.png) |
+| Risco de início de sessão |![Entrada bloqueada](./media/howto-unblock-user/02.png) |
 | Risco de utilizador |![Conta bloqueada](./media/howto-unblock-user/104.png) |
 
-Um utilizador que está bloqueado por:
+Um usuário que está bloqueado pelo:
 
-* Uma política de risco de início de sessão é também conhecida como o início de sessão suspeito
-* Uma política de risco do utilizador também é conhecido como uma conta em risco
+* Uma política de risco de entrada também é conhecida como entrada suspeita
+* Uma política de risco do usuário também é conhecida como uma conta em risco
 
-## <a name="unblocking-suspicious-sign-ins"></a>A desbloquear suspeitos inícios de sessão
-Para desbloquear um suspeito início de sessão, tem as seguintes opções:
+## <a name="unblocking-suspicious-sign-ins"></a>Desbloqueando entradas suspeitas
 
-1. **Iniciar sessão a partir de um dispositivo ou localização familiar** -um motivo comum para bloqueado suspeitos inícios de sessão são tentativas de início de sessão de localizações desconhecidas ou dispositivos. Os utilizadores podem determinar rapidamente se este é o motivo do bloqueio tentando inícios de sessão de um dispositivo ou localização familiar.
-2. **Excluir da política** - se considera que a configuração atual da sua política de início de sessão está a causar problemas para utilizadores específicos, pode excluir os utilizadores do mesmo. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-3. **Desativar política** - se considera que a configuração de política está a causar problemas para todos os seus utilizadores, pode desativar a política. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Para desbloquear uma entrada suspeita, você tem as seguintes opções:
 
-## <a name="unblocking-accounts-at-risk"></a>A desbloquear contas em risco
-Para desbloquear uma conta em risco, tem as seguintes opções:
+1. **Entrar de um local ou dispositivo familiar** – um motivo comum para entradas suspeitas bloqueadas são tentativas de entrada de locais ou dispositivos desconhecidos. Os usuários podem determinar rapidamente se esse é o motivo do bloqueio tentando entrar de um dispositivo ou local familiar.
+2. **Excluir da política** -se você considerar que a configuração atual da sua política de entrada está causando problemas para usuários específicos, poderá excluir os usuários dele. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+3. **Desabilitar política** – se você considerar que sua configuração de política está causando problemas para todos os seus usuários, você pode desabilitar a política. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-1. **Repor palavra-passe** -pode redefinir a senha do usuário. 
-2. **Dispensar todos os eventos de risco** - os blocos de política de risco de utilizador um utilizador se o nível de bloqueio de acesso de risco do usuário configurado for atingido. Pode reduzir um utilizador do nível de risco fechando manualmente reportou eventos de risco. 
-3. **Excluir da política** - se considera que a configuração atual da sua política de início de sessão está a causar problemas para utilizadores específicos, pode excluir os utilizadores do mesmo. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-4. **Desativar política** - se considera que a configuração de política está a causar problemas para todos os seus utilizadores, pode desativar a política. Para obter mais informações, consulte [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+## <a name="unblocking-accounts-at-risk"></a>Desbloqueando contas em risco
+
+Para desbloquear uma conta em risco, você tem as seguintes opções:
+
+1. **Redefinir senha** – você pode redefinir a senha do usuário. 
+2. **Ignorar todos os eventos de risco** – a política de risco do usuário bloqueia um usuário se o nível de risco do usuário configurado para bloquear o acesso tiver sido atingido. Você pode reduzir o nível de risco de um usuário fechando manualmente os eventos de risco relatados. 
+3. **Excluir da política** -se você considerar que a configuração atual da sua política de entrada está causando problemas para usuários específicos, poderá excluir os usuários dele. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+4. **Desabilitar política** – se você considerar que sua configuração de política está causando problemas para todos os seus usuários, você pode desabilitar a política. Para obter mais informações, consulte [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
  
-Pretende saber mais sobre o Azure AD Identity Protection? Confira [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Deseja saber mais sobre Azure AD Identity Protection? Confira [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).

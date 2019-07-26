@@ -1,6 +1,6 @@
 ---
-title: Compreender a mensagens de cloud para dispositivo IoT Hub do Azure | Documentos da Microsoft
-description: Este guia do programador descreve como utilizar o cloud-para-dispositivo mensagens com o seu hub IoT. Ele inclui informações sobre o ciclo de vida de mensagem e opções de configuração.
+title: Entender as mensagens da nuvem para o dispositivo do Hub IoT do Azure | Microsoft Docs
+description: Este guia do desenvolvedor discute como usar mensagens da nuvem para o dispositivo com o Hub IoT. Ele inclui informações sobre o ciclo de vida da mensagem e as opções de configuração.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -8,102 +8,102 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 0fc1b65a4ba1c8a3d76b48206d6a4703035e05bc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055310"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335726"
 ---
-# <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da cloud para dispositivo a partir de um hub IoT
+# <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
-Para enviar notificações unidirecionais para uma aplicação de dispositivo da sua solução de back-end, envie mensagens da cloud para dispositivo do seu hub IoT para o seu dispositivo. Para uma discussão sobre outras opções de cloud-para-dispositivo suportado pelo IoT Hub do Azure, consulte [orientações de comunicações da Cloud-para-dispositivo](iot-hub-devguide-c2d-guidance.md).
+Para enviar notificações unidirecionais para um aplicativo de dispositivo do back-end da solução, envie mensagens da nuvem para o dispositivo do Hub IoT para seu dispositivo. Para obter uma discussão sobre outras opções de nuvem para dispositivo com suporte pelo Hub IoT do Azure, consulte [diretrizes de comunicação da nuvem para o dispositivo](iot-hub-devguide-c2d-guidance.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Enviar mensagens da cloud para o dispositivo através de um ponto de extremidade de serviço com acesso à */mensagens/devicebound*. Um dispositivo, em seguida, recebe as mensagens por meio de um ponto de extremidade específicos do dispositivo, */devices/ {deviceId} / mensagens/devicebound*.
+Você envia mensagens da nuvem para o dispositivo por meio de um ponto de extremidade voltado para o serviço, */messages/devicebound*. Em seguida, um dispositivo recebe as mensagens por meio de um ponto de extremidade específico do dispositivo, */Devices/{deviceId}/messages/devicebound*.
 
-Define o seu hub IoT para cada mensagem de cloud para o dispositivo num único dispositivo de destino, o **para** propriedade */devices/ {deviceId} / mensagens/devicebound*.
+Para direcionar cada mensagem da nuvem para o dispositivo em um único dispositivo, o Hub IoT define a propriedade **to** como */Devices/{deviceId}/messages/devicebound*.
 
-Cada fila de dispositivo contém, no máximo, 50 mensagens da cloud para o dispositivo. Para tentar enviar mais mensagens para os mesmos resultados de dispositivo num erro.
+Cada fila de dispositivo contém, no máximo, 50 mensagens da nuvem para o dispositivo. Para tentar enviar mais mensagens para o mesmo dispositivo resulta em um erro.
 
-## <a name="the-cloud-to-device-message-life-cycle"></a>O ciclo de vida de mensagem da cloud para dispositivo
+## <a name="the-cloud-to-device-message-life-cycle"></a>O ciclo de vida da mensagem da nuvem para o dispositivo
 
-Para garantir a entrega de mensagens pelo-menos-uma vez, o hub IoT mantém as mensagens da cloud para o dispositivo em filas de por dispositivo. Para o hub IoT remover as mensagens da fila, os dispositivos explicitamente devem reconhecer *conclusão*. Essa abordagem garante resiliência contra falhas de dispositivo e de conectividade.
+Para garantir a entrega de mensagens pelo menos uma vez, o Hub IoT persiste as mensagens da nuvem para o dispositivo em filas por dispositivo. Para que o Hub IoT remova as mensagens da fila, os dispositivos devem confirmar explicitamente a *conclusão*. Essa abordagem garante a resiliência contra falhas de dispositivo e conectividade.
 
-O gráfico de estado do ciclo de vida é apresentado no diagrama seguinte:
+O gráfico de estado do ciclo de vida é exibido no diagrama a seguir:
 
-![Ciclo de vida de mensagem da cloud para dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
+![Ciclo de vida da mensagem da nuvem para o dispositivo](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-Quando o serviço hub IoT envia uma mensagem a um dispositivo, o serviço define o estado de mensagem como *colocados em fila*. Quando um dispositivo deseja *receber* uma mensagem, o hub IoT *bloqueios* a mensagem ao definir o estado como *invisível*. Este estado permite que outros threads no dispositivo para iniciar outras mensagens a receber. Quando um thread de dispositivo concluir o processamento de uma mensagem, notifica o hub IoT por *concluir* a mensagem. O hub IoT, em seguida, define o estado como *concluído*.
+Quando o serviço do Hub IoT envia uma mensagem para um dispositivo, o serviço define o estado da mensagem como enfileirada. Quando um dispositivo quiser *receber* uma mensagem, o Hub IOT *bloqueará* a mensagem definindo o estado como *invisível*. Esse estado permite que outros threads no dispositivo comecem a receber outras mensagens. Quando um thread de dispositivo conclui o processamento de uma mensagem, ele notifica o Hub IoT concluindo  a mensagem. Em seguida, o Hub IoT define o estado como *concluído*.
 
 Um dispositivo também pode:
 
-* *Rejeitar* a mensagem, que faz com que o hub IoT para configurá-lo para o *inutilizado lettered* estado. Dispositivos que ligam através do protocolo de mensagem colocação Telemetry Transport (MQTT) não podem rejeitar mensagens cloud para o dispositivo.
+* *Rejeite* a mensagem, o que faz com que o Hub IOT a defina para o estado de *mensagens mortas* . Os dispositivos que se conectam por meio do protocolo MQTT (transporte de telemetria de enfileiramento de mensagens) não podem rejeitar mensagens da nuvem para o dispositivo.
 
-* *Abandonar* a mensagem, que faz com que o hub IoT colocar a mensagem de volta na fila, com o estado definido como *colocados em fila*. Dispositivos que ligam através do protocolo MQTT não é possível abandonar mensagens cloud para o dispositivo.
+* *Abandone* a mensagem, o que faz com que o Hub IOT Coloque a mensagem de volta na fila, com o estado definido como enfileirado. Os dispositivos que se conectam pelo protocolo MQTT não podem abandonar mensagens da nuvem para o dispositivo.
 
-Um thread pode não conseguir processar uma mensagem sem notificar o hub IoT. Neste caso, as mensagens são automaticamente transição da *invisível* estado para o *colocados em fila* Estado após um *visibilidade* tempo limite (ou *bloqueio* limite de tempo). O valor predefinido desse intervalo é de um minuto.
+Um thread pode falhar ao processar uma mensagem sem notificar o Hub IoT. Nesse caso, as mensagens são automaticamente transferidas do estado *invisível* de volta para o estado enfileirado após um tempo limite de *visibilidade* (ou tempo limite de *bloqueio* ). O valor desse tempo-limite é de um minuto e não pode ser alterado.
 
-O **máximo de contagem de entrega** propriedade no IoT hub determina o número máximo de vezes que uma mensagem pode fazer a transição entre os *colocados em fila* e *invisível* Estados. Após esse número de transições, o hub IoT define o estado da mensagem a *inutilizado lettered*. Da mesma forma, o hub IoT define o estado de uma mensagem *inutilizado lettered* após a hora de expiração. Para obter mais informações, consulte [TTL](#message-expiration-time-to-live).
+A propriedade **contagem máxima de entrega** no Hub IOT determina o número máximo de vezes que uma mensagem pode fazer a transição entre os Estados enfileirados e  invisíveis. Depois desse número de transições, o Hub IoT define o estado da mensagem para *mensagens mortas*. Da mesma forma, o Hub IoT define o estado de uma mensagem para *mensagens mortas* após seu tempo de expiração. Para obter mais informações, consulte [vida útil](#message-expiration-time-to-live).
 
-O [como enviar mensagens da cloud para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) artigo mostra-lhe como enviar mensagens da cloud para dispositivo a partir da cloud e recebê-las num dispositivo.
+O artigo [como enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-csharp-csharp-c2d.md) mostra como enviar mensagens da nuvem para o dispositivo da nuvem e recebê-las em um dispositivo.
 
-Um dispositivo normalmente conclui uma mensagem de cloud-para-dispositivo quando a perda da mensagem não afeta a lógica do aplicativo. Um exemplo disso pode ser quando o dispositivo se manteve o conteúdo da mensagem localmente ou executou com êxito uma operação. A mensagem também poderia levar a informações temporárias, cuja perda não afeta a funcionalidade do aplicativo. Às vezes, para tarefas de longa execução, pode:
+Um dispositivo normalmente conclui uma mensagem da nuvem para o dispositivo quando a perda da mensagem não afeta a lógica do aplicativo. Um exemplo disso pode ser quando o dispositivo persistiu o conteúdo da mensagem localmente ou executou uma operação com êxito. A mensagem também pode transportar informações transitórias, cuja perda não afetaria a funcionalidade do aplicativo. Às vezes, para tarefas de execução longa, você pode:
 
-* Conclua a mensagem de cloud-para-dispositivo depois do dispositivo se manteve a descrição da tarefa no armazenamento local.
+* Conclua a mensagem da nuvem para o dispositivo depois que o dispositivo persistir a descrição da tarefa no armazenamento local.
 
-* Notificar a solução de back-end com uma ou mais mensagens do dispositivo para a cloud em vários estágios de progresso da tarefa.
+* Notifique o back-end da solução com uma ou mais mensagens do dispositivo para a nuvem em vários estágios de progresso da tarefa.
 
-## <a name="message-expiration-time-to-live"></a>Expiração da mensagem (tempo até ao live)
+## <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 
-Todas as mensagens da cloud para o dispositivo tem um prazo de expiração. Este tempo é definido por um dos seguintes:
+Cada mensagem da nuvem para o dispositivo tem um tempo de expiração. Esse tempo é definido por um dos seguintes:
 
-* O **ExpiryTimeUtc** propriedade no serviço
-* O hub IoT, ao utilizar a predefinição *TTL* que é especificado como uma propriedade do hub IoT
+* A propriedade **ExpiryTimeUtc** no serviço
+* O Hub IoT, usando a *vida* útil padrão especificada como uma propriedade de Hub IOT
 
-Ver [opções de configuração de Cloud-para-dispositivo](#cloud-to-device-configuration-options).
+Consulte [Opções de configuração da nuvem para o dispositivo](#cloud-to-device-configuration-options).
 
-Uma maneira comum para tirar partido de expiração de mensagens e para evitar o envio de mensagens para dispositivos desligados consiste em definir curto *TTL* valores. Essa abordagem alcança o mesmo resultado que manter o estado de ligação do dispositivo, mas é mais eficiente. Quando solicitar confirmações de mensagem, o hub IoT notifica-o de que os dispositivos são:
+Uma maneira comum de aproveitar uma expiração de mensagem e evitar o envio de mensagens para dispositivos desconectados é definir valores curtos *de vida* útil. Essa abordagem alcança o mesmo resultado que manter o estado de conexão do dispositivo, mas é mais eficiente. Quando você solicita confirmações de mensagem, o Hub IoT notifica quais dispositivos são:
 
-* É possível receber mensagens.
-* Não estão online ou ter falhado.
+* Capaz de receber mensagens.
+* Não estão online ou falharam.
 
-## <a name="message-feedback"></a>Comentários de mensagem
+## <a name="message-feedback"></a>Comentários da mensagem
 
-Quando envia uma mensagem de cloud para o dispositivo, o serviço pode solicitar o fornecimento de comentários por mensagem sobre o estado final dessa mensagem. Fazer isso definindo a **iothub-ack** propriedade da aplicação na mensagem de cloud para o dispositivo que está sendo enviada para um dos quatro valores seguintes:
+Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de comentários por mensagem sobre o estado final dessa mensagem. Você faz isso definindo a propriedade de aplicativo **iothub-ACK** na mensagem da nuvem para o dispositivo que está sendo enviada para um dos quatro valores a seguir:
 
 | Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
-| Nenhum     | O hub IoT não gera uma mensagem de comentários (comportamento predefinido). |
-| positiva | Se a mensagem de cloud-para-dispositivo atingir a *concluído* de estado, o hub IoT gera uma mensagem de comentários. |
-| negativo | Se a mensagem de cloud-para-dispositivo atingir a *inutilizado lettered* de estado, o hub IoT gera uma mensagem de comentários. |
-| completo     | O hub IoT gera uma mensagem de comentários em ambos os casos. |
+| nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
+| positiva | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
+| seriamente | Se a mensagem da nuvem para o dispositivo atingir o  estado inativo, o Hub IOT gerará uma mensagem de comentários. |
+| completo     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
-Se o **Ack** valor é *completo*e não receberá uma mensagem de comentários, significa que a mensagem de comentários a expirou. O serviço não é possível saber o que aconteceu com a mensagem original. Na prática, um serviço deve certificar-se de que consegue processar os comentários antes de expirar. A hora de expiração máximo é dois dias, o que deixa o tempo para obter o serviço de executar novamente se ocorrer uma falha.
+Se o valor de **ACK** estiver *cheio*e você não receber uma mensagem de comentários, isso significa que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que ele possa processar os comentários antes que ele expire. O tempo de expiração máximo é de dois dias, o que deixa o tempo para que o serviço seja executado novamente se ocorrer uma falha.
 
-Conforme explicado [pontos de extremidade](iot-hub-devguide-endpoints.md), o hub IoT fornece comentários por meio de um ponto de extremidade de serviço com acesso à */messages/servicebound/feedback*, como mensagens. A semântica para o recebimento de comentários é iguais aos mensagens cloud para o dispositivo. Sempre que possível, os comentários da mensagem é em batch numa única mensagem, com o seguinte formato:
+Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o Hub IOT entrega comentários por meio de um ponto de extremidades voltado para o serviço, */messages/servicebound/feedback*, como mensagens. A semântica para receber comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários da mensagem são enviados em lote em uma única mensagem, com o seguinte formato:
 
 | Propriedade     | Descrição |
 | ------------ | ----------- |
-| EnqueuedTime | Um carimbo que indica quando a mensagem de comentários foi recebida pelo hub |
+| EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
-O corpo é uma JSON serializado matriz de registos, cada um com as seguintes propriedades:
+O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
 | Propriedade           | Descrição |
 | ------------------ | ----------- |
-| EnqueuedTimeUtc    | Um carimbo que indica quando ocorreu o resultado da mensagem (por exemplo, o hub recebeu a mensagem de comentários ou a mensagem original expirou) |
-| OriginalMessageId  | O *MessageId* da mensagem de cloud para o dispositivo ao qual está associado estas informações de comentários |
-| StatusCode         | Uma cadeia necessária, utilizada nas mensagens de comentários que são geradas pelo IoT hub: <br/> *Êxito* <br/> *Expirou* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Removidos* |
-| Descrição        | Valores de cadeias de caracteres *StatusCode* |
-| DeviceId           | O *DeviceId* do dispositivo de destino da mensagem de cloud para o dispositivo ao qual está associado esta parte de comentários |
-| DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem de cloud para o dispositivo ao qual está associado esta parte de comentários |
+| EnqueuedTimeUtc    | Um carimbo de data/hora que indica quando o resultado da mensagem ocorreu (por exemplo, o Hub recebeu a mensagem de comentário ou a mensagem original expirou) |
+| OriginalMessageId  | A *MessageId* da mensagem da nuvem para o dispositivo à qual essas informações de comentários se relacionam |
+| StatusCode         | Uma cadeia de caracteres necessária, usada em mensagens de comentários que são geradas pelo Hub IoT: <br/> *Êxito* <br/> *Vencer* <br/> *DeliveryCountExceeded* <br/> *Recusa* <br/> *Limpos* |
+| Descrição        | Valores de cadeia de caracteres para *StatusCode* |
+| DeviceId           | A  DeviceID do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
+| DeviceGenerationId | O *DeviceGenerationId* do dispositivo de destino da mensagem da nuvem para o dispositivo à qual esse comentário se relaciona |
 
-Para a mensagem de cloud-para-dispositivo correlacionar os seus comentários com a mensagem original, o serviço tem de especificar um *MessageId*.
+Para a mensagem da nuvem para o dispositivo correlacionar seus comentários com a mensagem original, o serviço deve especificar uma *MessageId*.
 
-O corpo de uma mensagem de comentários é mostrado no seguinte código:
+O corpo de uma mensagem de comentários é mostrado no código a seguir:
 
 ```json
 [
@@ -122,21 +122,21 @@ O corpo de uma mensagem de comentários é mostrado no seguinte código:
 ]
 ```
 
-## <a name="cloud-to-device-configuration-options"></a>Opções de configuração de cloud-para-dispositivo
+## <a name="cloud-to-device-configuration-options"></a>Opções de configuração da nuvem para o dispositivo
 
-Cada hub IoT expõe as seguintes opções de configuração para a cloud para o dispositivo de mensagens:
+Cada Hub IoT expõe as seguintes opções de configuração para mensagens da nuvem para o dispositivo:
 
-| Propriedade                  | Descrição | Intervalo e predefinido |
+| Propriedade                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | TTL predefinido para mensagens na cloud para o dispositivo | Intervalo de ISO_8601 até 2 dias (mínimo 1 minuto); predefinição: 1 hora |
-| maxDeliveryCount          | Contagem máxima de entrega para filas de cloud-para-dispositivo por dispositivo | 1 a 100; predefinição: 10 |
-| feedback.ttlAsIso8601     | Período de retenção de mensagens de comentários do serviço ligado | Intervalo de ISO_8601 até 2 dias (mínimo 1 minuto); predefinição: 1 hora |
-| feedback.maxDeliveryCount | Contagem máxima de entrega para a fila de comentários | 1 a 100; predefinição: 100 |
+| defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); os 1 hora |
+| maxDeliveryCount          | Contagem máxima de entregas para filas de nuvem para dispositivo por dispositivo | 1 a 100; os 10 |
+| feedback.ttlAsIso8601     | Retenção de mensagens de comentários associadas ao serviço | Intervalo de ISO_8601 de até 2 dias (mínimo de 1 minuto); os 1 hora |
+| feedback.maxDeliveryCount | Contagem máxima de entregas para a fila de comentários | 1 a 100; os 100 |
 
-Para obter mais informações sobre como definir estas opções de configuração, consulte [os hubs IoT criar](iot-hub-create-through-portal.md).
+Para obter mais informações sobre como definir essas opções de configuração, consulte [criar hubs IOT](iot-hub-create-through-portal.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre os SDKs que pode utilizar para receber mensagens da cloud para o dispositivo, consulte [do Azure IoT SDKs](iot-hub-devguide-sdks.md).
+Para obter informações sobre os SDKs que você pode usar para receber mensagens da nuvem para o dispositivo, consulte [SDKs do IOT do Azure](iot-hub-devguide-sdks.md).
 
-Para experimentar o recebimento de mensagens da cloud para o dispositivo, consulte a [enviar cloud-para-dispositivo](iot-hub-csharp-csharp-c2d.md) tutorial.
+Para experimentar o recebimento de mensagens da nuvem para o dispositivo, consulte o tutorial [Enviar nuvem para dispositivo](iot-hub-csharp-csharp-c2d.md) .

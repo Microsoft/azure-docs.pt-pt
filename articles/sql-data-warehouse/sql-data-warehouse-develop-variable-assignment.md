@@ -1,8 +1,8 @@
 ---
-title: Atribuir variáveis no Azure SQL Data Warehouse | Documentos da Microsoft
-description: Sugestões para atribuição de variáveis de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+title: Atribuir variáveis no Azure SQL Data Warehouse | Microsoft Docs
+description: Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,27 +10,27 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 62c4273a02e02aff268a96e1b13483088ba33f87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861686"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479551"
 ---
-# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuição de variáveis no Azure SQL Data Warehouse
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Atribuindo variáveis no Azure SQL Data Warehouse
 
-Sugestões para atribuição de variáveis de T-SQL no Azure SQL Data Warehouse para o desenvolvimento de soluções.
+Dicas para atribuir variáveis T-SQL no Azure SQL Data Warehouse para desenvolver soluções.
 
-## <a name="setting-variables-with-declare"></a>Definir variáveis com DECLARE
+## <a name="setting-variables-with-declare"></a>Definindo variáveis com DECLARE
 
-Variáveis no SQL Data Warehouse são definidas utilizando o `DECLARE` instrução ou o `SET` instrução. A inicializar variáveis com DECLARE é uma das formas mais flexíveis para definir um valor da variável no SQL Data Warehouse.
+As variáveis no SQL data warehouse são definidas usando `DECLARE` a instrução ou `SET` a instrução. Inicializar variáveis com DECLARE é uma das maneiras mais flexíveis de definir um valor de variável em SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-Também pode utilizar DECLARE para definir mais de uma variável de cada vez. Não é possível utilizar SELECT ou ATUALIZAÇÃO para fazer o seguinte:
+Você também pode usar DECLARE para definir mais de uma variável por vez. Você não pode usar SELECT ou UPDATE para fazer o seguinte:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -38,7 +38,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Não é possível inicializar e utilizar uma variável na mesma instrução DECLARE. Para ilustrar o ponto, o exemplo seguinte é **não** permitida uma vez que @p1 é inicializado tanto utilizado na mesma instrução DECLARE. O exemplo a seguir fornece um erro.
+Você não pode inicializar e usar uma variável na mesma instrução DECLARE. Para ilustrar o ponto, o exemplo a seguir **não** é @p1 permitido, já que é inicializado e usado na mesma instrução Declare. O exemplo a seguir apresenta um erro.
 
 ```sql
 DECLARE @p1 int = 0
@@ -46,11 +46,11 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Valores de definição de conjunto
+## <a name="setting-values-with-set"></a>Definindo valores com SET
 
-CONJUNTO é um método comum para a definição de uma única variável.
+SET é um método comum para definir uma única variável.
 
-As instruções seguintes são válidas maneiras de definir uma variável com o conjunto:
+As instruções a seguir são todas as maneiras válidas de definir uma variável com SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -59,12 +59,12 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Apenas pode definir uma variável de cada vez com o conjunto. No entanto, os operadores compostas são permitidos.
+Você só pode definir uma variável por vez com SET. No entanto, os operadores compostos são permitidos.
 
 ## <a name="limitations"></a>Limitações
 
-Não é possível utilizar a ATUALIZAÇÃO para atribuição de variáveis.
+Você não pode usar UPDATE para atribuição de variável.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais sugestões de desenvolvimento, consulte [descrição geral do desenvolvimento](sql-data-warehouse-overview-develop.md).
+Para obter mais dicas de desenvolvimento, consulte [visão geral de desenvolvimento](sql-data-warehouse-overview-develop.md).

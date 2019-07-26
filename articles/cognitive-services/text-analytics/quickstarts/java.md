@@ -10,12 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.openlocfilehash: 72a3fd1220a5acf7429f0dac05133bc9852d8c5b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.custom: seo-java-july2019
+ms.openlocfilehash: c5e47918cb31d127842cb7a45883cf4c47fb56e0
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68404780"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489225"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Usando o Java para chamar o serviço de Análise de Texto cognitiva
 <a name="HOLTop"></a>

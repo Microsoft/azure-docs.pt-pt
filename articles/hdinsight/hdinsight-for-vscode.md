@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 31f6c34089c1825eca21283b01eae181c8112216
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: da5cdd36e70166d274d50fcb093c0889cf534172
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312175"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489005"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
 
@@ -83,9 +83,9 @@ Antes de enviar scripts para seus clusters do Visual Studio Code, você precisa 
 
 ## <a name="link-a-cluster"></a>Vincular um cluster
 
-### <a name="link-azure-hdinsight"></a>Criar Azure HDInsight
+### <a name="link-azure-hdinsight"></a>Ligação: Azure HDInsight
 
-Você pode vincular um cluster normal usando um nome de usuário gerenciado do [Apache Ambari](https://ambari.apache.org/) ou vincular um cluster Hadoop seguro do pacote de segurança do Enterprise usando um nome de user1@contoso.comusuário de domínio (como:).
+Você pode vincular um cluster normal usando um nome de usuário gerenciado do [Apache Ambari](https://ambari.apache.org/) ou vincular um cluster Hadoop seguro do pacote de segurança do Enterprise usando um nome de `user1@contoso.com`usuário de domínio (como:).
 
 1. Na barra de menus, navegue até **Exibir** > **paleta de comandos...** e **insira Spark/Hive: Vincular um cluster**.
 
@@ -109,7 +109,7 @@ Você pode vincular um cluster normal usando um nome de usuário gerenciado do [
    > O nome de usuário e a senha vinculados serão usados se o cluster fizer logon na assinatura do Azure e vinculado a um cluster.  
 
 
-### <a name="link-generic-livy-endpoint"></a>Criar Ponto de extremidade Livy genérico
+### <a name="link-generic-livy-endpoint"></a>Ligação: Ponto de extremidade Livy genérico
 
 1. Na barra de menus, navegue até **Exibir** > **paleta de comandos...** e **insira Spark/Hive: Vincular um cluster**.
 
@@ -208,7 +208,7 @@ Você pode enviar consultas PySpark interativas seguindo as etapas abaixo:
 
    ![janela interativa do Python pyspark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
 
-7. Insira **"%% info"** e pressione **Shift + Enter** para exibir informações do trabalho. Adicional
+7. Insira **"%% info"** e pressione **Shift + Enter** para exibir informações do trabalho. (Opcional)
 
    ![exibir informações do trabalho](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -294,7 +294,7 @@ Enviar um arquivo, observe que a pasta. vscode é adicionada automaticamente à 
     | :- | :- | :- | 
     | file | Arquivo que contém o aplicativo a ser executado | caminho (obrigatório) | 
     | proxyUser | Usuário a representar ao executar o trabalho | Cadeia de caracteres | 
-    | className | Classe principal do aplicativo Java/Spark | Cadeia de caracteres |
+    | className | Classe principal do aplicativo Java/Spark | cadeia |
     | args | Argumentos de linha de comando para o aplicativo | lista de cadeias de caracteres | 
     | Jars | Jars a serem usados nesta sessão | Lista de cadeia de caracteres | 
     | pyFiles | Arquivos Python a serem usados nesta sessão | Lista de cadeia de caracteres |
@@ -305,11 +305,11 @@ Enviar um arquivo, observe que a pasta. vscode é adicionada automaticamente à 
     | executorCores | Número de núcleos a serem usados para cada executor | int |
     | numExecutors | Número de executores a serem iniciados para esta sessão | int |
     | archives | Arquivos mortos a serem usados nesta sessão | Lista de cadeia de caracteres |
-    | queue | O nome da fila YARN para a qual foi enviado | cadeia |
-    | name | O nome desta sessão | cadeia |
+    | queue | O nome da fila YARN para a qual foi enviado | Cadeia de caracteres |
+    | name | O nome desta sessão | Cadeia de caracteres |
     | conf | Propriedades de configuração do Spark | Mapa de chave = Val |
 
-    Corpo da resposta   
+    Corpo da Resposta   
     O objeto de lote criado.
 
     | name | description | type | 
@@ -317,7 +317,7 @@ Enviar um arquivo, observe que a pasta. vscode é adicionada automaticamente à 
     | id | A ID da sessão | int | 
     | appId | A ID do aplicativo desta sessão |  Cadeia |
     | appInfo | As informações detalhadas do aplicativo | Mapa de chave = Val |
-    | Façam | As linhas de log | lista de cadeias de caracteres |
+    | registo | As linhas de log | lista de cadeias de caracteres |
     | state |   O estado do lote | Cadeia de caracteres |
 
 >[!NOTE]
@@ -337,7 +337,7 @@ O **Azure HDInsight** foi adicionado ao modo de exibição do Explorer. Você po
 
 4. Expanda o cluster para exibir o banco de dados de metadados do hive e o esquema de tabela.
 
-   ![Cluster HDInsight do Azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
+   ![Cluster de Azure HDInsight](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
 
 
 ## <a name="preview-hive-table"></a>Visualizar tabela do hive
@@ -372,7 +372,7 @@ Você pode visualizar a tabela do hive em seus clusters diretamente por meio **d
 >No Linux, instale o XCLIP para habilitar a cópia de dados da tabela.
 >
 >![Spark & Hive para Visual Studio Code no Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-## <a name="additional-features"></a>Recursos adicionais
+## <a name="additional-features"></a>Funcionalidades adicionais
 
 O Spark & Hive para Visual Studio Code dá suporte aos seguintes recursos:
 
@@ -440,5 +440,5 @@ Ao enviar o trabalho para um cluster HDInsight com ADLS Gen2, você será solici
 Na barra de menus, navegue até **Exibir** > **paleta de comandos...** e, **em seguida, insira Azure:** Saia.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para ver um vídeo de demonstração de uso do Spark & Hive para Visual Studio Code, consulte [spark & Hive para Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706)
