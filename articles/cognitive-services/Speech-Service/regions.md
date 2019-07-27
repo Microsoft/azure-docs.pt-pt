@@ -1,6 +1,6 @@
 ---
-title: Regiões - serviços de voz
-titlesuffix: Azure Cognitive Services
+title: Regiões-serviço de fala
+titleSuffix: Azure Cognitive Services
 description: Referência para as regiões do serviço de voz.
 services: cognitive-services
 author: mahilleb-msft
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1ad618e9eb70fd75f433030584c0f6538532928f
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: c0414277b4851891911908ba4f42e92abedc86e4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466994"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553197"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões suportadas do serviço de voz
 
@@ -26,17 +26,17 @@ Certifique-se de que use o ponto final que corresponde à região para a sua sub
 
 ## <a name="speech-sdk"></a>API de Voz
 
-Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK de voz para c#).
+No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia de caracteres (por exemplo, como `SpeechConfig.FromSubscription` um parâmetro para no SDK C#de fala para).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de voz em texto e tradução de voz
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de fala em texto, texto em fala e tradução
 
-O SDK de voz está disponível nestas regiões para **reconhecimento de fala**, **voz**, e **tradução**:
+O SDK de fala está disponível nessas regiões para **reconhecimento de fala**, conversão de **texto em fala**e **tradução**:
 
   Região | Parâmetro do SDK de voz | Portal de personalização de voz
  ------|-------|--------
  EUA Oeste | `westus` | https://westus.cris.ai
  EUA Oeste 2 | `westus2` | https://westus2.cris.ai
- EUA Leste | `eastus` | https://eastus.cris.ai
+ East US | `eastus` | https://eastus.cris.ai
  EUA Leste 2 | `eastus2` | https://eastus2.cris.ai
  EUA Central | `centralus` | https://centralus.cris.ai
  EUA Centro-Norte | `northcentralus` | https://northcentralus.cris.ai
@@ -55,7 +55,7 @@ O SDK de voz está disponível nestas regiões para **reconhecimento de fala**, 
 
 ### <a name="intent-recognition"></a>Reconhecimento da intenção do
 
-Regiões disponíveis para **reconhecimento da intenção** através do SDK de voz são as seguintes:
+As regiões disponíveis para o **reconhecimento de intenções** por meio do SDK de fala são as seguintes:
 
  Região global | Região | Parâmetro do SDK de voz
  ------|-------|--------
@@ -64,7 +64,7 @@ Regiões disponíveis para **reconhecimento da intenção** através do SDK de v
  Austrália | Leste da Austrália | `australiaeast`
  Europa | Europa do Norte | `northeurope`
  Europa | Europa Ocidental | `westeurope`
- América do Norte | EUA Leste | `eastus`
+ América do Norte | East US | `eastus`
  América do Norte | EUA Leste 2 | `eastus2`
  América do Norte | EUA Centro-Sul | `southcentralus`
  América do Norte | EUA Centro-Oeste | `westcentralus`
@@ -72,17 +72,17 @@ Regiões disponíveis para **reconhecimento da intenção** através do SDK de v
  América do Norte | EUA Oeste 2 | `westus2`
  América do Sul | Sul do Brasil | `brazilsouth`
 
-Este é um subconjunto das regiões publicação suportados pelos [serviço de compreensão de idiomas (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+Esse é um subconjunto das regiões de publicação com suporte do [Luis (serviço de reconhecimento vocal)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### <a name="voice-first-virtual-assistants"></a>Assistentes de voz em primeiro lugar virtual
+### <a name="voice-first-virtual-assistants"></a>Assistentes virtuais da primeira voz
 
-O [SDK de voz](speech-sdk.md) suporta **Assistente de voz em primeiro lugar virtual** recursos nestas regiões:
+O [SDK de fala](speech-sdk.md) dá suporte a recursos do **assistente virtual de voz primeiro** nessas regiões:
 
 Região | Parâmetro do SDK de voz
 -------|---------------------
 EUA Oeste | `westus`
 EUA Oeste 2 | `westus2`
-EUA Leste | `eastus`
+East US | `eastus`
 EUA Leste 2 | `eastus2`
 Europa Ocidental | `westeurope`
 Europa do Norte | `northeurope`
@@ -94,12 +94,12 @@ O serviço de voz também expõe os pontos finais REST para pedidos de voz em te
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 
-Para obter documentação de referência de fala em texto, consulte [API do REST de voz em texto](rest-speech-to-text.md).
+Para obter a documentação de referência de fala para texto, consulte [API REST de fala em texto](rest-speech-to-text.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 
-Para obter documentação de referência de texto para voz, consulte [API do REST de voz](rest-text-to-speech.md).
+Para obter a documentação de referência de conversão de texto em fala, consulte [API REST de conversão de texto em fala](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

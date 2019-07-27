@@ -1,6 +1,6 @@
 ---
-title: Obter a intenção, node. js
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Obter intenção, Node. js-LUIS
+titleSuffix: Azure Cognitive Services
 description: Neste guia de introdução, irá aprender a utilizar uma aplicação LUIS pública disponível para determinar a intenção de um utilizador a partir do texto de uma conversação. Com o Node.js, envie a intenção do utilizador como texto para o ponto final de predição HTTP da aplicação pública.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 51ba4935afc2713fb0dc92ebbf6ca31f7c60355a
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 084d717c1001604a7fb8ed60518777f956dec8b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276095"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563806"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>Início rápido: Objetivo de GET com node. js
+# <a name="quickstart-get-intent-using-nodejs"></a>Início rápido: Obter a intenção usando o Node. js
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -32,7 +32,7 @@ ms.locfileid: "68276095"
 
 
 > [!NOTE] 
-> A solução completa do node. js está disponível a partir da [ **Azure-Samples** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> A solução completa do node. js está disponível no [repositório GitHub **Azure-Samples** ](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>Obter chave LUIS
 

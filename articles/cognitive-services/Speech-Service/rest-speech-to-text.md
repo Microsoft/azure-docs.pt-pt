@@ -1,7 +1,7 @@
 ---
-title: Referência da API de voz em texto (REST) - serviços de voz
+title: REST (referência de API de fala em texto) – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar a API de REST de voz em texto. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
+description: Saiba como usar a API REST de fala em texto. Neste artigo, irá aprender sobre as opções de autorização, opções de consulta, como estruturar uma solicitação e receber uma resposta.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9d967fa4d5ba54e4470dadc5e797067454e1769a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606342"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552964"
 ---
-# <a name="speech-to-text-rest-api"></a>API REST de voz em texto
+# <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
-Como alternativa para o [SDK de voz](speech-sdk.md), serviços de fala permite que converta voz em texto com uma API REST. Cada ponto de final de acesso está associado uma região. Seu aplicativo requer uma chave de subscrição para o ponto final que pretende utilizar.
+Como alternativa ao SDK de [fala](speech-sdk.md), os serviços de fala permitem que você converta a fala em texto usando uma API REST. Cada ponto de final de acesso está associado uma região. Seu aplicativo requer uma chave de subscrição para o ponto final que pretende utilizar.
 
-Antes de utilizar a API de REST de voz em texto, compreenda:
-* Pedidos que utilizam a API de REST só podem conter 10 segundos de áudio gravado.
+Antes de usar a API REST de fala em texto, entenda:
+* As solicitações que usam a API REST podem conter apenas 10 segundos de áudio gravado.
 * A API de REST de voz em texto devolve apenas os resultados finais. Resultados parciais não são fornecidos.
 
 Se enviar áudio mais tempo é um requisito para a sua aplicação, considere utilizar o [SDK de voz](speech-sdk.md) ou [transcrição do batch](batch-transcription.md).
@@ -51,12 +51,12 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 
 |Cabeçalho| Descrição | Obrigatório / opcional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | A chave de subscrição de serviços de voz. | Este cabeçalho de qualquer um dos ou `Authorization` é necessária. |
+| `Ocp-Apim-Subscription-Key` | Sua chave de assinatura dos serviços de fala. | Este cabeçalho de qualquer um dos ou `Authorization` é necessária. |
 | `Authorization` | Um token de autorização precedidas pela palavra `Bearer`. Para obter mais informações, veja [Autenticação](#authentication). | Este cabeçalho de qualquer um dos ou `Ocp-Apim-Subscription-Key` é necessária. |
 | `Content-type` | Descreve o formato e o codec de dados de áudio fornecidos. Aceite os valores são `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados em segmentos de áudio são enviados, em vez de um único arquivo. Utilize este cabeçalho apenas se a segmentação de dados de áudio. | Opcional |
-| `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. Os serviços de fala reconhece o pedido inicial e awaits dados adicionais.| Necessário se o envio de dados de áudio em partes. |
-| `Accept` | Se for fornecido, tem de ser `application/json`. Os serviços de voz fornecer resultados em JSON. Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`. | Opcional mas recomendado. |
+| `Expect` | Se utilizar a transferência em partes, enviar `Expect: 100-continue`. Os serviços de fala reconhecem a solicitação inicial e aguardam dados adicionais.| Necessário se o envio de dados de áudio em partes. |
+| `Accept` | Se for fornecido, tem de ser `application/json`. Os serviços de fala fornecem resultados em JSON. Algumas estruturas de solicitação da Web, forneça um valor incompatível predefinido se não especificar um, portanto, é recomendável sempre incluir `Accept`. | Opcional mas recomendado. |
 
 ## <a name="audio-formats"></a>Formatos de áudio
 
@@ -68,7 +68,7 @@ Esta tabela lista os cabeçalhos obrigatórios e opcionais para pedidos de voz e
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->Os formatos acima são suportados através da REST API e WebSocket nos serviços de voz. O [SDK de voz](speech-sdk.md) atualmente apenas suporta o WAV formatar com o codec PCM.
+>Os formatos acima têm suporte por meio da API REST e do WebSocket nos serviços de fala. O [SDK de voz](speech-sdk.md) atualmente apenas suporta o WAV formatar com o codec PCM.
 
 ## <a name="sample-request"></a>Pedido de exemplo
 
@@ -98,7 +98,7 @@ O código de estado HTTP para cada resposta indica o êxito ou erros comuns.
 
 ## <a name="chunked-transfer"></a>Transferência em partes
 
-A transferência (`Transfer-Encoding: chunked`) pode ajudar a reduzir a latência de reconhecimento, pois permite que os serviços de voz começar a processar o ficheiro de áudio, enquanto que está a ser transmitido. A API REST não fornece resultados parciais ou provisórias. Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
+A transferência em partes`Transfer-Encoding: chunked`() pode ajudar a reduzir a latência de reconhecimento porque permite que os serviços de fala comecem a processar o arquivo de áudio enquanto ele está sendo transmitido. A API REST não fornece resultados parciais ou provisórias. Esta opção destina-se exclusivamente para melhorar a capacidade de resposta.
 
 Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro segmento deve conter cabeçalho do arquivo de áudio. `request` está ligado um objeto HTTPWebRequest para o ponto final REST adequado. `audioFile` é o caminho para um arquivo de áudio no disco.
 
@@ -163,7 +163,7 @@ O `RecognitionStatus` campo pode conter estes valores:
 > [!NOTE]
 > Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz.
 
-O `detailed` formato inclui os mesmos dados que o `simple` formatar, juntamente com `NBest`, uma lista de alternativas interpretações sobre o mesmo resultado de reconhecimento. Esses resultados estão ordenados do mais provável para menos provável. A primeira entrada é o mesmo, como o resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
+O `detailed` formato inclui os mesmos dados que o `simple` formato, juntamente com `NBest`, uma lista de interpretações alternativas do mesmo resultado de reconhecimento. Esses resultados são classificados da maior probabilidade de menos provável. A primeira entrada é igual ao resultado do reconhecimento principal.  Ao utilizar o `detailed` formato, `DisplayText` é fornecido como `Display` para cada resultado no `NBest` lista.
 
 Cada objeto no `NBest` lista inclui:
 

@@ -1,6 +1,6 @@
 ---
-title: Obter a intenção,C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Get intuito, C# -Luis
+titleSuffix: Azure Cognitive Services
 description: Neste C# início rápido, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 73dba63c464ee31dd24fe0fdf97e948a5b6004fc
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 92f74174d35a58e54ae0078f146f86dbfc7aa709
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276275"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563853"
 ---
-# <a name="quickstart-get-intent-using-c"></a>Início rápido: Obter a intenção de utilizarC#
+# <a name="quickstart-get-intent-using-c"></a>Início rápido: Obter a intenção usandoC#
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -47,11 +47,11 @@ Utilize a linguagem C# para consultar o ponto final de predição [API](https://
 
 1. Crie uma nova aplicação de consola no Visual Studio. 
 
-    ![Criar uma nova aplicação de consola no Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![Criar um novo aplicativo de console no Visual Studio](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. No projeto do Visual Studio, no Explorador de Soluções, selecione **Adicionar referência** e, em seguida, selecione **System.Web** no separador Assemblagens.
 
-    ![selecione Adicionar referência, em seguida, selecione System. Web a partir do separador Assemblies](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![selecione Adicionar referência e, em seguida, selecione System. Web na guia assemblies](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. Substitua Program.cs pelo seguinte código:
     

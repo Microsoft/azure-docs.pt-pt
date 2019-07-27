@@ -227,8 +227,12 @@
     - name: Implementar e fornecer modelos
       items:
         - name: Onde e como implementar
-          displayName: publish azure kubernetes azure container instances
+          displayName: publish web service
           href: how-to-deploy-and-where.md
+        - name: Azure Container Instances
+          href: how-to-deploy-azure-container-instance.md
+        - name: Azure Kubernetes Service
+          href: how-to-deploy-azure-kubernetes-service.md
         - name: Inferência de GPU
           href: how-to-deploy-inferencing-gpus.md
         - name: Inferência de FPGA

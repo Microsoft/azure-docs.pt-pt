@@ -1,6 +1,6 @@
 ---
-title: Armazenamento de dados
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Armazenamento de dados-LUIS
+titleSuffix: Azure Cognitive Services
 description: LUIS armazena dados criptografados num arquivo de dados do Azure correspondente para a região especificada pela chave.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: af0223db944f01346ddcbc1f198ac0c15a426be4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812950"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564028"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento de dados e remoção nos serviços cognitivos de compreensão de idiomas (LUIS)
 LUIS armazena dados criptografados num arquivo de dados do Azure correspondente para a região especificada pela chave. Estes dados são armazenados durante 30 dias. 
@@ -26,31 +26,31 @@ Os utilizadores têm controlo total sobre [exportação](luis-how-to-start-new-a
 
 ## <a name="utterances"></a>Expressões
 
-Expressões com podem ser armazenados em dois locais diferentes. 
+Declarações pode ser armazenado em dois locais diferentes. 
 
-* Durante **o processo de criação**, expressões são criadas e armazenadas na intenção. Expressões com em objetivos são necessários para uma aplicação LUIS com êxito. Depois da aplicação for publicada e recebe as consultas no ponto final, cadeia de consulta do pedido de ponto final, `log=false`, determina se a expressão de ponto final é armazenado. Se o ponto final é armazenado, torna-se parte das expressões de aprendizagem ativa encontrado no **crie** seção do portal, no **rever expressões de ponto final** secção. 
-* Quando **rever expressões de ponto final**e adicionar uma expressão para uma intenção, a expressão já não é armazenado como parte de expressões com os ponto final ser revisto. Este é adicionado ao objetivos da aplicação. 
+* Durante **o processo de criação**, os declarações são criados e armazenados na intenção. Declarações em tentativas são necessárias para um aplicativo LUIS bem-sucedido. Depois que o aplicativo é publicado e recebe consultas no ponto de extremidade, o QueryString da solicitação `log=false`do ponto de extremidade, determina se o ponto de extremidade expressão está armazenado. Se o ponto de extremidade estiver armazenado, ele se tornará parte do declarações de aprendizado ativo encontrado na seção **Build** do portal, na seção **Review Endpoint declarações** . 
+* Quando você **examina o ponto de extremidade declarações**e adiciona um expressão a uma intenção, o expressão não é mais armazenado como parte do ponto de extremidade declarações a ser revisado. Ele é adicionado às intenções do aplicativo. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Eliminar expressão de exemplo a partir de um objetivo
+### <a name="delete-example-utterances-from-an-intent"></a>Excluir declarações de exemplo de uma intenção
 Eliminar usadas para treinamento de expressões de exemplo [LUIS](luis-reference-regions.md). Se eliminar uma expressão de exemplo da sua aplicação LUIS, ele é removido do serviço web LUIS e não está disponível para exportação.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Eliminar expressões com revisão de aprendizagem ativa
+### <a name="delete-utterances-in-review-from-active-learning"></a>Excluir declarações em análise do aprendizado ativo
 
 Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no  **[página de expressões de ponto final de revisão](luis-how-to-review-endpoint-utterances.md)** . A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 
-Se não quiser que as expressões de aprendizagem ativa, pode [desativar a aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desativar a aprendizagem ativa também desativa o registo.
+Se não quiser o declarações de aprendizado ativo, você poderá [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desabilitar o aprendizado ativo também desabilita o registro em log.
 
-### <a name="disable-logging-utterances"></a>Desativar a expressão de registo
-[Desativar a aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#disable-active-learning) é desativa o registo.
+### <a name="disable-logging-utterances"></a>Desabilitar declarações de registro em log
+[Desabilitar o aprendizado ativo desabilita](luis-how-to-review-endpoint-utterances.md#disable-active-learning) o registro em log.
 
 
 <a name="accounts"></a>
 
-## <a name="delete-an-account"></a>Eliminar uma conta
+## <a name="delete-an-account"></a>Excluir uma conta
 Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são retidos durante 60 dias antes da conta e os dados são eliminados permanentemente.
 
 A eliminar a conta está disponível a partir da **definições** página. Selecione o nome da sua conta na barra de navegação direita superior para ir para o **definições** página.

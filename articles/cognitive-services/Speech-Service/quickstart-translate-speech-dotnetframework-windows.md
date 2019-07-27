@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Traduzir a conversão de voz, C# (.NET Framework Windows) - serviços de voz'
+title: 'Início rápido: Traduzir a fala C# , (.NET Framework Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá criar um aplicativo simples do .NET Framework para capturar a voz do utilizador, convertê-lo em outro idioma e o texto na linha de comando de saída. Este guia foi concebido para utilizadores do Windows.
+description: Neste guia de início rápido, você criará um aplicativo simples de .NET Framework para capturar a fala do usuário, convertê-lo em outro idioma e enviar o texto para a linha de comando. Este guia foi projetado para usuários do Windows.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b81aac4779570f39fcbacda867fe27d902322bc5
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67602828"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553456"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Início rápido: Traduza a fala com o SDK de fala para .NET Framework
 
-Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-csharp-dotnet-windows.md) e [voz](quickstart-text-to-speech-dotnet-windows.md).
+Os guias de início rápido também estão disponíveis para [conversão de fala em texto](quickstart-csharp-dotnet-windows.md) e [texto em fala](quickstart-text-to-speech-dotnet-windows.md).
 
-Neste início rápido, irá criar um aplicativo simples do .NET Framework que captura a voz do utilizador do microfone do seu computador, traduz-se a conversão de voz e converte o texto traduzido para a linha de comandos em tempo real. Esta aplicação foi concebida para ser executado no Windows de 64 bits e baseia-se com o [pacote NuGet do SDK de voz](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
+Neste guia de início rápido, você criará um aplicativo .NET Framework simples que captura a fala do usuário do microfone do seu computador, traduz a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado em Windows de 64 bits e é criado com o [pacote NuGet do SDK de fala](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
 
-Para obter uma lista completa dos idiomas disponíveis para tradução de voz, consulte [suporte de idiomas](language-support.md).
+Para obter uma lista completa de idiomas disponíveis para tradução de fala, consulte [suporte a idiomas](language-support.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -58,16 +58,16 @@ Este início rápido requer:
 
     ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Iniciar a depuração da aplicação")
 
-1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para o serviço de voz, traduzida e transcrito para texto, que aparece na janela da mesma.
+1. É apresentada uma janela de consola que lhe pede para dizer algo. Diga uma expressão ou uma frase em inglês. Sua fala é transmitida para o serviço de fala, traduzida e transcrita para texto, que aparece na mesma janela.
 
-    ![Captura de ecrã da saída da consola após a tradução de bem sucedida](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "saída da consola após a tradução de bem sucedida")
+    ![Captura de tela da saída do console após tradução bem-sucedida](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Saída do console após tradução bem-sucedida")
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Exemplos adicionais, tais como ler voz de um arquivo de áudio e de saída do texto traduzido como fala sintetizada, estão disponíveis no GitHub.
+Exemplos adicionais, como a leitura de fala de um arquivo de áudio e a saída de texto traduzido como fala sintetizada, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 

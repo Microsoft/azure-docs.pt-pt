@@ -1,6 +1,6 @@
 ---
-title: Instalar e executar contentores
-titlesuffix: Face - Azure Cognitive Services
+title: Instalar e executar contêineres-API de detecção facial
+titleSuffix: Azure Cognitive Services
 description: Baixe, instale e execute os contêineres para enfrentar neste tutorial passo a passos.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
-ms.openlocfilehash: f4abf17c774fb75a0314c8890f5f4383058e37fd
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 93a6d0a42d6d7f07dd8947ce9f8ae99a39d44475
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321387"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564134"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contêineres de face
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres de API de Detecção Facial.
 
-|Necessário|Objetivo|
+|Requerido|Objetivo|
 |--|--|
 |Mecanismo do Docker| O mecanismo do Docker deve ser instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [MacOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/)e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> No Windows, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | Você precisa de uma compreensão básica dos conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner. Você também precisa de conhecimento dos `docker` comandos básicos.| 
@@ -48,7 +48,7 @@ A tabela a seguir descreve os núcleos de CPU mínimos e recomendados e a memór
 
 | Contentor | Mínimo | Recomendado | Transações por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Rostos | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
+|Face | 1 núcleo, 2 GB de memória | 1 núcleo, 4 GB de memória |10, 20|
 
 * Cada núcleo deve ter pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -61,7 +61,7 @@ As imagens de contêiner para os API de Detecção Facial estão disponíveis.
 
 | Contentor | Repositório |
 |-----------|------------|
-| Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -82,7 +82,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [Docker execute](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os parâmetros a seguir.
 
-| Marcador de posição | Value |
+| Marcador de posição | Valor |
 |-------------|-------|
 |{API_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página de `Cognitive Services` **chaves** do Azure. |
 |{ENDPOINT_URI} | O valor do URI do ponto de extremidade de cobrança `Cognitive Services` está disponível na página **visão geral** do Azure. Um exemplo é `https://westus.api.cognitive.microsoft.com/face/v1.0`.|

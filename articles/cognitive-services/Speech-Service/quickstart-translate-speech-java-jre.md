@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Traduzir a conversão de voz, o Java (Windows, Linux) - serviços de voz'
+title: 'Início rápido: Traduzir fala, Java (Windows, Linux)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá criar uma aplicação Java simples para capturar a voz do utilizador, convertê-lo em outro idioma e o texto na linha de comando de saída. Este guia foi concebido para utilizadores do Windows e Linux.
+description: Neste guia de início rápido, você criará um aplicativo Java simples para capturar a fala do usuário, convertê-lo em outro idioma e enviar o texto para a linha de comando. Este guia foi projetado para usuários do Windows e do Linux.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,33 +10,33 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 68567e673cf6fb53b8d9b6f7b9ef96aee691ac3a
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604956"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553403"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Início rápido: Traduzir a conversão de voz com o SDK de voz para Java
 
-Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-java-jre.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-java-jre.md).
+Os guias de início rápido também estão disponíveis para o assistente virtual de [fala-para-texto](quickstart-java-jre.md) e [voz-primeiro](quickstart-virtual-assistant-java-jre.md).
 
-Neste início rápido, irá criar uma aplicação Java simples que captura a voz do utilizador do microfone do seu computador, traduz-se a conversão de voz e converte o texto traduzido para a linha de comandos em tempo real. Esta aplicação foi concebida para ser executado no Windows de 64 bits ou 64 bits Linux (Ubuntu 16.04, 18.04 Ubuntu, Debian 9), ou no macOS 10.13 ou posterior. Baseia-se com o pacote Maven do SDK de voz e o IDE Java de Eclipse.
+Neste guia de início rápido, você criará um aplicativo Java simples que captura a fala do usuário do microfone do seu computador, traduz a fala e transcreve o texto traduzido para a linha de comando em tempo real. Este aplicativo foi projetado para ser executado em Windows de 64 bits ou em Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou no macOS 10,13 ou posterior. Ele é criado com o pacote do SDK do Speech e o Java IDE do eclipse.
 
-Para obter uma lista completa dos idiomas disponíveis para tradução de voz, consulte [suporte de idiomas](language-support.md).
+Para obter uma lista completa de idiomas disponíveis para tradução de fala, consulte [suporte a idiomas](language-support.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido requer:
 
-* Sistema operativo: 64-bit Windows, 64 bits do Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou macOS 10.13 ou posterior
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* Sistema Operacional: Windows de 64 bits, 64-bit Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou macOS 10,13 ou posterior
+* [Java IDE Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Uma chave de subscrição do Azure para o serviço de voz. [Obter uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
-Se estiver a executar o Linux, certifique-se de que estas dependências estão instaladas antes de iniciar o Eclipse.
+Se você estiver executando o Linux, verifique se essas dependências estão instaladas antes de iniciar o eclipse.
 
- * On Ubuntu:
+ * No Ubuntu:
 
    ```sh
    sudo apt-get update
@@ -79,19 +79,19 @@ Se estiver a executar o Linux, certifique-se de que estas dependências estão i
 
 Prima F11 ou selecione **Executar** > **Depurar**.
 
-A conversão de voz de entrada do microfone será transcrito para o alemão e com sessão iniciada na janela da consola. Prima "Enter" para parar a captura de voz.
+A entrada de fala do microfone será transcrita em alemão e registrada na janela do console. Pressione "Enter" para parar de capturar a fala.
 
 ![Captura de ecrã da saída da consola após o reconhecimento bem-sucedido](media/sdk/qs-translate-java-jre-output.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Exemplos adicionais, tais como ler voz de um arquivo de áudio e de saída do texto traduzido como fala sintetizada, estão disponíveis no GitHub.
+Exemplos adicionais, como a leitura de fala de um arquivo de áudio e a saída de texto traduzido como fala sintetizada, estão disponíveis no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Quickstart: Reconhecer a conversão de voz, Java (Windows, Linux)](quickstart-java-jre.md)
+- [Quickstart: Reconhecer fala, Java (Windows, Linux)](quickstart-java-jre.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

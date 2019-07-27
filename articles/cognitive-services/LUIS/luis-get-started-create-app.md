@@ -1,6 +1,6 @@
 ---
-title: 'Início rápido: criar a aplicação'
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Início rápido: criar aplicativo-LUIS'
+titleSuffix: Azure Cognitive Services
 description: Crie uma aplicação LUIS que utilize o domínio pré-concebido `HomeAutomation` para ligar e desligar as luzes e os eletrodomésticos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
 services: cognitive-services
 author: diberry
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6d3b4d23ae1ad04142b0dec01a1abccbd2f81942
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e53f8d6e08b345d417ce54deacd658275cb1cd00
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150174"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563919"
 ---
-# <a name="quickstart-use-prebuilt-home-automation-app"></a>Início rápido: Utilizar a aplicação de automatização criada previamente da home page
+# <a name="quickstart-use-prebuilt-home-automation-app"></a>Início rápido: Usar aplicativo de automação inicial predefinido
 
 Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-concebido `HomeAutomation` para ligar e desligar as luzes e os eletrodomésticos. Este domínio pré-concebido fornece intenções, entidades e expressões de exemplo. Quando terminar, obterá um ponto final de LUIS em execução na cloud.
 
@@ -58,7 +58,7 @@ Quando o domínio for adicionado com êxito, a caixa Prebuilt domains (Domínios
 
 Selecione **Intents** (Intenções) no painel de navegação do lado esquerdo para rever as intenções do domínio HomeAutomation. Cada intenção tem expressões de exemplo.
 
-![Lista de objetivos de captura de ecrã de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "lista de objetivos de captura de ecrã de HomeAutomation")]
+![Captura de tela da lista de tentativas de HomeAutomation](media/luis-quickstart-new-app/home-automation-intents.png "Captura de tela da lista de tentativas de HomeAutomation")]
 
 > [!NOTE]
 > **None** (Nenhuma) é uma intenção fornecida por todas as aplicações LUIS. Pode utilizá-la para processar expressões que não correspondem à funcionalidade que a sua aplicação fornece. 

@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Sintetizar a conversão de voz, .NET Framework (Windows) - serviços de voz'
+title: 'Início rápido: Sintetizar fala, .NET Framework (Windows)-serviço de fala'
 titleSuffix: Azure Cognitive Services
-description: Utilize este guia para criar uma aplicação de consola de texto para voz usando o .NET framework para Windows e o SDK de voz. Quando terminar, pode sintetizar voz de texto e ouça a conversão de voz na sua orador em tempo real.
+description: Use este guia para criar um aplicativo de console de conversão de texto em fala usando o .NET Framework para Windows e o SDK de fala. Quando terminar, você pode sintetizar a fala a partir do texto e ouvir a fala em seu palestrante em tempo real.
 services: cognitive-services
 author: yinhew
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 352d3f5f34bd46d8ee1ba2ed45dcc28af2b430ef
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 3c925e0160a4c57f7e43c3463fc1db7098a6e606
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605016"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553606"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Sintetizar fala com o SDK de voz para .NET Framework (Windows)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Sintetizar fala com o SDK de fala para .NET Framework (Windows)
 
-Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-csharp-dotnet-windows.md) e [tradução de voz](quickstart-translate-speech-dotnetframework-windows.md).
+Os guias de início rápido também estão disponíveis para [reconhecimento](quickstart-csharp-dotnet-windows.md) de fala e [tradução de fala](quickstart-translate-speech-dotnetframework-windows.md).
 
-Utilize este guia para criar uma aplicação de consola de texto para voz usando o .NET framework para Windows e o SDK de voz. Quando terminar, pode sintetizar voz de texto e ouça a conversão de voz na sua orador em tempo real.
+Use este guia para criar um aplicativo de console de conversão de texto em fala usando o .NET Framework para Windows e o SDK de fala. Quando terminar, você pode sintetizar a fala a partir do texto e ouvir a fala em seu palestrante em tempo real.
 
-Para uma rápida demonstração (sem criar projeto do Visual Studio por conta própria conforme mostrado abaixo):
+Para uma demonstração rápida (sem compilar o projeto do Visual Studio, conforme mostrado abaixo):
 
-Obter a versão mais recente [amostras do SDK de voz de serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-speech-sdk) do GitHub.
+Obtenha os exemplos mais recentes do [SDK de fala dos serviços cognitivas](https://github.com/Azure-Samples/cognitive-services-speech-sdk) do github.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, precisa de:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de subscrição para o serviço de voz. [Obter uma gratuitamente](get-started.md).
-* Um orador (ou o headset) disponível.
+* Uma chave de assinatura para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
+* Um orador (ou headset) disponível.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -45,7 +45,7 @@ Para concluir este projeto, precisa de:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Localizar e substituir a cadeia de caracteres `YourSubscriptionKey` com a sua chave de subscrição de serviços de voz.
+1. Localize e substitua a cadeia `YourSubscriptionKey` de caracteres pela sua chave de assinatura dos serviços de fala.
 
 1. Encontre e substitua a cadeia de carateres `YourServiceRegion` pela [região](regions.md) associada à subscrição. Por exemplo, se estiver a utilizar a versão de avaliação gratuita, a região é `westus`.
 
@@ -61,16 +61,16 @@ Para concluir este projeto, precisa de:
 
     ![Captura de ecrã da aplicação Visual Studio, com a opção Iniciar Depuração realçada](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Iniciar a depuração da aplicação")
 
-1. Será apresentada uma janela de consola, pedindo-lhe que introduza algum texto. Escreva algumas palavras ou uma frase. O texto que introduziu é transmitido para os serviços de voz e sintetizado para conversão de voz, que desempenha na sua orador.
+1. Uma janela de console será exibida, solicitando que você digite algum texto. Digite algumas palavras ou uma frase. O texto digitado é transmitido para os serviços de fala e sintetizado para fala, que é reproduzido no seu palestrante.
 
     ![Captura de ecrã a mostrar o resultado da consola após o reconhecimento bem-sucedido](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Resultado da consola após o reconhecimento bem-sucedido")
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Explore C# exemplos no GitHub](https://aka.ms/csspeech/samples)
+> [Explorar C# exemplos no github](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Personalizar os tipos de voz](how-to-customize-voice-font.md)
-- [Exemplos de voz de registo](record-custom-voice-samples.md)
+- [Personalizar fontes de voz](how-to-customize-voice-font.md)
+- [Gravar amostras de voz](record-custom-voice-samples.md)

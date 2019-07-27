@@ -1,6 +1,6 @@
 ---
-title: Configurar contentores
-titlesuffix: Face - Azure Cognitive Services
+title: Configurar contêineres-API de detecção facial
+titleSuffix: Azure Cognitive Services
 description: Definições de configuração para contentores.
 services: cognitive-services
 author: IEvangelist
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: dapine
-ms.openlocfilehash: c5044428b6f9c7c8fd343c93b06c1774eba8e17f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6dd047b0ba7f9a123ffcc014cff5604466946d07
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320528"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564100"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar contêineres do Docker facial
 
@@ -51,7 +51,7 @@ Essa configuração pode ser encontrada no seguinte local:
 
 Lembre-se de adicionar o roteamento _facial_ ao URI do ponto de extremidade, conforme mostrado no exemplo. 
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Requerido| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
@@ -168,6 +168,6 @@ Os exemplos do Docker a seguir são para o contêiner de face.
   Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Revisão [como instalar e executar contentores](face-how-to-install-containers.md)

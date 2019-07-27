@@ -1,6 +1,6 @@
 ---
-title: Utilizar o ponto final de predição através de programação testar imagens com classificador - visão personalizada
-titlesuffix: Azure Cognitive Services
+title: Use o ponto de extremidade de previsão para testar programaticamente imagens com o classificador-Visão Personalizada
+titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar a API para testar imagens de forma programática com o nosso classificador Serviço de Visão Personalizada.
 services: cognitive-services
 author: anrothMSFT
@@ -10,48 +10,48 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60816778"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564125"
 ---
-# <a name="use-your-model-with-the-prediction-api"></a>Utilizar o seu modelo com a API de predição
+# <a name="use-your-model-with-the-prediction-api"></a>Usar seu modelo com a API de previsão
 
-Depois de preparar o seu modelo, pode testar imagens por meio de programação submetê-los para o ponto final de API de predição.
+Depois de treinar seu modelo, você pode testar imagens programaticamente enviando-as ao ponto de extremidade da API de previsão.
 
 > [!NOTE]
-> Este documento demonstra como utilizar a linguagem de programação C# para enviar uma imagem para a API de Predição. Para obter mais informações e exemplos, consulte a [referência da API de predição](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> Este documento demonstra como utilizar a linguagem de programação C# para enviar uma imagem para a API de Predição. Para obter mais informações e exemplos, consulte a [referência da API de previsão](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
-## <a name="publish-your-trained-iteration"></a>Publicar a sua iteração preparada
+## <a name="publish-your-trained-iteration"></a>Publicar sua iteração treinada
 
 Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), selecione o seu projeto e, em seguida, selecione o separador __Performance__ (Desempenho).
 
-Para enviar imagens para a API de predição, primeiro terá de publicar a sua iteração para predição, que pode ser feita selecionando __publicar__ e especificando um nome para a iteração publicado. Isso fará com que seu modelo acessível para a API de predição do seu recurso do Azure de visão personalizada.
+Para enviar imagens para a API de previsão, primeiro você precisará publicar sua iteração para previsão, o que pode ser feito selecionando __publicar__ e especificando um nome para a iteração publicada. Isso tornará seu modelo acessível para a API de previsão de seu Visão Personalizada recurso do Azure.
 
-![A guia de desempenho é mostrada, com um retângulo vermelho que envolvem o botão Publish.](./media/use-prediction-api/unpublished-iteration.png)
+![A guia desempenho é mostrada, com um retângulo vermelho ao redor do botão publicar.](./media/use-prediction-api/unpublished-iteration.png)
 
-Assim que o seu modelo foi publicado com êxito, verá uma etiqueta de "Publicado" aparecem junto à sua iteração na barra lateral do lado esquerdo, e seu nome aparecerá na descrição da iteração.
+Depois que o modelo tiver sido publicado com êxito, você verá que um rótulo "publicado" aparece ao lado de sua iteração na barra lateral esquerda e seu nome aparecerá na descrição da iteração.
 
-![A guia de desempenho é mostrada, com um retângulo vermelho que envolvem a etiqueta de publicada e o nome da iteração publicado.](./media/use-prediction-api/published-iteration.png)
+![A guia desempenho é mostrada, com um retângulo vermelho ao redor do rótulo publicado e o nome da iteração publicada.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Obter o URL e a chave de predição
 
-Assim que o seu modelo for publicado, pode obter as informações necessárias, selecionando __URL de predição__. Esta ação irá abrir uma caixa de diálogo com informações sobre como usar a API de predição, incluindo o __URL de predição__ e __chave de predição__.
+Depois que o modelo tiver sido publicado, você poderá recuperar as informações necessárias selecionando __URL de previsão__. Isso abrirá uma caixa de diálogo com informações para usar a API de previsão, incluindo a __URL de previsão__ e a __chave de previsão__.
 
-![A guia de desempenho é mostrada com um retângulo vermelho que envolvem o botão de URL de predição.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![A guia desempenho é mostrada com um retângulo vermelho ao redor do botão URL de previsão.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![A guia de desempenho é mostrada com um retângulo vermelho que envolvem o valor de URL de predição para utilizar um ficheiro de imagem e o valor de chave de predição.](./media/use-prediction-api/prediction-api-info.png)
+![A guia desempenho é mostrada com um retângulo vermelho ao redor do valor da URL de previsão para usar um arquivo de imagem e o valor da chave de previsão.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Sua __chave de predição__ também podem ser encontrados no [portal do Azure](https://portal.azure.com) página para o recurso de Azure de visão personalizada associados a seu projeto, no __chaves__ painel.
+> Sua __chave de previsão__ também pode ser encontrada na página [portal do Azure](https://portal.azure.com) para o recurso visão personalizada Azure associado ao seu projeto, na folha __chaves__ .
 
-Neste guia, irá utilizar uma imagem local, por isso, copie o URL sob **se tiver um ficheiro de imagem** para uma localização temporária. Copie o correspondente __chave de predição__ valor também.
+Neste guia, você usará uma imagem local, portanto, copie a URL em **se você tiver um arquivo de imagem** em um local temporário. Copie também o valor da __chave de previsão__ correspondente.
 
 ## <a name="create-the-application"></a>Criar a aplicação
 
-1. No Visual Studio, crie um novo C# aplicação de consola.
+1. No Visual Studio, crie um novo C# aplicativo de console.
 
 1. Utilize o seguinte código como o corpo do ficheiro __Program.cs__.
 
@@ -111,13 +111,13 @@ Neste guia, irá utilizar uma imagem local, por isso, copie o URL sob **se tiver
     ```
 
 1. Altere as seguintes informações:
-   * Definir o `namespace` campo para o nome do seu projeto.
-   * Substitua o marcador de posição `<Your prediction key>` com o valor da chave que obteve anteriormente.
-   * Substitua o marcador de posição `<Your prediction URL>` com o URL obtido anteriormente.
+   * Defina o `namespace` campo como o nome do seu projeto.
+   * Substitua o espaço `<Your prediction key>` reservado pelo valor de chave que você recuperou anteriormente.
+   * Substitua o espaço `<Your prediction URL>` reservado pela URL que você recuperou anteriormente.
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Quando o aplicativo é executado, lhe for pedido para introduzir um caminho para um ficheiro de imagem na consola do. A imagem, em seguida, foi submetida para a API de predição e os resultados da predição são retornados como uma cadeia de caracteres formatada em JSON. Segue-se uma resposta de exemplo.
+Ao executar o aplicativo, você será solicitado a inserir um caminho para um arquivo de imagem no console do. A imagem é então enviada para a API de previsão e os resultados da previsão são retornados como uma cadeia de caracteres formatada em JSON. Veja a seguir um exemplo de resposta.
 
 ```json
 {
@@ -134,10 +134,10 @@ Quando o aplicativo é executado, lhe for pedido para introduzir um caminho para
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia, aprendeu a enviar imagens para sua personalizado/detetor de classificador de imagem e recebem uma resposta por meio de programação com o C# SDK. Em seguida, aprenda como concluir cenários ponto a ponto com o C#, ou começar a utilizar um idioma diferente do SDK.
+Neste guia, você aprendeu como enviar imagens para o classificador/detector de imagem personalizada e receber uma resposta programaticamente C# com o SDK. Em seguida, saiba como concluir cenários de ponta a ponta com C#o ou comece a usar um SDK de linguagem diferente.
 
-* [Início rápido: .NET SDK](csharp-tutorial.md)
-* [Quickstart: SDK Python](python-tutorial.md)
-* [Quickstart: Java SDK](java-tutorial.md)
-* [Quickstart: Nó de SDK](node-tutorial.md)
-* [Quickstart: SDK de ir](go-tutorial.md)
+* [Início rápido: SDK do .NET](csharp-tutorial.md)
+* [Quickstart: SDK do Python](python-tutorial.md)
+* [Quickstart: SDK do Java](java-tutorial.md)
+* [Quickstart: SDK do node](node-tutorial.md)
+* [Quickstart: SDK do Go](go-tutorial.md)

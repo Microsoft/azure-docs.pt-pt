@@ -1,7 +1,7 @@
 ---
-title: Resolver problemas relacionados com os dispositivos de voz SDK - serviços de voz
+title: Solucionar problemas do SDK de dispositivos de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Este artigo fornece informações para ajudar a resolver problemas que poderá encontrar ao utilizar o SDK de dispositivos de voz.
+description: Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
 services: cognitive-services
 author: mswellsi
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: f55171a177dfcbebb9bc6df5ce125a8f29494946
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606303"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558912"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Resolver problemas do SDK de Dispositivos de Voz
 
-Este artigo fornece informações para ajudar a resolver problemas que poderá encontrar ao utilizar o SDK de dispositivos de voz.
+Este artigo fornece informações para ajudá-lo a resolver problemas que você pode encontrar ao usar o SDK de dispositivos de fala.
 
 ## <a name="certificate-failures"></a>Falhas de certificado
 
-Se obtiver falhas de certificado ao utilizar os serviços de voz, certifique-se de que o dispositivo tem a correta data e hora:
+Se você obtiver falhas de certificado ao usar os serviços de fala, verifique se o dispositivo tem a data e a hora corretas:
 
 1. Aceda a **definições**. Sob **System**, selecione **data e hora**.
 

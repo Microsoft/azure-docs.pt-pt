@@ -1,5 +1,5 @@
 ---
-title: Criar uma palavra de reativação personalizados - serviços de voz
+title: Criar uma palavra de ativação personalizada-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: O dispositivo está sempre à escuta de uma palavra de reativação (ou expressão). Quando o usuário disser a palavra de reativação, o dispositivo envia áudio subsequente tudo para a cloud, até que o utilizador para a falar. Personalizar a sua palavra de reativação é uma forma eficaz para diferenciar o seu dispositivo e fortalecer a sua imagem corporativa.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f43cbedc633b26a3a7fcbfb5f6a75da514bf0c45
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604874"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553100"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de reativação personalizado com o serviço de voz
 
@@ -46,26 +46,26 @@ Considere as seguintes diretrizes ao escolher uma palavra de reativação:
 
 ## <a name="create-your-wake-word"></a>Criar a sua palavra de reativação
 
-Antes de poder utilizar uma palavra de reativação personalizado com o seu dispositivo, terá de criar uma palavra de reativação com o serviço de geração de reativação de Word personalizado Microsoft. Depois de fornecer uma palavra de reativação, o serviço de produz um ficheiro que pode implementar em seu kit de desenvolvimento para permitir que a palavra de reativação no seu dispositivo.
+Antes de usar uma palavra de ativação personalizada com seu dispositivo, você precisará criar uma palavra de ativação com o serviço de geração de palavra de ativação personalizada da Microsoft. Depois de fornecer uma palavra de ativação, o serviço produz um arquivo que você implanta em seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
 
-1. Vá para o [Portal de serviço de voz personalizada](https://aka.ms/sdsdk-speechportal) e **iniciar sessão** ou se não tiver uma subscrição de voz, escolha [ **criar uma subscrição**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Acesse o [portal do serviço fala personalizada](https://aka.ms/sdsdk-speechportal) e **entre** ou, se você não tiver uma assinatura de fala, escolha [**criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![O Portal de serviço de voz personalizada](media/speech-devices-sdk/wake-word-4.png)
+    ![O portal do serviço de Fala Personalizada](media/speech-devices-sdk/wake-word-4.png)
 
-1. Na [personalizado palavra de reativação](https://aka.ms/sdsdk-wakewordportal) página Introduza a palavra de reativação de sua escolha e clique em **adicionar reativação word**. Temos algumas [diretrizes](#choose-an-effective-wake-word) para ajudar a escolher uma palavra-chave em vigor. Atualmente suportamos apenas idioma en-US.
+1. No texto de página de [ativação personalizada](https://aka.ms/sdsdk-wakewordportal) , digite na palavra de ativação de sua escolha e clique em **Adicionar ativar palavra**. Temos algumas [diretrizes](#choose-an-effective-wake-word) para ajudar a escolher uma palavra-chave efetiva. Atualmente, damos suporte apenas ao idioma en-US.
 
     ![Introduza a palavra de reativação](media/speech-devices-sdk/wake-word-5.png)
 
-1. Três pronunciations alternativos da palavra de reativação serão criados. Pode escolher todos os pronunciations que desejar. Em seguida, selecione **submeter** para gerar a palavra de reativação. Se pretender alterar a palavra de reativação, remove a já existente em primeiro lugar, quando pairar o cursor na linha de pronúncia será apresentado o ícone Eliminar.
+1. Serão criadas três pronúncias alternativas de sua palavra de ativação. Você pode escolher todas as pronúncias que desejar. Em seguida, selecione **Enviar** para gerar a palavra de ativação. Se você quiser alterar a palavra de ativação, remova a primeira, quando passar o mouse sobre a linha de pronúncia, o ícone de exclusão será exibido.
 
-    ![Reveja a sua palavra de reativação](media/speech-devices-sdk/wake-word-6.png)
+    ![Examine sua palavra de ativação](media/speech-devices-sdk/wake-word-6.png)
 
-1. Poderá demorar até um minuto para que o modelo a ser gerado. Será solicitado para transferir o ficheiro.
+1. Pode levar até um minuto para que o modelo seja gerado. Você será solicitado a baixar o arquivo.
 
-    ![Transferir a sua palavra de reativação](media/speech-devices-sdk/wake-word-7.png)
+    ![Baixe sua palavra de ativação](media/speech-devices-sdk/wake-word-7.png)
 
-1. Guarde o ficheiro. zip para o seu computador. Precisará esse arquivo para implementar a sua palavra de reativação personalizado para o kit de desenvolvimento.
+1. Guarde o ficheiro. zip para o seu computador. Você precisará desse arquivo para implantar sua palavra de ativação personalizada no kit de desenvolvimento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Testar a sua palavra de reativação personalizado com [início rápido do SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart).
+Teste a palavra de ativação personalizada com o guia de [início rápido do SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).
